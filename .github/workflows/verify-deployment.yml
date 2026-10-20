@@ -1,0 +1,64 @@
+name: Verify deployed update gateway
+on:
+  push:
+    branches: [main, codex/r2-migration]
+    paths: ['deployment/**', '.github/workflows/verify-deployment.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - name: Gateway unit checks
+        run: |
+          node --input-type=module <<'JS'
+          import assert from 'node:assert/strict';
+          import worker from './deployment/releases-worker.mjs';
+          const d={code:61,name:"0.61",size:4,sha256:"a".repeat(64)};
+          globalThis.fetch=async(url,opts)=>String(url).endsWith('version.json')?Response.json(d):new Response(new Uint8Array([71,68,80,67]),{headers:{"Content-Length":"4"}});
+          const env={GAME_PATCHES:{get:async()=>null}};
+          const req=(path,method="GET")=>new Request("https://game.test/"+path,{method});
+          assert.equal((await worker.fetch(req("patch.pck","POST"),env)).status,405);
+          assert.equal((await worker.fetch(req("", "GET"),env)).status,400);
+          assert.equal((await worker.fetch(req("patch.pck?v=60"),env)).status,409);
+          const m=await worker.fetch(req("version.json"),env);
+          assert.equal(m.headers.get("Cache-Control"),"no-store");
+          assert.deepEqual(await m.json(),d);
+          const p=await worker.fetch(req("patch.pck?v=61"),env);
+          assert.equal(p.status,200);
+          assert.equal((await p.arrayBuffer()).byteLength,4);
+          globalThis.fetch=async(url)=>String(url).endsWith('version.json')?Response.json(d):new Response("bad",{headers:{"Content-Length":"3"}});
+          assert.equal((await worker.fetch(req("patch.pck?v=61"),env)).status,502);
+          globalThis.fetch=async()=>{throw Error("offline");};
+          assert.equal((await worker.fetch(req("patch.pck?v=61"),env)).status,503);
+          console.log("GATEWAY UNIT CHECKS PASSED");
+          JS
+      - name: Download using the installed APK update addresses
+        env:
+          UPDATE_BASE: https://nakshiworld-update-kr.znzkznzk96.workers.dev
+        run: |
+          python3 - <<'PY'
+          import urllib.request,json,hashlib,os,time
+          base=os.environ['UPDATE_BASE']
+          def get(path):
+              for attempt in range(4):
+                  try:
+                      with urllib.request.urlopen(base+path,timeout=120) as r:
+                          assert r.status==200
+                          assert r.headers.get('X-Patch-Source')=='github-releases'
+                          return r.read()
+                  except Exception:
+                      if attempt==3: raise
+                      time.sleep(3)
+          d=json.loads(get('/version.json'))
+          assert d['code']==61 and d['name']=='0.61'
+          b=get('/patch.pck?v='+str(d['code']))
+          assert len(b)==d['size']
+          assert hashlib.sha256(b).hexdigest()==d['sha256']
+          assert b[:4]==b'GDPC'
+          with urllib.request.urlopen(base+'/test.txt',timeout=20) as r: assert r.read()==b'ok'
+          print('PUBLIC UPDATE VERIFIED',json.dumps(d))
+          PY
