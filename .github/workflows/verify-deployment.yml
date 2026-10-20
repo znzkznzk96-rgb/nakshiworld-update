@@ -50,7 +50,8 @@ jobs:
                           assert r.status==200
                           assert r.headers.get('X-Patch-Source')=='github-releases'
                           return r.read()
-                  except Exception:
+                  except Exception as error:
+                      if hasattr(error,"read"): print("HTTP FAILURE",error.code,error.read()[:1200],flush=True)
                       if attempt==3: raise
                       time.sleep(3)
           d=json.loads(get('/version.json'))
