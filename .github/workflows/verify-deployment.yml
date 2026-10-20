@@ -46,7 +46,7 @@ jobs:
           def get(path):
               for attempt in range(4):
                   try:
-                      with urllib.request.urlopen(base+path,timeout=120) as r:
+                      with urllib.request.urlopen(urllib.request.Request(base+path,headers={'User-Agent':'GodotEngine/4.4.1.stable.official (Linux)'}),timeout=120) as r:
                           assert r.status==200
                           assert r.headers.get('X-Patch-Source')=='github-releases'
                           return r.read()
@@ -55,11 +55,12 @@ jobs:
                       if attempt==3: raise
                       time.sleep(3)
           d=json.loads(get('/version.json'))
-          assert d['code']==61 and d['name']=='0.61'
+          expected=json.load(open('automation/release.json'))
+          assert d['code']==expected['code'] and d['name']==expected['name']
           b=get('/patch.pck?v='+str(d['code']))
           assert len(b)==d['size']
           assert hashlib.sha256(b).hexdigest()==d['sha256']
           assert b[:4]==b'GDPC'
-          with urllib.request.urlopen(base+'/test.txt',timeout=20) as r: assert r.read()==b'ok'
+          with urllib.request.urlopen(urllib.request.Request(base+'/test.txt',headers={'User-Agent':'GodotEngine/4.4.1.stable.official (Linux)'}),timeout=20) as r: assert r.read()==b'ok'
           print('PUBLIC UPDATE VERIFIED',json.dumps(d))
           PY
