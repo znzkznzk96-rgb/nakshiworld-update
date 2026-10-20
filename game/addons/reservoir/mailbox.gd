@@ -1,0 +1,112 @@
+extends RefCounted
+const LETTERS: = [
+	{"id": "0.57", "title": "우편함과 조작 화면 개선", "summary": "업데이트 우편 · 드랙음 · 주민 표현", "body": ["마을 상단에 업데이트 우편함 추가", "버전별 상세 내용과 NEW 표시", "전체 읽기 및 선택 삭제 지원", "주황색 감기·낚시하러 가기 버튼 제거", "낚시터 이동은 메뉴의 낚시터 이용", "올려준 드랙 녹음으로 감기 소리 교체", "감는 동안 재생하고 손을 떼면 정지", "주민에게 얇은 검은 외곽선 추가", "걷는 동안 얼굴과 눈 모양 일정하게 유지"]}, 
+	{"id": "0.56", "title": "배경·주민·강화 밸런스 개선", "summary": "바위 테두리 · 주민 통일 · 강화 비용", "body": ["저수지 바위에 검은 테두리 적용", "타이틀 괴수 머리는 선명하게 표현", "아래로 갈수록 어두워지는 명암 적용", "부채꼴 빛 제거 및 시작 버튼 이동", "모든 연령 주민의 그림체 통일", "걷는 방향과 발 접지 보정", "도로 시작부 및 나무 접지 수정", "강화 비늘 비용 3배, 혼 비용 하향", "단계별 비용 1.2배 증가 유지"]}, 
+	{"id": "0.55", "title": "새로운 낚시월드 타이틀", "summary": "폭풍·나룻배·심해 괴수의 등장", "body": ["타이틀 로고 등장과 흔들림 애니메이션", "비·구름·파도·배·물방울 레이어 분리", "작은 번개 두 번, 큰 번개 한 번 연출", "번개에 반응하는 수중 괴수 표현", "게임 시작 시 마을로 진입"]}, 
+	{"id": "0.54", "title": "강화 정보와 물고기 표현 개선", "summary": "강화 재료 표시 · 물고기 선명도", "body": ["강화 성공률과 필요·보유 재료 강조", "상점 제목 옆에 서 있던 NPC 제거", "훅 성공 이후 과한 물고기 테두리 정리", "뜰채 진입 시 물고기 크기 변화 보정"]}, 
+	{"id": "0.53", "title": "구매 확인과 낚시터 선택", "summary": "구매 확인 · 가방 · 여섯 낚시터 카드", "body": ["아이템 이미지와 구매·취소 확인 창", "구매 완료 알림 애니메이션 추가", "가방 펼침 및 등급별 보유 수량 표시", "고정 범위 줄자로 물고기 길이 표시", "낚시터 선택 화면과 잠금 카드 추가", "마을 이동 버튼을 처음·중간·끝으로 정리"]}
+]
+var opened: = false
+var read_ids: Array = []
+var deleted_ids: Array = []
+var checked: Array = []
+var deleting: = false
+var detail: = ""
+var page: = 0
+var button: = Rect2()
+var rects: = {}
+func visible_letters() -> Array:
+	return LETTERS.filter( func(l): return l.id not in deleted_ids)
+func unread() -> int:
+	return visible_letters().filter( func(l): return l.id not in read_ids).size()
+func mark(m, id: String) -> void :
+	if id not in read_ids: read_ids.append(id);m._save_game()
+func envelope(m, r: Rect2, col: Color) -> void :
+	m._ui_rect(r, Color("171913"));m._ui_rect(r.grow(-1), col)
+	m._ui_rect(Rect2(r.position + Vector2(2, 2), Vector2(r.size.x - 4, 2)), Color("fff4d5"))
+
+	for i in 6:
+		m._ui_rect(Rect2(r.position + Vector2(2 + i * 2, 4 + i), Vector2(2, 1)), Color("796246"))
+		m._ui_rect(Rect2(r.position + Vector2(r.size.x - 4 - i * 2, 4 + i), Vector2(2, 1)), Color("796246"))
+func draw_button(m) -> void :
+	button = Rect2(117, m.top_y + 5, 24, 21)
+	m._ui_style_box(m.sb_chip, button)
+	envelope(m, Rect2(button.position + Vector2(3, 5), Vector2(18, 12)), Color("e7d29c"))
+	if unread() > 0:
+		var glow: float = 0.7 + 0.3 * sin(m.ui_clock * 5)
+		m._text("NEW", button.position + Vector2(12, 1), 7, Color(1, 0.82, 0.28, glow), true, 32, true)
+func draw(m, h: float) -> void :
+	var r: = Rect2(13, maxf(m.top_y + 90, h * 0.5 - 182), 244, 364)
+	m.text_items = m.text_items.filter( func(it): return it[1].y < m.top_y + 35)
+	m._ui_rect(Rect2( - m.ox, 0, m.VW + 2 * m.ox, h), Color(0.015, 0.025, 0.04, 0.86))
+	m._ui_style_box(m.sb_panel, r)
+	preload("res://addons/reservoir/ui_theme.gd").title(m, r, "업데이트 우편함")
+	var close: = Rect2(r.end.x - 31, r.position.y + 9, 22, 23)
+	m._ui_texture(m.icons.close, close.position)
+	rects = {"close": close.grow(3), "rows": []}
+	if detail != "":
+		for letter in LETTERS:
+			if letter.id != detail: continue
+			m._text("v%s · %s" % [letter.id, letter.title], Vector2(135, r.position.y + 58), 11, Color("513b29"), true, 220)
+			var y: float = r.position.y + 84
+			for line in letter.body:
+				m._text("· " + line, Vector2(r.position.x + 12, y), 9, Color("513b29"), false, 218);y += 21
+		var back: = Rect2(r.position.x + 12, r.end.y - 40, 220, 27)
+		m._ui_style_box(m.sb_btn, back);m._text("목록으로", back.get_center() + Vector2(0, 4), 10, Color("513b29"), true, 210)
+		rects.back = back;return
+	var letters: = visible_letters()
+	var pages: = maxi(1, ceili(letters.size() / 4.0));page = clampi(page, 0, pages - 1)
+	m._text("삭제할 우편을 선택하세요" if deleting else "안 읽은 우편 %d개" % unread(), Vector2(135, r.position.y + 56), 10, Color("513b29"), true, 218)
+	for i in 4:
+		var index: = page * 4 + i
+		if index >= letters.size(): break
+		var letter: Dictionary = letters[index]
+		var row: = Rect2(r.position.x + 10, r.position.y + 67 + i * 55, 224, 50)
+		m._ui_style_box(m.sb_chip, row)
+		if deleting:
+			var check: = Rect2(row.position + Vector2(6, 8), Vector2(13, 13));m._ui_rect(check, Color("6e6048"));m._ui_rect(check.grow(-2), Color("faf0d8"))
+			if letter.id in checked: m._text("✓", check.get_center() + Vector2(0, 4), 10, Color("3c654a"), true, 13)
+		else: envelope(m, Rect2(row.position + Vector2(6, 9), Vector2(22, 16)), Color("e7d29c"))
+		var x: float = row.position.x + 35
+		m._text("v" + letter.id, Vector2(x, row.position.y + 15), 10, Color("513b29"), false, 60)
+		if letter.id not in read_ids:
+			m._text("NEW", Vector2(row.end.x - 28, row.position.y + 15), 9, Color(0.85, 0.32, 0.12, 0.7 + 0.3 * sin(m.ui_clock * 5)), true, 46)
+		m._text(letter.title, Vector2(x, row.position.y + 30), 9, Color("513b29"), false, 178)
+		m._text(letter.summary, Vector2(x, row.position.y + 43), 8, Color("796b58"), false, 178)
+		rects.rows.append([row, letter.id])
+	if letters.is_empty(): m._text("우편함이 비었어요", Vector2(135, r.position.y + 150), 12, Color("796b58"), true, 218)
+	m._text("%d / %d" % [page + 1, pages], Vector2(135, r.end.y - 64), 9, Color("513b29"), true, 80)
+	rects.prev = Rect2(35, r.end.y - 80, 28, 25);rects.next = Rect2(207, r.end.y - 80, 28, 25)
+	for key in ["prev", "next"]:
+		m._ui_style_box(m.sb_chip, rects[key]);m._text("<" if key == "prev" else ">", rects[key].get_center() + Vector2(0, 4), 10, Color("513b29"), true, 24)
+	rects.read = Rect2(25, r.end.y - 42, 105, 28);rects.delete = Rect2(140, r.end.y - 42, 105, 28)
+	for key in ["read", "delete"]:
+		m._ui_style_box(m.sb_btn, rects[key])
+		var text: String = ("취소" if deleting else "전체 읽기") if key == "read" else ("선택 삭제 %d" % checked.size() if deleting else "삭제")
+		m._text(text, rects[key].get_center() + Vector2(0, 4), 10, Color("513b29"), true, 99)
+func press(m, p: Vector2) -> void :
+	if rects.get("close", Rect2()).has_point(p): opened = false;detail = "";deleting = false;checked.clear();return
+	if detail != "":
+		if rects.get("back", Rect2()).has_point(p): detail = ""
+		return
+	for row in rects.get("rows", []):
+		if not row[0].has_point(p): continue
+		if deleting:
+			if row[1] in checked: checked.erase(row[1])
+			else: checked.append(row[1])
+		else: detail = row[1];mark(m, detail)
+		return
+	if rects.get("prev", Rect2()).has_point(p): page = maxi(0, page - 1)
+	if rects.get("next", Rect2()).has_point(p): page += 1
+	if rects.get("read", Rect2()).has_point(p):
+		if deleting: deleting = false;checked.clear()
+		else:
+			for letter in visible_letters():
+				if letter.id not in read_ids: read_ids.append(letter.id)
+			m._save_game()
+	if rects.get("delete", Rect2()).has_point(p):
+		if not deleting: deleting = true;checked.clear()
+		elif not checked.is_empty():
+			for id in checked:
+				if id not in deleted_ids: deleted_ids.append(id)
+			checked.clear();deleting = false;m._save_game()
