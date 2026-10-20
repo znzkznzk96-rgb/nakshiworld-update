@@ -1,0 +1,95 @@
+extends RefCounted
+var pending: = {}
+var rects: = {}
+var notice: = ""
+var notice_time: = -10.0
+var notice_icon: Texture2D
+func quote(v, m, a: String) -> Dictionary:
+	var k = a.split(":"); var n: int = int(k[1]) if k.size() > 1 else 0
+	var q: Dictionary = {"action": a, "currency": "gold", "price": 0, "title": "", "icon": null, "target": 0}
+	match k[0]:
+		"part":
+			if n < 0 or n >= v.PARTS.size(): return {}
+			var p: Array = v.PARTS[n]
+			if p[0] in m.parts_owned: return {}
+			for i in n:
+				if v.PARTS[i][0] not in m.equipment.unlocked_parts: return {}
+			q.title = p[1];q.price = p[3];q.icon = v.tool_icons[p[0]];q.target = n
+		"bag":
+			n = m.equipment.bag_progress + 1
+			if n >= m.BAG_CAP.size(): return {}
+			q.title = m.BAG_NAME[n];q.price = m.BAG_PRICE[n];q.icon = v.tool_icons[preload("res://addons/reservoir/equipment_art.gd").container_name(n)];q.target = n
+		"worm":
+			if n not in [1, 10]: return {}
+			q.title = "지렁이 %d개" % n;q.price = n * 10;q.icon = v.tool_icons.worm;q.target = n
+		"rod":
+			if n < 0 or n > m.rod_owned + 1 or n >= v.ROD_NAME.size() or n in m.equipment.rods: return {}
+			q.title = v.ROD_NAME[n];q.price = v.ROD_COST[n];q.icon = v.rods[n];q.target = n
+		"boat":
+			if m.boat_lv >= 5: return {}
+			q.title = "배 확장 Lv.%d" % (m.boat_lv + 2);q.price = v.UPGRADE_COST[m.boat_lv];q.icon = v.tool_icons.boat;q.target = m.boat_lv + 1
+		"pondcap":
+			if m.pond_cap_lv >= 5: return {}
+			q.title = "어장 규모 확장";q.price = v.POND_CAP_COST[m.pond_cap_lv];q.icon = m.V.art.stock;q.target = m.pond_cap_lv + 1
+		"pondregen":
+			if m.pond_regen_lv >= 5: return {}
+			q.title = "어장 회복 시설";q.price = v.POND_REGEN_COST[m.pond_regen_lv];q.icon = m.V.art.stock;q.target = m.pond_regen_lv + 1
+		"aexpand":
+			if m.aqua_lv >= 4: return {}
+			q.title = "수족관 %d마리 확장" % m.AQUA_CAP[m.aqua_lv + 1];q.price = m.AQUA_COST[m.aqua_lv];q.icon = v.tool_icons.bucket;q.target = m.aqua_lv + 1
+		"forge_ticket":
+			q.title = "하락 보호권 1장";q.price = 1;q.currency = "pearl";q.icon = m.icons.pearl_s;q.target = m.protection_tickets + 1
+		_: return {}
+	return q
+func request(v, m, a: String) -> bool:
+	var q: = quote(v, m, a)
+	if q.is_empty(): return false
+	pending = q;m.holding = false;m.play("plop", -8.0);return true
+func balance(m, q: Dictionary) -> int: return m.pearl if q.currency == "pearl" else m.gold
+func confirm(v, m) -> bool:
+	if pending.is_empty(): return false
+	var q: Dictionary = pending.duplicate(); var current: = quote(v, m, q.action)
+	if current.is_empty() or current.target != q.target or current.price != q.price:
+		pending = {};notice = "상품 상태가 바뀌었어요. 다시 선택해 주세요.";notice_time = m.ui_clock;return false
+	if balance(m, q) < q.price: return false
+
+	pending = {}; var before: = balance(m, q)
+	v._act(m, q.action)
+	if before - balance(m, q) != int(q.price): return false
+	notice = "%s 구매되었습니다." % q.title;notice_time = m.ui_clock;notice_icon = q.icon;m.toast_t = 0.0
+	return true
+func press(v, m, p: Vector2) -> void :
+	if rects.get("buy", Rect2()).has_point(p): confirm(v, m);return
+	if rects.get("cancel", Rect2()).has_point(p) or not rects.get("panel", Rect2()).has_point(p): pending = {}
+func draw(v, m, h: float) -> void :
+	if not pending.is_empty():
+		m.text_items = m.text_items.filter( func(it): return it[1].y < m.top_y + 70)
+		m._ui_rect(Rect2( - m.ox, 0, m.VW + 2 * m.ox, h), Color(0.025, 0.04, 0.07, 0.78))
+		var r: = Rect2(20, roundf(h * 0.5) - 120, 230, 240)
+		m._ui_style_box(m.sb_panel, r)
+		m._ui_style_box(m.hud_reference_style, Rect2(r.position + Vector2(7, 7), Vector2(216, 31)))
+		m._text("구매 확인", Vector2(135, r.position.y + 28), 14, Color("fff0d1"), true, 200)
+		var icon: Texture2D = pending.icon
+		if icon:
+			var master: Texture2D = icon.get_meta("master", icon)
+			var size: Vector2 = master.get_size()
+			if size.x <= 80 and size.y <= 80: m._ui_texture(master, Vector2(135, r.position.y + 82) - size / 2)
+			else: m._ui_texture(icon, Vector2(135, r.position.y + 82) - icon.get_size() / 2)
+		m._text(m._ui_wrap(pending.title, 12, 208, 2), Vector2(135, r.position.y + 132), 12, Color("513b29"), true, 208)
+		var unit: String = "진주" if pending.currency == "pearl" else "비늘"
+		m._text("%s %s" % [str(pending.price), unit], Vector2(135, r.position.y + 157), 14, Color("513b29"), true, 205)
+		var enough: bool = balance(m, pending) >= pending.price
+		m._text("보유 %d %s" % [balance(m, pending), unit], Vector2(135, r.position.y + 176), 10, Color("6d644f") if enough else Color("a33c3c"), true, 208)
+		var cancel: = Rect2(34, r.position.y + 192, 94, 29); var buy: = Rect2(142, r.position.y + 192, 94, 29)
+		m._ui_style_box(m.sb_btn, cancel);m._ui_style_box(m.sb_primary if enough else m.sb_chip, buy)
+		m._text("취소", cancel.get_center() + Vector2(0, 5), 12, Color("513b29"), true, 84)
+		m._text("구매하기" if enough else "부족해요", buy.get_center() + Vector2(0, 5), 12, Color("fff0d1") if enough else Color("817767"), true, 86)
+		rects = {"panel": r, "cancel": cancel, "buy": buy if enough else Rect2()}
+	var age: float = m.ui_clock - notice_time
+	if notice != "" and age < 2.0:
+		var alpha: float = minf(1, age / 0.12) * minf(1, (2 - age) / 0.4)
+		var yy: float = m.top_y + 91 - 5 * smoothstep(0, 0.25, age)
+		var toast: = Rect2(13, yy, 244, 41)
+		m.text_items = m.text_items.filter( func(it): return not toast.grow(2).has_point(it[1]))
+		m._ui_style_box(m.hud_reference_style, toast)
+		m._text(m._ui_wrap(notice, 12, 224, 2), Vector2(135, yy + 25), 12, Color(1, 0.94, 0.72, alpha), true, 224, true)
