@@ -1,0 +1,43 @@
+name: Publish verified game patch
+on:
+  push:
+    branches: ['deploy/**']
+    paths: ['deploy/patch-manifest.json']
+permissions:
+  contents: write
+concurrency:
+  group: game-patch-publication
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Assemble and verify patch
+        run: |
+          python3 - <<'PY'
+          import hashlib,json,os,pathlib
+          manifest=json.loads(pathlib.Path('deploy/patch-manifest.json').read_text())
+          data=b''.join(pathlib.Path(p).read_bytes() for p in manifest['chunks'])
+          version=manifest['version']
+          assert len(data)==version['size'],'Patch size mismatch'
+          assert hashlib.sha256(data).hexdigest()==version['sha256'],'Patch checksum mismatch'
+          tmp=pathlib.Path(os.environ['RUNNER_TEMP'])
+          (tmp/'verified-patch.pck').write_bytes(data)
+          (tmp/'verified-version.json').write_text(json.dumps(version,separators=(',',':')))
+          (tmp/'expected-game-head').write_text(manifest['expected_head'])
+          print('Verified game patch',version['name'],len(data))
+          PY
+      - name: Publish atomically to updater branch
+        run: |
+          git fetch origin main
+          test "$(git rev-parse origin/main)" = "$(cat "$RUNNER_TEMP/expected-game-head")"
+          git checkout -B main origin/main
+          cp "$RUNNER_TEMP/verified-patch.pck" patch.pck
+          cp "$RUNNER_TEMP/verified-version.json" version.json
+          git config user.name "Nakshiworld Updates"
+          git config user.email "updates@users.noreply.github.com"
+          git add patch.pck version.json
+          git commit -m "Publish verified game patch 0.59"
+          git push origin HEAD:main
