@@ -33,7 +33,8 @@ export default {
      return reply(request.method==="HEAD"?null:body,200,{"Content-Type":"application/json","X-Patch-Source":"github-releases","Content-Length":String(new TextEncoder().encode(body).length)});
     }
     const requested=url.searchParams.get("v");
-    if(requested!==null&&requested!==String(d.code))return reply("Version changed; restart update",409);
+    // Godot 4 JSON numbers stringify as 61.0 in the installed 0.60 APK.
+    if(requested!==null&&(!/^\d+(?:\.0+)?$/.test(requested)||Number(requested)!==d.code))return reply("Version changed; restart update",409);
     const headers={"User-Agent":"nakshiworld-updater","Accept":"application/octet-stream"};
     if(request.headers.has("Range"))headers.Range=request.headers.get("Range");
     const r=await fetch(REPO+"/releases/download/v"+d.name+"/patch.pck",{method:request.method,headers,redirect:"follow",cf:{cacheTtl:0}});
@@ -51,3 +52,4 @@ export default {
   }
  }
 };
+
