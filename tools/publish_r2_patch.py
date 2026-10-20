@@ -15,8 +15,8 @@ p.add_argument('code', type=int)
 p.add_argument('name')
 p.add_argument('--dry-run', action='store_true')
 a = p.parse_args()
-if a.code <= 57:
-    p.error('A new patch must have code > 57; 0.57 is the current verified release')
+if a.code <= 60:
+    p.error('A new patch must have code > 60; 0.60 is the transition APK baseline')
 if not a.patch.is_file() or a.patch.stat().st_size < 100:
     p.error('Patch is missing or too small')
 with a.patch.open('rb') as f:

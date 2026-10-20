@@ -26,15 +26,27 @@ python3 tools/configure_r2_updates.py /path/to/project/game/root.gd --check
 실제 PCK를 검증·빌드한 후 배포 계획 확인:
 
 ```sh
-python3 tools/publish_r2_patch.py build/patch.pck 60 0.60 --dry-run
+python3 tools/publish_r2_patch.py build/patch.pck 61 0.61 --dry-run
 ```
 
-60은 예시이며 최종 버전 예약이 아니다. 이 도구는 빌드 도구가 아니며 최신 게임 파일을 생성하지 않는다.
+61은 예시이며 최종 버전 예약이 아니다. 이 도구는 빌드 도구가 아니며 최신 게임 파일을 생성하지 않는다.
 
-배포 시 AWS CLI v2와 R2의 해당 버킷에만 Object Read & Write 권한을 가진 인증이 필요하다. R2_ACCOUNT_ID, AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY는 로컬 환경 또는 CI secrets로 설정한다. 채팅이나 git에 비밀값을 붙이지 않는다.
+배포 시 Python 3.11 이상, AWS CLI v2와 R2의 해당 버킷에만 Object Read & Write 권한을 가진 인증이 필요하다. R2_ACCOUNT_ID, AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY는 로컬 환경 또는 CI secrets로 설정한다. 채팅이나 git에 비밀값을 붙이지 않는다.
 
 ```sh
-python3 tools/publish_r2_patch.py build/patch.pck 60 0.60
+python3 tools/publish_r2_patch.py build/patch.pck 61 0.61
 ```
 
 스크립트는 이전 manifest 보관, 버전 역행 차단, 해시 경로에 PCK 보관, 고정 patch.pck 업로드, 원격 크기·메타데이터 확인, version.json 마지막 업로드 순서로 동작한다. 배포는 동시에 실행하지 않는다. R2 인증과 실제 업로드는 아직 실행하지 않았다. 전환 APK에서 다운로드, 재실행, 세이브 유지, 오프라인 시작을 실기기로 확인한 뒤 완료 처리한다.
+
+
+## 0.60 전환 APK 생성 (2026-10-20)
+추가 제공된 원본 0.11 APK와 handoff ZIP에서 기존 서명키를 확보했고 인증서가 일치했다. 최신 원본 대신 SHA-256을 확인한 0.57 PCK의 모든 리소스를 원본 Android 컨테이너에 포함했다. 새 bootstrap은 R2를 확인하며 0.60보다 새로운 패치만 받는다. 0.58/0.59 게임 기능을 포함한 버전은 아니다.
+
+빌드 방법:
+```sh
+python3 migration/repack_transition.py --baseline patch_057.pck --original-apk nakshiworld_v0.11.apk --output build/transition
+```
+Android build-tools 34의 zipalign으로 unsigned.apk를 정렬한 뒤 기존 키로 apksigner 서명한다. 키와 비밀번호는 저장소에 포함하지 않는다. 서명된 APK는 versionCode 60, versionName 0.60, package com.sangjun.dotfishing이다. 기존 APK의 assets/_cl_, Android 코드, 권한과 네이티브 라이브러리를 보존했다.
+
+검증: PCK 파일별 MD5와 원본 PCK SHA-256 확인, Godot 4.4.1에서 새 bootstrap과 0.57 게임 로딩 검사, APK v1/v2/v3 서명 검사, 기존 인증서 일치, manifest 버전 확인. 실제 Android 설치·세이브 유지·R2 패치 다운로드 검증은 아직 하지 않았다. R2 게시 인증과 패치 업로드도 남아 있다. 다음 게임 패치 code는 60보다 커야 한다.
