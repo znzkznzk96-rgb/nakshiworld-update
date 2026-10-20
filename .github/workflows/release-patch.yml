@@ -75,7 +75,12 @@ jobs:
           set -euo pipefail
           TAG="$(python3 -c 'import json;print("v"+json.load(open("dist/version.json"))["name"])')"
           if gh release view "$TAG" >/dev/null 2>&1; then
-            echo "Version already exists; increment automation/release.json before publishing."
+            git fetch --depth=1 origin "refs/tags/$TAG:refs/tags/$TAG"
+            if [ "$(gh release view "$TAG" --json isDraft --jq .isDraft)" = false ] && git diff --quiet "$TAG" HEAD -- game automation/release.json; then
+              echo "This source version is already published; no changes required."
+              exit 0
+            fi
+            echo "Version exists with different source or an unfinished draft; increment the version or inspect the draft."
             exit 1
           fi
           gh release create "$TAG" --target "$GITHUB_SHA" --draft --title "낚시월드 $TAG" --notes "낚시 UI, 몸짓도감, 장비 인벤토리·탈착·판매 개선. 게임 실행 시 자동 업데이트됩니다."
