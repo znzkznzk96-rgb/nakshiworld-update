@@ -36,6 +36,14 @@ jobs:
           const p=await worker.fetch(req("patch.pck?v=61"),env);
           assert.equal(p.status,200);
           assert.equal((await p.arrayBuffer()).byteLength,4);
+          for (const v of ["61.0", "61.00"]) {
+            const response=await worker.fetch(req("patch.pck?v="+v),env);
+            assert.equal(response.status,200);
+            assert.equal((await response.arrayBuffer()).byteLength,4);
+          }
+          for (const v of ["60.0", "62", "61.1", "", "6.1e1", "NaN"]) {
+            assert.equal((await worker.fetch(req("patch.pck?v="+v),env)).status,409);
+          }
           globalThis.fetch=async(url)=>String(url).endsWith('version.json')?Response.json(d):new Response("bad",{headers:{"Content-Length":"3"}});
           assert.equal((await worker.fetch(req("patch.pck?v=61"),env)).status,502);
           globalThis.fetch=async()=>{throw Error("offline");};
@@ -63,7 +71,7 @@ jobs:
           d=json.loads(get('/version.json'))
           expected=json.load(open('automation/release.json'))
           assert d['code']==expected['code'] and d['name']==expected['name']
-          b=get('/patch.pck?v='+str(d['code']))
+          b=get('/patch.pck?v='+str(float(d['code'])))
           assert len(b)==d['size']
           assert hashlib.sha256(b).hexdigest()==d['sha256']
           assert b[:4]==b'GDPC'
