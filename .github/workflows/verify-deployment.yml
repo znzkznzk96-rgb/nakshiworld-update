@@ -4,14 +4,20 @@ on:
     branches: [main, codex/r2-migration]
     paths: ['deployment/**', '.github/workflows/verify-deployment.yml']
   workflow_dispatch:
+  workflow_run:
+    workflows: ['Build and publish game patch']
+    types: [completed]
 permissions:
   contents: read
 jobs:
   verify:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-24.04
     timeout-minutes: 8
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
       - name: Gateway unit checks
         run: |
           node --input-type=module <<'JS'
