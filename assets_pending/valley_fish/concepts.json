@@ -1,0 +1,122 @@
+[
+  {
+    "id": "l1_00",
+    "name": "버들치",
+    "description": "Slender olive bronze minnow, narrow pale golden lateral stripe above bold dark flank stripe, cream belly, small amber fins, forked tail.",
+    "cell": 0
+  },
+  {
+    "id": "l1_01",
+    "name": "쉬리",
+    "description": "Slender Korean shiner, vivid burnt-orange fins, black broad lateral band edged with golden yellow, warm silver belly, pointed snout.",
+    "cell": 1
+  },
+  {
+    "id": "l1_02",
+    "name": "조약돌고기",
+    "description": "Round oval plump pebble-shaped fish, slate blue rocky skin dotted with warm ochre and cream irregular stone patches, small rounded fins, large clear eye. Body itself resembles one smooth river pebble, not carrying rocks.",
+    "cell": 2
+  },
+  {
+    "id": "l1_03",
+    "name": "나뭇잎꼬리",
+    "description": "Slim chestnut bronze fish with pale golden speckled scales, tail is exactly two large green serrated leaves with yellow veins, ordinary fish head and fins.",
+    "cell": 3
+  },
+  {
+    "id": "l1_04",
+    "name": "오름피라미",
+    "description": "Streamlined blue-silver minnow, vivid coral red forked tail and fins, two long fine coral pelvic fin streamers trailing below, pointed slightly upward snout.",
+    "cell": 4
+  },
+  {
+    "id": "l1_05",
+    "name": "물방울송사리",
+    "description": "Tiny cyan blue silver medaka, a distinctive large round transparent water-droplet belly with clear cyan rim and bright cream highlight, delicate pointed sky-blue fins, visible dark eye.",
+    "cell": 5
+  },
+  {
+    "id": "l1_06",
+    "name": "거꾸로미꾸리",
+    "description": "Long stout curved upside-down loach, pink pale belly on top and dark brown speckled back below, short whiskers at right-facing mouth, ochre fins on reversed sides.",
+    "cell": 6
+  },
+  {
+    "id": "l1_07",
+    "name": "이끼붕어",
+    "description": "Deep oval bronze-gold crucian carp, irregular living emerald moss tufts along dorsal ridge, detailed warm golden scales, dark olive back and amber fins.",
+    "cell": 7
+  },
+  {
+    "id": "l1_08",
+    "name": "산천어",
+    "description": "Compact teal-backed cherry trout, cream silver belly, seven bold deep navy vertical oval parr marks with small vivid vermilion dots between, dark teal fins.",
+    "cell": 8
+  },
+  {
+    "id": "l1_09",
+    "name": "송어",
+    "description": "Long steel-blue trout with navy back, many distinct black spots over silver flanks, cream belly, dark blue-gray forked tail, no red lateral stripe.",
+    "cell": 9
+  },
+  {
+    "id": "l1_10",
+    "name": "열목어",
+    "description": "Elongated copper salmon trout, deep terracotta back, warm pink flanks with dark oval vertical marks and small black spots, vivid red eye surround and reddish amber fins.",
+    "cell": 10
+  },
+  {
+    "id": "l1_11",
+    "name": "폭포오름잉어",
+    "description": "Rich turquoise carp, large bright teal scales, extremely long flowing cream white ribbon fins edged in cyan like upward flowing waterfall, two delicate whiskers. Readable solid fish body.",
+    "cell": 11
+  },
+  {
+    "id": "l1_12",
+    "name": "구름피라미",
+    "description": "Small luminous lilac silver minnow, rounded puffy cloud shaped lobes on tail and dorsal fin, lavender shadows and bright ivory cloud patches, dark blue eye. Solid readable body.",
+    "cell": 12
+  },
+  {
+    "id": "l1_13",
+    "name": "돌등고기",
+    "description": "Stocky charcoal brown bottom fish, several angular golden ochre rocks firmly forming armored dorsal plates, broad fan-shaped ochre pectoral fins, golden speckles and small mouth.",
+    "cell": 13
+  },
+  {
+    "id": "l1_14",
+    "name": "무지개송어",
+    "description": "Broad blue-green rainbow trout, distinct saturated rose pink horizontal flank stripe, pearly cream belly, numerous small navy spots, teal fins.",
+    "cell": 14
+  },
+  {
+    "id": "l1_15",
+    "name": "황쏘가리",
+    "description": "Deep yellow golden mandarin fish, striking bold dark brown irregular leopard markings, tall sharp spiny dorsal fin, broad fan tail, large open predatory mouth.",
+    "cell": 15
+  },
+  {
+    "id": "l1_16",
+    "name": "하늘연어",
+    "description": "Streamlined cobalt-blue salmon with peach orange belly, enormously elongated wing-like pale blue and cream pectoral fins sweeping backwards below body, silver speckles on blue back.",
+    "cell": 16
+  },
+  {
+    "id": "l1_17",
+    "name": "거꾸로잉어",
+    "description": "Deep oval indigo-violet carp, bright lavender scales, exaggerated long curling pale lavender ribbon fins flowing upward and backwards, curved thin whiskers, large distinct dark eye.",
+    "cell": 17
+  },
+  {
+    "id": "l1_18",
+    "name": "구름메기",
+    "description": "Large heavy blue violet catfish, pale lilac belly, very long thin white curling whiskers, clustered rounded thundercloud lobes forming tail and back, dark indigo shadows, broad head.",
+    "cell": 18
+  },
+  {
+    "id": "l1_19",
+    "name": "배후의 산천어",
+    "description": "Imposing long dark teal cherry-trout boss, cream silver belly, row of seven large black oval parr marks each outlined vivid crimson red, exaggerated jagged black swept fins edged crimson, large forked dark tail, intimidating but anatomically fish-like head. Preserve normal right-facing trout anatomy, no reversed head.",
+    "cell": 19
+  }
+]

@@ -1,0 +1,27 @@
+{
+  "description": "Single right-facing side-view fish game sprite. Slender Korean shiner, vivid burnt-orange fins, black broad lateral band edged with golden yellow, warm silver belly, pointed snout. Match the reference fish pixel technique: crisp one pixel dark outline, richly saturated colors, strong 3-4 tone clustered shading, visible bright eye, precise scales and fin rays, cozy detailed fishing RPG. Entire fish including fin tips inside canvas with margin, horizontal pose. Keep approved init silhouette. No extra objects.",
+  "negative_description": "text, grid, labels, frame, scenery, water background, multiple fish, blurry washed out pastel colors, watercolor, photorealism, glow hiding body, cropped fins",
+  "image_size": {
+    "width": 96,
+    "height": 64
+  },
+  "text_guidance_scale": 8,
+  "style_strength": 65,
+  "init_image_strength": 450,
+  "view": "side",
+  "direction": "east",
+  "no_background": true,
+  "outline": "single color outline",
+  "shading": "medium shading",
+  "detail": "medium detail",
+  "seed": 7101,
+  "name": "쉬리",
+  "style_reference": "game/art/fish/l0_01.png",
+  "init_reference": "l1_01.reference.png",
+  "provider": "PixelLab v2/create-image-bitforge",
+  "sha256": "d2f4563632afd2335439d1899d699be04512f6f2c007129628439f320337f20e",
+  "usage": {
+    "type": "generations",
+    "generations": 1.0
+  }
+}

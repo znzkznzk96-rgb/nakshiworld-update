@@ -1,3 +1,11 @@
+# 최신 작업: 거꾸로 폭포 계곡 PixelLab 물고기 제작 (미배포)
+사용자 제작/공유 승인. 후보 없이 어종별1장, 기존 승인20종 외형+저수지96x64 스타일 기준.
+- 실제 PixelLab create-image-bitforge 사용. 기존 저수지 붕어 style_image, 승인 시안 개별 어종 init_image를 함께 입력. 투명PNG96x64.
+- 현재 2종 확보. assets_pending/valley_fish에 PNG/생성 설정·해시 보존. 어종당1회 요청; 재시도 자동 차단.
+- 생성 원본은 검토용이며 실제 게임 연결/수치/모션/배포 미수행. 운영0.68 유지. 최대크기 제안은 미확정.
+- 조약돌고기·나뭇잎꼬리 교체 및 기존 배후의산천어 외형 유지. 다음은20종 전체 육안검토와 사용자 결과공유.
+<!-- VALLEY_END -->
+
 # 최신 확정 상태: 0.68 공개 배포 및 직접 다운로드 검증 완료
 사용자 명시 승인으로 기존 수정 배포. 아래 진행/미배포 문단은 과거 이력.
 - Release https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v0.68
