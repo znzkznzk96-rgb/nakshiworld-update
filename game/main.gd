@@ -89,6 +89,7 @@ var tip_t: = 0.0
 var tex_sign: Texture2D
 var scene: = "fish"
 var V = preload("res://village.gd").new()
+var region_shop = preload("res://addons/reservoir/region_shop.gd").new()
 var guide = preload("res://addons/reservoir/guide.gd").new()
 var mailbox = preload("res://addons/reservoir/mailbox.gd").new()
 var drag_player: AudioStreamPlayer
@@ -390,12 +391,12 @@ func start_cast() -> void :
 	_save_game()
 
 func start_wait() -> void :
-	var bare: = bait <= 0
-	if not bare: bait -= 1
+	var bait_multiplier: float = region_shop.take_bait(self)
+	var bare: bool = bait_multiplier < 1.0
 	var sp_w: = []
 	var nparts: = 0
 	for p in ["float", "hook", "line", "reel"]:
-		if p in equipment.active_parts: nparts += 1
+		if region_shop.has_active(self, p): nparts += 1
 		else: break
 	var stock_ratio: float = pond_stock / pond_max()
 	for i in 5:
@@ -404,7 +405,7 @@ func start_wait() -> void :
 	if pond_stock <= 0.0:
 		sp_w = [1.0, 0.0, 0.0, 0.0, 0.0]
 	var gp: = []
-	for i in 5: gp.append(GRADE_P[i] * pow(0.85, i) if bare else GRADE_P[i])
+	for i in 5: gp.append(GRADE_P[i] * pow(bait_multiplier, i))
 	S = {"phase": "wait", "star": pick(sp_w), "grade": pick(gp), "fakes": [], "bare": bare}
 	S.lf = clampf(1.0 + gauss() * 0.15, 0.5, 1.65)
 	S.size = 0 if S.lf < 0.9 else (1 if S.lf < 1.15 else (2 if S.lf < 1.35 else 3))
@@ -878,9 +879,9 @@ func _draw_lesson_card(t: float) -> void :
 	if beh == "skim":
 		y = by + 36;x = bx + 30 + 120 * k
 		for j in 4: _ui_rect(Rect2(int(x - 18 - j * 7), by + 30 - (j % 2) * 2, 3, 2), Color(0.9, 0.97, 1, 0.8))
-	var face: float = -1.0 * float(L.get("face", 1))
-	if beh == "circle": face = 1.0 if sin(k * TAU) > 0 else -1.0
-	if beh == "skim": face = -1.0
+	var face: float = 1.0 if beh in ["run", "skim"] else -1.0
+	if beh == "circle": face = -1.0 if sin(k * TAU) > 0 else 1.0
+	if beh == "skim": face = 1.0
 	if beh == "clone":
 		var sp: = minf(1.0, k * 4)
 		var pos: = [[bx + 50, by + 36], [bx + 90, by + 54], [bx + 132, by + 42]]
@@ -1602,6 +1603,11 @@ func _shadow_fish(c: Vector2, star: int, grade: int, t: float, beh: String, spik
 	var N: = 12
 	var fz: float = grade / 4.0
 	var p: = pose if not pose.is_empty() else pose_for(beh, star, fz)
+	if ui_demo:
+		p = p.duplicate()
+		if beh == "tell": p.curl=-1.65;p.amp=0.02
+		if beh == "thrash": p.curl=sin(t / 1000.0 * 9.0)*0.95;p.amp=0.04
+		if beh == "nose": p.tilt=0.9
 	var amp: float = p.amp
 	var curl: float = p.curl
 	var tilt: float = p.tilt
@@ -2016,7 +2022,7 @@ func _draw_catch(t: float) -> void :
 	for i in 21:
 		var xx: float = 35 + i * 10.0
 		_ui_rect(Rect2(roundf(xx), yy, 1, 8 if i % 5 == 0 else 4), Color("765638"))
-		if i % 5 == 0: _text(str(int(measurement_max_cm(S.sp) * i / 20.0)), Vector2(xx, yy + 22), 8, Color("765638"), true, 30)
+		if i % 5 == 0: _text(("%g" % (measurement_max_cm(S.sp) * i / 20.0)), Vector2(xx, yy + 22), 8, Color("765638"), true, 30)
 	_ui_rect(Rect2(roundf(mx), yy - 23, 1, 35), Color("b15336"))
 	_text(("어종 눈금 0–%d cm" % int(measurement_max_cm(S.sp))) + (" · 이전 기록 초과" if S.len > measurement_max_cm(S.sp) else ""), Vector2(135, yy + 38), 9, Color("7c6448"), true, 216)
 	_text("%.1fcm · %s" % [measured, _wtxt(S.weight)], Vector2(135, r.position.y + 174), 14, Color("513b29"), true, 210)
@@ -2099,8 +2105,14 @@ func _draw_slots(y: float) -> void :
 		var x: = 32 + i * 42
 		_ui_texture(e_slots.selected if i == 0 else e_slots.slot, Vector2(x, y))
 		var t: Texture2D = V.rods[rod_lv] if i == 0 else icons[names[i]]
-		var owned: bool = equipment.rod_equipped if i == 0 else names[i] in equipment.active_parts
-		_ui_texture(t, Vector2(x + 3, y + 3), Color.WHITE if owned else Color(0.55, 0.55, 0.55, 0.24))
+		var owned: bool = equipment.rod_equipped if i == 0 else region_shop.has_active(self, names[i])
+		var regional := false
+		if i>0:
+			for key in equipment.active_parts:
+				if region_shop.slot_key(key)==names[i] and region_shop.part_region(key)>0:
+					t=region_shop.icon(self,region_shop.part_region(key),i-1);regional=true;break
+		if regional: _ui_texture_rect(t,Rect2(x+3,y+3,30,30))
+		else: _ui_texture(t, Vector2(x + 3, y + 3), Color.WHITE if owned else Color(0.55, 0.55, 0.55, 0.24))
 
 
 func _chip(x: float, y: float, s: String) -> float:
@@ -2394,7 +2406,7 @@ func _draw_title(_t: float, h: float) -> void :
 const SAVE_VER: = 1
 func _save_game() -> void :
 	var f: = FileAccess.open("user://save.json", FileAccess.WRITE)
-	f.store_string(JSON.stringify({"equipment": equipment.serialize(), "mail_read": mailbox.read_ids, "mail_deleted": mailbox.deleted_ids, "v": SAVE_VER, "gold": gold, "pearl": pearl, "bag": bag_items(), "bag_lv": bag_lv, "parts": parts_owned, "tips": tips_seen, 
+	f.store_string(JSON.stringify({"region_shop": region_shop.serialize(), "equipment": equipment.serialize(), "mail_read": mailbox.read_ids, "mail_deleted": mailbox.deleted_ids, "v": SAVE_VER, "gold": gold, "pearl": pearl, "bag": bag_items(), "bag_lv": bag_lv, "parts": parts_owned, "tips": tips_seen, 
 		"town_zoom": V.zoom, "boat_lv": boat_lv, "town_lv": town_lv, "forge_lv": forge_lv, "rod_lv": rod_lv, "rod_owned": rod_owned, "rod_enh": rod_enh, "protection_tickets": protection_tickets, "forge_pending": forge_pending, "forge_seen": forge_seen, 
 		"pond_cap_lv": pond_cap_lv, "pond_regen_lv": pond_regen_lv, "pond_stock": pond_stock, 
 		"bait": bait, "souls": souls, "aqua_lv": aqua_lv, "aqua": aqua, "dex": DEX, "catch_counts": catch_counts, "catch_legacy": catch_legacy, "world_time": environment.day_seconds, "time": Time.get_unix_time_from_system()}))
@@ -2412,6 +2424,7 @@ func _load_game() -> void :
 	mailbox.read_ids = d.get("mail_read", []);mailbox.deleted_ids = d.get("mail_deleted", [])
 	environment.day_seconds = maxf(0.0, float(d.get("world_time", 0.0)))
 	gold = int(d.get("gold", 0));pearl = int(d.get("pearl", 0));bag_lv = int(d.get("bag_lv", 0))
+	region_shop.restore(d.get("region_shop", {}))
 	bag = d.get("bag", []);parts_owned = d.get("parts", []);tips_seen = d.get("tips", [])
 	bait = int(d.get("bait", 0));souls = int(d.get("souls", 0))
 	V.zoom = clampf(float(d.get("town_zoom", 1.0)), 0.65, 1.6)
@@ -2474,6 +2487,9 @@ func _shot_mode() -> void :
 		if state.ends_with("_pick"): V.pick_slot = 1
 		if state == "trans": trans = {"t": 0.6, "to": "fish", "done": true, "tip": TR_TIPS[0]};set_process(false)
 		if state == "trans2": trans = {"t": 0.2, "to": "fish", "done": false, "tip": TR_TIPS[0]};set_process(false)
+		if state == "village_guide": guide.opened = true
+		if state == "village_baitbuy": V.open_shop(self,"up");V.tab="bait";V.commerce.request(V,self,"bait:0:5")
+		if state == "village_mail": mailbox.opened = true
 		if state == "village_income":
 			tip_txt = "쉬는 동안 수족관에서 12345 비늘을 벌었어요!";tip_t = 20.0
 		if state == "village_tap":
@@ -2649,6 +2665,8 @@ func _shot_mode() -> void :
 		if state == "gear_sales": _switch_scene("village");V.open_shop(self, "up");V.tab = "gear_sell"
 		else:
 			market_open = true;market_sell = false;inventory.tab = "inventory" if state == "bag_inventory" else "equipment"
+	if state == "village_lockedshop": V.open_shop(self,"up");region_shop.region=1
+	if state == "village_museum": V.open_shop(self,"museum")
 	if state.begins_with("lesson_book_"):
 		_switch_scene("village");S = {"phase": "idle"};settings_open = true;set_view = "book"
 		open_card(state.trim_prefix("lesson_book_"), "book");lesson_clock = ui_clock - 1.6

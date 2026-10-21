@@ -8,6 +8,20 @@ func quote(v, m, a: String) -> Dictionary:
 	var k = a.split(":"); var n: int = int(k[1]) if k.size() > 1 else 0
 	var q: Dictionary = {"action": a, "currency": "gold", "price": 0, "title": "", "icon": null, "target": 0}
 	match k[0]:
+		"rpart":
+			if k.size()!=3 or n<0 or n>5 or not m.region_shop.is_unlocked(n): return {}
+			var slot:=int(k[2])
+			if slot<0 or slot>3: return {}
+			var key: String=m.region_shop.part_key(n,slot)
+			if key in m.parts_owned: return {}
+			for i in slot:
+				if m.region_shop.part_key(n,i) not in m.equipment.unlocked_parts: return {}
+			q.title=m.region_shop.TITLES[n]+" "+v.PARTS[slot][1];q.price=m.region_shop.price(m,n,slot);q.icon=m.region_shop.icon(m,n,slot);q.target=n*4+slot
+		"bait":
+			if k.size()!=3 or not m.region_shop.bait_unlocked(n): return {}
+			var count:=int(k[2])
+			if count not in m.region_shop.QUANTITIES: return {}
+			q.title=m.region_shop.BAIT_NAMES[n]+" %d개" % count;q.price=m.region_shop.BAIT_PRICES[n]*count;q.icon=v.tool_icons.worm if n==0 else (v.tool_icons.lugworm if n==1 else null);q.target=n*1000+count
 		"part":
 			if n < 0 or n >= v.PARTS.size(): return {}
 			var p: Array = v.PARTS[n]
@@ -59,13 +73,17 @@ func confirm(v, m) -> bool:
 	notice = "%s 구매되었습니다." % q.title;notice_time = m.ui_clock;notice_icon = q.icon;m.toast_t = 0.0
 	return true
 func press(v, m, p: Vector2) -> void :
+	for item in rects.get("quantities",[]):
+		if item[0].has_point(p):
+			pending=quote(v,m,"bait:%s:%d" % [pending.action.get_slice(":",1),item[1]]);return
 	if rects.get("buy", Rect2()).has_point(p): confirm(v, m);return
 	if rects.get("cancel", Rect2()).has_point(p) or not rects.get("panel", Rect2()).has_point(p): pending = {}
 func draw(v, m, h: float) -> void :
 	if not pending.is_empty():
 		m.text_items = m.text_items.filter( func(it): return it[1].y < m.top_y + 70)
 		m._ui_rect(Rect2( - m.ox, 0, m.VW + 2 * m.ox, h), Color(0.025, 0.04, 0.07, 0.78))
-		var r: = Rect2(20, roundf(h * 0.5) - 120, 230, 240)
+		var is_bait: bool = str(pending.action).begins_with("bait:")
+		var r: = Rect2(20, roundf(h * 0.5) - 140, 230, 280 if is_bait else 240)
 		m._ui_style_box(m.sb_panel, r)
 		m._ui_style_box(m.hud_reference_style, Rect2(r.position + Vector2(7, 7), Vector2(216, 31)))
 		m._text("구매 확인", Vector2(135, r.position.y + 28), 14, Color("fff0d1"), true, 200)
@@ -80,11 +98,18 @@ func draw(v, m, h: float) -> void :
 		m._text("%s %s" % [str(pending.price), unit], Vector2(135, r.position.y + 157), 14, Color("513b29"), true, 205)
 		var enough: bool = balance(m, pending) >= pending.price
 		m._text("보유 %d %s" % [balance(m, pending), unit], Vector2(135, r.position.y + 176), 10, Color("6d644f") if enough else Color("a33c3c"), true, 208)
-		var cancel: = Rect2(34, r.position.y + 192, 94, 29); var buy: = Rect2(142, r.position.y + 192, 94, 29)
+		var cancel: = Rect2(34, r.end.y - 48, 94, 29); var buy: = Rect2(142, r.end.y - 48, 94, 29)
 		m._ui_style_box(m.sb_btn, cancel);m._ui_style_box(m.sb_primary if enough else m.sb_chip, buy)
 		m._text("취소", cancel.get_center() + Vector2(0, 5), 12, Color("513b29"), true, 84)
 		m._text("구매하기" if enough else "부족해요", buy.get_center() + Vector2(0, 5), 12, Color("fff0d1") if enough else Color("817767"), true, 86)
-		rects = {"panel": r, "cancel": cancel, "buy": buy if enough else Rect2()}
+		rects = {"panel": r, "cancel": cancel, "buy": buy if enough else Rect2(), "quantities":[]}
+		if is_bait:
+			for i in m.region_shop.QUANTITIES.size():
+				var amount: int=m.region_shop.QUANTITIES[i]
+				var b:=Rect2(30+i*43,r.position.y+190,39,25)
+				m._ui_style_box(m.sb_primary if int(pending.action.get_slice(":",2))==amount else m.sb_btn,b)
+				m._text("%d개" % amount,b.get_center()+Vector2(0,4),9,Color("fff0d1") if int(pending.action.get_slice(":",2))==amount else Color("513b29"),true,36)
+				rects.quantities.append([b,amount])
 	var age: float = m.ui_clock - notice_time
 	if notice != "" and age < 2.0:
 		var alpha: float = minf(1, age / 0.12) * minf(1, (2 - age) / 0.4)

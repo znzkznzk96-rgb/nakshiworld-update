@@ -492,21 +492,13 @@ func _row(m, r: Rect2, y: float, icon: Texture2D, name: String, desc: String, bt
 	var color: = Color("fff0d1") if enabled else Color("817767")
 	if price > 0:
 		m._ui_texture_rect(m.icons.scale, Rect2(button.position + Vector2(4, 5), Vector2(18, 18)))
-		m._text(str(price), button.position + Vector2(41, 18), 12, color, true, 38)
+		m._text(m.spots.price_text(price), button.position + Vector2(41, 18), 10, color, true, 38)
 	else: m._text(_short(m, btn, 10, 58), button.position + Vector2(31, 18), 10, color, true, 58)
 	if enabled or (price > 0 and not commerce.quote(self, m, act).is_empty()): rects.rows.append([button, act])
 
 
 func _draw_up(m, r: Rect2, y: float) -> void :
-	m._text("저수지 장비", Vector2(r.position.x + 18, y + 6), 9, Color("6a4a2a"))
-	y += 12
-	for i in PARTS.size():
-		var p: Array = PARTS[i]
-		var owned: bool = p[0] in m.parts_owned
-		var prev_ok: bool = i == 0 or PARTS[i - 1][0] in m.equipment.unlocked_parts
-		var btn = ("장착됨" if p[0] in m.equipment.active_parts else "보유 중") if owned else ("먼저 " + PARTS[i - 1][1] if not prev_ok else "")
-		_row(m, r, y, m.icons[p[0]], "낡은 " + p[1], p[2], btn, 0 if (owned or not prev_ok) else p[3], not owned and prev_ok and m.gold >= p[3], "part:%d" % i)
-		y += 38
+	y = m.region_shop.draw_parts(m, self, r, y)
 	y += 2
 	m._text("보관통", Vector2(r.position.x + 18, y + 6), 9, Color("6a4a2a"))
 	y += 12
@@ -518,16 +510,7 @@ func _draw_up(m, r: Rect2, y: float) -> void :
 		_row(m, r, y, tool_icons.ice5, m.BAG_NAME[m.bag_lv], "지금은 이게 최고예요", "최고", 0, false, "")
 
 func _draw_bait(m, r: Rect2, y: float) -> void :
-	m._text("가진 지렁이: %d개 (던질 때 1개씩)" % m.bait, Vector2(r.position.x + 18, y + 6), 9, Color("6a4a2a"))
-	y += 12
-	_row(m, r, y, tex.i_worm, "지렁이 10개", "입질 정상 · 모든 ★", "", 100, m.gold >= 100, "worm:10")
-	y += 44
-	_row(m, r, y, tex.i_worm, "지렁이 1개", "한 번만 써 볼 때", "", 10, m.gold >= 10, "worm:1")
-	y += 44
-	_row(m, r, y, tex.i_lugworm, "갯지렁이", "등급 ×1.25 · 계곡부터", "잠김", 0, false, "")
-	y += 52
-	m._text("미끼가 없으면 맨바늘: 입질이 느리고", Vector2(m.VW / 2.0, y), 9, Color("6a4a2a"), true)
-	m._text("★2 이상은 거의 안 물어요.", Vector2(m.VW / 2.0, y + 14), 9, Color("6a4a2a"), true)
+	m.region_shop.draw_bait(m, self, r, y)
 
 func _draw_aqua(m, r: Rect2, y: float) -> void :
 	aquarium.draw(self, m, r, y)
@@ -535,8 +518,9 @@ func _draw_aqua(m, r: Rect2, y: float) -> void :
 
 func _draw_museum(m, r: Rect2, y: float) -> void :
 	var got: int = m.DEX.size()
-	m._text("저수지 도감 %d / 20" % got, Vector2(135, y + 6), 10, Color("382619"), true)
-	y += 14
+	m._text("어종 %d/20 · 등급 %d/100" % [got, m.DEX.values().reduce(func(total, grades): return total+grades.size(),0)], Vector2(135, y + 6), 10, Color("382619"), true)
+	m._text("목표: 전 어종 발견 · 어종을 눌러 최대어 보기",Vector2(135,y+19),8,Color("68533d"),true,230)
+	y += 27
 	var pitch: float = minf(60, floorf((r.end.y - y - 7) / 5.0))
 	for i in 20:
 		var cell: = Rect2(r.position.x + 14 + i % 4 * 57, y + floori(i / 4.0) * pitch, 54, pitch - 2)
@@ -563,8 +547,8 @@ func _draw_work(m, r: Rect2, y: float) -> void :
 		m._text(tabs[i][1], Vector2(tb.get_center().x, y + 17), 10, Color("513b29"), true, 70)
 		rects.rows.append([tb, "tab:" + tabs[i][0]])
 	y += 32
-	m._ui_texture_rect(tool_icons.soul, Rect2(r.position.x + 16, y - 3, 16, 16), false)
-	m._text("물고기의 혼 %d" % m.souls, Vector2(r.position.x + 35, y + 9), 9, Color("382619"))
+	m._ui_texture_rect(tool_icons.scale if tab == "sell" else tool_icons.soul, Rect2(r.position.x + 16, y - 3, 16, 16), false)
+	m._text(("보유 비늘 %d" % m.gold) if tab == "sell" else ("물고기의 혼 %d" % m.souls), Vector2(r.position.x + 35, y + 9), 9, Color("382619"))
 	y += 16
 	var items: Array = m.bag_items()
 	if items.is_empty(): m._text("보관통이 비었어요", Vector2(m.VW / 2.0, y + 40), 10, Color("6a4a2a"), true);return
@@ -673,6 +657,24 @@ func _act(m, a: String) -> void :
 	var k = a.split(":")
 	var n = int(k[1]) if k.size() > 1 else 0
 	match k[0]:
+		"region": m.region_shop.region=clampi(n,0,5);return
+		"baitselect":
+			if m.region_shop.bait_unlocked(n) and m.region_shop.stock(m,n)>0: m.region_shop.selected_bait=n;m._save_game()
+			return
+		"rpart":
+			var q: Dictionary=commerce.quote(self,m,a)
+			if q.is_empty() or m.gold<q.price: return
+			var slot: int=int(k[2]);var key: String=m.region_shop.part_key(n,slot)
+			m.gold-=int(q.price);m.parts_owned.append(key)
+			if key not in m.equipment.unlocked_parts: m.equipment.unlocked_parts.append(key)
+			m.equipment.equip(m,"part:"+key,true);m.play("catch")
+		"bait":
+			var q: Dictionary=commerce.quote(self,m,a)
+			if q.is_empty() or m.gold<q.price: return
+			var count: int=int(k[2]);m.gold-=int(q.price)
+			if n==0: m.bait+=count
+			else: m.region_shop.stocks[n]+=count
+			m.region_shop.selected_bait=n;m.play("plop")
 		"species": m.inventory.open_species(n);return
 		"open": open_shop(m, k[1]);return
 		"boat":

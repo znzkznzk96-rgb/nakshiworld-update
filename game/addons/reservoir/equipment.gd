@@ -40,10 +40,8 @@ func item(m, key: String) -> Dictionary:
 		return {"key": key, "name": m.V.ROD_NAME[n], "icon": m.V.rods[n], "price": m.V.ROD_COST[n] / 2, "equipped": rod_equipped and m.rod_lv == n, "desc": "강화 +%d" % int(m.rod_enh[n])}
 	if kind == "bag" and n >= 0 and n < m.BAG_CAP.size() and n in bags:
 		return {"key": key, "name": m.BAG_NAME[n], "icon": m.V.tool_icons[preload("res://addons/reservoir/equipment_art.gd").container_name(n)], "price": m.BAG_PRICE[n] / 2, "equipped": m.bag_lv == n, "desc": "보관 %s" % m._wtxt(m.BAG_CAP[n])}
-	if kind == "part":
-		for part in m.V.PARTS:
-			if bits[1] == part[0] and bits[1] in m.parts_owned:
-				return {"key": key, "name": "낡은 " + part[1], "icon": m.V.tool_icons[part[0]], "price": part[3] / 2, "equipped": bits[1] in active_parts, "desc": part[2]}
+	if kind == "part" and bits[1] in m.parts_owned:
+		return m.region_shop.part_data(m,bits[1])
 	return {}
 
 func entries(m, equipped: bool) -> Array:
@@ -83,7 +81,11 @@ func equip(m, key: String, on: bool) -> bool:
 				return false
 			m.bag_lv = target
 		"part":
-			if on and bits[1] not in active_parts: active_parts.append(bits[1])
+			if on:
+				if not m.region_shop.is_unlocked(m.region_shop.part_region(bits[1])): return false
+				for existing in active_parts.duplicate():
+					if m.region_shop.slot_key(existing)==m.region_shop.slot_key(bits[1]): active_parts.erase(existing)
+				active_parts.append(bits[1])
 			elif not on: active_parts.erase(bits[1])
 	m._save_game()
 	m.play("plop", -8.0)
@@ -126,6 +128,9 @@ func draw_inventory(m, r: Rect2, tab: String) -> void:
 	var list := entries(m, equipped)
 	if not equipped:
 		list.append({"key": "bait", "name": "지렁이", "icon": m.V.tool_icons.worm, "desc": "보유 %d개" % m.bait})
+		for i in range(1,6):
+			if m.region_shop.stock(m,i)>0:
+				list.append({"key":"bait%d" % i,"name":m.region_shop.BAIT_NAMES[i],"icon":null,"desc":"보유 %d개 · 상점에서 선택" % m.region_shop.stock(m,i)})
 		list.append({"key": "ticket", "name": "하락 보호권", "icon": m.V.tool_icons.soul, "desc": "보유 %d장" % m.protection_tickets})
 	var pages := maxi(1, ceili(list.size() / 6.0))
 	page = clampi(page, 0, pages - 1)
@@ -136,7 +141,7 @@ func draw_inventory(m, r: Rect2, tab: String) -> void:
 		var d: Dictionary = list[index]
 		var row := Rect2(r.position + Vector2(11, 96 + i * 36), Vector2(218, 33))
 		m._ui_style_box(m.sb_chip, row)
-		m._ui_texture_rect(d.icon, Rect2(row.position + Vector2(4, 3), Vector2(26, 26)))
+		if d.icon: m._ui_texture_rect(d.icon, Rect2(row.position + Vector2(4, 3), Vector2(26, 26)))
 		m._text(d.name, row.position + Vector2(36, 13), 10, Color("513b29"), false, 124)
 		m._text(d.desc, row.position + Vector2(36, 26), 8, Color("77644d"), false, 124)
 		if ":" in str(d.key): button(m, Rect2(row.end.x - 49, row.position.y + 4, 45, 25), "탈착" if equipped else "장착", ("off:" if equipped else "on:") + d.key)

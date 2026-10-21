@@ -54,6 +54,16 @@ jobs:
           XDG_DATA_HOME="$RUNNER_TEMP/visual-testdata" "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --headless --path "$RUNNER_TEMP/project" --script tests/visual_verify.gd 2>&1 | tee "$RUNNER_TEMP/visual-tests.log"
           grep -F 'VISUAL_VERIFY failures=[]' "$RUNNER_TEMP/visual-tests.log"
           if grep -E 'SCRIPT ERROR:|Assertion failed' "$RUNNER_TEMP/visual-tests.log"; then exit 1; fi
+      - name: Verify guide, release mail and regional purchases
+        shell: bash
+        run: |
+          set -euo pipefail
+          for suite in guide shop; do
+            XDG_DATA_HOME="$RUNNER_TEMP/$suite-testdata" timeout 90 "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --headless --path "$RUNNER_TEMP/project" --script "tests/${suite}_verify.gd" > "$RUNNER_TEMP/$suite-tests.log" 2>&1
+            cat "$RUNNER_TEMP/$suite-tests.log"
+            grep -F 'VERIFY failures=[]' "$RUNNER_TEMP/$suite-tests.log"
+            if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' "$RUNNER_TEMP/$suite-tests.log"; then exit 1; fi
+          done
       - name: Export patch and matching manifest
         shell: bash
         run: |

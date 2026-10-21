@@ -18,6 +18,7 @@ func run() -> void:
 	check(m.measurement_max_cm(3)==20.0,"loach fixed 20cm ruler")
 	check(m.measurement_x(10.0)==135.0,"10cm loach occupies half ruler")
 	for sp in m.FISH_NAME.size(): check(m.species_max_cm(sp)<=150.0,"reservoir cap")
+	m.mailbox.read_ids=[];m.mailbox.deleted_ids=[]
 	var ids: Array=[]
 	for letter in m.mailbox.visible_letters():
 		check(letter.id not in ids,"unique mail "+letter.id);ids.append(letter.id)
@@ -37,4 +38,4 @@ func run() -> void:
 	m.guide.draw_button(m);m.mailbox.draw_button(m)
 	check(not m.guide.button.intersects(m.mailbox.button),"separate icon touch targets")
 	print("GUIDE_VERIFY failures=",failures)
-	m.queue_free();await process_frame;quit(0 if failures.is_empty() else 1)
+	m.S={"phase":"idle"};m.scene="village";m.queue_free();await process_frame;quit(0 if failures.is_empty() else 1)

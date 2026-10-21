@@ -99,6 +99,7 @@ func detail(m) -> void :
 	m._ui_style_box(m.sb_panel, r)
 	label(m, m.FISH_NAME[sp], Vector2(135, r.position.y + 31), 194, 14)
 	m._ui_fish(sp, Rect2(75, r.position.y + 49, 120, 58))
+	m._text("개인 최대어 %.1fcm" % float(m.REC.get(m.FISH_NAME[sp],0)),Vector2(135,r.position.y+111),9,Color("537455"),true,208)
 	var bag: Array = counts(m, sp, "bag"); var aqua: Array = counts(m, sp, "aqua")
 	var history: Array = m.catch_counts.get(m.FISH_NAME[sp], [0, 0, 0, 0, 0])
 	m._text("등급       보관   전시   누적", Vector2(135, r.position.y + 125), 9, Color("7c6448"), true, 208)
