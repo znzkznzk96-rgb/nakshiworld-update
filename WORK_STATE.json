@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "task": "3종 외형 수정",
-  "status": "paused_after_medaka_quality_failure",
+  "task": "3종 사용자 승인 재생성",
+  "status": "three_generated_quality_shortfalls",
   "work_branch": "work/valley-fish-art",
   "release_baseline": "v0.68",
   "target_version": "unreleased",
   "deployment_changed": false,
   "phone_confirmation": "0.68 실기기 업데이트 확인 대기",
-  "next_step": "조약돌고기 검토. 물방울송사리 턱 형태 실패 수정방향 확인. 배후의 산천어 미생성.",
+  "next_step": "결과 사용자 검토. 조약돌 돌개수/배후산천어 괴물형 미흡. 무단 추가생성 금지.",
   "apk_sha256": "e2b5e3884cc51f2d9136f171d2d3d5e7722dacea2a5fc062638972d33551ea13",
   "source_commit": "490716328702776e0b7bfc629133d38bdd69cc15",
   "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v0.68",
@@ -28,9 +28,9 @@
   "art_status": "not_ready_for_game",
   "generation_paused": true,
   "art_rules": "docs/FISH_ART_RULES.md",
-  "last_task_api_calls": 2,
-  "last_task_billed_generations": 2,
+  "last_task_api_calls": 3,
+  "last_task_billed_generations": 3,
   "leaf_retry_path": "assets_pending/leaf_tail_retry",
   "generated_fish_v2": 20,
-  "art_path": "assets_pending/valley_fish_revision3"
+  "art_path": "assets_pending/valley_fish_revision4"
 }
