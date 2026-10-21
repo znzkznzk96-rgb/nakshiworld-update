@@ -18,6 +18,17 @@ var topic := 0
 var detail_page := 0
 const Reader = preload("res://addons/reservoir/topic_reader.gd")
 func sections(letter: Dictionary) -> Array:
+	# Curated presentation, separate from the complete release archive.
+	if letter.id == "0.67":
+		return [
+			{"name":"물고기","icon":"fish","body":[letter.body[0],letter.body[1]],"display":["눈과 비늘을 더 선명하게!","몸통은 유지하고 꼬리는 유연하게."]},
+			{"name":"우편·가이드","icon":"","body":[letter.body[2]],"display":["필요한 주제를 탭으로 골라요.","그림과 짧은 설명으로 살펴보세요."]},
+			{"name":"장비·보상","icon":"tackle","body":letter.body.slice(3),"display":["자격증·미끼 그림 6종씩 추가!","번들에 라이선스와 비늘 보상 표시.","낚싯대 6종을 한 화면에서 확인.","구매가 조정 · 판매가는 구매가 절반.","기증·보상 지급·새 낚시터는 준비 중."]}]
+	if letter.id == "0.66":
+		return [
+			{"name":"박물관","icon":"museum","body":letter.body.slice(0,3),"display":["번들 화면을 둘러볼 수 있어요.","안내 글씨와 창 크기를 정리했어요.","기증은 준비 중 · 기존 도감은 유지."]},
+			{"name":"물고기 연출","icon":"fish","body":[letter.body[3],letter.body[6]],"display":["몸통 변형과 오라 겹침을 줄였어요.","챔질 성공은 글자로 가볍게 표시!"]},
+			{"name":"소리","icon":"","body":letter.body.slice(4,6),"display":["마을에 갈매기와 뱃고동 추가.","버튼 소리는 낚시 물소리와 분리."]}]
 	var groups := [{"name":"콘텐츠","icon":"museum","body":[]},{"name":"연출","icon":"fish","body":[]},{"name":"소리·설정","icon":"","body":[]}]
 	for line in letter.body:
 		var group := 0
@@ -34,12 +45,7 @@ func unread() -> int:
 func mark(m, id: String) -> void :
 	if id not in read_ids: read_ids.append(id);m._save_game()
 func envelope(m, r: Rect2, col: Color) -> void :
-	m._ui_rect(r, Color("171913"));m._ui_rect(r.grow(-1), col)
-	m._ui_rect(Rect2(r.position + Vector2(2, 2), Vector2(r.size.x - 4, 2)), Color("fff4d5"))
-
-	for i in 6:
-		m._ui_rect(Rect2(r.position + Vector2(2 + i * 2, 4 + i), Vector2(2, 1)), Color("796246"))
-		m._ui_rect(Rect2(r.position + Vector2(r.size.x - 4 - i * 2, 4 + i), Vector2(2, 1)), Color("796246"))
+	m._ui_texture_rect(preload("res://art/guide64/mail.png"),Rect2(r.get_center()-Vector2(12,12),Vector2(24,24)))
 func draw_button(m) -> void :
 	button = Rect2(109, m.top_y + 2, 28, 27)
 	envelope(m, Rect2(button.position + Vector2(4, 8), Vector2(20, 13)), Color("e7d29c"))
@@ -74,7 +80,7 @@ func draw(m, h: float) -> void :
 				rects.tabs.append(tr)
 			Reader.illustration(m,groups[topic].icon,r.position.y+143)
 			m._text(groups[topic].name+" 업데이트",Vector2(135,r.position.y+218),13,Color("382619"),true,210)
-			rects.reader=Reader.draw(m,groups[topic].body,detail_page,r.position.y+242,r.end.y-81)
+			rects.reader=Reader.draw(m,groups[topic].get("display",groups[topic].body),detail_page,r.position.y+242,r.end.y-81,true)
 		var back := Rect2(25,r.end.y-42,220,28)
 		m._ui_style_box(m.sb_btn,back);m._text("목록으로",back.get_center()+Vector2(0,4),12,Color("382619"),true,206)
 		rects.back=back;return
@@ -95,8 +101,7 @@ func draw(m, h: float) -> void :
 		m._text("v" + letter.id, Vector2(x, row.position.y + 15), 10, Color("513b29"), false, 60)
 		if letter.id not in read_ids:
 			m._text("NEW", Vector2(row.end.x - 28, row.position.y + 15), 9, Color(0.85, 0.32, 0.12, 0.7 + 0.3 * sin(m.ui_clock * 5)), true, 46)
-		m._text(letter.title, Vector2(x, row.position.y + 30), 9, Color("513b29"), false, 178)
-		m._text(letter.summary, Vector2(x, row.position.y + 43), 8, Color("796b58"), false, 178)
+		m._text(m._ui_wrap(letter.title,9,174,1),Vector2(x,row.position.y+35),9,Color("513b29"),false,174)
 		rects.rows.append([row, letter.id])
 	if letters.is_empty(): m._text("우편함이 비었어요", Vector2(135, r.position.y + 150), 12, Color("796b58"), true, 218)
 	m._text("%d / %d" % [page + 1, pages], Vector2(135, r.end.y - 64), 9, Color("513b29"), true, 80)

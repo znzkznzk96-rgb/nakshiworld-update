@@ -14,7 +14,7 @@ func run() -> void:
 				check(line in remaining,"original mail item");remaining.erase(line)
 			var rebuilt:=""
 			for page in reader.pages(m,group.body):
-				check(page.size()<=7,"bounded page")
+				check(page.size()<=6,"bounded page")
 				for line in page:
 					rebuilt+=line;check(m._text_w(line,11)<=208,"wrapped width")
 			check(rebuilt=="".join(group.body),"mail content preserved")
@@ -23,6 +23,13 @@ func run() -> void:
 		for height in [480,540,600]:
 			m.ui_commands=[];m.text_items=[];m.mailbox.draw(m,height)
 			for item in m.text_items: check(item[1].y<height,"mail fits")
+	for letter in m.mailbox.letters:
+		for section in m.mailbox.sections(letter):
+			for sheet in reader.pages(m,section.get("display",section.body)):
+				check(sheet.size()<=6,"short visible page")
+		var label=m._ui_wrap(letter.title,9,174,1)
+		check("\n" not in label and m._text_w(label,9)<=174,"single-line mail label")
+	check(m.mailbox.sections(m.mailbox.letters[0]).size()==3,"curated B three subjects")
 	for tab in 5:
 		m.guide.tab=tab
 		for topic in 3:
