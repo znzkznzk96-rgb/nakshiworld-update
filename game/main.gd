@@ -467,7 +467,7 @@ func start_fight() -> void :
 	S.persona = "느긋함" if u < 0.34 else ("끈질김" if u < 0.67 else "날쌤")
 	S.pSpeed = 0.85 + 0.3 * u;S.pTurn = 1.15 - 0.3 * u;S.pRange = randf_range(0.85, 1.15)
 	msg = "누르면 감기, 떼면 풀기"
-	parts.clear();aura_hist.clear();reveal_c = Vector2.INF
+	parts.clear();aura_hist.clear();reveal_c = Vector2.INF;water_spawn_acc = 0.0;spawn_acc = 0.0
 	S.lesson = "";S.tut = false
 	if S.get("tutFish", false): S.tut = true;S.tutState = {"i": 0};tut_begin_step()
 	if S.grade > 0:
@@ -1519,7 +1519,7 @@ func _draw_fight(t: float, tip: Vector2) -> void :
 	if S.beh == "skim":
 		S.dartX = clamp(S.dartX + S.skimDir * (2.2 + 2.0 * F) * dtd * 60, 33 - S.fx, 252 - S.fx)
 		fx = clamp(S.fx + S.dartX, 33, 252);fy = WATER + 12
-		if randf() < 0.7: parts.append({"kind": "drop", "p": Vector2(fx - S.skimDir * 10, WATER - 1), "v": Vector2( - S.skimDir * randf_range(10, 40), randf_range(-60, -25)), "life": 0.5, "max": 0.5, "col": Color(0.9, 0.97, 1.0), "ph": 0.0, "sz": 1})
+		if parts.size() < 90 and randf() < 0.7: parts.append({"kind": "drop", "p": Vector2(fx - S.skimDir * 10, WATER - 1), "v": Vector2( - S.skimDir * randf_range(10, 40), randf_range(-60, -25)), "life": 0.5, "max": 0.5, "col": Color(0.9, 0.97, 1.0), "ph": 0.0, "sz": 1})
 		_ripple(fx - S.skimDir * 6, 8, 0.5)
 	if run: fy -= sin(S.get("turnK", 0.0) * PI) * (5.0 - 2.0 * F)
 	if near > 0 and S.beh != "jump":
@@ -1750,6 +1750,7 @@ func _fx_init() -> void :
 	RenderingServer.canvas_item_set_draw_behind_parent(fx_rid[0], true)
 
 func _fx_px(rid: RID, x: float, y: float, w: int, h: int, col: Color) -> void :
+	if S.phase == "fight" and S.has("tensionHud") and Rect2(S.tensionHud, Vector2(44, 8)).grow(4).intersects(Rect2(x, y, w, h)): return
 	RenderingServer.canvas_item_add_rect(rid, Rect2(int(x), int(y), w, h), col)
 
 func _fx_draw(t: float) -> void :
@@ -1861,14 +1862,14 @@ func _fx_update(dt: float, t: float) -> void :
 	var pts: Array = aura.pts
 	if reveal_pending and g > 0:
 		reveal_pending = false;reveal_c = aura.c;reveal_g = g
-		for i in 10 + g * 5:
+		for i in mini(10 + g * 5, maxi(0, 90 - parts.size())):
 			var a: = randf() * TAU
 			parts.append({"kind": "burst", "p": aura.c, "v": Vector2(cos(a), sin(a) * 0.7) * randf_range(40, 80), "life": 0.6, "max": 0.6, "col": _aura_col(g, t, 1, i), "ph": 0.0, "sz": 2})
 	_spawn_action_water(dt)
 	var rate: float = [0, 9, 13, 18, 23][g]
 	var fast: bool = S.beh == "run" or S.beh == "charge" or S.beh == "jump"
 	if fast: rate *= 1.6
-	spawn_acc += rate * dt
+	spawn_acc = minf(3.0, spawn_acc + rate * dt)
 	while spawn_acc >= 1.0 and parts.size() < 90:
 		spawn_acc -= 1.0
 		var k: = randi() % pts.size()
@@ -2618,7 +2619,10 @@ func _shot_mode() -> void :
 		_switch_scene("village");V.open_shop(self, "forge");V.forge_tab = "upgrade"
 		gold = 50000;souls = 500;V.enhancement.start(self, 0.0);V.enhancement.elapsed = 0.3
 	Engine.time_scale = 1.0 if state == "result_rec" else 0.15
-	for i in 40: await get_tree().process_frame
+	if "--vfx-check" in args:
+		Engine.time_scale = 1.0;TUT.done = true;tip_t = 0.0;toast_t = 0.0;judge_t = 0.0;reveal_pending = false;reveal_t = 0.0
+		S.fx = 160.0;S.fy = WATER + 95.0;S.dispY = WATER + 95.0;S.bt = 99.0
+	for i in (120 if "--vfx-check" in args else 40): await get_tree().process_frame
 	await RenderingServer.frame_post_draw
 	await RenderingServer.frame_post_draw
 	get_tree().root.get_texture().get_image().save_png(out)
