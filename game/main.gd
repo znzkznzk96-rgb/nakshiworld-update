@@ -89,6 +89,7 @@ var tip_t: = 0.0
 var tex_sign: Texture2D
 var scene: = "fish"
 var V = preload("res://village.gd").new()
+var guide = preload("res://addons/reservoir/guide.gd").new()
 var mailbox = preload("res://addons/reservoir/mailbox.gd").new()
 var drag_player: AudioStreamPlayer
 var equipment = preload("res://addons/reservoir/equipment.gd").new()
@@ -405,11 +406,13 @@ func start_wait() -> void :
 	var gp: = []
 	for i in 5: gp.append(GRADE_P[i] * pow(0.85, i) if bare else GRADE_P[i])
 	S = {"phase": "wait", "star": pick(sp_w), "grade": pick(gp), "fakes": [], "bare": bare}
-	S.lf = max(0.5, 1.0 + gauss() * 0.15)
+	S.lf = clampf(1.0 + gauss() * 0.15, 0.5, 1.65)
 	S.size = 0 if S.lf < 0.9 else (1 if S.lf < 1.15 else (2 if S.lf < 1.35 else 3))
 	var list: Array = BY_STAR[S.star]
 	S.sp = list[randi() % list.size()]
 	if not TUT.done: S.star = 0;S.grade = 0;S.tutFish = true;S.sp = 1
+	S.lf = minf(S.lf, species_max_cm(S.sp) / FISH_LEN[S.sp])
+	S.size = 0 if S.lf < 0.9 else (1 if S.lf < 1.15 else (2 if S.lf < 1.35 else 3))
 	S.biteAt = clock + randf_range(BITE_WAIT[0], BITE_WAIT[1]) * (BAIT_WAIT_MUL if S.bare else 1.0) * (3.5 if pond_stock <= 0.0 else lerpf(1.0, 1.6, 1.0 - stock_ratio))
 	S.fakeI = 0;ripples.clear()
 	var t: = clock + randf_range(0.5, 0.9)
@@ -542,9 +545,9 @@ func _next_behavior_pick(g: int, c: float, r: float, x: float, pRun: float, pJum
 
 const LESSON: = {
 	"swim": {"t": "헤엄", "hand": ["hold", "꾹 누르기"], "text": "꼬리를 천천히 흔들 땐 그냥 감으면 돼요.", "anim": [["swim", 1.2]]}, 
-	"tell": {"t": "웅크림 → 돌진", "hand": ["rel", "손 떼기"], "text": "몸을 C자로 말면 곧 돌진해요. 웅크리는 순간 미리 손을 떼요.", "anim": [["tell", 0.9], ["run", 1.1]]}, 
+	"tell": {"t": "웅크림 → 돌진", "hand": ["rel", "손 떼기"], "text": "몸을 C자로 말면 곧 돌진해요. 웅크리는 순간 미리 손을 떼요.", "anim": [["swim", 0.5], ["tell", 0.9], ["run", 1.1], ["rest", 0.5]]}, 
 	"rest": {"t": "축 늘어짐", "hand": ["hold", "꾹 누르기"], "text": "지쳐서 축 늘어지면 기회! 이때 꾹 감아요.", "anim": [["rest", 1.4]]}, 
-	"jump": {"t": "솟구침 → 점프", "hand": ["rel", "손 떼기 → 떨어질 때 탭"], "text": "머리를 들고 솟구치면 곧 점프해요. 손을 떼고, 물에 떨어지는 순간 탭!", "anim": [["rise", 0.8], ["jump", 0.9]]}, 
+	"jump": {"t": "솟구침 → 점프", "hand": ["rel", "손 떼기 → 떨어질 때 탭"], "text": "머리를 들고 솟구치면 곧 점프해요. 손을 떼고, 물에 떨어지는 순간 탭!", "anim": [["rise", 0.8], ["jump", 0.9], ["land", 0.4], ["rest", 0.6]]}, 
 	"spike": {"t": "급당김", "hand": ["rel", "잠깐 손 떼기"], "text": "예고 없이 머리를 홱 흔들어요. 잠깐 손을 뗐다가 다시 감아요.", "anim": [["swim", 0.7], ["spike", 0.5]]}, 
 	"charge": {"t": "몸 돌림 → 역돌진", "hand": ["hold", "꾹 누르기"], "text": "나를 향해 몸을 돌리면 내 쪽으로 돌진해요. 줄이 느슨해지니까 손을 떼지 말고 꾹 감아요.", "anim": [["turn", 0.7], ["charge", 1.0]], "face": -1}, 
 	"dive": {"t": "머리 숙임 → 잠수", "hand": ["rel", "짧게 손 떼기"], "text": "머리를 숙이고 꼬리를 치켜들면 곧 아래로 파고들어요. 손을 떼되, 너무 오래 떼면 거리를 잃어요.", "anim": [["nose", 0.7], ["dive", 1.0]]}, 
@@ -552,7 +555,7 @@ const LESSON: = {
 	"sulk": {"t": "버티기", "hand": ["pump", "짧게 감았다 떼기"], "text": "바닥에 딱 붙어 버텨요. 계속 감으면 텐션만 올라요. 톡톡 짧게 감았다 떼기를 반복해요.", "anim": [["sulk", 2.0]]}, 
 	"circle": {"t": "맴돌기", "hand": ["hold", "다가올 때만 감기"], "text": "원을 그리며 돌아요. 나한테 다가올 때 감고, 멀어질 땐 손을 떼요.", "anim": [["circle", 2.4]]}, 
 	"thrash": {"t": "몸부림", "hand": ["pump", "출렁일 때 떼기"], "text": "제자리에서 몸을 마구 비틀어요. 크게 비틀 때마다 잠깐 떼고, 사이사이 감아요.", "anim": [["thrash", 1.8]]}, 
-	"skim": {"t": "수면 질주", "hand": ["rel", "떼기 → 멈추면 감기"], "text": "수면으로 올라와 물보라를 끌며 달려요. 손을 떼고, 물보라가 멈추는 순간 감으면 보너스!", "anim": [["skim", 1.4]]}, 
+	"skim": {"t": "수면 질주", "hand": ["rel", "떼기 → 멈추면 감기"], "text": "수면으로 올라와 물보라를 끌며 달려요. 손을 떼고, 물보라가 멈추는 순간 감으면 보너스!", "anim": [["skim", 1.4], ["rest", 0.4]]}, 
 }
 const TUT_STEPS: = [
 	{"key": "swim", "ask": "헤엄칠 땐 꾹 눌러 감기", "demo": [["swim", 1.8]], "need": 1}, 
@@ -820,6 +823,27 @@ func time_scale() -> float:
 	return 1.0
 
 
+func lesson_frame(key: String, elapsed: float) -> Dictionary:
+	var sequence: Array = LESSON[key].anim
+	var total := 0.0
+	for step in sequence: total += float(step[1]) * 2.0
+	var remaining := fposmod(elapsed, total)
+	var index := 0
+	while index < sequence.size()-1 and remaining >= float(sequence[index][1])*2.0:
+		remaining -= float(sequence[index][1])*2.0;index += 1
+	var beh: String = sequence[index][0]
+	var k: float = remaining / (float(sequence[index][1])*2.0)
+	var cue: String = LESSON[key].hand[1]
+	if key == "jump": cue = "착수! 지금 탭" if beh == "land" else ("다시 감기" if beh == "rest" else "공중에서는 손 떼기" if beh == "jump" else "전조 · 미리 손 떼기")
+	elif key == "tell": cue = "웅크림 · 지금 손 떼기" if beh == "tell" else ("돌진 중 · 손 떼기" if beh == "run" else "꾹 눌러 감기")
+	elif key == "skim": cue = "멈춤! 지금 감기" if beh == "rest" else "물보라 동안 손 떼기"
+	elif key == "spike": cue = "급당김! 잠깐 떼기" if beh == "spike" else "꾹 눌러 감기"
+	elif key == "circle": cue = "다가오는 중 · 감기" if sin(k * TAU) > 0 else "멀어지는 중 · 떼기"
+	elif key == "thrash": cue = "크게 비틀 때 · 떼기" if sin(remaining / 2.0 * 9.0) > 0.4 else "사이사이 · 감기"
+	elif key == "dive": cue = "머리 숙임 · 미리 떼기" if beh == "nose" else "잠수 중 · 손 떼기"
+	elif key == "charge": cue = "몸 돌림 · 계속 감기" if beh == "turn" else "다가오는 중 · 꾹 감기"
+	return {"beh": beh, "k": k, "cue": cue, "motion_time": remaining / 2.0}
+
 func _draw_lesson_card(t: float) -> void :
 	ui_demo = true
 	var L: Dictionary = LESSON[lesson_key]
@@ -828,31 +852,23 @@ func _draw_lesson_card(t: float) -> void :
 	_ui_style_box(sb_panel, Rect2(20, 150, 230, 330 if lesson_after == "practice" or S.get("tut", false) else 300))
 
 	var bx: = 45.0
-	var by: = 172.0
-	_ui_rect(Rect2(bx, by, 180, 84), Color("2a5c76"))
-	_ui_rect(Rect2(bx, by, 180, 18), Color("3d7d97"))
-	_ui_rect(Rect2(bx, by + 18, 180, 1), Color(1, 1, 1, 0.5))
-	var important := ["jump", "dive", "charge", "spike", "clone", "thrash", "skim"]
-	var durations: Array = []
-	var total := 0.0
-	for a in L.anim:
-		var duration: float = float(a[1]) * (2.4 if a[0] in important else 1.0)
-		durations.append(duration);total += duration
-	var tt := fposmod(ui_clock - lesson_clock, total)
-	var i := 0
-	while i < durations.size() - 1 and tt >= durations[i]: tt -= durations[i];i += 1
-	var beh: String = L.anim[i][0]
-	var k: float = tt / durations[i]
-	t = (float(i) + k) * 1100.0
+	var by: = 166.0
+	_ui_rect(Rect2(bx, by, 180, 94), Color("2a5c76"))
+	_ui_rect(Rect2(bx, by, 180, 32), Color("3d7d97"))
+	_ui_rect(Rect2(bx, by + 32, 180, 1), Color(1, 1, 1, 0.5))
+	var frame := lesson_frame(lesson_key, ui_clock - lesson_clock)
+	var beh: String = frame.beh
+	var k: float = frame.k
+	t = frame.motion_time * 1000.0
 	var demo_sp: int = int(S.get("sp", 1))
-	if beh in important:
-		_text("!  지금이 대응할 순간", Vector2(135, by + 12), 9, Color("ffe28b"), true, 170)
-		_text("슬로 모션", Vector2(135, by + 79), 8, Color("ffe8a8"), true, 164)
 	var x: = bx + 90.0
 	var y: = by + 50.0
-	if beh == "rise": y = by + 50 - 26 * k * k
-	if beh == "jump": y = by + 18 - sin(k * PI) * 16
-	if beh == "run": x = bx + 90 + sin(t / 90.0) * 32
+	if beh == "rise": y = by + 62 - 30 * k * k
+	if beh == "jump": y = by + 32 - sin(k * PI) * 19
+	if beh == "land":
+		y = by + 32 + k * 20
+		for j in 5: _ui_rect(Rect2(bx + 70 + j * 10, by + 31 - sin(k * PI) * 5, 3, 2), Color("d9faff"))
+	if beh == "run": x = bx + 48 + k * 95
 	if beh == "charge": x = bx + 112 - 50 * k
 	if beh == "nose": y = by + 42
 	if beh == "dive": y = by + 42 + 28 * k;x = bx + 90 + 22 * k
@@ -860,8 +876,8 @@ func _draw_lesson_card(t: float) -> void :
 	if beh == "circle": x = bx + 90 + cos(k * TAU) * 40;y = by + 48 + sin(k * TAU) * 16
 	if beh == "thrash": x = bx + 90 + sin(t / 30.0) * 2
 	if beh == "skim":
-		y = by + 24;x = bx + 30 + 120 * k
-		for j in 4: _ui_rect(Rect2(int(x - 18 - j * 7), by + 16 - (j % 2) * 2, 3, 2), Color(0.9, 0.97, 1, 0.8))
+		y = by + 36;x = bx + 30 + 120 * k
+		for j in 4: _ui_rect(Rect2(int(x - 18 - j * 7), by + 30 - (j % 2) * 2, 3, 2), Color(0.9, 0.97, 1, 0.8))
 	var face: float = -1.0 * float(L.get("face", 1))
 	if beh == "circle": face = 1.0 if sin(k * TAU) > 0 else -1.0
 	if beh == "skim": face = -1.0
@@ -873,14 +889,14 @@ func _draw_lesson_card(t: float) -> void :
 			var p: = Vector2(bx + 90 + (pos[j][0] - bx - 90) * sp, by + 54 + (pos[j][1] - by - 54) * sp)
 			_shadow_fish(p, 0, 0, t + j * 137, "run" if j == 2 else "rest", false, 2.0, {}, t / 1000.0 * TAU * 2, demo_sp, -1.0, 1.0)
 	else:
-		_shadow_fish(Vector2(x, y), 0, 0, t, "swim" if beh == "spike" else beh, beh == "spike", 2.2, {}, t / 1000.0 * TAU * (3.0 if beh == "run" else 1.2), demo_sp, face, 1.0)
-	_text(L.t, Vector2(VW / 2.0, 280), 14, Color("382619"), true, 200)
+		_shadow_fish(Vector2(x, y), 0, 0, t, "swim" if beh == "spike" else ("rest" if beh == "land" else beh), beh == "spike", 2.2, {}, t / 1000.0 * TAU * (3.0 if beh == "run" else 1.2), demo_sp, face, 1.0)
+	_text(L.t, Vector2(VW / 2.0, 280), 12, Color("382619"), true, 200)
 	var hc: = Color("7cc96a") if L.hand[0] == "hold" else (Color("ff9a3c") if L.hand[0] == "rel" else (Color("ffd24a") if L.hand[0] == "pump" else Color("7fb6ff")))
-	var hw: = ceilf(_text_w(L.hand[1], 9)) + 24
+	var hw: = ceilf(_text_w(frame.cue, 9)) + 24
 	sb_chip.modulate_color = hc.lerp(Color.WHITE, 0.35)
 	_ui_style_box(sb_chip, Rect2(VW / 2.0 - hw / 2, 288, hw, 25))
 	sb_chip.modulate_color = Color.WHITE
-	_text(L.hand[1], Vector2(VW / 2.0, 304), 9, Color("3a2414"), true, hw)
+	_text(frame.cue, Vector2(VW / 2.0, 304), 9, Color("3a2414"), true, hw)
 	_text(_ui_wrap(L.text, 11, 196, 3), Vector2(VW / 2.0, 330), 11, Color("382619"), true, 196)
 	_text(_ui_wrap(LESSON_EXTRA.get(lesson_key, "몸짓의 예고를 보고 손을 바꿔 보세요."), 10, 198, 3), Vector2(135, 389), 10, Color("68533d"), true, 198)
 	_text("아무 곳이나 탭하면 계속", Vector2(VW / 2.0, 432), 9, Color("5a3e28"), true)
@@ -971,7 +987,7 @@ func update_fight(dt: float) -> void :
 	if S.dist >= 100: start_catch()
 
 func sfx_update(dt: float) -> void :
-	var active: bool = scene == "fish" and not title_open and S.phase == "fight" and holding and not settings_open and not market_open and not mailbox.opened and SET.sfx > 0.01
+	var active: bool = scene == "fish" and not title_open and S.phase == "fight" and holding and not settings_open and not market_open and not mailbox.opened and not guide.opened and SET.sfx > 0.01
 	if not active:
 		drag_player.stop();return
 	drag_player.volume_db = linear_to_db(SET.sfx) - 5.0
@@ -1022,6 +1038,9 @@ func _unhandled_input(e: InputEvent) -> void :
 	if title_open:
 		if e is InputEventMouseButton and e.button_index == MOUSE_BUTTON_LEFT and e.pressed: title_screen.press(self, e.position - Vector2(ox, 0))
 		return
+	if guide.opened:
+		if e is InputEventMouseButton and e.button_index == MOUSE_BUTTON_LEFT and e.pressed: guide.press(self, e.position - Vector2(ox, 0))
+		return
 	if mailbox.opened:
 		if e is InputEventMouseButton and e.button_index == MOUSE_BUTTON_LEFT and e.pressed: mailbox.press(self, e.position - Vector2(ox, 0))
 		return
@@ -1041,8 +1060,11 @@ func _unhandled_input(e: InputEvent) -> void :
 func press(pos: = Vector2.ZERO) -> void :
 	if title_open: title_screen.press(self, pos);return
 	if not trans.is_empty(): return
+	if guide.opened: guide.press(self, pos);return
 	if mailbox.opened: mailbox.press(self, pos);return
 	if not equipment.pending_sale.is_empty(): equipment.press_confirmation(self, pos);return
+	if scene == "village" and guide.button.has_point(pos) and V.shop == "" and not market_open and not settings_open:
+		guide.opened = true;menu_open = false;holding = false;return
 	if scene == "village" and mailbox.button.has_point(pos) and V.shop == "" and not market_open and not settings_open:
 		mailbox.opened = true;menu_open = false;holding = false;return
 	if not V.commerce.pending.is_empty(): V.commerce.press(V, self, pos);return
@@ -1108,7 +1130,7 @@ func _process(dt: float) -> void :
 		if not trans.done and trans.t >= TR_CLOSE + 0.1:
 			trans.done = true;_switch_scene(trans.to)
 		if trans.t >= TR_CLOSE + TR_HOLD + TR_OPEN: trans = {}
-	if settings_open or market_open or not V.commerce.pending.is_empty() or not equipment.pending_sale.is_empty() or inventory.selected >= 0: queue_redraw();return
+	if guide.opened or mailbox.opened or settings_open or market_open or not V.commerce.pending.is_empty() or not equipment.pending_sale.is_empty() or inventory.selected >= 0: queue_redraw();return
 	if scene == "spots": spots.process(dt);queue_redraw();return
 	if scene == "village":
 		toast_t = max(0.0, toast_t - dt);judge_t = max(0.0, judge_t - dt)
@@ -1225,6 +1247,7 @@ func _draw_overlays(t: float, h: float) -> void :
 	inventory.detail(self)
 	V.commerce.draw(V, self, h)
 	if mailbox.opened: mailbox.draw(self, h)
+	if guide.opened: guide.draw(self, h)
 	equipment.draw_confirmation(self, h)
 	_fx_draw(t)
 	_draw_trans(h)
@@ -1583,7 +1606,7 @@ func _shadow_fish(c: Vector2, star: int, grade: int, t: float, beh: String, spik
 	var curl: float = p.curl
 	var tilt: float = p.tilt
 	var stretch: float = 1.0 if revealed else p.stretch
-	if revealed:
+	if revealed and not ui_demo:
 		amp *= 0.55;curl *= 0.2
 	var tailAmp: float = p.tailAmp
 	if beh == "tell" or beh == "turn": curl += sin(t / 30.0) * 0.05
@@ -1954,8 +1977,16 @@ func _draw_landing(t: float, tip: Vector2) -> void :
 		_ripple(p.x, 8 + 4 * sin(t / 90.0), 0.6)
 		if randf() < 0.4: parts.append({"kind": "drop", "p": Vector2(p.x + randf_range(-8, 8), WATER - 1), "v": Vector2(randf_range(-20, 20), randf_range(-50, -25)), "life": 0.4, "max": 0.4, "col": Color(0.9, 0.97, 1.0), "ph": 0.0, "sz": 1})
 
-const MEASURE_MAX_CM: = 300.0
-func measurement_x(length_cm: float) -> float: return 35.0 + 200.0 * clampf(length_cm / MEASURE_MAX_CM, 0, 1)
+# Current playable reservoir. Locked future grounds have no invented limits.
+const RESERVOIR_MAX_CM := 150.0
+func species_max_cm(sp: int) -> float:
+	return minf(RESERVOIR_MAX_CM, FISH_LEN[clampi(sp, 0, FISH_LEN.size()-1)] * 1.65)
+func measurement_max_cm(sp: int) -> float:
+	for cap in [10.0, 20.0, 30.0, 50.0, 100.0, 150.0]:
+		if species_max_cm(sp) <= cap: return cap
+	return RESERVOIR_MAX_CM
+func measurement_x(length_cm: float) -> float:
+	return 35.0 + 200.0 * clampf(length_cm / measurement_max_cm(int(S.get("sp", 0))), 0, 1)
 func _hook_speed_at(pos: float, center: float, base: float) -> float:
 	return base * (1.0 + 0.55 * pow(clampf(1 - absf(pos - center) / 0.32, 0, 1), 2))
 func _draw_catch(t: float) -> void :
@@ -1982,12 +2013,12 @@ func _draw_catch(t: float) -> void :
 	var fw: float = measurement_x(float(S.len)) - 35
 	var fh: float = minf(23, fw * used.size.y / used.size.x)
 	_ui_texture_rect_region(fish_tex[int(S.sp)], Rect2(35, yy - 5 - fh, fw, fh), used)
-	for i in 31:
-		var xx: float = 35 + i * 200.0 / 30
+	for i in 21:
+		var xx: float = 35 + i * 10.0
 		_ui_rect(Rect2(roundf(xx), yy, 1, 8 if i % 5 == 0 else 4), Color("765638"))
-		if i % 5 == 0: _text(str(i * 10), Vector2(xx, yy + 22), 8, Color("765638"), true, 30)
+		if i % 5 == 0: _text(str(int(measurement_max_cm(S.sp) * i / 20.0)), Vector2(xx, yy + 22), 8, Color("765638"), true, 30)
 	_ui_rect(Rect2(roundf(mx), yy - 23, 1, 35), Color("b15336"))
-	_text("고정 눈금 0–300 cm" + (" · 눈금 초과" if S.len > MEASURE_MAX_CM else ""), Vector2(135, yy + 38), 9, Color("7c6448"), true, 216)
+	_text(("어종 눈금 0–%d cm" % int(measurement_max_cm(S.sp))) + (" · 이전 기록 초과" if S.len > measurement_max_cm(S.sp) else ""), Vector2(135, yy + 38), 9, Color("7c6448"), true, 216)
 	_text("%.1fcm · %s" % [measured, _wtxt(S.weight)], Vector2(135, r.position.y + 174), 14, Color("513b29"), true, 210)
 	_text("★%d · %s · %s" % [S.star + 1, GRADE_N[S.grade], TIER_NAME[tier_of(S.lf)]], Vector2(135, r.position.y + 192), 11, Color("66553f"), true, 210)
 	_text("새 기록!" if progress >= 1 and S.newRec else ("터치하면 결과 보기" if progress >= 1 else "물고기를 재고 있어요"), Vector2(135, r.end.y - 14), 10, Color("537455"), true, 210)
@@ -2097,7 +2128,8 @@ func _draw_ui(t: float, h: float) -> void :
 	_draw_weight(top_y + tex_hud_bar.get_height() + 1)
 	if scene == "village":
 		V.draw_bottom(self, h)
-		if V.shop == "" and not market_open and not settings_open: mailbox.draw_button(self)
+		if V.shop == "" and not market_open and not settings_open:
+			mailbox.draw_button(self);guide.draw_button(self)
 		_draw_notes()
 		return
 

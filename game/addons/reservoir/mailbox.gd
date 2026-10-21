@@ -6,6 +6,7 @@ const LETTERS: = [
 	{"id": "0.54", "title": "강화 정보와 물고기 표현 개선", "summary": "강화 재료 표시 · 물고기 선명도", "body": ["강화 성공률과 필요·보유 재료 강조", "상점 제목 옆에 서 있던 NPC 제거", "훅 성공 이후 과한 물고기 테두리 정리", "뜰채 진입 시 물고기 크기 변화 보정"]}, 
 	{"id": "0.53", "title": "구매 확인과 낚시터 선택", "summary": "구매 확인 · 가방 · 여섯 낚시터 카드", "body": ["아이템 이미지와 구매·취소 확인 창", "구매 완료 알림 애니메이션 추가", "가방 펼침 및 등급별 보유 수량 표시", "고정 범위 줄자로 물고기 길이 표시", "낚시터 선택 화면과 잠금 카드 추가", "마을 이동 버튼을 처음·중간·끝으로 정리"]}
 ]
+var letters: Array = preload("res://addons/reservoir/release_notes.gd").LETTERS + LETTERS
 var opened: = false
 var read_ids: Array = []
 var deleted_ids: Array = []
@@ -16,7 +17,7 @@ var page: = 0
 var button: = Rect2()
 var rects: = {}
 func visible_letters() -> Array:
-	return LETTERS.filter( func(l): return l.id not in deleted_ids)
+	return letters.filter( func(l): return l.id not in deleted_ids)
 func unread() -> int:
 	return visible_letters().filter( func(l): return l.id not in read_ids).size()
 func mark(m, id: String) -> void :
@@ -29,9 +30,8 @@ func envelope(m, r: Rect2, col: Color) -> void :
 		m._ui_rect(Rect2(r.position + Vector2(2 + i * 2, 4 + i), Vector2(2, 1)), Color("796246"))
 		m._ui_rect(Rect2(r.position + Vector2(r.size.x - 4 - i * 2, 4 + i), Vector2(2, 1)), Color("796246"))
 func draw_button(m) -> void :
-	button = Rect2(117, m.top_y + 5, 24, 21)
-	m._ui_style_box(m.sb_chip, button)
-	envelope(m, Rect2(button.position + Vector2(3, 5), Vector2(18, 12)), Color("e7d29c"))
+	button = Rect2(109, m.top_y + 2, 28, 27)
+	envelope(m, Rect2(button.position + Vector2(4, 8), Vector2(20, 13)), Color("e7d29c"))
 	if unread() > 0:
 		var glow: float = 0.7 + 0.3 * sin(m.ui_clock * 5)
 		m._text("NEW", button.position + Vector2(12, 1), 7, Color(1, 0.82, 0.28, glow), true, 32, true)
@@ -45,7 +45,7 @@ func draw(m, h: float) -> void :
 	m._ui_texture(m.icons.close, close.position)
 	rects = {"close": close.grow(3), "rows": []}
 	if detail != "":
-		for letter in LETTERS:
+		for letter in letters:
 			if letter.id != detail: continue
 			m._text("v%s · %s" % [letter.id, letter.title], Vector2(135, r.position.y + 58), 11, Color("513b29"), true, 220)
 			var y: float = r.position.y + 84

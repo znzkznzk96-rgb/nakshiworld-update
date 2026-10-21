@@ -34,6 +34,8 @@ jobs:
           echo "8905e55b141bb6f5411e3644c648c844bd86031fe8ce66dbc296c0603ff296b8  $RUNNER_TEMP/base.pck" | sha256sum -c -
           GDRE="$(find "$RUNNER_TEMP/gdre" -name gdre_tools.x86_64 -print -quit)"
           "$GDRE" --headless --recover="$RUNNER_TEMP/base.pck" --output="$RUNNER_TEMP/project"
+          python3 automation/prepare_release.py "$RUNNER_TEMP/release-notes.md"
+          git diff --exit-code -- game/addons/reservoir/release_notes.gd
           cp -a game/. "$RUNNER_TEMP/project/"
           GODOT="$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
           "$GODOT" --headless --editor --path "$RUNNER_TEMP/project" --import > "$RUNNER_TEMP/import.log" 2>&1
@@ -90,7 +92,7 @@ jobs:
             echo "Version exists with different source or an unfinished draft; increment the version or inspect the draft."
             exit 1
           fi
-          gh release create "$TAG" --target "$GITHUB_SHA" --draft --title "낚시월드 $TAG" --notes "복어 앱 아이콘, 수익 알림 겹침 해결, 캐릭터 외곽선, 행동별 물결·기포와 등급별 도트 오라 개선. 게임 콘텐츠는 자동 업데이트되며 앱 아이콘 변경은 새 APK 설치가 필요합니다."
+          gh release create "$TAG" --target "$GITHUB_SHA" --draft --title "낚시월드 $TAG" --notes-file "$RUNNER_TEMP/release-notes.md"
           gh release upload "$TAG" dist/patch.pck dist/version.json dist/game-source.zip
           gh release edit "$TAG" --draft=false --latest
       - uses: actions/upload-artifact@v4
