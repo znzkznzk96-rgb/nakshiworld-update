@@ -1,0 +1,27 @@
+{
+  "description": "Single right-facing side-view fish game sprite. Compact teal-backed cherry trout, cream silver belly, seven bold deep navy vertical oval parr marks with small vivid vermilion dots between, dark teal fins. Match the reference fish pixel technique: crisp one pixel dark outline, richly saturated colors, strong 3-4 tone clustered shading, visible bright eye, precise scales and fin rays, cozy detailed fishing RPG. Entire fish including fin tips inside canvas with margin, horizontal pose. Keep approved init silhouette. No extra objects.",
+  "negative_description": "text, grid, labels, frame, scenery, water background, multiple fish, blurry washed out pastel colors, watercolor, photorealism, glow hiding body, cropped fins",
+  "image_size": {
+    "width": 96,
+    "height": 64
+  },
+  "text_guidance_scale": 8,
+  "style_strength": 65,
+  "init_image_strength": 450,
+  "view": "side",
+  "direction": "east",
+  "no_background": true,
+  "outline": "single color outline",
+  "shading": "medium shading",
+  "detail": "medium detail",
+  "seed": 7108,
+  "name": "산천어",
+  "style_reference": "game/art/fish/l0_01.png",
+  "init_reference": "l1_08.reference.png",
+  "provider": "PixelLab v2/create-image-bitforge",
+  "sha256": "74f286d1264e3bb05db9242db161bb1f7ccc936c5720c80454f460f585ea1e0c",
+  "usage": {
+    "type": "generations",
+    "generations": 1.0
+  }
+}

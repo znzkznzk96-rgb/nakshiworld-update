@@ -1,0 +1,27 @@
+{
+  "description": "Single right-facing side-view fish game sprite. Large heavy blue violet catfish, pale lilac belly, very long thin white curling whiskers, clustered rounded thundercloud lobes forming tail and back, dark indigo shadows, broad head. Match the reference fish pixel technique: crisp one pixel dark outline, richly saturated colors, strong 3-4 tone clustered shading, visible bright eye, precise scales and fin rays, cozy detailed fishing RPG. Entire fish including fin tips inside canvas with margin, horizontal pose. Keep approved init silhouette. No extra objects.",
+  "negative_description": "text, grid, labels, frame, scenery, water background, multiple fish, blurry washed out pastel colors, watercolor, photorealism, glow hiding body, cropped fins",
+  "image_size": {
+    "width": 96,
+    "height": 64
+  },
+  "text_guidance_scale": 8,
+  "style_strength": 65,
+  "init_image_strength": 450,
+  "view": "side",
+  "direction": "east",
+  "no_background": true,
+  "outline": "single color outline",
+  "shading": "medium shading",
+  "detail": "medium detail",
+  "seed": 7118,
+  "name": "구름메기",
+  "style_reference": "game/art/fish/l0_01.png",
+  "init_reference": "l1_18.reference.png",
+  "provider": "PixelLab v2/create-image-bitforge",
+  "sha256": "58a7f319d9d6ed16750e0814f71d398246b08219554f8b981cd5026b16fcbe77",
+  "usage": {
+    "type": "generations",
+    "generations": 1.0
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "description": "Single right-facing side-view fish game sprite. Deep oval indigo-violet carp, bright lavender scales, exaggerated long curling pale lavender ribbon fins flowing upward and backwards, curved thin whiskers, large distinct dark eye. Match the reference fish pixel technique: crisp one pixel dark outline, richly saturated colors, strong 3-4 tone clustered shading, visible bright eye, precise scales and fin rays, cozy detailed fishing RPG. Entire fish including fin tips inside canvas with margin, horizontal pose. Keep approved init silhouette. No extra objects.",
+  "negative_description": "text, grid, labels, frame, scenery, water background, multiple fish, blurry washed out pastel colors, watercolor, photorealism, glow hiding body, cropped fins",
+  "image_size": {
+    "width": 96,
+    "height": 64
+  },
+  "text_guidance_scale": 8,
+  "style_strength": 65,
+  "init_image_strength": 450,
+  "view": "side",
+  "direction": "east",
+  "no_background": true,
+  "outline": "single color outline",
+  "shading": "medium shading",
+  "detail": "medium detail",
+  "seed": 7117,
+  "name": "거꾸로잉어",
+  "style_reference": "game/art/fish/l0_01.png",
+  "init_reference": "l1_17.reference.png",
+  "provider": "PixelLab v2/create-image-bitforge",
+  "sha256": "3c69d1676e95ce949ff9218ba07574993a1dea41bce523d7aeabff68a549a413",
+  "usage": {
+    "type": "generations",
+    "generations": 1.0
+  }
+}

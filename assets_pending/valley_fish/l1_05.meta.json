@@ -1,0 +1,27 @@
+{
+  "description": "Single right-facing side-view fish game sprite. Tiny cyan blue silver medaka, a distinctive large round transparent water-droplet belly with clear cyan rim and bright cream highlight, delicate pointed sky-blue fins, visible dark eye. Match the reference fish pixel technique: crisp one pixel dark outline, richly saturated colors, strong 3-4 tone clustered shading, visible bright eye, precise scales and fin rays, cozy detailed fishing RPG. Entire fish including fin tips inside canvas with margin, horizontal pose. Keep approved init silhouette. No extra objects.",
+  "negative_description": "text, grid, labels, frame, scenery, water background, multiple fish, blurry washed out pastel colors, watercolor, photorealism, glow hiding body, cropped fins",
+  "image_size": {
+    "width": 96,
+    "height": 64
+  },
+  "text_guidance_scale": 8,
+  "style_strength": 65,
+  "init_image_strength": 450,
+  "view": "side",
+  "direction": "east",
+  "no_background": true,
+  "outline": "single color outline",
+  "shading": "medium shading",
+  "detail": "medium detail",
+  "seed": 7105,
+  "name": "물방울송사리",
+  "style_reference": "game/art/fish/l0_01.png",
+  "init_reference": "l1_05.reference.png",
+  "provider": "PixelLab v2/create-image-bitforge",
+  "sha256": "cfe9dffdeff2e8a2c6fda651617eab25c8b1d0bb1f8494b3e1831f3ea2e35cdc",
+  "usage": {
+    "type": "generations",
+    "generations": 1.0
+  }
+}

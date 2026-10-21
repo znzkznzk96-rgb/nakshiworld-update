@@ -1,0 +1,368 @@
+{
+  "count": 20,
+  "billed_generations": 20.0,
+  "game_integrated": false,
+  "visual_status": "first_pass_requires_refinement",
+  "files": [
+    {
+      "file": "l1_00.png",
+      "size": [
+        96,
+        64
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "bounds": [
+        7,
+        15,
+        89,
+        47
+      ],
+      "sha256": "f03549e705741154925b8b5e0fe6cad1f6d8e45e8b5a5230491349a2ff05ca22"
+    },
+    {
+      "file": "l1_01.png",
+      "size": [
+        96,
+        64
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "bounds": [
+        7,
+        11,
+        89,
+        51
+      ],
+      "sha256": "d2f4563632afd2335439d1899d699be04512f6f2c007129628439f320337f20e"
+    },
+    {
+      "file": "l1_02.png",
+      "size": [
+        96,
+        64
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "bounds": [
+        8,
+        12,
+        86,
+        56
+      ],
+      "sha256": "d91374592bdb4fb2dbbc48cfe3a01f9fbd389f743574aee7c687b26684f3911d"
+    },
+    {
+      "file": "l1_03.png",
+      "size": [
+        96,
+        64
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "bounds": [
+        5,
+        12,
+        89,
+        54
+      ],
+      "sha256": "a1a1757d3cc0c742a2edb475ac67206fa6c2b1c12132a65c289d577c6aca18cb"
+    },
+    {
+      "file": "l1_04.png",
+      "size": [
+        96,
+        64
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "bounds": [
+        8,
+        7,
+        87,
+        57
+      ],
+      "sha256": "ff12b42b4e23b4e9133adeb34a7ed21c1f0faeb5b5461a1dbaa3ce3ccbcfc608"
+    },
+    {
+      "file": "l1_05.png",
+      "size": [
+        96,
+        64
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "bounds": [
+        14,
+        11,
+        78,
+        51
+      ],
+      "sha256": "cfe9dffdeff2e8a2c6fda651617eab25c8b1d0bb1f8494b3e1831f3ea2e35cdc"
+    },
+    {
+      "file": "l1_06.png",
+      "size": [
+        96,
+        64
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "bounds": [
+        6,
+        18,
+        88,
+        51
+      ],
+      "sha256": "7ea25da770c1171acea873d46fb1c1871044e7f42b4f27c36fb7b2c829a74dba"
+    },
+    {
+      "file": "l1_07.png",
+      "size": [
+        96,
+        64
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "bounds": [
+        8,
+        4,
+        86,
+        56
+      ],
+      "sha256": "a7c9419b03b458f044fb1a4cf18fd96c5bef012058860ed0c1ff03b5040a1a77"
+    },
+    {
+      "file": "l1_08.png",
+      "size": [
+        96,
+        64
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "bounds": [
+        11,
+        12,
+        86,
+        47
+      ],
+      "sha256": "74f286d1264e3bb05db9242db161bb1f7ccc936c5720c80454f460f585ea1e0c"
+    },
+    {
+      "file": "l1_09.png",
+      "size": [
+        96,
+        64
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "bounds": [
+        11,
+        12,
+        85,
+        49
+      ],
+      "sha256": "611bd1a1927ae086b3b1ac2f9e368db43e176883ee425a4cb3ce1c9679590d64"
+    },
+    {
+      "file": "l1_10.png",
+      "size": [
+        96,
+        64
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "bounds": [
+        9,
+        12,
+        85,
+        48
+      ],
+      "sha256": "ff8e0bae8e6eeae000ab9804d23bb0547ff3089387288bd2d99a7dd49cd39e81"
+    },
+    {
+      "file": "l1_11.png",
+      "size": [
+        96,
+        64
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "bounds": [
+        10,
+        5,
+        83,
+        56
+      ],
+      "sha256": "0228b0b5c44657c0e857817534d8ad043c74c7d794b8668fccae536bf122d081"
+    },
+    {
+      "file": "l1_12.png",
+      "size": [
+        96,
+        64
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "bounds": [
+        13,
+        8,
+        83,
+        49
+      ],
+      "sha256": "733079e549b24b6d48301ce118559d69f921ac7778b804aca1d1041f016be255"
+    },
+    {
+      "file": "l1_13.png",
+      "size": [
+        96,
+        64
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "bounds": [
+        12,
+        7,
+        84,
+        53
+      ],
+      "sha256": "60efce0c6c251a96b1a084f0f694154cc34bcfdc11a8eb0ac20f72d6c857abe0"
+    },
+    {
+      "file": "l1_14.png",
+      "size": [
+        96,
+        64
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "bounds": [
+        11,
+        11,
+        85,
+        50
+      ],
+      "sha256": "ccb49700d2e12ef3b3796110caf9b08436e32ac175cdceebedb4330146bda5b3"
+    },
+    {
+      "file": "l1_15.png",
+      "size": [
+        96,
+        64
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "bounds": [
+        12,
+        5,
+        82,
+        53
+      ],
+      "sha256": "1bef2a5df57c73c7ca895bb68d32b605f9cab147ea4bf1ae3170e11997a4647c"
+    },
+    {
+      "file": "l1_16.png",
+      "size": [
+        96,
+        64
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "bounds": [
+        16,
+        11,
+        81,
+        60
+      ],
+      "sha256": "25eb1d225ff1c66e046cfa19bf60ef5f1226b4b47442ed7bfe56832b8b44d9ff"
+    },
+    {
+      "file": "l1_17.png",
+      "size": [
+        96,
+        64
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "bounds": [
+        15,
+        4,
+        81,
+        59
+      ],
+      "sha256": "3c69d1676e95ce949ff9218ba07574993a1dea41bce523d7aeabff68a549a413"
+    },
+    {
+      "file": "l1_18.png",
+      "size": [
+        96,
+        64
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "bounds": [
+        14,
+        13,
+        77,
+        52
+      ],
+      "sha256": "58a7f319d9d6ed16750e0814f71d398246b08219554f8b981cd5026b16fcbe77"
+    },
+    {
+      "file": "l1_19.png",
+      "size": [
+        96,
+        64
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "bounds": [
+        15,
+        6,
+        80,
+        60
+      ],
+      "sha256": "f76d08646db9a37a9266e684548513473d92ede27f786d6c7a946083d90c67db"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "description": "Single right-facing side-view fish game sprite. Streamlined cobalt-blue salmon with peach orange belly, enormously elongated wing-like pale blue and cream pectoral fins sweeping backwards below body, silver speckles on blue back. Match the reference fish pixel technique: crisp one pixel dark outline, richly saturated colors, strong 3-4 tone clustered shading, visible bright eye, precise scales and fin rays, cozy detailed fishing RPG. Entire fish including fin tips inside canvas with margin, horizontal pose. Keep approved init silhouette. No extra objects.",
+  "negative_description": "text, grid, labels, frame, scenery, water background, multiple fish, blurry washed out pastel colors, watercolor, photorealism, glow hiding body, cropped fins",
+  "image_size": {
+    "width": 96,
+    "height": 64
+  },
+  "text_guidance_scale": 8,
+  "style_strength": 65,
+  "init_image_strength": 450,
+  "view": "side",
+  "direction": "east",
+  "no_background": true,
+  "outline": "single color outline",
+  "shading": "medium shading",
+  "detail": "medium detail",
+  "seed": 7116,
+  "name": "하늘연어",
+  "style_reference": "game/art/fish/l0_01.png",
+  "init_reference": "l1_16.reference.png",
+  "provider": "PixelLab v2/create-image-bitforge",
+  "sha256": "25eb1d225ff1c66e046cfa19bf60ef5f1226b4b47442ed7bfe56832b8b44d9ff",
+  "usage": {
+    "type": "generations",
+    "generations": 1.0
+  }
+}

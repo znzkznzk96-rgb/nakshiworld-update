@@ -1,0 +1,27 @@
+{
+  "description": "Single right-facing side-view fish game sprite. Imposing long dark teal cherry-trout boss, cream silver belly, row of seven large black oval parr marks each outlined vivid crimson red, exaggerated jagged black swept fins edged crimson, large forked dark tail, intimidating but anatomically fish-like head. Preserve normal right-facing trout anatomy, no reversed head. Match the reference fish pixel technique: crisp one pixel dark outline, richly saturated colors, strong 3-4 tone clustered shading, visible bright eye, precise scales and fin rays, cozy detailed fishing RPG. Entire fish including fin tips inside canvas with margin, horizontal pose. Keep approved init silhouette. No extra objects.",
+  "negative_description": "text, grid, labels, frame, scenery, water background, multiple fish, blurry washed out pastel colors, watercolor, photorealism, glow hiding body, cropped fins",
+  "image_size": {
+    "width": 96,
+    "height": 64
+  },
+  "text_guidance_scale": 8,
+  "style_strength": 65,
+  "init_image_strength": 450,
+  "view": "side",
+  "direction": "east",
+  "no_background": true,
+  "outline": "single color outline",
+  "shading": "medium shading",
+  "detail": "medium detail",
+  "seed": 7119,
+  "name": "배후의 산천어",
+  "style_reference": "game/art/fish/l0_01.png",
+  "init_reference": "l1_19.reference.png",
+  "provider": "PixelLab v2/create-image-bitforge",
+  "sha256": "f76d08646db9a37a9266e684548513473d92ede27f786d6c7a946083d90c67db",
+  "usage": {
+    "type": "generations",
+    "generations": 1.0
+  }
+}
