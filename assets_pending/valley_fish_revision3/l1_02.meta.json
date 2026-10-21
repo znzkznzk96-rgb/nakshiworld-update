@@ -1,0 +1,26 @@
+{
+  "description": "Highly detailed 16-bit pixel art side view of ONE fish, full body facing right, transparent background. saturated deep cobalt blue fish skin, cool slate grey stone tops with bright pale blue highlights and dark navy crevices, ivory belly. Rounded blue fish with SIX REAL THREE-DIMENSIONAL RIVER STONES EMBEDDED HALFWAY IN ITS FLANK SKIN. Each irregular slate stone has a raised domed top, light upper facets, dark lower facets, fine cracks and a dark recessed skin rim where the stone enters flesh. Exposed blue scales between stones. Stones are not painted spots, not crystals, not stacked on the back. Stubby rounded fins. Crisp black outline, individually shaded scales, rounded body light and shadow, detailed gills, bright eye highlight, detailed fin rays. Whole subject visible with margin.",
+  "negative_description": "flat color fill, flat icon, featureless body, vector art, cartoon outline only, faded colors, gray veil, washed out, yellow tint, blur, noisy random dots, excessive dithering, paper, text, scene, water background, multiple fish, clipped fins",
+  "image_size": {
+    "width": 96,
+    "height": 64
+  },
+  "text_guidance_scale": 10,
+  "view": "side",
+  "direction": "east",
+  "no_background": true,
+  "outline": "single color outline",
+  "shading": "detailed shading",
+  "detail": "highly detailed",
+  "seed": 93302,
+  "name": "조약돌고기",
+  "comparison_reference": "l0_18.png",
+  "comparison_sha256": "a87f59d881fbd6fe0027a8c9008e95a9849eeb6552d55ba5b1dee634dc690787",
+  "reference_sent": false,
+  "provider": "PixelLab/create-image-pixflux",
+  "usage": {
+    "type": "generations",
+    "generations": 1.0
+  },
+  "sha256": "b0b546eeef5960d33528f5b914d31631827bcc00192afb431197fcc9fcbd24d2"
+}

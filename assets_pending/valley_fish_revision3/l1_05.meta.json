@@ -1,0 +1,26 @@
+{
+  "description": "Highly detailed 16-bit pixel art side view of ONE fish, full body facing right, transparent background. vivid cyan blue back, bright turquoise swollen chin with pale mint highlights and deep teal shadows, dark blue thin fin rays. Slender medaka fish with a VERY LARGE INFLATED LOWER JAW AND THROAT POUCH, like a bullfrog inflated throat integrated directly into the underside of the head. Continuous opaque scaly skin from the lower lip to the bulging throat, shaded rounded volume. The swollen chin is PART OF ITS ANATOMY, not a hanging water droplet, not a bubble, not a separate orb. Slim rear body and delicate forked tail. Crisp black outline, individually shaded scales, rounded body light and shadow, detailed gills, bright eye highlight, detailed fin rays. Whole subject visible with margin.",
+  "negative_description": "flat color fill, flat icon, featureless body, vector art, cartoon outline only, faded colors, gray veil, washed out, yellow tint, blur, noisy random dots, excessive dithering, paper, text, scene, water background, multiple fish, clipped fins",
+  "image_size": {
+    "width": 96,
+    "height": 64
+  },
+  "text_guidance_scale": 10,
+  "view": "side",
+  "direction": "east",
+  "no_background": true,
+  "outline": "single color outline",
+  "shading": "detailed shading",
+  "detail": "highly detailed",
+  "seed": 93305,
+  "name": "물방울송사리",
+  "comparison_reference": "l0_07.png",
+  "comparison_sha256": "a09e70c432b23d10502eb18efa02d14bfbbd4ce4c5a15634b7f5c161a3ac47db",
+  "reference_sent": false,
+  "provider": "PixelLab/create-image-pixflux",
+  "usage": {
+    "type": "generations",
+    "generations": 1.0
+  },
+  "sha256": "7757ad9ce9af35ed36db01d5e5f6bbf45f065c56bc45d475e93b4bc731ec5460"
+}
