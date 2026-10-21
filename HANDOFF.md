@@ -1,3 +1,11 @@
+# 최신 확정 상태: 0.67 공개 배포 및 다운로드 검증 완료
+사용자 승인으로 누적 수정0.67 배포 완료. 이전 "미배포/진행" 문단은 이력. 다음 작업은 최신 main 기준.
+Release: https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v0.67
+소스 커밋4d3f4d47c6dac64965e55464b9fb96ad29beff97. 빌드39552967392 및 운영게이트39553047704 success.
+직접 다운로드: version.json code67/name0.67, patch.pck?v=67.0 HTTP200/GDPC/28605216bytes/SHA256 beec53247bb5dbc6abdc713ed78a766ec7824f4a2dab3b646a50806901343a89 일치.
+전체소스ZIP27562512bytes/SHA256 c1d89b777cf469b1c1879de2993bf092a9f333b3134a3cb73b5d9842ba999678. ZIP무결성 및 수정코드/자산77개 바이트 일치 검사 통과. 근거 docs/RELEASE_067_VERIFICATION.json.
+기존 APK 유지 자동 콘텐츠 업데이트. 휴대폰0.67 적용/선명도/프레임률은 사용자 확인 전. 실제 번들 기증/보상 지급/추가 낚시터는 미구현 유지.
+
 # 최신 상태: 0.67 배포 진행
 사용자 명시 배포 승인. 이전 미배포 지시는 이번 승인으로 해소. 우편/가이드/자격증/미끼/낚싯대/물고기 선명도 누적 수정 배포. 번들 기증/보상 지급/추가 낚시터는 미구현 유지. CI 및 운영 확인 전이며 휴대폰 확인 별도.
 
