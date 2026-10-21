@@ -1,7 +1,7 @@
 extends Node2D
 
-const BUILD_CODE := 62
-const BUILD_NAME := "0.62"
+const BUILD_CODE := 63
+const BUILD_NAME := "0.63"
 const UPDATE_BASE := "https://nakshiworld-update-kr.znzkznzk96.workers.dev/"
 const PATCH := "user://patch.pck"
 const PATCH_VER := "user://patch_ver.txt"

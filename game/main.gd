@@ -1753,6 +1753,15 @@ func _fx_px(rid: RID, x: float, y: float, w: int, h: int, col: Color) -> void :
 	if S.phase == "fight" and S.has("tensionHud") and Rect2(S.tensionHud, Vector2(44, 8)).grow(4).intersects(Rect2(x, y, w, h)): return
 	RenderingServer.canvas_item_add_rect(rid, Rect2(int(x), int(y), w, h), col)
 
+func _fight_particle_visible(pt: Dictionary) -> bool:
+	# Airborne splash droplets must remain visible; only underwater bubbles are clipped at the surface.
+	if pt.kind != "drop" and pt.p.y < WATER: return false
+	if pt.p.y + oy > get_viewport_rect().size.y - 100: return false
+	if not aura.is_empty():
+		var delta: Vector2 = pt.p - aura.c
+		if pow(delta.x / (aura.L * 0.62 + 4), 2) + pow(delta.y / (aura.hw + 5), 2) < 1.0: return false
+	return true
+
 func _fx_draw(t: float) -> void :
 	var back: RID = fx_rid[0]
 	var front: RID = fx_rid[1]
@@ -1787,11 +1796,7 @@ func _fx_draw(t: float) -> void :
 	for pt in parts:
 		# Fight particles are visible over scenery, excluded from the fish body and HUD.
 		var pr: RID = front if S.phase == "fight" or pt.kind == "burst" or pt.kind == "drop" else back
-		if S.phase == "fight":
-			if pt.p.y < WATER or pt.p.y + oy > get_viewport_rect().size.y - 100: continue
-			if not aura.is_empty():
-				var delta: Vector2 = pt.p - aura.c
-				if pow(delta.x / (aura.L * 0.62 + 4), 2) + pow(delta.y / (aura.hw + 5), 2) < 1.0: continue
+		if S.phase == "fight" and not _fight_particle_visible(pt): continue
 		var a: float = clampf(pt.life / pt.max, 0, 1)
 		var col: Color = pt.col
 		match pt.kind:

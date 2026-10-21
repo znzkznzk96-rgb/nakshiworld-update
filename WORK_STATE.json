@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
-  "task": "0.62 아이콘·UI·캐릭터·행동/등급 효과",
+  "task": "0.63 아이콘·UI·캐릭터·행동/등급 효과",
   "status": "verified_ready_for_release",
   "work_branch": "work/visual-polish-062",
-  "release_baseline": "v0.61",
-  "target_version": "0.62",
+  "release_baseline": "v0.62",
+  "target_version": "0.63",
   "deployment_changed": false,
-  "phone_confirmation": "0.62 미확인",
+  "phone_confirmation": "0.63 미확인",
   "next_step": "main 배포 후 Release/운영다운로드 확인",
-  "apk_sha256": "7e6f7e0726124b91a8476e3e4a0bf062ab078e00735f5f67f1eb69daacd03eef"
+  "apk_sha256": "e2b5e3884cc51f2d9136f171d2d3d5e7722dacea2a5fc062638972d33551ea13"
 }

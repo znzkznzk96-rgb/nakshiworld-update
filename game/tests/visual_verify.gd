@@ -21,6 +21,9 @@ func run() -> void:
 				check(m.parts.size() <= 90, "budget grade=%d action=%s" % [grade, action])
 				for p in m.parts: check(p.p.is_finite() and p.v.is_finite(), "finite particle")
 			if grade == 0 and action != "jump": check(m.parts.size() > 0, "normal-grade water " + action)
+	m.aura = {}
+	check(m._fight_particle_visible({"kind": "drop", "p": Vector2(150, m.WATER - 12)}), "airborne splash retained")
+	check(not m._fight_particle_visible({"kind": "bubble", "p": Vector2(150, m.WATER - 12)}), "bubble stays underwater")
 	m.S = {"phase": "idle"};m.parts.clear()
 	m._fx_update(1.0, 0.0)
 	check(m.parts.is_empty(), "no idle fight particles")
