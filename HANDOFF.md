@@ -5,3 +5,8 @@
 도감 웅크림 curl -1.65→-0.28. 착수 시범0.8초→3.2초, 실제 플레이 대응 시간은 변경 없음.
 Godot4.4.1 import 및 guide/equipment/visual 검사 failures=[]; 숫자눈금/전어종 비율 공간/착수 읽기 시간 회귀 검사 추가. 화면 검증 진행, 아직 미배포. 세이브 형식/경제 변경 없음.
 다음: 화면 검증 완료 후 main으로 공개0.65, Actions와 운영 다운로드 및 ZIP/PCK 해시 검증. 휴대폰 적용은 별도 사용자 확인 필요.
+
+## 최종 검증 및 배포 차단
+Godot import, equipment/guide/visual/shop 4개 검사 failures=[] 및 Android PCK export 성공. 붕어25.9cm/88g 원본 비율·정상 숫자·계측창 알림 미중첩, 도감 전조/착수, 신화 외곽 오라 렌더링 직접 확인.
+로컬 PCK 26318896bytes SHA256 239bbafbd6218049ca52e350eddcc7d5122706d84dfe01b103c52af3fffb65a3 (CI 배포본과는 별개).
+소스 checkpoint eaac95c3dd53e1e39cd8c9cb11f9fe13a9e396b4 원격 work/measure-aura-065 확인. main 갱신은 자동승인검토가 실제 배포에 대한 명시적 사용자 승인이 부족하다고 거절. 우회하지 않음. 공개 버전은0.64 유지,0.65 미배포. 다음: 사용자 배포 승인 후 main 반영, CI와 운영 다운로드/소스ZIP 검증, 문서 갱신.
