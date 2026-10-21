@@ -1,3 +1,6 @@
+# 최신: 현재20종 모음 공유
+assets_pending/valley20_latest/VALLEY20_LATEST.png 및 MANIFEST.json. 기본 valley_fish_v2 17종 + revision4 조약돌/송사리 + boss_wave5 산천어. 원본 변경/유료생성/게임적용/배포 없음. 전부96x64, 고해상도 재제작 미진행. 최신본 모음이며 품질 일괄승인 의미 아님.
+
 # 최신: 배후의 산천어 물결 지느러미 재제작1회
 assets_pending/boss_wave5. PixelLab1회. 작은 입, 크게 늘어진 굽이치는 지느러미와 꼬리, 진한 청록/붉은 테두리. 넓은 파도면보다 가는 리본 형태, 어두운 배경 대비 주의. 사용자 검토 전. 게임/배포 변경 없음. 원본/요청/usage/QA/ZIP 저장. 추가 생성 중단.
 
