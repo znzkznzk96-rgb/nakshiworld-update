@@ -1,0 +1,142 @@
+[
+  {
+    "id": "l1_00",
+    "name": "버들치",
+    "reference": "l0_13.png",
+    "colors": "olive bronze back, bright ivory belly, narrow bright lemon lateral line edged black",
+    "shape": "Slender natural minnow, small amber fins and forked tail. A single clean lateral stripe, no oversized dorsal fin."
+  },
+  {
+    "id": "l1_01",
+    "name": "쉬리",
+    "reference": "l0_00.png",
+    "colors": "vivid vermilion fins, deep navy flank stripe, bright amber-orange upper flank and silver belly",
+    "shape": "Slender Korean shiner with a bold thick straight dark lateral band, pointed snout and orange forked tail. No pink rainbow stripe."
+  },
+  {
+    "id": "l1_02",
+    "name": "조약돌고기",
+    "reference": "l0_18.png",
+    "colors": "deep slate blue stone body, ivory and warm sandstone pebble patches",
+    "shape": "Rounded oval pebble-like fish, chunky blunt head, small rounded tail and fins. Large irregular smooth river-pebble patches over the skin, not large rocks stacked on its back."
+  },
+  {
+    "id": "l1_03",
+    "name": "나뭇잎꼬리",
+    "reference": "l0_05.png",
+    "colors": "saturated reddish chestnut and luminous copper body, vivid EMERALD green leaf tail, mint leaf veins",
+    "shape": "Slender long fish with normal small fins and pointed snout. Tail is exactly TWO BROAD SERRATED GREEN LEAVES extending diagonally upper-left and lower-left from its tail base. Each leaf has a clear midrib and branching veins. Scaly copper fish body, leaf anatomy only at tail."
+  },
+  {
+    "id": "l1_04",
+    "name": "오름피라미",
+    "reference": "l0_00.png",
+    "colors": "deep cobalt-blue back, metallic silver sides, vivid coral red fins and streamers",
+    "shape": "Streamlined minnow with two unusually long slender coral-red pelvic fin streamers sweeping down and backward. Forked red tail, slightly upturned snout."
+  },
+  {
+    "id": "l1_05",
+    "name": "물방울송사리",
+    "reference": "l0_07.png",
+    "colors": "intense aqua-cyan rims, dark petrol-blue back, clear pearlescent belly with bright white glints",
+    "shape": "Small slender medaka with its belly transformed into ONE conspicuous round transparent WATER DROPLET orb, round cyan outline and a bright white crescent reflection on the orb. Tiny delicate blue fins. Recognizable fish head to the right and a single attached spherical bubble belly, not many bubbles around it."
+  },
+  {
+    "id": "l1_06",
+    "name": "거꾸로미꾸리",
+    "reference": "l0_03.png",
+    "colors": "rich rosy pink exposed upper belly, dark chocolate speckled lower back, terracotta fins",
+    "shape": "Long stout LOACH SWIMMING UPSIDE DOWN, pale pink belly on TOP and dark mottled back BELOW, small whiskers around mouth, reverse-position fins. Fish head still faces RIGHT, not top-down view."
+  },
+  {
+    "id": "l1_07",
+    "name": "이끼붕어",
+    "reference": "l0_04.png",
+    "colors": "deep antique bronze scales, dark forest-green and bright lime moss on dorsal ridge",
+    "shape": "Deep oval crucian carp with dense irregular soft GREEN MOSS TUFTS growing along its back, ordinary broad brown forked tail. Distinct moss on back only, not green leaf tail. Large neatly overlapping scales."
+  },
+  {
+    "id": "l1_08",
+    "name": "산천어",
+    "reference": "l0_00.png",
+    "colors": "deep teal back, silver cream sides, dark navy vertical oval parr marks and scarlet red small dots",
+    "shape": "Natural cherry trout with seven large vertical navy oval marks on the flank, separate tiny scarlet spots between the marks. Normal compact triangular dorsal fin and natural tail."
+  },
+  {
+    "id": "l1_09",
+    "name": "송어",
+    "reference": "l0_18.png",
+    "colors": "deep midnight indigo back, bright steel-blue silver flanks, pearly belly, black spots",
+    "shape": "Natural long trout with many small distinct dark ROUND spots, no red stripe, no orange fins, large normal forked tail. Dorsal and tail fins navy blue."
+  },
+  {
+    "id": "l1_10",
+    "name": "열목어",
+    "reference": "l0_05.png",
+    "colors": "deep wine burgundy back, bright rose-copper sides, coral red eye ring and dark plum spots",
+    "shape": "Long lenok trout, red eye ring, dark oval vertical flank markings with small dark spots around them, short natural fins, warmer red brown than all other trout."
+  },
+  {
+    "id": "l1_11",
+    "name": "폭포오름잉어",
+    "reference": "l0_19.png",
+    "colors": "saturated turquoise and jade scales, ivory flowing fins edged bright cyan",
+    "shape": "Elegant carp, plump fish body with two thin whiskers, extremely LONG WIDE WHITE RIBBON FINS with curved flowing contours like an upward waterfall. Several fin ribbons curl upward and trail left behind body, smooth layered flow, not normal triangular fins."
+  },
+  {
+    "id": "l1_12",
+    "name": "구름피라미",
+    "reference": "l0_18.png",
+    "colors": "clear luminous lilac body, dark lavender shadows, bright ivory cloud lobes",
+    "shape": "Small minnow with distinct puffy CLOUD-SHAPED lobes forming tail and dorsal fin, rounded scalloped silhouettes and soft-looking but crisply pixelated white highlights. Slender solid lilac body, black eye, no tentacles."
+  },
+  {
+    "id": "l1_13",
+    "name": "돌등고기",
+    "reference": "l0_15.png",
+    "colors": "charcoal black-brown body, copper-orange angular rock armor, ochre broad fins",
+    "shape": "Stocky bottom-dwelling fish, angular polygonal ROCK PLATES piled firmly along dorsal ridge, broad fan-shaped pectoral fins. Small dark head, golden speckled skin, no moss, not rounded pebble body."
+  },
+  {
+    "id": "l1_14",
+    "name": "무지개송어",
+    "reference": "l0_00.png",
+    "colors": "deep blue-green back, bold saturated magenta horizontal stripe, bright silver belly",
+    "shape": "Broad rainbow trout with many small dark spots above and below ONE strong hot pink-magenta lateral stripe from gills to tail. Natural blue forked tail, no elongated fin streamers."
+  },
+  {
+    "id": "l1_15",
+    "name": "황쏘가리",
+    "reference": "l0_14.png",
+    "colors": "bright golden yellow body, dark espresso-black leopard patches, orange fin rims",
+    "shape": "Predatory mandarin fish, tall sharp spiny dorsal fin, bold large irregular dark leopard blotches across yellow body, broad fan tail and open mouth. Pattern is large contrasting patches, not uniform scale mesh."
+  },
+  {
+    "id": "l1_16",
+    "name": "하늘연어",
+    "reference": "l0_07.png",
+    "colors": "saturated royal blue back, bright salmon-orange belly, pale sky-blue wings",
+    "shape": "Streamlined salmon with two exceptionally long WING-LIKE pectoral fins extending downward and backward, layered visible long fin rays, sleek blue forked tail and tiny silver speckles."
+  },
+  {
+    "id": "l1_17",
+    "name": "거꾸로잉어",
+    "reference": "l0_19.png",
+    "colors": "saturated amethyst-violet scales, deep purple shadows, luminous lavender-white fin ribbons",
+    "shape": "Large deep oval carp with dramatically tall curved lavender dorsal fin and several long curling ribbon fins arching UPWARDS, two thin curved whiskers. Fins flow upward; fish head remains normally positioned to the RIGHT. Clearly visible overlapping purple scales."
+  },
+  {
+    "id": "l1_18",
+    "name": "구름메기",
+    "reference": "l0_09.png",
+    "colors": "deep storm-blue body, rich blue-violet cloud tail, silver lavender belly and whiskers",
+    "shape": "Heavy broad-headed catfish, TWO VERY LONG THIN SILVER WHISKERS curl outward from mouth, tail and dorsal ridge are large rounded billowing THUNDERCLOUD LOBES, smooth rounded belly with textured mottled cloud shadows, no hard scales. Tail must be cloud cluster, not normal fin."
+  },
+  {
+    "id": "l1_19",
+    "name": "배후의 산천어",
+    "reference": "l0_00.png",
+    "colors": "nearly black deep petrol teal back, silver belly, vivid crimson ring marks and red-edged black fins",
+    "shape": "Menacing elongated cherry trout boss, row of SEVEN LARGE VERTICAL BLACK OVAL PARR MARKS outlined in VIVID CRIMSON RED, exaggerated long jagged black blade-like fins tipped RED swept toward the tail. Keep normal right-facing trout head. Original approved boss silhouette, not reversed head or multiple heads."
+  }
+]
