@@ -198,6 +198,7 @@ var judge_t: = 0.0
 var toast_txt: = ""
 var toast_t: = 0.0
 var toast_col: = Color.WHITE
+var toast_action: = false
 var fx_mat: CanvasItemMaterial
 var fx_rid: = []
 var aura: = {}
@@ -505,8 +506,8 @@ func show_judge(t: String) -> void :
 			var a: = randf() * TAU
 			parts.append({"kind": "burst", "p": Vector2(VW / 2.0, WATER - 46), "v": Vector2(cos(a) * randf_range(50, 90), sin(a) * randf_range(20, 45)), "life": 0.55, "max": 0.55, "col": Color("ffe9a0") if i % 3 else Color.WHITE, "ph": 0.0, "sz": 2})
 
-func show_toast(t: String, col: = Color.WHITE) -> void :
-	toast_txt = t;toast_t = 1.2;toast_col = col
+func show_toast(t: String, col: = Color.WHITE, action_text: bool = false) -> void :
+	toast_txt = t;toast_t = 1.2;toast_col = col;toast_action = action_text
 
 func vib_run() -> Array: return [160 + int(140 * S.grade / 4.0)]
 
@@ -993,7 +994,7 @@ func update_fight(dt: float) -> void :
 		S.dist -= pull * 2 * dt
 		S.slack += dt * (2.5 if S.beh == "charge" else (0.5 if S.beh == "skim" else 1.0))
 	if S.get("skimEnd", 0.0) > 0 and clock <= S.skimEnd and holding and not S.get("skimUsed", true):
-		S.skimUsed = true;S.dist += 8;show_toast("물보라 멈춤 챔질! +8");buzz([40, 30, 80])
+		S.skimUsed = true;S.dist += 8;show_toast("물보라 멈춤 챔질! +8", Color("fff0b0"), true);buzz([40, 30, 80])
 	S.tension = max(0.0, S.tension);S.dist = clamp(S.dist, 0.0, 100.0)
 	if S.tut:
 		S.tension = minf(S.tension, 95.0);S.dist = minf(S.dist, 90.0)
@@ -1125,7 +1126,7 @@ func press(pos: = Vector2.ZERO) -> void :
 			if S.t > S.netEnd + 2.6: show_result(true)
 		"fight":
 			if S.landUntil > 0 and clock <= S.landUntil and not S.jumpUsed:
-				S.jumpUsed = true;S.dist = min(100.0, S.dist + 12);show_toast("착수 챔질! +12");buzz([40, 30, 80]);play("land")
+				S.jumpUsed = true;S.dist = min(100.0, S.dist + 12);show_toast("착수 챔질! +12", Color("fff0b0"), true);buzz([40, 30, 80]);play("land")
 
 
 func _process(dt: float) -> void :
@@ -2206,7 +2207,18 @@ func _draw_notes() -> void :
 	if judge_t > 0 and not lesson_open:
 		_judge_text(judge_txt, Vector2(VW / 2.0, WATER - 40 + oy), judge_col)
 	if toast_t > 0 and not lesson_open and S.phase != "catch":
-		_judge_text(toast_txt, Vector2(VW / 2.0, WATER - 62 + oy), Color(toast_col.r, toast_col.g, toast_col.b, min(1.0, toast_t * 2)), toast_t / 1.2)
+		if toast_action:
+			# Text only: quick upward entrance, readable hold, then rise/fade.
+			# Keep font scale fixed so pixel letters do not shimmer.
+			var elapsed: float = 1.2 - toast_t
+			var enter: float = clampf(elapsed / 0.16, 0.0, 1.0)
+			var leave: float = clampf((elapsed - 0.8) / 0.4, 0.0, 1.0)
+			var y: float = clampf(WATER - 62 + oy, top_y + 88, get_viewport_rect().size.y - 130)
+			y += 8.0 * pow(1.0 - enter, 3.0) - 10.0 * leave
+			var color: = Color(toast_col, toast_col.a * minf(1.0, elapsed / 0.06) * (1.0 - leave))
+			_text(toast_txt, Vector2(VW / 2.0, roundf(y)), 14, color, true, 242, true)
+		else:
+			_judge_text(toast_txt, Vector2(VW / 2.0, WATER - 62 + oy), Color(toast_col.r, toast_col.g, toast_col.b, min(1.0, toast_t * 2)), toast_t / 1.2)
 
 func _tension_anchor(fish_pos: Vector2, scale: float) -> Vector2:
 	var offset: = maxf(20.0, _fish_display_length(S.star, scale, false) * 0.66 + 9.0)
@@ -2713,6 +2725,8 @@ func _shot_mode() -> void :
 		S.sp=1;S.grade=4;S.beh="swim";S.bt=99.0;S.tut=false;lesson_open=false;TUT.seen=BOOK_KEYS.duplicate()
 		if state.begins_with("fight"):
 			set_process(false);S.phase="fight";S.tension=40.0;S.dist=35.0;holding=false;queue_redraw()
+	if "--action-text-check" in args:
+		show_toast("착수 챔질! +12", Color("fff0b0"), true);toast_t=0.85;queue_redraw()
 	for i in (120 if "--vfx-check" in args else 40): await get_tree().process_frame
 	await RenderingServer.frame_post_draw
 	await RenderingServer.frame_post_draw

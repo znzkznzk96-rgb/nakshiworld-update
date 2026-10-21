@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "task": "물고기 선명도·마을 배경음/갈매기/뱃고동·UI 클릭음 분리",
+  "task": "물고기 선명도·마을 배경음/갈매기/뱃고동·UI 클릭음 분리 + 챔질 성공 텍스트 애니메이션",
   "status": "tested_not_deployed",
   "work_branch": "work/clarity-village-audio",
   "release_baseline": "v0.65",
@@ -16,5 +16,7 @@
   "apk_version": "0.63 (이번 패치는 APK 재설치 불필요)",
   "deployment_authorization": "사용자 명시: 배포하지는말고",
   "local_preview_pck_sha256": "9eab2753f259487cf66fb005c5cc9ff05b587d8773d84bc2167d01b86fb3e8ff",
-  "local_preview_pck_size": 28058752
+  "local_preview_pck_size": 28058752,
+  "local_preview_pck_note": "이전 마을 사운드 수정 빌드; 이번 챔질 텍스트 변경 미포함",
+  "museum_bundle": "아이디어 논의만, 미구현/미확정"
 }
