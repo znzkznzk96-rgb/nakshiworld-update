@@ -1,6 +1,6 @@
 # 낚시월드 에이전트 작업 규칙
 
-- 시작 시 START_HERE.md, HANDOFF.md, WORK_STATE.json, CHANGELOG.md 및 실제 최신 Release를 읽는다. 필요한 작업 브랜치도 확인한다.
+- 시작 시 START_HERE.md, docs/PROJECT_INSTRUCTIONS.md, docs/CONTINUE_HERE.md, docs/GAME_BIBLE.md, HANDOFF.md, WORK_STATE.json, CHANGELOG.md 및 실제 최신 Release를 읽는다. 필요한 작업 브랜치도 확인한다.
 - 한국어로 간결하게 답하고 실제 확인·이전 보고·추정을 구분한다.
 - 요청 범위와 승인된 UI/그림/밸런스를 지킨다. 앱 삭제/데이터 초기화를 문제 해결 수단으로 사용하지 않는다.
 - 의미 있는 단계 및 완료 보고 전 코드/리소스와 HANDOFF/WORK_STATE를 동일 커밋으로 원격 저장한다. GitHub 연결 또는 checkpoint 도구를 사용하고 원격 SHA를 확인한다.
