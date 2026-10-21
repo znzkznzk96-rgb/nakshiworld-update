@@ -4,7 +4,7 @@
 
 ## 새 작업을 시작할 때
 
-1. `START_HERE.md`와 `AGENTS.md`를 읽는다.
+1. `START_HERE.md`, `AGENTS.md`, `docs/PROJECT_INSTRUCTIONS.md`를 읽는다.
 2. `docs/GAME_BIBLE.md`에서 확정/미정 결정을 읽는다.
 3. `WORK_STATE.json`의 `work_branch`, `current_task`, `next_step`를 읽고 해당 원격 브랜치의 최신 `HANDOFF.md`를 확인한다. 브랜치가 여러 개면 담당 작업/최근 갱신/상태를 비교한다. 가장 높은 버전 번호만 보고 최신 작업을 추측하지 않는다.
 4. `CHANGELOG.md`, 실제 GitHub Release와 현재 실행 중인 workflow 조건을 확인한다. 기획 문서·구현·배포·휴대폰 확인은 각각 구분한다.
