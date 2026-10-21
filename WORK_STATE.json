@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "updated_date_kst": "2026-10-21",
+  "task": "GitHub 기반 지속 인수인계 도입",
+  "status": "completed",
+  "work_branch": "main",
+  "game_baseline_commit": "c7e29e65fe01e7c3c0840b30d809c403cfd12fad",
+  "release_baseline": "v0.61",
+  "deployment_changed": false,
+  "phone_confirmation": "사용자가 0.61 업데이트 성공 확인",
+  "next_step": "다음 사용자 기능 요청을 받은 뒤 work/* 브랜치에서 진행",
+  "checkpoint_commit": "이 파일을 포함한 원격 커밋을 git log로 확인"
+}
