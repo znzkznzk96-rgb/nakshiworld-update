@@ -25,6 +25,7 @@ const POND_CAP_COST: = [300, 800, 1800, 4200, 9000]
 const POND_REGEN_COST: = [250, 700, 1600, 3800, 8000]
 const ROD_NAME: = ["대나무 낚싯대", "카본 낚싯대", "원투 낚싯대", "선상 낚싯대", "심해 낚싯대", "은하 낚싯대"]
 const ROD_COST: = [0, 500, 1800, 6000, 20000, 65000]
+var bundle_preview = preload("res://addons/reservoir/bundle_preview.gd").new()
 var commerce = preload("res://addons/reservoir/commerce.gd").new()
 var enhancement = preload("res://addons/reservoir/enhancement.gd").new()
 var art: = {}
@@ -423,6 +424,8 @@ func open_shop(m, k: String) -> void :
 
 func draw_shop(m, h: float) -> void :
 	if shop == "": return
+	if shop=="museum" and "--bundle-preview" in OS.get_cmdline_user_args():
+		bundle_preview.draw(m,h);return
 	var top: float = m.top_y + 78
 	m.text_items = m.text_items.filter( func(it): return it[1].y < top)
 
@@ -636,6 +639,8 @@ func _draw_forge(m, r: Rect2, y: float) -> void :
 	enhancement.draw(self, m, r, y)
 
 func _shop_press(m, pos: Vector2) -> void :
+	if shop=="museum" and "--bundle-preview" in OS.get_cmdline_user_args():
+		bundle_preview.press(m,pos);return
 	m.play("ui")
 	if enhancement.busy():
 		for row in rects.get("rows", []):

@@ -2731,6 +2731,8 @@ func _shot_mode() -> void :
 	await RenderingServer.frame_post_draw
 	await RenderingServer.frame_post_draw
 	get_tree().root.get_texture().get_image().save_png(out)
+	set_process(false);audio_feedback.dispose()
+	await get_tree().create_timer(0.15).timeout
 	get_tree().quit()
 
 const BG_SHADER: = "\nshader_type canvas_item;\nuniform float xoff = 0.0;\nuniform float uw = 447.0;\nuniform float oy = 0.0;\nvoid fragment() {\n\tvec2 uv = UV;\n\tfloat py = uv.y / TEXTURE_PIXEL_SIZE.y - oy;\n\tfloat px = uv.x / TEXTURE_PIXEL_SIZE.x;\n\tif (py >= 217.0 && py < 273.0 && px - xoff > 104.0) {\n\t\tuv.x += round(1.5 * sin(TIME * 2.6 + py * 0.35)) * TEXTURE_PIXEL_SIZE.x;\n\t} else if (py >= 274.0 && py < uw) {\n\t\tuv.x += round(1.0 * sin(TIME * 3.4 + py * 0.22)) * TEXTURE_PIXEL_SIZE.x;\n\t}\n\tCOLOR = texture(TEXTURE, uv);\n}\n"
