@@ -5,6 +5,7 @@ func check(ok: bool,label: String) -> void:
 func _initialize() -> void: call_deferred("run")
 func run() -> void:
 	var m=load("res://main.gd").new();root.add_child(m);await process_frame;m.set_process(false);m.title_open=false;m.scene="village";m.S={"phase":"idle"}
+	m.SET.sfx=0.0
 	m.gold=100000;m.bait=0;m.parts_owned=[];m.equipment.active_parts=[];m.equipment.unlocked_parts=[];m.region_shop.restore({})
 	var c=m.V.commerce
 	check(c.quote(m.V,m,"rpart:1:0").is_empty(),"locked region purchase rejected")
