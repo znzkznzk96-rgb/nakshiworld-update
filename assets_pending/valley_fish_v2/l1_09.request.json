@@ -1,0 +1,21 @@
+{
+  "description": "ONE full-body RIGHT-FACING SIDE-VIEW fish sprite for a richly detailed cozy pixel fishing RPG. Natural long trout with many small distinct dark ROUND spots, no red stripe, no orange fins, large normal forked tail. Dorsal and tail fins navy blue. COLOR DESIGN: deep midnight indigo back, bright steel-blue silver flanks, pearly belly, black spots. Preserve these vivid distinct colors. High-quality handcrafted pixel art with curved three-dimensional form: deep dorsal shadows, curved midtones, bright selective highlights across upper flanks, reflected light on belly. Rows of clearly visible individually shaded overlapping scales where appropriate, carefully delineated gill cover, crisp eye with pupil and white specular dot, thin individual fin rays, detailed mouth. Fine controlled pixel clusters like the reference, not a flat icon or a simple silhouette. Entire body and fins contained with small margins. Richly detailed 16-bit pixel art fish, 3D rounded shading, individual small diamond scales, NOT an icon.",
+  "negative_description": "flat color fill, flat icon, featureless body, vector art, cartoon outline only, faded colors, gray veil, washed out, yellow tint, blur, noisy random dots, excessive dithering, paper, text, scene, water background, multiple fish, clipped fins",
+  "image_size": {
+    "width": 96,
+    "height": 64
+  },
+  "text_guidance_scale": 10,
+  "view": "side",
+  "direction": "east",
+  "no_background": true,
+  "outline": "single color outline",
+  "shading": "detailed shading",
+  "detail": "highly detailed",
+  "seed": 92209,
+  "name": "송어",
+  "comparison_reference": "l0_18.png",
+  "comparison_sha256": "a87f59d881fbd6fe0027a8c9008e95a9849eeb6552d55ba5b1dee634dc690787",
+  "reference_sent": false,
+  "provider": "PixelLab/create-image-pixflux"
+}

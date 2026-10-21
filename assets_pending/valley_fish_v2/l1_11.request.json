@@ -1,0 +1,21 @@
+{
+  "description": "ONE full-body RIGHT-FACING SIDE-VIEW fish sprite for a richly detailed cozy pixel fishing RPG. Elegant carp, plump fish body with two thin whiskers, extremely LONG WIDE WHITE RIBBON FINS with curved flowing contours like an upward waterfall. Several fin ribbons curl upward and trail left behind body, smooth layered flow, not normal triangular fins. COLOR DESIGN: saturated turquoise and jade scales, ivory flowing fins edged bright cyan. Preserve these vivid distinct colors. High-quality handcrafted pixel art with curved three-dimensional form: deep dorsal shadows, curved midtones, bright selective highlights across upper flanks, reflected light on belly. Rows of clearly visible individually shaded overlapping scales where appropriate, carefully delineated gill cover, crisp eye with pupil and white specular dot, thin individual fin rays, detailed mouth. Fine controlled pixel clusters like the reference, not a flat icon or a simple silhouette. Entire body and fins contained with small margins. Richly detailed 16-bit pixel art fish, 3D rounded shading, individual small diamond scales, NOT an icon.",
+  "negative_description": "flat color fill, flat icon, featureless body, vector art, cartoon outline only, faded colors, gray veil, washed out, yellow tint, blur, noisy random dots, excessive dithering, paper, text, scene, water background, multiple fish, clipped fins",
+  "image_size": {
+    "width": 96,
+    "height": 64
+  },
+  "text_guidance_scale": 10,
+  "view": "side",
+  "direction": "east",
+  "no_background": true,
+  "outline": "single color outline",
+  "shading": "detailed shading",
+  "detail": "highly detailed",
+  "seed": 92211,
+  "name": "폭포오름잉어",
+  "comparison_reference": "l0_19.png",
+  "comparison_sha256": "23ffc7ec47e2154a2ccc6f2d070d63f7c9441c1d60a7a4fa9b164760f68cf5e4",
+  "reference_sent": false,
+  "provider": "PixelLab/create-image-pixflux"
+}

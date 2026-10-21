@@ -1,0 +1,21 @@
+{
+  "description": "ONE full-body RIGHT-FACING SIDE-VIEW fish sprite for a richly detailed cozy pixel fishing RPG. Long stout LOACH SWIMMING UPSIDE DOWN, pale pink belly on TOP and dark mottled back BELOW, small whiskers around mouth, reverse-position fins. Fish head still faces RIGHT, not top-down view. COLOR DESIGN: rich rosy pink exposed upper belly, dark chocolate speckled lower back, terracotta fins. Preserve these vivid distinct colors. High-quality handcrafted pixel art with curved three-dimensional form: deep dorsal shadows, curved midtones, bright selective highlights across upper flanks, reflected light on belly. Rows of clearly visible individually shaded overlapping scales where appropriate, carefully delineated gill cover, crisp eye with pupil and white specular dot, thin individual fin rays, detailed mouth. Fine controlled pixel clusters like the reference, not a flat icon or a simple silhouette. Entire body and fins contained with small margins. Richly detailed 16-bit pixel art fish, 3D rounded shading, individual small diamond scales, NOT an icon.",
+  "negative_description": "flat color fill, flat icon, featureless body, vector art, cartoon outline only, faded colors, gray veil, washed out, yellow tint, blur, noisy random dots, excessive dithering, paper, text, scene, water background, multiple fish, clipped fins",
+  "image_size": {
+    "width": 96,
+    "height": 64
+  },
+  "text_guidance_scale": 10,
+  "view": "side",
+  "direction": "east",
+  "no_background": true,
+  "outline": "single color outline",
+  "shading": "detailed shading",
+  "detail": "highly detailed",
+  "seed": 92206,
+  "name": "거꾸로미꾸리",
+  "comparison_reference": "l0_03.png",
+  "comparison_sha256": "2f5c3205023a8ab2657fa5dabbeaf28fb86f87dab18962982ba27ffcff79a359",
+  "reference_sent": false,
+  "provider": "PixelLab/create-image-pixflux"
+}

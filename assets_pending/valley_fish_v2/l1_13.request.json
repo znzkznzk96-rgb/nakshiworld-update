@@ -1,0 +1,21 @@
+{
+  "description": "Highly detailed 16-bit pixel art side view of ONE fish, full body facing right, transparent background. charcoal black-brown body, copper-orange angular rock armor, ochre broad fins. Stocky bottom-dwelling fish, angular polygonal ROCK PLATES piled firmly along dorsal ridge, broad fan-shaped pectoral fins. Small dark head, golden speckled skin, no moss, not rounded pebble body. Crisp black outline, individually shaded scales, rounded body light and shadow, detailed gills, bright eye highlight, detailed fin rays. Whole subject visible with margin.",
+  "negative_description": "flat color fill, flat icon, featureless body, vector art, cartoon outline only, faded colors, gray veil, washed out, yellow tint, blur, noisy random dots, excessive dithering, paper, text, scene, water background, multiple fish, clipped fins",
+  "image_size": {
+    "width": 96,
+    "height": 64
+  },
+  "text_guidance_scale": 10,
+  "view": "side",
+  "direction": "east",
+  "no_background": true,
+  "outline": "single color outline",
+  "shading": "detailed shading",
+  "detail": "highly detailed",
+  "seed": 92213,
+  "name": "돌등고기",
+  "comparison_reference": "l0_15.png",
+  "comparison_sha256": "dd6f4578d980916b018885c99b33e1e004067bee5c5d671108e6234a4bfe4f17",
+  "reference_sent": false,
+  "provider": "PixelLab/create-image-pixflux"
+}

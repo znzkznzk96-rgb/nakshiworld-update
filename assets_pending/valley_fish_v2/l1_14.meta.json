@@ -1,0 +1,26 @@
+{
+  "description": "Highly detailed 16-bit pixel art side view of ONE fish, full body facing right, transparent background. deep blue-green back, bold saturated magenta horizontal stripe, bright silver belly. Broad rainbow trout with many small dark spots above and below ONE strong hot pink-magenta lateral stripe from gills to tail. Natural blue forked tail, no elongated fin streamers. Crisp black outline, individually shaded scales, rounded body light and shadow, detailed gills, bright eye highlight, detailed fin rays. Whole subject visible with margin.",
+  "negative_description": "flat color fill, flat icon, featureless body, vector art, cartoon outline only, faded colors, gray veil, washed out, yellow tint, blur, noisy random dots, excessive dithering, paper, text, scene, water background, multiple fish, clipped fins",
+  "image_size": {
+    "width": 96,
+    "height": 64
+  },
+  "text_guidance_scale": 10,
+  "view": "side",
+  "direction": "east",
+  "no_background": true,
+  "outline": "single color outline",
+  "shading": "detailed shading",
+  "detail": "highly detailed",
+  "seed": 92214,
+  "name": "무지개송어",
+  "comparison_reference": "l0_00.png",
+  "comparison_sha256": "35d557efb6ae37167aa577f0f0e8e0ff7a4aa7e580b34f529e359ddba8496ac0",
+  "reference_sent": false,
+  "provider": "PixelLab/create-image-pixflux",
+  "usage": {
+    "type": "generations",
+    "generations": 1.0
+  },
+  "sha256": "87446a97d9213e7420507bcbb510a865978c30f1b3913b00128887dce2c698de"
+}

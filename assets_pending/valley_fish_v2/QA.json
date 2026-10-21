@@ -8,7 +8,9 @@
       90,
       51
     ],
-    "clipped": false
+    "clipped": false,
+    "release_ready": false,
+    "review_state": "visual_candidate_user_unconfirmed"
   },
   "l1_00": {
     "status": "reviewed",
@@ -19,7 +21,9 @@
       86,
       46
     ],
-    "clipped": false
+    "clipped": false,
+    "release_ready": false,
+    "review_state": "visual_candidate_user_unconfirmed"
   },
   "l1_01": {
     "status": "reviewed",
@@ -30,7 +34,9 @@
       88,
       47
     ],
-    "clipped": false
+    "clipped": false,
+    "release_ready": false,
+    "review_state": "visual_candidate_user_unconfirmed"
   },
   "l1_02": {
     "status": "reviewed",
@@ -41,7 +47,9 @@
       85,
       55
     ],
-    "clipped": false
+    "clipped": false,
+    "release_ready": false,
+    "review_state": "visual_candidate_user_unconfirmed"
   },
   "l1_04": {
     "status": "reviewed",
@@ -52,6 +60,203 @@
       92,
       52
     ],
-    "clipped": false
+    "clipped": false,
+    "release_ready": false,
+    "review_state": "visual_candidate_user_unconfirmed"
+  },
+  "l1_05": {
+    "status": "reviewed",
+    "observation": "청록 고유색/물방울 광택/둥근 눈/명암 확인. 외형 변형 주의: 시안의 배 물방울이 아니라 입 아래 물방울로 생성됨. 최종 적용 전 해당 배치 보완 필요.",
+    "bounds": [
+      8,
+      11,
+      87,
+      54
+    ],
+    "clipped": false,
+    "release_ready": false,
+    "review_state": "needs_shape_refinement"
+  },
+  "l1_06": {
+    "status": "reviewed",
+    "observation": "진한 초콜릿 등/크림분홍 배/붉은 지느러미/얼룩 무늬 확인. 좌향 정상자세 출력은180도 회전해 우향+배가 위인 자세로 정렬. 원본 보존.",
+    "bounds": [
+      6,
+      13,
+      90,
+      55
+    ],
+    "clipped": false,
+    "release_ready": false,
+    "review_state": "visual_candidate_user_unconfirmed"
+  },
+  "l1_07": {
+    "status": "reviewed",
+    "observation": "밝은 녹색 이끼 덩어리/깊은 갈색 비늘 몸/크림 배/아가미 광택/꼬리 결 명확. 녹색 잎꼬리와 구분. 좌향 반전.",
+    "bounds": [
+      4,
+      4,
+      90,
+      60
+    ],
+    "clipped": false,
+    "release_ready": false,
+    "review_state": "visual_candidate_user_unconfirmed"
+  },
+  "l1_08": {
+    "status": "reviewed",
+    "observation": "청록 등/크림은색 배/붉은 점/명확한 아가미. 좌향 반전. 세로 타원 parr 무늬는 명세보다 약해 후속 보완 항목.",
+    "bounds": [
+      5,
+      16,
+      89,
+      49
+    ],
+    "clipped": false,
+    "release_ready": false,
+    "review_state": "needs_shape_refinement"
+  },
+  "l1_09": {
+    "status": "reviewed",
+    "observation": "남색 등/은청색 비늘/검은 점/흰 배/검은 꼬리. 산천어의 청록·붉은 점과 명확히 구분. 좌향 반전.",
+    "bounds": [
+      5,
+      15,
+      91,
+      49
+    ],
+    "clipped": false,
+    "release_ready": false,
+    "review_state": "visual_candidate_user_unconfirmed"
+  },
+  "l1_10": {
+    "status": "reviewed",
+    "observation": "와인/자주색 몸+붉은 눈테/진한 타원무늬/크림배/지느러미 결. 산천어·송어와 색 대비 분명.",
+    "bounds": [
+      3,
+      10,
+      93,
+      53
+    ],
+    "clipped": false,
+    "release_ready": false,
+    "review_state": "visual_candidate_user_unconfirmed"
+  },
+  "l1_11": {
+    "status": "reviewed",
+    "observation": "청록 비늘/흰 지느러미/등-배 명암 분리. 외형 보완 필요: 폭포처럼 긴 리본 지느러미가 짧게 나옴. 최종 적용 보류.",
+    "bounds": [
+      7,
+      13,
+      89,
+      53
+    ],
+    "clipped": false,
+    "release_ready": false,
+    "review_state": "needs_shape_refinement"
+  },
+  "l1_12": {
+    "status": "reviewed",
+    "observation": "라일락/보라 명암과 눈/비늘 확인. 외형 보완 필요: 구름처럼 둥근 꼬리·등지느러미가 일반 지느러미로 단순화됨. 좌향 반전.",
+    "bounds": [
+      9,
+      10,
+      87,
+      53
+    ],
+    "clipped": false,
+    "release_ready": false,
+    "review_state": "needs_shape_refinement"
+  },
+  "l1_13": {
+    "status": "reviewed",
+    "observation": "숯색 각진 바위 판/주황 지느러미·머리/큰 눈 광택/각면 그림자 확인. 조약돌고기의 청회색 둥근 몸과 구별. 바위갑옷이 등뿐 아니라 몸 전체로 확대됨.",
+    "bounds": [
+      4,
+      7,
+      92,
+      56
+    ],
+    "clipped": false,
+    "release_ready": false,
+    "review_state": "visual_candidate_user_unconfirmed"
+  },
+  "l1_14": {
+    "status": "reviewed",
+    "observation": "진한 마젠타 가로띠/청록 등/검은 작은 점/밝은 배/세부 비늘과 아가미 확인. 다른 송어계열과 띠색으로 구분.",
+    "bounds": [
+      4,
+      14,
+      90,
+      47
+    ],
+    "clipped": false,
+    "release_ready": false,
+    "review_state": "visual_candidate_user_unconfirmed"
+  },
+  "l1_15": {
+    "status": "reviewed",
+    "observation": "선명한 노랑/검은 큰 얼룩/주황 지느러미 결/가시등지느러미 확인. 밝고 어두운 면이 분리되어 있음.",
+    "bounds": [
+      10,
+      8,
+      87,
+      56
+    ],
+    "clipped": false,
+    "release_ready": false,
+    "review_state": "visual_candidate_user_unconfirmed"
+  },
+  "l1_16": {
+    "status": "reviewed",
+    "observation": "로열블루 등/연어색 배/비늘과 아가미 명암 확인. 외형 보완 필요: 날개처럼 긴 가슴지느러미가 짧게 나옴. 최종 적용 보류.",
+    "bounds": [
+      3,
+      14,
+      91,
+      50
+    ],
+    "clipped": false,
+    "release_ready": false,
+    "review_state": "needs_shape_refinement"
+  },
+  "l1_17": {
+    "status": "reviewed",
+    "observation": "짙은 자수정색/밝은 보라 비늘 하이라이트/큰 위쪽 등지느러미/수염/결 있는 큰 꼬리 확인. 곡선 리본보다 각진 긴 지느러미로 표현된 차이 기록.",
+    "bounds": [
+      2,
+      1,
+      94,
+      62
+    ],
+    "clipped": false,
+    "release_ready": false,
+    "review_state": "visual_candidate_user_unconfirmed"
+  },
+  "l1_18": {
+    "status": "reviewed",
+    "observation": "짙은 폭풍청색/라일락 배/큰 수염/옆면 명암 확인. 외형 보완 필요: 꼬리가 둥근 구름 덩어리 대신 일반 꼬리로 나옴. 최종 적용 보류.",
+    "bounds": [
+      4,
+      11,
+      92,
+      51
+    ],
+    "clipped": false,
+    "release_ready": false,
+    "review_state": "needs_shape_refinement"
+  },
+  "l1_19": {
+    "status": "reviewed",
+    "observation": "짙은 청록/검정 바탕, 선명한 붉은 고리무늬·지느러미, 밝은 배의 명암 확인. 날카로운 긴 지느러미는 짧아졌고 꼬리가 캔버스 왼쪽 경계에 닿아 여백 보완 필요. 최종 적용 보류.",
+    "bounds": [
+      0,
+      9,
+      96,
+      55
+    ],
+    "clipped": true,
+    "release_ready": false,
+    "review_state": "needs_shape_refinement"
   }
 }

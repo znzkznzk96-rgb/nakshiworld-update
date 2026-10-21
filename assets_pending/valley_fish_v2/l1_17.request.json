@@ -1,0 +1,21 @@
+{
+  "description": "Highly detailed 16-bit pixel art side view of ONE fish, full body facing right, transparent background. saturated amethyst-violet scales, deep purple shadows, luminous lavender-white fin ribbons. Large deep oval carp with dramatically tall curved lavender dorsal fin and several long curling ribbon fins arching UPWARDS, two thin curved whiskers. Fins flow upward; fish head remains normally positioned to the RIGHT. Clearly visible overlapping purple scales. Crisp black outline, individually shaded scales, rounded body light and shadow, detailed gills, bright eye highlight, detailed fin rays. Whole subject visible with margin.",
+  "negative_description": "flat color fill, flat icon, featureless body, vector art, cartoon outline only, faded colors, gray veil, washed out, yellow tint, blur, noisy random dots, excessive dithering, paper, text, scene, water background, multiple fish, clipped fins",
+  "image_size": {
+    "width": 96,
+    "height": 64
+  },
+  "text_guidance_scale": 10,
+  "view": "side",
+  "direction": "east",
+  "no_background": true,
+  "outline": "single color outline",
+  "shading": "detailed shading",
+  "detail": "highly detailed",
+  "seed": 92217,
+  "name": "거꾸로잉어",
+  "comparison_reference": "l0_19.png",
+  "comparison_sha256": "23ffc7ec47e2154a2ccc6f2d070d63f7c9441c1d60a7a4fa9b164760f68cf5e4",
+  "reference_sent": false,
+  "provider": "PixelLab/create-image-pixflux"
+}

@@ -1,0 +1,21 @@
+{
+  "description": "ONE full-body RIGHT-FACING SIDE-VIEW fish sprite for a richly detailed cozy pixel fishing RPG. Deep oval crucian carp with dense irregular soft GREEN MOSS TUFTS growing along its back, ordinary broad brown forked tail. Distinct moss on back only, not green leaf tail. Large neatly overlapping scales. COLOR DESIGN: deep antique bronze scales, dark forest-green and bright lime moss on dorsal ridge. Preserve these vivid distinct colors. High-quality handcrafted pixel art with curved three-dimensional form: deep dorsal shadows, curved midtones, bright selective highlights across upper flanks, reflected light on belly. Rows of clearly visible individually shaded overlapping scales where appropriate, carefully delineated gill cover, crisp eye with pupil and white specular dot, thin individual fin rays, detailed mouth. Fine controlled pixel clusters like the reference, not a flat icon or a simple silhouette. Entire body and fins contained with small margins. Richly detailed 16-bit pixel art fish, 3D rounded shading, individual small diamond scales, NOT an icon.",
+  "negative_description": "flat color fill, flat icon, featureless body, vector art, cartoon outline only, faded colors, gray veil, washed out, yellow tint, blur, noisy random dots, excessive dithering, paper, text, scene, water background, multiple fish, clipped fins",
+  "image_size": {
+    "width": 96,
+    "height": 64
+  },
+  "text_guidance_scale": 10,
+  "view": "side",
+  "direction": "east",
+  "no_background": true,
+  "outline": "single color outline",
+  "shading": "detailed shading",
+  "detail": "highly detailed",
+  "seed": 92207,
+  "name": "이끼붕어",
+  "comparison_reference": "l0_04.png",
+  "comparison_sha256": "bce75f4ed6675688253882dbd32d8e826e28c04c3b975c9cd9813b941d64a36a",
+  "reference_sent": false,
+  "provider": "PixelLab/create-image-pixflux"
+}

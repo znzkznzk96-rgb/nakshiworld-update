@@ -1,0 +1,21 @@
+{
+  "description": "Highly detailed 16-bit pixel art side view of ONE fish, full body facing right, transparent background. nearly black deep petrol teal back, silver belly, vivid crimson ring marks and red-edged black fins. Menacing elongated cherry trout boss, row of SEVEN LARGE VERTICAL BLACK OVAL PARR MARKS outlined in VIVID CRIMSON RED, exaggerated long jagged black blade-like fins tipped RED swept toward the tail. Keep normal right-facing trout head. Original approved boss silhouette, not reversed head or multiple heads. Crisp black outline, individually shaded scales, rounded body light and shadow, detailed gills, bright eye highlight, detailed fin rays. Whole subject visible with margin.",
+  "negative_description": "flat color fill, flat icon, featureless body, vector art, cartoon outline only, faded colors, gray veil, washed out, yellow tint, blur, noisy random dots, excessive dithering, paper, text, scene, water background, multiple fish, clipped fins",
+  "image_size": {
+    "width": 96,
+    "height": 64
+  },
+  "text_guidance_scale": 10,
+  "view": "side",
+  "direction": "east",
+  "no_background": true,
+  "outline": "single color outline",
+  "shading": "detailed shading",
+  "detail": "highly detailed",
+  "seed": 92219,
+  "name": "배후의 산천어",
+  "comparison_reference": "l0_00.png",
+  "comparison_sha256": "35d557efb6ae37167aa577f0f0e8e0ff7a4aa7e580b34f529e359ddba8496ac0",
+  "reference_sent": false,
+  "provider": "PixelLab/create-image-pixflux"
+}

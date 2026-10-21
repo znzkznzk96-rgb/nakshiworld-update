@@ -1,0 +1,26 @@
+{
+  "description": "ONE full-body RIGHT-FACING SIDE-VIEW fish sprite for a richly detailed cozy pixel fishing RPG. Long lenok trout, red eye ring, dark oval vertical flank markings with small dark spots around them, short natural fins, warmer red brown than all other trout. COLOR DESIGN: deep wine burgundy back, bright rose-copper sides, coral red eye ring and dark plum spots. Preserve these vivid distinct colors. High-quality handcrafted pixel art with curved three-dimensional form: deep dorsal shadows, curved midtones, bright selective highlights across upper flanks, reflected light on belly. Rows of clearly visible individually shaded overlapping scales where appropriate, carefully delineated gill cover, crisp eye with pupil and white specular dot, thin individual fin rays, detailed mouth. Fine controlled pixel clusters like the reference, not a flat icon or a simple silhouette. Entire body and fins contained with small margins. Richly detailed 16-bit pixel art fish, 3D rounded shading, individual small diamond scales, NOT an icon.",
+  "negative_description": "flat color fill, flat icon, featureless body, vector art, cartoon outline only, faded colors, gray veil, washed out, yellow tint, blur, noisy random dots, excessive dithering, paper, text, scene, water background, multiple fish, clipped fins",
+  "image_size": {
+    "width": 96,
+    "height": 64
+  },
+  "text_guidance_scale": 10,
+  "view": "side",
+  "direction": "east",
+  "no_background": true,
+  "outline": "single color outline",
+  "shading": "detailed shading",
+  "detail": "highly detailed",
+  "seed": 92210,
+  "name": "열목어",
+  "comparison_reference": "l0_05.png",
+  "comparison_sha256": "58e1c3ba210a2a83352512ecd03a5cd03ce200dc2e2a98aaa55a523b22491bc7",
+  "reference_sent": false,
+  "provider": "PixelLab/create-image-pixflux",
+  "usage": {
+    "type": "generations",
+    "generations": 1.0
+  },
+  "sha256": "94e9ff70c35f715bcbd11a0e12bae2160fa1766a82ebbf4954e6e4f5379bb6ea"
+}
