@@ -20,3 +20,9 @@ save_store.gd: tmp에 완성 후 rename, 이전 정상 JSON 백업, 주 파일 �
 Godot import, equipment/guide/shop/visual/audio_save 검사 통과. audio_save는 음원 시작과 정지를 같은 프레임에서 반복해 종료 자원 경고가 발생했으며 실제 프레임 간격을 둬 정상 종료 확인. 설정/초기화/타이틀 화면 확인. 배포 CI에 audio_save 추가. 아직 새 Release 검증 전.
 
 CI39538132380은 기능 검사 통과 후 guide 종료 시 자동 시작된 타이틀 음악 자원 경고로 중단(미배포). 비오디오 테스트는 root 추가 이전에 음소거/타이틀 해제하도록 초기화 순서 수정. 오디오 전용 검사는 실제 프레임 간격 재생을 유지. 검사 게이트는 완화하지 않음.
+
+## 공개 완료 및 직접 확인
+Release https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v0.65
+소스 e1f5b7a4ee82b1b47f36e8e75435a4eabb1a6f8a, 빌드39538305343 success, 운영검사39538383953 success. 로컬에서도 version.json code65, patch.pck?v=65.0 HTTP200/GDPC/28168368bytes/SHA256 814894c89024358eaba33dbc908929d9b0ee4274d597455a7dd14ebc698d1b12 확인.
+전체소스 ZIP27183411bytes/SHA256 e1c832daebec57b6f865aa5ad2374dbf5e67e273ee285c95e51c6483716ded22 무결성 검사 및 코드/이미지/음원58파일 로컬 일치. 드랙 원본 해시 보존 확인. 배포 PCK 음악·크레딧·오디오 스크립트 포함 검사 통과. APK 재설치 필요 없는 콘텐츠 패치. 휴대폰 업데이트·청음·진동 체감은 사용자 확인 전. 증거 docs/RELEASE_065_VERIFICATION.json.
+다음 채팅은 최신 main과 공개 Release 기준으로 진행. 과거 승인 대기/CI 실패 문단은 이력이며 현재 배포 성공 상태임.
