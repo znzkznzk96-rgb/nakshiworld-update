@@ -80,6 +80,10 @@ const PRICE_GRADE: = [1.0, 1.3, 1.7, 2.2, 3.0]
 var bag: = []
 var bag_lv: = 0
 var tips_seen: = []
+var audio_feedback = preload("res://addons/reservoir/audio_feedback.gd").new()
+var resetting := false
+var reset_confirm := false
+var save_warning := false
 var title_open: = true
 var title_screen = preload("res://addons/reservoir/title_screen.gd").new()
 var market_open: = false
@@ -141,7 +145,7 @@ var settings_open: = false
 var font_license_page: = 0
 var set_view: = "main"
 var ui_clock: = 0.0
-var SET: = {"sfx": 1.0, "vib": true}
+var SET: = {"sfx": 1.0, "music": 0.65, "vib": true, "vib_level": 3}
 var gear_rect: = Rect2()
 var set_rects: = {}
 var slider_drag: = false
@@ -211,8 +215,13 @@ var reveal_g: = 0
 func _notification(what: int) -> void :
 	if what == NOTIFICATION_WM_CLOSE_REQUEST or what == NOTIFICATION_APPLICATION_PAUSED:
 		_save_game()
+		audio_feedback.suspended=true;audio_feedback.stop_all()
+		if is_instance_valid(drag_player): drag_player.stop()
+		vib_queue.clear();Input.vibrate_handheld(0)
+	if what == NOTIFICATION_APPLICATION_RESUMED: audio_feedback.suspended=false
 
 func _ready() -> void :
+	_cleanup_reset()
 	randomize()
 	_fx_init()
 	var neo: FontFile = load("res://font/neodgm.ttf")
@@ -295,6 +304,7 @@ func _ready() -> void :
 		top_y = maxf(sa.position.y / k, 26.0) + 2
 		bot_pad = maxf(get_window().size.y - sa.end.y, 0.0) / k
 	_layout()
+	audio_feedback.setup(self)
 	title_screen.setup(self)
 	if title_open: bg_node.hide();environment.show_scene(false)
 	get_viewport().size_changed.connect(_layout)
@@ -325,6 +335,9 @@ func _pixel_font(p: String) -> FontFile:
 
 
 func play(n: String, vol: = 0.0, pitch: = 1.0) -> void :
+	var replacement := {"plop":"water","splash_s":"water","splash_b":"splash","hook":"hook","catch":"catch","record":"record","snap":"snap","creak":"tension","hammer":"hammer","land":"splash","reel":"reel"}
+	if replacement.has(n) and not audio_feedback.streams.is_empty():
+		audio_feedback.sound(self,replacement[n],vol-8.0,pitch);return
 	if n in ["reel", "drag"]: return
 	if SET.sfx <= 0.01: return
 	vol += linear_to_db(SET.sfx)
@@ -333,7 +346,7 @@ func play(n: String, vol: = 0.0, pitch: = 1.0) -> void :
 			p.stream = sfx[n];p.volume_db = vol;p.pitch_scale = pitch;p.play();return
 
 func buzz(pattern) -> void :
-	if not SET.vib: return
+	if not SET.vib or int(SET.vib_level)==0: return
 	if pattern is int: pattern = [pattern]
 	vib_queue = pattern.duplicate();vib_wait = 0.0
 
@@ -341,7 +354,7 @@ func _vib_update(dt: float) -> void :
 	vib_wait -= dt
 	while vib_wait <= 0.0 and vib_queue.size() > 0:
 		var on: int = vib_queue.pop_front()
-		Input.vibrate_handheld(on)
+		Input.vibrate_handheld(int(on * [0.0,0.5,0.75,1.0][int(SET.vib_level)]), [0.0,0.35,0.65,1.0][int(SET.vib_level)])
 		var off: int = vib_queue.pop_front() if vib_queue.size() > 0 else 0
 		vib_wait += (on + off) / 1000.0
 
@@ -387,7 +400,7 @@ func start_cast() -> void :
 		return
 	pond_stock = maxf(0.0, pond_stock - 1.0)
 	S = {"phase": "cast", "t": 0.0}
-	set_anim("cast", false);msg = ""
+	set_anim("cast", false);msg = "";audio_feedback.sound(self,"cast",-6)
 	_save_game()
 
 func start_wait() -> void :
@@ -529,7 +542,7 @@ func _next_behavior_pick(g: int, c: float, r: float, x: float, pRun: float, pJum
 	if g >= 2 and x >= 0.38 and x < 0.46:
 		S.beh = "thrash";S.bt = randf_range(1.6, 2.4);S.thT = 0.0;buzz([60, 30, 60, 30, 60, 30, 60]);return
 	if g >= 3 and x >= 0.46 and x < 0.53:
-		S.beh = "skim";S.bt = randf_range(1.0, 1.5);S.skimDir = -1 if randf() < 0.5 else 1;buzz(vib_run());play("splash_s", -4.0);return
+		S.beh = "skim";S.bt = randf_range(1.0, 1.5);S.skimDir = -1 if randf() < 0.5 else 1;return
 	if r < pRun:
 		S.beh = "tell";S.bt = max(0.4, (0.4 if g >= 3 else 0.7) * randf_range(1.0 - 0.5 * c, 1.0));S.fakeTell = randf() < 0.35 * c;buzz([25, 45, 25])
 	elif r < pRun + pJump:
@@ -570,12 +583,16 @@ func _load_set() -> void :
 	if FileAccess.file_exists("user://settings.json"):
 		var d = JSON.parse_string(FileAccess.open("user://settings.json", FileAccess.READ).get_as_text())
 		if d is Dictionary: SET.merge(d, true)
+	SET.vib_level=clampi(int(SET.vib_level),0,3) if SET.vib else 0
+	SET.music=clampf(float(SET.music),0,1)
 
 func _save_set() -> void :
 	FileAccess.open("user://settings.json", FileAccess.WRITE).store_string(JSON.stringify(SET))
 
 func _draw_settings() -> void :
 	text_items.clear()
+	if set_view == "main":
+		preload("res://addons/reservoir/settings65.gd").draw(self);return
 	if set_view == "license":
 		_draw_font_license();return
 	if set_view == "book":
@@ -619,11 +636,11 @@ func _draw_font_license() -> void :
 	_ui_rect(Rect2( - ox, 0, VW + 2 * ox, h), Color(0.04, 0.06, 0.1, 0.7))
 	var r: = Rect2(15, roundf(h / 2) - 170, 240, 340)
 	_ui_style_box(sb_panel, r)
-	_text("Neo둥근모 · OFL 1.1", Vector2(VW / 2.0, r.position.y + 32), 11, Color("382619"), true, 190)
+	_text("글꼴 · 오디오 라이선스", Vector2(VW / 2.0, r.position.y + 32), 11, Color("382619"), true, 190)
 	var cr: = Rect2(r.end.x - 34, r.position.y + 12, 22, 23)
 	_ui_texture(icons.close, cr.position)
 	var lines: Array[String] = []
-	for paragraph in FileAccess.get_file_as_string("res://font/NEODGM_LICENSE.txt").split("\n"):
+	for paragraph in (FileAccess.get_file_as_string("res://font/NEODGM_LICENSE.txt")+"\n\n"+FileAccess.get_file_as_string("res://sfx/refresh65/CREDITS.txt")).split("\n"):
 		var line: = ""
 		for word in paragraph.split(" ", false):
 			var trial: = word if line == "" else line + " " + word
@@ -681,6 +698,8 @@ func _draw_book() -> void :
 	set_rects = {"close": cr.grow(6), "panel": r, "book": rects}
 
 func _settings_press(pos: Vector2) -> void :
+	if set_view == "main":
+		preload("res://addons/reservoir/settings65.gd").press(self,pos);return
 	if set_view == "license":
 		if set_rects.close.has_point(pos) or not set_rects.panel.has_point(pos): set_view = "main";return
 		if set_rects.prev.has_point(pos): font_license_page = maxi(0, font_license_page - 1)
@@ -927,8 +946,8 @@ func update_fight(dt: float) -> void :
 		elif S.beh == "nose":
 			S.beh = "dive";S.bt = randf_range(0.7, 1.1) * (1 + 0.1 * S.grade);buzz([110, 40, 140])
 			if holding: S.tension += shock_amount(0.6);buzz([80, 30, 220])
-		elif S.beh == "rise": S.beh = "jump";S.bt = 0.9;S.jumpUsed = false;S.jumpT = 0.0;buzz(40);play("splash_s", -6.0)
-		elif S.beh == "jump": S.landUntil = clock + 0.4;buzz([70]);play("splash_b", -6.0 + 6.0 * S.star / 4.0);next_behavior()
+		elif S.beh == "rise": S.beh = "jump";S.bt = 0.9;S.jumpUsed = false;S.jumpT = 0.0
+		elif S.beh == "jump": S.landUntil = clock + 0.4;next_behavior()
 		elif S.beh == "run" and S.chain and S.get("runStreak", 0) < 2: S.chain = false;S.runStreak = S.get("runStreak", 0) + 1;S.beh = "tell";S.bt = 0.4;S.fakeTell = false;buzz([25, 45, 25])
 		elif S.beh == "rest" and S.fakeRest: S.fakeRest = false;S.beh = "tell";S.bt = 0.4;S.fakeTell = false;buzz([25, 45, 25])
 		else:
@@ -996,9 +1015,7 @@ func sfx_update(dt: float) -> void :
 		drag_player.stop();return
 	drag_player.volume_db = linear_to_db(SET.sfx) - 5.0
 	if not drag_player.playing: drag_player.play()
-	if S.tension > 82:
-		creak_t -= dt
-		if creak_t <= 0: play("creak", -12.0);creak_t = 0.28
+
 
 
 func start_catch() -> void :
@@ -1117,6 +1134,8 @@ func _process(dt: float) -> void :
 	shake_t = maxf(0.0, shake_t - dt)
 	position = Vector2(ox, 0) + (Vector2(randi_range(-2, 2), randi_range(-1, 1)) if shake_t > 0 else Vector2.ZERO)
 	ui_clock += dt
+	audio_feedback.update(self,dt)
+	_vib_update(dt)
 	sfx_update(dt)
 	inventory.sync(self)
 	if is_instance_valid(title_screen.root): title_screen.root.visible = title_open or title_screen.leaving
@@ -1144,7 +1163,6 @@ func _process(dt: float) -> void :
 	clock += dt;anim_t += dt;cat_t += dt;result_t += dt
 	fclock += dt * time_scale()
 	judge_t = max(0.0, judge_t - dt);toast_t = max(0.0, toast_t - dt)
-	_vib_update(dt)
 	match S.phase:
 		"cast":
 			S.t += dt
@@ -1752,6 +1770,7 @@ func _aura_col(g: int, t: float, a: float, k: = 0) -> Color:
 
 
 func _exit_tree() -> void :
+	audio_feedback.dispose()
 	title_screen.dispose()
 	if environment.layer:
 		environment.layer.environment = null
@@ -2406,11 +2425,14 @@ func _draw_title(_t: float, h: float) -> void :
 
 const SAVE_VER: = 1
 func _save_game() -> void :
-	var f: = FileAccess.open("user://save.json", FileAccess.WRITE)
-	f.store_string(JSON.stringify({"region_shop": region_shop.serialize(), "equipment": equipment.serialize(), "mail_read": mailbox.read_ids, "mail_deleted": mailbox.deleted_ids, "v": SAVE_VER, "gold": gold, "pearl": pearl, "bag": bag_items(), "bag_lv": bag_lv, "parts": parts_owned, "tips": tips_seen, 
+	if resetting: return
+	var ok: bool = preload("res://addons/reservoir/save_store.gd").write("user://save.json", {"region_shop": region_shop.serialize(), "equipment": equipment.serialize(), "mail_read": mailbox.read_ids, "mail_deleted": mailbox.deleted_ids, "v": SAVE_VER, "gold": gold, "pearl": pearl, "bag": bag_items(), "bag_lv": bag_lv, "parts": parts_owned, "tips": tips_seen,
 		"town_zoom": V.zoom, "boat_lv": boat_lv, "town_lv": town_lv, "forge_lv": forge_lv, "rod_lv": rod_lv, "rod_owned": rod_owned, "rod_enh": rod_enh, "protection_tickets": protection_tickets, "forge_pending": forge_pending, "forge_seen": forge_seen, 
 		"pond_cap_lv": pond_cap_lv, "pond_regen_lv": pond_regen_lv, "pond_stock": pond_stock, 
-		"bait": bait, "souls": souls, "aqua_lv": aqua_lv, "aqua": aqua, "dex": DEX, "catch_counts": catch_counts, "catch_legacy": catch_legacy, "world_time": environment.day_seconds, "time": Time.get_unix_time_from_system()}))
+		"bait": bait, "souls": souls, "aqua_lv": aqua_lv, "aqua": aqua, "dex": DEX, "catch_counts": catch_counts, "catch_legacy": catch_legacy, "world_time": environment.day_seconds, "time": Time.get_unix_time_from_system()})
+	if not ok and not save_warning:
+		save_warning=true;tip_txt="저장 실패 · 저장 공간을 확인해 주세요";tip_t=8.0
+	elif ok: save_warning=false
 
 func aqua_rate() -> float:
 	var r: = 0.0
@@ -2419,9 +2441,8 @@ func aqua_rate() -> float:
 	return r * V.multiplier(self)
 
 func _load_game() -> void :
-	if not FileAccess.file_exists("user://save.json"): return
-	var d = JSON.parse_string(FileAccess.open("user://save.json", FileAccess.READ).get_as_text())
-	if not d is Dictionary: return
+	var d: Dictionary = preload("res://addons/reservoir/save_store.gd").read("user://save.json")
+	if d.is_empty(): return
 	mailbox.read_ids = d.get("mail_read", []);mailbox.deleted_ids = d.get("mail_deleted", [])
 	environment.day_seconds = maxf(0.0, float(d.get("world_time", 0.0)))
 	gold = int(d.get("gold", 0));pearl = int(d.get("pearl", 0));bag_lv = int(d.get("bag_lv", 0))
@@ -2455,6 +2476,7 @@ func _load_game() -> void :
 	var earn: = int(aqua_rate() * away / 60.0)
 	if earn > 0 and d.has("time"):
 		gold += earn;tip_txt = "쉬는 동안 수족관에서 %d 비늘을 벌었어요!" % earn;tip_t = 5.0
+	_save_game()
 
 
 func _load_rec() -> void :
@@ -2542,7 +2564,7 @@ func _shot_mode() -> void :
 			start_wait();S.sp = 9;S.star = 1;S.grade = 2;S.lf = 1.1;S.size = 1;S.judge = "GREAT";S.len = 52.0;start_fight();S.dist = 35.0;open_card("jump", "")
 		"license":
 			start_wait();settings_open = true;set_view = "license"
-		"settings":
+		"settings", "settings_reset":
 			start_wait();settings_open = true
 		"book":
 			start_wait();settings_open = true;set_view = "book";TUT.seen = ["swim", "tell", "rest", "jump"]
@@ -2668,6 +2690,7 @@ func _shot_mode() -> void :
 			market_open = true;market_sell = false;inventory.tab = "inventory" if state == "bag_inventory" else "equipment"
 	if state == "village_lockedshop": V.open_shop(self,"up");region_shop.region=1
 	if state == "village_museum": V.open_shop(self,"museum")
+	if state == "settings_reset": reset_confirm=true
 	if state == "measure_crucian": S.sp=1;S.len=25.9;S.weight=0.088;S.newRec=false;S.grade=0;S.t=S.netEnd+2.3;tip_t=0.0
 	if state.begins_with("lesson_book_"):
 		_switch_scene("village");S = {"phase": "idle"};settings_open = true;set_view = "book"
@@ -2819,3 +2842,19 @@ func _fade_ui(first_command: int, first_text: int, alpha: float) -> void:
 			"texture": c[4].a *= alpha
 			"region": c[4].a *= alpha
 			"rect": c[2].a *= alpha
+
+const RESET_FILES = ["save.json","rec.json","tut.json"]
+func _cleanup_reset() -> void:
+	if not FileAccess.file_exists("user://reset.pending"): return
+	for name in RESET_FILES:
+		for suffix in ["", ".bak", ".tmp"]:
+			var path: String = "user://"+name+suffix
+			if FileAccess.file_exists(path): DirAccess.remove_absolute(path)
+	DirAccess.remove_absolute("user://reset.pending")
+func reset_progress() -> void:
+	var marker := FileAccess.open("user://reset.pending",FileAccess.WRITE)
+	if marker==null: tip_txt="초기화 실패 · 저장 공간을 확인해 주세요";tip_t=6;return
+	marker.store_string("confirmed");marker.close()
+	resetting=true;audio_feedback.stop_all();drag_player.stop();vib_queue.clear();Input.vibrate_handheld(0)
+	_cleanup_reset()
+	get_tree().reload_current_scene()

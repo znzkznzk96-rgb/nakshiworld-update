@@ -1,17 +1,18 @@
 {
   "schema_version": 1,
-  "task": "0.65 계측·윤곽 오라·몸짓도감",
-  "status": "verified_build_deployment_approval_blocked",
+  "task": "0.65 시각·행동 사운드/진동·타이틀·초기화·저장",
+  "status": "tested_authorized_for_release",
   "work_branch": "work/measure-aura-065",
   "release_baseline": "v0.64",
   "target_version": "0.65",
   "deployment_changed": false,
   "phone_confirmation": "0.64 계측 버그 사용자 보고;0.65 미배포",
-  "next_step": "사용자 0.65 배포 승인 후 main 반영 및 실제 Release 검증",
+  "next_step": "작업 브랜치 체크포인트 후 main 배포 및 공개 파일 검증",
   "apk_sha256": "e2b5e3884cc51f2d9136f171d2d3d5e7722dacea2a5fc062638972d33551ea13",
   "source_commit": "c9dbbaf8355778a4cf99be1c4f5924d8433113cf",
   "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v0.64",
   "live_patch_sha256": "3aeac0141a2c56e71d8ceba2872145c327c5540c27f24123191af5918136fadd",
   "source_zip_sha256": "dfec2cc1790652cfdf1d2bbf5b739144ecb8cc5d8cae8539066647893d12f50d",
-  "apk_version": "0.63 (이번 패치는 APK 재설치 불필요)"
+  "apk_version": "0.63 (이번 패치는 APK 재설치 불필요)",
+  "deployment_authorization": "사용자: 적용하고 배포까지 가자 지금까지내용"
 }

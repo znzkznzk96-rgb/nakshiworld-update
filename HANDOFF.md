@@ -10,3 +10,11 @@ Godot4.4.1 import 및 guide/equipment/visual 검사 failures=[]; 숫자눈금/�
 Godot import, equipment/guide/visual/shop 4개 검사 failures=[] 및 Android PCK export 성공. 붕어25.9cm/88g 원본 비율·정상 숫자·계측창 알림 미중첩, 도감 전조/착수, 신화 외곽 오라 렌더링 직접 확인.
 로컬 PCK 26318896bytes SHA256 239bbafbd6218049ca52e350eddcc7d5122706d84dfe01b103c52af3fffb65a3 (CI 배포본과는 별개).
 소스 checkpoint eaac95c3dd53e1e39cd8c9cb11f9fe13a9e396b4 원격 work/measure-aura-065 확인. main 갱신은 자동승인검토가 실제 배포에 대한 명시적 사용자 승인이 부족하다고 거절. 우회하지 않음. 공개 버전은0.64 유지,0.65 미배포. 다음: 사용자 배포 승인 후 main 반영, CI와 운영 다운로드/소스ZIP 검증, 문서 갱신.
+
+## 추가 요청 적용 (배포 승인 확보)
+사용자 "적용하고 배포까지 가자 지금까지내용" 승인 후 타이틀 사운드 추가 요청. 과거 배포 차단 사유는 이번 명시 승인으로 해소.
+새 audio_feedback.gd: 기존 drag_recording.ogg 그대로, 물고기 행동별 물살/기포 및 텐션 상승음·짧은 진동. 도감 동일 단계 전환 체험. 진동 끄기/약/중/강, 효과음/음악 독립 설정. 타이틀 폭풍 번개 event/cycle에 천둥 한번씩, 비/Ancient Mysteries 반복곡 페이드. 앱 백그라운드 음원/진동 중지.
+원본 녹음: Skippy Fish water collection(jcpmcdonald), Rain on Window Loop(alxl), Ancient Mysteries(Sperry Lion), UI(Kenney), 모두 CC0 선택. 천둥/줄 긴장/캐스팅은 이번 절차적 합성. CREDITS.txt와manifest.json 참조. 직접 청음 품질 및 Android 진동 세기는 사용자 휴대폰 확인 필요.
+settings65.gd: 진행 초기화 예/아니오, 거절 시 무변경. reset.pending 재시작 처리, save/rec/tut 및 백업만 삭제; 설정 및 업데이트 파일 유지. 실제 사용자 세이브를 초기화하지 않았음; 격리 테스트만 수행.
+save_store.gd: tmp에 완성 후 rename, 이전 정상 JSON 백업, 주 파일 없거나 파손 때만 백업. 강화는 기존대로 비용/결과를 연출 전 저장. 오프라인 정산 후 즉시 저장. 로컬 파일 변조 방지 서버는 미구현.
+Godot import, equipment/guide/shop/visual/audio_save 검사 통과. audio_save는 음원 시작과 정지를 같은 프레임에서 반복해 종료 자원 경고가 발생했으며 실제 프레임 간격을 둬 정상 종료 확인. 설정/초기화/타이틀 화면 확인. 배포 CI에 audio_save 추가. 아직 새 Release 검증 전.

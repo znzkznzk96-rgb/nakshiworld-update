@@ -6,7 +6,7 @@ func _initialize() -> void:
 	call_deferred("run")
 func run() -> void:
 	var m = load("res://main.gd").new()
-	root.add_child(m)
+	root.add_child(m);m.SET.sfx=0;m.SET.music=0
 	await process_frame
 	m.set_process(false)
 	m.title_open = false
