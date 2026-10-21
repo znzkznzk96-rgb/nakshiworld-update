@@ -197,6 +197,7 @@ var fx_rid: = []
 var aura: = {}
 var aura_hist: = []
 var aura_hist_t: = 0.0
+var water_spawn_acc: = 0.0
 var parts: = []
 var spawn_acc: = 0.0
 var reveal_t: = 0.0
@@ -1191,6 +1192,9 @@ func _draw() -> void :
 	var cf: Array = anims["cat"]
 	draw_texture(cf[int(cat_t / anim_speed["cat"]) % 16], Vector2(CATX, CATY + _cat_jump()))
 	var fr: = anim_frame()
+	# One logical pixel, alpha silhouette; original sprite remains untouched.
+	for edge in [Vector2.LEFT, Vector2.RIGHT, Vector2.UP, Vector2.DOWN]:
+		draw_texture(anims[anim_name][fr], Vector2(PX, PY) + edge, Color(0.035, 0.045, 0.065, 0.9))
 	draw_texture(anims[anim_name][fr], Vector2(PX, PY))
 	_draw_reaction(t)
 	var tip: = _rod_tip(fr)
@@ -1620,9 +1624,12 @@ func _shadow_fish(c: Vector2, star: int, grade: int, t: float, beh: String, spik
 		quads.append([PackedVector2Array([a - na * hw, b - nb * hw, b + nb * hw, a + na * hw]), 
 			PackedVector2Array([Vector2(u0, v0), Vector2(u1, v0), Vector2(u1, v1), Vector2(u0, v1)])])
 	if alpha >= 1.0: fish_mouth = (pts[0] as Vector2).lerp(pts[1], 0.35)
-	if grade > 0 and alpha >= 1.0:
+	if alpha >= 1.0 and not ui_demo:
 		aura = {"quads": quads, "pts": pts, "L": L, "g": grade, "tex": tex, "face": face, "c": pts[5], "nrms": nrms, "hw": hw}
 
+	if alpha >= 1.0:
+		_draw_pixel_halo(c, L, hw, grade, t)
+		_draw_action_wake(c, L, hw, face, beh, t)
 	if revealed:
 		var flash: float = visibility_flash / 0.9
 		if flash > 0: _fish_effect_circle(c, maxf(16, L), Color(0.3, 0.85, 0.9, flash * 0.02))
@@ -1650,6 +1657,67 @@ func _fish_quad(qd: Array, color: Color, tex: Texture2D) -> void :
 		var uv: = PackedVector2Array([qd[1][ids[0]], qd[1][ids[1]], qd[1][ids[2]]])
 		if ui_demo: _ui_polygon(pp, PackedColorArray([color, color, color]), uv, tex)
 		else: draw_polygon(pp, PackedColorArray([color, color, color]), uv, tex)
+
+# Pixel-only perimeter motifs: blue glints, violet orbit, gold rays, prismatic twin orbit.
+# Drawn before the body in world coordinates, including encyclopedia demonstrations.
+func _draw_pixel_halo(c: Vector2, length: float, half_width: float, grade: int, t: float) -> void:
+	if grade <= 0: return
+	var rings: int = 2 if grade == 4 else 1
+	for ring in rings:
+		var count: int = 16 + grade * 6
+		for i in count:
+			if (i + int(t / 180.0)) % 5 == 0: continue
+			var angle: float = i * TAU / count + t / (1800.0 if ring == 0 else -2400.0)
+			var pulse: float = sin(t / 420.0 + angle * 3.0) * 1.5
+			var r: = Vector2(length * 0.62 + 5 + ring * 5, half_width + 7 + ring * 5 + pulse)
+			var point: Vector2 = (c + Vector2(cos(angle), sin(angle)) * r).round()
+			var color: Color = _aura_col(grade, t, 0.38 + 0.16 * sin(angle + t / 500.0), i / 4)
+			_fish_effect_rect(Rect2(point, Vector2(2, 1)), color)
+			if i % 4 == 0:
+				_fish_effect_rect(Rect2(point + Vector2(0, -1), Vector2(1, 3)), color.lightened(0.2))
+			if grade == 3 and i % 3 == 0:
+				for ray in 3:
+					var q: Vector2 = (point + Vector2(cos(angle), sin(angle)) * (3 + ray * 2)).round()
+					_fish_effect_rect(Rect2(q, Vector2.ONE), Color(1.0, 0.79, 0.26, 0.55 - ray * 0.13))
+
+func _draw_action_wake(c: Vector2, length: float, hw: float, face: float, beh: String, t: float) -> void:
+	var force: float = _water_force(beh)
+	if beh == "rest" or beh == "sulk": return
+	# Short broken arcs remain outside the silhouette, never a solid glowing disc.
+	var arcs: int = 3 if force >= 2.0 else 2
+	for j in arcs:
+		var phase: float = fmod(t / (380.0 if force >= 2.0 else 700.0) + j / float(arcs), 1.0)
+		var radius: float = 4.0 + phase * (9.0 + force * 3.0)
+		var center: = c - Vector2(face * length * 0.46, 0)
+		if beh in ["circle", "thrash", "turn"]: center = c
+		for k in 9:
+			var angle: float = (k / 8.0 - 0.5) * PI
+			var point: = center + Vector2(-face * cos(angle) * radius, sin(angle) * (hw + radius * 0.65))
+			if absf(point.x - c.x) < length * 0.55 and absf(point.y - c.y) < hw + 3: continue
+			_fish_effect_rect(Rect2(point.round(), Vector2(2, 1)), Color(0.61, 0.89, 1.0, (1.0 - phase) * 0.38))
+
+func _water_force(beh: String) -> float:
+	return float({"rest": 0.25, "sulk": 0.35, "tell": 0.6, "rise": 0.8, "nose": 0.8, "turn": 1.1, "circle": 1.5, "dive": 2.0, "run": 2.2, "charge": 2.4, "thrash": 2.8, "skim": 2.0, "jump": 0.0}.get(beh, 0.7))
+
+func _spawn_action_water(dt: float) -> void:
+	var beh: String = S.get("cloneSub", "swim") if S.beh == "clone" else S.beh
+	var force: float = _water_force(beh)
+	water_spawn_acc = minf(3.0, water_spawn_acc + dt * (3.0 + force * 8.0))
+	if force == 0.0: water_spawn_acc = 0.0;return
+	while water_spawn_acc >= 1.0 and parts.size() < 90:
+		water_spawn_acc -= 1.0
+		var side: float = -1.0 if randf() < 0.5 else 1.0
+		var tail: Vector2 = aura.pts[-1]
+		var p: Vector2 = tail + Vector2(-aura.face * randf_range(2, 9), side * (aura.hw + randf_range(3, 7)))
+		var velocity: = Vector2(-aura.face * force * randf_range(5, 12), -randf_range(9, 20))
+		if beh in ["circle", "thrash", "turn"]:
+			var angle: float = randf() * TAU
+			p = aura.c + Vector2(cos(angle) * (aura.L * 0.65 + 4), sin(angle) * (aura.hw + 9))
+			velocity = Vector2(cos(angle) * force * 8.0, sin(angle) * force * 5.0 - 12)
+		if beh == "dive": velocity.y = -randf_range(26, 40)
+		var life: float = randf_range(0.45, 0.85)
+		parts.append({"kind": "bubble", "p": p, "v": velocity, "life": life, "max": life, "col": Color("b9eeff"), "ph": randf() * TAU, "sz": 3 if randf() < 0.45 else 1})
+
 
 func _aura_col(g: int, t: float, a: float, k: = 0) -> Color:
 	if g == 4: return Color.from_hsv(fmod(t * 0.25 + k * 45, 360) / 360.0, 0.65, 1.0, a)
@@ -1689,56 +1757,12 @@ func _fx_draw(t: float) -> void :
 	var front: RID = fx_rid[1]
 	RenderingServer.canvas_item_clear(back)
 	RenderingServer.canvas_item_clear(front)
+	var fx_shift: = Transform2D(0.0, Vector2(0, oy if scene == "fish" else 0.0))
+	RenderingServer.canvas_item_set_transform(front, fx_shift)
+	RenderingServer.canvas_item_set_transform(back, fx_shift)
 	if title_open or title_screen.leaving or market_open or settings_open or inventory.selected >= 0 or not V.commerce.pending.is_empty(): return
-	if not aura.is_empty():
-		var g: int = aura.g
 
-
-		var ac: Vector2 = aura.c
-		var rx: float = aura.L * 0.63
-		var ry: float = aura.hw + 7
-		if g >= 2:
-			for layer in (2 if g == 4 else 1):
-				var turn: float = t / (1100.0 if g == 2 else 750.0) + layer * PI
-				for k in 40:
-					var aa: float = k * TAU / 40 + turn
-					var bb: float = (k + 1) * TAU / 40 + turn
-					var wave: float = sin(aa * 3 + t / 330) * 1.5 if g == 4 else 0.0
-					var radii: = Vector2(rx + layer * 4, ry + layer * 3 + wave)
-					var p0: Vector2 = ac + Vector2(cos(aa) * radii.x, sin(aa) * radii.y)
-					var p1: Vector2 = ac + Vector2(cos(bb) * radii.x, sin(bb) * radii.y)
-					var n: Vector2 = (p1 - p0).normalized().orthogonal() * 1.1
-					var color: Color = _aura_col(g, t, (0.42 if g == 4 else 0.32) * (0.65 + 0.35 * sin(aa + turn)), k / 3.0)
-					RenderingServer.canvas_item_add_polygon(back, PackedVector2Array([p0 - n, p1 - n, p1 + n, p0 + n]), PackedColorArray([color, color, color, color]))
-		if g == 3:
-			for k in 8:
-				var aa: float = k * TAU / 8 + t / 2200
-				var direction: = Vector2(cos(aa), sin(aa) * 0.62)
-				var normal: = direction.orthogonal() * 1.6
-				var base: Vector2 = ac + direction * (aura.L * 0.53)
-				var tip: Vector2 = ac + direction * (aura.L * 0.71 + 5 * sin(t / 180 + k))
-				RenderingServer.canvas_item_add_polygon(back, PackedVector2Array([base - normal, base + normal, tip]), PackedColorArray([Color(1, 0.68, 0.12, 0.55), Color(1, 0.68, 0.12, 0.55), Color(1, 0.9, 0.4, 0.03)]))
-
-		if g >= 2:
-			var center: Vector2 = aura.c
-			var count: int = 3 if g == 2 else (5 if g == 3 else 7)
-			for i in count:
-				var a: float = t / (900.0 if g == 2 else 650.0) + i * TAU / count
-				var point: Vector2 = center + Vector2(cos(a) * aura.L * 0.62, sin(a) * (aura.hw + 8))
-				var col: Color = _aura_col(g, t, 0.75, i * 3)
-				_fx_px(front, point.x - 1, point.y, 3, 1, col)
-				_fx_px(front, point.x, point.y - 1, 1, 3, col)
-		if g == 4:
-			var c: Vector2 = aura.c
-			for i in 5:
-				var a: float = t / 600.0 + i * TAU / 5
-				var r: float = aura.L * 0.65
-				var sx: = c.x + cos(a) * r
-				var sy: = c.y + sin(a) * r * 0.45
-				var sc: = _aura_col(4, t, 0.9, i * 3)
-				_fx_px(front, sx - 1, sy, 3, 1, sc);_fx_px(front, sx, sy - 1, 1, 3, sc)
-
-	if reveal_t > 0 and reveal_c != Vector2.INF:
+	if reveal_t > 0 and reveal_c != Vector2.INF and S.phase == "fight":
 		var k: = 1.0 - reveal_t
 		var r: = 6.0 + k * 46.0
 		var col: = _aura_col(reveal_g, t, reveal_t * 0.9)
@@ -1760,7 +1784,13 @@ func _fx_draw(t: float) -> void :
 			var pts: = PackedVector2Array([c, c + Vector2(cos(a - w), sin(a - w)) * L, c + Vector2(cos(a + w), sin(a + w)) * L])
 			RenderingServer.canvas_item_add_polygon(back, pts, PackedColorArray([col, tip, tip]))
 	for pt in parts:
-		var pr: RID = front if pt.kind == "burst" or pt.kind == "drop" else back
+		# Fight particles are visible over scenery, excluded from the fish body and HUD.
+		var pr: RID = front if S.phase == "fight" or pt.kind == "burst" or pt.kind == "drop" else back
+		if S.phase == "fight":
+			if pt.p.y < WATER or pt.p.y + oy > get_viewport_rect().size.y - 100: continue
+			if not aura.is_empty():
+				var delta: Vector2 = pt.p - aura.c
+				if pow(delta.x / (aura.L * 0.62 + 4), 2) + pow(delta.y / (aura.hw + 5), 2) < 1.0: continue
 		var a: float = clampf(pt.life / pt.max, 0, 1)
 		var col: Color = pt.col
 		match pt.kind:
@@ -1829,20 +1859,21 @@ func _fx_update(dt: float, t: float) -> void :
 	if aura.is_empty() or S.phase != "fight": return
 	var g: int = aura.g
 	var pts: Array = aura.pts
-	if reveal_pending:
+	if reveal_pending and g > 0:
 		reveal_pending = false;reveal_c = aura.c;reveal_g = g
 		for i in 10 + g * 5:
 			var a: = randf() * TAU
 			parts.append({"kind": "burst", "p": aura.c, "v": Vector2(cos(a), sin(a) * 0.7) * randf_range(40, 80), "life": 0.6, "max": 0.6, "col": _aura_col(g, t, 1, i), "ph": 0.0, "sz": 2})
-	var rate: float = [0, 10, 14, 18, 24][g]
+	_spawn_action_water(dt)
+	var rate: float = [0, 9, 13, 18, 23][g]
 	var fast: bool = S.beh == "run" or S.beh == "charge" or S.beh == "jump"
 	if fast: rate *= 1.6
 	spawn_acc += rate * dt
-	while spawn_acc >= 1.0:
+	while spawn_acc >= 1.0 and parts.size() < 90:
 		spawn_acc -= 1.0
 		var k: = randi() % pts.size()
 		var nv: Vector2 = aura.nrms[k]
-		var p: Vector2 = pts[k] + nv * (aura.hw * 0.8 + 2) * (1.0 if randf() < 0.5 else -1.0)
+		var p: Vector2 = pts[k] + nv * (aura.hw + 7) * (1.0 if randf() < 0.5 else -1.0)
 		if g == 1: p = pts[k] + Vector2(0, - absf(nv.y) * aura.hw - 2)
 		var col: = _aura_col(g, t, 1, randi() % 8)
 		match g:
@@ -2090,7 +2121,7 @@ func _draw_notes() -> void :
 
 	if S.phase in ["fail", "result"]: return
 	if tip_t > 0:
-		var tip_y: = top_y + 150.0 if S.phase == "fight" else 140.0
+		var tip_y: = top_y + 164.0 if scene == "village" else (top_y + 150.0 if S.phase == "fight" else top_y + 74.0)
 		var body: = _ui_wrap(tip_txt, 12, 218, 2)
 		var lines: = body.split("\n").size()
 		_ui_style_box(sb_chip, Rect2(12, tip_y, 246, 34 if lines == 1 else 50))
@@ -2405,6 +2436,8 @@ func _shot_mode() -> void :
 		if state.ends_with("_pick"): V.pick_slot = 1
 		if state == "trans": trans = {"t": 0.6, "to": "fish", "done": true, "tip": TR_TIPS[0]};set_process(false)
 		if state == "trans2": trans = {"t": 0.2, "to": "fish", "done": false, "tip": TR_TIPS[0]};set_process(false)
+		if state == "village_income":
+			tip_txt = "쉬는 동안 수족관에서 12345 비늘을 벌었어요!";tip_t = 20.0
 		if state == "village_tap":
 			var o: Vector2 = V.map_origin(self, get_viewport_rect().size.y)
 			o.y = V.map_y - 1
@@ -2488,7 +2521,7 @@ func _shot_mode() -> void :
 			start_wait();S.sp = 14;S.star = 2;S.grade = 3;S.lf = 1.1;S.size = 1;S.judge = "GREAT";S.len = 40.0;start_fight();S.dist = 30.0
 			TUT.seen = BOOK_KEYS.duplicate()
 			S.beh = state.substr(4);S.bt = 99.0;S.circA = PI / 2;S.thT = 0.0;S.skimDir = -1;S.holdT = 0.0;S.dartDir = -1
-		"fight1", "fight3":
+		"fight1", "fight2", "fight3", "fight4":
 			start_wait();S.sp = 14;S.star = 2;S.grade = int(state.right(1))
 			S.lf = 1.1;S.size = 1;S.judge = "GREAT";S.len = 40.0;start_fight();S.dist = 35.0
 			holding = true
