@@ -22,7 +22,11 @@ APK: automation/repack_apk.py --baseline patch.pck --original-apk 원본0.60_R2.
 화면 검사: Xvfb와 Godot를 같은 셸에서 실행해야 이 환경의 로컬 디스플레이 접근 가능. --shot 경로 village_income / fight1..4 / beh_run / beh_dive / beh_thrash, 전투는 --vfx-check 사용.
 
 ## 배포 상태 / 다음 단계
-현재 이 체크포인트에서 미배포. main 반영으로 Actions가 v0.63 전체 소스/PCK/version.json을 생성·게시하도록 진행 예정. 로컬 pack SHA256 073f3dbeca8cf075cbbc7f5323ce1668864f40cf4c9efd2e3ee35004de2e7669, 26,231,552bytes는 로컬 산출물이며 Actions 배포 해시와 구분. 공개 후 Releases/운영 Cloudflare 다운로드·해시 검증, 이 문서 갱신.
+v0.63 공개 완료. 소스 커밋 c232e0deac2b21d3f2fb104d642ddd9d178bc216. Actions 39528181818 success. 전체 소스 ZIP/patch.pck/version.json 공개 확인. 운영 Cloudflare version.json code63/name0.63 및 /patch.pck?v=63.0 HTTP200 다운로드, GDPC 헤더/크기/SHA256 일치 검증 완료.
+공개 PCK: 26,701,872bytes, SHA256 6bb316e1cf85f280fe80f9438c2afcb0d5fd4497482a90bbec43423af0ff9ab3.
+전체 소스 ZIP: 25,884,151bytes, SHA256 328e330410c2542217ff8441ac341f25e8b83c8a40b93190f6f6a6ef28cef6c1. 실제 압축 검사 및 변경 main/root/icon/visual_verify가 로컬 검증본과 같은지 확인.
+APK는 로컬 복구 프로젝트로 만들었으므로 내장 pack 바이너리와 CI 공개PCK는 import환경 차이로 해시가 다름. 변경 소스/아이콘은 정확히 일치. APK의 패키지 com.sangjun.dotfishing, native versionCode63/versionName0.63 확인.
+남은 일: 사용자 휴대폰에서 기존 앱 위에 APK0.63 설치 후 아이콘/실제 동작 확인. 이미0.60/0.61/0.62 앱을 쓰면 게임 콘텐츠는 재실행 자동업데이트, 런처 아이콘은 APK 필요. 휴대폰 성공 여부를 아직 확인한 것으로 기록하지 않는다.
 이전0.61의 v=61.0 오류는 Worker수정 및 사용자 성공확인 완료. 이번에 Worker 변경 없음.
 
 ## 0.62 → 0.63 보완
