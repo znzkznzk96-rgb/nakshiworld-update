@@ -2,7 +2,7 @@
 
 **새 대화에서 첨부 ZIP이나 긴 설명을 다시 요구하지 않는다.** 최신 상태와 기획은 이 GitHub 저장소에서 읽는다.
 
-1. 이 문서 → `AGENTS.md` → [`docs/CONTINUE_HERE.md`](docs/CONTINUE_HERE.md) → [`docs/GAME_BIBLE.md`](docs/GAME_BIBLE.md) 순서로 읽는다.
+1. 이 문서 → `AGENTS.md` → [`docs/PROJECT_INSTRUCTIONS.md`](docs/PROJECT_INSTRUCTIONS.md) → [`docs/CONTINUE_HERE.md`](docs/CONTINUE_HERE.md) → [`docs/GAME_BIBLE.md`](docs/GAME_BIBLE.md) 순서로 읽는다.
 2. `WORK_STATE.json`의 작업 브랜치를 확인하고 해당 브랜치 최신 `HANDOFF.md`를 읽는다. 브랜치가 여럿이면 최근 커밋만으로 고르지 말고 문서의 목표/상태를 비교한다.
 3. GitHub 실제 최신 Release, Actions 및 현재 workflow를 확인해 구현/검증/배포/실기기 확인을 나눈다.
 4. 게임 코드 변경은 최신 Release 전체 `game-source.zip`에 유지보수 overlay를 적용한다. `game/`은 전체 프로젝트가 아니다.
