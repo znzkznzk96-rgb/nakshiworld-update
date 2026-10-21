@@ -1,4 +1,4 @@
-# 낚시월드 0.64 — 검증 완료, 공개 전
+# 낚시월드 0.64 — 공개·서버 검증 완료
 기준 v0.63 / main a371e0a. 작업 브랜치 work/guide-mail-lessons-064.
 
 ## 구현
@@ -17,5 +17,12 @@ Godot4.4.1 import 성공. equipment/guide/shop/visual 테스트 모두 failures=
 
 ## 범위·남은 일
 신규5낚시터 플레이는 아직 준비 전, 이번에 돈을 받고 개방하지 않는다. 미래 지역진행이 region_shop.unlock을 호출하면 상점도 해금. 자세한 값/데이터계약은 docs/REGIONAL_SHOP.md. 기존★5 주인은 미구현이며 릴을 사면 현재★5가 나온다고 안내하지 않음.
-공개배포/운영다운로드/휴대폰확인 아직 없음. 다음: main 업데이트 후CI, v0.64 소스/PCK/manifest/Worker 응답 검증, 인수인계에 해시 기록.
+공개배포/운영다운로드 검증 완료. 휴대폰에서의 실제 적용은 사용자 확인 전. 다음 작업은 새 work/* 브랜치에서 시작. 향후 신규낚시터 콘텐츠/해금조건/지역별 장비 밸런스 작업 및 사용자 실기기 피드백 대응.
 기존0.63 APK정보 및 배포증거는 a371e0a의 HANDOFF. 이번은 PCK 콘텐츠 패치이며 APK 재설치 불필요.
+
+## 0.64 실제 배포 결과
+소스 커밋 c9dbbaf8355778a4cf99be1c4f5924d8433113cf. Release https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v0.64 공개. 빌드 Actions39533079657 success, 운영게이트웨이 검사39533151073 success. APK가 요청하는 /patch.pck?v=64.0 HTTP200, GDPC/크기/해시 일치. 로컬 curl로도 version.json/patch.pck 직접 재확인. Python 기본 요청은 일시403을 받아 curl로 확인했고 CI는 Godot UA로 성공.
+PCK: 26,787,680bytes / SHA256 3aeac0141a2c56e71d8ceba2872145c327c5540c27f24123191af5918136fadd.
+전체소스ZIP: 25,948,044bytes / SHA256 dfec2cc1790652cfdf1d2bbf5b739144ecb8cc5d8cae8539066647893d12f50d.
+ZIP 무결성 확인, 변경 코드11개+PixelLab PNG21개 총32파일이 로컬 검증본과 바이트 일치. 상세증거 docs/RELEASE_064_VERIFICATION.json. 공개 manifest code64/name0.64 일치.
+휴대폰은 게임 완전종료 후 재실행으로 PCK 업데이트. 이번 변경에 APK 재설치 불필요. 휴대폰 성공을 확인했다고 주장하지 않는다.
