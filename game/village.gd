@@ -418,7 +418,7 @@ func press(m, pos: Vector2) -> void :
 
 func open_shop(m, k: String) -> void :
 	aqua_manage = false;aqua_page = 0;aqua_pick_page = 0;aqua_selected = -1;aqua_notice = ""
-	shop = k;tab = "sell";forge_tab = "rods";rod_page = 0;pick_slot = -1;m.play("plop", -8.0)
+	shop = k;tab = "sell";forge_tab = "rods";rod_page = 0;pick_slot = -1;m.play("ui", -8.0)
 
 
 func draw_shop(m, h: float) -> void :
@@ -636,6 +636,7 @@ func _draw_forge(m, r: Rect2, y: float) -> void :
 	enhancement.draw(self, m, r, y)
 
 func _shop_press(m, pos: Vector2) -> void :
+	m.play("ui")
 	if enhancement.busy():
 		for row in rects.get("rows", []):
 			if row[0].has_point(pos): _act(m, row[1]);return
@@ -674,7 +675,7 @@ func _act(m, a: String) -> void :
 			var count: int=int(k[2]);m.gold-=int(q.price)
 			if n==0: m.bait+=count
 			else: m.region_shop.stocks[n]+=count
-			m.region_shop.selected_bait=n;m.play("plop")
+			m.region_shop.selected_bait=n;m.play("ui")
 		"species": m.inventory.open_species(n);return
 		"open": open_shop(m, k[1]);return
 		"boat":
@@ -711,7 +712,7 @@ func _act(m, a: String) -> void :
 			m.show_toast(m.BAG_NAME[next] + "!", Color("ffd24a"));m.play("catch")
 		"worm":
 			if n not in [1, 10] or m.gold < n * 10: return
-			m.gold -= n * 10;m.bait += n;m.play("plop")
+			m.gold -= n * 10;m.bait += n;m.play("ui")
 		"tab": tab = k[1]
 		"sell":
 			var f: Dictionary = m.bag[n]

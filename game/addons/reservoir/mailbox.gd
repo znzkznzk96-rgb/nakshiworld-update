@@ -85,6 +85,7 @@ func draw(m, h: float) -> void :
 		var text: String = ("취소" if deleting else "전체 읽기") if key == "read" else ("선택 삭제 %d" % checked.size() if deleting else "삭제")
 		m._text(text, rects[key].get_center() + Vector2(0, 4), 10, Color("513b29"), true, 99)
 func press(m, p: Vector2) -> void :
+	m.play("ui")
 	if rects.get("close", Rect2()).has_point(p): opened = false;detail = "";deleting = false;checked.clear();return
 	if detail != "":
 		if rects.get("back", Rect2()).has_point(p): detail = ""

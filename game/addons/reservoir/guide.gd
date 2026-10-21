@@ -56,6 +56,7 @@ func draw(m, h: float) -> void:
 		m._text(line,Vector2(25,y),9,Color("513b29"),false,219);y += 21
 	m._text("탭을 눌러 필요한 설명만 읽어 보세요",Vector2(135,r.end.y-19),8,Color("796b58"),true,220)
 func press(_m, pos: Vector2) -> void:
+	_m.play("ui")
 	if rects.get("close",Rect2()).has_point(pos): opened=false;return
 	for i in rects.get("tabs",[]).size():
 		if rects.tabs[i].has_point(pos): tab=i;topic=0;return

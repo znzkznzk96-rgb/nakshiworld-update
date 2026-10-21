@@ -58,7 +58,7 @@ func quote(v, m, a: String) -> Dictionary:
 func request(v, m, a: String) -> bool:
 	var q: = quote(v, m, a)
 	if q.is_empty(): return false
-	pending = q;m.holding = false;m.play("plop", -8.0);return true
+	pending = q;m.holding = false;m.play("ui", -8.0);return true
 func balance(m, q: Dictionary) -> int: return m.pearl if q.currency == "pearl" else m.gold
 func confirm(v, m) -> bool:
 	if pending.is_empty(): return false

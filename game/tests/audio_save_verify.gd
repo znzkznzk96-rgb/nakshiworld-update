@@ -28,10 +28,22 @@ func run() -> void:
 	m.SET.sfx=1.0
 	for key in m.audio_feedback.PATTERNS:
 		m.audio_feedback.action(m,key);await create_timer(0.06).timeout;m.audio_feedback.stop_all();await process_frame
-	check(m.audio_feedback.streams.size()==16,"all sound resources imported")
+	check(m.audio_feedback.streams.size()==20,"all sound resources imported")
 	check(m.audio_feedback.music.stream.loop and m.audio_feedback.rain.stream.loop,"title seamless loops enabled")
 	m.audio_feedback.suspended=true;m.audio_feedback.sound(m,"thunder");check(m.audio_feedback.pool.all(func(p):return not p.playing),"background audio blocked")
 	m.audio_feedback.suspended=false;m.SET.sfx=0
+	m.scene="village";m.title_screen.leaving=false;m.settings_open=false;m.SET.music=1.0;m.SET.sfx=1.0
+	var af=m.audio_feedback
+	af.gull_timer=0.0;af.horn_timer=60.0;af.update_village(m,1.0)
+	check(af.village_music.playing and af.village_music.stream.loop,"village music loops")
+	check(af.village_fx.playing and af.village_fx.stream in [af.streams.gull1,af.streams.gull2],"village seagull trigger")
+	await create_timer(0.08).timeout;af.village_fx.stop();af.horn_timer=0.0;af.update_village(m,0.1)
+	check(af.village_fx.playing and af.village_fx.stream==af.streams.horn,"village horn trigger")
+	await create_timer(0.08).timeout;m.scene="fishing";af.update_village(m,1.0)
+	check(not af.village_music.playing and not af.village_fx.playing,"village sounds stop on scene exit")
+	m.scene="village";m.SET.music=0.0;m.SET.sfx=0.0;af.update_village(m,1.0)
+	check(not af.village_music.playing and not af.village_fx.playing,"village sound respects mute")
+	check(af.streams.click!=af.streams.water,"UI and water use different streams")
 	# Test deletion allowlist in isolated XDG_DATA_HOME, never user's files.
 	for name in ["settings.json","patch_ver.txt","reset.pending","rec.json","tut.json"]:
 		var f=FileAccess.open("user://"+name,FileAccess.WRITE);f.store_string("sentinel");f.close()

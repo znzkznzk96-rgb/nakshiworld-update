@@ -335,7 +335,7 @@ func _pixel_font(p: String) -> FontFile:
 
 
 func play(n: String, vol: = 0.0, pitch: = 1.0) -> void :
-	var replacement := {"plop":"water","splash_s":"water","splash_b":"splash","hook":"hook","catch":"catch","record":"record","snap":"snap","creak":"tension","hammer":"hammer","land":"splash","reel":"reel"}
+	var replacement := {"ui":"click","plop":"water","splash_s":"water","splash_b":"splash","hook":"hook","catch":"catch","record":"record","snap":"snap","creak":"tension","hammer":"hammer","land":"splash","reel":"reel"}
 	if replacement.has(n) and not audio_feedback.streams.is_empty():
 		audio_feedback.sound(self,replacement[n],vol-8.0,pitch);return
 	if n in ["reel", "drag"]: return
@@ -640,7 +640,7 @@ func _draw_font_license() -> void :
 	var cr: = Rect2(r.end.x - 34, r.position.y + 12, 22, 23)
 	_ui_texture(icons.close, cr.position)
 	var lines: Array[String] = []
-	for paragraph in (FileAccess.get_file_as_string("res://font/NEODGM_LICENSE.txt")+"\n\n"+FileAccess.get_file_as_string("res://sfx/refresh65/CREDITS.txt")).split("\n"):
+	for paragraph in (FileAccess.get_file_as_string("res://font/NEODGM_LICENSE.txt")+"\n\n"+FileAccess.get_file_as_string("res://sfx/refresh65/CREDITS.txt")+"\n"+FileAccess.get_file_as_string("res://sfx/village/CREDITS.txt")).split("\n"):
 		var line: = ""
 		for word in paragraph.split(" ", false):
 			var trial: = word if line == "" else line + " " + word
@@ -1085,9 +1085,9 @@ func press(pos: = Vector2.ZERO) -> void :
 	if mailbox.opened: mailbox.press(self, pos);return
 	if not equipment.pending_sale.is_empty(): equipment.press_confirmation(self, pos);return
 	if scene == "village" and guide.button.has_point(pos) and V.shop == "" and not market_open and not settings_open:
-		guide.opened = true;menu_open = false;holding = false;return
+		guide.opened = true;menu_open = false;holding = false;play("ui");return
 	if scene == "village" and mailbox.button.has_point(pos) and V.shop == "" and not market_open and not settings_open:
-		mailbox.opened = true;menu_open = false;holding = false;return
+		mailbox.opened = true;menu_open = false;holding = false;play("ui");return
 	if not V.commerce.pending.is_empty(): V.commerce.press(V, self, pos);return
 	if inventory.selected >= 0: inventory.detail_press(pos);return
 	if scene == "spots": spots.press(self, pos);return
@@ -1287,7 +1287,7 @@ const TR_TIPS: = ["수족관 물고기는 쉬는 동안에도 돈을 벌어요",
 func start_trans(to: String) -> void :
 	if not trans.is_empty() or to == scene: return
 	trans = {"t": 0.0, "to": to, "done": false, "tip": TR_TIPS[randi() % TR_TIPS.size()]}
-	menu_open = false;holding = false;play("plop", -8.0)
+	menu_open = false;holding = false;play("ui", -5.0)
 
 func _switch_scene(to: String) -> void :
 	title_screen.leaving = false
@@ -1621,6 +1621,7 @@ func _draw_fight(t: float, tip: Vector2) -> void :
 func _shadow_fish(c: Vector2, star: int, grade: int, t: float, beh: String, spike: bool, scale: float, pose: Dictionary, phase: float, sp: int, face: float, alpha: float) -> void :
 	var revealed: bool = alpha >= 1.0 or (S.phase == "pre" and S.get("judge", "MISS") != "MISS")
 	var L: = _fish_display_length(star, scale, alpha < 1.0)
+	if revealed: c=c.round()
 	var N: = 12
 	var fz: float = grade / 4.0
 	var p: = pose if not pose.is_empty() else pose_for(beh, star, fz)
@@ -1649,6 +1650,9 @@ func _shadow_fish(c: Vector2, star: int, grade: int, t: float, beh: String, spik
 		var u: = float(i) / N
 		var ax: = - u * L * stretch
 		var lat: = amp * L * sin(phase - u * 4.2) * pow(u, 1.4) * tailAmp + curl * L * (4 * (u - 0.5) * (u - 0.5) - 1) * 0.3
+		# Preserve head/body pixel structure; concentrate flex in the tail.
+		if revealed:
+			lat *= lerpf(0.12,1.0,smoothstep(0.58,1.0,u))
 		var q: = Vector2(hx + ax * ct - lat * st, hy + ax * st + lat * ct)
 		q.x = c.x + (q.x - c.x) * face
 		pts.append(q)
@@ -1671,7 +1675,10 @@ func _shadow_fish(c: Vector2, star: int, grade: int, t: float, beh: String, spik
 		var u1: = (used.end.x - used.size.x * float(i + 1) / N) / tsz.x
 		var v0: = used.position.y / tsz.y
 		var v1: = used.end.y / tsz.y
-		quads.append([PackedVector2Array([a - na * hw, b - nb * hw, b + nb * hw, a + na * hw]), 
+		var vertices := PackedVector2Array([a - na * hw, b - nb * hw, b + nb * hw, a + na * hw])
+		if revealed:
+			for vertex in vertices.size(): vertices[vertex]=vertices[vertex].round()
+		quads.append([vertices,
 			PackedVector2Array([Vector2(u0, v0), Vector2(u1, v0), Vector2(u1, v1), Vector2(u0, v1)])])
 	if alpha >= 1.0: fish_mouth = (pts[0] as Vector2).lerp(pts[1], 0.35)
 	if alpha >= 1.0 and not ui_demo:
@@ -1715,7 +1722,7 @@ func _draw_pixel_halo(quads: Array, tex: Texture2D, grade: int, t: float) -> voi
 	for layer in range(3, 0, -1):
 		var pulse: float = fposmod(t / 1500.0, 1.0)
 		var radius: float = roundf(1.0 + (layer - 1 + pulse) * (1.0 + grade * 0.45))
-		var opacity: float = (0.22 if layer == 1 else 0.085 if layer == 2 else 0.025) * (1.0 - pulse * 0.35)
+		var opacity: float = (0.10 if layer == 1 else 0.045 if layer == 2 else 0.018) * (1.0 - pulse * 0.35)
 		for i in 8:
 			var offset := Vector2(cos(i * TAU / 8), sin(i * TAU / 8)).round() * radius
 			var color := _aura_col(grade, t, opacity, i)
@@ -2310,7 +2317,7 @@ func keep_fish() -> void :
 	bag.append({"sp": S.sp, "star": S.star, "grade": S.grade, "len": S.len, "w": S.weight, "price": fish_price(S.sp, S.star, S.grade, S.lf), "shoulder": sh})
 	if sh: show_tip("shoulder", "너무 커서 어깨에 멨어요. 이제 마을로!")
 	elif bag_cap() - bag_weight() < 0.1 * bag_cap(): show_tip("full", "보관통이 가득! 마을에 가서 팔거나 수족관에 넣어요")
-	play("plop");_save_game();_after_choice()
+	play("ui");_save_game();_after_choice()
 
 func release_fish() -> void :
 	play("splash_s", -6.0);_after_choice()
@@ -2398,7 +2405,7 @@ func _draw_menu(y0: float) -> void :
 
 func _menu_press(pos: Vector2) -> bool:
 	if ui_rects.get("menu", Rect2()).has_point(pos):
-		menu_open = not menu_open;menu_t = ui_clock;play("plop", -12.0);return true
+		menu_open = not menu_open;menu_t = ui_clock;play("ui", -5.0);return true
 	if not menu_open: return false
 	menu_open = false
 	var items: Array = ui_rects.get("m_items", [])
@@ -2702,6 +2709,10 @@ func _shot_mode() -> void :
 	if "--vfx-check" in args:
 		Engine.time_scale = 1.0;TUT.done = true;tip_t = 0.0;toast_t = 0.0;judge_t = 0.0;reveal_pending = false;reveal_t = 0.0
 		S.fx = 160.0;S.fy = WATER + 95.0;S.dispY = WATER + 95.0;S.bt = 99.0
+	if "--clarity-check" in args:
+		S.sp=1;S.grade=4;S.beh="swim";S.bt=99.0;S.tut=false;lesson_open=false;TUT.seen=BOOK_KEYS.duplicate()
+		if state.begins_with("fight"):
+			set_process(false);S.phase="fight";S.tension=40.0;S.dist=35.0;holding=false;queue_redraw()
 	for i in (120 if "--vfx-check" in args else 40): await get_tree().process_frame
 	await RenderingServer.frame_post_draw
 	await RenderingServer.frame_post_draw

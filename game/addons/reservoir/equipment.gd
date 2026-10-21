@@ -88,7 +88,7 @@ func equip(m, key: String, on: bool) -> bool:
 				active_parts.append(bits[1])
 			elif not on: active_parts.erase(bits[1])
 	m._save_game()
-	m.play("plop", -8.0)
+	m.play("ui", -8.0)
 	return true
 
 func sell(m, key: String) -> bool:

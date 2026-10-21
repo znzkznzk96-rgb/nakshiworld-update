@@ -1,0 +1,9 @@
+Village audio draft (not deployed)
+Music: peacefull ville (2023 revision), Bobjt, CC0
+https://opengameart.org/content/peacefull-ville
+Seagulls: Solo Seagull Sound Effects, Rango Mango, CC0
+https://opengameart.org/content/solo-seagull-sound-effects
+Sources: Seagull Ambient 1.wav and Seagull Ambient 3.wav.
+Horn: original procedural two-tone ship horn, not a field recording.
+All conversions: mono 44.1kHz Vorbis q4. Music composition unchanged.
+CC0 https://creativecommons.org/publicdomain/zero/1.0/

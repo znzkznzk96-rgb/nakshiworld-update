@@ -1,18 +1,20 @@
 {
   "schema_version": 1,
-  "task": "0.65 시각·행동 사운드/진동·타이틀·초기화·저장",
-  "status": "released_server_verified_phone_pending",
-  "work_branch": "main",
+  "task": "물고기 선명도·마을 배경음/갈매기/뱃고동·UI 클릭음 분리",
+  "status": "tested_not_deployed",
+  "work_branch": "work/clarity-village-audio",
   "release_baseline": "v0.65",
-  "target_version": "0.65",
-  "deployment_changed": true,
-  "phone_confirmation": "0.65 미확인",
-  "next_step": "휴대폰0.65 적용·청음·진동 체감 확인 및 사용자 피드백",
+  "target_version": "unreleased",
+  "deployment_changed": false,
+  "phone_confirmation": "이번 수정 휴대폰 선명도·청음 미검증",
+  "next_step": "사용자 검토; 명시 배포 승인 전 main/Release/Worker 변경 금지",
   "apk_sha256": "e2b5e3884cc51f2d9136f171d2d3d5e7722dacea2a5fc062638972d33551ea13",
   "source_commit": "e1f5b7a4ee82b1b47f36e8e75435a4eabb1a6f8a",
   "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v0.65",
   "live_patch_sha256": "814894c89024358eaba33dbc908929d9b0ee4274d597455a7dd14ebc698d1b12",
   "source_zip_sha256": "e1c832daebec57b6f865aa5ad2374dbf5e67e273ee285c95e51c6483716ded22",
   "apk_version": "0.63 (이번 패치는 APK 재설치 불필요)",
-  "deployment_authorization": "사용자: 적용하고 배포까지 가자 지금까지내용"
+  "deployment_authorization": "사용자 명시: 배포하지는말고",
+  "local_preview_pck_sha256": "9eab2753f259487cf66fb005c5cc9ff05b587d8773d84bc2167d01b86fb3e8ff",
+  "local_preview_pck_size": 28058752
 }
