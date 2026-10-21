@@ -20,6 +20,9 @@ func run() -> void:
 	for i in 8:
 		preview.draw(m,540);preview.press(m,preview.rects.next.get_center())
 	check(preview.region==5,"region navigation bounded")
+	preview.draw(m,540);preview.press(m,preview.rects.dex.get_center())
+	check(preview.legacy_dex,"existing fish records remain accessible")
+	m.V._act(m,"bundles");check(not preview.legacy_dex,"return from records to bundles")
 	check(m.gold==gold and m.bag==bag and m.region_shop.unlocked==unlocked,"preview never spends or unlocks")
 	m.audio_feedback.dispose();await create_timer(0.1).timeout;m.queue_free();await process_frame
 	print("BUNDLE_PREVIEW_VERIFY failures=",failures);quit(0 if failures.is_empty() else 1)

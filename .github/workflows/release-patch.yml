@@ -58,7 +58,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          for suite in guide shop audio_save; do
+          for suite in guide shop audio_save bundle_preview; do
             XDG_DATA_HOME="$RUNNER_TEMP/$suite-testdata" timeout 90 "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --headless --path "$RUNNER_TEMP/project" --script "tests/${suite}_verify.gd" > "$RUNNER_TEMP/$suite-tests.log" 2>&1
             cat "$RUNNER_TEMP/$suite-tests.log"
             grep -F 'VERIFY failures=[]' "$RUNNER_TEMP/$suite-tests.log"

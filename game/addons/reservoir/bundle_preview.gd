@@ -5,46 +5,49 @@ var region := 0
 var tab := 0
 var selected := -1
 var rects := {}
+var legacy_dex := false
 func button(m, key: String, label: String, r: Rect2, active: bool=false) -> void:
 	m._ui_style_box(m.sb_primary if active else m.sb_btn,r)
-	m._text(label,r.get_center()+Vector2(0,4),10,Color("fff0d1") if active else Color("513b29"),true,r.size.x-10)
+	m._text(label,r.get_center()+Vector2(0,4),12,Color("fff0d1") if active else Color("382619"),true,r.size.x-10)
 	rects[key]=r
 func draw(m,h: float) -> void:
 	m.text_items.clear();m.ui_commands.clear();rects.clear()
 	m._ui_rect(Rect2(-m.ox,0,270+2*m.ox,h),Color("17383f"))
-	var r:=Rect2(7,m.top_y,256,h-m.top_y-8)
+	var available: float=h-m.top_y-8
+	var panel_height: float=minf(490.0,available-32.0)
+	var r:=Rect2(7,m.top_y+floorf((available-panel_height)/2.0),256,panel_height)
 	m._ui_style_box(m.sb_panel,r)
 	var head:=Rect2(12,r.position.y+5,246,32)
 	m._ui_style_box(m.hud_reference_style,head)
 	m._text("어류 박물관",head.get_center()+Vector2(-8,5),14,Color("fff0d1"),true,190)
 	m._ui_texture(m.icons.close,Vector2(head.end.x-27,head.position.y+5));rects.close=Rect2(head.end.x-31,head.position.y,31,32)
 	var y: float=head.end.y+7
-	var map:=Rect2(17,y,236,66)
+	var map:=Rect2(17,y,236,56)
 	# Reuse existing region artwork with layered inset/shadow, rather than new paintings.
 	m._ui_rect(Rect2(map.position+Vector2(0,2),map.size),Color("8b7650"))
 	m._ui_rect(map,Color("275665"))
-	for x in range(32,240,8): m._ui_rect(Rect2(x,y+33,3,2),Color("e9d9b3"))
+	for x in range(32,240,8): m._ui_rect(Rect2(x,y+28,3,2),Color("e9d9b3"))
 	var start:=clampi(region-1,0,3)
 	for j in 3:
 		var n:=start+j
-		var tile:=Rect2(25+j*79,y+8,62,47)
+		var tile:=Rect2(25+j*79,y+7,62,38)
 		m._ui_rect(Rect2(tile.position+Vector2(2,3),tile.size),Color(0,0,0,0.3))
 		m._ui_rect(tile.grow(2),Color("e5c671") if n==region else Color("587782"))
 		var tex: Texture2D=m.spots.images[n]
 		var ts:=tex.get_size()
-		m._ui_texture_rect_region(tex,tile,Rect2(0,0,ts.x,ts.x*47.0/62.0),Color.WHITE if n==region else Color(0.55,0.62,0.63))
+		m._ui_texture_rect_region(tex,tile,Rect2(0,0,ts.x,ts.x*38.0/62.0),Color.WHITE if n==region else Color(0.55,0.62,0.63))
 		m._text(str(n+1),Vector2(tile.position.x+7,tile.end.y-3),9,Color("fff0d1"),true,12,true)
 		rects["region:%d"%n]=tile.grow(3)
 		if n==region: m._ui_rect(Rect2(tile.position.x+18,tile.end.y+4,26,2),Color("e5c671"))
 	y=map.end.y+6
 	button(m,"prev","<",Rect2(17,y,30,24));button(m,"next",">",Rect2(223,y,30,24))
-	m._text(SPOTS.NAMES[region],Vector2(135,y+15),11,Color("513b29"),true,170)
+	m._text(SPOTS.NAMES[region],Vector2(135,y+15),12,Color("382619"),true,170)
 	y+=30
 	button(m,"main","필수 번들",Rect2(17,y,115,26),tab==0)
 	button(m,"sub","서브 번들",Rect2(138,y,115,26),tab==1)
 	y+=36
-	m._text("다음 낚시터 준비" if tab==0 else "해금 자금 모으기",Vector2(22,y+4),11,Color("513b29"),false,195)
-	m._text("시안",Vector2(240,y+4),8,Color("86785c"),true,24)
+	m._text("다음 낚시터 준비" if tab==0 else "해금 자금 모으기",Vector2(22,y+4),12,Color("382619"),false,195)
+	
 	y+=12
 	var bottom: float=r.end.y-9
 	var grid_end: float=bottom-103
@@ -57,31 +60,33 @@ func draw(m,h: float) -> void:
 		m._ui_rect(Rect2(cell.position+Vector2(2,2),Vector2(70,1)),Color("fff8e4"))
 		if region==0:
 			m._ui_fish(i,Rect2(cell.position+Vector2(5,6),Vector2(64,maxf(20,cell_h-38))))
-			m._text(m.FISH_NAME[i],Vector2(cell.get_center().x,cell.end.y-19),9,Color("513b29"),true,68)
+			m._text(m.FISH_NAME[i],Vector2(cell.get_center().x,cell.end.y-21),12,Color("382619"),true,68)
 		else:
 			m._text("?",cell.get_center(),16,Color("aa9d7f"),true,60)
-			m._text("어종 미정",Vector2(cell.get_center().x,cell.end.y-19),9,Color("77694e"),true,68)
-		m._text("★ 조건 미정",Vector2(cell.get_center().x,cell.end.y-6),8,Color("86785c"),true,68)
+			m._text("어종 미정",Vector2(cell.get_center().x,cell.end.y-21),12,Color("513b29"),true,68)
+		m._text("★ 준비 중",Vector2(cell.get_center().x,cell.end.y-6),10,Color("68533d"),true,68)
 		rects["fish:%d"%i]=cell
 	var reward:=Rect2(17,bottom-93,236,38)
 	m._ui_rect(reward,Color("e7d8b6"));m._ui_rect(Rect2(reward.position,Vector2(236,1)),Color("baa57e"))
-	m._text("낚시 자격증 %d급"%(region+1) if tab==0 else "보상 · 해금 비용의 20%",reward.position+Vector2(10,15),11,Color("513b29"),false,220)
-	var desc: String="다음 낚시터 구매 자격" if tab==0 else "서브 번들 전체 보상 합계 · 가안"
-	if region==5: desc="최종 지역 보상은 별도 확정 예정"
-	m._text(desc,reward.position+Vector2(10,29),8,Color("86785c"),false,220)
-	button(m,"register","물고기 등록",Rect2(17,bottom-48,236,29))
-	m._text("UI 미리보기 · 등록과 보상 지급 없음",Vector2(135,bottom-7),8,Color("86785c"),true,236)
+	m._text("낚시 자격증 %d급"%(region+1) if tab==0 else "보상 · 해금 비용의 20%",reward.position+Vector2(10,15),12,Color("382619"),false,220)
+	var desc: String="새로운 물가로 향하는 첫걸음" if tab==0 else "다음 여행을 위한 비늘 모으기"
+	if region==5: desc="마지막 물가의 이야기는 준비 중"
+	m._text(desc,reward.position+Vector2(10,29),10,Color("68533d"),false,220)
+	button(m,"register","번들 준비 중",Rect2(17,bottom-48,154,29))
+	button(m,"dex","도감",Rect2(177,bottom-48,76,29))
+	m._text("번들 공개 전 · 기증은 아직 불가해요",Vector2(135,bottom-7),10,Color("68533d"),true,236)
 	if selected>=0:
 		var detail:=Rect2(22,y+12,226,108)
 		m._ui_style_box(m.sb_panel,detail)
 		m._text(m.FISH_NAME[selected] if region==0 else "어종 미정",detail.position+Vector2(113,27),13,Color("513b29"),true,190)
-		m._text("어종·최소 ★·마릿수는 추후 확정",detail.position+Vector2(113,49),9,Color("68533d"),true,198)
+		m._text("기증 조건을 준비하고 있어요",detail.position+Vector2(113,49),9,Color("68533d"),true,198)
 		button(m,"detail_close","확인",Rect2(detail.position+Vector2(56,66),Vector2(114,27)))
 func press(m,p: Vector2) -> void:
 	m.play("ui")
 	if selected>=0:
 		if rects.get("detail_close",Rect2()).has_point(p): selected=-1
 		return
+	if rects.get("dex",Rect2()).has_point(p): legacy_dex=true;return
 	if rects.get("close",Rect2()).has_point(p): m.V.shop="";return
 	if rects.get("prev",Rect2()).has_point(p): region=maxi(0,region-1);return
 	if rects.get("next",Rect2()).has_point(p): region=mini(5,region+1);return

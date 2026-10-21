@@ -419,12 +419,13 @@ func press(m, pos: Vector2) -> void :
 
 func open_shop(m, k: String) -> void :
 	aqua_manage = false;aqua_page = 0;aqua_pick_page = 0;aqua_selected = -1;aqua_notice = ""
+	bundle_preview.legacy_dex=false;bundle_preview.selected=-1
 	shop = k;tab = "sell";forge_tab = "rods";rod_page = 0;pick_slot = -1;m.play("ui", -8.0)
 
 
 func draw_shop(m, h: float) -> void :
 	if shop == "": return
-	if shop=="museum" and "--bundle-preview" in OS.get_cmdline_user_args():
+	if shop=="museum" and not bundle_preview.legacy_dex:
 		bundle_preview.draw(m,h);return
 	var top: float = m.top_y + 78
 	m.text_items = m.text_items.filter( func(it): return it[1].y < top)
@@ -447,7 +448,11 @@ func draw_shop(m, h: float) -> void :
 	var cr: = Rect2(header.end.x - 28, header.position.y + 7, 22, 23)
 	if shop != "forge" or not enhancement.busy(): m._ui_texture(m.icons.close, cr.position)
 	rects = {"close": cr.grow(3), "panel": r, "rows": []}
-	m._text(GREET[shop], Vector2(135, r.position.y + 59), 9, active_style.ink, true, 232)
+	if shop=="museum":
+		var back:=Rect2(82,r.position.y+46,106,24)
+		m._ui_style_box(m.sb_btn,back);m._text("번들 보기",back.get_center()+Vector2(0,4),10,active_style.ink,true,92)
+		rects.rows.append([back,"bundles"])
+	else: m._text(GREET[shop], Vector2(135, r.position.y + 59), 9, active_style.ink, true, 232)
 	var y: float = r.position.y + 78
 	match shop:
 		"up":
@@ -639,7 +644,7 @@ func _draw_forge(m, r: Rect2, y: float) -> void :
 	enhancement.draw(self, m, r, y)
 
 func _shop_press(m, pos: Vector2) -> void :
-	if shop=="museum" and "--bundle-preview" in OS.get_cmdline_user_args():
+	if shop=="museum" and not bundle_preview.legacy_dex:
 		bundle_preview.press(m,pos);return
 	m.play("ui")
 	if enhancement.busy():
@@ -657,6 +662,7 @@ func _shop_press(m, pos: Vector2) -> void :
 		else: shop = ""
 
 func _act(m, a: String) -> void :
+	if a=="bundles": bundle_preview.legacy_dex=false;return
 	if m.equipment.act(m, a): return
 	if enhancement.act(self, m, a): return
 	if aquarium.act(self, m, a): return
