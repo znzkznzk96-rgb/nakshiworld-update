@@ -21,7 +21,7 @@ func quote(v, m, a: String) -> Dictionary:
 			if k.size()!=3 or not m.region_shop.bait_unlocked(n): return {}
 			var count:=int(k[2])
 			if count not in m.region_shop.QUANTITIES: return {}
-			q.title=m.region_shop.BAIT_NAMES[n]+" %d개" % count;q.price=m.region_shop.BAIT_PRICES[n]*count;q.icon=v.tool_icons.worm if n==0 else (v.tool_icons.lugworm if n==1 else null);q.target=n*1000+count
+			q.title=m.region_shop.BAIT_NAMES[n]+" %d개" % count;q.price=m.region_shop.BAIT_PRICES[n]*count;q.icon=m.region_shop.bait_icon(n);q.target=n*1000+count
 		"part":
 			if n < 0 or n >= v.PARTS.size(): return {}
 			var p: Array = v.PARTS[n]

@@ -24,7 +24,7 @@ const FORGE_COST: = [120, 360, 900, 2100, 4800]
 const POND_CAP_COST: = [300, 800, 1800, 4200, 9000]
 const POND_REGEN_COST: = [250, 700, 1600, 3800, 8000]
 const ROD_NAME: = ["대나무 낚싯대", "카본 낚싯대", "원투 낚싯대", "선상 낚싯대", "심해 낚싯대", "은하 낚싯대"]
-const ROD_COST: = [0, 500, 1800, 6000, 20000, 65000]
+const ROD_COST: = [0, 2000, 35000, 700000, 4500000, 19000000]
 var bundle_preview = preload("res://addons/reservoir/bundle_preview.gd").new()
 var commerce = preload("res://addons/reservoir/commerce.gd").new()
 var enhancement = preload("res://addons/reservoir/enhancement.gd").new()
@@ -623,23 +623,23 @@ func _draw_forge(m, r: Rect2, y: float) -> void :
 		rects.rows.append([tr, "forgetab:" + ["rods", "upgrade"][i]])
 	y += 31
 	if forge_tab == "rods":
-		m._text("기본부터 은하 낚싯대까지", Vector2(135, y + 4), 9, Color("6a4a2a"), true)
-		y += 12
-		for n in 3:
-			var i: int = rod_page * 3 + n
-			var owned: bool = i in m.equipment.rods and (i != m.rod_lv or not m.equipment.rod_equipped)
-			var current: bool = i == m.rod_lv and m.equipment.rod_equipped
-			var label: String = ROD_NAME[i] + " +%d" % int(m.rod_enh[i])
-			var next_rod: bool = i <= m.rod_owned + 1 and i not in m.equipment.rods
-			var button_text: String = "사용 중" if current else ("장착" if owned else ("먼저 이전 낚싯대" if i > m.rod_owned + 1 else ""))
-			var price: int = ROD_COST[i] if next_rod else 0
-			var enabled: bool = owned or (next_rod and m.gold >= price)
-			_row(m, r, y, rods[i], label, "최대 +%d · 감기 +%d%%" % [m.ROD_MAX[i], i * 12], button_text, price, enabled, ("equip:%d" if owned else "rod:%d") % i)
-			y += 38
-		var pg: Rect2 = Rect2(85, r.end.y - 37, 100, 24)
-		m._ui_style_box(m.sb_chip, pg)
-		m._text("◀   %d / 2   ▶" % (rod_page + 1), pg.get_center() + Vector2(0, 4), 9, Color("382619"), true, 94)
-		rects.rod_page = pg
+		var card_h: float=floorf((r.end.y-y-12)/3.0)-5
+		for i in 6:
+			var cell:=Rect2(r.position.x+12+(i%2)*117,y+floori(i/2.0)*(card_h+5),113,card_h)
+			m._ui_style_box(active_style.card,cell)
+			var owned: bool=i in m.equipment.rods
+			var current: bool=i==m.rod_lv and m.equipment.rod_equipped
+			m._ui_texture_rect(rods[i],Rect2(cell.position+Vector2(4,4),Vector2(26,26)),false)
+			m._text(ROD_NAME[i],cell.position+Vector2(33,14),10,active_style.ink,false,76)
+			m._text("+%d · 감기 +%d%%" % [int(m.rod_enh[i]),i*12],cell.position+Vector2(33,27),8,Color("68533d"),false,76)
+			var buy:=Rect2(cell.position.x+4,cell.end.y-28,105,24)
+			m._ui_style_box(m.sb_btn,buy)
+			var caption: String="사용 중" if current else ("장착" if owned else "%s 비늘" % m.spots.price_text(ROD_COST[i]))
+			m._text(caption,buy.get_center()+Vector2(0,4),10,active_style.ink,true,96)
+			if owned and not current: rects.rows.append([buy,"equip:%d"%i])
+			elif not owned and i<=m.rod_owned+1: rects.rows.append([buy,"rod:%d"%i])
+			elif not owned: m._text("잠김",Vector2(cell.end.x-17,cell.position.y+40),8,Color("796b58"),true,30)
+
 		return
 	enhancement.draw(self, m, r, y)
 
@@ -651,7 +651,6 @@ func _shop_press(m, pos: Vector2) -> void :
 		for row in rects.get("rows", []):
 			if row[0].has_point(pos): _act(m, row[1]);return
 		return
-	if rects.get("rod_page", Rect2()).has_point(pos): rod_page = 1 - rod_page;return
 	for row in rects.get("rows", []):
 		if row[0].has_point(pos):
 			if not commerce.request(self, m, row[1]): _act(m, row[1])

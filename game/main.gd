@@ -2725,6 +2725,9 @@ func _shot_mode() -> void :
 		S.sp=1;S.grade=4;S.beh="swim";S.bt=99.0;S.tut=false;lesson_open=false;TUT.seen=BOOK_KEYS.duplicate()
 		if state.begins_with("fight"):
 			set_process(false);S.phase="fight";S.tension=40.0;S.dist=35.0;holding=false;queue_redraw()
+	if "--bundle-sub" in args: V.bundle_preview.tab=1
+	if "--forge-six" in args: mailbox.opened=false;_switch_scene("village");V.open_shop(self,"forge");V.forge_tab="rods"
+	if "--bait-six" in args: mailbox.opened=false;_switch_scene("village");V.open_shop(self,"up");V.tab="bait"
 	if "--action-text-check" in args:
 		show_toast("착수 챔질! +12", Color("fff0b0"), true);toast_t=0.85;queue_redraw()
 	for i in (120 if "--vfx-check" in args else 40): await get_tree().process_frame

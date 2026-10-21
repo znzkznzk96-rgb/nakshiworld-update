@@ -36,6 +36,8 @@ func draw_button(m) -> void :
 		var glow: float = 0.7 + 0.3 * sin(m.ui_clock * 5)
 		m._text("NEW", button.position + Vector2(12, 1), 7, Color(1, 0.82, 0.28, glow), true, 32, true)
 func draw(m, h: float) -> void :
+	if "--mail-a" in OS.get_cmdline_user_args() or "--mail-b" in OS.get_cmdline_user_args():
+		preload("res://addons/reservoir/mail_concepts.gd").draw(m,h,0 if "--mail-a" in OS.get_cmdline_user_args() else 1);return
 	var r: = Rect2(13, maxf(m.top_y + 90, h * 0.5 - 182), 244, 364)
 	m.text_items = m.text_items.filter( func(it): return it[1].y < m.top_y + 35)
 	m._ui_rect(Rect2( - m.ox, 0, m.VW + 2 * m.ox, h), Color(0.015, 0.025, 0.04, 0.86))

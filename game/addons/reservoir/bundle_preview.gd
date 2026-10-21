@@ -6,6 +6,7 @@ var tab := 0
 var selected := -1
 var rects := {}
 var legacy_dex := false
+var licenses := {}
 func button(m, key: String, label: String, r: Rect2, active: bool=false) -> void:
 	m._ui_style_box(m.sb_primary if active else m.sb_btn,r)
 	m._text(label,r.get_center()+Vector2(0,4),12,Color("fff0d1") if active else Color("382619"),true,r.size.x-10)
@@ -68,10 +69,17 @@ func draw(m,h: float) -> void:
 		rects["fish:%d"%i]=cell
 	var reward:=Rect2(17,bottom-93,236,38)
 	m._ui_rect(reward,Color("e7d8b6"));m._ui_rect(Rect2(reward.position,Vector2(236,1)),Color("baa57e"))
-	m._text("낚시 자격증 %d급"%(region+1) if tab==0 else "보상 · 해금 비용의 20%",reward.position+Vector2(10,15),12,Color("382619"),false,220)
-	var desc: String="새로운 물가로 향하는 첫걸음" if tab==0 else "다음 여행을 위한 비늘 모으기"
-	if region==5: desc="마지막 물가의 이야기는 준비 중"
-	m._text(desc,reward.position+Vector2(10,29),10,Color("68533d"),false,220)
+	if tab==0:
+		if not licenses.has(region): licenses[region]=load("res://art/rewards67/license_%d.png"%region)
+		m._ui_texture_rect(licenses[region],Rect2(reward.position+Vector2(3,3),Vector2(48,32)),false)
+		m._text("낚시 자격증 %d급"%(region+1),reward.position+Vector2(56,14),11,Color("382619"),false,175)
+		m._text("다음 낚시터 입장 라이선스" if region<5 else "최종 지역 자격증 · 용도 준비 중",reward.position+Vector2(56,29),9,Color("513b29"),false,175)
+	else:
+		m._ui_texture_rect(m.V.tool_icons.scale,Rect2(reward.position+Vector2(8,7),Vector2(24,24)),false)
+		var amount: String="%s 비늘" % _amount(roundi(SPOTS.PRICES[region+1]*0.2)) if region<5 else "보상 준비 중"
+		m._text(amount,reward.position+Vector2(40,16),14,Color("382619"),false,185)
+		m._text("서브 번들 완료 보상" if region<5 else "최종 지역 보상은 추후 공개",reward.position+Vector2(40,30),10,Color("513b29"),false,185)
+
 	button(m,"register","번들 준비 중",Rect2(17,bottom-48,154,29))
 	button(m,"dex","도감",Rect2(177,bottom-48,76,29))
 	m._text("번들 공개 전 · 기증은 아직 불가해요",Vector2(135,bottom-7),10,Color("68533d"),true,236)
@@ -96,3 +104,10 @@ func press(m,p: Vector2) -> void:
 		if rects.get("region:%d"%n,Rect2()).has_point(p): region=n;return
 		if rects.get("fish:%d"%n,Rect2()).has_point(p): selected=n;return
 	if rects.get("register",Rect2()).has_point(p): selected=0
+
+func _amount(value: int) -> String:
+	var raw:=str(value);var result:=""
+	for i in raw.length():
+		if i>0 and (raw.length()-i)%3==0: result+=","
+		result+=raw[i]
+	return result

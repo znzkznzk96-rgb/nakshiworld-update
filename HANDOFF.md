@@ -1,3 +1,13 @@
+# 최신 작업: 자격증/미끼 PixelLab·보상 표시·낚싯대6종 (미배포)
+사용자0.66 휴대폰 정상 업데이트 확인. 새 요청은 일단 수정, 운영0.66 그대로 유지. 작업 브랜치 work/rewards-bait-forge, 기준 main9565ba485f6ebf0c73d6e9bf9dc0b6972a4bf3ad.
+PixelLab 플러그인이 없어도 기존 비공개 인수인계 API 인증 경로가 있었음. 이전 연결없음 판단을 정정. API v2/create-image-pixflux로 자격증96x64 6종(지역별 풍경)·미끼48x48 6종 생성. game/art/rewards67/에 포함, 요청/해시 docs/PIXELLAB_067.json. 인증값은 저장하지 않음. 첫 자격증 투명배경 결과는 풍경 누락으로 폐기, 불투명 카드 풍경으로 재생성한 것만 채택.
+번들: 자격증 이미지+급수+"다음 낚시터 입장 라이선스". 서브 보상은 다음지역 해금비20%를 비늘아이콘/쉼표금액으로 표시(660/10400/206000/1340000/5660000), 마지막 지역은 보상 준비 중. 실제 기증/지급은 미구현 유지.
+미끼: 지렁이/갯지렁이/새우/오징어/황금루어/전설미끼 원본이미지를 상점 및 구매 확인에 연결. 기존 구매조건/성능 유지.
+낚싯대 가격 [0,2000,35000,700000,4500000,19000000]. 2열3행으로6종 표시, 페이지제거, 이전낚싯대 구매조건·장착·확인창 유지. 판매가는 기존 규칙(현재구매가50%)에 따라 함께 상승함. 강화 수치 변경 없음.
+우편 시안2종: docs/previews/mail-a.png 카드요약 / mail-b.png 주제탭. mail_concepts.gd는 --mail-a/--mail-b 실행용 정적 시안, 실제 우편목록/읽음/삭제 동작 변경 없음. 사용자 선택 후 구현해야 함.
+검증: Godot4.4.1 import 및 rewards/shop/equipment/bundle_preview 검사 통과. equipment 판매 기대값은 원투가격 인상으로900→17500 수정. 실제 엔진 캡처6개 확인, Android PCK export 성공. 휴대폰 새 수정 미검증.
+다음: 우편A/B 선택 후 구현, 번들 기증조건 확정 별도. 이번엔 배포하지 않음.
+
 # 0.66 배포 완료 — 최신 상태
 실제 source commit 2a82e542108114646b48f4d61e5a818a33282917. Build39543832629 및 Gateway39543919700 성공. 공개 Release https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v0.66 .
 운영 version.json code66/name0.66 및 patch.pck?v=66.0 HTTP200 직접 확인. GDPC, 크기28554784, SHA256 7608b912ca7a5fb62603f6a646bfaea1a85bd92c79e8251179381d6b1f96a4f4 일치.

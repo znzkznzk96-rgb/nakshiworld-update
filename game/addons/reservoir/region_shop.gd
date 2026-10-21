@@ -87,13 +87,18 @@ func draw_parts(m,v,r: Rect2,y: float) -> float:
 		v._row(m,r,y,icon(m,region,slot),TITLES[region]+" "+v.PARTS[slot][1],["★2 입질 해금","★3 입질 해금","★4 입질 해금","주인 낚시 준비"][slot],label, cost if available and not owned else 0,available and not owned and m.gold>=cost,"rpart:%d:%d" % [region,slot])
 		y+=38
 	return y
+func bait_icon(i: int) -> Texture2D:
+	var key: String="bait_%d"%i
+	if not icons.has(key): icons[key]=load("res://art/rewards67/"+key+".png")
+	return icons[key]
 func draw_bait(m,v,r: Rect2,y: float) -> void:
 	m._text("사용 미끼: "+BAIT_NAMES[selected_bait],Vector2(135,y+3),9,Color("6a4a2a"),true,230);y+=12
 	for i in 6:
 		var cell:=Rect2(r.position.x+12,y+i*34,230,32)
 		m._ui_style_box(v.active_style.card,cell)
-		m._text(BAIT_NAMES[i]+" · %d개" % stock(m,i),cell.position+Vector2(5,12),9,v.active_style.ink,false,145)
-		m._text("%d 비늘/개 · 등급 ×%.2f" % [BAIT_PRICES[i],BAIT_MULT[i]] if bait_unlocked(i) else "지역 %d 해금 시 구매" % (BAIT_REGION[i]+1),cell.position+Vector2(5,25),8,Color("675c4b"),false,145)
+		m._ui_texture_rect(bait_icon(i),Rect2(cell.position+Vector2(3,3),Vector2(26,26)),false)
+		m._text(BAIT_NAMES[i]+" · %d개" % stock(m,i),cell.position+Vector2(33,12),9,v.active_style.ink,false,116)
+		m._text("%d 비늘/개 · 등급 ×%.2f" % [BAIT_PRICES[i],BAIT_MULT[i]] if bait_unlocked(i) else "지역 %d 해금 시 구매" % (BAIT_REGION[i]+1),cell.position+Vector2(33,25),8,Color("675c4b"),false,116)
 		var buy:=Rect2(cell.position+Vector2(151,3),Vector2(74,26))
 		m._ui_style_box(m.sb_btn,buy)
 		m._text("구매" if bait_unlocked(i) else "잠김",buy.get_center()+Vector2(0,4),9,v.active_style.ink,true,68)
