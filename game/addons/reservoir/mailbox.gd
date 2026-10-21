@@ -19,6 +19,11 @@ var detail_page := 0
 const Reader = preload("res://addons/reservoir/topic_reader.gd")
 func sections(letter: Dictionary) -> Array:
 	# Curated presentation, separate from the complete release archive.
+	if letter.id == "0.68":
+		return [
+			{"name":"우편","icon":"","body":letter.body.slice(0,3),"display":["목록은 한 줄 설명으로 깔끔하게.","상세는 주제별 그림과 짧은 설명.","새 물고기 인장 봉투를 적용했어요."]},
+			{"name":"물고기","icon":"fish","body":letter.body.slice(4,6),"display":["선명함은 유지하고 움직임은 생생하게.","몸 밖으로 퍼지는 오라와 반짝임 강화."]},
+			{"name":"소리","icon":"","body":[letter.body[3]],"display":["캐스팅은 짧은 바람 소리로!","드랙과 착수 물소리는 유지했어요."]}]
 	if letter.id == "0.67":
 		return [
 			{"name":"물고기","icon":"fish","body":[letter.body[0],letter.body[1]],"display":["눈과 비늘을 더 선명하게!","몸통은 유지하고 꼬리는 유연하게."]},
