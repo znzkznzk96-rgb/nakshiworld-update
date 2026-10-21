@@ -1,23 +1,17 @@
-# 낚시월드 시작 안내 — 최신 상태는 GitHub에서 확인
+# 낚시월드 — 새 채팅 시작점
 
-이 문서는 새 채팅이 시작할 때 읽는 고정 안내다. 첨부 NAKSHIWORLD_FULL_HANDOFF.zip은 2026-10-21의 0.61 복구용 백업이며 자동으로 최신화되지 않는다.
+**새 대화에서 첨부 ZIP이나 긴 설명을 다시 요구하지 않는다.** 최신 상태와 기획은 이 GitHub 저장소에서 읽는다.
 
-## 매번 시작할 때
-1. https://github.com/znzkznzk96-rgb/nakshiworld-update 의 main에서 AGENTS.md, HANDOFF.md, WORK_STATE.json, CHANGELOG.md를 읽는다.
-2. WORK_STATE에 작업 브랜치가 있으면 그 브랜치의 최신 커밋과 인수인계를 확인한다. 여러 작업 브랜치가 있으면 HANDOFF의 담당 작업·시각·상태를 비교한다. 단순히 가장 높은 버전명을 최신 완료본으로 간주하지 않는다.
-3. GitHub Releases의 실제 공개 버전, Actions 결과, 필요 시 운영 version.json을 확인한다. 문서의 보고와 실제 배포 상태가 다르면 차이를 밝힌다.
-4. 최신 공개 릴리스의 game-source.zip은 전체 Godot 프로젝트다. 저장소 game/은 유지보수 덮어쓰기 파일이므로 단독 전체 프로젝트가 아니다. 공개 소스 위에 해당 작업 브랜치의 변경을 적용하되 이후 삭제/이름 변경도 확인한다.
-5. 연결이 막히면 ZIP 안 START_HERE/HANDOFF와 source_v0.61/game으로 복구할 수 있으나 0.61 이후 상태를 복구했다고 말하지 않는다.
+1. 이 문서 → `AGENTS.md` → [`docs/CONTINUE_HERE.md`](docs/CONTINUE_HERE.md) → [`docs/GAME_BIBLE.md`](docs/GAME_BIBLE.md) 순서로 읽는다.
+2. `WORK_STATE.json`의 작업 브랜치를 확인하고 해당 브랜치 최신 `HANDOFF.md`를 읽는다. 브랜치가 여럿이면 최근 커밋만으로 고르지 말고 문서의 목표/상태를 비교한다.
+3. GitHub 실제 최신 Release, Actions 및 현재 workflow를 확인해 구현/검증/배포/실기기 확인을 나눈다.
+4. 게임 코드 변경은 최신 Release 전체 `game-source.zip`에 유지보수 overlay를 적용한다. `game/`은 전체 프로젝트가 아니다.
+5. 이미 기록된 사용자 결정을 묻지 않는다. 누락 자료 요청은 저장소/Release/기존 원격 작업 브랜치 모두에 없는 구체 파일이 있을 때만 한다.
 
-## 저장 규칙
-작업용 브랜치 work/<작업명>을 사용한다. main 및 codex/r2-migration은 배포 트리거가 있으므로 미완성 작업 중간 저장에 사용하지 않는다.
-의미 있는 단계마다 변경 파일 + HANDOFF.md + WORK_STATE.json을 같은 커밋으로 원격 저장한다. 저장 후 원격 커밋 SHA를 확인한다. 완료 보고 전 저장한다. 저장되지 않은 메모리와 로컬 변경은 다른 채팅으로 자동 이전되지 않는다.
-패치마다 CHANGELOG.md를 갱신하고 전체 소스 ZIP/PCK/version.json이 실제 Release에 올라갔는지 확인한다. 작업 중·검증 완료·배포 완료·휴대폰 확인을 구분한다.
+## 지속성 약속
 
-## 최초 인수인계 상태
-0.61 업데이트 장애는 Worker가 v=61.0을 허용하도록 수정하여 해결했고 사용자 휴대폰 성공 확인을 받았다. APK는 0.60_R2, 콘텐츠는 0.61이다. 이 수치는 기준 기록이며 앞으로의 최신 버전을 고정하지 않는다.
+게임 결정과 세계관의 원본은 게임 코드 밖의 `docs/GAME_BIBLE.md`다. 매 작업은 `HANDOFF.md`·`WORK_STATE.json`에 이어갈 지점을 남긴다. 의미 있는 작업을 `work/*` 브랜치에 중간 저장하고 원격 SHA 확인 전에는 저장됐다고 말하지 않는다. 작업 완료와 공개 배포는 구분한다.
 
-이 문서와 최신 HANDOFF를 프로젝트 소스에 올린다. 큰 ZIP을 매번 다시 올릴 필요는 없다. 다음 채팅은 위 저장소부터 조회한다.
+## 기준 버전
 
-## 물고기 아트 작업 시작 전
-docs/FISH_ART_RULES.md를 반드시 읽는다. 남은4개 낚시터에도 공통 적용한다. 계곡 첫20종은 사용자 색감 거절 상태이며 성공본이 아니다. 최신 WORK_STATE의 생성 중단 여부와 작업 브랜치를 확인한다.
+과거 0.61 백업은 복구 자료일 뿐 최신이 아니다. 실제 운영 버전은 매 작업 시 GitHub Release에서 확인하고 `WORK_STATE.json`과 대조한다.
