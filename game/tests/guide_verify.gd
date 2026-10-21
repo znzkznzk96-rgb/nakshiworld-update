@@ -5,7 +5,7 @@ func check(ok: bool, label: String) -> void:
 func _initialize() -> void: call_deferred("run")
 func run() -> void:
 	var m = load("res://main.gd").new()
-	root.add_child(m);await process_frame;m.set_process(false);m.title_open=false
+	m.SET.sfx=0;m.SET.music=0;m.title_open=false;root.add_child(m);await process_frame;m.set_process(false);m.title_open=false
 	# 2x demonstration speed: airborne does not instruct tap; only landing does.
 	for elapsed in [1.7,2.1,2.9,3.39]:
 		var frame = m.lesson_frame("jump",elapsed)

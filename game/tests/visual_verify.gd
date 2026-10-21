@@ -7,7 +7,7 @@ func _initialize() -> void:
 func run() -> void:
 	seed(62)
 	var m = load("res://main.gd").new()
-	root.add_child(m)
+	m.SET.sfx=0;m.SET.music=0;m.title_open=false;root.add_child(m)
 	await process_frame
 	m.set_process(false)
 	var actions: = ["swim", "rest", "tell", "turn", "run", "charge", "dive", "thrash", "circle", "skim", "jump"]

@@ -4,7 +4,7 @@ func check(value: bool,label: String) -> void:
 	if not value: failures.append(label);push_error(label)
 func _initialize() -> void: call_deferred("run")
 func run() -> void:
-	var m=load("res://main.gd").new();root.add_child(m);await process_frame;m.set_process(false)
+	var m=load("res://main.gd").new();m.SET.sfx=0;m.SET.music=0;m.title_open=false;root.add_child(m);await process_frame;m.set_process(false)
 	m.audio_feedback.stop_all();m.title_open=false;m.SET.sfx=0;m.SET.music=0;m.SET.vib=false
 	var store=load("res://addons/reservoir/save_store.gd")
 	check(store.write("user://transaction_test.json",{"gold":50}),"first atomic save")

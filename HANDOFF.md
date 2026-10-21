@@ -18,3 +18,5 @@ Godot import, equipment/guide/visual/shop 4개 검사 failures=[] 및 Android PC
 settings65.gd: 진행 초기화 예/아니오, 거절 시 무변경. reset.pending 재시작 처리, save/rec/tut 및 백업만 삭제; 설정 및 업데이트 파일 유지. 실제 사용자 세이브를 초기화하지 않았음; 격리 테스트만 수행.
 save_store.gd: tmp에 완성 후 rename, 이전 정상 JSON 백업, 주 파일 없거나 파손 때만 백업. 강화는 기존대로 비용/결과를 연출 전 저장. 오프라인 정산 후 즉시 저장. 로컬 파일 변조 방지 서버는 미구현.
 Godot import, equipment/guide/shop/visual/audio_save 검사 통과. audio_save는 음원 시작과 정지를 같은 프레임에서 반복해 종료 자원 경고가 발생했으며 실제 프레임 간격을 둬 정상 종료 확인. 설정/초기화/타이틀 화면 확인. 배포 CI에 audio_save 추가. 아직 새 Release 검증 전.
+
+CI39538132380은 기능 검사 통과 후 guide 종료 시 자동 시작된 타이틀 음악 자원 경고로 중단(미배포). 비오디오 테스트는 root 추가 이전에 음소거/타이틀 해제하도록 초기화 순서 수정. 오디오 전용 검사는 실제 프레임 간격 재생을 유지. 검사 게이트는 완화하지 않음.
