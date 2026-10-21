@@ -1622,7 +1622,7 @@ func _draw_fight(t: float, tip: Vector2) -> void :
 func _shadow_fish(c: Vector2, star: int, grade: int, t: float, beh: String, spike: bool, scale: float, pose: Dictionary, phase: float, sp: int, face: float, alpha: float) -> void :
 	var revealed: bool = alpha >= 1.0 or (S.phase == "pre" and S.get("judge", "MISS") != "MISS")
 	var L: = _fish_display_length(star, scale, alpha < 1.0)
-	if revealed: c=c.round()
+	# Keep subpixel motion: final display rasterizes the fish, not the 270px world.
 	var N: = 12
 	var fz: float = grade / 4.0
 	var p: = pose if not pose.is_empty() else pose_for(beh, star, fz)
@@ -1653,7 +1653,7 @@ func _shadow_fish(c: Vector2, star: int, grade: int, t: float, beh: String, spik
 		var lat: = amp * L * sin(phase - u * 4.2) * pow(u, 1.4) * tailAmp + curl * L * (4 * (u - 0.5) * (u - 0.5) - 1) * 0.3
 		# Preserve head/body pixel structure; concentrate flex in the tail.
 		if revealed:
-			lat *= lerpf(0.12,1.0,smoothstep(0.58,1.0,u))
+			lat *= smoothstep(0.62,1.0,u)
 		var q: = Vector2(hx + ax * ct - lat * st, hy + ax * st + lat * ct)
 		q.x = c.x + (q.x - c.x) * face
 		pts.append(q)
@@ -1677,8 +1677,6 @@ func _shadow_fish(c: Vector2, star: int, grade: int, t: float, beh: String, spik
 		var v0: = used.position.y / tsz.y
 		var v1: = used.end.y / tsz.y
 		var vertices := PackedVector2Array([a - na * hw, b - nb * hw, b + nb * hw, a + na * hw])
-		if revealed:
-			for vertex in vertices.size(): vertices[vertex]=vertices[vertex].round()
 		quads.append([vertices,
 			PackedVector2Array([Vector2(u0, v0), Vector2(u1, v0), Vector2(u1, v1), Vector2(u0, v1)])])
 	if alpha >= 1.0: fish_mouth = (pts[0] as Vector2).lerp(pts[1], 0.35)
@@ -1713,8 +1711,11 @@ func _fish_quad(qd: Array, color: Color, tex: Texture2D) -> void :
 		var pp: = PackedVector2Array([qd[0][ids[0]], qd[0][ids[1]], qd[0][ids[2]]])
 		if absf((pp[1] - pp[0]).cross(pp[2] - pp[0])) < 0.001: continue
 		var uv: = PackedVector2Array([qd[1][ids[0]], qd[1][ids[1]], qd[1][ids[2]]])
-		if ui_demo: _ui_polygon(pp, PackedColorArray([color, color, color]), uv, tex)
-		else: draw_polygon(pp, PackedColorArray([color, color, color]), uv, tex)
+		# Same display-resolution surface as the lesson. Preserve world vertical offset.
+		# Queued before HUD/modal commands; aura is queued before the body.
+		if not ui_demo:
+			for i in pp.size(): pp[i] += Vector2(0,oy)
+		_ui_polygon(pp, PackedColorArray([color, color, color]), uv, tex)
 
 # Offset the animated alpha silhouette: each layer follows fins and tail, not an ellipse.
 # Body is drawn last; no colored overlay obscures the fish.
@@ -2725,6 +2726,20 @@ func _shot_mode() -> void :
 		S.sp=1;S.grade=4;S.beh="swim";S.bt=99.0;S.tut=false;lesson_open=false;TUT.seen=BOOK_KEYS.duplicate()
 		if state.begins_with("fight"):
 			set_process(false);S.phase="fight";S.tension=40.0;S.dist=35.0;holding=false;queue_redraw()
+	if "--fish-motion-check" in args:
+		set_process(false);Engine.time_scale=1.0;TUT.done=true;TUT.seen=BOOK_KEYS.duplicate()
+		lesson_open=false;judge_t=0;tip_t=0;toast_t=0;reveal_pending=false;visibility_flash=0
+		S.phase="fight";S.sp=1;S.star=0;S.lf=1.0;S.tut=false;S.tension=40;S.dist=35;holding=false
+		S.fx=156.0;S.fy=WATER+95.0;S.dispY=S.fy;S.dartV=0;S.dartX=0;S.diveOff=0;S.diveDX=0
+		for grade in [0,4]:
+			S.grade=grade
+			for action in ["swim","charge","circle","jump","thrash"]:
+				S.beh=action;S.bt=99.0;S.spike=0;S.pose=pose_for(action,0,grade/4.0)
+				for frame in 8:
+					fclock=frame/8.0;S.swimPh=frame*TAU/8;S.jumpT=frame*0.9/8;S.circA=frame*TAU/8
+					queue_redraw();await get_tree().process_frame;await RenderingServer.frame_post_draw
+					get_tree().root.get_texture().get_image().save_png(out.replace(".png","_%d_%s_%d.png" % [grade,action,frame]))
+		audio_feedback.dispose();await get_tree().create_timer(0.15).timeout;get_tree().quit();return
 	if "--bundle-sub" in args: V.bundle_preview.tab=1
 	if "--forge-six" in args: mailbox.opened=false;_switch_scene("village");V.open_shop(self,"forge");V.forge_tab="rods"
 	if "--bait-six" in args: mailbox.opened=false;_switch_scene("village");V.open_shop(self,"up");V.tab="bait"

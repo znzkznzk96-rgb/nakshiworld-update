@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "task": "우편 B안 및 가이드 탭형 적용",
+  "task": "전투 물고기 표시 해상도 및 변형 수정",
   "status": "tested_not_deployed",
   "work_branch": "work/rewards-bait-forge",
   "release_baseline": "v0.66",
@@ -15,11 +15,12 @@
   "source_zip_sha256": "2e4b07a05902cc906dc1c4cbb56b27510ba67c1877925f7d79c5a55d996cd400",
   "apk_version": "0.63 (이번 패치는 APK 재설치 불필요)",
   "deployment_authorization": "이번 요청 일단 수정; 배포 요청 없음",
-  "local_preview_pck_sha256": "9307cf32838226d620d880d4be551dcaedd5a2a688e8e84487e223ec5f95c94e",
-  "local_preview_pck_size": 28131264,
+  "local_preview_pck_sha256": "7ade2913cd58b241b6160c9590db0293a18221c5b22217387ff704593af3fbce",
+  "local_preview_pck_size": 28133712,
   "local_preview_pck_note": "이번 수정 포함 로컬 검증용",
   "museum_bundle": "박물관에서 준비 중 화면 공개, 도감 유지. 기증/보상 미연결",
   "build_run": 39543832629,
   "gateway_run": 39543919700,
-  "reader_ui": "B안 적용; 전체 내용 보존 및 페이지 처리; 미배포"
+  "reader_ui": "B안 적용; 전체 내용 보존 및 페이지 처리; 미배포",
+  "fish_render": "실제 전투와 도감 UI surface 통일, 전체 어종/행동 검사 및80프레임 비교 완료; 실기기 미검증"
 }
