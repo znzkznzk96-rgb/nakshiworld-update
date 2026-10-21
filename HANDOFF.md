@@ -1,4 +1,5 @@
 <!-- CONTINUITY_CURRENT_BEGIN -->
+- 2026-10-22 프로젝트 공통 지침을 `docs/PROJECT_INSTRUCTIONS.md`로 통합. `START_HERE.md`에서 즉시 진입한다. 아트 상태는 최초 거절본과 후속 확정 선택본을 구분한다.
 # 현재 연속성 포인터 — 2026-10-22
 
 - 상시 기획/세계관/사용자 확정 규칙: `docs/GAME_BIBLE.md`. 다음 채팅 진입 경로: `docs/CONTINUE_HERE.md`. 아래 과거 기록에 상충 문구가 있으면 두 문서와 최신 사용자 결정이 우선한다.
