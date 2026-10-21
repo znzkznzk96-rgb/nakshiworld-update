@@ -1,3 +1,6 @@
+# 최신 사용자 확정: 현재20종 외형 채택
+사용자가 직전20종 모음으로 확정. assets_pending/valley20_latest/MANIFEST.json이 선택본 목록. 이번 확정은 아트 선택이며 고해상도 재제작/게임 적용/배포 완료 의미 아님. 다음 요청: 저수지와 같은 구도의 거꾸로 폭포 낚시터 배경시안5개.
+
 # 최신: 현재20종 모음 공유
 assets_pending/valley20_latest/VALLEY20_LATEST.png 및 MANIFEST.json. 기본 valley_fish_v2 17종 + revision4 조약돌/송사리 + boss_wave5 산천어. 원본 변경/유료생성/게임적용/배포 없음. 전부96x64, 고해상도 재제작 미진행. 최신본 모음이며 품질 일괄승인 의미 아님.
 
