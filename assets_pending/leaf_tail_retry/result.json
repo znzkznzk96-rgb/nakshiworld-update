@@ -1,0 +1,11 @@
+{
+  "provider": "PixelLab v2/create-image-pixflux",
+  "usage": {
+    "type": "generations",
+    "generations": 1.0
+  },
+  "sha256": "6eb41e86f69ec83768c5ff6a66f3af7eefe9e91c165c2f14412d6581eaf61c06",
+  "request_count": 1,
+  "init_image": false,
+  "style_image": false
+}

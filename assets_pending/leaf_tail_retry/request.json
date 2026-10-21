@@ -1,0 +1,33 @@
+{
+  "description": "Side view pixel art game sprite of ONE leaf-tailed fish, facing RIGHT, full body, cute but realistic proportions, clean silhouette. Elongated slender fish body with a pointed fish head on the right, round clearly readable black eye and cream glint. Body is rich reddish CHESTNUT and bright COPPER, dark burgundy dorsal ridge, warm peach belly, subtle few cream scale highlights. The tail on the LEFT consists of exactly TWO broad pointed serrated EMERALD GREEN LEAVES fanned diagonally upward and downward, a readable pale mint central vein and branching veins in each leaf. Leaves are broad and attached directly at the tail peduncle, not ordinary fins, no stem sticking out. Small ordinary copper dorsal and pelvic fins. Strongly separate warm red-brown body from saturated emerald-green leaf tail. Polished cozy fishing RPG pixel art, crisp dark one pixel outline, clean intentional pixel clusters, sharp eyes, scales and fin rays. Three or four clearly separated shadow/midtone/highlight values per material. Rich clear colors, no gray haze. Horizontal natural swimming pose, entire tail and fins within canvas with 5 pixel margin.",
+  "negative_description": "washed out, desaturated, muddy, faded, yellow green leaves, gold fish, yellow body, blur, watercolor, excessive dithering, noisy speckles, double fish, leaf on head, text, numbers, background, scenery, water, frame, cropped",
+  "image_size": {
+    "width": 96,
+    "height": 64
+  },
+  "text_guidance_scale": 8,
+  "view": "side",
+  "direction": "east",
+  "no_background": true,
+  "outline": "single color outline",
+  "shading": "medium shading",
+  "detail": "medium detail",
+  "seed": 73103,
+  "color_image_file": "leaf_palette.png",
+  "palette": [
+    "#171921",
+    "#412027",
+    "#702c29",
+    "#a5422c",
+    "#d56b3d",
+    "#f59d59",
+    "#ffd69a",
+    "#123d35",
+    "#08634c",
+    "#0b9462",
+    "#21c675",
+    "#7ee694",
+    "#fff1cd",
+    "#080e14"
+  ]
+}
