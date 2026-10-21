@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "task": "자격증/미끼 PixelLab·보상 표시·대장간6종·우편2시안",
+  "task": "우편 B안 및 가이드 탭형 적용",
   "status": "tested_not_deployed",
   "work_branch": "work/rewards-bait-forge",
   "release_baseline": "v0.66",
   "target_version": "unreleased",
   "deployment_changed": false,
   "phone_confirmation": "사용자0.66 정상 업데이트 확인; 이번 수정 미배포",
-  "next_step": "우편A/B 선택 후 구현; 새 배포 지시 시 버전 갱신",
+  "next_step": "사용자 확인 및 별도 배포 지시 대기",
   "apk_sha256": "e2b5e3884cc51f2d9136f171d2d3d5e7722dacea2a5fc062638972d33551ea13",
   "source_commit": "2a82e542108114646b48f4d61e5a818a33282917",
   "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v0.66",
@@ -15,10 +15,11 @@
   "source_zip_sha256": "2e4b07a05902cc906dc1c4cbb56b27510ba67c1877925f7d79c5a55d996cd400",
   "apk_version": "0.63 (이번 패치는 APK 재설치 불필요)",
   "deployment_authorization": "이번 요청 일단 수정; 배포 요청 없음",
-  "local_preview_pck_sha256": "fba766b1cfd5ea11aba06cd8618e2b351e921fdf5b2babed12d8a859b5f591c6",
-  "local_preview_pck_size": 28117392,
+  "local_preview_pck_sha256": "9307cf32838226d620d880d4be551dcaedd5a2a688e8e84487e223ec5f95c94e",
+  "local_preview_pck_size": 28131264,
   "local_preview_pck_note": "이번 수정 포함 로컬 검증용",
   "museum_bundle": "박물관에서 준비 중 화면 공개, 도감 유지. 기증/보상 미연결",
   "build_run": 39543832629,
-  "gateway_run": 39543919700
+  "gateway_run": 39543919700,
+  "reader_ui": "B안 적용; 전체 내용 보존 및 페이지 처리; 미배포"
 }

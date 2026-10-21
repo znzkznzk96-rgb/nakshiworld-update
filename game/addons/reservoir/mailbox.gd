@@ -14,6 +14,17 @@ var checked: Array = []
 var deleting: = false
 var detail: = ""
 var page: = 0
+var topic := 0
+var detail_page := 0
+const Reader = preload("res://addons/reservoir/topic_reader.gd")
+func sections(letter: Dictionary) -> Array:
+	var groups := [{"name":"콘텐츠","icon":"museum","body":[]},{"name":"연출","icon":"fish","body":[]},{"name":"소리·설정","icon":"","body":[]}]
+	for line in letter.body:
+		var group := 0
+		if ["소리","사운드","음악","클릭음","진동","설정","저장","초기화","드랙","천둥","배경음"].any(func(word): return word in line): group=2
+		elif ["연출","물고기","오라","테두리","선명","챔질","몸짓","캐릭터","주민","타이틀","게이지","줄자"].any(func(word): return word in line): group=1
+		groups[group].body.append(line)
+	return groups.filter(func(group): return not group.body.is_empty())
 var button: = Rect2()
 var rects: = {}
 func visible_letters() -> Array:
@@ -36,9 +47,8 @@ func draw_button(m) -> void :
 		var glow: float = 0.7 + 0.3 * sin(m.ui_clock * 5)
 		m._text("NEW", button.position + Vector2(12, 1), 7, Color(1, 0.82, 0.28, glow), true, 32, true)
 func draw(m, h: float) -> void :
-	if "--mail-a" in OS.get_cmdline_user_args() or "--mail-b" in OS.get_cmdline_user_args():
-		preload("res://addons/reservoir/mail_concepts.gd").draw(m,h,0 if "--mail-a" in OS.get_cmdline_user_args() else 1);return
-	var r: = Rect2(13, maxf(m.top_y + 90, h * 0.5 - 182), 244, 364)
+	var height := 440.0 if detail != "" else 364.0
+	var r := Rect2(13,maxf(8,(h-height)/2),244,height)
 	m.text_items = m.text_items.filter( func(it): return it[1].y < m.top_y + 35)
 	m._ui_rect(Rect2( - m.ox, 0, m.VW + 2 * m.ox, h), Color(0.015, 0.025, 0.04, 0.86))
 	m._ui_style_box(m.sb_panel, r)
@@ -49,13 +59,25 @@ func draw(m, h: float) -> void :
 	if detail != "":
 		for letter in letters:
 			if letter.id != detail: continue
-			m._text("v%s · %s" % [letter.id, letter.title], Vector2(135, r.position.y + 58), 11, Color("513b29"), true, 220)
-			var y: float = r.position.y + 84
-			for line in letter.body:
-				m._text("· " + line, Vector2(r.position.x + 12, y), 9, Color("513b29"), false, 218);y += 21
-		var back: = Rect2(r.position.x + 12, r.end.y - 40, 220, 27)
-		m._ui_style_box(m.sb_btn, back);m._text("목록으로", back.get_center() + Vector2(0, 4), 10, Color("513b29"), true, 210)
-		rects.back = back;return
+			m._text("v"+letter.id,Vector2(29,r.position.y+58),15,Color("376556"),false,80)
+			m._text("읽음",Vector2(231,r.position.y+58),10,Color("68533d"),true,35)
+			m._text(letter.title,Vector2(135,r.position.y+82),11,Color("382619"),true,220)
+			var groups := sections(letter)
+			if groups.is_empty(): groups=[{"name":"안내","icon":"","body":["등록된 내용이 없어요."]}]
+			topic=clampi(topic,0,groups.size()-1)
+			rects.tabs=[]
+			var width: float = 220.0/groups.size()
+			for i in groups.size():
+				var tr:=Rect2(25+i*width,r.position.y+101,width-3,28)
+				m._ui_style_box(m.sb_primary if topic==i else m.sb_btn,tr)
+				m._text(groups[i].name,tr.get_center()+Vector2(0,4),10,Color("fff0d1") if topic==i else Color("382619"),true,width-9)
+				rects.tabs.append(tr)
+			Reader.illustration(m,groups[topic].icon,r.position.y+143)
+			m._text(groups[topic].name+" 업데이트",Vector2(135,r.position.y+218),13,Color("382619"),true,210)
+			rects.reader=Reader.draw(m,groups[topic].body,detail_page,r.position.y+242,r.end.y-81)
+		var back := Rect2(25,r.end.y-42,220,28)
+		m._ui_style_box(m.sb_btn,back);m._text("목록으로",back.get_center()+Vector2(0,4),12,Color("382619"),true,206)
+		rects.back=back;return
 	var letters: = visible_letters()
 	var pages: = maxi(1, ceili(letters.size() / 4.0));page = clampi(page, 0, pages - 1)
 	m._text("삭제할 우편을 선택하세요" if deleting else "안 읽은 우편 %d개" % unread(), Vector2(135, r.position.y + 56), 10, Color("513b29"), true, 218)
@@ -90,14 +112,19 @@ func press(m, p: Vector2) -> void :
 	m.play("ui")
 	if rects.get("close", Rect2()).has_point(p): opened = false;detail = "";deleting = false;checked.clear();return
 	if detail != "":
-		if rects.get("back", Rect2()).has_point(p): detail = ""
+		if rects.get("back", Rect2()).has_point(p): detail = "";topic=0;detail_page=0;return
+		for i in rects.get("tabs",[]).size():
+			if rects.tabs[i].has_point(p): topic=i;detail_page=0;return
+		var reader: Dictionary = rects.get("reader",{})
+		if reader.get("previous",Rect2()).has_point(p): detail_page=maxi(0,detail_page-1)
+		if reader.get("following",Rect2()).has_point(p): detail_page=mini(reader.count-1,detail_page+1)
 		return
 	for row in rects.get("rows", []):
 		if not row[0].has_point(p): continue
 		if deleting:
 			if row[1] in checked: checked.erase(row[1])
 			else: checked.append(row[1])
-		else: detail = row[1];mark(m, detail)
+		else: detail = row[1];topic=0;detail_page=0;mark(m, detail)
 		return
 	if rects.get("prev", Rect2()).has_point(p): page = maxi(0, page - 1)
 	if rects.get("next", Rect2()).has_point(p): page += 1

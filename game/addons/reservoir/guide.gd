@@ -4,6 +4,8 @@ const TOPICS := [["기본 조작", "별과 등급", "길이 측정"], ["파츠 �
 var opened := false
 var tab := 0
 var topic := 0
+var page := 0
+const Reader = preload("res://addons/reservoir/topic_reader.gd")
 var button := Rect2()
 var rects := {}
 func draw_button(m) -> void:
@@ -33,7 +35,7 @@ func content(m) -> Array:
 func draw(m, h: float) -> void:
 	m.text_items.clear()
 	m._ui_rect(Rect2(-m.ox, 0, m.VW+2*m.ox, h), Color(0.02,0.04,0.06,0.86))
-	var r := Rect2(12, maxf(m.top_y+43, (h-350)/2), 246, 350)
+	var r := Rect2(12, maxf(8, (h-440)/2), 246, 440)
 	m._ui_style_box(m.sb_panel, r)
 	preload("res://addons/reservoir/ui_theme.gd").title(m, r, "낚시월드 길잡이")
 	var close := Rect2(r.end.x-32,r.position.y+9,22,23)
@@ -41,24 +43,25 @@ func draw(m, h: float) -> void:
 	rects = {"close":close.grow(3), "tabs":[], "topics":[]}
 	for i in TABS.size():
 		var b := Rect2(22+i*46,r.position.y+49,43,25)
-		m._ui_style_box(m.sb_chip,b)
-		if tab == i: m._ui_rect(Rect2(b.position+Vector2(5,22),Vector2(33,2)),Color("418b78"))
-		m._text(TABS[i],b.get_center()+Vector2(0,3),9,Color("382619"),true,40)
+		m._ui_style_box(m.sb_primary if tab==i else m.sb_btn,b)
+		m._text(TABS[i],b.get_center()+Vector2(0,3),10,Color("fff0d1") if tab==i else Color("382619"),true,40)
 		rects.tabs.append(b)
 	for i in TOPICS[tab].size():
 		var b := Rect2(22+i*76,r.position.y+83,72,24)
 		m._ui_style_box(m.sb_btn,b)
 		m._text(TOPICS[tab][i],b.get_center()+Vector2(0,3),8,Color("27674e") if topic == i else Color("68533d"),true,68)
 		rects.topics.append(b)
-	m._text(TOPICS[tab][topic], Vector2(135,r.position.y+132),12,Color("382619"),true,220)
-	var y: float = r.position.y+159
-	for line in content(m):
-		m._text(line,Vector2(25,y),9,Color("513b29"),false,219);y += 21
-	m._text("탭을 눌러 필요한 설명만 읽어 보세요",Vector2(135,r.end.y-19),8,Color("796b58"),true,220)
+	Reader.illustration(m,["fish","tackle","hall","boat","aquarium"][tab],r.position.y+124)
+	m._text(TOPICS[tab][topic],Vector2(135,r.position.y+202),13,Color("382619"),true,220)
+	rects.reader=Reader.draw(m,content(m),page,r.position.y+229,r.end.y-64)
+	m._text("탭을 눌러 필요한 설명을 확인하세요",Vector2(135,r.end.y-17),9,Color("796b58"),true,220)
 func press(_m, pos: Vector2) -> void:
 	_m.play("ui")
 	if rects.get("close",Rect2()).has_point(pos): opened=false;return
 	for i in rects.get("tabs",[]).size():
-		if rects.tabs[i].has_point(pos): tab=i;topic=0;return
+		if rects.tabs[i].has_point(pos): tab=i;topic=0;page=0;return
 	for i in rects.get("topics",[]).size():
-		if rects.topics[i].has_point(pos): topic=i;return
+		if rects.topics[i].has_point(pos): topic=i;page=0;return
+	var reader: Dictionary = rects.get("reader",{})
+	if reader.get("previous",Rect2()).has_point(pos): page=maxi(0,page-1)
+	if reader.get("following",Rect2()).has_point(pos): page=mini(reader.count-1,page+1)
