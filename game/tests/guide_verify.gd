@@ -11,9 +11,14 @@ func run() -> void:
 		var frame = m.lesson_frame("jump",elapsed)
 		check(frame.beh == "jump" and "탭" not in frame.cue, "airborne release at %f" % elapsed)
 	check(m.lesson_frame("jump",3.41).cue == "착수! 지금 탭", "landing starts tap window")
-	check(m.lesson_frame("jump",4.21).cue == "다시 감기", "landing window ends")
+	check(m.lesson_frame("jump",6.61).cue == "다시 감기", "landing window ends")
 	check("손 떼기" in m.lesson_frame("tell",1.2).cue, "release during crouch telegraph")
 	check("지금 감기" in m.lesson_frame("skim",2.81).cue, "skim stopped bonus")
+	check(m.lesson_frame("jump",5.5).beh == "land", "landing remains slow for reading")
+	check(m.measurement_tick(12.5)=="12.5" and m.measurement_tick(50)=="50", "numeric ruler labels")
+	for sp in m.FISH_NAME.size():
+		var u: Rect2 = Rect2(m.fish_used[sp])
+		check(m.measurement_width(sp) * u.size.y / u.size.x <= 130.01, "proportional fish fits measurement area")
 	m.S={"phase":"idle","sp":3}
 	check(m.measurement_max_cm(3)==20.0,"loach fixed 20cm ruler")
 	check(m.measurement_x(10.0)==135.0,"10cm loach occupies half ruler")
@@ -22,7 +27,7 @@ func run() -> void:
 	var ids: Array=[]
 	for letter in m.mailbox.visible_letters():
 		check(letter.id not in ids,"unique mail "+letter.id);ids.append(letter.id)
-	check(ids[0]=="0.64" and "0.61" in ids and "0.63" in ids,"release mail backfill")
+	check(ids[0]=="0.65" and "0.61" in ids and "0.63" in ids,"release mail backfill")
 	m.mailbox.read_ids=["0.64"];m.mailbox.deleted_ids=["0.63"];m._save_game()
 	m.mailbox.read_ids=[];m.mailbox.deleted_ids=[];m._load_game()
 	check("0.64" in m.mailbox.read_ids and "0.63" in m.mailbox.deleted_ids,"mail state persists")

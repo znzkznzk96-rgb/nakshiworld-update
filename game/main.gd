@@ -824,16 +824,19 @@ func time_scale() -> float:
 	return 1.0
 
 
+func lesson_step_duration(key: String, step: Array) -> float:
+	return float(step[1]) * (8.0 if key == "jump" and step[0] == "land" else 2.0)
+
 func lesson_frame(key: String, elapsed: float) -> Dictionary:
 	var sequence: Array = LESSON[key].anim
 	var total := 0.0
-	for step in sequence: total += float(step[1]) * 2.0
+	for step in sequence: total += lesson_step_duration(key, step)
 	var remaining := fposmod(elapsed, total)
 	var index := 0
-	while index < sequence.size()-1 and remaining >= float(sequence[index][1])*2.0:
-		remaining -= float(sequence[index][1])*2.0;index += 1
+	while index < sequence.size()-1 and remaining >= lesson_step_duration(key, sequence[index]):
+		remaining -= lesson_step_duration(key, sequence[index]);index += 1
 	var beh: String = sequence[index][0]
-	var k: float = remaining / (float(sequence[index][1])*2.0)
+	var k: float = remaining / (lesson_step_duration(key, sequence[index]))
 	var cue: String = LESSON[key].hand[1]
 	if key == "jump": cue = "착수! 지금 탭" if beh == "land" else ("다시 감기" if beh == "rest" else "공중에서는 손 떼기" if beh == "jump" else "전조 · 미리 손 떼기")
 	elif key == "tell": cue = "웅크림 · 지금 손 떼기" if beh == "tell" else ("돌진 중 · 손 떼기" if beh == "run" else "꾹 눌러 감기")
@@ -843,7 +846,7 @@ func lesson_frame(key: String, elapsed: float) -> Dictionary:
 	elif key == "thrash": cue = "크게 비틀 때 · 떼기" if sin(remaining / 2.0 * 9.0) > 0.4 else "사이사이 · 감기"
 	elif key == "dive": cue = "머리 숙임 · 미리 떼기" if beh == "nose" else "잠수 중 · 손 떼기"
 	elif key == "charge": cue = "몸 돌림 · 계속 감기" if beh == "turn" else "다가오는 중 · 꾹 감기"
-	return {"beh": beh, "k": k, "cue": cue, "motion_time": remaining / 2.0}
+	return {"beh": beh, "k": k, "cue": cue, "motion_time": k * float(sequence[index][1])}
 
 func _draw_lesson_card(t: float) -> void :
 	ui_demo = true
@@ -1605,7 +1608,7 @@ func _shadow_fish(c: Vector2, star: int, grade: int, t: float, beh: String, spik
 	var p: = pose if not pose.is_empty() else pose_for(beh, star, fz)
 	if ui_demo:
 		p = p.duplicate()
-		if beh == "tell": p.curl=-1.65;p.amp=0.02
+		if beh == "tell": p.curl=-0.28;p.amp=0.015
 		if beh == "thrash": p.curl=sin(t / 1000.0 * 9.0)*0.95;p.amp=0.04
 		if beh == "nose": p.tilt=0.9
 	var amp: float = p.amp
@@ -1657,7 +1660,7 @@ func _shadow_fish(c: Vector2, star: int, grade: int, t: float, beh: String, spik
 		aura = {"quads": quads, "pts": pts, "L": L, "g": grade, "tex": tex, "face": face, "c": pts[5], "nrms": nrms, "hw": hw}
 
 	if alpha >= 1.0:
-		_draw_pixel_halo(c, L, hw, grade, t)
+		_draw_pixel_halo(quads, tex, grade, t)
 		_draw_action_wake(c, L, hw, face, beh, t)
 	if revealed:
 		var flash: float = visibility_flash / 0.9
@@ -1687,27 +1690,21 @@ func _fish_quad(qd: Array, color: Color, tex: Texture2D) -> void :
 		if ui_demo: _ui_polygon(pp, PackedColorArray([color, color, color]), uv, tex)
 		else: draw_polygon(pp, PackedColorArray([color, color, color]), uv, tex)
 
-# Pixel-only perimeter motifs: blue glints, violet orbit, gold rays, prismatic twin orbit.
-# Drawn before the body in world coordinates, including encyclopedia demonstrations.
-func _draw_pixel_halo(c: Vector2, length: float, half_width: float, grade: int, t: float) -> void:
+# Offset the animated alpha silhouette: each layer follows fins and tail, not an ellipse.
+# Body is drawn last; no colored overlay obscures the fish.
+func _draw_pixel_halo(quads: Array, tex: Texture2D, grade: int, t: float) -> void:
 	if grade <= 0: return
-	var rings: int = 2 if grade == 4 else 1
-	for ring in rings:
-		var count: int = 16 + grade * 6
-		for i in count:
-			if (i + int(t / 180.0)) % 5 == 0: continue
-			var angle: float = i * TAU / count + t / (1800.0 if ring == 0 else -2400.0)
-			var pulse: float = sin(t / 420.0 + angle * 3.0) * 1.5
-			var r: = Vector2(length * 0.62 + 5 + ring * 5, half_width + 7 + ring * 5 + pulse)
-			var point: Vector2 = (c + Vector2(cos(angle), sin(angle)) * r).round()
-			var color: Color = _aura_col(grade, t, 0.38 + 0.16 * sin(angle + t / 500.0), i / 4)
-			_fish_effect_rect(Rect2(point, Vector2(2, 1)), color)
-			if i % 4 == 0:
-				_fish_effect_rect(Rect2(point + Vector2(0, -1), Vector2(1, 3)), color.lightened(0.2))
-			if grade == 3 and i % 3 == 0:
-				for ray in 3:
-					var q: Vector2 = (point + Vector2(cos(angle), sin(angle)) * (3 + ray * 2)).round()
-					_fish_effect_rect(Rect2(q, Vector2.ONE), Color(1.0, 0.79, 0.26, 0.55 - ray * 0.13))
+	for layer in range(3, 0, -1):
+		var pulse: float = fposmod(t / 1500.0, 1.0)
+		var radius: float = roundf(1.0 + (layer - 1 + pulse) * (1.0 + grade * 0.45))
+		var opacity: float = (0.22 if layer == 1 else 0.085 if layer == 2 else 0.025) * (1.0 - pulse * 0.35)
+		for i in 8:
+			var offset := Vector2(cos(i * TAU / 8), sin(i * TAU / 8)).round() * radius
+			var color := _aura_col(grade, t, opacity, i)
+			for qd in quads:
+				var vertices := PackedVector2Array()
+				for point in qd[0]: vertices.append(point + offset)
+				_fish_quad([vertices, qd[1]], color, tex)
 
 func _draw_action_wake(c: Vector2, length: float, hw: float, face: float, beh: String, t: float) -> void:
 	var force: float = _water_force(beh)
@@ -1991,8 +1988,13 @@ func measurement_max_cm(sp: int) -> float:
 	for cap in [10.0, 20.0, 30.0, 50.0, 100.0, 150.0]:
 		if species_max_cm(sp) <= cap: return cap
 	return RESERVOIR_MAX_CM
+func measurement_width(sp: int) -> float:
+	var used: Rect2 = Rect2(fish_used[sp])
+	return minf(200.0, 130.0 * used.size.x / used.size.y)
+func measurement_tick(value: float) -> String:
+	return str(int(value)) if is_equal_approx(value, roundf(value)) else "%.1f" % value
 func measurement_x(length_cm: float) -> float:
-	return 35.0 + 200.0 * clampf(length_cm / measurement_max_cm(int(S.get("sp", 0))), 0, 1)
+	return 35.0 + measurement_width(int(S.get("sp", 0))) * clampf(length_cm / measurement_max_cm(int(S.get("sp", 0))), 0, 1)
 func _hook_speed_at(pos: float, center: float, base: float) -> float:
 	return base * (1.0 + 0.55 * pow(clampf(1 - absf(pos - center) / 0.32, 0, 1), 2))
 func _draw_catch(t: float) -> void :
@@ -2000,7 +2002,7 @@ func _draw_catch(t: float) -> void :
 	var elapsed: float = S.t - S.netEnd + 0.7
 	if S.newRec and elapsed > 4.4: return
 	var h: float = get_viewport_rect().size.y
-	var r: = Rect2(15, roundf(h * 0.42) - 112, 240, 224)
+	var r: = Rect2(15, maxf(100, roundf(h * 0.46) - 150), 240, 300)
 	_ui_style_box(sb_panel, r)
 	var success_banner := Rect2(r.position.x, r.end.y + 7, r.size.x, 24)
 	_ui_style_box(sb_chip, success_banner)
@@ -2008,25 +2010,24 @@ func _draw_catch(t: float) -> void :
 	var header: = Rect2(r.position + Vector2(9, 8), Vector2(222, 29))
 	_ui_style_box(hud_reference_style, header)
 	_text(FISH_NAME[S.sp], header.get_center() + Vector2(0, 5), 14, Color("fff0d1"), true, 208)
-	_ui_fish(S.sp, Rect2(r.position + Vector2(20, 42), Vector2(200, 43)))
 	var progress: float = clampf((elapsed - 0.7) / 2.2, 0, 1)
-	var yy: float = r.position.y + 114
+	var yy: float = r.position.y + 185
 	var measured: float = float(S.len) * progress
 	var mx: float = measurement_x(measured)
-	_ui_rect(Rect2(35, yy - 21, 200, 34), Color("e6d5b2"))
+	_ui_rect(Rect2(35, yy - 5, measurement_width(S.sp), 18), Color("e6d5b2"))
 
 	var used: Rect2 = Rect2(fish_used[int(S.sp)])
 	var fw: float = measurement_x(float(S.len)) - 35
-	var fh: float = minf(23, fw * used.size.y / used.size.x)
+	var fh: float = fw * used.size.y / used.size.x
 	_ui_texture_rect_region(fish_tex[int(S.sp)], Rect2(35, yy - 5 - fh, fw, fh), used)
 	for i in 21:
-		var xx: float = 35 + i * 10.0
+		var xx: float = 35 + i * measurement_width(S.sp) / 20.0
 		_ui_rect(Rect2(roundf(xx), yy, 1, 8 if i % 5 == 0 else 4), Color("765638"))
-		if i % 5 == 0: _text(("%g" % (measurement_max_cm(S.sp) * i / 20.0)), Vector2(xx, yy + 22), 8, Color("765638"), true, 30)
-	_ui_rect(Rect2(roundf(mx), yy - 23, 1, 35), Color("b15336"))
+		if i % 5 == 0: _text(measurement_tick(measurement_max_cm(S.sp) * i / 20.0), Vector2(xx, yy + 22), 8, Color("765638"), true, 30)
+	_ui_rect(Rect2(roundf(mx), yy - 8 - fh, 1, fh + 20), Color("b15336"))
 	_text(("어종 눈금 0–%d cm" % int(measurement_max_cm(S.sp))) + (" · 이전 기록 초과" if S.len > measurement_max_cm(S.sp) else ""), Vector2(135, yy + 38), 9, Color("7c6448"), true, 216)
-	_text("%.1fcm · %s" % [measured, _wtxt(S.weight)], Vector2(135, r.position.y + 174), 14, Color("513b29"), true, 210)
-	_text("★%d · %s · %s" % [S.star + 1, GRADE_N[S.grade], TIER_NAME[tier_of(S.lf)]], Vector2(135, r.position.y + 192), 11, Color("66553f"), true, 210)
+	_text("%.1fcm · %s" % [measured, _wtxt(S.weight)], Vector2(135, r.position.y + 244), 14, Color("513b29"), true, 210)
+	_text("★%d · %s · %s" % [S.star + 1, GRADE_N[S.grade], TIER_NAME[tier_of(S.lf)]], Vector2(135, r.position.y + 264), 11, Color("66553f"), true, 210)
 	_text("새 기록!" if progress >= 1 and S.newRec else ("터치하면 결과 보기" if progress >= 1 else "물고기를 재고 있어요"), Vector2(135, r.end.y - 14), 10, Color("537455"), true, 210)
 
 
@@ -2178,7 +2179,7 @@ func _draw_notes() -> void :
 		_text(body, Vector2(135, tip_y + 21 if lines == 1 else tip_y + 19), 12, Color("513b29"), true, 218)
 	if judge_t > 0 and not lesson_open:
 		_judge_text(judge_txt, Vector2(VW / 2.0, WATER - 40 + oy), judge_col)
-	if toast_t > 0 and not lesson_open:
+	if toast_t > 0 and not lesson_open and S.phase != "catch":
 		_judge_text(toast_txt, Vector2(VW / 2.0, WATER - 62 + oy), Color(toast_col.r, toast_col.g, toast_col.b, min(1.0, toast_t * 2)), toast_t / 1.2)
 
 func _tension_anchor(fish_pos: Vector2, scale: float) -> Vector2:
@@ -2550,7 +2551,7 @@ func _shot_mode() -> void :
 		"react1", "react2", "react3":
 			start_wait();S.sp = 8;S.star = 1;S.grade = 4 if state == "react3" else 1;S.lf = 1.0;S.size = 1;S.judge = "GREAT";S.len = 50.0;start_fight();start_catch();hitstop = 0.0
 			S.newRec = state != "react1";S.t = S.netEnd + 2.65;anim_name = "net";anim_t = 16 * 0.13
-		"measure":
+		"measure", "measure_crucian":
 			start_wait();S.sp = 8;S.star = 1;S.grade = 1;S.lf = 1.1;S.size = 1;S.judge = "GREAT";S.len = 63.0;start_fight();start_catch();S.t = S.netEnd + 1.3
 		"landing":
 			start_wait();S.sp = 14;S.star = 2;S.grade = 2;S.lf = 1.1;S.size = 1;S.judge = "GREAT";S.len = 40.0;start_fight();S.dist = 95.0
@@ -2667,9 +2668,10 @@ func _shot_mode() -> void :
 			market_open = true;market_sell = false;inventory.tab = "inventory" if state == "bag_inventory" else "equipment"
 	if state == "village_lockedshop": V.open_shop(self,"up");region_shop.region=1
 	if state == "village_museum": V.open_shop(self,"museum")
+	if state == "measure_crucian": S.sp=1;S.len=25.9;S.weight=0.088;S.newRec=false;S.grade=0;S.t=S.netEnd+2.3;tip_t=0.0
 	if state.begins_with("lesson_book_"):
 		_switch_scene("village");S = {"phase": "idle"};settings_open = true;set_view = "book"
-		open_card(state.trim_prefix("lesson_book_"), "book");lesson_clock = ui_clock - 1.6
+		open_card(state.trim_prefix("lesson_book_"), "book");lesson_clock = ui_clock - (4.4 if state == "lesson_book_jump" else 1.6)
 	if state == "forge_clean":
 		_switch_scene("village");V.open_shop(self, "forge");V.forge_tab = "upgrade"
 		gold = 50000;souls = 500;V.enhancement.start(self, 0.0);V.enhancement.elapsed = 0.3
