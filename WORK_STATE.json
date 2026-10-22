@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "task": "거꾸로 폭포 계곡 통합 및 낚시월드 인수인계 기준",
-  "status": "released_phone_confirmation_pending",
+  "status": "approved_changes_in_progress",
   "work_branch": "work/valley-runtime",
   "release_baseline": "v0.70",
   "target_version": "unreleased",
@@ -20,18 +20,18 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-22",
-  "current_task": "0.70 공개·전체소스/PCK/운영다운로드 검증 완료",
-  "next_step": "휴대폰0.70 적용 확인 및 다음 사용자 작업 지시",
+  "current_task": "저수지확률71/15/10/3/1·45/35/15/5 상향 및 박물관0보상 표시 수정",
+  "next_step": "저수지만확률적용·기증전예상/완료실제보상표시·관련검사·work저장",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
   "last_release_deployed": true,
   "this_change": {
-    "scope": "0.70 실제배포 검증 기록",
+    "scope": "확률및박물관보상표시수정",
     "game_changed": false,
-    "release_created": true,
-    "deployment_authorized": true
+    "release_created": false,
+    "deployment_authorized": false
   },
   "history": "docs/historical/2026-10-22-before-workflow-streamlining/WORK_STATE.json",
   "work_verification": "docs/qa/release-070/VERIFICATION.json",
