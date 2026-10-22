@@ -24,7 +24,7 @@ jobs:
           curl -fL --retry 2 https://github.com/godotengine/godot/releases/download/4.4.1-stable/Godot_v4.4.1-stable_linux.x86_64.zip -o "$RUNNER_TEMP/godot.zip"
           unzip -q "$RUNNER_TEMP/godot.zip" -d "$RUNNER_TEMP/godot"
           chmod +x "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
-      - name: Import and full regression checks for live bag integration
+      - name: Import and full regression checks for owner gauge integration
         shell: bash
         run: |
           set -euo pipefail
@@ -32,7 +32,7 @@ jobs:
           GODOT="$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
           "$GODOT" --headless --editor --path "$RUNNER_TEMP/project" --import > evidence/import.log 2>&1
           if grep -E 'SCRIPT ERROR:|Parse Error:|Failed to load script' evidence/import.log; then exit 1; fi
-          for suite in bag_list bundles_buyback equipment visual guide shop audio_save bundle_preview rewards reader fish_surface regional inventory_layout; do
+          for suite in owner_gauge bag_list bundles_buyback equipment visual guide shop audio_save bundle_preview rewards reader fish_surface regional inventory_layout; do
             XDG_DATA_HOME="$RUNNER_TEMP/isolated-$suite" timeout 90 "$GODOT" --headless --path "$RUNNER_TEMP/project" --script "tests/${suite}_verify.gd" > "evidence/$suite.log" 2>&1 || { cat "evidence/$suite.log"; exit 1; }
             cat "evidence/$suite.log"
             grep -F 'VERIFY failures=[]' "evidence/$suite.log"
@@ -48,6 +48,13 @@ jobs:
           XDG_DATA_HOME="$RUNNER_TEMP/isolated-screens" timeout 90 xvfb-run -a "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/bundles_ui_preview.gd -- "$GITHUB_WORKSPACE/evidence/screens" > evidence/screens.log 2>&1 || { cat evidence/screens.log; exit 1; }
           cat evidence/screens.log
           if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/screens.log; then exit 1; fi
+      - name: Render owner gauge and warning previews
+        shell: bash
+        run: |
+          set -euo pipefail
+          XDG_DATA_HOME="$RUNNER_TEMP/isolated-owner-screens" timeout 90 xvfb-run -a "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/owner_gauge_preview.gd -- "$GITHUB_WORKSPACE/evidence/screens" > evidence/owner-screens.log 2>&1 || { cat evidence/owner-screens.log; exit 1; }
+          cat evidence/owner-screens.log
+          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/owner-screens.log; then exit 1; fi
       - name: Preserve verification logs
         if: always()
         uses: actions/upload-artifact@v4

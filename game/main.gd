@@ -56,6 +56,7 @@ var fonts: = []
 const FONT_PX: = [10, 12, 14, 16]
 const FONT_SC: = [1.0, 1.0, 1.0, 1.0]
 var text_layer: Node2D
+var owner_ui = preload("res://addons/reservoir/owner_gauge_ui.gd").new()
 var ui_demo: = false
 var ui_commands: = []
 var text_items: = []
@@ -421,13 +422,11 @@ func start_cast() -> void :
 		show_tip("", "가방의 인벤토리에서 낚싯대를 장착해 주세요")
 		return
 	pond_stock = maxf(0.0, pond_stock - 1.0)
-	S = {"phase": "cast", "t": 0.0, "owner_for_cast":progression.owner_ready(self,active_region)}
-	if TUT.done and not S.owner_for_cast: progression.fishing_event(self,active_region,"cast")
+	S = {"phase": "cast", "t": 0.0}
 	set_anim("cast", false);msg = "";audio_feedback.sound(self,"cast",-6)
 	_save_game()
 
 func start_wait() -> void :
-	var owner_for_cast: bool = bool(S.get("owner_for_cast",progression.owner_ready(self,active_region)))
 	var bait_multiplier: float = region_shop.take_bait(self)
 	var bare: bool = bait_multiplier < 1.0
 	var sp_w: = []
@@ -444,9 +443,9 @@ func start_wait() -> void :
 	var gp: = []
 	for i in 5: gp.append(GRADE_P[i] * pow(bait_multiplier, i))
 	S = {"phase": "wait", "star": pick(sp_w), "grade": pick(gp), "fakes": [], "bare": bare}
-	S.owner = TUT.done and owner_for_cast and progression.owner_ready(self,active_region)
+	# The owner is confirmed only after a successful hook judgement.
+	S.owner = false
 	S.owner_region = active_region
-	if S.owner: S.star = 4
 	S.lf = clampf(1.0 + gauss() * 0.15, 0.5, 1.65)
 	S.size = 0 if S.lf < 0.9 else (1 if S.lf < 1.15 else (2 if S.lf < 1.35 else 3))
 	var list: Array = CATALOG.by_star(active_region,S.star)
@@ -495,6 +494,12 @@ func hook_tap() -> void :
 	else:
 		S.judge = "MISS";S.grade = max(0, S.grade - 1);show_judge("MISS")
 	if S.get("tutFish", false): S.grade = 0
+	if S.judge != "MISS" and TUT.done and progression.owner_ready(self,active_region):
+		S.owner = true;S.owner_region = active_region;S.star = 4
+		S.sp = CATALOG.by_star(active_region,4)[0]
+		S.lf = sample_length_cm(S.sp) / float(FISH_LEN[S.sp])
+		S.size = 0 if S.lf < 0.9 else (1 if S.lf < 1.15 else (2 if S.lf < 1.35 else 3))
+		holding = false;buzz([160,80,160]);audio_feedback.sound(self,"tension",-4)
 	S.len = FISH_LEN[S.sp] * S.lf
 	S.phase = "pre";S.t = 0.0;msg = ""
 	visibility_flash = 0.9 if S.judge != "MISS" else 0.0
@@ -1225,7 +1230,7 @@ func _process(dt: float) -> void :
 			if star_hist.size() > 5: star_hist.pop_back()
 		"pre":
 			S.t += dt
-			if S.t > 0.65: start_fight()
+			if S.t > (3.0 if S.get("owner",false) else 0.65): start_fight()
 		"fight":
 			update_fight(dt * time_scale())
 			if S.phase == "fight": set_anim("reel" if holding else "idle")
@@ -2225,6 +2230,7 @@ func _draw_ui(t: float, h: float) -> void :
 	right -= 14;_ui_texture(icons["coin_s"], Vector2(right, ty - 10))
 	_text(environment.clock_label(), Vector2(bx + 10, ty), 10 if scene == "village" else 12, hc, false, 96 if scene == "village" else right - bx - 34)
 	_draw_weight(top_y + tex_hud_bar.get_height() + 1)
+	if scene == "fish": owner_ui.draw(self)
 	if scene == "village":
 		V.draw_bottom(self, h)
 		if V.shop == "" and not market_open and not settings_open:
@@ -2258,7 +2264,7 @@ func _draw_notes() -> void :
 
 	if S.phase in ["fail", "result"]: return
 	if tip_t > 0:
-		var tip_y: = top_y + 164.0 if scene == "village" else (top_y + 150.0 if S.phase == "fight" else top_y + 74.0)
+		var tip_y: = top_y + 164.0 if scene == "village" else (top_y + 150.0 if S.phase == "fight" else top_y + (112.0 if owner_ui.visible(self) else 74.0))
 		var body: = _ui_wrap(tip_txt, 12, 218, 2)
 		var lines: = body.split("\n").size()
 		_ui_style_box(sb_chip, Rect2(12, tip_y, 246, 34 if lines == 1 else 50))
@@ -2593,7 +2599,7 @@ func _settle_owner(caught: bool) -> void:
 	S.owner_settled = true
 	var area: int = int(S.get("owner_region",active_region))
 	if S.get("owner",false): progression.settle_owner(area,caught)
-	else: progression.fishing_event(self,area,"catch" if caught else "miss")
+	elif TUT.done: progression.fishing_event(self,area,"catch" if caught else "miss",int(S.get("grade",0)))
 	_save_game()
 
 

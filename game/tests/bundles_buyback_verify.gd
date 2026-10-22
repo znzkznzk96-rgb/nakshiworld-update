@@ -86,6 +86,6 @@ func run() -> void:
 	# Backward-compatible saves initialize empty new fields, keeping original money and bag.
 	p.restore({"owner_gauge":[44]});m.buyback.restore({})
 	check(p.owner_gauge[0]==44 and not p.bundle_done(0,1) and m.buyback.entries.is_empty(),"old save initializes new fields without invented history")
-	check(p.available_regions==[0] and p.owner_rules.is_empty(),"unapproved valley entry and owner gain stay disabled")
+	check(p.available_regions==[0],"unapproved valley entry stays disabled")
 	print("BUNDLES_BUYBACK_VERIFY failures=",failures)
 	m.queue_free();await process_frame;quit(0 if failures.is_empty() else 1)

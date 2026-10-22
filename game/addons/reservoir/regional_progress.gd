@@ -1,9 +1,8 @@
 extends RefCounted
-# Approved bundle definitions; owner gauge gain and unreleased region entry remain undefined.
+# Approved bundle and regional owner gauge rules. Unreleased region entry stays disabled.
 const CATALOG = preload("res://addons/reservoir/regional_catalog.gd")
 var available_regions: Array = [0]
 var main_targets: Dictionary = {}
-var owner_rules: Dictionary = {}
 var certificates: Array = [false,false,false,false,false,false]
 var main_completed: Array = [false,false,false,false,false,false]
 var owner_gauge: Array = [0.0,0.0,0.0,0.0,0.0,0.0]
@@ -30,15 +29,11 @@ func all_parts(m, area: int) -> bool:
 		if not m.region_shop.has_active(m,kind,area): return false
 	return true
 func owner_ready(m, area: int) -> bool:
-	return area >= 0 and area < 2 and all_parts(m,area) and float(owner_gauge[area]) >= 100.0
-func fishing_event(m, area: int, event: String) -> void:
-	if area < 0 or area > 1 or not all_parts(m,area): return
-	# Configuration is deliberately empty until the user sets the event and gain.
-	var rule: Dictionary = owner_rules.get(str(area),{})
-	if not rule.has("event") or not rule.has("gain"): return
-	var expected: String = str(rule.event)
-	if event != expected and not (expected == "completed" and event in ["catch","miss"]): return
-	owner_gauge[area] = minf(100.0,float(owner_gauge[area]) + maxf(0.0,float(rule.gain)))
+	return area >= 0 and area < 6 and not CATALOG.by_star(area,4).is_empty() and all_parts(m,area) and float(owner_gauge[area]) >= 100.0
+func fishing_event(m, area: int, event: String, grade: int = 0) -> void:
+	if area < 0 or area >= 6 or event != "catch" or not all_parts(m,area): return
+	var gain: float = 3.0 if grade == 4 else (2.0 if grade == 3 else 1.0)
+	owner_gauge[area] = clampf(float(owner_gauge[area]) + gain,0.0,100.0)
 func settle_owner(area: int, caught: bool) -> void:
 	if area >= 0 and area < 6: owner_gauge[area] = 0.0 if caught else 70.0
 func try_complete(area: int) -> bool:

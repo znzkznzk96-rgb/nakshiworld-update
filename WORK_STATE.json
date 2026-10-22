@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "task": "거꾸로 폭포 계곡 통합 및 낚시월드 인수인계 기준",
-  "status": "implementing_owner_gauge",
+  "status": "owner_gauge_verifying",
   "work_branch": "work/valley-runtime",
   "release_baseline": "v0.69",
   "target_version": "unreleased",
@@ -21,15 +21,15 @@
   ],
   "updated_at": "2026-10-22",
   "current_task": "주인게이지 지역별 장착조건·포획등급별1/2/3%·훅성공확정·경고·0/70% 규칙 구현",
-  "next_step": "결정 원격저장 후 코드·세이브 회귀검사, PixelLab 접근 및 지역주인 참조 확인. 가격보류/배포금지.",
+  "next_step": "work Actions의14검사와12화면을 확인하고 검증기록. PixelLab신규아트대기, 가격보류, 배포금지.",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
   "last_release_deployed": true,
   "this_change": {
-    "scope": "주인게이지 결정 즉시저장",
-    "game_changed": false,
+    "scope": "주인게이지 코드·검사 추가",
+    "game_changed": true,
     "release_created": false,
     "deployment_authorized": false
   },
@@ -51,5 +51,11 @@
     "approved": false,
     "applied": false,
     "paused": true
+  },
+  "owner_gauge": {
+    "rules_approved": true,
+    "implementation": "verification_pending",
+    "art": "existing_sprites_functional_layout; PixelLab connection unavailable",
+    "verification": "pending"
   }
 }

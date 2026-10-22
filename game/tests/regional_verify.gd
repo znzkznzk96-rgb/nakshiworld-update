@@ -34,23 +34,25 @@ func run() -> void:
 		check(absf(total/1000.0-m.FISH_LEN[sp])<m.FISH_LEN[sp]*0.03,"length centered near planned mean %d"%sp)
 	m.TUT.done=true;m.active_region=0;m.region_shop.unlocked=[0,1];m.pond_stock=80;m.bait=100
 	m.equipment.active_parts=["float","hook","line","reel"];m.progression.owner_gauge=[100.0,33.0,0,0,0,0]
-	m.start_wait();check(m.S.star==4 and m.S.sp==19,"100 gauge makes next fish reservoir owner")
+	m.start_wait();check(not m.S.owner and m.S.star<4,"full gauge waits for successful hook before owner")
+	m.start_hook();m.S.pos=m.S.zc;m.hook_tap();check(m.S.owner and m.S.sp==19,"successful hook confirms reservoir owner")
 	m.fail("test miss");check(m.progression.owner_gauge[0]==70 and m.progression.owner_gauge[1]==33,"owner miss sets only its region to 70")
-	m.progression.owner_gauge[0]=100;m.start_wait();m.S.len=150;m.S.lf=0.75;m.start_catch()
+	m.progression.owner_gauge[0]=100;m.start_wait();m.start_hook();m.S.pos=m.S.zc;m.hook_tap();m.start_catch()
 	check(m.progression.owner_gauge[0]==0,"owner catch resets to zero")
 	m.active_region=1;m.equipment.active_parts=["float","hook","line","reel"];m.progression.owner_gauge[1]=100
-	m.start_wait();check(not m.S.owner and m.S.star==0 and m.S.sp>=20,"other ground parts do not unlock valley owner or stars")
-	m.equipment.active_parts=["r1_float","r1_hook","r1_line","r1_reel"];m.start_wait()
+	m.start_wait();m.start_hook();m.S.pos=m.S.zc;m.hook_tap()
+	check(not m.S.owner and m.S.star==0 and m.S.sp>=20,"other ground parts do not unlock valley owner or stars")
+	m.equipment.active_parts=["r1_float","r1_hook","r1_line","r1_reel"];m.start_wait();m.start_hook();m.S.pos=m.S.zc;m.hook_tap()
 	check(m.S.owner and m.S.sp==39,"correct regional parts enable valley owner")
 	m.fail("test miss");check(m.progression.owner_gauge[1]==70 and m.progression.owner_gauge[0]==0,"valley miss independent from reservoir")
-	m.progression.owner_gauge[1]=0;m.progression.fishing_event(m,1,"catch")
-	check(m.progression.owner_gauge[1]==0,"undefined owner gain never invented")
-	m.progression.owner_rules={"1":{"event":"completed","gain":5}};m.progression.fishing_event(m,1,"catch")
-	check(m.progression.owner_gauge[1]==5,"configured gain supported after design is supplied")
-	m.progression.owner_rules={"1":{"event":"cast","gain":1}};m.progression.owner_gauge[1]=99
-	m.start_cast();m.start_wait();check(m.progression.owner_gauge[1]==100 and not m.S.owner,"cast completing gauge still keeps its regular fish")
-	m.start_cast();m.start_wait();check(m.S.owner and m.S.sp==39,"following cast is owner after gauge completes")
-	m.progression.owner_rules={};m.progression.restore({});m.region_shop.unlocked=[0];m.gold=10000
+	m.progression.owner_gauge[1]=0;m.progression.fishing_event(m,1,"catch",3)
+	check(m.progression.owner_gauge[1]==2,"approved legendary gain is two percentage points")
+	m.progression.owner_gauge[1]=99;m.start_cast();m.start_wait()
+	check(m.progression.owner_gauge[1]==99 and not m.S.owner,"casts do not fill owner gauge")
+	m.progression.fishing_event(m,1,"catch",0)
+	m.start_cast();m.start_wait();m.start_hook();m.S.pos=m.S.zc;m.hook_tap()
+	check(m.S.owner and m.S.sp==39,"next successful hook after gauge fills is owner")
+	m.progression.restore({});m.region_shop.unlocked=[0];m.gold=10000
 	var before: int=m.gold
 	check(not m.region_shop.unlock(m,1) and m.gold==before,"unfinished unlicensed region cannot charge")
 	m.bag=[{"sp":5,"grade":1},{"sp":20,"grade":1},{"sp":5,"grade":0},{"sp":5,"grade":1}]
