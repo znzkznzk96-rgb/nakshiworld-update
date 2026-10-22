@@ -78,6 +78,7 @@ const BAG_CAP: = [0.5, 1.5, 3.0, 6.0, 12.0, 20.0, 30.0, 45.0, 65.0]
 const BAG_PRICE: = [0, 150, 800, 4000, 20000, 80000, 300000, 1200000, 5000000]
 const PRICE_BASE: = [[10, 30], [50, 120], [200, 350], [1000, 1500], [8000, 8000]]
 const PRICE_GRADE: = [1.0, 1.3, 1.7, 2.2, 3.0]
+const VALLEY_PRICE: = [25, 35, 45, 50, 30, 30, 50, 55, 130, 145, 175, 225, 150, 195, 480, 560, 610, 2240, 2760, 16000]
 var bag: = []
 var bag_lv: = 0
 var tips_seen: = []
@@ -2387,6 +2388,7 @@ func fish_price(sp: int, star: int, grade: int, lf: float) -> int:
 	var list: Array = CATALOG.by_star(CATALOG.region(sp),star)
 	var b: Array = PRICE_BASE[star]
 	var base: = lerpf(b[0], b[1], float(list.find(sp)) / maxf(1.0, list.size() - 1.0))
+	if sp >= 20 and sp < 40: base = float(VALLEY_PRICE[sp - 20])
 	return int(round(base * PRICE_GRADE[grade] * minf(lf * lf, 2.5) * (1.0 + 0.05 * forge_lv)))
 
 func keep_fish() -> void :

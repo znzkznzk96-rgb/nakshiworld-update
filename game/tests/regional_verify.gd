@@ -23,7 +23,19 @@ func run() -> void:
 	check(m.bag[0].sp==20 and m.aqua[1].sp==20 and m.fish_counts(20)[1]==1,"bag aquarium and regional history survive reload")
 	check(m.fish_record_cm(5)>17 and m.fish_record_cm(20)==11.5,"both maximum records survive reload")
 	check(m._fish_display_length(1,2.0,false,32)<m._fish_display_length(1,2.0,false,29),"small cloud minnow remains smaller than trout at same star")
-	check(m.fish_price(20,0,0,1.0)==m.fish_price(0,0,0,1.0),"regional species use correct slot in existing price curve")
+	var valley_prices := [25,35,45,50,30,30,50,55,130,145,175,225,150,195,480,560,610,2240,2760,16000]
+	for sp in range(20,40):
+		var star := 0
+		for s in range(5):
+			if sp in m.CATALOG.by_star(1,s): star=s
+		check(m.fish_price(sp,star,0,1.0)==valley_prices[sp-20],"conservative nominal price %d"%sp)
+		for grade in range(5):
+			for lf in [0.5,1.0,2.0]:
+				check(m.fish_price(sp,star,grade,lf)==int(round(valley_prices[sp-20]*m.PRICE_GRADE[grade]*minf(lf*lf,2.5))),"valley grade and length scaling %d"%sp)
+	check(m.fish_price(19,4,0,1.0)==8000 and m.fish_price(0,0,0,1.0)==10,"reservoir prices unchanged")
+	m.forge_lv=2
+	check(m.fish_price(39,4,0,1.0)==17600,"valley enhancement bonus preserved")
+	m.forge_lv=0
 	check(m.measurement_max_cm(25)==10 and m.measurement_max_cm(28)==60 and m.measurement_max_cm(39)==300,"species-fixed valley ruler ranges")
 	seed(92469)
 	for sp in range(20,40):

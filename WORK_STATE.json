@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "task": "거꾸로 폭포 계곡 통합 및 낚시월드 인수인계 기준",
-  "status": "owner_frame_v2_name_alignment_finalized",
+  "status": "valley_conservative_prices_applied",
   "work_branch": "work/valley-runtime",
   "release_baseline": "v0.69",
   "target_version": "unreleased",
@@ -13,28 +13,28 @@
   "gateway_run": 39707668175,
   "verification": "docs/RELEASE_069_VERIFICATION.json",
   "phone_confirmation": "0.69 실기기 업데이트/동작 확인 대기",
-  "museum_bundle": "저수지·계곡 필수/서브 각6종·주인1종 실물 낱개기증과 자동보상 연결. 필수 라이선스만/서브판매가120%+혼15·30/주인판매가150%+2진주.",
+  "museum_bundle": "저수지·계곡 필수/서브 각6종·주인1종 실물 낱개기증과 자동보상 연결. 필수 라이선스만/서브판매가120%+혼15·30/주인판매가150%+2진주. 계곡노멀평균주인 기증24000비늘+2진주.",
   "valley_runtime_status": "shipped_assets_catalog_backend_live_entry_disabled",
   "pending_decisions": [
     "계곡 출현확률·경제·전투 수치 승인 대기. 실제 계곡 입장 비활성 유지.",
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-22",
-  "current_task": "계곡20종 보수안 가격 적용",
-  "next_step": "기존 등급/크기/강화식 유지하며 종별기본가 반영·관련검증, 배포금지.",
+  "current_task": "계곡20종 보수안 가격반영·관련5검사 통과 (미배포)",
+  "next_step": "사용자 다음지시. 계곡출현확률/전투/입장은미정유지, 주인48px프레임은시안만. 배포금지.",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
   "last_release_deployed": true,
   "this_change": {
-    "scope": "주인게이지 시안 이름 오른쪽3px/위2px 조정",
-    "game_changed": false,
+    "scope": "계곡20종 보수안 기본판매가",
+    "game_changed": true,
     "release_created": false,
     "deployment_authorized": false
   },
   "history": "docs/historical/2026-10-22-before-workflow-streamlining/WORK_STATE.json",
-  "work_verification": "docs/qa/owner-gauge-six/VERIFICATION.json",
+  "work_verification": "docs/qa/valley-prices/VERIFICATION.json",
   "work_source_commit": "de1faddb0ab29071f4dbc6209247c5dad7d01bc6",
   "work_verification_run": 39730517829,
   "backend_source_commit": "fc55b5b07b1cecde6fea9670fd6553423f3b68e2",
@@ -49,11 +49,12 @@
     "results": "docs/analysis/valley-prices/results.json",
     "historical_region_multiplier": 2.5,
     "approved": true,
-    "applied": false,
+    "applied": true,
     "paused": false,
     "selection": "conservative",
     "approval": "2026-10-22 사용자: 배후산천어 너무비싸 보수안으로 업데이트",
-    "owner_nominal": 16000
+    "owner_nominal": 16000,
+    "verification": "docs/qa/valley-prices/VERIFICATION.json"
   },
   "owner_gauge": {
     "rules_approved": true,
