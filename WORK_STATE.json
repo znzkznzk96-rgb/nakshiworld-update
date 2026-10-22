@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "task": "거꾸로 폭포 계곡 통합 및 낚시월드 인수인계 기준",
-  "status": "ui_revision_in_progress",
+  "status": "ui_verification_pending",
   "work_branch": "work/valley-runtime",
   "release_baseline": "v0.69",
   "target_version": "unreleased",
@@ -21,7 +21,7 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-22",
-  "current_task": "번들 보상 숫자표시·주인 중앙정렬 수정 및 가방2시안",
+  "current_task": "번들 금액표시/중앙정렬 구현; 가방2시안 렌더 검수중",
   "next_step": "수정 화면/가방 어종+등급별 목록형·큰카드형2시안 렌더검수 후 제시. 가방실제전환과 배포는 아직 하지 않는다.",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",

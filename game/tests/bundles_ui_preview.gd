@@ -16,6 +16,9 @@ func run() -> void:
 	m.development_preview=true;m.set_process(false);m.title_open=false;m.lesson_open=false;m.tip_t=0;m.guide.opened=false;m.mailbox.opened=false;m.trans={}
 	m._switch_scene("village");m.S={"phase":"idle"};m.ui_clock=10;m.gold=10000
 	m.progression.restore({});m.V.open_shop(m,"museum")
+	m.progression.bundle_values={"0:1":750,"1:1":1500,"0:2":1000,"1:2":4000}
+	m.progression.extra_donations={"0:1":[1,1,1,0,0,0],"1:1":[1,1,1,0,0,0],"0:2":[1],"1:2":[1]}
+	m.progression.extra_completed={"0:2":true,"1:2":true}
 	for area in 2:
 		m.V.bundle_preview.region=area
 		for kind in 3:
@@ -32,5 +35,13 @@ func run() -> void:
 	m.V.commerce.pending={};m.V.open_shop(m,"museum");m.V.bundle_preview.region=1;m.V.bundle_preview.tab=0
 	root.content_scale_size=Vector2i(270,480);root.size=Vector2i(540,960)
 	await process_frame;await capture(m,out,"museum_short")
+	m.hide();root.content_scale_size=Vector2i(270,540);root.size=Vector2i(540,1080)
+	await process_frame
+	m.bag=[{"sp":7,"grade":0,"w":0.022},{"sp":7,"grade":0,"w":0.026},{"sp":7,"grade":1,"w":0.031},{"sp":0,"grade":0,"w":0.05},{"sp":0,"grade":1,"w":0.055},{"sp":5,"grade":1,"w":0.052},{"sp":1,"grade":2,"w":0.18}]
+	var concepts=preload("res://tests/previews/inventory_concepts.gd").new()
+	for variant in ["A","B"]:
+		concepts.draw(m,540,variant)
+		txt.items=m.text_items;txt.commands=m.ui_commands;txt.position.x=m.ox;txt.queue_redraw()
+		await capture(m,out,"bag_"+variant)
 	print("BUNDLES_UI_PREVIEW complete")
 	m.audio_feedback.dispose();m.queue_free();await process_frame;quit()

@@ -59,16 +59,19 @@ func draw(m,h: float) -> void:
 	var total:=0
 	for count in counts: total+=int(count)
 	for i in (1 if tab==2 else 6):
-		var cell:=Rect2(98 if tab==2 else 19+(i%3)*79,y+floori(i/3.0)*(cell_h+5),74,cell_h)
+		var cell:=Rect2(19+(i%3)*79,y+floori(i/3.0)*(cell_h+5),74,cell_h)
+		if tab==2:
+			var owner_height: float=minf(150,grid_end-y-12)
+			cell=Rect2(79,(y+grid_end-owner_height)/2,112,owner_height)
 		m._ui_rect(Rect2(cell.position+Vector2(0,2),cell.size),Color("c6b68f"));m._ui_rect(cell,Color("f3e6c9"))
 		if i<targets.size():
 			var sp:=species_id(targets[i])
-			m._ui_fish(sp,Rect2(cell.position+Vector2(5,5),Vector2(64,maxf(20,cell_h-38))))
-			m._text(m._ui_wrap(m.FISH_NAME[sp],10,68,2),Vector2(cell.get_center().x,cell.end.y-26),10,Color("382619"),true,68)
-			m._text("기증 완료" if int(counts[i])>0 else "★%d · 미기증"%(star(sp)+1),Vector2(cell.get_center().x,cell.end.y-6),9,Color("456a50") if int(counts[i])>0 else Color("68533d"),true,68)
+			m._ui_fish(sp,Rect2(cell.position+Vector2(5,5),Vector2(cell.size.x-10,maxf(20,cell.size.y-38))))
+			m._text(m._ui_wrap(m.FISH_NAME[sp],10,cell.size.x-6,2),Vector2(cell.get_center().x,cell.end.y-26),10,Color("382619"),true,cell.size.x-6)
+			m._text("기증 완료" if int(counts[i])>0 else "★%d · 미기증"%(star(sp)+1),Vector2(cell.get_center().x,cell.end.y-6),9,Color("456a50") if int(counts[i])>0 else Color("68533d"),true,cell.size.x-6)
 		else:
 			m._text("?",cell.get_center(),16,Color("aa9d7f"),true,60)
-			m._text("준비 중",Vector2(cell.get_center().x,cell.end.y-6),10,Color("68533d"),true,68)
+			m._text("준비 중",Vector2(cell.get_center().x,cell.end.y-6),10,Color("68533d"),true,cell.size.x-6)
 		rects["fish:%d"%i]=cell
 	var reward:=Rect2(17,bottom-93,236,38)
 	m._ui_rect(reward,Color("e7d8b6"))
@@ -80,9 +83,9 @@ func draw(m,h: float) -> void:
 	else:
 		m._ui_texture_rect(m.V.tool_icons.scale,Rect2(reward.position+Vector2(8,7),Vector2(24,24)),false)
 		var caption: String="보상 준비 중"
-		if region<2: caption="판매가 합계 120%% + 혼 %d"%m.progression.SOUL_REWARD[region] if tab==1 else "판매가 150% + 진주 2개"
+		if region<2: caption="%s 비늘 · 혼 %d개"%[_amount(reward_amount(m,region,tab)),m.progression.SOUL_REWARD[region]] if tab==1 else "%s 비늘 · 진주 2개"%_amount(reward_amount(m,region,tab))
 		m._text(caption,reward.position+Vector2(39,16),10,Color("382619"),false,192)
-		m._text("완료 시 자동 지급" if tab==2 else "제출한 실제 개체 판매가 기준",reward.position+Vector2(39,30),9,Color("513b29"),false,192)
+		m._text("받은 보상" if done else "기증 누적 보상 · 완료하면 받아요",reward.position+Vector2(39,30),9,Color("513b29"),false,192)
 	button(m,"register","완료" if done else ("기증 %d / %d"%[total,targets.size()] if not targets.is_empty() else "번들 준비 중"),Rect2(17,bottom-48,154,29),done)
 	button(m,"dex","도감",Rect2(177,bottom-48,76,29))
 	m._text("물고기를 눌러 한 마리씩 기증 · 등급 무관",Vector2(135,bottom-7),9,Color("68533d"),true,236)
@@ -146,3 +149,8 @@ func _amount(value: int) -> String:
 		if i>0 and (raw.length()-i)%3==0: result+="," 
 		result+=raw[i]
 	return result
+
+func reward_amount(m, area: int, kind: int) -> int:
+	if area<0 or area>1 or kind not in [1,2]: return 0
+	var value: int=int(m.progression.bundle_values.get(m.progression.bundle_key(area,kind),0))
+	return roundi(value*(1.2 if kind==1 else 1.5))
