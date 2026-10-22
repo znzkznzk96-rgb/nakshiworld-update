@@ -1,3 +1,5 @@
+> 활성브랜치 WORK_STATE.local_recovery.entry가 있으면 먼저 읽는다. 이전 절대경로가 새 환경에 존재한다고 가정하지 말고 명시된 실제 보존처를 사용한다.
+
 # 새 채팅 이어하기
 
 1. main의 START_HERE/AGENTS/PROJECT_INSTRUCTIONS와 WORK_STATE를 읽는다. work_branch가 가리키는 원격 브랜치의 최신 지침·WORK_STATE·HANDOFF를 우선 확인한다. GAME_BIBLE의 확정/미정 결정을 읽는다.

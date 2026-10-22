@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "task": "거꾸로 폭포 계곡 통합 및 낚시월드 인수인계 기준",
-  "status": "reservoir_layered_environment_in_progress",
+  "status": "paused_existing_results_preserved",
   "work_branch": "work/valley-runtime",
   "release_baseline": "v0.69",
   "target_version": "unreleased",
@@ -20,15 +20,15 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-22",
-  "current_task": "밝은 저수지 베이스 분리 및 낮밤 동적레이어 실제적용",
-  "next_step": "선택A기준 정적베이스/별도레이어 제작, 최신전체소스복원 후 환경연결·화면/회귀검증. 배포없음.",
+  "current_task": "기존저수지결과 제시 완료; 개선절차와 재개정보 문서 통합",
+  "next_step": "docs/LOCAL_RECOVERY.md의 실제 보존위치에서 기존결과를 가져와 최신사용자 범위로 이어간다. 진단/백업/확정기획질문을 반복하지 않는다.",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
   "last_release_deployed": true,
   "this_change": {
-    "scope": "저수지 배경·환경레이어",
+    "scope": "작업절차/인수인계 문서만",
     "game_changed": false,
     "release_created": false,
     "deployment_authorized": false
@@ -94,5 +94,12 @@
     "startup_policy": "Read fixed guide before plugin search; reuse existing API v2 route; never infer unavailable from missing tool listing",
     "private_access_instructions": "Read user-owned NAKSHIWORLD_PIXEL_ACCESS_PRIVATE.md by exact title through Library; do not publish its contents",
     "paid_generation_on_resume": false
+  },
+  "local_recovery": {
+    "entry": "docs/LOCAL_RECOVERY.md",
+    "documentation_location": "active_work_branch",
+    "game_uncommitted_changes_included": false,
+    "generated_images_included": false,
+    "backup_filename": "NAKSHIWORLD_RESUME_PACKAGE.zip"
   }
 }
