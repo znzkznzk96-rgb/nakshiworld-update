@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "task": "거꾸로 폭포 계곡 통합 및 낚시월드 인수인계 기준",
-  "status": "owner_gauge_art_revision_pending",
+  "status": "owner_gauge_six_art_in_progress",
   "work_branch": "work/valley-runtime",
   "release_baseline": "v0.69",
   "target_version": "unreleased",
@@ -20,8 +20,8 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-22",
-  "current_task": "PixelLab 기존호출경로 복구·접속/실제생성 성공. 첫프레임 내부공간 검수불합격으로 추가생성중단",
-  "next_step": "첫프레임검수 공유. 재작업은 이름/진행바 구획을 명확히 설계하고 추가유료호출 허용범위에 따라 진행. 기존기능유지/가격보류/배포금지.",
+  "current_task": "승인된6지역 주인게이지 PixelLab프레임 각1장 순차제작·검수",
+  "next_step": "저수지1장내부공간검수→계곡→타일바다→균열해역→심해→우주바다. 지역별프레임 연결/기존기능검사·실제화면 확인. 배포금지.",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
@@ -55,7 +55,7 @@
   "owner_gauge": {
     "rules_approved": true,
     "implementation": "verified_reservoir_and_valley; later region catalog pending",
-    "art": "PixelLab API verified with actual generation; first frame rejected for cramped layout; no game application",
+    "art": "six region concepts authorized; one paid request per region; in progress",
     "verification": "docs/qa/owner-gauge/VERIFICATION.json",
     "preview": "docs/previews/owner-gauge-applied.png",
     "connection": "docs/PIXELLAB_CONNECTION.md",
