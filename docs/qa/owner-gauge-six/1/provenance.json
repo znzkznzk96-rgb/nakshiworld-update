@@ -1,0 +1,9 @@
+{
+  "region": "거꾸로 폭포 계곡",
+  "reference_sha256": "e28d5f543a94140a76fe2d292b9921eec75cfd1eb1dda444dc56b7f22f46d637",
+  "reference_role": "Layout template; first two also include approved owner palette reference",
+  "model": "PixelLab UI Pro",
+  "seed": 2026102261,
+  "output_count_expected": 1,
+  "automatic_retry": false
+}
