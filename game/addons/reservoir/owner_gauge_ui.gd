@@ -2,7 +2,7 @@ extends RefCounted
 # PixelLab frames; names, specimens and proportional fill remain engine-rendered.
 const REGIONS = ["동네 저수지","거꾸로 폭포 계곡","타일 바다","균열 해역","심해","우주 바다"]
 const ACCENTS = [Color("56c6d1"),Color("d66b82"),Color("62c2e8"),Color("c28bef"),Color("68bec5"),Color("c4a3f5")]
-const FRAME_SIZE := Vector2(256,64)
+const FRAME_SIZE := Vector2(256,48)
 var bounds := Rect2()
 var image_bounds := Rect2()
 var fill_bounds := Rect2()
@@ -11,10 +11,15 @@ var label_bounds := Rect2()
 var warning_bounds := Rect2()
 var frames: Array[Texture2D]=[]
 var layouts: Array=[]
+var display_frames: Array[Texture2D]=[]
 func load_frames() -> void:
 	if frames.size()==6: return
 	layouts=JSON.parse_string(FileAccess.get_file_as_string("res://data/ui/owner_gauges.json"))
-	for area in 6:frames.append(load("res://art/ui/owners/region_%d.png"%area))
+	for area in 6:
+		var source: Texture2D=load("res://art/ui/owners/region_%d.png"%area)
+		frames.append(source)
+		var atlas:=AtlasTexture.new();atlas.atlas=source;atlas.region=local_rect(area,"crop")
+		display_frames.append(atlas)
 func visible(m) -> bool:
 	return m.scene == "fish" and not m.title_open and m.TUT.done and m.active_region >= 0 and m.active_region < 6 and m.progression.all_parts(m,m.active_region)
 func clear_bounds() -> void:
@@ -36,7 +41,9 @@ func draw_frame(m,area: int,value: float,origin: Vector2) -> void:
 	if area<0 or area>=6: return
 	value=clampf(value,0,100)
 	bounds=Rect2(origin,FRAME_SIZE)
-	m._ui_texture_rect(frames[area],bounds)
+	var panel: Rect2=local_rect(area,"label");panel.position+=origin
+	m._ui_rect(panel.grow(1),Color("0f1b29"))
+	m._ui_texture_rect(display_frames[area],bounds)
 	var badge: Rect2=local_rect(area,"badge");badge.position+=origin
 	label_bounds=local_rect(area,"label");label_bounds.position+=origin
 	track_bounds=local_rect(area,"track");track_bounds.position+=origin
@@ -48,7 +55,7 @@ func draw_frame(m,area: int,value: float,origin: Vector2) -> void:
 	var baseline: float=roundf(label_bounds.get_center().y+3)
 	var percent: String="%d%%"%int(value)
 	var percent_width: float=m._text_w(percent,9)
-	m._text(name,Vector2(label_bounds.position.x,baseline),9,Color("fff0d1"),false,label_bounds.size.x-percent_width-7)
+	m._text(name,Vector2(label_bounds.position.x+3,baseline-2),9,Color("fff0d1"),false,label_bounds.size.x-percent_width-10)
 	m._text(percent,Vector2(label_bounds.end.x-percent_width,baseline),9,Color("fff0d1"))
 	m._ui_rect(track_bounds,Color("0b111a"))
 	var inner: Rect2=track_bounds.grow(-1)

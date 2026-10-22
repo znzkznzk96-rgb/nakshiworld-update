@@ -342,13 +342,15 @@ func _layout() -> void :
 		environment.layout(self)
 		for r in fx_rid: RenderingServer.canvas_item_set_transform(r,Transform2D.IDENTITY)
 		return
-	SURF = 217;WATER = 273;PY = 179;CATY = 204;PX = 22;CATX = 0
-	var extra: = vs.y - bot_pad - 137.0 - 447.0
-	var dw: = minf(roundf(extra * 0.3), 36.0) if extra > 0 else maxf(extra, -64.0)
-	oy = maxf(0.0, extra - dw)
-	uw_bot = 447.0 + dw
+	oy = 0.0
+	var map_scale: float = maxf(vs.x / environment.SOURCE.x, vs.y / environment.SOURCE.y)
+	var plate_top: float = (vs.y - environment.SOURCE.y * map_scale) * 0.5
+	SURF = roundi(plate_top + environment.DECK_Y * map_scale)
+	WATER = roundi(plate_top + environment.WATER_Y * map_scale)
+	uw_bot = minf(plate_top + environment.SAND_Y * map_scale, vs.y - bot_pad - 137.0)
+	PY = SURF - 57;CATY = SURF - 32;PX = 50;CATX = 29
 	environment.layout(self)
-	for r in fx_rid: RenderingServer.canvas_item_set_transform(r, Transform2D(0.0, Vector2(0, oy)))
+	for r in fx_rid: RenderingServer.canvas_item_set_transform(r, Transform2D.IDENTITY)
 
 func _pixel_font(p: String) -> FontFile:
 	var fo: FontFile = load(p)
@@ -1841,6 +1843,7 @@ func _aura_col(g: int, t: float, a: float, k: = 0) -> Color:
 
 func _exit_tree() -> void :
 	environment.valley.dispose()
+	environment.dispose()
 	audio_feedback.dispose()
 	title_screen.dispose()
 	if environment.layer:

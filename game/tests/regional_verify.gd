@@ -85,7 +85,7 @@ func run() -> void:
 	check(v.waterfall_y(2.1,0)<v.waterfall_y(2.0,0),"waterfall streak travels upward")
 	check(v.layers.size()==5,"separate plate cloud waterfall light and reflection layers")
 	m.active_region=0;m._layout();m.environment.show_scene(true)
-	check(not v.root.visible and m.bg_node.visible and m.WATER==273,"return to reservoir restores original anchors and scene")
+	check(not v.root.visible and m.bg_node.visible and m.WATER==roundi(m.environment.point(Vector2(0,m.environment.WATER_Y)).y),"return to reservoir restores reservoir plate anchors and scene")
 	m.V.museum_region=1
 	for sp in range(20,40): m.DEX[m.fish_key(sp)]=[0,1,2,3,4]
 	m.text_items=[];m.ui_commands=[];m.V.rects={"rows":[]}
