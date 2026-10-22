@@ -1,3 +1,7 @@
+## 최신 재개 — B안 선택 후 밀도/크기 재검토 (2026-10-22)
+활성work/valley-runtime의WORK_STATE/HANDOFF 및 [캐릭터·모션기준](CHARACTER_MOTION_GUIDE.md)부터 이어간다. B원본참조2개는 proposals/character-b/에 원격보존,기존A/B비교는 previews/character-seated-ab.png. 일반이미지생성 디자인참고이며 PixelLab게임스프라이트/모션/실제적용본과구분. 사용자 재첨부불필요. 다음은밀도개선·소폭확대 비교,약12%는추천. 확정후 대기/캐스팅시험영상. 새생성/수정/배포승인은 단계별기존범위준수.
+저수지확률·박물관보상수정도work에보존·로컬/CI통과했으나미배포. 공개0.70/휴대폰확인대기 유지. 아래는이전시점기록.
+
 ## 최신 재개 기준 — 0.70 공개 완료 (2026-10-22)
 이제 선택저수지base/moon·환경레이어·main정렬·최종48px주인프레임은 GitHub코드와v0.70 game-source.zip에 포함돼 있다. 전체소스ZIP+작업브랜치overlay/삭제명세 기준으로 이어간다. [공개검증](RELEASE_070_VERIFICATION.json),화면은previews/reservoir-070-day-night.png 및previews/owner-070-six.png. 원본12장 전체와 과거복구자료는 기존RESUME_PACKAGE에 유지된다. 아래의 GitHub미반영/배포전 문구는 당시기록이다. 휴대폰0.70 적용은 미확인.
 

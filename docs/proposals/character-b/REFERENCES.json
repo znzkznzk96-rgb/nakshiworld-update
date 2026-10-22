@@ -1,0 +1,10 @@
+{
+  "reference-design.png": {
+    "sha256": "a71e56dc7de9013c64f045d9970e7934d9b9082f0ffd55c9879addbc30d8aeb2",
+    "role": "design reference only, not native pixel sprite or animation"
+  },
+  "seated-reference.png": {
+    "sha256": "4119c9c93a30a067614d1fcec638555cbae2a3e60de47205e4b84a1e2fda9bb9",
+    "role": "design reference only, not native pixel sprite or animation"
+  }
+}

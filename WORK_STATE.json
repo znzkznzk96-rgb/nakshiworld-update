@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "task": "거꾸로 폭포 계곡 통합 및 낚시월드 인수인계 기준",
-  "status": "awaiting_character_design_selection",
+  "status": "paused_character_b_density_size_review",
   "work_branch": "work/valley-runtime",
   "release_baseline": "v0.70",
   "target_version": "unreleased",
@@ -20,16 +20,16 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-22",
-  "current_task": "앉은캐릭터A/B 실제배경 비교완료·사용자선택대기",
-  "next_step": "A/B선택→기준자세/대기/캐스팅시험영상→승인후확장. 배포금지",
+  "current_task": "B안선택 확정·도트밀도개선/소폭확대 비교대기,새대화재개준비",
+  "next_step": "docs/CHARACTER_MOTION_GUIDE.md 읽고 기존B와 밀도개선/약12%확대 제안B의 실제배경비교부터. 확정후 대기/캐스팅영상. 배포금지",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
   "last_release_deployed": true,
   "this_change": {
-    "scope": "저수지확률/박물관보상표시",
-    "game_changed": true,
+    "scope": "새대화 인수인계·B참조보존",
+    "game_changed": false,
     "release_created": false,
     "deployment_authorized": false
   },
@@ -105,9 +105,23 @@
   },
   "character_preview": {
     "path": "docs/previews/character-seated-ab.png",
-    "selection": null,
+    "selection": "B",
     "motion_preview_created": false,
     "game_applied": false,
-    "pixellab_paid_requests": 0
+    "pixellab_paid_requests": 0,
+    "density_approved": false,
+    "size_approved": false,
+    "requested_size_change": "slightly_larger",
+    "proposed_scale": 1.12,
+    "guide": "docs/CHARACTER_MOTION_GUIDE.md",
+    "reference_design": "docs/proposals/character-b/reference-design.png",
+    "seated_reference": "docs/proposals/character-b/seated-reference.png"
+  },
+  "unreleased_odds_rewards": {
+    "commit": "a6f9c52c176afdea522432345be1948b3b643337",
+    "verification": "docs/qa/odds-rewards/VERIFICATION.json",
+    "ci_run": 39769939005,
+    "ci_conclusion": "success",
+    "deployed": false
   }
 }
