@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "task": "거꾸로 폭포 계곡 통합 및 낚시월드 인수인계 기준",
-  "status": "reservoir_moon_two_proposals_presented",
+  "status": "reservoir_layered_environment_in_progress",
   "work_branch": "work/valley-runtime",
   "release_baseline": "v0.69",
   "target_version": "unreleased",
@@ -20,15 +20,15 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-22",
-  "current_task": "큰 달·낚시자리 하향 2시안 제시완료; 선택대기",
-  "next_step": "사용자 선택/수정지시 대기. 생성원본은803×1959로 목표1080×2640과구분, 정확한최종크기조정/게임적용/배포미완료.",
+  "current_task": "밝은 저수지 베이스 분리 및 낮밤 동적레이어 실제적용",
+  "next_step": "선택A기준 정적베이스/별도레이어 제작, 최신전체소스복원 후 환경연결·화면/회귀검증. 배포없음.",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
   "last_release_deployed": true,
   "this_change": {
-    "scope": "저수지 큰 달·낚시자리 하향 2시안",
+    "scope": "저수지 배경·환경레이어",
     "game_changed": false,
     "release_created": false,
     "deployment_authorized": false
