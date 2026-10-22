@@ -45,5 +45,6 @@
   "local_valley_checkpoint": "c1d073e (not pushed; ZIP backed up in Library)",
   "valley_art_source_branch": "work/valley-fish-art",
   "valley_runtime_status": "not_integrated",
-  "valley_preparation_archive": "NAKSHIWORLD_VALLEY_UPDATE_PREP.zip (Library ID libfile_8e244c13f74c8191ad93147f28b40f93)"
+  "valley_preparation_archive": "NAKSHIWORLD_VALLEY_UPDATE_PREP.zip (Library ID libfile_8e244c13f74c8191ad93147f28b40f93)",
+  "decision_checkpoint_policy": "Record each newly confirmed or changed persistent game decision immediately in docs/GAME_BIBLE.md, including when no code changes; save to work/* and verify remote SHA/content before dependent implementation. If every remote path fails, mark pending and tell the user."
 }
