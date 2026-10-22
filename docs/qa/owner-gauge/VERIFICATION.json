@@ -57,10 +57,11 @@
   },
   "art_status": {
     "pixellab_generated": false,
-    "reason": "No PixelLab connector or authentication available; plugin search returned no matches",
+    "reason": "User confirms PixelLab plugin installed and applied. Current session tool/skill/config discovery did not expose a callable PixelLab path. Installation and authentication absence were NOT established.",
     "current": "Existing approved owner sprites with functional code UI",
     "remaining": "PixelLab regional owner-inspired gauge artwork",
-    "brief": "ART_BRIEF.md"
+    "brief": "ART_BRIEF.md",
+    "correction": "2026-10-22 정정: 사용자는 PixelLab 플러그인이 설치·적용되어 있다고 확인했다. 재검사한 이 세션의 호출 가능 도구명·클라우드/로컬 스킬·로컬 MCP 설정에서는 PixelLab 호출 경로를 찾지 못했다. 이는 사용자 계정의 미설치 또는 인증 부재를 증명하지 않는다. 이전 ‘연결/인증 없음’ 단정은 철회한다. 현재 장애는 이 대화에 PixelLab 도구가 노출되었는지/호출 가능한지 확인하지 못한 상태다. 신규 PixelLab 아트 미생성 사실과 기존 기능검사 결과는 변함없다."
   },
   "limitations": [
     "No Android phone validation",
