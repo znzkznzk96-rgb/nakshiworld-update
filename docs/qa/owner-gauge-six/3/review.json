@@ -1,0 +1,28 @@
+{
+  "status": "pass",
+  "notes": [
+    "Dark riveted gunmetal, weathered bronze and violet crack lights match ship/rift location",
+    "Wide blank upper label and empty lower trough remain separate",
+    "Transparent exterior and complete frame; unused canvas padding is retained"
+  ],
+  "layout": {
+    "badge": [
+      30,
+      25,
+      36,
+      16
+    ],
+    "label": [
+      82,
+      22,
+      148,
+      13
+    ],
+    "track": [
+      82,
+      40,
+      150,
+      6
+    ]
+  }
+}
