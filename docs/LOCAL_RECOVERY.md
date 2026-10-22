@@ -1,3 +1,7 @@
+## 최신 재개 기준 — 0.70 공개 완료 (2026-10-22)
+이제 선택저수지base/moon·환경레이어·main정렬·최종48px주인프레임은 GitHub코드와v0.70 game-source.zip에 포함돼 있다. 전체소스ZIP+작업브랜치overlay/삭제명세 기준으로 이어간다. [공개검증](RELEASE_070_VERIFICATION.json),화면은previews/reservoir-070-day-night.png 및previews/owner-070-six.png. 원본12장 전체와 과거복구자료는 기존RESUME_PACKAGE에 유지된다. 아래의 GitHub미반영/배포전 문구는 당시기록이다. 휴대폰0.70 적용은 미확인.
+
+### 아래는 이전 재개 기록
 ## 2026-10-22 — 0.70 통합검증 후 배포 준비
 기존 밝은저수지 base/moon·환경레이어·main 정렬 변경과 최종48px주인프레임을 이번 작업브랜치 저장에 포함한다. 과거 “이미지/미커밋게임작업 GitHub미반영”은 아래 기록 시점 기준이며 이번 포함파일은 검증문서 참조. 기존12장 전부를 원격보존하는 것은 아니다. 15검사·실제화면검수 통과,공개배포는 아직 진행 전. [검증](qa/release-070/VERIFICATION.json).
 
