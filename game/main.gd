@@ -5,16 +5,16 @@ extends Node2D
 
 const VW: = 270
 const TOP: = 22
-const SURF: = 217
-const WATER: = 273
+var SURF: = 217
+var WATER: = 273
 var uw_bot: = 447.0
 var oy: = 0.0
 var ox: = 0.0
 const BG_TOP: = 290
-const PX: = 22
-const PY: = 179
-const CATX: = 0
-const CATY: = 204
+var PX: = 22
+var PY: = 179
+var CATX: = 0
+var CATY: = 204
 const LX: = 176
 
 
@@ -22,9 +22,9 @@ const STAR_P: = [0.62, 0.27, 0.09, 0.018, 0.0]
 const GRADE_P: = [0.8653, 0.0661, 0.0628, 0.0042, 0.0016]
 const GRADE_N: = ["노멀", "레어", "유니크", "전설", "신화"]
 const GRADE_C: = [Color("c9d2d6"), Color("4fa3ff"), Color("b06cff"), Color("ffb340"), Color("ffffff")]
-const FISH_NAME: = ["피라미", "붕어", "송사리", "미꾸라지", "블루길", "버들치", "납작붕어", "소금쟁이 피라미", 
-	"잉어", "메기", "빠가사리", "향어", "배스", "장어 새끼", "쏘가리", "가물치", "뱀장어", "황금잉어", "달빛붕어", "청룡잉어"]
-const FISH_LEN: = [12, 25, 5, 12, 18, 10, 15, 8, 60, 50, 25, 50, 40, 35, 45, 70, 80, 90, 60, 200]
+const CATALOG = preload("res://addons/reservoir/regional_catalog.gd")
+const FISH_NAME = CATALOG.NAMES
+const FISH_LEN = CATALOG.MEANS
 const BY_STAR: = [[0, 1, 2, 3, 4, 5, 6, 7], [8, 9, 10, 11, 12, 13], [14, 15, 16], [17, 18], [19]]
 
 
@@ -191,6 +191,9 @@ var sfx_acc: = 0.0
 var creak_t: = 0.0
 var runbuzz_t: = 0.0
 var REC: = {}
+var active_region := 0
+var development_preview := false
+var progression = preload("res://addons/reservoir/regional_progress.gd").new()
 var ambient: = []
 var msg: = ""
 var judge_txt: = ""
@@ -222,6 +225,7 @@ func _notification(what: int) -> void :
 	if what == NOTIFICATION_APPLICATION_RESUMED: audio_feedback.suspended=false
 
 func _ready() -> void :
+	development_preview = "--valley-preview" in OS.get_cmdline_user_args()
 	_cleanup_reset()
 	randomize()
 	_fx_init()
@@ -251,7 +255,7 @@ func _ready() -> void :
 	bg.material = mat
 	add_child(bg)
 	for i in FISH_NAME.size():
-		var t: Texture2D = load("res://art/fish/l0_%02d.png" % i)
+		var t: Texture2D = load("res://art/fish/l%d_%02d.png" % [i / 20, i % 20])
 		fish_tex.append(t)
 		var img: = t.get_image()
 		fish_used.append(img.get_used_rect())
@@ -260,8 +264,13 @@ func _ready() -> void :
 			for xx in img.get_width():
 				if img.get_pixel(xx, yy).a > 0.5: sil.set_pixel(xx, yy, Color.WHITE)
 		fish_sil.append(ImageTexture.create_from_image(sil))
-		fish_s2.append(load("res://art/fish/s2/l0_%02d.png" % i))
-		fish_s3.append(load("res://art/fish/s3/l0_%02d.png" % i))
+		if i < 20:
+			fish_s2.append(load("res://art/fish/s2/l0_%02d.png" % i))
+			fish_s3.append(load("res://art/fish/s3/l0_%02d.png" % i))
+		else:
+			var half := img.duplicate();half.resize(img.get_width()/2,img.get_height()/2,Image.INTERPOLATE_NEAREST)
+			var third := img.duplicate();third.resize(img.get_width()/3,img.get_height()/3,Image.INTERPOLATE_NEAREST)
+			fish_s2.append(ImageTexture.create_from_image(half));fish_s3.append(ImageTexture.create_from_image(third))
 	for n in ["idle", "reel", "cast", "net", "trophy", "miss", "cat"]:
 		var arr: = []
 		for k in 16:
@@ -320,6 +329,17 @@ func _layout() -> void :
 	var vs: = get_viewport_rect().size
 	ox = floorf(maxf(0.0, vs.x - VW) / 2.0)
 
+	if active_region == 1:
+		oy = 0.0;uw_bot = vs.y - bot_pad - 137.0
+		var map_scale: float = maxf(vs.x / 1080.0,vs.y / 2640.0)
+		var top: float = (vs.y - 2640.0 * map_scale) / 2.0
+		SURF = roundi(top + 2640.0 * map_scale * 0.505)
+		WATER = roundi(top + 2640.0 * map_scale * 0.565)
+		PY = SURF - 57;CATY = SURF - 32;PX = 54;CATX = 33
+		environment.layout(self)
+		for r in fx_rid: RenderingServer.canvas_item_set_transform(r,Transform2D.IDENTITY)
+		return
+	SURF = 217;WATER = 273;PY = 179;CATY = 204;PX = 22;CATX = 0
 	var extra: = vs.y - bot_pad - 137.0 - 447.0
 	var dw: = minf(roundf(extra * 0.3), 36.0) if extra > 0 else maxf(extra, -64.0)
 	oy = maxf(0.0, extra - dw)
@@ -400,17 +420,19 @@ func start_cast() -> void :
 		show_tip("", "가방의 인벤토리에서 낚싯대를 장착해 주세요")
 		return
 	pond_stock = maxf(0.0, pond_stock - 1.0)
-	S = {"phase": "cast", "t": 0.0}
+	S = {"phase": "cast", "t": 0.0, "owner_for_cast":progression.owner_ready(self,active_region)}
+	if TUT.done and not S.owner_for_cast: progression.fishing_event(self,active_region,"cast")
 	set_anim("cast", false);msg = "";audio_feedback.sound(self,"cast",-6)
 	_save_game()
 
 func start_wait() -> void :
+	var owner_for_cast: bool = bool(S.get("owner_for_cast",progression.owner_ready(self,active_region)))
 	var bait_multiplier: float = region_shop.take_bait(self)
 	var bare: bool = bait_multiplier < 1.0
 	var sp_w: = []
 	var nparts: = 0
 	for p in ["float", "hook", "line", "reel"]:
-		if region_shop.has_active(self, p): nparts += 1
+		if region_shop.has_active(self, p, active_region): nparts += 1
 		else: break
 	var stock_ratio: float = pond_stock / pond_max()
 	for i in 5:
@@ -421,12 +443,17 @@ func start_wait() -> void :
 	var gp: = []
 	for i in 5: gp.append(GRADE_P[i] * pow(bait_multiplier, i))
 	S = {"phase": "wait", "star": pick(sp_w), "grade": pick(gp), "fakes": [], "bare": bare}
+	S.owner = TUT.done and owner_for_cast and progression.owner_ready(self,active_region)
+	S.owner_region = active_region
+	if S.owner: S.star = 4
 	S.lf = clampf(1.0 + gauss() * 0.15, 0.5, 1.65)
 	S.size = 0 if S.lf < 0.9 else (1 if S.lf < 1.15 else (2 if S.lf < 1.35 else 3))
-	var list: Array = BY_STAR[S.star]
+	var list: Array = CATALOG.by_star(active_region,S.star)
 	S.sp = list[randi() % list.size()]
 	if not TUT.done: S.star = 0;S.grade = 0;S.tutFish = true;S.sp = 1
-	S.lf = minf(S.lf, species_max_cm(S.sp) / FISH_LEN[S.sp])
+	if active_region == 1:
+		S.lf = sample_length_cm(S.sp) / float(FISH_LEN[S.sp])
+	else: S.lf = minf(S.lf, species_max_cm(S.sp) / FISH_LEN[S.sp])
 	S.size = 0 if S.lf < 0.9 else (1 if S.lf < 1.15 else (2 if S.lf < 1.35 else 3))
 	S.biteAt = clock + randf_range(BITE_WAIT[0], BITE_WAIT[1]) * (BAIT_WAIT_MUL if S.bare else 1.0) * (3.5 if pond_stock <= 0.0 else lerpf(1.0, 1.6, 1.0 - stock_ratio))
 	S.fakeI = 0;ripples.clear()
@@ -443,6 +470,7 @@ func start_wait() -> void :
 		TUT["bite_hint_seen"] = true;_save_tut()
 
 func fail(text: String) -> void :
+	_settle_owner(false)
 	S.failText = text;S.phase = "fail";S.t = 0.0
 	set_anim("miss", false);msg = ""
 
@@ -1020,20 +1048,22 @@ func sfx_update(dt: float) -> void :
 
 
 func start_catch() -> void :
+	_migrate_fish_records()
+	_settle_owner(true)
 	holding = false
 	if not S.get("capture_logged", false):
 		S.capture_logged = true
-		var name: String = FISH_NAME[S.sp]
+		var name: String = fish_key(int(S.sp))
 		var counts: Array = catch_counts.get(name, [0, 0, 0, 0, 0])
 		counts[int(S.grade)] += 1;catch_counts[name] = counts
-	var prev: float = REC.get(FISH_NAME[S.sp], 0.0)
+	var prev: float = REC.get(fish_key(int(S.sp)), 0.0)
 	S.prevRec = prev;S.newRec = S.len > prev
-	var seen: Array = DEX.get(FISH_NAME[S.sp], [])
+	var seen: Array = DEX.get(fish_key(int(S.sp)), [])
 	if not S.grade in seen: seen.append(S.grade)
-	DEX[FISH_NAME[S.sp]] = seen
+	DEX[fish_key(int(S.sp))] = seen
 	S.weight = W_BASE[S.star] * pow(S.lf, 3) * W_GRADE[S.grade]
 	if S.newRec:
-		REC[FISH_NAME[S.sp]] = S.len;_save_rec()
+		REC[fish_key(int(S.sp))] = S.len;_save_rec()
 	S.phase = "catch";S.t = 0.0;S.recFx = false
 	S.netEnd = 16 * 0.13 + 0.6
 	S.catchEnd = S.netEnd + (6.6 - 0.7 if S.newRec else 3.8 - 0.7)
@@ -1426,13 +1456,14 @@ func _bite_circle(tt: float) -> Array:
 	return [Vector2(LX + cos(a) * r, WATER + 22 + sin(a) * 6 - 8 * k), -1.0 if sin(a) > 0 else 1.0, k]
 
 
-func _fish_display_length(star: int, scale: float, preview: bool) -> float:
+func _fish_display_length(star: int, scale: float, preview: bool, sp: int = -1) -> float:
+	if sp >= 20 and sp < 40: return maxf(20.0 if preview else 30.0,(12.0+1.5*sqrt(float(FISH_LEN[sp])))*scale)
 	return maxf(20.0 if preview else 30.0, (16.0 + star * 4.0) * scale)
 
 func _draw_bite_shadow(t: float, lx: float, dip: float) -> void :
 	var z: int = S.size
 	var scale: float = [0.55, 0.8, 1.15, 1.6][z]
-	var L: float = _fish_display_length(S.star, scale, true)
+	var L: float = _fish_display_length(S.star, scale, true, int(S.sp))
 	var biting: bool = S.phase != "wait" or clock >= S.biteAt
 	if not biting:
 		var c: Array = _bite_circle(clock)
@@ -1621,7 +1652,7 @@ func _draw_fight(t: float, tip: Vector2) -> void :
 
 func _shadow_fish(c: Vector2, star: int, grade: int, t: float, beh: String, spike: bool, scale: float, pose: Dictionary, phase: float, sp: int, face: float, alpha: float) -> void :
 	var revealed: bool = alpha >= 1.0 or (S.phase == "pre" and S.get("judge", "MISS") != "MISS")
-	var L: = _fish_display_length(star, scale, alpha < 1.0)
+	var L: = _fish_display_length(star, scale, alpha < 1.0, sp)
 	# Keep subpixel motion: final display rasterizes the fish, not the 270px world.
 	var N: = 12
 	var fz: float = grade / 4.0
@@ -1800,6 +1831,7 @@ func _aura_col(g: int, t: float, a: float, k: = 0) -> Color:
 
 
 func _exit_tree() -> void :
+	environment.valley.dispose()
 	audio_feedback.dispose()
 	title_screen.dispose()
 	if environment.layer:
@@ -2032,8 +2064,10 @@ func _draw_landing(t: float, tip: Vector2) -> void :
 # Current playable reservoir. Locked future grounds have no invented limits.
 const RESERVOIR_MAX_CM := 150.0
 func species_max_cm(sp: int) -> float:
+	if sp >= 20 and sp < 40: return float(CATALOG.VALLEY_MAX[sp-20])
 	return minf(RESERVOIR_MAX_CM, FISH_LEN[clampi(sp, 0, FISH_LEN.size()-1)] * 1.65)
 func measurement_max_cm(sp: int) -> float:
+	if sp >= 20: return species_max_cm(sp)
 	for cap in [10.0, 20.0, 30.0, 50.0, 100.0, 150.0]:
 		if species_max_cm(sp) <= cap: return cap
 	return RESERVOIR_MAX_CM
@@ -2155,13 +2189,13 @@ func _draw_slots(y: float) -> void :
 		var x: = 32 + i * 42
 		_ui_texture(e_slots.selected if i == 0 else e_slots.slot, Vector2(x, y))
 		var t: Texture2D = V.rods[rod_lv] if i == 0 else icons[names[i]]
-		var owned: bool = equipment.rod_equipped if i == 0 else region_shop.has_active(self, names[i])
+		var owned: bool = equipment.rod_equipped if i == 0 else region_shop.has_active(self, names[i],active_region)
 		var regional := false
 		if i>0:
 			for key in equipment.active_parts:
 				if region_shop.slot_key(key)==names[i] and region_shop.part_region(key)>0:
 					t=region_shop.icon(self,region_shop.part_region(key),i-1);regional=true;break
-		if regional: _ui_texture_rect(t,Rect2(x+3,y+3,30,30))
+		if regional: _ui_texture_rect(t,Rect2(x+3,y+3,30,30),false,Color.WHITE if owned else Color(0.55,0.55,0.55,0.24))
 		else: _ui_texture(t, Vector2(x + 3, y + 3), Color.WHITE if owned else Color(0.55, 0.55, 0.55, 0.24))
 
 
@@ -2243,7 +2277,7 @@ func _draw_notes() -> void :
 			_judge_text(toast_txt, Vector2(VW / 2.0, WATER - 62 + oy), Color(toast_col.r, toast_col.g, toast_col.b, min(1.0, toast_t * 2)), toast_t / 1.2)
 
 func _tension_anchor(fish_pos: Vector2, scale: float) -> Vector2:
-	var offset: = maxf(20.0, _fish_display_length(S.star, scale, false) * 0.66 + 9.0)
+	var offset: = maxf(20.0, _fish_display_length(S.star, scale, false,int(S.get("sp",0))) * 0.66 + 9.0)
 	return Vector2(clampf(fish_pos.x - 22.0, 4.0, VW - 48.0), maxf(top_y + 66.0 - oy, fish_pos.y - offset))
 
 func _draw_fish_tension(fish_pos: Vector2, scale: float, dt: float) -> void :
@@ -2341,7 +2375,7 @@ func bag_shoulder() -> bool:
 	return false
 
 func fish_price(sp: int, star: int, grade: int, lf: float) -> int:
-	var list: Array = BY_STAR[star]
+	var list: Array = CATALOG.by_star(CATALOG.region(sp),star)
 	var b: Array = PRICE_BASE[star]
 	var base: = lerpf(b[0], b[1], float(list.find(sp)) / maxf(1.0, list.size() - 1.0))
 	return int(round(base * PRICE_GRADE[grade] * minf(lf * lf, 2.5) * (1.0 + 0.05 * forge_lv)))
@@ -2466,8 +2500,8 @@ func _draw_title(_t: float, h: float) -> void :
 
 const SAVE_VER: = 1
 func _save_game() -> void :
-	if resetting: return
-	var ok: bool = preload("res://addons/reservoir/save_store.gd").write("user://save.json", {"region_shop": region_shop.serialize(), "equipment": equipment.serialize(), "mail_read": mailbox.read_ids, "mail_deleted": mailbox.deleted_ids, "v": SAVE_VER, "gold": gold, "pearl": pearl, "bag": bag_items(), "bag_lv": bag_lv, "parts": parts_owned, "tips": tips_seen,
+	if resetting or development_preview: return
+	var ok: bool = preload("res://addons/reservoir/save_store.gd").write("user://save.json", {"regional_progress":progression.serialize(),"active_region":active_region,"region_shop": region_shop.serialize(), "equipment": equipment.serialize(), "mail_read": mailbox.read_ids, "mail_deleted": mailbox.deleted_ids, "v": SAVE_VER, "gold": gold, "pearl": pearl, "bag": bag_items(), "bag_lv": bag_lv, "parts": parts_owned, "tips": tips_seen,
 		"town_zoom": V.zoom, "boat_lv": boat_lv, "town_lv": town_lv, "forge_lv": forge_lv, "rod_lv": rod_lv, "rod_owned": rod_owned, "rod_enh": rod_enh, "protection_tickets": protection_tickets, "forge_pending": forge_pending, "forge_seen": forge_seen, 
 		"pond_cap_lv": pond_cap_lv, "pond_regen_lv": pond_regen_lv, "pond_stock": pond_stock, 
 		"bait": bait, "souls": souls, "aqua_lv": aqua_lv, "aqua": aqua, "dex": DEX, "catch_counts": catch_counts, "catch_legacy": catch_legacy, "world_time": environment.day_seconds, "time": Time.get_unix_time_from_system()})
@@ -2488,6 +2522,9 @@ func _load_game() -> void :
 	environment.day_seconds = maxf(0.0, float(d.get("world_time", 0.0)))
 	gold = int(d.get("gold", 0));pearl = int(d.get("pearl", 0));bag_lv = int(d.get("bag_lv", 0))
 	region_shop.restore(d.get("region_shop", {}))
+	progression.restore(d.get("regional_progress", {}))
+	active_region = clampi(int(d.get("active_region",0)),0,1)
+	if active_region not in progression.available_regions or not region_shop.is_unlocked(active_region): active_region = 0
 	bag = d.get("bag", []);parts_owned = d.get("parts", []);tips_seen = d.get("tips", [])
 	bait = int(d.get("bait", 0));souls = int(d.get("souls", 0))
 	V.zoom = clampf(float(d.get("town_zoom", 1.0)), 0.65, 1.6)
@@ -2504,6 +2541,7 @@ func _load_game() -> void :
 	equipment.restore(self, d.get("equipment", {}))
 	pond_cap_lv = clampi(int(d.get("pond_cap_lv", 0)), 0, 5);pond_regen_lv = clampi(int(d.get("pond_regen_lv", 0)), 0, 5)
 	pond_stock = clampf(float(d.get("pond_stock", 80.0)), 0.0, pond_max())
+	DEX = {}
 	var dx: Dictionary = d.get("dex", {})
 	for k in dx: DEX[k] = (dx[k] as Array).map( func(g): return int(g))
 	var aq: Array = d.get("aqua", [null, null, null])
@@ -2512,6 +2550,7 @@ func _load_game() -> void :
 	aqua.resize(aqua_capacity())
 	for i in aqua.size(): aqua[i] = aq[i] if i < aq.size() else null
 	_load_catch_counts(d)
+	_migrate_fish_records()
 	var away: = clampf(Time.get_unix_time_from_system() - float(d.get("time", 0)), 0, 8 * 3600)
 	pond_stock = minf(pond_max(), pond_stock + pond_recovery() * away / 3600.0)
 	var earn: = int(aqua_rate() * away / 60.0)
@@ -2521,18 +2560,42 @@ func _load_game() -> void :
 
 
 func _load_rec() -> void :
-	if FileAccess.file_exists("user://rec.json"):
-		var f: = FileAccess.open("user://rec.json", FileAccess.READ)
-		var d = JSON.parse_string(f.get_as_text())
-		if d is Dictionary: REC = d
+	REC = preload("res://addons/reservoir/save_store.gd").read("user://rec.json")
 
 func _save_rec() -> void :
-	var f: = FileAccess.open("user://rec.json", FileAccess.WRITE)
-	f.store_string(JSON.stringify(REC))
+	if not development_preview: preload("res://addons/reservoir/save_store.gd").write("user://rec.json",REC)
+
+func fish_key(sp: int) -> String: return CATALOG.key(sp)
+func fish_grades(sp: int) -> Array:
+	return DEX.get(fish_key(sp),DEX.get(FISH_NAME[sp],[]) if sp < 20 else [])
+func fish_record_cm(sp: int) -> float:
+	return float(REC.get(fish_key(sp),REC.get(FISH_NAME[sp],0.0) if sp < 20 else 0.0))
+func fish_counts(sp: int) -> Array:
+	return catch_counts.get(fish_key(sp),catch_counts.get(FISH_NAME[sp],[0,0,0,0,0]) if sp < 20 else [0,0,0,0,0])
+func fish_legacy(sp: int) -> Array:
+	return catch_legacy.get(fish_key(sp),catch_legacy.get(FISH_NAME[sp],[]) if sp < 20 else [])
+func _migrate_fish_records() -> void:
+	CATALOG.migrate(DEX);CATALOG.migrate(catch_counts,true);CATALOG.migrate(catch_legacy)
+	if CATALOG.migrate(REC): _save_rec()
+func sample_length_cm(sp: int) -> float:
+	var mean: float = FISH_LEN[sp]
+	for attempt in 64:
+		var cm: float = mean * (1.0 + gauss() * 0.15)
+		if cm >= mean * 0.5 and cm < species_max_cm(sp): return cm
+	return mean
+func _settle_owner(caught: bool) -> void:
+	if S.get("owner_settled",false): return
+	S.owner_settled = true
+	var area: int = int(S.get("owner_region",active_region))
+	if S.get("owner",false): progression.settle_owner(area,caught)
+	else: progression.fishing_event(self,area,"catch" if caught else "miss")
+	_save_game()
 
 
 func _shot_mode() -> void :
 	var args: = OS.get_cmdline_user_args()
+	if "--valley-preview" in args:
+		active_region = 1;development_preview = true;_layout()
 	if "--scenery-before" in args: environment.scenery_softness = 0.0;environment.update(0)
 	if "--hour" in args: environment.set_hour(float(args[args.find("--hour") + 1]))
 	var out: = args[args.find("--shot") + 1]
@@ -2590,7 +2653,7 @@ func _shot_mode() -> void :
 		TUT.done = true;start_wait();S.star = 0;S.size = 0;S.sp = 2;S.biteAt = clock + 0.7;S.realUntil = clock + 9;S.fakes = []
 	if state == "normal_fight":
 		TUT.done = true;start_wait();S.sp = 2;S.star = 0;S.grade = 0;S.lf = 0.8;S.size = 0;S.judge = "GREAT";S.len = 4.0;start_fight();S.dist = 35.0;S.faceS = -1.0;S.fx = 156.0;S.fy = WATER + 95;S.dispY = WATER + 95
-	if "--env-time" in args: environment.elapsed = float(args[args.find("--env-time") + 1]);environment.update(0)
+	if "--env-time" in args: environment.elapsed = float(args[args.find("--env-time") + 1]);environment.valley.elapsed=environment.elapsed;environment.update(0)
 	if state == "market":
 		market_sell = false
 		bag = [{"sp": 1, "star": 0, "grade": 0, "len": 24.0, "w": 0.3, "price": 13, "shoulder": false}, {"sp": 9, "star": 1, "grade": 1, "len": 52.0, "w": 1.4, "price": 128, "shoulder": true}]
@@ -2654,6 +2717,9 @@ func _shot_mode() -> void :
 			start_wait();S.sp = 9;S.star = 1;S.grade = 2;S.lf = 1.1;S.size = 1;S.judge = "GREAT";S.len = 52.0;start_fight();S.beh = "charge";fail("줄이 너무 오래 느슨해서 바늘이 빠졌어요")
 		"result_rec", "result":
 			start_wait();S.sp = 8;S.star = 1;S.grade = 1;S.lf = 1.1;S.size = 1;S.judge = "GREAT";S.len = 63.0;start_fight();start_catch();S.phase = "result";S.ok = true;S.newRec = true;S.persona = "성실";msg = "터치하면 다시 던지기";result_t = 0.0
+	if state == "valley_fight":
+		TUT.done=true;start_wait();S.sp=28;S.star=1;S.grade=1;S.lf=1.0;S.size=1;S.judge="GREAT";S.len=35.0
+		start_fight();S.dist=35.0;S.fx=170.0;S.fy=WATER+65.0;S.dispY=WATER+65.0;S.bt=99.0;S.tut=false
 	if "--danger" in args and S.phase == "fight": S.tension = 93.0;holding = false
 	if "--town-zoom" in args: V.set_zoom(self, float(args[args.find("--town-zoom") + 1]))
 	if state == "village_refresh_motion":
@@ -2739,6 +2805,9 @@ func _shot_mode() -> void :
 	if state == "forge_clean":
 		_switch_scene("village");V.open_shop(self, "forge");V.forge_tab = "upgrade"
 		gold = 50000;souls = 500;V.enhancement.start(self, 0.0);V.enhancement.elapsed = 0.3
+	if "--regional-dex-preview" in args:
+		V.bundle_preview.legacy_dex=true;V.museum_region=1
+		for sp in range(20,40): DEX[fish_key(sp)]=[0,1,2,3,4]
 	Engine.time_scale = 1.0 if state == "result_rec" else 0.15
 	if "--vfx-check" in args:
 		Engine.time_scale = 1.0;TUT.done = true;tip_t = 0.0;toast_t = 0.0;judge_t = 0.0;reveal_pending = false;reveal_t = 0.0
@@ -2875,7 +2944,7 @@ func _load_catch_counts(d: Dictionary) -> void :
 	var confirmed: Dictionary = {}
 	for f in bag + aqua:
 		if f == null: continue
-		var name: String = FISH_NAME[int(f.sp)]
+		var name: String = fish_key(int(f.sp))
 		if not confirmed.has(name): confirmed[name] = [0, 0, 0, 0, 0]
 		confirmed[name][clampi(int(f.grade), 0, 4)] += 1
 	for name in confirmed:

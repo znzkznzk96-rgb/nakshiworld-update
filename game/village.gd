@@ -25,6 +25,7 @@ const POND_CAP_COST: = [300, 800, 1800, 4200, 9000]
 const POND_REGEN_COST: = [250, 700, 1600, 3800, 8000]
 const ROD_NAME: = ["대나무 낚싯대", "카본 낚싯대", "원투 낚싯대", "선상 낚싯대", "심해 낚싯대", "은하 낚싯대"]
 const ROD_COST: = [0, 2000, 35000, 700000, 4500000, 19000000]
+var museum_region := 0
 var bundle_preview = preload("res://addons/reservoir/bundle_preview.gd").new()
 var commerce = preload("res://addons/reservoir/commerce.gd").new()
 var enhancement = preload("res://addons/reservoir/enhancement.gd").new()
@@ -433,7 +434,7 @@ func draw_shop(m, h: float) -> void :
 
 	m._ui_rect(Rect2( - m.ox, 0, m.VW + 2 * m.ox, h), Color(0.04, 0.06, 0.1, 0.84))
 	var panel_y: = maxf(top + 32.0, roundf(h * 0.5) - 190)
-	var r = Rect2(8, panel_y, 254, minf(380, h - panel_y - 8))
+	var r = Rect2(8, panel_y, 254, minf(440.0 if shop=="museum" else 380.0, h - panel_y - 8))
 	active_style = shop_styles[shop]
 	m._ui_style_box(active_style.panel, r)
 	var header: = Rect2(r.position + Vector2(5, 5), Vector2(r.size.x - 10, 39))
@@ -525,25 +526,36 @@ func _draw_aqua(m, r: Rect2, y: float) -> void :
 
 
 func _draw_museum(m, r: Rect2, y: float) -> void :
-	var got: int = m.DEX.size()
-	m._text("어종 %d/20 · 등급 %d/100" % [got, m.DEX.values().reduce(func(total, grades): return total+grades.size(),0)], Vector2(135, y + 6), 10, Color("382619"), true)
-	m._text("목표: 전 어종 발견 · 어종을 눌러 최대어 보기",Vector2(135,y+19),8,Color("68533d"),true,230)
+	for area in 2:
+		var b := Rect2(r.position.x+14+area*114,y-3,110,21)
+		m._ui_style_box(m.sb_primary if area==museum_region else m.sb_btn,b)
+		m._text("저수지" if area==0 else "거꾸로 폭포",b.get_center()+Vector2(0,3),9,Color("fff0d1") if area==museum_region else Color("513b29"),true,104)
+		rects.rows.append([b,"museum_region:%d" % area])
+	y += 23
+	var got := 0;var grades := 0
+	for local in 20:
+		var seen: Array = m.fish_grades(museum_region*20+local)
+		if not seen.is_empty(): got += 1
+		grades += seen.size()
+	m._text("어종 %d/20 · 등급 %d/100" % [got,grades],Vector2(135,y+6),10,Color("382619"),true)
+	m._text("어종을 눌러 최대어 보기",Vector2(135,y+19),8,Color("68533d"),true,230)
 	y += 27
-	var pitch: float = minf(60, floorf((r.end.y - y - 7) / 5.0))
-	for i in 20:
-		var cell: = Rect2(r.position.x + 14 + i % 4 * 57, y + floori(i / 4.0) * pitch, 54, pitch - 2)
-		m._ui_style_box(m.sb_chip, cell)
-		var name: String = m.FISH_NAME[i]; var known: bool = m.DEX.has(name)
-		var image: = Rect2(cell.position + Vector2(5, 3), Vector2(44, 21))
-		if known: m._ui_fish(i, image)
+	var pitch: float = minf(60,floorf((r.end.y-y-7)/5.0))
+	for local in 20:
+		var sp: int = museum_region*20+local
+		var cell := Rect2(r.position.x+14+local%4*57,y+floori(local/4.0)*pitch,54,pitch-2)
+		m._ui_style_box(m.sb_chip,cell)
+		var seen: Array = m.fish_grades(sp)
+		var known: bool = not seen.is_empty()
+		var image := Rect2(cell.position+Vector2(5,3),Vector2(44,21))
+		if known: m._ui_fish(sp,image)
 		else:
-			var used: Rect2i = m.fish_used[i]
-			var size: Vector2 = Vector2(used.size) * minf(44.0 / used.size.x, 21.0 / used.size.y)
-			m._ui_texture_rect_region(m.fish_sil[i], Rect2(image.get_center() - size / 2, size), Rect2(used), Color("3a4946"))
-		m.inventory.label(m, name if known else "???", Vector2(cell.get_center().x, cell.position.y + 33), 42, 8)
-		var seen: Array = m.DEX.get(name, [])
-		for g in 5: m._ui_rect(Rect2(cell.position + Vector2(8 + g * 8, pitch - 7), Vector2(6, 3)), m._aura_col(g, m.ui_clock * 1000, 1) if g in seen else Color(0.3, 0.25, 0.2, 0.25))
-		if known: rects.rows.append([cell, "species:%d" % i])
+			var used: Rect2i = m.fish_used[sp]
+			var size: Vector2 = Vector2(used.size)*minf(44.0/used.size.x,21.0/used.size.y)
+			m._ui_texture_rect_region(m.fish_sil[sp],Rect2(image.get_center()-size/2,size),Rect2(used),Color("3a4946"))
+		m.inventory.label(m,m.FISH_NAME[sp] if known else "???",Vector2(cell.get_center().x,cell.position.y+33),42,8)
+		for g in 5: m._ui_rect(Rect2(cell.position+Vector2(8+g*8,pitch-7),Vector2(6,3)),m._aura_col(g,m.ui_clock*1000,1) if g in seen else Color(0.3,0.25,0.2,0.25))
+		if known: rects.rows.append([cell,"species:%d" % sp])
 
 func _draw_work(m, r: Rect2, y: float) -> void :
 	var tabs = [["sell", "팔기"], ["clean", "손질"]]
@@ -668,6 +680,7 @@ func _act(m, a: String) -> void :
 	var k = a.split(":")
 	var n = int(k[1]) if k.size() > 1 else 0
 	match k[0]:
+		"museum_region": museum_region=clampi(n,0,1);return
 		"region": m.region_shop.region=clampi(n,0,5);return
 		"baitselect":
 			if m.region_shop.bait_unlocked(n) and m.region_shop.stock(m,n)>0: m.region_shop.selected_bait=n;m._save_game()

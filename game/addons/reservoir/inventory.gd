@@ -99,9 +99,9 @@ func detail(m) -> void :
 	m._ui_style_box(m.sb_panel, r)
 	label(m, m.FISH_NAME[sp], Vector2(135, r.position.y + 31), 194, 14)
 	m._ui_fish(sp, Rect2(75, r.position.y + 49, 120, 58))
-	m._text("개인 최대어 %.1fcm" % float(m.REC.get(m.FISH_NAME[sp],0)),Vector2(135,r.position.y+111),9,Color("537455"),true,208)
+	m._text("개인 최대어 %.1fcm" % float(m.fish_record_cm(sp)),Vector2(135,r.position.y+111),9,Color("537455"),true,208)
 	var bag: Array = counts(m, sp, "bag"); var aqua: Array = counts(m, sp, "aqua")
-	var history: Array = m.catch_counts.get(m.FISH_NAME[sp], [0, 0, 0, 0, 0])
+	var history: Array = m.fish_counts(sp)
 	m._text("등급       보관   전시   누적", Vector2(135, r.position.y + 125), 9, Color("7c6448"), true, 208)
 	for g in 5:
 		var yy: float = r.position.y + 148 + g * 25
@@ -109,9 +109,9 @@ func detail(m) -> void :
 		m._text(m.GRADE_N[g], Vector2(44, yy), 10, Color("513b29"), false, 59)
 		for j in 3:
 			var value: String = str([bag[g], aqua[g], history[g]][j])
-			if j == 2 and g in m.catch_legacy.get(m.FISH_NAME[sp], []): value = "≥" + value
+			if j == 2 and g in m.fish_legacy(sp): value = "≥" + value
 			m._text(value, Vector2(125 + j * 46, yy), 10, Color("513b29"), true, 40)
-	var legacy: bool = not m.catch_legacy.get(m.FISH_NAME[sp], []).is_empty()
+	var legacy: bool = not m.fish_legacy(sp).is_empty()
 	m._text("≥ 이전 버전 누적은 최소 확인 수량이에요" if legacy else "누적 수량은 포획 성공 시 기록돼요", Vector2(135, r.end.y - 41), 8, Color("7c6448"), true, 212)
 	var close: = Rect2(84, r.end.y - 31, 102, 24);m._ui_style_box(m.sb_btn, close);m._text("닫기", close.get_center() + Vector2(0, 4), 11, Color("513b29"), true, 90)
 	rects.detail = r;rects.detail_close = close

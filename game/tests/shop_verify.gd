@@ -16,12 +16,18 @@ func run() -> void:
 	check(not c.confirm(m.V,m) and m.bait==100,"double confirm cannot charge twice")
 	m.gold=0;c.request(m.V,m,"bait:0:5");check(not c.confirm(m.V,m) and m.bait==100,"insufficient funds preserved");c.pending={};m.gold=100000
 	check(not m.region_shop.unlock(m,2),"region sequence enforced")
-	check(m.region_shop.unlock(m,1),"unlock shared state")
+	check(not m.region_shop.unlock(m,1),"unfinished region cannot charge")
+	m.progression.available_regions=[0,1]
+	check(not m.region_shop.unlock(m,1),"certificate needed before currency unlock")
+	m.progression.main_completed[0]=true;m.progression.certificates[0]=true
+	var unlock_gold: int=m.gold
+	check(m.region_shop.unlock(m,1) and m.gold==unlock_gold-3300,"licensed region charges once")
+	check(m.region_shop.unlock(m,1) and m.gold==unlock_gold-3300,"repeat unlock never charges twice")
 	check(not c.quote(m.V,m,"bait:1:5").is_empty(),"region unlock opens bait")
 	check(c.quote(m.V,m,"rpart:1:1").is_empty(),"part sequence enforced")
 	for slot in 4:
 		c.request(m.V,m,"rpart:1:%d" % slot);check(c.confirm(m.V,m),"regional part purchase %d" % slot)
-	check(m.region_shop.has_active(m,"hook"),"regional hook affects fishing unlock")
+	check(m.region_shop.has_active(m,"hook",1) and not m.region_shop.has_active(m,"hook",0),"regional hook only affects its own ground")
 	check(m.equipment.equip(m,"part:r1_hook",false),"regional detach")
 	check(m.equipment.sell(m,"part:r1_hook"),"regional sale")
 	check(not m.equipment.sell(m,"part:r1_hook"),"regional duplicate sale rejected")
