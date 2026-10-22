@@ -1,3 +1,8 @@
+## 최신 우선 — 48px 공통스타일 재시안 완료
+우주바다의 곡선/타원·장식 프레임을 실제 스타일·형태 참조로 사용해 지역별1장·6종을 새로 제작했다. 256×48px로 기존보다 높이25% 축소. 총6요청/6결과/60회분·재생성0. **이번은 시안만이며 게임은 기존64px 상태, 배포 없음.**
+
+[모음](docs/previews/owner-v2-proposals.png), [높이비교](docs/previews/owner-v2-height-comparison.png), [보고서](docs/proposals/owner-gauge-v2/REPORT.md), [시안검증](docs/proposals/owner-gauge-v2/VERIFICATION.json). 원본/요청/영수증/지역검수는 docs/proposals/owner-gauge-v2/0~5/. 모음은 좌우투명여백을 표시폭에 맞춘 합성시안이며 실제게임화면이 아니다. 사용자 검토 후 다음 지시를 따른다. 임의추가 유료생성/게임교체/배포 금지.
+
 # 현재 인수인계 — 2026-10-22
 
 ## 현재 결과 (미배포)
@@ -20,5 +25,5 @@ PixelLab은 **실제API호출경로검증완료**. 새대화에서목록검색�
 work/valley-runtime 저장만, 사용자배포금지유지. main/버전/Release/PCK 미변경, 실제공개0.69. Android실기기적용/검증없음. 다음배포는새지시와production workflow의v0.68 baseline갱신/검증필요. 현재검사기준은v0.69 검증전체소스+작업overlay+삭제명세.
 [직전HANDOFF원문](docs/historical/2026-10-22-before-six-frames/HANDOFF.md)은보존.
 
-## 현재 우선 — 우주바다 기준 공통스타일 재시안
+## 직전 제작착수 기록 — 우주바다 기준 공통스타일 재시안
 사용자는 우주프레임 분위기를 선호, 높이를조금줄이고6지역공통골격으로다시시안요청. GAME_BIBLE최신항목과같이256×48px·지역별1장순차제작. 이번은시안만,기존게임프레임미교체/배포금지. 참조는기존우주프레임이며실제스타일/형태입력에사용한다.

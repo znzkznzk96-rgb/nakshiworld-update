@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "task": "거꾸로 폭포 계곡 통합 및 낚시월드 인수인계 기준",
-  "status": "owner_frame_v2_proposals_in_progress",
+  "status": "owner_frame_v2_proposals_ready",
   "work_branch": "work/valley-runtime",
   "release_baseline": "v0.69",
   "target_version": "unreleased",
@@ -20,8 +20,8 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-22",
-  "current_task": "우주바다 프레임 공통스타일·높이48px 6지역 재시안 제작",
-  "next_step": "기존 우주프레임 스타일/형태참조로 지역별1장 순차제작·검수 후 비교시안제시. 실제게임미교체/추가재생성·배포없음.",
+  "current_task": "우주바다 스타일·48px 높이 6지역 재시안 완료 (게임미적용)",
+  "next_step": "사용자 시안 검토 후 지시에 따라 진행. 추가 유료생성/게임교체/배포는 실행하지 않음.",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
@@ -68,7 +68,16 @@
         48
       ],
       "approved_for_generation": true,
-      "applied": false
+      "applied": false,
+      "status": "ready_for_review",
+      "preview": "docs/previews/owner-v2-proposals.png",
+      "height_comparison": "docs/previews/owner-v2-height-comparison.png",
+      "report": "docs/proposals/owner-gauge-v2/REPORT.md",
+      "verification": "docs/proposals/owner-gauge-v2/VERIFICATION.json",
+      "requests": 6,
+      "outputs": 6,
+      "generation_units": 60,
+      "regenerations": 0
     }
   },
   "pixellab_continuity": {
