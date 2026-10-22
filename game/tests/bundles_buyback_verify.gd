@@ -69,7 +69,7 @@ func run() -> void:
 	m.bag=[fish(3,777,2)];m.V._act(m,"sell:0")
 	check(m.buyback.entries[0].sold_price==777 and m.bag.is_empty(),"individual market sale remembers actual specimen")
 	m._save_game();var saved: Dictionary=m.buyback.serialize();m.buyback.restore({});m._load_game()
-	check(m.buyback.serialize()==JSON.parse_string(JSON.stringify(saved)),"buyback saved with wallet and bag")
+	check(JSON.parse_string(JSON.stringify(m.buyback.serialize()))==JSON.parse_string(JSON.stringify(saved)),"buyback saved with wallet and bag")
 	m.V.open_shop(m,"work");m.V.tab="buyback";m.text_items=[];m.ui_commands=[];m.V.draw_shop(m,660)
 	check(m.buyback.max_scroll()>0,"ten rows require vertical scroll")
 	var wheel:=InputEventMouseButton.new();wheel.position=m.buyback.viewport.get_center()+Vector2(m.ox,0);wheel.button_index=MOUSE_BUTTON_WHEEL_DOWN;wheel.pressed=true
