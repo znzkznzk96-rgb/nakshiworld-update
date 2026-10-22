@@ -28,8 +28,12 @@ func serialize() -> Dictionary:
 	return {"unlocked":unlocked,"stocks":stocks,"selected_bait":selected_bait}
 func is_unlocked(n: int) -> bool: return n in unlocked
 func unlock(m, n: int) -> bool:
-	if n<1 or n>5 or not is_unlocked(n-1): return false
-	if n not in unlocked: unlocked.append(n);m._save_game()
+	if n<1 or n>5: return false
+	if is_unlocked(n): return true
+	if n not in m.progression.available_regions or not is_unlocked(n-1) or not m.progression.licensed(n): return false
+	var cost: int = int(SPOTS.PRICES[n])
+	if m.gold < cost: return false
+	m.gold -= cost;unlocked.append(n);m._save_game()
 	return true
 func part_key(n: int, slot: int) -> String:
 	return KEYS[slot] if n==0 else "r%d_%s" % [n,KEYS[slot]]
@@ -45,9 +49,9 @@ func icon(m, n: int, slot: int) -> Texture2D:
 	var key:=part_key(n,slot)
 	if not icons.has(key): icons[key]=load("res://art/guide64/"+key+".png")
 	return icons[key]
-func has_active(m, kind: String) -> bool:
+func has_active(m, kind: String, area: int = -1) -> bool:
 	for key in m.equipment.active_parts:
-		if slot_key(key)==kind and is_unlocked(part_region(key)): return true
+		if slot_key(key)==kind and is_unlocked(part_region(key)) and (area < 0 or part_region(key)==area): return true
 	return false
 func part_data(m, key: String) -> Dictionary:
 	var n:=part_region(key);var slot:=KEYS.find(slot_key(key))

@@ -1,13 +1,13 @@
 {
   "schema_version": 2,
   "task": "거꾸로 폭포 계곡 통합 및 낚시월드 인수인계 기준",
-  "status": "in_progress",
+  "status": "awaiting_design_values",
   "work_branch": "work/valley-runtime",
   "release_baseline": "v0.68",
   "target_version": "unreleased",
   "deployment_changed": false,
   "phone_confirmation": "0.68 실기기 업데이트 확인 대기",
-  "next_step": "Connect regional catalog and collision-safe saves, then layered valley scene and confirmed unlock/owner infrastructure. Keep undefined bundle targets and owner gain pending.",
+  "next_step": "Read docs/VALLEY_INTEGRATION.md. Resolve owner cast-count and valley baseline balance using docs/RECOVERED_DESIGN_EVIDENCE.md; configure region-specific owner rules and gauge UI, connect bundle UI once user defines targets, fix release restore workflow, then build/verify before any authorized publication.",
   "apk_sha256": "e2b5e3884cc51f2d9136f171d2d3d5e7722dacea2a5fc062638972d33551ea13",
   "source_commit": "490716328702776e0b7bfc629133d38bdd69cc15",
   "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v0.68",
@@ -29,7 +29,7 @@
   "generation_paused": true,
   "art_rules": "docs/FISH_ART_RULES.md",
   "last_task_api_calls": 0,
-  "current_task": "선택 배경·20종 백업 복구 및 확정 길이 데이터 등록. v0.68 기준 런타임 연결 진행.",
+  "current_task": "계곡 40종/지역 기록 이전/레이어 개발 미리보기 및 진행 backend 구현·PC 검증 완료. 미정 수치와 번들 연결·공개 적용은 대기.",
   "valley_assets": "game/data/valley/fish_catalog.json",
   "valley_scene": "game/data/valley/scene_spec.json",
   "deployed": false,
@@ -42,9 +42,16 @@
   ],
   "latest_user_decisions": "2026-10-22 bundle license-then-currency unlock; owner gauge after all regional parts, 100% next catch, miss70%, catch0%; valley mean/max table in GAME_BIBLE.md.",
   "remote_checkpoint_pending": false,
-  "local_valley_checkpoint": "c1d073e archive recovered; assets preserved in this work branch",
+  "local_valley_checkpoint": "c1d073e assets recovered to remote 1f06e09d7a8d3773e3f0e8705725808a95671380",
   "valley_art_source_branch": "work/valley-fish-art",
-  "valley_runtime_status": "assets_recovered_runtime_pending",
+  "valley_runtime_status": "development_preview_verified_live_access_disabled",
   "valley_preparation_archive": "NAKSHIWORLD_VALLEY_UPDATE_PREP.zip (Library ID libfile_8e244c13f74c8191ad93147f28b40f93)",
-  "decision_checkpoint_policy": "Record each newly confirmed or changed persistent game decision immediately in docs/GAME_BIBLE.md, including when no code changes; save to work/* and verify remote SHA/content before dependent implementation. If every remote path fails, mark pending and tell the user."
+  "decision_checkpoint_policy": "Record each newly confirmed or changed persistent game decision immediately in docs/GAME_BIBLE.md, including when no code changes; save to work/* and verify remote SHA/content before dependent implementation. If every remote path fails, mark pending and tell the user.",
+  "verification": "docs/qa/valley-runtime/VERIFICATION.json",
+  "pending_decisions": [
+    "Owner accumulation event/count: historical reservoir100/valley150 are simulation values, not silently applied.",
+    "Whether valley uses the existing star/grade economic formulas and confirmed historical regional force factor1.15.",
+    "Museum bundle targets remain preparation-only per user instruction."
+  ],
+  "paid_image_api_calls": 0
 }
