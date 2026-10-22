@@ -160,7 +160,8 @@ func input_event(m,e: InputEvent) -> bool:
 		if p.distance_to(start)>5: dragged=true
 		if dragged: move_scroll(last.y-p.y,detail)
 		last=p;last_touch=Time.get_ticks_msec();return true
-	if (e is InputEventMouseButton or e is InputEventMouseMotion) and e.device==-1 and Time.get_ticks_msec()-last_touch<300: return true
+	if (e is InputEventMouseButton or e is InputEventMouseMotion) and e.device==-1 and Time.get_ticks_msec()-last_touch<300:
+		if (e.position-Vector2(m.ox,0)).distance_to(last)<12: return true
 	if e is InputEventMouseButton:
 		var p: Vector2=e.position-Vector2(m.ox,0)
 		if e.button_index in [MOUSE_BUTTON_WHEEL_UP,MOUSE_BUTTON_WHEEL_DOWN] and area.has_point(p):
