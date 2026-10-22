@@ -19,6 +19,11 @@ var detail_page := 0
 const Reader = preload("res://addons/reservoir/topic_reader.gd")
 func sections(letter: Dictionary) -> Array:
 	# Curated presentation, separate from the complete release archive.
+	if letter.id == "0.69":
+		return [
+			{"name":"계곡 도감","icon":"fish","body":letter.body.slice(0,2),"display":["계곡 물고기 20종을 등록했어요.","박물관에서 지역별 도감을 확인하세요."]},
+			{"name":"기록","icon":"museum","body":letter.body.slice(2,4),"display":["같은 이름도 지역별로 기록해요.","기존 도감과 보관 물고기는 유지돼요."]},
+			{"name":"낚시터","icon":"tackle","body":letter.body.slice(4),"display":["메인 번들 자격증을 얻은 뒤 별도 구매.","계곡 입장과 기증은 아직 준비 중이에요."]}]
 	if letter.id == "0.68":
 		return [
 			{"name":"우편","icon":"","body":letter.body.slice(0,3),"display":["목록은 한 줄 설명으로 깔끔하게.","상세는 주제별 그림과 짧은 설명.","새 물고기 인장 봉투를 적용했어요."]},

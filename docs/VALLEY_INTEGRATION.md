@@ -1,3 +1,6 @@
+# 0.69 배포 범위 — 2026-10-22
+사용자 공개 승인. 아래 개발 구현을 패치에 포함하되 미정 번들/증가량/계곡 경제 수치 때문에 실제 계곡 입장은 준비 중으로 유지한다. 개발 screenshot은 실기기 플레이 개방의 근거가 아니다. 배포 복원은 이제 v0.68 전체소스 ZIP 고정 SHA256+삭제명세+overlay이며 과거 GDRE 방식은 대체됐다. 실제 게시 결과는 WORK_STATE/HANDOFF 및 docs/RELEASE_069_VERIFICATION.json을 확인한다.
+
 # 거꾸로 폭포 계곡 — 최신 개발 상태
 
 작업 브랜치 `work/valley-runtime`. 공개 기준 v0.68. 이번 작업은 개발 미리보기/진행 backend이며 새 Release는 게시하지 않았다.

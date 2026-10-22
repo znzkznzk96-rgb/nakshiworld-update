@@ -1,0 +1,65 @@
+{
+  "status": "local_verified_awaiting_ci",
+  "version": "0.69",
+  "date": "2026-10-22",
+  "tests": [
+    {
+      "suite": "equipment",
+      "passed": true,
+      "tail": ""
+    },
+    {
+      "suite": "guide",
+      "passed": true,
+      "tail": ""
+    },
+    {
+      "suite": "shop",
+      "passed": true,
+      "tail": ""
+    },
+    {
+      "suite": "visual",
+      "passed": true,
+      "tail": ""
+    },
+    {
+      "suite": "audio_save",
+      "passed": true,
+      "tail": ""
+    },
+    {
+      "suite": "bundle_preview",
+      "passed": true,
+      "tail": ""
+    },
+    {
+      "suite": "rewards",
+      "passed": true,
+      "tail": ""
+    },
+    {
+      "suite": "reader",
+      "passed": true,
+      "tail": ""
+    },
+    {
+      "suite": "fish_surface",
+      "passed": true,
+      "tail": ""
+    },
+    {
+      "suite": "regional",
+      "passed": true,
+      "tail": ""
+    }
+  ],
+  "restore": "full-source hash verified; deletion+overlay fixture passed",
+  "local_pck": {
+    "size": 29213168,
+    "sha256": "f23fe08b9912532e64fd27352cf458be47f471a2ca06482488b82c8450194fbc"
+  },
+  "deployed": false,
+  "phone_confirmed": false,
+  "pending": "Bundle targets/owner gain/balance remain unapproved; actual valley entry disabled."
+}
