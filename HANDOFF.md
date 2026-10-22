@@ -1,4 +1,5 @@
 <!-- CONTINUITY_CURRENT_BEGIN -->
+- 2026-10-22 확정 결정 checkpoint 절차 강화: 새로 확정/변경된 게임 결정은 코드 수정과 무관하게 즉시 GAME_BIBLE에 기록하고, 구현 전에 work/* 원격 저장·SHA/내용 재확인. 실패 시 미저장 대기로 명시.
 - 2026-10-22 프로젝트 공통 지침을 `docs/PROJECT_INSTRUCTIONS.md`로 통합. `START_HERE.md`에서 즉시 진입한다. 아트 상태는 최초 거절본과 후속 확정 선택본을 구분한다.
 # 현재 연속성 포인터 — 2026-10-22
 
