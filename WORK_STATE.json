@@ -20,8 +20,8 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-22",
-  "current_task": "48px 주인게이지 시안 이름위치 최종조정 완료 (게임미적용)",
-  "next_step": "최종시안 저장완료. 사용자 다음지시를 따른다. 게임적용·배포는 실행하지 않음.",
+  "current_task": "계곡20종 보수안 가격 적용",
+  "next_step": "기존 등급/크기/강화식 유지하며 종별기본가 반영·관련검증, 배포금지.",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
@@ -48,9 +48,12 @@
     "report": "docs/analysis/valley-prices/REPORT.md",
     "results": "docs/analysis/valley-prices/results.json",
     "historical_region_multiplier": 2.5,
-    "approved": false,
+    "approved": true,
     "applied": false,
-    "paused": true
+    "paused": false,
+    "selection": "conservative",
+    "approval": "2026-10-22 사용자: 배후산천어 너무비싸 보수안으로 업데이트",
+    "owner_nominal": 16000
   },
   "owner_gauge": {
     "rules_approved": true,
