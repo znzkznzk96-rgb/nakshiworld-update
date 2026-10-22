@@ -1,0 +1,32 @@
+{
+  "status": "pass_for_proposal",
+  "common_style": [
+    "Same oval/diamond badge, fine curled silver rails and two right compartments",
+    "48px height retained; ceramic inlays decorate thin rails rather than creating columns"
+  ],
+  "regional_style": "Ivory and sea-blue ceramic mosaic, turquoise grout and wave curls.",
+  "notes": [
+    "Native horizontal alpha margins are wider than other variants; compare as concept skin, exact production alignment remains for user-selected implementation.",
+    "Outer filigree meets canvas edge; proposal only."
+  ],
+  "layout": {
+    "badge": [
+      30,
+      16,
+      36,
+      17
+    ],
+    "label": [
+      88,
+      11,
+      140,
+      11
+    ],
+    "track": [
+      87,
+      27,
+      142,
+      10
+    ]
+  }
+}
