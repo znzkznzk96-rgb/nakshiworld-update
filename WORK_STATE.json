@@ -18,11 +18,11 @@
   "pending_decisions": [
     "Owner accumulation event/count: historical reservoir100/valley150 are simulation values, not silently applied.",
     "Whether valley uses the existing star/grade economic formulas and confirmed historical regional force factor1.15.",
-    "Museum bundle targets remain preparation-only per user instruction."
+    "필수/서브 어종·수량·개체 등급·보상과 주인 번들 표시명/등급/보상은 미정. 주인1마리·번들별 독립 완료 확정."
   ],
   "updated_at": "2026-10-22",
-  "current_task": "작업 절차 간소화 적용 완료; 게임 개발은 계곡 미정 수치와 입장/기증/게이지 연결 대기",
-  "next_step": "개선된 PROJECT_INSTRUCTIONS에 따라 최신 v0.69 기준으로 이어간다. 사용자 준비 중 번들 조건은 유지. 주인 증가 이벤트/횟수와 계곡 밸런스의 미승인 제안을 확정으로 취급하지 않는다. 휴대폰 적용 확인은 별도.",
+  "current_task": "박물관 3종 번들 후보 검토: 필수·서브·주인 전용",
+  "next_step": "필수/서브의 어종·수량·개체 등급 및 주인 번들 표시명 후보를 제시하고 사용자 채택을 기다린다. 각 번들 독립 완료와 주인1마리는 확정. 코드/배포 변경 없음.",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
