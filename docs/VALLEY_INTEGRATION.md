@@ -1,34 +1,9 @@
-# 최신: v0.69 공개 완료
-리소스/도감/지역 기록/backend가 공개 패치에 포함됨. 운영 다운로드 및 전체소스 검증 완료. 실제 계곡 입장·기증·미정 주인 증가량은 준비 중. 아래 미배포/배포 예정 문단은 과거 작업 이력. 상세 docs/RELEASE_069_VERIFICATION.json, 최신 HANDOFF.
+# 거꾸로 폭포 계곡 통합 자료
 
-# 0.69 배포 범위 — 2026-10-22
-사용자 공개 승인. 아래 개발 구현을 패치에 포함하되 미정 번들/증가량/계곡 경제 수치 때문에 실제 계곡 입장은 준비 중으로 유지한다. 개발 screenshot은 실기기 플레이 개방의 근거가 아니다. 배포 복원은 이제 v0.68 전체소스 ZIP 고정 SHA256+삭제명세+overlay이며 과거 GDRE 방식은 대체됐다. 실제 게시 결과는 WORK_STATE/HANDOFF 및 docs/RELEASE_069_VERIFICATION.json을 확인한다.
+현재 상태/다음 행동은 루트 HANDOFF.md와 WORK_STATE.json, 기획은 GAME_BIBLE.md를 따른다. 이 문서에 진행 문장을 중복 작성하지 않는다.
 
-# 거꾸로 폭포 계곡 — 최신 개발 상태
-
-작업 브랜치 `work/valley-runtime`. 공개 기준 v0.68. 이번 작업은 개발 미리보기/진행 backend이며 새 Release는 게시하지 않았다.
-
-## 완료 및 검증
-- 준비 ZIP의 원본 배경1080×2640·물고기20종 복구 및 원격 checkpoint 1f06e09. 최종 물고기 SHA256 20/20, 배경 해시 보존.
-- 저수지0~19 보존, 계곡20~39 append. 지역+종ID로 도감/포획수/최대어 분리. 같은 이름 버들치 충돌 없이 구 이름 기반 기록 이전. 가방·수족관 global index 보존. rec.json도 backup/atomic save 경로 사용.
-- 확정 평균/최대 길이, 계곡 종별 고정 줄자. 평균 중심의 경계 내 추출로 최대치에 강제로 잘라 쌓이는 현상 방지. 전투 표시 크기는 실제 길이를 압축한 크기와 최소 가독성으로 구분; 별이 같아도 구름피라미는 송어보다 작게 표현.
-- 선택 배경 바이트를 변경하지 않고 native canvas에 표시. 원본 1080×2640 출력의 지형 픽셀 5곳 일치 확인. 짧은 화면에서는 비율을 유지하고 위아래 crop; 강제로 늘리지 않음.
-- 정적 plate, 하늘색 마스크 내 움직이는 구름, 수면→부유섬 위 역류폭포, 수중 빛, 얕은 반사 독립 레이어. 기존 캐릭터·고양이·의자/낚싯대 소스 재사용. 플랫폼·캐릭터 발·찌·수면 좌표 함께 정렬. 저수지로 복귀 시 원래 레이어/좌표 복구.
-- 지역별 모든 파츠 조건, 주인 게이지100%에서 다음 물고기 확정 출현, 실패70%/포획0% 상태 및 저장 처리. 증가 규칙은 지역별 설정 구조만 제공하고 미정 기본값은 없음.
-- 메인 번들 기증→완료/자격증→다음 지역 구매 자격→별도 화폐 지불 backend. 조건 미설정은 기증/완료/과금 불가. 재구매 중복 차감 방지. 미완성 지역은 준비 중으로 진입 차단.
-- 긴 계곡 이름이 도감 메달과 겹치지 않도록 기존 도감 패널 콘텐츠 높이를 조정.
-- 지역 통합 검사 및 기존 장비/도감/상점/시각/오디오세이브/번들/보상/리더/물고기surface 9개 회귀 검사 통과. 1080×2640 idle/전투/도감과 540×1080 렌더 직접 확인. 개발PCK export와 40종/배경/스크립트 포함 검사 통과.
-
-검증: `docs/qa/valley-runtime/VERIFICATION.json`. 화면: `docs/previews/valley-*.png`. PC 검증이며 Android 실기기 검증이 아니다.
-
-## 미정 및 남은 작업
-- 메인 번들 어종·등급·마릿수: 사용자가 아직 정하지 않았으므로 기존 준비 중 유지. 실제 기증 UI 연결/자격증 수령 연출은 미완료.
-- 주인 증가 횟수/이벤트: 옛100/150회가 시뮬레이션 값인지 확정인지 표기 충돌. 기본값을 임의 적용하지 않았다. 원문 `docs/historical/plan_2026-10-18.md`, 근거 `docs/RECOVERED_DESIGN_EVIDENCE.md`.
-- 계곡 기존 별/등급 판매·무게·등급·파이팅 공식 재사용 여부와 지역 힘1.15 적용을 확정 후 연결. 현재 가격 함수의 종 목록 인덱스만 40종에 맞게 정정했으며 계곡 공개 밸런스 확정이 아니다.
-- 주인 게이지 실제 UI, 지역별 어장 재고, Android 전체 플레이·동작 품질/성능 검수 미완료. 현재 개발 미리보기에서만 계곡을 열 수 있고 라이브 available_regions는[0]이다.
-- 공개 전 최신 전체소스 ZIP 기반 복원 및 삭제목록을 반영하도록 release workflow 보완. 버전/Release/배포 파일/서버/휴대폰 상태는 변경하지 않음.
-
-## 개발 재현
-v0.68 Release 전체 game-source.zip 복원 후 이 브랜치의 game/ overlay를 적용한다. Godot4.4.1로 import 후 tests/regional_verify.gd 및 기존 검사 실행. 캡처는 별도 XDG_DATA_HOME에서 --shot OUTPUT.png valley_idle --valley-preview, 전투는 valley_fight, 도감은 village_museum --valley-preview --regional-dex-preview. preview는 게임/최대어 저장을 차단한다. 실제 사용자 세이브로 검사하지 않는다.
-
-추가 유료 이미지 호출0회. 승인 배경/어종 외형을 재생성하지 않았다.
+- 실제 공개/다운로드 검증: [RELEASE_069_VERIFICATION.json](RELEASE_069_VERIFICATION.json)
+- 개발단계 10개검사/스크린샷/원본해시: [VERIFICATION.json](qa/valley-runtime/VERIFICATION.json)
+- 원본20종/확정길이: ../game/data/valley/fish_catalog.json; 장면명세: ../game/data/valley/scene_spec.json
+- 선택원본/레이어 코드: ../game/art/bg/valley_selected_1080x2640.png 및 ../game/addons/reservoir/valley_environment.gd
+- 이전 상세 구현·실행 방법: [원문](historical/2026-10-22-before-workflow-streamlining/docs/VALLEY_INTEGRATION.md). 과거 미배포/복원 미완료 문구는 당시 이력이며 현재 상태로 해석하지 않는다.
