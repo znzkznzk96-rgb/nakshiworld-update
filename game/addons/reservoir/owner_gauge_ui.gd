@@ -57,7 +57,7 @@ func draw_frame(m,area: int,value: float,origin: Vector2) -> void:
 		m._ui_rect(fill_bounds,ACCENTS[area])
 		m._ui_rect(Rect2(fill_bounds.position,Vector2(fill_bounds.size.x,1)),ACCENTS[area].lightened(0.3))
 func warning(m,area: int,name: String,color: Color) -> void:
-	warning_bounds=Rect2(12,m.top_y+166,246,62)
+	warning_bounds=Rect2(12,m.top_y+145,246,62)
 	m._ui_rect(warning_bounds,Color("231a27"))
 	m._ui_rect(Rect2(warning_bounds.position+Vector2(2,2),warning_bounds.size-Vector2(4,4)),Color("7f413b"))
 	m._ui_rect(Rect2(warning_bounds.position+Vector2(4,4),warning_bounds.size-Vector2(8,8)),Color("291f2c"))
