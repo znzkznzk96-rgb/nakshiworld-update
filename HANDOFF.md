@@ -16,3 +16,6 @@ work/valley-runtime에 원격 저장. 사용자 배포금지 유지: main/버전
 
 ## 이번 검사 수정
 검사fixture의장비 pending_sale을Dictionary로 초기화해실패한1건을 기존String타입으로 수정했다. 게임저장형식 변경 없음. 관련로그/검증원본 참조.
+
+## 후속 가격 분석 (미승인·게임미변경)
+계곡20종 가격3안 제시 준비. [후보/근거/모형](docs/analysis/valley-prices/REPORT.md), [원시결과](docs/analysis/valley-prices/results.json). 옛 tuned8/sim13의2.5배와 현재지역배수누락을 확인. 일반어종2.5배별평균안을 추천하며, 주인16000/20000/24000의한번성보상 효과도 비교했다. 사용자채택전 게임가격코드·확률/배포는 변경하지 않는다. 이전 가방구현/13검사 결과는 그대로 유지한다.

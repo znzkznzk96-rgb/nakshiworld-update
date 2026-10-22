@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "task": "거꾸로 폭포 계곡 통합 및 낚시월드 인수인계 기준",
-  "status": "implemented_verified_unreleased",
+  "status": "awaiting_price_selection",
   "work_branch": "work/valley-runtime",
   "release_baseline": "v0.69",
   "target_version": "unreleased",
@@ -21,16 +21,16 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-22",
-  "current_task": "가방A목록 실제적용·등급중앙정렬·이미지내부여백·세로스크롤 구현/검증 완료",
-  "next_step": "배포금지 유지. 사용자 다음 지시 또는 주인게이지 증가 이벤트/횟수·계곡경제/전투 미정 결정 이어가기. 실제 계곡입장/게이지UI 미연결 유지.",
+  "current_task": "계곡20종 가격3안·옛2.5배 시뮬 근거 및 현행가격 민감도 분석 완료",
+  "next_step": "사용자가 계곡가격 후보를 선택/수정하면 즉시기록 후 가격코드 적용. 현재 가격/확률/게임코드/Release 미변경. 주인주기/계곡전투·경제나머지 미정 유지.",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
   "last_release_deployed": true,
   "this_change": {
-    "scope": "가방 물고기목록 UI·입력·개체상세",
-    "game_changed": true,
+    "scope": "가격 후보 분석·역사자료 근거 보존",
+    "game_changed": false,
     "release_created": false,
     "deployment_authorized": false
   },
@@ -44,5 +44,12 @@
     "selection": "A",
     "actual_inventory_changed": true,
     "preview": "docs/previews/bag-list-applied.png"
+  },
+  "price_proposals": {
+    "report": "docs/analysis/valley-prices/REPORT.md",
+    "results": "docs/analysis/valley-prices/results.json",
+    "historical_region_multiplier": 2.5,
+    "approved": false,
+    "applied": false
   }
 }
