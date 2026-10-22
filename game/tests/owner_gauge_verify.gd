@@ -8,7 +8,7 @@ func hook(m,success: bool) -> void:
 func run() -> void:
 	var m=load("res://main.gd").new();m.SET.sfx=0;m.SET.music=0;m.title_open=false;root.add_child(m);await process_frame;m.set_process(false)
 	m.development_preview=true;m.title_open=false;m.TUT.done=true;m.lesson_open=false;m.guide.opened=false;m.mailbox.opened=false;m.settings_open=false;m.market_open=false;m.trans={};m.scene="fish"
-	m.bait=100;m.pond_stock=80;m.active_region=0;m.equipment.active_parts=["float","hook","line","reel"]
+	m.bait=100;m.pond_stock=80;m.active_region=0;m.region_shop.unlocked=[0,1];m.equipment.active_parts=["float","hook","line","reel"]
 	var p=m.progression;p.restore({})
 	for grade in 5:
 		p.owner_gauge[0]=0;p.fishing_event(m,0,"catch",grade)
@@ -47,6 +47,8 @@ func run() -> void:
 	m.equipment.active_parts=["float","hook","line","reel"];p.fishing_event(m,1,"catch",4)
 	check(p.owner_gauge[1]==70 and not m.owner_ui.visible(m),"other region parts do not count as equipped valley parts")
 	var saved: Dictionary=p.serialize();p.restore(saved);check(p.owner_gauge[0]==31 and p.owner_gauge[1]==70,"regional progress survives serialization")
+	m.development_preview=false;m._save_game();p.owner_gauge[0]=0;p.owner_gauge[1]=0;m._load_game();m.development_preview=true
+	check(p.owner_gauge[0]==31 and p.owner_gauge[1]==70,"regional progress survives actual save and reload")
 	p.restore({"owner_gauge":[-10,145,12]});check(p.owner_gauge[0]==0 and p.owner_gauge[1]==100 and p.owner_gauge[2]==12,"old saves clamp invalid progress and preserve valid progress")
 	p.restore({});check(p.owner_gauge==[0.0,0.0,0.0,0.0,0.0,0.0],"old save missing progress defaults to zero")
 	m.active_region=0;m.scene="village";check(not m.owner_ui.visible(m),"gauge hidden away from fishing")

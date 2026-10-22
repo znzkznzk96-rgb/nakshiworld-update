@@ -9,7 +9,7 @@ func run() -> void:
 	var ui:=CanvasLayer.new();ui.layer=10;root.add_child(ui)
 	var txt:=Node2D.new();txt.set_script(load("res://text_layer.gd"));ui.add_child(txt)
 	var m=load("res://main.gd").new();m.text_layer=txt;m.SET.sfx=0;m.SET.music=0;m.title_open=false;root.add_child(m);await process_frame
-	m.development_preview=true;m.set_process(false);m.title_open=false;m.TUT.done=true;m.lesson_open=false;m.tip_t=0;m.guide.opened=false;m.mailbox.opened=false;m.trans={};m.scene="fish";m.bait=100;m.gold=12345;m.pearl=2
+	m.development_preview=true;m.set_process(false);m.title_open=false;m.TUT.done=true;m.lesson_open=false;m.tip_t=0;m.guide.opened=false;m.mailbox.opened=false;m.trans={};m.scene="fish";m.bait=100;m.gold=12345;m.pearl=2;m.region_shop.unlocked=[0,1]
 	for area in 2:
 		m.active_region=area;m._layout();m.environment.show_scene(true)
 		m.equipment.active_parts=["float","hook","line","reel"] if area==0 else ["r1_float","r1_hook","r1_line","r1_reel"]
