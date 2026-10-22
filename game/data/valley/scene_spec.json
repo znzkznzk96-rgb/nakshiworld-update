@@ -1,0 +1,33 @@
+{
+  "region": 1,
+  "name": "거꾸로 폭포 계곡",
+  "background": "res://art/bg/valley_selected_1080x2640.png",
+  "sha256": "8f754000173c7602a2d247cf735b5aa9dd053881ead79f76ea548bc453c37a8a",
+  "reference_size": [
+    1080,
+    2640
+  ],
+  "platform_top_y_ratio": 0.505,
+  "water_front_y_ratio": 0.565,
+  "waterfall_target_ratio": [
+    0.81,
+    0.22
+  ],
+  "layers": [
+    "static_sky_cliffs_underwater",
+    "drifting_clouds_sky_mask",
+    "reverse_waterfall_upward",
+    "underwater_light",
+    "surface_ripples_reflection",
+    "existing_chair_character",
+    "rod_line_float_fish",
+    "game_ui"
+  ],
+  "status": "assets_registered_runtime_pending",
+  "notes": [
+    "Preserve selected detailed background, not rejected simplified variant.",
+    "Water depth color and underwater rocks remain static; animated water is overlay.",
+    "No paid regeneration or AI upscale.",
+    "Reuse existing chair and character; adjust all fishing anchors together."
+  ]
+}
