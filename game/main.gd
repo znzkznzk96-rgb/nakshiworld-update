@@ -18,8 +18,10 @@ var CATY: = 204
 const LX: = 176
 
 
-const STAR_P: = [0.62, 0.27, 0.09, 0.018, 0.0]
-const GRADE_P: = [0.8653, 0.0661, 0.0628, 0.0042, 0.0016]
+const STAR_P: = [0.45, 0.35, 0.15, 0.05, 0.0]
+const OTHER_REGION_STAR_P = [0.62, 0.27, 0.09, 0.018, 0.0]
+const GRADE_P: = [0.71, 0.15, 0.10, 0.03, 0.01]
+const OTHER_REGION_GRADE_P = [0.8653, 0.0661, 0.0628, 0.0042, 0.0016]
 const GRADE_N: = ["노멀", "레어", "유니크", "전설", "신화"]
 const GRADE_C: = [Color("c9d2d6"), Color("4fa3ff"), Color("b06cff"), Color("ffb340"), Color("ffffff")]
 const CATALOG = preload("res://addons/reservoir/regional_catalog.gd")
@@ -438,13 +440,15 @@ func start_wait() -> void :
 		if region_shop.has_active(self, p, active_region): nparts += 1
 		else: break
 	var stock_ratio: float = pond_stock / pond_max()
+	var star_base: Array = STAR_P if active_region == 0 else OTHER_REGION_STAR_P
+	var grade_base: Array = GRADE_P if active_region == 0 else OTHER_REGION_GRADE_P
 	for i in 5:
 		var stock_weight: float = 1.0 if i == 0 else lerpf(0.04, 1.0, stock_ratio) ** i
-		sp_w.append(STAR_P[i] * (0.1 if bare and i > 0 else 1.0) * stock_weight if i <= mini(nparts, 3) else 0.0)
+		sp_w.append(star_base[i] * (0.1 if bare and i > 0 else 1.0) * stock_weight if i <= mini(nparts, 3) else 0.0)
 	if pond_stock <= 0.0:
 		sp_w = [1.0, 0.0, 0.0, 0.0, 0.0]
 	var gp: = []
-	for i in 5: gp.append(GRADE_P[i] * pow(bait_multiplier, i))
+	for i in 5: gp.append(grade_base[i] * pow(bait_multiplier, i))
 	S = {"phase": "wait", "star": pick(sp_w), "grade": pick(gp), "fakes": [], "bare": bare}
 	# The owner is confirmed only after a successful hook judgement.
 	S.owner = false

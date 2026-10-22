@@ -83,9 +83,9 @@ func draw(m,h: float) -> void:
 	else:
 		m._ui_texture_rect(m.V.tool_icons.scale,Rect2(reward.position+Vector2(8,7),Vector2(24,24)),false)
 		var caption: String="보상 준비 중"
-		if region<2: caption="%s 비늘 · 혼 %d개"%[_amount(reward_amount(m,region,tab)),m.progression.SOUL_REWARD[region]] if tab==1 else "%s 비늘 · 진주 2개"%_amount(reward_amount(m,region,tab))
+		if region<2: caption="%s 비늘 · 혼 %d개"%[_amount(reward_preview_amount(m,region,tab)),m.progression.SOUL_REWARD[region]] if tab==1 else "%s 비늘 · 진주 2개"%_amount(reward_preview_amount(m,region,tab))
 		m._text(caption,reward.position+Vector2(39,16),10,Color("382619"),false,192)
-		m._text("받은 보상" if done else "기증 누적 보상 · 완료하면 받아요",reward.position+Vector2(39,30),9,Color("513b29"),false,192)
+		m._text("받은 보상" if done else ("완료 예상 · 미기증은 노멀·평균 기준" if region<2 else "보상 준비 중"),reward.position+Vector2(39,30),9,Color("513b29"),false,192)
 	button(m,"register","완료" if done else ("기증 %d / %d"%[total,targets.size()] if not targets.is_empty() else "번들 준비 중"),Rect2(17,bottom-48,154,29),done)
 	button(m,"dex","도감",Rect2(177,bottom-48,76,29))
 	m._text("물고기를 눌러 한 마리씩 기증 · 등급 무관",Vector2(135,bottom-7),9,Color("68533d"),true,236)
@@ -153,4 +153,18 @@ func _amount(value: int) -> String:
 func reward_amount(m, area: int, kind: int) -> int:
 	if area<0 or area>1 or kind not in [1,2]: return 0
 	var value: int=int(m.progression.bundle_values.get(m.progression.bundle_key(area,kind),0))
+	return roundi(value*(1.2 if kind==1 else 1.5))
+
+# Already donated specimens retain their recorded sale values. Missing specimens
+# use current normal/average values for presentation only; payout is unchanged.
+func reward_preview_amount(m, area: int, kind: int) -> int:
+	if area<0 or area>1 or kind not in [1,2]: return 0
+	if m.progression.bundle_done(area,kind): return reward_amount(m,area,kind)
+	var value: int=int(m.progression.bundle_values.get(m.progression.bundle_key(area,kind),0))
+	var targets: Array=m.progression.bundle_targets(area,kind)
+	var counts: Array=m.progression.bundle_counts(area,kind)
+	for i in targets.size():
+		var missing: int=maxi(0,int(targets[i].count)-int(counts[i]))
+		var sp: int=species_id(targets[i])
+		value+=missing*m.fish_price(sp,star(sp),0,1.0)
 	return roundi(value*(1.2 if kind==1 else 1.5))
