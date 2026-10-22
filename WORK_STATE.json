@@ -28,8 +28,8 @@
   "game_bible": "docs/GAME_BIBLE.md",
   "last_release_deployed": true,
   "this_change": {
-    "scope": "주인게이지 기능검증완료·PixelLab아트미완료",
-    "game_changed": true,
+    "scope": "PixelLab 새대화 이어하기 절차 고정·개인복원안내 보존",
+    "game_changed": false,
     "release_created": false,
     "deployment_authorized": false
   },
@@ -60,5 +60,12 @@
     "preview": "docs/previews/owner-gauge-applied.png",
     "connection": "docs/PIXELLAB_CONNECTION.md",
     "art_review": "docs/qa/owner-gauge/pixellab/REVIEW.json"
+  },
+  "pixellab_continuity": {
+    "guide": "docs/PIXELLAB_CONNECTION.md",
+    "connection_verified": true,
+    "startup_policy": "Read fixed guide before plugin search; reuse existing API v2 route; never infer unavailable from missing tool listing",
+    "private_access_instructions": "Read user-owned NAKSHIWORLD_PIXEL_ACCESS_PRIVATE.md by exact title through Library; do not publish its contents",
+    "paid_generation_on_resume": false
   }
 }
