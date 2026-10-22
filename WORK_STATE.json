@@ -1,10 +1,10 @@
 {
   "schema_version": 2,
   "task": "거꾸로 폭포 계곡 통합 및 낚시월드 인수인계 기준",
-  "status": "paused_existing_results_preserved",
+  "status": "release_in_progress",
   "work_branch": "work/valley-runtime",
   "release_baseline": "v0.69",
-  "target_version": "unreleased",
+  "target_version": "0.70",
   "source_commit": "4be86def5022a6e1cc0ebfe003a411d656ec8ae2",
   "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v0.69",
   "live_patch_sha256": "14c507438c8128c571f7501ba0947a186bc2ccc4a3d7c73f4bc711396fcdd9ba",
@@ -20,18 +20,18 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-22",
-  "current_task": "기존저수지결과 제시 완료; 개선절차와 재개정보 문서 통합",
-  "next_step": "docs/LOCAL_RECOVERY.md의 실제 보존위치에서 기존결과를 가져와 최신사용자 범위로 이어간다. 진단/백업/확정기획질문을 반복하지 않는다.",
+  "current_task": "승인된 저수지/48px 주인프레임 마무리와 누적작업 통합배포",
+  "next_step": "기존 결과 통합→전체 검사/화면검수→공개배포/해시 확인",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
   "last_release_deployed": true,
   "this_change": {
-    "scope": "작업절차/인수인계 문서만",
+    "scope": "저수지/최종프레임/누적작업 통합배포",
     "game_changed": false,
     "release_created": false,
-    "deployment_authorized": false
+    "deployment_authorized": true
   },
   "history": "docs/historical/2026-10-22-before-workflow-streamlining/WORK_STATE.json",
   "work_verification": "docs/qa/valley-prices/VERIFICATION.json",
