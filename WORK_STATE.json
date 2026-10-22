@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "task": "거꾸로 폭포 계곡 통합 및 낚시월드 인수인계 기준",
-  "status": "owner_gauge_six_art_verified",
+  "status": "owner_frame_v2_proposals_in_progress",
   "work_branch": "work/valley-runtime",
   "release_baseline": "v0.69",
   "target_version": "unreleased",
@@ -20,16 +20,16 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-22",
-  "current_task": "6지역 PixelLab 주인프레임 각1장 완료·등록/연결·14검사/화면검수 완료",
-  "next_step": "사용자가6종모음과저수지/계곡적용화면 확인. 후속변경지시에따라진행하며 자동재생성하지않음. 계곡가격안보류·미구현지역입장비활성·배포금지 유지.",
+  "current_task": "우주바다 프레임 공통스타일·높이48px 6지역 재시안 제작",
+  "next_step": "기존 우주프레임 스타일/형태참조로 지역별1장 순차제작·검수 후 비교시안제시. 실제게임미교체/추가재생성·배포없음.",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
   "last_release_deployed": true,
   "this_change": {
-    "scope": "6지역 PixelLab게이지프레임/동적UI 연결·검증완료",
-    "game_changed": true,
+    "scope": "우주바다기준6지역 재시안",
+    "game_changed": false,
     "release_created": false,
     "deployment_authorized": false
   },
@@ -60,7 +60,16 @@
     "preview": "docs/previews/owner-six-applied.png",
     "connection": "docs/PIXELLAB_CONNECTION.md",
     "art_review": "docs/qa/owner-gauge-six/ART_VERIFICATION.json",
-    "runtime_preview": "docs/previews/owner-runtime-applied.png"
+    "runtime_preview": "docs/previews/owner-runtime-applied.png",
+    "proposal_v2": {
+      "style": "existing region5 curved/oval ornamental frame",
+      "size": [
+        256,
+        48
+      ],
+      "approved_for_generation": true,
+      "applied": false
+    }
   },
   "pixellab_continuity": {
     "guide": "docs/PIXELLAB_CONNECTION.md",

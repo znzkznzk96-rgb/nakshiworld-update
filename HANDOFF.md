@@ -19,3 +19,6 @@ PixelLab은 **실제API호출경로검증완료**. 새대화에서목록검색�
 ## 배포
 work/valley-runtime 저장만, 사용자배포금지유지. main/버전/Release/PCK 미변경, 실제공개0.69. Android실기기적용/검증없음. 다음배포는새지시와production workflow의v0.68 baseline갱신/검증필요. 현재검사기준은v0.69 검증전체소스+작업overlay+삭제명세.
 [직전HANDOFF원문](docs/historical/2026-10-22-before-six-frames/HANDOFF.md)은보존.
+
+## 현재 우선 — 우주바다 기준 공통스타일 재시안
+사용자는 우주프레임 분위기를 선호, 높이를조금줄이고6지역공통골격으로다시시안요청. GAME_BIBLE최신항목과같이256×48px·지역별1장순차제작. 이번은시안만,기존게임프레임미교체/배포금지. 참조는기존우주프레임이며실제스타일/형태입력에사용한다.
