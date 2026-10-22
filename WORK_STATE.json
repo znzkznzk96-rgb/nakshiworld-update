@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "task": "거꾸로 폭포 계곡 통합 및 낚시월드 인수인계 기준",
-  "status": "verified_unreleased",
+  "status": "awaiting_character_design_selection",
   "work_branch": "work/valley-runtime",
   "release_baseline": "v0.70",
   "target_version": "unreleased",
@@ -20,8 +20,8 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-22",
-  "current_task": "저수지확률 상향·박물관0보상표시 수정 완료,16검사/실제화면 통과 (미배포)",
-  "next_step": "사용자 다음 지시 대기. 이번 변경 배포금지,운영0.70 유지",
+  "current_task": "앉은캐릭터A/B 실제배경 비교완료·사용자선택대기",
+  "next_step": "A/B선택→기준자세/대기/캐스팅시험영상→승인후확장. 배포금지",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
@@ -102,5 +102,12 @@
     "generated_images_included": true,
     "backup_filename": "NAKSHIWORLD_RESUME_PACKAGE.zip",
     "scope_note": "선택 저수지base/moon·레이어코드·최종주인프레임은 원격 및v0.70전체소스에 포함. 기존생성이미지12장 전체보존은 별도패키지."
+  },
+  "character_preview": {
+    "path": "docs/previews/character-seated-ab.png",
+    "selection": null,
+    "motion_preview_created": false,
+    "game_applied": false,
+    "pixellab_paid_requests": 0
   }
 }
