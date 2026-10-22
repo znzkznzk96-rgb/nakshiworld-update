@@ -21,8 +21,8 @@
     "서브 혼 수량·반복 완료 여부·정산 반올림 등 미정. 주인 보상은 판매가150%+2진주(보호권현재1진주/장), 업적보류. 재구매최근10개 확정."
   ],
   "updated_at": "2026-10-22",
-  "current_task": "재구매 최근10개·기존 확인창 및 주인보상 판매가1.5배+2진주 확정",
-  "next_step": "서브 혼 수량과 반복 여부 등 남은 조건 정리 후 번들·재구매 구현/검증. 주인 업적 보류. 새 패치 배포는 별도 승인.",
+  "current_task": "번들·어시장 재구매 구현 및 검증(배포 금지)",
+  "next_step": "저수지15혼/계곡30혼 확정 저장 후 구현. 신규 공개 Release/배포/버전 변경 금지.",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
