@@ -139,3 +139,10 @@ func press(m,p: Vector2) -> void:
 		if rects.get("region:%d"%n,Rect2()).has_point(p): region=n;return
 		if rects.get("fish:%d"%n,Rect2()).has_point(p): selected=n;page=0;return
 	if rects.get("register",Rect2()).has_point(p): selected=0;page=0
+
+func _amount(value: int) -> String:
+	var raw:=str(value);var result:=""
+	for i in raw.length():
+		if i>0 and (raw.length()-i)%3==0: result+="," 
+		result+=raw[i]
+	return result
