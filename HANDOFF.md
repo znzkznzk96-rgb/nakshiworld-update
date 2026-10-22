@@ -1,32 +1,21 @@
 # 현재 인수인계 — 2026-10-22
 
-
 ## 현재 결과 (미배포)
-PixelLab 이어하기를 START_HERE/AGENTS/CONTINUE_HERE/PROJECT_INSTRUCTIONS에 연결했다. 새대화에서 플러그인 탐색을 반복하지 않고 검증된 경로를 재사용한다. [갱신 전 HANDOFF 원문](docs/historical/2026-10-22-before-pixellab-continuity/HANDOFF.md).
+**주인게이지 PixelLab 프레임6종 완료/등록/검증.** 사용자 '각낚시터컨셉6개한개씩' 승인에 따라 지역별1장 순차생성/검수, 유료요청6회·결과6장·60회분·추가재생성0. 저수지청룡비늘, 계곡역류/붉은무늬, 타일바다도자기, 균열해역선박금속/보라균열, 심해잠긴사무실/배관, 우주바다성운/별빛.
 
-주인게이지 규칙은 GAME_BIBLE 최신결정으로 확정. 지역 전파츠 장착 시 표시/누적, 실제포획 최종등급 노멀/레어/유니크1%p·전설2%p·신화3%p·최대100%. 100% 다음 성공훅(PERFECT/GREAT)에 현재지역 ★5 주인을 확정하고3초 경고 후 전투. 입질실패/훅MISS/일반물고기실패는100% 유지, 주인확정후포획0%/실패70%, 중복정산방지. 지역별 기존저장형식 유지. 현재카탈로그의 저수지/계곡 연결, 후속4지역의 미확정주인/실제입장 임의추가 없음.
+- 게임원본PNG: game/art/ui/owners/region_0.png~region_5.png. 256×64 네이티브 PixelLab 반환바이트 그대로.
+- 프레임별 이름/숫자/진행바 좌표: game/data/ui/owner_gauges.json. 엔진이 실제진행률에 맞춰0~100% 채움과문자를독립렌더. 저수지/계곡 기존승인주인그림을틀안에배치. 후속4지역은빈주인그림칸을유지하며외형/이름/입장임의추가없음.
+- 소스 de1faddb0ab29071f4dbc6209247c5dad7d01bc6. [14검사/33화면 검증](docs/qa/owner-gauge-six/VERIFICATION.json), [Actions](https://github.com/znzkznzk96-rgb/nakshiworld-update/actions/runs/39730517829) 성공.
+- [6종73%모음](docs/previews/owner-six-applied.png), [저수지/계곡 실제적용](docs/previews/owner-runtime-applied.png). 6종0/73/100%에서이름/퍼센트/채움범위를직접검수. 주인경고와훅판정글자위치를분리하고짧은화면도확인.
+- 요청/seed/실제전송참조/원본/receipt/지역별품질검수는 docs/qa/owner-gauge-six/0~5/. [전체아트검증](docs/qa/owner-gauge-six/ART_VERIFICATION.json). 앞선불합격1장은별도보존하며재사용하지않음.
 
-- 소스 2cf254e17673190a79215a854d7148deed7ff6fb. [14검사·12주인화면 검증](docs/qa/owner-gauge/VERIFICATION.json), [Actions](https://github.com/znzkznzk96-rgb/nakshiworld-update/actions/runs/39724731789) 성공. 전체30장 렌더. 지역별 저장/실제재로드, 누적/상한/장착조건/훅실패/정산과 기존 기능 회귀검사 통과.
-- [기능화면](docs/previews/owner-gauge-applied.png): 기존승인주인그림을 사용한 코드UI다. PixelLab신규생성 아트가 아니다. 0/73/100%, 경고, 전투, 짧은화면/파츠누락 상태를 검수.
-- 첫실패는 테스트/미리보기 fixture에서 계곡unlocked 빠짐. 게임동작은 변경하지 않고 fixture 수정/실제저장검사를 추가했다. 실패원본run과원인은 검증문서에 보존.
+## 유지되는 기능
+지역전파츠장착시표시/실제포획 최종등급1/1/1/2/3%p·최대100, 다음성공훅에서해당주인확정/3초경고, 입질/훅MISS100유지·주인포획0/실패70·중복정산방지·지역별세이브유지. 가방목록/번들독립낱개기증/숫자보상/최근10개재구매도기존14검사통과.
 
-## 남은 일
-PixelLab **기존 API v2 경로 재사용·실제 생성 성공**. 연결부재가 현재장애가 아니다. [고정 이어하기](docs/PIXELLAB_CONNECTION.md)를 새 대화에서 먼저 읽는다. 비공개 설정 안내는 사용자 개인 문서에 보존했으며 공개저장하지 않는다.
-저수지 첫프레임은 내부공간부족으로 불채택/게임미적용. 추가생성은 중단, [검수](docs/qa/owner-gauge/pixellab/REVIEW.json)를 확인하고 이름/진행바 구획을 재설계한다. 기존 승인범위 밖 유료재생성은 임의 진행하지 않는다.
-가격후보는 보류. 계곡 나머지 경제/전투 미정으로 실제입장 비활성 유지. 배포금지 유지.
-
-## 기존 완료 기능
-가방A 어종+등급별 세로목록/실제개체상세·휠/터치, 숫자형 번들보상·주인카드 중앙정렬, 박물관 필수/서브각6종·주인1종 실물낱개기증·독립완료/보상, 최근10개 재구매 기능 유지. [직전 HANDOFF 원문](docs/historical/2026-10-22-before-owner-gauge/HANDOFF.md), 이전 QA 링크도 보존.
+## 다음 작업과 연결
+사용자6종검토/다음지시를기다린다. 각지역1장요청완료이므로 임의추가생성/재생성금지. 계곡가격후보는보류. 계곡나머지전투/경제수치미정으로 실제입장비활성, 이후4지역번들/주인확정/주인업적은기존미정유지.
+PixelLab은 **실제API호출경로검증완료**. 새대화에서목록검색을반복하지말고 [고정이어하기](docs/PIXELLAB_CONNECTION.md)를먼저읽는다. 비공개접속안내는사용자개인문서에보존,공개저장금지.
 
 ## 배포
-work/valley-runtime 저장만. main/버전/Release/운영PCK 미변경, 실제 최신공개0.69 확인. 사용자배포금지 유지. 실제Android휴대폰검증/적용 없음. 다음배포 전 별도사용자지시와 production workflow의v0.68 baseline갱신/검증 필요. 현재검사복원은 검증v0.69전체소스+작업overlay+삭제명세.
-
-## PixelLab 기존호출 복구 결과 (최신)
-기존 API v2 경로를 재사용해 balance HTTP200 확인, UI 생성/기존job조회로 실제단일PNG 수신까지 성공했다. [호출확인](docs/PIXELLAB_CONNECTION.md). 이전 '연결미확인/사용불가' 상태를 대체한다. 비공개 접속설정과 복구절차는 공개기록에서 제외한다.
-저수지1장 UI Pro 단일요청/결과1장,10회분 차감. [검수](docs/qa/owner-gauge/pixellab/REVIEW.json). 색/모티프는 적합하나 틀내부가16px높이로 생성돼 현재 이름/동적진행바와 맞지 않아 **불채택/게임미적용**. 지침대로 추가유료호출·계곡생성 중단. 필요시 내부구획이 명확한설계로 재작업하되 추가호출은사용자허용범위확인. 기존기능14검사 결과 유지. 가격보류·게임코드/배포변경없음.
-
-## 현재 우선 작업 — 6지역 프레임 각1장
-사용자가 총6장 제작 승인. GAME_BIBLE 최신항목에 따라 단일순차생성/검수, 첫불합격본은채택하지않음. 후속4지역은 지역컨셉프레임만제작하며 미확정주인/입장을해금하지않는다. 기존API접속경로재사용, 가격보류·배포금지.
-
-## 6종 생성/검수 완료 — 기능검증대기
-PixelLab UI Pro 지역별1장/총6요청·6결과·60회분, 재생성없음. 각지역프레임과독립이름/숫자/진행바를 연결. 고유레이아웃좌표메타데이터로겹침방지. 6종그림은 game/art/ui/owners/, 원본요청/receipt/검수는 docs/qa/owner-gauge-six/. 후속4지역은프레임준비만, 미완성입장/주인 외형을해금하지않음. 전체14검사/실제화면검수 진행. 배포금지/가격보류.
+work/valley-runtime 저장만, 사용자배포금지유지. main/버전/Release/PCK 미변경, 실제공개0.69. Android실기기적용/검증없음. 다음배포는새지시와production workflow의v0.68 baseline갱신/검증필요. 현재검사기준은v0.69 검증전체소스+작업overlay+삭제명세.
+[직전HANDOFF원문](docs/historical/2026-10-22-before-six-frames/HANDOFF.md)은보존.
