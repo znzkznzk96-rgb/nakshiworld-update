@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "task": "거꾸로 폭포 계곡 통합 및 낚시월드 인수인계 기준",
-  "status": "verification_pending",
+  "status": "implemented_verified_unreleased",
   "work_branch": "work/valley-runtime",
   "release_baseline": "v0.69",
   "target_version": "unreleased",
@@ -13,25 +13,29 @@
   "gateway_run": 39707668175,
   "verification": "docs/RELEASE_069_VERIFICATION.json",
   "phone_confirmation": "0.69 실기기 업데이트/동작 확인 대기",
-  "museum_bundle": "박물관에서 준비 중 화면 공개, 도감 유지. 기증/보상 미연결",
+  "museum_bundle": "저수지·계곡 필수/서브 각6종·주인1종 실물 낱개기증과 자동보상 연결. 필수 라이선스만/서브판매가120%+혼15·30/주인판매가150%+2진주.",
   "valley_runtime_status": "shipped_assets_catalog_backend_live_entry_disabled",
   "pending_decisions": [
-    "Owner accumulation event/count: historical reservoir100/valley150 are simulation values, not silently applied.",
-    "Whether valley uses the existing star/grade economic formulas and confirmed historical regional force factor1.15.",
-    "서브 혼 수량·반복 완료 여부·정산 반올림 등 미정. 주인 보상은 판매가150%+2진주(보호권현재1진주/장), 업적보류. 재구매최근10개 확정."
+    "주인 게이지 증가 이벤트/횟수 미정(과거100/150회는 미승인).",
+    "계곡 출현확률·경제·전투 수치 승인 대기. 실제 계곡 입장 비활성 유지.",
+    "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-22",
-  "current_task": "번들·재구매 코드 구현 완료; 격리 전체검사 진행",
-  "next_step": "배포 없는 work 전용 CI 검증 결과 확인 및 필요한 수정. 휴대폰/공개배포 미반영.",
+  "current_task": "번들3종·어시장 최근10개 재구매 구현/검증 완료(미배포)",
+  "next_step": "사용자 검토 후 주인 게이지 증가 이벤트/횟수·계곡 경제/전투 수치 미정 정리. 계곡 실제 입장과 게이지 UI는 아직 미연결. 배포 승인 전 main 병합/Release/버전 변경 금지.",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
   "last_release_deployed": true,
   "this_change": {
-    "scope": "문서/작업 절차",
-    "game_changed": false,
-    "release_created": false
+    "scope": "게임 코드·검사·인수인계",
+    "game_changed": true,
+    "release_created": false,
+    "deployment_authorized": false
   },
-  "history": "docs/historical/2026-10-22-before-workflow-streamlining/WORK_STATE.json"
+  "history": "docs/historical/2026-10-22-before-workflow-streamlining/WORK_STATE.json",
+  "work_verification": "docs/qa/bundles-buyback/VERIFICATION.json",
+  "work_source_commit": "fc55b5b07b1cecde6fea9670fd6553423f3b68e2",
+  "work_verification_run": 39717612733
 }
