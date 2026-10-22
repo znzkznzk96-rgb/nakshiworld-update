@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "task": "거꾸로 폭포 계곡 통합 및 낚시월드 인수인계 기준",
-  "status": "bag_list_implementation",
+  "status": "bag_list_verification",
   "work_branch": "work/valley-runtime",
   "release_baseline": "v0.69",
   "target_version": "unreleased",
@@ -21,7 +21,7 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-22",
-  "current_task": "가방A목록 실제적용·배지정렬·이미지내부여백·세로스크롤",
+  "current_task": "가방A목록·등급중앙정렬·내부이미지·세로스크롤 구현, 입력/화면검사중",
   "next_step": "선택된 목록형 UI/개체상세/휠·터치 입력 연결 및 관련검사·화면검수. 배포금지.",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
@@ -43,6 +43,6 @@
   "bag_proposals": {
     "preview": "docs/previews/bag-two-options.png",
     "selection": "A",
-    "actual_inventory_changed": false
+    "actual_inventory_changed": true
   }
 }

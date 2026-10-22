@@ -35,6 +35,19 @@ func run() -> void:
 	m.V.commerce.pending={};m.V.open_shop(m,"museum");m.V.bundle_preview.region=1;m.V.bundle_preview.tab=0
 	root.content_scale_size=Vector2i(270,480);root.size=Vector2i(540,960)
 	await process_frame;await capture(m,out,"museum_short")
+	root.content_scale_size=Vector2i(270,540);root.size=Vector2i(540,1080)
+	await process_frame
+	m.V.shop="";m.market_open=true;m.market_sell=false;m.inventory.tab="fish";m.inventory.displayed=false;m.inventory.selected=-1
+	m.bag=[{"sp":7,"grade":0,"w":0.022,"len":12.0,"price":30},{"sp":7,"grade":0,"w":0.026,"len":13.5,"price":36},{"sp":7,"grade":1,"w":0.031,"len":14.0,"price":85},{"sp":0,"grade":0,"w":0.05,"len":12.0,"price":20},{"sp":0,"grade":1,"w":0.055,"len":13.0,"price":40},{"sp":5,"grade":1,"w":0.052,"len":10.0,"price":35},{"sp":1,"grade":2,"w":0.18,"len":25.0,"price":200}]
+	m.inventory.sync(m);m.ui_clock+=1
+	await capture(m,out,"bag_list_top")
+	m.inventory.open_group(7,0);await capture(m,out,"bag_list_detail");m.inventory.selected=-1;m.inventory.selected_grade=-1
+	for i in range(8,20):m.bag.append({"sp":i,"grade":i%5,"w":0.003,"len":20.0+i,"price":100+i})
+	await capture(m,out,"bag_list_scroll_top")
+	m.inventory.list_view.scroll=m.inventory.list_view.max_scroll();await capture(m,out,"bag_list_bottom")
+	root.content_scale_size=Vector2i(270,480);root.size=Vector2i(540,960);await process_frame
+	await capture(m,out,"bag_list_short")
+	m.market_open=false;m.inventory.displayed=false
 	m.hide();root.content_scale_size=Vector2i(270,540);root.size=Vector2i(540,1080)
 	await process_frame
 	m.bag=[{"sp":7,"grade":0,"w":0.022},{"sp":7,"grade":0,"w":0.026},{"sp":7,"grade":1,"w":0.031},{"sp":0,"grade":0,"w":0.05},{"sp":0,"grade":1,"w":0.055},{"sp":5,"grade":1,"w":0.052},{"sp":1,"grade":2,"w":0.18}]
