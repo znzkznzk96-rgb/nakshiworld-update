@@ -1,0 +1,31 @@
+{
+  "status": "pass_for_proposal",
+  "common_style": [
+    "Oval left medallion, thin flowing silver filigree and long rounded rails follow preferred space frame",
+    "Compact256x48 output; no pillars or thick rectangular casing",
+    "Cyan/cobalt scale inlays and restrained gold details distinguish reservoir"
+  ],
+  "notes": [
+    "Outer decorative curls meet top/bottom canvas edge; retained visibly in proposal for user review, no extra paid retouch. Main oval/label/track remain usable."
+  ],
+  "layout": {
+    "badge": [
+      24,
+      17,
+      35,
+      16
+    ],
+    "label": [
+      85,
+      12,
+      153,
+      10
+    ],
+    "track": [
+      85,
+      27,
+      153,
+      10
+    ]
+  }
+}

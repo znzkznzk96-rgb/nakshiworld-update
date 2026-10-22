@@ -1,10 +1,10 @@
 {
   "schema_version": 2,
   "task": "거꾸로 폭포 계곡 통합 및 낚시월드 인수인계 기준",
-  "status": "awaiting_design_values",
+  "status": "verified_awaiting_publication",
   "work_branch": "work/valley-runtime",
   "release_baseline": "v0.69",
-  "target_version": "unreleased",
+  "target_version": "0.70",
   "source_commit": "4be86def5022a6e1cc0ebfe003a411d656ec8ae2",
   "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v0.69",
   "live_patch_sha256": "14c507438c8128c571f7501ba0947a186bc2ccc4a3d7c73f4bc711396fcdd9ba",
@@ -13,25 +13,93 @@
   "gateway_run": 39707668175,
   "verification": "docs/RELEASE_069_VERIFICATION.json",
   "phone_confirmation": "0.69 실기기 업데이트/동작 확인 대기",
-  "museum_bundle": "박물관에서 준비 중 화면 공개, 도감 유지. 기증/보상 미연결",
+  "museum_bundle": "저수지·계곡 필수/서브 각6종·주인1종 실물 낱개기증과 자동보상 연결. 필수 라이선스만/서브판매가120%+혼15·30/주인판매가150%+2진주. 계곡노멀평균주인 기증24000비늘+2진주.",
   "valley_runtime_status": "shipped_assets_catalog_backend_live_entry_disabled",
   "pending_decisions": [
-    "Owner accumulation event/count: historical reservoir100/valley150 are simulation values, not silently applied.",
-    "Whether valley uses the existing star/grade economic formulas and confirmed historical regional force factor1.15.",
-    "Museum bundle targets remain preparation-only per user instruction."
+    "계곡 출현확률·경제·전투 수치 승인 대기. 실제 계곡 입장 비활성 유지.",
+    "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-22",
-  "current_task": "작업 절차 간소화 적용 완료; 게임 개발은 계곡 미정 수치와 입장/기증/게이지 연결 대기",
-  "next_step": "개선된 PROJECT_INSTRUCTIONS에 따라 최신 v0.69 기준으로 이어간다. 사용자 준비 중 번들 조건은 유지. 주인 증가 이벤트/횟수와 계곡 밸런스의 미승인 제안을 확정으로 취급하지 않는다. 휴대폰 적용 확인은 별도.",
+  "current_task": "저수지/48px주인프레임 통합·15검사·화면검수 통과,0.70 배포 준비",
+  "next_step": "원격소스 확인 후main 통합·배포 및 운영다운로드 검증",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
   "last_release_deployed": true,
   "this_change": {
-    "scope": "문서/작업 절차",
-    "game_changed": false,
-    "release_created": false
+    "scope": "저수지/최종프레임/누적작업 통합배포",
+    "game_changed": true,
+    "release_created": false,
+    "deployment_authorized": true
   },
-  "history": "docs/historical/2026-10-22-before-workflow-streamlining/WORK_STATE.json"
+  "history": "docs/historical/2026-10-22-before-workflow-streamlining/WORK_STATE.json",
+  "work_verification": "docs/qa/release-070/VERIFICATION.json",
+  "work_source_commit": "de1faddb0ab29071f4dbc6209247c5dad7d01bc6",
+  "work_verification_run": 39730517829,
+  "backend_source_commit": "fc55b5b07b1cecde6fea9670fd6553423f3b68e2",
+  "backend_verification": "docs/qa/bundles-buyback/VERIFICATION.json",
+  "bag_proposals": {
+    "selection": "A",
+    "actual_inventory_changed": true,
+    "preview": "docs/previews/bag-list-applied.png"
+  },
+  "price_proposals": {
+    "report": "docs/analysis/valley-prices/REPORT.md",
+    "results": "docs/analysis/valley-prices/results.json",
+    "historical_region_multiplier": 2.5,
+    "approved": true,
+    "applied": true,
+    "paused": false,
+    "selection": "conservative",
+    "approval": "2026-10-22 사용자: 배후산천어 너무비싸 보수안으로 업데이트",
+    "owner_nominal": 16000,
+    "verification": "docs/qa/valley-prices/VERIFICATION.json"
+  },
+  "owner_gauge": {
+    "rules_approved": true,
+    "implementation": "verified_reservoir_and_valley; later region catalog pending",
+    "art": "six PixelLab native frames completed, registered and verified; no regeneration",
+    "verification": "docs/qa/owner-gauge-six/VERIFICATION.json",
+    "preview": "docs/previews/owner-six-applied.png",
+    "connection": "docs/PIXELLAB_CONNECTION.md",
+    "art_review": "docs/qa/owner-gauge-six/ART_VERIFICATION.json",
+    "runtime_preview": "docs/previews/owner-runtime-applied.png",
+    "proposal_v2": {
+      "style": "existing region5 curved/oval ornamental frame",
+      "size": [
+        256,
+        48
+      ],
+      "approved_for_generation": true,
+      "applied": true,
+      "status": "runtime_verified",
+      "preview": "docs/previews/owner-v2-proposals.png",
+      "height_comparison": "docs/previews/owner-v2-height-comparison.png",
+      "report": "docs/proposals/owner-gauge-v2/REPORT.md",
+      "verification": "docs/proposals/owner-gauge-v2/VERIFICATION.json",
+      "requests": 6,
+      "outputs": 6,
+      "generation_units": 60,
+      "regenerations": 0,
+      "name_offset_display_px": [
+        3,
+        -2
+      ]
+    }
+  },
+  "pixellab_continuity": {
+    "guide": "docs/PIXELLAB_CONNECTION.md",
+    "connection_verified": true,
+    "startup_policy": "Read fixed guide before plugin search; reuse existing API v2 route; never infer unavailable from missing tool listing",
+    "private_access_instructions": "Read user-owned NAKSHIWORLD_PIXEL_ACCESS_PRIVATE.md by exact title through Library; do not publish its contents",
+    "paid_generation_on_resume": false
+  },
+  "local_recovery": {
+    "entry": "docs/LOCAL_RECOVERY.md",
+    "documentation_location": "active_work_branch",
+    "game_uncommitted_changes_included": true,
+    "generated_images_included": "selected base/moon and final owner frames only",
+    "backup_filename": "NAKSHIWORLD_RESUME_PACKAGE.zip"
+  }
 }

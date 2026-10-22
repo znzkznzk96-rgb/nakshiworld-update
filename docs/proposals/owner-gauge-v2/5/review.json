@@ -1,0 +1,32 @@
+{
+  "status": "pass_for_proposal",
+  "common_style": [
+    "Preferred indigo/silver oval-and-filigree family retained at48px height",
+    "Label and trough remain separate with original cosmic atmosphere"
+  ],
+  "regional_style": "Indigo/lilac nebula inlays, small ivory stars and silver orbital curls.",
+  "notes": [
+    "Wider transparent side margins in native result. Preview fits only the occupied horizontal bounds into the same256px display width as other skins; original PNG is preserved.",
+    "Exact production application still awaits user selection."
+  ],
+  "layout": {
+    "badge": [
+      45,
+      17,
+      28,
+      14
+    ],
+    "label": [
+      93,
+      12,
+      123,
+      10
+    ],
+    "track": [
+      92,
+      28,
+      124,
+      8
+    ]
+  }
+}

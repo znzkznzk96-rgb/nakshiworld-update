@@ -1,0 +1,586 @@
+{
+  "seed": 20261022,
+  "draws_per_cohort": 1000000,
+  "cohorts": 6,
+  "bait_profiles": 2,
+  "nominal_definition": "normal grade, mean species length, enhancement+0",
+  "assumptions": [
+    "Prices conditional on successful landing; allGREAT hook assumed; no fight loss",
+    "Current star weights and pond-stock gating; uniform species within star",
+    "Current grade odds tilted by bait multiplier; truncated normal length relative to species mean",
+    "No owner frequency included; owner accumulation rule unapproved",
+    "No aquarium income, donations, cleaning diversion, journey times or progression days in net-per-landed-fish metric",
+    "Current source uses identical regional slot prices, without legacy2.5 multiplier"
+  ],
+  "species": [
+    {
+      "star": 1,
+      "species": "버들치",
+      "current_nominal": 10,
+      "conservative": 25,
+      "balanced": 30,
+      "generous": 35
+    },
+    {
+      "star": 1,
+      "species": "쉬리",
+      "current_nominal": 13,
+      "conservative": 35,
+      "balanced": 45,
+      "generous": 55
+    },
+    {
+      "star": 1,
+      "species": "조약돌고기",
+      "current_nominal": 16,
+      "conservative": 45,
+      "balanced": 55,
+      "generous": 65
+    },
+    {
+      "star": 1,
+      "species": "나뭇잎꼬리",
+      "current_nominal": 19,
+      "conservative": 50,
+      "balanced": 60,
+      "generous": 70
+    },
+    {
+      "star": 1,
+      "species": "오름피라미",
+      "current_nominal": 21,
+      "conservative": 30,
+      "balanced": 40,
+      "generous": 50
+    },
+    {
+      "star": 1,
+      "species": "물방울송사리",
+      "current_nominal": 24,
+      "conservative": 30,
+      "balanced": 35,
+      "generous": 40
+    },
+    {
+      "star": 1,
+      "species": "거꾸로미꾸리",
+      "current_nominal": 27,
+      "conservative": 50,
+      "balanced": 65,
+      "generous": 80
+    },
+    {
+      "star": 1,
+      "species": "이끼붕어",
+      "current_nominal": 30,
+      "conservative": 55,
+      "balanced": 70,
+      "generous": 85
+    },
+    {
+      "star": 2,
+      "species": "산천어",
+      "current_nominal": 50,
+      "conservative": 130,
+      "balanced": 160,
+      "generous": 190
+    },
+    {
+      "star": 2,
+      "species": "송어",
+      "current_nominal": 64,
+      "conservative": 145,
+      "balanced": 180,
+      "generous": 215
+    },
+    {
+      "star": 2,
+      "species": "열목어",
+      "current_nominal": 78,
+      "conservative": 175,
+      "balanced": 220,
+      "generous": 265
+    },
+    {
+      "star": 2,
+      "species": "폭포오름잉어",
+      "current_nominal": 92,
+      "conservative": 225,
+      "balanced": 280,
+      "generous": 335
+    },
+    {
+      "star": 2,
+      "species": "구름피라미",
+      "current_nominal": 106,
+      "conservative": 150,
+      "balanced": 190,
+      "generous": 230
+    },
+    {
+      "star": 2,
+      "species": "돌등고기",
+      "current_nominal": 120,
+      "conservative": 195,
+      "balanced": 245,
+      "generous": 295
+    },
+    {
+      "star": 3,
+      "species": "무지개송어",
+      "current_nominal": 200,
+      "conservative": 480,
+      "balanced": 600,
+      "generous": 720
+    },
+    {
+      "star": 3,
+      "species": "황쏘가리",
+      "current_nominal": 275,
+      "conservative": 560,
+      "balanced": 700,
+      "generous": 840
+    },
+    {
+      "star": 3,
+      "species": "하늘연어",
+      "current_nominal": 350,
+      "conservative": 610,
+      "balanced": 760,
+      "generous": 910
+    },
+    {
+      "star": 4,
+      "species": "거꾸로잉어",
+      "current_nominal": 1000,
+      "conservative": 2240,
+      "balanced": 2800,
+      "generous": 3360
+    },
+    {
+      "star": 4,
+      "species": "구름메기",
+      "current_nominal": 1500,
+      "conservative": 2760,
+      "balanced": 3450,
+      "generous": 4140
+    },
+    {
+      "star": 5,
+      "species": "배후의 산천어",
+      "current_nominal": 8000,
+      "conservative": 16000,
+      "balanced": 20000,
+      "generous": 24000
+    }
+  ],
+  "price_sensitivity": [
+    {
+      "parts": 0,
+      "stock_ratio": 1.0,
+      "bait_cost": 10,
+      "candidate": "current_no_region_multiplier",
+      "mean_sale": 21.947,
+      "mean_sale_less_one_bait": 11.947
+    },
+    {
+      "parts": 0,
+      "stock_ratio": 1.0,
+      "bait_cost": 10,
+      "candidate": "conservative",
+      "mean_sale": 43.874,
+      "mean_sale_less_one_bait": 33.874
+    },
+    {
+      "parts": 0,
+      "stock_ratio": 1.0,
+      "bait_cost": 10,
+      "candidate": "balanced",
+      "mean_sale": 54.844,
+      "mean_sale_less_one_bait": 44.844
+    },
+    {
+      "parts": 0,
+      "stock_ratio": 1.0,
+      "bait_cost": 10,
+      "candidate": "generous",
+      "mean_sale": 65.815,
+      "mean_sale_less_one_bait": 55.815
+    },
+    {
+      "parts": 0,
+      "stock_ratio": 1.0,
+      "bait_cost": 60,
+      "candidate": "current_no_region_multiplier",
+      "mean_sale": 22.626,
+      "mean_sale_less_one_bait": -37.374
+    },
+    {
+      "parts": 0,
+      "stock_ratio": 1.0,
+      "bait_cost": 60,
+      "candidate": "conservative",
+      "mean_sale": 45.233,
+      "mean_sale_less_one_bait": -14.767
+    },
+    {
+      "parts": 0,
+      "stock_ratio": 1.0,
+      "bait_cost": 60,
+      "candidate": "balanced",
+      "mean_sale": 56.542,
+      "mean_sale_less_one_bait": -3.458
+    },
+    {
+      "parts": 0,
+      "stock_ratio": 1.0,
+      "bait_cost": 60,
+      "candidate": "generous",
+      "mean_sale": 67.851,
+      "mean_sale_less_one_bait": 7.851
+    },
+    {
+      "parts": 1,
+      "stock_ratio": 1.0,
+      "bait_cost": 10,
+      "candidate": "current_no_region_multiplier",
+      "mean_sale": 43.541,
+      "mean_sale_less_one_bait": 33.541
+    },
+    {
+      "parts": 1,
+      "stock_ratio": 1.0,
+      "bait_cost": 10,
+      "candidate": "conservative",
+      "mean_sale": 87.052,
+      "mean_sale_less_one_bait": 77.052
+    },
+    {
+      "parts": 1,
+      "stock_ratio": 1.0,
+      "bait_cost": 10,
+      "candidate": "balanced",
+      "mean_sale": 108.812,
+      "mean_sale_less_one_bait": 98.812
+    },
+    {
+      "parts": 1,
+      "stock_ratio": 1.0,
+      "bait_cost": 10,
+      "candidate": "generous",
+      "mean_sale": 130.573,
+      "mean_sale_less_one_bait": 120.573
+    },
+    {
+      "parts": 1,
+      "stock_ratio": 1.0,
+      "bait_cost": 60,
+      "candidate": "current_no_region_multiplier",
+      "mean_sale": 44.914,
+      "mean_sale_less_one_bait": -15.086
+    },
+    {
+      "parts": 1,
+      "stock_ratio": 1.0,
+      "bait_cost": 60,
+      "candidate": "conservative",
+      "mean_sale": 89.801,
+      "mean_sale_less_one_bait": 29.801
+    },
+    {
+      "parts": 1,
+      "stock_ratio": 1.0,
+      "bait_cost": 60,
+      "candidate": "balanced",
+      "mean_sale": 112.25,
+      "mean_sale_less_one_bait": 52.25
+    },
+    {
+      "parts": 1,
+      "stock_ratio": 1.0,
+      "bait_cost": 60,
+      "candidate": "generous",
+      "mean_sale": 134.699,
+      "mean_sale_less_one_bait": 74.699
+    },
+    {
+      "parts": 2,
+      "stock_ratio": 1.0,
+      "bait_cost": 10,
+      "candidate": "current_no_region_multiplier",
+      "mean_sale": 67.157,
+      "mean_sale_less_one_bait": 57.157
+    },
+    {
+      "parts": 2,
+      "stock_ratio": 1.0,
+      "bait_cost": 10,
+      "candidate": "conservative",
+      "mean_sale": 134.333,
+      "mean_sale_less_one_bait": 124.333
+    },
+    {
+      "parts": 2,
+      "stock_ratio": 1.0,
+      "bait_cost": 10,
+      "candidate": "balanced",
+      "mean_sale": 167.833,
+      "mean_sale_less_one_bait": 157.833
+    },
+    {
+      "parts": 2,
+      "stock_ratio": 1.0,
+      "bait_cost": 10,
+      "candidate": "generous",
+      "mean_sale": 201.334,
+      "mean_sale_less_one_bait": 191.334
+    },
+    {
+      "parts": 2,
+      "stock_ratio": 1.0,
+      "bait_cost": 60,
+      "candidate": "current_no_region_multiplier",
+      "mean_sale": 69.146,
+      "mean_sale_less_one_bait": 9.146
+    },
+    {
+      "parts": 2,
+      "stock_ratio": 1.0,
+      "bait_cost": 60,
+      "candidate": "conservative",
+      "mean_sale": 138.326,
+      "mean_sale_less_one_bait": 78.326
+    },
+    {
+      "parts": 2,
+      "stock_ratio": 1.0,
+      "bait_cost": 60,
+      "candidate": "balanced",
+      "mean_sale": 172.821,
+      "mean_sale_less_one_bait": 112.821
+    },
+    {
+      "parts": 2,
+      "stock_ratio": 1.0,
+      "bait_cost": 60,
+      "candidate": "generous",
+      "mean_sale": 207.316,
+      "mean_sale_less_one_bait": 147.316
+    },
+    {
+      "parts": 3,
+      "stock_ratio": 1.0,
+      "bait_cost": 10,
+      "candidate": "current_no_region_multiplier",
+      "mean_sale": 91.07,
+      "mean_sale_less_one_bait": 81.07
+    },
+    {
+      "parts": 3,
+      "stock_ratio": 1.0,
+      "bait_cost": 10,
+      "candidate": "conservative",
+      "mean_sale": 182.159,
+      "mean_sale_less_one_bait": 172.159
+    },
+    {
+      "parts": 3,
+      "stock_ratio": 1.0,
+      "bait_cost": 10,
+      "candidate": "balanced",
+      "mean_sale": 227.612,
+      "mean_sale_less_one_bait": 217.612
+    },
+    {
+      "parts": 3,
+      "stock_ratio": 1.0,
+      "bait_cost": 10,
+      "candidate": "generous",
+      "mean_sale": 273.065,
+      "mean_sale_less_one_bait": 263.065
+    },
+    {
+      "parts": 3,
+      "stock_ratio": 1.0,
+      "bait_cost": 60,
+      "candidate": "current_no_region_multiplier",
+      "mean_sale": 93.805,
+      "mean_sale_less_one_bait": 33.805
+    },
+    {
+      "parts": 3,
+      "stock_ratio": 1.0,
+      "bait_cost": 60,
+      "candidate": "conservative",
+      "mean_sale": 187.643,
+      "mean_sale_less_one_bait": 127.643
+    },
+    {
+      "parts": 3,
+      "stock_ratio": 1.0,
+      "bait_cost": 60,
+      "candidate": "balanced",
+      "mean_sale": 234.464,
+      "mean_sale_less_one_bait": 174.464
+    },
+    {
+      "parts": 3,
+      "stock_ratio": 1.0,
+      "bait_cost": 60,
+      "candidate": "generous",
+      "mean_sale": 281.285,
+      "mean_sale_less_one_bait": 221.285
+    },
+    {
+      "parts": 3,
+      "stock_ratio": 0.3,
+      "bait_cost": 10,
+      "candidate": "current_no_region_multiplier",
+      "mean_sale": 35.686,
+      "mean_sale_less_one_bait": 25.686
+    },
+    {
+      "parts": 3,
+      "stock_ratio": 0.3,
+      "bait_cost": 10,
+      "candidate": "conservative",
+      "mean_sale": 71.338,
+      "mean_sale_less_one_bait": 61.338
+    },
+    {
+      "parts": 3,
+      "stock_ratio": 0.3,
+      "bait_cost": 10,
+      "candidate": "balanced",
+      "mean_sale": 89.16,
+      "mean_sale_less_one_bait": 79.16
+    },
+    {
+      "parts": 3,
+      "stock_ratio": 0.3,
+      "bait_cost": 10,
+      "candidate": "generous",
+      "mean_sale": 106.981,
+      "mean_sale_less_one_bait": 96.981
+    },
+    {
+      "parts": 3,
+      "stock_ratio": 0.3,
+      "bait_cost": 60,
+      "candidate": "current_no_region_multiplier",
+      "mean_sale": 36.813,
+      "mean_sale_less_one_bait": -23.187
+    },
+    {
+      "parts": 3,
+      "stock_ratio": 0.3,
+      "bait_cost": 60,
+      "candidate": "conservative",
+      "mean_sale": 73.591,
+      "mean_sale_less_one_bait": 13.591
+    },
+    {
+      "parts": 3,
+      "stock_ratio": 0.3,
+      "bait_cost": 60,
+      "candidate": "balanced",
+      "mean_sale": 91.973,
+      "mean_sale_less_one_bait": 31.973
+    },
+    {
+      "parts": 3,
+      "stock_ratio": 0.3,
+      "bait_cost": 60,
+      "candidate": "generous",
+      "mean_sale": 110.357,
+      "mean_sale_less_one_bait": 50.357
+    },
+    {
+      "parts": 3,
+      "stock_ratio": 0.0,
+      "bait_cost": 10,
+      "candidate": "current_no_region_multiplier",
+      "mean_sale": 21.92,
+      "mean_sale_less_one_bait": 11.92
+    },
+    {
+      "parts": 3,
+      "stock_ratio": 0.0,
+      "bait_cost": 10,
+      "candidate": "conservative",
+      "mean_sale": 43.857,
+      "mean_sale_less_one_bait": 33.857
+    },
+    {
+      "parts": 3,
+      "stock_ratio": 0.0,
+      "bait_cost": 10,
+      "candidate": "balanced",
+      "mean_sale": 54.821,
+      "mean_sale_less_one_bait": 44.821
+    },
+    {
+      "parts": 3,
+      "stock_ratio": 0.0,
+      "bait_cost": 10,
+      "candidate": "generous",
+      "mean_sale": 65.783,
+      "mean_sale_less_one_bait": 55.783
+    },
+    {
+      "parts": 3,
+      "stock_ratio": 0.0,
+      "bait_cost": 60,
+      "candidate": "current_no_region_multiplier",
+      "mean_sale": 22.582,
+      "mean_sale_less_one_bait": -37.418
+    },
+    {
+      "parts": 3,
+      "stock_ratio": 0.0,
+      "bait_cost": 60,
+      "candidate": "conservative",
+      "mean_sale": 45.182,
+      "mean_sale_less_one_bait": -14.818
+    },
+    {
+      "parts": 3,
+      "stock_ratio": 0.0,
+      "bait_cost": 60,
+      "candidate": "balanced",
+      "mean_sale": 56.476,
+      "mean_sale_less_one_bait": -3.524
+    },
+    {
+      "parts": 3,
+      "stock_ratio": 0.0,
+      "bait_cost": 60,
+      "candidate": "generous",
+      "mean_sale": 67.769,
+      "mean_sale_less_one_bait": 7.769
+    }
+  ],
+  "bundle_examples": [
+    {
+      "candidate": "conservative",
+      "base_owner": 16000,
+      "owner_normal_donation": 24000,
+      "owner_mythic_donation": 72000,
+      "side_normal_average_size_donation": 1092
+    },
+    {
+      "candidate": "balanced",
+      "base_owner": 20000,
+      "owner_normal_donation": 30000,
+      "owner_mythic_donation": 90000,
+      "side_normal_average_size_donation": 1356
+    },
+    {
+      "candidate": "generous",
+      "base_owner": 24000,
+      "owner_normal_donation": 36000,
+      "owner_mythic_donation": 108000,
+      "side_normal_average_size_donation": 1620
+    }
+  ]
+}

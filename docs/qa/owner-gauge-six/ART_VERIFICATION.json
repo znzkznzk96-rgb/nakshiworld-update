@@ -1,0 +1,200 @@
+{
+  "paid_request_count": 6,
+  "output_count": 6,
+  "generation_units": 60,
+  "no_regeneration": true,
+  "regions": [
+    {
+      "area": 0,
+      "region": "동네 저수지",
+      "job": "502b1f07-d3ff-49b3-92e6-5b84450dc015",
+      "sha256": "d89373954743f5affa2bc318ce3989e8011bb2466f15db7c77c2572d45fb40ad",
+      "usage": {
+        "usd": 0.0,
+        "type": "generations",
+        "generations": 10
+      },
+      "quality": "pass",
+      "layout": {
+        "badge": [
+          35,
+          23,
+          51,
+          30
+        ],
+        "label": [
+          94,
+          23,
+          125,
+          15
+        ],
+        "track": [
+          94,
+          47,
+          125,
+          7
+        ]
+      }
+    },
+    {
+      "area": 1,
+      "region": "거꾸로 폭포 계곡",
+      "job": "394c5d75-f78f-4968-a0c4-79899105f122",
+      "sha256": "7941e99664e31857bd3335b7d700e1a81b3aedeb12021097875b5ba4d3320f3a",
+      "usage": {
+        "usd": 0.0,
+        "type": "generations",
+        "generations": 10
+      },
+      "quality": "pass",
+      "layout": {
+        "badge": [
+          25,
+          25,
+          44,
+          27
+        ],
+        "label": [
+          80,
+          25,
+          152,
+          17
+        ],
+        "track": [
+          80,
+          48,
+          152,
+          6
+        ]
+      }
+    },
+    {
+      "area": 2,
+      "region": "타일 바다",
+      "job": "22f185b7-a4de-4ef3-83cc-d894a776ab7a",
+      "sha256": "e12c82130ea26628daf2014aa5cc85151cdb8ba82716fb2d37588c0cbf411fab",
+      "usage": {
+        "usd": 0.0,
+        "type": "generations",
+        "generations": 10
+      },
+      "quality": "pass",
+      "layout": {
+        "badge": [
+          35,
+          21,
+          38,
+          22
+        ],
+        "label": [
+          91,
+          19,
+          135,
+          15
+        ],
+        "track": [
+          89,
+          43,
+          139,
+          5
+        ]
+      }
+    },
+    {
+      "area": 3,
+      "region": "균열 해역",
+      "job": "f846bb7f-30ba-44de-ba73-efa9b84fa56e",
+      "sha256": "70cee1d1a0dd089231bee9152e68a47513ca875538a84049f1daaa09e3d8e256",
+      "usage": {
+        "usd": 0.0,
+        "type": "generations",
+        "generations": 10
+      },
+      "quality": "pass",
+      "layout": {
+        "badge": [
+          30,
+          25,
+          36,
+          16
+        ],
+        "label": [
+          82,
+          22,
+          148,
+          13
+        ],
+        "track": [
+          82,
+          40,
+          150,
+          6
+        ]
+      }
+    },
+    {
+      "area": 4,
+      "region": "심해",
+      "job": "0f61508c-92a1-450d-9742-5261d60be242",
+      "sha256": "9ee304b4ed010f33d187ed34c1e3315f72a85c7507f25647a6daf2c7e98bf382",
+      "usage": {
+        "usd": 0.0,
+        "type": "generations",
+        "generations": 10
+      },
+      "quality": "pass",
+      "layout": {
+        "badge": [
+          26,
+          25,
+          46,
+          24
+        ],
+        "label": [
+          101,
+          23,
+          132,
+          15
+        ],
+        "track": [
+          96,
+          48,
+          141,
+          5
+        ]
+      }
+    },
+    {
+      "area": 5,
+      "region": "우주 바다",
+      "job": "bdd9ad7c-654e-4b74-9fb7-2bb5282e5ab6",
+      "sha256": "a7af1c8aac530f18351210c3ac58df6e04dd87cd162f713de29da3dc06224a79",
+      "usage": {
+        "usd": 0.0,
+        "type": "generations",
+        "generations": 10
+      },
+      "quality": "pass",
+      "layout": {
+        "badge": [
+          24,
+          23,
+          36,
+          20
+        ],
+        "label": [
+          80,
+          16,
+          156,
+          13
+        ],
+        "track": [
+          78,
+          36,
+          159,
+          10
+        ]
+      }
+    }
+  ]
+}

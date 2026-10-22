@@ -56,6 +56,7 @@ var fonts: = []
 const FONT_PX: = [10, 12, 14, 16]
 const FONT_SC: = [1.0, 1.0, 1.0, 1.0]
 var text_layer: Node2D
+var owner_ui = preload("res://addons/reservoir/owner_gauge_ui.gd").new()
 var ui_demo: = false
 var ui_commands: = []
 var text_items: = []
@@ -77,6 +78,7 @@ const BAG_CAP: = [0.5, 1.5, 3.0, 6.0, 12.0, 20.0, 30.0, 45.0, 65.0]
 const BAG_PRICE: = [0, 150, 800, 4000, 20000, 80000, 300000, 1200000, 5000000]
 const PRICE_BASE: = [[10, 30], [50, 120], [200, 350], [1000, 1500], [8000, 8000]]
 const PRICE_GRADE: = [1.0, 1.3, 1.7, 2.2, 3.0]
+const VALLEY_PRICE: = [25, 35, 45, 50, 30, 30, 50, 55, 130, 145, 175, 225, 150, 195, 480, 560, 610, 2240, 2760, 16000]
 var bag: = []
 var bag_lv: = 0
 var tips_seen: = []
@@ -99,6 +101,7 @@ var mailbox = preload("res://addons/reservoir/mailbox.gd").new()
 var drag_player: AudioStreamPlayer
 var equipment = preload("res://addons/reservoir/equipment.gd").new()
 var lesson_clock := 0.0
+var buyback = preload("res://addons/reservoir/buyback.gd").new()
 var inventory = preload("res://addons/reservoir/inventory.gd").new()
 var spots = preload("res://addons/reservoir/spot_selection.gd").new()
 var catch_counts: = {}
@@ -339,13 +342,15 @@ func _layout() -> void :
 		environment.layout(self)
 		for r in fx_rid: RenderingServer.canvas_item_set_transform(r,Transform2D.IDENTITY)
 		return
-	SURF = 217;WATER = 273;PY = 179;CATY = 204;PX = 22;CATX = 0
-	var extra: = vs.y - bot_pad - 137.0 - 447.0
-	var dw: = minf(roundf(extra * 0.3), 36.0) if extra > 0 else maxf(extra, -64.0)
-	oy = maxf(0.0, extra - dw)
-	uw_bot = 447.0 + dw
+	oy = 0.0
+	var map_scale: float = maxf(vs.x / environment.SOURCE.x, vs.y / environment.SOURCE.y)
+	var plate_top: float = (vs.y - environment.SOURCE.y * map_scale) * 0.5
+	SURF = roundi(plate_top + environment.DECK_Y * map_scale)
+	WATER = roundi(plate_top + environment.WATER_Y * map_scale)
+	uw_bot = minf(plate_top + environment.SAND_Y * map_scale, vs.y - bot_pad - 137.0)
+	PY = SURF - 57;CATY = SURF - 32;PX = 50;CATX = 29
 	environment.layout(self)
-	for r in fx_rid: RenderingServer.canvas_item_set_transform(r, Transform2D(0.0, Vector2(0, oy)))
+	for r in fx_rid: RenderingServer.canvas_item_set_transform(r, Transform2D.IDENTITY)
 
 func _pixel_font(p: String) -> FontFile:
 	var fo: FontFile = load(p)
@@ -420,13 +425,11 @@ func start_cast() -> void :
 		show_tip("", "가방의 인벤토리에서 낚싯대를 장착해 주세요")
 		return
 	pond_stock = maxf(0.0, pond_stock - 1.0)
-	S = {"phase": "cast", "t": 0.0, "owner_for_cast":progression.owner_ready(self,active_region)}
-	if TUT.done and not S.owner_for_cast: progression.fishing_event(self,active_region,"cast")
+	S = {"phase": "cast", "t": 0.0}
 	set_anim("cast", false);msg = "";audio_feedback.sound(self,"cast",-6)
 	_save_game()
 
 func start_wait() -> void :
-	var owner_for_cast: bool = bool(S.get("owner_for_cast",progression.owner_ready(self,active_region)))
 	var bait_multiplier: float = region_shop.take_bait(self)
 	var bare: bool = bait_multiplier < 1.0
 	var sp_w: = []
@@ -443,9 +446,9 @@ func start_wait() -> void :
 	var gp: = []
 	for i in 5: gp.append(GRADE_P[i] * pow(bait_multiplier, i))
 	S = {"phase": "wait", "star": pick(sp_w), "grade": pick(gp), "fakes": [], "bare": bare}
-	S.owner = TUT.done and owner_for_cast and progression.owner_ready(self,active_region)
+	# The owner is confirmed only after a successful hook judgement.
+	S.owner = false
 	S.owner_region = active_region
-	if S.owner: S.star = 4
 	S.lf = clampf(1.0 + gauss() * 0.15, 0.5, 1.65)
 	S.size = 0 if S.lf < 0.9 else (1 if S.lf < 1.15 else (2 if S.lf < 1.35 else 3))
 	var list: Array = CATALOG.by_star(active_region,S.star)
@@ -494,6 +497,12 @@ func hook_tap() -> void :
 	else:
 		S.judge = "MISS";S.grade = max(0, S.grade - 1);show_judge("MISS")
 	if S.get("tutFish", false): S.grade = 0
+	if S.judge != "MISS" and TUT.done and progression.owner_ready(self,active_region):
+		S.owner = true;S.owner_region = active_region;S.star = 4
+		S.sp = CATALOG.by_star(active_region,4)[0]
+		S.lf = sample_length_cm(S.sp) / float(FISH_LEN[S.sp])
+		S.size = 0 if S.lf < 0.9 else (1 if S.lf < 1.15 else (2 if S.lf < 1.35 else 3))
+		holding = false;buzz([160,80,160]);audio_feedback.sound(self,"tension",-4)
 	S.len = FISH_LEN[S.sp] * S.lf
 	S.phase = "pre";S.t = 0.0;msg = ""
 	visibility_flash = 0.9 if S.judge != "MISS" else 0.0
@@ -1096,10 +1105,12 @@ func _unhandled_input(e: InputEvent) -> void :
 	if mailbox.opened:
 		if e is InputEventMouseButton and e.button_index == MOUSE_BUTTON_LEFT and e.pressed: mailbox.press(self, e.position - Vector2(ox, 0))
 		return
+	if inventory.list_view.input_event(self,e): return
 	if not V.commerce.pending.is_empty() or inventory.selected >= 0:
 		if e is InputEventMouseButton and e.button_index == MOUSE_BUTTON_LEFT and e.pressed: press(e.position - Vector2(ox, 0))
 		return
 	if scene == "spots" and spots.input_event(self, e): return
+	if scene == "village" and buyback.input_event(self,e): return
 	if scene == "village" and V.input_event(self, e): return
 	if e is InputEventMouseButton and e.button_index == MOUSE_BUTTON_LEFT:
 		if e.pressed: press(e.position - Vector2(ox, 0))
@@ -1222,7 +1233,7 @@ func _process(dt: float) -> void :
 			if star_hist.size() > 5: star_hist.pop_back()
 		"pre":
 			S.t += dt
-			if S.t > 0.65: start_fight()
+			if S.t > (3.0 if S.get("owner",false) else 0.65): start_fight()
 		"fight":
 			update_fight(dt * time_scale())
 			if S.phase == "fight": set_anim("reel" if holding else "idle")
@@ -1832,6 +1843,7 @@ func _aura_col(g: int, t: float, a: float, k: = 0) -> Color:
 
 func _exit_tree() -> void :
 	environment.valley.dispose()
+	environment.dispose()
 	audio_feedback.dispose()
 	title_screen.dispose()
 	if environment.layer:
@@ -2222,6 +2234,7 @@ func _draw_ui(t: float, h: float) -> void :
 	right -= 14;_ui_texture(icons["coin_s"], Vector2(right, ty - 10))
 	_text(environment.clock_label(), Vector2(bx + 10, ty), 10 if scene == "village" else 12, hc, false, 96 if scene == "village" else right - bx - 34)
 	_draw_weight(top_y + tex_hud_bar.get_height() + 1)
+	if scene == "fish": owner_ui.draw(self)
 	if scene == "village":
 		V.draw_bottom(self, h)
 		if V.shop == "" and not market_open and not settings_open:
@@ -2241,10 +2254,10 @@ func _draw_ui(t: float, h: float) -> void :
 			_text(msg, Vector2(VW / 2.0, y0 - 14), 9, Color("382619"), true, 238)
 	elif S.phase == "idle" and not menu_open:
 		var alpha := 0.5 - 0.5 * cos(ui_clock * TAU / 3.2)
-		var prompt_y := clampf(oy + 150.0, top_y + 125.0, h * 0.41)
+		var prompt_y := clampf(oy + 150.0, top_y + (156.0 if owner_ui.visible(self) else 125.0), h * 0.41)
 		_text("탭해서 캐스팅 하기", Vector2(135, prompt_y), 14, Color(1.0, 0.96, 0.83, alpha), true, 246, true)
 	elif S.phase in ["wait", "hook", "pre"] and msg != "" and not menu_open:
-		_text(msg, Vector2(135, top_y + 112), 11, Color("fff3d7"), true, 246, true)
+		_text(msg, Vector2(135, top_y + (156.0 if owner_ui.visible(self) else 112.0)), 11, Color("fff3d7"), true, 246, true)
 	if S.phase == "catch": _draw_catch(t)
 	if S.phase == "result":
 		_draw_result(t)
@@ -2254,8 +2267,8 @@ func _draw_ui(t: float, h: float) -> void :
 func _draw_notes() -> void :
 
 	if S.phase in ["fail", "result"]: return
-	if tip_t > 0:
-		var tip_y: = top_y + 164.0 if scene == "village" else (top_y + 150.0 if S.phase == "fight" else top_y + 74.0)
+	if tip_t > 0 and not (S.phase=="pre" and S.get("owner",false)):
+		var tip_y: = top_y + 164.0 if scene == "village" else (top_y + 150.0 if S.phase == "fight" else top_y + (146.0 if owner_ui.visible(self) else 74.0))
 		var body: = _ui_wrap(tip_txt, 12, 218, 2)
 		var lines: = body.split("\n").size()
 		_ui_style_box(sb_chip, Rect2(12, tip_y, 246, 34 if lines == 1 else 50))
@@ -2378,6 +2391,7 @@ func fish_price(sp: int, star: int, grade: int, lf: float) -> int:
 	var list: Array = CATALOG.by_star(CATALOG.region(sp),star)
 	var b: Array = PRICE_BASE[star]
 	var base: = lerpf(b[0], b[1], float(list.find(sp)) / maxf(1.0, list.size() - 1.0))
+	if sp >= 20 and sp < 40: base = float(VALLEY_PRICE[sp - 20])
 	return int(round(base * PRICE_GRADE[grade] * minf(lf * lf, 2.5) * (1.0 + 0.05 * forge_lv)))
 
 func keep_fish() -> void :
@@ -2396,7 +2410,8 @@ func _after_choice() -> void :
 
 func sell_all() -> void :
 	var g: = 0
-	for f in bag_items(): g += int(f.price)
+	for f in bag_items():
+		g += int(f.price);buyback.remember(f)
 	if g == 0: return
 	gold += g;bag.clear();_save_game()
 	play("catch");buzz([40, 40, 80]);show_toast("+%d 비늘" % g, Color("ffd24a"))
@@ -2501,7 +2516,7 @@ func _draw_title(_t: float, h: float) -> void :
 const SAVE_VER: = 1
 func _save_game() -> void :
 	if resetting or development_preview: return
-	var ok: bool = preload("res://addons/reservoir/save_store.gd").write("user://save.json", {"regional_progress":progression.serialize(),"active_region":active_region,"region_shop": region_shop.serialize(), "equipment": equipment.serialize(), "mail_read": mailbox.read_ids, "mail_deleted": mailbox.deleted_ids, "v": SAVE_VER, "gold": gold, "pearl": pearl, "bag": bag_items(), "bag_lv": bag_lv, "parts": parts_owned, "tips": tips_seen,
+	var ok: bool = preload("res://addons/reservoir/save_store.gd").write("user://save.json", {"buyback":buyback.serialize(),"regional_progress":progression.serialize(),"active_region":active_region,"region_shop": region_shop.serialize(), "equipment": equipment.serialize(), "mail_read": mailbox.read_ids, "mail_deleted": mailbox.deleted_ids, "v": SAVE_VER, "gold": gold, "pearl": pearl, "bag": bag_items(), "bag_lv": bag_lv, "parts": parts_owned, "tips": tips_seen,
 		"town_zoom": V.zoom, "boat_lv": boat_lv, "town_lv": town_lv, "forge_lv": forge_lv, "rod_lv": rod_lv, "rod_owned": rod_owned, "rod_enh": rod_enh, "protection_tickets": protection_tickets, "forge_pending": forge_pending, "forge_seen": forge_seen, 
 		"pond_cap_lv": pond_cap_lv, "pond_regen_lv": pond_regen_lv, "pond_stock": pond_stock, 
 		"bait": bait, "souls": souls, "aqua_lv": aqua_lv, "aqua": aqua, "dex": DEX, "catch_counts": catch_counts, "catch_legacy": catch_legacy, "world_time": environment.day_seconds, "time": Time.get_unix_time_from_system()})
@@ -2523,6 +2538,7 @@ func _load_game() -> void :
 	gold = int(d.get("gold", 0));pearl = int(d.get("pearl", 0));bag_lv = int(d.get("bag_lv", 0))
 	region_shop.restore(d.get("region_shop", {}))
 	progression.restore(d.get("regional_progress", {}))
+	buyback.restore(d.get("buyback",{}))
 	active_region = clampi(int(d.get("active_region",0)),0,1)
 	if active_region not in progression.available_regions or not region_shop.is_unlocked(active_region): active_region = 0
 	bag = d.get("bag", []);parts_owned = d.get("parts", []);tips_seen = d.get("tips", [])
@@ -2588,7 +2604,7 @@ func _settle_owner(caught: bool) -> void:
 	S.owner_settled = true
 	var area: int = int(S.get("owner_region",active_region))
 	if S.get("owner",false): progression.settle_owner(area,caught)
-	else: progression.fishing_event(self,area,"catch" if caught else "miss")
+	elif TUT.done: progression.fishing_event(self,area,"catch" if caught else "miss",int(S.get("grade",0)))
 	_save_game()
 
 
@@ -2993,3 +3009,4 @@ func reset_progress() -> void:
 	resetting=true;audio_feedback.stop_all();drag_player.stop();vib_queue.clear();Input.vibrate_handheld(0)
 	_cleanup_reset()
 	get_tree().reload_current_scene()
+

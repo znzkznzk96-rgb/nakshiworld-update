@@ -558,8 +558,8 @@ func _draw_museum(m, r: Rect2, y: float) -> void :
 		if known: rects.rows.append([cell,"species:%d" % sp])
 
 func _draw_work(m, r: Rect2, y: float) -> void :
-	var tabs = [["sell", "팔기"], ["clean", "손질"]]
-	for i in 2:
+	var tabs = [["sell", "팔기"], ["clean", "손질"], ["buyback", "재구매"]]
+	for i in 3:
 		var tb = Rect2(r.position.x + 16 + i * 76, y, 72, 26)
 		m.sb_btn.modulate_color = Color.WHITE if tab == tabs[i][0] else Color(0.7, 0.62, 0.55)
 		m._ui_style_box(m.sb_btn, tb)
@@ -567,6 +567,7 @@ func _draw_work(m, r: Rect2, y: float) -> void :
 		m._text(tabs[i][1], Vector2(tb.get_center().x, y + 17), 10, Color("513b29"), true, 70)
 		rects.rows.append([tb, "tab:" + tabs[i][0]])
 	y += 32
+	if tab=="buyback": m.buyback.draw(self,m,r,y);return
 	m._ui_texture_rect(tool_icons.scale if tab == "sell" else tool_icons.soul, Rect2(r.position.x + 16, y - 3, 16, 16), false)
 	m._text(("보유 비늘 %d" % m.gold) if tab == "sell" else ("물고기의 혼 %d" % m.souls), Vector2(r.position.x + 35, y + 9), 9, Color("382619"))
 	y += 16
@@ -739,10 +740,11 @@ func _act(m, a: String) -> void :
 		"tab": tab = k[1]
 		"sell":
 			var f: Dictionary = m.bag[n]
-			m.gold += int(f.price);m.bag.remove_at(n);m.show_toast("+%d 비늘" % int(f.price), Color("ffd24a"));m.play("catch")
+			m.buyback.remember(f);m.gold += int(f.price);m.bag.remove_at(n);m.show_toast("+%d 비늘" % int(f.price), Color("ffd24a"));m.play("catch")
 		"sellall": m.sell_all()
 		"clean":
 			var f: Dictionary = m.bag[n]
 			m.souls += soul_of(f);m.bag.remove_at(n);m.show_toast("혼 +%d" % soul_of(f), Color("9fd8ff"));m.play("splash_s", -6.0)
 	m.buzz(30)
 	m._save_game()
+

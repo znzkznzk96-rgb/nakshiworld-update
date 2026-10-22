@@ -4,11 +4,15 @@ var tab_rects := {}
 var displayed: = false
 var opened_at: = 0.0
 var selected: = -1
+var selected_grade := -1
+var list_view = preload("res://addons/reservoir/bag_list.gd").new()
 var rects: = {}
 func sync(m) -> void :
-	if m.market_open and not displayed: displayed = true;opened_at = m.ui_clock;selected = -1
+	if m.market_open and not displayed: displayed = true;opened_at = m.ui_clock;selected = -1;selected_grade=-1;list_view.reset()
 	elif not m.market_open: displayed = false
-func open_species(sp: int) -> void : selected = sp
+func open_species(sp: int) -> void : selected = sp;selected_grade=-1
+func open_group(sp: int, grade: int) -> void:
+	selected=sp;selected_grade=grade;list_view.detail_scroll=0
 func counts(m, sp: int, where: String) -> Array:
 	var result: Array = [0, 0, 0, 0, 0]
 	var list: Array = m.bag if where == "bag" else m.aqua
@@ -19,6 +23,7 @@ func label(m, text: String, p: Vector2, width: float, size: int = 9) -> void :
 	m._text(m._ui_wrap(text, size, width, 2), p, size, Color("513b29"), true, width)
 func draw(m) -> void :
 	sync(m)
+	if not m.market_sell and tab=="fish": list_view.draw(m);return
 	var h: float = m.get_viewport_rect().size.y
 	m._ui_rect(Rect2( - m.ox, 0, m.VW + 2 * m.ox, h), Color(0.04, 0.06, 0.1, 0.78))
 	var r: = Rect2(15, roundf(h * 0.5) - 185, 240, 370)
@@ -77,6 +82,7 @@ func draw(m) -> void :
 	_finish(m, first, anchor, scale, k)
 
 func press(m, p: Vector2) -> void :
+	if not m.market_sell and tab=="fish": list_view.press(m,p);return
 	if m.ui_clock - opened_at < 0.2: return
 	if rects.get("close", Rect2()).has_point(p) or not rects.get("panel", Rect2()).has_point(p):
 		m.market_open = false;displayed = false;return
@@ -92,6 +98,7 @@ func press(m, p: Vector2) -> void :
 	if rects.get("close", Rect2()).has_point(p) or not rects.get("panel", Rect2()).has_point(p): m.market_open = false;displayed = false
 func detail(m) -> void :
 	if selected < 0: return
+	if selected_grade>=0: list_view.draw_detail(m);return
 	var sp: int = selected; var h: float = m.get_viewport_rect().size.y
 	m.text_items = m.text_items.filter( func(it): return it[1].y < m.top_y + 70)
 	m._ui_rect(Rect2( - m.ox, 0, m.VW + 2 * m.ox, h), Color(0.025, 0.04, 0.07, 0.82))
@@ -116,6 +123,7 @@ func detail(m) -> void :
 	var close: = Rect2(84, r.end.y - 31, 102, 24);m._ui_style_box(m.sb_btn, close);m._text("닫기", close.get_center() + Vector2(0, 4), 11, Color("513b29"), true, 90)
 	rects.detail = r;rects.detail_close = close
 func detail_press(p: Vector2) -> void :
+	if selected_grade>=0: list_view.detail_press(self,p);return
 	if rects.get("detail_close", Rect2()).has_point(p) or not rects.get("detail", Rect2()).has_point(p): selected = -1
 
 func _finish(m, first: int, anchor: Vector2, scale: Vector2, k: float) -> void:
@@ -123,4 +131,5 @@ func _finish(m, first: int, anchor: Vector2, scale: Vector2, k: float) -> void:
 	for i in range(first, m.text_items.size()):
 		var it: Array = m.text_items[i];it[1] = anchor + (it[1] - anchor) * scale;it[7] *= scale.x
 		var col: Color = it[6];col.a *= smoothstep(0.35, 0.85, k);it[6] = col
+
 

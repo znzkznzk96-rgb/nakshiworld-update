@@ -23,7 +23,19 @@ func run() -> void:
 	check(m.bag[0].sp==20 and m.aqua[1].sp==20 and m.fish_counts(20)[1]==1,"bag aquarium and regional history survive reload")
 	check(m.fish_record_cm(5)>17 and m.fish_record_cm(20)==11.5,"both maximum records survive reload")
 	check(m._fish_display_length(1,2.0,false,32)<m._fish_display_length(1,2.0,false,29),"small cloud minnow remains smaller than trout at same star")
-	check(m.fish_price(20,0,0,1.0)==m.fish_price(0,0,0,1.0),"regional species use correct slot in existing price curve")
+	var valley_prices := [25,35,45,50,30,30,50,55,130,145,175,225,150,195,480,560,610,2240,2760,16000]
+	for sp in range(20,40):
+		var star := 0
+		for s in range(5):
+			if sp in m.CATALOG.by_star(1,s): star=s
+		check(m.fish_price(sp,star,0,1.0)==valley_prices[sp-20],"conservative nominal price %d"%sp)
+		for grade in range(5):
+			for lf in [0.5,1.0,2.0]:
+				check(m.fish_price(sp,star,grade,lf)==int(round(valley_prices[sp-20]*m.PRICE_GRADE[grade]*minf(lf*lf,2.5))),"valley grade and length scaling %d"%sp)
+	check(m.fish_price(19,4,0,1.0)==8000 and m.fish_price(0,0,0,1.0)==10,"reservoir prices unchanged")
+	m.forge_lv=2
+	check(m.fish_price(39,4,0,1.0)==17600,"valley enhancement bonus preserved")
+	m.forge_lv=0
 	check(m.measurement_max_cm(25)==10 and m.measurement_max_cm(28)==60 and m.measurement_max_cm(39)==300,"species-fixed valley ruler ranges")
 	seed(92469)
 	for sp in range(20,40):
@@ -34,23 +46,25 @@ func run() -> void:
 		check(absf(total/1000.0-m.FISH_LEN[sp])<m.FISH_LEN[sp]*0.03,"length centered near planned mean %d"%sp)
 	m.TUT.done=true;m.active_region=0;m.region_shop.unlocked=[0,1];m.pond_stock=80;m.bait=100
 	m.equipment.active_parts=["float","hook","line","reel"];m.progression.owner_gauge=[100.0,33.0,0,0,0,0]
-	m.start_wait();check(m.S.star==4 and m.S.sp==19,"100 gauge makes next fish reservoir owner")
+	m.start_wait();check(not m.S.owner and m.S.star<4,"full gauge waits for successful hook before owner")
+	m.start_hook();m.S.pos=m.S.zc;m.hook_tap();check(m.S.owner and m.S.sp==19,"successful hook confirms reservoir owner")
 	m.fail("test miss");check(m.progression.owner_gauge[0]==70 and m.progression.owner_gauge[1]==33,"owner miss sets only its region to 70")
-	m.progression.owner_gauge[0]=100;m.start_wait();m.S.len=150;m.S.lf=0.75;m.start_catch()
+	m.progression.owner_gauge[0]=100;m.start_wait();m.start_hook();m.S.pos=m.S.zc;m.hook_tap();m.start_catch()
 	check(m.progression.owner_gauge[0]==0,"owner catch resets to zero")
 	m.active_region=1;m.equipment.active_parts=["float","hook","line","reel"];m.progression.owner_gauge[1]=100
-	m.start_wait();check(not m.S.owner and m.S.star==0 and m.S.sp>=20,"other ground parts do not unlock valley owner or stars")
-	m.equipment.active_parts=["r1_float","r1_hook","r1_line","r1_reel"];m.start_wait()
+	m.start_wait();m.start_hook();m.S.pos=m.S.zc;m.hook_tap()
+	check(not m.S.owner and m.S.star==0 and m.S.sp>=20,"other ground parts do not unlock valley owner or stars")
+	m.equipment.active_parts=["r1_float","r1_hook","r1_line","r1_reel"];m.start_wait();m.start_hook();m.S.pos=m.S.zc;m.hook_tap()
 	check(m.S.owner and m.S.sp==39,"correct regional parts enable valley owner")
 	m.fail("test miss");check(m.progression.owner_gauge[1]==70 and m.progression.owner_gauge[0]==0,"valley miss independent from reservoir")
-	m.progression.owner_gauge[1]=0;m.progression.fishing_event(m,1,"catch")
-	check(m.progression.owner_gauge[1]==0,"undefined owner gain never invented")
-	m.progression.owner_rules={"1":{"event":"completed","gain":5}};m.progression.fishing_event(m,1,"catch")
-	check(m.progression.owner_gauge[1]==5,"configured gain supported after design is supplied")
-	m.progression.owner_rules={"1":{"event":"cast","gain":1}};m.progression.owner_gauge[1]=99
-	m.start_cast();m.start_wait();check(m.progression.owner_gauge[1]==100 and not m.S.owner,"cast completing gauge still keeps its regular fish")
-	m.start_cast();m.start_wait();check(m.S.owner and m.S.sp==39,"following cast is owner after gauge completes")
-	m.progression.owner_rules={};m.progression.restore({});m.region_shop.unlocked=[0];m.gold=10000
+	m.progression.owner_gauge[1]=0;m.progression.fishing_event(m,1,"catch",3)
+	check(m.progression.owner_gauge[1]==2,"approved legendary gain is two percentage points")
+	m.progression.owner_gauge[1]=99;m.start_cast();m.start_wait()
+	check(m.progression.owner_gauge[1]==99 and not m.S.owner,"casts do not fill owner gauge")
+	m.progression.fishing_event(m,1,"catch",0)
+	m.start_cast();m.start_wait();m.start_hook();m.S.pos=m.S.zc;m.hook_tap()
+	check(m.S.owner and m.S.sp==39,"next successful hook after gauge fills is owner")
+	m.progression.restore({});m.region_shop.unlocked=[0];m.gold=10000
 	var before: int=m.gold
 	check(not m.region_shop.unlock(m,1) and m.gold==before,"unfinished unlicensed region cannot charge")
 	m.bag=[{"sp":5,"grade":1},{"sp":20,"grade":1},{"sp":5,"grade":0},{"sp":5,"grade":1}]
@@ -71,7 +85,7 @@ func run() -> void:
 	check(v.waterfall_y(2.1,0)<v.waterfall_y(2.0,0),"waterfall streak travels upward")
 	check(v.layers.size()==5,"separate plate cloud waterfall light and reflection layers")
 	m.active_region=0;m._layout();m.environment.show_scene(true)
-	check(not v.root.visible and m.bg_node.visible and m.WATER==273,"return to reservoir restores original anchors and scene")
+	check(not v.root.visible and m.bg_node.visible and m.WATER==roundi(m.environment.point(Vector2(0,m.environment.WATER_Y)).y),"return to reservoir restores reservoir plate anchors and scene")
 	m.V.museum_region=1
 	for sp in range(20,40): m.DEX[m.fish_key(sp)]=[0,1,2,3,4]
 	m.text_items=[];m.ui_commands=[];m.V.rects={"rows":[]}
