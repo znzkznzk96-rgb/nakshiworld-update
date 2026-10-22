@@ -15,3 +15,6 @@
 ## 기준 버전
 
 과거 0.61 백업은 복구 자료일 뿐 최신이 아니다. 실제 운영 버전은 매 작업 시 GitHub Release에서 확인하고 `WORK_STATE.json`과 대조한다.
+
+## 최근 확인된 상태 — 2026-10-22
+**v0.69 공개/운영다운로드 검증 완료.** 활성 개발 work/valley-runtime. 계곡 리소스/도감/backend 포함, 실제 입장/기증/미정 수치는 준비 중. 휴대폰 적용 미확인. docs/RELEASE_069_VERIFICATION.json과 최신 HANDOFF를 읽고 이어간다.
