@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "task": "거꾸로 폭포 계곡 통합 및 낚시월드 인수인계 기준",
-  "status": "owner_gauge_verifying",
+  "status": "owner_gauge_verified_art_pending",
   "work_branch": "work/valley-runtime",
   "release_baseline": "v0.69",
   "target_version": "unreleased",
@@ -20,23 +20,23 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-22",
-  "current_task": "주인게이지 지역별 장착조건·포획등급별1/2/3%·훅성공확정·경고·0/70% 규칙 구현",
-  "next_step": "work Actions의14검사와12화면을 확인하고 검증기록. PixelLab신규아트대기, 가격보류, 배포금지.",
+  "current_task": "주인게이지 규칙/저수지·계곡 기능구현·14검사·12주인화면 검수 완료, PixelLab아트대기",
+  "next_step": "PixelLab 접근 가능 시 ART_BRIEF와 승인주인원본으로 저수지1장부터 제작/검수 후 계곡. 가격후보는 보류. 배포금지 유지.",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
   "last_release_deployed": true,
   "this_change": {
-    "scope": "주인게이지 코드·검사 추가",
+    "scope": "주인게이지 기능검증완료·PixelLab아트미완료",
     "game_changed": true,
     "release_created": false,
     "deployment_authorized": false
   },
   "history": "docs/historical/2026-10-22-before-workflow-streamlining/WORK_STATE.json",
-  "work_verification": "docs/qa/bag-list/VERIFICATION.json",
-  "work_source_commit": "fbb25df9160fbaf43b093b27f1e2882c5a00a193",
-  "work_verification_run": 39721130282,
+  "work_verification": "docs/qa/owner-gauge/VERIFICATION.json",
+  "work_source_commit": "2cf254e17673190a79215a854d7148deed7ff6fb",
+  "work_verification_run": 39724731789,
   "backend_source_commit": "fc55b5b07b1cecde6fea9670fd6553423f3b68e2",
   "backend_verification": "docs/qa/bundles-buyback/VERIFICATION.json",
   "bag_proposals": {
@@ -54,8 +54,9 @@
   },
   "owner_gauge": {
     "rules_approved": true,
-    "implementation": "verification_pending",
-    "art": "existing_sprites_functional_layout; PixelLab connection unavailable",
-    "verification": "pending"
+    "implementation": "verified_reservoir_and_valley; later region catalog pending",
+    "art": "PixelLab_pending; existing_sprites_functional_layout",
+    "verification": "docs/qa/owner-gauge/VERIFICATION.json",
+    "preview": "docs/previews/owner-gauge-applied.png"
   }
 }

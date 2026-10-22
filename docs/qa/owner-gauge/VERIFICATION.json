@@ -1,0 +1,78 @@
+{
+  "date": "2026-10-22",
+  "source_commit": "2cf254e17673190a79215a854d7148deed7ff6fb",
+  "branch": "work/valley-runtime",
+  "baseline": "v0.69",
+  "baseline_source_sha256": "00ac432f9c6fac3b4f0a2c7814a97dcd9bd6f511b9b4d703524007e980894566",
+  "godot": "4.4.1",
+  "run_id": 39724731789,
+  "run_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/actions/runs/39724731789",
+  "conclusion": "success",
+  "suites_passed": [
+    "owner_gauge",
+    "bag_list",
+    "bundles_buyback",
+    "equipment",
+    "visual",
+    "guide",
+    "shop",
+    "audio_save",
+    "bundle_preview",
+    "rewards",
+    "reader",
+    "fish_surface",
+    "regional",
+    "inventory_layout"
+  ],
+  "artifact_id": 12402577239,
+  "owner_screens_rendered": 12,
+  "total_screens_rendered": 30,
+  "visual_review": [
+    "0/73/100 percent reservoir and valley",
+    "region name and actual owner sprite",
+    "3 second warning before fight",
+    "warning absent in fight",
+    "short viewport",
+    "gauge hidden without parts"
+  ],
+  "checks": [
+    "final-grade gains 1/1/1/2/3",
+    "cast/miss/sale/buyback/donation no gain",
+    "every missing part and wrong regional parts block gain",
+    "100 clamp and successful GREAT/PERFECT encounter only",
+    "missed bite and hook MISS preserve 100",
+    "owner loss 70 and catch 0 exactly once",
+    "actual save/reload preserves separate progress",
+    "old save defaults and clamp",
+    "existing bag/bundles/buyback/other regressions"
+  ],
+  "source_sha256": {
+    "main.gd": "8b8507bc8f2cc43c968be9a7f0ddf16a12dc0c65e7d4fef9b5088aba340e144e",
+    "addons/reservoir/regional_progress.gd": "cd587d4f8e07192e4fc8c40629a3c82d885db67cf3498061e13043c8d790da09",
+    "addons/reservoir/owner_gauge_ui.gd": "f1a4ec028578022e560826a63d66ad50de4db7c387190cc2b5599c10dc2ef126",
+    "tests/owner_gauge_verify.gd": "6e75ff1e25f8e27175aac79a0358dd0c195fc2368aaf6708337d639d23f0a532",
+    "tests/owner_gauge_preview.gd": "dc42ac41b8c7da742b9bcf5237b941e596b7d636109dfa2fc07c6092643488c7",
+    "tests/regional_verify.gd": "c2913af9a87c5864e046fb8f6d32c220edb93b7fee2fe6069f3c66141a32df95",
+    "tests/bundles_buyback_verify.gd": "a42f534965f7b41f8fa1a48fd50b00d055622da048cdf5ed9218f0b12129d1b0"
+  },
+  "art_status": {
+    "pixellab_generated": false,
+    "reason": "No PixelLab connector or authentication available; plugin search returned no matches",
+    "current": "Existing approved owner sprites with functional code UI",
+    "remaining": "PixelLab regional owner-inspired gauge artwork",
+    "brief": "ART_BRIEF.md"
+  },
+  "limitations": [
+    "No Android phone validation",
+    "Only reservoir and valley have approved implemented owner catalogs; later region entry remains disabled",
+    "Valley actual entry remains disabled pending other balance approval",
+    "Game sale prices unchanged; price proposals paused",
+    "No patch export, release, main update or deployment"
+  ],
+  "failed_attempt": {
+    "run_id": 39724612889,
+    "source": "b69bd9a7b338d8dba69df2ca14d32823459ead6d",
+    "cause": "Owner-test and preview fixture omitted valley unlocked flag. Game code unchanged; corrected fixture to exercise existing regional equipment gate and added actual save reload check."
+  },
+  "deployment_authorized": false
+}
