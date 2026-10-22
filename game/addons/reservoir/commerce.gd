@@ -8,6 +8,11 @@ func quote(v, m, a: String) -> Dictionary:
 	var k = a.split(":"); var n: int = int(k[1]) if k.size() > 1 else 0
 	var q: Dictionary = {"action": a, "currency": "gold", "price": 0, "title": "", "icon": null, "target": 0}
 	match k[0]:
+		"buyback":
+			var entry: Dictionary=m.buyback.find(n)
+			if entry.is_empty(): return {}
+			q.title=m.FISH_NAME[int(entry.fish.sp)]+" · "+m.GRADE_N[int(entry.fish.grade)]+" · %.1fcm"%float(entry.fish.len)
+			q.price=m.buyback.price(entry);q.target=n;q.icon=m.fish_tex[int(entry.fish.sp)]
 		"rpart":
 			if k.size()!=3 or n<0 or n>5 or not m.region_shop.is_unlocked(n): return {}
 			var slot:=int(k[2])
@@ -68,7 +73,10 @@ func confirm(v, m) -> bool:
 	if balance(m, q) < q.price: return false
 
 	pending = {}; var before: = balance(m, q)
-	v._act(m, q.action)
+	if str(q.action).begins_with("buyback:"):
+		if not m.buyback.purchase(m,int(q.target)):
+			notice="보관통과 어깨 공간을 확인해 주세요.";notice_time=m.ui_clock;return false
+	else: v._act(m, q.action)
 	if before - balance(m, q) != int(q.price): return false
 	notice = "%s 구매되었습니다." % q.title;notice_time = m.ui_clock;notice_icon = q.icon;m.toast_t = 0.0
 	return true
@@ -88,7 +96,10 @@ func draw(v, m, h: float) -> void :
 		m._ui_style_box(m.hud_reference_style, Rect2(r.position + Vector2(7, 7), Vector2(216, 31)))
 		m._text("구매 확인", Vector2(135, r.position.y + 28), 14, Color("fff0d1"), true, 200)
 		var icon: Texture2D = pending.icon
-		if icon:
+		if str(pending.action).begins_with("buyback:"):
+			var entry: Dictionary=m.buyback.find(int(pending.target))
+			if not entry.is_empty(): m._ui_fish(int(entry.fish.sp),Rect2(85,r.position.y+49,100,58))
+		elif icon:
 			var master: Texture2D = icon.get_meta("master", icon)
 			var size: Vector2 = master.get_size()
 			if size.x <= 80 and size.y <= 80: m._ui_texture(master, Vector2(135, r.position.y + 82) - size / 2)
@@ -118,3 +129,4 @@ func draw(v, m, h: float) -> void :
 		m.text_items = m.text_items.filter( func(it): return not toast.grow(2).has_point(it[1]))
 		m._ui_style_box(m.hud_reference_style, toast)
 		m._text(m._ui_wrap(notice, 12, 224, 2), Vector2(135, yy + 25), 12, Color(1, 0.94, 0.72, alpha), true, 224, true)
+

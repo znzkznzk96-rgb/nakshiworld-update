@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "task": "거꾸로 폭포 계곡 통합 및 낚시월드 인수인계 기준",
-  "status": "awaiting_design_values",
+  "status": "verification_pending",
   "work_branch": "work/valley-runtime",
   "release_baseline": "v0.69",
   "target_version": "unreleased",
@@ -21,8 +21,8 @@
     "서브 혼 수량·반복 완료 여부·정산 반올림 등 미정. 주인 보상은 판매가150%+2진주(보호권현재1진주/장), 업적보류. 재구매최근10개 확정."
   ],
   "updated_at": "2026-10-22",
-  "current_task": "번들·어시장 재구매 구현 및 검증(배포 금지)",
-  "next_step": "저수지15혼/계곡30혼 확정 저장 후 구현. 신규 공개 Release/배포/버전 변경 금지.",
+  "current_task": "번들·재구매 코드 구현 완료; 격리 전체검사 진행",
+  "next_step": "배포 없는 work 전용 CI 검증 결과 확인 및 필요한 수정. 휴대폰/공개배포 미반영.",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",

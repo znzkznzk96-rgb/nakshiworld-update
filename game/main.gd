@@ -99,6 +99,7 @@ var mailbox = preload("res://addons/reservoir/mailbox.gd").new()
 var drag_player: AudioStreamPlayer
 var equipment = preload("res://addons/reservoir/equipment.gd").new()
 var lesson_clock := 0.0
+var buyback = preload("res://addons/reservoir/buyback.gd").new()
 var inventory = preload("res://addons/reservoir/inventory.gd").new()
 var spots = preload("res://addons/reservoir/spot_selection.gd").new()
 var catch_counts: = {}
@@ -1100,6 +1101,7 @@ func _unhandled_input(e: InputEvent) -> void :
 		if e is InputEventMouseButton and e.button_index == MOUSE_BUTTON_LEFT and e.pressed: press(e.position - Vector2(ox, 0))
 		return
 	if scene == "spots" and spots.input_event(self, e): return
+	if scene == "village" and buyback.input_event(self,e): return
 	if scene == "village" and V.input_event(self, e): return
 	if e is InputEventMouseButton and e.button_index == MOUSE_BUTTON_LEFT:
 		if e.pressed: press(e.position - Vector2(ox, 0))
@@ -2396,7 +2398,8 @@ func _after_choice() -> void :
 
 func sell_all() -> void :
 	var g: = 0
-	for f in bag_items(): g += int(f.price)
+	for f in bag_items():
+		g += int(f.price);buyback.remember(f)
 	if g == 0: return
 	gold += g;bag.clear();_save_game()
 	play("catch");buzz([40, 40, 80]);show_toast("+%d 비늘" % g, Color("ffd24a"))
@@ -2501,7 +2504,7 @@ func _draw_title(_t: float, h: float) -> void :
 const SAVE_VER: = 1
 func _save_game() -> void :
 	if resetting or development_preview: return
-	var ok: bool = preload("res://addons/reservoir/save_store.gd").write("user://save.json", {"regional_progress":progression.serialize(),"active_region":active_region,"region_shop": region_shop.serialize(), "equipment": equipment.serialize(), "mail_read": mailbox.read_ids, "mail_deleted": mailbox.deleted_ids, "v": SAVE_VER, "gold": gold, "pearl": pearl, "bag": bag_items(), "bag_lv": bag_lv, "parts": parts_owned, "tips": tips_seen,
+	var ok: bool = preload("res://addons/reservoir/save_store.gd").write("user://save.json", {"buyback":buyback.serialize(),"regional_progress":progression.serialize(),"active_region":active_region,"region_shop": region_shop.serialize(), "equipment": equipment.serialize(), "mail_read": mailbox.read_ids, "mail_deleted": mailbox.deleted_ids, "v": SAVE_VER, "gold": gold, "pearl": pearl, "bag": bag_items(), "bag_lv": bag_lv, "parts": parts_owned, "tips": tips_seen,
 		"town_zoom": V.zoom, "boat_lv": boat_lv, "town_lv": town_lv, "forge_lv": forge_lv, "rod_lv": rod_lv, "rod_owned": rod_owned, "rod_enh": rod_enh, "protection_tickets": protection_tickets, "forge_pending": forge_pending, "forge_seen": forge_seen, 
 		"pond_cap_lv": pond_cap_lv, "pond_regen_lv": pond_regen_lv, "pond_stock": pond_stock, 
 		"bait": bait, "souls": souls, "aqua_lv": aqua_lv, "aqua": aqua, "dex": DEX, "catch_counts": catch_counts, "catch_legacy": catch_legacy, "world_time": environment.day_seconds, "time": Time.get_unix_time_from_system()})
@@ -2523,6 +2526,7 @@ func _load_game() -> void :
 	gold = int(d.get("gold", 0));pearl = int(d.get("pearl", 0));bag_lv = int(d.get("bag_lv", 0))
 	region_shop.restore(d.get("region_shop", {}))
 	progression.restore(d.get("regional_progress", {}))
+	buyback.restore(d.get("buyback",{}))
 	active_region = clampi(int(d.get("active_region",0)),0,1)
 	if active_region not in progression.available_regions or not region_shop.is_unlocked(active_region): active_region = 0
 	bag = d.get("bag", []);parts_owned = d.get("parts", []);tips_seen = d.get("tips", [])
@@ -2993,3 +2997,4 @@ func reset_progress() -> void:
 	resetting=true;audio_feedback.stop_all();drag_player.stop();vib_queue.clear();Input.vibrate_handheld(0)
 	_cleanup_reset()
 	get_tree().reload_current_scene()
+
