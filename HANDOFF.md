@@ -17,3 +17,6 @@
 
 ## 실패·이력
 검증 도중 숫자형 비교/퍼센트문자/기존숫자helper 호환과 캡처실행 환경 문제를 발견해 수정. 상세는 검증문서와 Actions 로그. 이전 HANDOFF 원문은 [이력](docs/historical/2026-10-22-before-bundle-implementation/HANDOFF.md)에 보존. 작업 지침 원본은 docs/PROJECT_INSTRUCTIONS.md.
+
+## 최신 UI 수정 요청
+보상 계산식을 실제 비늘 숫자표시로 교체하고 주인 카드를 중앙 정렬. 가방은 긴이름/무게 겹침 해결 및 어종+등급별 구분을 위한2시안 요청 단계. 실제 가방교체 전 사용자선택 대기, 배포금지 유지. 작업/검수중.

@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "task": "거꾸로 폭포 계곡 통합 및 낚시월드 인수인계 기준",
-  "status": "implemented_verified_unreleased",
+  "status": "ui_revision_in_progress",
   "work_branch": "work/valley-runtime",
   "release_baseline": "v0.69",
   "target_version": "unreleased",
@@ -21,15 +21,15 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-22",
-  "current_task": "번들3종·어시장 최근10개 재구매 구현/검증 완료(미배포)",
-  "next_step": "사용자 검토 후 주인 게이지 증가 이벤트/횟수·계곡 경제/전투 수치 미정 정리. 계곡 실제 입장과 게이지 UI는 아직 미연결. 배포 승인 전 main 병합/Release/버전 변경 금지.",
+  "current_task": "번들 보상 숫자표시·주인 중앙정렬 수정 및 가방2시안",
+  "next_step": "수정 화면/가방 어종+등급별 목록형·큰카드형2시안 렌더검수 후 제시. 가방실제전환과 배포는 아직 하지 않는다.",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
   "last_release_deployed": true,
   "this_change": {
-    "scope": "게임 코드·검사·인수인계",
+    "scope": "UI표시수정·가방시안",
     "game_changed": true,
     "release_created": false,
     "deployment_authorized": false
