@@ -76,13 +76,13 @@ func draw(m,h: float) -> void:
 		if not licenses.has(region): licenses[region]=load("res://art/rewards67/license_%d.png"%region)
 		m._ui_texture_rect(licenses[region],Rect2(reward.position+Vector2(3,3),Vector2(48,32)),false)
 		m._text("낚시 자격증 %d급"%(region+1),reward.position+Vector2(56,14),11,Color("382619"),false,175)
-		m._text("다음 낚시터 구매 자격 · 비늘 보상 없음",reward.position+Vector2(56,29),8,Color("513b29"),false,175)
+		m._text("다음 낚시터 구매 자격",reward.position+Vector2(56,29),8,Color("513b29"),false,175)
 	else:
 		m._ui_texture_rect(m.V.tool_icons.scale,Rect2(reward.position+Vector2(8,7),Vector2(24,24)),false)
 		var caption: String="보상 준비 중"
 		if region<2: caption="판매가 합계 120%% + 혼 %d"%m.progression.SOUL_REWARD[region] if tab==1 else "판매가 150% + 진주 2개"
 		m._text(caption,reward.position+Vector2(39,16),10,Color("382619"),false,192)
-		m._text("완료 시 자동 지급 · 업적 보류" if tab==2 else "제출한 실제 개체 판매가 기준",reward.position+Vector2(39,30),9,Color("513b29"),false,192)
+		m._text("완료 시 자동 지급" if tab==2 else "제출한 실제 개체 판매가 기준",reward.position+Vector2(39,30),9,Color("513b29"),false,192)
 	button(m,"register","완료" if done else ("기증 %d / %d"%[total,targets.size()] if not targets.is_empty() else "번들 준비 중"),Rect2(17,bottom-48,154,29),done)
 	button(m,"dex","도감",Rect2(177,bottom-48,76,29))
 	m._text("물고기를 눌러 한 마리씩 기증 · 등급 무관",Vector2(135,bottom-7),9,Color("68533d"),true,236)
