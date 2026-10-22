@@ -1,4 +1,7 @@
-## 최신 우선 — 48px 공통스타일 재시안 완료
+## 최신 우선 — 48px 시안 이름위치 마무리
+사용자 요청에 따라 공통표시폭256px 기준 이름만 오른쪽3px/위2px 이동했다. 프레임/퍼센트/진행바/물고기그림/폰트크기는 유지. 6종합성 검수완료. **게임미적용·배포없음·추가유료생성0.** [정렬기록](docs/proposals/owner-gauge-v2/NAME_ALIGNMENT.json).
+
+## 48px 공통스타일 재시안 결과
 우주바다의 곡선/타원·장식 프레임을 실제 스타일·형태 참조로 사용해 지역별1장·6종을 새로 제작했다. 256×48px로 기존보다 높이25% 축소. 총6요청/6결과/60회분·재생성0. **이번은 시안만이며 게임은 기존64px 상태, 배포 없음.**
 
 [모음](docs/previews/owner-v2-proposals.png), [높이비교](docs/previews/owner-v2-height-comparison.png), [보고서](docs/proposals/owner-gauge-v2/REPORT.md), [시안검증](docs/proposals/owner-gauge-v2/VERIFICATION.json). 원본/요청/영수증/지역검수는 docs/proposals/owner-gauge-v2/0~5/. 모음은 좌우투명여백을 표시폭에 맞춘 합성시안이며 실제게임화면이 아니다. 사용자 검토 후 다음 지시를 따른다. 임의추가 유료생성/게임교체/배포 금지.
