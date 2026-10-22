@@ -2250,10 +2250,10 @@ func _draw_ui(t: float, h: float) -> void :
 			_text(msg, Vector2(VW / 2.0, y0 - 14), 9, Color("382619"), true, 238)
 	elif S.phase == "idle" and not menu_open:
 		var alpha := 0.5 - 0.5 * cos(ui_clock * TAU / 3.2)
-		var prompt_y := clampf(oy + 150.0, top_y + 125.0, h * 0.41)
+		var prompt_y := clampf(oy + 150.0, top_y + (156.0 if owner_ui.visible(self) else 125.0), h * 0.41)
 		_text("탭해서 캐스팅 하기", Vector2(135, prompt_y), 14, Color(1.0, 0.96, 0.83, alpha), true, 246, true)
 	elif S.phase in ["wait", "hook", "pre"] and msg != "" and not menu_open:
-		_text(msg, Vector2(135, top_y + 112), 11, Color("fff3d7"), true, 246, true)
+		_text(msg, Vector2(135, top_y + (156.0 if owner_ui.visible(self) else 112.0)), 11, Color("fff3d7"), true, 246, true)
 	if S.phase == "catch": _draw_catch(t)
 	if S.phase == "result":
 		_draw_result(t)
@@ -2263,8 +2263,8 @@ func _draw_ui(t: float, h: float) -> void :
 func _draw_notes() -> void :
 
 	if S.phase in ["fail", "result"]: return
-	if tip_t > 0:
-		var tip_y: = top_y + 164.0 if scene == "village" else (top_y + 150.0 if S.phase == "fight" else top_y + (112.0 if owner_ui.visible(self) else 74.0))
+	if tip_t > 0 and not (S.phase=="pre" and S.get("owner",false)):
+		var tip_y: = top_y + 164.0 if scene == "village" else (top_y + 150.0 if S.phase == "fight" else top_y + (146.0 if owner_ui.visible(self) else 74.0))
 		var body: = _ui_wrap(tip_txt, 12, 218, 2)
 		var lines: = body.split("\n").size()
 		_ui_style_box(sb_chip, Rect2(12, tip_y, 246, 34 if lines == 1 else 50))

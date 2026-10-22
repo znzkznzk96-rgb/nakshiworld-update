@@ -23,5 +23,15 @@ func run() -> void:
 	root.content_scale_size=Vector2i(270,480);root.size=Vector2i(540,960);await process_frame
 	m.S={"phase":"idle"};await capture(m,out,"owner_short")
 	m.equipment.active_parts=[];await capture(m,out,"owner_missing_parts")
+	m.hide();root.content_scale_size=Vector2i(270,540);root.size=Vector2i(540,1080);await process_frame
+	for value in [0,73,100]:
+		m.text_items=[];m.ui_commands=[]
+		m._ui_rect(Rect2(0,0,270,540),Color("101b29"))
+		for area in 6:
+			var y: float=area*89.0
+			m._text("%d. %s"%[area+1,m.owner_ui.REGIONS[area]],Vector2(10,y+13),11,Color("fff0d1"))
+			m.owner_ui.draw_frame(m,area,value,Vector2(7,y+20))
+		txt.items=m.text_items;txt.commands=m.ui_commands;txt.position.x=0;txt.queue_redraw()
+		await capture(m,out,"owner_six_%d"%value)
 	print("OWNER_GAUGE_PREVIEW complete")
 	m.audio_feedback.dispose();m.queue_free();await process_frame;quit()

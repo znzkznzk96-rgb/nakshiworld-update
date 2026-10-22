@@ -53,5 +53,20 @@ func run() -> void:
 	p.restore({});check(p.owner_gauge==[0.0,0.0,0.0,0.0,0.0,0.0],"old save missing progress defaults to zero")
 	m.active_region=0;m.scene="village";check(not m.owner_ui.visible(m),"gauge hidden away from fishing")
 	m.scene="fish";m.TUT.done=false;check(not m.owner_ui.visible(m),"tutorial remains free of owner gauge")
+	var ui=m.owner_ui
+	ui.load_frames();check(ui.frames.size()==6,"all six region frames load")
+	for area in 6:
+		check(ui.frames[area].get_size()==Vector2(256,64),"native pixel frame size %d"%area)
+		for value in [0,73,100]:
+			m.text_items=[];m.ui_commands=[];ui.draw_frame(m,area,value,Vector2(7,75))
+			check(ui.bounds.encloses(ui.label_bounds) and ui.bounds.encloses(ui.track_bounds),"label and trough stay inside frame %d"%area)
+			check(ui.fill_bounds.size.x==floorf((ui.track_bounds.size.x-2)*value/100.0),"dynamic fill reflects exact percentage %d/%d"%[area,value])
+			check(ui.fill_bounds.end.x<=ui.track_bounds.end.x-1,"fill never crosses reviewed trough %d"%area)
+			if area<2:check(ui.bounds.encloses(ui.image_bounds),"approved owner sprite stays inside frame %d"%area)
+			check(m.text_items.any(func(it):return str(it[2])=="%d%%"%value),"percentage text rendered independently %d/%d"%[area,value])
+			var owners: Array=m.CATALOG.by_star(area,4)
+			var label: String=m.FISH_NAME[int(owners[0])] if not owners.is_empty() else "주인의 기척"
+			check(m._text_w(label,9)+m._text_w("100%",9)+7<=ui.label_bounds.size.x,"full owner name and maximum percent fit without overlap %d"%area)
+	check(p.available_regions==[0],"art does not enable unfinished fishing grounds")
 	print("OWNER_GAUGE_VERIFY failures=",failures)
 	m.audio_feedback.dispose();m.queue_free();await process_frame;quit(0 if failures.is_empty() else 1)

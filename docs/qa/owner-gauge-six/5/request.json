@@ -1,0 +1,24 @@
+{
+  "description": "Exactly ONE compact horizontal pixel art boss-presence HUD FRAME, 256x64 pixels. Follow the concept image layout and outer panel proportions closely. A cosmic sea among stars. Dark indigo and silver frame, tiny purple nebula clouds and warm ivory stars on the outer corners, thin orbit arcs and a small comet-tail curl. Cozy celestial fishing RPG, elegant and whimsical. Keep a generous 48-pixel-high rectangular interior; never compress it to a thin health bar. The reference fish, if present, is only a palette and motif reference: leave the left badge interior EMPTY for an existing sprite. Match this usable layout: outer border entirely within x2..253,y2..61; thick ornamental rim only at edges; empty dark left badge x10..47,y11..52; large blank dark LABEL AREA x54..242,y11..32; separate empty black PROGRESS TROUGH x54..242,y39..49. The label area must be visibly taller than the trough. Do not fill the trough. Every inner area stays dark, blank, simple and unobstructed. Decorate only the outer rim with the region motifs. Crisp square pixels, strong dark outline, three shades per material, cozy detailed 16-bit fishing RPG. All four edges and corner ornaments fully visible, transparent exterior. No text, no letters, no numerals, no glyphs, no tick marks, no filled progress, no fish body, no people, no background scene, no blurred gradients. One frame only.",
+  "image_size": {
+    "width": 256,
+    "height": 64
+  },
+  "seed": 2026102265,
+  "no_background": true,
+  "concept_image": {
+    "image": {
+      "type": "base64",
+      "base64": "iVBORw0KGgoAAAANSUhEUgAAAQAAAABACAYAAAD1Xam+AAAB2ElEQVR4nO3dsUojYRSG4eMi2CgolrJivZUX403YeSl23oQXs5W1rGwpK2hj5VazJHHGnQRmkpnveaqoGfmb83p+CFgFAAAE2ev6wfHpxceYBwGG8/L82Drr39q+afhhXrpm+lMVFt94cHQ45JmAEby/vv17vboJLH3RNvy31/fDng4YzM3dVVV1R6D1CmD4YR6aGe7a5lsDsPggMG1fzfJ+n1/QrBHAdPT5I965AQDz12sDqNrdK4HtBDbXOwBVuzdsuxolmApXAAgmABBMACCYAEAwAYBgAgDBBACCCQAEEwAIJgAQTAAgmABAMAGAYAIAwQQAggkABBMACCYAEEwAIJgAQDABgGACAMEEAIIJAAQTAAgmABBsrX8NNiUnZ+fbPgKM6s/vX2s/M9sAVFU9Pfzc9hFgFN9/XG70nCsABBMACCYAEEwAIJgAQDABgGACAMEEAILN+oNAm344AlLMNgCbfCwS0rgCQLC1NoDb6/uhzgFsQe8A3NxdDXkOYAtcASBYrw3A6g/z1LkBWPlhHr6a5dYAvL++/fdBYPc1M9zM9Kq91W8cn158NK8Pjg6HOhcwksXhf3l+XJr5TwGoWo4AMA+rw1/VcQVoeyMwXWYaAACoqr+ArVFWNXEpmAAAAABJRU5ErkJggg==",
+      "format": "png"
+    },
+    "size": {
+      "width": 256,
+      "height": 64
+    }
+  },
+  "color_palette": "indigo midnight, lilac nebula, silver, tiny warm ivory stars, magenta accents",
+  "target_palette": {
+    "max_colors": 32
+  }
+}
