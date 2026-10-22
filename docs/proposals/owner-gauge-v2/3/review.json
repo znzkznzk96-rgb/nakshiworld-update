@@ -1,0 +1,32 @@
+{
+  "status": "pass_for_proposal",
+  "common_style": [
+    "Shared oval/diamond left badge, slim curved rails and continuous silver filigree",
+    "Same48px height and two empty right compartments"
+  ],
+  "regional_style": "Muted bronze/silver edges with violet fracture-light accents; no bulky ship-beam casing.",
+  "notes": [
+    "Fine regional motifs are restrained at native size; this is a common-frame skin proposal rather than a separate heavy frame.",
+    "Filigree meets canvas edge; production alignment remains pending selection."
+  ],
+  "layout": {
+    "badge": [
+      24,
+      17,
+      35,
+      16
+    ],
+    "label": [
+      80,
+      11,
+      158,
+      11
+    ],
+    "track": [
+      80,
+      27,
+      158,
+      10
+    ]
+  }
+}
