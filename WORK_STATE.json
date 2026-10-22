@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "task": "거꾸로 폭포 계곡 통합 및 낚시월드 인수인계 기준",
-  "status": "bag_list_verification",
+  "status": "implemented_verified_unreleased",
   "work_branch": "work/valley-runtime",
   "release_baseline": "v0.69",
   "target_version": "unreleased",
@@ -21,28 +21,28 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-22",
-  "current_task": "가방A목록·등급중앙정렬·내부이미지·세로스크롤 구현, 입력/화면검사중",
-  "next_step": "선택된 목록형 UI/개체상세/휠·터치 입력 연결 및 관련검사·화면검수. 배포금지.",
+  "current_task": "가방A목록 실제적용·등급중앙정렬·이미지내부여백·세로스크롤 구현/검증 완료",
+  "next_step": "배포금지 유지. 사용자 다음 지시 또는 주인게이지 증가 이벤트/횟수·계곡경제/전투 미정 결정 이어가기. 실제 계곡입장/게이지UI 미연결 유지.",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
   "last_release_deployed": true,
   "this_change": {
-    "scope": "UI표시수정·가방시안",
+    "scope": "가방 물고기목록 UI·입력·개체상세",
     "game_changed": true,
     "release_created": false,
     "deployment_authorized": false
   },
   "history": "docs/historical/2026-10-22-before-workflow-streamlining/WORK_STATE.json",
-  "work_verification": "docs/qa/bag-ui/VERIFICATION.json",
-  "work_source_commit": "74f69b884417262a7b7baf2c77ec06e74e2ad2b4",
-  "work_verification_run": 39719360090,
+  "work_verification": "docs/qa/bag-list/VERIFICATION.json",
+  "work_source_commit": "fbb25df9160fbaf43b093b27f1e2882c5a00a193",
+  "work_verification_run": 39721130282,
   "backend_source_commit": "fc55b5b07b1cecde6fea9670fd6553423f3b68e2",
   "backend_verification": "docs/qa/bundles-buyback/VERIFICATION.json",
   "bag_proposals": {
-    "preview": "docs/previews/bag-two-options.png",
     "selection": "A",
-    "actual_inventory_changed": true
+    "actual_inventory_changed": true,
+    "preview": "docs/previews/bag-list-applied.png"
   }
 }
