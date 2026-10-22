@@ -9,7 +9,7 @@ func paint(m) -> void:
 	m.text_items=[];m.ui_commands=[];m.inventory.draw(m)
 func run() -> void:
 	var m=load("res://main.gd").new();m.SET.sfx=0;m.SET.music=0;m.title_open=false;root.add_child(m);await process_frame;m.set_process(false)
-	m.title_open=false;m.guide.opened=false;m.mailbox.opened=false;m.trans={};m.settings_open=false;m.equipment.pending_sale={};m.V.commerce.pending={}
+	m.title_open=false;m.guide.opened=false;m.mailbox.opened=false;m.trans={};m.settings_open=false;m.equipment.pending_sale="";m.V.commerce.pending={}
 	m.bag=[specimen(7,0,0.022),specimen(7,0,0.026),specimen(7,1,0.031)]
 	for i in range(1,20): m.bag.append(specimen(i,i%5,0.01))
 	var before: Array=m.bag.duplicate(true)
