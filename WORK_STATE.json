@@ -20,8 +20,8 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-23",
-  "current_task": "고양이 새두동작 24자세 시각검토본 완료",
-  "next_step": "찌따라보기/준비점프착지의 새작화 외형·픽셀정합/부드러움 사용자검토. 의자마감과 게임통합 후속. 배포금지.",
+  "current_task": "새고양이 통일·의자마감 포함 캐릭터전체 최종검토",
+  "next_step": "캐릭터·의자·새고양이 동시영상/독립HTML/전체패키지 제작. 실제Godot미적용·배포금지.",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
@@ -196,7 +196,7 @@
       "anticipation jump landing"
     ],
     "fps_target": 12,
-    "visual_approved": false,
+    "visual_approved": true,
     "game_applied": false,
     "deployed": false,
     "verification": "docs/qa/cat-smooth/QA.json"
