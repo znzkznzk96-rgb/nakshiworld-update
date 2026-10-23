@@ -20,9 +20,16 @@ func run() -> void:
 	m.progression.available_regions=[0,1]
 	check(not m.region_shop.unlock(m,1),"certificate needed before currency unlock")
 	m.progression.main_completed[0]=true;m.progression.certificates[0]=true
+	var original_prices: Array=[0,3300,52000,1030000,6700000,28300000]
+	for area in range(1,6):
+		for slot in 4:
+			check(m.region_shop.price(m,area,slot)==maxi(10,roundi(original_prices[area]*[.05,.10,.18,.30][slot]/10.0)*10),"part prices unaffected by unlock fee")
+	m.gold=6599
+	check(not m.region_shop.unlock(m,1) and m.gold==6599,"new fee enforced without partial charge")
+	m.gold=100000
 	var unlock_gold: int=m.gold
-	check(m.region_shop.unlock(m,1) and m.gold==unlock_gold-3300,"licensed region charges once")
-	check(m.region_shop.unlock(m,1) and m.gold==unlock_gold-3300,"repeat unlock never charges twice")
+	check(m.region_shop.unlock(m,1) and m.gold==unlock_gold-6600,"licensed region charges once")
+	check(m.region_shop.unlock(m,1) and m.gold==unlock_gold-6600,"repeat unlock never charges twice")
 	check(not c.quote(m.V,m,"bait:1:5").is_empty(),"region unlock opens bait")
 	check(c.quote(m.V,m,"rpart:1:1").is_empty(),"part sequence enforced")
 	for slot in 4:

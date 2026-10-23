@@ -1,7 +1,7 @@
 extends RefCounted
 const NAMES: = ["동네 저수지", "거꾸로 폭포 계곡", "타일 바다", "균열 해역", "심해 · 가라앉은 사무실", "우주 바다"]
 const ART: = ["reservoir", "valley", "tile_sea", "rift", "deep", "space"]
-const PRICES: = [0, 3300, 52000, 1030000, 6700000, 28300000]
+const PRICES: = [0, 6600, 104000, 1545000, 10050000, 42450000]
 const CONCEPT: = ["물에 비친 달이 조금 더 큰 저수지", "위로 솟아오르는 폭포를 찾아서", "타일 바닥이 끝없이 이어지는 바다", "빛나는 하늘 균열 아래의 선상 낚시", "물속에 가라앉은 사무실 복도", "별과 행성 사이에 떠 있는 바다"]
 var images: = []
 var chains: Texture2D

@@ -20,7 +20,7 @@ func run() -> void:
 		m.gold=expected;commerce.pending=commerce.quote(m.V,m,"bait:%d:1"%b)
 		check(commerce.confirm(m.V,m) and m.gold==0 and shop.stock(m,b)==before+1,"exact balance purchase %d"%b)
 	check(commerce.quote(m.V,m,"worm:10").price==50,"legacy worm quote aligned")
-	check(preload("res://addons/reservoir/spot_selection.gd").PRICES[2]==52000,"tile unlock fee unchanged")
+	check(preload("res://addons/reservoir/spot_selection.gd").PRICES==[0,6600,104000,1545000,10050000,42450000],"approved tiered unlock fees")
 	check(m.progression.available_regions==[0],"unapproved valley and later entry remain locked")
 	check(shop.BAIT_MULT==[1.0,1.0,1.5,1.8,2.1,2.5] and shop.BAIT_PRICES.slice(3)==[1200,3000,6000],"effects and future bait prices preserved")
 	var summary: Array=[]

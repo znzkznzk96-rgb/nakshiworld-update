@@ -43,9 +43,11 @@ func part_region(key: String) -> int:
 	return int(key.substr(1,1)) if key.begins_with("r") and key.contains("_") else 0
 func slot_key(key: String) -> String:
 	return key.get_slice("_",1) if key.begins_with("r") and key.contains("_") else key
+# Equipment economics stay independent of entry-fee tuning.
+const PART_PRICE_BASE: = [0, 3300, 52000, 1030000, 6700000, 28300000]
 func price(m, n: int, slot: int) -> int:
 	if n==0: return int(m.V.PARTS[slot][3])
-	return maxi(10,roundi(SPOTS.PRICES[n]*[0.05,0.10,0.18,0.30][slot]/10.0)*10)
+	return maxi(10,roundi(PART_PRICE_BASE[n]*[0.05,0.10,0.18,0.30][slot]/10.0)*10)
 func icon(m, n: int, slot: int) -> Texture2D:
 	if n==0: return m.V.tool_icons[KEYS[slot]]
 	var key:=part_key(n,slot)
