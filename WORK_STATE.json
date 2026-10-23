@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "task": "거꾸로 폭포 계곡 통합 및 낚시월드 인수인계 기준",
-  "status": "review_pending_unreleased",
+  "status": "work_in_progress_unreleased",
   "work_branch": "work/valley-runtime",
   "release_baseline": "v0.74",
   "target_version": "0.74",
@@ -20,16 +20,16 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-23",
-  "current_task": "강화 손/망치 동작 수정 완료·마을곡C 및 개인기록 도감3시안 검토",
-  "next_step": "사용자 C 청취 및 도감 시안 선택 후 통합",
+  "current_task": "마을곡D30초·실제UI도감3안·계측가속·미끼효용분석",
+  "next_step": "기존UI 렌더 재사용 및 계측 관련 검사",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
   "last_release_deployed": true,
   "this_change": {
-    "scope": "강화 손/망치 동작 수정 완료·마을곡C 및 개인기록 도감3시안 검토",
-    "game_changed": true,
+    "scope": "마을곡D30초·실제UI도감3안·계측가속·미끼효용분석",
+    "game_changed": false,
     "release_created": false,
     "deployment_authorized": false
   },
