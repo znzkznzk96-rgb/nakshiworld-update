@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "task": "거꾸로 폭포 계곡 통합 및 낚시월드 인수인계 기준",
-  "status": "in_progress_market_reader",
+  "status": "verification_pending_market_reader",
   "work_branch": "work/valley-runtime",
   "release_baseline": "v0.70",
   "target_version": "unreleased",
@@ -29,7 +29,7 @@
   "last_release_deployed": true,
   "this_change": {
     "scope": "어시장 팔기/손질 전체 목록 스크롤 및 한글 설명 줄바꿈 개선",
-    "game_changed": false,
+    "game_changed": true,
     "deployment_authorized": false,
     "release_created": false
   },

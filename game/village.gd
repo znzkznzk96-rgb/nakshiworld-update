@@ -27,6 +27,7 @@ const ROD_NAME: = ["대나무 낚싯대", "카본 낚싯대", "원투 낚싯대"
 const ROD_COST: = [0, 2000, 35000, 700000, 4500000, 19000000]
 var museum_region := 0
 var bundle_preview = preload("res://addons/reservoir/bundle_preview.gd").new()
+var market_list = preload("res://addons/reservoir/market_list.gd").new()
 var commerce = preload("res://addons/reservoir/commerce.gd").new()
 var enhancement = preload("res://addons/reservoir/enhancement.gd").new()
 var art: = {}
@@ -421,6 +422,7 @@ func press(m, pos: Vector2) -> void :
 func open_shop(m, k: String) -> void :
 	aqua_manage = false;aqua_page = 0;aqua_pick_page = 0;aqua_selected = -1;aqua_notice = ""
 	bundle_preview.legacy_dex=false;bundle_preview.selected=-1
+	market_list.reset()
 	shop = k;tab = "sell";forge_tab = "rods";rod_page = 0;pick_slot = -1;m.play("ui", -8.0)
 
 
@@ -572,20 +574,10 @@ func _draw_work(m, r: Rect2, y: float) -> void :
 	m._text(("보유 비늘 %d" % m.gold) if tab == "sell" else ("물고기의 혼 %d" % m.souls), Vector2(r.position.x + 35, y + 9), 9, Color("382619"))
 	y += 16
 	var items: Array = m.bag_items()
-	if items.is_empty(): m._text("보관통이 비었어요", Vector2(m.VW / 2.0, y + 40), 10, Color("6a4a2a"), true);return
-	var total = 0
-	var visible_rows: = mini(items.size(), maxi(1, floori((r.end.y - 58 - y) / 40)))
-	for i in visible_rows:
-		var f: Dictionary = items[i]
-		var nm: String = m.FISH_NAME[int(f.sp)] + (" (어깨)" if f.get("shoulder", false) else "")
-		var desc = "%s · %.1fcm" % [m.GRADE_N[int(f.grade)], float(f.len)]
-		if tab == "sell":
-			_row(m, r, y, m.fish_tex[int(f.sp)], nm, desc, "", int(f.price), true, "sell:%d" % i)
-		else:
-			_row(m, r, y, m.fish_tex[int(f.sp)], nm, desc, "혼 +%d" % soul_of(f), 0, true, "clean:%d" % i)
-		y += 44
+	market_list.draw(self,m,r,y,items)
+	if items.is_empty(): return
+	var total := 0
 	for f in items: total += int(f.price)
-	if items.size() > visible_rows: m._text("외 %d마리" % (items.size() - visible_rows), Vector2(m.VW / 2.0, y + 4), 9, Color("6a4a2a"), true)
 	if tab == "sell":
 		var b = Rect2(r.position.x + 30, r.end.y - 50, r.size.x - 60, 32)
 		m._ui_style_box(m.sb_btn, b)
@@ -737,7 +729,8 @@ func _act(m, a: String) -> void :
 		"worm":
 			if n not in [1, 10] or m.gold < n * 10: return
 			m.gold -= n * 10;m.bait += n;m.play("ui")
-		"tab": tab = k[1]
+		"tab":
+			tab = k[1];market_list.reset()
 		"sell":
 			var f: Dictionary = m.bag[n]
 			m.buyback.remember(f);m.gold += int(f.price);m.bag.remove_at(n);m.show_toast("+%d 비늘" % int(f.price), Color("ffd24a"));m.play("catch")

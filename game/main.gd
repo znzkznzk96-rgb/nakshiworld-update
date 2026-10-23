@@ -1109,6 +1109,7 @@ func _unhandled_input(e: InputEvent) -> void :
 	if mailbox.opened:
 		if e is InputEventMouseButton and e.button_index == MOUSE_BUTTON_LEFT and e.pressed: mailbox.press(self, e.position - Vector2(ox, 0))
 		return
+	if scene == "village" and V.market_list.input_event(V,self,e): return
 	if inventory.list_view.input_event(self,e): return
 	if not V.commerce.pending.is_empty() or inventory.selected >= 0:
 		if e is InputEventMouseButton and e.button_index == MOUSE_BUTTON_LEFT and e.pressed: press(e.position - Vector2(ox, 0))
@@ -2897,19 +2898,8 @@ func _ui_polygon(points: PackedVector2Array, colors: PackedColorArray, uvs: Pack
 func _ui_arc(p: Vector2, r: float, a: float, b: float, n: int, c: Color, w: float = -1.0, aa: bool = false) -> void : ui_commands.append(["arc", p, r, a, b, n, c, w])
 
 func _ui_wrap(value: String, size: int, width: float, max_lines: int = 2) -> String:
-	var lines: Array[String] = []
-	for paragraph in value.split("\n"):
-		var line: = ""
-		for word in paragraph.split(" ", false):
-			var trial: = word if line.is_empty() else line + " " + word
-			if _text_w(trial, size) > width and not line.is_empty():
-				lines.append(line);line = ""
-			if _text_w(word, size) > width:
-				for ch in word:
-					if _text_w(line + ch, size) > width and not line.is_empty(): lines.append(line);line = ""
-					line += ch
-			else: line = word if line.is_empty() else line + " " + word
-		if not line.is_empty(): lines.append(line)
+	var lines: Array[String] = preload("res://addons/reservoir/text_layout.gd").wrap(self,value,size,width)
+	max_lines=maxi(1,max_lines)
 	if lines.size() > max_lines:
 		lines.resize(max_lines)
 		var last: = lines[max_lines - 1]

@@ -4,13 +4,7 @@ static func pages(m, paragraphs: Array) -> Array:
 	var result: Array = []
 	var current: Array = []
 	for paragraph in paragraphs:
-		var wrapped: Array = []
-		var line := ""
-		for ch in str(paragraph):
-			if ch == "\n": wrapped.append(line);line="";continue
-			if m._text_w(line+ch,11)>208 and not line.is_empty(): wrapped.append(line);line=""
-			line+=ch
-		if not line.is_empty(): wrapped.append(line)
+		var wrapped: Array = preload("res://addons/reservoir/text_layout.gd").wrap(m,str(paragraph),11,208)
 		# Keep a complete tip on one page whenever it fits.
 		if current.size()+wrapped.size()>6 and not current.is_empty(): result.append(current);current=[]
 		for text in wrapped:
