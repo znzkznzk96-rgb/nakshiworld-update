@@ -1,50 +1,64 @@
 {
-  "stage": "review_ready",
+  "stage": "review_v2_ready",
   "preview_only": true,
   "game_applied": false,
   "deployed": false,
-  "baseline": "v0.71 plus active work overlay",
-  "approved_rig_git_blob": "4c20a322f81e18d3e21091ea86beaa64d7a4e599",
-  "original_game_rig_unchanged": true,
+  "actual_rod_max": [
+    5,
+    8,
+    10,
+    13,
+    16,
+    20
+  ],
   "enhancement_levels": [
     0,
     2,
     4,
     6,
     8,
-    10
+    10,
+    12,
+    14,
+    16,
+    18,
+    20
   ],
-  "proposal_colors": [
-    "none",
-    "silver-white",
-    "sky-blue",
-    "violet",
-    "gold",
-    "flowing-rainbow"
-  ],
-  "color_selection_final": false,
-  "native_godot_version": "4.4.1",
-  "render_frames": 336,
-  "comparison_views": 6,
-  "sampled_rig_frames": 2016,
-  "arm_reach_errors": 0,
-  "visual_review": "day idle/cast/fight and night idle/cast/fight all viewed; high tiers widened and saturated after first daylight preview",
-  "video_seconds": 14,
+  "tier_rule": "absolute enhancement / 2; odd enhancement retains preceding even tier; no normalized per-rod max bonus",
+  "comparison_rod": "은하낚싯대, existing max20, same skin on all tiers",
+  "revision": "low tiers visibly strengthened; previous10cap corrected; rainbow endpoint moved to20",
+  "visible_pixels_day_idle_delta40": {
+    "v1": {
+      "2": 4,
+      "4": 32,
+      "6": 164
+    },
+    "v2": {
+      "2": 368,
+      "4": 576,
+      "6": 1152
+    }
+  },
+  "pixel_metric_limit": "same-frame aura tier vs no-aura cell for each version; material/color/style differences mean this measures visible area, not subjective quality",
+  "godot": "4.4.1",
+  "render_frames": 672,
+  "rig_poses": 4032,
+  "arm_reach_failures": 0,
+  "rod_tip_mismatch_failures": 0,
+  "video_seconds": 28,
   "video_fps": 24,
   "video_full_decode_pass": true,
-  "runtime_phone_performance_tested": false,
-  "no_gameplay_balance_or_save_changes": true,
-  "paid_art_requests": 0,
-  "video_sha256": "d4f6a8e030333adbd4a8edf7714b8ec4cd2053ae27ceb7d402aac045789c682b",
+  "visual_review": "day idle/cast/fight; night idle/cast/fight on both pages",
+  "performance_phone_verified": false,
   "source_sha256": {
     "rig_review.gd": "c7f59639523307d8c9281045a7ea2d7cf7c3eefb4f64765eff5c9f806738f802",
-    "rod_aura.gd": "527b3e958d56c5deceaeb48f64e66cd1b5a5a1f92751f209029b1bd208a0adbb",
-    "actor_review.gd": "f33efb675e0687d7180648d4bc006b26eda2f5f259a9e479dd8e8b791759667f",
-    "render_review.gd": "f5564b8769df23a918817967a76a35fe313b48f73dbf502d139e7195dabcdc1d"
+    "rod_aura.gd": "826ed169187adab534d3ebc52106cfc568fcee615aab190a4afaa78cf2e8e575",
+    "actor_review.gd": "662ba427a7d3c5210eb43a2f6188b4625bbd0072dcad713ca61d6e0aac6a51d8",
+    "render_review.gd": "1888f002cc3d826ecbaa827b09201465288c3f7dc513f29732fbcca967e14049"
   },
-  "known_limits": [
-    "시안용 별도 렌더 경로이며 실제 강화수치 연결 미적용",
-    "6종 전체 낚싯대/휴대폰 성능 검수 전",
-    "색 조합 및 최종 강도는 사용자 검토 대기"
-  ]
+  "video_sha256": "3378cf6a6866184d89ce189aa3b32845b854214761087f1f6a2fb7e088fb0f66",
+  "preserves": "existing art, rod curve, hand/line anchors, enhancement caps/stats/save; no game runtime integration",
+  "paid_art_requests": 0,
+  "supersedes": "v1 low-tier visibility and10endpoint; old source and review video preserved",
+  "colors_final_approved": false
 }
