@@ -11,3 +11,5 @@
 로컬 19개 검사, 실제 Godot 화면 13장, 16초 적용영상 전체 디코드 통과. 상세/해시는 docs/qa/atmosphere-encounter/VERIFICATION.json. 작업 브랜치 CI 결과 기록 예정.
 
 다음: CI 완료 확인 후 사용자 검토. 새 배포 요청 없음. 이전 공개 결과는 docs/RELEASE_071_VERIFICATION.json, 이전 HANDOFF는 docs/historical/2026-10-23-before-environment-effects/HANDOFF.md.
+
+첫 원격CI 39897031604는 owner_gauge_ui.gd 저장 누락으로 실패했다. 로컬 검수본의 해당파일을 추가하고 전체 소스 차이를 대조한 뒤 재검사한다. 실패 기록을 숨기지 않고 최종 CI와 구분한다.

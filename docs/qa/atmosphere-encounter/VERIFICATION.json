@@ -1,5 +1,5 @@
 {
-  "stage": "local_verified_remote_ci_pending",
+  "stage": "local_verified_remote_ci_retry_pending",
   "baseline": "v0.71",
   "deployed": false,
   "phone_confirmed": false,
@@ -69,5 +69,10 @@
     "휴대폰 실제 조작 미확인",
     "공개 버전 0.71 유지; 이번 변경 미배포"
   ],
-  "initial_preview_failure": "X11 display unavailable across separate command lifetimes; corrected by starting display and rendering in the same process scope; final native render passed"
+  "initial_preview_failure": "X11 display unavailable across separate command lifetimes; corrected by starting display and rendering in the same process scope; final native render passed",
+  "initial_remote_ci": {
+    "run": 39897031604,
+    "conclusion": "failure",
+    "cause": "local owner_gauge_ui.gd panel-removal change omitted from upload entries; clean CI detected box presence; corrected by including file and comparing all source deltas"
+  }
 }

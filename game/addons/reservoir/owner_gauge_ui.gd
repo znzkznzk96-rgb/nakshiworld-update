@@ -64,10 +64,6 @@ func draw_frame(m,area: int,value: float,origin: Vector2) -> void:
 		m._ui_rect(fill_bounds,ACCENTS[area])
 		m._ui_rect(Rect2(fill_bounds.position,Vector2(fill_bounds.size.x,1)),ACCENTS[area].lightened(0.3))
 func warning(m,area: int,name: String,color: Color) -> void:
+	# Retain layout/query bounds for the gauge, but no warning panel is painted.
 	warning_bounds=Rect2(12,m.top_y+145,246,62)
-	m._ui_rect(warning_bounds,Color("231a27"))
-	m._ui_rect(Rect2(warning_bounds.position+Vector2(2,2),warning_bounds.size-Vector2(4,4)),Color("7f413b"))
-	m._ui_rect(Rect2(warning_bounds.position+Vector2(4,4),warning_bounds.size-Vector2(8,8)),Color("291f2c"))
-	m._text("경고 · 주인 등장",Vector2(135,warning_bounds.position.y+18),12,Color("ffd397"),true,224)
-	m._text(REGIONS[area],Vector2(135,warning_bounds.position.y+35),10,Color("fff0d1"),true,224)
-	m._text(name,Vector2(135,warning_bounds.position.y+51),12,color,true,224)
+	m.encounter.draw_owner(m,name)
