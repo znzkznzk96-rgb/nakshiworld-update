@@ -20,8 +20,8 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-23",
-  "current_task": "레어 이상 물고기 광채 연출 유지 성능 최적화",
-  "next_step": "CPU 명령 묶기·전후 시각 비교·관련 검사",
+  "current_task": "레어 이상 광채 최적화 구현·검증 완료",
+  "next_step": "배포 요청 시 최신 소스에 패치 반영 및 휴대폰 실측",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
@@ -314,7 +314,8 @@
   },
   "rare_fish_optimization": {
     "approved": true,
-    "implemented": false,
-    "deployed": false
+    "implemented": true,
+    "deployed": false,
+    "verification": "docs/qa/rare-halo/VERIFICATION.json"
   }
 }

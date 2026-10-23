@@ -1765,17 +1765,7 @@ func _fish_quad(qd: Array, color: Color, tex: Texture2D) -> void :
 # Body is drawn last; no colored overlay obscures the fish.
 func _draw_pixel_halo(quads: Array, tex: Texture2D, grade: int, t: float) -> void:
 	if grade <= 0: return
-	for layer in range(3, 0, -1):
-		var pulse: float = fposmod(t / 1500.0, 1.0)
-		var radius: float = roundf(1.0 + (layer - 1 + pulse) * (1.0 + grade * 0.45))
-		var opacity: float = (0.27 if layer == 1 else 0.11 if layer == 2 else 0.035) * (1.0 - pulse * 0.35)
-		for i in 8:
-			var offset := Vector2(cos(i * TAU / 8), sin(i * TAU / 8)).round() * radius
-			var color := _aura_col(grade, t, opacity, i)
-			for qd in quads:
-				var vertices := PackedVector2Array()
-				for point in qd[0]: vertices.append(point + offset)
-				_fish_quad([vertices, qd[1]], color, tex)
+	preload("res://addons/reservoir/fish_halo_batch.gd").queue(self, quads, tex, grade, t)
 	# Bright sparse pixel sparks outside the outline; body is drawn afterwards.
 	var count: int = 3+grade*2
 	var center:=Vector2.ZERO
