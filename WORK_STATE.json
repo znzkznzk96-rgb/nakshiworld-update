@@ -1,10 +1,10 @@
 {
   "schema_version": 2,
   "task": "거꾸로 폭포 계곡 통합 및 낚시월드 인수인계 기준",
-  "status": "verified_unreleased",
+  "status": "release_072_in_progress",
   "work_branch": "work/valley-runtime",
   "release_baseline": "v0.71",
-  "target_version": "0.71",
+  "target_version": "0.72",
   "source_commit": "9c70a390929dcec38b9ead3f15d5f8fc8bf2067a",
   "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v0.71",
   "live_patch_sha256": "01ee189decd10eb8676c9b2bb31fdccf79279b9ad203cf9d0b6c1778845a81b6",
@@ -20,18 +20,18 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-23",
-  "current_task": "저강화 가시성 교정 및 +20 전체 강화 오라 시안 완료",
-  "next_step": "사용자 V2 영상 검토; 실제게임 연결/배포는 미완료",
+  "current_task": "은백/청색 구분 교정·강화오라 실제 연결·0.72 배포",
+  "next_step": "실제게임검사·공개배포·운영파일검증",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
   "last_release_deployed": true,
   "this_change": {
-    "scope": "강화 오라 검토시안 및 기록",
+    "scope": "오라 은백/청색 교정·실제강화연결 및 누적미배포환경연출",
     "game_changed": false,
     "release_created": false,
-    "deployment_authorized": false
+    "deployment_authorized": true
   },
   "history": "docs/historical/2026-10-22-before-workflow-streamlining/WORK_STATE.json",
   "work_verification": "docs/qa/atmosphere-encounter/VERIFICATION.json",
