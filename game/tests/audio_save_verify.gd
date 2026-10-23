@@ -34,15 +34,15 @@ func run() -> void:
 	m.audio_feedback.suspended=false;m.SET.sfx=0
 	m.scene="village";m.title_screen.leaving=false;m.settings_open=false;m.SET.music=1.0;m.SET.sfx=1.0
 	var af=m.audio_feedback
-	af.gull_timer=0.0;af.horn_timer=60.0;af.update_village(m,1.0)
+	af.update_village(m,0.0);af.gull_timer=0.0;af.horn_timer=60.0;af.update_village(m,1.0)
 	check(af.village_music.playing and af.village_music.stream.loop,"village music loops")
 	check(af.village_fx.playing and af.village_fx.stream in [af.streams.gull1,af.streams.gull2],"village seagull trigger")
 	await create_timer(0.08).timeout;af.village_fx.stop();af.horn_timer=0.0;af.update_village(m,0.1)
-	check(af.village_fx.playing and af.village_fx.stream==af.streams.horn,"village horn trigger")
+	check(af.village_horn.playing and af.village_horn.stream==af.streams.horn,"village horn trigger")
 	await create_timer(0.08).timeout;m.scene="fishing";af.update_village(m,1.0)
-	check(not af.village_music.playing and not af.village_fx.playing,"village sounds stop on scene exit")
+	check(not af.village_music.playing and not af.village_fx.playing and not af.village_horn.playing,"village sounds stop on scene exit")
 	m.scene="village";m.SET.music=0.0;m.SET.sfx=0.0;af.update_village(m,1.0)
-	check(not af.village_music.playing and not af.village_fx.playing,"village sound respects mute")
+	check(not af.village_music.playing and not af.village_fx.playing and not af.village_horn.playing,"village sound respects mute")
 	check(af.streams.click!=af.streams.water,"UI and water use different streams")
 	# Test deletion allowlist in isolated XDG_DATA_HOME, never user's files.
 	for name in ["settings.json","patch_ver.txt","reset.pending","rec.json","tut.json"]:
