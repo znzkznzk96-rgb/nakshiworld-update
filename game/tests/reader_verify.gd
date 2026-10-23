@@ -29,7 +29,7 @@ func run() -> void:
 				check(sheet.size()<=6,"short visible page")
 		var label=m._ui_wrap(letter.title,9,174,1)
 		check("\n" not in label and m._text_w(label,9)<=174,"single-line mail label")
-	check(m.mailbox.sections(m.mailbox.letters[0]).size()==3,"curated B three subjects")
+	check(m.mailbox.sections(m.mailbox.letters.filter(func(letter): return letter.id=="0.72")[0]).size()==3,"curated B three subjects")
 	for tab in 5:
 		m.guide.tab=tab
 		for topic in 3:
