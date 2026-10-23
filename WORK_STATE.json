@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "task": "거꾸로 폭포 계곡 통합 및 낚시월드 인수인계 기준",
-  "status": "work_in_progress_unreleased",
+  "status": "review_pending_unreleased",
   "work_branch": "work/valley-runtime",
   "release_baseline": "v0.74",
   "target_version": "0.74",
@@ -20,16 +20,16 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-23",
-  "current_task": "마을곡D30초·실제UI도감3안·계측가속·미끼효용분석",
-  "next_step": "기존UI 렌더 재사용 및 계측 관련 검사",
+  "current_task": "계측1초·미끼설명 수정완료, 실제게임UI 도감3안·BGM D30초 검토",
+  "next_step": "도감V2 선택 및 음악D 청취, 미끼 역할/가격 개선방향 결정",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
   "last_release_deployed": true,
   "this_change": {
-    "scope": "마을곡D30초·실제UI도감3안·계측가속·미끼효용분석",
-    "game_changed": false,
+    "scope": "계측1초·미끼설명 수정완료, 실제게임UI 도감3안·BGM D30초 검토",
+    "game_changed": true,
     "release_created": false,
     "deployment_authorized": false
   },
@@ -326,7 +326,7 @@
     "deployed": false,
     "music_replaced": false,
     "music_generation_connection_pending": false,
-    "music_preview": "C",
+    "music_preview": "D",
     "music_review_pending": true
   },
   "encyclopedia": {
@@ -336,8 +336,10 @@
       "트로피 전시",
       "낚시 기록장"
     ],
+    "revision": 2,
+    "skin": "actual Godot sb_panel/sb_chip/sb_btn/hud_reference_style",
     "selected": null,
-    "source": "docs/proposals/dex/concepts.html",
+    "source": "game/tests/dex_native_screen.gd",
     "save_schema_changed": false
   },
   "smith_motion": {
@@ -345,5 +347,23 @@
     "verified_frames": 8,
     "verification": "docs/qa/smith-motion/VERIFICATION.json",
     "deployed": false
+  },
+  "measurement_speed": {
+    "seconds": 1,
+    "previous_seconds": 2.2,
+    "verified": true,
+    "deployed": false,
+    "verification": "docs/qa/measurement-fast/VERIFICATION.json"
+  },
+  "bait_improvement": {
+    "description_corrected": true,
+    "balance_changed": false,
+    "proposal": "docs/proposals/bait/REVIEW.md",
+    "roles_proposed": [
+      "경제적 반복낚시",
+      "대물 기록",
+      "고등급 수집"
+    ],
+    "selected": false
   }
 }

@@ -32,6 +32,8 @@ const BY_STAR: = [[0, 1, 2, 3, 4, 5, 6, 7], [8, 9, 10, 11, 12, 13], [14, 15, 16]
 
 const BITE_WAIT: = [2.5, 5.0]
 const BAIT_WAIT_MUL: = 1.5
+const CATCH_MEASURE_SECONDS := 1.0
+const CATCH_MEASURE_SAVED := 2.2 - CATCH_MEASURE_SECONDS
 const BITE_WINDOW: = [1.5, 1.0, 0.7, 0.5, 0.35]
 
 const BAR_SPEED: = [0.72, 0.84, 0.98, 1.12, 1.28]
@@ -1082,14 +1084,18 @@ func start_catch() -> void :
 		REC[fish_key(int(S.sp))] = S.len;_save_rec()
 	S.phase = "catch";S.t = 0.0;S.recFx = false
 	S.netEnd = 16 * 0.13 + 0.6
-	S.catchEnd = S.netEnd + (6.6 - 0.7 if S.newRec else 3.8 - 0.7)
+	S.catchEnd = S.netEnd + (6.6 - 0.7 if S.newRec else 3.8 - 0.7) - CATCH_MEASURE_SAVED
 	set_anim("net", false);play("splash_b");buzz([60, 60, 120]);msg = "잡았다!"
 	_save_game()
 	if S.grade == 4: hitstop = 0.5;shake_t = 0.5;buzz([120, 40, 120, 40, 300])
 
+func _catch_reveal_time() -> float:
+	# Keep the existing celebration spacing after the shorter measurement sweep.
+	return S.t - S.netEnd + 0.7 + (CATCH_MEASURE_SAVED if S.t >= S.netEnd else 0.0)
+
 func update_catch(dt: float) -> void :
 	S.t += dt
-	var T: float = S.t - S.netEnd + 0.7
+	var T: float = _catch_reveal_time()
 	if S.newRec and not S.recFx and T > 3.0:
 		S.recFx = true;play("record");buzz([40, 40, 40, 40, 160])
 	if S.newRec and T > 4.4 and anim_name != "trophy": set_anim("trophy", false)
@@ -1172,7 +1178,7 @@ func press(pos: = Vector2.ZERO) -> void :
 			hook_tap()
 		"catch":
 			holding = false
-			if S.t > S.netEnd + 2.6: show_result(true)
+			if S.t >= S.netEnd + 2.6 - CATCH_MEASURE_SAVED: show_result(true)
 		"fight":
 			if S.landUntil > 0 and clock <= S.landUntil and not S.jumpUsed:
 				S.jumpUsed = true;S.dist = min(100.0, S.dist + 12);show_toast("착수 챔질! +12", Color("fff0b0"), true);buzz([40, 30, 80]);play("land")
@@ -2013,13 +2019,13 @@ func _react_level() -> int:
 
 func _cat_jump() -> float:
 	if _react_level() < 2 or S.phase != "catch": return 0.0
-	var T: float = S.t - S.netEnd + 0.7
+	var T: float = _catch_reveal_time()
 	if T < 3.0 or T > 3.9: return 0.0
 	return - roundf(absf(sin((T - 3.0) * PI / 0.45)) * 7.0)
 
 func _draw_reaction(t: float) -> void :
 	if S.phase == "result": return
-	if S.phase == "catch" and S.t >= S.netEnd and not (S.newRec and S.t - S.netEnd + 0.7 > 4.4): return
+	if S.phase == "catch" and S.t >= S.netEnd and not (S.newRec and _catch_reveal_time() > 4.4): return
 	var lv: = _react_level()
 	if lv == 0 or (S.phase == "catch" and S.t < S.netEnd - 0.6): return
 	var hx: = PX + 44.0
@@ -2081,7 +2087,7 @@ func _hook_speed_at(pos: float, center: float, base: float) -> float:
 	return base * (1.0 + 0.55 * pow(clampf(1 - absf(pos - center) / 0.32, 0, 1), 2))
 func _draw_catch(t: float) -> void :
 	if S.t < S.netEnd: return
-	var elapsed: float = S.t - S.netEnd + 0.7
+	var elapsed: float = _catch_reveal_time()
 	if S.newRec and elapsed > 4.4: return
 	var h: float = get_viewport_rect().size.y
 	var r: = Rect2(15, maxf(100, roundf(h * 0.46) - 150), 240, 300)
@@ -2092,7 +2098,7 @@ func _draw_catch(t: float) -> void :
 	var header: = Rect2(r.position + Vector2(9, 8), Vector2(222, 29))
 	_ui_style_box(hud_reference_style, header)
 	_text(FISH_NAME[S.sp], header.get_center() + Vector2(0, 5), 14, Color("fff0d1"), true, 208)
-	var progress: float = clampf((elapsed - 0.7) / 2.2, 0, 1)
+	var progress: float = clampf((S.t - S.netEnd) / CATCH_MEASURE_SECONDS, 0, 1)
 	var yy: float = r.position.y + 185
 	var measured: float = float(S.len) * progress
 	var mx: float = measurement_x(measured)

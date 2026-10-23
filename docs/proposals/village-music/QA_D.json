@@ -1,0 +1,19 @@
+{
+  "seconds": 30.0,
+  "meter": "3/4",
+  "quarter_bpm": 80,
+  "peak": 0.78,
+  "finite": true,
+  "mp3_full_decode": true,
+  "reference_audio_used": false,
+  "original_melody": true,
+  "instruments": [
+    "synthesized nylon guitar",
+    "breathy flute",
+    "warm pads",
+    "harp"
+  ],
+  "auditory_user_review_pending": true,
+  "game_applied": false,
+  "loop_master": false
+}

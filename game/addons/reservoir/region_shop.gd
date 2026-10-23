@@ -102,7 +102,8 @@ func draw_bait(m,v,r: Rect2,y: float) -> void:
 		m._ui_style_box(v.active_style.card,cell)
 		m._ui_texture_rect(bait_icon(i),Rect2(cell.position+Vector2(3,3),Vector2(26,26)),false)
 		m._text(BAIT_NAMES[i]+" · %d개" % stock(m,i),cell.position+Vector2(33,12),9,v.active_style.ink,false,116)
-		m._text("%d 비늘/개 · 등급 ×%.2f" % [BAIT_PRICES[i],BAIT_MULT[i]] if bait_unlocked(i) else "지역 %d 해금 시 구매" % (BAIT_REGION[i]+1),cell.position+Vector2(33,25),8,Color("675c4b"),false,116)
+		var effect: String = "%d비늘 · 입질/희귀어↑" % BAIT_PRICES[i] if i == 0 else "%d비늘 · 등급 ×%.2f" % [BAIT_PRICES[i],BAIT_MULT[i]]
+		m._text(effect if bait_unlocked(i) else "지역 %d 해금 시 구매" % (BAIT_REGION[i]+1),cell.position+Vector2(33,25),8,Color("675c4b"),false,116)
 		var buy:=Rect2(cell.position+Vector2(151,3),Vector2(74,26))
 		m._ui_style_box(m.sb_btn,buy)
 		m._text("구매" if bait_unlocked(i) else "잠김",buy.get_center()+Vector2(0,4),9,v.active_style.ink,true,68)
