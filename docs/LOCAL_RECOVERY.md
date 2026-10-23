@@ -1,3 +1,6 @@
+## 표정v2 복구 포인터 — 2026-10-23
+최신 표정 교정패키지 NAKSHIWORLD_B_EXPRESSIONS_V2.zip 저장성공/CRC확인. 이전 전체 character-rods 검토본을 유지하며 이ZIP은 교정된 독립HTML·얼굴10PNG·표정함수·검수/비교본을 제공한다. 상세는 CHARACTER_MOTION_GUIDE 첫 절. 코드/문서 원격보존과 패키지 아트보존 구분.
+
 ## 2026-10-23 새 복구본
 기존 OUTLINE_EXPRESSIONS ZIP 손상을 확인해 CRC정상 ARM_DEPTH_BREATHING 승인본에서 후속 제작. 완전한 새 에셋·HTML·영상·재현소스는 NAKSHIWORLD_B_CHARACTER_RODS_REVIEW.zip으로 저장 성공·CRC확인. 정확한 파일명으로 찾아 복원한다. 최신 윤곽 바이트를 복구한 것은 아니다. 최신 단계는 HANDOFF 및 CHARACTER_MOTION_GUIDE 첫 절. 공개GitHub는 소스 스크립트·검수·문서를 보존하며 아트 전체 바이트 보존과 구분한다.
 

@@ -1,3 +1,6 @@
+## 2026-10-23 표정v2 검토본 완료
+strain 눈 왜곡 지적을 반영해 표정만 교정했다. 기본 눈구조 보존·국소영역/알파·동작불변 검사통과. NAKSHIWORLD_B_EXPRESSIONS_V2.zip 저장성공·CRC확인. 최신 상세 CHARACTER_MOTION_GUIDE 첫 절, docs/qa/expressions-v2/QA.json. 사용자 시각검토 대기·게임미적용·배포없음.
+
 ## 2026-10-23 현재 수정
 사용자 눈 일그러짐 지적으로 표정만 국소 재교정 진행. strain 눈구조를 자연스럽게 정리하고 기존 동작·낚싯대는 유지. 결정은 GAME_BIBLE 최신절.
 
