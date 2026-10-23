@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "task": "거꾸로 폭포 계곡 통합 및 낚시월드 인수인계 기준",
-  "status": "unlock104k_simulation_complete",
+  "status": "all_unlock_double_analysis_in_progress",
   "work_branch": "work/valley-runtime",
   "release_baseline": "v0.75",
   "target_version": "0.75",
@@ -20,7 +20,7 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-23",
-  "current_task": "타일해금비104000확정 및 수족관/하루2시간 8000회경제분석완료",
+  "current_task": "전체 해금비 원가 대비 2배 재시뮬레이션, 물고기 액션 개선안 및 백룸 공략 콘텐츠 조사",
   "next_step": "104000게임가격적용시지역파츠연동검토;계곡확률상향미적용유지;후반50~90일구조설계",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
