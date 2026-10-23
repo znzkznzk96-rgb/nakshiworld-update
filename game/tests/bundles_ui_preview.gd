@@ -32,6 +32,23 @@ func run() -> void:
 	await capture(m,out,"buyback_top")
 	m.buyback.scroll=m.buyback.max_scroll();await capture(m,out,"buyback_bottom")
 	m.V.commerce.request(m.V,m,"buyback:%d"%int(m.buyback.entries[0].id));await capture(m,out,"buyback_confirm")
+	m.V.commerce.pending={}
+	m.V.open_shop(m,"work")
+	m.bag=[]
+	for i in 25: m.bag.append({"sp":1,"star":0,"grade":i%5,"len":15.0+i,"w":0.1,"price":100+i})
+	for height in [480,540]:
+		root.content_scale_size=Vector2i(270,height);root.size=Vector2i(540,height*2);await process_frame
+		for market_tab in ["sell","clean"]:
+			m.V._act(m,"tab:"+market_tab)
+			await capture(m,out,"market_%s_%d_top"%[market_tab,height])
+			m.V.market_list.scroll=m.V.market_list.maximum()
+			await capture(m,out,"market_%s_%d_bottom"%[market_tab,height])
+		m.V.shop="";m.guide.opened=true;m.guide.tab=0;m.guide.topic=0;m.guide.page=0
+		await capture(m,out,"guide_wrapped_%d"%height)
+		m.guide.opened=false;m.mailbox.opened=true;m.mailbox.detail=m.mailbox.letters[0].id;m.mailbox.detail_page=0
+		await capture(m,out,"mail_wrapped_%d"%height)
+		m.mailbox.opened=false;m.V.open_shop(m,"work")
+	root.content_scale_size=Vector2i(270,540);root.size=Vector2i(540,1080);await process_frame
 	m.V.commerce.pending={};m.V.open_shop(m,"museum");m.V.bundle_preview.region=1;m.V.bundle_preview.tab=0
 	root.content_scale_size=Vector2i(270,480);root.size=Vector2i(540,960)
 	await process_frame;await capture(m,out,"museum_short")
