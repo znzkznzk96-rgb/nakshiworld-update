@@ -27,6 +27,6 @@ func run() -> void:
 	shop.selected_bait=1;shop.stocks[1]=0;m.bait=1;m.start_wait()
 	check(m.S.bait_id==0 and m.bait==0,"empty large bait falls back without retaining size effect")
 	m.start_wait();check(m.S.bait_id==-1 and m.S.bare,"empty all uses original bare hook")
-	check(shop.BAIT_PRICES[0]==1 and shop.BAIT_PRICES[1]==6 and shop.BAIT_PRICES[2]==8,"reviewed early costs")
+	check(shop.BAIT_PRICES[0]==5 and shop.BAIT_PRICES[1]==15 and shop.BAIT_PRICES[2]==20,"reviewed early costs")
 	m.audio_feedback.dispose();m.queue_free();await process_frame
 	print("BAIT_ROLES_VERIFY failures=",failures," results=",results);quit(0 if failures.is_empty() else 1)

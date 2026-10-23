@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "task": "거꾸로 폭포 계곡 통합 및 낚시월드 인수인계 기준",
-  "status": "balance_tuning_in_progress",
+  "status": "balance_tuning_verified_unreleased",
   "work_branch": "work/valley-runtime",
   "release_baseline": "v0.75",
   "target_version": "0.75",
@@ -20,22 +20,22 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-23",
-  "current_task": "승인 미끼가격5/15/20·고갈완화 작업 및 계곡수익차별화 검토",
-  "next_step": "후보시뮬레이션→승인범위 구현→격리검사; 배포없음",
+  "current_task": "미끼5/15/20 및 저수지·계곡고갈완화 구현·25검사완료, 계곡수익후보검토완료",
+  "next_step": "계곡★비율50/32/14/4후보 검토; 새공개배포는별도요청 후",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
   "last_release_deployed": true,
   "this_change": {
-    "scope": "경제시뮬레이션/재현코드/검증/문서",
-    "game_changed": false,
+    "scope": "승인미끼가격·고갈완화 구현 및 계곡수익후보분석",
+    "game_changed": true,
     "release_created": false,
     "deployment_authorized": false,
     "deployed": false
   },
   "history": "docs/historical/2026-10-22-before-workflow-streamlining/WORK_STATE.json",
-  "work_verification": "docs/qa/release-075/QA.json",
+  "work_verification": "docs/analysis/balance-tuning-075/QA.json",
   "work_source_commit": "20911202cbb3ac8beca3706df3ec5c71a0fe46bb",
   "work_verification_run": 39955659785,
   "backend_source_commit": "fc55b5b07b1cecde6fea9670fd6553423f3b68e2",
@@ -406,6 +406,17 @@
     "depletion_relief": "implementation selected: early region probability stock floor 0.70; no forced star1 at zero; actual stock/recovery/wait unchanged",
     "valley_income": "review_only",
     "deployed": false,
-    "comparison": "docs/analysis/balance-tuning-075/results.json"
+    "comparison": "docs/analysis/balance-tuning-075/results.json",
+    "implemented": true,
+    "local_suites_passed": 25,
+    "report": "docs/analysis/balance-tuning-075/REPORT.md",
+    "valley_star_candidate": [
+      0.5,
+      0.32,
+      0.14,
+      0.04,
+      0
+    ],
+    "valley_candidate_applied": false
   }
 }

@@ -15,7 +15,12 @@ func run() -> void:
 	check(stars[4]==0,"owner remains outside ordinary draw")
 	check(m.OTHER_REGION_STAR_P==[0.62,0.27,0.09,0.018,0.0] and m.OTHER_REGION_GRADE_P==[0.8653,0.0661,0.0628,0.0042,0.0016],"other region odds unchanged")
 	m.equipment.active_parts=[];m.start_wait();check(m.S.star==0,"no parts only star1")
-	m.equipment.active_parts=["float","hook","line","reel"];m.pond_stock=0;m.start_wait();check(m.S.star==0,"depleted pond only star1")
+	m.equipment.active_parts=["float","hook","line","reel"];m.pond_stock=0
+	var depleted_rare:=0
+	for i in 500:
+		m.start_wait()
+		if m.S.star>0: depleted_rare+=1
+	check(depleted_rare>100,"depleted early pond preserves higher-star access")
 	var p=m.progression;var ui=m.V.bundle_preview;p.restore({});m.forge_lv=0
 	var saved: Dictionary=p.serialize().duplicate(true);var gold: int=m.gold
 	for area in 2:

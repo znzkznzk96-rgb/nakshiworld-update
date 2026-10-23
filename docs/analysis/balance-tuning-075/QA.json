@@ -1,0 +1,33 @@
+{
+  "engine": "4.4.1.stable.official.49a5bc7b6",
+  "baseline": "v0.75 game-source.zip + maintained overlay/deletion manifest",
+  "baseline_source_zip_sha256": "994847b57f071a62280e49df1ac1d95f5cfd9a91b2e228db31e63222df333bbb",
+  "local_suites_passed": 25,
+  "suites": "../../qa/economy-tuning-075/suite_results.json",
+  "simulation_runs": 3200,
+  "conditional_price_draws": 1600000,
+  "game_draws": 40000,
+  "production_save_touched": false,
+  "game_version_changed": false,
+  "published": false,
+  "mobile_verified": false,
+  "render_verified": false,
+  "code_sha256": {
+    "game/main.gd": "e6f9dcdd3c1f7652177cc7f784153d1e51355d1b06f8e2fea0006eafcec137be",
+    "game/village.gd": "99aaa550e4674806729f8f5b782cd22b1f973f5780975c8d8fa015e1f833fcf3",
+    "game/addons/reservoir/region_shop.gd": "bf4cbb61b1ca76a70fee391d4cfd3a4f1fe52fad9590002e83376f9b2c5f8da1",
+    "game/addons/reservoir/commerce.gd": "a309fb243a70767ab58f059e999c02599fe306acd3142d43f5be22ec84c4fb87",
+    "game/addons/reservoir/guide.gd": "3f76c06bb722697a40f5e18cd6dfcbf2b3cb1159188a96a25662f21c9facd2a5",
+    "game/tests/economy_balance_verify.gd": "338eec5aada7523b3d430f6b7662329482a5431a3832a6bb765b564840c74183",
+    "game/tests/bait_roles_verify.gd": "c3f74dc0a877b29083ce342f6d3faed96543fa1608547a3faf5c6d5ac740dff1",
+    "game/tests/odds_rewards_verify.gd": "6366ecb7d383ee5514cbc7e6d1956190d152e72abc9bd5290f78e73e4a39dfa1",
+    "game/tests/shop_verify.gd": "5bd2fcdbcb16f4f9b7b888871e9b78799132e907f77602bcc16aba3017a1d06c",
+    ".github/workflows/verify-work.yml": "c8b7a0110208cb9c74c21f19dcf64d1e63d98c1e6fe5ed35dd90b518c3dd11e4"
+  },
+  "analysis_sha256": {
+    "compare.py": "52c3bd53f39a4234b7812d9e1774f68a95626075729f03da0d2670134e45b155",
+    "baseline_constants.json": "2256faa011f1fdb8d20fd19a93ba54b0a1409636180ad9bc379f227c65554f89",
+    "results.json": "aa8f9edd9f072f3622eab55e74bdf2cf288b25b94503bd3b49b4ddde1757e75f",
+    "REPORT.md": "329a47d26fcded660dbd250b0c7384ca18312350724c6b92055f17c86a9eaf16"
+  }
+}

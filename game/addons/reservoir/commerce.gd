@@ -40,7 +40,7 @@ func quote(v, m, a: String) -> Dictionary:
 			q.title = m.BAG_NAME[n];q.price = m.BAG_PRICE[n];q.icon = v.tool_icons[preload("res://addons/reservoir/equipment_art.gd").container_name(n)];q.target = n
 		"worm":
 			if n not in [1, 10]: return {}
-			q.title = "지렁이 %d개" % n;q.price = n * 10;q.icon = v.tool_icons.worm;q.target = n
+			q.title = "지렁이 %d개" % n;q.price = n * m.region_shop.BAIT_PRICES[0];q.icon = v.tool_icons.worm;q.target = n
 		"rod":
 			if n < 0 or n > m.rod_owned + 1 or n >= v.ROD_NAME.size() or n in m.equipment.rods: return {}
 			q.title = v.ROD_NAME[n];q.price = v.ROD_COST[n];q.icon = v.rods[n];q.target = n

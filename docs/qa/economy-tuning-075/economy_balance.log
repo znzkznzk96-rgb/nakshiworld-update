@@ -1,0 +1,3 @@
+Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org
+
+ECONOMY_BALANCE_VERIFY failures=[] draws=[{ "region": 0, "stock": 0.0, "counts": [2870, 1525, 477, 128, 0] }, { "region": 0, "stock": 0.3, "counts": [2827, 1577, 465, 131, 0] }, { "region": 0, "stock": 0.7, "counts": [2819, 1585, 471, 125, 0] }, { "region": 0, "stock": 1.0, "counts": [2229, 1789, 726, 256, 0] }, { "region": 1, "stock": 0.0, "counts": [3616, 1083, 250, 51, 0] }, { "region": 1, "stock": 0.3, "counts": [3547, 1123, 293, 37, 0] }, { "region": 1, "stock": 0.7, "counts": [3636, 1079, 248, 37, 0] }, { "region": 1, "stock": 1.0, "counts": [3144, 1344, 431, 81, 0] }]

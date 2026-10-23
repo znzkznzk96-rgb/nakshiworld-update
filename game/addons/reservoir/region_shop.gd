@@ -4,7 +4,7 @@ const SPOTS = preload("res://addons/reservoir/spot_selection.gd")
 const KEYS := ["float", "hook", "line", "reel"]
 const TITLES := ["낡은", "폭포", "청자", "균열", "심해", "성운"]
 const BAIT_NAMES := ["지렁이", "갯지렁이", "새우", "오징어", "황금 루어", "전설의 미끼"]
-const BAIT_PRICES := [1,6,8,1200,3000,6000]
+const BAIT_PRICES := [5,15,20,1200,3000,6000]
 const BAIT_MULT := [1.0,1.0,1.5,1.8,2.1,2.5]
 const BAIT_ROLES := ["기본","대물","희귀","희귀","희귀","희귀"]
 # Existing design: shrimp aboard ship, squid/golden lure in deep sea, legendary in space.
@@ -79,8 +79,8 @@ func grade_chance(m, i: int) -> float:
 		if grade>0: rare+=weight
 	return rare/total*100.0
 func bait_description(m,i: int) -> String:
-	if i==0: return "1비늘 · 빠른 입질"
-	if i==1: return "6비늘 · 대물 유인"
+	if i==0: return "%d비늘 · 빠른 입질" % BAIT_PRICES[i]
+	if i==1: return "%d비늘 · 대물 유인" % BAIT_PRICES[i]
 	return "%d비늘 · 희귀/레어↑%.0f%%"%[BAIT_PRICES[i],grade_chance(m,i)]
 func region_buttons(m, v, r: Rect2, y: float) -> void:
 	for n in 6:

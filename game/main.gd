@@ -19,6 +19,7 @@ const LX: = 176
 
 
 const STAR_P: = [0.45, 0.35, 0.15, 0.05, 0.0]
+const EARLY_REGION_STOCK_FLOOR := 0.70
 const OTHER_REGION_STAR_P = [0.62, 0.27, 0.09, 0.018, 0.0]
 const GRADE_P: = [0.71, 0.15, 0.10, 0.03, 0.01]
 const OTHER_REGION_GRADE_P = [0.8653, 0.0661, 0.0628, 0.0042, 0.0016]
@@ -444,13 +445,15 @@ func start_wait() -> void :
 	for p in ["float", "hook", "line", "reel"]:
 		if region_shop.has_active(self, p, active_region): nparts += 1
 		else: break
-	var stock_ratio: float = pond_stock / pond_max()
+	var stock_ratio: float = clampf(pond_stock / pond_max(), 0.0, 1.0)
+	# Protect early-region bundle progress without resetting stock or removing wait penalties.
+	var odds_stock_ratio: float = maxf(stock_ratio, EARLY_REGION_STOCK_FLOOR) if active_region in [0,1] else stock_ratio
 	var star_base: Array = STAR_P if active_region == 0 else OTHER_REGION_STAR_P
 	var grade_base: Array = GRADE_P if active_region == 0 else OTHER_REGION_GRADE_P
 	for i in 5:
-		var stock_weight: float = 1.0 if i == 0 else lerpf(0.04, 1.0, stock_ratio) ** i
+		var stock_weight: float = 1.0 if i == 0 else lerpf(0.04, 1.0, odds_stock_ratio) ** i
 		sp_w.append(star_base[i] * (0.1 if bare and i > 0 else 1.0) * stock_weight if i <= mini(nparts, 3) else 0.0)
-	if pond_stock <= 0.0:
+	if pond_stock <= 0.0 and active_region not in [0,1]:
 		sp_w = [1.0, 0.0, 0.0, 0.0, 0.0]
 	var gp: = []
 	for i in 5: gp.append(grade_base[i] * pow(bait_multiplier, i))

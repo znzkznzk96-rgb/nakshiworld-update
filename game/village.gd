@@ -727,8 +727,8 @@ func _act(m, a: String) -> void :
 			m.gold -= m.BAG_PRICE[next];m.bag_lv = next;m.equipment.bag_progress = next;m.equipment.bags.append(next)
 			m.show_toast(m.BAG_NAME[next] + "!", Color("ffd24a"));m.play("catch")
 		"worm":
-			if n not in [1, 10] or m.gold < n * 10: return
-			m.gold -= n * 10;m.bait += n;m.play("ui")
+			if n not in [1, 10] or m.gold < n * m.region_shop.BAIT_PRICES[0]: return
+			m.gold -= n * m.region_shop.BAIT_PRICES[0];m.bait += n;m.play("ui")
 		"tab":
 			tab = k[1];market_list.reset()
 		"sell":

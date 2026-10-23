@@ -12,7 +12,7 @@ func run() -> void:
 	check(c.quote(m.V,m,"bait:3:1").is_empty(),"future bait purchase rejected")
 	check(c.quote(m.V,m,"bait:0:0").is_empty() and c.quote(m.V,m,"bait:0:-1").is_empty(),"invalid quantities rejected")
 	c.request(m.V,m,"bait:0:100");check(c.confirm(m.V,m),"100 worms purchase")
-	check(m.bait==100 and m.gold==99900,"quantity and currency exact")
+	check(m.bait==100 and m.gold==99500,"quantity and currency exact")
 	check(not c.confirm(m.V,m) and m.bait==100,"double confirm cannot charge twice")
 	m.gold=0;c.request(m.V,m,"bait:0:5");check(not c.confirm(m.V,m) and m.bait==100,"insufficient funds preserved");c.pending={};m.gold=100000
 	check(not m.region_shop.unlock(m,2),"region sequence enforced")
