@@ -83,13 +83,20 @@ void fragment() {
 	// Replace the baked-in second shoreline below the helmet with continuous water.
 	// No shifting of the helmet, rope, receiver frame or foreground dock.
 	if (effect == 1) {
-		float left = mix(792.0, 768.0, smoothstep(1092.0,1160.0,p.y));
-		float repair = step(left,p.x) * smoothstep(1092.0,1102.0,p.y) * (1.0-step(1414.0,p.y));
-		vec2 cell = floor(p/vec2(5.0,3.0));
-		float stripe = sin(cell.y*1.7+sin(cell.x*0.65-clock*0.5)*1.4);
-		vec3 water = mix(vec3(0.028,0.075,0.12),vec3(0.07,0.17,0.24),step(0.55,stripe)*0.72);
-		float glint = step(0.91,sin(cell.y*2.37+cell.x*0.42-clock*0.7));
-		water += vec3(0.10,0.12,0.12)*glint*0.45;
+		float left = mix(792.0,773.0,smoothstep(1092.0,1135.0,p.y));
+		left = mix(left,756.0,smoothstep(1135.0,1180.0,p.y));
+		left = mix(left,752.0,smoothstep(1180.0,1320.0,p.y));
+		left = mix(left,759.0,smoothstep(1320.0,1414.0,p.y));
+		float repair = step(left,p.x) * smoothstep(1090.0,1100.0,p.y) * (1.0-step(1414.0,p.y));
+		// Sparse long horizontal ripples, no checker pattern or duplicate shoreline.
+		float row = floor(p.y/4.0);
+		float seed = fract(sin(row*127.1)*43758.5453);
+		float along = fract((p.x+seed*170.0-clock*2.0)/143.0);
+		float ripple = step(0.83,seed)*step(0.23,along)*(1.0-step(0.79,along));
+		float depth = smoothstep(1090.0,1414.0,p.y);
+		vec3 water = mix(vec3(0.029,0.078,0.122),vec3(0.021,0.057,0.089),depth);
+		water += vec3(0.018,0.035,0.047)*ripple;
+
 		color.rgb = mix(color.rgb*brightness+extra,water,repair);
 		mask = max(mask,repair);
 		COLOR = vec4(color.rgb,mask);
