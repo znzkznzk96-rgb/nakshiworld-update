@@ -260,5 +260,11 @@
     "verification": "docs/qa/atmosphere-encounter/VERIFICATION.json",
     "review_video": "NAKSHIWORLD_NIGHT_CATCH_REVIEW.mp4",
     "phone_confirmed": false
+  },
+  "audio_direction": {
+    "approved": true,
+    "status": "direction_approved_not_implemented",
+    "scope": "마을 음악 교체: 담백한 인디 모험·피아노/기타·바람/나뭇잎·간헐적 새소리·낮밤 변화",
+    "deployed": false
   }
 }

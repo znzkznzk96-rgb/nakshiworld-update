@@ -18,3 +18,6 @@
 - 화면/영상 재현: game/tests/atmosphere_encounter_preview.gd, atmosphere_encounter_video.gd.
 
 다음은 사용자 영상 검토 및 새 배포 지시 대기. 이전0.71 공개 검증은 docs/RELEASE_071_VERIFICATION.json. 이전 HANDOFF: docs/historical/2026-10-23-before-environment-effects/HANDOFF.md.
+
+## 다음 요청 — 마을 사운드
+기존 음악 교체 방향 확정: 담백한 인디 모험 분위기의 피아노/기타·바람/나뭇잎·간헐적 새소리와 낮밤 변화. GAME_BIBLE 최신 결정 참조. 제작/적용/실청 검수 미완료. 사용자가 추가 콘텐츠/새 시스템 아이디어를 논의 중이며 아직 선택 없음. 앞선 환경·조우·낚아올림 수정은 검증된 미배포 상태 유지.
