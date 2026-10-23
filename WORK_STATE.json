@@ -20,18 +20,18 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-23",
-  "current_task": "등받이없는 스툴 접점·전면간섭 교정본 완료",
-  "next_step": "스툴교정 통합검토본 사용자확인, 실제Godot통합/실기/배포후속. 배포금지.",
+  "current_task": "고양이 외곽선/그림자·채택장면 실제Godot통합 및 배포",
+  "next_step": "최신전체소스+overlay 복원·통합·격리전체검사·공개배포실파일검증",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
   "last_release_deployed": true,
   "this_change": {
-    "scope": "표정·상체·상점기준6종낚싯대검토본",
+    "scope": "채택장면 실제통합·고양이윤곽/그림자·미배포UI포함",
     "game_changed": false,
     "release_created": false,
-    "deployment_authorized": false
+    "deployment_authorized": true
   },
   "history": "docs/historical/2026-10-22-before-workflow-streamlining/WORK_STATE.json",
   "work_verification": "docs/qa/market-reader/VERIFICATION.json",
