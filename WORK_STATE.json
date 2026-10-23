@@ -20,8 +20,8 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-23",
-  "current_task": "저녁 조명·등급 글자·수직 낚아올림 적용 및 로컬/원격 19개 검사·실제화면 검수 완료",
-  "next_step": "사용자 적용영상 검토; 새 배포 지시 대기",
+  "current_task": "강화 +2/4/6/8/10 오라 검토시안 제작",
+  "next_step": "Godot 동일낚싯대 6단계·낮밤·대기/캐스팅/힘겨루기 영상 검수",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
@@ -266,5 +266,20 @@
     "status": "direction_approved_not_implemented",
     "scope": "마을 음악 교체: 담백한 인디 모험·피아노/기타·바람/나뭇잎·간헐적 새소리·낮밤 변화",
     "deployed": false
+  },
+  "rod_aura_review": {
+    "status": "in_progress",
+    "preview_only": true,
+    "game_applied": false,
+    "deployed": false,
+    "levels": [
+      0,
+      2,
+      4,
+      6,
+      8,
+      10
+    ],
+    "high_tiers_visibly_rewarding": true
   }
 }
