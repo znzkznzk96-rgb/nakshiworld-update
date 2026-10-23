@@ -403,8 +403,9 @@
       20
     ],
     "tile_unlock_cost": 52000,
-    "depletion_relief": "approved_direction; numerical comparison pending",
+    "depletion_relief": "implementation selected: early region probability stock floor 0.70; no forced star1 at zero; actual stock/recovery/wait unchanged",
     "valley_income": "review_only",
-    "deployed": false
+    "deployed": false,
+    "comparison": "docs/analysis/balance-tuning-075/results.json"
   }
 }
