@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "task": "거꾸로 폭포 계곡 통합 및 낚시월드 인수인계 기준",
-  "status": "release_072_in_progress",
+  "status": "release_072_prepared",
   "work_branch": "work/valley-runtime",
   "release_baseline": "v0.71",
   "target_version": "0.72",
@@ -20,7 +20,7 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-23",
-  "current_task": "은백/청색 구분 교정·강화오라 실제 연결·0.72 배포",
+  "current_task": "강화 오라 실제적용·전체20검사·패키지검증 완료",
   "next_step": "실제게임검사·공개배포·운영파일검증",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
@@ -29,12 +29,12 @@
   "last_release_deployed": true,
   "this_change": {
     "scope": "오라 은백/청색 교정·실제강화연결 및 누적미배포환경연출",
-    "game_changed": false,
+    "game_changed": true,
     "release_created": false,
     "deployment_authorized": true
   },
   "history": "docs/historical/2026-10-22-before-workflow-streamlining/WORK_STATE.json",
-  "work_verification": "docs/qa/atmosphere-encounter/VERIFICATION.json",
+  "work_verification": "docs/qa/release-072/VERIFICATION.json",
   "work_source_commit": "026aa5ca0b72eb0acfa2c2805dc4e98995742efa",
   "work_verification_run": 39897179070,
   "backend_source_commit": "fc55b5b07b1cecde6fea9670fd6553423f3b68e2",
@@ -268,9 +268,9 @@
     "deployed": false
   },
   "rod_aura_review": {
-    "status": "review_v2_ready",
+    "status": "native_integrated_verified",
     "preview_only": true,
-    "game_applied": false,
+    "game_applied": true,
     "deployed": false,
     "levels": [
       0,

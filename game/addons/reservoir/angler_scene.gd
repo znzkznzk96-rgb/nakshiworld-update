@@ -4,6 +4,7 @@ const ROOT_PATH = "res://art/angler_b/"
 const CAST = [[0,98,94,-43,0],[.22,101,72,-90,10],[.50,79,47,-160,1],[.59,79,47,-160,0],[.69,100,66,-80,-25],[.76,103,88,-35,-30],[.83,101,96,-31,13],[.91,97,94,-46,-6],[1,98,94,-43,0]]
 const BODY = [[0,0],[.22,-3],[.5,-7],[.59,-7],[.76,8],[.84,5],[.93,-1],[1,0]]
 const SKINS = [["54431c","b88a22","f5dc58","f0bb26","77502c"],["252c32","374f56","87b3b4","88504e","56343b"],["525d61","d3dfd8","fff8e4","c47456","864e3d"],["213c4a","426a7a","8fbcc3","d6a74e","71502e"],["112622","184e3e","349977","65c7a3","614826"],["2c2047","8056a9","dba7ec","7bd8cb","4b355e"]]
+var rod_aura=preload("res://addons/reservoir/rod_aura.gd").new()
 var textures: Dictionary = {}
 var cats: Dictionary = {"idle":[],"look":[],"hop":[]}
 var root := Transform2D.IDENTITY
@@ -157,6 +158,9 @@ func draw(m) -> Vector2:
 	m.draw_set_transform_matrix(rod_xf)
 	var skin: Array=SKINS[clampi(m.rod_lv,0,5)]
 	if m.equipment.rod_equipped:
+		var curve:=PackedVector2Array()
+		for j in 41:curve.append(rod_point(near,angle,bend,j/40.0))
+		rod_aura.back(m,curve,rod_xf,m.forge_lv,m.clock,kind,held)
 		for style in [[skin[0],3.6],[skin[1],2.0],[skin[2],.8]]:
 			var pts:=PackedVector2Array([near-direction*12])
 			for j in 41:pts.append(rod_point(near,angle,bend,j/40.0))
@@ -166,10 +170,11 @@ func draw(m) -> Vector2:
 			m.draw_circle(pp,1.8,Color(skin[3])*tint)
 		m.draw_line(near-direction*13,near-direction*2,Color(skin[4])*tint,4,false)
 		if kind!="cast":m.draw_rect(Rect2(reel_center-Vector2(4,3),Vector2(8,7)),Color(skin[0])*tint);m.draw_line(reel_center,reel_hand,Color(skin[2])*tint,1,false)
+		rod_aura.front(m,curve,m.forge_lv,m.clock)
 	arm(m,front,arm_xf)
 	tip=rod_xf*rod_point(near,angle,bend,1)
 	m.draw_set_transform(Vector2(0,m.oy))
-	debug.merge({"kind":kind,"expression":face,"front_error":front.error,"rear_error":rear.error,"tip":tip,"rod":m.rod_lv,"held":held},true)
+	debug.merge({"kind":kind,"expression":face,"front_error":front.error,"rear_error":rear.error,"tip":tip,"rod":m.rod_lv,"held":held,"aura_tier":rod_aura.tier(m.forge_lv) if m.equipment.rod_equipped else 0},true)
 	return tip-Vector2(0,m.oy)
 func landing_pose(elapsed: float,end: float,rod_tip: Vector2,water: float) -> Dictionary:
 	var u: float=sm(elapsed/end)

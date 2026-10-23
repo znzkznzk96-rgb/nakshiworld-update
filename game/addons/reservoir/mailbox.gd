@@ -19,6 +19,11 @@ var detail_page := 0
 const Reader = preload("res://addons/reservoir/topic_reader.gd")
 func sections(letter: Dictionary) -> Array:
 	# Curated presentation, separate from the complete release archive.
+	if letter.id == "0.72":
+		return [
+			{"name":"강화 오라","icon":"tackle","body":letter.body.slice(0,3),"display":["강화2회마다 낚싯대의 빛이 달라져요.","높은 강화는 입자와 잔광도 화려하게!","최대강화와 성능은 그대로예요."]},
+			{"name":"밤의 낚시터","icon":"fish","body":letter.body.slice(3,5),"display":["램프가 캐릭터 주변을 따뜻하게 비춰요.","달빛과 마을 불빛이 더 또렷해졌어요.","굴뚝 연기와 반딧불이를 살펴보세요."]},
+			{"name":"조우·포획","icon":"museum","body":letter.body.slice(5),"display":["희귀한 조우는 움직이는 글자로 표시!","물고기는 세로로 흔들리며 올라와요.","물고기와 장비 기록은 그대로 유지돼요."]}]
 	if letter.id == "0.71":
 		return [
 			{"name":"캐릭터","icon":"tackle","body":letter.body.slice(0,3),"display":["표정과 낚시 동작이 새로워졌어요.","장착한 낚싯대의 모습이 달라져요.","의자와 앉은 위치를 정리했어요."]},
