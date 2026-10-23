@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "task": "거꾸로 폭포 계곡 통합 및 낚시월드 인수인계 기준",
-  "status": "balance_tuning_verified_unreleased",
+  "status": "unlock104k_simulation_in_progress",
   "work_branch": "work/valley-runtime",
   "release_baseline": "v0.75",
   "target_version": "0.75",
@@ -20,16 +20,16 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-23",
-  "current_task": "미끼5/15/20 및 저수지·계곡고갈완화 구현·25검사완료, 계곡수익후보검토완료",
-  "next_step": "계곡★비율50/32/14/4후보 검토; 새공개배포는별도요청 후",
+  "current_task": "타일해금비104000확정: 하루2시간·수족관활용별해금일수비교",
+  "next_step": "52000/104000 및 수족관유무 비교; 계곡확률후보별도분리",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
   "last_release_deployed": true,
   "this_change": {
-    "scope": "승인미끼가격·고갈완화 구현 및 계곡수익후보분석",
-    "game_changed": true,
+    "scope": "해금비결정기록·시뮬레이션",
+    "game_changed": false,
     "release_created": false,
     "deployment_authorized": false,
     "deployed": false
@@ -421,6 +421,18 @@
     "source_commit": "2cbf15b6a68851d70899b338f68d9ddf90d11989",
     "remote_content_verified": true,
     "ci_run": 39960625078,
-    "ci_status": "in_progress"
+    "ci_status": "success"
+  },
+  "unlock_cost_review": {
+    "approved_tile_price": 104000,
+    "previous_price": 52000,
+    "reason": "수족관 기능의 역할을 살림",
+    "daily_play_hours": 2,
+    "target_total_clear_days": [
+      50,
+      90
+    ],
+    "game_applied": false,
+    "deployed": false
   }
 }
