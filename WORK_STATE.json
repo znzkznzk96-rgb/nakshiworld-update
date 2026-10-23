@@ -3,16 +3,16 @@
   "task": "거꾸로 폭포 계곡 통합 및 낚시월드 인수인계 기준",
   "status": "released_phone_confirmation_pending",
   "work_branch": "work/valley-runtime",
-  "release_baseline": "v0.72",
-  "target_version": "0.72",
-  "source_commit": "935e8f0f2aa07bd02d64b8243ae8cf9eb9285b1f",
-  "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v0.72",
-  "live_patch_sha256": "32ba14728402af31d8eaeaca466a56125627fb5974b8b8d4633915f6170d72a8",
-  "source_zip_sha256": "18ea62a30dd56a72077fcd9774231411657983245cd06cc8937a0de282e4c9f4",
-  "build_run": 39911127640,
-  "gateway_run": 39911232841,
-  "verification": "docs/RELEASE_072_VERIFICATION.json",
-  "phone_confirmation": "0.72 휴대폰 업데이트·실제 조작 확인 대기",
+  "release_baseline": "v0.74",
+  "target_version": "0.74",
+  "source_commit": "f4fa1d675a487b8df2522092ad1f9c59e8e19490",
+  "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v0.74",
+  "live_patch_sha256": "543676c5ede96543f38273b83ca3bd6f0c7bbd952a748294840920f5d60c8b45",
+  "source_zip_sha256": "4974cca12f7d94b6d4f334835422fd30cc9092940d7c62a59c4cddeefaa4a0b6",
+  "build_run": 39944451177,
+  "gateway_run": 39944618092,
+  "verification": "docs/RELEASE_074_VERIFICATION.json",
+  "phone_confirmation": "0.74 휴대폰 적용·FPS 확인 대기",
   "museum_bundle": "저수지·계곡 필수/서브 각6종·주인1종 실물 낱개기증과 자동보상 연결. 필수 라이선스만/서브판매가120%+혼15·30/주인판매가150%+2진주. 계곡노멀평균주인 기증24000비늘+2진주.",
   "valley_runtime_status": "shipped_assets_catalog_backend_live_entry_disabled",
   "pending_decisions": [
@@ -20,8 +20,8 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-23",
-  "current_task": "레어 이상 광채 최적화 구현·검증 완료",
-  "next_step": "배포 요청 시 최신 소스에 패치 반영 및 휴대폰 실측",
+  "current_task": "0.74 레어 이상 광채 최적화 배포 완료",
+  "next_step": "휴대폰0.74 적용·첫 조우/반복 조우 끊김 확인",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
@@ -315,7 +315,8 @@
   "rare_fish_optimization": {
     "approved": true,
     "implemented": true,
-    "deployed": false,
-    "verification": "docs/qa/rare-halo/VERIFICATION.json"
+    "deployed": true,
+    "verification": "docs/qa/rare-halo/VERIFICATION.json",
+    "deployed_version": "0.74"
   }
 }
