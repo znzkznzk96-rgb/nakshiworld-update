@@ -55,7 +55,10 @@ func input_event(v, m, e: InputEvent) -> bool:
 			touch_id=e.index;native_until=Time.get_ticks_msec()+350;begin(v,m,p);return true
 		if e.index==touch_id:
 			native_until=Time.get_ticks_msec()+350
-			if not e.pressed: finish(v,m,p);touch_id=-1
+			if not e.pressed:
+				if e.canceled: pointer=false;down_action="";down_fish={}
+				else: finish(v,m,p)
+				touch_id=-1
 			return true
 	if e is InputEventScreenDrag and e.index==touch_id:
 		native_until=Time.get_ticks_msec()+350;move(e.position-Vector2(m.ox,0));return true
@@ -72,7 +75,7 @@ func input_event(v, m, e: InputEvent) -> bool:
 
 func draw(v, m, r: Rect2, y: float, items: Array) -> void:
 	count=items.size()
-	viewport=Rect2(r.position.x+10,y,r.size.x-20,maxf(0,r.end.y-(58 if v.tab=="sell" else 28)-y))
+	viewport=Rect2(r.position.x+10,y,r.size.x-20,maxf(0,r.end.y-(72 if v.tab=="sell" else 28)-y))
 	scroll=clampf(scroll,0,maximum());visible=[]
 	if items.is_empty():
 		reset();m._text("보관통이 비었어요",Vector2(135,y+40),10,Color("6a4a2a"),true);return
