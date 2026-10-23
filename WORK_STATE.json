@@ -1,10 +1,10 @@
 {
   "schema_version": 2,
   "task": "거꾸로 폭포 계곡 통합 및 낚시월드 인수인계 기준",
-  "status": "review_pending_unreleased",
+  "status": "implementation_for_authorized_release",
   "work_branch": "work/valley-runtime",
   "release_baseline": "v0.74",
-  "target_version": "0.74",
+  "target_version": "0.75",
   "source_commit": "f4fa1d675a487b8df2522092ad1f9c59e8e19490",
   "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v0.74",
   "live_patch_sha256": "543676c5ede96543f38273b83ca3bd6f0c7bbd952a748294840920f5d60c8b45",
@@ -20,7 +20,7 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-23",
-  "current_task": "계측1초·미끼설명 수정완료, 실제게임UI 도감3안·BGM D30초 검토",
+  "current_task": "수집+트로피 도감 및 미끼3역할 통합 후0.75배포",
   "next_step": "도감V2 선택 및 음악D 청취, 미끼 역할/가격 개선방향 결정",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
@@ -28,10 +28,10 @@
   "game_bible": "docs/GAME_BIBLE.md",
   "last_release_deployed": true,
   "this_change": {
-    "scope": "계측1초·미끼설명 수정완료, 실제게임UI 도감3안·BGM D30초 검토",
+    "scope": "수집+트로피 도감 및 미끼3역할 통합 후0.75배포",
     "game_changed": true,
     "release_created": false,
-    "deployment_authorized": false
+    "deployment_authorized": true
   },
   "history": "docs/historical/2026-10-22-before-workflow-streamlining/WORK_STATE.json",
   "work_verification": "docs/qa/release-072/VERIFICATION.json",
