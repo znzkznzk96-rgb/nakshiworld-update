@@ -19,5 +19,7 @@ func run() -> void:
 	m.scene="fishing";af.update_village(m,0);check(not af.village_fx.playing and not af.village_horn.playing,"exit stops both")
 	m.scene="village";af.update_village(m,0);check(af.horn_timer==4 and af.gull_timer==7,"reentry resets deadlines")
 	m.SET.sfx=0;af.update_village(m,8);check(not af.village_fx.playing and not af.village_horn.playing,"mute respected")
-	af.dispose();await create_timer(0.15).timeout;m.S={"phase":"idle"};m.queue_free();await process_frame
+	# Release players before waiting for the audio thread to retire playback resources.
+	m.SET.sfx=0;m.SET.music=0;af.dispose();m.free();m=null;af=null
+	await process_frame;await process_frame;await create_timer(0.35).timeout
 	print("VILLAGE_ENTRY_AUDIO_VERIFY failures=",failures);quit(0 if failures.is_empty() else 1)
