@@ -1,5 +1,5 @@
 {
-  "stage": "local_verified_remote_ci_retry_pending",
+  "stage": "verified_unreleased",
   "baseline": "v0.71",
   "deployed": false,
   "phone_confirmed": false,
@@ -47,7 +47,8 @@
     "addons/reservoir/angler_scene.gd": "5febee47258ca976b841a1c6a2c0a1d742cef699716219caf0195dd017be4f89",
     "addons/reservoir/environment.gd": "3cda632f10243aa760b48780f94e5ec8d93237c174473cd49d38b2c926123dab",
     "addons/reservoir/reservoir_layer.gd": "d916af319c1bba478ef8616f8f0eb6668374f72789fa443d3d0cab8cdecd9c08",
-    "addons/reservoir/reservoir_plate.gdshader": "56097144a4196872071c9814d241ac5326dbf07b95300205b9632511086f8ccd"
+    "addons/reservoir/reservoir_plate.gdshader": "56097144a4196872071c9814d241ac5326dbf07b95300205b9632511086f8ccd",
+    "addons/reservoir/owner_gauge_ui.gd": "58410ad47ebc071c1026623ee2a6df0457925b8a5309127a00f40d8226aa8286"
   },
   "screen_sha256": {
     "lift_start.png": "efd451ddc4db8f3c326fb0e6b6d5e85bf20b12a4fb5abfa6bb890d1bda235896",
@@ -74,5 +75,16 @@
     "run": 39897031604,
     "conclusion": "failure",
     "cause": "local owner_gauge_ui.gd panel-removal change omitted from upload entries; clean CI detected box presence; corrected by including file and comparing all source deltas"
-  }
+  },
+  "source_commit": "026aa5ca0b72eb0acfa2c2805dc4e98995742efa",
+  "remote_ci_run": 39897179070,
+  "remote_ci_conclusion": "success",
+  "source_delta_remote_verification": {
+    "files": 12,
+    "mismatches": []
+  },
+  "video_file": "NAKSHIWORLD_NIGHT_CATCH_REVIEW.mp4",
+  "video_saved": true,
+  "remote_ci_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/actions/runs/39897179070",
+  "remote_render_steps_passed": true
 }
