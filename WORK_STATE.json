@@ -123,7 +123,10 @@
     "review_package_repository_bytes_verified": false,
     "equipment_appearance_aura": "six_rod_skins_review_created_aura_not_implemented",
     "godot_motion_integration": "not_completed",
-    "paid_requests_note": "과거 전체 비용은 가이드 단계별 기록 참조. 최종 윤곽·표정 단계의 추가 PixelLab 요청은 0."
+    "paid_requests_note": "과거 전체 비용은 가이드 단계별 기록 참조. 최종 윤곽·표정 단계의 추가 PixelLab 요청은 0.",
+    "review_package_saved": true,
+    "review_package_crc_verified": true,
+    "review_verification": "docs/qa/character-rods-review/QA.json"
   },
   "unreleased_odds_rewards": {
     "commit": "a6f9c52c176afdea522432345be1948b3b643337",

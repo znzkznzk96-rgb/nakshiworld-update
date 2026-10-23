@@ -1,10 +1,5 @@
-## 2026-10-23 — 표정·상체·낚싯대 6종 검토본 완료 (미적용·미배포)
-- 사용자 승인 작업을 검토본으로 제작: 프로필 눈/눈썹/입 변화, 캐스팅 상체 -7~+8도 뒤당김/전진/반동, 힘겨루기 당김/버티기 및 놓침 후 복귀. 승인 독립 팔·앞뒤 깊이·호흡 유지. 얼굴10상태 중 집중/버티기는 동일 얼굴을 공유한다.
-- 상점 대나무/카본/원투/선상/심해/은하6종의 실제 아이콘 색·소재를 기준으로 공통 동작 외형 제작. 손 접점/줄끝/휨은 동일하며 성능/강화오라는 변경하지 않음.
-- Library 원본 최신 OUTLINE_EXPRESSIONS.zip은 등록크기4,677,323바이트와 일치하나 중앙디렉터리/ZIP종료가 없는 손상본. 원본 유지. CRC정상 ARM_DEPTH_BREATHING.zip의 승인 동작을 복원해 후속 작성했으며 최신 윤곽 바이트 복구로 주장하지 않는다.
-- 161캐스팅 자세 팔 도달오차0, 손간격오차1.25e-14미만, 발/하체 픽셀변경0, 변환초릿대 줄연결 오차4.1e-14미만. 외형6종 동작동일·입력누름/뗌/취소·얼굴알파 검사 및 53.6초 영상 전체디코드 통과. 동일HTML JS를 Node native Canvas로 실행; 브라우저pointer capture/휴대폰 실기/Godot통합은 미검증.
-- 코드/검수: docs/proposals/character-rods-review 및 docs/qa/character-rods-review. 완전한 에셋/독립HTML/영상/재현소스 패키지명 NAKSHIWORLD_B_CHARACTER_RODS_REVIEW.zip. Library저장 결과는 최종 완료 후 확인하며 공개GitHub에 아트바이트가 모두 들어간 것은 아님.
-- 추가 유료생성0·게임코드변경0·배포0. 최종 사용자 시각검토 후 Godot 통합이 다음 단계.
+## 2026-10-23 새 복구본
+기존 OUTLINE_EXPRESSIONS ZIP 손상을 확인해 CRC정상 ARM_DEPTH_BREATHING 승인본에서 후속 제작. 완전한 새 에셋·HTML·영상·재현소스는 NAKSHIWORLD_B_CHARACTER_RODS_REVIEW.zip으로 저장 성공·CRC확인. 정확한 파일명으로 찾아 복원한다. 최신 윤곽 바이트를 복구한 것은 아니다. 최신 단계는 HANDOFF 및 CHARACTER_MOTION_GUIDE 첫 절. 공개GitHub는 소스 스크립트·검수·문서를 보존하며 아트 전체 바이트 보존과 구분한다.
 
 ## 최신 재개 — 2026-10-23 채팅 이동
 현재 상태는 [HANDOFF](../HANDOFF.md)와 WORK_STATE의 최신 항목을 따른다. 아래 과거 “B안 밀도/크기 비교부터” 기록은 현재 재개 단계가 아니다.
