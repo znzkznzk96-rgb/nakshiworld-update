@@ -20,8 +20,8 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-23",
-  "current_task": "표정 v2 눈 재교정 검토본 완료",
-  "next_step": "표정v2 사용자 시각검토 후 후속진행. 몸통·팔·낚싯대6종 유지, 배포금지.",
+  "current_task": "표정v2 채택 최종 전달본 제작",
+  "next_step": "표정v2 통합영상/독립HTML/전체패키지 전달. Godot통합·배포는 별도.",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
@@ -132,7 +132,8 @@
       "saved": true,
       "crc_verified": true,
       "verification": "docs/qa/expressions-v2/QA.json",
-      "game_applied": false
+      "game_applied": false,
+      "user_approved": true
     }
   },
   "unreleased_odds_rewards": {
