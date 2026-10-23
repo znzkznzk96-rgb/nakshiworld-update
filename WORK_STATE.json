@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "task": "거꾸로 폭포 계곡 통합 및 낚시월드 인수인계 기준",
-  "status": "action_readability_implementation",
+  "status": "action_readability_local_verified",
   "work_branch": "work/valley-runtime",
   "release_baseline": "v0.75",
   "target_version": "0.75",
@@ -20,8 +20,8 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-23",
-  "current_task": "기존 전투 유지 액션 가독성/초기지역 패턴 배치 개선",
-  "next_step": "사용자 제안 검토 후 액션 프로토타입 범위 결정; 실제 게임 가격/배포 미변경",
+  "current_task": "초기지역 물고기 액션 가독성 개선 구현·26개검사 완료",
+  "next_step": "기기체감검토, 필요시수치조절; 공개배포별도",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
@@ -444,5 +444,12 @@
     "runs": 3000,
     "proposal": "docs/design/combat-and-backrooms-proposal.md",
     "game_applied": false
+  },
+  "action_readability": {
+    "game_changed": true,
+    "deployed": false,
+    "tests_passed": 26,
+    "report": "docs/qa/action-readability/REPORT.md",
+    "phone_verified": false
   }
 }
