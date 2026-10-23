@@ -20,8 +20,8 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-23",
-  "current_task": "표정·상체·낚싯대6종 후속 검토본 제작 완료",
-  "next_step": "신규 검토본 사용자 시각검토 후 Godot통합. 어시장 UI17검사통과 유지·육안/실기 미확인. 배포금지.",
+  "current_task": "표정만 재교정: strain 눈 일그러짐 개선",
+  "next_step": "기본 눈 정체성을 유지한 국소표정 비교본 검토·저장. 몸통/팔/낚싯대 불변·배포금지.",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
