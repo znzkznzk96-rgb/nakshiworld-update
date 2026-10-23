@@ -67,6 +67,13 @@ func run() -> void:
 			var lines: Array=layout.wrap(m,text,11,width)
 			check("".join(lines)==text,"wrap preserves source")
 			for line in lines: check(m._text_w(line,11)<=width,"real font width bounded")
+	for width in range(70,209,7):
+		var lines: Array=layout.wrap(m,"설명 문장은 끝까지 읽어 주세요. 다음 페이지로 넘어가요",11,width)
+		if lines.size()>1 and str(lines.back()).strip_edges().length()<=2:
+			var previous: String=lines[lines.size()-2]
+			var boundary:=previous.strip_edges().rfind(" ")
+			if boundary>0:
+				check(m._text_w(previous.substr(boundary+1)+str(lines.back()),11)>width,"short final line only when no whole word fits")
 	var reader=load("res://addons/reservoir/topic_reader.gd")
 	var paragraphs: Array=[]
 	for i in 20: paragraphs.append("긴 설명도 빠짐없이 확인할 수 있도록 다음 페이지에 이어서 표시합니다.")
