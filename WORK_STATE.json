@@ -20,7 +20,7 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-23",
-  "current_task": "강화 오라 6단계 Godot 비교시안 완성",
+  "current_task": "저강화 오라 가시성 교정 및 실제최대 +20 시안 확장",
   "next_step": "사용자 색/화려함 검토 후 실제게임 강화수치 연결 여부 진행",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
@@ -268,7 +268,7 @@
     "deployed": false
   },
   "rod_aura_review": {
-    "status": "review_ready",
+    "status": "revision_in_progress",
     "preview_only": true,
     "game_applied": false,
     "deployed": false,
@@ -278,13 +278,26 @@
       4,
       6,
       8,
-      10
+      10,
+      12,
+      14,
+      16,
+      18,
+      20
     ],
     "high_tiers_visibly_rewarding": true,
     "video": "NAKSHIWORLD_ROD_AURA_REVIEW.mp4",
     "video_saved": true,
     "verification": "docs/proposals/rod-aura/VERIFICATION.json",
     "source": "docs/proposals/rod-aura",
-    "proposal_colors_final": false
+    "proposal_colors_final": false,
+    "actual_rod_max": [
+      5,
+      8,
+      10,
+      13,
+      16,
+      20
+    ]
   }
 }
