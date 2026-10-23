@@ -20,8 +20,8 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-23",
-  "current_task": "의자·캐릭터·새고양이 통합최종검토본 완료",
-  "next_step": "함께있는 최종검토본 사용자확인. 실제Godot통합/실기/배포는후속, 배포금지.",
+  "current_task": "등받이없는 스툴 접점·전면기둥간섭 수정",
+  "next_step": "실제엉덩이하단 좌판과 데크안쪽 다리배치 재검토·통합본 제공. 배포금지.",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
