@@ -20,8 +20,8 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-23",
-  "current_task": "표정v2 채택 최종 전달본 제작",
-  "next_step": "표정v2 통합영상/독립HTML/전체패키지 전달. Godot통합·배포는 별도.",
+  "current_task": "사용자 채택표정v2 최종 통합 전달본 완료",
+  "next_step": "실제Godot 통합은 별도 작업. 최종전달본은 LOCAL_RECOVERY에서 복원. 배포금지.",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
@@ -117,7 +117,7 @@
     "reference_design": "docs/proposals/character-b/reference-design.png",
     "seated_reference": "docs/proposals/character-b/seated-reference.png",
     "density_note": "사용자 개선된 B 채택. 정확한 12% 크기는 최종 수치 승인 아님.",
-    "status": "expression_v2_review_pending",
+    "status": "expression_v2_approved_final_delivery_ready_not_game_integrated",
     "latest_guide": "docs/CHARACTER_MOTION_GUIDE.md",
     "review_package": "NAKSHIWORLD_B_CHARACTER_RODS_REVIEW.zip",
     "review_package_repository_bytes_verified": false,
@@ -134,6 +134,18 @@
       "verification": "docs/qa/expressions-v2/QA.json",
       "game_applied": false,
       "user_approved": true
+    },
+    "final_delivery": {
+      "package": "NAKSHIWORLD_B_FINAL.zip",
+      "video": "NAKSHIWORLD_B_FINAL.mp4",
+      "html": "NAKSHIWORLD_B_FINAL.html",
+      "saved": true,
+      "crc_verified": true,
+      "video_seconds": 53.6,
+      "full_video_decode_pass": true,
+      "verification": "docs/qa/character-final/QA.json",
+      "game_applied": false,
+      "deployed": false
     }
   },
   "unreleased_odds_rewards": {
