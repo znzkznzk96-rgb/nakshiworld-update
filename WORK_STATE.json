@@ -1,18 +1,18 @@
 {
   "schema_version": 2,
   "task": "거꾸로 폭포 계곡 통합 및 낚시월드 인수인계 기준",
-  "status": "verified_preparing_release",
+  "status": "deployed_verified",
   "work_branch": "work/valley-runtime",
-  "release_baseline": "v0.74",
+  "release_baseline": "v0.75",
   "target_version": "0.75",
-  "source_commit": "f4fa1d675a487b8df2522092ad1f9c59e8e19490",
-  "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v0.74",
-  "live_patch_sha256": "543676c5ede96543f38273b83ca3bd6f0c7bbd952a748294840920f5d60c8b45",
-  "source_zip_sha256": "4974cca12f7d94b6d4f334835422fd30cc9092940d7c62a59c4cddeefaa4a0b6",
-  "build_run": 39944451177,
-  "gateway_run": 39944618092,
-  "verification": "docs/RELEASE_074_VERIFICATION.json",
-  "phone_confirmation": "0.74 휴대폰 적용·FPS 확인 대기",
+  "source_commit": "20911202cbb3ac8beca3706df3ec5c71a0fe46bb",
+  "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v0.75",
+  "live_patch_sha256": "088e69175d6a7d6562621e9c24af963113c2cd69221e140048a1f3162d7b0615",
+  "source_zip_sha256": "994847b57f071a62280e49df1ac1d95f5cfd9a91b2e228db31e63222df333bbb",
+  "build_run": 39955673877,
+  "gateway_run": 39955876665,
+  "verification": "docs/RELEASE_075_VERIFICATION.json",
+  "phone_confirmation": "0.75 휴대폰 적용·체감 확인 대기",
   "museum_bundle": "저수지·계곡 필수/서브 각6종·주인1종 실물 낱개기증과 자동보상 연결. 필수 라이선스만/서브판매가120%+혼15·30/주인판매가150%+2진주. 계곡노멀평균주인 기증24000비늘+2진주.",
   "valley_runtime_status": "shipped_assets_catalog_backend_live_entry_disabled",
   "pending_decisions": [
@@ -20,8 +20,8 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-23",
-  "current_task": "수집+트로피 도감 및 미끼3역할 통합 후0.75배포",
-  "next_step": "작업브랜치 CI 통과 후 승인된0.75 main 배포 및 실제 다운로드 검증",
+  "current_task": "승인된0.75 배포 및 운영 다운로드 검증 완료",
+  "next_step": "휴대폰에서0.75 적용 및 브금·도감·미끼 체감 확인",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
@@ -30,13 +30,14 @@
   "this_change": {
     "scope": "수집+트로피 도감 및 미끼3역할 통합 후0.75배포",
     "game_changed": true,
-    "release_created": false,
-    "deployment_authorized": true
+    "release_created": true,
+    "deployment_authorized": true,
+    "deployed": true
   },
   "history": "docs/historical/2026-10-22-before-workflow-streamlining/WORK_STATE.json",
-  "work_verification": "docs/qa/release-072/VERIFICATION.json",
-  "work_source_commit": "935e8f0f2aa07bd02d64b8243ae8cf9eb9285b1f",
-  "work_verification_run": 39910902687,
+  "work_verification": "docs/qa/release-075/QA.json",
+  "work_source_commit": "20911202cbb3ac8beca3706df3ec5c71a0fe46bb",
+  "work_verification_run": 39955659785,
   "backend_source_commit": "fc55b5b07b1cecde6fea9670fd6553423f3b68e2",
   "backend_verification": "docs/qa/bundles-buyback/VERIFICATION.json",
   "bag_proposals": {
@@ -265,9 +266,9 @@
   },
   "audio_direction": {
     "approved": true,
-    "status": "D_implemented_verified",
-    "scope": "마을 음악 교체: 담백한 인디 모험·피아노/기타·바람/나뭇잎·간헐적 새소리·낮밤 변화",
-    "deployed": false
+    "status": "D_original_composition_deployed_v0.75",
+    "scope": "3/4 80BPM 기타·플루트·패드·하프의 목가적 회상풍. 30초 원본에서27초 무봉합루프",
+    "deployed": true
   },
   "rod_aura_review": {
     "status": "deployed_v0.72",
@@ -323,11 +324,12 @@
     "horn_entry_seconds": 4,
     "gull_entry_seconds": 7,
     "implemented": true,
-    "deployed": false,
+    "deployed": true,
     "music_replaced": true,
     "music_generation_connection_pending": false,
     "music_preview": "D",
-    "music_review_pending": false
+    "music_review_pending": false,
+    "deployed_version": "0.75"
   },
   "encyclopedia": {
     "preview_only": false,
@@ -339,22 +341,26 @@
     "revision": 2,
     "skin": "actual Godot sb_panel/sb_chip/sb_btn/hud_reference_style",
     "selected": "collection+trophy",
-    "source": "game/tests/dex_native_screen.gd",
+    "source": "game/addons/reservoir/personal_dex.gd",
     "save_schema_changed": true,
-    "implemented": true
+    "implemented": true,
+    "deployed": true,
+    "deployed_version": "0.75"
   },
   "smith_motion": {
     "fixed": true,
     "verified_frames": 8,
     "verification": "docs/qa/smith-motion/VERIFICATION.json",
-    "deployed": false
+    "deployed": true,
+    "deployed_version": "0.75"
   },
   "measurement_speed": {
     "seconds": 1,
     "previous_seconds": 2.2,
     "verified": true,
-    "deployed": false,
-    "verification": "docs/qa/measurement-fast/VERIFICATION.json"
+    "deployed": true,
+    "verification": "docs/qa/measurement-fast/VERIFICATION.json",
+    "deployed_version": "0.75"
   },
   "bait_improvement": {
     "description_corrected": true,
@@ -371,6 +377,8 @@
       6,
       8
     ],
-    "verification": "docs/qa/release-075/bait_roles_verify.log"
+    "verification": "docs/qa/release-075/bait_roles_verify.log",
+    "deployed": true,
+    "deployed_version": "0.75"
   }
 }
