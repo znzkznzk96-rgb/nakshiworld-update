@@ -30,3 +30,6 @@
 첨부된 구버전 인수인계는 참고 자료다. `NAKSHIWORLD_FULL_HANDOFF(1).zip`은 이번 환경에 전달 실패했으며 읽거나 사용하지 않았다. 이번 문서 정리에 필요하지 않아 재첨부 요청 없이 원격 원본으로 완료한다.
 
 이전 HANDOFF 원문: [2026-10-23 이전 기록](docs/historical/2026-10-23-before-chat-transfer/HANDOFF.md).
+
+## 2026-10-23 추가 승인 작업
+표정·상체 움직임 보완 및 상점 디자인 기반 공통동작 낚싯대 외형 제작 진행. 상세 결정은 GAME_BIBLE 최신 절. 기존 NAKSHIWORLD_B_OUTLINE_EXPRESSIONS.zip을 Library에서 발견했으며 바이트 검증/수정은 아직 미완료. 배포 금지.
