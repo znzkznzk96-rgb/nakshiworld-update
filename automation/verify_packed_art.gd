@@ -8,5 +8,7 @@ func _initialize() -> void:
 	assert(a.textures["face-neutral"].get_size()==Vector2(160,160))
 	assert(a.rod_aura.tier(20)==10 and a.rod_aura.tier(2)==1,"actual enhancement aura exported")
 	assert(a.rod_aura.COLORS[1].r>a.rod_aura.COLORS[1].b and a.rod_aura.COLORS[2].b>a.rod_aura.COLORS[2].r+.5,"silver blue distinct in actual pack")
+	assert(load("res://addons/reservoir/personal_dex.gd")!=null,"personal dex exported")
+	assert(absf(load("res://sfx/village/village.ogg").get_length()-27.0)<0.1,"original D loop exported")
 	print("PACKED_ANGLER_VERIFY failures=[]")
 	quit()

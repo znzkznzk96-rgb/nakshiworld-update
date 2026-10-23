@@ -108,6 +108,7 @@ var lesson_clock := 0.0
 var buyback = preload("res://addons/reservoir/buyback.gd").new()
 var inventory = preload("res://addons/reservoir/inventory.gd").new()
 var spots = preload("res://addons/reservoir/spot_selection.gd").new()
+var personal_dex = preload("res://addons/reservoir/personal_dex.gd").new()
 var catch_counts: = {}
 var catch_legacy: = {}
 var trans: = {}
@@ -453,7 +454,7 @@ func start_wait() -> void :
 		sp_w = [1.0, 0.0, 0.0, 0.0, 0.0]
 	var gp: = []
 	for i in 5: gp.append(grade_base[i] * pow(bait_multiplier, i))
-	S = {"phase": "wait", "star": pick(sp_w), "grade": pick(gp), "fakes": [], "bare": bare}
+	S = {"phase": "wait", "star": pick(sp_w), "grade": pick(gp), "fakes": [], "bare": bare, "bait_id": region_shop.last_bait}
 	# The owner is confirmed only after a successful hook judgement.
 	S.owner = false
 	S.owner_region = active_region
@@ -462,8 +463,8 @@ func start_wait() -> void :
 	var list: Array = CATALOG.by_star(active_region,S.star)
 	S.sp = list[randi() % list.size()]
 	if not TUT.done: S.star = 0;S.grade = 0;S.tutFish = true;S.sp = 1
-	if active_region == 1:
-		S.lf = sample_length_cm(S.sp) / float(FISH_LEN[S.sp])
+	if active_region == 1 or int(S.get("bait_id",-1))==1:
+		S.lf = bait_length_cm(S.sp) / float(FISH_LEN[S.sp])
 	else: S.lf = minf(S.lf, species_max_cm(S.sp) / FISH_LEN[S.sp])
 	S.size = 0 if S.lf < 0.9 else (1 if S.lf < 1.15 else (2 if S.lf < 1.35 else 3))
 	S.biteAt = clock + randf_range(BITE_WAIT[0], BITE_WAIT[1]) * (BAIT_WAIT_MUL if S.bare else 1.0) * (3.5 if pond_stock <= 0.0 else lerpf(1.0, 1.6, 1.0 - stock_ratio))
@@ -508,7 +509,7 @@ func hook_tap() -> void :
 	if S.judge != "MISS" and TUT.done and progression.owner_ready(self,active_region):
 		S.owner = true;S.owner_region = active_region;S.star = 4
 		S.sp = CATALOG.by_star(active_region,4)[0]
-		S.lf = sample_length_cm(S.sp) / float(FISH_LEN[S.sp])
+		S.lf = bait_length_cm(S.sp) / float(FISH_LEN[S.sp])
 		S.size = 0 if S.lf < 0.9 else (1 if S.lf < 1.15 else (2 if S.lf < 1.35 else 3))
 		holding = false;buzz([160,80,160]);audio_feedback.sound(self,"tension",-4)
 	S.len = FISH_LEN[S.sp] * S.lf
@@ -1057,7 +1058,7 @@ func update_fight(dt: float) -> void :
 	if S.dist >= 100: start_catch()
 
 func sfx_update(dt: float) -> void :
-	var active: bool = scene == "fish" and not title_open and S.phase == "fight" and holding and not settings_open and not market_open and not mailbox.opened and not guide.opened and SET.sfx > 0.01
+	var active: bool = scene == "fish" and not title_open and S.phase == "fight" and holding and not settings_open and not market_open and not personal_dex.opened and not mailbox.opened and not guide.opened and SET.sfx > 0.01
 	if not active:
 		drag_player.stop();return
 	drag_player.volume_db = linear_to_db(SET.sfx) - 5.0
@@ -1066,6 +1067,7 @@ func sfx_update(dt: float) -> void :
 
 
 func start_catch() -> void :
+	var first_capture: bool=not S.get("capture_logged",false)
 	_migrate_fish_records()
 	_settle_owner(true)
 	holding = false
@@ -1080,6 +1082,7 @@ func start_catch() -> void :
 	if not S.grade in seen: seen.append(S.grade)
 	DEX[fish_key(int(S.sp))] = seen
 	S.weight = W_BASE[S.star] * pow(S.lf, 3) * W_GRADE[S.grade]
+	if first_capture: personal_dex.observe(int(S.sp),int(S.grade),float(S.len),float(S.weight),Time.get_date_string_from_system())
 	if S.newRec:
 		REC[fish_key(int(S.sp))] = S.len;_save_rec()
 	S.phase = "catch";S.t = 0.0;S.recFx = false
@@ -1109,6 +1112,7 @@ func show_result(ok: bool) -> void :
 
 
 func _unhandled_input(e: InputEvent) -> void :
+	if personal_dex.input_event(self,e): return
 	if title_open:
 		if e is InputEventMouseButton and e.button_index == MOUSE_BUTTON_LEFT and e.pressed: title_screen.press(self, e.position - Vector2(ox, 0))
 		return
@@ -1135,6 +1139,7 @@ func _unhandled_input(e: InputEvent) -> void :
 		_slider_set(e.position.x - ox)
 
 func press(pos: = Vector2.ZERO) -> void :
+	if personal_dex.opened: personal_dex.press(self,pos);return
 	if title_open: title_screen.press(self, pos);return
 	if not trans.is_empty(): return
 	if guide.opened: guide.press(self, pos);return
@@ -1209,7 +1214,7 @@ func _process(dt: float) -> void :
 		if not trans.done and trans.t >= TR_CLOSE + 0.1:
 			trans.done = true;_switch_scene(trans.to)
 		if trans.t >= TR_CLOSE + TR_HOLD + TR_OPEN: trans = {}
-	if guide.opened or mailbox.opened or settings_open or market_open or not V.commerce.pending.is_empty() or not equipment.pending_sale.is_empty() or inventory.selected >= 0: queue_redraw();return
+	if personal_dex.opened or guide.opened or mailbox.opened or settings_open or market_open or not V.commerce.pending.is_empty() or not equipment.pending_sale.is_empty() or inventory.selected >= 0: queue_redraw();return
 	if scene == "spots": spots.process(dt);queue_redraw();return
 	if scene == "village":
 		toast_t = max(0.0, toast_t - dt);judge_t = max(0.0, judge_t - dt)
@@ -1318,6 +1323,7 @@ func _draw_overlays(t: float, h: float) -> void :
 	equipment.draw_confirmation(self, h)
 	_fx_draw(t)
 	_draw_trans(h)
+	personal_dex.draw(self,h)
 	if text_layer:
 		text_layer.position.x = ox
 		text_layer.items = text_items
@@ -2491,7 +2497,7 @@ func _menu_press(pos: Vector2) -> bool:
 			match MENU[i][0]:
 				"village": start_trans("village" if scene == "fish" else "spots")
 				"bag": market_open = true;market_sell = false
-				"book": V.open_shop(self, "museum")
+				"book": personal_dex.open(self)
 				"gear": settings_open = true
 			return true
 	return true
@@ -2513,7 +2519,7 @@ func _save_game() -> void :
 	var ok: bool = preload("res://addons/reservoir/save_store.gd").write("user://save.json", {"buyback":buyback.serialize(),"regional_progress":progression.serialize(),"active_region":active_region,"region_shop": region_shop.serialize(), "equipment": equipment.serialize(), "mail_read": mailbox.read_ids, "mail_deleted": mailbox.deleted_ids, "v": SAVE_VER, "gold": gold, "pearl": pearl, "bag": bag_items(), "bag_lv": bag_lv, "parts": parts_owned, "tips": tips_seen,
 		"town_zoom": V.zoom, "boat_lv": boat_lv, "town_lv": town_lv, "forge_lv": forge_lv, "rod_lv": rod_lv, "rod_owned": rod_owned, "rod_enh": rod_enh, "protection_tickets": protection_tickets, "forge_pending": forge_pending, "forge_seen": forge_seen, 
 		"pond_cap_lv": pond_cap_lv, "pond_regen_lv": pond_regen_lv, "pond_stock": pond_stock, 
-		"bait": bait, "souls": souls, "aqua_lv": aqua_lv, "aqua": aqua, "dex": DEX, "catch_counts": catch_counts, "catch_legacy": catch_legacy, "world_time": environment.day_seconds, "time": Time.get_unix_time_from_system()})
+		"bait": bait, "souls": souls, "aqua_lv": aqua_lv, "aqua": aqua, "dex": DEX, "personal_dex": personal_dex.serialize(), "catch_counts": catch_counts, "catch_legacy": catch_legacy, "world_time": environment.day_seconds, "time": Time.get_unix_time_from_system()})
 	if not ok and not save_warning:
 		save_warning=true;tip_txt="저장 실패 · 저장 공간을 확인해 주세요";tip_t=8.0
 	elif ok: save_warning=false
@@ -2551,6 +2557,7 @@ func _load_game() -> void :
 	equipment.restore(self, d.get("equipment", {}))
 	pond_cap_lv = clampi(int(d.get("pond_cap_lv", 0)), 0, 5);pond_regen_lv = clampi(int(d.get("pond_regen_lv", 0)), 0, 5)
 	pond_stock = clampf(float(d.get("pond_stock", 80.0)), 0.0, pond_max())
+	personal_dex.restore(d.get("personal_dex",{}))
 	DEX = {}
 	var dx: Dictionary = d.get("dex", {})
 	for k in dx: DEX[k] = (dx[k] as Array).map( func(g): return int(g))
@@ -2587,6 +2594,11 @@ func fish_legacy(sp: int) -> Array:
 func _migrate_fish_records() -> void:
 	CATALOG.migrate(DEX);CATALOG.migrate(catch_counts,true);CATALOG.migrate(catch_legacy)
 	if CATALOG.migrate(REC): _save_rec()
+func bait_length_cm(sp: int) -> float:
+	var length: float=sample_length_cm(sp)
+	if int(S.get("bait_id",-1))==1 and not S.get("tutFish",false):
+		length=maxf(length,sample_length_cm(sp))
+	return length
 func sample_length_cm(sp: int) -> float:
 	var mean: float = FISH_LEN[sp]
 	for attempt in 64:

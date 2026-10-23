@@ -9,10 +9,10 @@ func run() -> void:
 	m.gold=100000;m.bait=0;m.parts_owned=[];m.equipment.active_parts=[];m.equipment.unlocked_parts=[];m.region_shop.restore({})
 	var c=m.V.commerce
 	check(c.quote(m.V,m,"rpart:1:0").is_empty(),"locked region purchase rejected")
-	check(c.quote(m.V,m,"bait:1:1").is_empty(),"locked bait purchase rejected")
+	check(c.quote(m.V,m,"bait:3:1").is_empty(),"future bait purchase rejected")
 	check(c.quote(m.V,m,"bait:0:0").is_empty() and c.quote(m.V,m,"bait:0:-1").is_empty(),"invalid quantities rejected")
 	c.request(m.V,m,"bait:0:100");check(c.confirm(m.V,m),"100 worms purchase")
-	check(m.bait==100 and m.gold==99000,"quantity and currency exact")
+	check(m.bait==100 and m.gold==99900,"quantity and currency exact")
 	check(not c.confirm(m.V,m) and m.bait==100,"double confirm cannot charge twice")
 	m.gold=0;c.request(m.V,m,"bait:0:5");check(not c.confirm(m.V,m) and m.bait==100,"insufficient funds preserved");c.pending={};m.gold=100000
 	check(not m.region_shop.unlock(m,2),"region sequence enforced")
@@ -33,7 +33,7 @@ func run() -> void:
 	check(not m.equipment.sell(m,"part:r1_hook"),"regional duplicate sale rejected")
 	c.request(m.V,m,"rpart:1:1");check(c.confirm(m.V,m),"regional repurchase")
 	c.request(m.V,m,"bait:1:5");check(c.confirm(m.V,m),"better bait purchase")
-	check(is_equal_approx(m.region_shop.take_bait(m),1.25) and m.region_shop.stocks[1]==4,"better bait consumed and multiplier applied")
+	check(is_equal_approx(m.region_shop.take_bait(m),1.0) and m.region_shop.stocks[1]==4,"large bait consumed with base grade multiplier")
 	m._save_game();m.region_shop.restore({});m._load_game()
 	check(m.region_shop.is_unlocked(1) and m.region_shop.stocks[1]==4,"region and bait save round trip")
 	check("r1_hook" in m.equipment.active_parts,"regional equipment persists")

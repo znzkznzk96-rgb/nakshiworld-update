@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "task": "거꾸로 폭포 계곡 통합 및 낚시월드 인수인계 기준",
-  "status": "implementation_for_authorized_release",
+  "status": "verified_preparing_release",
   "work_branch": "work/valley-runtime",
   "release_baseline": "v0.74",
   "target_version": "0.75",
@@ -21,7 +21,7 @@
   ],
   "updated_at": "2026-10-23",
   "current_task": "수집+트로피 도감 및 미끼3역할 통합 후0.75배포",
-  "next_step": "도감V2 선택 및 음악D 청취, 미끼 역할/가격 개선방향 결정",
+  "next_step": "작업브랜치 CI 통과 후 승인된0.75 main 배포 및 실제 다운로드 검증",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
@@ -265,7 +265,7 @@
   },
   "audio_direction": {
     "approved": true,
-    "status": "direction_approved_not_implemented",
+    "status": "D_implemented_verified",
     "scope": "마을 음악 교체: 담백한 인디 모험·피아노/기타·바람/나뭇잎·간헐적 새소리·낮밤 변화",
     "deployed": false
   },
@@ -324,13 +324,13 @@
     "gull_entry_seconds": 7,
     "implemented": true,
     "deployed": false,
-    "music_replaced": false,
+    "music_replaced": true,
     "music_generation_connection_pending": false,
     "music_preview": "D",
-    "music_review_pending": true
+    "music_review_pending": false
   },
   "encyclopedia": {
-    "preview_only": true,
+    "preview_only": false,
     "variants": [
       "수집 도감",
       "트로피 전시",
@@ -338,9 +338,10 @@
     ],
     "revision": 2,
     "skin": "actual Godot sb_panel/sb_chip/sb_btn/hud_reference_style",
-    "selected": null,
+    "selected": "collection+trophy",
     "source": "game/tests/dex_native_screen.gd",
-    "save_schema_changed": false
+    "save_schema_changed": true,
+    "implemented": true
   },
   "smith_motion": {
     "fixed": true,
@@ -357,13 +358,19 @@
   },
   "bait_improvement": {
     "description_corrected": true,
-    "balance_changed": false,
+    "balance_changed": true,
     "proposal": "docs/proposals/bait/REVIEW.md",
     "roles_proposed": [
       "경제적 반복낚시",
       "대물 기록",
       "고등급 수집"
     ],
-    "selected": false
+    "selected": true,
+    "prices": [
+      1,
+      6,
+      8
+    ],
+    "verification": "docs/qa/release-075/bait_roles_verify.log"
   }
 }

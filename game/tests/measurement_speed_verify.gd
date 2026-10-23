@@ -30,4 +30,4 @@ func run() -> void:
 		check(m.S.phase=="result" and m.S.ok,"finishes successfully")
 		check(m.fish_counts(1)==count_before,"timing does not duplicate catch records")
 	m.audio_feedback.dispose();m.queue_free();await process_frame
-	print("MEASUREMENT_SPEED failures=",failures);quit(0 if failures.is_empty() else 1)
+	print("MEASUREMENT_SPEED_VERIFY failures=",failures);quit(0 if failures.is_empty() else 1)

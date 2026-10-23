@@ -7,3 +7,5 @@ Sources: Seagull Ambient 1.wav and Seagull Ambient 3.wav.
 Horn: original procedural two-tone ship horn, not a field recording.
 All conversions: mono 44.1kHz Vorbis q4. Music composition unchanged.
 CC0 https://creativecommons.org/publicdomain/zero/1.0/
+
+0.75 replacement village.ogg: original synthesized composition D, 3/4 80 BPM. No reference samples or transcribed melody. Guitar/flute/pad/harp synthesis, 27s musical loop with reverb tail folded into start.

@@ -32,7 +32,7 @@ jobs:
           GODOT="$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
           "$GODOT" --headless --editor --path "$RUNNER_TEMP/project" --import > evidence/import.log 2>&1
           if grep -E 'SCRIPT ERROR:|Parse Error:|Failed to load script' evidence/import.log; then exit 1; fi
-          for suite in rod_aura atmosphere_encounter angler_scene market_reader odds_rewards reservoir_layers owner_gauge bag_list bundles_buyback equipment visual guide shop audio_save bundle_preview rewards reader fish_surface regional inventory_layout; do
+          for suite in rod_aura atmosphere_encounter angler_scene market_reader odds_rewards reservoir_layers owner_gauge bag_list bundles_buyback equipment visual guide shop audio_save bundle_preview rewards reader fish_surface regional inventory_layout personal_dex bait_roles measurement_speed village_entry_audio; do
             XDG_DATA_HOME="$RUNNER_TEMP/isolated-$suite" timeout 90 "$GODOT" --headless --path "$RUNNER_TEMP/project" --script "tests/${suite}_verify.gd" > "evidence/$suite.log" 2>&1 || { cat "evidence/$suite.log"; exit 1; }
             cat "evidence/$suite.log"
             grep -F 'VERIFY failures=[]' "evidence/$suite.log"
@@ -79,6 +79,14 @@ jobs:
           cat evidence/rod-aura-screens.log
           grep -F 'ROD_AURA_PREVIEW failures=[]' evidence/rod-aura-screens.log
           if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/rod-aura-screens.log; then exit 1; fi
+      - name: Render personal dex and bait shop
+        shell: bash
+        run: |
+          set -euo pipefail
+          XDG_DATA_HOME="$RUNNER_TEMP/isolated-release075" timeout 90 xvfb-run -a "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/release075_preview.gd -- "$GITHUB_WORKSPACE/evidence/release075" > evidence/release075.log 2>&1
+          cat evidence/release075.log
+          grep -F 'RELEASE075_PREVIEW failures=[]' evidence/release075.log
+          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/release075.log; then exit 1; fi
       - name: Preserve verification logs
         if: always()
         uses: actions/upload-artifact@v4

@@ -91,7 +91,7 @@ func draw(v, m, h: float) -> void :
 		m.text_items = m.text_items.filter( func(it): return it[1].y < m.top_y + 70)
 		m._ui_rect(Rect2( - m.ox, 0, m.VW + 2 * m.ox, h), Color(0.025, 0.04, 0.07, 0.78))
 		var is_bait: bool = str(pending.action).begins_with("bait:")
-		var r: = Rect2(20, roundf(h * 0.5) - 140, 230, 280 if is_bait else 240)
+		var r: = Rect2(20, roundf(h * 0.5) - (160 if is_bait else 140), 230, 320 if is_bait else 240)
 		m._ui_style_box(m.sb_panel, r)
 		m._ui_style_box(m.hud_reference_style, Rect2(r.position + Vector2(7, 7), Vector2(216, 31)))
 		m._text("구매 확인", Vector2(135, r.position.y + 28), 14, Color("fff0d1"), true, 200)
@@ -115,6 +115,17 @@ func draw(v, m, h: float) -> void :
 		m._text("구매하기" if enough else "부족해요", buy.get_center() + Vector2(0, 5), 12, Color("fff0d1") if enough else Color("817767"), true, 86)
 		rects = {"panel": r, "cancel": cancel, "buy": buy if enough else Rect2(), "quantities":[]}
 		if is_bait:
+			var bait_id: int=int(pending.action.get_slice(":",1))
+			var desc: String="빈 바늘보다 입질 대기 33% 단축"
+			var extra: String="해금된 ★2~4 어종을 더 잘 유인"
+			if bait_id==1:
+				desc="큰 개체를 유인 · 길이/무게 기록용"
+				extra="개체 등급 확률은 지렁이와 같아요"
+			elif bait_id>=2:
+				desc="레어 이상 %.1f%% → %.1f%%"%[m.region_shop.grade_chance(m,0),m.region_shop.grade_chance(m,bait_id)]
+				extra="현재 낚시터 · 챔질 등급 변화 전"
+			m._text(desc,Vector2(135,r.position.y+232),9,Color("513b29"),true,208)
+			m._text(extra,Vector2(135,r.position.y+247),8,Color("7c6448"),true,208)
 			for i in m.region_shop.QUANTITIES.size():
 				var amount: int=m.region_shop.QUANTITIES[i]
 				var b:=Rect2(30+i*43,r.position.y+190,39,25)

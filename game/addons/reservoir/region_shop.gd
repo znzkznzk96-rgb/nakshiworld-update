@@ -4,15 +4,17 @@ const SPOTS = preload("res://addons/reservoir/spot_selection.gd")
 const KEYS := ["float", "hook", "line", "reel"]
 const TITLES := ["낡은", "폭포", "청자", "균열", "심해", "성운"]
 const BAIT_NAMES := ["지렁이", "갯지렁이", "새우", "오징어", "황금 루어", "전설의 미끼"]
-const BAIT_PRICES := [10,60,300,1200,3000,6000]
-const BAIT_MULT := [1.0,1.25,1.5,1.8,2.1,2.5]
+const BAIT_PRICES := [1,6,8,1200,3000,6000]
+const BAIT_MULT := [1.0,1.0,1.5,1.8,2.1,2.5]
+const BAIT_ROLES := ["기본","대물","희귀","희귀","희귀","희귀"]
 # Existing design: shrimp aboard ship, squid/golden lure in deep sea, legendary in space.
-const BAIT_REGION := [0,1,3,4,4,5]
+const BAIT_REGION := [0,0,0,4,4,5]
 const QUANTITIES := [1,5,10,50,100]
 var unlocked: Array = [0]
 var region := 0
 var stocks: Array = [0,0,0,0,0,0]
 var selected_bait := 0
+var last_bait := -1
 var icons := {}
 func restore(data: Dictionary) -> void:
 	unlocked=[0]
@@ -62,10 +64,24 @@ func stock(m, i: int) -> int: return m.bait if i==0 else int(stocks[i])
 func take_bait(m) -> float:
 	var i:=selected_bait
 	if not bait_unlocked(i) or stock(m,i)<=0: i=0
+	last_bait=-1
 	if stock(m,i)<=0: return 0.85
 	if i==0: m.bait-=1
 	else: stocks[i]-=1
+	last_bait=i
 	return BAIT_MULT[i]
+func grade_chance(m, i: int) -> float:
+	var base: Array=m.GRADE_P if m.active_region==0 else m.OTHER_REGION_GRADE_P
+	var total:=0.0;var rare:=0.0
+	for grade in 5:
+		var weight: float=float(base[grade])*pow(BAIT_MULT[i],grade)
+		total+=weight
+		if grade>0: rare+=weight
+	return rare/total*100.0
+func bait_description(m,i: int) -> String:
+	if i==0: return "1비늘 · 빠른 입질"
+	if i==1: return "6비늘 · 대물 유인"
+	return "%d비늘 · 희귀/레어↑%.0f%%"%[BAIT_PRICES[i],grade_chance(m,i)]
 func region_buttons(m, v, r: Rect2, y: float) -> void:
 	for n in 6:
 		var b:=Rect2(r.position.x+12+n*38,y,35,22)
@@ -101,9 +117,8 @@ func draw_bait(m,v,r: Rect2,y: float) -> void:
 		var cell:=Rect2(r.position.x+12,y+i*34,230,32)
 		m._ui_style_box(v.active_style.card,cell)
 		m._ui_texture_rect(bait_icon(i),Rect2(cell.position+Vector2(3,3),Vector2(26,26)),false)
-		m._text(BAIT_NAMES[i]+" · %d개" % stock(m,i),cell.position+Vector2(33,12),9,v.active_style.ink,false,116)
-		var effect: String = "%d비늘 · 입질/희귀어↑" % BAIT_PRICES[i] if i == 0 else "%d비늘 · 등급 ×%.2f" % [BAIT_PRICES[i],BAIT_MULT[i]]
-		m._text(effect if bait_unlocked(i) else "지역 %d 해금 시 구매" % (BAIT_REGION[i]+1),cell.position+Vector2(33,25),8,Color("675c4b"),false,116)
+		m._text(BAIT_NAMES[i]+(" [사용]" if selected_bait==i else "")+" · %d개" % stock(m,i),cell.position+Vector2(33,12),9,v.active_style.ink,false,116)
+		m._text(bait_description(m,i) if bait_unlocked(i) else "지역 %d 해금 시 구매" % (BAIT_REGION[i]+1),cell.position+Vector2(33,25),8,Color("675c4b"),false,116)
 		var buy:=Rect2(cell.position+Vector2(151,3),Vector2(74,26))
 		m._ui_style_box(m.sb_btn,buy)
 		m._text("구매" if bait_unlocked(i) else "잠김",buy.get_center()+Vector2(0,4),9,v.active_style.ink,true,68)

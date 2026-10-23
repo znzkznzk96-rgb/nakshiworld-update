@@ -85,7 +85,7 @@ func update(m,dt: float) -> void:
 		if key!=lesson_stage: lesson_stage=key;action(m,frame.beh,true)
 		return
 	lesson_stage=""
-	var active: bool=m.scene=="fish" and m.S.get("phase","")=="fight" and not m.settings_open and not m.market_open and not m.guide.opened and not m.mailbox.opened
+	var active: bool=m.scene=="fish" and m.S.get("phase","")=="fight" and not m.settings_open and not m.market_open and not m.personal_dex.opened and not m.guide.opened and not m.mailbox.opened
 	if not active: state="";previous_tension=0;previous_land=0;previous_spike=0;return
 	var beh: String=m.S.beh
 	if beh!=state: state=beh;action(m,beh)
