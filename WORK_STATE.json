@@ -20,8 +20,8 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-23",
-  "current_task": "어시장·설명 UI 검증 완료 및 B 캐릭터 윤곽·표정 검토본 인수인계",
-  "next_step": "최신 HANDOFF/LOCAL_RECOVERY 확인 후 어시장·설명 UI 캡처 육안 검토. B 앞뒤팔·호흡 승인은 유지하고 윤곽·표정 검토본을 이어가기. 검토본 실파일 확보 전 Godot 통합 완료로 표시 금지. 배포 금지.",
+  "current_task": "캐릭터 표정·상체 보완 및 상점 기준 낚싯대 외형 제작",
+  "next_step": "기존 윤곽·표정 패키지 실파일 복원 후 수정; 상점 낚싯대 원본 확인; 검토본 제작. 배포 금지.",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
