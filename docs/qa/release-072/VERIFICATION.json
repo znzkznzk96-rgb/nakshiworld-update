@@ -1,7 +1,7 @@
 {
-  "stage": "local_verified_ci_pending",
+  "stage": "released_v0.72_verified",
   "version": "0.72",
-  "deployed": false,
+  "deployed": true,
   "phone_confirmed": false,
   "suites_passed": 20,
   "checks": {
@@ -62,5 +62,18 @@
     "rod_0_max.png": "a15bfef6e7575a22ff0f379bd428c5bb8790653017c973b41b0e6808fdea12c2",
     "rod_2_max.png": "edcab7f8473e3d102c16820f08c9c801acb4b7d14b39e354cb7d5ea67712068e"
   },
-  "paid_art_requests": 0
+  "paid_art_requests": 0,
+  "source_commit": "935e8f0f2aa07bd02d64b8243ae8cf9eb9285b1f",
+  "work_ci_run": 39910902687,
+  "work_ci_conclusion": "success",
+  "build_run": 39911127640,
+  "build_conclusion": "success",
+  "gateway_run": 39911232841,
+  "gateway_conclusion": "success",
+  "source_delta_remote_verification": {
+    "files": 18,
+    "mismatches": []
+  },
+  "live_pck_mounted_and_assets_loaded": true,
+  "release_verification": "docs/RELEASE_072_VERIFICATION.json"
 }

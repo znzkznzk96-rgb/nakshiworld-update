@@ -1,18 +1,18 @@
 {
   "schema_version": 2,
   "task": "거꾸로 폭포 계곡 통합 및 낚시월드 인수인계 기준",
-  "status": "release_072_prepared",
+  "status": "released_phone_confirmation_pending",
   "work_branch": "work/valley-runtime",
-  "release_baseline": "v0.71",
+  "release_baseline": "v0.72",
   "target_version": "0.72",
-  "source_commit": "9c70a390929dcec38b9ead3f15d5f8fc8bf2067a",
-  "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v0.71",
-  "live_patch_sha256": "01ee189decd10eb8676c9b2bb31fdccf79279b9ad203cf9d0b6c1778845a81b6",
-  "source_zip_sha256": "9ce09182d6ebe6191de6fa9563717b45d859b33158284916de8079e487b3db90",
-  "build_run": 39894735604,
-  "gateway_run": 39894876454,
-  "verification": "docs/RELEASE_071_VERIFICATION.json",
-  "phone_confirmation": "0.71 휴대폰 업데이트·실제 조작 확인 대기",
+  "source_commit": "935e8f0f2aa07bd02d64b8243ae8cf9eb9285b1f",
+  "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v0.72",
+  "live_patch_sha256": "32ba14728402af31d8eaeaca466a56125627fb5974b8b8d4633915f6170d72a8",
+  "source_zip_sha256": "18ea62a30dd56a72077fcd9774231411657983245cd06cc8937a0de282e4c9f4",
+  "build_run": 39911127640,
+  "gateway_run": 39911232841,
+  "verification": "docs/RELEASE_072_VERIFICATION.json",
+  "phone_confirmation": "0.72 휴대폰 업데이트·실제 조작 확인 대기",
   "museum_bundle": "저수지·계곡 필수/서브 각6종·주인1종 실물 낱개기증과 자동보상 연결. 필수 라이선스만/서브판매가120%+혼15·30/주인판매가150%+2진주. 계곡노멀평균주인 기증24000비늘+2진주.",
   "valley_runtime_status": "shipped_assets_catalog_backend_live_entry_disabled",
   "pending_decisions": [
@@ -20,8 +20,8 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-23",
-  "current_task": "강화 오라 실제적용·전체20검사·패키지검증 완료",
-  "next_step": "실제게임검사·공개배포·운영파일검증",
+  "current_task": "강화 오라 및 누적 환경연출 0.72 공개·운영 검증 완료",
+  "next_step": "사용자 휴대폰 업데이트·실제 조작 확인",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
@@ -30,13 +30,13 @@
   "this_change": {
     "scope": "오라 은백/청색 교정·실제강화연결 및 누적미배포환경연출",
     "game_changed": true,
-    "release_created": false,
+    "release_created": true,
     "deployment_authorized": true
   },
   "history": "docs/historical/2026-10-22-before-workflow-streamlining/WORK_STATE.json",
   "work_verification": "docs/qa/release-072/VERIFICATION.json",
-  "work_source_commit": "026aa5ca0b72eb0acfa2c2805dc4e98995742efa",
-  "work_verification_run": 39897179070,
+  "work_source_commit": "935e8f0f2aa07bd02d64b8243ae8cf9eb9285b1f",
+  "work_verification_run": 39910902687,
   "backend_source_commit": "fc55b5b07b1cecde6fea9670fd6553423f3b68e2",
   "backend_verification": "docs/qa/bundles-buyback/VERIFICATION.json",
   "bag_proposals": {
@@ -248,18 +248,20 @@
     "packed_asset_load_verified": true,
     "verification": "docs/qa/character-runtime/VERIFICATION.json",
     "deployed": true,
-    "deployed_version": "0.71",
-    "release_source_commit": "9c70a390929dcec38b9ead3f15d5f8fc8bf2067a"
+    "deployed_version": "0.72",
+    "release_source_commit": "935e8f0f2aa07bd02d64b8243ae8cf9eb9285b1f"
   },
   "atmosphere_encounter": {
     "game_applied": true,
-    "deployed": false,
+    "deployed": true,
     "source_commit": "026aa5ca0b72eb0acfa2c2805dc4e98995742efa",
     "ci_run": 39897179070,
     "ci_conclusion": "success",
     "verification": "docs/qa/atmosphere-encounter/VERIFICATION.json",
     "review_video": "NAKSHIWORLD_NIGHT_CATCH_REVIEW.mp4",
-    "phone_confirmed": false
+    "phone_confirmed": false,
+    "deployed_version": "0.72",
+    "release_source_commit": "935e8f0f2aa07bd02d64b8243ae8cf9eb9285b1f"
   },
   "audio_direction": {
     "approved": true,
@@ -268,10 +270,10 @@
     "deployed": false
   },
   "rod_aura_review": {
-    "status": "native_integrated_verified",
-    "preview_only": true,
+    "status": "deployed_v0.72",
+    "preview_only": false,
     "game_applied": true,
-    "deployed": false,
+    "deployed": true,
     "levels": [
       0,
       2,
@@ -288,9 +290,9 @@
     "high_tiers_visibly_rewarding": true,
     "video": "NAKSHIWORLD_ROD_AURA_V2_TO20.mp4",
     "video_saved": true,
-    "verification": "docs/proposals/rod-aura/VERIFICATION.json",
+    "verification": "docs/qa/release-072/VERIFICATION.json",
     "source": "docs/proposals/rod-aura",
-    "proposal_colors_final": false,
+    "proposal_colors_final": true,
     "actual_rod_max": [
       5,
       8,
@@ -298,6 +300,8 @@
       13,
       16,
       20
-    ]
+    ],
+    "deployed_version": "0.72",
+    "source_commit": "935e8f0f2aa07bd02d64b8243ae8cf9eb9285b1f"
   }
 }

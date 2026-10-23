@@ -1,3 +1,7 @@
+# 현재 복구 기준 — 공개 0.72
+
+v0.72 game-source.zip + 활성 작업브랜치 최신 overlay/삭제명세를 사용한다. 강화오라의 실제연결/은백·청색교정과 누적환경연출 모두 전체소스/원격에 포함. 해시/실제 공개검증은 docs/RELEASE_072_VERIFICATION.json. 과거 시안/미적용 문구는 단계별 이력이며 현재 상태는 WORK_STATE/HANDOFF 우선. 마을음악 미구현·휴대폰확인 대기.
+
 ## 최신 작업 — 저녁·조우·낚아올림 개선 (미배포)
 
 v0.71 전체소스 + 활성 작업브랜치 overlay/삭제명세로 복원. 환경/angler_scene/main 및 신규 encounter_text.gd, 관련 검사/재현 스크립트가 원격에 보존된다. 신규 이미지 생성 없음. 검증/다음 작업은 WORK_STATE와 docs/qa/atmosphere-encounter/VERIFICATION.json 우선.
