@@ -7,7 +7,7 @@ func run() -> void:
 	var m=load("res://main.gd").new();m.SET.sfx=0;m.SET.music=0;m.title_open=false;root.add_child(m);await process_frame;m.set_process(false)
 	var e=m.environment
 	check(e.texture.get_size()==Vector2(803,1959),"immutable approved plate dimensions")
-	check(e.layers.size()==12,"independent bounded environment layers")
+	check(e.layers.size()==14,"independent bounded environment layers")
 	for size in [Vector2i(270,660),Vector2i(270,540),Vector2i(270,480),Vector2i(360,660)]:
 		root.size=size;await process_frame;m.active_region=0;m._layout()
 		check(is_equal_approx(m.bg_node.scale.x,m.bg_node.scale.y),"uniform plate scale "+str(size))

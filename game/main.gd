@@ -216,6 +216,7 @@ var aura_hist_t: = 0.0
 var water_spawn_acc: = 0.0
 var parts: = []
 var spawn_acc: = 0.0
+var encounter = preload("res://addons/reservoir/encounter_text.gd").new()
 var reveal_t: = 0.0
 var visibility_flash: = 0.0
 var reveal_pending: = false
@@ -509,10 +510,11 @@ func hook_tap() -> void :
 		S.size = 0 if S.lf < 0.9 else (1 if S.lf < 1.15 else (2 if S.lf < 1.35 else 3))
 		holding = false;buzz([160,80,160]);audio_feedback.sound(self,"tension",-4)
 	S.len = FISH_LEN[S.sp] * S.lf
-	S.phase = "pre";S.t = 0.0;msg = ""
+	S.phase = "pre";S.t = 0.0;S.encounter_at = clock;msg = ""
 	visibility_flash = 0.9 if S.judge != "MISS" else 0.0
 
 func start_fight() -> void :
+	if not S.has("encounter_at"): S.encounter_at = clock
 	S.merge({"phase": "fight", "dist": 0.0, "tension": 30.0, "slack": 0.0, "beh": "swim", "bt": 1.0, "jumpT": 0.0, 
 		"jumpUsed": false, "landUntil": 0.0, "fx": 230.0, "fy": WATER + 200.0, "spike": 0.0, "noise": 1.0, 
 		"chain": false, "fakeRest": false, "fakeTell": false, "pose": {}, "swimPh": 0.0, "dartV": 0.0, "dartX": 0.0, 
@@ -532,7 +534,7 @@ func start_fight() -> void :
 	if S.get("tutFish", false): S.tut = true;S.tutState = {"i": 0};tut_begin_step()
 	if S.grade > 0:
 		reveal_t = 1.0;reveal_pending = true
-		show_toast(GRADE_N[S.grade] + "!", _aura_col(S.grade, clock * 1000.0, 1.0).lerp(Color.WHITE, 0.25))
+		pass # Grade encounter text is drawn separately, without a toast card.
 		buzz([[0], [40], [40, 40, 60], [60, 40, 60, 40, 90], [80, 40, 80, 40, 80, 40, 160]][S.grade])
 
 func show_judge(t: String) -> void :
@@ -1684,7 +1686,7 @@ func _shadow_fish(c: Vector2, star: int, grade: int, t: float, beh: String, spik
 	if beh == "rest": tilt += sin(t / 700.0) * 0.08
 	if beh == "jump" and grade >= 3: tilt += sin(t / 70.0) * 0.5 * (grade - 2)
 	if spike: tilt += sin(t / 18.0) * (0.2 + 0.35 * fz)
-	var hx: = c.x + L * 0.45
+	var hx: = c.x if beh == "hanging" else c.x + L * 0.45
 	var hy: = c.y
 	var ct: = cos(tilt)
 	var st: = sin(tilt)
@@ -1721,7 +1723,7 @@ func _shadow_fish(c: Vector2, star: int, grade: int, t: float, beh: String, spik
 		var vertices := PackedVector2Array([a - na * hw, b - nb * hw, b + nb * hw, a + na * hw])
 		quads.append([vertices,
 			PackedVector2Array([Vector2(u0, v0), Vector2(u1, v0), Vector2(u1, v1), Vector2(u0, v1)])])
-	if alpha >= 1.0: fish_mouth = (pts[0] as Vector2).lerp(pts[1], 0.35)
+	if alpha >= 1.0: fish_mouth = pts[0] if beh == "hanging" else (pts[0] as Vector2).lerp(pts[1], 0.35)
 	if alpha >= 1.0 and not ui_demo:
 		aura = {"quads": quads, "pts": pts, "L": L, "g": grade, "tex": tex, "face": face, "c": pts[5], "nrms": nrms, "hw": hw}
 
@@ -1793,7 +1795,7 @@ func _draw_pixel_halo(quads: Array, tex: Texture2D, grade: int, t: float) -> voi
 
 func _draw_action_wake(c: Vector2, length: float, hw: float, face: float, beh: String, t: float) -> void:
 	var force: float = _water_force(beh)
-	if beh == "rest" or beh == "sulk": return
+	if beh in ["rest","sulk","hanging"]: return
 	# Short broken arcs remain outside the silhouette, never a solid glowing disc.
 	var arcs: int = 3 if force >= 2.0 else 2
 	for j in arcs:
@@ -2257,6 +2259,7 @@ func _draw_ui(t: float, h: float) -> void :
 	if S.phase == "result":
 		_draw_result(t)
 	if S.phase == "fail": _draw_failure()
+	encounter.draw(self)
 	_draw_notes()
 
 func _draw_notes() -> void :

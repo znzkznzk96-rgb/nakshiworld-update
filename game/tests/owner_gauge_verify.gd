@@ -30,7 +30,7 @@ func run() -> void:
 	hook(m,true);check(m.S.owner and m.S.star==4 and m.S.sp==19 and m.S.phase=="pre","next GREAT confirms reservoir owner")
 	m.text_items=[];m.ui_commands=[];m.owner_ui.draw(m)
 	check(not m.owner_ui.warning_bounds.size.is_zero_approx(),"warning appears only for confirmed owner")
-	check(m.text_items.any(func(it):return str(it[2])=="경고 · 주인 등장") and m.text_items.any(func(it):return str(it[2])=="청룡잉어"),"warning names regional owner")
+	check(m.encounter.debug.get("title","")=="경고 · 주인 등장" and m.text_items.any(func(it):return str(it[2])=="청룡잉어"),"warning names regional owner")
 	for i in 40:m._process(0.05)
 	check(m.S.phase=="pre" and p.owner_gauge[0]==100,"owner fight waits through readable warning")
 	for i in 25:m._process(0.05)

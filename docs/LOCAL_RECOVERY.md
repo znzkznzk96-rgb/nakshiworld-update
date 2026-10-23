@@ -1,3 +1,7 @@
+## 최신 작업 — 저녁·조우·낚아올림 개선 (미배포)
+
+v0.71 전체소스 + 활성 작업브랜치 overlay/삭제명세로 복원. 환경/angler_scene/main 및 신규 encounter_text.gd, 관련 검사/재현 스크립트가 원격에 보존된다. 신규 이미지 생성 없음. 검증/다음 작업은 WORK_STATE와 docs/qa/atmosphere-encounter/VERIFICATION.json 우선.
+
 # 현재 복구 기준: 공개 0.71
 
 0.71 실제 통합·배포·운영 다운로드 검증 완료. v0.71 릴리스의 game-source.zip을 기준으로 작업 브랜치의 최신 변경을 적용한다. 캐릭터·고양이·의자·낚싯대 코드는 전체 소스와 Git에 포함된다. 예전 HTML 검토본은 역사 자료다. 해시/소스 커밋은 docs/RELEASE_071_VERIFICATION.json, 현재 상태는 WORK_STATE.json 참조. 휴대폰 확인만 대기.

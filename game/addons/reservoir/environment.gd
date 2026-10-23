@@ -9,7 +9,7 @@ const LAYER_ORDER := {
 	"moon_glow":-29,"clouds":-27,"birds":-25,"surface_water":-22,
 	"post_ripples":-21,"underwater_light":-19,"fish":-17,
 	"sand_fish":-16,"plants":-14,"bubbles":-13,
-	"village_lights":-12,"fireflies":-11
+	"chimney_smoke":-24,"village_lights":-12,"lamp_light":-11,"fireflies":-10
 }
 var valley = preload("res://addons/reservoir/valley_environment.gd").new()
 var active_region := 0
@@ -90,6 +90,10 @@ func source_rect(source: Rect2) -> Rect2:
 func night_strength() -> float:
 	var h:=hour()
 	return smoothstep(17.0,20.0,h) if h>=12.0 else 1.0-smoothstep(5.0,8.0,h)
+
+func actor_tint() -> Color:
+	# The nearby lantern illuminates the rig and cat, not only the plate behind them.
+	return scenery_tint().lerp(Color(1.0,0.84,0.60),night_strength()*0.86)
 
 func scenery_tint() -> Color:
 	var tint:=Color.WHITE.lerp(Color(0.28,0.36,0.59),night_strength())

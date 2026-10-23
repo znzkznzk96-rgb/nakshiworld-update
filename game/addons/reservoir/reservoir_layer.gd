@@ -32,7 +32,7 @@ func _draw() -> void:
 	match kind:
 		"moon_glow":
 			if night>0.001:
-				_glow(Vector2(615,325),Vector2(550,550),Color(0.65,0.77,1.0,night*0.42))
+				_glow(Vector2(615,325),Vector2(550,550),Color(0.65,0.77,1.0,night*0.72))
 		"clouds":
 			for i in 3:
 				var size:=Vector2(215 if i!=1 else 280,43 if i!=1 else 65)
@@ -62,15 +62,42 @@ func _draw() -> void:
 				for i in LIGHT_PANES.size():
 					var pane: Rect2=LIGHT_PANES[i]
 					var flicker: float=0.94+0.04*sin(t*(2.5 if i<2 else 0.13)+i)+0.02*sin(t*4.1+i)
-					draw_rect(pane,Color(1,0.73,0.28,night*0.84*flicker))
-					_glow(pane.get_center(),Vector2(72,84) if i<2 else Vector2(22,25),Color(1,0.60,0.18,night*0.48*flicker))
+					draw_rect(pane,Color(1,0.73,0.28,night*0.98*flicker))
+					_glow(pane.get_center(),Vector2(72,84) if i<2 else Vector2(40,44),Color(1,0.60,0.18,night*0.68*flicker))
+		"lamp_light":
+			if night>0.001:
+				var flicker: float=0.97+0.02*sin(t*3.1)+0.01*sin(t*6.7)
+				_glow(Vector2(158,677),Vector2(230,230),Color(1,.66,.24,night*.48*flicker))
+				_glow(Vector2(158,677),Vector2(76,96),Color(1,.78,.36,night*.86*flicker))
+				# Bright core follows the actual hanging lantern glass, below its cap.
+				draw_rect(Rect2(151,663,13,27),Color(1,.86,.48,night*.92*flicker))
+				draw_rect(Rect2(155,666,5,21),Color(1,.97,.78,night))
+				_glow(Vector2(215,823),Vector2(285,68),Color(1,.66,.27,night*.23))
+		"chimney_smoke":
+			for chimney in 3:
+				for i in 7:
+					var puff: Dictionary=smoke_puff(chimney,i,t)
+					var p: Vector2=puff.p
+					var r: float=puff.radius
+					var col:=Color(.72,.79,.86,float(puff.alpha)*(.82+night*.18))
+					# Small stepped puffs keep the distant pixel scale; no giant circles.
+					draw_rect(Rect2((p-Vector2(r,r*.55)).round(),Vector2(r*2,r*1.1).round()),col)
+					draw_rect(Rect2((p-Vector2(r*.65,r)).round(),Vector2(r*1.3,r*2).round()),col)
 		"fireflies":
 			if night>0.001:
-				for i in 8:
-					var p:=Vector2(210+i*72+sin(t*0.31+i*1.7)*18,785+float(i%3)*57+sin(t*0.47+i*2.1)*14)
-					var alpha: float=night*pow(maxf(0.0,sin(t*0.72+i*1.9)),2.0)*0.8
-					_glow(p,Vector2(15,15),Color(0.92,1.0,0.52,alpha*0.7))
-					draw_rect(Rect2(p.round(),Vector2(2,2)),Color(0.95,1,0.57,alpha))
+				for i in 18:
+					var p: Vector2=firefly_position(i,t)
+					var alpha: float=night*(.18+.82*pow(.5+.5*sin(t*1.25+i*1.9),3))
+					_glow(p,Vector2(31,31),Color(.83,1,.36,alpha*.82))
+					draw_rect(Rect2(p.round(),Vector2(3,3)),Color(1,1,.65,alpha))
+
+func smoke_puff(chimney: int,index: int,t: float) -> Dictionary:
+	var anchors: Array=[Vector2(359,647),Vector2(666,646),Vector2(197,639)]
+	var age: float=fposmod(t*.105+index/7.0+chimney*.21,1.0)
+	return {"p":anchors[chimney]+Vector2(age*27+sin(age*7+chimney)*age*7,-age*69),"radius":2+age*7,"alpha":sin(PI*age)*.23}
+
+func firefly_position(index: int,t: float) -> Vector2:
+	return Vector2(185+fposmod(index*89.0,572)+sin(t*.49+index*1.7)*21,750+float(index%4)*49+sin(t*.71+index*2.1)*19)
 
 func _glow(p: Vector2,size: Vector2,color: Color) -> void:
 	draw_texture_rect(environment.glow,Rect2(p-size*0.5,size),false,color)
@@ -89,13 +116,13 @@ func _surface(t: float,night: float) -> void:
 	draw_polyline(points,Color(0.65,0.95,1.0,0.34*(1.0-night*0.48)),2.0)
 	# Night-only reflection lives entirely on the water, below the far shore.
 	if night>0.001:
-		_glow(Vector2(615,856),Vector2(130,260),Color(0.64,0.76,1.0,night*0.05))
+		_glow(Vector2(615,856),Vector2(130,260),Color(0.64,0.76,1.0,night*0.16))
 		for i in 43:
 			if sin(i*4.71+t*0.08)<-0.45:continue
 			var y: float=737+i*5.9
 			var span: float=(6+i*0.64)*(0.45+0.55*absf(sin(i*2.73+t*0.17)))
 			var drift: float=sin(t*0.9+i*0.93)*13+sin(t*0.33+i*0.19)*9
-			var a: float=night*(0.08+0.16*pow(maxf(0,sin(t*0.6+i*1.7)),2))
+			var a: float=night*(0.14+0.24*pow(maxf(0,sin(t*0.6+i*1.7)),2))
 			draw_rect(Rect2(615+drift-span,y,span*2,1.8),Color(0.79,0.86,1,a))
 
 func _posts(t: float,night: float) -> void:

@@ -86,7 +86,7 @@ func cat(m,kind: String,local: float) -> void:
 	debug.cat_action=action;debug.cat_frame=frame;debug.cat_air=air
 func draw(m) -> Vector2:
 	if textures.is_empty(): setup()
-	tint=m.environment.scenery_tint() if m.active_region==0 else Color.WHITE
+	tint=m.environment.actor_tint() if m.active_region==0 else Color.WHITE
 	var phase: String=m.S.phase
 	var local: float=float(m.S.get("t",0.0))
 	var kind: String="idle"
@@ -171,11 +171,32 @@ func draw(m) -> Vector2:
 	m.draw_set_transform(Vector2(0,m.oy))
 	debug.merge({"kind":kind,"expression":face,"front_error":front.error,"rear_error":rear.error,"tip":tip,"rod":m.rod_lv,"held":held},true)
 	return tip-Vector2(0,m.oy)
+func landing_pose(elapsed: float,end: float,rod_tip: Vector2,water: float) -> Dictionary:
+	var u: float=sm(elapsed/end)
+	var mouth: Vector2=Vector2(104,water+9).lerp(rod_tip+Vector2(2,15),u)
+	# Pendulum about the mouth; limited to 17 degrees so the head always stays up.
+	var angle: float=-PI*.5+sin(elapsed*8.0)*(.12+.17*u)
+	return {"mouth":mouth,"angle":angle}
+
 func landing(m,t: float,rod_tip: Vector2) -> void:
 	if float(m.S.t)>=float(m.S.netEnd):return
-	var u: float=sm(float(m.S.t)/float(m.S.netEnd))
-	var target: Vector2=Vector2(104,m.WATER+9).lerp(rod_tip+Vector2(4,19),u)
-	target.x+=sin(t/70.0)*2*u
+	var elapsed: float=float(m.S.t)
+	var geometry: Dictionary=landing_pose(elapsed,float(m.S.netEnd),rod_tip,m.WATER)
 	var lf: Dictionary=m.S.get("lastF",{})
-	m._shadow_fish(target,m.S.star,m.S.grade,t,"run",false,float(lf.get("scale",.65)),lf.get("pose",{}),float(m.S.t)*TAU*1.2,m.S.sp,float(lf.get("face",-1)),1.0)
+	var scale: float=float(lf.get("scale",.65))
+	var pose: Dictionary=m.pose_for("swim",m.S.star,0).duplicate()
+	pose.tilt=geometry.angle;pose.amp=.023;pose.curl=0;pose.tailAmp=.8
+	m._shadow_fish(geometry.mouth,m.S.star,m.S.grade,t,"hanging",false,scale,pose,elapsed*TAU*1.8,m.S.sp,1.0,1.0)
 	m._line(rod_tip,m.fish_mouth,Color(1,1,1,.8))
+	var length: float=m._fish_display_length(m.S.star,scale,false,m.S.sp)
+	# Detached drops use the tail's earlier emission position plus gravity.
+	for i in 7:
+		var age: float=fposmod(elapsed+i*.097,.68)
+		if age>elapsed:continue
+		var past: Dictionary=landing_pose(elapsed-age,float(m.S.netEnd),rod_tip,m.WATER)
+		var tail: Vector2=past.mouth-Vector2.from_angle(past.angle)*length
+		var drop: Vector2=tail+Vector2(sin(i*2.1)*age*7,14*age+94*age*age)
+		if drop.y>=m.WATER:continue
+		var color:=Color(.72,.91,1,(1-age/.68)*.88)
+		m.draw_line(drop-Vector2(0,1+age*3),drop,color,1,false)
+	debug.landing_mouth=m.fish_mouth;debug.landing_tail=m.aura.pts[-1]

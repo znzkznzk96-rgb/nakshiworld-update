@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "task": "거꾸로 폭포 계곡 통합 및 낚시월드 인수인계 기준",
-  "status": "night_encounter_landing_in_progress",
+  "status": "night_encounter_landing_verified_ci_pending",
   "work_branch": "work/valley-runtime",
   "release_baseline": "v0.71",
   "target_version": "0.71",
@@ -20,8 +20,8 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-23",
-  "current_task": "저녁 조명·굴뚝 연기·반딧불이 보강, 등급 글자 알림, 수직 물고기 매달림·꼬리 물방울",
-  "next_step": "실제 Godot 적용·관련 검사·주야/등급/낚아올림 장면 검수",
+  "current_task": "저녁 조명·글자 조우·수직 낚아올림 실제 적용, 로컬19개 검사·13장 검수 통과",
+  "next_step": "작업 브랜치 CI 확인 및 사용자 검토. 공개 0.71 유지",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
@@ -29,12 +29,12 @@
   "last_release_deployed": true,
   "this_change": {
     "scope": "환경 조명/효과 및 조우·낚아올림 시각 개선",
-    "game_changed": false,
+    "game_changed": true,
     "release_created": false,
     "deployment_authorized": false
   },
   "history": "docs/historical/2026-10-22-before-workflow-streamlining/WORK_STATE.json",
-  "work_verification": "docs/qa/character-runtime/VERIFICATION.json",
+  "work_verification": "docs/qa/atmosphere-encounter/VERIFICATION.json",
   "work_source_commit": "9c70a390929dcec38b9ead3f15d5f8fc8bf2067a",
   "work_verification_run": 39894672849,
   "backend_source_commit": "fc55b5b07b1cecde6fea9670fd6553423f3b68e2",

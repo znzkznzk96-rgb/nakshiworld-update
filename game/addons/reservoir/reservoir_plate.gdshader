@@ -22,7 +22,13 @@ void fragment(){
     raw.rgb=mix(raw.rgb,vec3(0.16,0.27,0.32),clamp(panes,0.0,1.0)*0.8);
     float dusk=smoothstep(16.0,18.5,hour)*(1.0-smoothstep(19.0,21.0,hour));
     vec3 tint=mix(vec3(1.0),vec3(0.28,0.36,0.59),night);
-    raw.rgb*=mix(tint,vec3(1.02,0.72,0.64),dusk*0.25);
+    vec3 illumination=mix(tint,vec3(1.02,0.72,0.64),dusk*0.25);
+    // Restore native wood detail under local light instead of putting a fog over it.
+    float lamp=exp(-dot((p-vec2(170.0,740.0))/vec2(176.0,165.0),(p-vec2(170.0,740.0))/vec2(176.0,165.0)));
+    illumination=mix(illumination,vec3(1.08,0.85,0.54),lamp*night*0.94);
+    float moonwash=exp(-dot((p-vec2(615.0,805.0))/vec2(220.0,205.0),(p-vec2(615.0,805.0))/vec2(220.0,205.0)));
+    illumination+=vec3(0.06,0.09,0.14)*moonwash*night;
+    raw.rgb*=illumination;
     if(terrain_only)raw.a*=step(skyline(p.x),p.y);
     COLOR=raw;
 }

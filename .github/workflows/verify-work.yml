@@ -32,7 +32,7 @@ jobs:
           GODOT="$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
           "$GODOT" --headless --editor --path "$RUNNER_TEMP/project" --import > evidence/import.log 2>&1
           if grep -E 'SCRIPT ERROR:|Parse Error:|Failed to load script' evidence/import.log; then exit 1; fi
-          for suite in angler_scene market_reader odds_rewards reservoir_layers owner_gauge bag_list bundles_buyback equipment visual guide shop audio_save bundle_preview rewards reader fish_surface regional inventory_layout; do
+          for suite in atmosphere_encounter angler_scene market_reader odds_rewards reservoir_layers owner_gauge bag_list bundles_buyback equipment visual guide shop audio_save bundle_preview rewards reader fish_surface regional inventory_layout; do
             XDG_DATA_HOME="$RUNNER_TEMP/isolated-$suite" timeout 90 "$GODOT" --headless --path "$RUNNER_TEMP/project" --script "tests/${suite}_verify.gd" > "evidence/$suite.log" 2>&1 || { cat "evidence/$suite.log"; exit 1; }
             cat "evidence/$suite.log"
             grep -F 'VERIFY failures=[]' "evidence/$suite.log"
@@ -63,6 +63,14 @@ jobs:
           cat evidence/angler-screens.log
           grep -F 'ANGLER_SCENE_PREVIEW failures=[]' evidence/angler-screens.log
           if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/angler-screens.log; then exit 1; fi
+      - name: Render night lighting encounter text and hanging catch
+        shell: bash
+        run: |
+          set -euo pipefail
+          XDG_DATA_HOME="$RUNNER_TEMP/isolated-atmosphere-screens" timeout 90 xvfb-run -a "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/atmosphere_encounter_preview.gd -- "$GITHUB_WORKSPACE/evidence/atmosphere-screens" > evidence/atmosphere-screens.log 2>&1
+          cat evidence/atmosphere-screens.log
+          grep -F 'ATMOSPHERE_ENCOUNTER_PREVIEW failures=[]' evidence/atmosphere-screens.log
+          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/atmosphere-screens.log; then exit 1; fi
       - name: Preserve verification logs
         if: always()
         uses: actions/upload-artifact@v4
