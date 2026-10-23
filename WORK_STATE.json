@@ -36,8 +36,8 @@
   },
   "history": "docs/historical/2026-10-22-before-workflow-streamlining/WORK_STATE.json",
   "work_verification": "docs/analysis/balance-tuning-075/QA.json",
-  "work_source_commit": "20911202cbb3ac8beca3706df3ec5c71a0fe46bb",
-  "work_verification_run": 39955659785,
+  "work_source_commit": "2cbf15b6a68851d70899b338f68d9ddf90d11989",
+  "work_verification_run": 39960625078,
   "backend_source_commit": "fc55b5b07b1cecde6fea9670fd6553423f3b68e2",
   "backend_verification": "docs/qa/bundles-buyback/VERIFICATION.json",
   "bag_proposals": {
@@ -417,6 +417,10 @@
       0.04,
       0
     ],
-    "valley_candidate_applied": false
+    "valley_candidate_applied": false,
+    "source_commit": "2cbf15b6a68851d70899b338f68d9ddf90d11989",
+    "remote_content_verified": true,
+    "ci_run": 39960625078,
+    "ci_status": "in_progress"
   }
 }

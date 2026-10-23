@@ -29,5 +29,9 @@
     "baseline_constants.json": "2256faa011f1fdb8d20fd19a93ba54b0a1409636180ad9bc379f227c65554f89",
     "results.json": "aa8f9edd9f072f3622eab55e74bdf2cf288b25b94503bd3b49b4ddde1757e75f",
     "REPORT.md": "329a47d26fcded660dbd250b0c7384ca18312350724c6b92055f17c86a9eaf16"
-  }
+  },
+  "source_commit": "2cbf15b6a68851d70899b338f68d9ddf90d11989",
+  "remote_content_verified": true,
+  "ci_run": 39960625078,
+  "ci_status_at_checkpoint": "in_progress"
 }
