@@ -47,7 +47,8 @@ func slot_key(key: String) -> String:
 const PART_PRICE_BASE: = [0, 3300, 52000, 1030000, 6700000, 28300000]
 func price(m, n: int, slot: int) -> int:
 	if n==0: return int(m.V.PARTS[slot][3])
-	return maxi(10,roundi(PART_PRICE_BASE[n]*[0.05,0.10,0.18,0.30][slot]/10.0)*10)
+	var original_price: int = maxi(10,roundi(PART_PRICE_BASE[n]*[0.05,0.10,0.18,0.30][slot]/10.0)*10)
+	return roundi(original_price * 1.5)
 func icon(m, n: int, slot: int) -> Texture2D:
 	if n==0: return m.V.tool_icons[KEYS[slot]]
 	var key:=part_key(n,slot)
