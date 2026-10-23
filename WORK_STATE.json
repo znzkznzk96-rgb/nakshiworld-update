@@ -20,8 +20,8 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-23",
-  "current_task": "강화 오라 및 누적 환경연출 0.72 공개·운영 검증 완료",
-  "next_step": "사용자 휴대폰 업데이트·실제 조작 확인",
+  "current_task": "업데이트 화면 B안 채택·부트스트랩 적용 준비",
+  "next_step": "APK 내 root.gd 업데이트로더의 네이티브 화면 구현·검수",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
@@ -303,5 +303,13 @@
     ],
     "deployed_version": "0.72",
     "source_commit": "935e8f0f2aa07bd02d64b8243ae8cf9eb9285b1f"
+  },
+  "update_screen": {
+    "selection": "B",
+    "approved": true,
+    "status": "selected_implementation_pending",
+    "style": "차원관리국 장비·잠든 고양이·청록 분할 게이지",
+    "game_applied": false,
+    "deployed": false
   }
 }
