@@ -20,8 +20,8 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-23",
-  "current_task": "새고양이 통일·의자마감 포함 캐릭터전체 최종검토",
-  "next_step": "캐릭터·의자·새고양이 동시영상/독립HTML/전체패키지 제작. 실제Godot미적용·배포금지.",
+  "current_task": "의자·캐릭터·새고양이 통합최종검토본 완료",
+  "next_step": "함께있는 최종검토본 사용자확인. 실제Godot통합/실기/배포는후속, 배포금지.",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
@@ -117,7 +117,7 @@
     "reference_design": "docs/proposals/character-b/reference-design.png",
     "seated_reference": "docs/proposals/character-b/seated-reference.png",
     "density_note": "사용자 개선된 B 채택. 정확한 12% 크기는 최종 수치 승인 아님.",
-    "status": "expression_v2_approved_final_delivery_ready_not_game_integrated",
+    "status": "chair_unified_cat_complete_scene_review_ready",
     "latest_guide": "docs/CHARACTER_MOTION_GUIDE.md",
     "review_package": "NAKSHIWORLD_B_CHARACTER_RODS_REVIEW.zip",
     "review_package_repository_bytes_verified": false,
@@ -200,5 +200,21 @@
     "game_applied": false,
     "deployed": false,
     "verification": "docs/qa/cat-smooth/QA.json"
+  },
+  "scene_final_review": {
+    "package": "NAKSHIWORLD_SCENE_FINAL.zip",
+    "video": "NAKSHIWORLD_SCENE_FINAL.mp4",
+    "html": "NAKSHIWORLD_SCENE_FINAL.html",
+    "gif": "SCENE_FINAL_PREVIEW.gif",
+    "saved": true,
+    "crc_verified": true,
+    "video_seconds": 53.6,
+    "full_video_decode_pass": true,
+    "cat_unified": true,
+    "chair_applied_in_review": true,
+    "character_source_unchanged": true,
+    "verification": "docs/qa/scene-final/QA.json",
+    "game_applied": false,
+    "deployed": false
   }
 }
