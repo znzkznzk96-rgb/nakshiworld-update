@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "task": "거꾸로 폭포 계곡 통합 및 낚시월드 인수인계 기준",
-  "status": "paused_character_b_density_size_review",
+  "status": "in_progress_market_reader",
   "work_branch": "work/valley-runtime",
   "release_baseline": "v0.70",
   "target_version": "unreleased",
@@ -19,19 +19,19 @@
     "계곡 출현확률·경제·전투 수치 승인 대기. 실제 계곡 입장 비활성 유지.",
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
-  "updated_at": "2026-10-22",
-  "current_task": "B안선택 확정·도트밀도개선/소폭확대 비교대기,새대화재개준비",
-  "next_step": "docs/CHARACTER_MOTION_GUIDE.md 읽고 기존B와 밀도개선/약12%확대 제안B의 실제배경비교부터. 확정후 대기/캐스팅영상. 배포금지",
+  "updated_at": "2026-10-23",
+  "current_task": "어시장 팔기/손질 전체 목록 스크롤 및 한글 설명 줄바꿈 개선",
+  "next_step": "전체 목록 스크롤·오조작 방지와 설명 줄바꿈 수정 후 비배포 CI 검증",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
   "last_release_deployed": true,
   "this_change": {
-    "scope": "새대화 인수인계·B참조보존",
+    "scope": "어시장 팔기/손질 전체 목록 스크롤 및 한글 설명 줄바꿈 개선",
     "game_changed": false,
-    "release_created": false,
-    "deployment_authorized": false
+    "deployment_authorized": false,
+    "release_created": false
   },
   "history": "docs/historical/2026-10-22-before-workflow-streamlining/WORK_STATE.json",
   "work_verification": "docs/qa/odds-rewards/VERIFICATION.json",
