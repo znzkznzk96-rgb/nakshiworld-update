@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "task": "거꾸로 폭포 계곡 통합 및 낚시월드 인수인계 기준",
-  "status": "fish_soul_alchemy_design",
+  "status": "backrooms_reservoir_design_review_ready",
   "work_branch": "work/valley-runtime",
   "release_baseline": "v0.75",
   "target_version": "0.75",
@@ -19,16 +19,16 @@
     "계곡 출현확률·경제·전투 수치 승인 대기. 실제 계곡 입장 비활성 유지.",
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
-  "updated_at": "2026-10-23",
-  "current_task": "어혼/연성 명칭과 수집제작방향 확정, 가챠보류",
-  "next_step": "어혼획득/연성식/병사구성 상세기획",
+  "updated_at": "2026-10-24",
+  "current_task": "저수지 백룸 기획 및 6개 화면 시안 완료, 미구현",
+  "next_step": "기획/시안 피드백에 따라 구체화; 기존 확정사항 재질문 없음",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
   "last_release_deployed": true,
   "this_change": {
-    "scope": "해금비결정기록·시뮬레이션",
+    "scope": "저수지 백룸 기획/6개 시안/기획용 수치계산",
     "game_changed": false,
     "release_created": false,
     "deployment_authorized": false,
@@ -477,5 +477,19 @@
     "crafting": "연성",
     "gacha": "deferred",
     "implemented": false
+  },
+  "backrooms_design": {
+    "status": "draft_review_ready",
+    "plan": "docs/design/backrooms-reservoir/PLAN.md",
+    "gallery": "docs/design/backrooms-reservoir/review.html",
+    "verification": "docs/design/backrooms-reservoir/QA.json",
+    "selection_concepts": 3,
+    "progress_concepts": 3,
+    "proposed_roster": 10,
+    "stages_per_region_proposal": 10,
+    "numbers_approved": false,
+    "ui_selection_approved": false,
+    "implemented": false,
+    "deployed": false
   }
 }

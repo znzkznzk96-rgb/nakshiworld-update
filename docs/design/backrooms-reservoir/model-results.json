@@ -1,0 +1,1001 @@
+{
+  "model": "proposal-v1",
+  "roster": [
+    [
+      "붕어 방패병",
+      "수호",
+      "수호",
+      200,
+      12,
+      30,
+      0
+    ],
+    [
+      "블루길 창병",
+      "맹공",
+      "맹공",
+      130,
+      26,
+      10,
+      0
+    ],
+    [
+      "피라미 척후병",
+      "질주",
+      "질주",
+      115,
+      23,
+      15,
+      0
+    ],
+    [
+      "미꾸리 의무병",
+      "생명",
+      "생명",
+      150,
+      10,
+      18,
+      3
+    ],
+    [
+      "송사리 등불사",
+      "신비",
+      "신비",
+      105,
+      28,
+      8,
+      0
+    ],
+    [
+      "메기 철퇴병",
+      "맹공",
+      "수호",
+      175,
+      21,
+      22,
+      0
+    ],
+    [
+      "장어 돌격병",
+      "맹공",
+      "질주",
+      125,
+      27,
+      12,
+      0
+    ],
+    [
+      "향어 호위병",
+      "수호",
+      "생명",
+      190,
+      13,
+      28,
+      1.5
+    ],
+    [
+      "버들치 전령",
+      "질주",
+      "생명",
+      135,
+      17,
+      16,
+      2
+    ],
+    [
+      "달빛 주술사",
+      "생명",
+      "신비",
+      120,
+      19,
+      12,
+      2
+    ]
+  ],
+  "combat_tick_seconds": 2,
+  "travel_seconds": 5,
+  "stage_names": [
+    "젖은 현관",
+    "비어 있는 탈의실",
+    "반복되는 세면대",
+    "꺼지지 않는 복도",
+    "거울 없는 세면실",
+    "잠긴 관리실",
+    "물소리 나는 계단",
+    "끝없는 여과실",
+    "돌아오는 복도",
+    "출구를 닮은 문"
+  ],
+  "stages": [
+    [
+      160,
+      12,
+      0
+    ],
+    [
+      260,
+      18,
+      3
+    ],
+    [
+      420,
+      26,
+      6
+    ],
+    [
+      650,
+      36,
+      9
+    ],
+    [
+      950,
+      49,
+      12
+    ],
+    [
+      1350,
+      65,
+      16
+    ],
+    [
+      1850,
+      84,
+      20
+    ],
+    [
+      2500,
+      108,
+      24
+    ],
+    [
+      3300,
+      138,
+      28
+    ],
+    [
+      4300,
+      175,
+      32
+    ]
+  ],
+  "cases": {
+    "starter_1star_lv1": {
+      "team": [
+        {
+          "name": "붕어 방패병",
+          "hp": 200.0,
+          "atk": 12.0,
+          "defense": 30.0,
+          "heal": 0.0
+        },
+        {
+          "name": "블루길 창병",
+          "hp": 130.0,
+          "atk": 26.0,
+          "defense": 10.0,
+          "heal": 0.0
+        },
+        {
+          "name": "미꾸리 의무병",
+          "hp": 150.0,
+          "atk": 10.0,
+          "defense": 18.0,
+          "heal": 3.0
+        }
+      ],
+      "level_gold": 0,
+      "stages": [
+        {
+          "win": true,
+          "ticks": 4,
+          "battle_seconds": 8,
+          "hp_pct": 95.6,
+          "progress": 100
+        },
+        {
+          "win": true,
+          "ticks": 6,
+          "battle_seconds": 12,
+          "hp_pct": 87.4,
+          "progress": 100
+        },
+        {
+          "win": true,
+          "ticks": 10,
+          "battle_seconds": 20,
+          "hp_pct": 64.8,
+          "progress": 100
+        },
+        {
+          "win": true,
+          "ticks": 15,
+          "battle_seconds": 30,
+          "hp_pct": 20.8,
+          "progress": 100
+        },
+        {
+          "win": false,
+          "ticks": 13,
+          "battle_seconds": 26,
+          "hp_pct": 0,
+          "progress": 58.6
+        },
+        {
+          "win": false,
+          "ticks": 10,
+          "battle_seconds": 20,
+          "hp_pct": 0,
+          "progress": 30.7
+        },
+        {
+          "win": false,
+          "ticks": 8,
+          "battle_seconds": 16,
+          "hp_pct": 0,
+          "progress": 17.3
+        },
+        {
+          "win": false,
+          "ticks": 6,
+          "battle_seconds": 12,
+          "hp_pct": 0,
+          "progress": 9.3
+        },
+        {
+          "win": false,
+          "ticks": 5,
+          "battle_seconds": 10,
+          "hp_pct": 0,
+          "progress": 5.7
+        },
+        {
+          "win": false,
+          "ticks": 4,
+          "battle_seconds": 8,
+          "hp_pct": 0,
+          "progress": 3.4
+        }
+      ]
+    },
+    "reservoir_1star_lv5": {
+      "team": [
+        {
+          "name": "붕어 방패병",
+          "hp": 296.0,
+          "atk": 17.759999999999998,
+          "defense": 44.4,
+          "heal": 0.0
+        },
+        {
+          "name": "블루길 창병",
+          "hp": 192.4,
+          "atk": 38.48,
+          "defense": 14.8,
+          "heal": 0.0
+        },
+        {
+          "name": "미꾸리 의무병",
+          "hp": 222.0,
+          "atk": 14.8,
+          "defense": 26.64,
+          "heal": 4.4399999999999995
+        }
+      ],
+      "level_gold": 1680,
+      "stages": [
+        {
+          "win": true,
+          "ticks": 3,
+          "battle_seconds": 6,
+          "hp_pct": 98.6,
+          "progress": 100
+        },
+        {
+          "win": true,
+          "ticks": 4,
+          "battle_seconds": 8,
+          "hp_pct": 96.0,
+          "progress": 100
+        },
+        {
+          "win": true,
+          "ticks": 7,
+          "battle_seconds": 14,
+          "hp_pct": 86.7,
+          "progress": 100
+        },
+        {
+          "win": true,
+          "ticks": 10,
+          "battle_seconds": 20,
+          "hp_pct": 70.2,
+          "progress": 100
+        },
+        {
+          "win": true,
+          "ticks": 15,
+          "battle_seconds": 30,
+          "hp_pct": 33.7,
+          "progress": 100
+        },
+        {
+          "win": false,
+          "ticks": 16,
+          "battle_seconds": 32,
+          "hp_pct": 0,
+          "progress": 72.6
+        },
+        {
+          "win": false,
+          "ticks": 12,
+          "battle_seconds": 24,
+          "hp_pct": 0,
+          "progress": 38.4
+        },
+        {
+          "win": false,
+          "ticks": 9,
+          "battle_seconds": 18,
+          "hp_pct": 0,
+          "progress": 20.6
+        },
+        {
+          "win": false,
+          "ticks": 7,
+          "battle_seconds": 14,
+          "hp_pct": 0,
+          "progress": 11.8
+        },
+        {
+          "win": false,
+          "ticks": 6,
+          "battle_seconds": 12,
+          "hp_pct": 0,
+          "progress": 7.5
+        }
+      ]
+    },
+    "reservoir_2star_lv8": {
+      "team": [
+        {
+          "name": "붕어 방패병",
+          "hp": 588.8,
+          "atk": 35.328,
+          "defense": 88.32,
+          "heal": 0.0
+        },
+        {
+          "name": "블루길 창병",
+          "hp": 382.71999999999997,
+          "atk": 76.544,
+          "defense": 29.439999999999998,
+          "heal": 0.0
+        },
+        {
+          "name": "미꾸리 의무병",
+          "hp": 441.59999999999997,
+          "atk": 29.439999999999998,
+          "defense": 52.992,
+          "heal": 8.832
+        }
+      ],
+      "level_gold": 4200,
+      "stages": [
+        {
+          "win": true,
+          "ticks": 2,
+          "battle_seconds": 4,
+          "hp_pct": 100.0,
+          "progress": 100
+        },
+        {
+          "win": true,
+          "ticks": 2,
+          "battle_seconds": 4,
+          "hp_pct": 99.8,
+          "progress": 100
+        },
+        {
+          "win": true,
+          "ticks": 4,
+          "battle_seconds": 8,
+          "hp_pct": 98.4,
+          "progress": 100
+        },
+        {
+          "win": true,
+          "ticks": 6,
+          "battle_seconds": 12,
+          "hp_pct": 95.0,
+          "progress": 100
+        },
+        {
+          "win": true,
+          "ticks": 8,
+          "battle_seconds": 16,
+          "hp_pct": 88.9,
+          "progress": 100
+        },
+        {
+          "win": true,
+          "ticks": 12,
+          "battle_seconds": 24,
+          "hp_pct": 74.6,
+          "progress": 100
+        },
+        {
+          "win": true,
+          "ticks": 16,
+          "battle_seconds": 32,
+          "hp_pct": 52.6,
+          "progress": 100
+        },
+        {
+          "win": true,
+          "ticks": 22,
+          "battle_seconds": 44,
+          "hp_pct": 10.8,
+          "progress": 100
+        },
+        {
+          "win": false,
+          "ticks": 18,
+          "battle_seconds": 36,
+          "hp_pct": 0,
+          "progress": 60.2
+        },
+        {
+          "win": false,
+          "ticks": 14,
+          "battle_seconds": 28,
+          "hp_pct": 0,
+          "progress": 34.9
+        }
+      ]
+    },
+    "reservoir_3star_lv10": {
+      "team": [
+        {
+          "name": "붕어 방패병",
+          "hp": 977.6000000000001,
+          "atk": 58.656000000000006,
+          "defense": 146.64000000000001,
+          "heal": 0.0
+        },
+        {
+          "name": "블루길 창병",
+          "hp": 635.44,
+          "atk": 127.08800000000002,
+          "defense": 48.88000000000001,
+          "heal": 0.0
+        },
+        {
+          "name": "미꾸리 의무병",
+          "hp": 733.2000000000002,
+          "atk": 48.88000000000001,
+          "defense": 87.98400000000001,
+          "heal": 14.664000000000001
+        }
+      ],
+      "level_gold": 6480,
+      "stages": [
+        {
+          "win": true,
+          "ticks": 1,
+          "battle_seconds": 2,
+          "hp_pct": 100.0,
+          "progress": 100
+        },
+        {
+          "win": true,
+          "ticks": 2,
+          "battle_seconds": 4,
+          "hp_pct": 100.0,
+          "progress": 100
+        },
+        {
+          "win": true,
+          "ticks": 2,
+          "battle_seconds": 4,
+          "hp_pct": 100.0,
+          "progress": 100
+        },
+        {
+          "win": true,
+          "ticks": 4,
+          "battle_seconds": 8,
+          "hp_pct": 99.5,
+          "progress": 100
+        },
+        {
+          "win": true,
+          "ticks": 5,
+          "battle_seconds": 10,
+          "hp_pct": 98.2,
+          "progress": 100
+        },
+        {
+          "win": true,
+          "ticks": 7,
+          "battle_seconds": 14,
+          "hp_pct": 95.2,
+          "progress": 100
+        },
+        {
+          "win": true,
+          "ticks": 10,
+          "battle_seconds": 20,
+          "hp_pct": 89.1,
+          "progress": 100
+        },
+        {
+          "win": true,
+          "ticks": 14,
+          "battle_seconds": 28,
+          "hp_pct": 77.4,
+          "progress": 100
+        },
+        {
+          "win": true,
+          "ticks": 19,
+          "battle_seconds": 38,
+          "hp_pct": 56.8,
+          "progress": 100
+        },
+        {
+          "win": true,
+          "ticks": 25,
+          "battle_seconds": 50,
+          "hp_pct": 23.0,
+          "progress": 100
+        }
+      ]
+    },
+    "valley_1star_lv5": {
+      "team": [
+        {
+          "name": "붕어 방패병",
+          "hp": 473.59999999999997,
+          "atk": 28.415999999999997,
+          "defense": 71.03999999999999,
+          "heal": 0.0
+        },
+        {
+          "name": "블루길 창병",
+          "hp": 307.84,
+          "atk": 61.568,
+          "defense": 23.68,
+          "heal": 0.0
+        },
+        {
+          "name": "미꾸리 의무병",
+          "hp": 355.2,
+          "atk": 23.68,
+          "defense": 42.623999999999995,
+          "heal": 7.103999999999999
+        }
+      ],
+      "level_gold": 1680,
+      "stages": [
+        {
+          "win": true,
+          "ticks": 2,
+          "battle_seconds": 4,
+          "hp_pct": 99.9,
+          "progress": 100
+        },
+        {
+          "win": true,
+          "ticks": 3,
+          "battle_seconds": 6,
+          "hp_pct": 99.1,
+          "progress": 100
+        },
+        {
+          "win": true,
+          "ticks": 4,
+          "battle_seconds": 8,
+          "hp_pct": 97.2,
+          "progress": 100
+        },
+        {
+          "win": true,
+          "ticks": 7,
+          "battle_seconds": 14,
+          "hp_pct": 90.7,
+          "progress": 100
+        },
+        {
+          "win": true,
+          "ticks": 10,
+          "battle_seconds": 20,
+          "hp_pct": 79.0,
+          "progress": 100
+        },
+        {
+          "win": true,
+          "ticks": 14,
+          "battle_seconds": 28,
+          "hp_pct": 57.1,
+          "progress": 100
+        },
+        {
+          "win": true,
+          "ticks": 20,
+          "battle_seconds": 40,
+          "hp_pct": 15.6,
+          "progress": 100
+        },
+        {
+          "win": false,
+          "ticks": 17,
+          "battle_seconds": 34,
+          "hp_pct": 0,
+          "progress": 62.3
+        },
+        {
+          "win": false,
+          "ticks": 13,
+          "battle_seconds": 26,
+          "hp_pct": 0,
+          "progress": 35.0
+        },
+        {
+          "win": false,
+          "ticks": 11,
+          "battle_seconds": 22,
+          "hp_pct": 0,
+          "progress": 22.0
+        }
+      ]
+    },
+    "valley_2star_lv8": {
+      "team": [
+        {
+          "name": "붕어 방패병",
+          "hp": 942.0799999999999,
+          "atk": 56.5248,
+          "defense": 141.312,
+          "heal": 0.0
+        },
+        {
+          "name": "블루길 창병",
+          "hp": 612.352,
+          "atk": 122.4704,
+          "defense": 47.104,
+          "heal": 0.0
+        },
+        {
+          "name": "미꾸리 의무병",
+          "hp": 706.56,
+          "atk": 47.104,
+          "defense": 84.7872,
+          "heal": 14.1312
+        }
+      ],
+      "level_gold": 4200,
+      "stages": [
+        {
+          "win": true,
+          "ticks": 1,
+          "battle_seconds": 2,
+          "hp_pct": 100.0,
+          "progress": 100
+        },
+        {
+          "win": true,
+          "ticks": 2,
+          "battle_seconds": 4,
+          "hp_pct": 100.0,
+          "progress": 100
+        },
+        {
+          "win": true,
+          "ticks": 2,
+          "battle_seconds": 4,
+          "hp_pct": 100.0,
+          "progress": 100
+        },
+        {
+          "win": true,
+          "ticks": 4,
+          "battle_seconds": 8,
+          "hp_pct": 99.4,
+          "progress": 100
+        },
+        {
+          "win": true,
+          "ticks": 5,
+          "battle_seconds": 10,
+          "hp_pct": 98.0,
+          "progress": 100
+        },
+        {
+          "win": true,
+          "ticks": 7,
+          "battle_seconds": 14,
+          "hp_pct": 94.7,
+          "progress": 100
+        },
+        {
+          "win": true,
+          "ticks": 10,
+          "battle_seconds": 20,
+          "hp_pct": 88.1,
+          "progress": 100
+        },
+        {
+          "win": true,
+          "ticks": 14,
+          "battle_seconds": 28,
+          "hp_pct": 75.6,
+          "progress": 100
+        },
+        {
+          "win": true,
+          "ticks": 19,
+          "battle_seconds": 38,
+          "hp_pct": 53.8,
+          "progress": 100
+        },
+        {
+          "win": true,
+          "ticks": 26,
+          "battle_seconds": 52,
+          "hp_pct": 14.4,
+          "progress": 100
+        }
+      ]
+    },
+    "mixed_two_valley_2star_lv8": {
+      "team": [
+        {
+          "name": "붕어 방패병",
+          "hp": 942.0799999999999,
+          "atk": 56.5248,
+          "defense": 141.312,
+          "heal": 0.0
+        },
+        {
+          "name": "블루길 창병",
+          "hp": 612.352,
+          "atk": 122.4704,
+          "defense": 47.104,
+          "heal": 0.0
+        },
+        {
+          "name": "미꾸리 의무병",
+          "hp": 441.59999999999997,
+          "atk": 29.439999999999998,
+          "defense": 52.992,
+          "heal": 8.832
+        }
+      ],
+      "level_gold": 4200,
+      "stages": [
+        {
+          "win": true,
+          "ticks": 1,
+          "battle_seconds": 2,
+          "hp_pct": 100.0,
+          "progress": 100
+        },
+        {
+          "win": true,
+          "ticks": 2,
+          "battle_seconds": 4,
+          "hp_pct": 99.9,
+          "progress": 100
+        },
+        {
+          "win": true,
+          "ticks": 3,
+          "battle_seconds": 6,
+          "hp_pct": 99.4,
+          "progress": 100
+        },
+        {
+          "win": true,
+          "ticks": 4,
+          "battle_seconds": 8,
+          "hp_pct": 98.3,
+          "progress": 100
+        },
+        {
+          "win": true,
+          "ticks": 6,
+          "battle_seconds": 12,
+          "hp_pct": 95.4,
+          "progress": 100
+        },
+        {
+          "win": true,
+          "ticks": 8,
+          "battle_seconds": 16,
+          "hp_pct": 90.5,
+          "progress": 100
+        },
+        {
+          "win": true,
+          "ticks": 11,
+          "battle_seconds": 22,
+          "hp_pct": 81.1,
+          "progress": 100
+        },
+        {
+          "win": true,
+          "ticks": 15,
+          "battle_seconds": 30,
+          "hp_pct": 64.2,
+          "progress": 100
+        },
+        {
+          "win": true,
+          "ticks": 21,
+          "battle_seconds": 42,
+          "hp_pct": 32.2,
+          "progress": 100
+        },
+        {
+          "win": false,
+          "ticks": 23,
+          "battle_seconds": 46,
+          "hp_pct": 0,
+          "progress": 84.5
+        }
+      ]
+    },
+    "mixed_two_valley_2star_lv10": {
+      "team": [
+        {
+          "name": "붕어 방패병",
+          "hp": 1064.96,
+          "atk": 63.89760000000001,
+          "defense": 159.74400000000003,
+          "heal": 0.0
+        },
+        {
+          "name": "블루길 창병",
+          "hp": 692.224,
+          "atk": 138.44480000000001,
+          "defense": 53.248000000000005,
+          "heal": 0.0
+        },
+        {
+          "name": "미꾸리 의무병",
+          "hp": 441.59999999999997,
+          "atk": 29.439999999999998,
+          "defense": 52.992,
+          "heal": 8.832
+        }
+      ],
+      "level_gold": 5720,
+      "stages": [
+        {
+          "win": true,
+          "ticks": 1,
+          "battle_seconds": 2,
+          "hp_pct": 100.0,
+          "progress": 100
+        },
+        {
+          "win": true,
+          "ticks": 2,
+          "battle_seconds": 4,
+          "hp_pct": 100.0,
+          "progress": 100
+        },
+        {
+          "win": true,
+          "ticks": 2,
+          "battle_seconds": 4,
+          "hp_pct": 99.8,
+          "progress": 100
+        },
+        {
+          "win": true,
+          "ticks": 4,
+          "battle_seconds": 8,
+          "hp_pct": 98.6,
+          "progress": 100
+        },
+        {
+          "win": true,
+          "ticks": 5,
+          "battle_seconds": 10,
+          "hp_pct": 96.9,
+          "progress": 100
+        },
+        {
+          "win": true,
+          "ticks": 7,
+          "battle_seconds": 14,
+          "hp_pct": 93.0,
+          "progress": 100
+        },
+        {
+          "win": true,
+          "ticks": 10,
+          "battle_seconds": 20,
+          "hp_pct": 85.4,
+          "progress": 100
+        },
+        {
+          "win": true,
+          "ticks": 14,
+          "battle_seconds": 28,
+          "hp_pct": 71.4,
+          "progress": 100
+        },
+        {
+          "win": true,
+          "ticks": 19,
+          "battle_seconds": 38,
+          "hp_pct": 47.3,
+          "progress": 100
+        },
+        {
+          "win": true,
+          "ticks": 25,
+          "battle_seconds": 50,
+          "hp_pct": 8.4,
+          "progress": 100
+        }
+      ]
+    }
+  },
+  "soul_supply_per_successful_catch": {
+    "1": {
+      "맹공": 0.034333333333333334,
+      "수호": 0.034374999999999996,
+      "질주": 0.035333333333333335,
+      "생명": 0.03525,
+      "신비": 0.034895833333333334
+    },
+    "0.7": {
+      "맹공": 0.029946769879612575,
+      "수호": 0.036978966252056766,
+      "질주": 0.03617961718580141,
+      "생명": 0.036998188225034305,
+      "신비": 0.033659537255426135
+    }
+  },
+  "drop_rates": {
+    "맹공": 0.16,
+    "수호": 0.15,
+    "질주": 0.16,
+    "생명": 0.18,
+    "신비": 0.25
+  },
+  "groups": {
+    "맹공": [
+      4,
+      12,
+      14,
+      15
+    ],
+    "수호": [
+      1,
+      6,
+      8,
+      11
+    ],
+    "질주": [
+      0,
+      7,
+      13,
+      16
+    ],
+    "생명": [
+      3,
+      5,
+      9,
+      17
+    ],
+    "신비": [
+      2,
+      10,
+      18
+    ]
+  }
+}
