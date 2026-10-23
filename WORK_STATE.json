@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "task": "거꾸로 폭포 계곡 통합 및 낚시월드 인수인계 기준",
-  "status": "work_in_progress_unreleased",
+  "status": "review_pending_unreleased",
   "work_branch": "work/valley-runtime",
   "release_baseline": "v0.74",
   "target_version": "0.74",
@@ -20,16 +20,16 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-23",
-  "current_task": "마을곡 C 제작·강화 손 고정 수정·개인 기록 도감3안",
-  "next_step": "관련 검사 및 시안 제시",
+  "current_task": "강화 손/망치 동작 수정 완료·마을곡C 및 개인기록 도감3시안 검토",
+  "next_step": "사용자 C 청취 및 도감 시안 선택 후 통합",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
   "last_release_deployed": true,
   "this_change": {
-    "scope": "마을곡 C 제작·강화 손 고정 수정·개인 기록 도감3안",
-    "game_changed": false,
+    "scope": "강화 손/망치 동작 수정 완료·마을곡C 및 개인기록 도감3시안 검토",
+    "game_changed": true,
     "release_created": false,
     "deployment_authorized": false
   },
@@ -325,6 +325,25 @@
     "implemented": true,
     "deployed": false,
     "music_replaced": false,
-    "music_generation_connection_pending": false
+    "music_generation_connection_pending": false,
+    "music_preview": "C",
+    "music_review_pending": true
+  },
+  "encyclopedia": {
+    "preview_only": true,
+    "variants": [
+      "수집 도감",
+      "트로피 전시",
+      "낚시 기록장"
+    ],
+    "selected": null,
+    "source": "docs/proposals/dex/concepts.html",
+    "save_schema_changed": false
+  },
+  "smith_motion": {
+    "fixed": true,
+    "verified_frames": 8,
+    "verification": "docs/qa/smith-motion/VERIFICATION.json",
+    "deployed": false
   }
 }

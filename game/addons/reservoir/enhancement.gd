@@ -106,10 +106,9 @@ func _cinematic(v, m, r: Rect2, y: float) -> void :
 	var smith: Array = animation.get("smith", [])
 	var fi: int = mini(7, int(fposmod(elapsed, 0.8) / 0.8 * 8)) if phase == "working" else 0
 	if not smith.is_empty():
-		m._ui_texture(smith[0], scene.position)
-		if phase == "working":
-			var crop := Rect2(84, 25, 49, 65)
-			m._ui_texture_rect_region(smith[fi], Rect2(scene.position + crop.position, crop.size), crop)
+		# Each frame contains the whole smith, including the raised hand left of x=84.
+		# A partial overlay leaves the original hand/hammer frozen underneath.
+		m._ui_texture(smith[mini(fi, smith.size() - 1)], scene.position)
 		var age := fposmod(maxf(0.0, elapsed - 0.24), 0.8)
 		if phase == "working" and elapsed >= 0.24 and age < 0.2:
 			var strength := 1.0 - age / 0.2
