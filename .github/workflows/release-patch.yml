@@ -81,6 +81,19 @@ jobs:
                       assert 'keystore' not in item.name.lower()
                       z.write(item,pathlib.Path('game')/rel)
           PY
+      - name: Verify new art from the exported pack in an empty project
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/pack-check"
+          python3 - <<'PYCODE'
+          import os,pathlib
+          (pathlib.Path(os.environ['RUNNER_TEMP'])/'pack-check/project.godot').write_text('config_version=5\n[application]\nconfig/name="Packed art check"\n')
+          PYCODE
+          "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --headless --path "$RUNNER_TEMP/pack-check" --script "$GITHUB_WORKSPACE/automation/verify_packed_art.gd" -- "$GITHUB_WORKSPACE/dist/patch.pck" > "$RUNNER_TEMP/packed-art.log" 2>&1
+          cat "$RUNNER_TEMP/packed-art.log"
+          grep -F 'PACKED_ANGLER_VERIFY failures=[]' "$RUNNER_TEMP/packed-art.log"
+          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' "$RUNNER_TEMP/packed-art.log"; then exit 1; fi
       - name: Publish only after all assets are uploaded
         env:
           GH_TOKEN: ${{ github.token }}

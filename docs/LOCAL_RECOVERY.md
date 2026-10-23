@@ -1,3 +1,6 @@
+## 최신 — 실제Godot통합 원격보존 (2026-10-23)
+이제 승인된네이티브캐릭터/낚싯대/스툴/고양이의 실행코드와 실제에셋전체는 활성브랜치 game/addons/reservoir/angler_scene.gd 및 game/art/angler_b/에 보존됐다. PNG는base64텍스트로 정확한원본바이트를보존하고 런타임에서로드, pack포함검사통과. Release v0.70전체소스 + 활성overlay/삭제명세로복원가능. 이전 '게임미적용/아트는별도패키지만'은 과거검토단계기록이며 검토용HTML/생성원본보존처로만 참고. 0.71공개/휴대폰확인상태는WORK_STATE/HANDOFF 및 실제Release를따른다.
+
 ## 최신 스툴 교정본 — 2026-10-23
 NAKSHIWORLD_SCENE_STOOL.zip 저장성공/CRC확인. 최신 통합HTML/영상/GIF/목재스툴분리레이어/기준HTML/재현소스/에셋/검수 포함. 이전통합패키지는보존하되 최신좌판/배경중앙전면기둥수정은이패키지. docs/proposals/scene-stool/README.txt. 실제게임/공개배포변경없음.
 

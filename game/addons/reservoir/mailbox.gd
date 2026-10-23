@@ -19,6 +19,11 @@ var detail_page := 0
 const Reader = preload("res://addons/reservoir/topic_reader.gd")
 func sections(letter: Dictionary) -> Array:
 	# Curated presentation, separate from the complete release archive.
+	if letter.id == "0.71":
+		return [
+			{"name":"캐릭터","icon":"tackle","body":letter.body.slice(0,3),"display":["표정과 낚시 동작이 새로워졌어요.","장착한 낚싯대의 모습이 달라져요.","의자와 앉은 위치를 정리했어요."]},
+			{"name":"고양이·편의","icon":"fish","body":letter.body.slice(3,6),"display":["고양이가 찌를 보고 포획에 반응해요.","어시장의 모든 물고기를 스크롤해요.","긴 한글 설명도 편하게 읽어 보세요."]},
+			{"name":"보상·기록","icon":"museum","body":letter.body.slice(6),"display":["저수지 확률과 보상 안내를 개선했어요.","가방과 기증, 장비 기록은 유지돼요."]}]
 	if letter.id == "0.70":
 		return [
 			{"name":"저수지","icon":"fish","body":letter.body.slice(0,1),"display":["큰 달이 뜬 새로운 저수지예요.","낮밤에 따라 물결과 조명이 달라져요."]},
