@@ -1,3 +1,6 @@
+## 2026-10-23 현재 수정
+사용자 눈 일그러짐 지적으로 표정만 국소 재교정 진행. strain 눈구조를 자연스럽게 정리하고 기존 동작·낚싯대는 유지. 결정은 GAME_BIBLE 최신절.
+
 ## 2026-10-23 후속 검토본 완료
 표정·상체 반응·상점기준 낚싯대6종 검토본을 제작했다. 영상53.6초·동일동작/접점/하체/입력 검사 통과, 최종 시각검토·Godot통합은 남았다. 상세는 CHARACTER_MOTION_GUIDE 최신 절과 docs/qa/character-rods-review/QA.json. 완전 패키지 NAKSHIWORLD_B_CHARACTER_RODS_REVIEW.zip 저장 성공·CRC확인. 배포 없음.
 
