@@ -1,3 +1,6 @@
+## 최신 스툴 교정본 — 2026-10-23
+NAKSHIWORLD_SCENE_STOOL.zip 저장성공/CRC확인. 최신 통합HTML/영상/GIF/목재스툴분리레이어/기준HTML/재현소스/에셋/검수 포함. 이전통합패키지는보존하되 최신좌판/배경중앙전면기둥수정은이패키지. docs/proposals/scene-stool/README.txt. 실제게임/공개배포변경없음.
+
 ## 최신 통합 검토본 복구 — 2026-10-23
 NAKSHIWORLD_SCENE_FINAL.zip 저장성공/CRC확인. 새고양이 대기/행동 통일·의자 앞뒤레이어·캐릭터·낚싯대6종이 함께있는 독립HTML/53.6초영상/GIF/분리에셋/기준소스/재현코드/검수 포함. 이전패키지 유지. 공개GitHub는 소스스크립트/검수/문서이며 전체아트 바이트는 별도패키지다. 실제게임적용·배포완료가 아님. 상세 docs/proposals/scene-final/README.txt.
 

@@ -20,8 +20,8 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-23",
-  "current_task": "등받이없는 스툴 접점·전면기둥간섭 수정",
-  "next_step": "실제엉덩이하단 좌판과 데크안쪽 다리배치 재검토·통합본 제공. 배포금지.",
+  "current_task": "등받이없는 스툴 접점·전면간섭 교정본 완료",
+  "next_step": "스툴교정 통합검토본 사용자확인, 실제Godot통합/실기/배포후속. 배포금지.",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
@@ -214,6 +214,21 @@
     "chair_applied_in_review": true,
     "character_source_unchanged": true,
     "verification": "docs/qa/scene-final/QA.json",
+    "game_applied": false,
+    "deployed": false
+  },
+  "scene_stool_review": {
+    "package": "NAKSHIWORLD_SCENE_STOOL.zip",
+    "saved": true,
+    "crc_verified": true,
+    "video_seconds": 53.6,
+    "full_video_decode_pass": true,
+    "seat_y": 547,
+    "backrest": false,
+    "chair_foreground_pixels": 0,
+    "stool_max_y": 567,
+    "deck_y": 570,
+    "verification": "docs/qa/scene-stool/QA.json",
     "game_applied": false,
     "deployed": false
   }
