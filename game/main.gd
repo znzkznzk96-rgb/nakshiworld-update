@@ -190,6 +190,7 @@ var anim_loop: = true
 var anim_speed: = {"idle": 0.2, "reel": 0.11, "cast": 0.09, "net": 0.13, "trophy": 0.14, "miss": 0.15, "cat": 0.22}
 var anim_hold: = {"net": {15: 0.6}, "trophy": {9: 0.5, 15: 0.8}, "miss": {3: 0.4, 15: 0.7}}
 var cat_t: = 0.0
+var angler_scene = preload("res://addons/reservoir/angler_scene.gd").new()
 var vib_queue: = []
 var vib_wait: = 0.0
 var sfx_acc: = 0.0
@@ -1277,27 +1278,16 @@ func _draw() -> void :
 	draw_set_transform(Vector2(0, oy))
 	var n0: = text_items.size()
 
-	draw_rect(Rect2(PX + 16, PY + 56, 26, 2), Color(0.1, 0.04, 0.05, 0.35))
-	draw_rect(Rect2(PX + 18, PY + 58, 22, 1), Color(0.1, 0.04, 0.05, 0.2))
-	draw_rect(Rect2(CATX + 3, CATY + 31, 24, 2), Color(0.1, 0.04, 0.05, 0.35))
-	var cf: Array = anims["cat"]
-	draw_texture(cf[int(cat_t / anim_speed["cat"]) % 16], Vector2(CATX, CATY + _cat_jump()))
-	var fr: = anim_frame()
-	# One logical pixel, alpha silhouette; original sprite remains untouched.
-	for edge in [Vector2.LEFT, Vector2.RIGHT, Vector2.UP, Vector2.DOWN]:
-		draw_texture(anims[anim_name][fr], Vector2(PX, PY) + edge, Color(0.035, 0.045, 0.065, 0.9))
-	draw_texture(anims[anim_name][fr], Vector2(PX, PY))
+	var tip: Vector2 = angler_scene.draw(self)
 	_draw_reaction(t)
-	var tip: = _rod_tip(fr)
+	var fr: int = anim_frame()
 	match S.phase:
 		"cast": _draw_cast(t, tip)
 		"wait", "hook", "pre": _draw_wait(t, tip)
 		"fight": _draw_fight(fclock * 1000.0, tip)
 		"catch":
-			_draw_landing(t, tip)
+			angler_scene.landing(self, t, tip)
 		"fail", "result": pass
-	if S.phase == "catch" and S.get("newRec", false) and anim_name == "trophy":
-		_draw_trophy_fish(t, fr)
 	draw_set_transform(Vector2.ZERO)
 	for i in range(n0, text_items.size()): text_items[i][1] += Vector2(0, oy)
 	_draw_ui(t, h)
@@ -1426,7 +1416,7 @@ func _ripple(x: float, w: float, a: float) -> void :
 	draw_polyline(pts, Color(1, 1, 1, a), 1.0)
 
 func _draw_cast(t: float, tip: Vector2) -> void :
-	var k: float = (S.t - 0.75) / 0.6
+	var k: float = (S.t - 1.1) / 0.35
 	if k <= 0: return
 	k = min(1.0, k)
 	var p: = tip.lerp(Vector2(LX, WATER), k)
