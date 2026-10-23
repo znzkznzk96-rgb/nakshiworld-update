@@ -1,3 +1,6 @@
+## 표정v2 채택 — 최종 전달본 준비
+사용자 표정v2 채택. 기존 동작·낚싯대6종에 반영한 통합파일·영상 제작. 게임미적용·배포금지.
+
 ## 2026-10-23 표정v2 검토본 완료
 strain 눈 왜곡 지적을 반영해 표정만 교정했다. 기본 눈구조 보존·국소영역/알파·동작불변 검사통과. NAKSHIWORLD_B_EXPRESSIONS_V2.zip 저장성공·CRC확인. 최신 상세 CHARACTER_MOTION_GUIDE 첫 절, docs/qa/expressions-v2/QA.json. 사용자 시각검토 대기·게임미적용·배포없음.
 
