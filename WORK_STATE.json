@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "task": "거꾸로 폭포 계곡 통합 및 낚시월드 인수인계 기준",
-  "status": "analysis_complete_pending_balance_decisions",
+  "status": "balance_tuning_in_progress",
   "work_branch": "work/valley-runtime",
   "release_baseline": "v0.75",
   "target_version": "0.75",
@@ -20,8 +20,8 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-23",
-  "current_task": "0.75 기반 미끼·저수지→계곡→타일바다 해금준비 경제 시뮬레이션 완료",
-  "next_step": "분석보고서 검토 후 미끼가격·어장고갈패널티·계곡확률 최종값 결정; 아직 게임/배포 변경 없음",
+  "current_task": "승인 미끼가격5/15/20·고갈완화 작업 및 계곡수익차별화 검토",
+  "next_step": "후보시뮬레이션→승인범위 구현→격리검사; 배포없음",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
@@ -395,5 +395,16 @@
     "game_applied": false,
     "deployed": false,
     "actual_valley_entry_enabled": false
+  },
+  "balance_tuning": {
+    "approved_bait_prices": [
+      5,
+      15,
+      20
+    ],
+    "tile_unlock_cost": 52000,
+    "depletion_relief": "approved_direction; numerical comparison pending",
+    "valley_income": "review_only",
+    "deployed": false
   }
 }
