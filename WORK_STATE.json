@@ -20,8 +20,8 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-23",
-  "current_task": "고양이 독립레이어 동작 시각검토 우선",
-  "next_step": "기존16프레임/포획점프 및 분리연출후보 비교 제공. 의자 마감 후속·배포금지.",
+  "current_task": "고양이 기존2동작·연출후보2개 시각검토본 완료",
+  "next_step": "고양이 동작 사용자검토 후 후속. 의자 마감/접점/가림 정리는 아직 후속작업. 배포금지.",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
@@ -163,5 +163,23 @@
     "ui_verified_commit": "039a95ea1d4083c05011b3e63b20dd804265f16b",
     "ui_ci_run": 39876552230,
     "deployment_authorized": false
+  },
+  "cat_motion_review": {
+    "package": "NAKSHIWORLD_CAT_MOTION_REVIEW.zip",
+    "saved": true,
+    "crc_verified": true,
+    "source": "v0.70 original16 cat frames",
+    "existing": [
+      "0.22s/frame idle with tail and blink",
+      "7px two-hop catch reaction"
+    ],
+    "candidates": [
+      "0.33s/frame idle",
+      "4px single hop"
+    ],
+    "new_pose_art_created": false,
+    "game_applied": false,
+    "deployed": false,
+    "verification": "docs/qa/cat-motion-review/QA.json"
   }
 }
