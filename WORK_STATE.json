@@ -20,8 +20,8 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-23",
-  "current_task": "업데이트 화면 B안 채택·부트스트랩 적용 준비",
-  "next_step": "APK 내 root.gd 업데이트로더의 네이티브 화면 구현·검수",
+  "current_task": "레어 이상 물고기 광채 연출 유지 성능 최적화",
+  "next_step": "CPU 명령 묶기·전후 시각 비교·관련 검사",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
@@ -310,6 +310,11 @@
     "status": "selected_implementation_pending",
     "style": "차원관리국 장비·잠든 고양이·청록 분할 게이지",
     "game_applied": false,
+    "deployed": false
+  },
+  "rare_fish_optimization": {
+    "approved": true,
+    "implemented": false,
     "deployed": false
   }
 }
