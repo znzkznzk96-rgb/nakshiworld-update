@@ -182,3 +182,6 @@ strain 눈 일그러짐과 네모 눈 표현을 기본 눈 보존 방식으로 �
 
 ## 이전 변경 이력
 0.69 준비 과정 및 과거 모든 변경 기록은 [기존 CHANGELOG 원문](docs/historical/2026-10-22-before-workflow-streamlining/CHANGELOG.md)에 보존한다. 과거 미배포 문구를 현재 상태로 해석하지 않는다.
+
+## 2026-10-23 전체해금비2배 정정 분석
+첫두지역3000회 재시뮬레이션 완료, 액션 판정/전조 코드 검토 및 전국닌자스토리 조사와 백룸 공략안 정리. 게임코드/배포 변경 없음. docs/analysis/all-unlock-double/REPORT.md 및 docs/design/combat-and-backrooms-proposal.md 참조.

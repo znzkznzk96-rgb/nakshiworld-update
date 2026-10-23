@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "runs": 3000,
+  "checks": [
+    "completed",
+    "currency conservation",
+    "income partition",
+    "daily budget"
+  ],
+  "sha256": {
+    "model.py": "8ef74b3725bf8707bb0b0d8aad52ef4b11b71e4d9efa5b21fcdc5f984b6f990f",
+    "baseline_constants.json": "2256faa011f1fdb8d20fd19a93ba54b0a1409636180ad9bc379f227c65554f89",
+    "results.json": "12511c8a159b118ea2b546400d53a0b5c860444370e893be63edee0cd2cf0dc4",
+    "trials.csv": "dae465a4b4d168a754ddaa70a1d8c65a7445714f588a9ec00b75adf62034319c",
+    "REPORT.md": "e6b7c8f448f26879d9bcd82ebdc1a77f086011243e0e899cd0ca23fc037b4415",
+    "run.py": "5c708950ef510738d7bcbf2f398c3b3122f85df6a16c7fe9771866a1fccc5697"
+  }
+}
