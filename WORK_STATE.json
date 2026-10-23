@@ -1,18 +1,18 @@
 {
   "schema_version": 2,
   "task": "거꾸로 폭포 계곡 통합 및 낚시월드 인수인계 기준",
-  "status": "release_071_prepared",
+  "status": "released_phone_confirmation_pending",
   "work_branch": "work/valley-runtime",
-  "release_baseline": "v0.70",
+  "release_baseline": "v0.71",
   "target_version": "0.71",
-  "source_commit": "064e20d5d375f7d597b1072a88266935c9177474",
-  "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v0.70",
-  "live_patch_sha256": "760ddae4625d0cb4922f04a28eb1701325e82fde064bbf0b168235ec31c4e22e",
-  "source_zip_sha256": "43b185e7ba31234bf8736b9da8c97429e962ae24608c055e52cbe6f924274427",
-  "build_run": 39765913166,
-  "gateway_run": 39766377488,
-  "verification": "docs/qa/market-reader/VERIFICATION.json",
-  "phone_confirmation": "0.70 휴대폰 업데이트/동작 확인 대기",
+  "source_commit": "9c70a390929dcec38b9ead3f15d5f8fc8bf2067a",
+  "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v0.71",
+  "live_patch_sha256": "01ee189decd10eb8676c9b2bb31fdccf79279b9ad203cf9d0b6c1778845a81b6",
+  "source_zip_sha256": "9ce09182d6ebe6191de6fa9563717b45d859b33158284916de8079e487b3db90",
+  "build_run": 39894735604,
+  "gateway_run": 39894876454,
+  "verification": "docs/RELEASE_071_VERIFICATION.json",
+  "phone_confirmation": "0.71 휴대폰 업데이트·실제 조작 확인 대기",
   "museum_bundle": "저수지·계곡 필수/서브 각6종·주인1종 실물 낱개기증과 자동보상 연결. 필수 라이선스만/서브판매가120%+혼15·30/주인판매가150%+2진주. 계곡노멀평균주인 기증24000비늘+2진주.",
   "valley_runtime_status": "shipped_assets_catalog_backend_live_entry_disabled",
   "pending_decisions": [
@@ -20,8 +20,8 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-23",
-  "current_task": "0.71 네이티브통합 검사완료·공개배포진행",
-  "next_step": "배포workflow 전체검사 후 공개파일/운영다운로드 크기·해시확인 및 결과기록",
+  "current_task": "0.71 실제 통합·공개·운영 다운로드 검증 완료",
+  "next_step": "휴대폰 업데이트 및 실제 조작 확인; 다음 사용자 작업 대기",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
@@ -30,13 +30,13 @@
   "this_change": {
     "scope": "채택장면 실제Godot통합·고양이윤곽/그림자·미배포UI含",
     "game_changed": true,
-    "release_created": false,
+    "release_created": true,
     "deployment_authorized": true
   },
   "history": "docs/historical/2026-10-22-before-workflow-streamlining/WORK_STATE.json",
-  "work_verification": "docs/qa/market-reader/VERIFICATION.json",
-  "work_source_commit": "039a95ea1d4083c05011b3e63b20dd804265f16b",
-  "work_verification_run": 39876552230,
+  "work_verification": "docs/qa/character-runtime/VERIFICATION.json",
+  "work_source_commit": "9c70a390929dcec38b9ead3f15d5f8fc8bf2067a",
+  "work_verification_run": 39894672849,
   "backend_source_commit": "fc55b5b07b1cecde6fea9670fd6553423f3b68e2",
   "backend_verification": "docs/qa/bundles-buyback/VERIFICATION.json",
   "bag_proposals": {
@@ -117,7 +117,7 @@
     "reference_design": "docs/proposals/character-b/reference-design.png",
     "seated_reference": "docs/proposals/character-b/seated-reference.png",
     "density_note": "사용자 개선된 B 채택. 정확한 12% 크기는 최종 수치 승인 아님.",
-    "status": "chair_unified_cat_complete_scene_review_ready",
+    "status": "deployed_v0.71",
     "latest_guide": "docs/CHARACTER_MOTION_GUIDE.md",
     "review_package": "NAKSHIWORLD_B_CHARACTER_RODS_REVIEW.zip",
     "review_package_repository_bytes_verified": false,
@@ -132,8 +132,10 @@
       "saved": true,
       "crc_verified": true,
       "verification": "docs/qa/expressions-v2/QA.json",
-      "game_applied": false,
-      "user_approved": true
+      "game_applied": true,
+      "user_approved": true,
+      "deployed": true,
+      "deployed_version": "0.71"
     },
     "final_delivery": {
       "package": "NAKSHIWORLD_B_FINAL.zip",
@@ -144,25 +146,26 @@
       "video_seconds": 53.6,
       "full_video_decode_pass": true,
       "verification": "docs/qa/character-final/QA.json",
-      "game_applied": false,
-      "deployed": false
-    }
+      "game_applied": true,
+      "deployed": true,
+      "deployed_version": "0.71"
+    },
+    "deployed_version": "0.71"
   },
   "unreleased_odds_rewards": {
     "commit": "a6f9c52c176afdea522432345be1948b3b643337",
     "verification": "docs/qa/odds-rewards/VERIFICATION.json",
     "ci_run": 39769939005,
     "ci_conclusion": "success",
-    "deployed": false
+    "deployed": true,
+    "deployed_version": "0.71"
   },
   "resume_checkpoint": {
     "date": "2026-10-23",
     "docs_only": true,
-    "prior_handoff": "docs/historical/2026-10-23-before-chat-transfer/HANDOFF.md",
-    "character_status_source": "docs/CHARACTER_MOTION_GUIDE.md",
-    "ui_verified_commit": "039a95ea1d4083c05011b3e63b20dd804265f16b",
-    "ui_ci_run": 39876552230,
-    "deployment_authorized": false
+    "release_source_commit": "9c70a390929dcec38b9ead3f15d5f8fc8bf2067a",
+    "deployment_authorized": true,
+    "verification": "docs/RELEASE_071_VERIFICATION.json"
   },
   "cat_motion_review": {
     "package": "NAKSHIWORLD_CAT_MOTION_REVIEW.zip",
@@ -180,7 +183,8 @@
     "new_pose_art_created": false,
     "game_applied": false,
     "deployed": false,
-    "verification": "docs/qa/cat-motion-review/QA.json"
+    "verification": "docs/qa/cat-motion-review/QA.json",
+    "historical_only": true
   },
   "cat_smooth_review": {
     "package": "NAKSHIWORLD_CAT_SMOOTH_TWO_MOTIONS.zip",
@@ -197,9 +201,10 @@
     ],
     "fps_target": 12,
     "visual_approved": true,
-    "game_applied": false,
-    "deployed": false,
-    "verification": "docs/qa/cat-smooth/QA.json"
+    "game_applied": true,
+    "deployed": true,
+    "verification": "docs/qa/cat-smooth/QA.json",
+    "deployed_version": "0.71"
   },
   "scene_final_review": {
     "package": "NAKSHIWORLD_SCENE_FINAL.zip",
@@ -214,8 +219,9 @@
     "chair_applied_in_review": true,
     "character_source_unchanged": true,
     "verification": "docs/qa/scene-final/QA.json",
-    "game_applied": false,
-    "deployed": false
+    "game_applied": true,
+    "deployed": true,
+    "deployed_version": "0.71"
   },
   "scene_stool_review": {
     "package": "NAKSHIWORLD_SCENE_STOOL.zip",
@@ -229,8 +235,9 @@
     "stool_max_y": 567,
     "deck_y": 570,
     "verification": "docs/qa/scene-stool/QA.json",
-    "game_applied": false,
-    "deployed": false
+    "game_applied": true,
+    "deployed": true,
+    "deployed_version": "0.71"
   },
   "native_integration": {
     "source_commit": "c79f9a350100e5bb42bd0c3e4235c13d6bc4d398",
@@ -239,6 +246,9 @@
     "game_applied": true,
     "asset_remote_hash_verified": true,
     "packed_asset_load_verified": true,
-    "verification": "docs/qa/character-runtime/VERIFICATION.json"
+    "verification": "docs/qa/character-runtime/VERIFICATION.json",
+    "deployed": true,
+    "deployed_version": "0.71",
+    "release_source_commit": "9c70a390929dcec38b9ead3f15d5f8fc8bf2067a"
   }
 }

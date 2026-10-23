@@ -1,3 +1,9 @@
+# 현재 복구 기준: 공개 0.71
+
+0.71 실제 통합·배포·운영 다운로드 검증 완료. v0.71 릴리스의 game-source.zip을 기준으로 작업 브랜치의 최신 변경을 적용한다. 캐릭터·고양이·의자·낚싯대 코드는 전체 소스와 Git에 포함된다. 예전 HTML 검토본은 역사 자료다. 해시/소스 커밋은 docs/RELEASE_071_VERIFICATION.json, 현재 상태는 WORK_STATE.json 참조. 휴대폰 확인만 대기.
+
+---
+
 ## 최신 — 실제Godot통합 원격보존 (2026-10-23)
 이제 승인된네이티브캐릭터/낚싯대/스툴/고양이의 실행코드와 실제에셋전체는 활성브랜치 game/addons/reservoir/angler_scene.gd 및 game/art/angler_b/에 보존됐다. PNG는base64텍스트로 정확한원본바이트를보존하고 런타임에서로드, pack포함검사통과. Release v0.70전체소스 + 활성overlay/삭제명세로복원가능. 이전 '게임미적용/아트는별도패키지만'은 과거검토단계기록이며 검토용HTML/생성원본보존처로만 참고. 0.71공개/휴대폰확인상태는WORK_STATE/HANDOFF 및 실제Release를따른다.
 
