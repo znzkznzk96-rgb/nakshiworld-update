@@ -20,8 +20,8 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-23",
-  "current_task": "고양이 찌따라보기·준비점프착지 새동작 제작",
-  "next_step": "원본외형유지한 두동작 중간자세/부드러움 시각검토. 게임미적용·배포금지.",
+  "current_task": "고양이 새두동작 24자세 시각검토본 완료",
+  "next_step": "찌따라보기/준비점프착지의 새작화 외형·픽셀정합/부드러움 사용자검토. 의자마감과 게임통합 후속. 배포금지.",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
@@ -181,5 +181,24 @@
     "game_applied": false,
     "deployed": false,
     "verification": "docs/qa/cat-motion-review/QA.json"
+  },
+  "cat_smooth_review": {
+    "package": "NAKSHIWORLD_CAT_SMOOTH_TWO_MOTIONS.zip",
+    "saved": true,
+    "crc_verified": true,
+    "new_pose_art": true,
+    "generated_image_requests": 1,
+    "pixellab_requests": 0,
+    "cost": "not exposed by built-in tool",
+    "frames": 24,
+    "actions": [
+      "look at bobber",
+      "anticipation jump landing"
+    ],
+    "fps_target": 12,
+    "visual_approved": false,
+    "game_applied": false,
+    "deployed": false,
+    "verification": "docs/qa/cat-smooth/QA.json"
   }
 }

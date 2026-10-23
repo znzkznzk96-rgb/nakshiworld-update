@@ -1,3 +1,6 @@
+## 고양이 새두동작 패키지 — 2026-10-23
+NAKSHIWORLD_CAT_SMOOTH_TWO_MOTIONS.zip 저장성공/CRC확인. 생성원본시트·24분리PNG·기존참조·재현소스·GIF/MP4·검수 포함. 이전고양이/캐릭터 원본보존. 새작화시각승인전·게임미적용. 공개GitHub는소스/검수/문서, 아트바이트는별도패키지로 구분.
+
 ## 고양이 검토본 복구 — 2026-10-23
 NAKSHIWORLD_CAT_MOTION_REVIEW.zip 저장성공/CRC확인. 원본16PNG·GIF/MP4·재현소스·검수 포함. 이는 캐릭터최종패키지를 교체하지 않는 별도검토본. 고양이후보/의자마감/게임통합 미완료, 최신WORK_STATE/HANDOFF 참고.
 
