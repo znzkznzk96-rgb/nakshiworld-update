@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "task": "거꾸로 폭포 계곡 통합 및 낚시월드 인수인계 기준",
-  "status": "deployed_verified",
+  "status": "analysis_complete_pending_balance_decisions",
   "work_branch": "work/valley-runtime",
   "release_baseline": "v0.75",
   "target_version": "0.75",
@@ -20,19 +20,19 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-23",
-  "current_task": "승인된0.75 배포 및 운영 다운로드 검증 완료",
-  "next_step": "휴대폰에서0.75 적용 및 브금·도감·미끼 체감 확인",
+  "current_task": "0.75 기반 미끼·저수지→계곡→타일바다 해금준비 경제 시뮬레이션 완료",
+  "next_step": "분석보고서 검토 후 미끼가격·어장고갈패널티·계곡확률 최종값 결정; 아직 게임/배포 변경 없음",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
   "last_release_deployed": true,
   "this_change": {
-    "scope": "수집+트로피 도감 및 미끼3역할 통합 후0.75배포",
-    "game_changed": true,
-    "release_created": true,
-    "deployment_authorized": true,
-    "deployed": true
+    "scope": "경제시뮬레이션/재현코드/검증/문서",
+    "game_changed": false,
+    "release_created": false,
+    "deployment_authorized": false,
+    "deployed": false
   },
   "history": "docs/historical/2026-10-22-before-workflow-streamlining/WORK_STATE.json",
   "work_verification": "docs/qa/release-075/QA.json",
@@ -380,5 +380,20 @@
     "verification": "docs/qa/release-075/bait_roles_verify.log",
     "deployed": true,
     "deployed_version": "0.75"
+  },
+  "economy_simulation": {
+    "report": "docs/analysis/progression-075/REPORT.md",
+    "model": "docs/analysis/progression-075/MODEL.md",
+    "runs": 10000,
+    "price_samples": 1800000,
+    "bait_candidate": [
+      5,
+      15,
+      20
+    ],
+    "candidate_approved": false,
+    "game_applied": false,
+    "deployed": false,
+    "actual_valley_entry_enabled": false
   }
 }
