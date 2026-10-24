@@ -1,0 +1,27 @@
+{
+  "description": "One cyan blue water fish ghost, wave shaped small fin and curled wave tail. Rounded compact fish ghost facing right, one tiny dark eye, one small side fin, lower body tapering into curled ghost tail at bottom left. Preserve shape of input. Strong saturated colors from palette, dark outline, bold lower right shadow and small upper left highlight. Clean chunky pixel clusters. No mouth.",
+  "negative_description": "gray, desaturated, pastel, sphere, container, second fish, text, blur, grain, dithering, detailed scales, extra eyes, extra fins",
+  "image_size": {
+    "width": 32,
+    "height": 32
+  },
+  "no_background": true,
+  "outline": "single color outline",
+  "shading": "basic shading",
+  "detail": "low detail",
+  "view": "side",
+  "direction": "east",
+  "coverage_percentage": 85,
+  "seed": 202610260,
+  "init_image_strength": 750,
+  "init_image": {
+    "type": "base64",
+    "base64": "iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACDUlEQVR4nO2Wv420MBDFH6evgA1dAiElTAkbugTCLWFKIKQElzElOKQEh3TgC9hBtjEs3H7S6aR9EsGy4N/z/DPAR7+s5p2XjTGxvBdCeGvNUyKiaIyJ8zxnl4hEY8x6nVnrkltjTOz7Ho/HY/Of9z77LSIQEUzTBOcciKjKOm1A4USErutWaNd1GziA7Blr7W5qLhkAADWhkBKu4FJt21ZNfJ01oC+P4whmBrAN+x4cWIzX6uJyBNq2XQ2chatqUTiMgDEmMnNMw1+Dn5VzbhOFqgGFOufAzI1zDn3fA1iqu9RR3odhOHyumgKFq4iomec56mJElBlJO6M0AADTNGX30jT8qxkIITTW2ggsYWPmmBYcM0NEGgAQkSgiu1FI4bV2rRpQE2m+mBlEhHEcEUJo5nmO3vtqSmrwYRiqz+4aUBMaCQBr/yscWGqCmdehVCqtgZpezgHNlxZh27a43+8AAGtt1hVliFO4juWyDTdFKCKxnNs6htPFAOy2ZBlq/f3SgMKZOTLzoQlNxxnwHhwoauB5gsWjwqrB9eQrpUV49I2QGWDmdfdpBxwtsJeGM3DgYBDpAjpMgPwkLHedttwZsGrThincew/nHKy1mZH0Y+Mq8KWBUtZaAEve093vFdVVVeeA9x63260BllH8/KTK4GlHvKOXhxERNdoZ/3Pnhwae4PjTwvrooz+lb7MRgz6bHmU8AAAAAElFTkSuQmCC",
+    "format": "png"
+  },
+  "color_image": {
+    "type": "base64",
+    "base64": "iVBORw0KGgoAAAANSUhEUgAAAB4AAAAFCAIAAADdQ8utAAAALklEQVR4nGNkl/ZgQAL/DdORub+cDZC5nGYCyNxMVRRuligyj4GJgWZg1Gg0AAAIAgTkgHHGnQAAAABJRU5ErkJggg==",
+    "format": "png"
+  }
+}
