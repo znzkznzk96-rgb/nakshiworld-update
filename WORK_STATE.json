@@ -20,8 +20,8 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-24",
-  "current_task": "백룸 탐사노선도B 및 탐험창A/B 배경변주 방향 확정",
-  "next_step": "확정 UI를 기준으로 후속 구현 범위와 던전별 배경 구성 구체화",
+  "current_task": "백룸 3인자동전투·드래그순서 확정, 회복/비정형5속성 검토",
+  "next_step": "속성 후보와 저비용 회복방식 검토 후 전투모델 재설계",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
