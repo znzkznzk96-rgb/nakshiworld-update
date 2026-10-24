@@ -20,8 +20,8 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-24",
-  "current_task": "저수지 백룸 기획 및 6개 화면 시안 완료, 미구현",
-  "next_step": "기획/시안 피드백에 따라 구체화; 기존 확정사항 재질문 없음",
+  "current_task": "백룸 연결지도 새 시안 및 병사·몬스터 교전형 진행 표시",
+  "next_step": "새 시안 검토 후 실제 기존 UI에 맞춰 구체화",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
@@ -490,6 +490,7 @@
     "numbers_approved": false,
     "ui_selection_approved": false,
     "implemented": false,
-    "deployed": false
+    "deployed": false,
+    "revision": "docs/design/backrooms-reservoir/REVISION_2.md"
   }
 }
