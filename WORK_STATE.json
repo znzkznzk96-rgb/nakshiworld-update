@@ -20,8 +20,8 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-24",
-  "current_task": "백룸 연결지도 새 시안 및 병사·몬스터 교전형 진행 표시",
-  "next_step": "새 시안 검토 후 실제 기존 UI에 맞춰 구체화",
+  "current_task": "백룸 저밀도 도트 선택2안·탐험창2안 비교 완료",
+  "next_step": "시안 피드백 후 선택방식/배경 구체화",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
