@@ -1,0 +1,9 @@
+{
+  "status": "baseline_sprite_review_ready",
+  "sprite": "shieldfish.png",
+  "qa": "QA.json",
+  "handoff": "HANDOFF.md",
+  "next": "user visual review before animations",
+  "game_changed": false,
+  "deployed": false
+}
