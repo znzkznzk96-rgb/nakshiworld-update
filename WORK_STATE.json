@@ -20,8 +20,8 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-24",
-  "current_task": "어혼2개 기본연성·3성희귀도·단계별 추가어혼/비늘 승급 방향 확정",
-  "next_step": "승급재료 수량/본체계승/속성별 공급 검토",
+  "current_task": "두병사소모 다음별연성 확정, 백룸보상·낚시터해금 연계 검토",
+  "next_step": "기존 번들라이선스/지역귀환 구조를 유지하는 보상안 검토",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
