@@ -20,8 +20,8 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-24",
-  "current_task": "백룸 저밀도 도트 선택2안·탐험창2안 비교 완료",
-  "next_step": "시안 피드백 후 선택방식/배경 구체화",
+  "current_task": "백룸 탐사노선도B 및 탐험창A/B 배경변주 방향 확정",
+  "next_step": "확정 UI를 기준으로 후속 구현 범위와 던전별 배경 구성 구체화",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
@@ -488,9 +488,11 @@
     "proposed_roster": 10,
     "stages_per_region_proposal": 10,
     "numbers_approved": false,
-    "ui_selection_approved": false,
+    "ui_selection_approved": true,
     "implemented": false,
     "deployed": false,
-    "revision": "docs/design/backrooms-reservoir/REVISION_2.md"
+    "revision": "docs/design/backrooms-reservoir/REVISION_2.md",
+    "selection": "latest low-detail pixel route B",
+    "progress": "latest A and B accepted; backgrounds vary by dungeon"
   }
 }
