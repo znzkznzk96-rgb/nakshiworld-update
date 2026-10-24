@@ -20,8 +20,8 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-24",
-  "current_task": "백룸 3인자동전투·드래그순서 확정, 회복/비정형5속성 검토",
-  "next_step": "속성 후보와 저비용 회복방식 검토 후 전투모델 재설계",
+  "current_task": "5속성 확정 및 조합별 결과속성·병사 희귀도 설계",
+  "next_step": "15개 속성조합 결과 후보와 3성희귀도/승급 방식 검토",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
@@ -493,6 +493,13 @@
     "deployed": false,
     "revision": "docs/design/backrooms-reservoir/REVISION_2.md",
     "selection": "latest low-detail pixel route B",
-    "progress": "latest A and B accepted; backgrounds vary by dungeon"
+    "progress": "latest A and B accepted; backgrounds vary by dungeon",
+    "soul_elements": [
+      "물",
+      "전기",
+      "독",
+      "빛",
+      "어둠"
+    ]
   }
 }
