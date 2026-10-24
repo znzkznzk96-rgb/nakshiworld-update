@@ -1,0 +1,140 @@
+[
+  {
+    "asset": "water",
+    "size": [
+      32,
+      32
+    ],
+    "alpha_bbox": [
+      2,
+      5,
+      29,
+      26
+    ],
+    "transparent_pixels": 699,
+    "partial_alpha_pixels": 0,
+    "opaque_colors": 6,
+    "sha256": "efe365667fa8b9e93f5d7207f518d219580002e6b92a1dd3bdb8a03b6af4a9de",
+    "usage": {
+      "type": "generations",
+      "generations": 1.0
+    },
+    "status": "draft-qa-pass",
+    "file": "water.png"
+  },
+  {
+    "asset": "electric",
+    "size": [
+      32,
+      32
+    ],
+    "alpha_bbox": [
+      1,
+      1,
+      31,
+      31
+    ],
+    "transparent_pixels": 651,
+    "partial_alpha_pixels": 0,
+    "opaque_colors": 14,
+    "sha256": "234c036a28f7d4cba6fe4b04401c6ec3c3026fecea164666ea6660ae0f532efb",
+    "usage": {
+      "type": "generations",
+      "generations": 1.0
+    },
+    "status": "draft-qa-pass",
+    "file": "electric.png"
+  },
+  {
+    "asset": "poison",
+    "size": [
+      32,
+      32
+    ],
+    "alpha_bbox": [
+      3,
+      6,
+      29,
+      26
+    ],
+    "transparent_pixels": 704,
+    "partial_alpha_pixels": 0,
+    "opaque_colors": 7,
+    "sha256": "c2006b5d2aa201717f1fc8e713ee4b4bd367043cbb279f500e04c1183a77e3d2",
+    "usage": {
+      "type": "generations",
+      "generations": 1.0
+    },
+    "status": "draft-qa-pass",
+    "file": "poison.png"
+  },
+  {
+    "asset": "light",
+    "size": [
+      32,
+      32
+    ],
+    "alpha_bbox": [
+      2,
+      1,
+      30,
+      31
+    ],
+    "transparent_pixels": 556,
+    "partial_alpha_pixels": 0,
+    "opaque_colors": 9,
+    "sha256": "a84a737e638f8dae098a18e1c1df30f2ad901b2cde5c80aaa973552a55d3fc61",
+    "usage": {
+      "type": "generations",
+      "generations": 1.0
+    },
+    "status": "draft-qa-pass",
+    "file": "light.png"
+  },
+  {
+    "asset": "dark",
+    "size": [
+      32,
+      32
+    ],
+    "alpha_bbox": [
+      7,
+      5,
+      25,
+      26
+    ],
+    "transparent_pixels": 805,
+    "partial_alpha_pixels": 0,
+    "opaque_colors": 7,
+    "sha256": "874cabe4d7e94775d7fc1dd7f0bed1d80fd96e2599d7d5dadb4d54afc54b506f",
+    "usage": {
+      "type": "generations",
+      "generations": 1.0
+    },
+    "status": "draft-qa-pass",
+    "file": "dark.png"
+  },
+  {
+    "asset": "shieldfish",
+    "size": [
+      48,
+      48
+    ],
+    "alpha_bbox": [
+      3,
+      7,
+      45,
+      41
+    ],
+    "transparent_pixels": 1346,
+    "partial_alpha_pixels": 0,
+    "opaque_colors": 13,
+    "sha256": "98cc0e8190a7ac82c95eccdfb498f8b2b56e3028a36bda657b021abc96154c32",
+    "usage": {
+      "type": "generations",
+      "generations": 1.0
+    },
+    "status": "rejected",
+    "file": "rejected-shieldfish.png"
+  }
+]
