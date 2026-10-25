@@ -20,9 +20,9 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-25",
-  "current_task": "슬라임 결함수정 및 일반18종 모션제작",
-  "next_step": "슬라임 수정1회 검수",
-  "remote_checkpoint_pending": false,
+  "current_task": "10R 보스 강화 및 전투수치 v1 조정·승인된 원격백업",
+  "next_step": "시각검수·능력치시뮬 후 원본바이트 원격보존",
+  "remote_checkpoint_pending": true,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
