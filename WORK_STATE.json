@@ -20,8 +20,8 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-25",
-  "current_task": "10R만 보존, 나머지11종 표정·실루엣 전면재제작 시안",
-  "next_step": "새11종 외형검토",
+  "current_task": "기본형·강화형 몬스터 왼쪽 지향 재시안",
+  "next_step": "계열형 몬스터 시안 검토",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
@@ -576,10 +576,11 @@
       "preserved_visuals": [
         "10R"
       ],
-      "status": "reject_cloned_faces_redesign_eleven",
+      "status": "family_variants_left_facing_review",
       "final_art_approved": false,
       "motions_created": false,
-      "game_applied": false
+      "game_applied": false,
+      "orientation": "right side enemy looking slightly left, three-quarter view"
     },
     "encounters_per_round": {
       "count": 3,
