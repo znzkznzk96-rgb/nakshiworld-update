@@ -1,0 +1,495 @@
+{
+  "boss10": [
+    "그림자왕",
+    1000,
+    70,
+    40
+  ],
+  "balanced_role_compositions": {
+    "[1, 1, 1]": {
+      "tested": 125,
+      "clears": 0,
+      "composition_clear_pct": 0.0,
+      "min_remaining_pct": 0,
+      "max_remaining_pct": 0
+    },
+    "[2, 1, 1]": {
+      "tested": 125,
+      "clears": 0,
+      "composition_clear_pct": 0.0,
+      "min_remaining_pct": 0,
+      "max_remaining_pct": 0
+    },
+    "[1, 2, 1]": {
+      "tested": 125,
+      "clears": 0,
+      "composition_clear_pct": 0.0,
+      "min_remaining_pct": 0,
+      "max_remaining_pct": 0
+    },
+    "[1, 1, 2]": {
+      "tested": 125,
+      "clears": 0,
+      "composition_clear_pct": 0.0,
+      "min_remaining_pct": 0,
+      "max_remaining_pct": 0
+    },
+    "[2, 2, 1]": {
+      "tested": 125,
+      "clears": 120,
+      "composition_clear_pct": 96.0,
+      "min_remaining_pct": 1.7,
+      "max_remaining_pct": 35.1
+    },
+    "[2, 1, 2]": {
+      "tested": 125,
+      "clears": 31,
+      "composition_clear_pct": 24.8,
+      "min_remaining_pct": 0.2,
+      "max_remaining_pct": 28.7
+    },
+    "[1, 2, 2]": {
+      "tested": 125,
+      "clears": 0,
+      "composition_clear_pct": 0.0,
+      "min_remaining_pct": 0,
+      "max_remaining_pct": 0
+    },
+    "[2, 2, 2]": {
+      "tested": 125,
+      "clears": 125,
+      "composition_clear_pct": 100.0,
+      "min_remaining_pct": 35.7,
+      "max_remaining_pct": 57.0
+    },
+    "[3, 1, 1]": {
+      "tested": 125,
+      "clears": 125,
+      "composition_clear_pct": 100.0,
+      "min_remaining_pct": 33.6,
+      "max_remaining_pct": 46.7
+    }
+  },
+  "all_ordered_compositions": {
+    "[1, 1, 1]": {
+      "tested": 3375,
+      "clears": 0,
+      "composition_clear_pct": 0.0
+    },
+    "[2, 1, 1]": {
+      "tested": 3375,
+      "clears": 0,
+      "composition_clear_pct": 0.0
+    },
+    "[1, 2, 1]": {
+      "tested": 3375,
+      "clears": 0,
+      "composition_clear_pct": 0.0
+    },
+    "[1, 1, 2]": {
+      "tested": 3375,
+      "clears": 0,
+      "composition_clear_pct": 0.0
+    },
+    "[2, 2, 1]": {
+      "tested": 3375,
+      "clears": 608,
+      "composition_clear_pct": 18.0
+    }
+  },
+  "reference_ids": [
+    "crucian",
+    "perch",
+    "loach"
+  ],
+  "reference_rounds": {
+    "[1, 1, 1]": [
+      {
+        "clear": true,
+        "remaining_hp": 742,
+        "remaining_pct": 97.6,
+        "seconds": 9.0,
+        "enemies_cleared": 3,
+        "boss_entry_hp": null,
+        "survivors": 3
+      },
+      {
+        "clear": true,
+        "remaining_hp": 720,
+        "remaining_pct": 94.7,
+        "seconds": 9.0,
+        "enemies_cleared": 3,
+        "boss_entry_hp": null,
+        "survivors": 3
+      },
+      {
+        "clear": true,
+        "remaining_hp": 638,
+        "remaining_pct": 83.9,
+        "seconds": 15.0,
+        "enemies_cleared": 3,
+        "boss_entry_hp": 724,
+        "survivors": 3
+      },
+      {
+        "clear": true,
+        "remaining_hp": 644,
+        "remaining_pct": 84.7,
+        "seconds": 12.0,
+        "enemies_cleared": 3,
+        "boss_entry_hp": null,
+        "survivors": 3
+      },
+      {
+        "clear": true,
+        "remaining_hp": 435,
+        "remaining_pct": 57.2,
+        "seconds": 22.5,
+        "enemies_cleared": 3,
+        "boss_entry_hp": 672,
+        "survivors": 2
+      },
+      {
+        "clear": true,
+        "remaining_hp": 588,
+        "remaining_pct": 77.4,
+        "seconds": 15.0,
+        "enemies_cleared": 3,
+        "boss_entry_hp": null,
+        "survivors": 3
+      },
+      {
+        "clear": false,
+        "remaining_hp": 0,
+        "remaining_pct": 0.0,
+        "seconds": 39.0,
+        "enemies_cleared": 2,
+        "boss_entry_hp": 600,
+        "survivors": 0
+      },
+      {
+        "clear": true,
+        "remaining_hp": 448,
+        "remaining_pct": 58.9,
+        "seconds": 16.5,
+        "enemies_cleared": 3,
+        "boss_entry_hp": null,
+        "survivors": 3
+      },
+      {
+        "clear": true,
+        "remaining_hp": 311,
+        "remaining_pct": 40.9,
+        "seconds": 22.5,
+        "enemies_cleared": 3,
+        "boss_entry_hp": null,
+        "survivors": 2
+      },
+      {
+        "clear": false,
+        "remaining_hp": 0,
+        "remaining_pct": 0.0,
+        "seconds": 33.0,
+        "enemies_cleared": 2,
+        "boss_entry_hp": 497,
+        "survivors": 0
+      }
+    ],
+    "[2, 1, 1]": [
+      {
+        "clear": true,
+        "remaining_hp": 990,
+        "remaining_pct": 98.6,
+        "seconds": 6.0,
+        "enemies_cleared": 3,
+        "boss_entry_hp": null,
+        "survivors": 3
+      },
+      {
+        "clear": true,
+        "remaining_hp": 968,
+        "remaining_pct": 96.4,
+        "seconds": 7.5,
+        "enemies_cleared": 3,
+        "boss_entry_hp": null,
+        "survivors": 3
+      },
+      {
+        "clear": true,
+        "remaining_hp": 910,
+        "remaining_pct": 90.6,
+        "seconds": 13.5,
+        "enemies_cleared": 3,
+        "boss_entry_hp": 972,
+        "survivors": 3
+      },
+      {
+        "clear": true,
+        "remaining_hp": 934,
+        "remaining_pct": 93.0,
+        "seconds": 9.0,
+        "enemies_cleared": 3,
+        "boss_entry_hp": null,
+        "survivors": 3
+      },
+      {
+        "clear": true,
+        "remaining_hp": 740,
+        "remaining_pct": 73.7,
+        "seconds": 21.0,
+        "enemies_cleared": 3,
+        "boss_entry_hp": 923,
+        "survivors": 3
+      },
+      {
+        "clear": true,
+        "remaining_hp": 848,
+        "remaining_pct": 84.5,
+        "seconds": 15.0,
+        "enemies_cleared": 3,
+        "boss_entry_hp": null,
+        "survivors": 3
+      },
+      {
+        "clear": true,
+        "remaining_hp": 476,
+        "remaining_pct": 47.4,
+        "seconds": 31.5,
+        "enemies_cleared": 3,
+        "boss_entry_hp": 882,
+        "survivors": 3
+      },
+      {
+        "clear": true,
+        "remaining_hp": 750,
+        "remaining_pct": 74.7,
+        "seconds": 15.0,
+        "enemies_cleared": 3,
+        "boss_entry_hp": null,
+        "survivors": 3
+      },
+      {
+        "clear": true,
+        "remaining_hp": 692,
+        "remaining_pct": 68.9,
+        "seconds": 18.0,
+        "enemies_cleared": 3,
+        "boss_entry_hp": null,
+        "survivors": 3
+      },
+      {
+        "clear": false,
+        "remaining_hp": 0,
+        "remaining_pct": 0.0,
+        "seconds": 40.5,
+        "enemies_cleared": 2,
+        "boss_entry_hp": 819,
+        "survivors": 0
+      }
+    ],
+    "[2, 2, 1]": [
+      {
+        "clear": true,
+        "remaining_hp": 1133,
+        "remaining_pct": 98.8,
+        "seconds": 6.0,
+        "enemies_cleared": 3,
+        "boss_entry_hp": null,
+        "survivors": 3
+      },
+      {
+        "clear": true,
+        "remaining_hp": 1130,
+        "remaining_pct": 98.5,
+        "seconds": 4.5,
+        "enemies_cleared": 3,
+        "boss_entry_hp": null,
+        "survivors": 3
+      },
+      {
+        "clear": true,
+        "remaining_hp": 1080,
+        "remaining_pct": 94.2,
+        "seconds": 9.0,
+        "enemies_cleared": 3,
+        "boss_entry_hp": 1124,
+        "survivors": 3
+      },
+      {
+        "clear": true,
+        "remaining_hp": 1077,
+        "remaining_pct": 93.9,
+        "seconds": 9.0,
+        "enemies_cleared": 3,
+        "boss_entry_hp": null,
+        "survivors": 3
+      },
+      {
+        "clear": true,
+        "remaining_hp": 940,
+        "remaining_pct": 82.0,
+        "seconds": 16.5,
+        "enemies_cleared": 3,
+        "boss_entry_hp": 1087,
+        "survivors": 3
+      },
+      {
+        "clear": true,
+        "remaining_hp": 1037,
+        "remaining_pct": 90.4,
+        "seconds": 10.5,
+        "enemies_cleared": 3,
+        "boss_entry_hp": null,
+        "survivors": 3
+      },
+      {
+        "clear": true,
+        "remaining_hp": 737,
+        "remaining_pct": 64.3,
+        "seconds": 24.0,
+        "enemies_cleared": 3,
+        "boss_entry_hp": 1055,
+        "survivors": 3
+      },
+      {
+        "clear": true,
+        "remaining_hp": 938,
+        "remaining_pct": 81.8,
+        "seconds": 12.0,
+        "enemies_cleared": 3,
+        "boss_entry_hp": null,
+        "survivors": 3
+      },
+      {
+        "clear": true,
+        "remaining_hp": 913,
+        "remaining_pct": 79.6,
+        "seconds": 13.5,
+        "enemies_cleared": 3,
+        "boss_entry_hp": null,
+        "survivors": 3
+      },
+      {
+        "clear": true,
+        "remaining_hp": 127,
+        "remaining_pct": 11.1,
+        "seconds": 39.0,
+        "enemies_cleared": 3,
+        "boss_entry_hp": 998,
+        "survivors": 1
+      }
+    ],
+    "[2, 2, 2]": [
+      {
+        "clear": true,
+        "remaining_hp": 1323,
+        "remaining_pct": 99.4,
+        "seconds": 6.0,
+        "enemies_cleared": 3,
+        "boss_entry_hp": null,
+        "survivors": 3
+      },
+      {
+        "clear": true,
+        "remaining_hp": 1324,
+        "remaining_pct": 99.5,
+        "seconds": 4.5,
+        "enemies_cleared": 3,
+        "boss_entry_hp": null,
+        "survivors": 3
+      },
+      {
+        "clear": true,
+        "remaining_hp": 1284,
+        "remaining_pct": 96.5,
+        "seconds": 9.0,
+        "enemies_cleared": 3,
+        "boss_entry_hp": 1308,
+        "survivors": 3
+      },
+      {
+        "clear": true,
+        "remaining_hp": 1281,
+        "remaining_pct": 96.2,
+        "seconds": 9.0,
+        "enemies_cleared": 3,
+        "boss_entry_hp": null,
+        "survivors": 3
+      },
+      {
+        "clear": true,
+        "remaining_hp": 1179,
+        "remaining_pct": 88.6,
+        "seconds": 15.0,
+        "enemies_cleared": 3,
+        "boss_entry_hp": 1281,
+        "survivors": 3
+      },
+      {
+        "clear": true,
+        "remaining_hp": 1241,
+        "remaining_pct": 93.2,
+        "seconds": 10.5,
+        "enemies_cleared": 3,
+        "boss_entry_hp": null,
+        "survivors": 3
+      },
+      {
+        "clear": true,
+        "remaining_hp": 1005,
+        "remaining_pct": 75.5,
+        "seconds": 22.5,
+        "enemies_cleared": 3,
+        "boss_entry_hp": 1249,
+        "survivors": 3
+      },
+      {
+        "clear": true,
+        "remaining_hp": 1142,
+        "remaining_pct": 85.8,
+        "seconds": 12.0,
+        "enemies_cleared": 3,
+        "boss_entry_hp": null,
+        "survivors": 3
+      },
+      {
+        "clear": true,
+        "remaining_hp": 1127,
+        "remaining_pct": 84.7,
+        "seconds": 13.5,
+        "enemies_cleared": 3,
+        "boss_entry_hp": null,
+        "survivors": 3
+      },
+      {
+        "clear": true,
+        "remaining_hp": 486,
+        "remaining_pct": 36.5,
+        "seconds": 34.5,
+        "enemies_cleared": 3,
+        "boss_entry_hp": 1202,
+        "survivors": 2
+      }
+    ]
+  },
+  "support_off_sensitivity": {
+    "tested": 125,
+    "clears": 104,
+    "composition_clear_pct": 83.2,
+    "min_remaining_pct": 0.3,
+    "max_remaining_pct": 25.3
+  },
+  "interpretation": "composition coverage, not random win probability",
+  "assumptions": {
+    "team_size": 3,
+    "seconds_per_tick": 1.5,
+    "damage": "max(1,round_half_up(ATK*100/(100+DEF)))",
+    "simultaneous_damage": true,
+    "support": "every third action replaces attack with 0.8*ATK heal to living frontline",
+    "within_round_hp_carries": true,
+    "each_round_benchmark_starts_full": true,
+    "between_round_recovery_policy": "not decided; benchmark full-health is not free recovery rule",
+    "level_gear_elements": "excluded",
+    "battle_timeout_seconds": 180
+  }
+}

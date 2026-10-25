@@ -20,15 +20,15 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-25",
-  "current_task": "10R 보스 강화 및 전투수치 v1 조정·승인된 원격백업",
-  "next_step": "시각검수·능력치시뮬 후 원본바이트 원격보존",
-  "remote_checkpoint_pending": true,
+  "current_task": "10R boss enlarged; normal18 HIT finalized; soldier15/enemy22 combat tuning v1 and Git backup completed",
+  "next_step": "Review enlarged10R and balance table; game integration not performed",
+  "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
   "last_release_deployed": true,
   "this_change": {
-    "scope": "compact village exploration UI v2",
+    "scope": "monster art and combat balance review",
     "game_changed": false,
     "release_created": false,
     "deployed": false
@@ -574,11 +574,13 @@
       ],
       "boss_round": 10,
       "preserved_visuals": [
-        "10R"
+        "3R",
+        "5R",
+        "7R"
       ],
-      "status": "additional_eight_normal_monsters_review",
+      "status": "normal18_final_boss4_motion_10R_size_v2",
       "final_art_approved": false,
-      "motions_created": false,
+      "motions_created": true,
       "game_applied": false,
       "orientation": "right side enemy looking slightly left, three-quarter view"
     },
@@ -618,17 +620,17 @@
         [
           3,
           4,
-          "boss3"
+          "3R"
         ],
         [
           5,
           6,
-          6
+          17
         ],
         [
           5,
           7,
-          "boss5"
+          "5R"
         ],
         [
           8,
@@ -638,7 +640,7 @@
         [
           8,
           10,
-          "boss7"
+          "7R"
         ],
         [
           11,
@@ -646,20 +648,20 @@
           13
         ],
         [
-          12,
           14,
-          15
+          15,
+          18
         ],
         [
           15,
           16,
-          "boss10"
+          "10R"
         ]
       ]
     },
     "monster_motion": {
       "authorized": true,
-      "status": "slime_revision_authorized_normal18",
+      "status": "normal18_hit_alpha_fixed_boss4_drawn_sequences",
       "idle_attack": "sprite motion",
       "hit_death": "engine effects planned",
       "game_applied": false,
@@ -668,13 +670,39 @@
       "accepted_units": 0,
       "charged_generations": 1,
       "additional_paid_requests": 0,
-      "remaining_units": 19,
+      "remaining_units": 0,
       "job_id": "75042633-cebf-4744-9388-afdc5452bdde",
       "normal_target": 18,
       "additional_normal_proposal": [
         "17 독 슬라임",
         "18 그림자 박쥐"
+      ],
+      "normal_keyposes": 126,
+      "boss_drawn_frames": 96,
+      "backup_path": "docs/design/monster-balance-v1",
+      "boss10_canvas": [
+        320,
+        320
       ]
+    },
+    "combat_balance_v1": {
+      "status": "initial_tuning_review",
+      "soldiers": 15,
+      "normal": 18,
+      "bosses": 4,
+      "boss10": {
+        "hp": 1000,
+        "atk": 70,
+        "def": 40
+      },
+      "target": "2star defense + 2star attack + 1star support",
+      "compositions": 125,
+      "clears": 120,
+      "all_1star_clears": 0,
+      "all_2star_clears": 125,
+      "actual_game_tested": false,
+      "game_applied": false,
+      "between_round_recovery": "not decided"
     }
   }
 }

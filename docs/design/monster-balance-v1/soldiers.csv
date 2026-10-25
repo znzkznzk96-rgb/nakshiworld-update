@@ -1,0 +1,46 @@
+﻿ID,병사,어혼조합,역할,별,체력,공격,방어
+perch,코발트 퍼치 창병,물+물,attack,1,190,34,12
+perch,코발트 퍼치 창병,물+물,attack,2,333,56,16
+perch,코발트 퍼치 창병,물+물,attack,3,504,87,21
+eel,황금 전기뱀장어 석궁병,전기+전기,attack,1,165,38,8
+eel,황금 전기뱀장어 석궁병,전기+전기,attack,2,289,63,11
+eel,황금 전기뱀장어 석궁병,전기+전기,attack,3,437,97,14
+puffer,에메랄드 복어 방패병,독+독,defense,1,310,16,36
+puffer,에메랄드 복어 방패병,독+독,defense,2,543,26,49
+puffer,에메랄드 복어 방패병,독+독,defense,3,822,41,63
+crucian,황금 붕어 방패병,빛+빛,defense,1,325,14,34
+crucian,황금 붕어 방패병,빛+빛,defense,2,569,23,46
+crucian,황금 붕어 방패병,빛+빛,defense,3,861,36,60
+angler,등불을 든 심해 아귀,어둠+어둠,support,1,215,23,15
+angler,등불을 든 심해 아귀,어둠+어둠,support,2,376,38,20
+angler,등불을 든 심해 아귀,어둠+어둠,support,3,570,59,26
+flying,청금 날치 검객,물+전기,attack,1,180,36,10
+flying,청금 날치 검객,물+전기,attack,2,315,59,14
+flying,청금 날치 검객,물+전기,attack,3,477,92,18
+loach,청록 미꾸라지 의무병,물+독,support,1,245,18,18
+loach,청록 미꾸라지 의무병,물+독,support,2,429,30,24
+loach,청록 미꾸라지 의무병,물+독,support,3,649,46,32
+healer,푸른 부채꼬리 물빛 치유사,물+빛,support,1,205,22,14
+healer,푸른 부채꼬리 물빛 치유사,물+빛,support,2,359,36,19
+healer,푸른 부채꼬리 물빛 치유사,물+빛,support,3,543,56,25
+flounder,남빛 넙치 방패병,물+어둠,defense,1,295,18,38
+flounder,남빛 넙치 방패병,물+어둠,defense,2,516,30,51
+flounder,남빛 넙치 방패병,물+어둠,defense,3,782,46,67
+pharmacist,초록 약병 든 메기 약사,전기+독,support,1,230,21,17
+pharmacist,초록 약병 든 메기 약사,전기+독,support,2,403,35,23
+pharmacist,초록 약병 든 메기 약사,전기+독,support,3,610,54,30
+carp,호박빛 잉어 망치병,전기+빛,attack,1,220,32,16
+carp,호박빛 잉어 망치병,전기+빛,attack,2,385,53,22
+carp,호박빛 잉어 망치병,전기+빛,attack,3,583,82,28
+catfish,보랏빛 금빛 메기 방패병,전기+어둠,defense,1,305,19,32
+catfish,보랏빛 금빛 메기 방패병,전기+어둠,defense,2,534,31,43
+catfish,보랏빛 금빛 메기 방패병,전기+어둠,defense,3,808,48,56
+herbalist,에메랄드 약초지기 물고기,독+빛,support,1,235,19,20
+herbalist,에메랄드 약초지기 물고기,독+빛,support,2,411,31,27
+herbalist,에메랄드 약초지기 물고기,독+빛,support,3,623,48,35
+rogue,독빛 쌍단검 물고기 병사,독+어둠,attack,1,160,40,7
+rogue,독빛 쌍단검 물고기 병사,독+어둠,attack,2,280,66,9
+rogue,독빛 쌍단검 물고기 병사,독+어둠,attack,3,424,102,12
+crescent,보랏빛 초승달 방패 수호어,빛+어둠,defense,1,315,15,40
+crescent,보랏빛 초승달 방패 수호어,빛+어둠,defense,2,551,25,54
+crescent,보랏빛 초승달 방패 수호어,빛+어둠,defense,3,835,38,70
