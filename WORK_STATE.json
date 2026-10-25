@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "task": "거꾸로 폭포 계곡 통합 및 낚시월드 인수인계 기준",
-  "status": "exploration_ui_review_ready",
+  "status": "compact_village_exploration_ui_in_progress",
   "work_branch": "work/valley-runtime",
   "release_baseline": "v0.75",
   "target_version": "0.75",
@@ -20,8 +20,8 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-25",
-  "current_task": "탐험창 구성 검토본: 노선도·3인편성·자동교전/전진·결과",
-  "next_step": "구성 검토 후 정식 배경/몬스터 아트 및 Godot 연결",
+  "current_task": "마을상단 소형탐험창·기존게임UI·테마노선도 개선",
+  "next_step": "실제 UI자산으로 소형탐험창과 테마노선도 검토본 제작",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
@@ -531,6 +531,17 @@
     "production_checkpoint_e": "docs/design/backrooms-reservoir/production-checkpoint-20261025-e/README.md",
     "production_checkpoint_f": "docs/design/backrooms-reservoir/production-checkpoint-20261025-f/README.md",
     "review_verification": "docs/design/backrooms-reservoir/soldiers-15-review/VERIFICATION.json",
-    "ui_review": "docs/design/backrooms-reservoir/exploration-ui-v1/README.md"
+    "ui_review": "docs/design/backrooms-reservoir/exploration-ui-v1/README.md",
+    "boss_stages": {
+      "miniboss": [
+        3,
+        5,
+        7
+      ],
+      "boss": [
+        10
+      ],
+      "stats_approved": false
+    }
   }
 }
