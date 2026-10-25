@@ -20,8 +20,8 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-25",
-  "current_task": "기본형·강화형 몬스터 왼쪽 지향 재시안",
-  "next_step": "계열형 몬스터 시안 검토",
+  "current_task": "늑대06/07을 백룸형 그림자 기본/강화형으로 교체시안",
+  "next_step": "06/07 교체시안 검토",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
@@ -576,7 +576,7 @@
       "preserved_visuals": [
         "10R"
       ],
-      "status": "family_variants_left_facing_review",
+      "status": "replace_wolf_pair_backrooms_crawlers_review",
       "final_art_approved": false,
       "motions_created": false,
       "game_applied": false,
