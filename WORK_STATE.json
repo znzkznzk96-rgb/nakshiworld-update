@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "task": "거꾸로 폭포 계곡 통합 및 낚시월드 인수인계 기준",
-  "status": "backrooms_reservoir_design_review_ready",
+  "status": "fish_soldier_motion_production",
   "work_branch": "work/valley-runtime",
   "release_baseline": "v0.75",
   "target_version": "0.75",
@@ -19,19 +19,18 @@
     "계곡 출현확률·경제·전투 수치 승인 대기. 실제 계곡 입장 비활성 유지.",
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
-  "updated_at": "2026-10-24",
-  "current_task": "백룸 출구발견·낚시터 직접연계 및 1~3공통병사/4각성/5새속성 재기획",
-  "next_step": "중간공략 필수조건 제안과 장기성장구조 검토; 아직 코드변경 없음",
+  "updated_at": "2026-10-25",
+  "current_task": "B안 15종 병사 네이티브 원본/모션 제작; 석궁병 v4 잔픽셀 정리본 전달",
+  "next_step": "최신 상세 인수인계를 읽고 나머지14종 기본자세 및 역할별 대표액션 제작 이어가기. 기존 승인 재질문/불량 일괄생성 금지.",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
   "last_release_deployed": true,
   "this_change": {
-    "scope": "저수지 백룸 기획/6개 시안/기획용 수치계산",
+    "scope": "어혼/병사 아트·모션 및 새 대화 인수인계",
     "game_changed": false,
     "release_created": false,
-    "deployment_authorized": false,
     "deployed": false
   },
   "history": "docs/historical/2026-10-22-before-workflow-streamlining/WORK_STATE.json",
@@ -94,7 +93,13 @@
     "connection_verified": true,
     "startup_policy": "Read fixed guide before plugin search; reuse existing API v2 route; never infer unavailable from missing tool listing",
     "private_access_instructions": "Read user-owned NAKSHIWORLD_PIXEL_ACCESS_PRIVATE.md by exact title through Library; do not publish its contents",
-    "paid_generation_on_resume": false
+    "paid_generation_on_resume": false,
+    "last_observed_balance": {
+      "date": "2026-10-25",
+      "generations": 464,
+      "additional_cleanup_generations": 0,
+      "note": "재개 시 유료 호출 전 잔액 재확인"
+    }
   },
   "local_recovery": {
     "entry": "docs/LOCAL_RECOVERY.md",
@@ -162,11 +167,11 @@
     "deployed_version": "0.71"
   },
   "resume_checkpoint": {
-    "date": "2026-10-23",
+    "date": "2026-10-25",
     "docs_only": true,
-    "release_source_commit": "9c70a390929dcec38b9ead3f15d5f8fc8bf2067a",
-    "deployment_authorized": true,
-    "verification": "docs/RELEASE_071_VERIFICATION.json"
+    "entry": "docs/design/backrooms-reservoir/RESUME_2026-10-25.md",
+    "art_commit": "e0ed684c4fd10990c00b985d2ac19b7fe20c0d8d",
+    "release_verified": "v0.75"
   },
   "cat_motion_review": {
     "package": "NAKSHIWORLD_CAT_MOTION_REVIEW.zip",
@@ -479,13 +484,13 @@
     "implemented": false
   },
   "backrooms_design": {
-    "status": "draft_review_ready",
+    "status": "art_and_motion_production",
     "plan": "docs/design/backrooms-reservoir/PLAN.md",
     "gallery": "docs/design/backrooms-reservoir/review.html",
     "verification": "docs/design/backrooms-reservoir/QA.json",
     "selection_concepts": 3,
     "progress_concepts": 3,
-    "proposed_roster": 10,
+    "proposed_roster": 15,
     "stages_per_region_proposal": 10,
     "numbers_approved": false,
     "ui_selection_approved": true,
@@ -500,6 +505,15 @@
       "독",
       "빛",
       "어둠"
-    ]
+    ],
+    "roster_count": 15,
+    "roster_basis": "5종 어혼의 순서없는 중복조합15; 5속성x3역할 아님",
+    "latest_handoff": "docs/design/backrooms-reservoir/RESUME_2026-10-25.md",
+    "latest_motion": "docs/design/backrooms-reservoir/eel-motion-v4/eel-ranged-clean.zip",
+    "concepts_created": 15,
+    "native_motion_units_created": 1,
+    "remaining_native_motion_units": 14,
+    "final_motion_user_approval": "cleanup delivered; no explicit final sign-off",
+    "concept_storage": "ChatGPT Library; exact titles in latest_handoff"
   }
 }
