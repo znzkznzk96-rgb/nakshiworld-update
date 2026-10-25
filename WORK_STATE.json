@@ -20,8 +20,8 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-25",
-  "current_task": "B안 15종 병사 네이티브 원본/모션 제작; 석궁병 v4 잔픽셀 정리본 전달",
-  "next_step": "최신 상세 인수인계를 읽고 나머지14종 기본자세 및 역할별 대표액션 제작 이어가기. 기존 승인 재질문/불량 일괄생성 금지.",
+  "current_task": "B안15종 병사 제작: 창병128px 기본자세 준비, 유료모션 자동승인검토 차단",
+  "next_step": "PixelLab 이미지전송/유료생성 명시승인 후 창병8프레임1회 생성 및 검수; eel-motion-v4 유지",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
@@ -514,6 +514,7 @@
     "native_motion_units_created": 1,
     "remaining_native_motion_units": 14,
     "final_motion_user_approval": "cleanup delivered; no explicit final sign-off",
-    "concept_storage": "ChatGPT Library; exact titles in latest_handoff"
+    "concept_storage": "ChatGPT Library; exact titles in latest_handoff",
+    "perch_preparation": "docs/design/backrooms-reservoir/perch-motion-v1/HANDOFF.md"
   }
 }

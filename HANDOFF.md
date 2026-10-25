@@ -12,3 +12,6 @@
 - 미배포 낚시액션/구간해금비/지역파츠 수정은 WORK_STATE와 기존 QA를 보존한다.
 
 이전 인수인계는 [이력](docs/historical/2026-10-25-before-soldier-resume/HANDOFF.md)에 보존. 과거 초안의 병사10종/5역할/출구발견 필수/프레임 깨짐/석궁 찌르기 등을 최신 확정으로 사용하지 않는다.
+
+## 재개 작업 — 창병 준비
+[창병128px 기본자세와 모션요청 준비](docs/design/backrooms-reservoir/perch-motion-v1/HANDOFF.md). 유료실행은 자동승인검토 차단; 모션완료 수는 기존1종 유지. 이미지전송/크레딧소비 명시승인 대기. 게임/배포 변경없음.
