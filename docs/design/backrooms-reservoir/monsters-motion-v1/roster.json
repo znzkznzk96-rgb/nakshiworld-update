@@ -1,0 +1,32 @@
+{
+  "status": "production_in_progress",
+  "orientation": "left",
+  "normal_count": 16,
+  "boss_count": 4,
+  "normal_canvas": [64,64],
+  "motions": {"idle":"short sprite loop","attack":"anticipation, strike, recovery","hit":"flash and right knockback","death":"family-specific squash or fall and fade"},
+  "units": [
+    {"id":"01","name":"슬라임","attack":"body_slam","status":"processing"},
+    {"id":"02","name":"강화 슬라임","attack":"body_slam","status":"pending"},
+    {"id":"03","name":"얼음 슬라임","attack":"body_slam","status":"pending"},
+    {"id":"04","name":"박쥐","attack":"dive","status":"pending"},
+    {"id":"05","name":"흡혈 박쥐","attack":"dive","status":"pending"},
+    {"id":"06","name":"기어다니미","attack":"claw","status":"pending"},
+    {"id":"07","name":"강화 기어다니미","attack":"claw","status":"pending"},
+    {"id":"08","name":"꼬마 골렘","attack":"punch","status":"pending"},
+    {"id":"09","name":"천 유령","attack":"lunge","status":"pending"},
+    {"id":"10","name":"강화 천 유령","attack":"lunge","status":"pending"},
+    {"id":"11","name":"외눈 그림자","attack":"eye_projectile","status":"pending"},
+    {"id":"12","name":"강화 외눈 그림자","attack":"eye_projectile","status":"pending"},
+    {"id":"13","name":"그림자 손","attack":"slam","status":"pending"},
+    {"id":"14","name":"강화 그림자 손","attack":"slam","status":"pending"},
+    {"id":"15","name":"문틈 괴물","attack":"body_slam","status":"pending"},
+    {"id":"16","name":"강화 문틈 괴물","attack":"body_slam","status":"pending"},
+    {"id":"boss3","name":"대왕 슬라임","attack":"heavy_body_slam","status":"pending"},
+    {"id":"boss5","name":"박쥐 우두머리","attack":"heavy_dive","status":"pending"},
+    {"id":"boss7","name":"거대 골렘","attack":"heavy_punch","status":"pending"},
+    {"id":"boss10","name":"그림자왕","attack":"pending_design","status":"pending"}
+  ],
+  "game_applied": false,
+  "deployed": false
+}
