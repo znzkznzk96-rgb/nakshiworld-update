@@ -20,8 +20,8 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-25",
-  "current_task": "승인된 PixelLab 몬스터 모션 제작",
-  "next_step": "슬라임01 단일생성 및검수",
+  "current_task": "슬라임 첫 모션 검수불합격,후속유료생성중단",
+  "next_step": "슬라임 결과검토 및 수정방향",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
@@ -659,11 +659,17 @@
     },
     "monster_motion": {
       "authorized": true,
-      "status": "authorized_external_paid_generation",
+      "status": "first_slime_qc_failed",
       "idle_attack": "sprite motion",
       "hit_death": "engine effects planned",
       "game_applied": false,
-      "external_paid_authorization": "2026-10-25 user 진행해 ㅇㅇ, explicit response to PixelLab upload/credit consent"
+      "external_paid_authorization": "2026-10-25 user 진행해 ㅇㅇ, explicit response to PixelLab upload/credit consent",
+      "generated_frames": 17,
+      "accepted_units": 0,
+      "charged_generations": 1,
+      "additional_paid_requests": 0,
+      "remaining_units": 19,
+      "job_id": "75042633-cebf-4744-9388-afdc5452bdde"
     }
   }
 }
