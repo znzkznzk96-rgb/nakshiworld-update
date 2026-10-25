@@ -20,8 +20,8 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-25",
-  "current_task": "일반몹09~16 추가시안",
-  "next_step": "추가 일반몹8종 검토",
+  "current_task": "일반16종 라운드별 배치 검토",
+  "next_step": "라운드배치안 사용자검토",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
@@ -599,7 +599,63 @@
         "normal",
         "boss"
       ],
-      "implemented": false
+      "implemented": false,
+      "max_same_normal_species": 2
+    },
+    "round_roster_proposal": {
+      "approved": false,
+      "rounds": [
+        [
+          1,
+          1,
+          2
+        ],
+        [
+          2,
+          3,
+          4
+        ],
+        [
+          3,
+          4,
+          "boss3"
+        ],
+        [
+          5,
+          6,
+          6
+        ],
+        [
+          5,
+          7,
+          "boss5"
+        ],
+        [
+          8,
+          9,
+          9
+        ],
+        [
+          8,
+          10,
+          "boss7"
+        ],
+        [
+          11,
+          12,
+          13
+        ],
+        [
+          12,
+          14,
+          15
+        ],
+        [
+          15,
+          16,
+          "boss10"
+        ]
+      ]
     }
   }
 }
