@@ -20,8 +20,8 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-25",
-  "current_task": "v3 외형 시안 채택; 탐험/연성 하단 진입 메뉴 제안",
-  "next_step": "승인 v3 외형을 실제 UI 에셋/검토본으로 구현; 하단 탐험·연성 진입 구성",
+  "current_task": "기존 펼침메뉴용 탐험/연성 아이콘 시안",
+  "next_step": "아이콘 시각검토 후 기존6개 메뉴 축소/좌→우 팝업 구현",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
@@ -548,6 +548,22 @@
     "bottom_menu_proposal": [
       "탐험",
       "연성"
-    ]
+    ],
+    "menu_six": {
+      "approved": true,
+      "existing": [
+        "낚시터",
+        "가방",
+        "도감",
+        "설정"
+      ],
+      "add": [
+        "탐험",
+        "연성"
+      ],
+      "animation": "left-to-right staggered pop",
+      "icon_design": "pending_review",
+      "implemented": false
+    }
   }
 }
