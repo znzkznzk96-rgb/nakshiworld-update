@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "task": "거꾸로 폭포 계곡 통합 및 낚시월드 인수인계 기준",
-  "status": "compact_village_exploration_ui_in_progress",
+  "status": "compact_village_exploration_ui_review_ready",
   "work_branch": "work/valley-runtime",
   "release_baseline": "v0.75",
   "target_version": "0.75",
@@ -20,15 +20,15 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-25",
-  "current_task": "마을상단 소형탐험창·기존게임UI·테마노선도 개선",
-  "next_step": "실제 UI자산으로 소형탐험창과 테마노선도 검토본 제작",
+  "current_task": "마을상단 소형탐험창 v2: 실제UI·방별노선도·중간보스3/5/7·보스10",
+  "next_step": "v2 화면 검토 후 정식몬스터/배경과 Godot 탐험시스템 연결",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
   "last_release_deployed": true,
   "this_change": {
-    "scope": "exploration UI composition preview",
+    "scope": "compact village exploration UI v2",
     "game_changed": false,
     "release_created": false,
     "deployed": false
@@ -484,7 +484,7 @@
     "implemented": false
   },
   "backrooms_design": {
-    "status": "exploration_ui_review_ready",
+    "status": "compact_village_ui_review_ready",
     "plan": "docs/design/backrooms-reservoir/PLAN.md",
     "gallery": "docs/design/backrooms-reservoir/review.html",
     "verification": "docs/design/backrooms-reservoir/QA.json",
@@ -498,7 +498,7 @@
     "deployed": false,
     "revision": "docs/design/backrooms-reservoir/REVISION_2.md",
     "selection": "latest low-detail pixel route B",
-    "progress": "latest A and B accepted; backgrounds vary by dungeon",
+    "progress": "village top compact window; replace visitor/income/zoom controls; place and percent only",
     "soul_elements": [
       "물",
       "전기",
@@ -531,7 +531,7 @@
     "production_checkpoint_e": "docs/design/backrooms-reservoir/production-checkpoint-20261025-e/README.md",
     "production_checkpoint_f": "docs/design/backrooms-reservoir/production-checkpoint-20261025-f/README.md",
     "review_verification": "docs/design/backrooms-reservoir/soldiers-15-review/VERIFICATION.json",
-    "ui_review": "docs/design/backrooms-reservoir/exploration-ui-v1/README.md",
+    "ui_review": "docs/design/backrooms-reservoir/exploration-ui-v2/README.md",
     "boss_stages": {
       "miniboss": [
         3,
