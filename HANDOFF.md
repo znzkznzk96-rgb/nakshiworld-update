@@ -29,3 +29,6 @@
 
 ## 붕어/아귀 추가진행
 [원본/수정재현](docs/design/backrooms-reservoir/production-checkpoint-20261025-b/README.md). 내부검수5종(석궁포함), 남은10종. 날치 단일생성중. 게임/배포없음.
+
+## 날치/미꾸라지/부채꼬리
+3종첫결과 내부검수통과, [원본/검수](docs/design/backrooms-reservoir/production-checkpoint-20261025-c/README.md). 석궁포함8종, 나머지7종. 넙치진행중, 게임미적용.
