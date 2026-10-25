@@ -20,8 +20,8 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-25",
-  "current_task": "일반16종 라운드별 배치 검토",
-  "next_step": "라운드배치안 사용자검토",
+  "current_task": "몬스터 대기·공격 제작 시작",
+  "next_step": "슬라임 기준 입력 준비 및 모션 검수",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
@@ -656,6 +656,13 @@
           "boss10"
         ]
       ]
+    },
+    "monster_motion": {
+      "authorized": true,
+      "status": "preparing_first_slime",
+      "idle_attack": "sprite motion",
+      "hit_death": "engine effects planned",
+      "game_applied": false
     }
   }
 }
