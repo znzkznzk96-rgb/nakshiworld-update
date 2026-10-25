@@ -15,7 +15,10 @@
   "seed": 2026102501,
   "frame_count": 8,
   "balance_before": 464,
-  "status": "blocked_by_automatic_approval_review",
-  "submission_id": null,
-  "motion_created": false
+  "status": "quality_failed_followup_generation_stopped",
+  "submission_id": "558b0400-69e5-4aa7-bce9-5cd96f5e1c51",
+  "motion_created": true,
+  "production_ready": false,
+  "balance_after": 463,
+  "actual_generation_charge": 1
 }

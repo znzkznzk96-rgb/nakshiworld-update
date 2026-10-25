@@ -20,8 +20,8 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-25",
-  "current_task": "남은14종 PixelLab 순차생성 승인, 창병8프레임부터",
-  "next_step": "창병 단일생성→모션검수→통과시 다음종; 불합격이면 중단",
+  "current_task": "창병 모션1회 생성·품질불합격, 후속생성 중단",
+  "next_step": "금색잔상/창날잘림 복구가능성 검토; 불합격결과로 후속13종 생성하지 않음",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
@@ -96,9 +96,8 @@
     "paid_generation_on_resume": false,
     "last_observed_balance": {
       "date": "2026-10-25",
-      "generations": 464,
-      "additional_cleanup_generations": 0,
-      "note": "재개 시 유료 호출 전 잔액 재확인"
+      "generations": 463,
+      "additional_cleanup_generations": 0
     }
   },
   "local_recovery": {
@@ -516,6 +515,12 @@
     "final_motion_user_approval": "cleanup delivered; no explicit final sign-off",
     "concept_storage": "ChatGPT Library; exact titles in latest_handoff",
     "perch_preparation": "docs/design/backrooms-reservoir/perch-motion-v1/HANDOFF.md",
-    "paid_generation_authorization": "2026-10-25 user explicitly approved remaining14 image uploads and one animation request per unit sequentially"
+    "paid_generation_authorization": "2026-10-25 user explicitly approved remaining14 image uploads and one animation request per unit sequentially",
+    "perch_motion_attempt": {
+      "status": "quality_failed",
+      "requests": 1,
+      "charge_generations": 1,
+      "qa": "docs/design/backrooms-reservoir/perch-motion-v1/QA.json"
+    }
   }
 }
