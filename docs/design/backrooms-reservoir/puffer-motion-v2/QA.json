@@ -17,5 +17,6 @@
   "frame_count": 8,
   "body_shield_identity_preserved": true,
   "game_applied": false,
-  "deployed": false
+  "deployed": false,
+  "frames": 8
 }
