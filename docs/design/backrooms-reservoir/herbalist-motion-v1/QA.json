@@ -1,0 +1,18 @@
+{
+  "status": "internal_review_pass_user_signoff_pending",
+  "action": "takes leafy sprig from basket and presents it",
+  "frames": 9,
+  "native_size": [
+    160,
+    128
+  ],
+  "paid_requests": 1,
+  "inspection": {
+    "basket_herbs_body": "pass",
+    "support_action": "pass",
+    "clipping": "pass",
+    "unwanted_particles": "pass"
+  },
+  "game_applied": false,
+  "deployed": false
+}

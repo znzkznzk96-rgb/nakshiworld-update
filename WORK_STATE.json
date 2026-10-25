@@ -20,8 +20,8 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-25",
-  "current_task": "11종내부검수완료(석궁포함), 메기방패병생성중",
-  "next_step": "메기검수→약초지기/단검/초승달 순차",
+  "current_task": "14종내부검수완료(석궁포함), 마지막초승달생성중",
+  "next_step": "초승달검수 후15종 검토패키지·인수인계 저장",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
@@ -510,8 +510,8 @@
     "latest_handoff": "docs/design/backrooms-reservoir/RESUME_2026-10-25.md",
     "latest_motion": "docs/design/backrooms-reservoir/eel-motion-v4/eel-ranged-clean.zip",
     "concepts_created": 15,
-    "native_motion_units_created": 11,
-    "remaining_native_motion_units": 4,
+    "native_motion_units_created": 14,
+    "remaining_native_motion_units": 1,
     "final_motion_user_approval": "cleanup delivered; no explicit final sign-off",
     "concept_storage": "ChatGPT Library; exact titles in latest_handoff",
     "perch_preparation": "docs/design/backrooms-reservoir/perch-motion-v1/HANDOFF.md",
@@ -526,6 +526,7 @@
     "native_count_note": "eel/perch/puffer/crucian/angler internal review, final approval pending",
     "production_checkpoint_b": "docs/design/backrooms-reservoir/production-checkpoint-20261025-b/README.md",
     "production_checkpoint_c": "docs/design/backrooms-reservoir/production-checkpoint-20261025-c/README.md",
-    "production_checkpoint_d": "docs/design/backrooms-reservoir/production-checkpoint-20261025-d/README.md"
+    "production_checkpoint_d": "docs/design/backrooms-reservoir/production-checkpoint-20261025-d/README.md",
+    "production_checkpoint_e": "docs/design/backrooms-reservoir/production-checkpoint-20261025-e/README.md"
   }
 }

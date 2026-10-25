@@ -35,3 +35,6 @@
 
 ## 넙치/약사/망치병
 3종첫결과 내부검수통과, [원본/검수](docs/design/backrooms-reservoir/production-checkpoint-20261025-d/README.md). 석궁포함11종, 나머지4종. 메기진행중, 게임미적용.
+
+## 메기/약초지기/쌍단검
+3종첫결과 내부검수통과, [원본/검수](docs/design/backrooms-reservoir/production-checkpoint-20261025-e/README.md). 석궁포함14종, 마지막초승달생성중. 게임미적용.
