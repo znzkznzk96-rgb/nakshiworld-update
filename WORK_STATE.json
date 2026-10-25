@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "task": "거꾸로 폭포 계곡 통합 및 낚시월드 인수인계 기준",
-  "status": "compact_village_exploration_ui_review_ready",
+  "status": "exploration_ui_v3_revision",
   "work_branch": "work/valley-runtime",
   "release_baseline": "v0.75",
   "target_version": "0.75",
@@ -20,8 +20,8 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-25",
-  "current_task": "마을상단 소형탐험창 v2: 실제UI·방별노선도·중간보스3/5/7·보스10",
-  "next_step": "v2 화면 검토 후 정식몬스터/배경과 Godot 탐험시스템 연결",
+  "current_task": "나뭇잎제거·선명한 도트배경·보스아이콘 재제작",
+  "next_step": "v3 검토본 제작 및 시각검수",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
@@ -542,6 +542,7 @@
         10
       ],
       "stats_approved": false
-    }
+    },
+    "ui_v2_visual_approval": "rejected: leaves, washed-out color, weak pixel style"
   }
 }
