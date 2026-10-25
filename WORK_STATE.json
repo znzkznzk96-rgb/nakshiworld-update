@@ -20,8 +20,8 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-25",
-  "current_task": "슬라임 첫 모션 검수불합격,후속유료생성중단",
-  "next_step": "슬라임 결과검토 및 수정방향",
+  "current_task": "슬라임 결함수정 및 일반18종 모션제작",
+  "next_step": "슬라임 수정1회 검수",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
@@ -566,7 +566,7 @@
       "implemented": false
     },
     "monster_review": {
-      "common": 16,
+      "common": 18,
       "miniboss_rounds": [
         3,
         5,
@@ -659,7 +659,7 @@
     },
     "monster_motion": {
       "authorized": true,
-      "status": "first_slime_qc_failed",
+      "status": "slime_revision_authorized_normal18",
       "idle_attack": "sprite motion",
       "hit_death": "engine effects planned",
       "game_applied": false,
@@ -669,7 +669,12 @@
       "charged_generations": 1,
       "additional_paid_requests": 0,
       "remaining_units": 19,
-      "job_id": "75042633-cebf-4744-9388-afdc5452bdde"
+      "job_id": "75042633-cebf-4744-9388-afdc5452bdde",
+      "normal_target": 18,
+      "additional_normal_proposal": [
+        "17 독 슬라임",
+        "18 그림자 박쥐"
+      ]
     }
   }
 }
