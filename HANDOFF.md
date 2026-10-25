@@ -20,3 +20,6 @@
 
 ## 창병1회 결과 — 품질불합격
 [검수](docs/design/backrooms-reservoir/perch-motion-v1/QA.json): 금색잔상·잔픽셀 및 창날잘림. 1회차감, 잔액463 실조회. 원본9프레임 보존, 후속13종 생성중단. 모션제작 시도와 게임에셋완료 구분. 추가재생성/게임배포 없음.
+
+## 창병 수정 v2
+[수정본](docs/design/backrooms-reservoir/perch-motion-v2/HANDOFF.md): 기존프레임 국소정리·창날복구·회수재구성, 추가차감0, 내부검수통과. 실패v1 보존. 다음복어부터 기존승인 순차제작 재개.
