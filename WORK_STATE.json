@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "task": "거꾸로 폭포 계곡 통합 및 낚시월드 인수인계 기준",
-  "status": "fish_soldier_motion_review_ready",
+  "status": "exploration_ui_in_progress",
   "work_branch": "work/valley-runtime",
   "release_baseline": "v0.75",
   "target_version": "0.75",
@@ -20,8 +20,8 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-25",
-  "current_task": "B안15종 기본자세/대표모션 검토본 완료·원격보존",
-  "next_step": "사용자 시각피드백 반영 또는 명시된 후속범위의 게임연결; 신규유료생성/배포 자동진행 금지",
+  "current_task": "승인된15종을 사용한 나머지 탐험창 구성",
+  "next_step": "노선도·편성·자동교전/전진·결과 화면 연결 및 검토",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
@@ -513,7 +513,7 @@
     "concepts_created": 15,
     "native_motion_units_created": 15,
     "remaining_native_motion_units": 0,
-    "final_motion_user_approval": "not yet explicitly approved",
+    "final_motion_user_approval": "approved 2026-10-25: 좋네",
     "concept_storage": "ChatGPT Library; exact titles in latest_handoff",
     "perch_preparation": "docs/design/backrooms-reservoir/perch-motion-v1/HANDOFF.md",
     "paid_generation_authorization": "2026-10-25 user explicitly approved remaining14 image uploads and one animation request per unit sequentially",
@@ -524,7 +524,7 @@
       "qa": "docs/design/backrooms-reservoir/perch-motion-v2/QA.json"
     },
     "production_checkpoint": "docs/design/backrooms-reservoir/production-checkpoint-20261025/README.md",
-    "native_count_note": "15 units internally reviewed; user final signoff and game integration pending",
+    "native_count_note": "15 units user approved; game integration pending",
     "production_checkpoint_b": "docs/design/backrooms-reservoir/production-checkpoint-20261025-b/README.md",
     "production_checkpoint_c": "docs/design/backrooms-reservoir/production-checkpoint-20261025-c/README.md",
     "production_checkpoint_d": "docs/design/backrooms-reservoir/production-checkpoint-20261025-d/README.md",
