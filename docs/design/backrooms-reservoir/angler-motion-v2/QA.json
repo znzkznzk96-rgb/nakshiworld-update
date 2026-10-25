@@ -1,0 +1,19 @@
+{
+  "status": "internal_review_pass_user_signoff_pending",
+  "action": "gentle lantern raise and lower",
+  "source_frames": [
+    0,
+    1,
+    1,
+    7,
+    8,
+    8,
+    7,
+    0
+  ],
+  "paid_requests": 1,
+  "additional_repair_requests": 0,
+  "removed": "generated effects overlay frames omitted, original clean poses reused for recovery",
+  "game_applied": false,
+  "deployed": false
+}

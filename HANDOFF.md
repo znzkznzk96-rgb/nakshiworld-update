@@ -26,3 +26,6 @@
 
 ## 순차제작 체크포인트
 창병v2·복어v2 내부검수통과, [전체복구패키지](docs/design/backrooms-reservoir/production-checkpoint-20261025/README.md). 나머지13종 기본자세준비 포함. 붕어 단일요청 진행중, 실제완성수/유료요청을 구분.
+
+## 붕어/아귀 추가진행
+[원본/수정재현](docs/design/backrooms-reservoir/production-checkpoint-20261025-b/README.md). 내부검수5종(석궁포함), 남은10종. 날치 단일생성중. 게임/배포없음.
