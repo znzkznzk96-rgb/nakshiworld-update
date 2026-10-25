@@ -20,8 +20,8 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-25",
-  "current_task": "몬스터03/05/06 교체 외형 시안; 모션 가독성 고려",
-  "next_step": "교체3종 시각검토 후 개별 원본/모션 제작범위 확인",
+  "current_task": "01·3R·10R 기준 몬스터 계열통일 시안",
+  "next_step": "통일된12종 시각검토; 라운드당3조우 후속연결",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
@@ -573,15 +573,34 @@
         7
       ],
       "boss_round": 10,
-      "replaced_slots": {
-        "03": "그림자버섯",
-        "05": "꼬마악마",
-        "06": "먹보솜뭉치"
-      },
-      "status": "replacement_concept_requested",
+      "preserved_visuals": [
+        "01",
+        "3R",
+        "10R"
+      ],
+      "status": "cohesive_family_revision",
       "final_art_approved": false,
       "motions_created": false,
       "game_applied": false
+    },
+    "encounters_per_round": {
+      "count": 3,
+      "normal": [
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "miniboss": [
+        "normal",
+        "normal",
+        "miniboss"
+      ],
+      "final": [
+        "normal",
+        "normal",
+        "boss"
+      ],
+      "implemented": false
     }
   }
 }
