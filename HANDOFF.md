@@ -23,3 +23,6 @@
 
 ## 창병 수정 v2
 [수정본](docs/design/backrooms-reservoir/perch-motion-v2/HANDOFF.md): 기존프레임 국소정리·창날복구·회수재구성, 추가차감0, 내부검수통과. 실패v1 보존. 다음복어부터 기존승인 순차제작 재개.
+
+## 순차제작 체크포인트
+창병v2·복어v2 내부검수통과, [전체복구패키지](docs/design/backrooms-reservoir/production-checkpoint-20261025/README.md). 나머지13종 기본자세준비 포함. 붕어 단일요청 진행중, 실제완성수/유료요청을 구분.
