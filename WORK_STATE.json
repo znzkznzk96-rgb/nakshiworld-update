@@ -1,10 +1,10 @@
 {
   "schema_version": 2,
   "task": "거꾸로 폭포 계곡 통합 및 낚시월드 인수인계 기준",
-  "status": "apk_built_verified",
+  "status": "implementation_in_progress",
   "work_branch": "work/valley-runtime",
   "release_baseline": "v0.78",
-  "target_version": "0.78",
+  "target_version": "0.80",
   "source_commit": "ef16ed019710760bfa0eb489b54f37282914823c",
   "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v0.78",
   "live_patch_sha256": "20e11cbb2f446d4a5a7cdb6c9158bd0de2bfed0fcd20813e5378fee89447c568",
@@ -20,19 +20,17 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-26",
-  "current_task": "v0.79 APK 새 업데이트 화면·병사강화·탐험 오류 수정 완료",
-  "next_step": "설치 APK 제공 및 사용자 휴대폰 확인",
+  "current_task": "0.80 번들 일괄기증·보상받기·라이선스 및 수족관 스크롤/즉시넣기",
+  "next_step": "회수 초안 검토, 저장호환/실제UI 검증, 전체검사 후 승인된 공개배포",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
   "last_release_deployed": true,
   "this_change": {
-    "scope": "v0.79 signed APK",
-    "game_changed": true,
-    "deployed": false,
-    "apk_built": true,
-    "public_patch_server_changed": false
+    "scope": "0.80 번들 일괄기증·보상받기·라이선스 및 수족관 스크롤/즉시넣기",
+    "release_authorized": true,
+    "deployed": false
   },
   "history": "docs/historical/2026-10-22-before-workflow-streamlining/WORK_STATE.json",
   "work_verification": "docs/analysis/balance-tuning-075/QA.json",
