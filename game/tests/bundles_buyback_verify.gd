@@ -24,6 +24,8 @@ func run() -> void:
 			if i==2:
 				m._save_game();p.restore({});m._load_game()
 				check(p.bundle_counts(area,1)[2]==1,"partial side progress survives restart")
+		check(m.gold==main_gold,"completion waits for explicit claim")
+		check(p.claim_reward(m,area,1),"claim side")
 		check(m.gold==main_gold+900 and m.souls==(15 if area==0 else 45),"side rewards actual 750 sale value times120% and correct souls")
 		check(not p.main_completed[area],"side completion needs no main completion")
 		m.bag=[fish(p.SUB_SPECIES[area][0])]
@@ -34,11 +36,13 @@ func run() -> void:
 		for i in 6:
 			m.bag=[fish(p.MAIN_SPECIES[area][i])]
 			check(p.donate_bundle(m,area,0,0,i),"main incremental donation accepts normal")
+		check(p.claim_reward(m,area,0),"claim certificate")
 		check(m.gold==main_gold and p.certificates[area],"main pays certificate only")
 		check(not p.donate_bundle(m,area,0,0,0),"main completion immutable")
 		var prior_pearl: int=m.pearl
 		m.bag=[fish(area*20+19,1001,4)]
 		check(p.donate_bundle(m,area,2,0,0),"owner accepts any grade")
+		check(p.claim_reward(m,area,2),"claim owner")
 		check(m.gold==main_gold+1502 and m.pearl==prior_pearl+2,"owner 150% nearest integer plus two pearls")
 		m._save_game();p.restore({});m._load_game()
 		check(p.bundle_done(area,2) and p.bundle_done(area,1) and p.bundle_done(area,0),"all completed flags persist")

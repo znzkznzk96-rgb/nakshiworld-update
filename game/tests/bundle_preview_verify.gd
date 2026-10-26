@@ -14,9 +14,9 @@ func run() -> void:
 		check(grid.end.y<preview.rects.register.position.y-38,"grid clear of reward and button")
 		preview.press(m,preview.rects.sub.get_center());check(preview.tab==1,"sub tab works")
 		preview.draw(m,height);preview.press(m,preview.rects.register.get_center())
-		check(preview.selected==0,"registration preview opens detail")
-		preview.draw(m,height);preview.press(m,preview.rects.detail_close.get_center())
-		check(preview.selected==-1,"detail closes")
+		check(preview.bulk_open,"registration opens bulk confirmation")
+		preview.draw(m,height);preview.press(m,preview.rects.bulk_cancel.get_center())
+		check(not preview.bulk_open,"bulk confirmation closes without changes")
 	for i in 8:
 		preview.draw(m,540);preview.press(m,preview.rects.next.get_center())
 	check(preview.region==5,"region navigation bounded")

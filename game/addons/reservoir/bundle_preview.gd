@@ -9,6 +9,12 @@ var page := 0
 var rects := {}
 var legacy_dex := false
 var licenses := {}
+var reward_open := false
+var bulk_open := false
+var bulk_plan: Array=[]
+var bulk_page := 0
+var just_claimed := false
+var dialog_notice := ""
 func button(m, key: String, label: String, r: Rect2, active: bool=false) -> void:
 	m._ui_style_box(m.sb_primary if active else m.sb_btn,r)
 	m._text(label,r.get_center()+Vector2(0,4),11,Color("fff0d1") if active else Color("382619"),true,r.size.x-8)
@@ -85,11 +91,28 @@ func draw(m,h: float) -> void:
 		var caption: String="보상 준비 중"
 		if region<2: caption="%s 비늘 · 혼 %d개"%[_amount(reward_preview_amount(m,region,tab)),m.progression.SOUL_REWARD[region]] if tab==1 else "%s 비늘 · 진주 2개"%_amount(reward_preview_amount(m,region,tab))
 		m._text(caption,reward.position+Vector2(39,16),10,Color("382619"),false,192)
-		m._text("받은 보상" if done else ("완료 예상 · 미기증은 노멀·평균 기준" if region<2 else "보상 준비 중"),reward.position+Vector2(39,30),9,Color("513b29"),false,192)
-	button(m,"register","완료" if done else ("기증 %d / %d"%[total,targets.size()] if not targets.is_empty() else "번들 준비 중"),Rect2(17,bottom-48,154,29),done)
+		m._text(("받은 보상" if m.progression.claimed(region,tab) else "받기 버튼으로 수령") if done else ("완료 예상 · 미기증은 노멀·평균 기준" if region<2 else "보상 준비 중"),reward.position+Vector2(39,30),9,Color("513b29"),false,192)
+	button(m,"register",("보상 확인" if m.progression.claimed(region,tab) else "보상 받기") if done else ("보유 물고기 기증" if not targets.is_empty() else "번들 준비 중"),Rect2(17,bottom-48,154,29),done)
 	button(m,"dex","도감",Rect2(177,bottom-48,76,29))
-	m._text("물고기를 눌러 한 마리씩 기증 · 등급 무관",Vector2(135,bottom-7),9,Color("68533d"),true,236)
+	m._text("기증 %d / %d · 일괄 기증은 낮은 등급부터"%[total,targets.size()],Vector2(135,bottom-7),9,Color("68533d"),true,236)
 	if selected>=0: detail(m,h,targets,counts)
+	if bulk_open: bulk_dialog(m,h)
+	if reward_open: reward_dialog(m,h)
+func reward_dialog(m,h: float) -> void:
+	m.text_items=m.text_items.filter(func(it): return it[1].y<m.top_y)
+	m._ui_rect(Rect2(-m.ox,0,270+2*m.ox,h),Color(0.025,0.04,0.07,0.82))
+	var r:=Rect2(24,roundf(h/2)-108,222,216)
+	m._ui_style_box(m.sb_panel,r)
+	m._text("보상을 받았어요!" if just_claimed else "번들 완료!",Vector2(135,r.position.y+29),16,Color("513b29"),true,200)
+	m._text(SPOTS.NAMES[region]+" · "+["필수 번들","서브 번들","주인 번들"][tab],Vector2(135,r.position.y+54),11,Color("513b29"),true,202)
+	var reward: String="낚시 자격증 %d급\n다음 낚시터 구매 자격"%(region+1)
+	if tab==1: reward="%s 비늘\n물고기의 혼 %d개"%[_amount(reward_amount(m,region,tab)),m.progression.SOUL_REWARD[region]]
+	elif tab==2: reward="%s 비늘\n진주 2개"%_amount(reward_amount(m,region,tab))
+	m._text(reward,Vector2(135,r.position.y+88),12,Color("513b29"),true,200)
+	var received: bool=m.progression.claimed(region,tab)
+	m._text(dialog_notice if dialog_notice!="" else ("수령 완료 · 저장됐어요" if received else "받기를 누르면 보상이 지급돼요"),Vector2(135,r.position.y+139),9,Color("68533d"),true,200)
+	if not received: button(m,"claim","받기",Rect2(40,r.end.y-51,91,30),true)
+	button(m,"reward_close","닫기" if received else "나중에",Rect2(139 if not received else 88,r.end.y-51,91,30))
 func star(sp: int) -> int:
 	for i in 5:
 		if sp%20 in CATALOG.BY_STAR[i]: return i
@@ -123,13 +146,30 @@ func detail(m,h: float,targets: Array,counts: Array) -> void:
 	button(m,"detail_close","닫기",Rect2(83,r.end.y-40,104,27))
 func press(m,p: Vector2) -> void:
 	m.play("ui")
+	if reward_open:
+		if rects.get("reward_close",Rect2()).has_point(p): reward_open=false;just_claimed=false;dialog_notice=""
+		elif not m.progression.claimed(region,tab) and rects.get("claim",Rect2()).has_point(p):
+			if m.progression.claim_reward(m,region,tab): just_claimed=true;dialog_notice=""
+			else: dialog_notice="저장하지 못했어요. 다시 눌러 주세요"
+		return
+	if bulk_open:
+		if rects.get("bulk_cancel",Rect2()).has_point(p): bulk_open=false;bulk_plan=[];return
+		if rects.get("bulk_prev",Rect2()).has_point(p): bulk_page=maxi(0,bulk_page-1);return
+		if rects.get("bulk_next",Rect2()).has_point(p): bulk_page+=1;return
+		if not bulk_plan.is_empty() and rects.get("bulk_confirm",Rect2()).has_point(p):
+			var donated: int=m.progression.donate_all(m,region,tab,bulk_plan)
+			if donated>0:
+				bulk_open=false;bulk_plan=[];reward_open=m.progression.bundle_done(region,tab)
+				if not reward_open: m.show_toast("%d마리를 기증했어요"%donated)
+			else: bulk_plan=m.progression.donation_plan(m,region,tab);dialog_notice="목록 또는 저장 확인 후 다시 눌러 주세요"
+		return
 	if selected>=0:
 		if rects.get("detail_close",Rect2()).has_point(p): selected=-1;return
 		if rects.get("page_prev",Rect2()).has_point(p): page=maxi(0,page-1);return
 		if rects.get("page_next",Rect2()).has_point(p): page+=1;return
 		for key in rects:
 			if str(key).begins_with("donate:") and rects[key].has_point(p):
-				if m.progression.donate_bundle(m,region,tab,int(str(key).get_slice(":",1)),selected): selected=-1;page=0
+				if m.progression.donate_bundle(m,region,tab,int(str(key).get_slice(":",1)),selected): selected=-1;page=0;reward_open=m.progression.bundle_done(region,tab)
 				return
 		return
 	if rects.get("dex",Rect2()).has_point(p): legacy_dex=true;return
@@ -140,8 +180,38 @@ func press(m,p: Vector2) -> void:
 		if rects.get(["main","sub","owner"][i],Rect2()).has_point(p): tab=i;page=0;return
 	for n in 6:
 		if rects.get("region:%d"%n,Rect2()).has_point(p): region=n;return
-		if rects.get("fish:%d"%n,Rect2()).has_point(p): selected=n;page=0;return
-	if rects.get("register",Rect2()).has_point(p): selected=0;page=0
+		if rects.get("fish:%d"%n,Rect2()).has_point(p):
+			if m.progression.bundle_done(region,tab): reward_open=true
+			else: selected=n;page=0
+			return
+	if rects.get("register",Rect2()).has_point(p):
+		if m.progression.bundle_done(region,tab): reward_open=true;return
+		bulk_plan=m.progression.donation_plan(m,region,tab);bulk_page=0;bulk_open=true;dialog_notice=""
+
+func bulk_dialog(m,h: float) -> void:
+	m.text_items=m.text_items.filter(func(it): return it[1].y<m.top_y)
+	m._ui_rect(Rect2(-m.ox,0,270+2*m.ox,h),Color(0.025,0.04,0.07,0.82))
+	var r:=Rect2(18,roundf(h/2)-170,234,340)
+	m._ui_style_box(m.sb_panel,r)
+	m._text("보유 물고기 기증",Vector2(135,r.position.y+27),14,Color("513b29"),true,212)
+	m._text("기증할 물고기 %d마리 · 제출하면 소모돼요"%bulk_plan.size(),Vector2(135,r.position.y+48),9,Color("68533d"),true,212)
+	var pages:=maxi(1,ceili(bulk_plan.size()/4.0))
+	bulk_page=clampi(bulk_page,0,pages-1)
+	for row in 4:
+		var at:=bulk_page*4+row
+		if at>=bulk_plan.size(): break
+		var f: Dictionary=bulk_plan[at].fish
+		var yy: float=r.position.y+65+row*43
+		m._ui_fish(int(f.sp),Rect2(29,yy,40,31))
+		m._text(m.FISH_NAME[int(f.sp)],Vector2(76,yy+12),10,Color("513b29"),false,160)
+		m._text("%s · %.1fcm · %s비늘"%[m.GRADE_N[int(f.grade)],float(f.len),_amount(int(f.get("price",0)))],Vector2(76,yy+28),9,Color("68533d"),false,160)
+	if bulk_plan.is_empty(): m._text("지금 기증할 수 있는 물고기가 없어요",Vector2(135,r.position.y+122),10,Color("68533d"),true,210)
+	if pages>1:
+		button(m,"bulk_prev","<",Rect2(48,r.end.y-102,30,23));button(m,"bulk_next",">",Rect2(192,r.end.y-102,30,23))
+		m._text("%d / %d"%[bulk_page+1,pages],Vector2(135,r.end.y-86),9,Color("68533d"),true,80)
+	m._text(dialog_notice if dialog_notice!="" else "같은 어종은 낮은 등급·판매가부터 선택",Vector2(135,r.end.y-65),9,Color("68533d"),true,218)
+	if not bulk_plan.is_empty(): button(m,"bulk_confirm","전체 기증하기",Rect2(29,r.end.y-48,133,30),true)
+	button(m,"bulk_cancel","닫기",Rect2(170,r.end.y-48,71,30))
 
 func _amount(value: int) -> String:
 	var raw:=str(value);var result:=""

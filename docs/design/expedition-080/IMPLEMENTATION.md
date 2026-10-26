@@ -1,0 +1,5 @@
+# Expedition UI implementation
+
+Implemented the approved compact strip, current defender/enemy health bars, outlined damage and support numbers, moving approach scenery and clipped enemy entrance. Formation now has its own tab: three ordered slots above a paginated roster, tap to equip/remove, selected slot replacement and active-battle mutation lock. Alchemy/exploration cross navigation and explicit training entry/buttons added. Enclosed alpha holes receive dark render-time backing; source art unchanged. Walking uses existing pose with stride/bob, not newly generated walk frames. Hit effects are visually staggered while original damage/skill calculation balance is retained.
+
+35 isolated suites passed after updating the motion test for initially offscreen enemies. Actual 480/660 UI renders and encounter video checked. Changes are saved to work/valley-runtime only. No APK or public patch deployment performed. Existing installed build remains 0.79_ICONFIX. See docs/qa/expedition-080/VERIFICATION.json.

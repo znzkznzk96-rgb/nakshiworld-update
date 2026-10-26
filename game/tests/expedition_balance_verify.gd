@@ -12,6 +12,7 @@ func run() -> void:
 				for support in roles.support:
 					var d=Model.new();d.unlocked=10
 					for i in 3: d.team.append(d.add_unit([tank,attack,support][i],stars[i],[0,0,0]).uid)
+					for u in d.soldiers: u.level=3
 					d.start(10,1000)
 					for t in 8000:
 						if not d.active(): break

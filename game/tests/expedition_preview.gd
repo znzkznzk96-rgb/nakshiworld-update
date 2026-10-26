@@ -21,11 +21,13 @@ func run() -> void:
 		v.open(m,"alchemy");v.tab=0;await capture(m,out,"alchemy_%d"%height)
 		v.tab=2;await capture(m,out,"soldiers_%d"%height)
 		v.tab=1;v.selected=[1,4];await capture(m,out,"merge_%d"%height)
+		for u in d.soldiers: u.level=3
 		v.opened="merge_confirm";await capture(m,out,"confirm_%d"%height)
 	v.selected_round=4;v.opened="";m.menu_open=true;m.menu_t=-10;await capture(m,out,"menu")
 	m.menu_open=false;d.start(10,Time.get_unix_time_from_system());d.battle.index=2;d.battle.cleared=2;d.spawn_enemy();d.battle.phase="fight";d.battle.clock=.8
 	await capture(m,out,"village_battle")
 	v.open(m,"explore");await capture(m,out,"battle_detail")
+	for u in d.soldiers: u.level=3
 	d.battle={};d.begin_merge(1,4,1000);v.open(m,"alchemy");await capture(m,out,"inherit")
 	d.finish_merge(1);await capture(m,out,"result")
 	m.audio_feedback.dispose();m.queue_free();await process_frame

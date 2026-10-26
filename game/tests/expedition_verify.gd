@@ -14,8 +14,10 @@ func run() -> void:
 	check(not d.craft(0,0),"unacknowledged result blocks repeat")
 	d.pending={};d.add_unit(1,1,[1,8,2]);d.team=[1,2]
 	var before: Dictionary=d.serialize();d.unit(1).locked=true
+	for u in d.soldiers: u.level=3
 	check(d.begin_merge(1,2,1000).is_empty(),"locked material protected")
 	d.unit(1).locked=false
+	for u in d.soldiers: u.level=3
 	var q: Dictionary=d.begin_merge(1,2,1000)
 	check(not q.is_empty() and d.soldiers.is_empty(),"two materials consumed once")
 	var pending: Dictionary=d.serialize();var copy=Model.new();copy.restore(pending)

@@ -11,6 +11,7 @@ func run() -> void:
 	d.pending={};var second: Dictionary=d.add_unit(1)
 	var old: Dictionary=d.serialize();old.erase("discovered");d.restore(old)
 	check(d.is_discovered(id) and d.is_discovered(1),"legacy held soldiers migrated")
+	for u in d.soldiers: u.level=3
 	d.begin_merge(int(d.soldiers[0].uid),int(second.uid),1000)
 	var saved: Dictionary=JSON.parse_string(JSON.stringify(d.serialize()));d.restore(saved)
 	check(d.is_discovered(id) and d.is_discovered(1),"consumed material discoveries persist through pending merge reload")

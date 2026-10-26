@@ -1,18 +1,18 @@
 {
   "schema_version": 2,
   "task": "거꾸로 폭포 계곡 통합 및 낚시월드 인수인계 기준",
-  "status": "release_validation_pending",
+  "status": "verification_in_progress",
   "work_branch": "work/valley-runtime",
-  "release_baseline": "v0.77",
-  "target_version": "0.78",
-  "source_commit": "c12dd4258f5ca0758d54d5bf42e501fcf36da15d",
-  "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v0.77",
-  "live_patch_sha256": "eaea77b1618069ab18e6e7ff238cda7db80d75c061011919e26faefb36b116fa",
-  "source_zip_sha256": "adfb906d924367370128911b9bc69c455c6b33c0553aa2bb17d7b3aedecaa5bc",
-  "build_run": 40276445468,
-  "gateway_run": 40276608550,
-  "verification": "docs/qa/release-077/PUBLIC_VERIFICATION.json",
-  "phone_confirmation": "0.77 공개파일/운영 다운로드 검증 완료; 휴대폰 적용 확인 대기",
+  "release_baseline": "v0.78",
+  "target_version": "0.80",
+  "source_commit": "ef16ed019710760bfa0eb489b54f37282914823c",
+  "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v0.78",
+  "live_patch_sha256": "20e11cbb2f446d4a5a7cdb6c9158bd0de2bfed0fcd20813e5378fee89447c568",
+  "source_zip_sha256": "348011e3787234635e469c8e3649f391410d7d9d736a5cfd1a858568e2a7dcfc",
+  "build_run": 40279663858,
+  "gateway_run": 40279862600,
+  "verification": "docs/qa/release-078/PUBLIC_VERIFICATION.json",
+  "phone_confirmation": "공개/운영검증완료, 휴대폰 적용 및 선물 수령 사용자 확인 전",
   "museum_bundle": "저수지·계곡 필수/서브 각6종·주인1종 실물 낱개기증과 자동보상 연결. 필수 라이선스만/서브판매가120%+혼15·30/주인판매가150%+2진주. 계곡노멀평균주인 기증24000비늘+2진주.",
   "valley_runtime_status": "shipped_assets_catalog_backend_live_entry_disabled",
   "pending_decisions": [
@@ -20,22 +20,20 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-26",
-  "current_task": "0.78 병사 도감/연성 개선 및 1회 수령 테스트 선물 배포",
-  "next_step": "0.78 작업 CI 후 승인된 PR 병합, 공개파일/운영 다운로드 검증",
+  "current_task": "0.80 번들 일괄기증·보상받기·라이선스 및 수족관 스크롤/즉시넣기",
+  "next_step": "전체36검사·CI 확인 후 승인된0.80 공개 배포",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
   "last_release_deployed": true,
   "this_change": {
-    "scope": "0.78 병사 도감/연성 개선 및 1회 수령 테스트 선물 배포",
+    "scope": "0.80 번들 일괄기증·보상받기·라이선스 및 수족관 스크롤/즉시넣기",
     "release_authorized": true,
-    "deployed": false,
-    "local_suites": 33,
-    "verification": "docs/qa/release-078/VERIFICATION.json"
+    "deployed": false
   },
   "history": "docs/historical/2026-10-22-before-workflow-streamlining/WORK_STATE.json",
-  "work_verification": "docs/analysis/balance-tuning-075/QA.json",
+  "work_verification": "docs/qa/bundle-aqua-080/VERIFICATION.json",
   "work_source_commit": "b932b35d8023cce44ab444a2bd49227199b1429d",
   "work_verification_run": 40265436338,
   "backend_source_commit": "fc55b5b07b1cecde6fea9670fd6553423f3b68e2",
@@ -312,13 +310,14 @@
     "source_commit": "935e8f0f2aa07bd02d64b8243ae8cf9eb9285b1f"
   },
   "update_screen": {
-    "selection": "B",
+    "selection": "minimal C cat and bucket + B sky-blue background",
     "approved": true,
-    "status": "separate_apk_applied_user_confirmed",
-    "style": "차원관리국 장비·잠든 고양이·청록 분할 게이지",
+    "status": "apk079_built_verified",
+    "style": "C 고양이·양동이 + B 하늘색, 노란 실제 진행바",
     "game_applied": true,
-    "deployed": true,
-    "evidence": "2026-10-26 user confirms received separately applied APK; binary not independently reverified"
+    "deployed": false,
+    "evidence": "2026-10-26 user confirms received separately applied APK; binary not independently reverified",
+    "new_direction": "selected and implemented"
   },
   "rare_fish_optimization": {
     "approved": true,
@@ -723,5 +722,13 @@
     "resolved_by": "User explicitly replied 배포하자 ㅇㅇ to main merge/public v0.76 approval question",
     "resolved": true,
     "resolution": "User explicitly approved deployment; PR9 merged and v0.76 verified"
+  },
+  "apk079": {
+    "source_branch": "work/valley-runtime",
+    "verification": "docs/qa/apk-079/VERIFICATION.json",
+    "phone_verified": false,
+    "public_patch_version": "0.78",
+    "library_apk": "libfile_240dcbbb01d8819198f93b600bfb9260",
+    "library_full_source": "libfile_d836280479e88191aa59635f5c012172"
   }
 }
