@@ -7,6 +7,72 @@ var selected: = -1
 var selected_grade := -1
 var list_view = preload("res://addons/reservoir/bag_list.gd").new()
 var rects: = {}
+var pointer := false
+var dragged := false
+var pointer_id := -1
+var start := Vector2.ZERO
+var last := Vector2.ZERO
+var gesture_selected := -1
+var gesture_grade := -1
+var gesture_tab := ""
+var gesture_scroll := false
+var last_native_touch := -1000
+
+func _area(m) -> Rect2:
+	if selected>=0: return list_view.detail_viewport if selected_grade>=0 else Rect2()
+	return list_view.viewport if tab=="fish" else m.equipment.inventory_viewport
+
+func _scroll(m,delta: float) -> void:
+	if selected>=0: list_view.move_scroll(delta,true)
+	elif tab=="fish": list_view.move_scroll(delta,false)
+	else: m.equipment.scroll_inventory(delta)
+
+func _begin(m,p: Vector2,id: int) -> void:
+	pointer=true;dragged=false;pointer_id=id;start=p;last=p
+	gesture_selected=selected;gesture_grade=selected_grade;gesture_tab=tab
+	gesture_scroll=_area(m).has_point(p)
+
+func _move(m,p: Vector2) -> void:
+	if p.distance_to(start)>5: dragged=true
+	if dragged and gesture_scroll: _scroll(m,last.y-p.y)
+	last=p
+
+func _release(m,p: Vector2) -> void:
+	pointer=false;pointer_id=-1
+	# One pointer gesture belongs to the layer where it began, including Close.
+	if dragged or selected!=gesture_selected or selected_grade!=gesture_grade or tab!=gesture_tab: return
+	if selected>=0: detail_press(p)
+	else: press(m,p)
+
+func input_event(m,e: InputEvent) -> bool:
+	# Android can send mouse events for the same native touch after a modal closes.
+	if (e is InputEventMouseButton or e is InputEventMouseMotion) and e.device==-1 and Time.get_ticks_msec()-last_native_touch<500: return true
+	if (selected<0 and (not m.market_open or m.market_sell)) or m.settings_open or not m.trans.is_empty() or not m.equipment.pending_sale.is_empty() or not m.V.commerce.pending.is_empty(): pointer=false;return false
+	if selected<0 and m.ui_clock-opened_at<0.2: return true
+	if e is InputEventScreenTouch:
+		last_native_touch=Time.get_ticks_msec()
+		var p: Vector2=e.position-Vector2(m.ox,0)
+		if e.pressed:
+			if not pointer: _begin(m,p,e.index)
+		elif pointer and pointer_id==e.index: _release(m,p)
+		return true
+	if e is InputEventScreenDrag:
+		last_native_touch=Time.get_ticks_msec()
+		if pointer and pointer_id==e.index: _move(m,e.position-Vector2(m.ox,0))
+		return true
+	if e is InputEventMouseButton:
+		var p: Vector2=e.position-Vector2(m.ox,0)
+		if e.button_index in [MOUSE_BUTTON_WHEEL_UP,MOUSE_BUTTON_WHEEL_DOWN]:
+			if e.pressed and _area(m).has_point(p): _scroll(m,(50.0 if tab=="fish" or selected>=0 else 36.0)*(1 if e.button_index==MOUSE_BUTTON_WHEEL_DOWN else -1))
+			return true
+		if e.button_index==MOUSE_BUTTON_LEFT:
+			if e.pressed:
+				if not pointer: _begin(m,p,-1)
+			elif pointer and pointer_id==-1: _release(m,p)
+			return true
+	if e is InputEventMouseMotion and pointer and pointer_id==-1:
+		_move(m,e.position-Vector2(m.ox,0));return true
+	return false
 func sync(m) -> void :
 	if m.market_open and not displayed: displayed = true;opened_at = m.ui_clock;selected = -1;selected_grade=-1;list_view.reset()
 	elif not m.market_open: displayed = false

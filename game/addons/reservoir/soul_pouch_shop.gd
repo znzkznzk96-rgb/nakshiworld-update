@@ -1,4 +1,9 @@
 extends RefCounted
+static var pouch_icon: AtlasTexture
+static func icon() -> Texture2D:
+ if pouch_icon==null:
+  pouch_icon=AtlasTexture.new();pouch_icon.atlas=load("res://art/items/soul_pouch_brown.png");pouch_icon.region=Rect2(270,209,852,842)
+ return pouch_icon
 static func open(v,m,count: int) -> bool:
  var d=m.expedition.data
  var number: int=d.pouches if count==0 else count
@@ -12,7 +17,7 @@ static func open(v,m,count: int) -> bool:
 
 static func draw(v,m,r: Rect2,y: float) -> void:
  var d=m.expedition.data
- m._ui_texture_rect(v.tool_icons.soul,Rect2(115,y+2,40,40),false)
+ m._ui_texture_rect(icon(),Rect2(115,y+2,40,40),false)
  m._text("어혼 주머니",Vector2(135,y+57),13,v.active_style.ink,true,220)
  m._text("주머니 1개 → 랜덤 어혼 1개",Vector2(135,y+76),10,v.active_style.ink,true,225)
  m._text("물 · 전기 · 독 · 빛 · 어둠  각 20%",Vector2(135,y+94),9,Color("675c4b"),true,225)

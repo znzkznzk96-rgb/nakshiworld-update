@@ -8,6 +8,10 @@ var unlocked_parts: Array = []
 var bag_progress := 0
 var page := 0
 var sale_page := 0
+var inventory_scroll := {"inventory":0.0,"equipment":0.0}
+var inventory_viewport := Rect2()
+var inventory_count := 0
+var inventory_tab := "inventory"
 var rects := {}
 var pending_sale := ""
 var notice := ""
@@ -132,28 +136,37 @@ func draw_inventory(m, r: Rect2, tab: String) -> void:
 			if m.region_shop.stock(m,i)>0:
 				list.append({"key":"bait%d" % i,"name":m.region_shop.BAIT_NAMES[i],"icon":null,"desc":"보유 %d개 · 상점에서 선택" % m.region_shop.stock(m,i)})
 		list.append({"key": "ticket", "name": "하락 보호권", "icon": m.V.tool_icons.soul, "desc": "보유 %d장" % m.protection_tickets})
-	var pages := maxi(1, ceili(list.size() / 6.0))
-	page = clampi(page, 0, pages - 1)
+	inventory_tab=tab;inventory_count=list.size()
+	inventory_viewport=Rect2(r.position+Vector2(11,96),Vector2(218,r.size.y-154))
+	inventory_scroll[tab]=clampf(float(inventory_scroll[tab]),0,inventory_max_scroll())
 	m._text("현재 장착 중인 장비 · 탈착하면 인벤토리로" if equipped else "보유 장비 · 파츠 · 미끼", Vector2(135, r.position.y + 86), 9, Color("6c5843"), true, 218)
-	for i in 6:
-		var index := page * 6 + i
-		if index >= list.size(): break
-		var d: Dictionary = list[index]
-		var row := Rect2(r.position + Vector2(11, 96 + i * 36), Vector2(218, 33))
+	for i in list.size():
+		var d: Dictionary = list[i]
+		var row := Rect2(inventory_viewport.position+Vector2(0,i*36-roundf(float(inventory_scroll[tab]))),Vector2(218,33))
+		if row.position.y<inventory_viewport.position.y or row.end.y>inventory_viewport.end.y: continue
 		m._ui_style_box(m.sb_chip, row)
 		if d.icon: m._ui_texture_rect(d.icon, Rect2(row.position + Vector2(4, 3), Vector2(26, 26)))
 		m._text(d.name, row.position + Vector2(36, 13), 10, Color("513b29"), false, 124)
 		m._text(d.desc, row.position + Vector2(36, 26), 8, Color("77644d"), false, 124)
 		if ":" in str(d.key): button(m, Rect2(row.end.x - 49, row.position.y + 4, 45, 25), "탈착" if equipped else "장착", ("off:" if equipped else "on:") + d.key)
 	if list.is_empty(): m._text("장착한 장비가 없어요", Vector2(135, r.position.y + 170), 12, Color("77644d"), true, 210)
-	button(m, Rect2(54, r.end.y - 42, 30, 25), "<", "page:-1")
-	button(m, Rect2(186, r.end.y - 42, 30, 25), ">", "page:1")
-	m._text("%d / %d" % [page + 1, pages], Vector2(135, r.end.y - 24), 10, Color("513b29"), true, 70)
+	var maximum: float=inventory_max_scroll()
+	if maximum>0:
+		var thumb: float=maxf(20,inventory_viewport.size.y*inventory_viewport.size.y/(list.size()*36.0))
+		m._ui_rect(Rect2(inventory_viewport.end.x+2,inventory_viewport.position.y,2,inventory_viewport.size.y),Color("d3c39e"))
+		m._ui_rect(Rect2(inventory_viewport.end.x+2,inventory_viewport.position.y+float(inventory_scroll[tab])/maximum*(inventory_viewport.size.y-thumb),2,thumb),Color("9d7c4c"))
+	m._text("보유 %d개 · 위아래로 밀어서 보기"%list.size(),Vector2(135,r.end.y-24),9,Color("6c5843"),true,218)
 	if m.ui_clock - notice_at < 3.5: m._text(notice, Vector2(135, r.end.y - 7), 8, Color("a34a40"), true, 220)
+
+func inventory_max_scroll() -> float:
+	return maxf(0,inventory_count*36.0-inventory_viewport.size.y)
+
+func scroll_inventory(delta: float) -> void:
+	inventory_scroll[inventory_tab]=clampf(float(inventory_scroll[inventory_tab])+delta,0,inventory_max_scroll())
 
 func press_inventory(m, p: Vector2) -> void:
 	for row in rects.get("rows", []):
-		if not row[0].has_point(p): continue
+		if not inventory_viewport.has_point(p) or not row[0].has_point(p): continue
 		var action: String = row[1]
 		if action.begins_with("page:"): page = maxi(0, page + int(action.get_slice(":", 1)))
 		elif action.begins_with("on:"): equip(m, action.trim_prefix("on:"), true)

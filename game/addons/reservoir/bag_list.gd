@@ -139,45 +139,4 @@ func move_scroll(delta: float, detail: bool) -> void:
 	if detail: detail_scroll=clampf(detail_scroll+delta,0,max_scroll(true))
 	else: scroll=clampf(scroll+delta,0,max_scroll())
 func input_event(m,e: InputEvent) -> bool:
-	var inv=m.inventory
-	if not m.market_open or m.market_sell or inv.tab!="fish" or m.settings_open or not m.trans.is_empty() or not m.equipment.pending_sale.is_empty() or not m.V.commerce.pending.is_empty(): pointer=false;return false
-	if inv.selected>=0 and inv.selected_grade<0: return false
-	if m.ui_clock-inv.opened_at<0.2: return false
-	var detail: bool=inv.selected>=0
-	var area: Rect2=detail_viewport if detail else viewport
-	if e is InputEventScreenTouch:
-		var p: Vector2=e.position-Vector2(m.ox,0)
-		if e.pressed and area.has_point(p):
-			pointer=true;dragged=false;touch_index=e.index;start=p;last=p;last_touch=Time.get_ticks_msec();return true
-		if not e.pressed and pointer and e.index==touch_index:
-			last_touch=Time.get_ticks_msec();pointer=false;touch_index=-1
-			if not dragged:
-				if detail: detail_press(inv,p)
-				else: press(m,p)
-			return true
-	if e is InputEventScreenDrag and pointer and e.index==touch_index:
-		var p: Vector2=e.position-Vector2(m.ox,0)
-		if p.distance_to(start)>5: dragged=true
-		if dragged: move_scroll(last.y-p.y,detail)
-		last=p;last_touch=Time.get_ticks_msec();return true
-	if (e is InputEventMouseButton or e is InputEventMouseMotion) and e.device==-1 and Time.get_ticks_msec()-last_touch<300:
-		if (e.position-Vector2(m.ox,0)).distance_to(last)<12: return true
-	if e is InputEventMouseButton:
-		var p: Vector2=e.position-Vector2(m.ox,0)
-		if e.button_index in [MOUSE_BUTTON_WHEEL_UP,MOUSE_BUTTON_WHEEL_DOWN] and area.has_point(p):
-			if e.pressed: move_scroll(PITCH if e.button_index==MOUSE_BUTTON_WHEEL_DOWN else -PITCH,detail)
-			return true
-		if e.button_index==MOUSE_BUTTON_LEFT:
-			if e.pressed and area.has_point(p): pointer=true;dragged=false;touch_index=-1;start=p;last=p;return true
-			if not e.pressed and pointer:
-				pointer=false
-				if not dragged:
-					if detail: detail_press(inv,p)
-					else: press(m,p)
-				return true
-	if e is InputEventMouseMotion and pointer:
-		var p: Vector2=e.position-Vector2(m.ox,0)
-		if p.distance_to(start)>5: dragged=true
-		if dragged: move_scroll(last.y-p.y,detail)
-		last=p;return true
-	return false
+	return m.inventory.input_event(m,e)
