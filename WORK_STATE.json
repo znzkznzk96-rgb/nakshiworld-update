@@ -1,18 +1,24 @@
 {
   "schema_version": 3,
   "work_branch": "work/valley-runtime",
-  "status": "v086_pre_release_verified",
-  "release_baseline": "v0.85",
-  "source_commit": "68d3f23a5eb18a09b0f5f6a6b057423f0b89bf08",
-  "current_task": "지원유틸·개별HP/피해 구현 및 확대검증완료,공개배포진행",
+  "status": "v086_published_verified_phone_pending",
+  "release_baseline": "v0.86",
+  "source_commit": "c2d3a4667720c6040c1085c13a96ca1fca90110a",
+  "current_task": "v0.86 지원유틸·HP/피해표시 공개 및 운영다운로드검증 완료",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
-  "verification": "analysis/support-release-086/VERIFICATION.json",
+  "verification": "analysis/support-release-086/PUBLIC_VERIFICATION.json",
   "phone_verified": false,
   "release_authorized": true,
-  "next_step": "작업CI 확인→승인된main병합→공개3파일/운영다운로드검증",
+  "next_step": "휴대폰 업데이트/지원체감 확인 및 다음 사용자요청",
   "updated_at": "2026-10-27",
   "support_audit": "analysis/support-balance-085/REPORT.md",
   "support_utility_report": "analysis/support-utility-085/REPORT.md",
-  "target_release": "v0.86"
+  "target_release": "v0.86",
+  "last_release_deployed": true,
+  "this_change": {
+    "implemented": true,
+    "deployed": true,
+    "release_authorized": true
+  }
 }
