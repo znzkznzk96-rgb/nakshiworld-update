@@ -9,7 +9,10 @@ def get(url):
         return response.read()
 release = json.loads(get(f'https://api.github.com/repos/{REPO}/releases/tags/v{expected["name"]}'))
 assets = {item['name']:item for item in release['assets']}
-report = {'version':expected, 'source_commit':os.environ['GITHUB_SHA'], 'assets':{}, 'phone_verified':False}
+# Verify against the immutable release tag, not a later documentation/infra commit.
+tag_commit = get(f'https://api.github.com/repos/{REPO}/commits/v{expected["name"]}')
+source_commit = json.loads(tag_commit)['sha']
+report = {'version':expected, 'source_commit':source_commit, 'assets':{}, 'phone_verified':False}
 files = {}
 for name in ['version.json','patch.pck','game-source.zip']:
     item = assets[name]
@@ -21,7 +24,7 @@ for name in ['version.json','patch.pck','game-source.zip']:
     files[name] = data
 manifest = json.loads(files['version.json'])
 assert manifest['name'] == expected['name'] and manifest['code'] == expected['code']
-assert manifest['source_commit'] == os.environ['GITHUB_SHA']
+assert manifest['source_commit'] == source_commit
 assert manifest['size'] == len(files['patch.pck'])
 assert manifest['sha256'] == report['assets']['patch.pck']['sha256']
 assert files['patch.pck'][:4] == b'GDPC'

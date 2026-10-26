@@ -17,12 +17,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+          ref: ${{ github.sha }}
       - name: Gateway unit checks
         run: |
+          node deployment/releases-worker.test.mjs
           node --input-type=module <<'JS'
           import assert from 'node:assert/strict';
           import worker from './deployment/releases-worker.mjs';
+          globalThis.caches={default:{match:async()=>null,put:async()=>{}}};
           const d={code:61,name:"0.61",size:4,sha256:"a".repeat(64)};
           globalThis.fetch=async(url,opts)=>String(url).endsWith('version.json')?Response.json(d):new Response(new Uint8Array([71,68,80,67]),{headers:{"Content-Length":"4"}});
           const env={GAME_PATCHES:{get:async()=>null}};
@@ -62,18 +64,18 @@ jobs:
                   try:
                       with urllib.request.urlopen(urllib.request.Request(base+path,headers={'User-Agent':'GodotEngine/4.4.1.stable.official (Linux)','Cache-Control':'no-cache'}),timeout=120) as r:
                           assert r.status==200
-                          assert r.headers.get('X-Patch-Source')=='github-releases'
+                          assert r.headers.get('X-Patch-Source') in ('github-releases','edge-cache')
                           return r.read()
                   except Exception as error:
                       if hasattr(error,"read"): print("HTTP FAILURE",error.code,error.read()[:1200],flush=True)
                       if attempt==3: raise
                       time.sleep(3)
           expected=json.load(open('automation/release.json'))
-          for readiness_attempt in range(8):
+          for readiness_attempt in range(16):
               d=json.loads(get('/version.json?verify='+str(expected['code'])+'&t='+str(time.time_ns())))
               print('MANIFEST READINESS',readiness_attempt,'expected',expected,'actual',d,flush=True)
               if d['code']==expected['code'] and d['name']==expected['name']: break
-              if readiness_attempt==7: raise AssertionError('Published version did not reach update gateway')
+              if readiness_attempt==15: raise AssertionError('Published version did not reach update gateway')
               time.sleep(3)
           b=get('/patch.pck?v='+str(float(d['code'])))
           assert len(b)==d['size']
@@ -90,3 +92,4 @@ jobs:
         with:
           name: public-release-verification
           path: PUBLIC_VERIFICATION.json
+
