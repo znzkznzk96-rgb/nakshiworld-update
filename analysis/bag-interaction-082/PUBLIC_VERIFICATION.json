@@ -29,5 +29,5 @@
   "build_run": 40336201634,
   "gateway_run": 40336614440,
   "verification_environment": "GitHub Actions; actual public asset and installed-APK gateway downloads passed",
-  "local_additional_download": "Stopped redundant local download attempt after CI public download verification completed."
+  "local_additional_download": "Passed independently: all three public assets, 245 source blob hashes, ZIP CRC, installed-APK gateway manifest and patch hash."
 }
