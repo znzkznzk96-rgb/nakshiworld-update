@@ -1,16 +1,3 @@
-# 현재 작업 — 탐험 표기 수정·밸런스 분석 완료
+# 현재 작업 — 1-3 성장 장벽 재조정
 
-공개 버전은 v0.80이며 새 배포는 하지 않았다. 단계 표기를 `1-2 · 3/3전투`로 수정했고 출발/상세/결과도1-N으로 통일했다. 실제 전투 model.gd/catalog.json의 밸런스 수치는 변경하지 않았다.
-
-분석: 1,261,250회 전수/경계 전투 +600조건의 빠른 실행/실제 업데이트 비교(모두일치). 현재 초반 보호막 무피해와 보스/일반방 난도 역전 확인. curve 후보는 성장단계가 더 고르게 드러나지만 미적용 상태다.
-
-- [상세 결과·후보·한계](docs/analysis/expedition-balance-080/REPORT.md)
-- [집계표](docs/analysis/expedition-balance-080/summary.csv)
-- [재현·원본해시](docs/analysis/expedition-balance-080/manifest.json)
-- 재현: `automation/expedition_balance_analysis.py`
-- 로컬 전체37개 회귀 검사와480/660 렌더링 통과. [작업 브랜치 전체 CI](https://github.com/znzkznzk96-rgb/nakshiworld-update/actions/runs/40305555045).
-- 기준 파일 누락으로 실패했던 첫CI(40304874154)는 전체트리 복구 후 재실행했다. 복구 커밋 de492a1410e94a8d416632589954c36f676ccf4a에서 기존1312개 파일 누락0개, 기존파일 변경은 표기/검사목록/진행문서5개뿐임을 대조했다.
-
-다음: 결과 기반으로 밸런스 수치 확정 시 실제 모델에 적용하고 새 배포 범위를 결정한다. 계곡은 기존 입장 준비중 유지.
-
-[이전0.80 공개 검증](docs/historical/before-expedition-balance-081/HANDOFF.md)
+사용자 요청: 쉽게 하지 않고 무강화1성은1-3에서 막히도록 다시 밸런스 조절·시뮬레이션. 기존curve 후보의1-3 성공113/125는 목표보다 쉬움. 현재 출시0.80 유지, 새 배포 없음. 기존 분석은 docs/analysis/expedition-balance-080/REPORT.md. 더 강한 후보/강화/별/개체값 경계 검증 후 결과 저장.
