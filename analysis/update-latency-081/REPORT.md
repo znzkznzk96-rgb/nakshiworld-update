@@ -14,3 +14,8 @@ main._ready 단계별계측: expedition.setup9,655ms, 물고기26ms, 마을41ms.
 prepare의동일보정결과를빌드때PNG130장으로미리생성하고런타임은그대로로드. 원본PNG불변,준비PNG와기존처리결과RGBA바이트동일검사통과. 소스ZIP에생성PNG포함,저장소엔생성기와검증기보존. 준비이미지누락개발환경은기존보정fallback. 재검증PC ready1031ms(다른검사동시실행),script645ms. Android기기시간측정은아님. 사용자세이브/기존APK교체불필요한게임패치수정.
 
 서버캐시운영배포71f244acde4344448c556de21aad9770: 426ms origin→6ms edge캐시. 30초신선도/뒤갱신확인. 이전CI mock누락수정, 조기공개검사는0.81게시전이라실패. 첫배포40327640590은전체39검사/pack검사성공후releasePOST403; 빌드도중main의workflow가변경돼구커밋target에추가workflow권한요구. 최신main에서재빌드후게시동안main유지. 권한확대/개인토큰사용안함.
+
+## 최종 공개검증
+최종공개코드 e40c30c940227e68071804fec84dd4a93bc18618, 빌드40329908392성공. 작업CI40329680348및운영검증40330330247성공. 로컬40개클린격리검사통과(재사용테스트세이브shop/regional실패는새격리경로에서해소). 공개PCK46,604,832bytes/전체소스45,661,689bytes/manifest198bytes 실제다운로드SHA256일치. sourceoverlay242개바이트일치,ZIP CRC검사통과. 설치APK주소GET version.json도81확인. 세부해시PUBLIC_VERIFICATION.json.
+
+게시권한403은최신main커밋고정후해소됐다. 권한추가나비공개토큰사용없음. 출처: https://docs.github.com/en/rest/releases/releases (target_commitish와workflow권한조건). 주머니시안미선택,아트임시기존아이콘유지. 새APK제작없이업데이트가능하며Android실측은사용자확인대기.
