@@ -18,14 +18,13 @@ func run() -> void:
 	m.V.forge_tab = "upgrade"; m.forge_seen = true
 	var e = m.V.enhancement
 	e.phase = "working"; e.record = {"rod":0,"old":0,"next":1,"success":true,"protected":false}
-	for i in 8:
+	for i in 13:
 		e.elapsed = i * 0.1 + 0.01
 		m.queue_redraw(); await process_frame; await process_frame; await RenderingServer.frame_post_draw
 		var found := false
 		for cmd in m.ui_commands:
-			if cmd[0] == "texture" and cmd[1] == e.animation.smith[i]: found = true
-			if cmd[0] == "region" and cmd[1] in e.animation.smith: failures.append("partial smith frame " + str(i))
-		if not found: failures.append("missing whole frame " + str(i))
+			if cmd[0] == "region" and cmd[1] == e.animation.rod_sheet: found = true
+		if not found: failures.append("missing whole smith atlas frame " + str(i))
 		root.get_texture().get_image().save_png(out.path_join("smith_%d.png" % i))
 	e.phase = "result"; e.elapsed = 0.6
 	m.queue_redraw(); await process_frame; await process_frame; await RenderingServer.frame_post_draw

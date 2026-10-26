@@ -18,6 +18,10 @@ var choosing_slot: int = -1
 var approved: Dictionary = {}
 var result_notice: float = 0.0
 var training_uid: int = -1
+var effect_kind: String = ""
+var effect_time: float = 0.0
+var effect_uid: int = -1
+var effect_pair: Array = [0,0]
 var role_filter: String = "all"
 var formation_scroll := 0.0
 var formation_viewport := Rect2()
@@ -39,6 +43,10 @@ const ROOMS = ["젖은 현관","비어 있는 탈의실","반짝이는 세면대
 const WALLS = ["24596e","347c74","225f79","956526","3d366f","395472","263d70","1d6a67","704530","2e2352"]
 
 func setup() -> void:
+	for i in 10:
+		var path: String="res://art/expedition/rooms/room%02d.png"%(i+1)
+		if ResourceLoader.exists(path): textures["room%d"%i]=load(path)
+	for kind in ["alchemy","soldier"]: textures["fx_"+kind]=load("res://art/effects/upgrade/%s.png"%kind)
 	for role in ROLES: textures["role_"+role]=load("res://art/ui/roles/%s.png"%role)
 	for u in data.catalog.soldiers: textures[u.id]=load("res://art/expedition/%s.png"%u.id)
 	for i in range(1,19):
@@ -54,10 +62,13 @@ func setup() -> void:
 func open(m,screen: String) -> void:
 	if screen=="explore" and m.scene!="village" and not data.battle.is_empty() and not data.active():
 		m.show_toast("탐험 결과는 마을에서 확인해 주세요",Color("ffdc96"));return
-	opened=screen;page=0;formation_scroll=0;formation_pointer=false;role_filter="all";selected=[];notice="";choosing_slot=-1;m.menu_open=false;m.holding=false
+	opened=screen;effect_kind="";page=0;formation_scroll=0;formation_pointer=false;role_filter="all";selected=[];notice="";choosing_slot=-1;m.menu_open=false;m.holding=false
 	selected_round=mini(data.unlocked,maxi(1,selected_round))
 
 func update(m,dt: float) -> void:
+	if effect_kind!="":
+		effect_time+=dt
+		if effect_time>=2.0: effect_kind=""
 	var was_active: bool=data.active()
 	if data.update(dt,Time.get_unix_time_from_system()): m._save_game()
 	if was_active and not data.active(): result_notice=6.0
@@ -94,14 +105,19 @@ func primary(m,key: String,r: Rect2,label: String,enabled: bool=true) -> void:
 	rects[key]=r
 
 func room(m,r: Rect2,index: int) -> void:
-	var region: Rect2=ROOM_REGIONS[index%10]
 	var progress: float=1.0 if not data.battle.is_empty() else 0.0
 	if data.active() and data.battle.get("phase","")=="approach":
 		var t: float=clampf(float(data.battle.phase_time)/4,0,1)
 		progress=1-pow(1-t,2)
-	# A wider view of the approved room pans left, avoiding mirrored/repeated seams.
-	var window: Rect2=Rect2(region.position+Vector2(region.size.x*.22*progress,0),Vector2(region.size.x*.78,region.size.y))
-	m._ui_texture_rect_region(approved.screens,r,window)
+	var texture: Texture2D=textures.get("room%d"%(index%10),textures["room0"])
+	m._ui_texture_rect_region(texture,r,room_window(texture.get_size(),r.size,progress))
+
+func room_window(source: Vector2,viewport: Vector2,progress: float) -> Rect2:
+	# Uniform scaling only. Wide screens crop height; tall screens pan across width.
+	var crop_h: float=minf(source.y,source.x/1.35*viewport.y/viewport.x)
+	var crop_w: float=crop_h*viewport.x/viewport.y
+	return Rect2(Vector2(roundf((source.x-crop_w)*clampf(progress,0,1)),source.y-crop_h),Vector2(crop_w,crop_h))
+
 
 
 func skull(m,c: Vector2,king: bool=false) -> void:
@@ -242,6 +258,7 @@ func draw(m,h: float) -> void:
 		button(m,"go_explore",Rect2(112,y+8,44,20),"탐험")
 		button(m,"roster",Rect2(158,y+8,70,20),"병사 강화")
 	button(m,"close",Rect2(233,y+8,22,20),"×")
+	if effect_kind!="": draw_upgrade_effect(m,y+37,bottom);return
 	if not data.pending.is_empty(): draw_pending(m,y+37,bottom);return
 	if opened=="merge_confirm": draw_confirmation(m,y+37,bottom)
 	elif opened=="explore": draw_explore(m,y+37,bottom)
@@ -466,7 +483,10 @@ func press(m,pos: Vector2) -> void:
 		for k in rects:
 			if rects[k].has_point(pos): key=k;break
 	notice=""
-	if key=="close": opened="";choosing_slot=-1;return
+	if key=="close": effect_kind="";opened="";choosing_slot=-1;return
+	if effect_kind!="":
+		if key in ["roster","go_alchemy","go_explore"]: effect_kind=""
+		else: return
 	if key=="roster": opened="alchemy";tab=2;page=0;return
 	if key=="go_alchemy": open(m,"alchemy");return
 	if key=="go_explore": open(m,"explore");return
@@ -523,13 +543,28 @@ func press(m,pos: Vector2) -> void:
 	elif key.begins_with("element:"): pair[pair_slot]=int(key.split(":")[1]);pair_slot=1-pair_slot
 	elif key.begins_with("pair:"): pair_slot=int(key.split(":")[1])
 	elif key=="craft":
+		var before: Dictionary=data.serialize().duplicate(true)
 		if not data.craft(int(pair[0]),int(pair[1])): notice="어혼이 부족하거나 보관함이 가득해요"
+		elif not m._save_game():
+			data.restore(before);notice="저장하지 못했어요. 다시 시도해 주세요."
+		else:
+			effect_kind="alchemy";effect_time=0;effect_uid=int(data.pending.uid);effect_pair=pair.duplicate()
+		if notice!="": m.show_toast(notice,Color("ffdc96"))
+		return
 	elif key.begins_with("select:") and tab==2:
 		training_uid=int(key.split(":")[1]);opened="training"
 	elif key=="train":
+		var before: Dictionary=data.serialize().duplicate(true);var old_gold: int=m.gold
 		var cost: Dictionary=data.train(training_uid,m.gold)
 		if cost.is_empty(): notice="어혼·비늘을 확인해 주세요. 탐험 중에는 강화할 수 없어요"
-		else: m.gold-=int(cost.gold);notice="강화 완료! +%d"%int(data.unit(training_uid).level)
+		else:
+			m.gold-=int(cost.gold)
+			if not m._save_game():
+				data.restore(before);m.gold=old_gold;notice="저장하지 못했어요. 다시 시도해 주세요."
+			else:
+				effect_kind="soldier";effect_time=0;effect_uid=training_uid
+		if notice!="": m.show_toast(notice,Color("ffdc96"))
+		return
 	elif key=="training_back": opened="alchemy";tab=2
 	elif key.begins_with("select:") and tab==1:
 		var uid: int=int(key.split(":")[1])
@@ -762,3 +797,26 @@ func floating_value(m,at: Vector2,value: String,color: Color,age: float) -> void
 	color.a=1-smoothstep(.48,.75,age)
 	for offset in [Vector2(-1,0),Vector2(1,0),Vector2(0,-1),Vector2(0,1)]: m._text(value,pos+offset,9,Color(0.12,.09,.08,color.a),true,64)
 	m._text(value,pos,9,color,true,64)
+
+func draw_upgrade_effect(m,y: float,bottom: float) -> void:
+	var u: Dictionary=data.unit(effect_uid)
+	if u.is_empty(): effect_kind="";return
+	var box:=Rect2(71,y+maxf(4,(bottom-y-190)/2),128,128)
+	m._ui_style_box(m.sb_chip,box.grow(5))
+	m._ui_rect(box,Color("092f38"))
+	var alpha: float=clampf((effect_time-1.0)/0.4,0,1) if effect_kind=="alchemy" else 1.0
+	sprite(m,int(u.id),Rect2(box.position+Vector2(22,37),Vector2(84,70)),int(m.ui_clock*7),alpha)
+	var fi: int=mini(9,int(effect_time/0.11)) if effect_kind=="alchemy" else mini(12,int(effect_time/0.09))
+	var fade: float=1-alpha if effect_kind=="alchemy" else 1-clampf((effect_time-1.17)/0.35,0,1)
+	if effect_kind=="alchemy" and effect_time<0.77:
+		# Selected elements remain exact; use the generated convergence pulse afterwards.
+		var t: float=clampf(effect_time/0.77,0,1)
+		for i in 2:
+			var angle: float=PI*i+t*PI*1.5
+			var center: Vector2=box.get_center()+Vector2(cos(angle),sin(angle))*(36*(1-t))
+			m._ui_texture_rect(textures[EFILES[int(effect_pair[i])]],Rect2((center-Vector2(16,16)).round(),Vector2(32,32)))
+	else: m._ui_texture_rect_region(textures["fx_"+effect_kind],box,Rect2(fi*128,0,128,128),Color(1,1,1,fade))
+	var label: String="어혼이 하나로 모이고 있어요" if effect_kind=="alchemy" else "병사의 힘이 깨어납니다"
+	if effect_time>1.4: label="연성 완료!" if effect_kind=="alchemy" else "강화 완료! +%d"%int(u.level)
+	m._text(label,Vector2(135,box.end.y+22),12,Color("855c26"),true,232)
+	if effect_time>1.4: m._text(data.catalog.soldiers[int(u.id)].name,Vector2(135,box.end.y+42),10,Color("382619"),true,230)
