@@ -9,6 +9,7 @@ var use_protection: = false
 var record: = {}
 var animation: = {}
 func setup() -> void :
+	animation["rod_sheet"] = load("res://art/effects/upgrade/rod.png")
 	for name in ["smith", "success", "failure"]:
 		var frames: Array = []
 		for i in 8:
@@ -44,7 +45,7 @@ func process(m, dt: float) -> void :
 	if phase == "": return
 	elapsed += dt
 	if phase == "working":
-		var strike: int = clampi(int(floor((elapsed - 0.24) / 0.8)) + 1, 0, 3)
+		var strike: int = clampi(int(floor((elapsed - 0.5) / 1.3)) + 1, 0, 2)
 		if strike > strikes:
 			strikes = strike;m.play("hammer", -4.0, 0.96 + strikes * 0.03);m.buzz([20])
 		if elapsed >= 2.6:
@@ -103,24 +104,9 @@ func draw(v, m, r: Rect2, y: float) -> void :
 func _cinematic(v, m, r: Rect2, y: float) -> void :
 	var scene: = Rect2(39, y + 5, 192, 112)
 	m._ui_rect(scene, Color("211d24"))
-	var smith: Array = animation.get("smith", [])
-	var fi: int = mini(7, int(fposmod(elapsed, 0.8) / 0.8 * 8)) if phase == "working" else 0
-	if not smith.is_empty():
-		# Each frame contains the whole smith, including the raised hand left of x=84.
-		# A partial overlay leaves the original hand/hammer frozen underneath.
-		m._ui_texture(smith[mini(fi, smith.size() - 1)], scene.position)
-		var age := fposmod(maxf(0.0, elapsed - 0.24), 0.8)
-		if phase == "working" and elapsed >= 0.24 and age < 0.2:
-			var strength := 1.0 - age / 0.2
-			m._ui_rect(scene, Color(1.0, 0.7, 0.3, strength * 0.15))
-			var impact := scene.position + Vector2(113, 77)
-			m._ui_circle(impact, 3 + age * 25, Color(1.0, 0.86, 0.4, strength * 0.7))
-			for spark in 9:
-				var angle: float = -PI + spark * PI / 8.0
-				var travel: float = age * (80 + spark % 3 * 35)
-				var p := impact + Vector2(cos(angle) * travel, sin(angle) * travel + age * age * 70)
-				m._ui_rect(Rect2(p.round(), Vector2(2, 2)), Color(1.0, 0.72 + spark % 2 * 0.2, 0.2, strength))
-	elif v.art.has("smith"): m._ui_texture(v.art.smith, scene.position)
+	# The approved 13-frame PixelLab cycle replaces the old eight-frame smith.
+	var fi: int = mini(12,int(fposmod(elapsed,1.3)/0.1)) if phase=="working" else 0
+	m._ui_texture_rect_region(animation.rod_sheet,scene,Rect2(fi*192,0,192,112))
 	m.ui_commands.append(["rotated_texture", v.rods[int(record.rod)], scene.position + Vector2(112, 74), PI / 4])
 	if phase == "working":
 		m._text("강화 중…", Vector2(135, y + 140), 14, v.active_style.ink, true, 230)
