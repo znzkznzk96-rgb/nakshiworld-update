@@ -2,6 +2,7 @@ extends RefCounted
 var data = preload("res://addons/expedition/model.gd").new()
 var opened: String = ""
 var tab: int = 0
+var explore_tab: int = 0
 var selected_round: int = 1
 var page: int = 0
 var selected: Array = []
@@ -28,8 +29,8 @@ func setup() -> void:
 	for u in data.catalog.soldiers: textures[u.id]=load("res://art/expedition/%s.png"%u.id)
 	for i in range(1,19):
 		textures[str(i)]=[]
-		for j in 7: textures[str(i)].append(load("res://art/expedition/normal%02d_%d.png"%[i,j]))
-	for id in ["3R","5R","7R","10R"]: textures[id]=load("res://art/expedition/boss%s.png"%id)
+		for j in 7: textures[str(i)].append(preload("res://addons/expedition/opaque_body.gd").prepare(load("res://art/expedition/normal%02d_%d.png"%[i,j]),128))
+	for id in ["3R","5R","7R","10R"]: textures[id]=preload("res://addons/expedition/opaque_body.gd").prepare(load("res://art/expedition/boss%s.png"%id),320 if id=="10R" else 224)
 	for e in EFILES: textures[e]=load("res://art/expedition/%s.png"%e)
 	for key in ["menu","screens","route"]: approved[key]=load("res://art/expedition/approved/%s-reference.jpg"%key)
 	for i in 6: approved["menu%d"%i]=atlas(approved.menu,Rect2([90,313,538,769,1005,1230][i],692,210,174))
@@ -79,8 +80,15 @@ func primary(m,key: String,r: Rect2,label: String,enabled: bool=true) -> void:
 	rects[key]=r
 
 func room(m,r: Rect2,index: int) -> void:
-	# Use the approved room art unchanged, never a procedural substitute.
-	m._ui_texture_rect_region(approved.screens,r,ROOM_REGIONS[index%10])
+	var region: Rect2=ROOM_REGIONS[index%10]
+	var progress: float=1.0 if not data.battle.is_empty() else 0.0
+	if data.active() and data.battle.get("phase","")=="approach":
+		var t: float=clampf(float(data.battle.phase_time)/4,0,1)
+		progress=1-pow(1-t,2)
+	# A wider view of the approved room pans left, avoiding mirrored/repeated seams.
+	var window: Rect2=Rect2(region.position+Vector2(region.size.x*.22*progress,0),Vector2(region.size.x*.78,region.size.y))
+	m._ui_texture_rect_region(approved.screens,r,window)
+
 
 func skull(m,c: Vector2,king: bool=false) -> void:
 	m._ui_rect(Rect2(c-Vector2(5,4),Vector2(10,7)),Color("efdfb6"))
@@ -91,7 +99,7 @@ func skull(m,c: Vector2,king: bool=false) -> void:
 		for x in [-6,-1,4]: m._ui_rect(Rect2(c+Vector2(x,-10),Vector2(2,4)),Color("ffd66f"))
 
 func draw_strip(m) -> void:
-	var r: Rect2=Rect2(8,m.top_y+69,254,102)
+	var r: Rect2=Rect2(8,m.top_y+69,254,72)
 	m._ui_style_box(m.hud_reference_style,r)
 	var b: Dictionary=data.battle
 	var index: int=(int(b.round)-1) if not b.is_empty() else selected_round-1
@@ -129,14 +137,17 @@ func fighter_effect(f: Dictionary,fx: Dictionary) -> Dictionary:
 	var alpha: float=1.0
 	if dying:
 		alpha=1.0-smoothstep(.08,.85,age) if uid==int(fx.get("death_uid",-1)) else 0.0
-	var hit: bool=uid==int(fx.get("hit_uid",-1)) and age<.3 and not dying
-	return {"alpha":alpha,"x":-sin(age/.3*PI)*4 if hit else 0.0,"y":minf(1,age/.85)*7 if dying else 0.0,"hit":hit}
+	var hit: bool=uid==int(fx.get("hit_uid",-1)) and age>=.38 and age<.68 and not dying
+	return {"alpha":alpha,"x":-sin((age-.38)/.3*PI)*4 if hit else 0.0,"y":minf(1,age/.85)*7 if dying else 0.0,"hit":hit}
 
 func battle_art(m,r: Rect2) -> void:
 	var b: Dictionary=data.battle
 	var phase: String=str(b.get("phase","approach"));var t: float=float(b.get("clock",0))
 	var fx: Dictionary=b.get("fx",{});var age: float=float(fx.get("age",99))
 	var ground: float=r.end.y-2
+	var front_uid: int=-1
+	for fighter in b.fighters:
+		if int(fighter.hp)>0: front_uid=int(fighter.uid);break
 	for i in b.fighters.size():
 		var f: Dictionary=b.fighters[i];var effect: Dictionary=fighter_effect(f,fx)
 		if float(effect.alpha)<=0: continue
@@ -146,13 +157,22 @@ func battle_art(m,r: Rect2) -> void:
 		for event in fx.get("support",[]):
 			if int(event.source)==int(f.get("uid",-1)) and age<.6: frame=mini(int(u.frame_count)-1,int(age/.6*int(u.frame_count)))
 		var x: float=r.position.x+8+(2-i)*34+float(effect.x)
-		if phase=="fight": x+=sin(clampf(t/1.1,0,1)*PI)*7
+		if phase=="fight": x+=sin(clampf(t/1.1,0,1)*PI)*(27 if int(f.uid)==front_uid else 3)
 		if phase=="approach": x-=8*(1-minf(1,float(b.phase_time)/4.0))
-		var fh: float=minf(50,r.size.y*.74)
+		var fh: float=minf(43,r.size.y*.70)
+		if phase=="approach": effect.y+=sin(float(b.phase_time)*12+i)*1.5
 		sprite(m,int(f.id),Rect2(x,ground-fh+float(effect.y),48*fh/40,fh),frame,float(effect.alpha))
+		if int(f.uid)==front_uid:
+			var hp: float=float(f.hp)
+			if age<.38 and int(fx.get("hit_uid",-1))==int(f.uid): hp=float(fx.get("front_hp_before",hp))
+			health_bar(m,Rect2(x+4,ground-fh-4,33,4),hp,float(f.max_hp),float(fx.get("front_hp_before",hp)) if age<.8 and int(fx.get("hit_uid",-1))==int(f.uid) else hp,Color("74cc6a"))
+		if int(fx.get("hit_uid",-1))==int(f.uid) and age>=.38 and age<1.08:
+			floating_value(m,Vector2(x+20,ground-fh+10),"-%d"%int(fx.get("incoming",0)),Color("ffc393"),age-.38)
+			if int(fx.get("blocked",0))>0: floating_value(m,Vector2(x+20,ground-fh+21),"◇%d"%int(fx.blocked),Color("96dcfa"),age-.38)
 		if int(f.shield)>0 and int(f.hp)>0: m._ui_arc(Vector2(x+25,ground-16),17,-1.5,1.5,9,Color("f5df83"),1)
 		for event in fx.get("support",[]):
 			if int(event.target)!=int(f.get("uid",-1)) or age>=.75 or int(f.hp)<=0: continue
+			floating_value(m,Vector2(x+20,ground-19),"+%d"%int(event.amount),Color("79f1b4") if event.kind!="ward" else Color("96dcfa"),age)
 			var color: Color=Color("53e6bc") if event.kind!="ward" else Color("f7d65b")
 			color.a=1.0-smoothstep(.35,.75,age)
 			var c: Vector2=Vector2(x+22,ground-23-age*7).round()
@@ -162,13 +182,25 @@ func battle_art(m,r: Rect2) -> void:
 				m._ui_rect(Rect2(c-Vector2(4,1),Vector2(8,2)),color)
 		if u.id=="eel" and phase=="fight" and int(f.hp)>0 and t>0.55 and t<1.5:
 			var p: float=(t-.55)/.95
-			m._ui_texture_rect(textures.bolt,Rect2(lerpf(x+30,r.end.x-28,p),ground-22,13,5))
+			m._ui_texture_rect(textures.bolt,Rect2(lerpf(x+30,r.position.x+165,p),ground-22,13,5))
 	var key: String=str(b.enemy.id) if b.enemy.id is String else str(int(b.enemy.id))
 	var is_boss: bool=key.ends_with("R");var n: int=320 if key=="10R" else (224 if is_boss else 128)
 	var pose: Vector2i=enemy_pose(b);var alpha: float=1.0
 	if phase=="death": alpha=1.0-smoothstep(1.3,2.2,float(b.phase_time))
 	var display: float=minf(r.size.y*.94,63) if key=="10R" else minf(r.size.y*.77,49) if is_boss else minf(r.size.y*.95,76)
-	m._ui_texture_rect_region(textures[key] if is_boss else textures[key][pose.x],Rect2(r.end.x-display-10,ground-display,display,display),Rect2(pose.x*n if is_boss else 0,pose.y*n,n,n),Color(1,1,1,alpha))
+	var enemy_x: float=r.position.x+minf(r.size.x-display-10,145)
+	if phase=="approach": enemy_x+= (r.end.x+2-enemy_x)*(1-smoothstep(0,3.8,float(b.phase_time)))
+	elif phase=="fight" and age<.38: enemy_x-=sin(age/.38*PI)*9
+	var source: Rect2=Rect2(pose.x*n if is_boss else 0,pose.y*n,n,n)
+	var target: Rect2=Rect2(enemy_x,ground-display,display,display)
+	var visible: Rect2=target.intersection(r)
+	if visible.has_area():
+		var clipped: Rect2=Rect2(source.position+(visible.position-target.position)/display*n,visible.size/display*n)
+		m._ui_texture_rect_region(textures[key] if is_boss else textures[key][pose.x],visible,clipped,Color(1,1,1,alpha))
+	if phase!="approach" and int(b.enemy.hp)>0:
+		health_bar(m,Rect2(enemy_x+display/2-18,r.position.y+3,36,4),float(b.enemy.hp),float(b.enemy.max_hp),float(fx.get("enemy_hp_before",b.enemy.hp)) if age<.8 else float(b.enemy.hp),Color("df665a"))
+	if age<.7 and fx.has("outgoing"): floating_value(m,Vector2(enemy_x+display/2,r.position.y+20),"-%d"%int(fx.outgoing),Color("fff0c1"),age)
+
 
 func TICK_LENGTH() -> float: return 1.5
 
@@ -181,18 +213,26 @@ func draw(m,h: float) -> void:
 	m._ui_style_box(m.hud_reference_style,Rect2(11,y+5,248,26))
 	m._ui_texture_rect(textures.explore if opened=="explore" else textures.alchemy,Rect2(18,y+7,25,22))
 	m._text("탐험" if opened=="explore" else "연성",Vector2(50,y+23),13,Color("fff0d1"),false,128)
-	if opened=="explore": m._text("저수지",Vector2(209,y+22),9,Color("fff0d1"),true,36)
-	else: button(m,"roster",Rect2(191,y+8,37,20),"병사")
+	if opened=="explore": button(m,"go_alchemy",Rect2(184,y+8,44,20),"연성")
+	else:
+		button(m,"go_explore",Rect2(112,y+8,44,20),"탐험")
+		button(m,"roster",Rect2(158,y+8,70,20),"병사 강화")
 	button(m,"close",Rect2(233,y+8,22,20),"×")
 	if not data.pending.is_empty(): draw_pending(m,y+37,bottom);return
 	if opened=="merge_confirm": draw_confirmation(m,y+37,bottom)
 	elif opened=="explore": draw_explore(m,y+37,bottom)
 	elif opened=="training": draw_training(m,y+37,bottom)
 	else: draw_alchemy(m,y+37,bottom)
-	if choosing_slot>=0 and opened=="explore": draw_roster(m,y+37,bottom)
+
 
 
 func draw_explore(m,y: float,bottom: float) -> void:
+	for i in 2:
+		button(m,"explore_tab:%d"%i,Rect2(17+i*119,y,117,24),["탐사 노선","병사 배치"][i])
+		if explore_tab==i: m._ui_rect(Rect2(23+i*119,y+20,105,2),Color("159d9d"))
+	y+=31
+	if explore_tab==1:
+		draw_formation(m,y,bottom);return
 	if not data.battle.is_empty():
 		var b: Dictionary=data.battle
 		if not data.active():
@@ -221,7 +261,7 @@ func draw_explore(m,y: float,bottom: float) -> void:
 	# Ten distinct approved room cards; the route follows the reference's zigzag.
 	m._text("저수지 탐사 노선도",Vector2(21,y+9),10,Color("382619"),false,164)
 	m._text("%d / 10 돌파"%data.completed.size(),Vector2(218,y+9),8,Color("6c553b"),true,62)
-	var tile_h: float=clampf((bottom-y-139)/5,34,72)
+	var tile_h: float=clampf((bottom-y-73)/5,34,72)
 	var map_y: float=y+18
 	var boxes: Array=[]
 	for idx in range(10):
@@ -237,21 +277,9 @@ func draw_explore(m,y: float,bottom: float) -> void:
 			m._ui_rect(r.grow(1),Color("12c6ca"),false,1)
 			for corner in [r.position,r.position+Vector2(r.size.x-4,0),r.end-Vector2(4,4),r.position+Vector2(0,r.size.y-4)]: m._ui_rect(Rect2(corner,Vector2(4,4)),Color("a7fff0"),false,1)
 		rects["round:%d"%(idx+1)]=r
-	y=map_y+5*tile_h
-	m._ui_style_box(m.hud_reference_style,Rect2(17,y-1,78,15))
-	m._text("탐험대 편성",Vector2(56,y+10),9,Color("fff0d1"),true,72)
-	for i in 3:
-		var r: Rect2=Rect2(18+i*80,y+19,74,40)
-		m._ui_style_box(m.sb_btn,r)
-		if i<data.team.size():
-			var u: Dictionary=data.unit(int(data.team[i]));sprite(m,int(u.id),Rect2(r.position+Vector2(17,0),Vector2(40,34)))
-			m._text("★".repeat(int(u.star)),r.position+Vector2(8,11),7,Color("795020"),false,24)
-		else: m._text("+ 병사 선택",r.get_center()+Vector2(0,4),9,Color("796044"),true,68)
-		rects["slot:%d"%i]=r
-	m._text(notice if notice!="" else "눌러서 편성 · 순서를 끌어 바꾸세요",Vector2(135,y+71),8,Color("6c553b"),true,230)
 	var remaining: int=maxi(0,ceili(data.recovery_until-Time.get_unix_time_from_system()))
+	m._text("편성 %d/3 · 병사 배치 탭에서 변경"%data.team.size(),Vector2(135,bottom-49),8,Color("6c553b"),true,232)
 	primary(m,"start",Rect2(18,bottom-35,234,27),"회복 중 %d초"%remaining if remaining>0 else "탐험 보내기 · %dR"%selected_round,data.team.size()==3 and remaining==0)
-	if data.soldiers.is_empty(): notice="연성에서 어혼 2개로 병사를 만드세요"
 
 func draw_roster(m,y: float,bottom: float) -> void:
 	# A separate selection sheet keeps the approved three-slot layout uncluttered.
@@ -332,23 +360,25 @@ func draw_alchemy(m,y: float,bottom: float) -> void:
 		primary(m,"craft",Rect2(18,bottom-28,234,25),"연성하기 · 어혼 2개")
 		return
 	soul_row(m,y);y+=30
-	var rows: int=4
+	var rows: int=maxi(1,mini(4,int((bottom-y-90)/56)))
 	var total: int=maxi(1,ceili(data.soldiers.size()/float(rows)));page=clampi(page,0,total-1)
 	for i in rows:
 		var n: int=page*rows+i
 		if n>=data.soldiers.size(): break
 		var u: Dictionary=data.soldiers[n];var st: Dictionary=data.stats(u);var spec: Dictionary=data.catalog.soldiers[int(u.id)]
-		var r: Rect2=Rect2(18,y+i*45,234,42)
+		var r: Rect2=Rect2(18,y+i*56,234,53)
 		m._ui_rect(r,Color("d2b577") if int(u.uid) in selected else Color("eddbb6"));sprite(m,int(u.id),Rect2(r.position,Vector2(42,40)))
 		m._text(("%s %s +%d"%["★".repeat(int(u.star)),spec.name,int(u.get("level",0))])+rarity_label(u),r.position+Vector2(44,12),8,Color("382619"),false,156 if tab==2 else 182)
-		m._text("체%d 공%d 방%d · 개체 +%d/%d/%d"%[st.hp,st.atk,st.def,u.iv[0],u.iv[1],u.iv[2]],r.position+Vector2(44,25),7,Color("6c553b"),false,183)
-		m._text(spec.description,r.position+Vector2(44,37),7,Color("6c553b"),false,183)
+		m._text("체%d 공%d 방%d · 개체 +%d/%d/%d"%[st.hp,st.atk,st.def,u.iv[0],u.iv[1],u.iv[2]],r.position+Vector2(44,25),7,Color("6c553b"),false,145 if tab==2 else 183)
+		m._text(spec.description,r.position+Vector2(44,37),7,Color("6c553b"),false,145 if tab==2 else 183)
 		rects["select:%d"%int(u.uid)]=r
-		if tab==2: lock_icon(m,"lock:%d"%int(u.uid),Rect2(r.end.x-25,r.position.y+1,24,24),bool(u.locked))
-	button(m,"prev",Rect2(18,y+185,35,22),"‹");button(m,"next",Rect2(217,y+185,35,22),"›")
-	m._text("%d/%d · %d/60마리"%[page+1,total,data.soldiers.size()],Vector2(135,y+200),9,Color("6c553b"),true,150)
+		if tab==2:
+			lock_icon(m,"lock:%d"%int(u.uid),Rect2(r.end.x-25,r.position.y,24,22),bool(u.locked))
+			button(m,"upgrade:%d"%int(u.uid),Rect2(r.end.x-37,r.position.y+33,36,18),"강화")
+	button(m,"prev",Rect2(18,y+rows*56+5,35,22),"‹");button(m,"next",Rect2(217,y+rows*56+5,35,22),"›")
+	m._text("%d/%d · %d/60마리"%[page+1,total,data.soldiers.size()],Vector2(135,y+rows*56+20),9,Color("6c553b"),true,150)
 	if tab==2:
-		m._text("병사를 눌러 강화 · 자물쇠를 눌러 잠금",Vector2(135,bottom-25),8,Color("6c553b"),true,232)
+		m._text("강화 버튼으로 육성 · 자물쇠로 잠금",Vector2(135,bottom-25),8,Color("6c553b"),true,232)
 	if tab==1:
 		var q: Dictionary=data.merge_cost(int(selected[0]),int(selected[1])) if selected.size()==2 else {}
 		if notice!="": m._text(notice,Vector2(135,bottom-80),8,Color("9b4329"),true,232)
@@ -384,7 +414,7 @@ func input_event(m,e: InputEvent) -> bool:
 		if e.pressed:
 			drag_start=pos;drag_pos=pos;drag_slot=-1
 			for i in 3:
-				if rects.get("slot:%d"%i,Rect2()).has_point(pos) and i<data.team.size(): drag_slot=i
+				if not data.active() and rects.get("slot:%d"%i,Rect2()).has_point(pos) and i<data.team.size(): drag_slot=i
 		else:
 			if drag_slot>=0 and drag_start.distance_to(pos)>8:
 				for i in data.team.size():
@@ -399,13 +429,25 @@ func press(m,pos: Vector2) -> void:
 	var key: String=""
 	# Small lock controls take priority over their containing row.
 	for k in rects:
-		if str(k).begins_with("lock:") and rects[k].has_point(pos): key=k;break
+		if (str(k).begins_with("lock:") or str(k).begins_with("upgrade:")) and rects[k].has_point(pos): key=k;break
 	if key=="":
 		for k in rects:
 			if rects[k].has_point(pos): key=k;break
 	notice=""
 	if key=="close": opened="";choosing_slot=-1;return
-	if key=="roster": tab=2;page=0;return
+	if key=="roster": opened="alchemy";tab=2;page=0;return
+	if key=="go_alchemy": open(m,"alchemy");return
+	if key=="go_explore": open(m,"explore");return
+	if key.begins_with("explore_tab:"): explore_tab=int(key.split(":")[1]);page=0;choosing_slot=-1;return
+	if key.begins_with("formation_unit:"):
+		if data.active(): m.show_toast("탐험 중에는 편성을 바꿀 수 없어요",Color("ffdc96"));return
+		var uid: int=int(key.split(":")[1])
+		if uid in data.team: data.team.erase(uid)
+		elif choosing_slot>=0 and choosing_slot<data.team.size(): data.team[choosing_slot]=uid
+		elif data.team.size()<3: data.team.append(uid)
+		else: m.show_toast("바꿀 편성 칸을 위에서 선택하세요",Color("ffdc96"))
+		choosing_slot=-1;m._save_game();return
+	if key.begins_with("upgrade:"): training_uid=int(key.split(":")[1]);opened="training";return
 	if key=="roster_close": choosing_slot=-1;return
 	if key=="remove_slot":
 		if choosing_slot<data.team.size(): data.team.remove_at(choosing_slot)
@@ -526,3 +568,45 @@ func draw_result_notice(m) -> void:
 	var r: Rect2=Rect2(43,m.top_y+72,184,24)
 	m._ui_style_box(m.sb_chip,r)
 	m._text("탐험 성공 · 마을에서 결과 확인" if data.battle.status=="win" else "탐험 실패 · 마을에서 결과 확인",r.get_center()+Vector2(0,3),8,Color("fff0d1"),true,174)
+
+func draw_formation(m,y: float,bottom: float) -> void:
+	for i in 3:
+		var r: Rect2=Rect2(18+i*80,y+15,74,54)
+		m._text(["앞 · 방어","중간","뒤"][i],Vector2(r.get_center().x,y+8),9,Color("6c553b"),true,74)
+		m._ui_style_box(m.sb_btn,r)
+		if choosing_slot==i: m._ui_rect(r.grow(-2),Color("169f9d"),false,1)
+		if i<data.team.size():
+			var u: Dictionary=data.unit(int(data.team[i]));sprite(m,int(u.id),Rect2(r.position+Vector2(14,1),Vector2(46,39)))
+			m._text("★".repeat(int(u.star))+" +%d"%int(u.get("level",0)),Vector2(r.get_center().x,r.end.y-5),8,Color("382619"),true,66)
+		else: m._text("빈 칸",r.get_center()+Vector2(0,4),9,Color("796044"),true,68)
+		rects["slot:%d"%i]=r
+	m._text("탐험 중 · 편성 변경 불가" if data.active() else "아래 병사를 눌러 편성 / 다시 눌러 해제",Vector2(135,y+85),8,Color("6c553b"),true,234)
+	var list_y: float=y+95
+	var rows: int=maxi(1,mini(5,int((bottom-list_y-39)/44)))
+	var total: int=maxi(1,ceili(data.soldiers.size()/float(rows)));page=clampi(page,0,total-1)
+	for i in rows:
+		var n: int=page*rows+i
+		if n>=data.soldiers.size(): break
+		var u: Dictionary=data.soldiers[n];var spec: Dictionary=data.catalog.soldiers[int(u.id)]
+		var r: Rect2=Rect2(18,list_y+i*44,234,41)
+		m._ui_rect(r,Color("c4ddbb") if int(u.uid) in data.team else Color("eddbb6"))
+		sprite(m,int(u.id),Rect2(r.position,Vector2(42,39)))
+		m._text(spec.name+" +%d"%int(u.get("level",0))+rarity_label(u),r.position+Vector2(44,13),8,Color("382619"),false,180)
+		m._text(ROLES[spec.role]+" · "+("편성 중 · 누르면 해제" if int(u.uid) in data.team else "누르면 편성"),r.position+Vector2(44,29),8,Color("6c553b"),false,180)
+		rects["formation_unit:%d"%int(u.uid)]=r
+	button(m,"prev",Rect2(18,bottom-30,35,23),"‹");button(m,"next",Rect2(217,bottom-30,35,23),"›")
+	m._text("%d / %d"%[page+1,total],Vector2(135,bottom-14),9,Color("6c553b"),true,140)
+
+func health_bar(m,r: Rect2,hp: float,maximum: float,previous: float,color: Color) -> void:
+	m._ui_rect(r,Color("33251e"))
+	var inner: Rect2=r.grow(-1)
+	m._ui_rect(inner,Color("563d34"))
+	m._ui_rect(Rect2(inner.position,Vector2(inner.size.x*clampf(previous/maxf(1,maximum),0,1),inner.size.y)),Color("f5cd87"))
+	m._ui_rect(Rect2(inner.position,Vector2(inner.size.x*clampf(hp/maxf(1,maximum),0,1),inner.size.y)),color)
+
+func floating_value(m,at: Vector2,value: String,color: Color,age: float) -> void:
+	if value=="-0" or age<0 or age>.75: return
+	var pos: Vector2=(at-Vector2(0,age*8)).round()
+	color.a=1-smoothstep(.48,.75,age)
+	for offset in [Vector2(-1,0),Vector2(1,0),Vector2(0,-1),Vector2(0,1)]: m._text(value,pos+offset,9,Color(0.12,.09,.08,color.a),true,64)
+	m._text(value,pos,9,color,true,64)

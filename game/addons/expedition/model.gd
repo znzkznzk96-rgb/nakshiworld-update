@@ -202,7 +202,7 @@ func tick() -> void:
 		if skill(f)=="weaken": enemy_atk*=0.8
 	# Debuffs do not multiply with duplicate soldiers.
 	enemy_def=maxf(enemy_def,float(enemy.defense)*0.7);enemy_atk=maxf(enemy_atk,float(enemy.atk)*0.8)
-	battle.fx={"age":0.0,"hit_uid":int(front.uid),"death_uid":-1,"support":[],"enemy_hit":true}
+	battle.fx={"front_hp_before":int(front.hp),"enemy_hp_before":int(enemy.hp),"age":0.0,"hit_uid":int(front.uid),"death_uid":-1,"support":[],"enemy_hit":true}
 	var attack: int=roundi(int(enemy.poison)*POWER)
 	var heals: Array=[]
 	for f in living:
@@ -216,6 +216,8 @@ func tick() -> void:
 		if sk=="drain": f.hp=mini(int(f.max_hp),int(f.hp)+roundi(power*0.18*POWER))
 		if sk=="poison": enemy.poison=mini(18,int(enemy.poison)+maxi(1,roundi(power*0.08)))
 	var incoming: int=damage(enemy_atk,float(front.def))
+	battle.fx.blocked=mini(int(front.shield),incoming)
+	battle.fx.incoming=mini(int(front.hp),incoming-int(battle.fx.blocked))
 	hurt(front,incoming);front.hits+=1
 	if skill(front)=="thorns": enemy.poison=mini(18,int(enemy.poison)+3)
 	if skill(front)=="reflect": attack+=roundi(incoming*0.25)
@@ -233,6 +235,7 @@ func tick() -> void:
 		else: target.hp=mini(int(target.max_hp),int(target.hp)+roundi(int(heal[1])*POWER*(1.0 if heal[0]=="heal" else 0.85)))
 		battle.fx.support.append({"source":int(heal[2]),"target":int(target.uid),"kind":str(heal[0]),"amount":int(target.shield)-old_shield if heal[0]=="ward" else int(target.hp)-old_hp})
 	if int(front.hp)<=0: battle.fx.death_uid=int(front.uid)
+	battle.fx.outgoing=mini(int(enemy.hp),attack)
 	enemy.hp=maxi(0,int(enemy.hp)-attack);battle.last_damage=attack
 	if battle.fighters.all(func(f): return int(f.hp)<=0):
 		battle.phase="defeat";battle.phase_time=0.0
