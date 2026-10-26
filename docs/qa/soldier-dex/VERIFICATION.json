@@ -55,5 +55,10 @@
     "detail"
   ],
   "save_migration": "v2 cumulative species discoveries; v1 held units seed history; no inferred consumed legacy units",
-  "deployed": false
+  "deployed": false,
+  "source_commit": "f2c3a5776965d21e66dec2cc1d8111328cbf7fab",
+  "remote_ci": {
+    "run": 40278126748,
+    "conclusion": "success"
+  }
 }

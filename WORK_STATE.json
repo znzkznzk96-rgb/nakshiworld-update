@@ -21,7 +21,7 @@
   ],
   "updated_at": "2026-10-26",
   "current_task": "연성 조합/미리보기 간격 축소, 제작 이력 기반 미리보기와 도감 병사 탭",
-  "next_step": "현재 수정본 작업 CI 확인 후 사용자 공개 배포 요청에 따라 진행",
+  "next_step": "사용자 확인 후 별도 공개 배포 요청에 따라 진행",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
@@ -32,7 +32,9 @@
     "deployed": false,
     "release_authorized": false,
     "local_suites": 32,
-    "verification": "docs/qa/soldier-dex/VERIFICATION.json"
+    "verification": "docs/qa/soldier-dex/VERIFICATION.json",
+    "remote_ci": 40278126748,
+    "remote_ci_conclusion": "success"
   },
   "history": "docs/historical/2026-10-22-before-workflow-streamlining/WORK_STATE.json",
   "work_verification": "docs/analysis/balance-tuning-075/QA.json",
