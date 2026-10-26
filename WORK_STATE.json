@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "task": "거꾸로 폭포 계곡 통합 및 낚시월드 인수인계 기준",
-  "status": "release_blocked_by_automatic_approval_review",
+  "status": "release_authorized",
   "work_branch": "work/valley-runtime",
   "release_baseline": "v0.75",
   "target_version": "0.76",
@@ -21,7 +21,7 @@
   ],
   "updated_at": "2026-10-26",
   "current_task": "v0.76 implementation and verification complete; publication blocked",
-  "next_step": "Obtain explicit permission to merge PR #9 into main and publicly release v0.76, then verify release assets and gateway",
+  "next_step": "Merge PR #9; build and verify public v0.76 assets and gateway",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
@@ -714,6 +714,7 @@
     "reason": "Automatic approval review said production/publication was not explicitly authorized by trusted evidence",
     "bypassed": false,
     "main_unchanged": "386a19f4e5411a149de34382c72374c5586eafb8",
-    "public_version": "0.75"
+    "public_version": "0.75",
+    "resolved_by": "User explicitly replied 배포하자 ㅇㅇ to main merge/public v0.76 approval question"
   }
 }
