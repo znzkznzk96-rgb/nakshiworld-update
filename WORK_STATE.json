@@ -28,16 +28,11 @@
   "game_bible": "docs/GAME_BIBLE.md",
   "last_release_deployed": true,
   "this_change": {
-    "scope": "restore approved UI and icons omitted from v0.76",
-    "game_changed": true,
+    "scope": "finish expedition presentation gaps and release approved UI restoration",
+    "status": "implementation_in_progress",
     "deployed": false,
-    "local_suites": 30,
-    "packed_assets_verified": true,
-    "reference_images": 3,
-    "reference_pixels_unchanged": true,
-    "implementation_commit": "1d054be225d8b6f42601d4447f73609a0a62aea2",
-    "ci_run": 40268805841,
-    "ci_conclusion": "success"
+    "release_authorized": true,
+    "update_screen_excluded": true
   },
   "history": "docs/historical/2026-10-22-before-workflow-streamlining/WORK_STATE.json",
   "work_verification": "docs/analysis/balance-tuning-075/QA.json",
@@ -319,10 +314,11 @@
   "update_screen": {
     "selection": "B",
     "approved": true,
-    "status": "selected_implementation_pending",
+    "status": "separate_apk_applied_user_confirmed",
     "style": "차원관리국 장비·잠든 고양이·청록 분할 게이지",
-    "game_applied": false,
-    "deployed": false
+    "game_applied": true,
+    "deployed": true,
+    "evidence": "2026-10-26 user confirms received separately applied APK; binary not independently reverified"
   },
   "rare_fish_optimization": {
     "approved": true,
