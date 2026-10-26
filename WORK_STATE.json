@@ -1,23 +1,21 @@
 {
   "schema_version": 3,
   "work_branch": "work/valley-runtime",
-  "status": "v083_published_verified_phone_pending",
-  "current_task": "강화B·배치A 적용 및 가방 진입 3초 후 멈춤 수정·배포",
+  "status": "bag_five_second_stall_and_formation_revision",
+  "current_task": "연성·합성 시안, 가방5초지연 재조사, PixelLab 역할아이콘·뒤중간앞·스크롤",
   "release_baseline": "v0.83",
   "source_commit": "d072b6a78cc4c867143ea5af55123765ac29964e",
   "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v0.83",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
   "verification": "analysis/selected-ui-083/PUBLIC_VERIFICATION.json",
-  "next_step": "휴대폰 0.83 적용 후 가방 진입 정지 재발 여부 확인. 동일 증상시 실제 기기 로그 조사.",
+  "next_step": "5초 지연의 렌더링/입력 분리, 아이콘3종 순차생성·검수, 배치수정·검증. 시안은 선택 전.",
   "updated_at": "2026-10-26",
   "last_release_deployed": true,
   "this_change": {
-    "release_authorized": true,
-    "deployed": true,
-    "implemented": true,
-    "local_regressions": 42,
-    "phone_freeze_cause_confirmed": false
+    "implemented": false,
+    "deployed": false,
+    "release_authorized": false
   },
   "pending_decisions": [
     "계곡은 기존 미승인 수치·입장 준비중 유지. 라이선스 수령과 별도."
