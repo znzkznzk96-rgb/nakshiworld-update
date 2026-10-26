@@ -1,10 +1,10 @@
 {
   "schema_version": 2,
   "task": "거꾸로 폭포 계곡 통합 및 낚시월드 인수인계 기준",
-  "status": "implementation_pending",
+  "status": "release_validation_pending",
   "work_branch": "work/valley-runtime",
   "release_baseline": "v0.77",
-  "target_version": "0.77",
+  "target_version": "0.78",
   "source_commit": "c12dd4258f5ca0758d54d5bf42e501fcf36da15d",
   "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v0.77",
   "live_patch_sha256": "eaea77b1618069ab18e6e7ff238cda7db80d75c061011919e26faefb36b116fa",
@@ -21,7 +21,7 @@
   ],
   "updated_at": "2026-10-26",
   "current_task": "0.78 병사 도감/연성 개선 및 1회 수령 테스트 선물 배포",
-  "next_step": "사용자 확인 후 별도 공개 배포 요청에 따라 진행",
+  "next_step": "0.78 작업 CI 후 승인된 PR 병합, 공개파일/운영 다운로드 검증",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
@@ -30,7 +30,9 @@
   "this_change": {
     "scope": "0.78 병사 도감/연성 개선 및 1회 수령 테스트 선물 배포",
     "release_authorized": true,
-    "deployed": false
+    "deployed": false,
+    "local_suites": 33,
+    "verification": "docs/qa/release-078/VERIFICATION.json"
   },
   "history": "docs/historical/2026-10-22-before-workflow-streamlining/WORK_STATE.json",
   "work_verification": "docs/analysis/balance-tuning-075/QA.json",
