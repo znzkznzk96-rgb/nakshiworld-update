@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
   "work_branch": "work/valley-runtime",
-  "status": "pouch_economy_implemented_verifying",
+  "status": "pouch_economy_implemented_verified_unreleased",
   "current_task": "어혼 주머니 획득률·가격·첫클리어/보스반복 보상 경제 시뮬레이션",
   "release_baseline": "v0.80",
   "source_commit": "a74e060d8eda34ab6650c0d2d3d72d9e646b990d",
@@ -9,7 +9,7 @@
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
   "verification": "analysis/soul-pouch-081/REPORT.md",
-  "next_step": "자동 CI 확인 후 결과 기록. 10R 라이선스 조건은 제안 검토 상태.",
+  "next_step": "공개 배포 미진행. 10R 라이선스 조건은 제안 검토 상태.",
   "updated_at": "2026-10-26",
   "last_release_deployed": true,
   "this_change": {
@@ -30,7 +30,14 @@
       "7": 0.12,
       "10": 0.2
     },
-    "license_10r_applied": false
+    "license_10r_applied": false,
+    "code_commit": "2466acdfa3a02babd962078e0311516e00350131",
+    "ci": {
+      "run_id": 40320966923,
+      "conclusion": "success",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/actions/runs/40320966923",
+      "regressions": 39
+    }
   },
   "pending_decisions": [
     "계곡은 기존 미승인 수치·입장 준비중 유지. 라이선스 수령과 별도."
