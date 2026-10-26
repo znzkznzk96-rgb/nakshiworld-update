@@ -17,6 +17,10 @@ var gesture_grade := -1
 var gesture_tab := ""
 var gesture_scroll := false
 var last_native_touch := -1000
+var pointer_started := -1000
+
+func cancel_pointer() -> void:
+	pointer=false;dragged=false;pointer_id=-1;gesture_scroll=false
 
 func _area(m) -> Rect2:
 	if selected>=0: return list_view.detail_viewport if selected_grade>=0 else Rect2()
@@ -29,6 +33,7 @@ func _scroll(m,delta: float) -> void:
 
 func _begin(m,p: Vector2,id: int) -> void:
 	pointer=true;dragged=false;pointer_id=id;start=p;last=p
+	pointer_started=Time.get_ticks_msec()
 	gesture_selected=selected;gesture_grade=selected_grade;gesture_tab=tab
 	gesture_scroll=_area(m).has_point(p)
 
@@ -52,7 +57,11 @@ func input_event(m,e: InputEvent) -> bool:
 	if e is InputEventScreenTouch:
 		last_native_touch=Time.get_ticks_msec()
 		var p: Vector2=e.position-Vector2(m.ox,0)
+		if e.canceled:
+			cancel_pointer();return true
 		if e.pressed:
+			# Recover a gesture whose release was lost to Android focus/gesture handling.
+			if pointer and Time.get_ticks_msec()-pointer_started>2000: cancel_pointer()
 			if not pointer: _begin(m,p,e.index)
 		elif pointer and pointer_id==e.index: _release(m,p)
 		return true
@@ -74,8 +83,10 @@ func input_event(m,e: InputEvent) -> bool:
 		_move(m,e.position-Vector2(m.ox,0));return true
 	return false
 func sync(m) -> void :
-	if m.market_open and not displayed: displayed = true;opened_at = m.ui_clock;selected = -1;selected_grade=-1;list_view.reset()
-	elif not m.market_open: displayed = false
+	if m.market_open and not displayed:
+		cancel_pointer();displayed = true;opened_at = m.ui_clock;selected = -1;selected_grade=-1;list_view.reset()
+	elif not m.market_open:
+		displayed = false;cancel_pointer()
 func open_species(sp: int) -> void : selected = sp;selected_grade=-1
 func open_group(sp: int, grade: int) -> void:
 	selected=sp;selected_grade=grade;list_view.detail_scroll=0

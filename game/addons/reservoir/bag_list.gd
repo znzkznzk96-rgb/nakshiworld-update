@@ -8,6 +8,9 @@ var detail_viewport := Rect2()
 var rows: Array=[]
 var detail_indices: Array=[]
 var groups_cache: Array=[]
+var grouped_hash: int = 0
+var grouped_valid := false
+var regroup_count := 0
 var image_bounds: Array=[]
 var badge_bounds: Array=[]
 var pointer := false
@@ -29,6 +32,11 @@ static func groups(items: Array) -> Array:
 	return result
 func reset() -> void:
 	scroll=0;detail_scroll=0;pointer=false;dragged=false;touch_index=-1
+	grouped_valid=false
+func refresh_groups(items: Array) -> void:
+	var fingerprint: int=items.hash()
+	if grouped_valid and fingerprint==grouped_hash: return
+	groups_cache=groups(items);grouped_hash=fingerprint;grouped_valid=true;regroup_count+=1
 func weight(m,g: Dictionary) -> String:
 	return m._wtxt(g.min_weight) if is_equal_approx(g.min_weight,g.max_weight) else "%s~%s"%[m._wtxt(g.min_weight),m._wtxt(g.max_weight)]
 func badge(m, grade: int, r: Rect2) -> void:
@@ -69,7 +77,7 @@ func draw(m) -> void:
 		m._ui_style_box(m.sb_btn if i==0 else m.sb_chip,tr)
 		m._text(["물고기","인벤토리","장비"][i],tr.get_center()+Vector2(0,4),10,Color("513b29"),true,70)
 		inv.tab_rects[key]=tr
-	groups_cache=groups(m.bag);rows=[];image_bounds=[];badge_bounds=[]
+	refresh_groups(m.bag);rows=[];image_bounds=[];badge_bounds=[]
 	m._text("보유 %d마리 · %d묶음"%[m.bag.size(),groups_cache.size()],r.position+Vector2(13,87),10,Color("513b29"),false,218)
 	viewport=Rect2(r.position+Vector2(10,97),Vector2(230,r.size.y-144))
 	scroll=clampf(scroll,0,max_scroll())

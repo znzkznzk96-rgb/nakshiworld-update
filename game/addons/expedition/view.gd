@@ -18,6 +18,9 @@ var choosing_slot: int = -1
 var approved: Dictionary = {}
 var result_notice: float = 0.0
 var training_uid: int = -1
+var role_filter: String = "all"
+var training_rows: Array = []
+var role_badges: Array = []
 const CARD_REGIONS = [Rect2(817,242,239,111),Rect2(1086,242,245,111),Rect2(1086,365,245,120),Rect2(817,365,239,120),Rect2(817,495,239,113),Rect2(1086,495,245,113),Rect2(1086,619,245,121),Rect2(817,619,239,121),Rect2(817,750,239,122),Rect2(1086,750,245,122)]
 const ROOM_REGIONS = [Rect2(257,285,180,54),Rect2(525,285,181,54),Rect2(528,366,143,60),Rect2(211,183,508,76),Rect2(255,454,140,59),Rect2(531,454,176,59),Rect2(530,540,140,56),Rect2(255,540,181,56),Rect2(257,628,180,56),Rect2(530,645,130,38)]
 const EFILES = ["water","electric","poison","light","dark"]
@@ -40,7 +43,7 @@ func setup() -> void:
 func open(m,screen: String) -> void:
 	if screen=="explore" and m.scene!="village" and not data.battle.is_empty() and not data.active():
 		m.show_toast("탐험 결과는 마을에서 확인해 주세요",Color("ffdc96"));return
-	opened=screen;page=0;selected=[];notice="";choosing_slot=-1;m.menu_open=false;m.holding=false
+	opened=screen;page=0;role_filter="all";selected=[];notice="";choosing_slot=-1;m.menu_open=false;m.holding=false
 	selected_round=mini(data.unlocked,maxi(1,selected_round))
 
 func update(m,dt: float) -> void:
@@ -454,6 +457,7 @@ func press(m,pos: Vector2) -> void:
 	if key=="go_alchemy": open(m,"alchemy");return
 	if key=="go_explore": open(m,"explore");return
 	if key.begins_with("explore_tab:"): explore_tab=int(key.split(":")[1]);page=0;choosing_slot=-1;return
+	if key.begins_with("role_filter:"): role_filter=key.split(":")[1];page=0;return
 	if key.begins_with("formation_unit:"):
 		if data.active(): m.show_toast("탐험 중에는 편성을 바꿀 수 없어요",Color("ffdc96"));return
 		var uid: int=int(key.split(":")[1])
@@ -566,23 +570,76 @@ func lock_icon(m,key: String,r: Rect2,locked: bool) -> void:
 	m._ui_rect(Rect2(c+Vector2(6,11),Vector2(2,4)),ink)
 	rects[key]=r
 
+# Small code-native pixel symbols: shape + color + label identify each role.
+const SYMBOLS = {
+	"attack":["000000011","000000111","000001110","110011100","011111000","001110000","011111000","111001100","110000110"],
+	"defense":["011111110","111111111","111111111","111111111","011111110","011111110","001111100","000111000","000010000"],
+	"support":["000111000","000111000","000111000","111111111","111111111","111111111","000111000","000111000","000111000"],
+	"hp":["011001100","111111110","111111110","111111110","011111100","001111000","000110000","000000000","000000000"]}
+const ROLE_COLORS = {"attack":"b34b39","defense":"347bb0","support":"398253","hp":"c85359"}
+func symbol(m,kind: String,box: Rect2) -> void:
+	var pattern: Array=SYMBOLS.get(kind,SYMBOLS.defense)
+	var px: float=maxf(1,floorf(minf(box.size.x,box.size.y)/11))
+	var start: Vector2=(box.get_center()-Vector2.ONE*9*px/2).round()
+	for yy in 9:
+		for xx in 9:
+			if pattern[yy][xx]=="1":
+				m._ui_rect(Rect2(start+Vector2(xx,yy)*px-Vector2.ONE*px,Vector2.ONE*3*px),Color("382619"))
+	for yy in 9:
+		for xx in 9:
+			if pattern[yy][xx]=="1": m._ui_rect(Rect2(start+Vector2(xx,yy)*px,Vector2.ONE*px),Color(ROLE_COLORS[kind]))
+func role_badge(m,role: String,r: Rect2) -> void:
+	m._ui_rect(r,Color(ROLE_COLORS[role],0.12))
+	symbol(m,role,Rect2(r.position,Vector2(r.size.y,r.size.y)))
+	m._text(ROLES[role],r.position+Vector2(r.size.y+2,r.size.y/2+3),8,Color(ROLE_COLORS[role]),false,r.size.x-r.size.y-3)
+	role_badges.append({"role":role,"rect":r})
 func draw_training(m,y: float,bottom: float) -> void:
 	var u: Dictionary=data.unit(training_uid)
 	if u.is_empty(): return
-	var st: Dictionary=data.stats(u)
-	var cost: Dictionary=data.training_cost(training_uid)
-	sprite(m,int(u.id),Rect2(89,y+10,92,80),int(m.ui_clock*7)%int(data.catalog.soldiers[int(u.id)].frame_count))
-	m._text(data.catalog.soldiers[int(u.id)].name+" +%d"%int(u.get("level",0)),Vector2(135,y+112),12,Color("382619"),true,228)
-	m._text("체력 %d · 공격 %d · 방어 %d"%[st.hp,st.atk,st.def],Vector2(135,y+138),10,Color("6c553b"),true,228)
-	m._text("강화는 확정 성공 · 최대 +3",Vector2(135,y+165),9,Color("6c553b"),true,228)
+	training_rows=[];role_badges=[]
+	var spec: Dictionary=data.catalog.soldiers[int(u.id)]
+	var st: Dictionary=data.stats(u);var cost: Dictionary=data.training_cost(training_uid)
+	var next: Dictionary=u.duplicate(true);next.level=mini(3,int(u.get("level",0))+1)
+	var ns: Dictionary=data.stats(next)
+	var spacious: bool=bottom-y>440
+	var hero_h: float=76 if spacious else 55
+	var hero:=Rect2(18,y+2,234,hero_h)
+	m._ui_style_box(m.sb_chip,hero)
+	sprite(m,int(u.id),Rect2(hero.position+Vector2(7,2),Vector2(62,hero_h-4)),int(m.ui_clock*7)%int(spec.frame_count))
+	m._text(spec.name,hero.position+Vector2(76,18),11,Color("382619"),false,150)
+	role_badge(m,str(spec.role),Rect2(hero.position+Vector2(76,25),Vector2(58,19)))
+	m._text("★".repeat(int(u.star))+" +%d"%int(u.get("level",0)),hero.position+Vector2(140,38),9,Color("8b611e"),false,88)
+	var step_y: float=hero.end.y+6
+	for i in 4:
+		var r:=Rect2(27+i*59,step_y,39,23)
+		m._ui_style_box(m.sb_chip,r)
+		if i==int(next.level): m._ui_rect(r.grow(-3),Color("edd18c"))
+		m._text("+%d"%i,r.get_center()+Vector2(0,3),10,Color("382619"),true,34)
+		if i<3: m._text("→",Vector2(r.end.x+9,step_y+15),9,Color("96703b"),true,14)
+	m._text("다음 강화" if not cost.is_empty() else "강화 완료",Vector2(46+int(next.level)*59,step_y+34),8,Color("8b611e"),true,54)
+	var row_y: float=step_y+40
+	var pitch: float=56 if spacious else 39
+	for i in 3:
+		var key: String=["hp","atk","def"][i]
+		var r:=Rect2(18,row_y+i*pitch,234,pitch-3)
+		m._ui_style_box(m.sb_chip,r)
+		symbol(m,["hp","attack","defense"][i],Rect2(r.position+Vector2(5,6),Vector2(23,23)))
+		m._text(["체력","공격","방어"][i],r.position+Vector2(34,14),10,Color("382619"),false,48)
+		m._text(["생존력 증가","주는 피해 증가","받는 피해 감소"][i],r.position+Vector2(34,29),8,Color("796044"),false,88)
+		m._text("%d → %d"%[st[key],ns[key]],r.position+Vector2(126,15),9,Color("382619"),false,102)
+		m._text("+%d"%(int(ns[key])-int(st[key])),r.position+Vector2(185,30),10,Color("347747"),false,44)
+		training_rows.append({"rect":r,"key":key,"current":st[key],"next":ns[key],"delta":int(ns[key])-int(st[key])})
+	var cost_y: float=row_y+3*pitch+2
 	if not cost.is_empty():
-		var next: Dictionary=u.duplicate(true);next.level=int(u.get("level",0))+1
-		var ns: Dictionary=data.stats(next)
-		m._text("+%d → 체력 %d · 공격 %d · 방어 %d"%[int(next.level),ns.hp,ns.atk,ns.def],Vector2(135,y+191),9,Color("382619"),true,228)
-		m._text("%s 어혼 %d개 · %d비늘"%[data.ELEMENTS[int(cost.element)],cost.souls,cost.gold],Vector2(135,bottom-101),10,Color("6c553b"),true,228)
-		button(m,"train",Rect2(22,bottom-83,226,30),"+%d 강화하기"%int(next.level),not data.active())
-	else: m._text("최대 강화 완료",Vector2(135,y+195),12,Color("aa7620"),true,228)
-	button(m,"training_back",Rect2(22,bottom-43,226,28),"병사 보관함으로")
+		m._ui_texture_rect(textures[EFILES[int(cost.element)]],Rect2(27,cost_y,17,17))
+		m._text("%s 어혼 %d개 · %d비늘"%[data.ELEMENTS[int(cost.element)],cost.souls,cost.gold],Vector2(149,cost_y+13),9,Color("513b29"),true,198)
+		button(m,"train",Rect2(22,cost_y+23,226,30),"+%d 강화하기"%int(next.level),not data.active())
+	else: m._text("최대 +3 강화 완료",Vector2(135,cost_y+15),12,Color("aa7620"),true,226)
+	var info_y: float=cost_y+(60 if not cost.is_empty() else 25)
+	m._text("확정 성공 · 최대 +3",Vector2(135,info_y+8),9,Color("8b611e"),true,226)
+	m._text("강화하면 세 능력치가 함께 상승합니다.",Vector2(135,info_y+23),8,Color("6c553b"),true,230)
+	if spacious: m._text("초록색 +수치는 다음 강화의 증가량입니다.",Vector2(135,info_y+38),8,Color("6c553b"),true,230)
+	button(m,"training_back",Rect2(22,bottom-29,226,25),"병사 보관함으로")
 
 func draw_result_notice(m) -> void:
 	if m.scene=="village" or result_notice<=0 or data.battle.is_empty() or data.active(): return
@@ -591,30 +648,48 @@ func draw_result_notice(m) -> void:
 	m._text("탐험 성공 · 마을에서 결과 확인" if data.battle.status=="win" else "탐험 실패 · 마을에서 결과 확인",r.get_center()+Vector2(0,3),8,Color("fff0d1"),true,174)
 
 func draw_formation(m,y: float,bottom: float) -> void:
+	role_badges=[]
 	for i in 3:
-		var r: Rect2=Rect2(18+i*80,y+15,74,54)
-		m._text(["앞 · 방어","중간","뒤"][i],Vector2(r.get_center().x,y+8),9,Color("6c553b"),true,74)
+		var r:=Rect2(18+i*80,y+13,74,65)
+		m._text(["앞","중간","뒤"][i],Vector2(r.get_center().x,y+8),9,Color("6c553b"),true,74)
 		m._ui_style_box(m.sb_btn,r)
 		if choosing_slot==i: m._ui_rect(r.grow(-2),Color("169f9d"),false,1)
 		if i<data.team.size():
-			var u: Dictionary=data.unit(int(data.team[i]));sprite(m,int(u.id),Rect2(r.position+Vector2(14,1),Vector2(46,39)))
-			m._text("★".repeat(int(u.star))+" +%d"%int(u.get("level",0)),Vector2(r.get_center().x,r.end.y-5),8,Color("382619"),true,66)
+			var u: Dictionary=data.unit(int(data.team[i]));var spec: Dictionary=data.catalog.soldiers[int(u.id)]
+			sprite(m,int(u.id),Rect2(r.position+Vector2(6,1),Vector2(42,36)))
+			symbol(m,str(spec.role),Rect2(r.position+Vector2(49,8),Vector2(18,18)))
+			role_badge(m,str(spec.role),Rect2(r.position+Vector2(12,36),Vector2(54,14)))
+			m._text("★".repeat(int(u.star))+" +%d"%int(u.get("level",0)),Vector2(r.get_center().x,r.end.y-4),8,Color("382619"),true,66)
 		else: m._text("빈 칸",r.get_center()+Vector2(0,4),9,Color("796044"),true,68)
 		rects["slot:%d"%i]=r
-	m._text("탐험 중 · 편성 변경 불가" if data.active() else "아래 병사를 눌러 편성 / 다시 눌러 해제",Vector2(135,y+85),8,Color("6c553b"),true,234)
-	var list_y: float=y+95
-	var rows: int=maxi(1,mini(5,int((bottom-list_y-39)/44)))
-	var total: int=maxi(1,ceili(data.soldiers.size()/float(rows)));page=clampi(page,0,total-1)
+	for i in 3: role_badge(m,["attack","defense","support"][i],Rect2(24+i*79,y+83,65,21))
+	for i in 4:
+		var role: String=["all","attack","defense","support"][i]
+		var r:=Rect2(18+i*59,y+109,57,23)
+		button(m,"role_filter:"+role,r,["전체","공격","방어","지원"][i])
+		if role_filter==role: m._ui_rect(Rect2(r.position+Vector2(5,20),Vector2(r.size.x-10,2)),Color("159d9d"))
+	m._text("탐험 중 · 편성 변경 불가" if data.active() else "병사를 눌러 편성 · 다시 눌러 해제",Vector2(135,y+145),8,Color("6c553b"),true,234)
+	var list_y: float=y+152
+	var rows: int=maxi(1,mini(6,int((bottom-list_y-34)/47)))
+	var units: Array=data.soldiers.filter(func(u): return role_filter=="all" or data.catalog.soldiers[int(u.id)].role==role_filter)
+	var total: int=maxi(1,ceili(units.size()/float(rows)));page=clampi(page,0,total-1)
 	for i in rows:
 		var n: int=page*rows+i
-		if n>=data.soldiers.size(): break
-		var u: Dictionary=data.soldiers[n];var spec: Dictionary=data.catalog.soldiers[int(u.id)]
-		var r: Rect2=Rect2(18,list_y+i*44,234,41)
-		m._ui_rect(r,Color("c4ddbb") if int(u.uid) in data.team else Color("eddbb6"))
-		sprite(m,int(u.id),Rect2(r.position,Vector2(42,39)))
-		m._text(spec.name+" +%d"%int(u.get("level",0))+rarity_label(u),r.position+Vector2(44,13),8,Color("382619"),false,180)
-		m._text(ROLES[spec.role]+" · "+("편성 중 · 누르면 해제" if int(u.uid) in data.team else "누르면 편성"),r.position+Vector2(44,29),8,Color("6c553b"),false,180)
+		if n>=units.size(): break
+		var u: Dictionary=units[n];var spec: Dictionary=data.catalog.soldiers[int(u.id)]
+		var r:=Rect2(18,list_y+i*47,234,44)
+		var equipped: bool=int(u.uid) in data.team
+		m._ui_style_box(m.sb_chip,r)
+		if equipped: m._ui_rect(r.grow(-2),Color("398253"),false,1)
+		sprite(m,int(u.id),Rect2(r.position+Vector2(1,2),Vector2(38,38)))
+		m._text(spec.name+" +%d"%int(u.get("level",0)),r.position+Vector2(42,14),9,Color("382619"),false,146)
+		role_badge(m,str(spec.role),Rect2(r.position+Vector2(42,22),Vector2(56,17)))
+		if equipped: m._text("✓ 편성 중",r.position+Vector2(103,34),8,Color("398253"),false,72)
+		var action:=Rect2(r.position+Vector2(191,9),Vector2(38,26))
+		m._ui_style_box(m.sb_btn,action)
+		m._text("해제" if equipped else "편성",action.get_center()+Vector2(0,3),8,Color("8c4935") if equipped else Color("513b29"),true,32)
 		rects["formation_unit:%d"%int(u.uid)]=r
+	if units.is_empty(): m._text("해당 역할의 병사가 없어요",Vector2(135,list_y+25),10,Color("796044"),true,230)
 	button(m,"prev",Rect2(18,bottom-30,35,23),"‹");button(m,"next",Rect2(217,bottom-30,35,23),"›")
 	m._text("%d / %d"%[page+1,total],Vector2(135,bottom-14),9,Color("6c553b"),true,140)
 

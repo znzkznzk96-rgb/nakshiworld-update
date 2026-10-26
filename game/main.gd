@@ -230,6 +230,8 @@ var reveal_c: = Vector2.INF
 var reveal_g: = 0
 
 func _notification(what: int) -> void :
+	if what in [NOTIFICATION_APPLICATION_PAUSED, NOTIFICATION_APPLICATION_FOCUS_OUT, NOTIFICATION_WM_WINDOW_FOCUS_OUT]:
+		inventory.cancel_pointer();holding=false;slider_drag=false
 	if what == NOTIFICATION_WM_CLOSE_REQUEST or what == NOTIFICATION_APPLICATION_PAUSED:
 		_save_game()
 		audio_feedback.suspended=true;audio_feedback.stop_all()

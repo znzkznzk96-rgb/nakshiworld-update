@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
   "work_branch": "work/valley-runtime",
-  "status": "v083_fixing_bag_freeze_and_selected_ui",
+  "status": "v083_verified_ready_to_publish",
   "current_task": "강화B·배치A 적용 및 가방 진입 3초 후 멈춤 수정·배포",
   "release_baseline": "v0.82",
   "source_commit": "075cd83508b3ac97f8fde433fd3296fe6ff3b5b9",
@@ -9,13 +9,15 @@
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
   "verification": "analysis/bag-interaction-082/PUBLIC_VERIFICATION.json",
-  "next_step": "가방 멈춤 재현·수정, 선택 UI 적용, 검사 및 배포",
+  "next_step": "main 게시 후 배포CI·공개3파일·운영주소 검증.",
   "updated_at": "2026-10-26",
   "last_release_deployed": true,
   "this_change": {
     "release_authorized": true,
     "deployed": false,
-    "implemented": false
+    "implemented": true,
+    "local_regressions": 42,
+    "phone_freeze_cause_confirmed": false
   },
   "pending_decisions": [
     "계곡은 기존 미승인 수치·입장 준비중 유지. 라이선스 수령과 별도."
