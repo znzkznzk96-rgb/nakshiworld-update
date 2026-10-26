@@ -1,0 +1,17 @@
+{
+  "status": "rejected",
+  "reason": "Rounded ghost-fish silhouette retained, but pale near-white body dominates; vivid cyan midtone and lower-right shading from selected design not retained.",
+  "shape": "pass with small tail difference",
+  "color": "fail",
+  "shading": "fail",
+  "alpha": "pass",
+  "clipping": "pass",
+  "usage_generations": 1,
+  "remaining_not_generated": [
+    "electric",
+    "poison",
+    "light",
+    "dark"
+  ],
+  "next_proposal": "Use approved color reference with background removed, instead of grayscale initialization. Not yet sent. Requires explicit exception for colored concept reference and one additional paid retry."
+}

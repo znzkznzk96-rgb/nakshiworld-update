@@ -1,0 +1,22 @@
+{
+  "description": "One golden crucian fish soldier standing on two tiny brown feet, facing right. Preserve this exact reference silhouette: single compact rounded upright fish body, one small black vertical eye, small orange dorsal fin, single short orange forked tail at left. A separate brown wooden shield with pale metal rim is held in front of the body on the right by its small fin. Golden yellow midtone, orange lower shadow, pale cream belly, dark brown outline. Simple chunky pixel clusters, three shades per material. Full body, idle standing pose. No human torso.",
+  "negative_description": "two fish, extra tail, duplicate body, fused shield, helmet, armor, sword, text, floor, background, blur, detailed scales, dithering, grain",
+  "image_size": {
+    "width": 48,
+    "height": 48
+  },
+  "no_background": true,
+  "outline": "single color outline",
+  "shading": "basic shading",
+  "detail": "low detail",
+  "view": "side",
+  "direction": "east",
+  "coverage_percentage": 80,
+  "seed": 202610270,
+  "init_image_strength": 750,
+  "init_image": {
+    "type": "base64",
+    "base64": "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",
+    "format": "png"
+  }
+}

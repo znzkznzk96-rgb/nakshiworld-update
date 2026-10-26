@@ -10,5 +10,12 @@ func _initialize() -> void:
 	assert(a.rod_aura.COLORS[1].r>a.rod_aura.COLORS[1].b and a.rod_aura.COLORS[2].b>a.rod_aura.COLORS[2].r+.5,"silver blue distinct in actual pack")
 	assert(load("res://addons/reservoir/personal_dex.gd")!=null,"personal dex exported")
 	assert(absf(load("res://sfx/village/village.ogg").get_length()-27.0)<0.1,"original D loop exported")
+	var expedition=load("res://addons/expedition/view.gd").new();expedition.setup()
+	assert(expedition.data.catalog.soldiers.size()==15 and expedition.data.catalog.enemies.size()==22,"battle catalog exported")
+	for texture in expedition.textures.values():
+		if texture is Array:
+			for frame in texture: assert(frame is Texture2D,"normal frame exported")
+		else: assert(texture is Texture2D,"soldier boss soul and menu art exported")
+	assert(expedition.textures["10R"].get_width()==1920,"large final boss sheet exported")
 	print("PACKED_ANGLER_VERIFY failures=[]")
 	quit()

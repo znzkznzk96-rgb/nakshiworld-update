@@ -1,0 +1,2425 @@
+{
+  "current_52000_none": {
+    "parameters": {
+      "target": 52000,
+      "aquarium": false,
+      "expand20": false
+    },
+    "odds": "current",
+    "runs": 500,
+    "completed": 500,
+    "completion_rate": 1.0,
+    "day": {
+      "p10": 2.0,
+      "median": 3.0,
+      "p90": 4.1,
+      "mean": 3.176
+    },
+    "online_income": {
+      "p10": 0.0,
+      "median": 0.0,
+      "p90": 0.0,
+      "mean": 0.0
+    },
+    "offline_income": {
+      "p10": 0.0,
+      "median": 0.0,
+      "p90": 0.0,
+      "mean": 0.0
+    },
+    "aqua_capacity": {
+      "p10": 3.0,
+      "median": 3.0,
+      "p90": 3.0,
+      "mean": 3.0
+    },
+    "aqua_value": {
+      "p10": 0.0,
+      "median": 0.0,
+      "p90": 0.0,
+      "mean": 0.0
+    },
+    "active_h": {
+      "p10": 3.654,
+      "median": 4.395,
+      "p90": 8.068,
+      "mean": 5.263
+    },
+    "elapsed_h": {
+      "p10": 25.637,
+      "median": 48.37,
+      "p90": 76.223,
+      "mean": 53.106
+    },
+    "casts": {
+      "p10": 367.9,
+      "median": 441.0,
+      "p90": 821.0,
+      "mean": 532.668
+    },
+    "bait_spent": {
+      "p10": 1794.0,
+      "median": 2165.0,
+      "p90": 4067.5,
+      "mean": 2619.68
+    },
+    "sales": {
+      "p10": 32071.2,
+      "median": 54867.5,
+      "p90": 141929.9,
+      "mean": 72696.336
+    },
+    "rewards": {
+      "p10": 18527.1,
+      "median": 28662.5,
+      "p90": 42240.7,
+      "mean": 29583.786
+    },
+    "passive": {
+      "p10": 0.0,
+      "median": 0.0,
+      "p90": 0.0,
+      "mean": 0.0
+    },
+    "upgrades_and_region": {
+      "p10": 11659.0,
+      "median": 11659.0,
+      "p90": 11659.0,
+      "mean": 11655.04
+    },
+    "bare_casts": {
+      "p10": 5.0,
+      "median": 7.0,
+      "p90": 14.0,
+      "mean": 8.732
+    },
+    "owners": {
+      "p10": 1.0,
+      "median": 2.0,
+      "p90": 5.0,
+      "mean": 2.716
+    },
+    "low_stock_fraction": {
+      "p10": 0.388,
+      "median": 0.438,
+      "p90": 0.485,
+      "mean": 0.438
+    },
+    "gold": {
+      "p10": 52760.8,
+      "median": 67177.0,
+      "p90": 155102.9,
+      "mean": 88005.402
+    },
+    "license_h": {
+      "p10": 24.327,
+      "median": 26.017,
+      "p90": 76.223,
+      "mean": 46.288
+    },
+    "money_h": {
+      "p10": 25.283,
+      "median": 48.105,
+      "p90": 48.599,
+      "mean": 38.687
+    },
+    "valley_active_h": {
+      "p10": 1.22,
+      "median": 1.697,
+      "p90": 2.625
+    },
+    "valley_elapsed_h": {
+      "p10": 1.22,
+      "median": 1.697,
+      "p90": 24.608
+    },
+    "valley_casts": {
+      "p10": 123.9,
+      "median": 165.5,
+      "p90": 257.2
+    },
+    "censored_median_active_h": null,
+    "bait_share_of_inflow": 0.0256,
+    "aquarium_share_of_inflow": 0.0,
+    "day_counts": {
+      "2": 124,
+      "3": 259,
+      "4": 67,
+      "5": 21,
+      "6": 15,
+      "7": 12,
+      "8": 2
+    },
+    "money_before_license_fraction": 0.478
+  },
+  "current_52000_six": {
+    "parameters": {
+      "target": 52000,
+      "aquarium": true,
+      "expand20": false
+    },
+    "odds": "current",
+    "runs": 500,
+    "completed": 500,
+    "completion_rate": 1.0,
+    "day": {
+      "p10": 2.0,
+      "median": 3.0,
+      "p90": 5.0,
+      "mean": 3.232
+    },
+    "online_income": {
+      "p10": 2385.284,
+      "median": 4386.971,
+      "p90": 35228.977,
+      "mean": 13631.994
+    },
+    "offline_income": {
+      "p10": 7864.7,
+      "median": 20014.5,
+      "p90": 133986.3,
+      "mean": 55478.068
+    },
+    "aqua_capacity": {
+      "p10": 6.0,
+      "median": 6.0,
+      "p90": 6.0,
+      "mean": 6.0
+    },
+    "aqua_value": {
+      "p10": 6120.9,
+      "median": 13282.0,
+      "p90": 68425.3,
+      "mean": 26110.398
+    },
+    "active_h": {
+      "p10": 3.618,
+      "median": 4.386,
+      "p90": 8.162,
+      "mean": 5.257
+    },
+    "elapsed_h": {
+      "p10": 25.609,
+      "median": 48.362,
+      "p90": 96.103,
+      "mean": 54.332
+    },
+    "casts": {
+      "p10": 361.0,
+      "median": 437.5,
+      "p90": 829.0,
+      "mean": 529.15
+    },
+    "bait_spent": {
+      "p10": 1728.0,
+      "median": 2115.0,
+      "p90": 4082.5,
+      "mean": 2577.09
+    },
+    "sales": {
+      "p10": 21013.1,
+      "median": 28124.5,
+      "p90": 68839.0,
+      "mean": 39326.88
+    },
+    "rewards": {
+      "p10": 18285.8,
+      "median": 28418.5,
+      "p90": 40532.4,
+      "mean": 29133.428
+    },
+    "passive": {
+      "p10": 11204.832,
+      "median": 24032.149,
+      "p90": 169915.822,
+      "mean": 69110.062
+    },
+    "upgrades_and_region": {
+      "p10": 11959.0,
+      "median": 11959.0,
+      "p90": 11959.0,
+      "mean": 11959.0
+    },
+    "bare_casts": {
+      "p10": 10.0,
+      "median": 13.0,
+      "p90": 18.0,
+      "mean": 13.732
+    },
+    "owners": {
+      "p10": 1.0,
+      "median": 2.0,
+      "p90": 5.0,
+      "mean": 2.342
+    },
+    "low_stock_fraction": {
+      "p10": 0.382,
+      "median": 0.434,
+      "p90": 0.488,
+      "mean": 0.436
+    },
+    "gold": {
+      "p10": 52489.576,
+      "median": 64992.762,
+      "p90": 258345.278,
+      "mean": 123034.28
+    },
+    "license_h": {
+      "p10": 24.581,
+      "median": 48.092,
+      "p90": 96.103,
+      "mean": 47.752
+    },
+    "money_h": {
+      "p10": 25.248,
+      "median": 48.008,
+      "p90": 48.55,
+      "mean": 39.798
+    },
+    "valley_active_h": {
+      "p10": 1.969,
+      "median": 2.024,
+      "p90": 2.732
+    },
+    "valley_elapsed_h": {
+      "p10": 1.969,
+      "median": 24.008,
+      "p90": 24.72
+    },
+    "valley_casts": {
+      "p10": 186.9,
+      "median": 191.0,
+      "p90": 268.0
+    },
+    "censored_median_active_h": null,
+    "bait_share_of_inflow": 0.0187,
+    "aquarium_share_of_inflow": 0.5023615325615501,
+    "day_counts": {
+      "2": 101,
+      "3": 278,
+      "4": 65,
+      "5": 28,
+      "6": 17,
+      "7": 10,
+      "8": 1
+    },
+    "money_before_license_fraction": 0.512
+  },
+  "current_52000_twenty": {
+    "parameters": {
+      "target": 52000,
+      "aquarium": true,
+      "expand20": true
+    },
+    "odds": "current",
+    "runs": 500,
+    "completed": 500,
+    "completion_rate": 1.0,
+    "day": {
+      "p10": 3.0,
+      "median": 3.0,
+      "p90": 5.0,
+      "mean": 3.382
+    },
+    "online_income": {
+      "p10": 4235.019,
+      "median": 6977.326,
+      "p90": 43561.794,
+      "mean": 18059.353
+    },
+    "offline_income": {
+      "p10": 19845.9,
+      "median": 32888.5,
+      "p90": 165731.6,
+      "mean": 75899.968
+    },
+    "aqua_capacity": {
+      "p10": 20.0,
+      "median": 20.0,
+      "p90": 20.0,
+      "mean": 19.97
+    },
+    "aqua_value": {
+      "p10": 12528.0,
+      "median": 24792.5,
+      "p90": 81766.9,
+      "mean": 36570.752
+    },
+    "active_h": {
+      "p10": 4.03,
+      "median": 4.56,
+      "p90": 8.168,
+      "mean": 5.397
+    },
+    "elapsed_h": {
+      "p10": 48.008,
+      "median": 48.532,
+      "p90": 96.11,
+      "mean": 57.769
+    },
+    "casts": {
+      "p10": 398.0,
+      "median": 458.0,
+      "p90": 829.3,
+      "mean": 543.18
+    },
+    "bait_spent": {
+      "p10": 1910.0,
+      "median": 2215.0,
+      "p90": 4087.0,
+      "mean": 2647.25
+    },
+    "sales": {
+      "p10": 17485.0,
+      "median": 23596.0,
+      "p90": 55168.5,
+      "mean": 31179.08
+    },
+    "rewards": {
+      "p10": 18287.0,
+      "median": 28295.5,
+      "p90": 40799.5,
+      "mean": 29200.432
+    },
+    "passive": {
+      "p10": 25581.581,
+      "median": 40224.739,
+      "p90": 217536.295,
+      "mean": 93959.321
+    },
+    "upgrades_and_region": {
+      "p10": 21259.0,
+      "median": 21259.0,
+      "p90": 21259.0,
+      "mean": 21223.0
+    },
+    "bare_casts": {
+      "p10": 10.0,
+      "median": 13.0,
+      "p90": 18.0,
+      "mean": 13.73
+    },
+    "owners": {
+      "p10": 1.0,
+      "median": 2.0,
+      "p90": 5.0,
+      "mean": 2.424
+    },
+    "low_stock_fraction": {
+      "p10": 0.385,
+      "median": 0.435,
+      "p90": 0.493,
+      "mean": 0.439
+    },
+    "gold": {
+      "p10": 52605.656,
+      "median": 67630.984,
+      "p90": 277460.095,
+      "mean": 130468.583
+    },
+    "license_h": {
+      "p10": 24.591,
+      "median": 48.117,
+      "p90": 96.11,
+      "mean": 48.181
+    },
+    "money_h": {
+      "p10": 48.008,
+      "median": 48.008,
+      "p90": 48.885,
+      "mean": 46.372
+    },
+    "valley_active_h": {
+      "p10": 2.017,
+      "median": 2.024,
+      "p90": 2.763
+    },
+    "valley_elapsed_h": {
+      "p10": 24.008,
+      "median": 24.008,
+      "p90": 24.748
+    },
+    "valley_casts": {
+      "p10": 189.0,
+      "median": 191.0,
+      "p90": 270.2
+    },
+    "censored_median_active_h": null,
+    "bait_share_of_inflow": 0.0172,
+    "aquarium_share_of_inflow": 0.6087860023905949,
+    "day_counts": {
+      "2": 28,
+      "3": 349,
+      "4": 67,
+      "5": 28,
+      "6": 17,
+      "7": 10,
+      "8": 1
+    },
+    "money_before_license_fraction": 0.478
+  },
+  "current_104000_none": {
+    "parameters": {
+      "target": 104000,
+      "aquarium": false,
+      "expand20": false
+    },
+    "odds": "current",
+    "runs": 500,
+    "completed": 500,
+    "completion_rate": 1.0,
+    "day": {
+      "p10": 3.0,
+      "median": 4.0,
+      "p90": 5.0,
+      "mean": 3.758
+    },
+    "online_income": {
+      "p10": 0.0,
+      "median": 0.0,
+      "p90": 0.0,
+      "mean": 0.0
+    },
+    "offline_income": {
+      "p10": 0.0,
+      "median": 0.0,
+      "p90": 0.0,
+      "mean": 0.0
+    },
+    "aqua_capacity": {
+      "p10": 3.0,
+      "median": 3.0,
+      "p90": 3.0,
+      "mean": 3.0
+    },
+    "aqua_value": {
+      "p10": 0.0,
+      "median": 0.0,
+      "p90": 0.0,
+      "mean": 0.0
+    },
+    "active_h": {
+      "p10": 5.305,
+      "median": 6.19,
+      "p90": 8.155,
+      "mean": 6.572
+    },
+    "elapsed_h": {
+      "p10": 49.284,
+      "median": 72.151,
+      "p90": 96.095,
+      "mean": 67.211
+    },
+    "casts": {
+      "p10": 539.9,
+      "median": 627.5,
+      "p90": 830.3,
+      "mean": 669.054
+    },
+    "bait_spent": {
+      "p10": 2648.5,
+      "median": 3100.0,
+      "p90": 4092.5,
+      "mean": 3301.61
+    },
+    "sales": {
+      "p10": 83653.6,
+      "median": 97323.5,
+      "p90": 143132.1,
+      "mean": 108434.402
+    },
+    "rewards": {
+      "p10": 18743.7,
+      "median": 28746.5,
+      "p90": 42240.7,
+      "mean": 29727.886
+    },
+    "passive": {
+      "p10": 0.0,
+      "median": 0.0,
+      "p90": 0.0,
+      "mean": 0.0
+    },
+    "upgrades_and_region": {
+      "p10": 11659.0,
+      "median": 11659.0,
+      "p90": 11659.0,
+      "mean": 11655.04
+    },
+    "bare_casts": {
+      "p10": 5.0,
+      "median": 7.0,
+      "p90": 14.0,
+      "mean": 8.732
+    },
+    "owners": {
+      "p10": 3.0,
+      "median": 4.0,
+      "p90": 5.0,
+      "mean": 3.856
+    },
+    "low_stock_fraction": {
+      "p10": 0.387,
+      "median": 0.421,
+      "p90": 0.451,
+      "mean": 0.419
+    },
+    "gold": {
+      "p10": 104305.7,
+      "median": 108921.5,
+      "p90": 155740.0,
+      "mean": 123205.638
+    },
+    "license_h": {
+      "p10": 24.327,
+      "median": 26.017,
+      "p90": 76.223,
+      "mean": 46.288
+    },
+    "money_h": {
+      "p10": 49.145,
+      "median": 50.005,
+      "p90": 72.824,
+      "mean": 60.368
+    },
+    "valley_active_h": {
+      "p10": 1.22,
+      "median": 1.697,
+      "p90": 2.625
+    },
+    "valley_elapsed_h": {
+      "p10": 1.22,
+      "median": 1.697,
+      "p90": 24.608
+    },
+    "valley_casts": {
+      "p10": 123.9,
+      "median": 165.5,
+      "p90": 257.2
+    },
+    "censored_median_active_h": null,
+    "bait_share_of_inflow": 0.0239,
+    "aquarium_share_of_inflow": 0.0,
+    "day_counts": {
+      "2": 1,
+      "3": 215,
+      "4": 233,
+      "5": 22,
+      "6": 15,
+      "7": 12,
+      "8": 2
+    },
+    "money_before_license_fraction": 0.224
+  },
+  "current_104000_six": {
+    "parameters": {
+      "target": 104000,
+      "aquarium": true,
+      "expand20": false
+    },
+    "odds": "current",
+    "runs": 500,
+    "completed": 500,
+    "completion_rate": 1.0,
+    "day": {
+      "p10": 3.0,
+      "median": 4.0,
+      "p90": 5.0,
+      "mean": 3.968
+    },
+    "online_income": {
+      "p10": 9134.91,
+      "median": 13747.769,
+      "p90": 35228.977,
+      "mean": 20135.454
+    },
+    "offline_income": {
+      "p10": 25310.4,
+      "median": 78108.0,
+      "p90": 133986.3,
+      "mean": 92652.9
+    },
+    "aqua_capacity": {
+      "p10": 6.0,
+      "median": 6.0,
+      "p90": 6.0,
+      "mean": 6.0
+    },
+    "aqua_value": {
+      "p10": 25667.5,
+      "median": 41920.0,
+      "p90": 69947.0,
+      "mean": 45641.156
+    },
+    "active_h": {
+      "p10": 5.639,
+      "median": 6.049,
+      "p90": 8.162,
+      "mean": 6.516
+    },
+    "elapsed_h": {
+      "p10": 49.617,
+      "median": 72.008,
+      "p90": 96.103,
+      "mean": 71.772
+    },
+    "casts": {
+      "p10": 571.0,
+      "median": 609.0,
+      "p90": 829.0,
+      "mean": 658.694
+    },
+    "bait_spent": {
+      "p10": 2779.5,
+      "median": 2975.0,
+      "p90": 4082.5,
+      "mean": 3224.81
+    },
+    "sales": {
+      "p10": 41238.4,
+      "median": 46698.5,
+      "p90": 68839.0,
+      "mean": 53017.544
+    },
+    "rewards": {
+      "p10": 18618.1,
+      "median": 28555.5,
+      "p90": 40799.5,
+      "mean": 29480.616
+    },
+    "passive": {
+      "p10": 38275.056,
+      "median": 91224.859,
+      "p90": 169915.822,
+      "mean": 112788.354
+    },
+    "upgrades_and_region": {
+      "p10": 11959.0,
+      "median": 11959.0,
+      "p90": 11959.0,
+      "mean": 11959.0
+    },
+    "bare_casts": {
+      "p10": 10.0,
+      "median": 13.0,
+      "p90": 18.0,
+      "mean": 13.732
+    },
+    "owners": {
+      "p10": 2.0,
+      "median": 3.0,
+      "p90": 5.0,
+      "mean": 3.426
+    },
+    "low_stock_fraction": {
+      "p10": 0.397,
+      "median": 0.446,
+      "p90": 0.46,
+      "mean": 0.436
+    },
+    "gold": {
+      "p10": 104878.199,
+      "median": 149701.211,
+      "p90": 258345.278,
+      "mean": 180102.704
+    },
+    "license_h": {
+      "p10": 24.581,
+      "median": 48.092,
+      "p90": 96.103,
+      "mean": 47.752
+    },
+    "money_h": {
+      "p10": 49.484,
+      "median": 72.008,
+      "p90": 72.008,
+      "mean": 65.868
+    },
+    "valley_active_h": {
+      "p10": 1.969,
+      "median": 2.024,
+      "p90": 2.732
+    },
+    "valley_elapsed_h": {
+      "p10": 1.969,
+      "median": 24.008,
+      "p90": 24.72
+    },
+    "valley_casts": {
+      "p10": 186.9,
+      "median": 191.0,
+      "p90": 268.0
+    },
+    "censored_median_active_h": null,
+    "bait_share_of_inflow": 0.0165,
+    "aquarium_share_of_inflow": 0.5775532150843142,
+    "day_counts": {
+      "3": 112,
+      "4": 332,
+      "5": 28,
+      "6": 17,
+      "7": 10,
+      "8": 1
+    },
+    "money_before_license_fraction": 0.246
+  },
+  "current_104000_twenty": {
+    "parameters": {
+      "target": 104000,
+      "aquarium": true,
+      "expand20": true
+    },
+    "odds": "current",
+    "runs": 500,
+    "completed": 500,
+    "completion_rate": 1.0,
+    "day": {
+      "p10": 3.0,
+      "median": 4.0,
+      "p90": 5.0,
+      "mean": 4.018
+    },
+    "online_income": {
+      "p10": 13130.302,
+      "median": 18768.851,
+      "p90": 43561.794,
+      "mean": 26287.262
+    },
+    "offline_income": {
+      "p10": 41138.6,
+      "median": 103519.5,
+      "p90": 169479.9,
+      "mean": 122933.426
+    },
+    "aqua_capacity": {
+      "p10": 20.0,
+      "median": 20.0,
+      "p90": 20.0,
+      "mean": 20.0
+    },
+    "aqua_value": {
+      "p10": 34231.6,
+      "median": 51795.5,
+      "p90": 81926.1,
+      "mean": 56834.866
+    },
+    "active_h": {
+      "p10": 5.781,
+      "median": 6.05,
+      "p90": 8.168,
+      "mean": 6.546
+    },
+    "elapsed_h": {
+      "p10": 49.759,
+      "median": 72.008,
+      "p90": 96.11,
+      "mean": 72.902
+    },
+    "casts": {
+      "p10": 585.9,
+      "median": 609.0,
+      "p90": 829.3,
+      "mean": 661.496
+    },
+    "bait_spent": {
+      "p10": 2860.0,
+      "median": 2977.5,
+      "p90": 4087.0,
+      "mean": 3238.83
+    },
+    "sales": {
+      "p10": 32760.2,
+      "median": 36949.0,
+      "p90": 55168.5,
+      "mean": 41426.692
+    },
+    "rewards": {
+      "p10": 18530.4,
+      "median": 28407.5,
+      "p90": 41571.5,
+      "mean": 29438.402
+    },
+    "passive": {
+      "p10": 59881.658,
+      "median": 121766.7,
+      "p90": 217536.295,
+      "mean": 149220.688
+    },
+    "upgrades_and_region": {
+      "p10": 21259.0,
+      "median": 21259.0,
+      "p90": 21259.0,
+      "mean": 21259.0
+    },
+    "bare_casts": {
+      "p10": 10.0,
+      "median": 13.0,
+      "p90": 18.0,
+      "mean": 13.73
+    },
+    "owners": {
+      "p10": 2.0,
+      "median": 3.0,
+      "p90": 5.0,
+      "mean": 3.43
+    },
+    "low_stock_fraction": {
+      "p10": 0.401,
+      "median": 0.447,
+      "p90": 0.46,
+      "mean": 0.438
+    },
+    "gold": {
+      "p10": 105300.954,
+      "median": 162026.945,
+      "p90": 277460.095,
+      "mean": 195587.952
+    },
+    "license_h": {
+      "p10": 24.591,
+      "median": 48.117,
+      "p90": 96.11,
+      "mean": 48.181
+    },
+    "money_h": {
+      "p10": 49.682,
+      "median": 72.008,
+      "p90": 72.008,
+      "mean": 67.31
+    },
+    "valley_active_h": {
+      "p10": 2.017,
+      "median": 2.024,
+      "p90": 2.763
+    },
+    "valley_elapsed_h": {
+      "p10": 24.008,
+      "median": 24.008,
+      "p90": 24.748
+    },
+    "valley_casts": {
+      "p10": 189.0,
+      "median": 191.0,
+      "p90": 270.2
+    },
+    "censored_median_active_h": null,
+    "bait_share_of_inflow": 0.0147,
+    "aquarium_share_of_inflow": 0.6780114852242554,
+    "day_counts": {
+      "3": 87,
+      "4": 357,
+      "5": 28,
+      "6": 17,
+      "7": 10,
+      "8": 1
+    },
+    "money_before_license_fraction": 0.248
+  },
+  "candidate_52000_none": {
+    "parameters": {
+      "target": 52000,
+      "aquarium": false,
+      "expand20": false
+    },
+    "odds": "candidate",
+    "runs": 500,
+    "completed": 500,
+    "completion_rate": 1.0,
+    "day": {
+      "p10": 2.0,
+      "median": 2.0,
+      "p90": 3.0,
+      "mean": 2.462
+    },
+    "online_income": {
+      "p10": 0.0,
+      "median": 0.0,
+      "p90": 0.0,
+      "mean": 0.0
+    },
+    "offline_income": {
+      "p10": 0.0,
+      "median": 0.0,
+      "p90": 0.0,
+      "mean": 0.0
+    },
+    "aqua_capacity": {
+      "p10": 3.0,
+      "median": 3.0,
+      "p90": 3.0,
+      "mean": 3.0
+    },
+    "aqua_value": {
+      "p10": 0.0,
+      "median": 0.0,
+      "p90": 0.0,
+      "mean": 0.0
+    },
+    "active_h": {
+      "p10": 3.075,
+      "median": 3.783,
+      "p90": 4.995,
+      "mean": 4.026
+    },
+    "elapsed_h": {
+      "p10": 25.065,
+      "median": 25.768,
+      "p90": 48.97,
+      "mean": 36.171
+    },
+    "casts": {
+      "p10": 306.0,
+      "median": 381.0,
+      "p90": 506.2,
+      "mean": 404.16
+    },
+    "bait_spent": {
+      "p10": 1484.5,
+      "median": 1867.5,
+      "p90": 2481.5,
+      "mean": 1977.56
+    },
+    "sales": {
+      "p10": 31877.9,
+      "median": 42783.0,
+      "p90": 71141.6,
+      "mean": 49407.916
+    },
+    "rewards": {
+      "p10": 18273.3,
+      "median": 28972.0,
+      "p90": 41537.9,
+      "mean": 29789.448
+    },
+    "passive": {
+      "p10": 0.0,
+      "median": 0.0,
+      "p90": 0.0,
+      "mean": 0.0
+    },
+    "upgrades_and_region": {
+      "p10": 11659.0,
+      "median": 11659.0,
+      "p90": 11659.0,
+      "mean": 11655.04
+    },
+    "bare_casts": {
+      "p10": 5.0,
+      "median": 7.0,
+      "p90": 14.0,
+      "mean": 8.648
+    },
+    "owners": {
+      "p10": 1.0,
+      "median": 1.0,
+      "p90": 3.0,
+      "mean": 1.67
+    },
+    "low_stock_fraction": {
+      "p10": 0.382,
+      "median": 0.433,
+      "p90": 0.481,
+      "mean": 0.432
+    },
+    "gold": {
+      "p10": 52332.5,
+      "median": 55331.0,
+      "p90": 86803.1,
+      "mean": 65564.764
+    },
+    "license_h": {
+      "p10": 24.092,
+      "median": 24.788,
+      "p90": 48.952,
+      "mean": 30.195
+    },
+    "money_h": {
+      "p10": 24.987,
+      "median": 25.623,
+      "p90": 48.404,
+      "mean": 31.899
+    },
+    "valley_active_h": {
+      "p10": 1.22,
+      "median": 1.697,
+      "p90": 2.625
+    },
+    "valley_elapsed_h": {
+      "p10": 1.22,
+      "median": 1.697,
+      "p90": 24.608
+    },
+    "valley_casts": {
+      "p10": 123.9,
+      "median": 165.5,
+      "p90": 257.2
+    },
+    "censored_median_active_h": null,
+    "bait_share_of_inflow": 0.025,
+    "aquarium_share_of_inflow": 0.0,
+    "day_counts": {
+      "2": 308,
+      "3": 165,
+      "4": 18,
+      "5": 7,
+      "6": 1,
+      "7": 1
+    },
+    "money_before_license_fraction": 0.244
+  },
+  "candidate_52000_six": {
+    "parameters": {
+      "target": 52000,
+      "aquarium": true,
+      "expand20": false
+    },
+    "odds": "candidate",
+    "runs": 500,
+    "completed": 500,
+    "completion_rate": 1.0,
+    "day": {
+      "p10": 2.0,
+      "median": 2.0,
+      "p90": 3.0,
+      "mean": 2.556
+    },
+    "online_income": {
+      "p10": 2179.286,
+      "median": 3693.789,
+      "p90": 7838.243,
+      "mean": 5122.553
+    },
+    "offline_income": {
+      "p10": 5215.2,
+      "median": 13048.0,
+      "p90": 30564.4,
+      "mean": 20354.884
+    },
+    "aqua_capacity": {
+      "p10": 6.0,
+      "median": 6.0,
+      "p90": 6.0,
+      "mean": 6.0
+    },
+    "aqua_value": {
+      "p10": 6762.0,
+      "median": 11608.5,
+      "p90": 24903.5,
+      "mean": 14460.47
+    },
+    "active_h": {
+      "p10": 3.2,
+      "median": 4.023,
+      "p90": 5.107,
+      "mean": 4.095
+    },
+    "elapsed_h": {
+      "p10": 25.188,
+      "median": 26.011,
+      "p90": 49.077,
+      "mean": 38.307
+    },
+    "casts": {
+      "p10": 317.0,
+      "median": 397.0,
+      "p90": 514.4,
+      "mean": 408.046
+    },
+    "bait_spent": {
+      "p10": 1514.5,
+      "median": 1905.0,
+      "p90": 2515.0,
+      "mean": 1971.57
+    },
+    "sales": {
+      "p10": 21499.6,
+      "median": 28019.0,
+      "p90": 42632.2,
+      "mean": 31044.022
+    },
+    "rewards": {
+      "p10": 17439.4,
+      "median": 28176.5,
+      "p90": 42220.7,
+      "mean": 29067.192
+    },
+    "passive": {
+      "p10": 7691.388,
+      "median": 17037.576,
+      "p90": 37414.744,
+      "mean": 25477.437
+    },
+    "upgrades_and_region": {
+      "p10": 11959.0,
+      "median": 11959.0,
+      "p90": 11959.0,
+      "mean": 11959.0
+    },
+    "bare_casts": {
+      "p10": 10.0,
+      "median": 13.0,
+      "p90": 18.0,
+      "mean": 13.732
+    },
+    "owners": {
+      "p10": 1.0,
+      "median": 1.0,
+      "p90": 2.0,
+      "mean": 1.442
+    },
+    "low_stock_fraction": {
+      "p10": 0.373,
+      "median": 0.442,
+      "p90": 0.487,
+      "mean": 0.436
+    },
+    "gold": {
+      "p10": 52482.951,
+      "median": 58395.027,
+      "p90": 92389.884,
+      "mean": 71658.081
+    },
+    "license_h": {
+      "p10": 24.378,
+      "median": 24.987,
+      "p90": 49.077,
+      "mean": 32.236
+    },
+    "money_h": {
+      "p10": 25.117,
+      "median": 25.815,
+      "p90": 48.125,
+      "mean": 34.608
+    },
+    "valley_active_h": {
+      "p10": 1.969,
+      "median": 2.024,
+      "p90": 2.732
+    },
+    "valley_elapsed_h": {
+      "p10": 1.969,
+      "median": 24.008,
+      "p90": 24.72
+    },
+    "valley_casts": {
+      "p10": 186.9,
+      "median": 191.0,
+      "p90": 268.0
+    },
+    "censored_median_active_h": null,
+    "bait_share_of_inflow": 0.023,
+    "aquarium_share_of_inflow": 0.2976730788227014,
+    "day_counts": {
+      "2": 258,
+      "3": 214,
+      "4": 22,
+      "5": 5,
+      "7": 1
+    },
+    "money_before_license_fraction": 0.288
+  },
+  "candidate_52000_twenty": {
+    "parameters": {
+      "target": 52000,
+      "aquarium": true,
+      "expand20": true
+    },
+    "odds": "candidate",
+    "runs": 500,
+    "completed": 500,
+    "completion_rate": 1.0,
+    "day": {
+      "p10": 2.0,
+      "median": 3.0,
+      "p90": 3.0,
+      "mean": 2.922
+    },
+    "online_income": {
+      "p10": 4165.327,
+      "median": 6188.454,
+      "p90": 11689.315,
+      "mean": 8181.518
+    },
+    "offline_income": {
+      "p10": 13512.7,
+      "median": 35845.5,
+      "p90": 53673.7,
+      "mean": 40814.87
+    },
+    "aqua_capacity": {
+      "p10": 20.0,
+      "median": 20.0,
+      "p90": 20.0,
+      "mean": 19.98
+    },
+    "aqua_value": {
+      "p10": 14997.1,
+      "median": 20553.0,
+      "p90": 36235.2,
+      "mean": 24244.204
+    },
+    "active_h": {
+      "p10": 3.867,
+      "median": 4.037,
+      "p90": 5.169,
+      "mean": 4.326
+    },
+    "elapsed_h": {
+      "p10": 25.85,
+      "median": 48.008,
+      "p90": 49.143,
+      "mean": 46.585
+    },
+    "casts": {
+      "p10": 383.9,
+      "median": 399.0,
+      "p90": 522.1,
+      "mean": 430.334
+    },
+    "bait_spent": {
+      "p10": 1858.5,
+      "median": 1935.0,
+      "p90": 2551.0,
+      "mean": 2083.02
+    },
+    "sales": {
+      "p10": 19273.1,
+      "median": 22580.5,
+      "p90": 34226.0,
+      "mean": 25152.892
+    },
+    "rewards": {
+      "p10": 17243.7,
+      "median": 27888.0,
+      "p90": 41570.4,
+      "mean": 28732.96
+    },
+    "passive": {
+      "p10": 20242.904,
+      "median": 42485.535,
+      "p90": 62185.427,
+      "mean": 48996.388
+    },
+    "upgrades_and_region": {
+      "p10": 21259.0,
+      "median": 21259.0,
+      "p90": 21259.0,
+      "mean": 21235.0
+    },
+    "bare_casts": {
+      "p10": 10.0,
+      "median": 13.0,
+      "p90": 18.0,
+      "mean": 13.73
+    },
+    "owners": {
+      "p10": 1.0,
+      "median": 1.0,
+      "p90": 3.0,
+      "mean": 1.49
+    },
+    "low_stock_fraction": {
+      "p10": 0.396,
+      "median": 0.474,
+      "p90": 0.495,
+      "mean": 0.459
+    },
+    "gold": {
+      "p10": 52829.817,
+      "median": 69040.667,
+      "p90": 94860.831,
+      "mean": 79564.22
+    },
+    "license_h": {
+      "p10": 24.378,
+      "median": 25.051,
+      "p90": 49.127,
+      "mean": 32.443
+    },
+    "money_h": {
+      "p10": 25.696,
+      "median": 48.008,
+      "p90": 48.37,
+      "mean": 44.345
+    },
+    "valley_active_h": {
+      "p10": 2.017,
+      "median": 2.024,
+      "p90": 2.763
+    },
+    "valley_elapsed_h": {
+      "p10": 24.008,
+      "median": 24.008,
+      "p90": 24.748
+    },
+    "valley_casts": {
+      "p10": 189.0,
+      "median": 191.0,
+      "p90": 270.2
+    },
+    "censored_median_active_h": null,
+    "bait_share_of_inflow": 0.0202,
+    "aquarium_share_of_inflow": 0.47623757014105467,
+    "day_counts": {
+      "2": 75,
+      "3": 397,
+      "4": 22,
+      "5": 5,
+      "7": 1
+    },
+    "money_before_license_fraction": 0.228
+  },
+  "candidate_104000_none": {
+    "parameters": {
+      "target": 104000,
+      "aquarium": false,
+      "expand20": false
+    },
+    "odds": "candidate",
+    "runs": 500,
+    "completed": 500,
+    "completion_rate": 1.0,
+    "day": {
+      "p10": 3.0,
+      "median": 3.0,
+      "p90": 4.0,
+      "mean": 3.168
+    },
+    "online_income": {
+      "p10": 0.0,
+      "median": 0.0,
+      "p90": 0.0,
+      "mean": 0.0
+    },
+    "offline_income": {
+      "p10": 0.0,
+      "median": 0.0,
+      "p90": 0.0,
+      "mean": 0.0
+    },
+    "aqua_capacity": {
+      "p10": 3.0,
+      "median": 3.0,
+      "p90": 3.0,
+      "mean": 3.0
+    },
+    "aqua_value": {
+      "p10": 0.0,
+      "median": 0.0,
+      "p90": 0.0,
+      "mean": 0.0
+    },
+    "active_h": {
+      "p10": 4.569,
+      "median": 5.379,
+      "p90": 6.279,
+      "mean": 5.446
+    },
+    "elapsed_h": {
+      "p10": 48.541,
+      "median": 49.353,
+      "p90": 72.235,
+      "mean": 53.114
+    },
+    "casts": {
+      "p10": 458.9,
+      "median": 546.0,
+      "p90": 636.1,
+      "mean": 551.178
+    },
+    "bait_spent": {
+      "p10": 2244.5,
+      "median": 2690.0,
+      "p90": 3136.0,
+      "mean": 2712.65
+    },
+    "sales": {
+      "p10": 79325.6,
+      "median": 95026.5,
+      "p90": 112332.8,
+      "mean": 96612.482
+    },
+    "rewards": {
+      "p10": 18706.9,
+      "median": 29188.5,
+      "p90": 42310.8,
+      "mean": 30161.08
+    },
+    "passive": {
+      "p10": 0.0,
+      "median": 0.0,
+      "p90": 0.0,
+      "mean": 0.0
+    },
+    "upgrades_and_region": {
+      "p10": 11659.0,
+      "median": 11659.0,
+      "p90": 11659.0,
+      "mean": 11655.04
+    },
+    "bare_casts": {
+      "p10": 5.0,
+      "median": 7.0,
+      "p90": 14.0,
+      "mean": 8.648
+    },
+    "owners": {
+      "p10": 2.0,
+      "median": 3.0,
+      "p90": 4.0,
+      "mean": 2.934
+    },
+    "low_stock_fraction": {
+      "p10": 0.379,
+      "median": 0.41,
+      "p90": 0.45,
+      "mean": 0.413
+    },
+    "gold": {
+      "p10": 104394.9,
+      "median": 106952.5,
+      "p90": 122413.4,
+      "mean": 112405.872
+    },
+    "license_h": {
+      "p10": 24.092,
+      "median": 24.788,
+      "p90": 48.952,
+      "mean": 30.195
+    },
+    "money_h": {
+      "p10": 48.512,
+      "median": 49.331,
+      "p90": 72.134,
+      "mean": 52.015
+    },
+    "valley_active_h": {
+      "p10": 1.22,
+      "median": 1.697,
+      "p90": 2.625
+    },
+    "valley_elapsed_h": {
+      "p10": 1.22,
+      "median": 1.697,
+      "p90": 24.608
+    },
+    "valley_casts": {
+      "p10": 123.9,
+      "median": 165.5,
+      "p90": 257.2
+    },
+    "censored_median_active_h": null,
+    "bait_share_of_inflow": 0.0214,
+    "aquarium_share_of_inflow": 0.0,
+    "day_counts": {
+      "2": 6,
+      "3": 417,
+      "4": 67,
+      "5": 8,
+      "6": 1,
+      "7": 1
+    },
+    "money_before_license_fraction": 0.058
+  },
+  "candidate_104000_six": {
+    "parameters": {
+      "target": 104000,
+      "aquarium": true,
+      "expand20": false
+    },
+    "odds": "candidate",
+    "runs": 500,
+    "completed": 500,
+    "completion_rate": 1.0,
+    "day": {
+      "p10": 3.0,
+      "median": 3.0,
+      "p90": 4.0,
+      "mean": 3.28
+    },
+    "online_income": {
+      "p10": 6939.982,
+      "median": 10960.299,
+      "p90": 15865.256,
+      "mean": 11730.768
+    },
+    "offline_income": {
+      "p10": 20024.3,
+      "median": 31101.0,
+      "p90": 86698.6,
+      "mean": 43436.186
+    },
+    "aqua_capacity": {
+      "p10": 6.0,
+      "median": 6.0,
+      "p90": 6.0,
+      "mean": 6.0
+    },
+    "aqua_value": {
+      "p10": 19876.4,
+      "median": 35529.0,
+      "p90": 51772.9,
+      "mean": 35986.74
+    },
+    "active_h": {
+      "p10": 4.505,
+      "median": 5.535,
+      "p90": 6.053,
+      "mean": 5.49
+    },
+    "elapsed_h": {
+      "p10": 48.48,
+      "median": 49.511,
+      "p90": 72.008,
+      "mean": 55.621
+    },
+    "casts": {
+      "p10": 449.8,
+      "median": 558.0,
+      "p90": 609.0,
+      "mean": 552.28
+    },
+    "bait_spent": {
+      "p10": 2180.0,
+      "median": 2720.0,
+      "p90": 2985.0,
+      "mean": 2692.74
+    },
+    "sales": {
+      "p10": 41127.1,
+      "median": 52933.0,
+      "p90": 61504.4,
+      "mean": 52548.034
+    },
+    "rewards": {
+      "p10": 19312.3,
+      "median": 29150.0,
+      "p90": 42865.6,
+      "mean": 30055.472
+    },
+    "passive": {
+      "p10": 31256.582,
+      "median": 41725.698,
+      "p90": 99674.587,
+      "mean": 55166.954
+    },
+    "upgrades_and_region": {
+      "p10": 11959.0,
+      "median": 11959.0,
+      "p90": 11959.0,
+      "mean": 11959.0
+    },
+    "bare_casts": {
+      "p10": 10.0,
+      "median": 13.0,
+      "p90": 18.0,
+      "mean": 13.732
+    },
+    "owners": {
+      "p10": 2.0,
+      "median": 3.0,
+      "p90": 3.0,
+      "mean": 2.546
+    },
+    "low_stock_fraction": {
+      "p10": 0.377,
+      "median": 0.422,
+      "p90": 0.458,
+      "mean": 0.42
+    },
+    "gold": {
+      "p10": 104355.691,
+      "median": 105946.662,
+      "p90": 166147.494,
+      "mean": 123118.72
+    },
+    "license_h": {
+      "p10": 24.378,
+      "median": 24.987,
+      "p90": 49.077,
+      "mean": 32.236
+    },
+    "money_h": {
+      "p10": 48.455,
+      "median": 49.477,
+      "p90": 72.008,
+      "mean": 54.657
+    },
+    "valley_active_h": {
+      "p10": 1.969,
+      "median": 2.024,
+      "p90": 2.732
+    },
+    "valley_elapsed_h": {
+      "p10": 1.969,
+      "median": 24.008,
+      "p90": 24.72
+    },
+    "valley_casts": {
+      "p10": 186.9,
+      "median": 191.0,
+      "p90": 268.0
+    },
+    "censored_median_active_h": null,
+    "bait_share_of_inflow": 0.0195,
+    "aquarium_share_of_inflow": 0.4004265798665993,
+    "day_counts": {
+      "3": 368,
+      "4": 126,
+      "5": 5,
+      "7": 1
+    },
+    "money_before_license_fraction": 0.072
+  },
+  "candidate_104000_twenty": {
+    "parameters": {
+      "target": 104000,
+      "aquarium": true,
+      "expand20": true
+    },
+    "odds": "candidate",
+    "runs": 500,
+    "completed": 500,
+    "completion_rate": 1.0,
+    "day": {
+      "p10": 3.0,
+      "median": 3.0,
+      "p90": 4.0,
+      "mean": 3.354
+    },
+    "online_income": {
+      "p10": 10664.268,
+      "median": 16597.666,
+      "p90": 22986.944,
+      "mean": 17560.285
+    },
+    "offline_income": {
+      "p10": 34747.0,
+      "median": 49888.5,
+      "p90": 126312.8,
+      "mean": 68864.886
+    },
+    "aqua_capacity": {
+      "p10": 20.0,
+      "median": 20.0,
+      "p90": 20.0,
+      "mean": 20.0
+    },
+    "aqua_value": {
+      "p10": 30589.5,
+      "median": 49458.5,
+      "p90": 69200.1,
+      "mean": 50173.558
+    },
+    "active_h": {
+      "p10": 4.646,
+      "median": 5.723,
+      "p90": 6.054,
+      "mean": 5.595
+    },
+    "elapsed_h": {
+      "p10": 48.616,
+      "median": 49.694,
+      "p90": 72.008,
+      "mean": 57.352
+    },
+    "casts": {
+      "p10": 463.8,
+      "median": 579.5,
+      "p90": 609.0,
+      "mean": 562.706
+    },
+    "bait_spent": {
+      "p10": 2230.0,
+      "median": 2830.0,
+      "p90": 2985.0,
+      "mean": 2744.88
+    },
+    "sales": {
+      "p10": 30632.2,
+      "median": 40950.5,
+      "p90": 48033.9,
+      "mean": 40733.178
+    },
+    "rewards": {
+      "p10": 19289.8,
+      "median": 28224.5,
+      "p90": 42353.0,
+      "mean": 29669.156
+    },
+    "passive": {
+      "p10": 51942.804,
+      "median": 65056.966,
+      "p90": 148677.158,
+      "mean": 86425.171
+    },
+    "upgrades_and_region": {
+      "p10": 21259.0,
+      "median": 21259.0,
+      "p90": 21259.0,
+      "mean": 21259.0
+    },
+    "bare_casts": {
+      "p10": 10.0,
+      "median": 13.0,
+      "p90": 18.0,
+      "mean": 13.73
+    },
+    "owners": {
+      "p10": 2.0,
+      "median": 3.0,
+      "p90": 3.0,
+      "mean": 2.612
+    },
+    "low_stock_fraction": {
+      "p10": 0.379,
+      "median": 0.433,
+      "p90": 0.458,
+      "mean": 0.425
+    },
+    "gold": {
+      "p10": 104364.738,
+      "median": 106015.206,
+      "p90": 191390.676,
+      "mean": 132823.625
+    },
+    "license_h": {
+      "p10": 24.378,
+      "median": 25.051,
+      "p90": 49.127,
+      "mean": 32.443
+    },
+    "money_h": {
+      "p10": 48.486,
+      "median": 49.655,
+      "p90": 72.008,
+      "mean": 56.387
+    },
+    "valley_active_h": {
+      "p10": 2.017,
+      "median": 2.024,
+      "p90": 2.763
+    },
+    "valley_elapsed_h": {
+      "p10": 24.008,
+      "median": 24.008,
+      "p90": 24.748
+    },
+    "valley_casts": {
+      "p10": 189.0,
+      "median": 191.0,
+      "p90": 270.2
+    },
+    "censored_median_active_h": null,
+    "bait_share_of_inflow": 0.0175,
+    "aquarium_share_of_inflow": 0.5510842679076638,
+    "day_counts": {
+      "3": 331,
+      "4": 163,
+      "5": 5,
+      "7": 1
+    },
+    "money_before_license_fraction": 0.072
+  },
+  "current_104000_twenty_owner": {
+    "parameters": {
+      "expand20": true,
+      "exhibit_owner": true
+    },
+    "odds": "current",
+    "runs": 500,
+    "completed": 500,
+    "completion_rate": 1.0,
+    "day": {
+      "p10": 3.0,
+      "median": 4.0,
+      "p90": 5.0,
+      "mean": 3.85
+    },
+    "online_income": {
+      "p10": 19364.989,
+      "median": 25771.184,
+      "p90": 58029.646,
+      "mean": 35474.196
+    },
+    "offline_income": {
+      "p10": 66056.8,
+      "median": 131545.5,
+      "p90": 226252.6,
+      "mean": 155425.836
+    },
+    "aqua_capacity": {
+      "p10": 20.0,
+      "median": 20.0,
+      "p90": 20.0,
+      "mean": 20.0
+    },
+    "aqua_value": {
+      "p10": 50377.6,
+      "median": 66500.5,
+      "p90": 95948.9,
+      "mean": 71791.292
+    },
+    "active_h": {
+      "p10": 5.222,
+      "median": 6.047,
+      "p90": 8.161,
+      "mean": 6.407
+    },
+    "elapsed_h": {
+      "p10": 49.196,
+      "median": 72.008,
+      "p90": 96.101,
+      "mean": 69.07
+    },
+    "casts": {
+      "p10": 527.8,
+      "median": 608.0,
+      "p90": 829.0,
+      "mean": 647.91
+    },
+    "bait_spent": {
+      "p10": 2559.0,
+      "median": 2970.0,
+      "p90": 4075.5,
+      "mean": 3170.89
+    },
+    "sales": {
+      "p10": 30774.7,
+      "median": 36576.0,
+      "p90": 55423.7,
+      "mean": 40794.444
+    },
+    "rewards": {
+      "p10": 1416.3,
+      "median": 1775.0,
+      "p90": 2254.7,
+      "mean": 1808.198
+    },
+    "passive": {
+      "p10": 92327.963,
+      "median": 155895.04,
+      "p90": 290370.861,
+      "mean": 190900.032
+    },
+    "upgrades_and_region": {
+      "p10": 21259.0,
+      "median": 21259.0,
+      "p90": 21259.0,
+      "mean": 21259.0
+    },
+    "bare_casts": {
+      "p10": 10.0,
+      "median": 13.0,
+      "p90": 18.0,
+      "mean": 13.732
+    },
+    "owners": {
+      "p10": 2.0,
+      "median": 3.0,
+      "p90": 5.0,
+      "mean": 3.27
+    },
+    "low_stock_fraction": {
+      "p10": 0.387,
+      "median": 0.443,
+      "p90": 0.459,
+      "mean": 0.431
+    },
+    "gold": {
+      "p10": 104886.442,
+      "median": 170848.053,
+      "p90": 329684.163,
+      "mean": 209072.784
+    },
+    "license_h": {
+      "p10": 24.591,
+      "median": 48.117,
+      "p90": 96.101,
+      "mean": 48.184
+    },
+    "money_h": {
+      "p10": 49.092,
+      "median": 72.008,
+      "p90": 72.008,
+      "mean": 62.562
+    },
+    "valley_active_h": {
+      "p10": 2.017,
+      "median": 2.024,
+      "p90": 2.81
+    },
+    "valley_elapsed_h": {
+      "p10": 24.008,
+      "median": 24.008,
+      "p90": 24.808
+    },
+    "valley_casts": {
+      "p10": 189.0,
+      "median": 191.0,
+      "p90": 276.3
+    },
+    "censored_median_active_h": null,
+    "bait_share_of_inflow": 0.0136,
+    "aquarium_share_of_inflow": 0.8175496610539067,
+    "day_counts": {
+      "3": 170,
+      "4": 275,
+      "5": 27,
+      "6": 17,
+      "7": 10,
+      "8": 1
+    },
+    "money_before_license_fraction": 0.266
+  },
+  "candidate_104000_twenty_owner": {
+    "parameters": {
+      "expand20": true,
+      "exhibit_owner": true
+    },
+    "odds": "candidate",
+    "runs": 500,
+    "completed": 500,
+    "completion_rate": 1.0,
+    "day": {
+      "p10": 3.0,
+      "median": 3.0,
+      "p90": 4.0,
+      "mean": 3.29
+    },
+    "online_income": {
+      "p10": 14118.971,
+      "median": 21818.37,
+      "p90": 28351.646,
+      "mean": 22401.139
+    },
+    "offline_income": {
+      "p10": 59330.7,
+      "median": 76858.0,
+      "p90": 152782.7,
+      "mean": 94802.512
+    },
+    "aqua_capacity": {
+      "p10": 20.0,
+      "median": 20.0,
+      "p90": 20.0,
+      "mean": 20.0
+    },
+    "aqua_value": {
+      "p10": 49203.9,
+      "median": 63614.0,
+      "p90": 79609.7,
+      "mean": 64327.264
+    },
+    "active_h": {
+      "p10": 4.26,
+      "median": 5.452,
+      "p90": 6.052,
+      "mean": 5.398
+    },
+    "elapsed_h": {
+      "p10": 48.234,
+      "median": 49.424,
+      "p90": 72.008,
+      "mean": 55.749
+    },
+    "casts": {
+      "p10": 422.0,
+      "median": 551.0,
+      "p90": 609.0,
+      "mean": 542.548
+    },
+    "bait_spent": {
+      "p10": 2049.5,
+      "median": 2690.0,
+      "p90": 2980.0,
+      "mean": 2644.08
+    },
+    "sales": {
+      "p10": 27816.3,
+      "median": 39470.5,
+      "p90": 47301.9,
+      "mean": 38951.328
+    },
+    "rewards": {
+      "p10": 1432.8,
+      "median": 1785.0,
+      "p90": 2230.0,
+      "mean": 1821.084
+    },
+    "passive": {
+      "p10": 83482.269,
+      "median": 94545.711,
+      "p90": 180856.652,
+      "mean": 117203.651
+    },
+    "upgrades_and_region": {
+      "p10": 21259.0,
+      "median": 21259.0,
+      "p90": 21259.0,
+      "mean": 21259.0
+    },
+    "bare_casts": {
+      "p10": 10.0,
+      "median": 13.0,
+      "p90": 18.0,
+      "mean": 13.732
+    },
+    "owners": {
+      "p10": 1.0,
+      "median": 2.0,
+      "p90": 3.0,
+      "mean": 2.42
+    },
+    "low_stock_fraction": {
+      "p10": 0.379,
+      "median": 0.423,
+      "p90": 0.463,
+      "mean": 0.424
+    },
+    "gold": {
+      "p10": 104471.782,
+      "median": 106133.409,
+      "p90": 202190.605,
+      "mean": 134072.983
+    },
+    "license_h": {
+      "p10": 24.393,
+      "median": 25.082,
+      "p90": 49.156,
+      "mean": 32.735
+    },
+    "money_h": {
+      "p10": 48.191,
+      "median": 49.38,
+      "p90": 72.008,
+      "mean": 54.766
+    },
+    "valley_active_h": {
+      "p10": 2.017,
+      "median": 2.024,
+      "p90": 2.81
+    },
+    "valley_elapsed_h": {
+      "p10": 24.008,
+      "median": 24.008,
+      "p90": 24.808
+    },
+    "valley_casts": {
+      "p10": 189.0,
+      "median": 191.0,
+      "p90": 276.3
+    },
+    "censored_median_active_h": null,
+    "bait_share_of_inflow": 0.0167,
+    "aquarium_share_of_inflow": 0.7419076592496712,
+    "day_counts": {
+      "3": 363,
+      "4": 131,
+      "5": 5,
+      "7": 1
+    },
+    "money_before_license_fraction": 0.084
+  },
+  "current_104000_six_split": {
+    "parameters": {
+      "session_hours": 1,
+      "interval_hours": 12
+    },
+    "odds": "current",
+    "runs": 500,
+    "completed": 500,
+    "completion_rate": 1.0,
+    "day": {
+      "p10": 3.0,
+      "median": 3.0,
+      "p90": 4.0,
+      "mean": 3.238
+    },
+    "online_income": {
+      "p10": 5103.718,
+      "median": 7777.901,
+      "p90": 21200.029,
+      "mean": 13009.623
+    },
+    "offline_income": {
+      "p10": 42217.9,
+      "median": 70230.5,
+      "p90": 176857.7,
+      "mean": 107655.484
+    },
+    "aqua_capacity": {
+      "p10": 6.0,
+      "median": 6.0,
+      "p90": 6.0,
+      "mean": 6.0
+    },
+    "aqua_value": {
+      "p10": 14752.1,
+      "median": 27856.5,
+      "p90": 55472.7,
+      "mean": 32652.39
+    },
+    "active_h": {
+      "p10": 4.057,
+      "median": 5.065,
+      "p90": 6.734,
+      "mean": 5.331
+    },
+    "elapsed_h": {
+      "p10": 48.008,
+      "median": 60.008,
+      "p90": 72.661,
+      "mean": 60.426
+    },
+    "casts": {
+      "p10": 426.0,
+      "median": 535.0,
+      "p90": 716.2,
+      "mean": 564.054
+    },
+    "bait_spent": {
+      "p10": 2069.5,
+      "median": 2605.0,
+      "p90": 3501.5,
+      "mean": 2751.56
+    },
+    "sales": {
+      "p10": 30562.7,
+      "median": 38580.5,
+      "p90": 60548.5,
+      "mean": 44033.5
+    },
+    "rewards": {
+      "p10": 17592.0,
+      "median": 28724.5,
+      "p90": 41806.6,
+      "mean": 29532.704
+    },
+    "passive": {
+      "p10": 49960.778,
+      "median": 77043.292,
+      "p90": 200126.689,
+      "mean": 120665.107
+    },
+    "upgrades_and_region": {
+      "p10": 11959.0,
+      "median": 11959.0,
+      "p90": 11959.0,
+      "mean": 11937.22
+    },
+    "bare_casts": {
+      "p10": 10.0,
+      "median": 13.0,
+      "p90": 18.0,
+      "mean": 13.742
+    },
+    "owners": {
+      "p10": 2.0,
+      "median": 2.0,
+      "p90": 4.0,
+      "mean": 2.596
+    },
+    "low_stock_fraction": {
+      "p10": 0.034,
+      "median": 0.045,
+      "p90": 0.061,
+      "mean": 0.047
+    },
+    "gold": {
+      "p10": 104842.242,
+      "median": 128096.263,
+      "p90": 271057.674,
+      "mean": 179542.531
+    },
+    "license_h": {
+      "p10": 24.343,
+      "median": 36.6,
+      "p90": 72.661,
+      "mean": 45.638
+    },
+    "money_h": {
+      "p10": 48.008,
+      "median": 60.008,
+      "p90": 60.008,
+      "mean": 54.423
+    },
+    "valley_active_h": {
+      "p10": 1.371,
+      "median": 1.868,
+      "p90": 2.437
+    },
+    "valley_elapsed_h": {
+      "p10": 12.36,
+      "median": 12.856,
+      "p90": 24.421
+    },
+    "valley_casts": {
+      "p10": 138.0,
+      "median": 192.0,
+      "p90": 253.1
+    },
+    "censored_median_active_h": null,
+    "bait_share_of_inflow": 0.0142,
+    "aquarium_share_of_inflow": 0.6212443624297553,
+    "day_counts": {
+      "2": 10,
+      "3": 409,
+      "4": 50,
+      "5": 19,
+      "6": 7,
+      "7": 5
+    },
+    "money_before_license_fraction": 0.288
+  },
+  "current_104000_six_no_offline": {
+    "parameters": {
+      "offline_cap_hours": 0
+    },
+    "odds": "current",
+    "runs": 500,
+    "completed": 500,
+    "completion_rate": 1.0,
+    "day": {
+      "p10": 4.0,
+      "median": 4.0,
+      "p90": 5.0,
+      "mean": 4.318
+    },
+    "online_income": {
+      "p10": 19202.86,
+      "median": 26327.643,
+      "p90": 36422.761,
+      "mean": 30701.172
+    },
+    "offline_income": {
+      "p10": 0.0,
+      "median": 0.0,
+      "p90": 0.0,
+      "mean": 0.0
+    },
+    "aqua_capacity": {
+      "p10": 6.0,
+      "median": 6.0,
+      "p90": 6.0,
+      "mean": 6.0
+    },
+    "aqua_value": {
+      "p10": 44207.1,
+      "median": 59588.5,
+      "p90": 81015.6,
+      "mean": 61861.614
+    },
+    "active_h": {
+      "p10": 6.854,
+      "median": 7.634,
+      "p90": 8.678,
+      "mean": 7.845
+    },
+    "elapsed_h": {
+      "p10": 72.814,
+      "median": 73.594,
+      "p90": 96.619,
+      "mean": 80.797
+    },
+    "casts": {
+      "p10": 695.0,
+      "median": 778.0,
+      "p90": 885.1,
+      "mean": 798.998
+    },
+    "bait_spent": {
+      "p10": 3409.5,
+      "median": 3825.0,
+      "p90": 4346.5,
+      "mean": 3926.33
+    },
+    "sales": {
+      "p10": 56601.8,
+      "median": 65646.0,
+      "p90": 76882.6,
+      "mean": 69027.142
+    },
+    "rewards": {
+      "p10": 20065.9,
+      "median": 30843.5,
+      "p90": 43697.4,
+      "mean": 31561.998
+    },
+    "passive": {
+      "p10": 19202.86,
+      "median": 26327.643,
+      "p90": 36422.761,
+      "mean": 30701.172
+    },
+    "upgrades_and_region": {
+      "p10": 11959.0,
+      "median": 11959.0,
+      "p90": 11959.0,
+      "mean": 11959.0
+    },
+    "bare_casts": {
+      "p10": 10.0,
+      "median": 13.0,
+      "p90": 18.0,
+      "mean": 13.732
+    },
+    "owners": {
+      "p10": 4.0,
+      "median": 4.0,
+      "p90": 6.0,
+      "mean": 4.578
+    },
+    "low_stock_fraction": {
+      "p10": 0.379,
+      "median": 0.407,
+      "p90": 0.433,
+      "mean": 0.406
+    },
+    "gold": {
+      "p10": 104316.226,
+      "median": 105645.577,
+      "p90": 120054.51,
+      "mean": 115404.982
+    },
+    "license_h": {
+      "p10": 24.847,
+      "median": 48.281,
+      "p90": 96.261,
+      "mean": 50.785
+    },
+    "money_h": {
+      "p10": 72.754,
+      "median": 73.5,
+      "p90": 96.235,
+      "mean": 76.744
+    },
+    "valley_active_h": {
+      "p10": 1.969,
+      "median": 2.228,
+      "p90": 2.732
+    },
+    "valley_elapsed_h": {
+      "p10": 1.969,
+      "median": 24.21,
+      "p90": 24.72
+    },
+    "valley_casts": {
+      "p10": 186.9,
+      "median": 213.0,
+      "p90": 268.0
+    },
+    "censored_median_active_h": null,
+    "bait_share_of_inflow": 0.0299,
+    "aquarium_share_of_inflow": 0.2338418702968603,
+    "day_counts": {
+      "3": 11,
+      "4": 363,
+      "5": 96,
+      "6": 17,
+      "7": 12,
+      "8": 1
+    },
+    "money_before_license_fraction": 0.14
+  }
+}

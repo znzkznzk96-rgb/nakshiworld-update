@@ -19,6 +19,7 @@ const LX: = 176
 
 
 const STAR_P: = [0.45, 0.35, 0.15, 0.05, 0.0]
+const EARLY_REGION_STOCK_FLOOR := 0.70
 const OTHER_REGION_STAR_P = [0.62, 0.27, 0.09, 0.018, 0.0]
 const GRADE_P: = [0.71, 0.15, 0.10, 0.03, 0.01]
 const OTHER_REGION_GRADE_P = [0.8653, 0.0661, 0.0628, 0.0042, 0.0016]
@@ -113,6 +114,7 @@ var catch_counts: = {}
 var catch_legacy: = {}
 var trans: = {}
 var bait: = 0
+var expedition = preload("res://addons/expedition/view.gd").new()
 var souls: = 0
 const AQUA_CAP: = [3, 6, 10, 15, 20]
 const AQUA_COST: = [300, 900, 2400, 6000]
@@ -301,6 +303,7 @@ func _ready() -> void :
 	_load_game()
 	tex_sign = load("res://art/ui/title_sign.png")
 	V.setup()
+	expedition.setup()
 	spots.setup()
 	icons.m_fishing = load("res://art/refresh53/fishing_icon.png")
 	var show_title: bool = title_open
@@ -444,13 +447,15 @@ func start_wait() -> void :
 	for p in ["float", "hook", "line", "reel"]:
 		if region_shop.has_active(self, p, active_region): nparts += 1
 		else: break
-	var stock_ratio: float = pond_stock / pond_max()
+	var stock_ratio: float = clampf(pond_stock / pond_max(), 0.0, 1.0)
+	# Protect early-region bundle progress without resetting stock or removing wait penalties.
+	var odds_stock_ratio: float = maxf(stock_ratio, EARLY_REGION_STOCK_FLOOR) if active_region in [0,1] else stock_ratio
 	var star_base: Array = STAR_P if active_region == 0 else OTHER_REGION_STAR_P
 	var grade_base: Array = GRADE_P if active_region == 0 else OTHER_REGION_GRADE_P
 	for i in 5:
-		var stock_weight: float = 1.0 if i == 0 else lerpf(0.04, 1.0, stock_ratio) ** i
+		var stock_weight: float = 1.0 if i == 0 else lerpf(0.04, 1.0, odds_stock_ratio) ** i
 		sp_w.append(star_base[i] * (0.1 if bare and i > 0 else 1.0) * stock_weight if i <= mini(nparts, 3) else 0.0)
-	if pond_stock <= 0.0:
+	if pond_stock <= 0.0 and active_region not in [0,1]:
 		sp_w = [1.0, 0.0, 0.0, 0.0, 0.0]
 	var gp: = []
 	for i in 5: gp.append(grade_base[i] * pow(bait_multiplier, i))
@@ -577,7 +582,47 @@ func next_behavior() -> void :
 	S.runStreak = streak + 1 if S.beh == "tell" else 0
 	if S.beh != "swim": S.lastBeh = S.beh
 
+# Early waters teach a small, species-stable vocabulary; grade changes force, not moves.
+func early_action_pool(region: int, species: int, star: int) -> Array:
+	var base: Array = ["tell", "turn", "rise"]
+	var local_id: int = posmod(species, 20)
+	var first: int = local_id % 3
+	var pool: Array = [base[first]]
+	if star >= 2 or (star == 1 and local_id % 2 == 1): pool.append(base[(first + 1) % 3])
+	if star >= 4: pool = base.duplicate()
+	if region == 1 and (local_id % 4 == 0 or star >= 3):
+		if pool.size() >= 2: pool[pool.size() - 1] = "nose"
+		else: pool[0] = "nose"
+	return pool
+
+func action_warning_seconds() -> float:
+	return clampf(1.1 - 0.05 * float(S.grade) - 0.025 * float(S.star), 0.8, 1.1)
+
+func _early_behavior_pick() -> void:
+	S.fakeTell = false;S.fakeRest = false;S.chain = false
+	var roll: float = randf()
+	if roll < 0.22:
+		S.beh = "rest";S.bt = randf_range(1.0, 1.8)
+	elif roll < 0.40:
+		S.beh = "swim";S.bt = randf_range(0.8, 1.8)
+	else:
+		var pool: Array = early_action_pool(active_region, int(S.sp), int(S.star))
+		S.beh = pool[randi() % pool.size()];S.bt = action_warning_seconds()
+		S.warningDuration = S.bt
+		if S.beh == "tell": buzz([25, 45, 25])
+		elif S.beh == "turn": buzz([220])
+		elif S.beh == "rise": buzz([20, 30, 20, 30, 20])
+		elif S.beh == "nose": S.diveDir = -1 if randf() < 0.5 else 1;buzz([35, 35, 90])
+
+func tension_line_color(value: float) -> Color:
+	var v: float = clampf(value, 0, 100)
+	if v < 40: return Color.WHITE.lerp(Color("ffb36a"), v / 40.0)
+	if v < 65: return Color("ffb36a").lerp(Color("ff4438"), (v - 40) / 25.0)
+	return Color("ff4438").lerp(Color("ff122e"), clampf((v - 65) / 20.0, 0, 1))
+
 func _next_behavior_pick(g: int, c: float, r: float, x: float, pRun: float, pJump: float, pDive: float, pRest: float) -> void :
+	if active_region <= 1:
+		_early_behavior_pick();return
 	if g >= 3 and x < 0.12:
 		S.beh = "turn";S.bt = 0.45;buzz([220]);return
 	if g == 4 and x < 0.22:
@@ -988,14 +1033,17 @@ func update_fight(dt: float) -> void :
 		if S.beh == "tell":
 			if S.fakeTell: S.beh = "swim";S.bt = randf_range(0.6, 1.2)
 			else:
-				S.beh = "run";S.bt = randf_range(0.6, 1.2) * (1 + 0.08 * S.grade) * (1 + 0.4 * S.chaos * randf());S.chain = randf() < 0.4 * S.chaos;buzz(vib_run())
+				S.beh = "run";S.bt = randf_range(0.9, 1.8) * (1 + 0.08 * S.grade) * (1 + 0.4 * S.chaos * randf());S.chain = active_region > 1 and randf() < 0.4 * S.chaos;buzz(vib_run())
 				if holding: S.tension += shock_amount(1.0);buzz([80, 30, 220]);play("drag", 2.0, 0.6)
-		elif S.beh == "turn": S.beh = "charge";S.bt = randf_range(1.0, 1.4);buzz(vib_run())
+		elif S.beh == "turn": S.beh = "charge";S.bt = randf_range(1.5, 2.1);buzz(vib_run())
 		elif S.beh == "nose":
-			S.beh = "dive";S.bt = randf_range(0.7, 1.1) * (1 + 0.1 * S.grade);buzz([110, 40, 140])
+			S.beh = "dive";S.bt = randf_range(1.05, 1.65) * (1 + 0.1 * S.grade);buzz([110, 40, 140])
 			if holding: S.tension += shock_amount(0.6);buzz([80, 30, 220])
-		elif S.beh == "rise": S.beh = "jump";S.bt = 0.9;S.jumpUsed = false;S.jumpT = 0.0
-		elif S.beh == "jump": S.landUntil = clock + 0.4;next_behavior()
+		elif S.beh == "rise": S.beh = "jump";S.bt = 1.2;S.jumpDuration = 1.2;S.jumpUsed = false;S.jumpT = 0.0
+		elif S.beh == "jump":
+			S.landUntil = clock + 0.5
+			# Preserve the existing landing tap; do not overlap its window with a new attack.
+			S.beh = "rest";S.bt = 0.5;S.fakeRest = false
 		elif S.beh == "run" and S.chain and S.get("runStreak", 0) < 2: S.chain = false;S.runStreak = S.get("runStreak", 0) + 1;S.beh = "tell";S.bt = 0.4;S.fakeTell = false;buzz([25, 45, 25])
 		elif S.beh == "rest" and S.fakeRest: S.fakeRest = false;S.beh = "tell";S.bt = 0.4;S.fakeTell = false;buzz([25, 45, 25])
 		else:
@@ -1011,7 +1059,7 @@ func update_fight(dt: float) -> void :
 	if S.spike > 0:
 		S.spike -= dt
 		if S.spike <= 0 and S.lesson == "spike": lesson_end()
-	elif c > 0 and not S.tut and S.lesson == "" and not (S.beh in ["rest", "rise", "jump", "nose", "dive", "turn", "charge", "clone"]) and randf() < c * 0.35 * dt:
+	elif active_region > 1 and c > 0 and not S.tut and S.lesson == "" and not (S.beh in ["rest", "rise", "jump", "nose", "dive", "turn", "charge", "clone"]) and randf() < c * 0.35 * dt:
 		S.spike = 0.25;buzz([40 + int(60 * S.grade / 4.0)])
 		if not ("spike" in TUT.seen): S.lesson = "spike"
 	var bmt: = {"swim": 1.0, "tell": 1.0, "run": 2.2, "rest": 0.35, "rise": 1.0, "jump": 0.0, "nose": 1.0, "dive": 2.0, "turn": 1.0, "charge": 0.3, 
@@ -1030,11 +1078,13 @@ func update_fight(dt: float) -> void :
 	var pull: float = PULL[S.star] * S.locMul * (1 + 0.12 * S.grade) * bm * S.noise * (1.8 if S.spike > 0 else 1.0)
 	if holding:
 		S.tension += (pull * 20 - 12) * S.tensionMul * dt
+		if S.beh in ["run", "dive"]:
+			S.tension += maxf(0.0, pull * 20 - 12) * 0.25 * S.tensionMul * dt
 		S.dist += max(3.0, 16 - pull * 3.5) * S.reelMul * dt
 		if S.beh == "sulk" and S.holdT < 0.45:
 			S.dist += 11 * S.reelMul * dt;S.tension -= (pull * 10) * S.tensionMul * dt
 		if S.beh == "charge": S.dist += 10 * S.reelMul * dt;S.tension -= 20 * dt
-		if S.beh == "jump" and S.jumpT > 0.25: S.tension += 90 * S.tensionMul * S.locMul * dt
+		if S.beh == "jump" and S.jumpT > 0.25: S.tension += 105 * S.tensionMul * S.locMul * dt
 		S.slack = 0.0
 	else:
 		S.tension -= 40 * dt
@@ -1082,6 +1132,9 @@ func start_catch() -> void :
 	if not S.grade in seen: seen.append(S.grade)
 	DEX[fish_key(int(S.sp))] = seen
 	S.weight = W_BASE[S.star] * pow(S.lf, 3) * W_GRADE[S.grade]
+	if first_capture:
+		var earned_element: int=expedition.data.on_capture(int(S.sp))
+		if earned_element>=0: show_toast("%s 어혼 +1"%expedition.data.ELEMENTS[earned_element],Color("91e8dc"))
 	if first_capture: personal_dex.observe(int(S.sp),int(S.grade),float(S.len),float(S.weight),Time.get_date_string_from_system())
 	if S.newRec:
 		REC[fish_key(int(S.sp))] = S.len;_save_rec()
@@ -1112,6 +1165,7 @@ func show_result(ok: bool) -> void :
 
 
 func _unhandled_input(e: InputEvent) -> void :
+	if not title_open and expedition.input_event(self,e): return
 	if personal_dex.input_event(self,e): return
 	if title_open:
 		if e is InputEventMouseButton and e.button_index == MOUSE_BUTTON_LEFT and e.pressed: title_screen.press(self, e.position - Vector2(ox, 0))
@@ -1139,6 +1193,8 @@ func _unhandled_input(e: InputEvent) -> void :
 		_slider_set(e.position.x - ox)
 
 func press(pos: = Vector2.ZERO) -> void :
+	if expedition.opened!="": expedition.press(self,pos);return
+	if scene=="village" and V.shop=="" and not menu_open and not market_open and not settings_open and expedition.rects.get("strip",Rect2()).has_point(pos): expedition.open(self,"explore");return
 	if personal_dex.opened: personal_dex.press(self,pos);return
 	if title_open: title_screen.press(self, pos);return
 	if not trans.is_empty(): return
@@ -1202,6 +1258,7 @@ func _process(dt: float) -> void :
 	if is_instance_valid(title_screen.root): title_screen.root.visible = title_open or title_screen.leaving
 	if title_open:
 		title_screen.update(self, dt);queue_redraw();return
+	expedition.update(self,dt)
 	if title_screen.leaving: title_screen.update(self, dt)
 	if not settings_open and not market_open and not title_open: environment.update(dt)
 	tip_t = maxf(0.0, tip_t - dt)
@@ -1214,7 +1271,7 @@ func _process(dt: float) -> void :
 		if not trans.done and trans.t >= TR_CLOSE + 0.1:
 			trans.done = true;_switch_scene(trans.to)
 		if trans.t >= TR_CLOSE + TR_HOLD + TR_OPEN: trans = {}
-	if personal_dex.opened or guide.opened or mailbox.opened or settings_open or market_open or not V.commerce.pending.is_empty() or not equipment.pending_sale.is_empty() or inventory.selected >= 0: queue_redraw();return
+	if expedition.opened!="" or personal_dex.opened or guide.opened or mailbox.opened or settings_open or market_open or not V.commerce.pending.is_empty() or not equipment.pending_sale.is_empty() or inventory.selected >= 0: queue_redraw();return
 	if scene == "spots": spots.process(dt);queue_redraw();return
 	if scene == "village":
 		toast_t = max(0.0, toast_t - dt);judge_t = max(0.0, judge_t - dt)
@@ -1324,6 +1381,7 @@ func _draw_overlays(t: float, h: float) -> void :
 	_fx_draw(t)
 	_draw_trans(h)
 	personal_dex.draw(self,h)
+	expedition.draw(self,h)
 	if text_layer:
 		text_layer.position.x = ox
 		text_layer.items = text_items
@@ -1541,7 +1599,8 @@ func _ease(r: float, dtd: float) -> float: return 1.0 - exp( - r * dtd)
 func pose_for(beh: String, star: int, fz: float) -> Dictionary:
 	var p: = {"freq": 1.0, "amp": 0.08, "curl": 0.0, "tilt": 0.0, "stretch": 1.0, "tailAmp": 1.0}
 	match beh:
-		"tell", "turn": p.merge({"freq": 5.0, "amp": 0.03, "curl": -0.55, "tailAmp": 0.5}, true)
+		"tell": p.merge({"freq": 2.0, "amp": 0.025, "curl": -0.85, "tailAmp": 0.35}, true)
+		"turn": p.merge({"freq": 1.5, "amp": 0.02, "curl": -0.2, "stretch": 0.92, "tailAmp": 0.3}, true)
 		"run", "charge": p.merge({"freq": 4.2, "amp": 0.11 * (1 + 0.3 * fz), "stretch": 1.25, "tailAmp": 1.8}, true)
 		"rest": p.merge({"freq": 0.3, "amp": 0.02, "curl": 0.4, "tailAmp": 0.3}, true)
 		"jump": p.merge({"freq": 1.8 + 1.5 * fz, "amp": 0.1, "tilt": -0.5}, true)
@@ -1593,7 +1652,7 @@ func _draw_fight(t: float, tip: Vector2) -> void :
 		S.dartV += ( - S.dartX * 0.05 - S.dartV) * _ease(2.5, dtd)
 		S.dartX += S.dartV * dtd * 60;S.dartUntil = 0.0;S.turnK = 0.0
 	S.dartX = clamp(S.dartX, 33 - S.fx, 252 - S.fx)
-	S.chargeX = max(-100.0, S.chargeX - 2.4) if S.beh == "charge" else S.chargeX * 0.95
+	S.chargeX = max(-100.0, S.chargeX - 105.0 * dtd) if S.beh == "charge" else S.chargeX * exp(-3.0 * dtd)
 	var fx: float = clamp(S.fx + S.dartX + S.chargeX, 33, 252)
 	var cl: bool = S.beh == "clone"
 	var spread: float = min(1.0, S.cloneT / 0.3) if cl else 0.0
@@ -1602,14 +1661,14 @@ func _draw_fight(t: float, tip: Vector2) -> void :
 	if cl: fx = clamp(fx, 95, 175) + CX[S.cloneReal] * spread
 	var fy: float = S.fy + (CY[S.cloneReal] * spread if cl else 0.0)
 	if S.beh == "rise":
-		var k: float = min(1.0, 1 - S.bt / 0.6)
+		var k: float = min(1.0, 1 - S.bt / maxf(0.01, float(S.get("warningDuration", 0.6))))
 		fy = fy + (WATER + 16 - fy) * k * k
 		_ripple(S.fx + S.dartX, 4 + 14 * k, 0.25 + 0.5 * k)
 		for i in 4: draw_rect(Rect2(int(S.fx + S.dartX - 6 + i * 4), int(fy - 10 - fmod(t / 30 + i * 7, 16)), 2, 2), Color(0.8, 0.92, 1, 0.8))
 	S.diveOff += ((27 + 42 * F if S.beh == "dive" else (6.0 if S.beh == "nose" else (60.0 if S.beh == "sulk" else 0.0))) - S.diveOff) * _ease(3 + 4 * F if S.beh == "dive" else 2.5, dtd)
 	S.diveDX += (((S.diveDir) * (15 + 22 * F) if S.beh == "dive" else 0.0) - S.diveDX) * _ease(2.5 + 3 * F, dtd)
 	fx = clamp(fx + S.diveDX, 33, 252);fy = min(uw_bot - 10, fy + S.diveOff)
-	if S.beh == "jump": fy = WATER - sin(min(1.0, S.jumpT / 0.9) * PI) * (24 + 15 * S.star / 4.0 + 36 * F)
+	if S.beh == "jump": fy = WATER - sin(min(1.0, S.jumpT / float(S.get("jumpDuration", 1.2))) * PI) * (24 + 15 * S.star / 4.0 + 36 * F)
 	if S.beh == "circle":
 		var R: = 30.0 + 30.0 * F
 		fx = clamp(fx + cos(S.circA) * R, 33, 252);fy += sin(S.circA) * R * 0.45
@@ -1626,9 +1685,12 @@ func _draw_fight(t: float, tip: Vector2) -> void :
 	fy = S.dispY
 	var tens: float = min(1.0, S.tension / 100.0)
 	var sag: = 60.0 if (S.beh == "charge" and not holding) else 0.0
-	var line_col: = Color(1, 1 - tens * 0.67, 1 - tens * 0.78)
+	var line_col: = tension_line_color(S.tension)
 
-	if S.has("mouth"): _line(tip, S.mouth, line_col, sag)
+	if S.has("mouth"):
+		var line_tip: Vector2 = tip
+		if tens >= 0.85: line_tip.x += sin(t * 0.045) * 0.65
+		_line(line_tip, S.mouth, line_col, sag)
 	var dx: = fx
 	var dy: = fy
 	if S.beh == "tell": dx += sin(t / 25.0) * 1.5
@@ -1665,7 +1727,7 @@ func _draw_fight(t: float, tip: Vector2) -> void :
 	_draw_fish_tension(Vector2(dx, dy), scale, dtd)
 	if S.beh == "jump": _ripple(S.fx, 14, 0.6)
 	if S.landUntil > 0 and clock <= S.landUntil and not S.jumpUsed:
-		var k2: float = 1 - (S.landUntil - clock) / 0.4
+		var k2: float = 1 - (S.landUntil - clock) / 0.5
 		_ripple(S.fx, 12 + 20 * k2, 0.9 - 0.6 * k2)
 		for i in range(-2, 3): draw_rect(Rect2(int(S.fx + i * 7), int(WATER - 4 - (4 - abs(i)) * 4 * (1 - k2)), 2, 2), Color.WHITE)
 
@@ -2303,7 +2365,7 @@ func _draw_fish_tension(fish_pos: Vector2, scale: float, dt: float) -> void :
 	S.tensionHud = p
 	p = p.round()
 	var v: = clampf(S.tension / 100.0, 0, 1)
-	var col: = Color("e65c48") if v > 0.85 else (Color("f2c14e") if v > 0.6 else Color("8ed274"))
+	var col: = tension_line_color(S.tension) if v >= 0.4 else Color("8ed274")
 	var r: = Rect2(p, Vector2(44, 8))
 	draw_rect(r.grow(1), Color("101c1e"))
 	draw_rect(r, Color("d9cca6"))
@@ -2312,7 +2374,7 @@ func _draw_fish_tension(fish_pos: Vector2, scale: float, dt: float) -> void :
 	if fill > 0:
 		draw_rect(Rect2(p + Vector2(1, 1), Vector2(fill, 6)), col)
 		draw_rect(Rect2(p + Vector2(1, 1), Vector2(fill, 1)), col.lightened(0.25))
-	for threshold in [0.6, 0.85]:
+	for threshold in [0.4, 0.65, 0.85]:
 		var x: = p.x + 1 + roundf(42 * threshold)
 		draw_rect(Rect2(x, p.y + 5, 1, 2), Color("172724"))
 	if v > 0.85:
@@ -2464,7 +2526,7 @@ func pond_max() -> float: return 80.0 + pond_cap_lv * 20.0
 func pond_recovery() -> float: return 30.0 + pond_regen_lv * 10.0
 
 
-const MENU: = [["village", "마을"], ["bag", "가방"], ["book", "도감"], ["gear", "설정"]]
+const MENU: = [["village", "마을"], ["bag", "가방"], ["book", "도감"], ["gear", "설정"], ["explore", "탐험"], ["alchemy", "연성"]]
 func _draw_menu(y0: float) -> void :
 	var mr: = Rect2(6, y0, 38, 38)
 	_ui_texture(tex_menu, mr.position)
@@ -2473,17 +2535,17 @@ func _draw_menu(y0: float) -> void :
 	ui_rects.erase("m_items")
 	if not menu_open: return
 	var items: = []
-	var panel: = Rect2(6, y0 - 94, 218, 72)
+	var panel: = Rect2(6, y0 - 77, 258, 62)
 	_ui_style_box(hud_reference_style, panel)
 	for i in MENU.size():
-		var p: = Vector2(12 + i * 52, panel.position.y + 5)
+		var p: = Vector2(10 + i * 42, panel.position.y + 5)
 		var k: = clampf((ui_clock - menu_t) / 0.12 - i * 0.4, 0, 1)
 		if k <= 0: continue
 		var py: = p.y + roundf((1 - k) * 8)
-		var ic: Texture2D = icons["m_fishing" if i == 0 and scene == "village" else "m_" + MENU[i][0]]
-		_ui_texture(ic, Vector2(p.x + 5, py))
-		_text("낚시터" if i == 0 and scene == "village" else MENU[i][1], Vector2(p.x + 25, py + 52), 10, Color("fff0d1"), true, 50)
-		items.append(Rect2(p.x, p.y, 50, 57))
+		var ic: Texture2D = icons["m_fishing" if i == 0 and scene == "village" else "m_" + MENU[i][0]] if i<4 else (expedition.textures.explore if i==4 else expedition.textures.alchemy)
+		_ui_texture_rect(ic,Rect2(p.x+3,py,34,34))
+		_text("낚시터" if i == 0 and scene == "village" else MENU[i][1], Vector2(p.x + 20, py + 47), 9, Color("fff0d1"), true, 40)
+		items.append(Rect2(p.x, p.y, 40, 53))
 	ui_rects.m_items = items
 
 func _menu_press(pos: Vector2) -> bool:
@@ -2499,6 +2561,8 @@ func _menu_press(pos: Vector2) -> bool:
 				"bag": market_open = true;market_sell = false
 				"book": personal_dex.open(self)
 				"gear": settings_open = true
+				"explore": expedition.open(self,"explore")
+				"alchemy": expedition.open(self,"alchemy")
 			return true
 	return true
 
@@ -2519,7 +2583,7 @@ func _save_game() -> void :
 	var ok: bool = preload("res://addons/reservoir/save_store.gd").write("user://save.json", {"buyback":buyback.serialize(),"regional_progress":progression.serialize(),"active_region":active_region,"region_shop": region_shop.serialize(), "equipment": equipment.serialize(), "mail_read": mailbox.read_ids, "mail_deleted": mailbox.deleted_ids, "v": SAVE_VER, "gold": gold, "pearl": pearl, "bag": bag_items(), "bag_lv": bag_lv, "parts": parts_owned, "tips": tips_seen,
 		"town_zoom": V.zoom, "boat_lv": boat_lv, "town_lv": town_lv, "forge_lv": forge_lv, "rod_lv": rod_lv, "rod_owned": rod_owned, "rod_enh": rod_enh, "protection_tickets": protection_tickets, "forge_pending": forge_pending, "forge_seen": forge_seen, 
 		"pond_cap_lv": pond_cap_lv, "pond_regen_lv": pond_regen_lv, "pond_stock": pond_stock, 
-		"bait": bait, "souls": souls, "aqua_lv": aqua_lv, "aqua": aqua, "dex": DEX, "personal_dex": personal_dex.serialize(), "catch_counts": catch_counts, "catch_legacy": catch_legacy, "world_time": environment.day_seconds, "time": Time.get_unix_time_from_system()})
+		"expedition": expedition.data.serialize(), "bait": bait, "souls": souls, "aqua_lv": aqua_lv, "aqua": aqua, "dex": DEX, "personal_dex": personal_dex.serialize(), "catch_counts": catch_counts, "catch_legacy": catch_legacy, "world_time": environment.day_seconds, "time": Time.get_unix_time_from_system()})
 	if not ok and not save_warning:
 		save_warning=true;tip_txt="저장 실패 · 저장 공간을 확인해 주세요";tip_t=8.0
 	elif ok: save_warning=false
@@ -2533,6 +2597,7 @@ func aqua_rate() -> float:
 func _load_game() -> void :
 	var d: Dictionary = preload("res://addons/reservoir/save_store.gd").read("user://save.json")
 	if d.is_empty(): return
+	expedition.data.restore(d.get("expedition",{}))
 	mailbox.read_ids = d.get("mail_read", []);mailbox.deleted_ids = d.get("mail_deleted", [])
 	environment.day_seconds = maxf(0.0, float(d.get("world_time", 0.0)))
 	gold = int(d.get("gold", 0));pearl = int(d.get("pearl", 0));bag_lv = int(d.get("bag_lv", 0))

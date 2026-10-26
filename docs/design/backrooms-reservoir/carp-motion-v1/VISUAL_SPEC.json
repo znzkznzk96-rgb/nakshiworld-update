@@ -1,0 +1,11 @@
+{
+  "approved_design": {
+    "shape": "robust carp, clear scales, wooden two-hand mallet",
+    "palette": "amber orange body, golden highlights, dark orange shading, brown mallet",
+    "role": "attack"
+  },
+  "reference": "approved B individual concept",
+  "prohibited": "washed-out tint, extra effects or particles, silhouette/weapon replacement",
+  "input_review": "original and nearest native view inspected",
+  "native_input": "input SHA in request-metadata.json"
+}

@@ -1,3 +1,6 @@
+## 2026-10-24 최신 기획 패키지
+저수지 백룸 기획·선택3안·진행3안은 활성브랜치 [design/backrooms-reservoir/PLAN.md](design/backrooms-reservoir/PLAN.md)에 보관. review.html은 그림을 내장한 독립 비교본이며 model.py/preview.gd/QA.json으로 재현·검증 범위를 확인한다. 게임 구현/배포 없음. 현재 진행은 HANDOFF/WORK_STATE를 따른다.
+
 # 현재 복구 기준 — 공개 0.72
 
 v0.72 game-source.zip + 활성 작업브랜치 최신 overlay/삭제명세를 사용한다. 강화오라의 실제연결/은백·청색교정과 누적환경연출 모두 전체소스/원격에 포함. 해시/실제 공개검증은 docs/RELEASE_072_VERIFICATION.json. 과거 시안/미적용 문구는 단계별 이력이며 현재 상태는 WORK_STATE/HANDOFF 우선. 마을음악 미구현·휴대폰확인 대기.

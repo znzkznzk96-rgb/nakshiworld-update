@@ -1,0 +1,22 @@
+{
+  "description": "One vivid purple darkness fish ghost, tiny curved fin and hooked smoky tail with lavender inner edge. Rounded compact fish ghost facing right, one tiny dark eye, one small side fin, lower body tapering into curled ghost tail at bottom left. Preserve shape of input. Preserve the reference color placement: saturated element-colored body midtone, deep same-hue lower-right shadow, dark colored outline and small pale upper-left highlights, dark outline, bold lower right shadow and small upper left highlight. Clean chunky pixel clusters. No mouth.",
+  "negative_description": "gray, desaturated, pastel, sphere, container, second fish, text, blur, grain, dithering, detailed scales, extra eyes, extra fins",
+  "image_size": {
+    "width": 32,
+    "height": 32
+  },
+  "no_background": true,
+  "outline": "single color outline",
+  "shading": "medium shading",
+  "detail": "low detail",
+  "view": "side",
+  "direction": "east",
+  "coverage_percentage": 85,
+  "seed": 202610264,
+  "init_image_strength": 750,
+  "init_image": {
+    "type": "base64",
+    "base64": "iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAFP0lEQVR4nO2WbWyW1R3Gf/9z7vvp0yKtQFvWDhXWSLBUy1xBJ0qrMzPR6FyiRo1xWUxIxGlA58uHfSDbQvbyYRo1M1mUxGhERoRB1CFDyhS1tZSiUJRBLX0AKS219u15ue9z/vvwLDO1hT7EGL9w3Z/v63ed/3XOfR84p+9Y8k1eLmO+hlKC4PEqnGLvN/IrSD+77j6tmFarFcmF6j706tqc+janrzX2a6Vt0MrwRzpTarVQv7NKXC6X6frbm2l8rAwMiAJeWHNXJ3Nml+G9Q9Xj1fNW/yZ2pF7gz0/9ll/ef9tpOUGh8Aq5Qh+v/xvpMcu6J4a48w+lICBJpbqiDOdjRARjLMuWzuXK4ZXMaZ3OyhVPnNG34AnMtpfqkEuzasHzLK2pRwJPqmeIsERQ9aDQ1HQRxirZnIIXxMDb21M8vucnDPnDk7LOqoJKWaI5k+XJZRsJCIkiB05RERobL8AL+EhRzTuLgoZw1Z8uZ8SNkmNiCFMovFwWKaJcW7YcGQuJI/9/h6WXf584Bo1A/vfgQRXEC7+rf5VisZP6TjmBclmkXj1JmcGPy+/klvk3oqpgDKhirXBFQzUqICZvpx6IFFQgoWgIrS293LtjITA4jjnpBLZs2K5PrnlRK4sW6ImW3fQf6GD5vN+TkCJ2dL+PtQbiGLxiigwi+b5VFTzYJDQ8W8/WQ9vAgmagruZ8iqiYwJr0FDzw0GP8fOhBjrd0YhQ2/+pLDg0fwwYBcRzhnGfzp1sRFTIux+K6FflxmnwQF0HoAla/tYobavdhQyUoteTIFF5BZfhDfeGabUybfh7OOJz3vPTBP3CapW/kFFs7fk004PnoKUf1vARjzudHr+A8LPnLIlpWtmJJAND83hHub2nC0zOOecY9MJOFurzmGVpP7CSVbqOh/Da2n/wrn3/yHhIKe/4Y07Y3xU1N80jHilrymw/Fe8GEiiBs2LKHf6Ve59/Da4npHsc844dogP2ytusRBeH68odRPKXJGexanSYg4GDXAC/tf46Lqn5DTc15aKxfVQG8uqmVhE0SE2MI0Em23JRfwl5tl7tnvayqiteYOJejtLQIP+pZs+8+nv7peqxXPjs4yrzaYlwM0Zeezbv2krBJbKi8cXgDB0Zex9E1YeJTHsPXXt6of39gEGuTRCaDJ+Z4tpNZ4RwevWEFcdrhnTIWR+zu2oeVEEOIkxwff/ERx4e6iUnTPrqR6Gv9FxQAoKqkVq8ufhQjBiVLfXUtyxYsxgeeA58d49jASQLjSVDM9tQOBv1RrCgGS0/6AFJ6kqODuydlTajgfHOZRj4HxIxySADEBHiJ8RpTX7GY+gtqyGVzfNj5KWXFs9h6bB2CRcTiNYsVQ3+um0F3hFO+Qxg8/eLGBag2jWrVctPsh9g9spO2sbWqOihFtgT1BhQu/d5cNKO09fbwZtcWxuhDVRDxQIQhpCu9C4zLw6fQuACmZJjUSLs81/s2v6h8RSM3REfmeTJ+gNgMc/PFtxAkDc2d7ezq24JXB0HEkdH2/A8IB0UZ+vUTwU2FniTA0ZF2AZgbXq9NdVdR3V1FqqtFK7INXFl1LTOmldDT28e7fZtIyHQ602/iExFf6P6vVpotDDxpAICq5BI93LyNf64epKpuMe+fuIc7fnArs2bOgEhYf3Ad/0m/gw2EU3QIubMDfl0TOppdfIl+vrMTRNnwSB8eCK0lPZZjVcvNSHKYk5mD3+7lszwxX32rU78n1uiDSC8JbtfKsE6LuLDgy2ahOu1K5gTXaOxz4Is5QfO3f90+p3P6rvRfZlpo3Wdgcz8AAAAASUVORK5CYII=",
+    "format": "png"
+  }
+}

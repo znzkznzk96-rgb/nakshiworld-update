@@ -1,0 +1,22 @@
+{
+  "description": "One golden yellow electric fish ghost, tiny angular fin and zigzag lightning tail tip. Rounded compact fish ghost facing right, one tiny dark eye, one small side fin, lower body tapering into curled ghost tail at bottom left. Preserve shape of input. Preserve the reference color placement: saturated element-colored body midtone, deep same-hue lower-right shadow, dark colored outline and small pale upper-left highlights, dark outline, bold lower right shadow and small upper left highlight. Clean chunky pixel clusters. No mouth.",
+  "negative_description": "gray, desaturated, pastel, sphere, container, second fish, text, blur, grain, dithering, detailed scales, extra eyes, extra fins",
+  "image_size": {
+    "width": 32,
+    "height": 32
+  },
+  "no_background": true,
+  "outline": "single color outline",
+  "shading": "medium shading",
+  "detail": "low detail",
+  "view": "side",
+  "direction": "east",
+  "coverage_percentage": 85,
+  "seed": 202610261,
+  "init_image_strength": 750,
+  "init_image": {
+    "type": "base64",
+    "base64": "iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAE7klEQVR4nO2Wa4xV5RWGn/Xtvc9cPHScGUYBpUq9JDrWWhJjNE21CCMZLTWAaCqJ8Ydaan+0aBWNlzaImhB/1LQxtWkjXtJUKbQFi8N4CVolMuAdirdERB2QmTMHlbmcs/d6++Mwk+JhZMiY9g9v8iU7X/K96/3eb629FhzB/xk2nsNtzSYQuWD0Z6KmJse67tK4OA+J3972Cy2cGuuKb9aqPLRUnt6jrHS3vHy3hrpi/XgyuuQ408/nXayx8B2W2pmNkTqfS6Axh46/BQTCQEDXHVhOkDly5+03jJc2iDUvNHD+gstZfN/vx+fMy+vWKl2C0q6gbEsi3zVBvqVOni6Tb2lUtinIN0WVtTknL0xVtmeK3uycoAta4lHdCGMVUNtwFHN+A+kKAIed+9AZc9Brd6LsM2zYzFOPxaY1IpWx4Jzx3XqefjFP23F1BxVxWLZ8/xumSXnx4HmBhlsN94AhMAMJvtWMFGHy/czCMLIsMOusPp77ZKAq3pgduHL6qWqoE39sD+RvcOSGIWyYcloLyDAcTIBjgBAhlOjY0EBbS6hy4ZACLj3GNHsiKnz0Dn+eb9RfExGSuHJDE0JwQlMllEQlI4UhhhSAFCkQH53y00XVrzCqgLsWXakfNAX9dcdy1n6ynDMnRIR6sCczoOL4yO1Hgu7/BAb79/G9qbtY80ipIlRQ05wfu4Cuvz3Bmofy2OabMBKWbbufKALh6EnHlOJ/yuBhB0sxizDbTyej1J8x5HDXrf2YGVigUCwdwu8v4bIpaMYElG3MyTcFaVOi9HY0tBCVBzvk6T+U7W1TeqMp65ki9U6R906W90yS97SotcaU7s7LeybKe47Woz+LDi8HCv3Q2T2XdGOZXy5wspUpD66G5KF1hLgE7y7Atj1LiCCEkUfYnx/GWx+3ECV1SKBH9pJ/ozoH4q8S8EwRm3/KKpXcqDNIzegZFO71RO+2I5y+pU7j8gTtKsCxjZX4wZALl+B3hUo1lI0Pe6ur/pBVsLob6+4Tj14dkYshSoxl3z6fQRui8HqJpvtyEAcUhH1aBM/w1KEwiP2hl4DIBNvXO4/tSA7PgWGc1BTz7x5xepOzZJ6xbbux5WanrjXQfE7AgkHqlQLYWCR7s0SSCxDFMOi897QzkBi1NTF8cSB3lSfpytmK5z9VtT+jOdI/r0/IUclkmx9Q2VDm0FlpQnaUIQcy2LkOShiRxNrdxqq0hQ3v767iPcCB9F5TuGQu6jhLdtG9BnDV9FateGWrCTATpKAfOZQMgqMO8UFHRC4WJTfSzKhNMlLBLW+L2th47GM32H1Qdw8QEBCsvhZ1t4/s/WrxVlYshAhD+4bQdCNEMcoc+7vz3rNGHKUMlCt9ISfnpu1GsSzW9w736tFxoIAlWHnlAiWLH7eZDYmuu1Fc/ZMUgCQCy9djpwwA4rOlTrFo/GUHvDgAsTkpxqAlPL+nPL7ef9XZ39HcFpT1naRWUPsxaO8i5F2x/NWcipea+maa2pvRzXNnjWny+W80zT555MxBlW5dlddpMydhcmQBH/yU6MN+fDP0r8+Y94L4ogAvZeObKUcVcGGLKTFYu30qFgLhgZ345xnlt+CH/4LOwvgDD+Og/4Fn9sjaJtcIisw68XPqYuEGntTRWageKr52tIL8gxr9+qLqAeJ/gnNBMyaOPkgewRF8nfgPr/Ziw7z8oWMAAAAASUVORK5CYII=",
+    "format": "png"
+  }
+}

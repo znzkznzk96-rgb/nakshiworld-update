@@ -1,0 +1,31 @@
+{
+  "dimensions": [
+    48,
+    48
+  ],
+  "mode": "RGBA",
+  "alpha_bounds": [
+    5,
+    10,
+    43,
+    38
+  ],
+  "sha256": "1ce1743ed4dd7f43a61deecbcfbdfff6efccd64a72be7bc7f14599fb6e808ab6",
+  "paid_requests": 1,
+  "automatic_retries": 0,
+  "usage": {
+    "type": "generations",
+    "generations": 1.0
+  },
+  "game_applied": false,
+  "deployed": false,
+  "user_approved": false,
+  "visual_review": {
+    "shape": "pass: single body and single tail",
+    "color": "pass: golden yellow, orange shadows, cream belly",
+    "outline": "pass: dark outline, readable eye and shield rim",
+    "features": "pass: separate wooden shield and two short feet",
+    "alpha": "pass: transparent background, no edge clipping",
+    "status": "review-ready; user approval pending"
+  }
+}

@@ -20,3 +20,6 @@
 ```text
 낚시월드 이어서 하자. https://github.com/znzkznzk96-rgb/nakshiworld-update 의 최신 START_HERE.md와 docs/CONTINUE_HERE.md부터 읽고 WORK_STATE.json이 가리키는 원격 브랜치 작업을 이어가. docs/PROJECT_INSTRUCTIONS.md의 개선된 절차를 따르고 GAME_BIBLE.md의 확정사항은 다시 묻지 마. 실제 원격·배포 상태를 확인한 뒤 진행 상황만 짧게 알려줘.
 ```
+
+## 병사 제작 재개 (2026-10-25)
+활성 work/valley-runtime의 [최신 상세 기록](design/backrooms-reservoir/RESUME_2026-10-25.md)을 먼저 읽는다. 아트폴더별 옛 HANDOFF보다 루트 최신 HANDOFF/WORK_STATE가 우선한다. Library 원화와 Git 네이티브 파일의 보존 위치를 구분하며 기존 scratch 경로의 존재를 가정하지 않는다.

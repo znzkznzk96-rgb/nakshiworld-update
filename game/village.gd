@@ -332,20 +332,8 @@ func draw(m, h: float) -> void :
 		m.text_items[i][7] *= zoom
 
 	if shop == "":
-		m._ui_style_box(m.sb_chip, Rect2(8, m.top_y + 69, 254, 30))
-		var status: = "방문객 %d/%d · 수익 ×%.2f" % [res.size(), capacity(m), multiplier(m)]
-		m._text(status, Vector2(135, m.top_y + 88), 12, Color("513b29"), true, 236)
-		if town_time - arrival_clock < 3 and arrival_count > 0:
-			m._text("배 도착! 주민 %d명 하선" % arrival_count, Vector2(135, m.top_y + 150), 10, Color("fff0d1"), true, 240, true)
-
-		var zy: float = m.top_y + 105
-		m._text("두 손가락 확대·축소", Vector2(12, zy + 16), 9, Color("fff0d1"), false, 152, true)
-		rects.zoom = []
-		for i in 3:
-			var zr: = Rect2(168 + i * 32, zy, 30, 24)
-			m._ui_style_box(m.sb_btn, zr)
-			m._text(["-", "%d" % roundi(zoom * 100), "+"][i], zr.position + Vector2(15, 16), 10, Color("382619"), true, 27)
-			rects.zoom.append(zr)
+		rects.zoom=[]
+		m.expedition.draw_strip(m)
 
 func _aquarium_life(m, c: Vector2, t: float) -> void :
 	if m.aqua_lv > 0:
@@ -727,8 +715,8 @@ func _act(m, a: String) -> void :
 			m.gold -= m.BAG_PRICE[next];m.bag_lv = next;m.equipment.bag_progress = next;m.equipment.bags.append(next)
 			m.show_toast(m.BAG_NAME[next] + "!", Color("ffd24a"));m.play("catch")
 		"worm":
-			if n not in [1, 10] or m.gold < n * 10: return
-			m.gold -= n * 10;m.bait += n;m.play("ui")
+			if n not in [1, 10] or m.gold < n * m.region_shop.BAIT_PRICES[0]: return
+			m.gold -= n * m.region_shop.BAIT_PRICES[0];m.bait += n;m.play("ui")
 		"tab":
 			tab = k[1];market_list.reset()
 		"sell":

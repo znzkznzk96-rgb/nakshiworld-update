@@ -1,0 +1,13 @@
+{
+  "status": "cleaned_motion_review",
+  "supersedes": "eel-motion-v3",
+  "additional_generations": 0,
+  "deployed": false,
+  "future_motion_qa": [
+    "isolated pixels",
+    "attached streaks",
+    "temporal outline flicker",
+    "weapon identity",
+    "action meaning"
+  ]
+}

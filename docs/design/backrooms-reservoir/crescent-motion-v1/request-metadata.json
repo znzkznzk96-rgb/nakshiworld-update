@@ -1,0 +1,16 @@
+{
+  "description": "The character lifts its purple crescent shield to protect its chest, braces behind it, extends the shield a small distance forward and returns to the original guard. The gold crescent emblem stays intact. Both feet planted.",
+  "frame_count": 8,
+  "seed": 2026102520,
+  "no_background": true,
+  "enhance_prompt": false,
+  "direction": "east",
+  "view": "side",
+  "visual_spec": {
+    "shape": "round guardian fish, tall dorsal fin, round crescent shield",
+    "palette": "violet body, magenta fins, cream belly, gold crescent and border",
+    "role": "defense"
+  },
+  "reference_role": "approved B soldier identity; not rejected regional fish input",
+  "input_sha256": "3f70938fa5da2b77daea8e7db5038448a7ae1598e6a7a2c2d3a0cb4aa07848b7"
+}

@@ -12,7 +12,7 @@ func run() -> void:
 	check(c.quote(m.V,m,"bait:3:1").is_empty(),"future bait purchase rejected")
 	check(c.quote(m.V,m,"bait:0:0").is_empty() and c.quote(m.V,m,"bait:0:-1").is_empty(),"invalid quantities rejected")
 	c.request(m.V,m,"bait:0:100");check(c.confirm(m.V,m),"100 worms purchase")
-	check(m.bait==100 and m.gold==99900,"quantity and currency exact")
+	check(m.bait==100 and m.gold==99500,"quantity and currency exact")
 	check(not c.confirm(m.V,m) and m.bait==100,"double confirm cannot charge twice")
 	m.gold=0;c.request(m.V,m,"bait:0:5");check(not c.confirm(m.V,m) and m.bait==100,"insufficient funds preserved");c.pending={};m.gold=100000
 	check(not m.region_shop.unlock(m,2),"region sequence enforced")
@@ -20,9 +20,19 @@ func run() -> void:
 	m.progression.available_regions=[0,1]
 	check(not m.region_shop.unlock(m,1),"certificate needed before currency unlock")
 	m.progression.main_completed[0]=true;m.progression.certificates[0]=true
+	for slot in 4:
+		check(m.region_shop.price(m,0,slot)==int(m.V.PARTS[slot][3]),"reservoir part unchanged")
+	check(m.region_shop.price(m,1,0)==255 and m.region_shop.price(m,1,3)==1485,"valley displayed part amounts")
+	var original_prices: Array=[0,3300,52000,1030000,6700000,28300000]
+	for area in range(1,6):
+		for slot in 4:
+			check(m.region_shop.price(m,area,slot)==roundi(maxi(10,roundi(original_prices[area]*[.05,.10,.18,.30][slot]/10.0)*10)*1.5),"regional parts exactly 1.5x original price")
+	m.gold=6599
+	check(not m.region_shop.unlock(m,1) and m.gold==6599,"new fee enforced without partial charge")
+	m.gold=100000
 	var unlock_gold: int=m.gold
-	check(m.region_shop.unlock(m,1) and m.gold==unlock_gold-3300,"licensed region charges once")
-	check(m.region_shop.unlock(m,1) and m.gold==unlock_gold-3300,"repeat unlock never charges twice")
+	check(m.region_shop.unlock(m,1) and m.gold==unlock_gold-6600,"licensed region charges once")
+	check(m.region_shop.unlock(m,1) and m.gold==unlock_gold-6600,"repeat unlock never charges twice")
 	check(not c.quote(m.V,m,"bait:1:5").is_empty(),"region unlock opens bait")
 	check(c.quote(m.V,m,"rpart:1:1").is_empty(),"part sequence enforced")
 	for slot in 4:

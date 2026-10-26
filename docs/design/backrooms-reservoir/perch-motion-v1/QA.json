@@ -1,0 +1,32 @@
+{
+  "status": "fail",
+  "requested_action_frames": 8,
+  "returned_frames_including_initial": 9,
+  "size": [
+    128,
+    128
+  ],
+  "issues": [
+    "unrequested gold slash/trail in frames1-3 and6-7",
+    "right-edge spear clipping during extension",
+    "spear direction/thrust visible but recovery includes an excessive flourish"
+  ],
+  "body_identity": "cobalt body/cream belly/eye/spiny dorsal preserved",
+  "next_paid_generation": "stopped",
+  "regeneration_requests": 0,
+  "game_applied": false,
+  "deployed": false,
+  "cost_generations": 1,
+  "job_id": "558b0400-69e5-4aa7-bce9-5cd96f5e1c51",
+  "hashes": {
+    "frame-05.png": "2e249398ace79b5505cce77d7bef5561331736896a61272c95ec5856e3362320",
+    "frame-03.png": "e583a1cfac8d6792c73675a20eb93b1ee074ecc20503c4025e2d7c564e48a0a4",
+    "frame-02.png": "3f195f7a80d49246f99386048eec5b3858c89822a571013697017892eb0639f6",
+    "frame-07.png": "d3022a72525f7047ea8cdc4dee4984df0673c9a93746acb0bf8c86ae2c5c2e5f",
+    "frame-06.png": "89a014e2b17a9d39e8aa09d94ed104cc9f7a9268689f6e143205de3f8d06f7c7",
+    "frame-01.png": "61011ff73d5bfd2eba248e6c2360a8f50e5343bddb301f14086c8d88c3b12f8e",
+    "frame-08.png": "32256903cc023fd80d28ef81a28e027501b5276526e1416c603dd5c50a643df7",
+    "frame-09.png": "2a34666bbc5ba5dcd315d6fad10fe035be55787684387018063c9aaf68f3d3a1",
+    "frame-04.png": "08a986a2ee8d90607bb018180573934db17ef663d047ef7919a45a3edc4a3bce"
+  }
+}

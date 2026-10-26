@@ -1,0 +1,11 @@
+{
+  "approved_design": {
+    "shape": "slender flying fish, two large sail fins, forked tail, one silver sword",
+    "palette": "cyan blue, yellow accent bands, cream belly, navy outline",
+    "role": "attack"
+  },
+  "reference": "approved B individual concept",
+  "prohibited": "washed-out tint, extra effects or particles, silhouette/weapon replacement",
+  "input_review": "original and nearest native view inspected",
+  "native_input": "input SHA in request-metadata.json"
+}
