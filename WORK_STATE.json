@@ -1,24 +1,21 @@
 {
   "schema_version": 3,
   "work_branch": "work/valley-runtime",
-  "status": "v082_published_verified",
-  "current_task": "1번 갈색 어혼주머니 적용·물고기 상세닫기 반복수정·인벤토리/장비 스크롤",
+  "status": "v083_fixing_bag_freeze_and_selected_ui",
+  "current_task": "강화B·배치A 적용 및 가방 진입 3초 후 멈춤 수정·배포",
   "release_baseline": "v0.82",
   "source_commit": "075cd83508b3ac97f8fde433fd3296fe6ff3b5b9",
   "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v0.82",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
   "verification": "analysis/bag-interaction-082/PUBLIC_VERIFICATION.json",
-  "next_step": "휴대폰에서 0.82 업데이트 및 가방 동작 확인 대기.",
+  "next_step": "가방 멈춤 재현·수정, 선택 UI 적용, 검사 및 배포",
   "updated_at": "2026-10-26",
   "last_release_deployed": true,
   "this_change": {
-    "scope": "1번 갈색 어혼주머니 적용·물고기 상세닫기 반복수정·인벤토리/장비 스크롤",
-    "deployed": true,
     "release_authorized": true,
-    "art_selected": 1,
-    "implemented": true,
-    "local_regressions": 41
+    "deployed": false,
+    "implemented": false
   },
   "pending_decisions": [
     "계곡은 기존 미승인 수치·입장 준비중 유지. 라이선스 수령과 별도."
