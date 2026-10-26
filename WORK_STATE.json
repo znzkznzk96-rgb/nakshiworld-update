@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
   "work_branch": "work/valley-runtime",
-  "status": "v082_release_preparing",
+  "status": "v082_build_ready",
   "current_task": "1번 갈색 어혼주머니 적용·물고기 상세닫기 반복수정·인벤토리/장비 스크롤",
   "release_baseline": "v0.81",
   "source_commit": "e40c30c940227e68071804fec84dd4a93bc18618",
@@ -9,7 +9,7 @@
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
   "verification": "analysis/bag-interaction-081/REPORT.md",
-  "next_step": "사용자 배포 승인. 0.82 버전·우편 갱신 후 빌드 및 공개 파일 검증.",
+  "next_step": "main 반영 후 배포 CI·실제 공개 파일 검증.",
   "updated_at": "2026-10-26",
   "last_release_deployed": true,
   "this_change": {
