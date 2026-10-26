@@ -1,3 +1,7 @@
+# 2026-10-26 — v0.76 공개배포 완료
+
+사용자 명시승인 후 PR #9 병합. 29개 검사 및 배포·운영 검증 성공. sourceZIP/PCK/version.json 실제 다운로드·해시,확정PNG151개 확인. 휴대폰확인 대기. [검증기록](docs/qa/expedition-076/PUBLIC_VERIFICATION.json).
+
 # 2026-10-26 — v0.76 탐험·연성 통합 (배포 전)
 
 병사15/일반18/보스4 최종원본 연결,6메뉴·3인자동탐험·연성·합성·개체값계승과 세이브호환 구현. [상세](docs/qa/expedition-076/IMPLEMENTATION.md). 공개배포 검증 진행중.
