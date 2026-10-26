@@ -3,6 +3,9 @@ extends RefCounted
 const ELEMENTS = ["물", "전기", "독", "빛", "어둠"]
 const TICK = 1.5
 const POWER = 0.2
+const BALANCE_REVISION = 1
+const ENEMY_ATTACK_SCALE = [3.0,3.5,3.2,5.0,2.5,4.5,1.5,3.5,3.5,1.0]
+const START_SHIELD_RATIO = 0.044
 const TRAINING = [0.70,0.80,0.90,1.0]
 var catalog: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://addons/expedition/catalog.json"))
 var souls: Array = [0,0,0,0,0]
@@ -167,17 +170,20 @@ func start(round_no: int,now: float) -> bool:
 		if u.is_empty(): return false
 		var st: Dictionary=stats(u)
 		fighters.append({"id":u.id,"uid":u.uid,"hp":st.hp,"max_hp":st.hp,"atk":st.atk,"def":st.def,"shield":0,"hits":0})
-	battle={"status":"running","round":round_no,"index":0,"fighters":fighters,"ticks":0,"clock":0.0,"phase":"approach","phase_time":0.0,"reward":0,"cleared":0,"first":round_no not in completed,"last_damage":0,"progress":0.0,"result_seen":false}
+	battle={"balance_revision":BALANCE_REVISION,"status":"running","round":round_no,"index":0,"fighters":fighters,"ticks":0,"clock":0.0,"phase":"approach","phase_time":0.0,"reward":0,"cleared":0,"first":round_no not in completed,"last_damage":0,"progress":0.0,"result_seen":false}
 	spawn_enemy()
 	return true
 
 func spawn_enemy() -> void:
+	var revised: bool=int(battle.get("balance_revision",0))>=1
 	var key=catalog.rounds[int(battle.round)-1][int(battle.index)]
 	for e in catalog.enemies:
 		if str(e.id)==str(key):
-			battle.enemy=e.duplicate(true);battle.enemy.max_hp=int(e.hp);battle.enemy.poison=0;break
+			battle.enemy=e.duplicate(true);battle.enemy.max_hp=int(e.hp);battle.enemy.poison=0
+			if revised: battle.enemy.atk=roundi(float(e.atk)*ENEMY_ATTACK_SCALE[int(battle.round)-1])
+			break
 	for f in battle.fighters:
-		if int(f.hp)>0 and skill(f)=="shield": f.shield=roundi(int(f.max_hp)*0.22)
+		if int(f.hp)>0 and skill(f)=="shield": f.shield=roundi(int(f.max_hp)*(START_SHIELD_RATIO if revised else 0.22))
 	battle.fx={};battle.ticks=0;battle.clock=0.0;battle.phase="approach";battle.phase_time=0.0
 
 func skill(f: Dictionary) -> String:

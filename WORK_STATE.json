@@ -1,15 +1,15 @@
 {
   "schema_version": 3,
   "work_branch": "work/valley-runtime",
-  "status": "hard_balance_simulation_in_progress",
+  "status": "hard_balance_implemented",
   "current_task": "1-3부터 무강화1성이 막히는 어려운 성장곡선 재조정",
   "release_baseline": "v0.80",
   "source_commit": "a74e060d8eda34ab6650c0d2d3d72d9e646b990d",
   "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v0.80",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
-  "verification": "docs/analysis/expedition-balance-080/REPORT.md",
-  "next_step": "후보 탐색·전구간 전수 시뮬레이션·결과 저장",
+  "verification": "analysis/expedition-hard-081/REPORT.md",
+  "next_step": "작업 브랜치 자동검사 확인. 공개배포는 별도.",
   "updated_at": "2026-10-26",
   "last_release_deployed": true,
   "this_change": {
@@ -17,13 +17,14 @@
     "release_authorized": false,
     "deployed": false,
     "display_fix_complete": true,
-    "balance_applied": false,
-    "fights": 1261250,
-    "parity_cases": 600,
-    "local_regression_suites": 37,
-    "ci_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/actions/runs/40305555045",
-    "verified_code_commit": "de492a1410e94a8d416632589954c36f676ccf4a",
-    "original_files_missing": 0
+    "balance_applied": true,
+    "fights": 920625,
+    "parity_cases": 360,
+    "local_regression_suites": 38,
+    "original_files_missing": 0,
+    "candidate_fights": 671875,
+    "runtime_comparison_fights": 248750,
+    "save_cases": 60
   },
   "pending_decisions": [
     "계곡은 기존 미승인 수치·입장 준비중 유지. 라이선스 수령과 별도."

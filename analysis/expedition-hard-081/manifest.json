@@ -1,0 +1,129 @@
+{
+  "engine": "Godot 4.4.1",
+  "candidate_fights": 671875,
+  "runtime_comparison_fights": 248750,
+  "total_csv_rows": 920625,
+  "runtime_candidate_byte_identical": true,
+  "files": [
+    {
+      "file": "r3_2.8-iv0.csv",
+      "rows": 2125,
+      "sha256": "16d26c93829a17e31833d2800a16e7107d48b980da49405c9e8f180484ce8d8a"
+    },
+    {
+      "file": "r3_2.8-iv4.csv",
+      "rows": 2125,
+      "sha256": "c3fc81599b0c0664dcd14227302c2d516ccd4b43fdc38b506bd7514158720b64"
+    },
+    {
+      "file": "r3_2.8-iv8.csv",
+      "rows": 2125,
+      "sha256": "f1016784a40d9ef72ca195011428437ed5a9ce161b36f9ce13a2df9397798e6b"
+    },
+    {
+      "file": "r3_3.0-iv0.csv",
+      "rows": 2125,
+      "sha256": "1e510f7fe359e269cb7eda059121124223ab443968d8ca440b22245bfda526b3"
+    },
+    {
+      "file": "r3_3.0-iv4.csv",
+      "rows": 2125,
+      "sha256": "134573099e294a765991e037add11843ffb1e47a2867dbaf0bbc7cde4466e2ed"
+    },
+    {
+      "file": "r3_3.0-iv8.csv",
+      "rows": 2125,
+      "sha256": "db14c1243019fe24854703bdceba35341151ebf8ef2f343b10b6b057c0056402"
+    },
+    {
+      "file": "r3_3.2-iv0.csv",
+      "rows": 2125,
+      "sha256": "57f530f72b2fdc18b8a568b43613871cec08ec38fc13a8132f7ad525841c1f35"
+    },
+    {
+      "file": "r3_3.2-iv4.csv",
+      "rows": 2125,
+      "sha256": "bbef507dfad7498224f2344dca2f9b249ebdd9b5b01524f7fc7893bf670e58c2"
+    },
+    {
+      "file": "r3_3.2-iv8.csv",
+      "rows": 2125,
+      "sha256": "6c587150bbfcfa304537a53fe09a3948aad1732f16bee06e2647d098b38b0934"
+    },
+    {
+      "file": "r3_3.5-iv0.csv",
+      "rows": 2125,
+      "sha256": "6cf2c135f72992ea00b152bf0c8a29407db6d17bd3baef579da5a759514c3058"
+    },
+    {
+      "file": "r3_3.5-iv4.csv",
+      "rows": 2125,
+      "sha256": "33ed21ad33a0212dd65450831d578662de2a7ff444cd882078a0e97beaebdd9a"
+    },
+    {
+      "file": "r3_3.5-iv8.csv",
+      "rows": 2125,
+      "sha256": "603efacd4eaf47aee45b323fa1190c72f95019a7129788716afcb8ca1954e483"
+    },
+    {
+      "file": "r3_4.0-iv0.csv",
+      "rows": 2125,
+      "sha256": "e168f9656aaec7cfe253740bbb6a8652f2a8c36d652937910e5a42aa6ca0df77"
+    },
+    {
+      "file": "r3_4.0-iv4.csv",
+      "rows": 2125,
+      "sha256": "23bb8a3a8ec61e4918c7ff488ec64dba4c1445667622063adaead760e995b3c7"
+    },
+    {
+      "file": "r3_4.0-iv8.csv",
+      "rows": 2125,
+      "sha256": "e1efbf77dc7a8bb8051aec55327e2fa67876a3acc9adc88e79eae4b46add4b4f"
+    },
+    {
+      "file": "hard-iv4.csv",
+      "rows": 248750,
+      "sha256": "5f6dc4147dc97a176cd0556ba6e87be96c9e7f8d7919ffcad816e0124a25db15"
+    },
+    {
+      "file": "expert-iv4.csv",
+      "rows": 248750,
+      "sha256": "1d17a34c4167a070223ff0be864d0069db73649ac6ea10ed633fb8f5b629f874"
+    },
+    {
+      "file": "hard-iv0.csv",
+      "rows": 21250,
+      "sha256": "60498ad20104be342931f1b8a8e2398be4f6cb0eca4cfb23a7952a442f545d84"
+    },
+    {
+      "file": "hard-iv8.csv",
+      "rows": 21250,
+      "sha256": "d5033adcf102a78de38282a20f64aed0e64c4c5e2114c2c95dce8c4a05b92580"
+    },
+    {
+      "file": "mixed-r3_3.2.csv",
+      "rows": 50000,
+      "sha256": "4fc043b5dfab82bd8913bae58bbf8de52219e15c20069a796b63ff53f6408934"
+    },
+    {
+      "file": "mixed-r3_3.5.csv",
+      "rows": 50000,
+      "sha256": "cdd6adb5374f4a575aceba92bd970dcf04679633783bb92bb584dea02895696e"
+    },
+    {
+      "file": "runtime-hard-iv4.csv",
+      "rows": 248750,
+      "sha256": "5f6dc4147dc97a176cd0556ba6e87be96c9e7f8d7919ffcad816e0124a25db15"
+    }
+  ],
+  "source_sha256": {
+    "addons/expedition/model.gd": "2e515ae2c78aaac0ef37d56705506c295f552c6a780100770b0f575493bd10de",
+    "addons/expedition/catalog.json": "d868c301bd8af12c3fee5666baec4441485fb519607c5c3aad35e3b131bf89ad",
+    "tests/analysis/baseline080_model.gd": "bdc7cfa11b9f1236ccab6333099b91151bffd5f257ad19d1d4204aba50ead8a2",
+    "tests/analysis/candidate_model.gd": "c2b0fee1c9833e947668d288639cb48339bc77ba7749164cfb56c348ab6e7828",
+    "tests/analysis/hard_balance_scan.gd": "fa4041d63d3488a3bde951f44704d21d87a42cdbdf04f64624d4e984b44538a1",
+    "tests/analysis/hard_mixed_iv_scan.gd": "985390e21a24c16847734274433134a7e9be01d776d2016fec305e361df2ace4",
+    "tests/analysis/hard_runtime_scan.gd": "c93c0ea81d0b534039d91112a5fdce5a5f21e36f89594f66c8dce34826dc4ffd",
+    "tests/expedition_hard_balance_verify.gd": "6b4211bc02958508dbe62571f2c2615f4bf6bcac1f3054bc180e4dc6d6249831"
+  }
+}
