@@ -1,0 +1,14 @@
+[
+  {
+    "suite": "bag_formation",
+    "passed": true
+  },
+  {
+    "suite": "selected_ui",
+    "passed": true
+  },
+  {
+    "suite": "bag_interaction",
+    "passed": true
+  }
+]

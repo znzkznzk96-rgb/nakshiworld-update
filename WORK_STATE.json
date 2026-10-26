@@ -1,23 +1,21 @@
 {
   "schema_version": 3,
   "work_branch": "work/valley-runtime",
-  "status": "v083_published_verified_phone_pending",
-  "current_task": "강화B·배치A 적용 및 가방 진입 3초 후 멈춤 수정·배포",
+  "status": "release_084_preparing",
+  "current_task": "가방 입력 잠금: Godot 가상 마우스 선행 순서 재현·수정",
   "release_baseline": "v0.83",
   "source_commit": "d072b6a78cc4c867143ea5af55123765ac29964e",
   "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v0.83",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
-  "verification": "analysis/selected-ui-083/PUBLIC_VERIFICATION.json",
-  "next_step": "휴대폰 0.83 적용 후 가방 진입 정지 재발 여부 확인. 동일 증상시 실제 기기 로그 조사.",
-  "updated_at": "2026-10-26",
+  "verification": "analysis/bag-input-order-084/REPORT.md",
+  "next_step": "44검사 및 CI 통과 후 v0.84 공개, 파일/운영다운로드 검증",
+  "updated_at": "2026-10-27",
   "last_release_deployed": true,
   "this_change": {
-    "release_authorized": true,
-    "deployed": true,
     "implemented": true,
-    "local_regressions": 42,
-    "phone_freeze_cause_confirmed": false
+    "deployed": false,
+    "release_authorized": true
   },
   "pending_decisions": [
     "계곡은 기존 미승인 수치·입장 준비중 유지. 라이선스 수령과 별도."
@@ -26,5 +24,13 @@
     "commit": "c39553e83004fa46dc7b369a39501efa63b90ef7",
     "path": "WORK_STATE.json",
     "note": "이전 상세 상태 원문은 해당 Git 버전에 보존. 새 상태에는 공개용 진행 정보만 기록."
-  }
+  },
+  "checks": {
+    "regression": 44,
+    "engine_native_taps_before_failed": 20,
+    "engine_native_taps_after_failed": 0,
+    "android_stall_resolved": false,
+    "input_lock_reproduced_and_fixed": true
+  },
+  "target_release": "v0.84"
 }

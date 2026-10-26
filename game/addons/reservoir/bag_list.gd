@@ -61,7 +61,7 @@ func draw(m) -> void:
 	var r:=Rect2(10,floorf((h-height)/2),250,height)
 	m.text_items=m.text_items.filter(func(it):return it[1].y<r.position.y-7)
 	m._ui_rect(Rect2(-m.ox,0,270+2*m.ox,h),Color(0.04,0.06,0.1,0.78))
-	var k: float=clampf((m.ui_clock-inv.opened_at)/0.24,0,1)
+	var k: float=1.0
 	var ease: float=1-pow(1-k,3)
 	var scale:=Vector2(lerpf(0.88,1,ease),lerpf(0.06,1,ease))
 	var first: int=m.text_items.size();var anchor:=r.get_center()
@@ -102,7 +102,6 @@ func draw(m) -> void:
 	inv._finish(m,first,anchor,scale,k)
 func press(m,p: Vector2) -> void:
 	var inv=m.inventory
-	if m.ui_clock-inv.opened_at<0.2: return
 	if inv.rects.get("close",Rect2()).has_point(p) or not inv.rects.get("panel",Rect2()).has_point(p):
 		m.market_open=false;inv.displayed=false;pointer=false;return
 	for key in inv.tab_rects:

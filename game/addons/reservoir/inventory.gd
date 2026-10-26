@@ -50,10 +50,15 @@ func _release(m,p: Vector2) -> void:
 	else: press(m,p)
 
 func input_event(m,e: InputEvent) -> bool:
-	# Android can send mouse events for the same native touch after a modal closes.
-	if (e is InputEventMouseButton or e is InputEventMouseMotion) and e.device==-1 and Time.get_ticks_msec()-last_native_touch<500: return true
-	if (selected<0 and (not m.market_open or m.market_sell)) or m.settings_open or not m.trans.is_empty() or not m.equipment.pending_sale.is_empty() or not m.V.commerce.pending.is_empty(): pointer=false;return false
-	if selected<0 and m.ui_clock-opened_at<0.2: return true
+	var active: bool = not ((selected<0 and (not m.market_open or m.market_sell)) or m.settings_open or not m.trans.is_empty() or not m.equipment.pending_sale.is_empty() or not m.V.commerce.pending.is_empty())
+	# Godot dispatches the emulated mouse BEFORE its native touch. A time-only
+	# guard lets the first mouse-down after idle steal the native gesture.
+	if (e is InputEventMouseButton or e is InputEventMouseMotion) and e.device==-1:
+		if active or Time.get_ticks_msec()-last_native_touch<500: return true
+	if not active: cancel_pointer();return false
+	# Menu mouse-down can open this view before the native half of that same
+	# event arrives. Ignore that opening gesture until the first layout exists.
+	if selected<0 and not displayed: return true
 	if e is InputEventScreenTouch:
 		last_native_touch=Time.get_ticks_msec()
 		var p: Vector2=e.position-Vector2(m.ox,0)
@@ -105,7 +110,7 @@ func draw(m) -> void :
 	m._ui_rect(Rect2( - m.ox, 0, m.VW + 2 * m.ox, h), Color(0.04, 0.06, 0.1, 0.78))
 	var r: = Rect2(15, roundf(h * 0.5) - 185, 240, 370)
 	m.text_items = m.text_items.filter( func(it): return it[1].y < r.position.y - 7)
-	var k: float = clampf((m.ui_clock - opened_at) / 0.24, 0, 1)
+	var k: float = 1.0
 	var ease: float = 1 - pow(1 - k, 3)
 	var scale: = Vector2(lerpf(0.88, 1, ease), lerpf(0.06, 1, ease))
 	var anchor: = r.get_center()
@@ -160,7 +165,6 @@ func draw(m) -> void :
 
 func press(m, p: Vector2) -> void :
 	if not m.market_sell and tab=="fish": list_view.press(m,p);return
-	if m.ui_clock - opened_at < 0.2: return
 	if rects.get("close", Rect2()).has_point(p) or not rects.get("panel", Rect2()).has_point(p):
 		m.market_open = false;displayed = false;return
 	if not m.market_sell:
@@ -203,10 +207,6 @@ func detail_press(p: Vector2) -> void :
 	if selected_grade>=0: list_view.detail_press(self,p);return
 	if rects.get("detail_close", Rect2()).has_point(p) or not rects.get("detail", Rect2()).has_point(p): selected = -1
 
-func _finish(m, first: int, anchor: Vector2, scale: Vector2, k: float) -> void:
+func _finish(m, _first: int, _anchor: Vector2, _scale: Vector2, _k: float) -> void:
+	# Keep glyph raster size fixed; opening/closing never blocks on an animation.
 	m.ui_commands.append(["reset_transform"])
-	for i in range(first, m.text_items.size()):
-		var it: Array = m.text_items[i];it[1] = anchor + (it[1] - anchor) * scale;it[7] *= scale.x
-		var col: Color = it[6];col.a *= smoothstep(0.35, 0.85, k);it[6] = col
-
-

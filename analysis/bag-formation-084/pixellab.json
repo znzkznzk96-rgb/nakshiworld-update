@@ -1,0 +1,83 @@
+[
+  {
+    "role": "attack",
+    "provider": "PixelLab",
+    "endpoint": "generate-image-v2",
+    "job_id": "39b911c4-5728-479d-ba81-3bf9cc851bb1",
+    "usage": {
+      "type": "generations",
+      "generations": 10.0
+    },
+    "request": {
+      "description": "A single professional 32x32 pixel art RPG role icon: two silver steel swords crossing diagonally in an X, sharp clean pointed blades, short warm golden guards, red leather handles. Red accents. Clearly recognizable crossed sword attack icon. Isolated centered object, transparent background, 2 pixel padding on all sides, clean dark brown one pixel outline, 3 shades per material, crisp game sprite pixels, cozy 16 bit fantasy fishing game UI asset. Strong readable silhouette at 16 pixels. No letters, no text, no numbers, no panel, no background, no glow, no particles.",
+      "image_size": {
+        "width": 32,
+        "height": 32
+      },
+      "seed": 202610270,
+      "no_background": true,
+      "style_options": {
+        "color_palette": false,
+        "outline": true,
+        "detail": true,
+        "shading": true
+      }
+    },
+    "sha256": "32c048f9d681a903cf197847a6666a431419c5b7c6b312ca09b7a3a23fceaa0a",
+    "qa": "32x32 RGBA, transparent outside silhouette, inspected before next paid POST"
+  },
+  {
+    "role": "defense",
+    "provider": "PixelLab",
+    "endpoint": "generate-image-v2",
+    "job_id": "2a0998a3-b699-4b42-935a-a4b3d026a018",
+    "usage": {
+      "type": "generations",
+      "generations": 10.0
+    },
+    "request": {
+      "description": "A single professional 32x32 pixel art RPG role icon: one symmetrical blue kite shield with a polished golden metal rim, bright blue face, small central metal boss and a readable shield silhouette. Clearly recognizable defense icon. Isolated centered object, transparent background, 2 pixel padding on all sides, clean dark brown one pixel outline, 3 shades per material, crisp game sprite pixels, cozy 16 bit fantasy fishing game UI asset. Strong readable silhouette at 16 pixels. No letters, no text, no numbers, no panel, no background, no glow, no particles.",
+      "image_size": {
+        "width": 32,
+        "height": 32
+      },
+      "seed": 202610271,
+      "no_background": true,
+      "style_options": {
+        "color_palette": false,
+        "outline": true,
+        "detail": true,
+        "shading": true
+      }
+    },
+    "sha256": "319feddc33db0042bb36ec41df9936924f0ad443608ed985e56ed9fbdf213962",
+    "qa": "32x32 RGBA, transparent outside silhouette, inspected before next paid POST"
+  },
+  {
+    "role": "support",
+    "provider": "PixelLab",
+    "endpoint": "generate-image-v2",
+    "job_id": "167efd4d-ea00-4a12-aecf-9803d0958ad8",
+    "usage": {
+      "type": "generations",
+      "generations": 10.0
+    },
+    "request": {
+      "description": "A single professional 32x32 pixel art RPG role icon: one chunky emerald green healing plus sign with a slim warm gold border, four equal arms, simple polished beveled shading. Clearly recognizable healing support icon, no shield, no weapon. Isolated centered object, transparent background, 2 pixel padding on all sides, clean dark brown one pixel outline, 3 shades per material, crisp game sprite pixels, cozy 16 bit fantasy fishing game UI asset. Strong readable silhouette at 16 pixels. No letters, no text, no numbers, no panel, no background, no glow, no particles.",
+      "image_size": {
+        "width": 32,
+        "height": 32
+      },
+      "seed": 202610272,
+      "no_background": true,
+      "style_options": {
+        "color_palette": false,
+        "outline": true,
+        "detail": true,
+        "shading": true
+      }
+    },
+    "sha256": "7e774bfe3c2a778527b0ad5752013ef4894623313486bfd077a8b5f72fefe0f9",
+    "qa": "32x32 RGBA, transparent outside silhouette, inspected before next paid POST"
+  }
+]
