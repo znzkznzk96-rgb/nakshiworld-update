@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "task": "거꾸로 폭포 계곡 통합 및 낚시월드 인수인계 기준",
-  "status": "integration_in_progress",
+  "status": "release_blocked_by_automatic_approval_review",
   "work_branch": "work/valley-runtime",
   "release_baseline": "v0.75",
   "target_version": "0.76",
@@ -20,8 +20,8 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-26",
-  "current_task": "Exploration and alchemy implemented; verifying v0.76 before release",
-  "next_step": "Complete work CI and packaged asset verification, publish v0.76, verify gateway",
+  "current_task": "v0.76 implementation and verification complete; publication blocked",
+  "next_step": "Obtain explicit permission to merge PR #9 into main and publicly release v0.76, then verify release assets and gateway",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
@@ -31,7 +31,11 @@
     "scope": "approved expedition/alchemy and final sprites",
     "game_changed": true,
     "release_created": false,
-    "deployed": false
+    "deployed": false,
+    "implementation_commit": "b932b35d8023cce44ab444a2bd49227199b1429d",
+    "work_ci": 40265436338,
+    "work_ci_conclusion": "success",
+    "pr": 9
   },
   "history": "docs/historical/2026-10-22-before-workflow-streamlining/WORK_STATE.json",
   "work_verification": "docs/analysis/balance-tuning-075/QA.json",
@@ -484,7 +488,7 @@
     "implemented": true
   },
   "backrooms_design": {
-    "status": "compact_village_ui_review_ready",
+    "status": "implemented_verified_publication_blocked",
     "plan": "docs/design/backrooms-reservoir/PLAN.md",
     "gallery": "docs/design/backrooms-reservoir/review.html",
     "verification": "docs/design/backrooms-reservoir/QA.json",
@@ -581,7 +585,7 @@
       "status": "normal18_final_boss4_motion_10R_size_v2",
       "final_art_approved": false,
       "motions_created": true,
-      "game_applied": false,
+      "game_applied": true,
       "orientation": "right side enemy looking slightly left, three-quarter view"
     },
     "encounters_per_round": {
@@ -686,24 +690,30 @@
       ]
     },
     "combat_balance_v1": {
-      "status": "initial_tuning_review",
+      "status": "actual_engine_750_compositions_verified",
       "soldiers": 15,
       "normal": 18,
       "bosses": 4,
       "boss10": {
-        "hp": 1000,
-        "atk": 70,
+        "hp": 1200,
+        "atk": 80,
         "def": 40
       },
       "target": "2star defense + 2star attack + 1star support",
       "compositions": 125,
-      "clears": 120,
+      "clears": 102,
       "all_1star_clears": 0,
       "all_2star_clears": 125,
       "actual_game_tested": true,
       "game_applied": true,
-      "between_round_recovery": "not decided"
+      "between_round_recovery": "30 seconds then full HP"
     }
+  },
+  "approval_block": {
+    "action": "Merge PR #9 into main, triggering public v0.76 release",
+    "reason": "Automatic approval review said production/publication was not explicitly authorized by trusted evidence",
+    "bypassed": false,
+    "main_unchanged": "386a19f4e5411a149de34382c72374c5586eafb8",
+    "public_version": "0.75"
   }
 }
-
