@@ -95,37 +95,69 @@ func draw_strip(m) -> void:
 	else: m._text("어혼을 모아 병사 3마리를 보내세요",r.position+Vector2(127,49),9,Color("fff0d1"),true,230,true)
 	rects.strip=r
 
+func rarity_label(u: Dictionary) -> String:
+	return " · "+["레어","유니크","전설"][clampi(int(u.get("rarity",0)),0,2)] if int(u.star)==3 else ""
+
+func enemy_pose(b: Dictionary) -> Vector2i:
+	var phase: String=str(b.get("phase","approach"));var t: float=float(b.get("clock",0))
+	var boss: bool=str(b.enemy.id).ends_with("R")
+	var fx: Dictionary=b.get("fx",{});var age: float=float(fx.get("age",99))
+	if phase=="death":
+		var d: float=float(b.phase_time)
+		return Vector2i(mini(5,int(d/.2)),3) if boss else Vector2i(5 if d<.4 else 6,0)
+	if phase=="fight":
+		if bool(fx.get("enemy_hit",false)) and age<.36:
+			return Vector2i(mini(5,int(age/.06)),2) if boss else Vector2i(4,0)
+		if boss:
+			return Vector2i(mini(5,int(t/1.1*6)),1) if t<1.1 else Vector2i(int((t-1.1)/.065)%6,0)
+		return Vector2i(1 if t<.5 else (2 if t<.8 else (3 if t<1.25 else 0)),0)
+	return Vector2i(int(float(b.get("phase_time",0))/.12)%6,0) if boss else Vector2i.ZERO
+
+func fighter_effect(f: Dictionary,fx: Dictionary) -> Dictionary:
+	var age: float=float(fx.get("age",99));var uid: int=int(f.get("uid",-2))
+	var dying: bool=int(f.hp)<=0
+	var alpha: float=1.0
+	if dying:
+		alpha=1.0-smoothstep(.08,.85,age) if uid==int(fx.get("death_uid",-1)) else 0.0
+	var hit: bool=uid==int(fx.get("hit_uid",-1)) and age<.3 and not dying
+	return {"alpha":alpha,"x":-sin(age/.3*PI)*4 if hit else 0.0,"y":minf(1,age/.85)*7 if dying else 0.0,"hit":hit}
+
 func battle_art(m,r: Rect2) -> void:
 	var b: Dictionary=data.battle
 	var phase: String=str(b.get("phase","approach"));var t: float=float(b.get("clock",0))
+	var fx: Dictionary=b.get("fx",{});var age: float=float(fx.get("age",99))
 	var ground: float=r.end.y-2
 	for i in b.fighters.size():
-		var f: Dictionary=b.fighters[i]
-		if int(f.hp)<=0: continue
+		var f: Dictionary=b.fighters[i];var effect: Dictionary=fighter_effect(f,fx)
+		if float(effect.alpha)<=0: continue
 		var u: Dictionary=data.catalog.soldiers[int(f.id)]
 		var frame: int=0
-		if phase=="fight": frame=mini(int(u.frame_count)-1,int(t/1.5*int(u.frame_count)))
-		var x: float=r.position.x+12+(2-i)*31
+		if phase=="fight" and int(f.hp)>0: frame=mini(int(u.frame_count)-1,int(t/1.5*int(u.frame_count)))
+		for event in fx.get("support",[]):
+			if int(event.source)==int(f.get("uid",-1)) and age<.6: frame=mini(int(u.frame_count)-1,int(age/.6*int(u.frame_count)))
+		var x: float=r.position.x+12+(2-i)*31+float(effect.x)
 		if phase=="approach": x-=8*(1-minf(1,float(b.phase_time)/.8))
 		var fh: float=minf(40,r.size.y*.74)
-		sprite(m,int(f.id),Rect2(x,ground-fh,48*fh/40,fh),frame)
-		if int(f.shield)>0: m._ui_arc(Vector2(x+25,ground-16),17,-1.5,1.5,9,Color("f5df83"),1)
-		if u.id=="eel" and phase=="fight" and t>0.55 and t<1.5:
+		sprite(m,int(f.id),Rect2(x,ground-fh+float(effect.y),48*fh/40,fh),frame,float(effect.alpha))
+		if int(f.shield)>0 and int(f.hp)>0: m._ui_arc(Vector2(x+25,ground-16),17,-1.5,1.5,9,Color("f5df83"),1)
+		for event in fx.get("support",[]):
+			if int(event.target)!=int(f.get("uid",-1)) or age>=.75 or int(f.hp)<=0: continue
+			var color: Color=Color("53e6bc") if event.kind!="ward" else Color("f7d65b")
+			color.a=1.0-smoothstep(.35,.75,age)
+			var c: Vector2=Vector2(x+22,ground-23-age*7).round()
+			if event.kind=="ward": m._ui_arc(c,7+age*5,0,TAU,12,color,1)
+			else:
+				m._ui_rect(Rect2(c-Vector2(1,4),Vector2(2,8)),color)
+				m._ui_rect(Rect2(c-Vector2(4,1),Vector2(8,2)),color)
+		if u.id=="eel" and phase=="fight" and int(f.hp)>0 and t>0.55 and t<1.5:
 			var p: float=(t-.55)/.95
 			m._ui_texture_rect(textures.bolt,Rect2(lerpf(x+30,r.end.x-28,p),ground-22,13,5))
-	var e: Dictionary=b.enemy;var key: String=str(e.id)
+	var key: String=str(b.enemy.id)
 	var is_boss: bool=key.ends_with("R");var n: int=320 if key=="10R" else (224 if is_boss else 128)
-	var row: int=0;var col: int=0;var alpha: float=1
-	if phase=="fight":
-		if is_boss: row=1;col=mini(5,int(t/TICK_LENGTH()*6))
-		else: col=1 if t<.5 else (2 if t<.8 else (3 if t<1.25 else 0))
-		if t<.13 and int(b.ticks)>0: row=2 if is_boss else 0;col=0 if is_boss else 4
-	elif phase=="death":
-		var d: float=float(b.phase_time)
-		row=3 if is_boss else 0;col=mini(5,int(d/.2)) if is_boss else (5 if d<.4 else 6)
-		alpha=1.0-smoothstep(1.3,2.2,d)
+	var pose: Vector2i=enemy_pose(b);var alpha: float=1.0
+	if phase=="death": alpha=1.0-smoothstep(1.3,2.2,float(b.phase_time))
 	var display: float=minf(r.size.y*.94,63) if key=="10R" else minf(r.size.y*.77,49) if is_boss else minf(r.size.y*.63,39)
-	m._ui_texture_rect_region(textures[key] if is_boss else textures[key][col],Rect2(r.end.x-display-10,ground-display,display,display),Rect2(col*n if is_boss else 0,row*n,n,n),Color(1,1,1,alpha))
+	m._ui_texture_rect_region(textures[key] if is_boss else textures[key][pose.x],Rect2(r.end.x-display-10,ground-display,display,display),Rect2(pose.x*n if is_boss else 0,pose.y*n,n,n),Color(1,1,1,alpha))
 
 func TICK_LENGTH() -> float: return 1.5
 
@@ -214,7 +246,7 @@ func draw_roster(m,y: float,bottom: float) -> void:
 		m._ui_style_box(m.sb_btn,r);sprite(m,int(u.id),Rect2(r.position+Vector2(2,1),Vector2(43,40)))
 		m._text(spec.name+" · "+ROLES[spec.role],r.position+Vector2(49,14),9,Color("382619"),false,177)
 		m._text(spec.description,r.position+Vector2(49,29),8,Color("6c553b"),false,177)
-		m._text("★".repeat(int(u.star))+(" · 편성 중" if int(u.uid) in data.team else ""),r.position+Vector2(49,40),7,Color("96703b"),false,177)
+		m._text("★".repeat(int(u.star))+rarity_label(u)+(" · 편성 중" if int(u.uid) in data.team else ""),r.position+Vector2(49,40),7,Color("96703b"),false,177)
 		rects["unit:%d"%int(u.uid)]=r
 	button(m,"prev",Rect2(18,y+237,35,23),"‹");button(m,"next",Rect2(217,y+237,35,23),"›")
 	m._text("%d / %d"%[page+1,total],Vector2(135,y+253),9,Color("6c553b"),true,140)
@@ -281,7 +313,7 @@ func draw_alchemy(m,y: float,bottom: float) -> void:
 		var u: Dictionary=data.soldiers[n];var st: Dictionary=data.stats(u);var spec: Dictionary=data.catalog.soldiers[int(u.id)]
 		var r: Rect2=Rect2(18,y+i*45,234,42)
 		m._ui_rect(r,Color("d2b577") if int(u.uid) in selected else Color("eddbb6"));sprite(m,int(u.id),Rect2(r.position,Vector2(42,40)))
-		m._text("%s %s · %s"%["★".repeat(int(u.star)),spec.name,ROLES[spec.role]],r.position+Vector2(44,12),9,Color("382619"),false,182)
+		m._text("%s %s · %s"%["★".repeat(int(u.star)),spec.name,ROLES[spec.role]+rarity_label(u)],r.position+Vector2(44,12),9,Color("382619"),false,182)
 		m._text("체%d 공%d 방%d · 개체 +%d/%d/%d"%[st.hp,st.atk,st.def,u.iv[0],u.iv[1],u.iv[2]],r.position+Vector2(44,25),7,Color("6c553b"),false,183)
 		m._text(spec.description,r.position+Vector2(44,37),7,Color("6c553b"),false,183)
 		rects["select:%d"%int(u.uid)]=r
