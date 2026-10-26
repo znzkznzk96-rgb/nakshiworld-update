@@ -8,3 +8,6 @@
 기존44검사+새 표시/전투동등성검사1 통과. 15종 수정 전후 전투결과 동일, 개별합계/지원차례/저장왕복/HP3개/역할문구 검사. 실제Godot 마을/상세 화면 확인. [검증](analysis/combat-feedback-085/VERIFICATION.json). tests/combat_feedback_baseline.gd는 v0.85 model.gd 그대로인 비교전용 기준이며 런타임에서는 사용하지 않는다. tests/combat_feedback_preview.gd로 재현 가능.
 
 다음: 사용자 화면 검토, 별도 공개배포 지시가 있을 때 배포. 작업브랜치만 저장하며 이번 새패치 공개승인 없음. 이전 상세원문: [이력](docs/historical/HANDOFF_before_combat_feedback_085.md).
+
+## 후속 지원 밸런스 질문
+15,000전투 비교로 회복/보호형의 상대약세 확인. [분석](analysis/support-balance-085/REPORT.md). 약사는 상시20%약화로 상대경쟁력 있음. 변경후보는 미확정이며 실제수치·공개배포 변경없음.
