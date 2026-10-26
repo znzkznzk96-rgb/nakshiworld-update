@@ -1,0 +1,30 @@
+{
+  "version": "0.78",
+  "source_commit": "ef16ed019710760bfa0eb489b54f37282914823c",
+  "assets": {
+    "version.json": {
+      "size": 198,
+      "sha256": "207f6e9e9faf765b79a7d32e560c66a5bb4722370950c566f49b71d59a5ecbba"
+    },
+    "game-source.zip": {
+      "size": 39457489,
+      "sha256": "348011e3787234635e469c8e3649f391410d7d9d736a5cfd1a858568e2a7dcfc"
+    },
+    "patch.pck": {
+      "size": 41520992,
+      "sha256": "20e11cbb2f446d4a5a7cdb6c9158bd0de2bfed0fcd20813e5378fee89447c568"
+    }
+  },
+  "source_file_count": 2029,
+  "changed_source_bytes_verified": true,
+  "release_download_verified": true,
+  "work_ci": 40279340141,
+  "build_run": 40279663858,
+  "gateway_run": 40279862600,
+  "all_runs_conclusion": "success",
+  "regression_suites": 33,
+  "gateway_sha256": "20e11cbb2f446d4a5a7cdb6c9158bd0de2bfed0fcd20813e5378fee89447c568",
+  "phone_verified": false,
+  "gift_received_on_phone": false,
+  "pr": 11
+}
