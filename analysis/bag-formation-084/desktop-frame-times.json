@@ -1,0 +1,26 @@
+[
+  {
+    "frames": 88,
+    "max_ms": 66.573,
+    "p95_ms": 19.975,
+    "phase": "baseline"
+  },
+  {
+    "frames": 423,
+    "max_ms": 52.004,
+    "p95_ms": 20.423,
+    "phase": "cold_bag"
+  },
+  {
+    "frames": 461,
+    "max_ms": 25.803,
+    "p95_ms": 15.575,
+    "phase": "cold_detail"
+  },
+  {
+    "frames": 177,
+    "max_ms": 15.401,
+    "p95_ms": 13.091,
+    "phase": "closed_detail"
+  }
+]
