@@ -38,6 +38,16 @@ with (ROOT/'verified.pck').open('wb') as out:
  for _,data in sorted(files.items()):out.write(data);out.write(bytes((-out.tell())%16))
 # Replace all original game assets with the verified 0.57 pack and new bootstrap.
 original=pathlib.Path(args.original_apk)
+# Android adaptive/splash layers must come from the approved puffer set.
+import json
+with zipfile.ZipFile(SOURCE_ROOT/'approved-puffer-icons.zip') as icon_zip:
+ expected_icons=json.loads(icon_zip.read('SHA256.json'))
+ assert len(expected_icons)==24
+ approved_icons={name:icon_zip.read(name) for name in expected_icons}
+ for name,data in approved_icons.items():
+  assert hashlib.sha256(data).hexdigest()==expected_icons[name]
+with zipfile.ZipFile(original) as shell:
+ assert {n for n in shell.namelist() if n.startswith('res/mipmap') and n.endswith('.png')}==set(approved_icons), 'Unexpected Android icon resources: review before packaging'
 with zipfile.ZipFile(original) as src,zipfile.ZipFile(ROOT/'unsigned.apk','w',zipfile.ZIP_DEFLATED) as dst:
  for info in src.infolist():
   if info.filename.startswith(('assets/','META-INF/')):continue
@@ -69,20 +79,14 @@ with zipfile.ZipFile(original) as src,zipfile.ZipFile(ROOT/'unsigned.apk','w',zi
        if ss[name]=='versionCode':struct.pack_into('<I',b,q+16,args.code)
     p+=size
    data=bytes(b)
-  if info.filename.startswith('res/mipmap') and info.filename.endswith('.png') and '/icon' in info.filename:
-   width,height=struct.unpack_from('>II',data,16)
-   target=ROOT/('icon-'+info.filename.replace('/','_'))
-   if info.filename.endswith('/icon_foreground.png'):
-    command=['convert','-size',f'{width}x{height}','xc:none',str(target)]
-   elif info.filename.endswith('/icon_monochrome.png'):
-    # Use dark ink from the approved art as Android's single-color themed mask.
-    command=['convert',str(icon),'-filter','point','-resize',f'{int(width*.72)}x{int(height*.72)}','-colorspace','Gray','-threshold','22%','-negate','-alpha','copy','-fill','white','-colorize','100','-background','none','-gravity','center','-extent',f'{width}x{height}',str(target)]
-   elif info.filename.endswith('/icon_background.png'):
-    command=['convert',str(icon),'-filter','point','-resize',f'{int(width*.78)}x{int(height*.78)}','-background','#a28bed','-gravity','center','-extent',f'{width}x{height}',str(target)]
-   else:
-    command=['convert',str(icon),'-filter','point','-resize',f'{width}x{height}',str(target)]
-   subprocess.run(command,check=True);data=target.read_bytes()
+  if info.filename in approved_icons:
+   data=approved_icons[info.filename]
   dst.writestr(info,data)
  dst.writestr('assets/_cl_',src.read('assets/_cl_'))
  for name,data in sorted(files.items()):dst.writestr('assets/'+name,data)
 print('Packed',len(files),'resources; version',args.name,'code',args.code)
+
+with zipfile.ZipFile(ROOT/'unsigned.apk') as packaged:
+ for name,digest in expected_icons.items():
+  assert hashlib.sha256(packaged.read(name)).hexdigest()==digest, 'Approved puffer icon mismatch: '+name
+print('Approved puffer icon resources: 24/24 verified')
