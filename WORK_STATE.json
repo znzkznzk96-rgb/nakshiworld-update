@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "task": "거꾸로 폭포 계곡 통합 및 낚시월드 인수인계 기준",
-  "status": "verified_not_deployed",
+  "status": "implementation_pending",
   "work_branch": "work/valley-runtime",
   "release_baseline": "v0.77",
   "target_version": "0.77",
@@ -20,7 +20,7 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-26",
-  "current_task": "연성 조합/미리보기 간격 축소, 제작 이력 기반 미리보기와 도감 병사 탭",
+  "current_task": "0.78 병사 도감/연성 개선 및 1회 수령 테스트 선물 배포",
   "next_step": "사용자 확인 후 별도 공개 배포 요청에 따라 진행",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
@@ -28,13 +28,9 @@
   "game_bible": "docs/GAME_BIBLE.md",
   "last_release_deployed": true,
   "this_change": {
-    "scope": "연성 조합/미리보기 간격 축소, 제작 이력 기반 미리보기와 도감 병사 탭",
-    "deployed": false,
-    "release_authorized": false,
-    "local_suites": 32,
-    "verification": "docs/qa/soldier-dex/VERIFICATION.json",
-    "remote_ci": 40278126748,
-    "remote_ci_conclusion": "success"
+    "scope": "0.78 병사 도감/연성 개선 및 1회 수령 테스트 선물 배포",
+    "release_authorized": true,
+    "deployed": false
   },
   "history": "docs/historical/2026-10-22-before-workflow-streamlining/WORK_STATE.json",
   "work_verification": "docs/analysis/balance-tuning-075/QA.json",
