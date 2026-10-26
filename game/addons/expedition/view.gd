@@ -202,17 +202,18 @@ func battle_art(m,r: Rect2) -> void:
 		var fh: float=minf(43,r.size.y*.70)
 		if phase=="approach": effect.y+=sin(float(b.phase_time)*12+i)*1.5
 		sprite(m,int(f.id),Rect2(x,ground-fh+float(effect.y),48*fh/40,fh),frame,float(effect.alpha))
-		if int(f.uid)==front_uid:
-			var hp: float=float(f.hp)
-			if age<.38 and int(fx.get("hit_uid",-1))==int(f.uid): hp=float(fx.get("front_hp_before",hp))
-			health_bar(m,Rect2(x+4,ground-fh-4,33,4),hp,float(f.max_hp),float(fx.get("front_hp_before",hp)) if age<.8 and int(fx.get("hit_uid",-1))==int(f.uid) else hp,Color("74cc6a"))
+		var hp: float=float(f.hp)
+		if age<.38 and int(fx.get("hit_uid",-1))==int(f.uid): hp=float(fx.get("front_hp_before",hp))
+		# Stable lanes keep all three bars apart during attack lunges.
+		var hp_x: float=r.position.x+12+(2-i)*34
+		health_bar(m,Rect2(hp_x,ground-fh-4,31,4),hp,float(f.max_hp),float(fx.get("front_hp_before",hp)) if age<.8 and int(fx.get("hit_uid",-1))==int(f.uid) else hp,Color("74cc6a"))
 		if int(fx.get("hit_uid",-1))==int(f.uid) and age>=.38 and age<1.08:
 			floating_value(m,Vector2(x+20,ground-fh+10),"-%d"%int(fx.get("incoming",0)),Color("ffc393"),age-.38)
 			if int(fx.get("blocked",0))>0: floating_value(m,Vector2(x+20,ground-fh+21),"◇%d"%int(fx.blocked),Color("96dcfa"),age-.38)
 		if int(f.shield)>0 and int(f.hp)>0: m._ui_arc(Vector2(x+25,ground-16),17,-1.5,1.5,9,Color("f5df83"),1)
 		for event in fx.get("support",[]):
 			if int(event.target)!=int(f.get("uid",-1)) or age>=.75 or int(f.hp)<=0: continue
-			floating_value(m,Vector2(x+20,ground-19),"+%d"%int(event.amount),Color("79f1b4") if event.kind!="ward" else Color("96dcfa"),age)
+			floating_value(m,Vector2(x+20,ground-19),("보호 +%d" if event.kind=="ward" else "회복 +%d")%int(event.amount),Color("79f1b4") if event.kind!="ward" else Color("96dcfa"),age)
 			var color: Color=Color("53e6bc") if event.kind!="ward" else Color("f7d65b")
 			color.a=1.0-smoothstep(.35,.75,age)
 			var c: Vector2=Vector2(x+22,ground-23-age*7).round()
@@ -239,7 +240,20 @@ func battle_art(m,r: Rect2) -> void:
 		m._ui_texture_rect_region(textures[key] if is_boss else textures[key][pose.x],visible,clipped,Color(1,1,1,alpha))
 	if phase!="approach" and int(b.enemy.hp)>0:
 		health_bar(m,Rect2(enemy_x+display/2-18,r.position.y+3,36,4),float(b.enemy.hp),float(b.enemy.max_hp),float(fx.get("enemy_hp_before",b.enemy.hp)) if age<.8 else float(b.enemy.hp),Color("df665a"))
-	if age<.7 and fx.has("outgoing"): floating_value(m,Vector2(enemy_x+display/2,r.position.y+20),"-%d"%int(fx.outgoing),Color("fff0c1"),age)
+	if fx.has("attacks"):
+		for event in fx.attacks:
+			var slot: int=-1
+			for i in b.fighters.size():
+				if int(b.fighters[i].uid)==int(event.source): slot=i;break
+			if slot<0: continue
+			var role: String=str(event.role)
+			var label: String=["앞", "중", "뒤"][slot]+str(ROLES.get(role,"공격"))+" -%d"%int(event.amount)
+			floating_value(m,Vector2(r.end.x-34,r.position.y+15+slot*11),label,Color({"attack":"ffb39c","defense":"9edcff","support":"a6f0b5"}.get(role,"fff0c1")),age-slot*.10)
+		if int(fx.get("poison_damage",0))>0:
+			floating_value(m,Vector2(enemy_x+display/2-20,ground-2),"독 -%d"%int(fx.poison_damage),Color("c6a0ed"),age-.18)
+	elif age<.7 and fx.has("outgoing"):
+		# Existing in-progress saves may only have the old aggregate event.
+		floating_value(m,Vector2(enemy_x+display/2,r.position.y+20),"-%d"%int(fx.outgoing),Color("fff0c1"),age)
 
 
 func TICK_LENGTH() -> float: return 1.5

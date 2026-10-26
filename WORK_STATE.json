@@ -1,14 +1,15 @@
 {
   "schema_version": 3,
   "work_branch": "work/valley-runtime",
-  "status": "combat_feedback_implementation",
+  "status": "combat_feedback_verified_not_deployed",
   "release_baseline": "v0.85",
   "source_commit": "68d3f23a5eb18a09b0f5f6a6b057423f0b89bf08",
-  "current_task": "병사3명 HP·개별피해·역할별표시",
+  "current_task": "병사3명 HP·개별피해·역할별표시 구현 및 검사 완료",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
+  "verification": "analysis/combat-feedback-085/VERIFICATION.json",
   "phone_verified": false,
   "release_authorized": false,
-  "next_step": "0.85 전체소스 복원 및 표시 수정·관련검사",
+  "next_step": "사용자 화면 검토 및 별도 배포 지시 대기",
   "updated_at": "2026-10-27"
 }

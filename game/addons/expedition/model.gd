@@ -223,6 +223,8 @@ func tick() -> void:
 	battle.fx={"front_hp_before":int(front.hp),"enemy_hp_before":int(enemy.hp),"age":0.0,"hit_uid":int(front.uid),"death_uid":-1,"support":[],"enemy_hit":true}
 	var attack: int=roundi(int(enemy.poison)*POWER)
 	var heals: Array=[]
+	battle.fx.attacks=[]
+	battle.fx.poison_damage=attack
 	for f in living:
 		var sk: String=skill(f)
 		if int(battle.ticks)%3==0 and sk in ["regen","heal","ward"]:
@@ -230,7 +232,9 @@ func tick() -> void:
 		var power: float=float(f.atk)
 		if int(battle.ticks)%3==0 and sk=="bolt": power*=1.75
 		if int(battle.ticks)%3==0 and sk=="flurry": power*=1.5
-		attack+=damage(power,enemy_def*0.5 if sk=="pierce" else enemy_def)
+		var dealt: int=damage(power,enemy_def*0.5 if sk=="pierce" else enemy_def)
+		attack+=dealt
+		battle.fx.attacks.append({"source":int(f.uid),"role":str(catalog.soldiers[int(f.id)].role),"amount":dealt})
 		if sk=="drain": f.hp=mini(int(f.max_hp),int(f.hp)+roundi(power*0.18*POWER))
 		if sk=="poison": enemy.poison=mini(18,int(enemy.poison)+maxi(1,roundi(power*0.08)))
 	var incoming: int=damage(enemy_atk,float(front.def))
@@ -238,8 +242,12 @@ func tick() -> void:
 	battle.fx.incoming=mini(int(front.hp),incoming-int(battle.fx.blocked))
 	hurt(front,incoming);front.hits+=1
 	if skill(front)=="thorns": enemy.poison=mini(18,int(enemy.poison)+3)
-	if skill(front)=="reflect": attack+=roundi(incoming*0.25)
-	if skill(front)=="counter" and int(front.hits)%3==0: attack+=damage(float(front.atk)*1.5,enemy_def)
+	var retaliation: int=0
+	if skill(front)=="reflect": retaliation+=roundi(incoming*0.25)
+	if skill(front)=="counter" and int(front.hits)%3==0: retaliation+=damage(float(front.atk)*1.5,enemy_def)
+	attack+=retaliation
+	for event in battle.fx.attacks:
+		if int(event.source)==int(front.uid): event.amount+=retaliation
 	if skill(front)=="mend" and int(front.hp)>0: front.hp=mini(int(front.max_hp),int(front.hp)+roundi(incoming*0.15))
 	for heal in heals:
 		var survivors: Array=battle.fighters.filter(func(f): return int(f.hp)>0)
