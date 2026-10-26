@@ -1,0 +1,31 @@
+{
+  "version": "0.77",
+  "source_commit": "c12dd4258f5ca0758d54d5bf42e501fcf36da15d",
+  "assets": {
+    "version.json": {
+      "size": 198,
+      "sha256": "fcb59809c08a0f52e3704c9ce57d39a0485f0212e72107c152a7a31c30b63c30"
+    },
+    "game-source.zip": {
+      "size": 39450717,
+      "sha256": "adfb906d924367370128911b9bc69c455c6b33c0553aa2bb17d7b3aedecaa5bc"
+    },
+    "patch.pck": {
+      "size": 41504624,
+      "sha256": "eaea77b1618069ab18e6e7ff238cda7db80d75c061011919e26faefb36b116fa"
+    }
+  },
+  "source_file_count": 2019,
+  "release_download_verified": true,
+  "verified_date_kst": "2026-10-26",
+  "build_run": 40276445468,
+  "gateway_run": 40276608550,
+  "work_ci_run": 40274246924,
+  "all_runs_conclusion": "success",
+  "regression_suites": 31,
+  "gateway_download_sha256": "eaea77b1618069ab18e6e7ff238cda7db80d75c061011919e26faefb36b116fa",
+  "gateway_verification": "Actions downloaded installed-APK update URL using v=77.0 and verified size, SHA256, GDPC and source commit.",
+  "phone_verified": false,
+  "approval": "User explicitly replied 배포해줘 ㅇㅇ to PR10 merge and v0.77 public deployment question.",
+  "pr": 10
+}
