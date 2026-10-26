@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "task": "거꾸로 폭포 계곡 통합 및 낚시월드 인수인계 기준",
-  "status": "deployed_verified",
+  "status": "in_progress",
   "work_branch": "work/valley-runtime",
   "release_baseline": "v0.78",
   "target_version": "0.78",
@@ -20,15 +20,15 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-26",
-  "current_task": "업데이트 화면 C구성+B하늘색 배경 확정",
-  "next_step": "선택 조합 최종 시안 표시; APK 적용/배포 별도",
+  "current_task": "APK 새 화면·잠금 아이콘·탐험 표시/속도·+3 강화 및 결과 UI",
+  "next_step": "원인 점검, 구현, 격리 검증, 서명 APK 제공",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
   "last_release_deployed": true,
   "this_change": {
-    "scope": "selected update-screen design",
+    "scope": "APK and expedition fixes",
     "game_changed": false,
     "deployed": false
   },
@@ -312,7 +312,7 @@
   "update_screen": {
     "selection": "minimal C cat and bucket + B sky-blue background",
     "approved": true,
-    "status": "visual_combination_selected",
+    "status": "apk_implementation_authorized",
     "style": "차원관리국 장비·잠든 고양이·청록 분할 게이지",
     "game_applied": true,
     "deployed": true,
