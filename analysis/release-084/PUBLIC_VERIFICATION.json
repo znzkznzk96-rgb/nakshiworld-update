@@ -1,0 +1,36 @@
+{
+  "version": {
+    "code": 84,
+    "name": "0.84"
+  },
+  "source_commit": "7e01933c67f306c56f3bf91895eef7e0d13fdb92",
+  "assets": {
+    "game-source.zip": {
+      "size": 46188644,
+      "sha256": "0be5e595d3241f43e7b15d61c3485fb89540c58ef0da1e1f50f002689c96a9ff",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v0.84/game-source.zip"
+    },
+    "patch.pck": {
+      "size": 47049648,
+      "sha256": "e617e3165a90d6e2a7f13779edbe7fcbcaa02157e63237e95d01f2c3ff9e0361",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v0.84/patch.pck"
+    },
+    "version.json": {
+      "size": 198,
+      "sha256": "44ce4dafde81bc6898be52c5b725a6d947e6274817a3b0a0a73a3097132fd764",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v0.84/version.json"
+    }
+  },
+  "phone_verified": false,
+  "source_overlay_files_verified": 255,
+  "zip_crc_verified": true,
+  "public_assets_verified": true,
+  "installed_apk_gateway_verified": true,
+  "checks": {
+    "work_run": 40352738073,
+    "release_run": 40353309367,
+    "gateway_run": 40353830791,
+    "all_conclusions": "success",
+    "full_regression_suites": 44
+  }
+}
