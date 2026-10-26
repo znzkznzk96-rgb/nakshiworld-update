@@ -1,0 +1,146 @@
+[
+  {
+    "region": 0,
+    "stock": 1.0,
+    "bait": 0,
+    "mean_sale": 170.905,
+    "current_bait_share": 0.0059,
+    "candidate_bait_share": 0.0293
+  },
+  {
+    "region": 0,
+    "stock": 1.0,
+    "bait": 1,
+    "mean_sale": 200.559,
+    "current_bait_share": 0.0299,
+    "candidate_bait_share": 0.0997
+  },
+  {
+    "region": 0,
+    "stock": 1.0,
+    "bait": 2,
+    "mean_sale": 196.098,
+    "current_bait_share": 0.0408,
+    "candidate_bait_share": 0.1785
+  },
+  {
+    "region": 0,
+    "stock": 0.5,
+    "bait": 0,
+    "mean_sale": 78.131,
+    "current_bait_share": 0.0128,
+    "candidate_bait_share": 0.064
+  },
+  {
+    "region": 0,
+    "stock": 0.5,
+    "bait": 1,
+    "mean_sale": 91.781,
+    "current_bait_share": 0.0654,
+    "candidate_bait_share": 0.2179
+  },
+  {
+    "region": 0,
+    "stock": 0.5,
+    "bait": 2,
+    "mean_sale": 88.661,
+    "current_bait_share": 0.0902,
+    "candidate_bait_share": 0.3948
+  },
+  {
+    "region": 0,
+    "stock": 0.3,
+    "bait": 0,
+    "mean_sale": 52.309,
+    "current_bait_share": 0.0191,
+    "candidate_bait_share": 0.0956
+  },
+  {
+    "region": 0,
+    "stock": 0.3,
+    "bait": 1,
+    "mean_sale": 60.922,
+    "current_bait_share": 0.0985,
+    "candidate_bait_share": 0.3283
+  },
+  {
+    "region": 0,
+    "stock": 0.3,
+    "bait": 2,
+    "mean_sale": 58.961,
+    "current_bait_share": 0.1357,
+    "candidate_bait_share": 0.5936
+  },
+  {
+    "region": 1,
+    "stock": 1.0,
+    "bait": 0,
+    "mean_sale": 180.109,
+    "current_bait_share": 0.0056,
+    "candidate_bait_share": 0.0278
+  },
+  {
+    "region": 1,
+    "stock": 1.0,
+    "bait": 1,
+    "mean_sale": 213.116,
+    "current_bait_share": 0.0282,
+    "candidate_bait_share": 0.0938
+  },
+  {
+    "region": 1,
+    "stock": 1.0,
+    "bait": 2,
+    "mean_sale": 194.197,
+    "current_bait_share": 0.0412,
+    "candidate_bait_share": 0.1802
+  },
+  {
+    "region": 1,
+    "stock": 0.5,
+    "bait": 0,
+    "mean_sale": 94.681,
+    "current_bait_share": 0.0106,
+    "candidate_bait_share": 0.0528
+  },
+  {
+    "region": 1,
+    "stock": 0.5,
+    "bait": 1,
+    "mean_sale": 110.524,
+    "current_bait_share": 0.0543,
+    "candidate_bait_share": 0.181
+  },
+  {
+    "region": 1,
+    "stock": 0.5,
+    "bait": 2,
+    "mean_sale": 101.77,
+    "current_bait_share": 0.0786,
+    "candidate_bait_share": 0.3439
+  },
+  {
+    "region": 1,
+    "stock": 0.3,
+    "bait": 0,
+    "mean_sale": 71.682,
+    "current_bait_share": 0.014,
+    "candidate_bait_share": 0.0698
+  },
+  {
+    "region": 1,
+    "stock": 0.3,
+    "bait": 1,
+    "mean_sale": 83.049,
+    "current_bait_share": 0.0722,
+    "candidate_bait_share": 0.2408
+  },
+  {
+    "region": 1,
+    "stock": 0.3,
+    "bait": 2,
+    "mean_sale": 76.005,
+    "current_bait_share": 0.1053,
+    "candidate_bait_share": 0.4605
+  }
+]

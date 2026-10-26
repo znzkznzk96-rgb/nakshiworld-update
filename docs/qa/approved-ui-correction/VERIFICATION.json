@@ -1,0 +1,36 @@
+{
+  "implementation_commit": "1d054be225d8b6f42601d4447f73609a0a62aea2",
+  "source_references": "game/art/expedition/approved/SOURCES.json",
+  "original_reference_pixels_changed": false,
+  "asset_usage": "AtlasTexture and source regions; icons/cards/room artwork from user files; dynamic native UI and game state",
+  "local_regression_suites": 30,
+  "local_all_passed": true,
+  "render_heights": [
+    480,
+    540,
+    660
+  ],
+  "packed_reference_loading": "passed",
+  "functional_checks": [
+    "menu order",
+    "reference atlas loading",
+    "three-slot roster selection",
+    "swap existing soldier",
+    "remove slot explicitly",
+    "save/merge/combat regression"
+  ],
+  "visual_review": [
+    "original portal and compass",
+    "original two fish souls cauldron",
+    "six-item approved order",
+    "ten distinct room cards and labels",
+    "skull3/5/7 and crowned skull10",
+    "cream mini-strip title and progress",
+    "two input souls plus result preview plus owned souls plus teal action"
+  ],
+  "deployed": false,
+  "public_version": "0.76",
+  "ci_run": 40268805841,
+  "ci_status": "completed",
+  "ci_conclusion": "success"
+}

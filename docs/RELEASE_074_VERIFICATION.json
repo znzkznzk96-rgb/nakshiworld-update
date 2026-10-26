@@ -1,0 +1,35 @@
+{
+  "version": "0.74",
+  "source_commit": "f4fa1d675a487b8df2522092ad1f9c59e8e19490",
+  "assets": {
+    "version.json": {
+      "size": 198,
+      "sha256": "868445648c55f9c92747c0e6c1696e9bb6bcde6f7d47a37d8b51d0c7b65af231"
+    },
+    "patch.pck": {
+      "size": 33114496,
+      "sha256": "543676c5ede96543f38273b83ca3bd6f0c7bbd952a748294840920f5d60c8b45"
+    },
+    "game-source.zip": {
+      "size": 32552381,
+      "sha256": "4974cca12f7d94b6d4f334835422fd30cc9092940d7c62a59c4cddeefaa4a0b6"
+    }
+  },
+  "manifest": {
+    "code": 74,
+    "name": "0.74",
+    "sha256": "543676c5ede96543f38273b83ca3bd6f0c7bbd952a748294840920f5d60c8b45",
+    "size": 33114496,
+    "source_commit": "f4fa1d675a487b8df2522092ad1f9c59e8e19490"
+  },
+  "live_download_verified": true,
+  "full_source_verified": true,
+  "phone_confirmed": false,
+  "build_run": 39944451177,
+  "gateway_run": 39944618092,
+  "initial_failed_runs": [
+    39943924638,
+    39944135098
+  ],
+  "failure_resolution": "Updated historical release-mail assertions; local 21 tests and release pipeline passed."
+}

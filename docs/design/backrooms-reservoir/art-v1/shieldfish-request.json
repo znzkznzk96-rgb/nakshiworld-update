@@ -1,0 +1,16 @@
+{
+  "description": "a cute plump golden crucian fish soldier facing right, horizontal oval fish body, short triangular tail on left, one big simple black eye on right, tiny orange dorsal fin, small round dark wooden shield with pale metal rim held by near pectoral fin at front right, tiny two stubby feet below body, smiling friendly, fish body not human body, orange dark outline, golden yellow body and pale yellow belly, exactly one fish and one shield, full body side view, no helmet no armor no weapon. Clean chunky low-detail pixel game sprite, large coherent pixel clusters, only three shades per material, strong readable silhouette, fully isolated centered with generous transparent margin.",
+  "negative_description": "realistic, detailed scales, dithering, grain, blur, text, letters, frame, background, floor, glow haze, multiple objects, thin noisy pixels",
+  "image_size": {
+    "width": 48,
+    "height": 48
+  },
+  "no_background": true,
+  "outline": "single color outline",
+  "shading": "basic shading",
+  "detail": "low detail",
+  "view": "side",
+  "coverage_percentage": 75,
+  "seed": 202610245,
+  "direction": "east"
+}

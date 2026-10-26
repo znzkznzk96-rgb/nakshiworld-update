@@ -1,0 +1,944 @@
+{
+  "floor30": {
+    "parameters": {
+      "floor": 0.3
+    },
+    "runs": 400,
+    "completed": 353,
+    "completion_rate": 0.8825,
+    "active_h": {
+      "p10": 10.92,
+      "median": 25.643,
+      "p90": 58.31,
+      "mean": 30.348
+    },
+    "elapsed_h": {
+      "p10": 10.92,
+      "median": 25.643,
+      "p90": 58.31,
+      "mean": 30.348
+    },
+    "casts": {
+      "p10": 961.4,
+      "median": 2237.0,
+      "p90": 5066.0,
+      "mean": 2642.921
+    },
+    "bait_spent": {
+      "p10": 4730.0,
+      "median": 11085.0,
+      "p90": 25262.0,
+      "mean": 13141.997
+    },
+    "sales": {
+      "p10": 45296.4,
+      "median": 189977.0,
+      "p90": 759582.6,
+      "mean": 308153.263
+    },
+    "rewards": {
+      "p10": 24717.4,
+      "median": 34107.0,
+      "p90": 47041.2,
+      "mean": 35577.079
+    },
+    "passive": {
+      "p10": 28686.149,
+      "median": 236074.647,
+      "p90": 960690.173,
+      "mean": 381326.661
+    },
+    "upgrades_and_region": {
+      "p10": 11959.0,
+      "median": 11959.0,
+      "p90": 11959.0,
+      "mean": 11959.0
+    },
+    "bare_casts": {
+      "p10": 11.0,
+      "median": 14.0,
+      "p90": 19.8,
+      "mean": 14.521
+    },
+    "owners": {
+      "p10": 6.0,
+      "median": 16.0,
+      "p90": 39.0,
+      "mean": 19.527
+    },
+    "low_stock_fraction": {
+      "p10": 0.919,
+      "median": 0.966,
+      "p90": 0.984,
+      "mean": 0.958
+    },
+    "gold": {
+      "p10": 93538.114,
+      "median": 444467.442,
+      "p90": 1654860.355,
+      "mean": 699956.007
+    },
+    "license_h": {
+      "p10": 10.92,
+      "median": 25.643,
+      "p90": 58.31,
+      "mean": 30.298
+    },
+    "money_h": {
+      "p10": 6.327,
+      "median": 8.253,
+      "p90": 20.76,
+      "mean": 11.201
+    },
+    "valley_active_h": {
+      "p10": 2.713,
+      "median": 5.907,
+      "p90": 20.601
+    },
+    "valley_elapsed_h": {
+      "p10": 2.713,
+      "median": 5.907,
+      "p90": 20.601
+    },
+    "valley_casts": {
+      "p10": 252.0,
+      "median": 529.0,
+      "p90": 1799.2
+    },
+    "censored_median_active_h": 80.711,
+    "bait_share_of_inflow": 0.0181,
+    "money_before_license_fraction": 0.9632,
+    "full_stock_great_worm_mean_sale": [
+      169.7367,
+      182.43056
+    ],
+    "valley_reservoir_ratio": 1.0747855943941411
+  },
+  "floor50": {
+    "parameters": {
+      "floor": 0.5
+    },
+    "runs": 400,
+    "completed": 400,
+    "completion_rate": 1.0,
+    "active_h": {
+      "p10": 5.881,
+      "median": 10.636,
+      "p90": 24.111,
+      "mean": 13.016
+    },
+    "elapsed_h": {
+      "p10": 5.881,
+      "median": 10.636,
+      "p90": 24.111,
+      "mean": 13.016
+    },
+    "casts": {
+      "p10": 524.9,
+      "median": 935.5,
+      "p90": 2101.5,
+      "mean": 1141.993
+    },
+    "bait_spent": {
+      "p10": 2534.5,
+      "median": 4607.5,
+      "p90": 10443.0,
+      "mean": 5638.938
+    },
+    "sales": {
+      "p10": 26983.2,
+      "median": 58373.5,
+      "p90": 257822.6,
+      "mean": 107103.327
+    },
+    "rewards": {
+      "p10": 23350.7,
+      "median": 34555.5,
+      "p90": 47630.2,
+      "mean": 35318.005
+    },
+    "passive": {
+      "p10": 4716.872,
+      "median": 38257.607,
+      "p90": 285440.047,
+      "mean": 100611.306
+    },
+    "upgrades_and_region": {
+      "p10": 11959.0,
+      "median": 11959.0,
+      "p90": 11959.0,
+      "mean": 11959.0
+    },
+    "bare_casts": {
+      "p10": 11.0,
+      "median": 14.0,
+      "p90": 19.0,
+      "mean": 14.205
+    },
+    "owners": {
+      "p10": 2.0,
+      "median": 6.0,
+      "p90": 15.0,
+      "mean": 7.495
+    },
+    "low_stock_fraction": {
+      "p10": 0.852,
+      "median": 0.917,
+      "p90": 0.963,
+      "mean": 0.91
+    },
+    "gold": {
+      "p10": 52621.817,
+      "median": 117402.344,
+      "p90": 578126.757,
+      "mean": 225434.701
+    },
+    "license_h": {
+      "p10": 4.57,
+      "median": 10.636,
+      "p90": 24.111,
+      "mean": 12.702
+    },
+    "money_h": {
+      "p10": 4.642,
+      "median": 6.344,
+      "p90": 8.593,
+      "mean": 6.541
+    },
+    "valley_active_h": {
+      "p10": 2.279,
+      "median": 2.994,
+      "p90": 7.379
+    },
+    "valley_elapsed_h": {
+      "p10": 2.279,
+      "median": 2.994,
+      "p90": 7.379
+    },
+    "valley_casts": {
+      "p10": 213.9,
+      "median": 275.0,
+      "p90": 654.1
+    },
+    "censored_median_active_h": null,
+    "bait_share_of_inflow": 0.0232,
+    "money_before_license_fraction": 0.76,
+    "full_stock_great_worm_mean_sale": [
+      169.7367,
+      182.43056
+    ],
+    "valley_reservoir_ratio": 1.0747855943941411
+  },
+  "floor70": {
+    "parameters": {
+      "floor": 0.7
+    },
+    "runs": 400,
+    "completed": 400,
+    "completion_rate": 1.0,
+    "active_h": {
+      "p10": 4.828,
+      "median": 6.051,
+      "p90": 11.5,
+      "mean": 7.091
+    },
+    "elapsed_h": {
+      "p10": 4.828,
+      "median": 6.051,
+      "p90": 11.5,
+      "mean": 7.091
+    },
+    "casts": {
+      "p10": 434.6,
+      "median": 537.5,
+      "p90": 1009.0,
+      "mean": 628.903
+    },
+    "bait_spent": {
+      "p10": 2095.0,
+      "median": 2617.5,
+      "p90": 4966.5,
+      "mean": 3075.325
+    },
+    "sales": {
+      "p10": 25495.7,
+      "median": 36934.0,
+      "p90": 85984.6,
+      "mean": 49163.845
+    },
+    "rewards": {
+      "p10": 20106.3,
+      "median": 30977.5,
+      "p90": 45100.0,
+      "mean": 32217.82
+    },
+    "passive": {
+      "p10": 3800.775,
+      "median": 8430.803,
+      "p90": 60805.446,
+      "mean": 22477.258
+    },
+    "upgrades_and_region": {
+      "p10": 11959.0,
+      "median": 11959.0,
+      "p90": 11959.0,
+      "mean": 11959.0
+    },
+    "bare_casts": {
+      "p10": 10.0,
+      "median": 13.0,
+      "p90": 18.0,
+      "mean": 13.838
+    },
+    "owners": {
+      "p10": 1.0,
+      "median": 3.0,
+      "p90": 6.0,
+      "mean": 3.232
+    },
+    "low_stock_fraction": {
+      "p10": 0.82,
+      "median": 0.859,
+      "p90": 0.921,
+      "mean": 0.864
+    },
+    "gold": {
+      "p10": 52420.579,
+      "median": 57205.653,
+      "p90": 162132.246,
+      "mean": 88824.598
+    },
+    "license_h": {
+      "p10": 3.329,
+      "median": 5.354,
+      "p90": 11.5,
+      "mean": 6.391
+    },
+    "money_h": {
+      "p10": 4.294,
+      "median": 5.448,
+      "p90": 6.491,
+      "mean": 5.448
+    },
+    "valley_active_h": {
+      "p10": 1.975,
+      "median": 2.311,
+      "p90": 3.762
+    },
+    "valley_elapsed_h": {
+      "p10": 1.975,
+      "median": 2.311,
+      "p90": 3.762
+    },
+    "valley_casts": {
+      "p10": 187.0,
+      "median": 216.0,
+      "p90": 342.4
+    },
+    "censored_median_active_h": null,
+    "bait_share_of_inflow": 0.0296,
+    "money_before_license_fraction": 0.4875,
+    "full_stock_great_worm_mean_sale": [
+      169.7367,
+      182.43056
+    ],
+    "valley_reservoir_ratio": 1.0747855943941411
+  },
+  "floor85": {
+    "parameters": {
+      "floor": 0.85
+    },
+    "runs": 400,
+    "completed": 400,
+    "completion_rate": 1.0,
+    "active_h": {
+      "p10": 4.101,
+      "median": 5.167,
+      "p90": 7.646,
+      "mean": 5.665
+    },
+    "elapsed_h": {
+      "p10": 4.101,
+      "median": 5.167,
+      "p90": 7.646,
+      "mean": 5.665
+    },
+    "casts": {
+      "p10": 370.9,
+      "median": 462.5,
+      "p90": 676.0,
+      "mean": 504.988
+    },
+    "bait_spent": {
+      "p10": 1785.0,
+      "median": 2240.0,
+      "p90": 3311.0,
+      "mean": 2456.65
+    },
+    "sales": {
+      "p10": 25676.8,
+      "median": 36216.0,
+      "p90": 61040.8,
+      "mean": 41552.402
+    },
+    "rewards": {
+      "p10": 19710.3,
+      "median": 28975.0,
+      "p90": 42791.1,
+      "mean": 30444.88
+    },
+    "passive": {
+      "p10": 3655.334,
+      "median": 6663.279,
+      "p90": 24662.673,
+      "mean": 12024.554
+    },
+    "upgrades_and_region": {
+      "p10": 11959.0,
+      "median": 11959.0,
+      "p90": 11959.0,
+      "mean": 11959.0
+    },
+    "bare_casts": {
+      "p10": 10.0,
+      "median": 13.0,
+      "p90": 17.0,
+      "mean": 13.658
+    },
+    "owners": {
+      "p10": 1.0,
+      "median": 2.0,
+      "p90": 4.0,
+      "mean": 2.123
+    },
+    "low_stock_fraction": {
+      "p10": 0.795,
+      "median": 0.838,
+      "p90": 0.89,
+      "mean": 0.84
+    },
+    "gold": {
+      "p10": 52438.195,
+      "median": 53902.555,
+      "p90": 99980.226,
+      "mean": 69606.187
+    },
+    "license_h": {
+      "p10": 2.765,
+      "median": 4.126,
+      "p90": 7.646,
+      "mean": 4.78
+    },
+    "money_h": {
+      "p10": 3.884,
+      "median": 4.884,
+      "p90": 5.743,
+      "mean": 4.848
+    },
+    "valley_active_h": {
+      "p10": 1.696,
+      "median": 2.082,
+      "p90": 2.527
+    },
+    "valley_elapsed_h": {
+      "p10": 1.696,
+      "median": 2.082,
+      "p90": 2.527
+    },
+    "valley_casts": {
+      "p10": 163.8,
+      "median": 196.0,
+      "p90": 234.1
+    },
+    "censored_median_active_h": null,
+    "bait_share_of_inflow": 0.0292,
+    "money_before_license_fraction": 0.3625,
+    "full_stock_great_worm_mean_sale": [
+      169.7367,
+      182.43056
+    ],
+    "valley_reservoir_ratio": 1.0747855943941411
+  },
+  "valley_star_50_32_14_4": {
+    "parameters": {
+      "floor": 0.7,
+      "star": [
+        0.5,
+        0.32,
+        0.14,
+        0.04,
+        0
+      ]
+    },
+    "runs": 400,
+    "completed": 400,
+    "completion_rate": 1.0,
+    "active_h": {
+      "p10": 4.097,
+      "median": 5.034,
+      "p90": 6.883,
+      "mean": 5.331
+    },
+    "elapsed_h": {
+      "p10": 4.097,
+      "median": 5.034,
+      "p90": 6.883,
+      "mean": 5.331
+    },
+    "casts": {
+      "p10": 369.0,
+      "median": 450.0,
+      "p90": 610.0,
+      "mean": 475.988
+    },
+    "bait_spent": {
+      "p10": 1780.0,
+      "median": 2180.0,
+      "p90": 2980.5,
+      "mean": 2310.75
+    },
+    "sales": {
+      "p10": 25420.6,
+      "median": 34344.0,
+      "p90": 49242.7,
+      "mean": 37242.09
+    },
+    "rewards": {
+      "p10": 19416.1,
+      "median": 30423.5,
+      "p90": 45146.1,
+      "mean": 31597.638
+    },
+    "passive": {
+      "p10": 3053.741,
+      "median": 5456.106,
+      "p90": 12742.826,
+      "mean": 7603.912
+    },
+    "upgrades_and_region": {
+      "p10": 11959.0,
+      "median": 11959.0,
+      "p90": 11959.0,
+      "mean": 11959.0
+    },
+    "bare_casts": {
+      "p10": 10.0,
+      "median": 13.0,
+      "p90": 18.0,
+      "mean": 13.838
+    },
+    "owners": {
+      "p10": 1.0,
+      "median": 2.0,
+      "p90": 3.0,
+      "mean": 2.013
+    },
+    "low_stock_fraction": {
+      "p10": 0.793,
+      "median": 0.831,
+      "p90": 0.875,
+      "mean": 0.832
+    },
+    "gold": {
+      "p10": 52294.387,
+      "median": 53772.595,
+      "p90": 79672.896,
+      "mean": 62173.89
+    },
+    "license_h": {
+      "p10": 2.858,
+      "median": 3.874,
+      "p90": 6.775,
+      "mean": 4.428
+    },
+    "money_h": {
+      "p10": 3.962,
+      "median": 4.837,
+      "p90": 5.96,
+      "mean": 4.936
+    },
+    "valley_active_h": {
+      "p10": 1.975,
+      "median": 2.311,
+      "p90": 3.762
+    },
+    "valley_elapsed_h": {
+      "p10": 1.975,
+      "median": 2.311,
+      "p90": 3.762
+    },
+    "valley_casts": {
+      "p10": 187.0,
+      "median": 216.0,
+      "p90": 342.4
+    },
+    "censored_median_active_h": null,
+    "bait_share_of_inflow": 0.0302,
+    "money_before_license_fraction": 0.2775,
+    "full_stock_great_worm_mean_sale": [
+      169.7367,
+      273.78568
+    ],
+    "valley_reservoir_ratio": 1.6130022558468498
+  },
+  "valley_star_45_35_15_5": {
+    "parameters": {
+      "floor": 0.7,
+      "star": [
+        0.45,
+        0.35,
+        0.15,
+        0.05,
+        0
+      ]
+    },
+    "runs": 400,
+    "completed": 400,
+    "completion_rate": 1.0,
+    "active_h": {
+      "p10": 3.967,
+      "median": 4.872,
+      "p90": 6.365,
+      "mean": 5.042
+    },
+    "elapsed_h": {
+      "p10": 3.967,
+      "median": 4.872,
+      "p90": 6.365,
+      "mean": 5.042
+    },
+    "casts": {
+      "p10": 358.0,
+      "median": 436.0,
+      "p90": 565.2,
+      "mean": 450.733
+    },
+    "bait_spent": {
+      "p10": 1734.5,
+      "median": 2102.5,
+      "p90": 2765.5,
+      "mean": 2184.475
+    },
+    "sales": {
+      "p10": 25453.7,
+      "median": 34696.0,
+      "p90": 46669.0,
+      "mean": 36177.39
+    },
+    "rewards": {
+      "p10": 18156.3,
+      "median": 30324.5,
+      "p90": 45388.5,
+      "mean": 31362.583
+    },
+    "passive": {
+      "p10": 2893.133,
+      "median": 5275.195,
+      "p90": 10293.986,
+      "mean": 6322.367
+    },
+    "upgrades_and_region": {
+      "p10": 11959.0,
+      "median": 11959.0,
+      "p90": 11959.0,
+      "mean": 11959.0
+    },
+    "bare_casts": {
+      "p10": 10.0,
+      "median": 13.0,
+      "p90": 18.0,
+      "mean": 13.838
+    },
+    "owners": {
+      "p10": 1.0,
+      "median": 2.0,
+      "p90": 3.0,
+      "mean": 1.843
+    },
+    "low_stock_fraction": {
+      "p10": 0.786,
+      "median": 0.824,
+      "p90": 0.863,
+      "mean": 0.825
+    },
+    "gold": {
+      "p10": 52349.301,
+      "median": 53673.476,
+      "p90": 76932.463,
+      "mean": 59718.865
+    },
+    "license_h": {
+      "p10": 2.76,
+      "median": 3.613,
+      "p90": 6.136,
+      "mean": 4.087
+    },
+    "money_h": {
+      "p10": 3.795,
+      "median": 4.732,
+      "p90": 5.784,
+      "mean": 4.819
+    },
+    "valley_active_h": {
+      "p10": 1.975,
+      "median": 2.311,
+      "p90": 3.762
+    },
+    "valley_elapsed_h": {
+      "p10": 1.975,
+      "median": 2.311,
+      "p90": 3.762
+    },
+    "valley_casts": {
+      "p10": 187.0,
+      "median": 216.0,
+      "p90": 342.4
+    },
+    "censored_median_active_h": null,
+    "bait_share_of_inflow": 0.0296,
+    "money_before_license_fraction": 0.2325,
+    "full_stock_great_worm_mean_sale": [
+      169.7367,
+      311.48266
+    ],
+    "valley_reservoir_ratio": 1.8350931766671557
+  },
+  "valley_grade_reservoir": {
+    "parameters": {
+      "floor": 0.7,
+      "grade": [
+        0.71,
+        0.15,
+        0.1,
+        0.03,
+        0.01
+      ]
+    },
+    "runs": 400,
+    "completed": 400,
+    "completion_rate": 1.0,
+    "active_h": {
+      "p10": 4.496,
+      "median": 5.874,
+      "p90": 11.554,
+      "mean": 6.962
+    },
+    "elapsed_h": {
+      "p10": 4.496,
+      "median": 5.874,
+      "p90": 11.554,
+      "mean": 6.962
+    },
+    "casts": {
+      "p10": 404.8,
+      "median": 525.0,
+      "p90": 1013.4,
+      "mean": 617.362
+    },
+    "bait_spent": {
+      "p10": 1949.0,
+      "median": 2550.0,
+      "p90": 4988.0,
+      "mean": 3017.625
+    },
+    "sales": {
+      "p10": 25215.9,
+      "median": 37609.0,
+      "p90": 97110.0,
+      "mean": 51414.062
+    },
+    "rewards": {
+      "p10": 19889.5,
+      "median": 31079.5,
+      "p90": 46302.1,
+      "mean": 32992.923
+    },
+    "passive": {
+      "p10": 3346.279,
+      "median": 8254.327,
+      "p90": 69663.525,
+      "mean": 24111.611
+    },
+    "upgrades_and_region": {
+      "p10": 11959.0,
+      "median": 11959.0,
+      "p90": 11959.0,
+      "mean": 11959.0
+    },
+    "bare_casts": {
+      "p10": 10.0,
+      "median": 13.0,
+      "p90": 18.0,
+      "mean": 13.838
+    },
+    "owners": {
+      "p10": 1.0,
+      "median": 3.0,
+      "p90": 6.0,
+      "mean": 3.215
+    },
+    "low_stock_fraction": {
+      "p10": 0.807,
+      "median": 0.857,
+      "p90": 0.921,
+      "mean": 0.86
+    },
+    "gold": {
+      "p10": 52413.561,
+      "median": 56855.965,
+      "p90": 181826.391,
+      "mean": 93541.971
+    },
+    "license_h": {
+      "p10": 3.308,
+      "median": 5.309,
+      "p90": 11.554,
+      "mean": 6.367
+    },
+    "money_h": {
+      "p10": 3.904,
+      "median": 5.264,
+      "p90": 6.407,
+      "mean": 5.259
+    },
+    "valley_active_h": {
+      "p10": 1.975,
+      "median": 2.311,
+      "p90": 3.762
+    },
+    "valley_elapsed_h": {
+      "p10": 1.975,
+      "median": 2.311,
+      "p90": 3.762
+    },
+    "valley_casts": {
+      "p10": 187.0,
+      "median": 216.0,
+      "p90": 342.4
+    },
+    "censored_median_active_h": null,
+    "bait_share_of_inflow": 0.0278,
+    "money_before_license_fraction": 0.53,
+    "full_stock_great_worm_mean_sale": [
+      169.7367,
+      199.50832
+    ],
+    "valley_reservoir_ratio": 1.175398838318407
+  },
+  "valley_general_price150": {
+    "parameters": {
+      "floor": 0.7,
+      "price": 1.5
+    },
+    "runs": 400,
+    "completed": 400,
+    "completion_rate": 1.0,
+    "active_h": {
+      "p10": 4.226,
+      "median": 5.585,
+      "p90": 11.5,
+      "mean": 6.764
+    },
+    "elapsed_h": {
+      "p10": 4.226,
+      "median": 5.585,
+      "p90": 11.5,
+      "mean": 6.764
+    },
+    "casts": {
+      "p10": 382.8,
+      "median": 499.5,
+      "p90": 1009.0,
+      "mean": 600.62
+    },
+    "bait_spent": {
+      "p10": 1848.5,
+      "median": 2430.0,
+      "p90": 4965.5,
+      "mean": 2933.912
+    },
+    "sales": {
+      "p10": 28238.4,
+      "median": 41723.5,
+      "p90": 121048.5,
+      "mean": 61355.08
+    },
+    "rewards": {
+      "p10": 20653.0,
+      "median": 31799.5,
+      "p90": 44596.4,
+      "mean": 32836.445
+    },
+    "passive": {
+      "p10": 3182.55,
+      "median": 6840.661,
+      "p90": 65576.01,
+      "mean": 22986.164
+    },
+    "upgrades_and_region": {
+      "p10": 11959.0,
+      "median": 11959.0,
+      "p90": 11959.0,
+      "mean": 11959.0
+    },
+    "bare_casts": {
+      "p10": 10.0,
+      "median": 13.0,
+      "p90": 18.0,
+      "mean": 13.838
+    },
+    "owners": {
+      "p10": 1.0,
+      "median": 2.0,
+      "p90": 6.0,
+      "mean": 3.022
+    },
+    "low_stock_fraction": {
+      "p10": 0.8,
+      "median": 0.846,
+      "p90": 0.921,
+      "mean": 0.854
+    },
+    "gold": {
+      "p10": 52729.742,
+      "median": 65731.96,
+      "p90": 197217.975,
+      "mean": 102284.776
+    },
+    "license_h": {
+      "p10": 3.329,
+      "median": 5.354,
+      "p90": 11.5,
+      "mean": 6.39
+    },
+    "money_h": {
+      "p10": 3.887,
+      "median": 4.722,
+      "p90": 5.815,
+      "mean": 4.845
+    },
+    "valley_active_h": {
+      "p10": 1.975,
+      "median": 2.311,
+      "p90": 3.762
+    },
+    "valley_elapsed_h": {
+      "p10": 1.975,
+      "median": 2.311,
+      "p90": 3.762
+    },
+    "valley_casts": {
+      "p10": 187.0,
+      "median": 216.0,
+      "p90": 342.4
+    },
+    "censored_median_active_h": null,
+    "bait_share_of_inflow": 0.025,
+    "money_before_license_fraction": 0.5825,
+    "full_stock_great_worm_mean_sale": [
+      169.7367,
+      273.64741
+    ],
+    "valley_reservoir_ratio": 1.6121876412113583
+  }
+}

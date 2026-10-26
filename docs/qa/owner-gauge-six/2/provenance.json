@@ -1,0 +1,9 @@
+{
+  "region": "타일 바다",
+  "reference_sha256": "3dedc48b0083c4e82f57da2800e468a1bc3c3041438c047ffe6e4c938942634c",
+  "reference_role": "Layout template; first two also include approved owner palette reference",
+  "model": "PixelLab UI Pro",
+  "seed": 2026102262,
+  "output_count_expected": 1,
+  "automatic_retry": false
+}

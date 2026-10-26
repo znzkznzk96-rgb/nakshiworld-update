@@ -1,0 +1,14 @@
+{
+  "manifest": {
+    "code": 66,
+    "name": "0.66",
+    "sha256": "7608b912ca7a5fb62603f6a646bfaea1a85bd92c79e8251179381d6b1f96a4f4",
+    "size": 28554784
+  },
+  "source_sha256": "2e4b07a05902cc906dc1c4cbb56b27510ba67c1877925f7d79c5a55d996cd400",
+  "source_size": 27512758,
+  "verified_files": 60,
+  "source_commit": "2a82e542108114646b48f4d61e5a818a33282917",
+  "workflow_run": 39543832629,
+  "gateway_run": 39543919700
+}

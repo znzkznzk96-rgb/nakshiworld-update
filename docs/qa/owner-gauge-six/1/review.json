@@ -1,0 +1,28 @@
+{
+  "status": "pass",
+  "notes": [
+    "Turquoise reverse-waterfall crest, navy backing and crimson tendrils match valley owner and location",
+    "Blank label and separate progress trough are readable",
+    "Entire decorative frame remains inside canvas; left badge is empty"
+  ],
+  "layout": {
+    "badge": [
+      25,
+      25,
+      44,
+      27
+    ],
+    "label": [
+      80,
+      25,
+      152,
+      17
+    ],
+    "track": [
+      80,
+      48,
+      152,
+      6
+    ]
+  }
+}

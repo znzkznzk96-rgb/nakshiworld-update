@@ -1,0 +1,230 @@
+[
+  {
+    "file": "bait_0.png",
+    "provider": "PixelLab API v2/create-image-pixflux",
+    "request": {
+      "description": "Single centered inventory icon of one coiled pink earthworm fishing bait. Cozy fishing RPG chunky pixel art, strong dark one pixel outline, three shades per color, clean readable silhouette. One object only. Entire object visible, transparent background.",
+      "negative_description": "text, letters, numbers, photorealism, blur, cropped, multiple icons",
+      "image_size": {
+        "width": 48,
+        "height": 48
+      },
+      "text_guidance_scale": 8,
+      "no_background": true,
+      "outline": "single color outline",
+      "shading": "medium shading",
+      "detail": "low detail",
+      "seed": 6706
+    },
+    "sha256": "4017918221fe9f27a4af5b1ea3096f1b9edbcb577ab08c393316b6e95164dd49"
+  },
+  {
+    "file": "bait_1.png",
+    "provider": "PixelLab API v2/create-image-pixflux",
+    "request": {
+      "description": "Single centered inventory icon of one reddish marine ragworm with fine bristles fishing bait. Cozy fishing RPG chunky pixel art, strong dark one pixel outline, three shades per color, clean readable silhouette. One object only. Entire object visible, transparent background.",
+      "negative_description": "text, letters, numbers, photorealism, blur, cropped, multiple icons",
+      "image_size": {
+        "width": 48,
+        "height": 48
+      },
+      "text_guidance_scale": 8,
+      "no_background": true,
+      "outline": "single color outline",
+      "shading": "medium shading",
+      "detail": "low detail",
+      "seed": 6707
+    },
+    "sha256": "ca703dc1533f3c56534b0127212285c25686744662383a4bfda2e1d48d3b782d"
+  },
+  {
+    "file": "bait_2.png",
+    "provider": "PixelLab API v2/create-image-pixflux",
+    "request": {
+      "description": "Single centered inventory icon of one curled small orange shrimp fishing bait. Cozy fishing RPG chunky pixel art, strong dark one pixel outline, three shades per color, clean readable silhouette. One object only. Entire object visible, transparent background.",
+      "negative_description": "text, letters, numbers, photorealism, blur, cropped, multiple icons",
+      "image_size": {
+        "width": 48,
+        "height": 48
+      },
+      "text_guidance_scale": 8,
+      "no_background": true,
+      "outline": "single color outline",
+      "shading": "medium shading",
+      "detail": "low detail",
+      "seed": 6708
+    },
+    "sha256": "50ff175c2bac9bb7e5cd38facaea29b846a997fd6fe666c02c6c67e9374b2b84"
+  },
+  {
+    "file": "bait_3.png",
+    "provider": "PixelLab API v2/create-image-pixflux",
+    "request": {
+      "description": "Single centered inventory icon of one small pale ivory squid fishing bait with distinct short tentacles. Cozy fishing RPG chunky pixel art, strong dark one pixel outline, three shades per color, clean readable silhouette. One object only. Entire object visible, transparent background.",
+      "negative_description": "text, letters, numbers, photorealism, blur, cropped, multiple icons",
+      "image_size": {
+        "width": 48,
+        "height": 48
+      },
+      "text_guidance_scale": 8,
+      "no_background": true,
+      "outline": "single color outline",
+      "shading": "medium shading",
+      "detail": "low detail",
+      "seed": 6709
+    },
+    "sha256": "19f38c638075c63a0028bfe76796d3be9acbd32504e9b3fc02cc67d20315aba0"
+  },
+  {
+    "file": "bait_4.png",
+    "provider": "PixelLab API v2/create-image-pixflux",
+    "request": {
+      "description": "Single centered inventory icon of one shiny golden spoon fishing lure with a small curved hook. Cozy fishing RPG chunky pixel art, strong dark one pixel outline, three shades per color, clean readable silhouette. One object only. Entire object visible, transparent background.",
+      "negative_description": "text, letters, numbers, photorealism, blur, cropped, multiple icons",
+      "image_size": {
+        "width": 48,
+        "height": 48
+      },
+      "text_guidance_scale": 8,
+      "no_background": true,
+      "outline": "single color outline",
+      "shading": "medium shading",
+      "detail": "low detail",
+      "seed": 6710
+    },
+    "sha256": "65a236e585d2622ce763dce17235c04865995cb044f1793f017fcf1bc8166771"
+  },
+  {
+    "file": "bait_5.png",
+    "provider": "PixelLab API v2/create-image-pixflux",
+    "request": {
+      "description": "Single centered inventory icon of one magical purple and cyan legendary fishing lure with star sparkle and small curved hook. Cozy fishing RPG chunky pixel art, strong dark one pixel outline, three shades per color, clean readable silhouette. One object only. Entire object visible, transparent background.",
+      "negative_description": "text, letters, numbers, photorealism, blur, cropped, multiple icons",
+      "image_size": {
+        "width": 48,
+        "height": 48
+      },
+      "text_guidance_scale": 8,
+      "no_background": true,
+      "outline": "single color outline",
+      "shading": "medium shading",
+      "detail": "low detail",
+      "seed": 6711
+    },
+    "sha256": "17a3815e865b8ea39e287c735f909b2cbb7b2902d4d955830dffe607786b53d0"
+  },
+  {
+    "file": "license_0.png",
+    "provider": "PixelLab API v2/create-image-pixflux",
+    "request": {
+      "description": "A landscape rectangular collectible fishing license card filling the entire canvas. Clearly visible rich colorful miniature pixel landscape of green rural reservoir with reeds and wooden pier inside the card. Large scenic picture covers top two thirds, cream blank name strip along bottom, small gold fish badge on bottom right. Simple brown border at canvas edge. Crisp pixel art, attractive RPG achievement credential. No text.",
+      "negative_description": "text, letters, numbers, photorealism, blur, cropped, multiple icons",
+      "image_size": {
+        "width": 96,
+        "height": 64
+      },
+      "text_guidance_scale": 8,
+      "no_background": false,
+      "outline": "single color outline",
+      "shading": "medium shading",
+      "detail": "low detail",
+      "seed": 6750
+    },
+    "sha256": "ae14652188385359e392de9b6b04acc13d561e959cd4d616506525ed883712e5"
+  },
+  {
+    "file": "license_1.png",
+    "provider": "PixelLab API v2/create-image-pixflux",
+    "request": {
+      "description": "A landscape rectangular collectible fishing license card filling the entire canvas. Clearly visible rich colorful miniature pixel landscape of jade green upside down waterfall valley inside the card. Large scenic picture covers top two thirds, cream blank name strip along bottom, small gold fish badge on bottom right. Simple brown border at canvas edge. Crisp pixel art, attractive RPG achievement credential. No text.",
+      "negative_description": "text, letters, numbers, photorealism, blur, cropped, multiple icons",
+      "image_size": {
+        "width": 96,
+        "height": 64
+      },
+      "text_guidance_scale": 8,
+      "no_background": false,
+      "outline": "single color outline",
+      "shading": "medium shading",
+      "detail": "low detail",
+      "seed": 6751
+    },
+    "sha256": "66b2aa5ae00acf983136fb98dc62ec731b6610c879f1e61f977ebac7bb6bdee6"
+  },
+  {
+    "file": "license_2.png",
+    "provider": "PixelLab API v2/create-image-pixflux",
+    "request": {
+      "description": "A landscape rectangular collectible fishing license card filling the entire canvas. Clearly visible rich colorful miniature pixel landscape of blue white ceramic tile ocean and fishing pier inside the card. Large scenic picture covers top two thirds, cream blank name strip along bottom, small gold fish badge on bottom right. Simple brown border at canvas edge. Crisp pixel art, attractive RPG achievement credential. No text.",
+      "negative_description": "text, letters, numbers, photorealism, blur, cropped, multiple icons",
+      "image_size": {
+        "width": 96,
+        "height": 64
+      },
+      "text_guidance_scale": 8,
+      "no_background": false,
+      "outline": "single color outline",
+      "shading": "medium shading",
+      "detail": "low detail",
+      "seed": 6752
+    },
+    "sha256": "56802744e315540327581b96e65b88e45d1dd06c877e73b38984861d78973dd1"
+  },
+  {
+    "file": "license_3.png",
+    "provider": "PixelLab API v2/create-image-pixflux",
+    "request": {
+      "description": "A landscape rectangular collectible fishing license card filling the entire canvas. Clearly visible rich colorful miniature pixel landscape of violet rift ocean with a crack in the sky inside the card. Large scenic picture covers top two thirds, cream blank name strip along bottom, small gold fish badge on bottom right. Simple brown border at canvas edge. Crisp pixel art, attractive RPG achievement credential. No text.",
+      "negative_description": "text, letters, numbers, photorealism, blur, cropped, multiple icons",
+      "image_size": {
+        "width": 96,
+        "height": 64
+      },
+      "text_guidance_scale": 8,
+      "no_background": false,
+      "outline": "single color outline",
+      "shading": "medium shading",
+      "detail": "low detail",
+      "seed": 6753
+    },
+    "sha256": "a0a5a186bc3d491842d53bb1db74905a30670806b655c213c4972e078efb9126"
+  },
+  {
+    "file": "license_4.png",
+    "provider": "PixelLab API v2/create-image-pixflux",
+    "request": {
+      "description": "A landscape rectangular collectible fishing license card filling the entire canvas. Clearly visible rich colorful miniature pixel landscape of dark cyan deep sea with sunken office ruins inside the card. Large scenic picture covers top two thirds, cream blank name strip along bottom, small gold fish badge on bottom right. Simple brown border at canvas edge. Crisp pixel art, attractive RPG achievement credential. No text.",
+      "negative_description": "text, letters, numbers, photorealism, blur, cropped, multiple icons",
+      "image_size": {
+        "width": 96,
+        "height": 64
+      },
+      "text_guidance_scale": 8,
+      "no_background": false,
+      "outline": "single color outline",
+      "shading": "medium shading",
+      "detail": "low detail",
+      "seed": 6754
+    },
+    "sha256": "fac0b01180425c1ea48c0a8a769917259ff3832528019de9efbd37ef28008d10"
+  },
+  {
+    "file": "license_5.png",
+    "provider": "PixelLab API v2/create-image-pixflux",
+    "request": {
+      "description": "A landscape rectangular collectible fishing license card filling the entire canvas. Clearly visible rich colorful miniature pixel landscape of navy cosmic ocean with gold stars and planets inside the card. Large scenic picture covers top two thirds, cream blank name strip along bottom, small gold fish badge on bottom right. Simple brown border at canvas edge. Crisp pixel art, attractive RPG achievement credential. No text.",
+      "negative_description": "text, letters, numbers, photorealism, blur, cropped, multiple icons",
+      "image_size": {
+        "width": 96,
+        "height": 64
+      },
+      "text_guidance_scale": 8,
+      "no_background": false,
+      "outline": "single color outline",
+      "shading": "medium shading",
+      "detail": "low detail",
+      "seed": 6755
+    },
+    "sha256": "b2eff80ad277a38f7ec53df5beebb0b481e8957b1e74c350fb7991f224122daa"
+  }
+]

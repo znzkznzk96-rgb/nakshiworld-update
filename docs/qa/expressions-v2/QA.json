@@ -1,0 +1,52 @@
+{
+  "scope": "expression function only",
+  "paid_requests": 0,
+  "game_applied": false,
+  "deployed": false,
+  "states": [
+    {
+      "name": "neutral",
+      "changed_pixels": 0
+    },
+    {
+      "name": "blink",
+      "changed_pixels": 46
+    },
+    {
+      "name": "focus",
+      "changed_pixels": 12
+    },
+    {
+      "name": "brace",
+      "changed_pixels": 12
+    },
+    {
+      "name": "cast",
+      "changed_pixels": 13
+    },
+    {
+      "name": "strain",
+      "changed_pixels": 13
+    },
+    {
+      "name": "surprise",
+      "changed_pixels": 17
+    },
+    {
+      "name": "joy",
+      "changed_pixels": 48
+    },
+    {
+      "name": "smile",
+      "changed_pixels": 7
+    },
+    {
+      "name": "sad",
+      "changed_pixels": 15
+    }
+  ],
+  "outside_allowed_region_changes": 0,
+  "alpha_changes": 0,
+  "neutral_changes": 0,
+  "body_and_rod_source_unchanged": true
+}

@@ -1,0 +1,17 @@
+{
+  "size": [
+    32,
+    32
+  ],
+  "bounds": [
+    3,
+    3,
+    29,
+    27
+  ],
+  "transparent_pixels": 631,
+  "partial_alpha_pixels": 0,
+  "colors": 19,
+  "sha256": "a13741dbeabf1afd83c124fe6b3aa97ac8deda59518a6df3b077e8e513fefe11",
+  "reference_sha256": "44c5b92850eef41853b28131bbf86a7662576bfb64141889da39835e886c0b5a"
+}

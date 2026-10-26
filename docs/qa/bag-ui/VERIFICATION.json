@@ -1,0 +1,60 @@
+{
+  "date": "2026-10-22",
+  "status": "verified_unreleased_bag_selection_pending",
+  "source_commit": "74f69b884417262a7b7baf2c77ec06e74e2ad2b4",
+  "branch": "work/valley-runtime",
+  "run_id": 39719360090,
+  "run_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/actions/runs/39719360090",
+  "artifact_id": 12400876069,
+  "baseline": "v0.69 verified full source + deletion manifest + overlay",
+  "godot": "4.4.1",
+  "checks": [
+    {
+      "suite": "bundles_buyback",
+      "passed": true,
+      "log": "bundles_buyback.log"
+    },
+    {
+      "suite": "bundle_preview",
+      "passed": true,
+      "log": "bundle_preview.log"
+    },
+    {
+      "suite": "rewards",
+      "passed": true,
+      "log": "rewards.log"
+    },
+    {
+      "suite": "inventory_layout",
+      "passed": true,
+      "log": "inventory_layout.log"
+    }
+  ],
+  "backend_regression_reused": "../bundles-buyback/VERIFICATION.json (11 suites; reward/save/buyback backend unchanged)",
+  "screen_review": {
+    "count": 13,
+    "bag_A": "species+grade grouped six-row list, individual weight range and count, long full names",
+    "bag_B": "species+grade grouped two-column cards with full names/grade/count/weight on separate lines",
+    "owner": "card centered horizontally and vertically in content area",
+    "reward": "actual contributed sale values settled with existing rounding; numeric scales/souls/pearls only, no formulas in panel",
+    "fixture_note": "900-scale side and 1500-scale owner shown are synthetic donation examples, not fixed new payout amounts"
+  },
+  "actual_inventory_replaced": false,
+  "files": {
+    "game/addons/reservoir/bundle_preview.gd": "24794f104ef3646f41bf78e806ab10353e76a42fe5edcc919818559d92822227",
+    "game/tests/previews/inventory_concepts.gd": "a9cf1237a6dd4ffbef56ad0a255a431ccbcb811dbda52f4167dd4cb7ddb6ac39",
+    "game/tests/inventory_layout_verify.gd": "cf56a6168af5bbba89030fbf569e215ed145c814382082853a9a0233a040b9eb",
+    "game/tests/bundles_ui_preview.gd": "7d527a160341176e84c48279293049e271e9a034368c31be015dcb9971f0ec2d",
+    ".github/workflows/verify-work.yml": "cd4202cea004ae1b12d1656f908e889d7b7dfd9112d009e7d6fc1875ecdfa5e5"
+  },
+  "preview": "../../previews/bag-two-options.png",
+  "preview_sha256": "4e56b43aad911f9ff579c6ef4c5679d536c34eee780c305acc5f9a8091a154fc",
+  "deployed": false,
+  "phone_tested": false,
+  "known_limits": [
+    "Actual bag remains original until user selects A or B.",
+    "Mockup taps/details and scrolling are design intent, not a new active inventory flow yet.",
+    "Before any donation accrued numeric reward is0; amount increases with contributed specimens. Payout multiplier itself unchanged.",
+    "Source backup ZIP attachment delivery failure does not affect this verified remote baseline."
+  ]
+}

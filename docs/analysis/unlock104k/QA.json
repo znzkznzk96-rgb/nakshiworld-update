@@ -1,0 +1,43 @@
+{
+  "passed": true,
+  "scenarios": 16,
+  "runs_per_scenario": 500,
+  "total_runs": 8000,
+  "seed_start": 20261024,
+  "python": "3.12.14",
+  "assertions": [
+    "all runs completed within7000casts/90days",
+    "currency conservation each trial",
+    "online+offline income partition",
+    "daily two-hour budget with final-cast/shop rounding",
+    "104000 never earlier than52000 in paired six-slot strategy",
+    "fixed snapshot inputs and CSV outcomes preserved"
+  ],
+  "limitations": [
+    "economic behavioral model; not native fight bot",
+    "game price code remains52000; approved104000 evaluated in model only",
+    "single2h vs twice1h tested; no extra login claims",
+    "earlier simulator aquarium weight variable corrected here; do not compare uncorrected archived outputs as same model"
+  ],
+  "failures_resolved": [
+    "postprocessor referenced removed temporary key; removed and reran postprocessing only",
+    "no-offline counterfactual initially also removed stock regeneration; isolated income toggle and regenerated affected cohort",
+    "offline payouts now floor per login as game code does"
+  ],
+  "game_changed": false,
+  "deployed": false,
+  "sha256": {
+    "baseline_constants.json": "2256faa011f1fdb8d20fd19a93ba54b0a1409636180ad9bc379f227c65554f89",
+    "results.json": "a50998ce60b5e058a2213cf4ba2678999db19e74fd97ad95b02fc43f3131c1d3",
+    "trials.csv": "ebe4b077f35b8099e50fa8e7f798f627a0cb68fafa709cf481aab1c653e2ac1d",
+    "simulate.py": "19826bcbe44e93b6d7451b2b2c2e79ff4e689ed3d2613d7a0d8dbd8d0d44cc4a",
+    "finalize.py": "33b6c1c28fa7895a19f6fffad8f6e87663c4d71e446191db493abb94a8d8a3cf",
+    "paired.json": "898ee5e1b14519b5e3bc5f010973253b7303262428b9b2c31b6bbffc9e2d8c44",
+    "REPORT.md": "5598bcc394a081447357171ece40dc84ee81490d85016617097dff050fa1baa2"
+  },
+  "implementation_baseline_commit": "2cbf15b6a68851d70899b338f68d9ddf90d11989",
+  "previous_game_ci": {
+    "id": 39960625078,
+    "conclusion": "success"
+  }
+}

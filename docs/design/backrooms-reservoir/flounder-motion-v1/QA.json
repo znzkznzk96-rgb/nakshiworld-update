@@ -1,0 +1,18 @@
+{
+  "status": "internal_review_pass_user_signoff_pending",
+  "action": "crouch behind raised rectangular shield then return",
+  "frames": 9,
+  "native_size": [
+    160,
+    128
+  ],
+  "paid_requests": 1,
+  "inspection": {
+    "body_shield_identity": "pass",
+    "defensive_action": "pass",
+    "clipping": "pass",
+    "unwanted_particles": "pass"
+  },
+  "game_applied": false,
+  "deployed": false
+}

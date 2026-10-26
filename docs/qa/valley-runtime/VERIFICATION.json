@@ -1,0 +1,123 @@
+{
+  "date": "2026-10-22",
+  "baseline_release": "v0.68",
+  "baseline_source_sha256": "2ecdfad68862a1e54b38a799fe40ebc905ed1ad929eb83e2e3ff3c504dcaf514",
+  "engine": "Godot 4.4.1 stable",
+  "regression_suites": [
+    {
+      "suite": "equipment",
+      "exit": 0,
+      "passed": true
+    },
+    {
+      "suite": "guide",
+      "exit": 0,
+      "passed": true
+    },
+    {
+      "suite": "shop",
+      "exit": 0,
+      "passed": true
+    },
+    {
+      "suite": "visual",
+      "exit": 0,
+      "passed": true
+    },
+    {
+      "suite": "audio_save",
+      "exit": 0,
+      "passed": true
+    },
+    {
+      "suite": "bundle_preview",
+      "exit": 0,
+      "passed": true
+    },
+    {
+      "suite": "rewards",
+      "exit": 0,
+      "passed": true
+    },
+    {
+      "suite": "reader",
+      "exit": 0,
+      "passed": true
+    },
+    {
+      "suite": "fish_surface",
+      "exit": 0,
+      "passed": true
+    }
+  ],
+  "regional_suite": "passed: save migration, same-name separation, 40 species, length samples, ruler ranges, owner outcomes, next-cast threshold, regional parts, donation/license/cost gating and name/medal layout",
+  "selected_fish_hashes": "20/20 exact",
+  "background_original_preserved": true,
+  "native_output_size": [
+    1080,
+    2640
+  ],
+  "untouched_background_pixel_checks": {
+    "points": [
+      [
+        100,
+        900
+      ],
+      [
+        150,
+        1000
+      ],
+      [
+        150,
+        1550
+      ],
+      [
+        990,
+        1100
+      ],
+      [
+        200,
+        2200
+      ]
+    ],
+    "exact_matches": 5
+  },
+  "pc_render": "OpenGL compatibility on llvmpipe; original native plate drawn outside low-resolution gameplay SubViewport",
+  "screenshots": [
+    {
+      "path": "docs/previews/valley-1080x2640.png",
+      "sha256": "4a055e9ef3c7ad24a2d7984e44a9eadb868c79ec8e02ff2787db47c138a1b428",
+      "size": 1093290
+    },
+    {
+      "path": "docs/previews/valley-fight-1080x2640.png",
+      "sha256": "b09b0b22f1d04627885bf01129dd0325ede40321537e42d7249ee6ea0e1a9ba4",
+      "size": 1034292
+    },
+    {
+      "path": "docs/previews/valley-short-540x1080.png",
+      "sha256": "af51679d44f9b396fc4588523230832737072e25c02f2e1114976cd56f2095ec",
+      "size": 682999
+    },
+    {
+      "path": "docs/previews/valley-dex-1080x2640.png",
+      "sha256": "ddc54e78f6fb9f9ecd87c5bcdf90939de0c5084b4bb7c0743707ab354c87187f",
+      "size": 249235
+    }
+  ],
+  "development_pck": {
+    "size": 29210880,
+    "sha256": "c0b8efd8d1a8fb6feab7ed753080d06279800beade480d0239e67af9a0f590d2",
+    "content_audit": "40 textures, native-size background, regional progress script and cloud shader available",
+    "published": false
+  },
+  "deployment": false,
+  "android_device_checked": false,
+  "paid_generations": 0,
+  "limitations": [
+    "Bundle species/count/grade targets remain undefined; donation UI connection and actual completion are pending.",
+    "Owner gains/events remain unconfigured; historical 100/150 casts are simulation values with conflicting old summary labels.",
+    "Valley pricing/weight/grade/combat tuning and gauge UI need final decisions; live access remains disabled.",
+    "Release restore workflow still needs latest whole-source/deletion support before publishing."
+  ]
+}

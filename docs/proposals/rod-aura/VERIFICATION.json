@@ -1,0 +1,64 @@
+{
+  "stage": "review_v2_ready",
+  "preview_only": true,
+  "game_applied": false,
+  "deployed": false,
+  "actual_rod_max": [
+    5,
+    8,
+    10,
+    13,
+    16,
+    20
+  ],
+  "enhancement_levels": [
+    0,
+    2,
+    4,
+    6,
+    8,
+    10,
+    12,
+    14,
+    16,
+    18,
+    20
+  ],
+  "tier_rule": "absolute enhancement / 2; odd enhancement retains preceding even tier; no normalized per-rod max bonus",
+  "comparison_rod": "은하낚싯대, existing max20, same skin on all tiers",
+  "revision": "low tiers visibly strengthened; previous10cap corrected; rainbow endpoint moved to20",
+  "visible_pixels_day_idle_delta40": {
+    "v1": {
+      "2": 4,
+      "4": 32,
+      "6": 164
+    },
+    "v2": {
+      "2": 368,
+      "4": 576,
+      "6": 1152
+    }
+  },
+  "pixel_metric_limit": "same-frame aura tier vs no-aura cell for each version; material/color/style differences mean this measures visible area, not subjective quality",
+  "godot": "4.4.1",
+  "render_frames": 672,
+  "rig_poses": 4032,
+  "arm_reach_failures": 0,
+  "rod_tip_mismatch_failures": 0,
+  "video_seconds": 28,
+  "video_fps": 24,
+  "video_full_decode_pass": true,
+  "visual_review": "day idle/cast/fight; night idle/cast/fight on both pages",
+  "performance_phone_verified": false,
+  "source_sha256": {
+    "rig_review.gd": "c7f59639523307d8c9281045a7ea2d7cf7c3eefb4f64765eff5c9f806738f802",
+    "rod_aura.gd": "826ed169187adab534d3ebc52106cfc568fcee615aab190a4afaa78cf2e8e575",
+    "actor_review.gd": "662ba427a7d3c5210eb43a2f6188b4625bbd0072dcad713ca61d6e0aac6a51d8",
+    "render_review.gd": "1888f002cc3d826ecbaa827b09201465288c3f7dc513f29732fbcca967e14049"
+  },
+  "video_sha256": "3378cf6a6866184d89ce189aa3b32845b854214761087f1f6a2fb7e088fb0f66",
+  "preserves": "existing art, rod curve, hand/line anchors, enhancement caps/stats/save; no game runtime integration",
+  "paid_art_requests": 0,
+  "supersedes": "v1 low-tier visibility and10endpoint; old source and review video preserved",
+  "colors_final_approved": false
+}

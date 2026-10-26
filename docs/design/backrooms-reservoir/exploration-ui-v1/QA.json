@@ -1,0 +1,25 @@
+{
+  "status": "pass",
+  "browser": "153.0.8010.0",
+  "checks": [
+    "15-unit selection",
+    "pointer drag order",
+    "keyboard order",
+    "selected slot replacement",
+    "locked stages",
+    "automatic battle",
+    "minimize and restore",
+    "success and next stage",
+    "front casualty handoff",
+    "all-party return",
+    "final tenth-stage complete",
+    "10 background canvases",
+    "360px viewport no horizontal overflow",
+    "no page errors"
+  ],
+  "game_integrated": false,
+  "deployed": false,
+  "enemy_art": "placeholder",
+  "combat": "scripted UI preview, not balance model",
+  "paid_generations": 0
+}

@@ -1,0 +1,83 @@
+{
+  "scope": "design_only_not_gameplay",
+  "model_cases": 8,
+  "model_checks": "resource grouping covers exactly 19 non-owner fish; bounds and same-team level monotonicity; eight fixed progression cases",
+  "all_distinct_3star_lv10_teams_clearing_stage10": "120/120; growth gate, not tactical-depth proof",
+  "review_js": "syntax pass; eight replay outputs match Python; six modal open/close handlers pass using DOM stubs",
+  "browser_layout_test": false,
+  "godot_render": "Godot 4.4.1 compatibility renderer, six screens rendered; contact sheets visually inspected",
+  "images": [
+    {
+      "file": "screens/map-doors.png",
+      "size": [
+        540,
+        1080
+      ],
+      "sha256": "61b8c839d05bb9054b7db0f99f7e43f15ca952699db5c1bc10fcdb10bac97683"
+    },
+    {
+      "file": "screens/map-journal.png",
+      "size": [
+        540,
+        1080
+      ],
+      "sha256": "4814d8ac51ebf5f81ea87a7e77972de5ea18de933aecb95622e2e78ad2cd003e"
+    },
+    {
+      "file": "screens/map-trail.png",
+      "size": [
+        540,
+        1080
+      ],
+      "sha256": "2f893b288f1ee7e9c9507ddb546c74e3089def79abf9082b0ebdc85fc6e44241"
+    },
+    {
+      "file": "screens/progress-compact.png",
+      "size": [
+        540,
+        1080
+      ],
+      "sha256": "3a45bf4e7d2e660870fc3ce9316973bab33466669e8f3d8a32f180da850ff47b"
+    },
+    {
+      "file": "screens/progress-corridor.png",
+      "size": [
+        540,
+        1080
+      ],
+      "sha256": "3618f67939d3b150acbd7bc21cc3c00884fb8867833e954205bfee62ad55f7f2"
+    },
+    {
+      "file": "screens/progress-overview.png",
+      "size": [
+        1680,
+        1190
+      ],
+      "sha256": "517cad7fa8f26cc5be255b408db1bc2c1e1825d7cdeffaba32a7c2c4fb85c6df"
+    },
+    {
+      "file": "screens/progress-party.png",
+      "size": [
+        540,
+        1080
+      ],
+      "sha256": "ff404524e4d7361afb833e5688327de2db23ecec4be8afe88ca52f62c8ac7fac"
+    },
+    {
+      "file": "screens/selection-overview.png",
+      "size": [
+        1680,
+        1190
+      ],
+      "sha256": "c96932f0cc0ccc245e21a0fa349c430f9d778aaf9a2e1a77a8e3f336879aa881"
+    }
+  ],
+  "game_integration": false,
+  "deployment": false,
+  "paid_art_requests": 0,
+  "limitations": [
+    "fish sprites and schematic village are placeholders",
+    "gallery percentages in static mockups are illustrative",
+    "no real elapsed fishing-time or 50-90 day retention claim"
+  ]
+}

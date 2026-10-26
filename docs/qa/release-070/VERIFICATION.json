@@ -1,0 +1,520 @@
+{
+  "status": "local_tests_and_visual_review_passed",
+  "release": "0.70",
+  "baseline": "v0.69",
+  "baseline_sha256": "00ac432f9c6fac3b4f0a2c7814a97dcd9bd6f511b9b4d703524007e980894566",
+  "godot": "4.4.1.stable.official.49a5bc7b6",
+  "suites": [
+    "reservoir_layers",
+    "owner_gauge",
+    "bag_list",
+    "bundles_buyback",
+    "equipment",
+    "visual",
+    "guide",
+    "shop",
+    "audio_save",
+    "bundle_preview",
+    "rewards",
+    "reader",
+    "fish_surface",
+    "regional",
+    "inventory_layout"
+  ],
+  "suite_count": 15,
+  "isolated_testdata": true,
+  "source_sha256": {
+    "game/village.gd": "a80dad9fc4b975ef50fb57879d3cae81ca44400cdc77152b5f95fe95f2657310",
+    "game/main.gd": "4bece40e5cdbbbf15113deea0e70d5cd6927dec38d732efb480ee736141d2c30",
+    "game/root.gd": "7857eadf20243b9b5d1060deddedf05807bace76ed2d85a26f933f67b13cc79d",
+    "game/export_presets.cfg": "45c75e4116698912b94fb6d88e30a1bd74e4aebf5d431610ac5c4542bc4eda83",
+    "game/project.godot": "26d654a871011a2f873bc76de752c51e5c0c7e6063d973812e82562516526dbf",
+    "game/tests/rewards_verify.gd": "385c6f83179df2a34a7896f8b891c5bd71b001afa65020bf92db9cc482045bc0",
+    "game/tests/shop_verify.gd": "69c4871dfc77446e6818de24bef0037ed15e22a336e2851af77d151ec6f40531",
+    "game/tests/bundles_ui_preview.gd": "ed095ed30ffb0229f5c95aba21400391c671f03d4aa71929f492db2eb4633a85",
+    "game/tests/audio_save_verify.gd": "a7882b48c9af3d11874b2390eec38d66646e1a98f5f89206ebb10ae8af06681c",
+    "game/tests/owner_gauge_verify.gd": "ab3139adfa602ab33afdcc30624decb124b62057ca9b926463849a3cf0d30a4c",
+    "game/tests/reservoir_layers_verify.gd": "6719de7c5fc62b25774d186f46feb6ad8da9ff7fc90f8d739b22e32fd137a5d3",
+    "game/tests/owner_gauge_preview.gd": "fb5b0fc21389f25e8c58621a511dd19844e8eaef7383ead23acff564d20db93b",
+    "game/tests/inventory_layout_verify.gd": "cf56a6168af5bbba89030fbf569e215ed145c814382082853a9a0233a040b9eb",
+    "game/tests/bundles_buyback_verify.gd": "a42f534965f7b41f8fa1a48fd50b00d055622da048cdf5ed9218f0b12129d1b0",
+    "game/tests/equipment_verify.gd": "a5d9b0465259c067149ee632bfb828ab2962f8d1d2c1c29a2742e907ef9d2f04",
+    "game/tests/reader_verify.gd": "93700a04abd08eba87f841dd49eeb9c10e335baf7db7b9763cf9b2fefa8e86de",
+    "game/tests/guide_verify.gd": "476bc3e2ab5a98c5c967d98b0ed92b82980d5f787aed9dd394dbd7d199c990cd",
+    "game/tests/bag_list_verify.gd": "d35c270870ef367e8c16e8536f2e97eaa8e4666a811dc56d2fd3f43ead69eaf2",
+    "game/tests/fish_surface_verify.gd": "c2194ed824b3f9a1668ee8a2c8660d5182f1a2191557a816dc717c805a3efe07",
+    "game/tests/visual_verify.gd": "442a2e9967d573d7b533bb7b7876d7589e2d53baa9c786c359ce0d1917a92373",
+    "game/tests/regional_verify.gd": "0fed2d3ec6df6320127485f60df7e2a0dff336e3e8c3f157842ac376b744c462",
+    "game/tests/bundle_preview_verify.gd": "d8f13255df49337f1d6f58aa974c54a66b49404380f249e03882b826a7544fb2",
+    "game/tests/reservoir_layers_preview.gd": "37146f9ab329d83a4e4c6e45fc31c8c3ad22ec7eee025399dd3b5d141f4a98ca",
+    "game/art/icon_main.png": "bf51fafef8709ef92bd4b1182144935c915c7db4019ed271d9e11f9bbd5e3998",
+    "game/tests/previews/inventory_concepts.gd": "a9cf1237a6dd4ffbef56ad0a255a431ccbcb811dbda52f4167dd4cb7ddb6ac39",
+    "game/art/bg/valley_selected_1080x2640.png": "8f754000173c7602a2d247cf735b5aa9dd053881ead79f76ea548bc453c37a8a",
+    "game/art/rewards67/license_1.png": "66b2aa5ae00acf983136fb98dc62ec731b6610c879f1e61f977ebac7bb6bdee6",
+    "game/art/rewards67/license_5.png": "b2eff80ad277a38f7ec53df5beebb0b481e8957b1e74c350fb7991f224122daa",
+    "game/art/rewards67/license_0.png": "ae14652188385359e392de9b6b04acc13d561e959cd4d616506525ed883712e5",
+    "game/art/rewards67/bait_2.png": "50ff175c2bac9bb7e5cd38facaea29b846a997fd6fe666c02c6c67e9374b2b84",
+    "game/art/rewards67/bait_0.png": "4017918221fe9f27a4af5b1ea3096f1b9edbcb577ab08c393316b6e95164dd49",
+    "game/art/rewards67/bait_5.png": "17a3815e865b8ea39e287c735f909b2cbb7b2902d4d955830dffe607786b53d0",
+    "game/art/rewards67/license_3.png": "a0a5a186bc3d491842d53bb1db74905a30670806b655c213c4972e078efb9126",
+    "game/art/rewards67/license_2.png": "56802744e315540327581b96e65b88e45d1dd06c877e73b38984861d78973dd1",
+    "game/art/rewards67/bait_3.png": "19f38c638075c63a0028bfe76796d3be9acbd32504e9b3fc02cc67d20315aba0",
+    "game/art/rewards67/bait_1.png": "ca703dc1533f3c56534b0127212285c25686744662383a4bfda2e1d48d3b782d",
+    "game/art/rewards67/license_4.png": "fac0b01180425c1ea48c0a8a769917259ff3832528019de9efbd37ef28008d10",
+    "game/art/rewards67/bait_4.png": "65a236e585d2622ce763dce17235c04865995cb044f1793f017fcf1bc8166771",
+    "game/art/fish/l1_08.png": "0a9c2b0277c8098b4cae2be09c2980fbd9a47354f7b71567ed6c8f330e276d0c",
+    "game/art/fish/l1_06.png": "ebd10fd2cc32364b03fd843189b29da049345440ade14fbc25c93243372ecf76",
+    "game/art/fish/l1_15.png": "e00a9af28af9244291551c0cd4b306e34ca2e0bb25fd61d7bcc528b91b335038",
+    "game/art/fish/l1_14.png": "87446a97d9213e7420507bcbb510a865978c30f1b3913b00128887dce2c698de",
+    "game/art/fish/l1_01.png": "84c2d6fa558c4367b6c910d93f494ca2fdb178fa10d63c487a8e4e3f1102e01e",
+    "game/art/fish/l1_02.png": "3bfff7c81b7ca1299a02f10fed317dfef6414ba579a4f6d451d52038e9c55f0a",
+    "game/art/fish/l1_19.png": "cee5fe4749c0f2775ca6767982f12a99cdaf839b8656b40bb5defecc676f973f",
+    "game/art/fish/l1_05.png": "94a492c43daccdedfa87690b0e587e2f8c3a16346541647ad3c8a080ad7c6d1e",
+    "game/art/fish/l1_17.png": "e97e05ce216eb17414ed74a914e59f7678ebbcc9423443ba46190c9436308560",
+    "game/art/fish/l1_07.png": "7614c23caa6bc5bbb92080d437c421b8d126c3bb63092d116e373fd6e06bd1f4",
+    "game/art/fish/l1_10.png": "94e9ff70c35f715bcbd11a0e12bae2160fa1766a82ebbf4954e6e4f5379bb6ea",
+    "game/art/fish/l1_04.png": "b17e9cbe7056ede318f8aeb92056ce54e98ebe19d40e6bcc45c7d40cef163034",
+    "game/art/fish/l1_03.png": "ab78b4329bf77b577fe627434ac689a893b025f2bb8ae06ee20eec2d0438e19c",
+    "game/art/fish/l1_16.png": "d3f2ee5f8a5172a61f8d9cd924d7da222764e06f53005fbb616492b36f884906",
+    "game/art/fish/l1_00.png": "1152d8e2af8bb64c763c7f73d033f911126f0e019d0e91a447d207da7a037ef5",
+    "game/art/fish/l1_12.png": "51e4fc0d5f77d18fb6c9082678d0559786863c4b95e523883f2d74f0ca20dd29",
+    "game/art/fish/l1_18.png": "a89e3c39470323f0967bd2fc814056beebf65fc4bffb86e08f10830fa3fa0ff2",
+    "game/art/fish/l1_09.png": "98c1b55a4ff47655a25a5a6023616e2564598afe866bd0c9cd908d47b35a3271",
+    "game/art/fish/l1_11.png": "15065af7767c2dfbad31ec0e15c3a66880315d449ad0d5f01122cc68229e8760",
+    "game/art/fish/l1_13.png": "8fd0fa16d3a81b6de559558571d435de8de9b41fde07a9dc3a4157f1fc488dae",
+    "game/art/guide64/r3_reel.png": "45e124135db1eafb1b4f71b19c0dad09e986e8e77db06e8c6cc5bab5ca5a3c3f",
+    "game/art/guide64/r5_reel.png": "e14135933684f9861f7cce44ab0d5396005c087e4b3582bc41173e69a59f92b7",
+    "game/art/guide64/r3_line.png": "3e97733a30e63d7dabaf5341d31c86d1e3d820fd90997f531710c29e0d001019",
+    "game/art/guide64/r1_hook.png": "4d413bc8ed579bb94c4f4c67bde3efa4395fea6a6597e602741b6dbf8aeec4be",
+    "game/art/guide64/r5_hook.png": "392113f2b25cdb041a110a05304f7959886df6f039c1eacc57c7403366405471",
+    "game/art/guide64/r2_hook.png": "8282379a3081e3247344328d416d5b58c00b220752cb3c6679d24866383b8075",
+    "game/art/guide64/r1_float.png": "fc7ddec81f5612db058ab11c1f0b6d32a9cf39b6aab964ec7cd8a97e5b2c4e0d",
+    "game/art/guide64/r2_line.png": "2cf086d5239dfc5ddfd559bae2251ab9c271f20f4c1e2aa97e343a9dfadd77d9",
+    "game/art/guide64/r1_line.png": "c4e2c3f81b81405e62d028ddbaf8825406966a10c87c53336587d4a34f097a52",
+    "game/art/guide64/r3_hook.png": "f25af2724bf67553ae6bf806a0ff6ee17b7e61d39a8e2729e32559b0a25bb519",
+    "game/art/guide64/r2_reel.png": "94e383bf6ed36c884ed3f23f6b7dcc467f59fd4b263e4cc058954827af3529f7",
+    "game/art/guide64/r2_float.png": "a618134ed6a341e16e8024c295798033f5d6385b7ee0c5766b09cfbdceb78425",
+    "game/art/guide64/r5_float.png": "aef73ee75af7e94e27249e01ccde4e6abf9cd3927cbec50118dff50fda59a5f7",
+    "game/art/guide64/mail.png": "948ee0f8f30d69c8231bed38195f49bcecf197902a61fd3ce1335a9ccbf4f5f8",
+    "game/art/guide64/r4_reel.png": "9af297a7efc99ef616fba2388ca44f64a4d117562afba4083675e23ab1d555f3",
+    "game/art/guide64/r5_line.png": "944eef5f0f1f60e8cd82696923f111653cfb8da7502976c4e8c93aec91e17909",
+    "game/art/guide64/r4_float.png": "87d5ee4f173a434f452bdaed8fc9ffe490395cf85a13eca465722c67bf41d13b",
+    "game/art/guide64/r3_float.png": "5b1c029b0ee99cb1bf71029f70b8cc72a7b509601563499b925d6ee28071fde5",
+    "game/art/guide64/book.png": "cd3636b847f82bef70cd66c07073bb9c4a59fd88b5ef1ba73ff3f386bf739938",
+    "game/art/guide64/r4_hook.png": "f34fb9f5ca311bfdf4fedd879e04465f8e6f588bc4a724a0505997692073200e",
+    "game/art/guide64/r1_reel.png": "829674d70dba897a280011e44c9c6d0559a153ebd3a55fbe6c58774bc1c89ad4",
+    "game/art/guide64/r4_line.png": "8180c3c7e4b0624abec4b0e4348cca2388675d0eef7f5d3ec7960d5d805c0b6e",
+    "game/art/bg/reservoir_layers/moon.png": "b7f3f54353c3844ee687b8cc814ae81c27a47a5a2d5443554c89fbf25c9f5eee",
+    "game/art/bg/reservoir_layers/base.png": "d1c07898b18fa581ad062b8ad544981391399deeb86deb8893031bfe003b230c",
+    "game/art/ui/owners/region_5.png": "93d205439ecb6937bb63bc6d44dfd31ed594d6cb7a49a134adfa8fe3841b67d3",
+    "game/art/ui/owners/region_2.png": "701d9d653deca302e135e2716bdc729ec78ebd0a75b0ff6a1ea7e156d7a794a6",
+    "game/art/ui/owners/region_0.png": "bfcf7204c115796a6692b48beaf82658119d98bea6709f94a2cbe9a0abeed05d",
+    "game/art/ui/owners/region_4.png": "576b767bbafd39290524d2534c5427baa2553ac52af1a65229ba7cb42679f44a",
+    "game/art/ui/owners/region_1.png": "d82bc090e0d19cb64c53b401940182ef7ffbfc2c797716f5187e5dc11af5d7b6",
+    "game/art/ui/owners/region_3.png": "149d82a14d00c5f6e7e3cdae2f2bf42866f2861bce6f401e31a413f33fbf6ff9",
+    "game/sfx/refresh65/water.ogg": "9ac05aa404b0fe8e9371ca124e97ddce41767bad209ab0db3996728469a840c9",
+    "game/sfx/refresh65/snap.ogg": "e7f79a5b173961da410cb2798da7c7d81d4b38074761ea2473d40d2a7c7d3612",
+    "game/sfx/refresh65/manifest.json": "acbb103108aa4810056086239e7123bb5a291a919179d13923f57e6cfeb6086f",
+    "game/sfx/refresh65/music.ogg": "6c5acb5f7e1233d4c6378e4324d48afc9cc2f477bac25d0a31a5dbe0f431697b",
+    "game/sfx/refresh65/hammer.ogg": "f33b97125e11c05a9eca529d3d7fa529c4a670a1848b3bc02bba0c07f8f44699",
+    "game/sfx/refresh65/click.ogg": "99bcfb6d6ba4322f2c99cbdbc8c9579d4eb64af77fbfc0693f3493af90232b2f",
+    "game/sfx/refresh65/bubbles.ogg": "48f1d30ab188bef26b1ae00a687b56111a493a20e28ab22496dff875d07dfb99",
+    "game/sfx/refresh65/splash.ogg": "eb1eabd725d03c1649bba9b10ab6f57c574a74c5664dd17be1065cb9cd74f54b",
+    "game/sfx/refresh65/record.ogg": "8f20145cc4566ae0f84e8fcf8b835820c5a35c93f83f28eed7a8ec4eaffeddc3",
+    "game/sfx/refresh65/swim.ogg": "ca8b92295bcf97ca827f559c2d0bc467284d6644e10e1288693c794e022d9e34",
+    "game/sfx/refresh65/tension.ogg": "3af631f60c80368f6149540a5b043eda6cbfb08e5a50496ea44f1c97bb39e645",
+    "game/sfx/refresh65/CREDITS.txt": "10954b0d46f8dd63e7910a5caa9c298afa735488420e22a709c65a709520d4d3",
+    "game/sfx/refresh65/reel.ogg": "4a19b3f9be10837665600494fb75dd0ab51cd601b0ad481fe05e9fe70e9ee3dc",
+    "game/sfx/refresh65/catch.ogg": "ff29444b2a90413956dc0595293f1d36e05593bd0bccf077dbf9e459ec3bbd14",
+    "game/sfx/refresh65/rain.ogg": "1860012936612f310169b1ac22045e9d75a6dfb5f649987a19718a7d87baf32c",
+    "game/sfx/refresh65/hook.ogg": "71d4960b2ce35ac2f7aa59933497e28b7143a8493f2dcd47cdc4088437d52bf9",
+    "game/sfx/refresh65/thunder.ogg": "07dc1a1bea3efaffad0d9cb1723d8fc05e929bc7a3d4e47a7615f7059ac7b0da",
+    "game/sfx/refresh65/cast.ogg": "bcbb9d08180622a91d65c5fd9d8030f5ca9b632e9e144edd60f34f1aaab6e6eb",
+    "game/sfx/refine68/manifest.json": "208155a219eb6e6d42fcda33969f6848593c0e23d01c90ab0e11e4d56ec44927",
+    "game/sfx/refine68/CREDITS.txt": "6b2e53e8224f8a8ff1e5eaaace385295e4916bdb33f0c0e901b586990fd810fa",
+    "game/sfx/refine68/cast.ogg": "6a03a8f810a3a4d1c1b796ccab3bb7dfe1d7b306c1c914433f5f42a4ffb0ba64",
+    "game/sfx/village/manifest.json": "08a5b2a7445697c38100e65e573838b49d642e11c247c22ddbb307ae1dfc9a98",
+    "game/sfx/village/CREDITS.txt": "87c5fd7e3a28f929b89314739c2a92216ca9dfacaffdc962e350b52c83e1ff8f",
+    "game/sfx/village/horn.ogg": "9b194d47f1fd21478f747f3d0a92897200bde965faf8e26e9cf07fbe22bd079b",
+    "game/sfx/village/gull1.ogg": "1f6276fea106f37e776866a79d005d626b5c9e5a2dfca5870c300503910af86a",
+    "game/sfx/village/village.ogg": "00c656070ab0a9fa9585bfd5fbf26bebce8ad027ffe20d484eaa134c7a739a4f",
+    "game/sfx/village/gull2.ogg": "ad83b0b2c8663948783ed31f8ac1a5e64687effd35a9019ca3916eaf47afd7f2",
+    "game/addons/reservoir/release_notes.gd": "2ee8732f00cc7d39c041c21bbc287e4605fa5145706ca7237349adc6ecc9527b",
+    "game/addons/reservoir/equipment.gd": "4158c7fc1ce3c7dcbc033a2ef8fff834b5e68bbb73fd47eca2c87f8d94b8fac5",
+    "game/addons/reservoir/save_store.gd": "a6f16aed160ab74ab34dfaf38f2b83255bb21217a21e1215cb775b17f4cd070e",
+    "game/addons/reservoir/regional_catalog.gd": "84d7c23c2a4a17f924b4af83e489556008ece1fe6dc9cc76436aad222f6addb7",
+    "game/addons/reservoir/owner_gauge_ui.gd": "32deb3568ff6c22ec5343b44c4dc103cd146d567281924d87900cc1ae0bdafb0",
+    "game/addons/reservoir/mailbox.gd": "66ba8f8c882d7ae83b6f489f29c8591385122b9b5bd580519b4af372079694be",
+    "game/addons/reservoir/mail_concepts.gd": "6d9dd9af2ab1ec4de7ce7f3d5262f11f3200c0afd2f454498c0d0af2fce4d626",
+    "game/addons/reservoir/inventory.gd": "a088d6cc1d8bd3d7bf30e0d023fda61f800ec2e6608d7a0ab056de0af6824516",
+    "game/addons/reservoir/reservoir_rays.gdshader": "caa1292e13aa8cb687872e291525851918a7c67d4a0d964bc61865b612cb4fca",
+    "game/addons/reservoir/region_shop.gd": "1d68aedde3a80263f9b172ffb725a4f68eea82633493e5a9b0aca1c816d860a9",
+    "game/addons/reservoir/reservoir_moon.gdshader": "62eed2c55b98014083330e4ec1068c8f268361dacdb617894a751d532b09027f",
+    "game/addons/reservoir/settings65.gd": "5df2ff7c8e22e8b34ba54d6c5752afa5d2befe973e06139ca33027dfce2d52cd",
+    "game/addons/reservoir/audio_feedback.gd": "4f91ecf10d95ed1f4647d4b04a7f8a4e17702a19f747533a3d2c1d883345ef3e",
+    "game/addons/reservoir/valley_layer.gd": "96a81f934bf50458fcd5d3ffec2ef895fd6d4ef2122747cc6aff70ebc690f54c",
+    "game/addons/reservoir/title_screen.gd": "59e6f04e253bb707c479c02d20f788d64589a87571290aa3c71ae76bdf622103",
+    "game/addons/reservoir/commerce.gd": "99154514cf0dbf9e4fa2e64e869d7aafc6d2bfcfa8b4accda387e0a050c53a31",
+    "game/addons/reservoir/bundle_preview.gd": "24794f104ef3646f41bf78e806ab10353e76a42fe5edcc919818559d92822227",
+    "game/addons/reservoir/valley_clouds.gdshader": "a0182b37bc4972e52cbf0a862b53fd0a89ade71f87a03e78c132678480afc9d7",
+    "game/addons/reservoir/environment.gd": "20c1c20d83579a4daff01f4c99dd20353d13ffdeb26e137b81a5fd51c3d5164b",
+    "game/addons/reservoir/spot_selection.gd": "dbb6ad978289814434d5bf0527216c9f43ee47770d3fcaa2f5f8613e4d8e3f89",
+    "game/addons/reservoir/valley_environment.gd": "402d0d578d244ee01765b3c103be0046249e8f325d2d30139080c521706906e7",
+    "game/addons/reservoir/buyback.gd": "0ed60efdc4e36aef0c1b38ffb480a35698b0250ea71b979985e032368e12dd58",
+    "game/addons/reservoir/enhancement.gd": "0c5171bf6a942e6586e1ab8d8f3024bae711ee2c2537c67b7110e2cbd040ae04",
+    "game/addons/reservoir/guide.gd": "c8aaf63547b5808dddf6033377f79e846537cbd6d04df503118a5af2e99e46a3",
+    "game/addons/reservoir/reservoir_layer.gd": "a8f6d06814f121df489c8b0c81c261a7f2f748be3c27eb431a55209278349f08",
+    "game/addons/reservoir/bag_list.gd": "ab3a058784d4c9d7fed6df148111eca53fc813215b07b8337b4f50755e584d07",
+    "game/addons/reservoir/regional_progress.gd": "cd587d4f8e07192e4fc8c40629a3c82d885db67cf3498061e13043c8d790da09",
+    "game/addons/reservoir/topic_reader.gd": "8e3977531bb02950a55265da9b4cded02408ee8da33b9f883fb47fc1966b2c19",
+    "game/addons/reservoir/reservoir_plate.gdshader": "75761ca3b7c3dfb50436855e761d5ee6c3a51b29e66937e51693bf6e46ae15d5",
+    "game/data/valley/fish_catalog.json": "56f980cc83da0afa2d8c2c2bd689d6e84bbbe00bb27e0b521231fa4e41c5247e",
+    "game/data/valley/scene_spec.json": "b1f1b53e8fd65526ca8080b7afffa8a8af066740913352c96d778776b1ea7340",
+    "game/data/ui/owner_gauges.json": "aaae49eee87cfe77693b9780c6357824c100e2b1e5e1347e8ef9b9f4f670de67"
+  },
+  "renders": [
+    {
+      "file": "museum_short.png",
+      "size": [
+        540,
+        960
+      ]
+    },
+    {
+      "file": "bag_list_short.png",
+      "size": [
+        540,
+        960
+      ]
+    },
+    {
+      "file": "bag_list_scroll_top.png",
+      "size": [
+        540,
+        1080
+      ]
+    },
+    {
+      "file": "museum_0_0.png",
+      "size": [
+        540,
+        1080
+      ]
+    },
+    {
+      "file": "museum_1_1.png",
+      "size": [
+        540,
+        1080
+      ]
+    },
+    {
+      "file": "bag_list_bottom.png",
+      "size": [
+        540,
+        1080
+      ]
+    },
+    {
+      "file": "owner_1_fight.png",
+      "size": [
+        540,
+        1080
+      ]
+    },
+    {
+      "file": "museum_1_0.png",
+      "size": [
+        540,
+        1080
+      ]
+    },
+    {
+      "file": "buyback_bottom.png",
+      "size": [
+        540,
+        1080
+      ]
+    },
+    {
+      "file": "reservoir_18_5.png",
+      "size": [
+        1080,
+        2640
+      ]
+    },
+    {
+      "file": "bag_list_top.png",
+      "size": [
+        540,
+        1080
+      ]
+    },
+    {
+      "file": "reservoir_22_0.png",
+      "size": [
+        1080,
+        2640
+      ]
+    },
+    {
+      "file": "owner_short.png",
+      "size": [
+        540,
+        960
+      ]
+    },
+    {
+      "file": "owner_0_fight.png",
+      "size": [
+        540,
+        1080
+      ]
+    },
+    {
+      "file": "reservoir_sand_bury.png",
+      "size": [
+        1080,
+        2640
+      ]
+    },
+    {
+      "file": "bag_A.png",
+      "size": [
+        540,
+        1080
+      ]
+    },
+    {
+      "file": "reservoir_sand_hidden.png",
+      "size": [
+        1080,
+        2640
+      ]
+    },
+    {
+      "file": "owner_1_100.png",
+      "size": [
+        540,
+        1080
+      ]
+    },
+    {
+      "file": "buyback_top.png",
+      "size": [
+        540,
+        1080
+      ]
+    },
+    {
+      "file": "owner_0_100.png",
+      "size": [
+        540,
+        1080
+      ]
+    },
+    {
+      "file": "reservoir_12_0.png",
+      "size": [
+        1080,
+        2640
+      ]
+    },
+    {
+      "file": "owner_1_0.png",
+      "size": [
+        540,
+        1080
+      ]
+    },
+    {
+      "file": "owner_0_73.png",
+      "size": [
+        540,
+        1080
+      ]
+    },
+    {
+      "file": "donation_choice.png",
+      "size": [
+        540,
+        1080
+      ]
+    },
+    {
+      "file": "museum_0_1.png",
+      "size": [
+        540,
+        1080
+      ]
+    },
+    {
+      "file": "owner_six_0.png",
+      "size": [
+        540,
+        1080
+      ]
+    },
+    {
+      "file": "reservoir_sand_emerge.png",
+      "size": [
+        1080,
+        2640
+      ]
+    },
+    {
+      "file": "owner_1_73.png",
+      "size": [
+        540,
+        1080
+      ]
+    },
+    {
+      "file": "museum_0_2.png",
+      "size": [
+        540,
+        1080
+      ]
+    },
+    {
+      "file": "village_no_reservoir_layers.png",
+      "size": [
+        1080,
+        1920
+      ]
+    },
+    {
+      "file": "bag_list_detail.png",
+      "size": [
+        540,
+        1080
+      ]
+    },
+    {
+      "file": "reservoir_short_night.png",
+      "size": [
+        1080,
+        1920
+      ]
+    },
+    {
+      "file": "reservoir_hook.png",
+      "size": [
+        1080,
+        2640
+      ]
+    },
+    {
+      "file": "owner_1_warning.png",
+      "size": [
+        540,
+        1080
+      ]
+    },
+    {
+      "file": "owner_six_100.png",
+      "size": [
+        540,
+        1080
+      ]
+    },
+    {
+      "file": "reservoir_fight.png",
+      "size": [
+        1080,
+        2640
+      ]
+    },
+    {
+      "file": "owner_missing_parts.png",
+      "size": [
+        540,
+        960
+      ]
+    },
+    {
+      "file": "owner_six_73.png",
+      "size": [
+        540,
+        1080
+      ]
+    },
+    {
+      "file": "owner_0_warning.png",
+      "size": [
+        540,
+        1080
+      ]
+    },
+    {
+      "file": "reservoir_static_base.png",
+      "size": [
+        1080,
+        2640
+      ]
+    },
+    {
+      "file": "owner_0_0.png",
+      "size": [
+        540,
+        1080
+      ]
+    },
+    {
+      "file": "reservoir_rays_off.png",
+      "size": [
+        1080,
+        2640
+      ]
+    },
+    {
+      "file": "buyback_confirm.png",
+      "size": [
+        540,
+        1080
+      ]
+    },
+    {
+      "file": "reservoir_owner.png",
+      "size": [
+        1080,
+        2640
+      ]
+    },
+    {
+      "file": "valley_unchanged.png",
+      "size": [
+        1080,
+        1920
+      ]
+    },
+    {
+      "file": "museum_1_2.png",
+      "size": [
+        540,
+        1080
+      ]
+    },
+    {
+      "file": "bag_B.png",
+      "size": [
+        540,
+        1080
+      ]
+    }
+  ],
+  "visual_review": [
+    "1080x2640 day/dusk/night and fish/hook/fight/owner screens",
+    "short1080x1920 night and valley/museum scenes",
+    "6 region frames 0/73/100 and warnings"
+  ],
+  "native_background_size": [
+    803,
+    1959
+  ],
+  "background_scaling": "uniform cover; original PNG bytes preserved; output viewport1080x2640",
+  "new_image_generations": 0,
+  "save_schema_changed": false,
+  "valley_entry_enabled": false,
+  "deployment": "not_started"
+}

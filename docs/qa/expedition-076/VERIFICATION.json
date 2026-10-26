@@ -1,0 +1,62 @@
+{
+  "implementation_commit": "b932b35d8023cce44ab444a2bd49227199b1429d",
+  "local_suites": 29,
+  "work_ci": {
+    "id": 40265436338,
+    "conclusion": "success",
+    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/actions/runs/40265436338"
+  },
+  "screens": {
+    "heights": [
+      480,
+      540,
+      660
+    ],
+    "path": "docs/qa/expedition-076/",
+    "renderer": "Godot4.4.1 OpenGL llvmpipe"
+  },
+  "balance": {
+    "engine_compositions": 750,
+    "boss10": {
+      "hp": 1200,
+      "atk": 80,
+      "def": 40
+    },
+    "all_1star": {
+      "wins": 0,
+      "total": 125
+    },
+    "one_2star": {
+      "wins": 7,
+      "total": 375
+    },
+    "two_2star": {
+      "wins": 102,
+      "total": 125
+    },
+    "all_2star": {
+      "wins": 125,
+      "total": 125
+    },
+    "iv": [
+      0,
+      0,
+      0
+    ]
+  },
+  "local_pck": {
+    "size": 38017168,
+    "sha256": "30ace351594259e46ec2f803e94ea74473347f92f8ed2ef0bee02f12cb4f80af",
+    "packed_asset_load": "passed",
+    "published": false
+  },
+  "release": {
+    "pr": 9,
+    "merged": false,
+    "public_version": "0.75",
+    "blocked_by": "automatic approval review",
+    "reason": "Merging this large PR into the default branch would trigger the release workflow and publicly publish v0.76, a production/publication side effect not explicitly authorized by the user in the trusted evidence.",
+    "bypassed": false
+  },
+  "phone_verified": false
+}

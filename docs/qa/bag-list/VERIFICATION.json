@@ -1,0 +1,118 @@
+{
+  "date": "2026-10-22",
+  "status": "implemented_verified_unreleased",
+  "source_commit": "fbb25df9160fbaf43b093b27f1e2882c5a00a193",
+  "branch": "work/valley-runtime",
+  "run_id": 39721130282,
+  "run_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/actions/runs/39721130282",
+  "artifact_id": 12400709876,
+  "baseline": "v0.69 full source ZIP SHA256 verified + deletion manifest + work overlay",
+  "godot": "4.4.1",
+  "suites": [
+    {
+      "name": "bag_list",
+      "passed": true,
+      "log": "bag_list.log"
+    },
+    {
+      "name": "bundles_buyback",
+      "passed": true,
+      "log": "bundles_buyback.log"
+    },
+    {
+      "name": "equipment",
+      "passed": true,
+      "log": "equipment.log"
+    },
+    {
+      "name": "visual",
+      "passed": true,
+      "log": "visual.log"
+    },
+    {
+      "name": "guide",
+      "passed": true,
+      "log": "guide.log"
+    },
+    {
+      "name": "shop",
+      "passed": true,
+      "log": "shop.log"
+    },
+    {
+      "name": "audio_save",
+      "passed": true,
+      "log": "audio_save.log"
+    },
+    {
+      "name": "bundle_preview",
+      "passed": true,
+      "log": "bundle_preview.log"
+    },
+    {
+      "name": "rewards",
+      "passed": true,
+      "log": "rewards.log"
+    },
+    {
+      "name": "reader",
+      "passed": true,
+      "log": "reader.log"
+    },
+    {
+      "name": "fish_surface",
+      "passed": true,
+      "log": "fish_surface.log"
+    },
+    {
+      "name": "regional",
+      "passed": true,
+      "log": "regional.log"
+    },
+    {
+      "name": "inventory_layout",
+      "passed": true,
+      "log": "inventory_layout.log"
+    }
+  ],
+  "native_touch_tested": "InputEventScreenTouch + InputEventScreenDrag through main._unhandled_input; duplicate mouse event position guarded",
+  "coverage": [
+    "Grouped species+grade, original specimens retained",
+    "Whole long fish name, grade label centered using font ascent/descent",
+    "Fish image rect inset12 logical pixels inside each row",
+    "Wheel and mouse/native touch drag reach final row without opening details on release",
+    "Per-grade individual weight/length/value detail and legacy museum statistics",
+    "Original inventory/equipment tabs and empty bag handling",
+    "All view/scroll/detail interactions preserve original bag data"
+  ],
+  "screen_review": {
+    "renders": 18,
+    "reviewed": [
+      "bag_list_top",
+      "bag_list_bottom",
+      "bag_list_detail",
+      "bag_list_short"
+    ],
+    "preview": "../../previews/bag-list-applied.png",
+    "preview_sha256": "815378f73584dd4d56fe06d3cfd1e2974bb8f98f1ff68668188a76492a9bbb5a"
+  },
+  "files": {
+    "game/main.gd": "e2d9ac5e47582df02c62bd58e31db4f81e9182136b2d25c3cbdc1897b348151f",
+    "game/addons/reservoir/inventory.gd": "a088d6cc1d8bd3d7bf30e0d023fda61f800ec2e6608d7a0ab056de0af6824516",
+    "game/addons/reservoir/bag_list.gd": "ab3a058784d4c9d7fed6df148111eca53fc813215b07b8337b4f50755e584d07",
+    "game/tests/bag_list_verify.gd": "d35c270870ef367e8c16e8536f2e97eaa8e4666a811dc56d2fd3f43ead69eaf2",
+    "game/tests/bundles_ui_preview.gd": "ed095ed30ffb0229f5c95aba21400391c671f03d4aa71929f492db2eb4633a85",
+    ".github/workflows/verify-work.yml": "3fc5dab32416828d5c5e85e135f5443c1ae7435b1de2fdb1b4f3d6d8bf113d0a"
+  },
+  "failures_resolved": [
+    "Test fixture assigned Dictionary to equipment.pending_sale; corrected to the existing String type. No game/save schema change."
+  ],
+  "save_schema_changed": false,
+  "deployed": false,
+  "phone_tested": false,
+  "public_version": "0.69",
+  "limits": [
+    "Physical Android device test not performed; native touch events exercised in Godot CI.",
+    "Existing fish-market sale grid is unchanged; requested bag fish tab is replaced."
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "approved_design": {
+    "shape": "rounded catfish, long whiskers, closed glass potion bottle",
+    "palette": "green back and fins, yellow belly accents, green potion, cream belly",
+    "role": "support"
+  },
+  "reference": "approved B individual concept",
+  "prohibited": "washed-out tint, extra effects or particles, silhouette/weapon replacement",
+  "input_review": "original and nearest native view inspected",
+  "native_input": "input SHA in request-metadata.json"
+}

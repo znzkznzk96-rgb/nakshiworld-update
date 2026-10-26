@@ -1,0 +1,13 @@
+Audio refresh 0.65
+water/swim/bubbles/splash: jcpmcdonald, Skippy Fish Water Sound Collection, CC0
+https://opengameart.org/content/skippy-fish-water-sound-collection
+rain: alxl, Rain on Window Loop, CC0 option
+https://opengameart.org/content/rain-on-window-loop
+music: Sperry Lion, LLC 2024, Ancient Mysteries (loop version), CC0
+https://opengameart.org/content/ancient-mysteries
+click/hook/catch/record/snap/hammer/reel: Kenney Interface Sounds, CC0
+https://kenney.nl/assets/interface-sounds
+cast/tension/thunder: original deterministic procedural synthesis for this project; not field recordings.
+Processing: mono 44.1kHz Vorbis; water high-pass and fade. Original music arrangement preserved.
+CC0: https://creativecommons.org/publicdomain/zero/1.0/
+Existing drag_recording.ogg unchanged.

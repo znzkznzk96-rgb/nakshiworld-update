@@ -1,0 +1,38 @@
+{
+  "AGENTS.md": {
+    "sha256": "61dbe13ad95709febe5f232cc7eba2f6944abf90d0c8d39d7b7d1b529e17344e",
+    "size": 4708
+  },
+  "START_HERE.md": {
+    "sha256": "62f147a9ecb6851a6f823997f82a9cc153fed1f34f8e839cf6687d88633b30d2",
+    "size": 2369
+  },
+  "HANDOFF.md": {
+    "sha256": "6c577e5bf8784fbc1e5bcfa7f9ff85006939ba0ca0bd8e56a2899043c23555a5",
+    "size": 35288
+  },
+  "WORK_STATE.json": {
+    "sha256": "10872e24e716f2ee4bc8f734e1952e85dc57527e6068197af8604f06103b7d91",
+    "size": 4151
+  },
+  "CHANGELOG.md": {
+    "sha256": "47029252c446f5a58b38c6ed6ada57c284db83f66a2e3b5ab4079b3a0d29e3a2",
+    "size": 8081
+  },
+  "docs/PROJECT_INSTRUCTIONS.md": {
+    "sha256": "2d1c08a45c857cd01fe1ffba6a01d7c2c754997169feec077e4e30ff27f4f167",
+    "size": 6616
+  },
+  "docs/CONTINUE_HERE.md": {
+    "sha256": "afae7fe7da4c827488e34ab6d0e9c1aa6c8b3d8de53339c76f4bf13113e77f08",
+    "size": 5128
+  },
+  "docs/GAME_BIBLE.md": {
+    "sha256": "69835b3880dfad164d09a6e4797690c765c208b68b6906cf1805d7016ff097f3",
+    "size": 12298
+  },
+  "docs/VALLEY_INTEGRATION.md": {
+    "sha256": "38d2515dd3b835d463361f5eaefd2b7f0c11b0142517fba51d1b1a5100011cc6",
+    "size": 5017
+  }
+}

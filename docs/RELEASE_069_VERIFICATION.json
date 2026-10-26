@@ -1,0 +1,98 @@
+{
+  "status": "published_and_gateway_verified",
+  "version": "0.69",
+  "date": "2026-10-22",
+  "tests": [
+    {
+      "suite": "equipment",
+      "passed": true,
+      "tail": ""
+    },
+    {
+      "suite": "guide",
+      "passed": true,
+      "tail": ""
+    },
+    {
+      "suite": "shop",
+      "passed": true,
+      "tail": ""
+    },
+    {
+      "suite": "visual",
+      "passed": true,
+      "tail": ""
+    },
+    {
+      "suite": "audio_save",
+      "passed": true,
+      "tail": ""
+    },
+    {
+      "suite": "bundle_preview",
+      "passed": true,
+      "tail": ""
+    },
+    {
+      "suite": "rewards",
+      "passed": true,
+      "tail": ""
+    },
+    {
+      "suite": "reader",
+      "passed": true,
+      "tail": ""
+    },
+    {
+      "suite": "fish_surface",
+      "passed": true,
+      "tail": ""
+    },
+    {
+      "suite": "regional",
+      "passed": true,
+      "tail": ""
+    }
+  ],
+  "restore": "full-source hash verified; deletion+overlay fixture passed",
+  "local_pck": {
+    "size": 29213168,
+    "sha256": "f23fe08b9912532e64fd27352cf458be47f471a2ca06482488b82c8450194fbc"
+  },
+  "deployed": true,
+  "phone_confirmed": false,
+  "pending": "Bundle targets/owner gain/balance remain unapproved; actual valley entry disabled.",
+  "public": {
+    "game-source.zip": {
+      "size": 28775065,
+      "sha256": "00ac432f9c6fac3b4f0a2c7814a97dcd9bd6f511b9b4d703524007e980894566",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v0.69/game-source.zip"
+    },
+    "patch.pck": {
+      "size": 29213168,
+      "sha256": "14c507438c8128c571f7501ba0947a186bc2ccc4a3d7c73f4bc711396fcdd9ba",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v0.69/patch.pck"
+    },
+    "version.json": {
+      "size": 198,
+      "sha256": "6b39c44d18f8ed408775d25c33988045ad988de29af45e46bfd52150a73b4c0e",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v0.69/version.json"
+    },
+    "source_files_compared": 122,
+    "version": {
+      "code": 69,
+      "name": "0.69",
+      "sha256": "14c507438c8128c571f7501ba0947a186bc2ccc4a3d7c73f4bc711396fcdd9ba",
+      "size": 29213168,
+      "source_commit": "4be86def5022a6e1cc0ebfe003a411d656ec8ae2"
+    },
+    "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v0.69",
+    "source_commit": "4be86def5022a6e1cc0ebfe003a411d656ec8ae2",
+    "gateway_verified": true,
+    "android_device_confirmed": false
+  },
+  "build_run": 39707567454,
+  "gateway_run": 39707668175,
+  "source_files_compared": 122,
+  "published_pack_audit": "PACK_AUDIT=true: 40 textures, native1080x2640 background, regional progress and cloud shader"
+}

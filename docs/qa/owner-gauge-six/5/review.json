@@ -1,0 +1,28 @@
+{
+  "status": "pass",
+  "notes": [
+    "Indigo nebula rim, ivory stars and silver orbit arcs create a distinct cosmic-sea frame",
+    "Upper label compartment and lower empty trough remain generous",
+    "Transparent exterior; complete ornate rectangular frame"
+  ],
+  "layout": {
+    "badge": [
+      24,
+      23,
+      36,
+      20
+    ],
+    "label": [
+      80,
+      16,
+      156,
+      13
+    ],
+    "track": [
+      78,
+      36,
+      159,
+      10
+    ]
+  }
+}

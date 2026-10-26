@@ -1,0 +1,55 @@
+{
+  "version": "0.75",
+  "local_suites": 25,
+  "all_local_pass": true,
+  "native_render_pass": true,
+  "viewports": [
+    {
+      "width": 270,
+      "height": 480
+    },
+    {
+      "width": 270,
+      "height": 540
+    }
+  ],
+  "music": {
+    "source": "original D 3/4 80BPM",
+    "loop_seconds": 27,
+    "musical_bars": 12,
+    "tail_folded": true,
+    "pcm_seam_delta": 0.003326551373346899,
+    "peak": 0.78,
+    "decode_pass": true,
+    "sha256": "bace2eecc6a81386a98b1d32855adc5b190074034e80e4a9152a78c258e99f56",
+    "size": 225872
+  },
+  "bait_trials_per_role": 10000,
+  "bait_results": [
+    {
+      "role": "basic",
+      "rare_plus": 0.2876,
+      "over_115_percent_length": 0.1616
+    },
+    {
+      "role": "large",
+      "rare_plus": 0.2947,
+      "over_115_percent_length": 0.2915
+    },
+    {
+      "role": "rare",
+      "rare_plus": 0.4598,
+      "over_115_percent_length": 0.157
+    }
+  ],
+  "work_ci_run": 39955659785,
+  "work_ci_conclusion": "success",
+  "build_run": 39955673877,
+  "source_commit": "20911202cbb3ac8beca3706df3ec5c71a0fe46bb",
+  "phone_confirmed": false,
+  "failed_build": 39955310111,
+  "audio_cleanup_repeated_passes": 6,
+  "build_conclusion": "success",
+  "gateway_run": 39955876665,
+  "gateway_conclusion": "success"
+}

@@ -1,0 +1,15 @@
+{
+  "first_frame": {
+    "path": "reference.png",
+    "sha256": "82210fae556bc92f01656af0323d13595b4241cab8755907636d39eb9b9edb43"
+  },
+  "last_frame": {
+    "path": "reference.png",
+    "sha256": "82210fae556bc92f01656af0323d13595b4241cab8755907636d39eb9b9edb43"
+  },
+  "action": "Single leftward body slam attack by this cute navy slime. Begin with a subtle idle jelly wobble, then clearly squash low in anticipation, stretch and thrust body toward LEFT with eyes kept on left side, impact with front body, recoil and settle back into exact starting shape and position. No limbs, no projectiles, no particles, no detached droplets, no ground shadow. Preserve two cream eyes, tiny mouth and cobalt highlights. Static camera. Entire body inside canvas. Clean silhouette and transparent background.",
+  "frame_count": 16,
+  "seed": 2026102501,
+  "no_background": true,
+  "enhance_prompt": false
+}

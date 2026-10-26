@@ -1,0 +1,9 @@
+{
+  "region": "동네 저수지",
+  "reference_sha256": "d5e7d827406c6d1d17ba19d812bf5b91622520118510a567db29051f750948f3",
+  "reference_role": "Layout template; first two also include approved owner palette reference",
+  "model": "PixelLab UI Pro",
+  "seed": 2026102260,
+  "output_count_expected": 1,
+  "automatic_retry": false
+}

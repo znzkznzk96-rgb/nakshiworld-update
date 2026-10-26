@@ -1,0 +1,22 @@
+[
+  {
+    "file": "water.png",
+    "sha256": "30486375cd8c09d2a9f5b839430512a9839e1d024ddbaad62dcc30b87fbdb0ca",
+    "size": [
+      32,
+      32
+    ],
+    "bounds": [
+      4,
+      3,
+      29,
+      27
+    ],
+    "transparent_pixels": 642,
+    "partial_alpha_pixels": 0,
+    "usage": {
+      "type": "generations",
+      "generations": 1.0
+    }
+  }
+]

@@ -1,0 +1,14 @@
+{
+  "status": "draft-qa-pass",
+  "shape": "Rounded head, eye, small fin and curled ghost tail preserved; not pixel-identical to reference",
+  "color": "Cyan midtone and dark cobalt lower-right shade retained; no pale washout",
+  "shading": "Bright top-left cluster and distinct dark lower-right plane readable",
+  "pixel": "Native32x32, checked at1x and8x nearest",
+  "alpha": "binary transparency, no partial-alpha fringe",
+  "clipping": "none; bounds [3,3,29,27]",
+  "usage_generations": 1,
+  "automatic_retries": 0,
+  "other_elements_generated": false,
+  "game_applied": false,
+  "user_final_acceptance": "pending"
+}

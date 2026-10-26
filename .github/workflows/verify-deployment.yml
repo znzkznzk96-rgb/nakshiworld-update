@@ -1,0 +1,92 @@
+name: Verify deployed update gateway
+on:
+  push:
+    branches: [main, codex/r2-migration]
+    paths: ['deployment/**', '.github/workflows/verify-deployment.yml']
+  workflow_dispatch:
+  workflow_run:
+    workflows: ['Build and publish game patch']
+    types: [completed]
+permissions:
+  contents: read
+jobs:
+  verify:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+      - name: Gateway unit checks
+        run: |
+          node --input-type=module <<'JS'
+          import assert from 'node:assert/strict';
+          import worker from './deployment/releases-worker.mjs';
+          const d={code:61,name:"0.61",size:4,sha256:"a".repeat(64)};
+          globalThis.fetch=async(url,opts)=>String(url).endsWith('version.json')?Response.json(d):new Response(new Uint8Array([71,68,80,67]),{headers:{"Content-Length":"4"}});
+          const env={GAME_PATCHES:{get:async()=>null}};
+          const req=(path,method="GET")=>new Request("https://game.test/"+path,{method});
+          assert.equal((await worker.fetch(req("patch.pck","POST"),env)).status,405);
+          assert.equal((await worker.fetch(req("", "GET"),env)).status,400);
+          assert.equal((await worker.fetch(req("patch.pck?v=60"),env)).status,409);
+          const m=await worker.fetch(req("version.json"),env);
+          assert.equal(m.headers.get("Cache-Control"),"no-store");
+          assert.deepEqual(await m.json(),d);
+          const p=await worker.fetch(req("patch.pck?v=61"),env);
+          assert.equal(p.status,200);
+          assert.equal((await p.arrayBuffer()).byteLength,4);
+          for (const v of ["61.0", "61.00"]) {
+            const response=await worker.fetch(req("patch.pck?v="+v),env);
+            assert.equal(response.status,200);
+            assert.equal((await response.arrayBuffer()).byteLength,4);
+          }
+          for (const v of ["60.0", "62", "61.1", "", "6.1e1", "NaN"]) {
+            assert.equal((await worker.fetch(req("patch.pck?v="+v),env)).status,409);
+          }
+          globalThis.fetch=async(url)=>String(url).endsWith('version.json')?Response.json(d):new Response("bad",{headers:{"Content-Length":"3"}});
+          assert.equal((await worker.fetch(req("patch.pck?v=61"),env)).status,502);
+          globalThis.fetch=async()=>{throw Error("offline");};
+          assert.equal((await worker.fetch(req("patch.pck?v=61"),env)).status,503);
+          console.log("GATEWAY UNIT CHECKS PASSED");
+          JS
+      - name: Download using the installed APK update addresses
+        env:
+          UPDATE_BASE: https://nakshiworld-update-kr.znzkznzk96.workers.dev
+        run: |
+          python3 - <<'PY'
+          import urllib.request,json,hashlib,os,time
+          base=os.environ['UPDATE_BASE']
+          def get(path):
+              for attempt in range(4):
+                  try:
+                      with urllib.request.urlopen(urllib.request.Request(base+path,headers={'User-Agent':'GodotEngine/4.4.1.stable.official (Linux)','Cache-Control':'no-cache'}),timeout=120) as r:
+                          assert r.status==200
+                          assert r.headers.get('X-Patch-Source')=='github-releases'
+                          return r.read()
+                  except Exception as error:
+                      if hasattr(error,"read"): print("HTTP FAILURE",error.code,error.read()[:1200],flush=True)
+                      if attempt==3: raise
+                      time.sleep(3)
+          expected=json.load(open('automation/release.json'))
+          for readiness_attempt in range(8):
+              d=json.loads(get('/version.json?verify='+str(expected['code'])+'&t='+str(time.time_ns())))
+              print('MANIFEST READINESS',readiness_attempt,'expected',expected,'actual',d,flush=True)
+              if d['code']==expected['code'] and d['name']==expected['name']: break
+              if readiness_attempt==7: raise AssertionError('Published version did not reach update gateway')
+              time.sleep(3)
+          b=get('/patch.pck?v='+str(float(d['code'])))
+          assert len(b)==d['size']
+          assert hashlib.sha256(b).hexdigest()==d['sha256']
+          assert b[:4]==b'GDPC'
+          with urllib.request.urlopen(urllib.request.Request(base+'/test.txt',headers={'User-Agent':'GodotEngine/4.4.1.stable.official (Linux)','Cache-Control':'no-cache'}),timeout=20) as r: assert r.read()==b'ok'
+          print('PUBLIC UPDATE VERIFIED',json.dumps(d))
+          PY
+
+      - name: Verify published source ZIP and all release assets
+        run: python3 deployment/verify_public_release.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: public-release-verification
+          path: PUBLIC_VERIFICATION.json

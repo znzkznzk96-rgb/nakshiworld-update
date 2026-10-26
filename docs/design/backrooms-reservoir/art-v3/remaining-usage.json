@@ -1,0 +1,25 @@
+{
+  "new_assets": 4,
+  "paid_requests": 4,
+  "automatic_retries": 0,
+  "water_regenerated": false,
+  "usage": {
+    "electric": {
+      "type": "generations",
+      "generations": 1.0
+    },
+    "poison": {
+      "type": "generations",
+      "generations": 1.0
+    },
+    "light": {
+      "type": "generations",
+      "generations": 1.0
+    },
+    "dark": {
+      "type": "generations",
+      "generations": 1.0
+    }
+  },
+  "total_generations": 4.0
+}
