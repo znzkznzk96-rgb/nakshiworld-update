@@ -1,0 +1,33 @@
+{
+  "version": {
+    "code": 82,
+    "name": "0.82"
+  },
+  "source_commit": "075cd83508b3ac97f8fde433fd3296fe6ff3b5b9",
+  "assets": {
+    "game-source.zip": {
+      "size": 46170971,
+      "sha256": "2931af979498aacdf126ce3145090597fa6678b52fdc15c610c1a769860ddd9a",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v0.82/game-source.zip"
+    },
+    "patch.pck": {
+      "size": 47020064,
+      "sha256": "537f5699acac7150bb8b5a52f326b90e7109cbce5b3e71a0757cf457eb2de067",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v0.82/patch.pck"
+    },
+    "version.json": {
+      "size": 198,
+      "sha256": "fa0b1398012558aaeb1b08a881c74d61ff2ffc86ef44f5bdc8f48d3040e62f02",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v0.82/version.json"
+    }
+  },
+  "phone_verified": false,
+  "source_overlay_files_verified": 245,
+  "zip_crc_verified": true,
+  "public_assets_verified": true,
+  "installed_apk_gateway_verified": true,
+  "build_run": 40336201634,
+  "gateway_run": 40336614440,
+  "verification_environment": "GitHub Actions; actual public asset and installed-APK gateway downloads passed",
+  "local_additional_download": "Stopped redundant local download attempt after CI public download verification completed."
+}
