@@ -11,6 +11,29 @@ async function manifest() {
   if(!Number.isSafeInteger(d.code)||d.code<=60||!/^\d+\.\d+(?:\.\d+)?$/.test(d.name)||!Number.isSafeInteger(d.size)||d.size<=0||!/^[a-f0-9]{64}$/i.test(d.sha256))throw new Error("Invalid manifest");
   return d;
 }
+const MANIFEST_FRESH_MS = 30000;
+const MANIFEST_RETAIN_SECONDS = 600;
+async function cachedManifest(request, ctx, force = false) {
+  const cache = caches.default;
+  const key = new Request(new URL("/_internal/verified-manifest-v1", request.url).toString());
+  const cached = force ? null : await cache.match(key);
+  if (cached) {
+    const saved = await cached.json();
+    if (Date.now() - saved.checked_at > MANIFEST_FRESH_MS) {
+      ctx.waitUntil(refreshManifest(cache, key).catch(error =>
+        console.error(JSON.stringify({event:"manifest_refresh_error",message:String(error)}))));
+    }
+    return {data:saved.data,source:"edge-cache"};
+  }
+  return {data:await refreshManifest(cache, key),source:"github-releases"};
+}
+async function refreshManifest(cache, key) {
+  const data = await manifest();
+  await cache.put(key, new Response(JSON.stringify({checked_at:Date.now(),data}), {
+    headers:{"Content-Type":"application/json","Cache-Control":"public, max-age="+MANIFEST_RETAIN_SECONDS}
+  }));
+  return data;
+}
 async function fromR2(request,env,key) {
   const o=await env.GAME_PATCHES.get(key);
   if(!o)return reply("Not found",404);
@@ -19,7 +42,7 @@ async function fromR2(request,env,key) {
   return new Response(request.method==="HEAD"?null:o.body,{headers:h});
 }
 export default {
- async fetch(request,env) {
+ async fetch(request,env,ctx) {
   if(request.method==="OPTIONS")return new Response(null,{status:204,headers:CORS});
   if(!["GET","HEAD"].includes(request.method))return reply("Method not allowed",405,{Allow:"GET, HEAD, OPTIONS"});
   const url=new URL(request.url);let key;
@@ -27,12 +50,17 @@ export default {
   if(!key||key.split("/").some(p=>!p||p==="."||p===".."))return reply("Invalid path",400);
   try {
    if(["version.json","latest.json","patch.pck"].includes(key)) {
-    const d=await manifest();
+    const began=Date.now();
+    let resolved=await cachedManifest(request,ctx);
+    let d=resolved.data;
     if(key!=="patch.pck") {
      const body=JSON.stringify(d);
-     return reply(request.method==="HEAD"?null:body,200,{"Content-Type":"application/json","X-Patch-Source":"github-releases","Content-Length":String(new TextEncoder().encode(body).length)});
+     return reply(request.method==="HEAD"?null:body,200,{"Content-Type":"application/json","X-Patch-Source":resolved.source,"Server-Timing":"manifest;dur="+(Date.now()-began),"Content-Length":String(new TextEncoder().encode(body).length)});
     }
     const requested=url.searchParams.get("v");
+    if(requested!==null && /^\d+(?:\.0+)?$/.test(requested) && Number(requested)!==d.code) {
+      resolved=await cachedManifest(request,ctx,true);d=resolved.data;
+    }
     // Godot 4 JSON numbers stringify as 61.0 in the installed 0.60 APK.
     if(requested!==null&&(!/^\d+(?:\.0+)?$/.test(requested)||Number(requested)!==d.code))return reply("Version changed; restart update",409);
     const headers={"User-Agent":"nakshiworld-updater","Accept":"application/octet-stream"};
@@ -52,4 +80,5 @@ export default {
   }
  }
 };
+
 
