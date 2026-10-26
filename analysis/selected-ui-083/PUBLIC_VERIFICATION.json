@@ -1,0 +1,33 @@
+{
+  "version": {
+    "code": 83,
+    "name": "0.83"
+  },
+  "source_commit": "d072b6a78cc4c867143ea5af55123765ac29964e",
+  "assets": {
+    "version.json": {
+      "size": 198,
+      "sha256": "5f8754be4163763305bef1592e62dd8a1a0c07d810d977e17e7bf14d65c695a0",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v0.83/version.json"
+    },
+    "patch.pck": {
+      "size": 47039200,
+      "sha256": "8d24239c54c4852e97bec488033731cabba3292d295906f2dbfb94350d24f430",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v0.83/patch.pck"
+    },
+    "game-source.zip": {
+      "size": 46176889,
+      "sha256": "0fbac38e22aee146fca8c558e4757141766824d5d7a09230067142f5d72e2ef7",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v0.83/game-source.zip"
+    }
+  },
+  "phone_verified": false,
+  "source_overlay_files_verified": 248,
+  "zip_crc_verified": true,
+  "public_assets_verified": true,
+  "installed_apk_gateway_verified": true,
+  "build_run": 40342076741,
+  "gateway_run": 40342759457,
+  "local_regressions": 42,
+  "phone_freeze_cause_confirmed": false
+}
