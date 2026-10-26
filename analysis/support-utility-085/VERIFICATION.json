@@ -1,0 +1,49 @@
+{
+  "baseline_commit": "685097ee021958a12f1ef46501315cb6bf68ba5b",
+  "engine": "Godot 4.4.1",
+  "game_changed": false,
+  "deployed": false,
+  "phases": {
+    "screen": {
+      "cases": 40000,
+      "sha256": "5510045a6d1ebc5bd248aa28f678df9e5d82ea986b0ab865cab7f11667fe5589"
+    },
+    "val0": {
+      "cases": 30000,
+      "sha256": "e9046b7a899fdd2e4c08431dbbe6489cd954f831daee596c8c16e1ca664050cb"
+    },
+    "val4": {
+      "cases": 30000,
+      "sha256": "6f77e5ce8a1eb20c1f99d543c0c85ef246bcc19f068595fb8a1563ee649924a2"
+    },
+    "val8": {
+      "cases": 30000,
+      "sha256": "5544ec9d6ec7a1de632ba02cc5dadfbea706be9d2279ac593fc616b6f9ded03b"
+    },
+    "mixed": {
+      "cases": 10000,
+      "sha256": "4bbc7973752458b95521fd5d7354353e069275a8f56dd4eab11533fe26b28c34"
+    },
+    "refine": {
+      "cases": 20000,
+      "sha256": "2a544a03855721fd86dea1c1027772d7d3a80e0ec67190df87aadb707df624f9"
+    },
+    "final0": {
+      "cases": 20000,
+      "sha256": "d808a4122c9608328353d986d77a7a32e883065ba68c4ba7adbbb06d62d433a4"
+    },
+    "final8": {
+      "cases": 20000,
+      "sha256": "4e3937d1a786dbb5da456a0c4a5464db321030633c93c35c7237bad0ccc730b6"
+    },
+    "finalmixed": {
+      "cases": 10000,
+      "sha256": "4bbc7973752458b95521fd5d7354353e069275a8f56dd4eab11533fe26b28c34"
+    }
+  },
+  "checks": 93,
+  "total_battles": 210000,
+  "addons/expedition/model.gd": "dd5f990aa8430476c39a006abbabd17934043be73b2afa195a189f805dc15a4d",
+  "addons/expedition/view.gd": "0ea699c5f645a068f94b2ab4e5c9ed8d5fb1a08d33069e29e2faf97d837dc3c0",
+  "archive_sha256": "08dfab4c2f3b711e481d0aff9b9a97357868b678f7b884474c993ddde37dde6f"
+}

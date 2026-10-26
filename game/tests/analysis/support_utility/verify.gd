@@ -6,6 +6,7 @@ var count=0
 func _initialize():call_deferred("run")
 func make(ids,star,level,room,candidate):
  var d=Candidate.new() if candidate else Base.new();d.unlocked=10;d.rng.seed=1
+ if candidate:d.profile={"regen":.035,"rescue":.15,"ward":.075,"cd":5,"threshold":.35,"expose":.15}
  for id in ids:
   var u=d.add_unit(id,star,[4,4,4]);u.level=level;u.rarity=0;d.team.append(u.uid)
  d.start(room,1000);return d

@@ -1,5 +1,6 @@
 extends "res://tests/analysis/support_utility/run.gd"
 func run():
+ if OS.get_cmdline_user_args().size()>1 and OS.get_cmdline_user_args()[1]=="refined":profiles[1]={"name":"refined","regen":.035,"rescue":.15,"ward":.075,"cd":5,"threshold":.35,"expose":.15}
  var ref=Base.new();var roles={"attack":[],"defense":[],"support":[]}
  for i in 15:roles[ref.catalog.soldiers[i].role].append(i)
  var rows=[]

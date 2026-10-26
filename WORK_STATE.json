@@ -1,16 +1,17 @@
 {
   "schema_version": 3,
   "work_branch": "work/valley-runtime",
-  "status": "support_utility_simulation",
+  "status": "support_utility_simulation_complete",
   "release_baseline": "v0.85",
   "source_commit": "68d3f23a5eb18a09b0f5f6a6b057423f0b89bf08",
-  "current_task": "지원 서브딜·유틸 구조 및 수치 후보 시뮬레이션",
+  "current_task": "지원 유틸 후보 210000전투 비교 완료, 실제 수치 미변경",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
   "verification": "analysis/combat-feedback-085/VERIFICATION.json",
   "phone_verified": false,
   "release_authorized": false,
-  "next_step": "독립 후보 모델 비교 및 중복지원/혼합육성 검증, 실제게임 미변경",
+  "next_step": "보수적후보 사용자 검토; 실제적용/배포는별도",
   "updated_at": "2026-10-27",
-  "support_audit": "analysis/support-balance-085/REPORT.md"
+  "support_audit": "analysis/support-balance-085/REPORT.md",
+  "support_utility_report": "analysis/support-utility-085/REPORT.md"
 }

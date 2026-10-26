@@ -39,6 +39,7 @@ func run():
  if mode=="refine":
   profiles[1]={"name":"refined","regen":.035,"rescue":.15,"ward":.075,"cd":5,"threshold":.35,"expose":.15}
   ps=[1];comps=["DAA","DAS","DSS","SSS"]
+  ivs=[int(OS.get_cmdline_user_args()[2])] if OS.get_cmdline_user_args().size()>2 else [4]
  for p in ps:
   for cfg in configs:
    for iv in ivs:
