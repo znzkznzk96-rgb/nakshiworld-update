@@ -116,6 +116,7 @@ var trans: = {}
 var bait: = 0
 var expedition = preload("res://addons/expedition/view.gd").new()
 var souls: = 0
+var testing_grants: Array = []
 const AQUA_CAP: = [3, 6, 10, 15, 20]
 const AQUA_COST: = [300, 900, 2400, 6000]
 var aqua_lv: = 0
@@ -2580,15 +2581,16 @@ func _draw_title(_t: float, h: float) -> void :
 	title_screen.draw_ui(self, h)
 
 const SAVE_VER: = 1
-func _save_game() -> void :
-	if resetting or development_preview: return
-	var ok: bool = preload("res://addons/reservoir/save_store.gd").write("user://save.json", {"buyback":buyback.serialize(),"regional_progress":progression.serialize(),"active_region":active_region,"region_shop": region_shop.serialize(), "equipment": equipment.serialize(), "mail_read": mailbox.read_ids, "mail_deleted": mailbox.deleted_ids, "v": SAVE_VER, "gold": gold, "pearl": pearl, "bag": bag_items(), "bag_lv": bag_lv, "parts": parts_owned, "tips": tips_seen,
+func _save_game() -> bool:
+	if resetting or development_preview: return false
+	var ok: bool = preload("res://addons/reservoir/save_store.gd").write("user://save.json", {"testing_grants":testing_grants.duplicate(),"buyback":buyback.serialize(),"regional_progress":progression.serialize(),"active_region":active_region,"region_shop": region_shop.serialize(), "equipment": equipment.serialize(), "mail_read": mailbox.read_ids, "mail_deleted": mailbox.deleted_ids, "v": SAVE_VER, "gold": gold, "pearl": pearl, "bag": bag_items(), "bag_lv": bag_lv, "parts": parts_owned, "tips": tips_seen,
 		"town_zoom": V.zoom, "boat_lv": boat_lv, "town_lv": town_lv, "forge_lv": forge_lv, "rod_lv": rod_lv, "rod_owned": rod_owned, "rod_enh": rod_enh, "protection_tickets": protection_tickets, "forge_pending": forge_pending, "forge_seen": forge_seen, 
 		"pond_cap_lv": pond_cap_lv, "pond_regen_lv": pond_regen_lv, "pond_stock": pond_stock, 
 		"expedition": expedition.data.serialize(), "bait": bait, "souls": souls, "aqua_lv": aqua_lv, "aqua": aqua, "dex": DEX, "personal_dex": personal_dex.serialize(), "catch_counts": catch_counts, "catch_legacy": catch_legacy, "world_time": environment.day_seconds, "time": Time.get_unix_time_from_system()})
 	if not ok and not save_warning:
 		save_warning=true;tip_txt="저장 실패 · 저장 공간을 확인해 주세요";tip_t=8.0
 	elif ok: save_warning=false
+	return ok
 
 func aqua_rate() -> float:
 	var r: = 0.0
@@ -2599,6 +2601,10 @@ func aqua_rate() -> float:
 func _load_game() -> void :
 	var d: Dictionary = preload("res://addons/reservoir/save_store.gd").read("user://save.json")
 	if d.is_empty(): return
+	testing_grants=[]
+	if d.get("testing_grants",[]) is Array:
+		for id in d.get("testing_grants",[]):
+			if id is String and id not in testing_grants: testing_grants.append(id)
 	expedition.data.restore(d.get("expedition",{}))
 	mailbox.read_ids = d.get("mail_read", []);mailbox.deleted_ids = d.get("mail_deleted", [])
 	environment.day_seconds = maxf(0.0, float(d.get("world_time", 0.0)))

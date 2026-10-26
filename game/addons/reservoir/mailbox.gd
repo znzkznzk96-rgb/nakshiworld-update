@@ -105,7 +105,13 @@ func draw(m, h: float) -> void :
 				rects.tabs.append(tr)
 			Reader.illustration(m,groups[topic].icon,r.position.y+143)
 			m._text(groups[topic].name+" 업데이트",Vector2(135,r.position.y+218),13,Color("382619"),true,210)
-			rects.reader=Reader.draw(m,groups[topic].get("display",groups[topic].body),detail_page,r.position.y+242,r.end.y-81,true)
+			rects.reader=Reader.draw(m,groups[topic].get("display",groups[topic].body),detail_page,r.position.y+242,r.end.y-(115 if detail=="0.78" else 81),true)
+		if detail=="0.78":
+			var gift:=Rect2(25,r.end.y-76,220,28)
+			m._ui_style_box(m.sb_primary,gift)
+			var claimed: bool=preload("res://addons/reservoir/testing_gift.gd").ID in m.testing_grants
+			m._text("테스트 선물 수령 완료" if claimed else "테스트 선물 받기",gift.get_center()+Vector2(0,4),11,Color("fff0d1"),true,206)
+			rects.gift=gift
 		var back := Rect2(25,r.end.y-42,220,28)
 		m._ui_style_box(m.sb_btn,back);m._text("목록으로",back.get_center()+Vector2(0,4),12,Color("382619"),true,206)
 		rects.back=back;return
@@ -142,6 +148,9 @@ func press(m, p: Vector2) -> void :
 	m.play("ui")
 	if rects.get("close", Rect2()).has_point(p): opened = false;detail = "";deleting = false;checked.clear();return
 	if detail != "":
+		if detail=="0.78" and rects.get("gift",Rect2()).has_point(p):
+			if preload("res://addons/reservoir/testing_gift.gd").claim(m): m.show_toast("테스트 선물을 받았어요!",Color("91e8dc"))
+			return
 		if rects.get("back", Rect2()).has_point(p): detail = "";topic=0;detail_page=0;return
 		for i in rects.get("tabs",[]).size():
 			if rects.tabs[i].has_point(p): topic=i;detail_page=0;return

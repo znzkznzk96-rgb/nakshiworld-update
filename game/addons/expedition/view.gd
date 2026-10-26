@@ -269,8 +269,8 @@ func draw_alchemy(m,y: float,bottom: float) -> void:
 		m._text(notice if notice!="" else "어혼을 조합하세요.",Vector2(135,y+9),10,Color("9b4329") if notice!="" else Color("382619"),true,234)
 		var owned_y: float=bottom-108
 		var result_h: float=clampf((owned_y-y)*.4,92,135)
-		var result_y: float=owned_y-18-result_h
-		var size: float=minf(82,result_y-20-(y+21))
+		var size: float=minf(82,owned_y-18-result_h-32-(y+21))
+		var result_y: float=y+21+size+25
 		for i in 2:
 			var r: Rect2=Rect2(84+i*102-size/2,y+21,size,size)
 			m._ui_style_box(m.hud_reference_style,r);m._ui_rect(r.grow(-4),Color("092b39"))
@@ -288,10 +288,15 @@ func draw_alchemy(m,y: float,bottom: float) -> void:
 		m._ui_style_box(m.hud_reference_style,Rect2(box.position+Vector2(14,-4),Vector2(110,19)))
 		m._text("결과 미리보기",Vector2(135,result_y+9),10,Color("fff0d1"),true,104)
 		var id: int=data.recipe(int(pair[0]),int(pair[1]));var u: Dictionary=data.catalog.soldiers[id]
-		sprite(m,id,Rect2(box.position+Vector2(36,18),Vector2(66,result_h-40)))
-		m._ui_style_box(m.sb_btn,Rect2(97,box.end.y-20,76,18))
-		m._text(ROLES[u.role],Vector2(135,box.end.y-8),9,Color("382619"),true,68)
-		m._text(u.name+" · "+u.description,Vector2(135,box.end.y+12),7,Color("6c553b"),true,231)
+		if data.is_discovered(id):
+			sprite(m,id,Rect2(box.position+Vector2(36,18),Vector2(66,result_h-40)))
+			m._ui_style_box(m.sb_btn,Rect2(97,box.end.y-20,76,18))
+			m._text(ROLES[u.role],Vector2(135,box.end.y-8),9,Color("382619"),true,68)
+			m._text(u.name+" · "+u.description,Vector2(135,box.end.y+12),7,Color("6c553b"),true,231)
+		else:
+			m._text("?",box.get_center()+Vector2(0,8),28,Color("b6ccc9"),true,100)
+			m._text("아직 만들지 않은 병사",Vector2(135,box.end.y+12),9,Color("6c553b"),true,231)
+		rects["preview"]=box
 		m._ui_style_box(m.hud_reference_style,Rect2(17,owned_y-3,70,16))
 		m._text("보유 어혼",Vector2(52,owned_y+8),9,Color("fff0d1"),true,64)
 		for i in 5:

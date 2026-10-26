@@ -1,0 +1,64 @@
+{
+  "date": "2026-10-26",
+  "base_release": "v0.77",
+  "base_source_sha256": "adfb906d924367370128911b9bc69c455c6b33c0553aa2bb17d7b3aedecaa5bc",
+  "checks": {
+    "odds_rewards": true,
+    "guide": true,
+    "soldier_dex": true,
+    "measurement_speed": true,
+    "village_entry_audio": true,
+    "owner_gauge": true,
+    "bait_roles": true,
+    "fish_surface": true,
+    "market_reader": true,
+    "bundle_preview": true,
+    "rod_aura": true,
+    "inventory_layout": true,
+    "audio_save": true,
+    "rewards": true,
+    "regional": true,
+    "equipment": true,
+    "personal_dex": true,
+    "visual": true,
+    "expedition": true,
+    "shop": true,
+    "action_readability": true,
+    "angler_scene": true,
+    "bundles_buyback": true,
+    "atmosphere_encounter": true,
+    "reservoir_layers": true,
+    "reader": true,
+    "expedition_save": true,
+    "bag_list": true,
+    "approved_ui": true,
+    "expedition_balance": true,
+    "economy_balance": true,
+    "expedition_motion": true
+  },
+  "source_hashes": {
+    "addons/expedition/model.gd": "fdd1d26de3d5b893723ff5eadbe6f4d9bdfdddbdd814017e206ee0e5041e548e",
+    "addons/expedition/view.gd": "9da4fa2b217be2783c498491898a0aa09003ac50ff618ff9fd61db98a0602907",
+    "addons/reservoir/personal_dex.gd": "c9c2bf949798ac786f5ff327c269f1d8770c1638675ca454fa0d5be963ccf980",
+    "tests/soldier_dex_verify.gd": "2417852f83168e39c0f1b28f47c839432f86814f44f56ebbb12499d5bc070bb3",
+    "tests/soldier_dex_preview.gd": "b98cd3a3745fd19514b055469a7f05ee928473447cbbadde05d225efee2e299c"
+  },
+  "rendered_heights": [
+    480,
+    540,
+    660
+  ],
+  "render_cases": [
+    "unknown",
+    "known",
+    "codex",
+    "detail"
+  ],
+  "save_migration": "v2 cumulative species discoveries; v1 held units seed history; no inferred consumed legacy units",
+  "deployed": false,
+  "source_commit": "f2c3a5776965d21e66dec2cc1d8111328cbf7fab",
+  "remote_ci": {
+    "run": 40278126748,
+    "conclusion": "success"
+  }
+}
