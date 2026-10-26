@@ -72,7 +72,8 @@ func run() -> void:
 	m.progression.main_targets={"0":[{"species":m.fish_key(5),"grade":1,"count":2}]}
 	check(not m.progression.donate(m,0,1,0) and not m.progression.donate(m,0,2,0),"wrong regional species or grade rejected")
 	check(m.progression.donate(m,0,0,0) and not m.progression.licensed(1),"partial donation grants no certificate")
-	check(m.progression.donate(m,0,2,0) and m.progression.licensed(1),"completed main bundle grants certificate and eligibility")
+	check(m.progression.donate(m,0,2,0) and not m.progression.licensed(1),"completed main waits for receipt")
+	check(m.progression.claim_reward(m,0,0) and m.progression.licensed(1),"receive grants certificate and eligibility")
 	check(m.gold==before,"bundle completion does not pay region cost")
 	m.progression.available_regions=[0,1];m.gold=6599
 	check(not m.region_shop.unlock(m,1) and m.gold==6599,"insufficient currency cannot unlock")

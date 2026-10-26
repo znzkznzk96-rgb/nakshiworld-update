@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "task": "거꾸로 폭포 계곡 통합 및 낚시월드 인수인계 기준",
-  "status": "implementation_in_progress",
+  "status": "verification_in_progress",
   "work_branch": "work/valley-runtime",
   "release_baseline": "v0.78",
   "target_version": "0.80",
@@ -21,7 +21,7 @@
   ],
   "updated_at": "2026-10-26",
   "current_task": "0.80 번들 일괄기증·보상받기·라이선스 및 수족관 스크롤/즉시넣기",
-  "next_step": "회수 초안 검토, 저장호환/실제UI 검증, 전체검사 후 승인된 공개배포",
+  "next_step": "전체36검사·CI 확인 후 승인된0.80 공개 배포",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
@@ -33,7 +33,7 @@
     "deployed": false
   },
   "history": "docs/historical/2026-10-22-before-workflow-streamlining/WORK_STATE.json",
-  "work_verification": "docs/analysis/balance-tuning-075/QA.json",
+  "work_verification": "docs/qa/bundle-aqua-080/VERIFICATION.json",
   "work_source_commit": "b932b35d8023cce44ab444a2bd49227199b1429d",
   "work_verification_run": 40265436338,
   "backend_source_commit": "fc55b5b07b1cecde6fea9670fd6553423f3b68e2",

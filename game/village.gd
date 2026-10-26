@@ -409,7 +409,8 @@ func press(m, pos: Vector2) -> void :
 
 func open_shop(m, k: String) -> void :
 	aqua_manage = false;aqua_page = 0;aqua_pick_page = 0;aqua_selected = -1;aqua_notice = ""
-	bundle_preview.legacy_dex=false;bundle_preview.selected=-1
+	bundle_preview.legacy_dex=false;bundle_preview.selected=-1;bundle_preview.reward_open=false;bundle_preview.bulk_open=false;bundle_preview.bulk_plan=[];bundle_preview.just_claimed=false
+	aquarium.reset()
 	market_list.reset()
 	shop = k;tab = "sell";forge_tab = "rods";rod_page = 0;pick_slot = -1;m.play("ui", -8.0)
 

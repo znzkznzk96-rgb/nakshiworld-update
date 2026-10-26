@@ -1177,6 +1177,7 @@ func _unhandled_input(e: InputEvent) -> void :
 	if mailbox.opened:
 		if e is InputEventMouseButton and e.button_index == MOUSE_BUTTON_LEFT and e.pressed: mailbox.press(self, e.position - Vector2(ox, 0))
 		return
+	if scene == "village" and V.aquarium.input_event(V,self,e): return
 	if scene == "village" and V.market_list.input_event(V,self,e): return
 	if inventory.list_view.input_event(self,e): return
 	if not V.commerce.pending.is_empty() or inventory.selected >= 0:
