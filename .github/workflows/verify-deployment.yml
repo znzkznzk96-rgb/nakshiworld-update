@@ -82,3 +82,11 @@ jobs:
           with urllib.request.urlopen(urllib.request.Request(base+'/test.txt',headers={'User-Agent':'GodotEngine/4.4.1.stable.official (Linux)','Cache-Control':'no-cache'}),timeout=20) as r: assert r.read()==b'ok'
           print('PUBLIC UPDATE VERIFIED',json.dumps(d))
           PY
+
+      - name: Verify published source ZIP and all release assets
+        run: python3 deployment/verify_public_release.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: public-release-verification
+          path: PUBLIC_VERIFICATION.json
