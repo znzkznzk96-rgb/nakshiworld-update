@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "task": "거꾸로 폭포 계곡 통합 및 낚시월드 인수인계 기준",
-  "status": "approved_ui_restored_local_verified",
+  "status": "approved_ui_correction_verified_not_deployed",
   "work_branch": "work/valley-runtime",
   "release_baseline": "v0.76",
   "target_version": "0.76",
@@ -21,7 +21,7 @@
   ],
   "updated_at": "2026-10-26",
   "current_task": "Approved UI/menus restored from original three reference images; correction not deployed",
-  "next_step": "Verify work CI and report actual corrected game screenshots",
+  "next_step": "Show corrected actual UI to user; correction remains on work branch, production v0.76 unchanged",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
@@ -34,7 +34,10 @@
     "local_suites": 30,
     "packed_assets_verified": true,
     "reference_images": 3,
-    "reference_pixels_unchanged": true
+    "reference_pixels_unchanged": true,
+    "implementation_commit": "1d054be225d8b6f42601d4447f73609a0a62aea2",
+    "ci_run": 40268805841,
+    "ci_conclusion": "success"
   },
   "history": "docs/historical/2026-10-22-before-workflow-streamlining/WORK_STATE.json",
   "work_verification": "docs/analysis/balance-tuning-075/QA.json",
