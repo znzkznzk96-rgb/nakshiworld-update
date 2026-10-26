@@ -5,3 +5,6 @@
 최초안/최종안 각각5천만전투,합계1억계산. 각안실제Godot9천조건동등,최종46검사/JSON재개890회/실제480·660화면검수통과. [상세범위·실패·조정근거](analysis/support-release-086/REPORT.md), [검증](analysis/support-release-086/VERIFICATION.json). 전수는IV4의20육성³×종조합×4역할편성×10방이며모든IV·모든배치전수아님.
 
 다음: 작업CI확인후승인범위대로main병합·v0.86공개,실제Release3파일·크기/해시·전체소스overlay·운영다운로드검증. 휴대폰확인은별도. 현재이문서작성시공개v0.85. 과거원문은Git3c8a00137725ded659d06c1de0e4469dec8c2da7 HANDOFF.md에보존.
+
+### CI 결과출력 교정
+작업CI40385068835는지원검사failures=[]였으나성공문구중간savecount때문에고정문자열판독실패. savecount를별도줄로분리하여검사결과형식교정. 게임코드/시뮬수치불변,해당검사출력확인후CI재실행.

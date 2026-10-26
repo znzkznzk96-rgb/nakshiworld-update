@@ -44,4 +44,5 @@ func run():
  check(d.battle.fx.support.size()==1 and d.battle.fighters[0].hp>0,"prelethal rescue")
  var ready=d.battle.rescue_ready;var clock=d.battle.utility_tick;d.spawn_enemy()
  check(d.battle.rescue_ready==ready and d.battle.utility_tick==clock,"timers cross encounters")
- print("SUPPORT_UTILITY_VERIFY saves=",save_cases," failures=",failures);quit(0 if failures.is_empty() else 1)
+ print("SUPPORT_UTILITY_SAVE_CASES ",save_cases)
+ print("SUPPORT_UTILITY_VERIFY failures=",failures);quit(0 if failures.is_empty() else 1)
