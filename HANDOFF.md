@@ -8,7 +8,8 @@
 - [집계표](docs/analysis/expedition-balance-080/summary.csv)
 - [재현·원본해시](docs/analysis/expedition-balance-080/manifest.json)
 - 재현: `automation/expedition_balance_analysis.py`
-- 표기·모션·0.80 회귀 검사와480/660 렌더링 통과. 작업 브랜치 전체CI는 이 변경 커밋에서 확인한다.
+- 로컬 전체37개 회귀 검사와480/660 렌더링 통과. [작업 브랜치 전체 CI](https://github.com/znzkznzk96-rgb/nakshiworld-update/actions/runs/40305555045).
+- 기준 파일 누락으로 실패했던 첫CI(40304874154)는 전체트리 복구 후 재실행했다. 복구 커밋 de492a1410e94a8d416632589954c36f676ccf4a에서 기존1312개 파일 누락0개, 기존파일 변경은 표기/검사목록/진행문서5개뿐임을 대조했다.
 
 다음: 결과 기반으로 밸런스 수치 확정 시 실제 모델에 적용하고 새 배포 범위를 결정한다. 계곡은 기존 입장 준비중 유지.
 

@@ -19,7 +19,11 @@
     "display_fix_complete": true,
     "balance_applied": false,
     "fights": 1261250,
-    "parity_cases": 600
+    "parity_cases": 600,
+    "local_regression_suites": 37,
+    "ci_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/actions/runs/40305555045",
+    "verified_code_commit": "de492a1410e94a8d416632589954c36f676ccf4a",
+    "original_files_missing": 0
   },
   "pending_decisions": [
     "계곡은 기존 미승인 수치·입장 준비중 유지. 라이선스 수령과 별도."

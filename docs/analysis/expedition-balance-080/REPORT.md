@@ -90,7 +90,7 @@
 ## 표시 및 회귀검사
 
 - 10방 ×3조우 표기와 대기 상태 검사 통과.
-- expedition_motion_verify, expedition080_verify 통과.
+- expedition_label, expedition_motion, expedition080 포함 로컬 전체37개 회귀검사 통과.
 - 두 화면 높이480/660에서 `1-2 · 3/3전투`가 잘리지 않고 표시되는 것을 렌더링 확인.
 - 작업 브랜치 CI에 expedition_label_verify 추가. CI 결과는 최신 HANDOFF 참조.
 
