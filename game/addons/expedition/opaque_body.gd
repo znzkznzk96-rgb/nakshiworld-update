@@ -1,7 +1,10 @@
 extends RefCounted
 # Render-time backing: restore enclosed black body pixels without changing source art.
 # Exterior transparency remains untouched; sheets are processed frame by frame.
-static func prepare(texture: Texture2D,frame_size: int) -> Texture2D:
+static func prepare(texture: Texture2D,frame_size: int,use_baked: bool=true) -> Texture2D:
+	var baked: String="res://art/expedition/prepared/"+texture.resource_path.get_file()
+	if use_baked and ResourceLoader.exists(baked):
+		return load(baked)
 	var image: Image=texture.get_image()
 	if image.is_compressed(): image.decompress()
 	image.convert(Image.FORMAT_RGBA8)

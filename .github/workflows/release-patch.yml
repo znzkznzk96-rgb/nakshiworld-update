@@ -35,6 +35,10 @@ jobs:
           GODOT="$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
           "$GODOT" --headless --editor --path "$RUNNER_TEMP/project" --import > "$RUNNER_TEMP/import.log" 2>&1
           if grep -E 'SCRIPT ERROR:|Parse Error:|Failed to load script' "$RUNNER_TEMP/import.log"; then exit 1; fi
+          "$GODOT" --headless --path "$RUNNER_TEMP/project" --script tests/bake_expedition_assets.gd > "$RUNNER_TEMP/bake.log" 2>&1
+          grep -F 'EXPEDITION_BAKE files=130' "$RUNNER_TEMP/bake.log"
+          "$GODOT" --headless --editor --path "$RUNNER_TEMP/project" --import > "$RUNNER_TEMP/prepared-import.log" 2>&1
+          if grep -E 'SCRIPT ERROR:|Parse Error:|Failed to load script' "$RUNNER_TEMP/prepared-import.log"; then exit 1; fi
       - name: Verify equipment, saves and twelve animated lessons
         shell: bash
         run: |
@@ -53,7 +57,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          for suite in soul_pouch expedition_hard_balance expedition_label bundle_aqua expedition080 expedition079 testing_gift soldier_dex approved_ui expedition_motion expedition expedition_save expedition_balance action_readability economy_balance rod_aura atmosphere_encounter angler_scene market_reader odds_rewards guide shop audio_save bundle_preview rewards reader fish_surface regional inventory_layout bag_list bundles_buyback owner_gauge reservoir_layers personal_dex bait_roles measurement_speed village_entry_audio; do
+          for suite in startup_assets soul_pouch expedition_hard_balance expedition_label bundle_aqua expedition080 expedition079 testing_gift soldier_dex approved_ui expedition_motion expedition expedition_save expedition_balance action_readability economy_balance rod_aura atmosphere_encounter angler_scene market_reader odds_rewards guide shop audio_save bundle_preview rewards reader fish_surface regional inventory_layout bag_list bundles_buyback owner_gauge reservoir_layers personal_dex bait_roles measurement_speed village_entry_audio; do
             XDG_DATA_HOME="$RUNNER_TEMP/$suite-testdata" timeout 90 "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --headless --path "$RUNNER_TEMP/project" --script "tests/${suite}_verify.gd" > "$RUNNER_TEMP/$suite-tests.log" 2>&1
             cat "$RUNNER_TEMP/$suite-tests.log"
             grep -F 'VERIFY failures=[]' "$RUNNER_TEMP/$suite-tests.log"
@@ -118,6 +122,8 @@ jobs:
         with:
           name: build-evidence
           path: |
+            dist/patch.pck
+            dist/game-source.zip
             dist/version.json
             ${{ runner.temp }}/import.log
             ${{ runner.temp }}/tests.log
