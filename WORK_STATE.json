@@ -29,12 +29,13 @@
   "last_release_deployed": true,
   "this_change": {
     "scope": "finish expedition presentation gaps and release approved UI restoration",
-    "status": "implemented_validation_in_progress",
+    "status": "local_validation_passed_release_pending",
     "deployed": false,
     "release_authorized": true,
     "update_screen_excluded": true,
     "target_version": "0.77",
-    "motion_suite_passed": true
+    "motion_suite_passed": true,
+    "local_suites": 31
   },
   "history": "docs/historical/2026-10-22-before-workflow-streamlining/WORK_STATE.json",
   "work_verification": "docs/analysis/balance-tuning-075/QA.json",

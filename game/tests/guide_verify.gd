@@ -27,7 +27,7 @@ func run() -> void:
 	var ids: Array=[]
 	for letter in m.mailbox.visible_letters():
 		check(letter.id not in ids,"unique mail "+letter.id);ids.append(letter.id)
-	check(ids[0]=="0.76" and "0.75" in ids and "0.72" in ids and "0.71" in ids and "0.70" in ids and "0.69" in ids and "0.61" in ids and "0.63" in ids,"release mail backfill")
+	check(ids[0]=="0.77" and "0.76" in ids and "0.75" in ids and "0.72" in ids and "0.71" in ids and "0.70" in ids and "0.69" in ids and "0.61" in ids and "0.63" in ids,"release mail backfill")
 	m.mailbox.read_ids=["0.64"];m.mailbox.deleted_ids=["0.63"];m._save_game()
 	m.mailbox.read_ids=[];m.mailbox.deleted_ids=[];m._load_game()
 	check("0.64" in m.mailbox.read_ids and "0.63" in m.mailbox.deleted_ids,"mail state persists")

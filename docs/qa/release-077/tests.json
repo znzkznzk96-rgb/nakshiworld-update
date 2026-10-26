@@ -1,0 +1,158 @@
+[
+  {
+    "suite": "approved_ui",
+    "pass": true,
+    "returncode": 0
+  },
+  {
+    "suite": "expedition_motion",
+    "pass": true,
+    "returncode": 0
+  },
+  {
+    "suite": "expedition",
+    "pass": true,
+    "returncode": 0
+  },
+  {
+    "suite": "expedition_save",
+    "pass": true,
+    "returncode": 0
+  },
+  {
+    "suite": "expedition_balance",
+    "pass": true,
+    "returncode": 0
+  },
+  {
+    "suite": "action_readability",
+    "pass": true,
+    "returncode": 0
+  },
+  {
+    "suite": "economy_balance",
+    "pass": true,
+    "returncode": 0
+  },
+  {
+    "suite": "rod_aura",
+    "pass": true,
+    "returncode": 0
+  },
+  {
+    "suite": "atmosphere_encounter",
+    "pass": true,
+    "returncode": 0
+  },
+  {
+    "suite": "angler_scene",
+    "pass": true,
+    "returncode": 0
+  },
+  {
+    "suite": "market_reader",
+    "pass": true,
+    "returncode": 0
+  },
+  {
+    "suite": "odds_rewards",
+    "pass": true,
+    "returncode": 0
+  },
+  {
+    "suite": "reservoir_layers",
+    "pass": true,
+    "returncode": 0
+  },
+  {
+    "suite": "owner_gauge",
+    "pass": true,
+    "returncode": 0
+  },
+  {
+    "suite": "bag_list",
+    "pass": true,
+    "returncode": 0
+  },
+  {
+    "suite": "bundles_buyback",
+    "pass": true,
+    "returncode": 0
+  },
+  {
+    "suite": "equipment",
+    "pass": true,
+    "returncode": 0
+  },
+  {
+    "suite": "visual",
+    "pass": true,
+    "returncode": 0
+  },
+  {
+    "suite": "guide",
+    "pass": true,
+    "returncode": 0,
+    "recheck": "guide-recheck.log; expected latest mail version updated from 0.76 to 0.77"
+  },
+  {
+    "suite": "shop",
+    "pass": true,
+    "returncode": 0
+  },
+  {
+    "suite": "audio_save",
+    "pass": true,
+    "returncode": 0
+  },
+  {
+    "suite": "bundle_preview",
+    "pass": true,
+    "returncode": 0
+  },
+  {
+    "suite": "rewards",
+    "pass": true,
+    "returncode": 0
+  },
+  {
+    "suite": "reader",
+    "pass": true,
+    "returncode": 0
+  },
+  {
+    "suite": "fish_surface",
+    "pass": true,
+    "returncode": 0
+  },
+  {
+    "suite": "regional",
+    "pass": true,
+    "returncode": 0
+  },
+  {
+    "suite": "inventory_layout",
+    "pass": true,
+    "returncode": 0
+  },
+  {
+    "suite": "personal_dex",
+    "pass": true,
+    "returncode": 0
+  },
+  {
+    "suite": "bait_roles",
+    "pass": true,
+    "returncode": 0
+  },
+  {
+    "suite": "measurement_speed",
+    "pass": true,
+    "returncode": 0
+  },
+  {
+    "suite": "village_entry_audio",
+    "pass": true,
+    "returncode": 0
+  }
+]
