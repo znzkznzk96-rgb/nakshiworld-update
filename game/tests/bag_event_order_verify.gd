@@ -21,7 +21,7 @@ func native_engine_tap(p: Vector2) -> void:
   Input.parse_input_event(e);Input.flush_buffered_events()
 func run() -> void:
  var m=load("res://main.gd").new();m.development_preview=true;root.add_child(m);await process_frame;m.set_process(false)
- m.title_open=false;m.lesson_open=false;m.trans={};m.scene="village";m.V.shop="";m.market_sell=false;m.bag=[{"sp":0,"grade":0,"w":0.1,"len":10.0,"price":100}]
+ m.SET.sfx=0;m.SET.music=0;m.title_open=false;m.lesson_open=false;m.trans={};m.scene="village";m.V.shop="";m.market_sell=false;m.bag=[{"sp":0,"grade":0,"w":0.1,"len":10.0,"price":100}]
  m.market_open=true;paint(m);m.ui_clock+=1
  m.inventory.open_group(0,0);paint(m);m.inventory.last_native_touch=-100000
  engine_tap(m,m.inventory.list_view.detail_rects.close.get_center())
@@ -48,4 +48,13 @@ func run() -> void:
   check(m.inventory.selected==0,"real engine selects fish %d"%i)
   m.inventory.last_native_touch=-100000;native_engine_tap(m.inventory.list_view.detail_rects.close.get_center()+Vector2(m.ox,0))
   check(m.inventory.selected==-1 and not m.inventory.pointer,"real engine closes detail %d"%i)
+ m.market_open=false;m.inventory.selected=-1
+ var v=m.expedition;v.data.restore({})
+ for id in [5,6,14]:v.data.add_unit(id,1,[0,0,0])
+ v.open(m,"explore");v.explore_tab=1;m.text_items=[];m.ui_commands=[];v.draw(m,540)
+ v.formation_native_until=0
+ native_engine_tap(v.rects["formation_unit:1"].get_center()+Vector2(m.ox,0))
+ check(1 in v.data.team and not v.formation_pointer,"real engine formation tap after idle")
+ Input.emulate_mouse_from_touch=false;Input.use_accumulated_input=true;Input.flush_buffered_events()
+ await process_frame;await process_frame
  print("BAG_EVENT_ORDER_VERIFY failures=",failures);m.audio_feedback.dispose();m.queue_free();await process_frame;quit(0 if failures.is_empty() else 1)

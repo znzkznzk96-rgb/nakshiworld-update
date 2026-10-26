@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
   "work_branch": "work/valley-runtime",
-  "status": "bag_input_order_reproduced_fixed_not_deployed",
+  "status": "release_084_preparing",
   "current_task": "가방 입력 잠금: Godot 가상 마우스 선행 순서 재현·수정",
   "release_baseline": "v0.83",
   "source_commit": "d072b6a78cc4c867143ea5af55123765ac29964e",
@@ -9,13 +9,13 @@
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
   "verification": "analysis/bag-input-order-084/REPORT.md",
-  "next_step": "새 패치 공개 전 승인 범위에 따라 배포, 이후 사용자폰 재확인. 별도 렌더 정지는 실기 미확인.",
+  "next_step": "44검사 및 CI 통과 후 v0.84 공개, 파일/운영다운로드 검증",
   "updated_at": "2026-10-27",
   "last_release_deployed": true,
   "this_change": {
     "implemented": true,
     "deployed": false,
-    "release_authorized": false
+    "release_authorized": true
   },
   "pending_decisions": [
     "계곡은 기존 미승인 수치·입장 준비중 유지. 라이선스 수령과 별도."
@@ -31,5 +31,6 @@
     "engine_native_taps_after_failed": 0,
     "android_stall_resolved": false,
     "input_lock_reproduced_and_fixed": true
-  }
+  },
+  "target_release": "v0.84"
 }

@@ -437,7 +437,8 @@ func draw_pending(m,y: float,bottom: float) -> void:
 		m._text("종료해도 결과와 선택지는 그대로 보존돼요",Vector2(135,bottom-22),8,Color("6c553b"),true,232)
 
 func input_event(m,e: InputEvent) -> bool:
-	if (e is InputEventMouseButton or e is InputEventMouseMotion) and e.device==-1 and Time.get_ticks_msec()<formation_native_until: return true
+	if (e is InputEventMouseButton or e is InputEventMouseMotion) and e.device==-1:
+		if (opened=="explore" and explore_tab==1 and data.pending.is_empty()) or Time.get_ticks_msec()<formation_native_until: return true
 	if opened=="": formation_pointer=false;return false
 	if opened=="explore" and explore_tab==1 and data.pending.is_empty(): return formation_input(m,e)
 	if e is InputEventMouseButton and e.button_index==MOUSE_BUTTON_LEFT:
