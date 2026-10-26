@@ -5,6 +5,7 @@ const BUILD_NAME := "0.79"
 const UPDATE_BASE := "https://nakshiworld-update-kr.znzkznzk96.workers.dev/"
 const PATCH := "user://patch.pck"
 const PATCH_VER := "user://patch_ver.txt"
+var update_art: Texture2D
 var box: SubViewportContainer
 var http: HTTPRequest
 var status := ""
@@ -16,6 +17,7 @@ var started := false
 
 func _ready() -> void:
 	font = load("res://font/neodgm.ttf")
+	update_art = load("res://art/ui/update_cat_blue.png")
 	if "--shot" in OS.get_cmdline_user_args():
 		_start()
 		return
@@ -91,7 +93,7 @@ func _process(_dt: float) -> void:
 func _draw() -> void:
 	if status == "": return
 	var size: Vector2=get_viewport_rect().size
-	var art: Texture2D=load("res://art/ui/update_cat_blue.png")
+	var art: Texture2D=update_art
 	var w: float=minf(size.x, size.y*0.70)
 	var left: float=(size.x-w)/2.0
 	var ink: Color=Color("073b36")

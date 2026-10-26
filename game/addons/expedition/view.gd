@@ -340,7 +340,7 @@ func draw_alchemy(m,y: float,bottom: float) -> void:
 		var u: Dictionary=data.soldiers[n];var st: Dictionary=data.stats(u);var spec: Dictionary=data.catalog.soldiers[int(u.id)]
 		var r: Rect2=Rect2(18,y+i*45,234,42)
 		m._ui_rect(r,Color("d2b577") if int(u.uid) in selected else Color("eddbb6"));sprite(m,int(u.id),Rect2(r.position,Vector2(42,40)))
-		m._text("%s %s +%d"%["★".repeat(int(u.star)),spec.name,int(u.get("level",0))],r.position+Vector2(44,12),9,Color("382619"),false,156 if tab==2 else 182)
+		m._text(("%s %s +%d"%["★".repeat(int(u.star)),spec.name,int(u.get("level",0))])+rarity_label(u),r.position+Vector2(44,12),8,Color("382619"),false,156 if tab==2 else 182)
 		m._text("체%d 공%d 방%d · 개체 +%d/%d/%d"%[st.hp,st.atk,st.def,u.iv[0],u.iv[1],u.iv[2]],r.position+Vector2(44,25),7,Color("6c553b"),false,183)
 		m._text(spec.description,r.position+Vector2(44,37),7,Color("6c553b"),false,183)
 		rects["select:%d"%int(u.uid)]=r

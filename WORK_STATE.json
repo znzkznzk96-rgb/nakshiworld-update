@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "task": "거꾸로 폭포 계곡 통합 및 낚시월드 인수인계 기준",
-  "status": "in_progress",
+  "status": "apk_built_verified",
   "work_branch": "work/valley-runtime",
   "release_baseline": "v0.78",
   "target_version": "0.78",
@@ -20,17 +20,19 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-26",
-  "current_task": "APK 새 화면·잠금 아이콘·탐험 표시/속도·+3 강화 및 결과 UI",
-  "next_step": "원인 점검, 구현, 격리 검증, 서명 APK 제공",
+  "current_task": "v0.79 APK 새 업데이트 화면·병사강화·탐험 오류 수정 완료",
+  "next_step": "설치 APK 제공 및 사용자 휴대폰 확인",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
   "last_release_deployed": true,
   "this_change": {
-    "scope": "APK and expedition fixes",
-    "game_changed": false,
-    "deployed": false
+    "scope": "v0.79 signed APK",
+    "game_changed": true,
+    "deployed": false,
+    "apk_built": true,
+    "public_patch_server_changed": false
   },
   "history": "docs/historical/2026-10-22-before-workflow-streamlining/WORK_STATE.json",
   "work_verification": "docs/analysis/balance-tuning-075/QA.json",
@@ -312,12 +314,12 @@
   "update_screen": {
     "selection": "minimal C cat and bucket + B sky-blue background",
     "approved": true,
-    "status": "apk_implementation_authorized",
-    "style": "차원관리국 장비·잠든 고양이·청록 분할 게이지",
+    "status": "apk079_built_verified",
+    "style": "C 고양이·양동이 + B 하늘색, 노란 실제 진행바",
     "game_applied": true,
-    "deployed": true,
+    "deployed": false,
     "evidence": "2026-10-26 user confirms received separately applied APK; binary not independently reverified",
-    "new_direction": "귀여운 도트, 장식 축소, 단순 배경, 화려함 배제; 새 시안 미선택"
+    "new_direction": "selected and implemented"
   },
   "rare_fish_optimization": {
     "approved": true,
@@ -722,5 +724,13 @@
     "resolved_by": "User explicitly replied 배포하자 ㅇㅇ to main merge/public v0.76 approval question",
     "resolved": true,
     "resolution": "User explicitly approved deployment; PR9 merged and v0.76 verified"
+  },
+  "apk079": {
+    "source_branch": "work/valley-runtime",
+    "verification": "docs/qa/apk-079/VERIFICATION.json",
+    "phone_verified": false,
+    "public_patch_version": "0.78",
+    "library_apk": "libfile_240dcbbb01d8819198f93b600bfb9260",
+    "library_full_source": "libfile_d836280479e88191aa59635f5c012172"
   }
 }

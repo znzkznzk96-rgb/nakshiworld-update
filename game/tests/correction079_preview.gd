@@ -23,8 +23,4 @@ func run() -> void:
 	m.scene="fishing";v.opened="";d.finish(true);v.result_notice=6;v.update(m,.01);await capture(m,out,"fishing_result")
 	m.scene="village";v.update(m,.01);await capture(m,out,"village_result")
 	m.audio_feedback.dispose();m.queue_free();await process_frame;ui.queue_free();await process_frame
-	var loader=load("res://root.gd").new();loader.set_script(load("res://root.gd"));loader.set_meta("preview",true)
-	# Prevent startup and network for an isolated exact draw of the APK loader.
-	loader.set_block_signals(true);loader.set_script(null);loader.set_script(load("res://root.gd"))
-	root.add_child(loader);loader.set_process(false);loader.http.cancel_request();loader.status="업데이트 확인 중…";loader.progress=-1;loader.started=true
-	await capture(loader,out,"updater");loader.queue_free();await process_frame;quit()
+	quit()
