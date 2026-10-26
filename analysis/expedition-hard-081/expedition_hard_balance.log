@@ -1,0 +1,4 @@
+Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org
+
+HARD_BALANCE_REPORT {"gate":[{"iv":0,"teams":125,"wins_by_training":[15,65,124,125]},{"iv":4,"teams":125,"wins_by_training":[30,90,125,125]},{"iv":8,"teams":125,"wins_by_training":[50,115,125,125]}],"runtime_parity_cases":360,"save_cases":60}
+EXPEDITION_HARD_BALANCE_VERIFY failures=[]

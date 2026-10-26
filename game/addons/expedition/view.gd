@@ -98,6 +98,16 @@ func skull(m,c: Vector2,king: bool=false) -> void:
 		m._ui_rect(Rect2(c+Vector2(-6,-7),Vector2(12,3)),Color("eaaa31"))
 		for x in [-6,-1,4]: m._ui_rect(Rect2(c+Vector2(x,-10),Vector2(2,4)),Color("ffd66f"))
 
+func stage_name(round_no: int) -> String:
+	return "1-%d"%clampi(round_no,1,10)
+
+func encounter_name() -> String:
+	return "%d/3전투"%mini(3,int(data.battle.get("index",0))+1)
+
+func strip_label() -> String:
+	if data.battle.is_empty(): return "탐험대를 편성해 보세요"
+	return "%s · %s"%[stage_name(int(data.battle.round)),encounter_name()]
+
 func draw_strip(m) -> void:
 	var r: Rect2=Rect2(8,m.top_y+69,254,72)
 	m._ui_style_box(m.hud_reference_style,r)
@@ -105,7 +115,7 @@ func draw_strip(m) -> void:
 	var index: int=(int(b.round)-1) if not b.is_empty() else selected_round-1
 	room(m,Rect2(r.position+Vector2(4,20),Vector2(r.size.x-8,r.size.y-24)),index)
 	m._ui_rect(Rect2(r.position+Vector2(4,4),Vector2(r.size.x-8,16)),Color("f7e7c5"))
-	var label: String="탐험대를 편성해 보세요" if b.is_empty() else "%d-%d %s"%[int(b.round),mini(3,int(b.index)+1),ROOMS[index]]
+	var label: String=strip_label()
 	var status: String="" if b.is_empty() else ("%d%%"%int(b.get("progress",0)) if data.active() else ("돌파" if b.status=="win" else "귀환"))
 	m._text(label,r.position+Vector2(8,15),9,Color("382619"),false,193)
 	m._text(status,r.position+Vector2(231,15),8,Color("382619"),true,37)
@@ -237,20 +247,25 @@ func draw_explore(m,y: float,bottom: float) -> void:
 		var b: Dictionary=data.battle
 		if not data.active():
 			m._text("탐험 성공!" if b.status=="win" else "탐험 실패",Vector2(135,y+27),17,Color("98651f") if b.status=="win" else Color("8c4935"),true,226)
-			m._text("%dR · %s"%[int(b.round),ROOMS[int(b.round)-1]],Vector2(135,y+51),10,Color("6c553b"),true,226)
+			m._text("%s · %s"%[stage_name(int(b.round)),ROOMS[int(b.round)-1]],Vector2(135,y+51),10,Color("6c553b"),true,226)
 			room(m,Rect2(23,y+69,224,88),int(b.round)-1)
 			for i in b.fighters.size(): sprite(m,int(b.fighters[i].id),Rect2(40+i*65,y+86,60,60))
 			m._text("수고했어요, 탐험대!",Vector2(135,y+183),12,Color("382619"),true,226)
 			m._text("획득 비늘  %d"%int(b.reward),Vector2(135,y+211),11,Color("82502a"),true,226)
-			if b.status=="win" and bool(b.first): m._text("첫 돌파 보상 · %s 어혼 1개"%data.ELEMENTS[(int(b.round)-1)%5],Vector2(135,y+235),10,Color("82502a"),true,226)
-			button(m,"claim",Rect2(22,bottom-57,226,30),"보상 받고 편성으로")
+			if int(b.get("reward_revision",0))>=1:
+				var reward_note: String="클리어 시 보상을 받을 수 있어요."
+				if b.status=="win":
+					reward_note=("첫 돌파 · " if bool(b.first) else "보스 추가 보상 · ")+"어혼 주머니 %d개"%int(b.get("pouch_reward",0)) if int(b.get("pouch_reward",0))>0 else ("이번에는 어혼 주머니 없음" if data.BOSS_POUCH_CHANCE.has(int(b.round)) else "일반방 반복 · 비늘 보상")
+				m._text(reward_note,Vector2(135,y+235),10,Color("82502a"),true,226)
+			elif b.status=="win" and bool(b.first): m._text("첫 돌파 보상 · %s 어혼 1개"%data.ELEMENTS[(int(b.round)-1)%5],Vector2(135,y+235),10,Color("82502a"),true,226)
+			button(m,"claim",Rect2(22,bottom-57,226,30),"보상 받고 편성으로" if b.status=="win" else "편성으로 돌아가기")
 			return
-		m._text("%dR · %s"%[int(b.round),ROOMS[int(b.round)-1]],Vector2(135,y+12),11,Color("382619"),true,230)
+		m._text("%s · %s"%[stage_name(int(b.round)),ROOMS[int(b.round)-1]],Vector2(135,y+12),11,Color("382619"),true,230)
 		var r: Rect2=Rect2(17,y+23,236,85);room(m,r,int(b.round)-1);battle_art(m,r)
 		for i in b.fighters.size():
 			var f: Dictionary=b.fighters[i]
 			m._text("%s  %d/%d"%[data.catalog.soldiers[int(f.id)].name,int(f.hp),int(f.max_hp)],Vector2(25,y+130+i*20),10,Color("382619"),false,220)
-		m._text("조우 %d/3 · 획득 %d비늘"%[mini(3,int(b.index)+1),int(b.reward)],Vector2(135,y+203),10,Color("382619"),true,220)
+		m._text(("조우 %d/3 · 클리어하면 %d비늘"%[mini(3,int(b.index)+1),(26 if bool(b.first) else 2)*int(b.round)]) if int(b.get("reward_revision",0))>=1 else ("조우 %d/3 · 획득 %d비늘"%[mini(3,int(b.index)+1),int(b.reward)]),Vector2(135,y+203),10,Color("382619"),true,220)
 		if data.active():
 			button(m,"minimize",Rect2(22,bottom-65,226,29),"마을에서 진행 보기")
 			m._text("낚시 중에도 진행 · 앱을 닫으면 일시정지",Vector2(135,bottom-24),8,Color("6c553b"),true,230)
@@ -279,7 +294,7 @@ func draw_explore(m,y: float,bottom: float) -> void:
 		rects["round:%d"%(idx+1)]=r
 	var remaining: int=maxi(0,ceili(data.recovery_until-Time.get_unix_time_from_system()))
 	m._text("편성 %d/3 · 병사 배치 탭에서 변경"%data.team.size(),Vector2(135,bottom-49),8,Color("6c553b"),true,232)
-	primary(m,"start",Rect2(18,bottom-35,234,27),"회복 중 %d초"%remaining if remaining>0 else "탐험 보내기 · %dR"%selected_round,data.team.size()==3 and remaining==0)
+	primary(m,"start",Rect2(18,bottom-35,234,27),"회복 중 %d초"%remaining if remaining>0 else "탐험 보내기 · "+stage_name(selected_round),data.team.size()==3 and remaining==0)
 
 func draw_roster(m,y: float,bottom: float) -> void:
 	# A separate selection sheet keeps the approved three-slot layout uncluttered.
@@ -478,8 +493,14 @@ func press(m,pos: Vector2) -> void:
 			opened="";m.start_trans("village") if m.scene!="village" else m.play("ui")
 		else: notice="병사 3마리를 편성하고 회복을 기다리세요"
 	elif key=="claim":
+		var old: Dictionary=data.serialize().duplicate(true);var old_gold: int=m.gold
 		var reward: Dictionary=data.claim()
-		if not reward.is_empty(): m.gold+=int(reward.gold);notice="%d비늘 획득"%reward.gold
+		if not reward.is_empty():
+			m.gold+=int(reward.gold);notice="%d비늘 · 어혼 주머니 %d개 획득"%[reward.gold,reward.get("pouches",0)]
+			if not m._save_game():
+				data.restore(old);m.gold=old_gold;notice="저장하지 못했어요. 보상을 다시 받아 주세요."
+			m.show_toast(notice,Color("ffdc96"))
+		return
 	elif key.begins_with("tab:"): tab=int(key.split(":")[1]);page=0;selected=[]
 	elif key.begins_with("element:"): pair[pair_slot]=int(key.split(":")[1]);pair_slot=1-pair_slot
 	elif key.begins_with("pair:"): pair_slot=int(key.split(":")[1])

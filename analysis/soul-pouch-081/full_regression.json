@@ -1,0 +1,158 @@
+[
+  {
+    "suite": "soul_pouch",
+    "passed": true
+  },
+  {
+    "suite": "expedition_hard_balance",
+    "passed": true
+  },
+  {
+    "suite": "expedition_label",
+    "passed": true
+  },
+  {
+    "suite": "bundle_aqua",
+    "passed": true
+  },
+  {
+    "suite": "expedition080",
+    "passed": true
+  },
+  {
+    "suite": "expedition079",
+    "passed": true
+  },
+  {
+    "suite": "testing_gift",
+    "passed": true
+  },
+  {
+    "suite": "soldier_dex",
+    "passed": true
+  },
+  {
+    "suite": "approved_ui",
+    "passed": true
+  },
+  {
+    "suite": "expedition_motion",
+    "passed": true
+  },
+  {
+    "suite": "expedition",
+    "passed": true
+  },
+  {
+    "suite": "expedition_save",
+    "passed": true
+  },
+  {
+    "suite": "expedition_balance",
+    "passed": true
+  },
+  {
+    "suite": "action_readability",
+    "passed": true
+  },
+  {
+    "suite": "economy_balance",
+    "passed": true
+  },
+  {
+    "suite": "rod_aura",
+    "passed": true
+  },
+  {
+    "suite": "atmosphere_encounter",
+    "passed": true
+  },
+  {
+    "suite": "angler_scene",
+    "passed": true
+  },
+  {
+    "suite": "market_reader",
+    "passed": true
+  },
+  {
+    "suite": "odds_rewards",
+    "passed": true
+  },
+  {
+    "suite": "reservoir_layers",
+    "passed": true
+  },
+  {
+    "suite": "owner_gauge",
+    "passed": true
+  },
+  {
+    "suite": "bag_list",
+    "passed": true
+  },
+  {
+    "suite": "bundles_buyback",
+    "passed": true
+  },
+  {
+    "suite": "equipment",
+    "passed": true
+  },
+  {
+    "suite": "visual",
+    "passed": true
+  },
+  {
+    "suite": "guide",
+    "passed": true
+  },
+  {
+    "suite": "shop",
+    "passed": true
+  },
+  {
+    "suite": "audio_save",
+    "passed": true
+  },
+  {
+    "suite": "bundle_preview",
+    "passed": true
+  },
+  {
+    "suite": "rewards",
+    "passed": true
+  },
+  {
+    "suite": "reader",
+    "passed": true
+  },
+  {
+    "suite": "fish_surface",
+    "passed": true
+  },
+  {
+    "suite": "regional",
+    "passed": true
+  },
+  {
+    "suite": "inventory_layout",
+    "passed": true
+  },
+  {
+    "suite": "personal_dex",
+    "passed": true
+  },
+  {
+    "suite": "bait_roles",
+    "passed": true
+  },
+  {
+    "suite": "measurement_speed",
+    "passed": true
+  },
+  {
+    "suite": "village_entry_audio",
+    "passed": true
+  }
+]

@@ -1,0 +1,5 @@
+{
+  "cases": 600,
+  "failures": [],
+  "method": "Compare accelerated exact production tick to actual update(0.1) including transitions; final all fighter dictionaries, outcome and reward"
+}

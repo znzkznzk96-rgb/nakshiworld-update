@@ -22,6 +22,9 @@ func quote(v, m, a: String) -> Dictionary:
 			for i in slot:
 				if m.region_shop.part_key(n,i) not in m.equipment.unlocked_parts: return {}
 			q.title=m.region_shop.TITLES[n]+" "+v.PARTS[slot][1];q.price=m.region_shop.price(m,n,slot);q.icon=m.region_shop.icon(m,n,slot);q.target=n*4+slot
+		"soul_pouch":
+			if n not in [1,5,10]: return {}
+			q.title="어혼 주머니 %d개"%n;q.price=m.expedition.data.POUCH_PRICE*n;q.target=n;q.icon=v.tool_icons.soul
 		"bait":
 			if k.size()!=3 or not m.region_shop.bait_unlocked(n): return {}
 			var count:=int(k[2])
