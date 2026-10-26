@@ -13,6 +13,7 @@ func run() -> void:
 	var legacy: Dictionary=store.read("user://save.json");legacy.erase("expedition");store.write("user://save.json",legacy);m._load_game()
 	check(d.soldiers.is_empty() and m.souls==77 and m.gold==1000,"legacy save preserves wallet")
 	d.souls=[30,30,30,30,30];d.add_unit(0,2,[8,0,3]);d.add_unit(3,2,[0,8,4]);d.add_unit(6,1,[2,2,2]);d.team=[2,1,3]
+	for u in d.soldiers: u.level=3
 	var before: Dictionary=d.serialize();check(d.begin_merge(1,2,0).is_empty() and d.serialize()==before,"unaffordable merge changes nothing")
 	v.selected=[1,2];v.rects={"merge_confirm":Rect2(0,0,20,20)};v.press(m,Vector2(10,10))
 	check(m.gold==800 and d.pending.kind=="merge" and d.soldiers.size()==1,"UI consumes both materials and fee atomically")
@@ -29,7 +30,7 @@ func run() -> void:
 	check(d.team[0]==b and d.team[1]==a,"drag swaps front order")
 	v.opened="";check(not v.input_event(m,InputEventMouseMotion.new()),"closed modal returns world input")
 	check(d.start(1,Time.get_unix_time_from_system()),"start team")
-	m.scene="fishing";v.update(m,.9);v.update(m,1.5);check(d.battle.ticks==1,"battle advances while fishing")
+	m.scene="fishing";v.update(m,4.1);v.update(m,1.5);check(d.battle.ticks==1,"battle advances while fishing")
 	m._save_game();snap=d.serialize();d.restore({});m._load_game();check(same(d.serialize(),snap),"combat resumes exact saved health and phase")
 	for i in 1000:
 		if not d.active(): break

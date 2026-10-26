@@ -1382,6 +1382,7 @@ func _draw_overlays(t: float, h: float) -> void :
 	_fx_draw(t)
 	_draw_trans(h)
 	personal_dex.draw(self,h)
+	expedition.draw_result_notice(self)
 	expedition.draw(self,h)
 	if text_layer:
 		text_layer.position.x = ox

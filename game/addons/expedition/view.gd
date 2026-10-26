@@ -15,6 +15,8 @@ var drag_pos: Vector2
 var notice: String = ""
 var choosing_slot: int = -1
 var approved: Dictionary = {}
+var result_notice: float = 0.0
+var training_uid: int = -1
 const CARD_REGIONS = [Rect2(817,242,239,111),Rect2(1086,242,245,111),Rect2(1086,365,245,120),Rect2(817,365,239,120),Rect2(817,495,239,113),Rect2(1086,495,245,113),Rect2(1086,619,245,121),Rect2(817,619,239,121),Rect2(817,750,239,122),Rect2(1086,750,245,122)]
 const ROOM_REGIONS = [Rect2(257,285,180,54),Rect2(525,285,181,54),Rect2(528,366,143,60),Rect2(211,183,508,76),Rect2(255,454,140,59),Rect2(531,454,176,59),Rect2(530,540,140,56),Rect2(255,540,181,56),Rect2(257,628,180,56),Rect2(530,645,130,38)]
 const EFILES = ["water","electric","poison","light","dark"]
@@ -35,11 +37,19 @@ func setup() -> void:
 	textures.bolt=load("res://art/expedition/bolt.png")
 
 func open(m,screen: String) -> void:
+	if screen=="explore" and m.scene!="village" and not data.battle.is_empty() and not data.active():
+		m.show_toast("탐험 결과는 마을에서 확인해 주세요",Color("ffdc96"));return
 	opened=screen;page=0;selected=[];notice="";choosing_slot=-1;m.menu_open=false;m.holding=false
 	selected_round=mini(data.unlocked,maxi(1,selected_round))
 
 func update(m,dt: float) -> void:
+	var was_active: bool=data.active()
 	if data.update(dt,Time.get_unix_time_from_system()): m._save_game()
+	if was_active and not data.active(): result_notice=6.0
+	result_notice=maxf(0,result_notice-dt)
+	if not data.battle.is_empty() and not data.active() and not bool(data.battle.get("result_seen",false)):
+		if m.scene=="village" and m.V.shop=="" and opened=="" and not m.menu_open and not m.mailbox.opened and not m.guide.opened and not m.personal_dex.opened and not m.settings_open and not m.market_open and m.trans.is_empty():
+			open(m,"explore");data.battle.result_seen=true;m._save_game()
 
 func panel(m,r: Rect2) -> void:
 	m._ui_style_box(m.hud_reference_style,r)
@@ -81,16 +91,16 @@ func skull(m,c: Vector2,king: bool=false) -> void:
 		for x in [-6,-1,4]: m._ui_rect(Rect2(c+Vector2(x,-10),Vector2(2,4)),Color("ffd66f"))
 
 func draw_strip(m) -> void:
-	var r: Rect2=Rect2(8,m.top_y+69,254,72)
+	var r: Rect2=Rect2(8,m.top_y+69,254,102)
 	m._ui_style_box(m.hud_reference_style,r)
 	var b: Dictionary=data.battle
 	var index: int=(int(b.round)-1) if not b.is_empty() else selected_round-1
 	room(m,Rect2(r.position+Vector2(4,20),Vector2(r.size.x-8,r.size.y-24)),index)
 	m._ui_rect(Rect2(r.position+Vector2(4,4),Vector2(r.size.x-8,16)),Color("f7e7c5"))
 	var label: String="탐험대를 편성해 보세요" if b.is_empty() else "%d-%d %s"%[int(b.round),mini(3,int(b.index)+1),ROOMS[index]]
-	var status: String="" if b.is_empty() else ("%d%%"%int(float(b.cleared)/3*100) if data.active() else ("돌파" if b.status=="win" else "귀환"))
-	m._text(label,r.position+Vector2(8,15),9,Color("382619"),false,205)
-	m._text(status,r.position+Vector2(243,15),9,Color("382619"),true,25)
+	var status: String="" if b.is_empty() else ("%d%%"%int(b.get("progress",0)) if data.active() else ("돌파" if b.status=="win" else "귀환"))
+	m._text(label,r.position+Vector2(8,15),9,Color("382619"),false,193)
+	m._text(status,r.position+Vector2(231,15),8,Color("382619"),true,37)
 	if not b.is_empty(): battle_art(m,Rect2(r.position+Vector2(4,20),Vector2(r.size.x-8,r.size.y-24)))
 	else: m._text("어혼을 모아 병사 3마리를 보내세요",r.position+Vector2(127,49),9,Color("fff0d1"),true,230,true)
 	rects.strip=r
@@ -135,9 +145,10 @@ func battle_art(m,r: Rect2) -> void:
 		if phase=="fight" and int(f.hp)>0: frame=mini(int(u.frame_count)-1,int(t/1.5*int(u.frame_count)))
 		for event in fx.get("support",[]):
 			if int(event.source)==int(f.get("uid",-1)) and age<.6: frame=mini(int(u.frame_count)-1,int(age/.6*int(u.frame_count)))
-		var x: float=r.position.x+12+(2-i)*31+float(effect.x)
-		if phase=="approach": x-=8*(1-minf(1,float(b.phase_time)/.8))
-		var fh: float=minf(40,r.size.y*.74)
+		var x: float=r.position.x+8+(2-i)*34+float(effect.x)
+		if phase=="fight": x+=sin(clampf(t/1.1,0,1)*PI)*7
+		if phase=="approach": x-=8*(1-minf(1,float(b.phase_time)/4.0))
+		var fh: float=minf(50,r.size.y*.74)
 		sprite(m,int(f.id),Rect2(x,ground-fh+float(effect.y),48*fh/40,fh),frame,float(effect.alpha))
 		if int(f.shield)>0 and int(f.hp)>0: m._ui_arc(Vector2(x+25,ground-16),17,-1.5,1.5,9,Color("f5df83"),1)
 		for event in fx.get("support",[]):
@@ -152,11 +163,11 @@ func battle_art(m,r: Rect2) -> void:
 		if u.id=="eel" and phase=="fight" and int(f.hp)>0 and t>0.55 and t<1.5:
 			var p: float=(t-.55)/.95
 			m._ui_texture_rect(textures.bolt,Rect2(lerpf(x+30,r.end.x-28,p),ground-22,13,5))
-	var key: String=str(b.enemy.id)
+	var key: String=str(b.enemy.id) if b.enemy.id is String else str(int(b.enemy.id))
 	var is_boss: bool=key.ends_with("R");var n: int=320 if key=="10R" else (224 if is_boss else 128)
 	var pose: Vector2i=enemy_pose(b);var alpha: float=1.0
 	if phase=="death": alpha=1.0-smoothstep(1.3,2.2,float(b.phase_time))
-	var display: float=minf(r.size.y*.94,63) if key=="10R" else minf(r.size.y*.77,49) if is_boss else minf(r.size.y*.63,39)
+	var display: float=minf(r.size.y*.94,63) if key=="10R" else minf(r.size.y*.77,49) if is_boss else minf(r.size.y*.95,76)
 	m._ui_texture_rect_region(textures[key] if is_boss else textures[key][pose.x],Rect2(r.end.x-display-10,ground-display,display,display),Rect2(pose.x*n if is_boss else 0,pose.y*n,n,n),Color(1,1,1,alpha))
 
 func TICK_LENGTH() -> float: return 1.5
@@ -176,6 +187,7 @@ func draw(m,h: float) -> void:
 	if not data.pending.is_empty(): draw_pending(m,y+37,bottom);return
 	if opened=="merge_confirm": draw_confirmation(m,y+37,bottom)
 	elif opened=="explore": draw_explore(m,y+37,bottom)
+	elif opened=="training": draw_training(m,y+37,bottom)
 	else: draw_alchemy(m,y+37,bottom)
 	if choosing_slot>=0 and opened=="explore": draw_roster(m,y+37,bottom)
 
@@ -183,6 +195,16 @@ func draw(m,h: float) -> void:
 func draw_explore(m,y: float,bottom: float) -> void:
 	if not data.battle.is_empty():
 		var b: Dictionary=data.battle
+		if not data.active():
+			m._text("탐험 성공!" if b.status=="win" else "탐험 실패",Vector2(135,y+27),17,Color("98651f") if b.status=="win" else Color("8c4935"),true,226)
+			m._text("%dR · %s"%[int(b.round),ROOMS[int(b.round)-1]],Vector2(135,y+51),10,Color("6c553b"),true,226)
+			room(m,Rect2(23,y+69,224,88),int(b.round)-1)
+			for i in b.fighters.size(): sprite(m,int(b.fighters[i].id),Rect2(40+i*65,y+86,60,60))
+			m._text("수고했어요, 탐험대!",Vector2(135,y+183),12,Color("382619"),true,226)
+			m._text("획득 비늘  %d"%int(b.reward),Vector2(135,y+211),11,Color("82502a"),true,226)
+			if b.status=="win" and bool(b.first): m._text("첫 돌파 보상 · %s 어혼 1개"%data.ELEMENTS[(int(b.round)-1)%5],Vector2(135,y+235),10,Color("82502a"),true,226)
+			button(m,"claim",Rect2(22,bottom-57,226,30),"보상 받고 편성으로")
+			return
 		m._text("%dR · %s"%[int(b.round),ROOMS[int(b.round)-1]],Vector2(135,y+12),11,Color("382619"),true,230)
 		var r: Rect2=Rect2(17,y+23,236,85);room(m,r,int(b.round)-1);battle_art(m,r)
 		for i in b.fighters.size():
@@ -318,20 +340,22 @@ func draw_alchemy(m,y: float,bottom: float) -> void:
 		var u: Dictionary=data.soldiers[n];var st: Dictionary=data.stats(u);var spec: Dictionary=data.catalog.soldiers[int(u.id)]
 		var r: Rect2=Rect2(18,y+i*45,234,42)
 		m._ui_rect(r,Color("d2b577") if int(u.uid) in selected else Color("eddbb6"));sprite(m,int(u.id),Rect2(r.position,Vector2(42,40)))
-		m._text("%s %s · %s"%["★".repeat(int(u.star)),spec.name,ROLES[spec.role]+rarity_label(u)],r.position+Vector2(44,12),9,Color("382619"),false,182)
+		m._text("%s %s +%d"%["★".repeat(int(u.star)),spec.name,int(u.get("level",0))],r.position+Vector2(44,12),9,Color("382619"),false,156 if tab==2 else 182)
 		m._text("체%d 공%d 방%d · 개체 +%d/%d/%d"%[st.hp,st.atk,st.def,u.iv[0],u.iv[1],u.iv[2]],r.position+Vector2(44,25),7,Color("6c553b"),false,183)
 		m._text(spec.description,r.position+Vector2(44,37),7,Color("6c553b"),false,183)
 		rects["select:%d"%int(u.uid)]=r
-		if tab==2: button(m,"lock:%d"%int(u.uid),Rect2(r.end.x-30,r.position.y+2,28,16),"잠금" if u.locked else "보호")
+		if tab==2: lock_icon(m,"lock:%d"%int(u.uid),Rect2(r.end.x-25,r.position.y+1,24,24),bool(u.locked))
 	button(m,"prev",Rect2(18,y+185,35,22),"‹");button(m,"next",Rect2(217,y+185,35,22),"›")
 	m._text("%d/%d · %d/60마리"%[page+1,total,data.soldiers.size()],Vector2(135,y+200),9,Color("6c553b"),true,150)
+	if tab==2:
+		m._text("병사를 눌러 강화 · 자물쇠를 눌러 잠금",Vector2(135,bottom-25),8,Color("6c553b"),true,232)
 	if tab==1:
 		var q: Dictionary=data.merge_cost(int(selected[0]),int(selected[1])) if selected.size()==2 else {}
 		if notice!="": m._text(notice,Vector2(135,bottom-80),8,Color("9b4329"),true,232)
 		elif not q.is_empty():
 			m._text("어혼 %d개 + %d비늘 · 새 %d성"%[int(q.souls.reduce(func(a,b):return a+b,0)),q.gold,q.star],Vector2(135,bottom-80),8,Color("6c553b"),true,232)
 		button(m,"merge_review",Rect2(22,bottom-64,226,28),"합성 결과·소모 재료 확인",not q.is_empty() and not data.active())
-		m._text("동일 별 2마리 소모 · 잠금 병사는 보호",Vector2(135,bottom-23),8,Color("6c553b"),true,232)
+		m._text("같은 별 +3 병사 2마리 · 잠금 병사는 보호",Vector2(135,bottom-23),8,Color("6c553b"),true,232)
 
 func draw_pending(m,y: float,bottom: float) -> void:
 	var p: Dictionary=data.pending
@@ -419,9 +443,18 @@ func press(m,pos: Vector2) -> void:
 	elif key.begins_with("pair:"): pair_slot=int(key.split(":")[1])
 	elif key=="craft":
 		if not data.craft(int(pair[0]),int(pair[1])): notice="어혼이 부족하거나 보관함이 가득해요"
+	elif key.begins_with("select:") and tab==2:
+		training_uid=int(key.split(":")[1]);opened="training"
+	elif key=="train":
+		var cost: Dictionary=data.train(training_uid,m.gold)
+		if cost.is_empty(): notice="어혼·비늘을 확인해 주세요. 탐험 중에는 강화할 수 없어요"
+		else: m.gold-=int(cost.gold);notice="강화 완료! +%d"%int(data.unit(training_uid).level)
+	elif key=="training_back": opened="alchemy";tab=2
 	elif key.begins_with("select:") and tab==1:
 		var uid: int=int(key.split(":")[1])
 		if uid in selected: selected.erase(uid)
+		elif int(data.unit(uid).get("level",0))!=3: notice="+3까지 강화한 병사만 합성할 수 있어요"
+		elif bool(data.unit(uid).locked): notice="잠금을 먼저 풀어 주세요"
 		elif selected.size()<2: selected.append(uid)
 	elif key.begins_with("lock:"):
 		var u: Dictionary=data.unit(int(key.split(":")[1]));u.locked=not u.locked
@@ -456,3 +489,40 @@ func draw_confirmation(m,y: float,bottom: float) -> void:
 	if int(q.star)==3: m._text("3성: 레어75% / 유니크20% / 전설5%",Vector2(135,bottom-81),8,Color("6c553b"),true,230)
 	button(m,"merge_cancel",Rect2(20,bottom-60,109,29),"돌아가기")
 	button(m,"merge_confirm",Rect2(139,bottom-60,109,29),"소모하고 합성")
+
+func lock_icon(m,key: String,r: Rect2,locked: bool) -> void:
+	var c: Vector2=r.position+Vector2(6,5)
+	var ink: Color=Color("65451b") if locked else Color("545a5c")
+	var fill: Color=Color("ffd65b") if locked else Color("a0aaad")
+	var shift: float=0 if locked else 4
+	m._ui_rect(Rect2(c+Vector2(2+shift,0),Vector2(9,10)),ink)
+	m._ui_rect(Rect2(c+Vector2(4+shift,2),Vector2(5,8)),fill)
+	m._ui_rect(Rect2(c+Vector2(5+shift,4),Vector2(3,7)),Color("eddbb6"))
+	m._ui_rect(Rect2(c+Vector2(0,8),Vector2(14,11)),ink)
+	m._ui_rect(Rect2(c+Vector2(1,9),Vector2(12,9)),fill)
+	m._ui_rect(Rect2(c+Vector2(6,11),Vector2(2,4)),ink)
+	rects[key]=r
+
+func draw_training(m,y: float,bottom: float) -> void:
+	var u: Dictionary=data.unit(training_uid)
+	if u.is_empty(): return
+	var st: Dictionary=data.stats(u)
+	var cost: Dictionary=data.training_cost(training_uid)
+	sprite(m,int(u.id),Rect2(89,y+10,92,80),int(m.ui_clock*7)%int(data.catalog.soldiers[int(u.id)].frame_count))
+	m._text(data.catalog.soldiers[int(u.id)].name+" +%d"%int(u.get("level",0)),Vector2(135,y+112),12,Color("382619"),true,228)
+	m._text("체력 %d · 공격 %d · 방어 %d"%[st.hp,st.atk,st.def],Vector2(135,y+138),10,Color("6c553b"),true,228)
+	m._text("강화는 확정 성공 · 최대 +3",Vector2(135,y+165),9,Color("6c553b"),true,228)
+	if not cost.is_empty():
+		var next: Dictionary=u.duplicate(true);next.level=int(u.get("level",0))+1
+		var ns: Dictionary=data.stats(next)
+		m._text("+%d → 체력 %d · 공격 %d · 방어 %d"%[int(next.level),ns.hp,ns.atk,ns.def],Vector2(135,y+191),9,Color("382619"),true,228)
+		m._text("%s 어혼 %d개 · %d비늘"%[data.ELEMENTS[int(cost.element)],cost.souls,cost.gold],Vector2(135,bottom-101),10,Color("6c553b"),true,228)
+		button(m,"train",Rect2(22,bottom-83,226,30),"+%d 강화하기"%int(next.level),not data.active())
+	else: m._text("최대 강화 완료",Vector2(135,y+195),12,Color("aa7620"),true,228)
+	button(m,"training_back",Rect2(22,bottom-43,226,28),"병사 보관함으로")
+
+func draw_result_notice(m) -> void:
+	if m.scene=="village" or result_notice<=0 or data.battle.is_empty() or data.active(): return
+	var r: Rect2=Rect2(43,m.top_y+72,184,24)
+	m._ui_style_box(m.sb_chip,r)
+	m._text("탐험 성공 · 마을에서 결과 확인" if data.battle.status=="win" else "탐험 실패 · 마을에서 결과 확인",r.get_center()+Vector2(0,3),8,Color("fff0d1"),true,174)

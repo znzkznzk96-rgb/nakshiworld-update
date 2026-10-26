@@ -1,7 +1,7 @@
 extends Node2D
 
-const BUILD_CODE := 63
-const BUILD_NAME := "0.63"
+const BUILD_CODE := 79
+const BUILD_NAME := "0.79"
 const UPDATE_BASE := "https://nakshiworld-update-kr.znzkznzk96.workers.dev/"
 const PATCH := "user://patch.pck"
 const PATCH_VER := "user://patch_ver.txt"
@@ -89,14 +89,25 @@ func _process(_dt: float) -> void:
 		queue_redraw()
 
 func _draw() -> void:
-	if status == "":
-		return
-	var r := get_viewport_rect()
-	draw_rect(r, Color("2b2026"))
-	draw_string(font, Vector2(0, r.size.y / 2 - 8), status, HORIZONTAL_ALIGNMENT_CENTER, r.size.x, 16, Color("f6e7c8"))
-	if progress >= 0:
-		draw_rect(Rect2(35, r.size.y / 2 + 8, 200, 6), Color("5a3a22"))
-		draw_rect(Rect2(35, r.size.y / 2 + 8, int(200 * progress), 6), Color("ffcf4a"))
+	if status == "": return
+	var size: Vector2=get_viewport_rect().size
+	var art: Texture2D=load("res://art/ui/update_cat_blue.png")
+	var w: float=minf(size.x, size.y*0.70)
+	var left: float=(size.x-w)/2.0
+	var ink: Color=Color("073b36")
+	draw_rect(Rect2(Vector2.ZERO,size),Color("9bd5fb"))
+	# Approved art is sampled directly; progress and status are real runtime values.
+	draw_texture_rect_region(art,Rect2(left,size.y*.10,w,size.y*.46),Rect2(0,150,941,840))
+	var bar: Rect2=Rect2(left+w*.22,size.y*.615,w*.56,12)
+	draw_rect(bar,ink);draw_rect(bar.grow(-2),Color("c8e8f8"))
+	if progress>=0:
+		draw_rect(Rect2(bar.position+Vector2(2,2),Vector2((bar.size.x-4)*clampf(progress,0,1),8)),Color("ffda62"))
+	else:
+		var x: float=(sin(Time.get_ticks_msec()/600.0)+1)*.5*(bar.size.x-24)
+		draw_rect(Rect2(bar.position+Vector2(2+x,2),Vector2(20,8)),Color("ffda62"))
+	draw_string(font,Vector2(left,size.y*.69),status,HORIZONTAL_ALIGNMENT_CENTER,w,11,ink)
+	var detail: String="잠시만 기다려 주세요" if progress<0 else "%d%% · %.1f / %.1f MB"%[int(progress*100),http.get_downloaded_bytes()/1048576.0,http.get_body_size()/1048576.0]
+	draw_string(font,Vector2(left,size.y*.735),detail,HORIZONTAL_ALIGNMENT_CENTER,w,9,ink)
 
 func _start() -> void:
 	if started:
