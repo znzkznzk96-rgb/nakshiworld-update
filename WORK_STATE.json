@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "task": "거꾸로 폭포 계곡 통합 및 낚시월드 인수인계 기준",
-  "status": "deployed_verified",
+  "status": "approved_ui_fidelity_fix_in_progress",
   "work_branch": "work/valley-runtime",
   "release_baseline": "v0.76",
   "target_version": "0.76",
@@ -20,23 +20,17 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-26",
-  "current_task": "v0.76 deployed; public source, patch and gateway verified",
-  "next_step": "User phone verification; do not recreate approved art or reset saves",
+  "current_task": "Fix omitted approved UI and menu icons from user supplied three references",
+  "next_step": "Implement exact reference assets/layout and compare actual engine rendering",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
   "last_release_deployed": true,
   "this_change": {
-    "scope": "approved expedition/alchemy and final sprites",
-    "game_changed": true,
-    "release_created": true,
-    "deployed": true,
-    "implementation_commit": "b932b35d8023cce44ab444a2bd49227199b1429d",
-    "work_ci": 40265436338,
-    "work_ci_conclusion": "success",
-    "pr": 9,
-    "release_commit": "fc2781c22df7cb6cc1cb248c5266411f781e90cd"
+    "scope": "restore approved expedition/alchemy UI and menu icons",
+    "game_changed": false,
+    "deployed": false
   },
   "history": "docs/historical/2026-10-22-before-workflow-streamlining/WORK_STATE.json",
   "work_verification": "docs/analysis/balance-tuning-075/QA.json",
