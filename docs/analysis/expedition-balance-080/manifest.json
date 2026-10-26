@@ -1,0 +1,68 @@
+{
+  "engine": "Godot 4.4.1",
+  "baseline_commit": "a74e060d8eda34ab6650c0d2d3d72d9e646b990d",
+  "fights": 1261250,
+  "files": [
+    {
+      "file": "current.csv",
+      "rows": 241250,
+      "bytes": 14407111,
+      "sha256": "b71c768159be2254fcdd38cc38b0b0303401c829698eaddccaf3459bb85c30ff"
+    },
+    {
+      "file": "shield.csv",
+      "rows": 241250,
+      "bytes": 14149846,
+      "sha256": "a1b2f413f5700ec90481ea55e46b4cbc74ad2b13dc1ec07179117ac8655ec56a"
+    },
+    {
+      "file": "pressure.csv",
+      "rows": 241250,
+      "bytes": 14653368,
+      "sha256": "3382bbb5a5c1add52f3d5ec52c1623bfb842ebd8e92c1e6447e571c81f17c64b"
+    },
+    {
+      "file": "pressure_hp.csv",
+      "rows": 241250,
+      "bytes": 15411349,
+      "sha256": "6ba51a50d09d1f6db7994282141167671294563a268ffc476ea766b611aef67f"
+    },
+    {
+      "file": "curve.csv",
+      "rows": 241250,
+      "bytes": 13940969,
+      "sha256": "01009ac1efea0e6dcaefdf09bbef7bf9d96dd36a7b0646d4a75149c1856e9e98"
+    },
+    {
+      "file": "current-iv0.csv",
+      "rows": 13750,
+      "bytes": 834024,
+      "sha256": "c954a5350af9b84a9354b6de671f68020c9f06aa759a566df11cef88f98db5cf"
+    },
+    {
+      "file": "current-iv8.csv",
+      "rows": 13750,
+      "bytes": 833341,
+      "sha256": "8c5adde5bc7407badfc3869ba8141dde005f5a68cb5f612ae349decdfdfbde36"
+    },
+    {
+      "file": "pressure-iv0.csv",
+      "rows": 13750,
+      "bytes": 849458,
+      "sha256": "fa04b436de45692db7c121708e45db68e47031a7a7f59dc55f7980eea5ec3339"
+    },
+    {
+      "file": "pressure-iv8.csv",
+      "rows": 13750,
+      "bytes": 849242,
+      "sha256": "489a8ec7314e208f878fdc5de07d5b04b83b35794baeaba1954cf92e8070b4d4"
+    }
+  ],
+  "source_sha256": {
+    "addons/expedition/model.gd": "bdc7cfa11b9f1236ccab6333099b91151bffd5f257ad19d1d4204aba50ead8a2",
+    "addons/expedition/catalog.json": "d868c301bd8af12c3fee5666baec4441485fb519607c5c3aad35e3b131bf89ad",
+    "tests/analysis/balance_scan.gd": "03cb99536e007660b3611e6fd062c00f7e297a993628b9862bc271673d368916",
+    "tests/analysis/candidate_model.gd": "f3af3c60cfb797d031becf333b12d79fd00b14400f72930f2dbf77989f941499",
+    "tests/analysis/balance_parity.gd": "b7d5ce06d37ce4c0a6e218de81594a52f96e87e4bdda34c630427ce87588fd58"
+  }
+}

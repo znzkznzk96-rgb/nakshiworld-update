@@ -1,0 +1,104 @@
+name: Verify work branch without deployment
+on:
+  push:
+    branches: [work/valley-runtime]
+    paths: ['game/**', 'automation/**', '.github/workflows/verify-work.yml']
+permissions:
+  contents: read
+concurrency:
+  group: verify-work-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Restore verified v0.78 source and overlay
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -fL --retry 2 https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v0.78/game-source.zip -o "$RUNNER_TEMP/source.zip"
+          echo "348011e3787234635e469c8e3649f391410d7d9d736a5cfd1a858568e2a7dcfc  $RUNNER_TEMP/source.zip" | sha256sum -c -
+          python3 automation/restore_source.py "$RUNNER_TEMP/source.zip" "$RUNNER_TEMP/project"
+          curl -fL --retry 2 https://github.com/godotengine/godot/releases/download/4.4.1-stable/Godot_v4.4.1-stable_linux.x86_64.zip -o "$RUNNER_TEMP/godot.zip"
+          unzip -q "$RUNNER_TEMP/godot.zip" -d "$RUNNER_TEMP/godot"
+          chmod +x "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
+      - name: Import and full regression checks for owner gauge integration
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p evidence
+          GODOT="$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
+          "$GODOT" --headless --editor --path "$RUNNER_TEMP/project" --import > evidence/import.log 2>&1
+          if grep -E 'SCRIPT ERROR:|Parse Error:|Failed to load script' evidence/import.log; then exit 1; fi
+          for suite in expedition_label bundle_aqua expedition080 expedition079 testing_gift soldier_dex approved_ui expedition_motion expedition expedition_save expedition_balance action_readability economy_balance rod_aura atmosphere_encounter angler_scene market_reader odds_rewards reservoir_layers owner_gauge bag_list bundles_buyback equipment visual guide shop audio_save bundle_preview rewards reader fish_surface regional inventory_layout personal_dex bait_roles measurement_speed village_entry_audio; do
+            XDG_DATA_HOME="$RUNNER_TEMP/isolated-$suite" timeout 90 "$GODOT" --headless --path "$RUNNER_TEMP/project" --script "tests/${suite}_verify.gd" > "evidence/$suite.log" 2>&1 || { cat "evidence/$suite.log"; exit 1; }
+            cat "evidence/$suite.log"
+            grep -F 'VERIFY failures=[]' "evidence/$suite.log"
+            if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' "evidence/$suite.log"; then exit 1; fi
+          done
+      - name: Render museum and buyback previews
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y xvfb libgl1-mesa-dri > /dev/null
+          mkdir -p evidence/screens
+          XDG_DATA_HOME="$RUNNER_TEMP/isolated-screens" timeout 90 xvfb-run -a "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/bundles_ui_preview.gd -- "$GITHUB_WORKSPACE/evidence/screens" > evidence/screens.log 2>&1 || { cat evidence/screens.log; exit 1; }
+          cat evidence/screens.log
+          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/screens.log; then exit 1; fi
+      - name: Render owner gauge and warning previews
+        shell: bash
+        run: |
+          set -euo pipefail
+          XDG_DATA_HOME="$RUNNER_TEMP/isolated-owner-screens" timeout 90 xvfb-run -a "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/owner_gauge_preview.gd -- "$GITHUB_WORKSPACE/evidence/screens" > evidence/owner-screens.log 2>&1 || { cat evidence/owner-screens.log; exit 1; }
+          cat evidence/owner-screens.log
+          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/owner-screens.log; then exit 1; fi
+      - name: Render approved character cat stool and rod integration
+        shell: bash
+        run: |
+          set -euo pipefail
+          XDG_DATA_HOME="$RUNNER_TEMP/isolated-angler-screens" timeout 90 xvfb-run -a "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/angler_scene_preview.gd -- "$GITHUB_WORKSPACE/evidence/angler-screens" > evidence/angler-screens.log 2>&1
+          cat evidence/angler-screens.log
+          grep -F 'ANGLER_SCENE_PREVIEW failures=[]' evidence/angler-screens.log
+          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/angler-screens.log; then exit 1; fi
+      - name: Render night lighting encounter text and hanging catch
+        shell: bash
+        run: |
+          set -euo pipefail
+          XDG_DATA_HOME="$RUNNER_TEMP/isolated-atmosphere-screens" timeout 90 xvfb-run -a "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/atmosphere_encounter_preview.gd -- "$GITHUB_WORKSPACE/evidence/atmosphere-screens" > evidence/atmosphere-screens.log 2>&1
+          cat evidence/atmosphere-screens.log
+          grep -F 'ATMOSPHERE_ENCOUNTER_PREVIEW failures=[]' evidence/atmosphere-screens.log
+          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/atmosphere-screens.log; then exit 1; fi
+      - name: Render enhancement aura integration and silver blue distinction
+        shell: bash
+        run: |
+          set -euo pipefail
+          XDG_DATA_HOME="$RUNNER_TEMP/isolated-rod-aura" timeout 90 xvfb-run -a "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/rod_aura_preview.gd -- "$GITHUB_WORKSPACE/evidence/rod-aura-screens" > evidence/rod-aura-screens.log 2>&1
+          cat evidence/rod-aura-screens.log
+          grep -F 'ROD_AURA_PREVIEW failures=[]' evidence/rod-aura-screens.log
+          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/rod-aura-screens.log; then exit 1; fi
+      - name: Render personal dex and bait shop
+        shell: bash
+        run: |
+          set -euo pipefail
+          XDG_DATA_HOME="$RUNNER_TEMP/isolated-release075" timeout 90 xvfb-run -a "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/release075_preview.gd -- "$GITHUB_WORKSPACE/evidence/release075" > evidence/release075.log 2>&1
+          cat evidence/release075.log
+          grep -F 'RELEASE075_PREVIEW failures=[]' evidence/release075.log
+          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/release075.log; then exit 1; fi
+      - name: Render expedition and alchemy screens at three phone heights
+        shell: bash
+        run: |
+          set -euo pipefail
+          XDG_DATA_HOME="$RUNNER_TEMP/isolated-expedition" timeout 90 xvfb-run -a "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/expedition_preview.gd -- "$GITHUB_WORKSPACE/evidence/expedition" > evidence/expedition-screens.log 2>&1
+          cat evidence/expedition-screens.log
+          grep -F 'EXPEDITION_PREVIEW failures=[]' evidence/expedition-screens.log
+          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/expedition-screens.log; then exit 1; fi
+      - name: Preserve verification logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: work-verification
+          path: evidence/
+

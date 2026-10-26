@@ -1,21 +1,25 @@
 {
   "schema_version": 3,
   "work_branch": "work/valley-runtime",
-  "status": "analysis_in_progress",
+  "status": "analysis_complete",
   "current_task": "탐험 단계 표기 수정 및 전구간 조합/강화/별 밸런스 시뮬레이션",
   "release_baseline": "v0.80",
   "source_commit": "a74e060d8eda34ab6650c0d2d3d72d9e646b990d",
   "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v0.80",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
-  "verification": "docs/qa/bundle-aqua-080/PUBLIC_VERIFICATION.json",
-  "next_step": "표기 수정 검사 후 현행·후보 시뮬레이션 결과 비교",
+  "verification": "docs/analysis/expedition-balance-080/REPORT.md",
+  "next_step": "시뮬레이션 결과에 따른 밸런스 수치 확정 후 적용·배포 범위 결정",
   "updated_at": "2026-10-26",
   "last_release_deployed": true,
   "this_change": {
     "scope": "탐험 단계 표기 수정 및 전구간 조합/강화/별 밸런스 시뮬레이션",
     "release_authorized": false,
-    "deployed": false
+    "deployed": false,
+    "display_fix_complete": true,
+    "balance_applied": false,
+    "fights": 1261250,
+    "parity_cases": 600
   },
   "pending_decisions": [
     "계곡은 기존 미승인 수치·입장 준비중 유지. 라이선스 수령과 별도."
