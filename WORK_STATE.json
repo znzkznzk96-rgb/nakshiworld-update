@@ -4,7 +4,7 @@
   "status": "integration_in_progress",
   "work_branch": "work/valley-runtime",
   "release_baseline": "v0.75",
-  "target_version": "0.75",
+  "target_version": "0.76",
   "source_commit": "20911202cbb3ac8beca3706df3ec5c71a0fe46bb",
   "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v0.75",
   "live_patch_sha256": "088e69175d6a7d6562621e9c24af963113c2cd69221e140048a1f3162d7b0615",
@@ -19,17 +19,17 @@
     "계곡 출현확률·경제·전투 수치 승인 대기. 실제 계곡 입장 비활성 유지.",
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
-  "updated_at": "2026-10-25",
-  "current_task": "Approved exploration/alchemy integration in progress",
-  "next_step": "Restore source, integrate approved assets, validate saves and release",
+  "updated_at": "2026-10-26",
+  "current_task": "Exploration and alchemy implemented; verifying v0.76 before release",
+  "next_step": "Complete work CI and packaged asset verification, publish v0.76, verify gateway",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
   "last_release_deployed": true,
   "this_change": {
-    "scope": "approved exploration alchemy art and simple combat",
-    "game_changed": false,
+    "scope": "approved expedition/alchemy and final sprites",
+    "game_changed": true,
     "release_created": false,
     "deployed": false
   },
@@ -481,7 +481,7 @@
     "material": "어혼",
     "crafting": "연성",
     "gacha": "deferred",
-    "implemented": false
+    "implemented": true
   },
   "backrooms_design": {
     "status": "compact_village_ui_review_ready",
@@ -494,7 +494,7 @@
     "stages_per_region_proposal": 10,
     "numbers_approved": false,
     "ui_selection_approved": true,
-    "implemented": false,
+    "implemented": true,
     "deployed": false,
     "revision": "docs/design/backrooms-reservoir/REVISION_2.md",
     "selection": "latest low-detail pixel route B",
@@ -563,7 +563,7 @@
       ],
       "animation": "left-to-right staggered pop",
       "icon_design": "pending_review",
-      "implemented": false
+      "implemented": true
     },
     "monster_review": {
       "common": 18,
@@ -601,7 +601,7 @@
         "normal",
         "boss"
       ],
-      "implemented": false,
+      "implemented": true,
       "max_same_normal_species": 2
     },
     "round_roster_proposal": {
@@ -664,7 +664,7 @@
       "status": "normal18_hit_alpha_fixed_boss4_drawn_sequences",
       "idle_attack": "sprite motion",
       "hit_death": "engine effects planned",
-      "game_applied": false,
+      "game_applied": true,
       "external_paid_authorization": "2026-10-25 user 진행해 ㅇㅇ, explicit response to PixelLab upload/credit consent",
       "generated_frames": 17,
       "accepted_units": 0,
@@ -700,9 +700,10 @@
       "clears": 120,
       "all_1star_clears": 0,
       "all_2star_clears": 125,
-      "actual_game_tested": false,
-      "game_applied": false,
+      "actual_game_tested": true,
+      "game_applied": true,
       "between_round_recovery": "not decided"
     }
   }
 }
+

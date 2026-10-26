@@ -114,6 +114,7 @@ var catch_counts: = {}
 var catch_legacy: = {}
 var trans: = {}
 var bait: = 0
+var expedition = preload("res://addons/expedition/view.gd").new()
 var souls: = 0
 const AQUA_CAP: = [3, 6, 10, 15, 20]
 const AQUA_COST: = [300, 900, 2400, 6000]
@@ -302,6 +303,7 @@ func _ready() -> void :
 	_load_game()
 	tex_sign = load("res://art/ui/title_sign.png")
 	V.setup()
+	expedition.setup()
 	spots.setup()
 	icons.m_fishing = load("res://art/refresh53/fishing_icon.png")
 	var show_title: bool = title_open
@@ -1130,6 +1132,9 @@ func start_catch() -> void :
 	if not S.grade in seen: seen.append(S.grade)
 	DEX[fish_key(int(S.sp))] = seen
 	S.weight = W_BASE[S.star] * pow(S.lf, 3) * W_GRADE[S.grade]
+	if first_capture:
+		var earned_element: int=expedition.data.on_capture(int(S.sp))
+		if earned_element>=0: show_toast("%s 어혼 +1"%expedition.data.ELEMENTS[earned_element],Color("91e8dc"))
 	if first_capture: personal_dex.observe(int(S.sp),int(S.grade),float(S.len),float(S.weight),Time.get_date_string_from_system())
 	if S.newRec:
 		REC[fish_key(int(S.sp))] = S.len;_save_rec()
@@ -1160,6 +1165,7 @@ func show_result(ok: bool) -> void :
 
 
 func _unhandled_input(e: InputEvent) -> void :
+	if not title_open and expedition.input_event(self,e): return
 	if personal_dex.input_event(self,e): return
 	if title_open:
 		if e is InputEventMouseButton and e.button_index == MOUSE_BUTTON_LEFT and e.pressed: title_screen.press(self, e.position - Vector2(ox, 0))
@@ -1187,6 +1193,8 @@ func _unhandled_input(e: InputEvent) -> void :
 		_slider_set(e.position.x - ox)
 
 func press(pos: = Vector2.ZERO) -> void :
+	if expedition.opened!="": expedition.press(self,pos);return
+	if scene=="village" and V.shop=="" and not menu_open and not market_open and not settings_open and expedition.rects.get("strip",Rect2()).has_point(pos): expedition.open(self,"explore");return
 	if personal_dex.opened: personal_dex.press(self,pos);return
 	if title_open: title_screen.press(self, pos);return
 	if not trans.is_empty(): return
@@ -1250,6 +1258,7 @@ func _process(dt: float) -> void :
 	if is_instance_valid(title_screen.root): title_screen.root.visible = title_open or title_screen.leaving
 	if title_open:
 		title_screen.update(self, dt);queue_redraw();return
+	expedition.update(self,dt)
 	if title_screen.leaving: title_screen.update(self, dt)
 	if not settings_open and not market_open and not title_open: environment.update(dt)
 	tip_t = maxf(0.0, tip_t - dt)
@@ -1262,7 +1271,7 @@ func _process(dt: float) -> void :
 		if not trans.done and trans.t >= TR_CLOSE + 0.1:
 			trans.done = true;_switch_scene(trans.to)
 		if trans.t >= TR_CLOSE + TR_HOLD + TR_OPEN: trans = {}
-	if personal_dex.opened or guide.opened or mailbox.opened or settings_open or market_open or not V.commerce.pending.is_empty() or not equipment.pending_sale.is_empty() or inventory.selected >= 0: queue_redraw();return
+	if expedition.opened!="" or personal_dex.opened or guide.opened or mailbox.opened or settings_open or market_open or not V.commerce.pending.is_empty() or not equipment.pending_sale.is_empty() or inventory.selected >= 0: queue_redraw();return
 	if scene == "spots": spots.process(dt);queue_redraw();return
 	if scene == "village":
 		toast_t = max(0.0, toast_t - dt);judge_t = max(0.0, judge_t - dt)
@@ -1372,6 +1381,7 @@ func _draw_overlays(t: float, h: float) -> void :
 	_fx_draw(t)
 	_draw_trans(h)
 	personal_dex.draw(self,h)
+	expedition.draw(self,h)
 	if text_layer:
 		text_layer.position.x = ox
 		text_layer.items = text_items
@@ -2516,7 +2526,7 @@ func pond_max() -> float: return 80.0 + pond_cap_lv * 20.0
 func pond_recovery() -> float: return 30.0 + pond_regen_lv * 10.0
 
 
-const MENU: = [["village", "마을"], ["bag", "가방"], ["book", "도감"], ["gear", "설정"]]
+const MENU: = [["village", "마을"], ["bag", "가방"], ["book", "도감"], ["gear", "설정"], ["explore", "탐험"], ["alchemy", "연성"]]
 func _draw_menu(y0: float) -> void :
 	var mr: = Rect2(6, y0, 38, 38)
 	_ui_texture(tex_menu, mr.position)
@@ -2525,17 +2535,17 @@ func _draw_menu(y0: float) -> void :
 	ui_rects.erase("m_items")
 	if not menu_open: return
 	var items: = []
-	var panel: = Rect2(6, y0 - 94, 218, 72)
+	var panel: = Rect2(6, y0 - 77, 258, 62)
 	_ui_style_box(hud_reference_style, panel)
 	for i in MENU.size():
-		var p: = Vector2(12 + i * 52, panel.position.y + 5)
+		var p: = Vector2(10 + i * 42, panel.position.y + 5)
 		var k: = clampf((ui_clock - menu_t) / 0.12 - i * 0.4, 0, 1)
 		if k <= 0: continue
 		var py: = p.y + roundf((1 - k) * 8)
-		var ic: Texture2D = icons["m_fishing" if i == 0 and scene == "village" else "m_" + MENU[i][0]]
-		_ui_texture(ic, Vector2(p.x + 5, py))
-		_text("낚시터" if i == 0 and scene == "village" else MENU[i][1], Vector2(p.x + 25, py + 52), 10, Color("fff0d1"), true, 50)
-		items.append(Rect2(p.x, p.y, 50, 57))
+		var ic: Texture2D = icons["m_fishing" if i == 0 and scene == "village" else "m_" + MENU[i][0]] if i<4 else (expedition.textures.explore if i==4 else expedition.textures.alchemy)
+		_ui_texture_rect(ic,Rect2(p.x+3,py,34,34))
+		_text("낚시터" if i == 0 and scene == "village" else MENU[i][1], Vector2(p.x + 20, py + 47), 9, Color("fff0d1"), true, 40)
+		items.append(Rect2(p.x, p.y, 40, 53))
 	ui_rects.m_items = items
 
 func _menu_press(pos: Vector2) -> bool:
@@ -2551,6 +2561,8 @@ func _menu_press(pos: Vector2) -> bool:
 				"bag": market_open = true;market_sell = false
 				"book": personal_dex.open(self)
 				"gear": settings_open = true
+				"explore": expedition.open(self,"explore")
+				"alchemy": expedition.open(self,"alchemy")
 			return true
 	return true
 
@@ -2571,7 +2583,7 @@ func _save_game() -> void :
 	var ok: bool = preload("res://addons/reservoir/save_store.gd").write("user://save.json", {"buyback":buyback.serialize(),"regional_progress":progression.serialize(),"active_region":active_region,"region_shop": region_shop.serialize(), "equipment": equipment.serialize(), "mail_read": mailbox.read_ids, "mail_deleted": mailbox.deleted_ids, "v": SAVE_VER, "gold": gold, "pearl": pearl, "bag": bag_items(), "bag_lv": bag_lv, "parts": parts_owned, "tips": tips_seen,
 		"town_zoom": V.zoom, "boat_lv": boat_lv, "town_lv": town_lv, "forge_lv": forge_lv, "rod_lv": rod_lv, "rod_owned": rod_owned, "rod_enh": rod_enh, "protection_tickets": protection_tickets, "forge_pending": forge_pending, "forge_seen": forge_seen, 
 		"pond_cap_lv": pond_cap_lv, "pond_regen_lv": pond_regen_lv, "pond_stock": pond_stock, 
-		"bait": bait, "souls": souls, "aqua_lv": aqua_lv, "aqua": aqua, "dex": DEX, "personal_dex": personal_dex.serialize(), "catch_counts": catch_counts, "catch_legacy": catch_legacy, "world_time": environment.day_seconds, "time": Time.get_unix_time_from_system()})
+		"expedition": expedition.data.serialize(), "bait": bait, "souls": souls, "aqua_lv": aqua_lv, "aqua": aqua, "dex": DEX, "personal_dex": personal_dex.serialize(), "catch_counts": catch_counts, "catch_legacy": catch_legacy, "world_time": environment.day_seconds, "time": Time.get_unix_time_from_system()})
 	if not ok and not save_warning:
 		save_warning=true;tip_txt="저장 실패 · 저장 공간을 확인해 주세요";tip_t=8.0
 	elif ok: save_warning=false
@@ -2585,6 +2597,7 @@ func aqua_rate() -> float:
 func _load_game() -> void :
 	var d: Dictionary = preload("res://addons/reservoir/save_store.gd").read("user://save.json")
 	if d.is_empty(): return
+	expedition.data.restore(d.get("expedition",{}))
 	mailbox.read_ids = d.get("mail_read", []);mailbox.deleted_ids = d.get("mail_deleted", [])
 	environment.day_seconds = maxf(0.0, float(d.get("world_time", 0.0)))
 	gold = int(d.get("gold", 0));pearl = int(d.get("pearl", 0));bag_lv = int(d.get("bag_lv", 0))

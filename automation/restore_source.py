@@ -29,4 +29,6 @@ for source in (repo/"game").rglob("*"):
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(source, target)
 assert (output/"project.godot").is_file() and (output/"root.tscn").is_file()
+import subprocess
+subprocess.run([sys.executable,str(repo/"automation/prepare_expedition_assets.py"),str(output)],check=True)
 print("FULL SOURCE RESTORE VERIFIED")
