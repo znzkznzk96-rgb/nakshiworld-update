@@ -1,0 +1,32 @@
+[
+  {
+    "before": "1s0",
+    "after": "1s1",
+    "pairs": 33750,
+    "win_to_loss": 0
+  },
+  {
+    "before": "1s1",
+    "after": "1s2",
+    "pairs": 33750,
+    "win_to_loss": 0
+  },
+  {
+    "before": "1s2",
+    "after": "1s3",
+    "pairs": 33750,
+    "win_to_loss": 0
+  },
+  {
+    "before": "2s0",
+    "after": "2s3",
+    "pairs": 33750,
+    "win_to_loss": 0
+  },
+  {
+    "before": "1s3",
+    "after": "2s3",
+    "pairs": 33750,
+    "win_to_loss": 0
+  }
+]

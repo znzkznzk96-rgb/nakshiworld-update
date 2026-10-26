@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
   "work_branch": "work/valley-runtime",
-  "status": "hard_balance_implemented",
+  "status": "hard_balance_verified_unreleased",
   "current_task": "1-3부터 무강화1성이 막히는 어려운 성장곡선 재조정",
   "release_baseline": "v0.80",
   "source_commit": "a74e060d8eda34ab6650c0d2d3d72d9e646b990d",
@@ -9,7 +9,7 @@
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
   "verification": "analysis/expedition-hard-081/REPORT.md",
-  "next_step": "작업 브랜치 자동검사 확인. 공개배포는 별도.",
+  "next_step": "요청 시 공개 배포 절차 진행. 현재 공개0.80 유지.",
   "updated_at": "2026-10-26",
   "last_release_deployed": true,
   "this_change": {
@@ -24,7 +24,11 @@
     "original_files_missing": 0,
     "candidate_fights": 671875,
     "runtime_comparison_fights": 248750,
-    "save_cases": 60
+    "save_cases": 60,
+    "verified_code_commit": "1c29d648feae58069a7c494a6bb32ab7bf1494da",
+    "ci_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/actions/runs/40309905842",
+    "growth_pairs": 168750,
+    "ci_status": "success"
   },
   "pending_decisions": [
     "계곡은 기존 미승인 수치·입장 준비중 유지. 라이선스 수령과 별도."
