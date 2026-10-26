@@ -212,7 +212,7 @@ func battle_art(m,r: Rect2) -> void:
 			if int(fx.get("blocked",0))>0: floating_value(m,Vector2(x+20,ground-fh+21),"◇%d"%int(fx.blocked),Color("96dcfa"),age-.38)
 		if int(f.shield)>0 and int(f.hp)>0: m._ui_arc(Vector2(x+25,ground-16),17,-1.5,1.5,9,Color("f5df83"),1)
 		for event in fx.get("support",[]):
-			if int(event.target)!=int(f.get("uid",-1)) or age>=.75 or int(f.hp)<=0: continue
+			if int(event.target)!=int(f.get("uid",-1)) or age>=.75 or int(f.hp)<=0 or int(event.amount)<=0: continue
 			floating_value(m,Vector2(x+20,ground-19),("보호 +%d" if event.kind=="ward" else "회복 +%d")%int(event.amount),Color("79f1b4") if event.kind!="ward" else Color("96dcfa"),age)
 			var color: Color=Color("53e6bc") if event.kind!="ward" else Color("f7d65b")
 			color.a=1.0-smoothstep(.35,.75,age)
@@ -310,6 +310,7 @@ func draw_explore(m,y: float,bottom: float) -> void:
 		for i in b.fighters.size():
 			var f: Dictionary=b.fighters[i]
 			m._text("%s  %d/%d"%[data.catalog.soldiers[int(f.id)].name,int(f.hp),int(f.max_hp)],Vector2(25,y+130+i*20),10,Color("382619"),false,220)
+		m._text("지원 총량: 병사별 HP 35% · 적마다 회복" if int(b.get("utility_revision",0))>=1 else "기존 탐험 규칙 · 다음 출발부터 지원 개선",Vector2(135,y+187),7,Color("6c553b"),true,220)
 		m._text(("조우 %d/3 · 클리어하면 %d비늘"%[mini(3,int(b.index)+1),(26 if bool(b.first) else 2)*int(b.round)]) if int(b.get("reward_revision",0))>=1 else ("조우 %d/3 · 획득 %d비늘"%[mini(3,int(b.index)+1),int(b.reward)]),Vector2(135,y+203),10,Color("382619"),true,220)
 		if data.active():
 			button(m,"minimize",Rect2(22,bottom-65,226,29),"마을에서 진행 보기")

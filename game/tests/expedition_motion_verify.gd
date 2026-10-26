@@ -43,7 +43,7 @@ func run():
 		var b=Model.new();var skill: String=b.catalog.soldiers[id].skill
 		if skill not in ["heal","regen","ward"]: continue
 		for j in [3,0,id]: b.team.append(b.add_unit(j,2,[0,0,0]).uid)
-		b.start(1,1000);b.battle.enemy.hp=100000;b.battle.enemy.atk=1;b.battle.ticks=2
+		b.start(1,1000);b.battle.utility_revision=0;b.battle.enemy.hp=100000;b.battle.enemy.atk=1;b.battle.ticks=2
 		b.battle.fighters[0].hp=100;b.tick()
 		check(b.battle.fx.support.size()==1,skill+" emits one actual event")
 		var event: Dictionary=b.battle.fx.support[0]

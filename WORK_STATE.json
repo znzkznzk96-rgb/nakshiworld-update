@@ -1,17 +1,18 @@
 {
   "schema_version": 3,
   "work_branch": "work/valley-runtime",
-  "status": "support_release_extended_validation",
+  "status": "v086_pre_release_verified",
   "release_baseline": "v0.85",
   "source_commit": "68d3f23a5eb18a09b0f5f6a6b057423f0b89bf08",
-  "current_task": "지원 무한지속 회복문제 보완: 교전별35%총량상한 확대검증",
+  "current_task": "지원유틸·개별HP/피해 구현 및 확대검증완료,공개배포진행",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
-  "verification": "analysis/combat-feedback-085/VERIFICATION.json",
+  "verification": "analysis/support-release-086/VERIFICATION.json",
   "phone_verified": false,
   "release_authorized": true,
-  "next_step": "육성20상태의3슬롯조합 전수와IV경계/런타임검증 후 구현·v0.86 배포",
+  "next_step": "작업CI 확인→승인된main병합→공개3파일/운영다운로드검증",
   "updated_at": "2026-10-27",
   "support_audit": "analysis/support-balance-085/REPORT.md",
-  "support_utility_report": "analysis/support-utility-085/REPORT.md"
+  "support_utility_report": "analysis/support-utility-085/REPORT.md",
+  "target_release": "v0.86"
 }

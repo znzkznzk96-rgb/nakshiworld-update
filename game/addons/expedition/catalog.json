@@ -185,7 +185,7 @@
         }
       },
       "skill": "curse",
-      "description": "적의 방어력을 낮춤",
+      "description": "생존 중 아군 일반공격 피해 15% 증가",
       "elements": [
         4,
         4
@@ -263,7 +263,7 @@
         }
       },
       "skill": "regen",
-      "description": "선두 아군의 체력을 꾸준히 회복",
+      "description": "공격하며 3초마다 선두 체력 회복",
       "elements": [
         0,
         2
@@ -302,7 +302,7 @@
         }
       },
       "skill": "heal",
-      "description": "체력이 가장 낮은 아군을 회복",
+      "description": "위험한 피격 직전 긴급 회복",
       "elements": [
         0,
         3
@@ -380,7 +380,7 @@
         }
       },
       "skill": "weaken",
-      "description": "적의 공격력을 낮춤",
+      "description": "생존 중 적 공격력 20% 감소",
       "elements": [
         1,
         2
@@ -497,7 +497,7 @@
         }
       },
       "skill": "ward",
-      "description": "선두 아군에게 주기적으로 보호막",
+      "description": "위험한 피격 전에 보호막 부여",
       "elements": [
         2,
         3
