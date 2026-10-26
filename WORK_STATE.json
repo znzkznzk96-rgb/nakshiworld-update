@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
   "work_branch": "work/valley-runtime",
-  "status": "release081_building",
+  "status": "release081_startup_optimization_verifying",
   "current_task": "어혼주머니 시안3종·0.81 배포·업데이트 없는 시작 지연 조사",
   "release_baseline": "v0.80",
   "source_commit": "a74e060d8eda34ab6650c0d2d3d72d9e646b990d",
@@ -9,7 +9,7 @@
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
   "verification": "analysis/soul-pouch-081/REPORT.md",
-  "next_step": "공개빌드완료 후 전체소스/PCK/manifest/운영다운로드 검증",
+  "next_step": "40검사·최신main재빌드·공개실물검증; 게시전main변경하지않음",
   "updated_at": "2026-10-26",
   "last_release_deployed": true,
   "this_change": {
@@ -38,8 +38,8 @@
       "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/actions/runs/40320966923",
       "regressions": 39
     },
-    "server_deployed": true,
-    "release_build_run": 40327640590
+    "startup_fix": "prebake130 same-pixel images",
+    "server_deployed": true
   },
   "pending_decisions": [
     "계곡은 기존 미승인 수치·입장 준비중 유지. 라이선스 수령과 별도."
