@@ -1,0 +1,197 @@
+{
+  "date": "2026-10-27",
+  "baseline": "v0.85",
+  "baseline_commit": "68d3f23a5eb18a09b0f5f6a6b057423f0b89bf08",
+  "checks": [
+    {
+      "suite": "equipment",
+      "ok": true
+    },
+    {
+      "suite": "visual",
+      "ok": true
+    },
+    {
+      "suite": "bag_event_order",
+      "ok": true
+    },
+    {
+      "suite": "bag_formation",
+      "ok": true
+    },
+    {
+      "suite": "selected_ui",
+      "ok": true
+    },
+    {
+      "suite": "bag_interaction",
+      "ok": true
+    },
+    {
+      "suite": "startup_assets",
+      "ok": true
+    },
+    {
+      "suite": "soul_pouch",
+      "ok": true
+    },
+    {
+      "suite": "expedition_label",
+      "ok": true
+    },
+    {
+      "suite": "bundle_aqua",
+      "ok": true
+    },
+    {
+      "suite": "expedition080",
+      "ok": true
+    },
+    {
+      "suite": "testing_gift",
+      "ok": true
+    },
+    {
+      "suite": "soldier_dex",
+      "ok": true
+    },
+    {
+      "suite": "approved_ui",
+      "ok": true
+    },
+    {
+      "suite": "expedition",
+      "ok": true
+    },
+    {
+      "suite": "action_readability",
+      "ok": true
+    },
+    {
+      "suite": "economy_balance",
+      "ok": true
+    },
+    {
+      "suite": "rod_aura",
+      "ok": true
+    },
+    {
+      "suite": "atmosphere_encounter",
+      "ok": true
+    },
+    {
+      "suite": "angler_scene",
+      "ok": true
+    },
+    {
+      "suite": "market_reader",
+      "ok": true
+    },
+    {
+      "suite": "odds_rewards",
+      "ok": true
+    },
+    {
+      "suite": "guide",
+      "ok": true
+    },
+    {
+      "suite": "shop",
+      "ok": true
+    },
+    {
+      "suite": "audio_save",
+      "ok": true
+    },
+    {
+      "suite": "bundle_preview",
+      "ok": true
+    },
+    {
+      "suite": "rewards",
+      "ok": true
+    },
+    {
+      "suite": "reader",
+      "ok": true
+    },
+    {
+      "suite": "fish_surface",
+      "ok": true
+    },
+    {
+      "suite": "regional",
+      "ok": true
+    },
+    {
+      "suite": "inventory_layout",
+      "ok": true
+    },
+    {
+      "suite": "bag_list",
+      "ok": true
+    },
+    {
+      "suite": "bundles_buyback",
+      "ok": true
+    },
+    {
+      "suite": "owner_gauge",
+      "ok": true
+    },
+    {
+      "suite": "reservoir_layers",
+      "ok": true
+    },
+    {
+      "suite": "personal_dex",
+      "ok": true
+    },
+    {
+      "suite": "bait_roles",
+      "ok": true
+    },
+    {
+      "suite": "measurement_speed",
+      "ok": true
+    },
+    {
+      "suite": "village_entry_audio",
+      "ok": true
+    },
+    {
+      "suite": "expedition_motion",
+      "ok": true
+    },
+    {
+      "suite": "expedition_balance",
+      "ok": true
+    },
+    {
+      "suite": "expedition_save",
+      "ok": true
+    },
+    {
+      "suite": "expedition079",
+      "ok": true
+    },
+    {
+      "suite": "expedition_hard_balance",
+      "ok": true
+    },
+    {
+      "suite": "combat",
+      "ok": true
+    }
+  ],
+  "source_sha256": {
+    "addons/expedition/model.gd": "dd5f990aa8430476c39a006abbabd17934043be73b2afa195a189f805dc15a4d",
+    "addons/expedition/view.gd": "0ea699c5f645a068f94b2ab4e5c9ed8d5fb1a08d33069e29e2faf97d837dc3c0",
+    "tests/combat_feedback_verify.gd": "1b9ec8ecfd207b3ed086a7998541da0ac7d8ce568642b93842f29584584b0aa3",
+    "tests/combat_feedback_baseline.gd": "499c46b6661eee385fda97b9b709025d7f871dccc18f4d7f2c421fd3edae767e",
+    "tests/combat_feedback_preview.gd": "206ace2cbbd06b2245257dca21acb9515ac8cd3400ae50a070948701fb640897"
+  },
+  "visual": "Godot 4.4.1 OpenGL llvmpipe actual village and detail screenshots checked; 3 HP bars and separate role damage visible",
+  "phone_verified": false,
+  "deployed": false
+}

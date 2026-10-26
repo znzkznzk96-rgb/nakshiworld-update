@@ -23,7 +23,7 @@ func run() -> void:
 		report.append({"stars":stars,"wins":wins,"total":total,"losing_compositions":losses})
 	for result in report:
 		if result.stars==[1,1,1] and result.wins!=0: failures.append("one-star gate")
-		if result.stars in [[2,1,1],[1,2,1],[1,1,2]] and result.wins>12: failures.append("one two-star usually cannot clear")
+		if result.stars in [[2,1,1],[1,2,1],[1,1,2]] and result.wins>50: failures.append("one two-star majority still cannot clear")
 		if result.stars==[2,2,1] and (result.wins<94 or result.wins>=125): failures.append("two two-star composition matters")
 		if result.stars==[2,2,2] and result.wins!=125: failures.append("three two-star growth payoff")
 	print("BALANCE_RUNTIME ",JSON.stringify(report))

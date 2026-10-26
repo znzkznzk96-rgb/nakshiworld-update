@@ -1,0 +1,250 @@
+{
+  "source_baseline": "v0.85",
+  "version_candidate": "0.86",
+  "simulations": {
+    "initial": 50000000,
+    "final": 50000000,
+    "growth_states_per_soldier": 20,
+    "growth_triples": 8000,
+    "role_formations": [
+      "DAA",
+      "DAS",
+      "DSS",
+      "SSS"
+    ],
+    "species_per_role": 5,
+    "rooms": 10,
+    "full_sweep_IV": [
+      4,
+      4,
+      4
+    ],
+    "note": "No exhaustive claim for all independent IV vectors or every formation order"
+  },
+  "engine_parity": {
+    "initial": 9000,
+    "final": 9000,
+    "mismatches": 0,
+    "includes_all_8000_growth_triples": true,
+    "IV": "independent deterministic sampled 0..8 per stat and slot",
+    "legacy_cases": 1000
+  },
+  "regressions": [
+    {
+      "suite": "bag_event_order",
+      "ok": true
+    },
+    {
+      "suite": "bag_formation",
+      "ok": true
+    },
+    {
+      "suite": "selected_ui",
+      "ok": true
+    },
+    {
+      "suite": "bag_interaction",
+      "ok": true
+    },
+    {
+      "suite": "startup_assets",
+      "ok": true
+    },
+    {
+      "suite": "soul_pouch",
+      "ok": true
+    },
+    {
+      "suite": "expedition_hard_balance",
+      "ok": true
+    },
+    {
+      "suite": "expedition_label",
+      "ok": true
+    },
+    {
+      "suite": "bundle_aqua",
+      "ok": true
+    },
+    {
+      "suite": "expedition080",
+      "ok": true
+    },
+    {
+      "suite": "expedition079",
+      "ok": true
+    },
+    {
+      "suite": "testing_gift",
+      "ok": true
+    },
+    {
+      "suite": "soldier_dex",
+      "ok": true
+    },
+    {
+      "suite": "approved_ui",
+      "ok": true
+    },
+    {
+      "suite": "expedition_motion",
+      "ok": true
+    },
+    {
+      "suite": "expedition",
+      "ok": true
+    },
+    {
+      "suite": "expedition_save",
+      "ok": true
+    },
+    {
+      "suite": "expedition_balance",
+      "ok": true
+    },
+    {
+      "suite": "action_readability",
+      "ok": true
+    },
+    {
+      "suite": "economy_balance",
+      "ok": true
+    },
+    {
+      "suite": "rod_aura",
+      "ok": true
+    },
+    {
+      "suite": "atmosphere_encounter",
+      "ok": true
+    },
+    {
+      "suite": "angler_scene",
+      "ok": true
+    },
+    {
+      "suite": "market_reader",
+      "ok": true
+    },
+    {
+      "suite": "odds_rewards",
+      "ok": true
+    },
+    {
+      "suite": "reservoir_layers",
+      "ok": true
+    },
+    {
+      "suite": "owner_gauge",
+      "ok": true
+    },
+    {
+      "suite": "bag_list",
+      "ok": true
+    },
+    {
+      "suite": "bundles_buyback",
+      "ok": true
+    },
+    {
+      "suite": "equipment",
+      "ok": true
+    },
+    {
+      "suite": "visual",
+      "ok": true
+    },
+    {
+      "suite": "guide",
+      "ok": true
+    },
+    {
+      "suite": "shop",
+      "ok": true
+    },
+    {
+      "suite": "audio_save",
+      "ok": true
+    },
+    {
+      "suite": "bundle_preview",
+      "ok": true
+    },
+    {
+      "suite": "rewards",
+      "ok": true
+    },
+    {
+      "suite": "reader",
+      "ok": true
+    },
+    {
+      "suite": "fish_surface",
+      "ok": true
+    },
+    {
+      "suite": "regional",
+      "ok": true
+    },
+    {
+      "suite": "inventory_layout",
+      "ok": true
+    },
+    {
+      "suite": "personal_dex",
+      "ok": true
+    },
+    {
+      "suite": "bait_roles",
+      "ok": true
+    },
+    {
+      "suite": "measurement_speed",
+      "ok": true
+    },
+    {
+      "suite": "village_entry_audio",
+      "ok": true
+    },
+    {
+      "suite": "combat_feedback",
+      "ok": true
+    },
+    {
+      "suite": "support_utility",
+      "ok": true
+    }
+  ],
+  "json_resume_cases": 890,
+  "phone_verified": false,
+  "deployed": false,
+  "evidence_sha256": "ad2d97e79de8d28fca26a5bd6f44cf1f4c261d79fda1ca5f153125f25d9bcd88",
+  "runtime_sha256": {
+    "addons/expedition/model.gd": "fcb3df55285d9c33c76264883727ef1449373381a830631699987ef11ef7f32e",
+    "addons/expedition/view.gd": "7f39462950eee4c4520ec06e007522c5b2f34b99d39a6211b6eba83582ee0950",
+    "addons/expedition/catalog.json": "7f8f7737317f8135521319a92aac5b0dd80b1af9d583cdaa004e2734cab8c3a4"
+  },
+  "evidence_parts": [
+    {
+      "path": "evidence.zip.part000",
+      "size": 100000,
+      "sha256": "73ff025edac166e904368b7e337a730719fc5a91e90fe96b8e5516d43d8b984e"
+    },
+    {
+      "path": "evidence.zip.part001",
+      "size": 100000,
+      "sha256": "f4fa07cac8ca4f5fd191e3abd902666ac43e8f09f532fa4052a67465b7b0a536"
+    },
+    {
+      "path": "evidence.zip.part002",
+      "size": 61454,
+      "sha256": "39461aa856766c463d43012ca6fce1467829b363f292b752b4822cde20a43c41"
+    }
+  ],
+  "screenshots": {
+    "support_detail_660.png": "b87787384dd22e7b6661b47e42271115afaa075c278687fc24235940453fe713",
+    "support_village_480.png": "771b117e5ade0820b09d8127516fc4f78d13907dbc4b26e9cc5d6d343f8992dc",
+    "support_village_660.png": "f169d6d28b720dbac414ed5bd9f644608a9b095572107b913a5f431c7b16f0b2",
+    "support_detail_480.png": "df57173ef4b70b5a4e08d6dc0f76d40b24edbadc9fca0fe63349fc832701bc07"
+  }
+}

@@ -1,38 +1,18 @@
 {
   "schema_version": 3,
   "work_branch": "work/valley-runtime",
-  "status": "pixellab_three_upgrade_animations",
-  "current_task": "PixelLab 낚싯대강화·어혼연성·병사강화 애니메이션 제작",
-  "release_baseline": "v0.84",
-  "source_commit": "7e01933c67f306c56f3bf91895eef7e0d13fdb92",
-  "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v0.84",
+  "status": "v086_pre_release_verified",
+  "release_baseline": "v0.85",
+  "source_commit": "68d3f23a5eb18a09b0f5f6a6b057423f0b89bf08",
+  "current_task": "지원유틸·개별HP/피해 구현 및 확대검증완료,공개배포진행",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
-  "verification": "analysis/release-084/PUBLIC_VERIFICATION.json",
-  "next_step": "기존원본으로3종 순차생성·동작검수·움직이는 미리보기. 미승인 재생성 없음.",
+  "verification": "analysis/support-release-086/VERIFICATION.json",
+  "phone_verified": false,
+  "release_authorized": true,
+  "next_step": "작업CI 확인→승인된main병합→공개3파일/운영다운로드검증",
   "updated_at": "2026-10-27",
-  "last_release_deployed": true,
-  "this_change": {
-    "implemented": false,
-    "deployed": false,
-    "release_authorized": false
-  },
-  "pending_decisions": [
-    "계곡은 기존 미승인 수치·입장 준비중 유지. 라이선스 수령과 별도."
-  ],
-  "previous_full_state": {
-    "commit": "c39553e83004fa46dc7b369a39501efa63b90ef7",
-    "path": "WORK_STATE.json",
-    "note": "이전 상세 상태 원문은 해당 Git 버전에 보존. 새 상태에는 공개용 진행 정보만 기록."
-  },
-  "checks": {
-    "regression": 44,
-    "work_ci": 40352738073,
-    "release_ci": 40353309367,
-    "gateway_ci": 40353830791,
-    "all_ci": "success",
-    "public_files": 3,
-    "source_files": 255,
-    "phone_verified": false
-  }
+  "support_audit": "analysis/support-balance-085/REPORT.md",
+  "support_utility_report": "analysis/support-utility-085/REPORT.md",
+  "target_release": "v0.86"
 }

@@ -182,7 +182,7 @@ func start(round_no: int,now: float) -> bool:
 		if u.is_empty(): return false
 		var st: Dictionary=stats(u)
 		fighters.append({"id":u.id,"uid":u.uid,"hp":st.hp,"max_hp":st.hp,"atk":st.atk,"def":st.def,"shield":0,"hits":0})
-	battle={"reward_revision":1,"pouch_reward":0,"repeat_pouch_roll":rng.randf(),"balance_revision":BALANCE_REVISION,"status":"running","round":round_no,"index":0,"fighters":fighters,"ticks":0,"clock":0.0,"phase":"approach","phase_time":0.0,"reward":0,"cleared":0,"first":round_no not in completed,"last_damage":0,"progress":0.0,"result_seen":false}
+	battle={"utility_revision":1,"utility_tick":0,"rescue_ready":0,"ward_ready":0,"reward_revision":1,"pouch_reward":0,"repeat_pouch_roll":rng.randf(),"balance_revision":BALANCE_REVISION,"status":"running","round":round_no,"index":0,"fighters":fighters,"ticks":0,"clock":0.0,"phase":"approach","phase_time":0.0,"reward":0,"cleared":0,"first":round_no not in completed,"last_damage":0,"progress":0.0,"result_seen":false}
 	spawn_enemy()
 	return true
 
@@ -196,6 +196,8 @@ func spawn_enemy() -> void:
 			break
 	for f in battle.fighters:
 		if int(f.hp)>0 and skill(f)=="shield": f.shield=roundi(int(f.max_hp)*(START_SHIELD_RATIO if revised else 0.22))
+	if int(battle.get("utility_revision",0))>=1:
+		for f in battle.fighters: f.support_budget=roundi(int(f.max_hp)*0.35)
 	battle.fx={};battle.ticks=0;battle.clock=0.0;battle.phase="approach";battle.phase_time=0.0
 
 func skill(f: Dictionary) -> String:
@@ -208,6 +210,10 @@ func hurt(f: Dictionary,amount: int) -> void:
 	var blocked: int=mini(int(f.shield),amount);f.shield-=blocked;f.hp=maxi(0,int(f.hp)-amount+blocked)
 
 func tick() -> void:
+	if int(battle.get("utility_revision",0))>=1: tick_utility()
+	else: tick_legacy()
+
+func tick_legacy() -> void:
 	var living: Array=battle.fighters.filter(func(f): return int(f.hp)>0)
 	if living.is_empty(): finish(false);return
 	battle.ticks+=1
@@ -223,6 +229,8 @@ func tick() -> void:
 	battle.fx={"front_hp_before":int(front.hp),"enemy_hp_before":int(enemy.hp),"age":0.0,"hit_uid":int(front.uid),"death_uid":-1,"support":[],"enemy_hit":true}
 	var attack: int=roundi(int(enemy.poison)*POWER)
 	var heals: Array=[]
+	battle.fx.attacks=[]
+	battle.fx.poison_damage=attack
 	for f in living:
 		var sk: String=skill(f)
 		if int(battle.ticks)%3==0 and sk in ["regen","heal","ward"]:
@@ -230,7 +238,9 @@ func tick() -> void:
 		var power: float=float(f.atk)
 		if int(battle.ticks)%3==0 and sk=="bolt": power*=1.75
 		if int(battle.ticks)%3==0 and sk=="flurry": power*=1.5
-		attack+=damage(power,enemy_def*0.5 if sk=="pierce" else enemy_def)
+		var dealt: int=damage(power,enemy_def*0.5 if sk=="pierce" else enemy_def)
+		attack+=dealt
+		battle.fx.attacks.append({"source":int(f.uid),"role":str(catalog.soldiers[int(f.id)].role),"amount":dealt})
 		if sk=="drain": f.hp=mini(int(f.max_hp),int(f.hp)+roundi(power*0.18*POWER))
 		if sk=="poison": enemy.poison=mini(18,int(enemy.poison)+maxi(1,roundi(power*0.08)))
 	var incoming: int=damage(enemy_atk,float(front.def))
@@ -238,8 +248,12 @@ func tick() -> void:
 	battle.fx.incoming=mini(int(front.hp),incoming-int(battle.fx.blocked))
 	hurt(front,incoming);front.hits+=1
 	if skill(front)=="thorns": enemy.poison=mini(18,int(enemy.poison)+3)
-	if skill(front)=="reflect": attack+=roundi(incoming*0.25)
-	if skill(front)=="counter" and int(front.hits)%3==0: attack+=damage(float(front.atk)*1.5,enemy_def)
+	var retaliation: int=0
+	if skill(front)=="reflect": retaliation+=roundi(incoming*0.25)
+	if skill(front)=="counter" and int(front.hits)%3==0: retaliation+=damage(float(front.atk)*1.5,enemy_def)
+	attack+=retaliation
+	for event in battle.fx.attacks:
+		if int(event.source)==int(front.uid): event.amount+=retaliation
 	if skill(front)=="mend" and int(front.hp)>0: front.hp=mini(int(front.max_hp),int(front.hp)+roundi(incoming*0.15))
 	for heal in heals:
 		var survivors: Array=battle.fighters.filter(func(f): return int(f.hp)>0)
@@ -310,3 +324,107 @@ func claim() -> Dictionary:
 		reward.soul=(int(battle.round)-1)%5;souls[int(reward.soul)]+=1
 	battle={}
 	return reward
+
+const UTILITY_PROFILE = {"regen":0.035,"rescue":0.15,"ward":0.075,"cd":5,"threshold":0.35,"expose":0.15}
+# Timers live inside battle and therefore share its existing atomic save transaction.
+func utility_source(kind: String) -> Dictionary:
+	var best: Dictionary={}
+	var growth: float=-1.0
+	for f in battle.fighters:
+		if int(f.hp)<=0 or skill(f)!=kind: continue
+		var value: float=float(f.max_hp)/float(catalog.soldiers[int(f.id)].stars["1"].hp)
+		if value>growth: best=f;growth=value
+	return best
+func utility_hurt(f: Dictionary,amount: int) -> void:
+	var living: Array=battle.fighters.filter(func(v):return int(v.hp)>0)
+	# Team-shared cooldowns and non-stacking effects prevent duplicate utility spam.
+	if battle.utility_tick>=battle.ward_ready and (amount>=int(f.max_hp)*.08 or int(f.hp)<=int(f.max_hp)*.5):
+		for ally in living:
+			if int(ally.uid)!=int(utility_source("ward").get("uid",-1)):continue
+			var before: int=int(f.shield)
+			f.shield=mini(roundi(int(f.max_hp)*.25),int(f.shield)+mini(int(f.get("support_budget",0)),roundi(utility_base(f,ally)*float(UTILITY_PROFILE.ward))))
+			f.support_budget=maxi(0,int(f.get("support_budget",0))-(int(f.shield)-before))
+			battle.fx.support.append({"source":int(ally.uid),"target":int(f.uid),"kind":"ward","amount":int(f.shield)-before});battle.ward_ready=battle.utility_tick+3
+			break
+	var projected: int=int(f.hp)-maxi(0,amount-int(f.shield))
+	if battle.utility_tick>=battle.rescue_ready and projected<=int(f.max_hp)*float(UTILITY_PROFILE.threshold):
+		for ally in living:
+			if int(ally.uid)!=int(utility_source("heal").get("uid",-1)):continue
+			var before: int=int(f.hp)
+			f.hp=mini(int(f.max_hp),int(f.hp)+mini(int(f.get("support_budget",0)),roundi(utility_base(f,ally)*float(UTILITY_PROFILE.rescue))))
+			f.support_budget=maxi(0,int(f.get("support_budget",0))-(int(f.hp)-before))
+			battle.fx.support.append({"source":int(ally.uid),"target":int(f.uid),"kind":"heal","amount":int(f.hp)-before});battle.rescue_ready=battle.utility_tick+int(UTILITY_PROFILE.cd)
+			break
+	battle.fx.front_hp_before=int(f.hp)
+	battle.fx.blocked=mini(int(f.shield),amount)
+	battle.fx.incoming=mini(int(f.hp),amount-int(battle.fx.blocked))
+	var blocked: int=mini(int(f.shield),amount);f.shield-=blocked;f.hp=maxi(0,int(f.hp)-amount+blocked)
+func tick_utility() -> void:
+	var living: Array=battle.fighters.filter(func(f): return int(f.hp)>0)
+	if living.is_empty(): finish(false);return
+	battle.ticks+=1
+	battle.utility_tick=int(battle.get("utility_tick",0))+1
+	var enemy: Dictionary=battle.enemy
+	var front: Dictionary=living[0]
+	var enemy_def: float=float(enemy.defense)
+	var enemy_atk: float=float(enemy.atk)
+	for f in living:
+		if skill(f)=="curse": pass # replaced with team exposure
+		if skill(f)=="weaken": enemy_atk*=0.8
+	# Debuffs do not multiply with duplicate soldiers.
+	enemy_def=maxf(enemy_def,float(enemy.defense)*0.7);enemy_atk=maxf(enemy_atk,float(enemy.atk)*0.8)
+	battle.fx={"front_hp_before":int(front.hp),"enemy_hp_before":int(enemy.hp),"age":0.0,"hit_uid":int(front.uid),"death_uid":-1,"support":[],"enemy_hit":true}
+	var attack: int=roundi(int(enemy.poison)*POWER)
+	var heals: Array=[]
+	battle.fx.attacks=[]
+	battle.fx.poison_damage=attack
+	for f in living:
+		var sk: String=skill(f)
+		if int(battle.utility_tick)%2==0 and sk=="regen" and int(f.uid)==int(utility_source("regen").get("uid",-1)):
+			heals.append([sk,int(f.atk),int(f.uid)])
+		var power: float=float(f.atk)
+		if int(battle.ticks)%3==0 and sk=="bolt": power*=1.75
+		if int(battle.ticks)%3==0 and sk=="flurry": power*=1.5
+		var dealt: int=damage(power,enemy_def*0.5 if sk=="pierce" else enemy_def)
+		if living.any(func(v):return skill(v)=="curse"): dealt=roundi(dealt*(1.0+float(UTILITY_PROFILE.expose)))
+		attack+=dealt
+		battle.fx.attacks.append({"source":int(f.uid),"role":str(catalog.soldiers[int(f.id)].role),"amount":dealt})
+		if sk=="drain": f.hp=mini(int(f.max_hp),int(f.hp)+roundi(power*0.18*POWER))
+		if sk=="poison": enemy.poison=mini(18,int(enemy.poison)+maxi(1,roundi(power*0.08)))
+	var incoming: int=damage(enemy_atk,float(front.def))
+	battle.fx.blocked=mini(int(front.shield),incoming)
+	battle.fx.incoming=mini(int(front.hp),incoming-int(battle.fx.blocked))
+	utility_hurt(front,incoming);front.hits+=1
+	if skill(front)=="thorns": enemy.poison=mini(18,int(enemy.poison)+3)
+	var retaliation: int=0
+	if skill(front)=="reflect": retaliation+=roundi(incoming*0.25)
+	if skill(front)=="counter" and int(front.hits)%3==0: retaliation+=damage(float(front.atk)*1.5,enemy_def)
+	attack+=retaliation
+	for event in battle.fx.attacks:
+		if int(event.source)==int(front.uid): event.amount+=retaliation
+	if skill(front)=="mend" and int(front.hp)>0: front.hp=mini(int(front.max_hp),int(front.hp)+roundi(incoming*0.15))
+	for heal in heals:
+		var survivors: Array=battle.fighters.filter(func(f): return int(f.hp)>0)
+		if survivors.is_empty(): break
+		var target: Dictionary=survivors[0]
+		if heal[0]=="heal":
+			for f in survivors:
+				if float(f.hp)/float(f.max_hp)<float(target.hp)/float(target.max_hp): target=f
+		var old_hp: int=int(target.hp);var old_shield: int=int(target.shield)
+		if heal[0]=="ward": target.shield=mini(roundi(int(target.max_hp)*0.25),int(target.shield)+roundi(int(heal[1])*POWER))
+		else: target.hp=mini(int(target.max_hp),int(target.hp)+mini(int(target.get("support_budget",0)),roundi(utility_base(target,battle.fighters.filter(func(v):return int(v.uid)==int(heal[2]))[0])*float(UTILITY_PROFILE.regen))))
+		target.support_budget=maxi(0,int(target.get("support_budget",0))-(int(target.hp)-old_hp))
+		battle.fx.support.append({"source":int(heal[2]),"target":int(target.uid),"kind":str(heal[0]),"amount":int(target.shield)-old_shield if heal[0]=="ward" else int(target.hp)-old_hp})
+	if int(front.hp)<=0: battle.fx.death_uid=int(front.uid)
+	battle.fx.outgoing=mini(int(enemy.hp),attack)
+	enemy.hp=maxi(0,int(enemy.hp)-attack);battle.last_damage=attack
+	if battle.fighters.all(func(f): return int(f.hp)<=0):
+		battle.phase="defeat";battle.phase_time=0.0
+	elif int(enemy.hp)<=0:
+		battle.phase="death";battle.phase_time=0.0;battle.cleared+=1;battle.reward+=int(battle.round)*2
+	elif int(battle.ticks)>=600:
+		battle.phase="defeat";battle.phase_time=0.0
+func utility_base(target: Dictionary,source: Dictionary) -> float:
+	var target_growth: float=float(target.max_hp)/float(catalog.soldiers[int(target.id)].stars["1"].hp)
+	var source_growth: float=float(source.max_hp)/float(catalog.soldiers[int(source.id)].stars["1"].hp)
+	return float(target.max_hp)*minf(1.0,source_growth/target_growth)
