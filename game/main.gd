@@ -2526,7 +2526,7 @@ func pond_max() -> float: return 80.0 + pond_cap_lv * 20.0
 func pond_recovery() -> float: return 30.0 + pond_regen_lv * 10.0
 
 
-const MENU: = [["village", "마을"], ["bag", "가방"], ["book", "도감"], ["gear", "설정"], ["explore", "탐험"], ["alchemy", "연성"]]
+const MENU: = [["village", "마을"], ["bag", "가방"], ["book", "도감"], ["explore", "탐험"], ["alchemy", "연성"], ["gear", "설정"]]
 func _draw_menu(y0: float) -> void :
 	var mr: = Rect2(6, y0, 38, 38)
 	_ui_texture(tex_menu, mr.position)
@@ -2542,8 +2542,10 @@ func _draw_menu(y0: float) -> void :
 		var k: = clampf((ui_clock - menu_t) / 0.12 - i * 0.4, 0, 1)
 		if k <= 0: continue
 		var py: = p.y + roundf((1 - k) * 8)
-		var ic: Texture2D = icons["m_fishing" if i == 0 and scene == "village" else "m_" + MENU[i][0]] if i<4 else (expedition.textures.explore if i==4 else expedition.textures.alchemy)
-		_ui_texture_rect(ic,Rect2(p.x+3,py,34,34))
+		var ic: Texture2D = icons["m_village"] if i==0 and scene!="village" else expedition.approved["menu%d"%i]
+		var pop: float=lerpf(0.65,1.08,k/0.7) if k<0.7 else lerpf(1.08,1.0,(k-0.7)/0.3)
+		var icon_size: Vector2=(Vector2(40,34)*pop).round()
+		_ui_texture_rect(ic,Rect2((Vector2(p.x+20,py+17)-icon_size/2).round(),icon_size))
 		_text("낚시터" if i == 0 and scene == "village" else MENU[i][1], Vector2(p.x + 20, py + 47), 9, Color("fff0d1"), true, 40)
 		items.append(Rect2(p.x, p.y, 40, 53))
 	ui_rects.m_items = items

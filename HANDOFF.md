@@ -1,12 +1,10 @@
-# 현재 인수인계 — v0.76 공개배포 검증 완료
+# 현재 인수인계 — 확정 UI 누락 수정본 (미배포)
 
-사용자 ‘배포하자 ㅇㅇ’ 명시승인으로 PR #9 main병합·공개배포 완료. 소스 fc2781c22df7cb6cc1cb248c5266411f781e90cd.
+사용자가0.76의UI/아이콘누락을지적. 1000099292/293/294 첨부3장이확정기준. 기존임의SVG·반복도형방·메뉴순서·연성배치변경은실수였으며기능검사와시안일치를혼동한보고정정.
 
-- [Release v0.76](https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v0.76)
-- [공개파일/운영다운로드 검증](docs/qa/expedition-076/PUBLIC_VERIFICATION.json): sourceZIP/PCK/version.json 크기·SHA256,ZIP CRC,확정PNG151개byte-identical,운영gateway다운로드일치.
-- [구현·초기수치](docs/qa/expedition-076/IMPLEMENTATION.md). 29개검사·750편성·3화면높이 렌더통과. work CI40265436338,배포40266285889,운영검증40266447762 모두success.
-- 적용:6메뉴/탐험·연성/3인자동전투/병사15·일반18·보스4/두병사소모합성·개체한묶음계승.10R1200/80/40. 기존강화용혼과5속성어혼별도,세이브보존.
-- 기존승인 미끼가격·고갈하한·지역해금/부품가격·행동가독성 포함. 계곡입장비활성유지.
-- 자동승인검토의 이전공개배포차단은 사용자명시승인후해결. 우회없음. 과거차단기록은 VERIFICATION.json 역사로보존.
-- 다음: 휴대폰0.76적용·화면체감확인. 앱완전종료→재실행 업데이트. 앱삭제/데이터초기화 불필요. 휴대폰직접확인완료로기록하지않는다.
-- [이전인수인계](docs/historical/expedition-076-before-implementation/HANDOFF.md)
+- [수정상세](docs/qa/expedition-076/UI_CORRECTION.md)
+- 실제게임화면: [메뉴](docs/qa/approved-ui-correction/menu.png), [노선도](docs/qa/approved-ui-correction/route_480.png), [연성](docs/qa/approved-ui-correction/alchemy_480.png).
+- 원본3장은 game/art/expedition/approved/*.jpg,픽셀변경없음. 원본첨부확장자PNG와달리내용은JPEG여서확장자만정정. 메뉴/카드/방배경아틀라스좌표는view.gd. 임의저밀도SVG2개삭제.
+- 30개로컬검사통과.480/540/660높이실제Godot렌더검수,저장/편성·교환/합성검사,PCK내원본3장로딩검사통과. 코드수정은work브랜치,운영0.76과구분.
+- 운영은여전히v0.76,공개검증은 [기존배포증거](docs/qa/expedition-076/PUBLIC_VERIFICATION.json). 이번UI수정은아직공개배포하지않았음. 다음에는수정실행화면을사용자에게보이고최신요청에따라진행.
+- [이전배포인수인계](docs/historical/before-approved-ui-correction/HANDOFF.md). 기존병사/몬스터/전투/경제/세이브보존,계곡입장비활성유지.
