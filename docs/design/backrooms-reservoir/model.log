@@ -1,9 +1,0 @@
-starter_1star_lv1 OOOO------ {'win': False, 'ticks': 4, 'battle_seconds': 8, 'hp_pct': 0, 'progress': 3.4} 0
-reservoir_1star_lv5 OOOOO----- {'win': False, 'ticks': 6, 'battle_seconds': 12, 'hp_pct': 0, 'progress': 7.5} 1680
-reservoir_2star_lv8 OOOOOOOO-- {'win': False, 'ticks': 14, 'battle_seconds': 28, 'hp_pct': 0, 'progress': 34.9} 4200
-reservoir_3star_lv10 OOOOOOOOOO {'win': True, 'ticks': 25, 'battle_seconds': 50, 'hp_pct': 23.0, 'progress': 100} 6480
-valley_1star_lv5 OOOOOOO--- {'win': False, 'ticks': 11, 'battle_seconds': 22, 'hp_pct': 0, 'progress': 22.0} 1680
-valley_2star_lv8 OOOOOOOOOO {'win': True, 'ticks': 26, 'battle_seconds': 52, 'hp_pct': 14.4, 'progress': 100} 4200
-mixed_two_valley_2star_lv8 OOOOOOOOO- {'win': False, 'ticks': 23, 'battle_seconds': 46, 'hp_pct': 0, 'progress': 84.5} 4200
-mixed_two_valley_2star_lv10 OOOOOOOOOO {'win': True, 'ticks': 25, 'battle_seconds': 50, 'hp_pct': 8.4, 'progress': 100} 5720
-soul {'1': {'맹공': 0.034333333333333334, '수호': 0.034374999999999996, '질주': 0.035333333333333335, '생명': 0.03525, '신비': 0.034895833333333334}, '0.7': {'맹공': 0.029946769879612575, '수호': 0.036978966252056766, '질주': 0.03617961718580141, '생명': 0.036998188225034305, '신비': 0.033659537255426135}}

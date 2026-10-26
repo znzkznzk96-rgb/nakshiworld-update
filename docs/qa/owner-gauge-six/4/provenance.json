@@ -1,9 +1,0 @@
-{
-  "region": "심해",
-  "reference_sha256": "b7ea558798e5964885e555fcb07a2df7e9bd769941701327eb30acc667cbb99c",
-  "reference_role": "Layout template; first two also include approved owner palette reference",
-  "model": "PixelLab UI Pro",
-  "seed": 2026102264,
-  "output_count_expected": 1,
-  "automatic_retry": false
-}

@@ -1,1 +1,0 @@
-Original deterministic synthesized air swish for Nakshiworld. No sampled recordings. Generator: automation/build_cast68.py. 44.1 kHz mono, 230 ms.

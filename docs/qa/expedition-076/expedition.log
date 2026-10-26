@@ -1,4 +1,0 @@
-Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org
-
-EXPEDITION_REFERENCE [{"hp":[0,0,0],"seconds":42.9,"stars":[1,1,1],"status":"loss"},{"hp":[0,0,0],"seconds":54.9,"stars":[2,1,1],"status":"loss"},{"hp":[0,0,245],"seconds":50.1,"stars":[2,2,1],"status":"win"},{"hp":[0,172,429],"seconds":47.1,"stars":[2,2,2],"status":"win"}]
-EXPEDITION_VERIFY failures=[]

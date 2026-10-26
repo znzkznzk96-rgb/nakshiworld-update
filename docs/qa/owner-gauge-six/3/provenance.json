@@ -1,9 +1,0 @@
-{
-  "region": "균열 해역",
-  "reference_sha256": "5028e8aa870d5cd05bb8a4b481be8087b9da498c440d730f660c12a5240689a7",
-  "reference_role": "Layout template; first two also include approved owner palette reference",
-  "model": "PixelLab UI Pro",
-  "seed": 2026102263,
-  "output_count_expected": 1,
-  "automatic_retry": false
-}

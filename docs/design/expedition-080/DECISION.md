@@ -1,3 +1,0 @@
-# Expedition presentation and formation — approved 2026-10-26
-
-User approved implementation: compact village strip restored to height72; HP bars only current front defender and enemy; pixel NeoDunggeunmo damage/heal/shield values; walking with right-to-left scenery, enemy enters from right, stop scrolling during fight; preserve opaque monster body and transparent exterior, inspect assets first. Exploration/alchemy cross-navigation and explicit upgrade buttons. Exploration has separate route and formation tabs; formation shows front/middle/back slots above inventory, tap units to equip/unequip. Existing approved assets, stats, saves and puffer launcher icons remain protected. Implement and validate before delivery; no public server deployment requested in this message.

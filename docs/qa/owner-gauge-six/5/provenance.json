@@ -1,9 +1,0 @@
-{
-  "region": "우주 바다",
-  "reference_sha256": "bd829841a8e5da5065e01cd81d69df812c0ebdd41b05ace1b7703a8c276cb9ce",
-  "reference_role": "Layout template; first two also include approved owner palette reference",
-  "model": "PixelLab UI Pro",
-  "seed": 2026102265,
-  "output_count_expected": 1,
-  "automatic_retry": false
-}
