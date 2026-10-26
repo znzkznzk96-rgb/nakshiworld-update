@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "task": "거꾸로 폭포 계곡 통합 및 낚시월드 인수인계 기준",
-  "status": "implementation_pending",
+  "status": "verified_not_deployed",
   "work_branch": "work/valley-runtime",
   "release_baseline": "v0.77",
   "target_version": "0.77",
@@ -21,7 +21,7 @@
   ],
   "updated_at": "2026-10-26",
   "current_task": "연성 조합/미리보기 간격 축소, 제작 이력 기반 미리보기와 도감 병사 탭",
-  "next_step": "제작 발견 기록 영구 보존 및 구형 저장 호환 구현, 실제 화면 검증",
+  "next_step": "현재 수정본 작업 CI 확인 후 사용자 공개 배포 요청에 따라 진행",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
@@ -30,7 +30,9 @@
   "this_change": {
     "scope": "연성 조합/미리보기 간격 축소, 제작 이력 기반 미리보기와 도감 병사 탭",
     "deployed": false,
-    "release_authorized": false
+    "release_authorized": false,
+    "local_suites": 32,
+    "verification": "docs/qa/soldier-dex/VERIFICATION.json"
   },
   "history": "docs/historical/2026-10-22-before-workflow-streamlining/WORK_STATE.json",
   "work_verification": "docs/analysis/balance-tuning-075/QA.json",

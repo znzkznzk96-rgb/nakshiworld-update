@@ -77,14 +77,15 @@ func draw(m, h: float) -> void:
 	var height: float=minf(444,h-24)
 	var r:=Rect2(10,floorf((h-height)/2),250,height)
 	m._ui_style_box(m.sb_panel,r)
-	preload("res://addons/reservoir/ui_theme.gd").title(m,r,"물고기 도감")
+	preload("res://addons/reservoir/ui_theme.gd").title(m,r,"도감")
 	var close:=Rect2(r.end.x-31,r.position.y+9,22,23)
 	m._ui_texture(m.icons.close,close.position)
 	rects={"close":close.grow(4),"regions":[],"fish":[],"tabs":[],"back":Rect2()}
-	for area in 2:
-		var b:=Rect2(r.position+Vector2(13+area*114,46),Vector2(110,25))
-		button(m,b,["동네 저수지","거꾸로 폭포 계곡"][area],region==area)
+	for area in 3:
+		var b:=Rect2(r.position+Vector2(13+area*76,46),Vector2(72,25))
+		button(m,b,["저수지","계곡","병사"][area],region==area)
 		rects.regions.append(b)
+	if region==2: draw_soldiers(m,r);return
 	if selected<0: draw_collection(m,r)
 	else: draw_trophy(m,r)
 func draw_collection(m,r: Rect2) -> void:
@@ -108,6 +109,34 @@ func draw_collection(m,r: Rect2) -> void:
 		rects.fish.append([cell,sp])
 	m._text("물고기를 누르면 나의 최고 기록",Vector2(135,r.end.y-38),9,MUTED,true,226)
 	m._text("판매·기증 후에도 기록은 남아요",Vector2(135,r.end.y-20),9,MUTED,true,226)
+func draw_soldiers(m,r: Rect2) -> void:
+	var data=m.expedition.data
+	m._text("제작 %d / 15종"%data.discovered.size(),r.position+Vector2(15,88),10,INK,false,210)
+	if selected>=0 and data.is_discovered(selected):
+		var spec: Dictionary=data.catalog.soldiers[selected]
+		m._text(spec.name,Vector2(135,r.position.y+118),13,INK,true,220)
+		var showcase:=Rect2(r.position+Vector2(35,133),Vector2(180,112))
+		m._ui_style_box(m.sb_chip,showcase)
+		m.expedition.sprite(m,selected,showcase.grow(-12))
+		m._text(m.expedition.ROLES[spec.role],Vector2(135,r.position.y+266),11,INK,true,216)
+		m._text(spec.description,Vector2(135,r.position.y+291),10,INK,true,220)
+		m._text("어혼 · %s + %s"%[data.ELEMENTS[int(spec.elements[0])],data.ELEMENTS[int(spec.elements[1])]],Vector2(135,r.position.y+320),10,MUTED,true,220)
+		var back:=Rect2(77,r.end.y-39,116,26);button(m,back,"목록으로",true);rects.back=back
+		return
+	for id in 15:
+		var seen: bool=data.is_discovered(id)
+		var cell:=Rect2(r.position+Vector2(13+id%3*76,98+floori(id/3.0)*57),Vector2(72,53))
+		m._ui_style_box(m.sb_chip,cell)
+		if seen:
+			m.expedition.sprite(m,id,Rect2(cell.position+Vector2(17,2),Vector2(38,33)))
+			m._text(data.catalog.soldiers[id].name,Vector2(cell.get_center().x,cell.end.y-6),7,INK,true,66)
+			rects.fish.append([cell,id])
+		else:
+			m._text("?",Vector2(cell.get_center().x,cell.position.y+25),17,MUTED,true,60)
+			m._text("미제작",Vector2(cell.get_center().x,cell.end.y-6),8,MUTED,true,66)
+	m._text("병사를 누르면 특징과 어혼 조합",Vector2(135,r.end.y-38),9,MUTED,true,226)
+	m._text("합성 후에도 제작 기록은 남아요",Vector2(135,r.end.y-20),9,MUTED,true,226)
+
 func draw_trophy(m,r: Rect2) -> void:
 	var y: float=r.position.y+88
 	var star:=0

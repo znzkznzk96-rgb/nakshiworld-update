@@ -5,6 +5,7 @@ const TICK = 1.5
 var catalog: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://addons/expedition/catalog.json"))
 var souls: Array = [0,0,0,0,0]
 var soldiers: Array = []
+var discovered: Array = []
 var team: Array = []
 var next_uid: int = 1
 var unlocked: int = 1
@@ -18,10 +19,14 @@ func _init() -> void:
 	rng.randomize()
 
 func serialize() -> Dictionary:
-	return {"v":1,"souls":souls.duplicate(),"soldiers":soldiers.duplicate(true),"team":team.duplicate(),"next_uid":next_uid,"unlocked":unlocked,"completed":completed.duplicate(),"pending":pending.duplicate(true),"battle":battle.duplicate(true),"recovery_until":recovery_until}
+	return {"v":2,"discovered":discovered.duplicate(),"souls":souls.duplicate(),"soldiers":soldiers.duplicate(true),"team":team.duplicate(),"next_uid":next_uid,"unlocked":unlocked,"completed":completed.duplicate(),"pending":pending.duplicate(true),"battle":battle.duplicate(true),"recovery_until":recovery_until}
 
 func restore(d: Dictionary) -> void:
-	souls=[0,0,0,0,0];soldiers=[];team=[];completed=[];pending={};battle={};next_uid=1;unlocked=1;recovery_until=0
+	souls=[0,0,0,0,0];soldiers=[];discovered=[];team=[];completed=[];pending={};battle={};next_uid=1;unlocked=1;recovery_until=0
+	var history=d.get("discovered",[])
+	if history is Array:
+		for id in history:
+			if (id is int or id is float) and float(id)==int(id) and int(id) in range(15): discover(int(id))
 	var stored: Array=d.get("souls",[])
 	for i in mini(5,stored.size()): souls[i]=maxi(0,int(stored[i]))
 	for u in d.get("soldiers",[]):
@@ -31,6 +36,7 @@ func restore(d: Dictionary) -> void:
 		var iv: Array=u.get("iv",[0,0,0]);iv.resize(3)
 		for i in 3: iv[i]=clampi(int(iv[i]),0,8)
 		soldiers.append({"uid":uid,"id":int(u.id),"star":clampi(int(u.get("star",1)),1,3),"iv":iv,"rarity":clampi(int(u.get("rarity",0)),0,2),"locked":bool(u.get("locked",false))})
+		discover(int(u.id))
 		next_uid=maxi(next_uid,uid+1)
 	next_uid=maxi(next_uid,int(d.get("next_uid",1)))
 	for uid in d.get("team",[]):
@@ -47,9 +53,15 @@ func unit(uid: int) -> Dictionary:
 		if int(u.uid)==uid: return u
 	return {}
 
+func discover(id: int) -> void:
+	if id in range(15) and id not in discovered: discovered.append(id)
+
+func is_discovered(id: int) -> bool:
+	return id in discovered
+
 func add_unit(id: int, star: int=1, iv: Array=[]) -> Dictionary:
 	var u: Dictionary={"uid":next_uid,"id":id,"star":star,"iv":roll_iv() if iv.is_empty() else iv.map(func(n):return int(n)),"rarity":0,"locked":false}
-	next_uid+=1;soldiers.append(u)
+	next_uid+=1;soldiers.append(u);discover(id)
 	return u
 
 func roll_iv() -> Array:
