@@ -1,22 +1,36 @@
 {
   "schema_version": 3,
   "work_branch": "work/valley-runtime",
-  "status": "pouch_economy_simulating",
+  "status": "pouch_economy_implemented_verifying",
   "current_task": "어혼 주머니 획득률·가격·첫클리어/보스반복 보상 경제 시뮬레이션",
   "release_baseline": "v0.80",
   "source_commit": "a74e060d8eda34ab6650c0d2d3d72d9e646b990d",
   "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v0.80",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
-  "verification": "analysis/expedition-hard-081/REPORT.md",
-  "next_step": "일반 반복은 매회 소량 비늘로 확정. 수급안 비교 및10R 라이선스 조건 영향 분석",
+  "verification": "analysis/soul-pouch-081/REPORT.md",
+  "next_step": "자동 CI 확인 후 결과 기록. 10R 라이선스 조건은 제안 검토 상태.",
   "updated_at": "2026-10-26",
   "last_release_deployed": true,
   "this_change": {
     "scope": "어혼 주머니 획득률·가격·첫클리어/보스반복 보상 경제 시뮬레이션",
     "deployed": false,
     "release_authorized": false,
-    "license_10r_decision": "제안 검토 중, 적용 미확정"
+    "license_10r_decision": "제안 검토 중, 적용 미확정",
+    "implemented": true,
+    "growth_paths": 152000,
+    "fish_samples": 160000,
+    "local_regressions": 39,
+    "price": 500,
+    "capture_drop": 0.25,
+    "normal_repeat_pouches": 0,
+    "boss_repeat_chances": {
+      "3": 0.05,
+      "5": 0.08,
+      "7": 0.12,
+      "10": 0.2
+    },
+    "license_10r_applied": false
   },
   "pending_decisions": [
     "계곡은 기존 미승인 수치·입장 준비중 유지. 라이선스 수령과 별도."

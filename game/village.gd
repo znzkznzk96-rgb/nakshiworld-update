@@ -1,4 +1,6 @@
 extends RefCounted
+var pouch_last_open: Array=[]
+var pouch_error: String=""
 
 const MAP_W: = 1630
 const MAP_H: = 480
@@ -448,14 +450,15 @@ func draw_shop(m, h: float) -> void :
 	var y: float = r.position.y + 78
 	match shop:
 		"up":
-			for i in 3:
-				var key: String = ["sell", "bait", "gear_sell"][i]
-				var tr := Rect2(r.position.x + 12 + i * 78, r.position.y + 69, 74, 24)
+			for i in 4:
+				var key: String = ["sell", "bait", "pouches", "gear_sell"][i]
+				var tr := Rect2(r.position.x + 12 + i * 59, r.position.y + 69, 56, 24)
 				m._ui_style_box(active_style.header if tab == key else m.sb_btn, tr)
-				m._text(["장비·보관통", "미끼", "팔기"][i], tr.get_center() + Vector2(0, 4), 9, Color("fff0d1") if tab == key else active_style.ink, true, 70)
+				m._text(["장비", "미끼", "어혼", "팔기"][i], tr.get_center() + Vector2(0, 4), 9, Color("fff0d1") if tab == key else active_style.ink, true, 52)
 				rects.rows.append([tr, "tab:" + key])
 			y = r.position.y + 105
-			if tab == "bait": _draw_bait(m, r, y)
+			if tab == "pouches": preload("res://addons/reservoir/soul_pouch_shop.gd").draw(self,m,r,y)
+			elif tab == "bait": _draw_bait(m, r, y)
 			elif tab == "gear_sell": m.equipment.draw_shop(self, m, r, y)
 			else: _draw_up(m, r, y)
 		"bait": _draw_bait(m, r, y)
@@ -662,6 +665,18 @@ func _act(m, a: String) -> void :
 	var k = a.split(":")
 	var n = int(k[1]) if k.size() > 1 else 0
 	match k[0]:
+		"pouch_open":
+			preload("res://addons/reservoir/soul_pouch_shop.gd").open(self,m,n);return
+		"soul_pouch":
+			var q: Dictionary=commerce.quote(self,m,a)
+			if q.is_empty() or m.gold<int(q.price): return
+			var before_gold: int=m.gold;var before_count: int=m.expedition.data.pouches
+			pouch_error=""
+			m.gold-=int(q.price);m.expedition.data.pouches+=int(q.target)
+			if not m._save_game():
+				m.gold=before_gold;m.expedition.data.pouches=before_count
+				pouch_error="저장하지 못했어요. 구매가 취소됐어요."
+			return
 		"museum_region": museum_region=clampi(n,0,1);return
 		"region": m.region_shop.region=clampi(n,0,5);return
 		"baitselect":

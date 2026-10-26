@@ -1,0 +1,33 @@
+{
+  "growth_paths": 152000,
+  "fish_draws": 160000,
+  "actual_growth_battles": 320,
+  "source_sha256": {
+    "addons/expedition/model.gd": "499c46b6661eee385fda97b9b709025d7f871dccc18f4d7f2c421fd3edae767e",
+    "addons/expedition/view.gd": "2da4d6e133c8ff1e4a7b58230c729e0d3d9d9bea481a1022165c6a53f3fbab7a",
+    "addons/reservoir/soul_pouch_shop.gd": "b6b38478f115caab4df2f5f52d50d69ec724af48b87cae6a9ab2e2d786c52658",
+    "addons/reservoir/commerce.gd": "50ba3f3625e25b50af88864bf0fc377b73acfc4fb5bab78b913ace2a6d3a29c6",
+    "main.gd": "41c064eaacbc634563ac9302fd91079e8033e03599cf9eccb4dd6ba7040fe34b",
+    "village.gd": "7d1a958c05c17bfdc2a4a82d502ba762811009671a00d686ca771ac93403a97d",
+    "tests/analysis/pouch_fish_sample.gd": "575fad2a6456dec9b6928b05b9c98d1ab78973af90be9a078910afae1161be06",
+    "tests/analysis/pouch_growth_sample.gd": "ca5a7c725c7f20151a25f30206f3ab62094c74f23a62cb71b9e98894d5052a23"
+  },
+  "outputs": {
+    "fish.csv": {
+      "bytes": 3264146,
+      "sha256": "3d4c234031c7d52ca9e0c3386fafc6b6c2a2e4b99b4ff00e894f9b79c4583c4c"
+    },
+    "growth.json": {
+      "bytes": 44690,
+      "sha256": "4d2e4fb787fdba3d0ebec08ec1587207d737d4f2fb45ddf91d5a7ab1178017de"
+    },
+    "grid.json": {
+      "bytes": 12471,
+      "sha256": "6217e0b809183cbb3fa527692ab298a991128fdee8405cf6ce9aa5c46678500f"
+    },
+    "sensitivity.json": {
+      "bytes": 18311,
+      "sha256": "2a5fb1945262cf331f7fe0deea8f3e34025a8fc4b432e68ede19e70093cb31dc"
+    }
+  }
+}

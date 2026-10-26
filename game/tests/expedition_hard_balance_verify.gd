@@ -16,7 +16,7 @@ func fast(d) -> void:
    else:d.spawn_enemy()
   elif d.battle.phase=="defeat":d.finish(false,1000)
 func equivalent(a,b) -> bool:
- return a.battle.status==b.battle.status and a.battle.fighters==b.battle.fighters and int(a.battle.reward)==int(b.battle.reward)
+ return a.battle.status==b.battle.status and a.battle.fighters==b.battle.fighters
 func run() -> void:
  var actual_path="res://addons/expedition/model.gd";var old_path="res://tests/analysis/baseline080_model.gd";var cases:=0;var saves:=0
  for iv in [0,4,8]:
@@ -29,15 +29,15 @@ func run() -> void:
     actual.start(r,1000);expected.start(r,1000);fast(expected)
     var frames:=0
     while actual.active() and frames<100000:actual.update(.1,1000);frames+=1
-    if actual.active() or not equivalent(actual,expected):failures.append(["runtime parity",iv,r,sample])
+    if actual.active() or not equivalent(actual,expected) or int(actual.battle.reward)!=(26*r if actual.battle.status=="win" else 0):failures.append(["runtime parity",iv,r,sample])
     cases+=1
    # Existing in-progress expeditions must keep all three old encounters unchanged.
    var old=prepare(old_path,r,[3,1,7],1,3,iv);old.start(r,1000);old.update(4.1,1000);old.update(1.5,1000)
    var restored=load(actual_path).new();restored.restore(old.serialize());fast(old);fast(restored)
-   if not equivalent(old,restored):failures.append(["legacy resumed balance",iv,r])
+   if not equivalent(old,restored) or int(old.battle.reward)!=int(restored.battle.reward):failures.append(["legacy resumed balance",iv,r])
    var fresh=prepare(actual_path,r,[3,1,7],2,1,iv);fresh.start(r,1000);fresh.update(4.1,1000);fresh.update(1.5,1000)
    restored=load(actual_path).new();restored.restore(fresh.serialize());fast(fresh);fast(restored)
-   if not equivalent(fresh,restored):failures.append(["new resumed balance",iv,r])
+   if not equivalent(fresh,restored) or int(fresh.battle.reward)!=int(restored.battle.reward):failures.append(["new resumed balance",iv,r])
    saves+=2
  var ref=load(actual_path).new();var roles={"attack":[],"defense":[],"support":[]}
  for i in 15:roles[ref.catalog.soldiers[i].role].append(i)

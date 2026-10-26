@@ -6,6 +6,11 @@ const POWER = 0.2
 const BALANCE_REVISION = 1
 const ENEMY_ATTACK_SCALE = [3.0,3.5,3.2,5.0,2.5,4.5,1.5,3.5,3.5,1.0]
 const START_SHIELD_RATIO = 0.044
+const POUCH_DROP_CHANCE = 0.25
+const POUCH_PRICE = 500
+const FIRST_POUCHES = [1,1,2,1,3,1,4,1,1,5]
+const BOSS_POUCH_CHANCE = {3:0.05,5:0.08,7:0.12,10:0.20}
+var pouches: int = 0
 const TRAINING = [0.70,0.80,0.90,1.0]
 var catalog: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://addons/expedition/catalog.json"))
 var souls: Array = [0,0,0,0,0]
@@ -24,9 +29,10 @@ func _init() -> void:
 	rng.randomize()
 
 func serialize() -> Dictionary:
-	return {"v":3,"discovered":discovered.duplicate(),"souls":souls.duplicate(),"soldiers":soldiers.duplicate(true),"team":team.duplicate(),"next_uid":next_uid,"unlocked":unlocked,"completed":completed.duplicate(),"pending":pending.duplicate(true),"battle":battle.duplicate(true),"recovery_until":recovery_until}
+	return {"pouches":pouches,"v":3,"discovered":discovered.duplicate(),"souls":souls.duplicate(),"soldiers":soldiers.duplicate(true),"team":team.duplicate(),"next_uid":next_uid,"unlocked":unlocked,"completed":completed.duplicate(),"pending":pending.duplicate(true),"battle":battle.duplicate(true),"recovery_until":recovery_until}
 
 func restore(d: Dictionary) -> void:
+	pouches=maxi(0,int(d.get("pouches",0)))
 	souls=[0,0,0,0,0];soldiers=[];discovered=[];team=[];completed=[];pending={};battle={};next_uid=1;unlocked=1;recovery_until=0
 	var history=d.get("discovered",[])
 	if history is Array:
@@ -72,12 +78,18 @@ func add_unit(id: int, star: int=1, iv: Array=[]) -> Dictionary:
 func roll_iv() -> Array:
 	return [rng.randi_range(0,8),rng.randi_range(0,8),rng.randi_range(0,8)]
 
-func on_capture(sp: int) -> int:
-	# New materials never consume or convert existing rod-upgrade souls.
-	if rng.randf()>=0.25: return -1
-	var element: int=(sp%20)%5
-	souls[element]+=1
-	return element
+func on_capture(_sp: int) -> bool:
+	if rng.randf()>=POUCH_DROP_CHANCE: return false
+	pouches+=1
+	return true
+
+func open_pouches(count: int) -> Array:
+	if count<1 or count>pouches: return []
+	var result: Array=[0,0,0,0,0]
+	for i in count: result[rng.randi_range(0,4)]+=1
+	pouches-=count
+	for i in 5: souls[i]+=int(result[i])
+	return result
 
 func recipe(a: int,b: int) -> int:
 	for i in catalog.soldiers.size():
@@ -170,7 +182,7 @@ func start(round_no: int,now: float) -> bool:
 		if u.is_empty(): return false
 		var st: Dictionary=stats(u)
 		fighters.append({"id":u.id,"uid":u.uid,"hp":st.hp,"max_hp":st.hp,"atk":st.atk,"def":st.def,"shield":0,"hits":0})
-	battle={"balance_revision":BALANCE_REVISION,"status":"running","round":round_no,"index":0,"fighters":fighters,"ticks":0,"clock":0.0,"phase":"approach","phase_time":0.0,"reward":0,"cleared":0,"first":round_no not in completed,"last_damage":0,"progress":0.0,"result_seen":false}
+	battle={"reward_revision":1,"pouch_reward":0,"repeat_pouch_roll":rng.randf(),"balance_revision":BALANCE_REVISION,"status":"running","round":round_no,"index":0,"fighters":fighters,"ticks":0,"clock":0.0,"phase":"approach","phase_time":0.0,"reward":0,"cleared":0,"first":round_no not in completed,"last_damage":0,"progress":0.0,"result_seen":false}
 	spawn_enemy()
 	return true
 
@@ -274,19 +286,27 @@ func update(dt: float,now: float) -> bool:
 	return false
 
 func finish(win: bool,now: float=0) -> void:
+	if not active(): return
 	battle.status="win" if win else "loss"
 	battle.result_seen=false
+	if int(battle.get("reward_revision",0))>=1:
+		battle.reward=(26*int(battle.round) if bool(battle.first) else 2*int(battle.round)) if win else 0
+		battle.pouch_reward=0
+		if win and bool(battle.first): battle.pouch_reward=FIRST_POUCHES[int(battle.round)-1]
+		elif win and float(battle.get("repeat_pouch_roll",1.0))<float(BOSS_POUCH_CHANCE.get(int(battle.round),0.0)): battle.pouch_reward=1
 	if win: battle.progress=100.0
 	if win:
 		unlocked=mini(10,maxi(unlocked,int(battle.round)+1))
 		if int(battle.round) not in completed:
-			completed.append(int(battle.round));battle.reward+=20*int(battle.round)
+			completed.append(int(battle.round))
+			if int(battle.get("reward_revision",0))==0: battle.reward+=20*int(battle.round)
 	recovery_until=(Time.get_unix_time_from_system() if now==0 else now)+30.0
 
 func claim() -> Dictionary:
 	if battle.is_empty() or active(): return {}
-	var reward: Dictionary={"gold":int(battle.reward),"soul":-1}
-	if battle.status=="win" and bool(battle.first):
+	var reward: Dictionary={"gold":int(battle.reward),"soul":-1,"pouches":int(battle.get("pouch_reward",0))}
+	pouches+=int(reward.pouches)
+	if battle.status=="win" and bool(battle.first) and int(battle.get("reward_revision",0))==0:
 		reward.soul=(int(battle.round)-1)%5;souls[int(reward.soul)]+=1
 	battle={}
 	return reward
