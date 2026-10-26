@@ -1,16 +1,16 @@
 {
   "schema_version": 3,
   "work_branch": "work/valley-runtime",
-  "status": "formation_revision_checked_android_stall_unconfirmed",
-  "current_task": "연성·합성 시안, 가방5초지연 재조사, PixelLab 역할아이콘·뒤중간앞·스크롤",
+  "status": "bag_input_order_reproduced_fixed_not_deployed",
+  "current_task": "가방 입력 잠금: Godot 가상 마우스 선행 순서 재현·수정",
   "release_baseline": "v0.83",
   "source_commit": "d072b6a78cc4c867143ea5af55123765ac29964e",
   "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v0.83",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
-  "verification": "analysis/bag-formation-084/REPORT.md",
-  "next_step": "시안 선택 전 실제 연성·합성 UI 유지. Android 5초 지연은 실기 재현/원인 확인 필요. 공개 v0.83 유지.",
-  "updated_at": "2026-10-26",
+  "verification": "analysis/bag-input-order-084/REPORT.md",
+  "next_step": "새 패치 공개 전 승인 범위에 따라 배포, 이후 사용자폰 재확인. 별도 렌더 정지는 실기 미확인.",
+  "updated_at": "2026-10-27",
   "last_release_deployed": true,
   "this_change": {
     "implemented": true,
@@ -26,9 +26,10 @@
     "note": "이전 상세 상태 원문은 해당 Git 버전에 보존. 새 상태에는 공개용 진행 정보만 기록."
   },
   "checks": {
-    "regression": 43,
-    "after_icon_integration": 3,
-    "desktop_screens": 8,
-    "android_stall_resolved": false
+    "regression": 44,
+    "engine_native_taps_before_failed": 20,
+    "engine_native_taps_after_failed": 0,
+    "android_stall_resolved": false,
+    "input_lock_reproduced_and_fixed": true
   }
 }

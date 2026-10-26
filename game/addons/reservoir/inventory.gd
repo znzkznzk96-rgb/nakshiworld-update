@@ -50,9 +50,15 @@ func _release(m,p: Vector2) -> void:
 	else: press(m,p)
 
 func input_event(m,e: InputEvent) -> bool:
-	# Android can send mouse events for the same native touch after a modal closes.
-	if (e is InputEventMouseButton or e is InputEventMouseMotion) and e.device==-1 and Time.get_ticks_msec()-last_native_touch<500: return true
-	if (selected<0 and (not m.market_open or m.market_sell)) or m.settings_open or not m.trans.is_empty() or not m.equipment.pending_sale.is_empty() or not m.V.commerce.pending.is_empty(): pointer=false;return false
+	var active: bool = not ((selected<0 and (not m.market_open or m.market_sell)) or m.settings_open or not m.trans.is_empty() or not m.equipment.pending_sale.is_empty() or not m.V.commerce.pending.is_empty())
+	# Godot dispatches the emulated mouse BEFORE its native touch. A time-only
+	# guard lets the first mouse-down after idle steal the native gesture.
+	if (e is InputEventMouseButton or e is InputEventMouseMotion) and e.device==-1:
+		if active or Time.get_ticks_msec()-last_native_touch<500: return true
+	if not active: cancel_pointer();return false
+	# Menu mouse-down can open this view before the native half of that same
+	# event arrives. Ignore that opening gesture until the first layout exists.
+	if selected<0 and not displayed: return true
 	if e is InputEventScreenTouch:
 		last_native_touch=Time.get_ticks_msec()
 		var p: Vector2=e.position-Vector2(m.ox,0)
