@@ -148,7 +148,7 @@ func spawn_enemy() -> void:
 			battle.enemy=e.duplicate(true);battle.enemy.max_hp=int(e.hp);battle.enemy.poison=0;break
 	for f in battle.fighters:
 		if int(f.hp)>0 and skill(f)=="shield": f.shield=roundi(int(f.max_hp)*0.22)
-	battle.ticks=0;battle.clock=0.0;battle.phase="approach";battle.phase_time=0.0
+	battle.fx={};battle.ticks=0;battle.clock=0.0;battle.phase="approach";battle.phase_time=0.0
 
 func skill(f: Dictionary) -> String:
 	return str(catalog.soldiers[int(f.id)].skill)
@@ -172,12 +172,13 @@ func tick() -> void:
 		if skill(f)=="weaken": enemy_atk*=0.8
 	# Debuffs do not multiply with duplicate soldiers.
 	enemy_def=maxf(enemy_def,float(enemy.defense)*0.7);enemy_atk=maxf(enemy_atk,float(enemy.atk)*0.8)
+	battle.fx={"age":0.0,"hit_uid":int(front.uid),"death_uid":-1,"support":[],"enemy_hit":true}
 	var attack: int=int(enemy.poison)
 	var heals: Array=[]
 	for f in living:
 		var sk: String=skill(f)
 		if int(battle.ticks)%3==0 and sk in ["regen","heal","ward"]:
-			heals.append([sk,int(f.atk)]);continue
+			heals.append([sk,int(f.atk),int(f.uid)]);continue
 		var power: float=float(f.atk)
 		if int(battle.ticks)%3==0 and sk=="bolt": power*=1.75
 		if int(battle.ticks)%3==0 and sk=="flurry": power*=1.5
@@ -197,8 +198,11 @@ func tick() -> void:
 		if heal[0]=="heal":
 			for f in survivors:
 				if float(f.hp)/float(f.max_hp)<float(target.hp)/float(target.max_hp): target=f
+		var old_hp: int=int(target.hp);var old_shield: int=int(target.shield)
 		if heal[0]=="ward": target.shield=mini(roundi(int(target.max_hp)*0.25),int(target.shield)+int(heal[1]))
 		else: target.hp=mini(int(target.max_hp),int(target.hp)+roundi(int(heal[1])*(1.0 if heal[0]=="heal" else 0.85)))
+		battle.fx.support.append({"source":int(heal[2]),"target":int(target.uid),"kind":str(heal[0]),"amount":int(target.shield)-old_shield if heal[0]=="ward" else int(target.hp)-old_hp})
+	if int(front.hp)<=0: battle.fx.death_uid=int(front.uid)
 	enemy.hp=maxi(0,int(enemy.hp)-attack);battle.last_damage=attack
 	if battle.fighters.all(func(f): return int(f.hp)<=0):
 		battle.phase="defeat";battle.phase_time=0.0
@@ -209,6 +213,7 @@ func tick() -> void:
 
 func update(dt: float,now: float) -> bool:
 	if not active(): return false
+	if battle.has("fx"): battle.fx.age=float(battle.fx.get("age",0))+dt
 	battle.phase_time+=dt
 	if battle.phase=="approach":
 		if float(battle.phase_time)>=0.8: battle.phase="fight";battle.phase_time=0.0

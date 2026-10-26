@@ -1,0 +1,290 @@
+{
+  "audited_commit": "0f931337efab1f5e29e8499204ab88ed1186135b",
+  "runtime_pngs": 151,
+  "original_reference_images_verified": 3,
+  "baseline_media_unchanged": 866,
+  "baseline_media_changed": [],
+  "baseline_media_removed": [
+    "art/expedition/explore.svg",
+    "art/expedition/alchemy.svg"
+  ],
+  "normal_hit_alpha": [
+    {
+      "id": 1,
+      "transparent_border": true,
+      "bbox": [
+        27,
+        49,
+        99,
+        100
+      ]
+    },
+    {
+      "id": 2,
+      "transparent_border": true,
+      "bbox": [
+        25,
+        59,
+        109,
+        103
+      ]
+    },
+    {
+      "id": 3,
+      "transparent_border": true,
+      "bbox": [
+        28,
+        60,
+        102,
+        103
+      ]
+    },
+    {
+      "id": 4,
+      "transparent_border": true,
+      "bbox": [
+        19,
+        43,
+        113,
+        104
+      ]
+    },
+    {
+      "id": 5,
+      "transparent_border": true,
+      "bbox": [
+        20,
+        36,
+        116,
+        92
+      ]
+    },
+    {
+      "id": 6,
+      "transparent_border": true,
+      "bbox": [
+        22,
+        36,
+        108,
+        98
+      ]
+    },
+    {
+      "id": 7,
+      "transparent_border": true,
+      "bbox": [
+        27,
+        49,
+        108,
+        108
+      ]
+    },
+    {
+      "id": 8,
+      "transparent_border": true,
+      "bbox": [
+        21,
+        52,
+        108,
+        112
+      ]
+    },
+    {
+      "id": 9,
+      "transparent_border": true,
+      "bbox": [
+        32,
+        46,
+        108,
+        110
+      ]
+    },
+    {
+      "id": 10,
+      "transparent_border": true,
+      "bbox": [
+        31,
+        41,
+        108,
+        111
+      ]
+    },
+    {
+      "id": 11,
+      "transparent_border": true,
+      "bbox": [
+        32,
+        46,
+        94,
+        106
+      ]
+    },
+    {
+      "id": 12,
+      "transparent_border": true,
+      "bbox": [
+        28,
+        30,
+        94,
+        98
+      ]
+    },
+    {
+      "id": 13,
+      "transparent_border": true,
+      "bbox": [
+        19,
+        49,
+        107,
+        104
+      ]
+    },
+    {
+      "id": 14,
+      "transparent_border": true,
+      "bbox": [
+        19,
+        58,
+        105,
+        108
+      ]
+    },
+    {
+      "id": 15,
+      "transparent_border": true,
+      "bbox": [
+        35,
+        30,
+        95,
+        110
+      ]
+    },
+    {
+      "id": 16,
+      "transparent_border": true,
+      "bbox": [
+        32,
+        28,
+        102,
+        111
+      ]
+    },
+    {
+      "id": 17,
+      "transparent_border": true,
+      "bbox": [
+        17,
+        58,
+        107,
+        104
+      ]
+    },
+    {
+      "id": 18,
+      "transparent_border": true,
+      "bbox": [
+        19,
+        36,
+        111,
+        99
+      ]
+    }
+  ],
+  "soldiers": 15,
+  "normal_enemies": 18,
+  "bosses": 4,
+  "rounds": [
+    [
+      1,
+      1,
+      2
+    ],
+    [
+      2,
+      3,
+      4
+    ],
+    [
+      3,
+      4,
+      "3R"
+    ],
+    [
+      5,
+      6,
+      17
+    ],
+    [
+      5,
+      7,
+      "5R"
+    ],
+    [
+      8,
+      9,
+      9
+    ],
+    [
+      8,
+      10,
+      "7R"
+    ],
+    [
+      11,
+      12,
+      13
+    ],
+    [
+      14,
+      15,
+      18
+    ],
+    [
+      15,
+      16,
+      "10R"
+    ]
+  ],
+  "normal_ids_used": [
+    "1",
+    "10",
+    "11",
+    "12",
+    "13",
+    "14",
+    "15",
+    "16",
+    "17",
+    "18",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9"
+  ],
+  "catalog_rules": {
+    "team_size": 3,
+    "seconds_per_tick": 1.5,
+    "damage": "max(1,round_half_up(ATK*100/(100+DEF)))",
+    "simultaneous_damage": true,
+    "support": "every third action replaces attack with 0.8*ATK heal to living frontline",
+    "within_round_hp_carries": true,
+    "each_round_benchmark_starts_full": true,
+    "between_round_recovery_policy": "not decided; benchmark full-health is not free recovery rule",
+    "level_gear_elements": "excluded",
+    "battle_timeout_seconds": 180
+  },
+  "scope_note": "Transparent borders and exact approved hashes verified; does not replace visual QA of every frame.",
+  "soldier_manifest_mapping_verified": true,
+  "soldier_timeline_frames": 131,
+  "final_boss": {
+    "id": "10R",
+    "name": "그림자왕",
+    "hp": 1200,
+    "atk": 80,
+    "defense": 40
+  }
+}

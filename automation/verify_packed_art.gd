@@ -16,6 +16,7 @@ func _initialize() -> void:
 		if texture is Array:
 			for frame in texture: assert(frame is Texture2D,"normal frame exported")
 		else: assert(texture is Texture2D,"soldier boss soul and menu art exported")
+	for key in ["menu","screens","route"]: assert(expedition.approved[key].get_size()==Vector2(1536,1024),"approved UI reference exported")
 	assert(expedition.textures["10R"].get_width()==1920,"large final boss sheet exported")
 	print("PACKED_ANGLER_VERIFY failures=[]")
 	quit()

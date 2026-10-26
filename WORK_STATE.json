@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "task": "거꾸로 폭포 계곡 통합 및 낚시월드 인수인계 기준",
-  "status": "deployed_verified",
+  "status": "approved_ui_correction_verified_not_deployed",
   "work_branch": "work/valley-runtime",
   "release_baseline": "v0.76",
   "target_version": "0.76",
@@ -20,23 +20,22 @@
     "주인 업적 보류. 후속3~6지역 번들 대상/보상 미정."
   ],
   "updated_at": "2026-10-26",
-  "current_task": "v0.76 deployed; public source, patch and gateway verified",
-  "next_step": "User phone verification; do not recreate approved art or reset saves",
+  "current_task": "Approved UI/menus restored from original three reference images; correction not deployed",
+  "next_step": "Show corrected actual UI to user; correction remains on work branch, production v0.76 unchanged",
   "remote_checkpoint_pending": false,
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
   "last_release_deployed": true,
   "this_change": {
-    "scope": "approved expedition/alchemy and final sprites",
-    "game_changed": true,
-    "release_created": true,
-    "deployed": true,
-    "implementation_commit": "b932b35d8023cce44ab444a2bd49227199b1429d",
-    "work_ci": 40265436338,
-    "work_ci_conclusion": "success",
-    "pr": 9,
-    "release_commit": "fc2781c22df7cb6cc1cb248c5266411f781e90cd"
+    "scope": "finish expedition presentation gaps and release approved UI restoration",
+    "status": "local_validation_passed_release_pending",
+    "deployed": false,
+    "release_authorized": true,
+    "update_screen_excluded": true,
+    "target_version": "0.77",
+    "motion_suite_passed": true,
+    "local_suites": 31
   },
   "history": "docs/historical/2026-10-22-before-workflow-streamlining/WORK_STATE.json",
   "work_verification": "docs/analysis/balance-tuning-075/QA.json",
@@ -318,10 +317,11 @@
   "update_screen": {
     "selection": "B",
     "approved": true,
-    "status": "selected_implementation_pending",
+    "status": "separate_apk_applied_user_confirmed",
     "style": "차원관리국 장비·잠든 고양이·청록 분할 게이지",
-    "game_applied": false,
-    "deployed": false
+    "game_applied": true,
+    "deployed": true,
+    "evidence": "2026-10-26 user confirms received separately applied APK; binary not independently reverified"
   },
   "rare_fish_optimization": {
     "approved": true,
