@@ -67,7 +67,7 @@ func run() -> void:
 	m.progression.restore({});m.region_shop.unlocked=[0];m.gold=10000
 	var before: int=m.gold
 	check(not m.region_shop.unlock(m,1) and m.gold==before,"unfinished unlicensed region cannot charge")
-	m.bag=[{"sp":5,"grade":1},{"sp":20,"grade":1},{"sp":5,"grade":0},{"sp":5,"grade":1}]
+	m.bag=[{"sp":5,"grade":1,"w":0.08},{"sp":20,"grade":1,"w":0.08},{"sp":5,"grade":0,"w":0.08},{"sp":5,"grade":1,"w":0.08}]
 	check(not m.progression.donate(m,0,0,0) and m.bag.size()==4,"undefined bundle cannot consume fish")
 	m.progression.main_targets={"0":[{"species":m.fish_key(5),"grade":1,"count":2}]}
 	check(not m.progression.donate(m,0,1,0) and not m.progression.donate(m,0,2,0),"wrong regional species or grade rejected")

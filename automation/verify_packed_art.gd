@@ -18,5 +18,7 @@ func _initialize() -> void:
 		else: assert(texture is Texture2D,"soldier boss soul and menu art exported")
 	for key in ["menu","screens","route"]: assert(expedition.approved[key].get_size()==Vector2(1536,1024),"approved UI reference exported")
 	assert(expedition.textures["10R"].get_width()==1920,"large final boss sheet exported")
+	for asset in ["res://art/aquarium/tank_clean.png","res://art/ui/aquarium/manage.png","res://art/ui/aquarium/expand.png"]:
+		assert(load(asset) is Texture2D,"aquarium asset exported")
 	print("PACKED_ANGLER_VERIFY failures=[]")
 	quit()

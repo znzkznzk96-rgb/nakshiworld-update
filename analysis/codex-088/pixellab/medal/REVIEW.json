@@ -1,0 +1,21 @@
+{
+  "approved_internal": true,
+  "native_size": [
+    32,
+    32
+  ],
+  "transparent": true,
+  "bbox": [
+    6,
+    5,
+    26,
+    30
+  ],
+  "checks": [
+    "recognizable star medal",
+    "warm brown gold matches chosen B",
+    "no clipping",
+    "nearest enlarged inspection"
+  ],
+  "regenerations": 0
+}

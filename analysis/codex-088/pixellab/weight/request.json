@@ -1,0 +1,10 @@
+{
+  "description": "One old-fashioned small brass weighing weight UI icon with a square gold body, a flat base and a dark brown loop handle at top. Simple embossed S symbol centered on body, front view. Single isolated icon centered, crisp clean 16-bit pixel art, 3 shades per color, dark brown one-pixel contour, clear silhouette readable at 20 pixels, transparent background, 4 pixel transparent margin on every edge, no shadow cast outside object, no panel, no background scene.",
+  "image_size": {
+    "width": 32,
+    "height": 32
+  },
+  "seed": 202610272,
+  "no_background": true,
+  "color_palette": "dark brown outline, warm tan and brass gold, cream highlights"
+}

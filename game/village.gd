@@ -302,6 +302,7 @@ func draw(m, h: float) -> void :
 				var age: float = fposmod(t * 0.16 + n * 0.5, 1.0)
 				var pos: Vector2 = o + Vector2(b[2].get_center().x + sin(t * 0.4 + n) * 5, - b[2].size.y - 25 - age * 24)
 				m.draw_texture(art.smoke, pos.round(), Color(0.85, 0.89, 0.88, (1 - age) * 0.28))
+		if i == 3: _aquarium_fish(m, o + Vector2(1024, 0), t)
 	for x in [520.0, 1148.0, 1370.0]:
 		if _visible(x, 40):
 			_sprite(m, "lamp", o + Vector2(x, 48))
@@ -335,6 +336,19 @@ func draw(m, h: float) -> void :
 	if shop == "":
 		rects.zoom=[]
 		m.expedition.draw_strip(m)
+
+func _aquarium_fish(m, c: Vector2, t: float) -> void:
+	# Keep the original building windows; draw only the owned swimming fish.
+	if m.aqua.is_empty(): return
+	var centers := [Vector2(-64, -37), Vector2(3, -77), Vector2(66, -37)]
+	for i in 3:
+		var fish = m.aqua[(i + floori(t / 5) * 3) % m.aqua.size()]
+		if fish == null: continue
+		var tx: Texture2D = m.fish_tex[int(fish.sp)]
+		var region: Rect2i = m.fish_used[int(fish.sp)]
+		var size := Vector2(region.size) * minf(20.0 / region.size.x, 9.0 / region.size.y)
+		var pos: Vector2 = c + centers[i] + Vector2(roundf(sin(t * 0.6 + i) * 3), sin(t + i) * 3)
+		m.draw_texture_rect_region(tx, Rect2((pos - size / 2).round(), size.round()), Rect2(region))
 
 func _bubble(m, c: Vector2, s: String) -> void :
 	var w = minf(m._text_w(s, 9) * 1.15 + 24, 250.0)
@@ -394,6 +408,9 @@ func draw_shop(m, h: float) -> void :
 
 
 	m._ui_rect(Rect2( - m.ox, 0, m.VW + 2 * m.ox, h), Color(0.04, 0.06, 0.1, 0.84))
+	if shop=="aqua":
+		aquarium.draw_room(self,m,h)
+		return
 	var panel_y: = maxf(top + 32.0, roundf(h * 0.5) - 190)
 	var r = Rect2(8, panel_y, 254, minf(440.0 if shop=="museum" else 380.0, h - panel_y - 8))
 	active_style = shop_styles[shop]

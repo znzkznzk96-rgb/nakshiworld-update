@@ -1,23 +1,23 @@
 {
   "schema_version": 3,
   "work_branch": "work/valley-runtime",
-  "status": "aquarium_redesign_approved",
+  "status": "verified_ready_for_release",
   "release_baseline": "v0.87",
   "source_commit": "5be26b4949f3d3c890f8022d3dfcd31c40c46909",
   "current_task": "승인 수족관 UI·동적 레이어·PixelLab 아이콘 구현 및 배포",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
-  "verification": "analysis/codex-088/REPORT.md",
+  "verification": "analysis/release-088/tests.json",
   "phone_verified": false,
   "release_authorized": true,
-  "next_step": "승인 원격 저장 후 구현 및 검증",
+  "next_step": "GitHub main 반영 및 v0.88 공개파일 검증",
   "updated_at": "2026-10-27",
   "support_audit": "analysis/support-balance-085/REPORT.md",
   "support_utility_report": "analysis/support-utility-085/REPORT.md",
   "target_release": "v0.88",
   "last_release_deployed": true,
   "this_change": {
-    "implemented": false,
+    "implemented": true,
     "deployed": false,
     "release_authorized": true
   }
