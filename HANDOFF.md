@@ -5,3 +5,6 @@
 PixelLab단일요청1회완료,64×64×16프레임 검수·게임적용.157→147(10회분),추가재생성0. 48검사및실화면8장,추가native touch개봉검사통과. [상세](analysis/pouch-inventory-088/REPORT.md) [검증](analysis/pouch-inventory-088/VERIFICATION.json).시트game/art/effects/pouch_open.png,미리보기analysis/pouch-inventory-088/pouch_open.gif.
 
 새공개배포없음. 현재공개v0.87/소스5be26b4949f3d3c890f8022d3dfcd31c40c46909 유지. 사용자폰미확인. 다음사용자검토/배포명시요청. 완료된유료모션을재생성하지말것. 연결은기존비공개설정재사용;인증정보공개금지.
+
+
+후속: 사용자우편B형선택확정(카드/작은아이콘/왼쪽정렬), 실제우편런타임미적용. 상단우편/가이드와재화겹침확인, 하단메뉴옆이동은제안미확정. 이전환경연결단절은복구됐고시안원본보존작업재개. 기존가방주머니수정검증완료·미배포상태유지.
