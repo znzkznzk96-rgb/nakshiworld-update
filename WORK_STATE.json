@@ -1,24 +1,24 @@
 {
   "schema_version": 3,
   "work_branch": "work/valley-runtime",
-  "status": "published_and_gateway_verified",
+  "status": "approved_implementation_in_progress",
   "release_baseline": "v0.88",
   "source_commit": "9fd7d23d93f04b12469c830ae3ae95cf409e1468",
-  "current_task": "승인 수족관 UI·동적 레이어·PixelLab 아이콘 구현 및 배포",
+  "current_task": "도감 목록2종·물고기상세A·병사상세B 및 PixelLab UI 아이콘",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
   "verification": "analysis/release-088/PUBLISHED.json",
   "phone_verified": false,
   "release_authorized": true,
-  "next_step": "사용자 휴대폰에서 v0.88 적용 확인",
+  "next_step": "아이콘 제작 및 UI 구현",
   "updated_at": "2026-10-27",
   "support_audit": "analysis/support-balance-085/REPORT.md",
   "support_utility_report": "analysis/support-utility-085/REPORT.md",
-  "target_release": "v0.88",
+  "target_release": "v0.89",
   "last_release_deployed": true,
   "this_change": {
-    "implemented": true,
-    "deployed": true,
+    "implemented": false,
+    "deployed": false,
     "release_authorized": true
   }
 }
