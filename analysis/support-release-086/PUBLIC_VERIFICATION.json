@@ -1,0 +1,46 @@
+{
+  "version": {
+    "code": 86,
+    "name": "0.86"
+  },
+  "source_commit": "c2d3a4667720c6040c1085c13a96ca1fca90110a",
+  "assets": {
+    "version.json": {
+      "size": 198,
+      "sha256": "2292dd01184d5916e2af205f4b7167e85b1c49f7ed3c2ded7da3e1cc9004e5db",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v0.86/version.json"
+    },
+    "patch.pck": {
+      "size": 47432496,
+      "sha256": "b57e140cc5d4cdd77d230de9dcbfc938a8b99ba29b5d8f7ab51ace0ba46f6c77",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v0.86/patch.pck"
+    },
+    "game-source.zip": {
+      "size": 47137579,
+      "sha256": "503b43bd497b8c4cfd37d82c6a4e6ad4ea5153997a1df71950857c60fafb6ff1",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v0.86/game-source.zip"
+    }
+  },
+  "phone_verified": false,
+  "source_overlay_files_verified": 282,
+  "zip_crc_verified": true,
+  "public_assets_verified": true,
+  "gateway": {
+    "verified": true,
+    "manifest": {
+      "code": 86,
+      "name": "0.86",
+      "sha256": "b57e140cc5d4cdd77d230de9dcbfc938a8b99ba29b5d8f7ab51ace0ba46f6c77",
+      "size": 47432496,
+      "source_commit": "c2d3a4667720c6040c1085c13a96ca1fca90110a"
+    },
+    "base": "https://nakshiworld-update-kr.znzkznzk96.workers.dev"
+  },
+  "ci": {
+    "work": 40385383170,
+    "release": 40386069412,
+    "gateway": 40386569154,
+    "all": "success"
+  },
+  "simulation_verification": "analysis/support-release-086/VERIFICATION.json"
+}

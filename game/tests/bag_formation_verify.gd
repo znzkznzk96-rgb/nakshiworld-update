@@ -42,4 +42,18 @@ func run() -> void:
   v.rects={};v.draw_formation(m,139,height-8)
   for key in v.rects:
    if key.begins_with("formation_unit:"):check(d.catalog.soldiers[int(d.unit(int(key.split(":")[1])).id)].role=="defense","filter correct")
+ # Direct card removal, overlap priority, touch/drag and running lock.
+ for slot in [0,1,2]:
+  d.team=[1,2,3];d.battle={};v.role_filter="all";v.rects={};v.draw_formation(m,139,472)
+  var p: Vector2=v.rects["clear_slot:%d"%slot].get_center()
+  v.formation_begin(p,0);v.formation_release(m,p)
+  var expected: Array=[1,2,3];expected.remove_at(slot)
+  check(d.team==expected,"card removes correct slot %d"%slot)
+  check(d.soldiers.size()==25,"removal preserves owned soldiers")
+ d.team=[1,2,3];v.rects={};v.draw_formation(m,139,472)
+ var clear_pos: Vector2=v.rects["clear_slot:0"].get_center()
+ v.formation_begin(clear_pos,0);v.formation_move(clear_pos+Vector2(0,12));v.formation_release(m,clear_pos+Vector2(0,12))
+ check(d.team==[1,2,3],"drag from remove does not remove or swap")
+ d.start(1,1000);v.press(m,clear_pos)
+ check(d.team==[1,2,3],"active expedition removal blocked")
  print("BAG_FORMATION_VERIFY failures=",failures);m.audio_feedback.dispose();m.queue_free();await process_frame;quit(0 if failures.is_empty() else 1)
