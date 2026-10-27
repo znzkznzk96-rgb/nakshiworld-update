@@ -1,0 +1,17 @@
+{
+  "description": "A single white checkmark centered on a blue circular medallion. Crisp pixel art game UI asset. Cozy 16-bit fishing RPG, 3 shades per material, dark brown one-pixel outline. Clearly readable at small size. Centered with 3 pixel transparent margin. No letters, no panel, no grid, no additional objects. Preserve exact main shape and silhouette of the input. Add only crisp pixel shading.",
+  "negative_description": "blurry, photorealistic, text, UI panel, button, multiple icons, clipped edges, sticks, strings, handles, ribbons",
+  "image_size": {
+    "width": 32,
+    "height": 32
+  },
+  "no_background": true,
+  "text_guidance_scale": 5,
+  "coverage_percentage": 70,
+  "seed": 2026102703,
+  "init_image": {
+    "type": "base64",
+    "base64": "iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAA0BJREFUWIXtl1toFFcYx39nLnsx1TSSgrloSSF2MRE1tZLU0r4WxWxaCD7oixKLFAySFkOksAQqEgsptK9pS/tQKFqaTVREkAp9iLWRKNFcCiXEpCmCthtve5uZ04ftujvJzM6uUtIH/08z3/nO9/8x5zszZ4SUkpWUsqLuzwH+DwBaKcmNvSNrk6beBqJVQkhALYCEeQGTQoihZEofnD25+e9ia4pidsH6rpGgv0zvEkIcA9Z4pC+COJV4mPxsrr8l/swAod6xasuUgxL5uidpviTXLY3w75HXbj81QH3vL7WY2hWgpiTznOYVS2ue/mTLH24Jrk24vmskiKFFn8a8eo3IXtZaanqwrvdyoGSAYJnvIwRNpZo3b1C5eGgV7zf7MgEptmvm6qNu+Y5LkOl23wzeDWdT6CWF7/YFWe3PPIFvr6U5cSmJJVlMpX11TrvD8QkkLf3dUs03vKjw9d6cOcD+Jp2mGhWg3K+nw07znJdAij2lmFcEBQPtASrLhC3e91OK0XkzW7S1eABoWBqor3ROXaXDl+1B6tbaxweupvnq19STews2lQKwLv+mc6eP4QNBwg32F6emwhdtQTZX2cucnTT49HLSFhMuu8nzVdy508eRNzMd3bfLD0D0loEQcOKdAG+9otryR2ZNus8nsJb3tlUKwAKwcWOlwgdv+J4EVUXQtyuAYSZorFJ5r9E+ffxPi8M/xEkZrjWXyW0JJgB+u2vx4XACM49dVaC/NUDHDt02YTYmOXQmzuO0c0GJnCgaQAgxlL0+N2Usg1Dszc7dR5KD38e597jgdyVaNIBPSUaBxUIQWT1KSTpOx7kdc1zirGKmqg05DTgC3Iy0/AXiVH7s3JTB0SE7hGHCkcEEt+4UNEcgT85EtsaKBgAw1Pv9CDmaH7swnYOQEo5fSPLzjOlWIut+Na0+/Nx1uNDn+NWPb9RYinGFf08+We0OaVS+IPhm1KXjcppTVaV5KrLNcQd4AkDmQGJa1o9Idni5LdGYpdLmdSDxPJRORbYtGMqDt4Ee8hqzgGIC2U2svMXLHIo8E2b1cs94hV9PhyUyDITILc28gElLEDUVNerWcM8M8F9oxf8LngOsOMA/h08w1Tmjc9YAAAAASUVORK5CYII="
+  },
+  "init_image_strength": 100
+}

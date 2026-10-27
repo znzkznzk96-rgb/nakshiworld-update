@@ -1,0 +1,6 @@
+{
+  "quality_pass": false,
+  "reason": "check symbol not recognizable; no application",
+  "generations_used": 1,
+  "next": "shape-guided individual retry under user authorization"
+}
