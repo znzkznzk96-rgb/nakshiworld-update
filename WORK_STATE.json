@@ -1,23 +1,23 @@
 {
   "schema_version": 3,
   "work_branch": "work/valley-runtime",
-  "status": "ui_guide_owner_aquarium_verified_not_deployed",
+  "status": "aquarium_b_implementation",
   "release_baseline": "v0.87",
   "source_commit": "5be26b4949f3d3c890f8022d3dfcd31c40c46909",
-  "current_task": "우편 B·하단 도구·가이드 최신화·주인 게이지·수족관 외관",
+  "current_task": "수족관 B 전시실형 적용",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
   "verification": "analysis/ui-guide-088/VERIFICATION.json",
   "phone_verified": false,
   "release_authorized": false,
-  "next_step": "사용자 검토; 배포 요청 시 미배포 주머니/전투색 포함 새 릴리즈",
+  "next_step": "원본 물고기 동적 표시와 기존 관리/확장 연결, 화면 및 회귀 검사",
   "updated_at": "2026-10-27",
   "support_audit": "analysis/support-balance-085/REPORT.md",
   "support_utility_report": "analysis/support-utility-085/REPORT.md",
   "target_release": "v0.87",
   "last_release_deployed": true,
   "this_change": {
-    "implemented": true,
+    "implemented": false,
     "deployed": false,
     "release_authorized": false
   }
