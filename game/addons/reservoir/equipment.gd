@@ -131,6 +131,7 @@ func draw_inventory(m, r: Rect2, tab: String) -> void:
 	var equipped := tab == "equipment"
 	var list := entries(m, equipped)
 	if not equipped:
+		list.push_front({"key":"pouch","name":"어혼 주머니","icon":preload("res://addons/reservoir/soul_pouch_shop.gd").icon(),"desc":"보유 %d개 · 눌러서 열기"%m.expedition.data.pouches})
 		list.append({"key": "bait", "name": "지렁이", "icon": m.V.tool_icons.worm, "desc": "보유 %d개" % m.bait})
 		for i in range(1,6):
 			if m.region_shop.stock(m,i)>0:
@@ -139,7 +140,7 @@ func draw_inventory(m, r: Rect2, tab: String) -> void:
 	inventory_tab=tab;inventory_count=list.size()
 	inventory_viewport=Rect2(r.position+Vector2(11,96),Vector2(218,r.size.y-154))
 	inventory_scroll[tab]=clampf(float(inventory_scroll[tab]),0,inventory_max_scroll())
-	m._text("현재 장착 중인 장비 · 탈착하면 인벤토리로" if equipped else "보유 장비 · 파츠 · 미끼", Vector2(135, r.position.y + 86), 9, Color("6c5843"), true, 218)
+	m._text("현재 장착 중인 장비 · 탈착하면 인벤토리로" if equipped else "어혼 주머니 · 장비 · 파츠 · 미끼", Vector2(135, r.position.y + 86), 9, Color("6c5843"), true, 218)
 	for i in list.size():
 		var d: Dictionary = list[i]
 		var row := Rect2(inventory_viewport.position+Vector2(0,i*36-roundf(float(inventory_scroll[tab]))),Vector2(218,33))
@@ -148,6 +149,7 @@ func draw_inventory(m, r: Rect2, tab: String) -> void:
 		if d.icon: m._ui_texture_rect(d.icon, Rect2(row.position + Vector2(4, 3), Vector2(26, 26)))
 		m._text(d.name, row.position + Vector2(36, 13), 10, Color("513b29"), false, 124)
 		m._text(d.desc, row.position + Vector2(36, 26), 8, Color("77644d"), false, 124)
+		if d.key=="pouch": button(m,Rect2(row.end.x-49,row.position.y+4,45,25),"열기","pouch")
 		if ":" in str(d.key): button(m, Rect2(row.end.x - 49, row.position.y + 4, 45, 25), "탈착" if equipped else "장착", ("off:" if equipped else "on:") + d.key)
 	if list.is_empty(): m._text("장착한 장비가 없어요", Vector2(135, r.position.y + 170), 12, Color("77644d"), true, 210)
 	var maximum: float=inventory_max_scroll()
@@ -168,7 +170,8 @@ func press_inventory(m, p: Vector2) -> void:
 	for row in rects.get("rows", []):
 		if not inventory_viewport.has_point(p) or not row[0].has_point(p): continue
 		var action: String = row[1]
-		if action.begins_with("page:"): page = maxi(0, page + int(action.get_slice(":", 1)))
+		if action=="pouch": m.inventory.pouch.open(m)
+		elif action.begins_with("page:"): page = maxi(0, page + int(action.get_slice(":", 1)))
 		elif action.begins_with("on:"): equip(m, action.trim_prefix("on:"), true)
 		elif action.begins_with("off:"): equip(m, action.trim_prefix("off:"), false)
 		return

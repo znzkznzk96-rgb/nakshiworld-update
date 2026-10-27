@@ -209,13 +209,13 @@ func battle_art(m,r: Rect2) -> void:
 		var hp_x: float=r.position.x+12+(2-i)*34
 		health_bar(m,Rect2(hp_x,ground-fh-4,31,4),hp,float(f.max_hp),float(fx.get("front_hp_before",hp)) if age<.8 and int(fx.get("hit_uid",-1))==int(f.uid) else hp,Color("74cc6a"))
 		if int(fx.get("hit_uid",-1))==int(f.uid) and age>=.38 and age<1.08:
-			floating_value(m,Vector2(x+20,ground-fh+10),"-%d"%int(fx.get("incoming",0)),Color("ffc393"),age-.38)
+			floating_value(m,Vector2(x+20,ground-fh+10),"-%d"%int(fx.get("incoming",0)),Color("ff706b"),age-.38)
 			if int(fx.get("blocked",0))>0: floating_value(m,Vector2(x+20,ground-fh+21),"◇%d"%int(fx.blocked),Color("96dcfa"),age-.38)
-		if int(f.shield)>0 and int(f.hp)>0: m._ui_arc(Vector2(x+25,ground-16),17,-1.5,1.5,9,Color("f5df83"),1)
+		if int(f.shield)>0 and int(f.hp)>0: m._ui_arc(Vector2(x+25,ground-16),17,-1.5,1.5,9,Color("96dcfa"),1)
 		for event in fx.get("support",[]):
 			if int(event.target)!=int(f.get("uid",-1)) or age>=.75 or int(f.hp)<=0 or int(event.amount)<=0: continue
 			floating_value(m,Vector2(x+20,ground-19),("보호 +%d" if event.kind=="ward" else "회복 +%d")%int(event.amount),Color("79f1b4") if event.kind!="ward" else Color("96dcfa"),age)
-			var color: Color=Color("53e6bc") if event.kind!="ward" else Color("f7d65b")
+			var color: Color=Color("53e6bc") if event.kind!="ward" else Color("96dcfa")
 			color.a=1.0-smoothstep(.35,.75,age)
 			var c: Vector2=Vector2(x+22,ground-23-age*7).round()
 			if event.kind=="ward": m._ui_arc(c,7+age*5,0,TAU,12,color,1)
@@ -250,10 +250,10 @@ func battle_art(m,r: Rect2) -> void:
 			var role: String=str(event.role)
 			damage_value(m,Vector2(r.end.x-32,r.position.y+15+slot*12),int(event.amount),role,age-slot*.10)
 		if int(fx.get("poison_damage",0))>0:
-			floating_value(m,Vector2(enemy_x+display/2-20,ground-2),"독 -%d"%int(fx.poison_damage),Color("c6a0ed"),age-.18)
+			floating_value(m,Vector2(enemy_x+display/2-20,ground-2),"독 -%d"%int(fx.poison_damage),Color("ff706b"),age-.18)
 	elif age<.7 and fx.has("outgoing"):
 		# Existing in-progress saves may only have the old aggregate event.
-		floating_value(m,Vector2(enemy_x+display/2,r.position.y+20),"-%d"%int(fx.outgoing),Color("fff0c1"),age)
+		floating_value(m,Vector2(enemy_x+display/2,r.position.y+20),"-%d"%int(fx.outgoing),Color("ff706b"),age)
 
 
 func TICK_LENGTH() -> float: return 1.5
@@ -837,18 +837,9 @@ func draw_upgrade_effect(m,y: float,bottom: float) -> void:
 # Role icon + damage only. No invented position/role labels.
 func damage_value(m,at: Vector2,amount: int,role: String,age: float) -> void:
 	if amount<=0 or age<0 or age>.75: return
-	var color: Color=Color({"attack":"ffb060","defense":"92d8ff","support":"9df0bc"}.get(role,"fff0c1"))
+	var color: Color=Color("ff706b")
 	color.a=1-smoothstep(.48,.75,age)
-	var speed: float=12.0 if role=="attack" else 5.0 if role=="defense" else 9.0
-	var pos: Vector2=(at-Vector2(0,age*speed)).round()
-	if role=="attack" and age<.22:
-		m._ui_line(pos+Vector2(-13,3),pos+Vector2(-8,-4),color,1)
-		m._ui_line(pos+Vector2(8,3),pos+Vector2(13,-4),color,1)
-	elif role=="defense" and age<.32:
-		m._ui_line(pos+Vector2(-10,4),pos+Vector2(10,4),color,2)
-	elif role=="support" and age<.38:
-		m._ui_rect(Rect2(pos+Vector2(12,-3),Vector2(1,5)),color)
-		m._ui_rect(Rect2(pos+Vector2(10,-1),Vector2(5,1)),color)
+	var pos: Vector2=(at-Vector2(0,age*8)).round()
 	m._ui_texture_rect(textures["role_"+role],Rect2(pos+Vector2(-27,-9),Vector2(11,11)),false,Color(1,1,1,color.a))
 	var value: String=str(amount)
 	for offset in [Vector2(-1,0),Vector2(1,0),Vector2(0,-1),Vector2(0,1)]: m._text(value,pos+offset,10,Color(.12,.09,.08,color.a),true,40)

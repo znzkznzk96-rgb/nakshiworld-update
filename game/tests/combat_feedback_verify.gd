@@ -4,13 +4,15 @@ class Probe:
 	extends RefCounted
 	var bars: int=0
 	var labels: Array=[]
+	var colors: Array=[]
+	var strokes: int=0
 	func _ui_texture_rect_region(_a,_b,_c,_d=Color.WHITE): pass
 	func _ui_texture_rect(_a,_b,_c=false,_d=Color.WHITE): pass
-	func _ui_line(_a,_b,_c,_d): pass
+	func _ui_line(_a,_b,_c,_d): strokes+=1
 	func _ui_arc(_a,_b,_c,_d,_e,_f,_g): pass
 	func _ui_rect(r,c):
 		if c==Color("33251e") and r.size==Vector2(31,4): bars+=1
-	func _text(s,_b,_c,_d,_e,_f): labels.append(s)
+	func _text(s,_b,_c,_d,_e,_f): labels.append(s);colors.append(_d)
 func check(ok,label):
 	if not ok: failures.append(label)
 func _initialize(): call_deferred("run")
@@ -42,6 +44,10 @@ func run():
 		for event in v.data.battle.fx.attacks:
 			check(str(event.amount) in probe.labels,"separate numeric damage")
 		check(not probe.labels.any(func(s): return "공격" in s or "지원" in s or "방어" in s),"no role-position labels")
+	for role in ["attack","defense","support"]:
+		var probe=Probe.new();v.damage_value(probe,Vector2.ZERO,20,role,.1)
+		check(probe.strokes==0,"no decorative slash strokes")
+		check(probe.colors.back()==Color("ff706b"),"all role damage red")
 	v.data.battle.ticks=2;v.data.battle.fighters[0].hp=10;v.data.tick()
 	check(v.data.battle.fx.attacks.size()==2,"support turn excludes support attack")
 	print("COMBAT_FEEDBACK_VERIFY failures=",failures);quit(0 if failures.is_empty() else 1)

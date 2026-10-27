@@ -1,0 +1,24 @@
+{
+  "job_id": "a78091ef-f1b1-4507-aa8d-4d956c6a1c4e",
+  "endpoint": "animate-with-text-v2",
+  "requests": 1,
+  "regenerations": 0,
+  "frames": 16,
+  "frame_size": [
+    64,
+    64
+  ],
+  "sheet_size": [
+    1024,
+    64
+  ],
+  "edge_clipping": false,
+  "generations_before": 157,
+  "generations_after": 147,
+  "generations_consumed": 10,
+  "visual_review": "brown cloth, teal knot and fish emblem retained; squash/open/rising cyan soul/fading sparks; accepted",
+  "tests_passed": 48,
+  "deployed": false,
+  "phone_verified": false,
+  "sheet_sha256": "898a3a10ae836274c2a683cb4b5fb3fef38829501b061f270cbc0b755cf3f612"
+}

@@ -1136,7 +1136,7 @@ func start_catch() -> void :
 	DEX[fish_key(int(S.sp))] = seen
 	S.weight = W_BASE[S.star] * pow(S.lf, 3) * W_GRADE[S.grade]
 	if first_capture:
-		if expedition.data.on_capture(int(S.sp)): show_toast("어혼 주머니 +1 · 낚시상점에서 열기",Color("91e8dc"))
+		if expedition.data.on_capture(int(S.sp)): show_toast("어혼 주머니 +1 · 가방 인벤토리에서 열기",Color("91e8dc"))
 	if first_capture: personal_dex.observe(int(S.sp),int(S.grade),float(S.len),float(S.weight),Time.get_date_string_from_system())
 	if S.newRec:
 		REC[fish_key(int(S.sp))] = S.len;_save_rec()
