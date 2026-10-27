@@ -5,6 +5,8 @@ func check(ok: bool,label: String) -> void:
 func _initialize() -> void:call_deferred("run")
 func run() -> void:
  var m=load("res://main.gd").new();m.development_preview=true;m.SET.sfx=0;m.SET.music=0;root.add_child(m);await process_frame;m.set_process(false);m.title_open=false
+ for name in ["heart","leaf","star","check","right","left","close","fish","plus","rod","soldier","soul0","soul1","soul2","soul3","soul4","region0","region1","region2","region3","region4","region5"]:
+  check(ResourceLoader.exists("res://art/ui/codex/%s.png"%name),"required PixelLab icon "+name)
  var d=m.personal_dex;d.open(m);d.draw(m,480)
  check(d.rects.categories.size()==2 and d.rects.regions.size()==6,"two top categories and all six fishing locations")
  var snapshot: Dictionary=d.serialize()

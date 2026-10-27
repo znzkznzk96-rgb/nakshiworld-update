@@ -93,15 +93,8 @@ func maximum() -> float: return maxf(0,(rows_total-visible_rows)*row_height)
 func cancel_pointer() -> void:
 	pointer=false;drag=false;touch_id=-1;down_id=-1
 func icon(m,kind: String,box: Rect2) -> void:
-	# Pending new PixelLab art: existing shipped resources remain review-only fallbacks.
-	if ResourceLoader.exists("res://art/ui/codex/%s.png"%kind):record_icon(m,kind,box);return
 	if kind in ["attack","defense"]:m.expedition.symbol(m,kind,box);return
-	if kind=="leaf":m.expedition.symbol(m,"support",box);return
-	if kind.begins_with("soul"):
-		m._ui_texture_rect(m.expedition.textures[m.expedition.EFILES[int(kind.right(1))]],box,false);return
-	var signs: Dictionary={"close":"×","right":"›","left":"‹","plus":"+","check":"✓","heart":"♥","fish":"•"}
-	if signs.has(kind):m._text(signs[kind],box.get_center()+Vector2(0,5),12,Color("b84343") if kind=="heart" else INK,true,box.size.x)
-
+	record_icon(m,kind,box)
 func label_lines(m,text: String,pos: Vector2,width: float,size: int=10,lines: int=2,color: Color=INK) -> void:
 	var parts: Array[String]=preload("res://addons/reservoir/text_layout.gd").wrap(m,text,size,width)
 	for i in mini(parts.size(),lines):m._text(parts[i],pos+Vector2(0,i*(size+3)),size,color,false,width)
@@ -129,7 +122,7 @@ func draw(m,h: float) -> void:
 		return
 	for tab in 2:
 		var b:=Rect2(r.position+Vector2(13+tab*116,46),Vector2(111,27))
-		button(m,b,["물고기","병사"][tab],category==["fish","soldier"][tab]);rects.categories.append(b)
+		button(m,b,["물고기","병사"][tab],category==["fish","soldier"][tab]);icon(m,["fish","soldier"][tab],Rect2(b.position+Vector2(8,6),Vector2(16,16)));rects.categories.append(b)
 	draw_collection(m,r)
 func draw_collection(m,r: Rect2) -> void:
 	var ids: Array=[]
@@ -146,7 +139,7 @@ func draw_collection(m,r: Rect2) -> void:
 			button(m,b,["전체","공격","방어","지원"][i],role_filter==["all","attack","defense","support"][i]);rects.filters.append(b)
 		y+=31;row_height=68
 	else:
-		m._text("낚시터",Vector2(25,y+10),10,INK,false,220);y+=17
+		icon(m,"rod",Rect2(23,y-3,15,15));m._text("낚시터",Vector2(42,y+10),10,INK,false,200);y+=17
 		for area in 6:
 			var b:=Rect2(21+(area%2)*116,y+(area/2)*35,111,32)
 			m._ui_style_box(m.sb_btn,b)
@@ -187,7 +180,9 @@ func draw_collection(m,r: Rect2) -> void:
 				for g in 5:
 					var mark:=Rect2(cell.position+Vector2(115+g*16,25),Vector2(14,14))
 					if g in grades:icon(m,"fish",mark)
-					else:m._ui_rect(mark.grow(-4),Color("d4c4a0"))
+					else:
+						record_icon(m,"fish",mark)
+						m._ui_rect(mark,Color(.92,.88,.77,.7))
 			icon(m,"right",Rect2(cell.position+Vector2(209,cell.size.y/2-5),Vector2(11,11)))
 			rects.fish.append([cell,id])
 		else:
@@ -205,7 +200,7 @@ func draw_collection(m,r: Rect2) -> void:
 		m._ui_rect(Rect2(track.position+Vector2(0,(track.size.y-thumb)*scroll/maximum()),Vector2(3,thumb)),Color("8d6037"))
 	m._text("합성 후에도 제작 기록은 남아요" if soldier_mode() else "판매·기증 후에도 기록은 남아요",Vector2(135,r.end.y-16),9,MUTED,true,230)
 func back_button(m,r: Rect2) -> void:
-	var b:=Rect2(r.position+Vector2(13,46),Vector2(64,23));button(m,b,"‹ 목록");rects.back=b
+	var b:=Rect2(r.position+Vector2(13,46),Vector2(64,23));button(m,b,"목록");icon(m,"left",Rect2(b.position+Vector2(5,6),Vector2(11,11)));rects.back=b
 func record_icon(m,kind: String,box: Rect2) -> void:
 	if not record_icons.has(kind):
 		var path: String="res://art/ui/codex/%s.png"%kind
@@ -229,7 +224,7 @@ func draw_trophy(m,r: Rect2) -> void:
 	if known:m._ui_fish(selected,Rect2(29,y+14,76,44))
 	else:m._text("?",Vector2(67,y+46),24,MUTED,true,70)
 	m._text(m.FISH_NAME[selected] if known else "미발견 물고기",Vector2(116,y+23),14,INK,false,124)
-	m._text("★%d · %s"%[star,REGIONS[region]],Vector2(116,y+43),10,MUTED,false,124)
+	icon(m,"star",Rect2(115,y+31,12,12));m._text("%d · %s"%[star,REGIONS[region]],Vector2(130,y+43),10,MUTED,false,110)
 	var total:=0
 	for n in m.fish_counts(selected):total+=int(n)
 	m._text("총 포획 %d마리"%total,Vector2(116,y+62),10,INK,false,124)

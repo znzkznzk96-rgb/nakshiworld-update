@@ -1,0 +1,16 @@
+{
+  "quality_pass": true,
+  "native_size": [
+    32,
+    32
+  ],
+  "transparent": true,
+  "sha256": "ad0b91b7921a6430b32ab642523ade7d629727f0efb22d94706d66b6383b6546",
+  "checks": [
+    "recognizable red heart without stem",
+    "wood brass frame consistent with UI",
+    "nearest inspected",
+    "transparent outer corners"
+  ],
+  "regenerations": 0
+}
