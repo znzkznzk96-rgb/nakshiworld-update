@@ -1,0 +1,26 @@
+{
+  "game/addons/reservoir/aquarium_view.gd": {
+    "bytes": 13943,
+    "sha256": "2101683ceef6dbe41d3749b0d632b346688e6c7f47b875d4b700b24ac6f3457d"
+  },
+  "game/addons/reservoir/personal_dex.gd": {
+    "bytes": 15001,
+    "sha256": "12c180a1c79d0fcfeea9816d6e3134dbfb9c5a5a97de0346f95d18ccb664a322"
+  },
+  "game/village.gd": {
+    "bytes": 36317,
+    "sha256": "bac215ff242dc5716c853959eeeb044fab3e352b82bcf63c1ff3f926bc650faa"
+  },
+  "game/art/aquarium/tank_clean.png": {
+    "bytes": 52005,
+    "sha256": "a6eb815fb9779c4f1325de8d27f4923e9f26bf51b3e6ffc81ec299ba8717432e"
+  },
+  "game/art/ui/aquarium/manage.png": {
+    "bytes": 630,
+    "sha256": "6418fbf676be100bb11d935069e409c1296dbe813c3254835fb9a6862869b7f6"
+  },
+  "game/art/ui/aquarium/expand.png": {
+    "bytes": 614,
+    "sha256": "c76b7e4262becde4723cdac10a7b61abbad5973456fa0ca3c815616a5adaf5e1"
+  }
+}

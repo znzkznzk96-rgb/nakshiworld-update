@@ -1,3 +1,7 @@
+## 최신 복구 기준 — 2026-10-27 공개 v0.88
+
+v0.88 전체 game-source.zip과 최신 작업브랜치를 사용한다. 수족관·도감 변경은 GitHub에 저장되고 공개됐다. 검증: [v0.88](../analysis/release-088/PUBLISHED.json). 이전 배포 중단 기록은 과거 이력이다. 휴대폰 적용 확인만 남았다.
+
 ## 2026-10-24 최신 기획 패키지
 저수지 백룸 기획·선택3안·진행3안은 활성브랜치 [design/backrooms-reservoir/PLAN.md](design/backrooms-reservoir/PLAN.md)에 보관. review.html은 그림을 내장한 독립 비교본이며 model.py/preview.gd/QA.json으로 재현·검증 범위를 확인한다. 게임 구현/배포 없음. 현재 진행은 HANDOFF/WORK_STATE를 따른다.
 
