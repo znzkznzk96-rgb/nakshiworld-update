@@ -1,23 +1,23 @@
 {
   "schema_version": 3,
   "work_branch": "work/valley-runtime",
-  "status": "mail_b_selected_hud_position_proposed",
+  "status": "mail_hud_guide_owner_aquarium_implementation",
   "release_baseline": "v0.87",
   "source_commit": "5be26b4949f3d3c890f8022d3dfcd31c40c46909",
-  "current_task": "우편 B형 확정·상단 우편/가이드 위치 제안",
+  "current_task": "우편 B·하단 도구·가이드 최신화·주인 게이지·수족관 외관",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
   "verification": "analysis/pouch-inventory-088/VERIFICATION.json",
   "phone_verified": false,
   "release_authorized": false,
-  "next_step": "우편 B형 실제구현 및 상단아이콘 위치선택 반영; 가방주머니·전투색 수정은 검증완료 미배포",
+  "next_step": "승인사항 구현과 관련 검사, 작업 브랜치 원격 보존",
   "updated_at": "2026-10-27",
   "support_audit": "analysis/support-balance-085/REPORT.md",
   "support_utility_report": "analysis/support-utility-085/REPORT.md",
   "target_release": "v0.87",
   "last_release_deployed": true,
   "this_change": {
-    "implemented": true,
+    "implemented": false,
     "deployed": false,
     "release_authorized": false
   }
