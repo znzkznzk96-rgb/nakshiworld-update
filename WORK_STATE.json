@@ -1,24 +1,24 @@
 {
   "schema_version": 3,
   "work_branch": "work/valley-runtime",
-  "status": "v086_published_verified_phone_pending",
+  "status": "expedition_ui_review_in_progress",
   "release_baseline": "v0.86",
   "source_commit": "c2d3a4667720c6040c1085c13a96ca1fca90110a",
-  "current_task": "v0.86 지원유틸·HP/피해표시 공개 및 운영다운로드검증 완료",
+  "current_task": "성공/실패·낚시터 간략창 시안, 상단 배치해제·역할피해 정정",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
   "verification": "analysis/support-release-086/PUBLIC_VERIFICATION.json",
   "phone_verified": false,
   "release_authorized": true,
-  "next_step": "휴대폰 업데이트/지원체감 확인 및 다음 사용자요청",
+  "next_step": "네이티브 시안과 수정분 검증 후 제시",
   "updated_at": "2026-10-27",
   "support_audit": "analysis/support-balance-085/REPORT.md",
   "support_utility_report": "analysis/support-utility-085/REPORT.md",
   "target_release": "v0.86",
   "last_release_deployed": true,
   "this_change": {
-    "implemented": true,
-    "deployed": true,
-    "release_authorized": true
+    "implemented": false,
+    "deployed": false,
+    "release_authorized": false
   }
 }
