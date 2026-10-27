@@ -247,8 +247,7 @@ func battle_art(m,r: Rect2) -> void:
 				if int(b.fighters[i].uid)==int(event.source): slot=i;break
 			if slot<0: continue
 			var role: String=str(event.role)
-			var label: String=["앞", "중", "뒤"][slot]+str(ROLES.get(role,"공격"))+" -%d"%int(event.amount)
-			floating_value(m,Vector2(r.end.x-34,r.position.y+15+slot*11),label,Color({"attack":"ffb39c","defense":"9edcff","support":"a6f0b5"}.get(role,"fff0c1")),age-slot*.10)
+			damage_value(m,Vector2(r.end.x-32,r.position.y+15+slot*12),int(event.amount),role,age-slot*.10)
 		if int(fx.get("poison_damage",0))>0:
 			floating_value(m,Vector2(enemy_x+display/2-20,ground-2),"독 -%d"%int(fx.poison_damage),Color("c6a0ed"),age-.18)
 	elif age<.7 and fx.has("outgoing"):
@@ -493,7 +492,7 @@ func press(m,pos: Vector2) -> void:
 	var key: String=""
 	# Small lock controls take priority over their containing row.
 	for k in rects:
-		if (str(k).begins_with("lock:") or str(k).begins_with("upgrade:")) and rects[k].has_point(pos): key=k;break
+		if (str(k).begins_with("lock:") or str(k).begins_with("upgrade:") or str(k).begins_with("clear_slot:")) and rects[k].has_point(pos): key=k;break
 	if key=="":
 		for k in rects:
 			if rects[k].has_point(pos): key=k;break
@@ -507,6 +506,11 @@ func press(m,pos: Vector2) -> void:
 	if key=="go_explore": open(m,"explore");return
 	if key.begins_with("explore_tab:"): explore_tab=int(key.split(":")[1]);page=0;choosing_slot=-1;return
 	if key.begins_with("role_filter:"): role_filter=key.split(":")[1];page=0;formation_scroll=0;return
+	if key.begins_with("clear_slot:"):
+		if data.active(): m.show_toast("탐험 중에는 편성을 바꿀 수 없어요",Color("ffdc96"));return
+		var i: int=int(key.split(":")[1])
+		if i>=0 and i<data.team.size(): data.team.remove_at(i);choosing_slot=-1;m._save_game()
+		return
 	if key.begins_with("formation_unit:"):
 		if data.active(): m.show_toast("탐험 중에는 편성을 바꿀 수 없어요",Color("ffdc96"));return
 		var uid: int=int(key.split(":")[1])
@@ -714,7 +718,7 @@ func draw_formation(m,y: float,bottom: float) -> void:
 	role_badges=[]
 	for visual in 3:
 		var i: int=2-visual
-		var r:=Rect2(18+visual*80,y+13,74,65)
+		var r:=Rect2(18+visual*80,y+13,74,87)
 		m._text(["앞","중간","뒤"][i],Vector2(r.get_center().x,y+8),9,Color("6c553b"),true,74)
 		m._ui_style_box(m.sb_btn,r)
 		if choosing_slot==i: m._ui_rect(r.grow(-2),Color("169f9d"),false,1)
@@ -723,16 +727,17 @@ func draw_formation(m,y: float,bottom: float) -> void:
 			sprite(m,int(u.id),Rect2(r.position+Vector2(6,1),Vector2(42,36)))
 			symbol(m,str(spec.role),Rect2(r.position+Vector2(49,8),Vector2(18,18)))
 			role_badge(m,str(spec.role),Rect2(r.position+Vector2(12,36),Vector2(54,14)))
-			m._text("★".repeat(int(u.star))+" +%d"%int(u.get("level",0)),Vector2(r.get_center().x,r.end.y-4),8,Color("382619"),true,66)
+			m._text("★".repeat(int(u.star))+" +%d"%int(u.get("level",0)),Vector2(r.get_center().x,r.position.y+61),8,Color("382619"),true,66)
+			button(m,"clear_slot:%d"%i,Rect2(r.position+Vector2(7,65),Vector2(60,20)),"해제",not data.active())
 		else: m._text("빈 칸",r.get_center()+Vector2(0,4),9,Color("796044"),true,68)
 		rects["slot:%d"%i]=r
 	for i in 4:
 		var role: String=["all","attack","defense","support"][i]
-		var r:=Rect2(18+i*59,y+84,57,23)
+		var r:=Rect2(18+i*59,y+106,57,23)
 		button(m,"role_filter:"+role,r,["전체","공격","방어","지원"][i])
 		if role_filter==role: m._ui_rect(Rect2(r.position+Vector2(5,20),Vector2(r.size.x-10,2)),Color("159d9d"))
-	m._text("탐험 중 · 편성 변경 불가" if data.active() else "병사를 눌러 편성 · 다시 눌러 해제",Vector2(135,y+121),8,Color("6c553b"),true,234)
-	var list_y: float=y+128
+	m._text("탐험 중 · 편성 변경 불가" if data.active() else "위 카드에서 해제 · 밀어서 순서 변경",Vector2(135,y+143),8,Color("6c553b"),true,234)
+	var list_y: float=y+150
 	var units: Array=data.soldiers.filter(func(u): return role_filter=="all" or data.catalog.soldiers[int(u.id)].role==role_filter)
 	formation_viewport=Rect2(18,list_y,234,maxf(47,bottom-list_y-22))
 	formation_max_scroll=maxf(0,units.size()*47.0-formation_viewport.size.y)
@@ -764,6 +769,7 @@ func formation_begin(p: Vector2,id: int) -> void:
 	formation_pointer=true;formation_pointer_id=id;formation_start=p;formation_last=p;formation_dragged=false
 	formation_in_list=formation_viewport.has_point(p);drag_slot=-1
 	for i in data.team.size():
+		if rects.get("clear_slot:%d"%i,Rect2()).has_point(p): return
 		if rects.get("slot:%d"%i,Rect2()).has_point(p): drag_slot=i
 func formation_move(p: Vector2) -> void:
 	if p.distance_to(formation_start)>5: formation_dragged=true
@@ -835,3 +841,23 @@ func draw_upgrade_effect(m,y: float,bottom: float) -> void:
 	if effect_time>1.4: label="연성 완료!" if effect_kind=="alchemy" else "강화 완료! +%d"%int(u.level)
 	m._text(label,Vector2(135,box.end.y+22),12,Color("855c26"),true,232)
 	if effect_time>1.4: m._text(data.catalog.soldiers[int(u.id)].name,Vector2(135,box.end.y+42),10,Color("382619"),true,230)
+
+# Role icon + damage only. No invented position/role labels.
+func damage_value(m,at: Vector2,amount: int,role: String,age: float) -> void:
+	if amount<=0 or age<0 or age>.75: return
+	var color: Color=Color({"attack":"ffb060","defense":"92d8ff","support":"9df0bc"}.get(role,"fff0c1"))
+	color.a=1-smoothstep(.48,.75,age)
+	var speed: float=12.0 if role=="attack" else 5.0 if role=="defense" else 9.0
+	var pos: Vector2=(at-Vector2(0,age*speed)).round()
+	if role=="attack" and age<.22:
+		m._ui_line(pos+Vector2(-13,3),pos+Vector2(-8,-4),color,1)
+		m._ui_line(pos+Vector2(8,3),pos+Vector2(13,-4),color,1)
+	elif role=="defense" and age<.32:
+		m._ui_line(pos+Vector2(-10,4),pos+Vector2(10,4),color,2)
+	elif role=="support" and age<.38:
+		m._ui_rect(Rect2(pos+Vector2(12,-3),Vector2(1,5)),color)
+		m._ui_rect(Rect2(pos+Vector2(10,-1),Vector2(5,1)),color)
+	m._ui_texture_rect(textures["role_"+role],Rect2(pos+Vector2(-27,-9),Vector2(11,11)),false,Color(1,1,1,color.a))
+	var value: String=str(amount)
+	for offset in [Vector2(-1,0),Vector2(1,0),Vector2(0,-1),Vector2(0,1)]: m._text(value,pos+offset,10,Color(.12,.09,.08,color.a),true,40)
+	m._text(value,pos,10,color,true,40)

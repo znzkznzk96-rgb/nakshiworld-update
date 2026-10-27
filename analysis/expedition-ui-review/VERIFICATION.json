@@ -1,0 +1,33 @@
+{
+  "baseline": "v0.86",
+  "runtime_changes": [
+    "direct formation removal",
+    "role damage presentation"
+  ],
+  "proposal_only": [
+    "result dialog",
+    "fishing compact strip"
+  ],
+  "deployed": false,
+  "phone_verified": false,
+  "tests_passed": [
+    "combat_feedback",
+    "bag_formation",
+    "expedition_motion",
+    "expedition079",
+    "expedition080",
+    "selected_ui"
+  ],
+  "screens": {
+    "damage_480.png": "6ded4e1c17f51e63ee79212457cbb5cd25ff299ed1a6f10344bad2ccda8bcd8f",
+    "damage_660.png": "6d9c8e76d6dc12f088084b8262db30437b0943ab2f1c6f6b82cfbbd71bed10be",
+    "fishing_480.png": "c48c7b21398fb1626c00f4d516b530ddd739f3d6ffdc817f05691d49d0811b10",
+    "failure_660.png": "28bb7017dae7c271477ddcf2f8b954ff7e69105b828c4f2cd029765539ba35b3",
+    "success_480.png": "fdb556887b0aa9b251b0b74cc8d0ed804a9e472659687589137804bb4e7d508a",
+    "failure_480.png": "85b48a1c5b3c00f49884bf0e29a546baee8c69efd453e0e10315503db1134632",
+    "success_660.png": "b2578146cdfb915872db66efc2bd0a3e70d2706871fb4ea4d407cafb2670dcd4",
+    "fishing_660.png": "0cc9e0048ac69be43af65775b110b6af3a27559e1a7541b230e8eb5050086f6c",
+    "formation_480.png": "c361ecb9a1d5eb6b4c1132b711133564070b47f53dbc87fa72d00d39c55b8619",
+    "formation_660.png": "c6cd652a0ddd84fa80d72d93ba54f49e89ceb3b415970839df398400396eda58"
+  }
+}

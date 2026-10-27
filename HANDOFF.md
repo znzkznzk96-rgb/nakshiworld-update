@@ -1,5 +1,5 @@
-# 탐험 UI 피드백 — 2026-10-27
+# 탐험 UI 시안·수정 검증 — 2026-10-27
 
-사용자 요청과 범위는 GAME_BIBLE 최신 절. 결과/낚시터 UI는 시안, 배치 즉시해제·역할피해문구 정정은 구현 승인. 새 배포 지시 없음. 기존 v0.86 공개 및 검증 완료 상태는 [이전 기록](docs/historical/HANDOFF_v086_verified.md). 아트/세이브/수치 유지.
+결과 성공/실패와 낚시터 간략창은 검토용 렌더 전용이며 실제게임 미적용. 상단 배치3카드 해제와 위치+역할합성문구 제거/아이콘·색·피해효과 구분은 구현완료, 6개 관련검사 통과. 기존 모델/수치/아트/세이브형식 유지. 480·660 네이티브10장 생성, 주요480 PNG5장 원격보존. [상세](analysis/expedition-ui-review/REPORT.md), [검증](analysis/expedition-ui-review/VERIFICATION.json). 재현스크립트 game/tests/expedition_ui_preview.gd 및 proposal.gd.
 
-현재: 요청 원격기록. 다음: 기존 자산으로 Godot 렌더 시안, 직접해제 및 색/효과 구분 구현·입력검증. 최신 첨부 두 스크린샷 확인. 과거 FULL_HANDOFF ZIP은 여전히 접근불가, 최신 원격기록으로 진행.
+새배포 없음(공개0.86 유지). 시안 사용자선택/휴대폰실기 미확인. 다음: 피드백 반영 및 명시배포 요청시 전체검사/공개검증. 이전0.86 1억시뮬/유료제작 반복불필요. [공개기록](docs/historical/HANDOFF_v086_verified.md).

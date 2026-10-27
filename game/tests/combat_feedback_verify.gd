@@ -5,7 +5,8 @@ class Probe:
 	var bars: int=0
 	var labels: Array=[]
 	func _ui_texture_rect_region(_a,_b,_c,_d=Color.WHITE): pass
-	func _ui_texture_rect(_a,_b): pass
+	func _ui_texture_rect(_a,_b,_c=false,_d=Color.WHITE): pass
+	func _ui_line(_a,_b,_c,_d): pass
 	func _ui_arc(_a,_b,_c,_d,_e,_f,_g): pass
 	func _ui_rect(r,c):
 		if c==Color("33251e") and r.size==Vector2(31,4): bars+=1
@@ -38,8 +39,9 @@ func run():
 	for height in [48,78]:
 		var probe=Probe.new();v.battle_art(probe,Rect2(0,0,246,height))
 		check(probe.bars==3,"all three HP bars")
-		for prefix in ["앞방어", "중공격", "뒤지원"]:
-			check(probe.labels.any(func(s): return s.begins_with(prefix)),"separate role damage "+prefix)
+		for event in v.data.battle.fx.attacks:
+			check(str(event.amount) in probe.labels,"separate numeric damage")
+		check(not probe.labels.any(func(s): return "공격" in s or "지원" in s or "방어" in s),"no role-position labels")
 	v.data.battle.ticks=2;v.data.battle.fighters[0].hp=10;v.data.tick()
 	check(v.data.battle.fx.attacks.size()==2,"support turn excludes support attack")
 	print("COMBAT_FEEDBACK_VERIFY failures=",failures);quit(0 if failures.is_empty() else 1)
