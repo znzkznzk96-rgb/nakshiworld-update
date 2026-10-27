@@ -16,6 +16,7 @@ var detail: = ""
 var page: = 0
 var topic := 0
 var detail_page := 0
+var full_text := false
 const Reader = preload("res://addons/reservoir/topic_reader.gd")
 func sections(letter: Dictionary) -> Array:
 	# Curated presentation, separate from the complete release archive.
@@ -72,49 +73,26 @@ func mark(m, id: String) -> void :
 func envelope(m, r: Rect2, col: Color) -> void :
 	m._ui_texture_rect(preload("res://art/guide64/mail.png"),Rect2(r.get_center()-Vector2(12,12),Vector2(24,24)))
 func draw_button(m) -> void :
-	button = Rect2(109, m.top_y + 2, 28, 27)
-	envelope(m, Rect2(button.position + Vector2(4, 8), Vector2(20, 13)), Color("e7d29c"))
+	button = Rect2(51, m.get_viewport_rect().size.y-m.bot_pad-99, 38, 38)
+	m._ui_style_box(m.sb_btn,button)
+	m._ui_texture_rect(preload("res://art/guide64/mail.png"),Rect2(button.position+Vector2(6,3),Vector2(26,26)))
+	m._text("우편",button.position+Vector2(19,32),7,Color("513b29"),true,32)
 	if unread() > 0:
-		var glow: float = 0.7 + 0.3 * sin(m.ui_clock * 5)
-		m._text("NEW", button.position + Vector2(12, 1), 7, Color(1, 0.82, 0.28, glow), true, 32, true)
+		m._ui_rect(Rect2(button.position+Vector2(29,3),Vector2(6,6)),Color("a43b30"))
+		m._ui_rect(Rect2(button.position+Vector2(30,4),Vector2(2,2)),Color("ffb999"))
 func draw(m, h: float) -> void :
 	var height := 440.0 if detail != "" else 364.0
 	var r := Rect2(13,maxf(8,(h-height)/2),244,height)
 	m.text_items = m.text_items.filter( func(it): return it[1].y < m.top_y + 35)
 	m._ui_rect(Rect2( - m.ox, 0, m.VW + 2 * m.ox, h), Color(0.015, 0.025, 0.04, 0.86))
-	m._ui_style_box(m.sb_panel, r)
-	preload("res://addons/reservoir/ui_theme.gd").title(m, r, "업데이트 우편함")
+	m.expedition.panel(m,r)
+	if detail == "": preload("res://addons/reservoir/ui_theme.gd").title(m, r, "업데이트 우편함")
 	var close: = Rect2(r.end.x - 31, r.position.y + 9, 22, 23)
 	m._ui_texture(m.icons.close, close.position)
 	rects = {"close": close.grow(3), "rows": []}
 	if detail != "":
-		for letter in letters:
-			if letter.id != detail: continue
-			m._text("v"+letter.id,Vector2(29,r.position.y+58),15,Color("376556"),false,80)
-			m._text("읽음",Vector2(231,r.position.y+58),10,Color("68533d"),true,35)
-			m._text(letter.title,Vector2(135,r.position.y+82),11,Color("382619"),true,220)
-			var groups := sections(letter)
-			if groups.is_empty(): groups=[{"name":"안내","icon":"","body":["등록된 내용이 없어요."]}]
-			topic=clampi(topic,0,groups.size()-1)
-			rects.tabs=[]
-			var width: float = 220.0/groups.size()
-			for i in groups.size():
-				var tr:=Rect2(25+i*width,r.position.y+101,width-3,28)
-				m._ui_style_box(m.sb_primary if topic==i else m.sb_btn,tr)
-				m._text(groups[i].name,tr.get_center()+Vector2(0,4),10,Color("fff0d1") if topic==i else Color("382619"),true,width-9)
-				rects.tabs.append(tr)
-			Reader.illustration(m,groups[topic].icon,r.position.y+143)
-			m._text(groups[topic].name+" 업데이트",Vector2(135,r.position.y+218),13,Color("382619"),true,210)
-			rects.reader=Reader.draw(m,groups[topic].get("display",groups[topic].body),detail_page,r.position.y+242,r.end.y-(115 if detail=="0.78" else 81),true)
-		if detail=="0.78":
-			var gift:=Rect2(25,r.end.y-76,220,28)
-			m._ui_style_box(m.sb_primary,gift)
-			var claimed: bool=preload("res://addons/reservoir/testing_gift.gd").ID in m.testing_grants
-			m._text("테스트 선물 수령 완료" if claimed else "테스트 선물 받기",gift.get_center()+Vector2(0,4),11,Color("fff0d1"),true,206)
-			rects.gift=gift
-		var back := Rect2(25,r.end.y-42,220,28)
-		m._ui_style_box(m.sb_btn,back);m._text("목록으로",back.get_center()+Vector2(0,4),12,Color("382619"),true,206)
-		rects.back=back;return
+		preload("res://addons/reservoir/mail_cards.gd").draw(self,m,r)
+		return
 	var letters: = visible_letters()
 	var pages: = maxi(1, ceili(letters.size() / 4.0));page = clampi(page, 0, pages - 1)
 	m._text("삭제할 우편을 선택하세요" if deleting else "안 읽은 우편 %d개" % unread(), Vector2(135, r.position.y + 56), 10, Color("513b29"), true, 218)
@@ -146,14 +124,13 @@ func draw(m, h: float) -> void :
 		m._text(text, rects[key].get_center() + Vector2(0, 4), 10, Color("513b29"), true, 99)
 func press(m, p: Vector2) -> void :
 	m.play("ui")
-	if rects.get("close", Rect2()).has_point(p): opened = false;detail = "";deleting = false;checked.clear();return
+	if rects.get("close", Rect2()).has_point(p): opened = false;detail = "";full_text=false;deleting = false;checked.clear();return
 	if detail != "":
 		if detail=="0.78" and rects.get("gift",Rect2()).has_point(p):
 			if preload("res://addons/reservoir/testing_gift.gd").claim(m): m.show_toast("테스트 선물을 받았어요!",Color("91e8dc"))
 			return
-		if rects.get("back", Rect2()).has_point(p): detail = "";topic=0;detail_page=0;return
-		for i in rects.get("tabs",[]).size():
-			if rects.tabs[i].has_point(p): topic=i;detail_page=0;return
+		if rects.get("back", Rect2()).has_point(p): detail = "";topic=0;detail_page=0;full_text=false;return
+		if rects.get("toggle",Rect2()).has_point(p): full_text=not full_text;detail_page=0;return
 		var reader: Dictionary = rects.get("reader",{})
 		if reader.get("previous",Rect2()).has_point(p): detail_page=maxi(0,detail_page-1)
 		if reader.get("following",Rect2()).has_point(p): detail_page=mini(reader.count-1,detail_page+1)
@@ -163,7 +140,7 @@ func press(m, p: Vector2) -> void :
 		if deleting:
 			if row[1] in checked: checked.erase(row[1])
 			else: checked.append(row[1])
-		else: detail = row[1];topic=0;detail_page=0;mark(m, detail)
+		else: detail = row[1];topic=0;detail_page=0;full_text=false;mark(m, detail)
 		return
 	if rects.get("prev", Rect2()).has_point(p): page = maxi(0, page - 1)
 	if rects.get("next", Rect2()).has_point(p): page += 1

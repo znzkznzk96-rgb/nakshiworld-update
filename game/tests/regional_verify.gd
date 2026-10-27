@@ -58,7 +58,7 @@ func run() -> void:
 	check(m.S.owner and m.S.sp==39,"correct regional parts enable valley owner")
 	m.fail("test miss");check(m.progression.owner_gauge[1]==70 and m.progression.owner_gauge[0]==0,"valley miss independent from reservoir")
 	m.progression.owner_gauge[1]=0;m.progression.fishing_event(m,1,"catch",3)
-	check(m.progression.owner_gauge[1]==2,"approved legendary gain is two percentage points")
+	check(m.progression.owner_gauge[1]==3,"legendary gain is three percentage points")
 	m.progression.owner_gauge[1]=99;m.start_cast();m.start_wait()
 	check(m.progression.owner_gauge[1]==99 and not m.S.owner,"casts do not fill owner gauge")
 	m.progression.fishing_event(m,1,"catch",0)

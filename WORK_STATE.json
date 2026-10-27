@@ -1,23 +1,23 @@
 {
   "schema_version": 3,
   "work_branch": "work/valley-runtime",
-  "status": "mail_hud_guide_owner_aquarium_implementation",
+  "status": "ui_guide_owner_aquarium_verified_not_deployed",
   "release_baseline": "v0.87",
   "source_commit": "5be26b4949f3d3c890f8022d3dfcd31c40c46909",
   "current_task": "우편 B·하단 도구·가이드 최신화·주인 게이지·수족관 외관",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
-  "verification": "analysis/pouch-inventory-088/VERIFICATION.json",
+  "verification": "analysis/ui-guide-088/VERIFICATION.json",
   "phone_verified": false,
   "release_authorized": false,
-  "next_step": "승인사항 구현과 관련 검사, 작업 브랜치 원격 보존",
+  "next_step": "사용자 검토; 배포 요청 시 미배포 주머니/전투색 포함 새 릴리즈",
   "updated_at": "2026-10-27",
   "support_audit": "analysis/support-balance-085/REPORT.md",
   "support_utility_report": "analysis/support-utility-085/REPORT.md",
   "target_release": "v0.87",
   "last_release_deployed": true,
   "this_change": {
-    "implemented": false,
+    "implemented": true,
     "deployed": false,
     "release_authorized": false
   }
