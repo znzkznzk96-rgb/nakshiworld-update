@@ -1,0 +1,8 @@
+{
+  "quality_pass": false,
+  "reason": "Requested nine distinct symbols but generated one vertical panel with four colored buttons. No usable requested icons.",
+  "applied": false,
+  "further_paid_jobs_stopped": true,
+  "generations_used": 10,
+  "regenerations": 0
+}

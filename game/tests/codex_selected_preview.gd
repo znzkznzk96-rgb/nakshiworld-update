@@ -15,9 +15,9 @@ func run() -> void:
  d.restore({});m.DEX={m.fish_key(1):[0,1]};m.REC={m.fish_key(1):26.0};d.observe(1,0,24.9,.078,"")
  for h in [480,660]:
   root.content_scale_size=Vector2i(270,h);root.size=Vector2i(540,h*2);await process_frame;m._layout()
-  d.open(m);d.region=2;await capture(m,out,"soldiers_%d"%h)
+  d.open(m);d.category="soldier";await capture(m,out,"soldiers_%d"%h)
   d.scroll=104;await capture(m,out,"soldiers_scroll_%d"%h)
   d.selected=6;await capture(m,out,"soldier_detail_%d"%h)
-  d.selected=-1;d.region=0;d.scroll=0;await capture(m,out,"fish_list_%d"%h)
+  d.selected=-1;d.region=0;d.category="fish";d.scroll=0;await capture(m,out,"fish_list_%d"%h)
   d.selected=1;await capture(m,out,"fish_detail_%d"%h)
  m.audio_feedback.dispose();m.queue_free();await process_frame;quit()

@@ -1,0 +1,16 @@
+[
+  {
+    "name": "personal_dex",
+    "exit": 0,
+    "errors": [
+      "PERSONAL_DEX_VERIFY failures=[]"
+    ]
+  },
+  {
+    "name": "soldier_dex",
+    "exit": 0,
+    "errors": [
+      "SOLDIER_DEX_VERIFY failures=[]"
+    ]
+  }
+]
