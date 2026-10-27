@@ -1,10 +1,10 @@
 {
   "schema_version": 3,
   "work_branch": "work/valley-runtime",
-  "status": "expedition_ui_review_ready",
+  "status": "result_ui_implementation",
   "release_baseline": "v0.86",
   "source_commit": "c2d3a4667720c6040c1085c13a96ca1fca90110a",
-  "current_task": "성공/실패·낚시터 시안 완료, 배치해제·역할피해 정정 검증",
+  "current_task": "승인 결과창 적용·낚시터 한줄시안",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
   "verification": "analysis/expedition-ui-review/VERIFICATION.json",
@@ -17,7 +17,7 @@
   "target_release": "v0.86",
   "last_release_deployed": true,
   "this_change": {
-    "implemented": true,
+    "implemented": false,
     "deployed": false,
     "release_authorized": false
   }
