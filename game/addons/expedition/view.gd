@@ -64,6 +64,7 @@ func open(m,screen: String) -> void:
 		m.show_toast("탐험 결과는 마을에서 확인해 주세요",Color("ffdc96"));return
 	opened=screen;effect_kind="";page=0;formation_scroll=0;formation_pointer=false;role_filter="all";selected=[];notice="";choosing_slot=-1;m.menu_open=false;m.holding=false
 	selected_round=mini(data.unlocked,maxi(1,selected_round))
+	if screen=="explore" and not data.battle.is_empty() and not data.active(): explore_tab=0
 
 func update(m,dt: float) -> void:
 	if effect_kind!="":
@@ -259,6 +260,8 @@ func TICK_LENGTH() -> float: return 1.5
 
 func draw(m,h: float) -> void:
 	if opened=="": return
+	if opened=="explore" and explore_tab==0 and not data.battle.is_empty() and not data.active():
+		draw_expedition_result(m,h);return
 	# Hide underlying text as well as surfaces so world/shop labels cannot leak through.
 	m.text_items=m.text_items.filter(func(it): return it[1].y<m.top_y+65)
 	var y: float=m.top_y+69;var bottom: float=h-m.bot_pad-8
@@ -289,21 +292,7 @@ func draw_explore(m,y: float,bottom: float) -> void:
 		draw_formation(m,y,bottom);return
 	if not data.battle.is_empty():
 		var b: Dictionary=data.battle
-		if not data.active():
-			m._text("탐험 성공!" if b.status=="win" else "탐험 실패",Vector2(135,y+27),17,Color("98651f") if b.status=="win" else Color("8c4935"),true,226)
-			m._text("%s · %s"%[stage_name(int(b.round)),ROOMS[int(b.round)-1]],Vector2(135,y+51),10,Color("6c553b"),true,226)
-			room(m,Rect2(23,y+69,224,88),int(b.round)-1)
-			for i in b.fighters.size(): sprite(m,int(b.fighters[i].id),Rect2(40+i*65,y+86,60,60))
-			m._text("수고했어요, 탐험대!",Vector2(135,y+183),12,Color("382619"),true,226)
-			m._text("획득 비늘  %d"%int(b.reward),Vector2(135,y+211),11,Color("82502a"),true,226)
-			if int(b.get("reward_revision",0))>=1:
-				var reward_note: String="클리어 시 보상을 받을 수 있어요."
-				if b.status=="win":
-					reward_note=("첫 돌파 · " if bool(b.first) else "보스 추가 보상 · ")+"어혼 주머니 %d개"%int(b.get("pouch_reward",0)) if int(b.get("pouch_reward",0))>0 else ("이번에는 어혼 주머니 없음" if data.BOSS_POUCH_CHANCE.has(int(b.round)) else "일반방 반복 · 비늘 보상")
-				m._text(reward_note,Vector2(135,y+235),10,Color("82502a"),true,226)
-			elif b.status=="win" and bool(b.first): m._text("첫 돌파 보상 · %s 어혼 1개"%data.ELEMENTS[(int(b.round)-1)%5],Vector2(135,y+235),10,Color("82502a"),true,226)
-			button(m,"claim",Rect2(22,bottom-57,226,30),"보상 받고 편성으로" if b.status=="win" else "편성으로 돌아가기")
-			return
+
 		m._text("%s · %s"%[stage_name(int(b.round)),ROOMS[int(b.round)-1]],Vector2(135,y+12),11,Color("382619"),true,230)
 		var r: Rect2=Rect2(17,y+23,236,85);room(m,r,int(b.round)-1);battle_art(m,r)
 		for i in b.fighters.size():
@@ -556,6 +545,9 @@ func press(m,pos: Vector2) -> void:
 			m.gold+=int(reward.gold);notice="%d비늘 · 어혼 주머니 %d개 획득"%[reward.gold,reward.get("pouches",0)]
 			if not m._save_game():
 				data.restore(old);m.gold=old_gold;notice="저장하지 못했어요. 보상을 다시 받아 주세요."
+			else:
+				explore_tab=1;choosing_slot=-1;formation_scroll=0
+				if old.battle.status!="win" and int(reward.gold)==0: notice="병사 배치를 바꿔 다시 도전해 보세요"
 			m.show_toast(notice,Color("ffdc96"))
 		return
 	elif key.begins_with("tab:"): tab=int(key.split(":")[1]);page=0;selected=[]
@@ -861,3 +853,41 @@ func damage_value(m,at: Vector2,amount: int,role: String,age: float) -> void:
 	var value: String=str(amount)
 	for offset in [Vector2(-1,0),Vector2(1,0),Vector2(0,-1),Vector2(0,1)]: m._text(value,pos+offset,10,Color(.12,.09,.08,color.a),true,40)
 	m._text(value,pos,10,color,true,40)
+
+func result_copy() -> Dictionary:
+	var b: Dictionary=data.battle
+	var win: bool=b.status=="win"
+	var round_no: int=int(b.round)
+	var first: bool=bool(b.get("first",false))
+	var cleared: int=clampi(int(b.get("cleared",b.get("index",0))),0,3)
+	var reward: String="비늘 %d"%int(b.reward)
+	var pouches: int=int(b.get("pouch_reward",0))
+	if pouches>0: reward+="    어혼 주머니 %d개"%pouches
+	elif win and first and int(b.get("reward_revision",0))==0: reward+="    %s 어혼 1개"%data.ELEMENTS[(round_no-1)%5]
+	return {
+		"win":win,
+		"heading":"탐험 성공" if win else "탐험 실패",
+		"stage":"%s · %s"%[stage_name(round_no),ROOMS[round_no-1]],
+		"message":("첫 돌파! 길이 열렸어요" if first and round_no<10 else "모든 탐사 구역을 돌파했어요" if first else "무사히 탐험을 마쳤어요") if win else ("마지막 적에게 막혔어요" if cleared==2 else "탐험대가 돌아왔어요"),
+		"record":reward if win else "처치한 적 %d / 3"%cleared,
+		"note":("다음 탐사 구역 %s 개방"%stage_name(round_no+1) if first and round_no<10 else "탐험대가 무사히 돌아왔어요") if win else ("획득 "+reward if int(b.reward)>0 else "병사를 강화하거나 편성을 바꿔 보세요")}
+
+func draw_expedition_result(m,h: float) -> void:
+	var c: Dictionary=result_copy();var b: Dictionary=data.battle
+	var y: float=maxf(m.top_y+76,(h-292)/2)
+	rects={}
+	m._ui_rect(Rect2(0,m.top_y+66,270,h-m.top_y-66),Color(.04,.06,.07,.65))
+	m.text_items=m.text_items.filter(func(it): return it[1].y<m.top_y+65)
+	panel(m,Rect2(16,y,238,292))
+	m._ui_style_box(m.hud_reference_style,Rect2(21,y+5,228,31))
+	m._text(c.heading,Vector2(135,y+26),16,Color("ffe4a2") if c.win else Color("ffc3a2"),true,214)
+	m._text(c.stage,Vector2(135,y+53),10,Color("6c553b"),true,216)
+	room(m,Rect2(26,y+65,218,75),int(b.round)-1)
+	for i in b.fighters.size(): sprite(m,int(b.fighters[i].id),Rect2(34+i*65,y+77,64,61),0,1.0 if c.win else .72)
+	m._text(c.message,Vector2(135,y+160),11,Color("8c6421") if c.win else Color("8c4935"),true,216)
+	m._ui_rect(Rect2(31,y+171,208,54),Color("e8d4a8"))
+	m._text("획득 보상" if c.win else "탐험 기록",Vector2(135,y+185),9,Color("725636"),true,196)
+	m._text(c.record,Vector2(135,y+203),11,Color("382619"),true,200)
+	m._text(c.note,Vector2(135,y+218),8,Color("725636"),true,202)
+	primary(m,"claim",Rect2(30,y+239,210,30),"보상 받기" if c.win else "병사 배치")
+	m._text("보상 수령 후 편성으로" if c.win else "병사는 사라지지 않아요",Vector2(135,y+282),8,Color("796044"),true,210)

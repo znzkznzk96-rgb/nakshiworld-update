@@ -1,23 +1,23 @@
 {
   "schema_version": 3,
   "work_branch": "work/valley-runtime",
-  "status": "result_ui_implementation",
+  "status": "result_ui_applied_fishing_review",
   "release_baseline": "v0.86",
   "source_commit": "c2d3a4667720c6040c1085c13a96ca1fca90110a",
-  "current_task": "승인 결과창 적용·낚시터 한줄시안",
+  "current_task": "결과창·직접해제 적용완료, 낚시터24px한줄시안",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
-  "verification": "analysis/expedition-ui-review/VERIFICATION.json",
+  "verification": "analysis/expedition-ui-selected/tests.json",
   "phone_verified": false,
   "release_authorized": true,
-  "next_step": "결과/낚시터 시안 피드백 반영; 새 공개배포 미실행",
+  "next_step": "낚시터 한줄시안 피드백; 4번 역할피해 설명 제공; 새배포 없음",
   "updated_at": "2026-10-27",
   "support_audit": "analysis/support-balance-085/REPORT.md",
   "support_utility_report": "analysis/support-utility-085/REPORT.md",
   "target_release": "v0.86",
   "last_release_deployed": true,
   "this_change": {
-    "implemented": false,
+    "implemented": true,
     "deployed": false,
     "release_authorized": false
   }
