@@ -20,7 +20,7 @@ func native_engine_tap(p: Vector2) -> void:
   var e=InputEventScreenTouch.new();e.index=0;e.position=p;e.pressed=down
   Input.parse_input_event(e);Input.flush_buffered_events()
 func run() -> void:
- var m=load("res://main.gd").new();m.development_preview=true;root.add_child(m);await process_frame;m.set_process(false)
+ var m=load("res://main.gd").new();m.development_preview=true;m.SET.sfx=0;m.SET.music=0;root.add_child(m);await process_frame;m.set_process(false)
  m.SET.sfx=0;m.SET.music=0;m.title_open=false;m.lesson_open=false;m.trans={};m.scene="village";m.V.shop="";m.market_sell=false;m.bag=[{"sp":0,"grade":0,"w":0.1,"len":10.0,"price":100}]
  m.market_open=true;paint(m);m.ui_clock+=1
  m.inventory.open_group(0,0);paint(m);m.inventory.last_native_touch=-100000
@@ -57,4 +57,4 @@ func run() -> void:
  check(1 in v.data.team and not v.formation_pointer,"real engine formation tap after idle")
  Input.emulate_mouse_from_touch=false;Input.use_accumulated_input=true;Input.flush_buffered_events()
  await process_frame;await process_frame
- print("BAG_EVENT_ORDER_VERIFY failures=",failures);m.audio_feedback.dispose();m.queue_free();await process_frame;quit(0 if failures.is_empty() else 1)
+ print("BAG_EVENT_ORDER_VERIFY failures=",failures);m.audio_feedback.dispose();m.queue_free();await process_frame;await process_frame;quit(0 if failures.is_empty() else 1)

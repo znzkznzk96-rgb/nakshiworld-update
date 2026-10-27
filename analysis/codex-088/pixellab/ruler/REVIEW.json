@@ -1,0 +1,21 @@
+{
+  "approved_internal": true,
+  "native_size": [
+    32,
+    32
+  ],
+  "transparent": true,
+  "bbox": [
+    3,
+    3,
+    29,
+    29
+  ],
+  "checks": [
+    "wood ruler silhouette and tick marks visible",
+    "warm brown palette",
+    "no clipping",
+    "nearest enlargement inspected"
+  ],
+  "regenerations": 0
+}

@@ -32,9 +32,9 @@ func run() -> void:
 	m.mailbox.read_ids=[];m.mailbox.deleted_ids=[];m._load_game()
 	check("0.64" in m.mailbox.read_ids and "0.63" in m.mailbox.deleted_ids,"mail state persists")
 	check(m.mailbox.visible_letters().all(func(l): return l.id != "0.63"),"deleted mail stays deleted")
-	for tab in 5:
+	for tab in m.guide.TABS.size():
 		m.guide.tab=tab
-		for topic in 3:
+		for topic in m.guide.TOPICS[tab].size():
 			m.guide.topic=topic;m.ui_commands=[];m.text_items=[];m.guide.draw(m,540)
 			check(m.guide.content(m).size()>0,"guide content")
 			for item in m.text_items: check(item[1].y < 540,"guide fits short viewport")

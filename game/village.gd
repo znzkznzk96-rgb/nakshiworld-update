@@ -302,7 +302,7 @@ func draw(m, h: float) -> void :
 				var age: float = fposmod(t * 0.16 + n * 0.5, 1.0)
 				var pos: Vector2 = o + Vector2(b[2].get_center().x + sin(t * 0.4 + n) * 5, - b[2].size.y - 25 - age * 24)
 				m.draw_texture(art.smoke, pos.round(), Color(0.85, 0.89, 0.88, (1 - age) * 0.28))
-		if i == 3: _aquarium_life(m, o + Vector2(1024, 0), t)
+		if i == 3: _aquarium_fish(m, o + Vector2(1024, 0), t)
 	for x in [520.0, 1148.0, 1370.0]:
 		if _visible(x, 40):
 			_sprite(m, "lamp", o + Vector2(x, 48))
@@ -337,36 +337,18 @@ func draw(m, h: float) -> void :
 		rects.zoom=[]
 		m.expedition.draw_strip(m)
 
-func _aquarium_life(m, c: Vector2, t: float) -> void :
-	if m.aqua_lv > 0:
-		var w: float = m.aqua_lv * 8
-		for side in [-1, 1]:
-			var x: float = c.x - 104 - w if side < 0 else c.x + 104
-			m.draw_rect(Rect2(x, c.y - 66, w, 66), Color("625039"))
-			m.draw_rect(Rect2(x + 2, c.y - 61, w - 4, 52), Color("387b85"))
-			m.draw_line(Vector2(x + w / 2, c.y - 60), Vector2(x + w / 2, c.y - 9), Color("c5bb8b"), 2)
-	var centers: = [Vector2(-64, -37), Vector2(3, -77), Vector2(66, -37)]
+func _aquarium_fish(m, c: Vector2, t: float) -> void:
+	# Keep the original building windows; draw only the owned swimming fish.
+	if m.aqua.is_empty(): return
+	var centers := [Vector2(-64, -37), Vector2(3, -77), Vector2(66, -37)]
 	for i in 3:
-		var center: Vector2 = c + centers[i]
-		var origin: = c - Vector2(104, tex.aquarium.get_height())
-		var shape: PackedVector2Array
-		if i == 1:
-			shape = PackedVector2Array([Vector2(79, 83), Vector2(82, 72), Vector2(91, 64), Vector2(106, 60), Vector2(122, 64), Vector2(132, 72), Vector2(136, 83)])
-		else:
-			var sx: = 0.0 if i == 0 else 130.0
-			shape = PackedVector2Array([Vector2(25 + sx, 137), Vector2(25 + sx, 104), Vector2(28 + sx, 97), Vector2(34 + sx, 92), Vector2(40 + sx, 91), Vector2(48 + sx, 94), Vector2(54 + sx, 101), Vector2(54 + sx, 137)])
-		for k in shape.size(): shape[k] += origin
-		m.draw_colored_polygon(shape, Color("218eae"))
-		for bubble in 2:
-			var bp: Vector2 = center + Vector2(-5 + bubble * 9, 8 - fposmod(t * 3 + bubble * 6 + i * 3, 15))
-			m.draw_rect(Rect2(bp.round(), Vector2(1, 2)), Color(0.7, 0.95, 0.95, 0.45))
 		var fish = m.aqua[(i + floori(t / 5) * 3) % m.aqua.size()]
 		if fish == null: continue
 		var tx: Texture2D = m.fish_tex[int(fish.sp)]
 		var region: Rect2i = m.fish_used[int(fish.sp)]
-		var size: = Vector2(region.size) * minf(20.0 / region.size.x, 9.0 / region.size.y)
-		var p: = center + Vector2(roundf(sin(t * 0.6 + i) * 3), sin(t + i) * 3)
-		m.draw_texture_rect_region(tx, Rect2((p - size / 2).round(), size.round()), Rect2(region))
+		var size := Vector2(region.size) * minf(20.0 / region.size.x, 9.0 / region.size.y)
+		var pos: Vector2 = c + centers[i] + Vector2(roundf(sin(t * 0.6 + i) * 3), sin(t + i) * 3)
+		m.draw_texture_rect_region(tx, Rect2((pos - size / 2).round(), size.round()), Rect2(region))
 
 func _bubble(m, c: Vector2, s: String) -> void :
 	var w = minf(m._text_w(s, 9) * 1.15 + 24, 250.0)
@@ -426,6 +408,9 @@ func draw_shop(m, h: float) -> void :
 
 
 	m._ui_rect(Rect2( - m.ox, 0, m.VW + 2 * m.ox, h), Color(0.04, 0.06, 0.1, 0.84))
+	if shop=="aqua":
+		aquarium.draw_room(self,m,h)
+		return
 	var panel_y: = maxf(top + 32.0, roundf(h * 0.5) - 190)
 	var r = Rect2(8, panel_y, 254, minf(440.0 if shop=="museum" else 380.0, h - panel_y - 8))
 	active_style = shop_styles[shop]

@@ -1,4 +1,5 @@
 extends RefCounted
+var pouch = preload("res://addons/reservoir/pouch_inventory.gd").new()
 var tab := "fish"
 var tab_rects := {}
 var displayed: = false
@@ -23,6 +24,7 @@ func cancel_pointer() -> void:
 	pointer=false;dragged=false;pointer_id=-1;gesture_scroll=false
 
 func _area(m) -> Rect2:
+	if pouch.opened: return Rect2()
 	if selected>=0: return list_view.detail_viewport if selected_grade>=0 else Rect2()
 	return list_view.viewport if tab=="fish" else m.equipment.inventory_viewport
 
@@ -164,6 +166,7 @@ func draw(m) -> void :
 	_finish(m, first, anchor, scale, k)
 
 func press(m, p: Vector2) -> void :
+	if pouch.opened: pouch.press(m,p);return
 	if not m.market_sell and tab=="fish": list_view.press(m,p);return
 	if rects.get("close", Rect2()).has_point(p) or not rects.get("panel", Rect2()).has_point(p):
 		m.market_open = false;displayed = false;return
@@ -178,6 +181,9 @@ func press(m, p: Vector2) -> void :
 	if rects.get("sell", Rect2()).has_point(p): m.sell_all();m.market_open = false;return
 	if rects.get("close", Rect2()).has_point(p) or not rects.get("panel", Rect2()).has_point(p): m.market_open = false;displayed = false
 func detail(m) -> void :
+	if pouch.opened:
+		if not m.market_open: pouch.opened=false;return
+		pouch.draw(m);return
 	if selected < 0: return
 	if selected_grade>=0: list_view.draw_detail(m);return
 	var sp: int = selected; var h: float = m.get_viewport_rect().size.y

@@ -52,7 +52,7 @@ func owner_ready(m, area: int) -> bool:
 	return area >= 0 and area < 6 and not CATALOG.by_star(area,4).is_empty() and all_parts(m,area) and float(owner_gauge[area]) >= 100.0
 func fishing_event(m, area: int, event: String, grade: int = 0) -> void:
 	if area < 0 or area >= 6 or event != "catch" or not all_parts(m,area): return
-	var gain: float = 3.0 if grade == 4 else (2.0 if grade == 3 else 1.0)
+	var gain: float = [1.0, 1.0, 2.0, 3.0, 5.0][clampi(grade,0,4)]
 	owner_gauge[area] = clampf(float(owner_gauge[area]) + gain,0.0,100.0)
 func settle_owner(area: int, caught: bool) -> void:
 	if area >= 0 and area < 6: owner_gauge[area] = 0.0 if caught else 70.0

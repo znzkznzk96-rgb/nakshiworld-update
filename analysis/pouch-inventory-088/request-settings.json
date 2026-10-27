@@ -1,0 +1,17 @@
+{
+  "reference_image_size": {
+    "width": 64,
+    "height": 64
+  },
+  "image_size": {
+    "width": 64,
+    "height": 64
+  },
+  "action": "A small brown cloth loot pouch opens in place. Keep the same brown bag, teal drawstring and fish emblem. First a short anticipation squash, then teal knot loosens, mouth opens wider and a small cyan soul glow rises above the opening, tiny sparks fade. Bag stays upright centered at bottom, camera fixed, no hands, no text, no rotation, no walking. Clear cozy pixel art. End with open bag and fading glow.",
+  "no_background": true,
+  "view": "none",
+  "direction": "none",
+  "seed": 202610271,
+  "reference_png": "reference.png",
+  "reference_sha256": "5e1af9a4bcfbefe2fb1b7ff9eb4cd2808212a25c051dfde9994280458b14dbad"
+}

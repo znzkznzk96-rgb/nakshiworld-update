@@ -12,7 +12,7 @@ func run() -> void:
 	var p=m.progression;p.restore({})
 	for grade in 5:
 		p.owner_gauge[0]=0;p.fishing_event(m,0,"catch",grade)
-		check(p.owner_gauge[0]==([1,1,1,2,3][grade]),"gain uses final specimen grade %d"%grade)
+		check(p.owner_gauge[0]==([1,1,2,3,5][grade]),"gain uses final specimen grade %d"%grade)
 	p.owner_gauge[0]=20
 	for event in ["cast","miss","sell","buyback","donate"]:p.fishing_event(m,0,event,4)
 	check(p.owner_gauge[0]==20,"non-catch events never advance gauge")
@@ -40,7 +40,7 @@ func run() -> void:
 	p.owner_gauge[0]=100;hook(m,true);m.start_catch();m._settle_owner(true)
 	check(p.owner_gauge[0]==0,"owner caught resets to zero without adding normal catch gain")
 	p.owner_gauge[0]=10;m.S={"phase":"fight","owner_region":0,"grade":3,"owner":false};m._settle_owner(true);m._settle_owner(true)
-	check(p.owner_gauge[0]==12,"normal catch grade gain is not duplicated")
+	check(p.owner_gauge[0]==13,"normal catch grade gain is not duplicated")
 	p.owner_gauge[0]=31;m.active_region=1;m.equipment.active_parts=["r1_float","r1_hook","r1_line","r1_reel"];p.owner_gauge[1]=100
 	hook(m,true);check(m.S.owner and m.S.sp==39,"valley uses its own owner")
 	m.fail("valley loss");check(p.owner_gauge[1]==70 and p.owner_gauge[0]==31,"regional gauges settle independently")

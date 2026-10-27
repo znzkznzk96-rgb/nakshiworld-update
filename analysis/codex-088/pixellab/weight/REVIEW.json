@@ -1,0 +1,21 @@
+{
+  "approved_internal": true,
+  "native_size": [
+    32,
+    32
+  ],
+  "transparent": true,
+  "bbox": [
+    6,
+    3,
+    26,
+    29
+  ],
+  "checks": [
+    "brass weight silhouette",
+    "warm brown gold palette",
+    "no clipping",
+    "nearest enlargement inspected"
+  ],
+  "regenerations": 0
+}

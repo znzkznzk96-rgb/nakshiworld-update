@@ -30,9 +30,9 @@ func run() -> void:
 		var label=m._ui_wrap(letter.title,9,174,1)
 		check("\n" not in label and m._text_w(label,9)<=174,"single-line mail label")
 	check(m.mailbox.sections(m.mailbox.letters.filter(func(letter): return letter.id=="0.72")[0]).size()==3,"curated B three subjects")
-	for tab in 5:
+	for tab in m.guide.TABS.size():
 		m.guide.tab=tab
-		for topic in 3:
+		for topic in m.guide.TOPICS[tab].size():
 			m.guide.topic=topic
 			var pages=reader.pages(m,m.guide.content(m));var rebuilt:=""
 			for page in pages:
@@ -43,6 +43,6 @@ func run() -> void:
 				for item in m.text_items: check(item[1].y<height,"guide fits")
 	m.guide.page=5;m.guide.press(m,m.guide.rects.tabs[0].get_center());check(m.guide.page==0,"tab resets page")
 	m.mailbox.detail=m.mailbox.letters[0].id;m.mailbox.draw(m,540)
-	m.mailbox.detail_page=5;m.mailbox.press(m,m.mailbox.rects.tabs[0].get_center());check(m.mailbox.detail_page==0,"mail tab resets page")
+	m.mailbox.detail_page=5;m.mailbox.press(m,m.mailbox.rects.toggle.get_center());check(m.mailbox.detail_page==0,"mail detail toggle resets page")
 	print("READER_VERIFY failures=",failures)
 	m.queue_free();await process_frame;quit(0 if failures.is_empty() else 1)

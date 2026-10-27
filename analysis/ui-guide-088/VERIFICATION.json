@@ -1,0 +1,28 @@
+{
+  "status": "implemented_verified_not_deployed",
+  "baseline": "v0.87",
+  "tests": 49,
+  "failed": 0,
+  "phone_verified": false,
+  "paid_generation_calls": 0,
+  "changes": [
+    "Mailbox B cards with full original text",
+    "Mail and guide next to bottom menu",
+    "Guide current souls soldiers expedition alchemy fusion content",
+    "Owner catch gains normal rare unique legendary mythic = 1/1/2/3/5",
+    "Aquarium exterior overlay removed; original building and interior preserved"
+  ],
+  "source_sha256": {
+    "addons/reservoir/guide.gd": "a821fb5393e6dc11c93d831195fd00d155117c92336e0c1a0bfa9072975a9805",
+    "addons/reservoir/mailbox.gd": "ef9ae61fa818cb31f06a959daefb22f57b04658da10a0d3a0c7cdb82a2fa0a3d",
+    "addons/reservoir/mail_cards.gd": "530b53ae9a8502c7372d0449fa4376d8fc75589f61ef0f24a191dafa62a32068",
+    "addons/reservoir/regional_progress.gd": "e514d049bd852c192c5782b24cb00991bb48bfb459cde9adf1ac62a058a1495e",
+    "village.gd": "24329367701c606e4f41e9a1a3c9cc65e07a09730d0e1604c29d1b917184c04f",
+    "tests/owner_gauge_verify.gd": "149eb355dba9296f2347232754fa3a32f221f8aa4f96d7da87cef0b0c73cbf0f",
+    "tests/regional_verify.gd": "de2a49dc1f2e82b69e16391f2821dda7a0f50b020333d539302fa8e0cfa83dd0",
+    "tests/guide_verify.gd": "aacd73bf1841b964156288e73d73ecc273d44d6ee0f79d5fbb4900228c5c7eae",
+    "tests/reader_verify.gd": "903e15597c508a322a4616a8ea710df10e52e6c8fe21cd50f2bb883289900f8a",
+    "tests/ui_guide_verify.gd": "554e99824e3ac221922884e2fe10bc97e5c9bf1422d12425024a9a759e7da133",
+    "tests/ui_guide_preview.gd": "df3bfd4242c8daa557c01018596f02afcb24e35b225d759ea653a4c1d6ea0245"
+  }
+}

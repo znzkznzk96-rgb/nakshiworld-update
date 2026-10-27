@@ -1,0 +1,16 @@
+{
+  "accepted": true,
+  "size": [
+    32,
+    32
+  ],
+  "alpha_bbox": [
+    5,
+    7,
+    29,
+    27
+  ],
+  "review": "Teal glass tank, brass frame and gold plus read clearly; transparent edges intact.",
+  "usage_generations": 10,
+  "sha256": "c76b7e4262becde4723cdac10a7b61abbad5973456fa0ca3c815616a5adaf5e1"
+}

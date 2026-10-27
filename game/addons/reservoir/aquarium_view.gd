@@ -1,4 +1,9 @@
 extends RefCounted
+const ROOM = preload("res://art/aquarium/tank_clean.png")
+var effects_enabled := true
+var icon_cache := {}
+var room_bounds := Rect2()
+var swim_bounds := Rect2()
 var mirrors = {}
 var fish_rects = []
 var scroll := 0.0
@@ -81,8 +86,8 @@ func input_event(v, m, e: InputEvent) -> bool:
 
 
 func _button(v, m, r: Rect2, label: String, action: String, enabled: bool = true) -> void :
-	m._ui_style_box(v.active_style.header if enabled else v.active_style.card, r)
-	m._text(label, r.position + Vector2(r.size.x / 2, 18), 10, Color("fff0d1") if enabled else Color("817767"), true, r.size.x - 6)
+	m._ui_style_box(m.sb_btn, r)
+	m._text(label, r.position + Vector2(r.size.x / 2, 18), 10, Color("513b29") if enabled else Color("817767"), true, r.size.x - 6)
 	if enabled or (action == "aexpand" and m.aqua_lv < 4): v.rects.rows.append([r, action])
 func _fish(m, f: Dictionary, box: Rect2, flip: bool = false) -> void :
 	var sp = int(f.sp)
@@ -100,90 +105,120 @@ func _fish(m, f: Dictionary, box: Rect2, flip: bool = false) -> void :
 		var d = Rect2(dest.position + Vector2(dest.size.x * i / 6, 0), Vector2(dest.size.x / 6 + 0.12, dest.size.y))
 		d.position.y += sin(m.ui_clock * 5 + i * 0.55 + sp) * pow(float(i if flip else 5 - i) / 5, 2) * 0.8
 		m._ui_texture_rect_region(tx, d, Rect2(src.position + Vector2(src.size.x * i / 6, 0), Vector2(src.size.x / 6, src.size.y)))
-func draw(v, m, r: Rect2, y: float) -> void :
-	m._text("%d / %d마리 · 분당 %.1f 비늘" % [m.aqua_count(), m.aqua_capacity(), m.aqua_rate()], Vector2(135, y + 3), 12, v.active_style.ink, true, 230)
-	y += 13
-	if v.pick_slot >= 0 or v.aqua_manage:
-		_manage(v, m, r, y)
+func _dark_panel(m, r: Rect2, fill: Color = Color("123b47")) -> void:
+	m._ui_style_box(m.hud_reference_style,r)
+	m._ui_rect(Rect2(r.position+Vector2(4,4),r.size-Vector2(8,8)),fill)
+
+func _icon(m, name: String, r: Rect2) -> void:
+	if not icon_cache.has(name):
+		var path: String="res://art/ui/aquarium/"+name+".png"
+		if ResourceLoader.exists(path): icon_cache[name]=load(path)
+	if icon_cache.has(name): m._ui_texture_rect(icon_cache[name],r)
+
+func draw_room(v,m,h: float) -> void:
+	var top: float=m.top_y+88
+	var r:=Rect2(8,top,254,h-top-10)
+	v.active_style={"panel":m.sb_btn,"header":m.hud_reference_style,"card":m.sb_btn,"ink":Color("fff0d1"),"icon":"soul"}
+	_dark_panel(m,r,Color("132c37"))
+	var header:=Rect2(r.position+Vector2(4,4),Vector2(246,34))
+	_dark_panel(m,header)
+	m._ui_texture_rect(v.tool_icons.soul,Rect2(header.position+Vector2(8,6),Vector2(22,22)))
+	m._text("수족관",Vector2(135,header.position.y+23),14,Color("fff0d1"),true,170)
+	var close:=Rect2(header.end.x-29,header.position.y+6,22,23)
+	m._ui_texture(m.icons.close,close.position)
+	v.rects={"close":close.grow(3),"panel":r,"rows":[]}
+	draw(v,m,r,r.position.y+48)
+
+func _effects(m, r: Rect2, front: bool) -> void:
+	if not effects_enabled: return
+	var t: float=m.ui_clock
+	if not front:
+		# Light shafts are independent translucent polygons behind the fish.
+		for i in 3:
+			var x: float=r.position.x+r.size.x*(.2+i*.28)+sin(t*.3+i)*3
+			var pts:=PackedVector2Array([Vector2(x,r.position.y),Vector2(x+7,r.position.y),Vector2(x+21,r.end.y),Vector2(x-14,r.end.y)])
+			var col:=Color(.65,.94,.84,.055+.018*sin(t*.7+i))
+			m._ui_polygon(pts,PackedColorArray([col,col,Color(col,0),Color(col,0)]))
+		# Separate pixel stems and leaves gently sway; none are baked into the tank.
+		for i in 7:
+			var x: float=r.position.x+10+i*(r.size.x-20)/6
+			for stem in 3:
+				var height: int=12+(i%3)*7+stem*4
+				for j in int(height/3):
+					var sway: float=roundf(sin(t*1.1+i+stem*.6+j*.18)*j*.3)
+					var p:=Vector2(x+(stem-1)*j*.7+sway,r.end.y-j*3)
+					m._ui_rect(Rect2(p.round(),Vector2(2,4)),Color("4c8450"))
+					if j>0 and j%2==0:
+						var side: float=-1 if (j+stem)%4<2 else 1
+						m._ui_rect(Rect2((p+Vector2(-4 if side<0 else 1,-1)).round(),Vector2(5,3)),Color("719b4e"))
+						m._ui_rect(Rect2((p+Vector2(-3 if side<0 else 2,-2)).round(),Vector2(3,1)),Color("a3b65a"))
+
+	else:
+		# Bubble positions wrap inside the water and never touch the frame.
+		for i in 12:
+			var x: float=r.position.x+5+fposmod(i*37.0,r.size.x-10)+sin(t+i)*1.5
+			var y: float=r.end.y-fposmod(t*(6+i%3)+i*19,r.size.y-4)
+			var p:=Vector2(roundf(x),roundf(y))
+			m._ui_rect(Rect2(p,Vector2(1,2)),Color(.7,.96,.96,.5))
+			m._ui_rect(Rect2(p+Vector2(1,-1),Vector2(2,1)),Color(.7,.96,.96,.35))
+
+func draw(v, m, r: Rect2, y: float) -> void:
+	var chip:=Rect2(13,y-6,244,25)
+	_dark_panel(m,chip)
+	m._text("%d / %d마리 · 분당 %.1f 비늘"%[m.aqua_count(),m.aqua_capacity(),m.aqua_rate()],chip.get_center()+Vector2(0,4),10,Color("e8f1df"),true,232)
+	if v.pick_slot>=0 or v.aqua_manage:
+		v.active_style.ink=Color("513b29")
+		fish_rects.clear();room_bounds=Rect2();swim_bounds=Rect2()
+		m._ui_rect(Rect2(14,y+21,242,r.end.y-y-27),Color("e6eee4"))
+		_manage(v,m,r,y+22)
 		return
-	var width = 158.0 + m.aqua_lv * 18
-	var height = minf(112.0 + m.aqua_lv * 12, r.end.y - y - 115)
-	var tank = Rect2(135 - width / 2, y + 9, width, height)
-	m._ui_rect(tank.grow(6), Color("302b25"))
-	m._ui_rect(tank.grow(4), Color("8e663b"))
-	m._ui_rect(tank.grow(2), Color("dfbf83"))
-	m._ui_rect(tank, Color("104658"))
-	for row in 18:
-		var ratio = float(row) / 18
-		m._ui_rect(Rect2(tank.position + Vector2(0, height * ratio), Vector2(width, height / 18 + 1)), Color("217a8f").lerp(Color("0d344e"), ratio))
-
-
-	m._ui_rect(Rect2(tank.position + Vector2(0, 5), Vector2(width, 2)), Color("b7f4e8"))
-	m._ui_rect(Rect2(tank.position + Vector2(5, 8), Vector2(2, height - 16)), Color("b8edf0"))
-	m._ui_rect(Rect2(tank.position + Vector2(width - 7, 8), Vector2(2, height - 16)), Color("6bd0dc"))
-	for wave in 5:
-		var wx = tank.position.x + 10 + wave * (width - 20) / 5
-		var wy = tank.position.y + 10 + sin(m.ui_clock * 1.8 + wave) * 1.5
-		m._ui_line(Vector2(wx, wy), Vector2(wx + 8, wy), Color(0.72, 0.96, 0.91, 0.7), 0.7)
-	for ray in 4:
-		var x = tank.position.x + 12 + ray * width / 4 + sin(m.ui_clock * 0.25 + ray) * 3
-		m._ui_polygon(PackedVector2Array([Vector2(x, tank.position.y), Vector2(x + 6, tank.position.y), Vector2(x + 28, tank.end.y), Vector2(x + 8, tank.end.y)]), PackedColorArray([Color(0.5, 0.9, 1, 0.04)]))
-	m._ui_rect(Rect2(tank.position + Vector2(0, height - 13), Vector2(width, 13)), Color("70614b"))
-	m._ui_rect(Rect2(tank.position + Vector2(0, height - 13), Vector2(width, 3)), Color("b5a77c"))
-
-	for stone in 13:
-		var sx = tank.position.x + 4 + fposmod(stone * 23.7, width - 8)
-		var sw = 2 + stone % 4
-		var sh = 1 + stone % 2
-		m._ui_rect(Rect2(sx, tank.end.y - 5 + stone % 3, sw, sh), Color("c2b18a") if stone % 3 else Color("4b5960"))
-	for rock in 6:
-		var rx = tank.position.x + 10 + rock * (width - 20) / 5
-		m._ui_polygon(PackedVector2Array([Vector2(rx - 5, tank.end.y - 3), Vector2(rx - 3, tank.end.y - 8 - rock % 3), Vector2(rx + 2, tank.end.y - 9 - rock % 3), Vector2(rx + 6, tank.end.y - 3)]), PackedColorArray([Color("657774")]))
-	for plant in 8:
-		var px = tank.position.x + 5 + plant * (width - 10) / 7
-		var ph = 12 + plant % 3 * 5
-		var foot = Vector2(px, tank.end.y - 6)
-		for branch in 3:
-			var lean = sin(m.ui_clock * 0.55 + plant * 0.7 + branch) * 2
-			var tip = foot + Vector2(lean + (branch - 1) * 3, - ph + branch * 2)
-			m._ui_line(foot, tip, Color("356c60"), 3)
-			m._ui_line(foot + Vector2(1, 0), tip + Vector2(1, 0), Color("75aa78"), 1)
-			m._ui_polygon(PackedVector2Array([tip, tip + Vector2(-3, 3), tip + Vector2(1, 5)]), PackedColorArray([Color("91bd78")]))
-
-	for rock in 4:
-		var rx = tank.position.x + 18 + rock * (width - 36) / 3
-		m._ui_polygon(PackedVector2Array([Vector2(rx - 5, tank.end.y - 7), Vector2(rx - 3, tank.end.y - 11 - rock % 2 * 2), Vector2(rx + 3, tank.end.y - 10), Vector2(rx + 6, tank.end.y - 7)]), PackedColorArray([Color("566c6c")]))
-	for bubble in 12:
-		var bx = tank.position.x + 5 + fposmod(bubble * 31.7, width - 10)
-		var by = tank.end.y - 5 - fposmod(m.ui_clock * (5 + bubble % 4) + bubble * 11, height - 10)
-		m._ui_circle(Vector2(bx + sin(m.ui_clock + bubble), by), 0.6, Color(0.7, 1, 1, 0.35))
+	room_bounds=Rect2(13,y+23,244,r.end.y-143-(y+23))
+	m._ui_texture_rect(ROOM,room_bounds)
+	var water:=Rect2(room_bounds.position+Vector2(12,room_bounds.size.y*.14),Vector2(220,room_bounds.size.y*.69))
+	_effects(m,water,false)
+	swim_bounds=Rect2(water.position+Vector2(6,6),water.size-Vector2(12,32))
 	fish_rects.clear()
+	var visible_index: int=0
 	for i in m.aqua.size():
-		var f = m.aqua[i]
-		if f == null: continue
-		var phase = fposmod(m.ui_clock * (0.018 + (i % 4) * 0.002) + i * 0.618034, 2.0)
-		var fishw = clampf(20 + sqrt(float(f.get("len", 20))) * 2, 24, minf(40, 20 + 64 / sqrt(maxi(1, m.aqua_count()))))
-		var travel = phase if phase <= 1.0 else 2.0 - phase
-		var lanes = mini(4, maxi(1, m.aqua_count()))
-		var lane = (i % lanes + 0.5) / lanes
-		var center = Vector2(tank.position.x + fishw / 2 + 6 + travel * (width - fishw - 12), tank.position.y + 12 + lane * (height - 40) + sin(m.ui_clock * 0.4 + i) * 8)
-		var box = Rect2(center - Vector2(fishw / 2, 10), Vector2(fishw, 20))
-		_fish(m, f, box, phase > 1.0)
-		fish_rects.append([box.grow(4), i])
-		if i == v.aqua_selected: m._ui_arc(center, fishw * 0.6, 0, TAU, 24, Color(0.8, 1, 0.8, 0.6), 0.6)
+		var f=m.aqua[i]
+		if f==null: continue
+		var phase: float=fposmod(m.ui_clock*(.018+(i%4)*.002)+i*.618034,2.0)
+		var travel: float=phase if phase<=1 else 2-phase
+		var lanes: int=mini(4,maxi(1,m.aqua_count()))
+		var fishw: float=clampf(20+sqrt(float(f.get("len",20)))*2,24,minf(38,20+64/sqrt(maxi(1,m.aqua_count()))))
+		var fishh: float=minf(16,swim_bounds.size.y/lanes-2)
+		var lane: float=(visible_index%lanes+.5)/lanes
+		var center:=Vector2(swim_bounds.position.x+fishw/2+travel*(swim_bounds.size.x-fishw),swim_bounds.position.y+lane*swim_bounds.size.y)
+		center.y+=sin(m.ui_clock*.4+i)*minf(2,(swim_bounds.size.y/lanes-fishh)/2)
+		var box:=Rect2((center-Vector2(fishw,fishh)/2).round(),Vector2(fishw,fishh))
+		_fish(m,f,box,phase>1)
+		fish_rects.append([box,i])
+		if i==v.aqua_selected:
+			m._ui_rect(Rect2(box.position-Vector2(1,2),Vector2(4,1)),Color("ffdf8d"))
+			m._ui_rect(Rect2(box.end+Vector2(-3,1),Vector2(4,1)),Color("ffdf8d"))
+		visible_index+=1
+	_effects(m,water,true)
+	for j in range(fish_rects.size()-1,-1,-1): v.rects.rows.append([fish_rects[j][0],"afish:%d"%fish_rects[j][1]])
+	var info: String="물고기를 눌러 살펴보세요" if m.aqua_count()>0 else "물고기를 넣어 전시를 시작해 보세요"
+	if v.aqua_selected>=0 and v.aqua_selected<m.aqua.size() and m.aqua[v.aqua_selected]!=null:
+		var f: Dictionary=m.aqua[v.aqua_selected]
+		info="%s · %s · %.1fcm"%[m.FISH_NAME[int(f.sp)],m.GRADE_N[int(f.grade)],float(f.len)]
+	m._text(info,Vector2(135,room_bounds.end.y+14),9,v.active_style.ink,true,232)
+	var buttons_y: float=room_bounds.end.y+24
+	var manage:=Rect2(15,buttons_y,240,40)
+	var expand:=Rect2(15,buttons_y+45,240,45)
+	_dark_panel(m,manage,Color("155363"));_dark_panel(m,expand)
+	_icon(m,"manage",Rect2(manage.position+Vector2(16,4),Vector2(32,32)))
+	m._text("물고기 관리",manage.get_center()+Vector2(12,5),14,Color("fff0d1"),true,165)
+	v.rects.rows.append([manage,"amanage"])
+	_icon(m,"expand",Rect2(expand.position+Vector2(10,7),Vector2(30,30)))
+	m._text("수족관 확장",Vector2(151,expand.position.y+17),11,Color("fff0d1"),true,185)
+	if m.aqua_lv<4:
+		m._text("%d → %d마리 · %d 비늘"%[m.aqua_capacity(),m.AQUA_CAP[m.aqua_lv+1],m.AQUA_COST[m.aqua_lv]],Vector2(151,expand.position.y+33),9,Color("f0c46e") if m.gold>=m.AQUA_COST[m.aqua_lv] else Color("e89c85"),true,185)
+		v.rects.rows.append([expand,"aexpand"])
+	else: m._text("최대 크기 · %d마리"%m.aqua_capacity(),Vector2(151,expand.position.y+33),9,Color("a4bdba"),true,180)
+	m._text(v.aqua_notice if v.aqua_notice!="" else "쉬는 동안에도 최대 8시간 수입",Vector2(135,r.end.y-13),9,Color("b3cccb"),true,232)
 
-	for j in range(fish_rects.size() - 1, -1, -1): v.rects.rows.append([fish_rects[j][0], "afish:%d" % fish_rects[j][1]])
-	var info = "물고기를 터치하면 이름을 볼 수 있어요"
-	if v.aqua_selected >= 0 and v.aqua_selected < m.aqua.size() and m.aqua[v.aqua_selected] != null:
-		var f: Dictionary = m.aqua[v.aqua_selected]
-		info = "%s · %s · %.1fcm" % [m.FISH_NAME[int(f.sp)], m.GRADE_N[int(f.grade)], float(f.len)]
-	m._text(info, Vector2(135, tank.end.y + 17), 10, v.active_style.ink, true, 230)
-	_button(v, m, Rect2(24, tank.end.y + 27, 222, 27), "물고기 넣기 · 빼기", "amanage")
-	var label = "최대 크기 · 20마리"
-	var enabled: bool = m.aqua_lv < 4
-	if enabled: label = "수족관 확장 %d → %d · %d 비늘" % [m.aqua_capacity(), m.AQUA_CAP[m.aqua_lv + 1], m.AQUA_COST[m.aqua_lv]]
-	_button(v, m, Rect2(24, tank.end.y + 60, 222, 27), label, "aexpand", enabled and m.gold >= m.AQUA_COST[m.aqua_lv] if enabled else false)
-	m._text(v.aqua_notice if v.aqua_notice != "" else "쉬는 동안에도 최대 8시간 수입", Vector2(135, r.end.y - 12), 10, v.active_style.ink, true, 230)
 func _manage(v, m, r: Rect2, y: float) -> void:
 	_button(v,m,Rect2(24,y+3,107,26),"보관통 · 넣기","alist_bag")
 	_button(v,m,Rect2(139,y+3,107,26),"전시 중 · 빼기","alist_tank")

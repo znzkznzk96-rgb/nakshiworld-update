@@ -26,7 +26,8 @@ func run() -> void:
 	check(m.personal_dex.rects.fish.size()==1,"only discovered soldier clickable")
 	m.personal_dex.press(m,m.personal_dex.rects.fish[0][0].get_center());m.personal_dex.draw(m,480)
 	check(m.personal_dex.rects.back.size.x>0,"soldier detail navigation")
+	m.personal_dex.press(m,m.personal_dex.rects.back.get_center());m.personal_dex.draw(m,480)
 	m.personal_dex.press(m,m.personal_dex.rects.regions[0].get_center());m.personal_dex.draw(m,480)
-	check(m.personal_dex.rects.fish.size()==20,"fish tab retained")
+	check(m.personal_dex.rows_total==20,"fish tab retained")
 	m.audio_feedback.dispose();m.queue_free();await process_frame
 	print("SOLDIER_DEX_VERIFY failures=",failures);quit(0 if failures.is_empty() else 1)
