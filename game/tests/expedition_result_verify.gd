@@ -8,7 +8,8 @@ class ClaimProbe:
 	func show_toast(_a,_b): pass
 func check(ok: bool,label: String) -> void:
 	if not ok: failures.append(label)
-func _initialize() -> void:
+func _initialize() -> void: call_deferred("run")
+func run() -> void:
 	var v=load("res://addons/expedition/view.gd").new()
 	var d=v.data;d.unlocked=10
 	for id in [3,0,7]: d.team.append(d.add_unit(id,2,[4,4,4]).uid)
@@ -30,4 +31,16 @@ func _initialize() -> void:
 			check(p.gold==once and d.pouches==pouch,"repeat press no duplicate reward")
 	d.recovery_until=0;d.start(3,1000);d.battle.first=true;d.battle.reward_revision=0;d.finish(true,1000)
 	check("어혼 1개" in v.result_copy().record,"legacy soul reward visible")
+	var m=load("res://main.gd").new();m.development_preview=true;root.add_child(m);await process_frame;m.set_process(false)
+	m.title_open=false;m.menu_open=false;m.scene="fish";m.trans={};m.TUT.done=true;m.guide.opened=false;m.mailbox.opened=false
+	m.expedition=v;v.opened="";d.battle.status="running";d.battle.progress=64;d.battle.round=3
+	check(v.fishing_strip_visible(m),"active fishing strip")
+	m.text_items=[];v.draw_fishing_strip(m)
+	check(m.text_items.any(func(x):return x[2]=="64%"),"actual progress")
+	check(m.text_items.any(func(x):return x[2]=="탐험 1-3"),"actual stage")
+	check(v.fishing_strip_rect(m).size.y==24,"approved slim height")
+	m.menu_open=true;check(not v.fishing_strip_visible(m),"hidden behind menu");m.menu_open=false
+	m.scene="village";check(not v.fishing_strip_visible(m),"village keeps own strip");m.scene="fish"
+	d.battle.status="win";check(not v.fishing_strip_visible(m),"result uses existing notice")
+	m.audio_feedback.dispose();m.queue_free();await process_frame
 	print("EXPEDITION_RESULT_VERIFY failures=",failures);quit(0 if failures.is_empty() else 1)

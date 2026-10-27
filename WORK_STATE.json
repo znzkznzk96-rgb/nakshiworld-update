@@ -1,23 +1,23 @@
 {
   "schema_version": 3,
   "work_branch": "work/valley-runtime",
-  "status": "v087_approved_in_progress",
+  "status": "v087_verified_release_pending",
   "release_baseline": "v0.86",
   "source_commit": "c2d3a4667720c6040c1085c13a96ca1fca90110a",
   "current_task": "승인한 결과창·직접해제·한줄진행·역할피해 v0.87 공개",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
-  "verification": "analysis/expedition-ui-selected/tests.json",
+  "verification": "analysis/release-087/REPORT.md",
   "phone_verified": false,
   "release_authorized": true,
-  "next_step": "낚시터 한줄시안 피드백; 4번 역할피해 설명 제공; 새배포 없음",
+  "next_step": "작업CI 성공 후 main 병합·공개파일/운영 다운로드 검증",
   "updated_at": "2026-10-27",
   "support_audit": "analysis/support-balance-085/REPORT.md",
   "support_utility_report": "analysis/support-utility-085/REPORT.md",
   "target_release": "v0.87",
   "last_release_deployed": true,
   "this_change": {
-    "implemented": false,
+    "implemented": true,
     "deployed": false,
     "release_authorized": true
   }

@@ -891,3 +891,19 @@ func draw_expedition_result(m,h: float) -> void:
 	m._text(c.note,Vector2(135,y+218),8,Color("725636"),true,202)
 	primary(m,"claim",Rect2(30,y+239,210,30),"보상 받기" if c.win else "병사 배치")
 	m._text("보상 수령 후 편성으로" if c.win else "병사는 사라지지 않아요",Vector2(135,y+282),8,Color("796044"),true,210)
+
+func fishing_strip_visible(m) -> bool:
+	return m.scene=="fish" and data.active() and opened=="" and not m.title_open and not m.menu_open and not m.market_open and not m.settings_open and not m.personal_dex.opened and not m.guide.opened and not m.mailbox.opened and m.trans.is_empty()
+
+func fishing_strip_rect(m) -> Rect2:
+	return Rect2(8,m.top_y+(123 if m.owner_ui.visible(m) else 70),254,24)
+
+func draw_fishing_strip(m) -> void:
+	if not fishing_strip_visible(m): return
+	var r: Rect2=fishing_strip_rect(m)
+	var progress: float=clampf(float(data.battle.get("progress",0)),0,100)
+	m._ui_style_box(m.hud_reference_style,r)
+	m._text("탐험 "+stage_name(int(data.battle.round)),r.position+Vector2(9,15),9,Color("ffe3a0"),false,65)
+	m._ui_rect(Rect2(r.position+Vector2(79,10),Vector2(127,4)),Color("493a2b"))
+	m._ui_rect(Rect2(r.position+Vector2(79,10),Vector2(floorf(127*progress/100),4)),Color("30baa8"))
+	m._text("%d%%"%int(progress),r.position+Vector2(233,15),9,Color("85e3d5"),true,36)

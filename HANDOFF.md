@@ -1,14 +1,3 @@
-# 탐험 UI 시안·수정 검증 — 2026-10-27
+# v0.87 배포 준비 — 2026-10-27
 
-결과 성공/실패와 낚시터 간략창은 검토용 렌더 전용이며 실제게임 미적용. 상단 배치3카드 해제와 위치+역할합성문구 제거/아이콘·색·피해효과 구분은 구현완료, 6개 관련검사 통과. 기존 모델/수치/아트/세이브형식 유지. 480·660 네이티브10장 생성, 주요480 PNG5장 원격보존. [상세](analysis/expedition-ui-review/REPORT.md), [검증](analysis/expedition-ui-review/VERIFICATION.json). 재현스크립트 game/tests/expedition_ui_preview.gd 및 proposal.gd.
-
-새배포 없음(공개0.86 유지). 시안 사용자선택/휴대폰실기 미확인. 다음: 피드백 반영 및 명시배포 요청시 전체검사/공개검증. 이전0.86 1억시뮬/유료제작 반복불필요. [공개기록](docs/historical/HANDOFF_v086_verified.md).
-
-
-후속 요청: 결과창/직접해제 적용확정. 낚시터47px 시안거절, 더 작은 한줄안 제작. 역할피해는 설명요청. 구현진행중, 새배포 없음.
-
-
-후속완료: 승인결과창 실제모델/보상연결 및 성공·실패확인후배치탭 이동. 47전체검사통과,480·660실화면10장. 낚시터254×24한줄안은렌더전용. [상세](analysis/expedition-ui-selected/REPORT.md). 공개0.86유지/새배포없음.
-
-
-최신: 사용자2번/4번 확정 및 새공개배포 승인. v0.87 준비중.
+승인한 결과카드·상단직접해제·낚시터한줄·역할별피해 적용. 47로컬검사·실화면통과. [검증](analysis/release-087/REPORT.md). 사용자 새공개배포명시승인, 작업CI후main병합/공개/운영검증진행. 기존수치/아트/세이브보존. 이전기록 [0.86](docs/historical/HANDOFF_v086_verified.md), [UI시안](analysis/expedition-ui-selected/REPORT.md). 휴대폰미확인.

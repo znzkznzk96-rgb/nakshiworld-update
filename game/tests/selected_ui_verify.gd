@@ -8,7 +8,7 @@ func touch(m,p: Vector2,pressed: bool,index: int=0,canceled: bool=false) -> void
 func paint(m) -> void:
 	m.text_items=[];m.ui_commands=[];m.inventory.draw(m)
 func run() -> void:
-	var m=load("res://main.gd").new();root.add_child(m);await process_frame;m.set_process(false)
+	var m=load("res://main.gd").new();m.development_preview=true;m.SET.music=0;m.SET.sfx=0;root.add_child(m);await process_frame;m.set_process(false)
 	m.title_open=false;m.lesson_open=false;m.trans={};m.scene="village";m.V.shop="";m.market_open=true;m.market_sell=false;m.inventory.sync(m);m.ui_clock+=1
 	m.bag=[]
 	for i in 100: m.bag.append({"sp":i%20,"grade":i/20,"w":0.1,"len":10.0,"price":100})

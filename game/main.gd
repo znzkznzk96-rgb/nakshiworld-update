@@ -2299,7 +2299,9 @@ func _draw_ui(t: float, h: float) -> void :
 	right -= 14;_ui_texture(icons["coin_s"], Vector2(right, ty - 10))
 	_text(environment.clock_label(), Vector2(bx + 10, ty), 10 if scene == "village" else 12, hc, false, 96 if scene == "village" else right - bx - 34)
 	_draw_weight(top_y + tex_hud_bar.get_height() + 1)
-	if scene == "fish": owner_ui.draw(self)
+	if scene == "fish":
+		owner_ui.draw(self)
+		expedition.draw_fishing_strip(self)
 	if scene == "village":
 		V.draw_bottom(self, h)
 		if V.shop == "" and not market_open and not settings_open:

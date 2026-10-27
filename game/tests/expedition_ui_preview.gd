@@ -21,7 +21,7 @@ func run() -> void:
 		for kind in ["success","failure"]:
 			v.proposal="";v.explore_tab=0;d.battle.status="win" if kind=="success" else "loss";d.battle.reward=78 if kind=="success" else 0;d.battle.pouch_reward=2 if kind=="success" else 0;d.battle.cleared=3 if kind=="success" else 2
 			await capture(m,out,"%s_%d"%[kind,height])
-		v.proposal="compact";v.opened="";m._switch_scene("fish");m._layout();m.environment.set_hour(12);m.environment.update(0)
+		d.battle.status="running";d.battle.progress=64;v.proposal="";v.opened="";m._switch_scene("fish");m._layout();m.environment.set_hour(12);m.environment.update(0)
 		await capture(m,out,"fishing_%d"%height)
 		m._switch_scene("village");v.proposal="";v.opened="explore";v.explore_tab=1;d.battle.status="lose"
 		await capture(m,out,"formation_%d"%height)
