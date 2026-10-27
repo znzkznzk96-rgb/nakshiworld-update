@@ -1,16 +1,16 @@
 {
   "schema_version": 3,
   "work_branch": "work/valley-runtime",
-  "status": "aquarium_b_implementation",
+  "status": "aquarium_b_release_preparation",
   "release_baseline": "v0.87",
   "source_commit": "5be26b4949f3d3c890f8022d3dfcd31c40c46909",
-  "current_task": "수족관 B 전시실형 적용",
+  "current_task": "수족관 B 공개 업데이트·도감 목록2/상세2 검토안",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
   "verification": "analysis/ui-guide-088/VERIFICATION.json",
   "phone_verified": false,
-  "release_authorized": false,
-  "next_step": "원본 물고기 동적 표시와 기존 관리/확장 연결, 화면 및 회귀 검사",
+  "release_authorized": true,
+  "next_step": "복구 소스 대조·전체검사·원격저장·배포, 도감4시안 표시",
   "updated_at": "2026-10-27",
   "support_audit": "analysis/support-balance-085/REPORT.md",
   "support_utility_report": "analysis/support-utility-085/REPORT.md",
@@ -19,6 +19,6 @@
   "this_change": {
     "implemented": false,
     "deployed": false,
-    "release_authorized": false
+    "release_authorized": true
   }
 }
