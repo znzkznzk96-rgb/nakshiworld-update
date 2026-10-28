@@ -20,5 +20,8 @@ func _initialize() -> void:
 	assert(expedition.textures["10R"].get_width()==1920,"large final boss sheet exported")
 	for asset in ["res://art/aquarium/tank_clean.png","res://art/ui/aquarium/manage.png","res://art/ui/aquarium/expand.png"]:
 		assert(load(asset) is Texture2D,"aquarium asset exported")
+	for name in ["heart","leaf","star","check","right","close","fish","plus","rod","soldier","soul0","soul1","soul2","soul3","soul4","region0","region1","region2","region3","region4","region5"]:
+		var texture=load("res://art/ui/codex/%s.png"%name)
+		assert(texture is Texture2D and texture.get_size()==Vector2(32,32),"codex PixelLab asset exported: "+name)
 	print("PACKED_ANGLER_VERIFY failures=[]")
 	quit()

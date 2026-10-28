@@ -1,0 +1,43 @@
+{
+  "baseline": "v0.88",
+  "baseline_source_sha256": "ce2a74b5d36ed462a124d8e91b86b4beb088279287b8100de8904c63d1178bc4",
+  "tests_passed": 51,
+  "screens_fresh": 10,
+  "screen_heights": [
+    480,
+    660
+  ],
+  "last_fix": "Back icon/text overlap corrected; codex089, personal_dex, soldier_dex rerun",
+  "icons": {
+    "check.png": "f3869c6ad49f3bdf665bf5ceb5d0f3c0830b5f350c134721c2289024f5e20d5a",
+    "close.png": "4cfcffe67636414f2e8b7ae80e211fd4e675e3b06d2430fe77ff49eda7687fd5",
+    "fish.png": "7cd158e5e76faaf5e0bcfe2560c6e42b0f54f60021258f3af35fec19d9a76ea4",
+    "heart.png": "ad0b91b7921a6430b32ab642523ade7d629727f0efb22d94706d66b6383b6546",
+    "leaf.png": "175cd1dd8d310b5a886944e19f8f5074605cf31c703e29d5a993ed1b3e6ee8fd",
+    "medal.png": "45c66f3bb8bafa1babc865adfab543138721262e9b25e6f5cd27b447ff208753",
+    "plus.png": "670e9a5f4614fba7c47a9136266e9dbbfe5ea339507ba3a42b0c0bb1e58dc45c",
+    "region0.png": "ddb50915cc7a22974047bfac5ef8870257bf16d15c39df453002e62484c0f819",
+    "region1.png": "ffcce14e22fefba652c6693de6e736e732809dcde5f22c44dd69c4afad0cabc9",
+    "region2.png": "4b370568499fbbd8571acd31700410773b9f423a8e41bf824467b18fb9998c8e",
+    "region3.png": "28bdf8624135bb3ca343e6a94cc479b8afe10970487cbe06f0496b8971c11ae6",
+    "region4.png": "6c44bb180a528a100aa55916dc1a5d375b2d2f4525b1a64848f6a2ba1f80e3ff",
+    "region5.png": "4cee3e5587e2bbc8c2f695d838027adfd3ef11032468955cd780eb9904d872dd",
+    "right.png": "1ab0a7cbf095e51fe6c8b145a74959a1ff2aba5db4cc65fc04b48bece6349016",
+    "rod.png": "8bb600beb664777ffaadcacba1910b6fae443733e719456febbaf40445c47aa4",
+    "ruler.png": "84eeb18e75e2b44261d2e788c85c8863fcddea4106d7b2e281182bbcda6ee83b",
+    "soldier.png": "ccf745ca104c4f8f2b1f38227f29fcda3d72fed02b4ba87cd8c278ab16ecef08",
+    "soul0.png": "dc43d94640e39cfb9b46058a5ef3ded475f7f18452e207f6a2cb7429f5d39cff",
+    "soul1.png": "7b2391d217128f994c322a276eb9647317e4849a29ff819637b37211e42f1b88",
+    "soul2.png": "283d34ca2d333fbec0e8f0b3c0134b49f294e905569a45d46c03a256b3a5e469",
+    "soul3.png": "1bb9ae777640a076a7890b028504f6154f0913263dd7328a4d0c4ec5075efe69",
+    "soul4.png": "283d34ca2d333fbec0e8f0b3c0134b49f294e905569a45d46c03a256b3a5e469",
+    "star.png": "b9b4d62673d9f8d574ac26da9d0a602a79e07211548347fd58be535a4568e751",
+    "weight.png": "c435fc12b6ce4f95b424d2c73bb22ea6c43f446531b678a29899c8821d18086e"
+  },
+  "new_paid_requests_this_resume": 3,
+  "new_paid_generations_this_resume": 3,
+  "balance_before": 18,
+  "balance_after": 15,
+  "deployed": false,
+  "phone_verified": false
+}

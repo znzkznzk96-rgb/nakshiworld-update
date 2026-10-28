@@ -117,7 +117,7 @@ func _icon(m, name: String, r: Rect2) -> void:
 
 func draw_room(v,m,h: float) -> void:
 	var top: float=m.top_y+88
-	var r:=Rect2(8,top,254,h-top-10)
+	var r:=Rect2(8,top,254,h-top-34)
 	v.active_style={"panel":m.sb_btn,"header":m.hud_reference_style,"card":m.sb_btn,"ink":Color("fff0d1"),"icon":"soul"}
 	_dark_panel(m,r,Color("132c37"))
 	var header:=Rect2(r.position+Vector2(4,4),Vector2(246,34))
@@ -172,7 +172,7 @@ func draw(v, m, r: Rect2, y: float) -> void:
 		m._ui_rect(Rect2(14,y+21,242,r.end.y-y-27),Color("e6eee4"))
 		_manage(v,m,r,y+22)
 		return
-	room_bounds=Rect2(13,y+23,244,r.end.y-143-(y+23))
+	room_bounds=Rect2(13,y+23,244,r.end.y-119-(y+23))
 	m._ui_texture_rect(ROOM,room_bounds)
 	var water:=Rect2(room_bounds.position+Vector2(12,room_bounds.size.y*.14),Vector2(220,room_bounds.size.y*.69))
 	_effects(m,water,false)
@@ -204,19 +204,19 @@ func draw(v, m, r: Rect2, y: float) -> void:
 		var f: Dictionary=m.aqua[v.aqua_selected]
 		info="%s · %s · %.1fcm"%[m.FISH_NAME[int(f.sp)],m.GRADE_N[int(f.grade)],float(f.len)]
 	m._text(info,Vector2(135,room_bounds.end.y+14),9,v.active_style.ink,true,232)
-	var buttons_y: float=room_bounds.end.y+24
-	var manage:=Rect2(15,buttons_y,240,40)
-	var expand:=Rect2(15,buttons_y+45,240,45)
+	var buttons_y: float=room_bounds.end.y+20
+	var manage:=Rect2(15,buttons_y,240,32)
+	var expand:=Rect2(15,buttons_y+36,240,34)
 	_dark_panel(m,manage,Color("155363"));_dark_panel(m,expand)
-	_icon(m,"manage",Rect2(manage.position+Vector2(16,4),Vector2(32,32)))
-	m._text("물고기 관리",manage.get_center()+Vector2(12,5),14,Color("fff0d1"),true,165)
+	_icon(m,"manage",Rect2(manage.position+Vector2(20,4),Vector2(24,24)))
+	m._text("물고기 관리",manage.get_center()+Vector2(12,4),12,Color("fff0d1"),true,165)
 	v.rects.rows.append([manage,"amanage"])
-	_icon(m,"expand",Rect2(expand.position+Vector2(10,7),Vector2(30,30)))
-	m._text("수족관 확장",Vector2(151,expand.position.y+17),11,Color("fff0d1"),true,185)
+	_icon(m,"expand",Rect2(expand.position+Vector2(13,5),Vector2(24,24)))
+	m._text("수족관 확장",Vector2(151,expand.position.y+13),11,Color("fff0d1"),true,185)
 	if m.aqua_lv<4:
-		m._text("%d → %d마리 · %d 비늘"%[m.aqua_capacity(),m.AQUA_CAP[m.aqua_lv+1],m.AQUA_COST[m.aqua_lv]],Vector2(151,expand.position.y+33),9,Color("f0c46e") if m.gold>=m.AQUA_COST[m.aqua_lv] else Color("e89c85"),true,185)
+		m._text("%d → %d마리 · %d 비늘"%[m.aqua_capacity(),m.AQUA_CAP[m.aqua_lv+1],m.AQUA_COST[m.aqua_lv]],Vector2(151,expand.position.y+26),9,Color("f0c46e") if m.gold>=m.AQUA_COST[m.aqua_lv] else Color("e89c85"),true,185)
 		v.rects.rows.append([expand,"aexpand"])
-	else: m._text("최대 크기 · %d마리"%m.aqua_capacity(),Vector2(151,expand.position.y+33),9,Color("a4bdba"),true,180)
+	else: m._text("최대 크기 · %d마리"%m.aqua_capacity(),Vector2(151,expand.position.y+26),9,Color("a4bdba"),true,180)
 	m._text(v.aqua_notice if v.aqua_notice!="" else "쉬는 동안에도 최대 8시간 수입",Vector2(135,r.end.y-13),9,Color("b3cccb"),true,232)
 
 func _manage(v, m, r: Rect2, y: float) -> void:

@@ -1,0 +1,12 @@
+{
+  "description": "Tiny square landscape of dark blue ocean waves and a glowing purple rift between black rocky cliffs. Full square landscape thumbnail, edge to edge composition. Crisp cozy 16-bit pixel art, 3 shades per material, clear saturated blue and teal water, warm brass and brown earth. No text, no frame, no characters.",
+  "negative_description": "blurry, photorealistic, text, UI panel, button, multiple icons, clipped edges",
+  "image_size": {
+    "width": 32,
+    "height": 32
+  },
+  "no_background": false,
+  "text_guidance_scale": 10,
+  "coverage_percentage": 95,
+  "seed": 2026102719
+}

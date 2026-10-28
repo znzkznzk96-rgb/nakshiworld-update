@@ -1,0 +1,17 @@
+{
+  "quality_pass": true,
+  "native_size": [
+    32,
+    32
+  ],
+  "transparent": true,
+  "sha256": "283d34ca2d333fbec0e8f0b3c0134b49f294e905569a45d46c03a256b3a5e469",
+  "checks": [
+    "readable silhouette",
+    "crisp pixel shading",
+    "palette matches cream wood teal UI",
+    "no clipped main content",
+    "nearest enlarged inspected"
+  ],
+  "regenerations": 0
+}

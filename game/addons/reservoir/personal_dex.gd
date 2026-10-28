@@ -93,6 +93,11 @@ func maximum() -> float: return maxf(0,(rows_total-visible_rows)*row_height)
 func cancel_pointer() -> void:
 	pointer=false;drag=false;touch_id=-1;down_id=-1
 func icon(m,kind: String,box: Rect2) -> void:
+	if kind=="soul4":
+		if not record_icons.has(kind):record_icons[kind]=load("res://art/ui/codex/soul4.png")
+		m._ui_texture_rect(record_icons[kind],box,false,Color(.52,.44,.65,1));return
+	if kind=="left":
+		record_icon(m,"right",Rect2(box.end.x,box.position.y,-box.size.x,box.size.y));return
 	if kind in ["attack","defense"]:m.expedition.symbol(m,kind,box);return
 	record_icon(m,kind,box)
 func label_lines(m,text: String,pos: Vector2,width: float,size: int=10,lines: int=2,color: Color=INK) -> void:
@@ -200,7 +205,7 @@ func draw_collection(m,r: Rect2) -> void:
 		m._ui_rect(Rect2(track.position+Vector2(0,(track.size.y-thumb)*scroll/maximum()),Vector2(3,thumb)),Color("8d6037"))
 	m._text("합성 후에도 제작 기록은 남아요" if soldier_mode() else "판매·기증 후에도 기록은 남아요",Vector2(135,r.end.y-16),9,MUTED,true,230)
 func back_button(m,r: Rect2) -> void:
-	var b:=Rect2(r.position+Vector2(13,46),Vector2(64,23));button(m,b,"목록");icon(m,"left",Rect2(b.position+Vector2(5,6),Vector2(11,11)));rects.back=b
+	var b:=Rect2(r.position+Vector2(13,46),Vector2(64,23));button(m,b,"");icon(m,"left",Rect2(b.position+Vector2(5,6),Vector2(11,11)));m._text("목록",b.position+Vector2(24,16),11,INK,false,34);rects.back=b
 func record_icon(m,kind: String,box: Rect2) -> void:
 	if not record_icons.has(kind):
 		var path: String="res://art/ui/codex/%s.png"%kind
@@ -238,7 +243,7 @@ func draw_trophy(m,r: Rect2) -> void:
 		var card:=Rect2(21,y,228,card_h-4);m._ui_style_box(m.sb_chip,card)
 		record_icon(m,["medal","ruler","weight"][i],Rect2(29,y+(card_h-4-25)/2,25,25))
 		m._text(["최고 등급","최대 길이","최대 무게"][i],Vector2(62,y+18),11,INK,false,84)
-		m._text(value(m,f,TYPES[i]),Vector2(204,y+20),14,Color("246da4") if i==0 and not f.is_empty() else INK,true,76)
+		m._text(value(m,f,TYPES[i]),Vector2(204,y+20),14,Color("246da4") if not f.is_empty() else INK,true,76)
 		m._text(specimen(m,f,TYPES[i]),Vector2(62,y+35),9,MUTED,false,177)
 		if card_h>=58 and not str(f.get("date","")).is_empty():m._text(str(f.date),Vector2(62,y+49),9,MUTED,false,177)
 		y+=card_h
