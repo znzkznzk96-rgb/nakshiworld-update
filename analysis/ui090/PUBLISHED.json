@@ -1,0 +1,29 @@
+{
+  "version": "0.90",
+  "source_commit": "3a5e55f1bb582eed017037608beced93350b199b",
+  "assets": {
+    "version.json": {
+      "bytes": 198,
+      "sha256": "b9a2b393ae6ac33c85b2eed602292400e8076cb0cfe3a83ffcfc6b1025a3744e"
+    },
+    "patch.pck": {
+      "bytes": 47609120,
+      "sha256": "0a14adea291d7359549faf5de45bfdcf27e1a5d44c8bb3a5d61a40ae3ea5c79c"
+    },
+    "game-source.zip": {
+      "bytes": 47286454,
+      "sha256": "87036acbd124bac0b8ea189e4632678d36422b42b1fea93e6b7b613f80d1be13"
+    }
+  },
+  "status": "published_and_gateway_verified",
+  "phone_verified": false,
+  "source_overlay_files_verified": 327,
+  "zip_crc_verified": true,
+  "work_ci": 40738441108,
+  "release_ci": 40739131757,
+  "gateway_ci": 40739713353,
+  "all_ci_conclusion": "success",
+  "aquarium_tank_dimensions_unchanged": true,
+  "bottom_margin_logical_pixels": 94,
+  "gateway_evidence": "PUBLIC UPDATE VERIFIED code90 size47609120 sha256=0a14adea291d7359549faf5de45bfdcf27e1a5d44c8bb3a5d61a40ae3ea5c79c"
+}

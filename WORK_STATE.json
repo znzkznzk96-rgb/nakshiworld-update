@@ -1,16 +1,16 @@
 {
   "schema_version": 3,
   "work_branch": "work/valley-runtime",
-  "status": "ui090_verifying",
-  "release_baseline": "v0.89",
-  "source_commit": "95e987e694fcd9156e91302f28e8799dbcc71fb8",
-  "current_task": "수족관 주변 UI 축소·도감 원본 복원·병사합성 스크롤·하단UI 정리",
+  "status": "published_verified",
+  "release_baseline": "v0.90",
+  "source_commit": "3a5e55f1bb582eed017037608beced93350b199b",
+  "current_task": "요청 UI 수정 및 v0.90 공개·운영다운로드 검증 완료",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
-  "verification": "analysis/ui090/REPORT.md",
+  "verification": "analysis/ui090/PUBLISHED.json",
   "phone_verified": false,
   "release_authorized": true,
-  "next_step": "52개 검사 및 화면 검증 후 v0.90 배포",
+  "next_step": "휴대폰 v0.90 적용 및 사용자 확인",
   "updated_at": "2026-10-28",
   "support_audit": "analysis/support-balance-085/REPORT.md",
   "support_utility_report": "analysis/support-utility-085/REPORT.md",
@@ -18,7 +18,7 @@
   "last_release_deployed": true,
   "this_change": {
     "implemented": true,
-    "deployed": false,
+    "deployed": true,
     "release_authorized": true
   }
 }
