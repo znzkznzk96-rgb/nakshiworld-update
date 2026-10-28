@@ -6,3 +6,6 @@
 
 [공개검증](analysis/release-089/PUBLISHED.json), [세부검증](analysis/release-089/VERIFICATION.json), [이전인계](docs/historical/HANDOFF_pre_publish089.md).
 추가유료생성이번수족관수정0;앞선도감재개3회분,잔액15회분(당시조회). 재생성불필요. 휴대폰적용은사용자확인전. 다음: 사용자폰v0.89확인.
+
+## 최신진행 2026-10-29
+사용자 [UI090](docs/decisions/UI090.md) 수정·배포승인. 원본 목록시안2장 회수·대화표시. 새아트생성0. 공개v0.89, v0.90준비.

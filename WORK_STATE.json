@@ -1,24 +1,24 @@
 {
   "schema_version": 3,
   "work_branch": "work/valley-runtime",
-  "status": "published_and_gateway_verified",
+  "status": "ui090_authorized",
   "release_baseline": "v0.89",
   "source_commit": "95e987e694fcd9156e91302f28e8799dbcc71fb8",
-  "current_task": "도감 및 수조크기 유지 수족관 UI 높이 개선 공개완료",
+  "current_task": "수족관 주변 UI 축소·도감 원본 복원·병사합성 스크롤·하단UI 정리",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
   "verification": "analysis/release-089/PUBLISHED.json",
   "phone_verified": false,
   "release_authorized": true,
-  "next_step": "사용자 휴대폰 v0.89 적용 확인",
+  "next_step": "시안 대조 및 승인된 UI 수정·검증·배포",
   "updated_at": "2026-10-28",
   "support_audit": "analysis/support-balance-085/REPORT.md",
   "support_utility_report": "analysis/support-utility-085/REPORT.md",
-  "target_release": "v0.89",
+  "target_release": "v0.90",
   "last_release_deployed": true,
   "this_change": {
-    "implemented": true,
-    "deployed": true,
+    "implemented": false,
+    "deployed": false,
     "release_authorized": true
   }
 }
