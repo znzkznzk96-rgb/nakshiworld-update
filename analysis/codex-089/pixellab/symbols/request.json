@@ -1,0 +1,10 @@
+{
+  "description": "A precisely aligned 3 by 3 grid sprite sheet containing nine separate pixel UI icons. Each cell is exactly 32x32 pixels with four pixel transparent padding, centered icon. Row 1 from left: red heart, bright green leaf, gold five pointed star. Row 2: blue circle containing white checkmark, dark brown right arrow chevron, dark brown left arrow chevron. Row 3: dark brown X close symbol, teal fish silhouette facing right, golden plus sign. No grid lines, no labels. Each icon entirely inside its own cell.  Crisp cozy 16-bit pixel fishing RPG UI, dark brown one pixel outlines, 3 shades per material, saturated clear colors, warm brass highlights. Transparent background. No text. No blur, no smooth gradients.",
+  "image_size": {
+    "width": 96,
+    "height": 96
+  },
+  "seed": 202610280,
+  "no_background": true,
+  "color_palette": "dark brown, warm cream, brass gold, teal, bright blue, emerald green, purple"
+}

@@ -1,0 +1,38 @@
+{
+  "new_icons": [
+    "heart",
+    "leaf",
+    "star",
+    "check",
+    "right",
+    "close",
+    "fish",
+    "plus",
+    "rod",
+    "soldier",
+    "soul0",
+    "soul1",
+    "soul2",
+    "soul3",
+    "soul4",
+    "region0",
+    "region1",
+    "region2",
+    "region3",
+    "region4",
+    "region5"
+  ],
+  "reuse": [
+    "medal",
+    "ruler",
+    "weight",
+    "attack",
+    "defense"
+  ],
+  "derived_runtime": {
+    "left": "horizontal mirror of right PixelLab icon"
+  },
+  "concurrency": 1,
+  "approval": "User explicitly renewed PixelLab creation through public release after failure report",
+  "remaining_budget_observed_after_right_shaped": 69
+}

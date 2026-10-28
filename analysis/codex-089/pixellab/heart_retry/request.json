@@ -1,0 +1,10 @@
+{
+  "description": "One single red heart health UI icon. Symmetrical heart shape ONLY, two round upper lobes and pointed lower tip. Absolutely no stick, stem, string, handle, ribbon or balloon. Red body, burgundy outline, small cream highlight. Four pixel margin. Crisp cozy 16-bit pixel fishing RPG UI, dark brown one pixel outlines, 3 shades per material, saturated clear colors, warm brass highlights. Transparent background. No text. No blur, no smooth gradients.",
+  "image_size": {
+    "width": 32,
+    "height": 32
+  },
+  "seed": 202610280,
+  "no_background": true,
+  "color_palette": "dark brown, warm cream, brass gold, teal, bright blue, emerald green, purple"
+}

@@ -17,7 +17,7 @@ func run() -> void:
 		d.discovered=[];v.open(m,"alchemy");v.tab=0;v.pair=[4,4]
 		await capture(m,out,"unknown_%d"%height)
 		d.discover(d.recipe(4,4));await capture(m,out,"known_%d"%height)
-		v.opened="";m.personal_dex.open(m);m.personal_dex.region=2
+		v.opened="";m.personal_dex.open(m);m.personal_dex.category="soldier"
 		for id in [0,3,6,9,12]: d.discover(id)
 		await capture(m,out,"codex_%d"%height)
 		m.personal_dex.selected=d.recipe(4,4);await capture(m,out,"detail_%d"%height)

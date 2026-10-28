@@ -1,0 +1,18 @@
+{
+  "quality_pass": true,
+  "native_size": [
+    32,
+    32
+  ],
+  "transparent": true,
+  "sha256": "8bb600beb664777ffaadcacba1910b6fae443733e719456febbaf40445c47aa4",
+  "checks": [
+    "readable silhouette",
+    "crisp pixel shading",
+    "palette matches cream wood teal UI",
+    "no clipped main content",
+    "nearest enlarged inspected"
+  ],
+  "regenerations": 0,
+  "semantic_note": "Output reads as red-white fishing float on a stem, used as fishing-location marker rather than rod silhouette."
+}

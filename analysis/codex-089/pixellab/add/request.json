@@ -1,0 +1,10 @@
+{
+  "description": "One single gold plus-sign UI icon, exactly four equal rectangular arms and a square middle. Dark brown outline. No background panel. Crisp cozy 16-bit pixel fishing RPG UI, dark brown one pixel outlines, 3 shades per material, saturated clear colors, warm brass highlights. Transparent background. No text. No blur, no smooth gradients.",
+  "image_size": {
+    "width": 32,
+    "height": 32
+  },
+  "seed": 202610283,
+  "no_background": true,
+  "color_palette": "dark brown, warm cream, brass gold, teal, bright blue, emerald green, purple"
+}

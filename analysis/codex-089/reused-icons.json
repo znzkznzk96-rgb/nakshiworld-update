@@ -1,0 +1,32 @@
+[
+  {
+    "name": "medal",
+    "source": "PixelLab prior approved codex-088 generation",
+    "sha256": "45c66f3bb8bafa1babc865adfab543138721262e9b25e6f5cd27b447ff208753",
+    "regenerated": false
+  },
+  {
+    "name": "ruler",
+    "source": "PixelLab prior approved codex-088 generation",
+    "sha256": "84eeb18e75e2b44261d2e788c85c8863fcddea4106d7b2e281182bbcda6ee83b",
+    "regenerated": false
+  },
+  {
+    "name": "weight",
+    "source": "PixelLab prior approved codex-088 generation",
+    "sha256": "c435fc12b6ce4f95b424d2c73bb22ea6c43f446531b678a29899c8821d18086e",
+    "regenerated": false
+  },
+  {
+    "name": "attack",
+    "source": "PixelLab bag-formation-084",
+    "sha256": "32c048f9d681a903cf197847a6666a431419c5b7c6b312ca09b7a3a23fceaa0a",
+    "regenerated": false
+  },
+  {
+    "name": "defense",
+    "source": "PixelLab bag-formation-084",
+    "sha256": "319feddc33db0042bb36ec41df9936924f0ad443608ed985e56ed9fbdf213962",
+    "regenerated": false
+  }
+]

@@ -9,7 +9,7 @@ func tap(m,p: Vector2) -> void:
  for down in [true,false]:
   var e=InputEventScreenTouch.new();e.position=p+Vector2(m.ox,0);e.pressed=down;m._unhandled_input(e)
 func run() -> void:
- var m=load("res://main.gd").new();m.development_preview=true;root.add_child(m);await process_frame;m.set_process(false)
+ var m=load("res://main.gd").new();m.development_preview=true;m.SET.sfx=0;m.SET.music=0;root.add_child(m);await process_frame;m.set_process(false)
  m.title_open=false;m.lesson_open=false;m.trans={};m.scene="village";m.V.shop="";m.market_sell=false;m.bag=[]
  for i in 180: m.bag.append({"sp":i%17,"grade":0,"w":0.1,"len":10.0,"price":100})
  m.market_open=true;paint(m)

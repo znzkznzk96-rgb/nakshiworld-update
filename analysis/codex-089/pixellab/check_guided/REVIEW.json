@@ -1,0 +1,6 @@
+{
+  "quality_pass": false,
+  "reason": "Guide rasterization dependency failed; request sent without guide. Same unusable result.",
+  "applied": false,
+  "generations_used": 1
+}

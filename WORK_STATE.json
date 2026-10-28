@@ -1,24 +1,24 @@
 {
   "schema_version": 3,
   "work_branch": "work/valley-runtime",
-  "status": "published_and_gateway_verified",
+  "status": "final_verification",
   "release_baseline": "v0.88",
   "source_commit": "9fd7d23d93f04b12469c830ae3ae95cf409e1468",
-  "current_task": "승인 수족관 UI·동적 레이어·PixelLab 아이콘 구현 및 배포",
+  "current_task": "도감 v0.89와 수조크기 유지 수족관 UI 높이 개선 배포",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
-  "verification": "analysis/release-088/PUBLISHED.json",
+  "verification": "analysis/release-089/VERIFICATION.json",
   "phone_verified": false,
   "release_authorized": true,
-  "next_step": "사용자 휴대폰에서 v0.88 적용 확인",
-  "updated_at": "2026-10-27",
+  "next_step": "전체검사·원격저장·공개배포검증",
+  "updated_at": "2026-10-28",
   "support_audit": "analysis/support-balance-085/REPORT.md",
   "support_utility_report": "analysis/support-utility-085/REPORT.md",
-  "target_release": "v0.88",
+  "target_release": "v0.89",
   "last_release_deployed": true,
   "this_change": {
     "implemented": true,
-    "deployed": true,
+    "deployed": false,
     "release_authorized": true
   }
 }

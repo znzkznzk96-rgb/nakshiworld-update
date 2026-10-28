@@ -12,12 +12,16 @@ func run() -> void:
  m.development_preview=true;m.set_process(false);m.title_open=false;m.lesson_open=false;m.tip_t=0;m.guide.opened=false;m.mailbox.opened=false;m.trans={};m.TUT.done=true;m.scene="village";m.S={"phase":"idle"};m.V.enter(m)
  var d=m.personal_dex;m.expedition.data.restore({})
  for id in [0,2,4,5,6,7,12,14]:m.expedition.data.discover(id)
- d.restore({});m.DEX={m.fish_key(1):[0,1]};m.REC={m.fish_key(1):26.0};d.observe(1,0,24.9,.078,"")
+ d.restore({});m.catch_counts={m.fish_key(1):[4,2,0,0,0]};m.DEX={m.fish_key(1):[0,1]};m.REC={m.fish_key(1):26.0};d.observe(1,0,24.9,.078,"")
+ for sp in [0,2,3,4,5,6,7]:m.DEX[m.fish_key(sp)]=[0]
  for h in [480,660]:
   root.content_scale_size=Vector2i(270,h);root.size=Vector2i(540,h*2);await process_frame;m._layout()
-  d.open(m);d.region=2;await capture(m,out,"soldiers_%d"%h)
+  d.open(m);d.category="soldier";await capture(m,out,"soldiers_%d"%h)
   d.scroll=104;await capture(m,out,"soldiers_scroll_%d"%h)
   d.selected=6;await capture(m,out,"soldier_detail_%d"%h)
-  d.selected=-1;d.region=0;d.scroll=0;await capture(m,out,"fish_list_%d"%h)
+  d.selected=-1;d.region=0;d.category="fish";d.scroll=0;await capture(m,out,"fish_list_%d"%h)
   d.selected=1;await capture(m,out,"fish_detail_%d"%h)
+  d.selected=-1
+  for area in range(1,6):
+   d.region=area;d.scroll=0;await capture(m,out,"region%d_%d"%[area,h])
  m.audio_feedback.dispose();m.queue_free();await process_frame;quit()

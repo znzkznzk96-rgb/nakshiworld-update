@@ -1,0 +1,17 @@
+{
+  "description": "A single thick dark brown arrow pointing right, simple straight shaft and triangular arrowhead, warm gold highlight. Crisp pixel art game UI asset. Cozy 16-bit fishing RPG, 3 shades per material, dark brown one-pixel outline. Clearly readable at small size. Centered with 3 pixel transparent margin. No letters, no panel, no grid, no additional objects. Preserve exact main shape and silhouette of the input. Add only crisp pixel shading.",
+  "negative_description": "blurry, photorealistic, text, UI panel, button, multiple icons, clipped edges, sticks, strings, handles, ribbons",
+  "image_size": {
+    "width": 32,
+    "height": 32
+  },
+  "no_background": true,
+  "text_guidance_scale": 5,
+  "coverage_percentage": 70,
+  "seed": 2026102704,
+  "init_image": {
+    "type": "base64",
+    "base64": "iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAK9JREFUWIXt1j0OgCAMBeCHB5O76A1YdNRNFz2A8TCcyrEOrv4AaWliaOJEzPsCFDBEBM2qVNMLoAB+BdidnVQBALoUBPcSRCMk9kAUQmoTBiMkuyAIYe4uo91ZzhtqbhffPw3mOAdeZyLXQfSIyHYSGsKhBjCEoVn9qAJ4C7/GmZ5kd53zFQ4IzkBIuBggNFwEEBPODogNBwAQEcu3uXpI+Y+tC1LrP2/CAiiA1DoBQdSft5ZyZJgAAAAASUVORK5CYII="
+  },
+  "init_image_strength": 100
+}

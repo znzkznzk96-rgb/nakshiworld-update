@@ -1,0 +1,12 @@
+{
+  "description": "A single small teal fish silhouette facing right, round body, triangular tail, single white eye, blue shadow. Crisp pixel art game UI asset. Cozy 16-bit fishing RPG, 3 shades per material, dark brown one-pixel outline. Clearly readable at small size. Centered with 3 pixel transparent margin. No letters, no panel, no grid, no additional objects.",
+  "negative_description": "blurry, photorealistic, text, UI panel, button, multiple icons, clipped edges",
+  "image_size": {
+    "width": 32,
+    "height": 32
+  },
+  "no_background": true,
+  "text_guidance_scale": 10,
+  "coverage_percentage": 70,
+  "seed": 2026102707
+}
