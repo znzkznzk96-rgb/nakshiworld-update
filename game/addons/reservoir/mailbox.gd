@@ -81,7 +81,7 @@ func draw_button(m) -> void :
 		m._ui_rect(Rect2(button.position+Vector2(29,3),Vector2(6,6)),Color("a43b30"))
 		m._ui_rect(Rect2(button.position+Vector2(30,4),Vector2(2,2)),Color("ffb999"))
 func draw(m, h: float) -> void :
-	var height := 440.0 if detail != "" else 364.0
+	var height := minf(440.0 if detail != "" else 364.0,h-88)
 	var r := Rect2(13,maxf(8,(h-height)/2),244,height)
 	m.text_items = m.text_items.filter( func(it): return it[1].y < m.top_y + 35)
 	m._ui_rect(Rect2( - m.ox, 0, m.VW + 2 * m.ox, h), Color(0.015, 0.025, 0.04, 0.86))

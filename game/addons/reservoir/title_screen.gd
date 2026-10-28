@@ -227,4 +227,4 @@ func draw_ui(m, h: float) -> void :
 			for item in source:
 				for offset in [Vector2( - blur, 0), Vector2(blur, 0)]:
 					var copy: Array = item.duplicate();copy[1] += offset;copy[6].a *= 0.15;m.text_items.append(copy)
-	m._text("v" + m._ver_name(), Vector2(135, h - m.bot_pad - 12), 8, Color(0.56, 0.7, 0.74, 0.7), true, 200)
+	m._text("v" + m._ver_name(), Vector2(135, h - m.bot_pad - 40), 8, Color(0.56, 0.7, 0.74, 0.7), true, 200)

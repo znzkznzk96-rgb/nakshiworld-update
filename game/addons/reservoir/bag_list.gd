@@ -57,7 +57,7 @@ func scrollbar(m, area: Rect2, offset: float, maximum: float, count: int) -> voi
 func draw(m) -> void:
 	var inv=m.inventory
 	var h: float=m.get_viewport_rect().size.y
-	var height: float=minf(444,h-24)
+	var height: float=minf(444,h-88)
 	var r:=Rect2(10,floorf((h-height)/2),250,height)
 	m.text_items=m.text_items.filter(func(it):return it[1].y<r.position.y-7)
 	m._ui_rect(Rect2(-m.ox,0,270+2*m.ox,h),Color(0.04,0.06,0.1,0.78))

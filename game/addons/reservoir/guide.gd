@@ -47,7 +47,8 @@ func content(m) -> Array:
 func draw(m, h: float) -> void:
 	m.text_items.clear()
 	m._ui_rect(Rect2(-m.ox, 0, m.VW+2*m.ox, h), Color(0.02,0.04,0.06,0.86))
-	var r := Rect2(12, maxf(8, (h-440)/2), 246, 440)
+	var panel_height: float=minf(440,h-88)
+	var r := Rect2(12, floorf((h-panel_height)/2), 246, panel_height)
 	m._ui_style_box(m.sb_panel, r)
 	preload("res://addons/reservoir/ui_theme.gd").title(m, r, "낚시월드 길잡이")
 	var close := Rect2(r.end.x-32,r.position.y+9,22,23)
