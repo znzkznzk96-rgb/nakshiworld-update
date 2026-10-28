@@ -25,7 +25,7 @@ func species_id(target: Dictionary) -> int:
 func draw(m,h: float) -> void:
 	m.text_items.clear();m.ui_commands.clear();rects.clear()
 	m._ui_rect(Rect2(-m.ox,0,270+2*m.ox,h),Color("17383f"))
-	var available: float=h-m.top_y-8
+	var available: float=h-m.top_y-44
 	var panel_height: float=minf(490.0,available-32.0)
 	var r:=Rect2(7,m.top_y+floorf((available-panel_height)/2.0),256,panel_height)
 	m._ui_style_box(m.sb_panel,r)

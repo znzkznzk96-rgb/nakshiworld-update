@@ -95,6 +95,6 @@ func draw(m, h: float) -> void :
 	rects.left = left;rects.right = right
 	var note: String = notice if m.ui_clock < notice_until else "좌우로 밀어 낚시터 선택하기"
 	if h >= 540: m._text(m._ui_wrap(note, 10, 244, 2), Vector2(135, top + 364), 10, Color("e6d5ad"), true, 244)
-	var back: = Rect2(60, h - m.bot_pad - 57, 150, 32)
+	var back: = Rect2(60, h - m.bot_pad - 93, 150, 32)
 	m._ui_style_box(m.sb_btn, back);m._text("뒤로가기", back.get_center() + Vector2(0, 5), 12, Color("513b29"), true, 138)
 	rects.back = back

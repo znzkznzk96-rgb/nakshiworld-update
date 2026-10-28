@@ -23,6 +23,18 @@ var effect_time: float = 0.0
 var effect_uid: int = -1
 var effect_pair: Array = [0,0]
 var role_filter: String = "all"
+var roster_scroll := 0.0
+var roster_viewport := Rect2()
+var roster_max_scroll := 0.0
+var roster_pointer := false
+var roster_touch_id := -1
+var roster_start := Vector2.ZERO
+var roster_last := Vector2.ZERO
+var roster_dragged := false
+var roster_in_list := false
+var roster_native_until := 0
+var flow_layout := {}
+var panel_bounds := Rect2()
 var formation_scroll := 0.0
 var formation_viewport := Rect2()
 var formation_max_scroll := 0.0
@@ -62,7 +74,7 @@ func setup() -> void:
 func open(m,screen: String) -> void:
 	if screen=="explore" and m.scene!="village" and not data.battle.is_empty() and not data.active():
 		m.show_toast("탐험 결과는 마을에서 확인해 주세요",Color("ffdc96"));return
-	opened=screen;effect_kind="";page=0;formation_scroll=0;formation_pointer=false;role_filter="all";selected=[];notice="";choosing_slot=-1;m.menu_open=false;m.holding=false
+	opened=screen;effect_kind="";page=0;roster_scroll=0;roster_pointer=false;formation_scroll=0;formation_pointer=false;role_filter="all";selected=[];notice="";choosing_slot=-1;m.menu_open=false;m.holding=false
 	selected_round=mini(data.unlocked,maxi(1,selected_round))
 	if screen=="explore" and not data.battle.is_empty() and not data.active(): explore_tab=0
 
@@ -264,8 +276,13 @@ func draw(m,h: float) -> void:
 		draw_expedition_result(m,h);return
 	# Hide underlying text as well as surfaces so world/shop labels cannot leak through.
 	m.text_items=m.text_items.filter(func(it): return it[1].y<m.top_y+65)
-	var y: float=m.top_y+69;var bottom: float=h-m.bot_pad-8
-	panel(m,Rect2(6,y,258,bottom-y));rects={}
+	var y: float=m.top_y+69;var bottom: float=minf(h-m.bot_pad-44,y+428)
+	flow_layout={}
+	if opened=="alchemy" and tab==0 and data.pending.is_empty() and effect_kind=="":
+		flow_layout=craft_geometry(y+72,bottom)
+		bottom=minf(bottom,float(flow_layout.craft_y)+39)
+	panel_bounds=Rect2(6,y,258,bottom-y)
+	panel(m,panel_bounds);rects={}
 	m._ui_style_box(m.hud_reference_style,Rect2(11,y+5,248,26))
 	m._ui_texture_rect(textures.explore if opened=="explore" else textures.alchemy,Rect2(18,y+7,25,22))
 	m._text("탐험" if opened=="explore" else "연성",Vector2(50,y+23),13,Color("fff0d1"),false,128)
@@ -358,6 +375,13 @@ func soul_row(m,y: float) -> void:
 		m._ui_texture_rect(textures[EFILES[i]],Rect2(x,y,23,23))
 		m._text(str(data.souls[i]),Vector2(x+29,y+17),9,Color("382619"),true,23)
 
+func craft_geometry(y: float,bottom: float) -> Dictionary:
+	var size: float=clampf((bottom-y-185)*.55,42,64)
+	var result_h: float=clampf((bottom-y)*.27,72,100)
+	var result_y: float=y+16+size+18
+	var owned_y: float=result_y+result_h+24
+	return {"size":size,"result_h":result_h,"result_y":result_y,"owned_y":owned_y,"craft_y":owned_y+64}
+
 func draw_alchemy(m,y: float,bottom: float) -> void:
 	for i in 2:
 		var r: Rect2=Rect2(17+i*119,y,117,25)
@@ -366,18 +390,19 @@ func draw_alchemy(m,y: float,bottom: float) -> void:
 	y+=35
 	if tab==0:
 		m._text(notice if notice!="" else "어혼을 조합하세요.",Vector2(135,y+9),10,Color("9b4329") if notice!="" else Color("382619"),true,234)
-		var owned_y: float=bottom-108
-		var result_h: float=clampf((owned_y-y)*.4,92,135)
-		var size: float=minf(82,owned_y-18-result_h-32-(y+21))
-		var result_y: float=y+21+size+25
+		var layout: Dictionary=flow_layout if not flow_layout.is_empty() else craft_geometry(y,bottom)
+		var owned_y: float=layout.owned_y
+		var result_h: float=layout.result_h
+		var size: float=layout.size
+		var result_y: float=layout.result_y
 		for i in 2:
-			var r: Rect2=Rect2(84+i*102-size/2,y+21,size,size)
+			var r: Rect2=Rect2(84+i*102-size/2,y+16,size,size)
 			m._ui_style_box(m.hud_reference_style,r);m._ui_rect(r.grow(-4),Color("092b39"))
 			m._ui_texture_rect(textures[EFILES[int(pair[i])]],r.grow(-8))
 			if pair_slot==i: m._ui_rect(r.grow(-2),Color("3bf2e1"),false,1)
 			m._text(data.ELEMENTS[int(pair[i])],r.get_center()+Vector2(0,size/2+12),9,Color("382619"),true,63)
 			rects["pair:%d"%i]=r
-		var plus: Vector2=Vector2(135,y+21+size/2)
+		var plus: Vector2=Vector2(135,y+16+size/2)
 		m._ui_rect(Rect2(plus-Vector2(8,3),Vector2(16,6)),Color("54270f"));m._ui_rect(Rect2(plus-Vector2(3,8),Vector2(6,16)),Color("54270f"))
 		m._ui_rect(Rect2(plus-Vector2(6,1),Vector2(12,2)),Color("b97b44"));m._ui_rect(Rect2(plus-Vector2(1,6),Vector2(2,12)),Color("b97b44"))
 		m._text("▼",Vector2(135,result_y-6),11,Color("d79825"),true,20)
@@ -391,7 +416,7 @@ func draw_alchemy(m,y: float,bottom: float) -> void:
 			sprite(m,id,Rect2(box.position+Vector2(36,18),Vector2(66,result_h-40)))
 			m._ui_style_box(m.sb_btn,Rect2(97,box.end.y-20,76,18))
 			m._text(ROLES[u.role],Vector2(135,box.end.y-8),9,Color("382619"),true,68)
-			m._text(u.name+" · "+u.description,Vector2(135,box.end.y+12),7,Color("6c553b"),true,231)
+			m._text(u.name+" · "+u.description,Vector2(135,box.end.y+10),6,Color("6c553b"),true,244)
 		else:
 			m._text("?",box.get_center()+Vector2(0,8),28,Color("b6ccc9"),true,100)
 			m._text("아직 만들지 않은 병사",Vector2(135,box.end.y+12),9,Color("6c553b"),true,231)
@@ -399,20 +424,24 @@ func draw_alchemy(m,y: float,bottom: float) -> void:
 		m._ui_style_box(m.hud_reference_style,Rect2(17,owned_y-3,70,16))
 		m._text("보유 어혼",Vector2(52,owned_y+8),9,Color("fff0d1"),true,64)
 		for i in 5:
-			var r: Rect2=Rect2(17+i*48,owned_y+16,44,40)
+			var r: Rect2=Rect2(17+i*48,owned_y+14,44,31)
 			m._ui_style_box(m.hud_reference_style,r);m._ui_rect(r.grow(-3),Color("092c38"))
-			m._ui_texture_rect(textures[EFILES[i]],Rect2(r.position+Vector2(6,3),Vector2(30,30)))
+			m._ui_texture_rect(textures[EFILES[i]],Rect2(r.position+Vector2(10,2),Vector2(24,24)))
 			if i in pair: m._ui_rect(r.grow(-1),Color("27dfd6"),false,1)
-			m._text(str(data.souls[i]),r.position+Vector2(35,34),8,Color("fff0d1"),true,16,true)
-			m._text(data.ELEMENTS[i],r.position+Vector2(22,49),8,Color("382619"),true,42)
+			m._text(str(data.souls[i]),r.position+Vector2(35,26),8,Color("fff0d1"),true,16,true)
+			m._text(data.ELEMENTS[i],r.position+Vector2(22,41),8,Color("382619"),true,42)
 			rects["element:%d"%i]=r
-		primary(m,"craft",Rect2(18,bottom-28,234,25),"연성하기 · 어혼 2개")
+		primary(m,"craft",Rect2(18,float(layout.craft_y),234,25),"연성하기 · 어혼 2개")
 		return
 	soul_row(m,y);y+=30
 	var rows: int=maxi(1,mini(4,int((bottom-y-90)/56)))
-	var total: int=maxi(1,ceili(data.soldiers.size()/float(rows)));page=clampi(page,0,total-1)
+	roster_viewport=Rect2(18,y,234,rows*56)
+	roster_max_scroll=maxf(0,(data.soldiers.size()-rows)*56.0)
+	roster_scroll=clampf(roster_scroll,0,roster_max_scroll)
+	var first: int=floori(roster_scroll/56.0)
+	page=first/rows
 	for i in rows:
-		var n: int=page*rows+i
+		var n: int=first+i
 		if n>=data.soldiers.size(): break
 		var u: Dictionary=data.soldiers[n];var st: Dictionary=data.stats(u);var spec: Dictionary=data.catalog.soldiers[int(u.id)]
 		var r: Rect2=Rect2(18,y+i*56,234,53)
@@ -424,15 +453,21 @@ func draw_alchemy(m,y: float,bottom: float) -> void:
 		if tab==2:
 			lock_icon(m,"lock:%d"%int(u.uid),Rect2(r.end.x-25,r.position.y,24,22),bool(u.locked))
 			button(m,"upgrade:%d"%int(u.uid),Rect2(r.end.x-37,r.position.y+33,36,18),"강화")
-	button(m,"prev",Rect2(18,y+rows*56+5,35,22),"‹");button(m,"next",Rect2(217,y+rows*56+5,35,22),"›")
-	m._text("%d/%d · %d/60마리"%[page+1,total,data.soldiers.size()],Vector2(135,y+rows*56+20),9,Color("6c553b"),true,150)
+	var controls_bottom: float=roster_viewport.end.y+82
+	if roster_max_scroll>0:
+		var thumb: float=maxf(15,roster_viewport.size.y*rows/maxi(1,data.soldiers.size()))
+		m._ui_rect(Rect2(254,y,2,roster_viewport.size.y),Color("d7c7a6"))
+		m._ui_rect(Rect2(254,y+roster_scroll/roster_max_scroll*(roster_viewport.size.y-thumb),2,thumb),Color("96794d"))
+	if tab==2 or (notice=="" and selected.size()!=2): m._text("%d/60마리 · 위아래로 스크롤"%data.soldiers.size(),Vector2(135,roster_viewport.end.y+17),8,Color("6c553b"),true,230)
+	bottom=minf(bottom,controls_bottom)
+
 	if tab==2:
 		m._text("강화 버튼으로 육성 · 자물쇠로 잠금",Vector2(135,bottom-25),8,Color("6c553b"),true,232)
 	if tab==1:
 		var q: Dictionary=data.merge_cost(int(selected[0]),int(selected[1])) if selected.size()==2 else {}
-		if notice!="": m._text(notice,Vector2(135,bottom-80),8,Color("9b4329"),true,232)
+		if notice!="": m._text(notice,Vector2(135,roster_viewport.end.y+14),8,Color("9b4329"),true,232)
 		elif not q.is_empty():
-			m._text("어혼 %d개 + %d비늘 · 새 %d성"%[int(q.souls.reduce(func(a,b):return a+b,0)),q.gold,q.star],Vector2(135,bottom-80),8,Color("6c553b"),true,232)
+			m._text("어혼 %d개 + %d비늘 · 새 %d성"%[int(q.souls.reduce(func(a,b):return a+b,0)),q.gold,q.star],Vector2(135,roster_viewport.end.y+14),8,Color("6c553b"),true,232)
 		button(m,"merge_review",Rect2(22,bottom-64,226,28),"합성 결과·소모 재료 확인",not q.is_empty() and not data.active())
 		m._text("같은 별 +3 병사 2마리 · 잠금 병사는 보호",Vector2(135,bottom-23),8,Color("6c553b"),true,232)
 
@@ -446,7 +481,7 @@ func draw_pending(m,y: float,bottom: float) -> void:
 		m._text("체력 +%d%% · 공격 +%d%% · 방어 +%d%%"%u.iv,Vector2(135,y+170),9,Color("855c26"),true,232)
 		m._text(data.catalog.soldiers[int(u.id)].description,Vector2(135,y+196),9,Color("6c553b"),true,232)
 		if int(u.star)==3: m._text(["레어","유니크","전설"][int(u.rarity)],Vector2(135,y+222),13,Color("a96d23"),true,232)
-		button(m,"pending_done",Rect2(22,bottom-55,226,30),"병사 보관함으로")
+		button(m,"pending_done",Rect2(22,minf(bottom-55,y+246),226,30),"병사 보관함으로")
 	elif p.kind=="merge":
 		sprite(m,int(p.id),Rect2(94,y,82,69))
 		m._text("새 %d성 %s"%[p.star,data.catalog.soldiers[int(p.id)].name],Vector2(135,y+87),11,Color("382619"),true,230)
@@ -459,7 +494,8 @@ func draw_pending(m,y: float,bottom: float) -> void:
 func input_event(m,e: InputEvent) -> bool:
 	if (e is InputEventMouseButton or e is InputEventMouseMotion) and e.device==-1:
 		if (opened=="explore" and explore_tab==1 and data.pending.is_empty()) or Time.get_ticks_msec()<formation_native_until: return true
-	if opened=="": formation_pointer=false;return false
+	if opened=="": formation_pointer=false;roster_pointer=false;return false
+	if opened=="alchemy" and tab in [1,2] and data.pending.is_empty() and effect_kind=="": return roster_input(m,e)
 	if opened=="explore" and explore_tab==1 and data.pending.is_empty(): return formation_input(m,e)
 	if e is InputEventMouseButton and e.button_index==MOUSE_BUTTON_LEFT:
 		var pos: Vector2=e.position-Vector2(m.ox,0)
@@ -490,7 +526,7 @@ func press(m,pos: Vector2) -> void:
 	if effect_kind!="":
 		if key in ["roster","go_alchemy","go_explore"]: effect_kind=""
 		else: return
-	if key=="roster": opened="alchemy";tab=2;page=0;return
+	if key=="roster": opened="alchemy";tab=2;page=0;roster_scroll=0;return
 	if key=="go_alchemy": open(m,"alchemy");return
 	if key=="go_explore": open(m,"explore");return
 	if key.begins_with("explore_tab:"): explore_tab=int(key.split(":")[1]);page=0;choosing_slot=-1;return
@@ -550,7 +586,7 @@ func press(m,pos: Vector2) -> void:
 				if old.battle.status!="win" and int(reward.gold)==0: notice="병사 배치를 바꿔 다시 도전해 보세요"
 			m.show_toast(notice,Color("ffdc96"))
 		return
-	elif key.begins_with("tab:"): tab=int(key.split(":")[1]);page=0;selected=[]
+	elif key.begins_with("tab:"): tab=int(key.split(":")[1]);page=0;roster_scroll=0;roster_pointer=false;selected=[]
 	elif key.begins_with("element:"): pair[pair_slot]=int(key.split(":")[1]);pair_slot=1-pair_slot
 	elif key.begins_with("pair:"): pair_slot=int(key.split(":")[1])
 	elif key=="craft":
@@ -698,7 +734,7 @@ func draw_training(m,y: float,bottom: float) -> void:
 	m._text("확정 성공 · 최대 +3",Vector2(135,info_y+8),9,Color("8b611e"),true,226)
 	m._text("강화하면 세 능력치가 함께 상승합니다.",Vector2(135,info_y+23),8,Color("6c553b"),true,230)
 	if spacious: m._text("초록색 +수치는 다음 강화의 증가량입니다.",Vector2(135,info_y+38),8,Color("6c553b"),true,230)
-	button(m,"training_back",Rect2(22,bottom-29,226,25),"병사 보관함으로")
+	button(m,"training_back",Rect2(22,minf(bottom-29,info_y+(48 if spacious else 33)),226,25),"병사 보관함으로")
 
 func draw_result_notice(m) -> void:
 	if m.scene=="village" or result_notice<=0 or data.battle.is_empty() or data.active(): return
@@ -795,6 +831,38 @@ func formation_input(m,e: InputEvent) -> bool:
 			if e.pressed: formation_begin(p,-1)
 			elif formation_pointer and formation_pointer_id==-1: formation_release(m,p)
 	elif e is InputEventMouseMotion and formation_pointer and formation_pointer_id==-1: formation_move(e.position-Vector2(m.ox,0))
+	return true
+
+func roster_begin(p: Vector2,id: int) -> void:
+	roster_pointer=true;roster_touch_id=id;roster_start=p;roster_last=p;roster_dragged=false;roster_in_list=roster_viewport.has_point(p)
+func roster_move(p: Vector2) -> void:
+	if p.distance_to(roster_start)>5: roster_dragged=true
+	if roster_dragged and roster_in_list: roster_scroll=clampf(roster_scroll+roster_last.y-p.y,0,roster_max_scroll)
+	roster_last=p
+func roster_release(m,p: Vector2) -> void:
+	roster_pointer=false
+	if not roster_dragged: press(m,p)
+func roster_input(m,e: InputEvent) -> bool:
+	if e is InputEventMouseButton or e is InputEventMouseMotion:
+		if e.device==-1 or Time.get_ticks_msec()<roster_native_until: return true
+	if e is InputEventScreenTouch:
+		roster_native_until=Time.get_ticks_msec()+500
+		var p: Vector2=e.position-Vector2(m.ox,0)
+		if e.canceled: roster_pointer=false;return true
+		if e.pressed:
+			if not roster_pointer: roster_begin(p,e.index)
+		elif roster_pointer and roster_touch_id==e.index: roster_release(m,p)
+	elif e is InputEventScreenDrag:
+		roster_native_until=Time.get_ticks_msec()+500
+		if roster_pointer and roster_touch_id==e.index: roster_move(e.position-Vector2(m.ox,0))
+	elif e is InputEventMouseButton:
+		var p: Vector2=e.position-Vector2(m.ox,0)
+		if e.button_index in [MOUSE_BUTTON_WHEEL_UP,MOUSE_BUTTON_WHEEL_DOWN] and e.pressed and roster_viewport.has_point(p):
+			roster_scroll=clampf(roster_scroll+(56 if e.button_index==MOUSE_BUTTON_WHEEL_DOWN else -56),0,roster_max_scroll)
+		elif e.button_index==MOUSE_BUTTON_LEFT:
+			if e.pressed: roster_begin(p,-1)
+			elif roster_pointer and roster_touch_id==-1: roster_release(m,p)
+	elif e is InputEventMouseMotion and roster_pointer and roster_touch_id==-1: roster_move(e.position-Vector2(m.ox,0))
 	return true
 
 func health_bar(m,r: Rect2,hp: float,maximum: float,previous: float,color: Color) -> void:

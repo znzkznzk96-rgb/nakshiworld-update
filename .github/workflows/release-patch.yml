@@ -27,8 +27,8 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          curl -fL --retry 3 https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v0.88/game-source.zip -o "$RUNNER_TEMP/base-source.zip"
-          echo "ce2a74b5d36ed462a124d8e91b86b4beb088279287b8100de8904c63d1178bc4  $RUNNER_TEMP/base-source.zip" | sha256sum -c -
+          curl -fL --retry 3 https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v0.89/game-source.zip -o "$RUNNER_TEMP/base-source.zip"
+          echo "5ad1a1ae9cc971861cfb41dcab5e8381891f0976444c03c3198c5952446d073e  $RUNNER_TEMP/base-source.zip" | sha256sum -c -
           python3 automation/restore_source.py "$RUNNER_TEMP/base-source.zip" "$RUNNER_TEMP/project"
           python3 automation/prepare_release.py "$RUNNER_TEMP/release-notes.md"
           git diff --exit-code -- game/addons/reservoir/release_notes.gd
@@ -57,7 +57,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          for suite in codex089 aquarium_b ui_guide pouch_inventory expedition_result support_utility combat_feedback bag_event_order bag_formation selected_ui bag_interaction startup_assets soul_pouch expedition_hard_balance expedition_label bundle_aqua expedition080 expedition079 testing_gift soldier_dex approved_ui expedition_motion expedition expedition_save expedition_balance action_readability economy_balance rod_aura atmosphere_encounter angler_scene market_reader odds_rewards guide shop audio_save bundle_preview rewards reader fish_surface regional inventory_layout bag_list bundles_buyback owner_gauge reservoir_layers personal_dex bait_roles measurement_speed village_entry_audio; do
+          for suite in ui090 codex089 aquarium_b ui_guide pouch_inventory expedition_result support_utility combat_feedback bag_event_order bag_formation selected_ui bag_interaction startup_assets soul_pouch expedition_hard_balance expedition_label bundle_aqua expedition080 expedition079 testing_gift soldier_dex approved_ui expedition_motion expedition expedition_save expedition_balance action_readability economy_balance rod_aura atmosphere_encounter angler_scene market_reader odds_rewards guide shop audio_save bundle_preview rewards reader fish_surface regional inventory_layout bag_list bundles_buyback owner_gauge reservoir_layers personal_dex bait_roles measurement_speed village_entry_audio; do
             XDG_DATA_HOME="$RUNNER_TEMP/$suite-testdata" timeout 90 "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --headless --path "$RUNNER_TEMP/project" --script "tests/${suite}_verify.gd" > "$RUNNER_TEMP/$suite-tests.log" 2>&1
             cat "$RUNNER_TEMP/$suite-tests.log"
             grep -F 'VERIFY failures=[]' "$RUNNER_TEMP/$suite-tests.log"

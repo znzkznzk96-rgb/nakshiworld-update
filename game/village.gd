@@ -412,7 +412,7 @@ func draw_shop(m, h: float) -> void :
 		aquarium.draw_room(self,m,h)
 		return
 	var panel_y: = maxf(top + 32.0, roundf(h * 0.5) - 190)
-	var r = Rect2(8, panel_y, 254, minf(440.0 if shop=="museum" else 380.0, h - panel_y - 8))
+	var r = Rect2(8, panel_y, 254, minf(440.0 if shop=="museum" else 380.0, h - panel_y - 44))
 	active_style = shop_styles[shop]
 	m._ui_style_box(active_style.panel, r)
 	var header: = Rect2(r.position + Vector2(5, 5), Vector2(r.size.x - 10, 39))
