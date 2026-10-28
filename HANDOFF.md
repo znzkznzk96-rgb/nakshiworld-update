@@ -5,3 +5,5 @@
 다음: work브랜치저장→CI→승인v0.89공개→ZIP/PCK/manifest/운영다운로드검증. [상세](analysis/codex-089/REPORT.md), [검증](analysis/release-089/VERIFICATION.json). 이전인계 docs/historical/HANDOFF_pre_codex089.md.
 
 서버검사40707506022에서 도감/수족관 통과 후 기존 expedition_result 테스트 종료시2리소스잔류 오류로 실패. 테스트에서 음향끄기/참조해제/추가프레임으로 종료를 안정화;게임코드/콘텐츠변경없음. 재검사후진행.
+
+재검사에서 expedition_result 통과, bag_formation에서 동일음향종료오류. 전체검사파일을 점검해 나머지음향미차단 UI테스트2종(bag_formation/bag_interaction)에만 무음설정추가. 음향검사·게임코드는변경없음.
