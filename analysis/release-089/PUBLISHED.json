@@ -1,0 +1,30 @@
+{
+  "version": "0.89",
+  "source_commit": "95e987e694fcd9156e91302f28e8799dbcc71fb8",
+  "status": "published_and_gateway_verified",
+  "phone_verified": false,
+  "assets": {
+    "version.json": {
+      "bytes": 198,
+      "sha256": "2bd2819037fe92cc0f1c76419bb9f4d58d35e4ca62c93c74b4c32473334dd591"
+    },
+    "patch.pck": {
+      "bytes": 47595824,
+      "sha256": "bb5fae71d2ed555c19fbd0c5e1d17ad6f0e4272a071e166efcd7dd9c360410db"
+    },
+    "game-source.zip": {
+      "bytes": 47282699,
+      "sha256": "5ad1a1ae9cc971861cfb41dcab5e8381891f0976444c03c3198c5952446d073e"
+    }
+  },
+  "source_overlay_files_verified": 325,
+  "zip_crc_verified": true,
+  "work_ci": 40708503462,
+  "release_ci": 40709260590,
+  "gateway_ci": 40709860586,
+  "all_ci_conclusion": "success",
+  "gateway_evidence": "PUBLIC UPDATE VERIFIED code89 size47595824 sha256=bb5fae71d2ed555c19fbd0c5e1d17ad6f0e4272a071e166efcd7dd9c360410db",
+  "local_gateway_attempt": "HTTP403 from local environment; actual installed APK addresses successfully downloaded and verified by GitHub CI",
+  "aquarium_tank_rect_unchanged": true,
+  "bottom_margin_logical_pixels": 34
+}

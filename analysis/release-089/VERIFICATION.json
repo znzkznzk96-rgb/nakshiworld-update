@@ -39,5 +39,31 @@
   "balance_before": 18,
   "balance_after": 15,
   "deployed": false,
-  "phone_verified": false
+  "phone_verified": false,
+  "aquarium_spacing": {
+    "tank_rect_unchanged": true,
+    "bottom_margin_before": 10,
+    "bottom_margin_after": 34,
+    "manage_height_before": 40,
+    "manage_height_after": 32,
+    "expand_height_before": 45,
+    "expand_height_after": 34,
+    "viewports": [
+      480,
+      660
+    ],
+    "native_screens": 4
+  },
+  "ci_initial_failure": {
+    "run": 40707506022,
+    "reason": "expedition_result test cleanup left two resources on CI",
+    "gameplay_changed": false,
+    "fix": "disable test audio and release test refs before quit"
+  },
+  "work_ci": {
+    "run": 40708503462,
+    "conclusion": "success",
+    "source_commit": "4291dce9a480a9b4eb72ed0f619d319c404d125a"
+  },
+  "release_source_commit": "95e987e694fcd9156e91302f28e8799dbcc71fb8"
 }
