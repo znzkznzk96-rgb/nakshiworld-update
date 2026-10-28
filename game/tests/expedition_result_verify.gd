@@ -31,7 +31,7 @@ func run() -> void:
 			check(p.gold==once and d.pouches==pouch,"repeat press no duplicate reward")
 	d.recovery_until=0;d.start(3,1000);d.battle.first=true;d.battle.reward_revision=0;d.finish(true,1000)
 	check("어혼 1개" in v.result_copy().record,"legacy soul reward visible")
-	var m=load("res://main.gd").new();m.development_preview=true;root.add_child(m);await process_frame;m.set_process(false)
+	var m=load("res://main.gd").new();m.development_preview=true;m.SET.sfx=0;m.SET.music=0;root.add_child(m);await process_frame;m.set_process(false)
 	m.title_open=false;m.menu_open=false;m.scene="fish";m.trans={};m.TUT.done=true;m.guide.opened=false;m.mailbox.opened=false
 	m.expedition=v;v.opened="";d.battle.status="running";d.battle.progress=64;d.battle.round=3
 	check(v.fishing_strip_visible(m),"active fishing strip")
@@ -43,4 +43,5 @@ func run() -> void:
 	m.scene="village";check(not v.fishing_strip_visible(m),"village keeps own strip");m.scene="fish"
 	d.battle.status="win";check(not v.fishing_strip_visible(m),"result uses existing notice")
 	m.audio_feedback.dispose();m.queue_free();await process_frame
+	m=null;v=null;d=null;p=null;await process_frame
 	print("EXPEDITION_RESULT_VERIFY failures=",failures);quit(0 if failures.is_empty() else 1)
