@@ -84,7 +84,7 @@ func run() -> void:
 	check(m.SURF<m.WATER and m.PY+57==m.SURF,"character foot platform and water anchors agree")
 	var v=m.environment.valley
 	check(v.waterfall_y(2.1,0)<v.waterfall_y(2.0,0),"waterfall streak travels upward")
-	check(v.layers.size()==5,"separate plate cloud waterfall light and reflection layers")
+	check(v.layers.size()==6,"separate plate cloud waterfall light reflection and wildlife layers")
 	m.active_region=0;m._layout();m.environment.show_scene(true)
 	check(not v.root.visible and m.bg_node.visible and m.WATER==roundi(m.environment.point(Vector2(0,m.environment.WATER_Y)).y),"return to reservoir restores reservoir plate anchors and scene")
 	m.V.museum_region=1

@@ -5,9 +5,12 @@ var cloud: Texture2D
 var cloud_material: ShaderMaterial
 func _ready() -> void:
 	if kind == "drifting_clouds":
-		cloud=load("res://art/atmosphere/cloud_cumulus.png")
+		cloud=load("res://art/valley094/cloud-wide.png")
 		cloud_material=ShaderMaterial.new();cloud_material.shader=load("res://addons/reservoir/valley_clouds.gdshader")
-		cloud_material.set_shader_parameter("cloud_tex",cloud);material=cloud_material
+		cloud_material.set_shader_parameter("cloud_tex",cloud)
+		cloud_material.set_shader_parameter("cloud_tall",load("res://art/valley094/cloud-tall.png"))
+		cloud_material.set_shader_parameter("cloud_wisp",load("res://art/valley094/cloud-wide.png"))
+		material=cloud_material
 func _draw() -> void:
 	if valley == null: return
 	var r: Rect2=valley.map_rect

@@ -19,6 +19,9 @@ func setup(m) -> void:
 		var layer := Node2D.new()
 		layer.set_script(load("res://addons/reservoir/valley_layer.gd"));layer.kind=kind;layer.valley=self
 		root.add_child(layer);layers[kind]=layer
+	var life := Node2D.new()
+	life.set_script(load("res://addons/reservoir/valley_life.gd"));life.valley=self
+	root.add_child(life);layers.life=life
 	root.hide()
 func layout(m) -> void:
 	var view: Vector2 = m.get_viewport_rect().size
