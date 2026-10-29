@@ -1,26 +1,25 @@
 {
   "schema_version": 3,
   "work_branch": "work/valley-runtime",
-  "status": "v093_published_verified",
+  "status": "valley094_in_progress",
   "release_baseline": "v0.93",
   "source_commit": "aea11ba1a9b11668be211648898803a276076cc3",
-  "current_task": "v0.93 공개배포 및 운영다운로드 검증 완료",
+  "current_task": "v0.94 계곡 생태 효과 적용 및 배포",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
   "verification": "analysis/release093/REPORT.md",
   "phone_verified": false,
   "release_authorized": true,
-  "next_step": "길잡이 시안 아이콘 재제작은 별도대기; 휴대폰적용미확인",
+  "next_step": "구름3종 안개1종 검수 후 Godot 적용/전체검사/배포",
   "updated_at": "2026-10-29",
   "support_audit": "analysis/support-balance-085/REPORT.md",
   "support_utility_report": "analysis/support-utility-085/REPORT.md",
-  "target_release": "v0.93",
+  "target_release": "v0.94",
   "last_release_deployed": true,
   "this_change": {
-    "implemented": true,
-    "layout_implemented": true,
-    "art_complete": true,
-    "deployed": true,
+    "implemented": false,
+    "art_complete": false,
+    "deployed": false,
     "release_authorized": true
   }
 }
