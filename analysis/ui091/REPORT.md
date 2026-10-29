@@ -4,4 +4,12 @@ Transaction completion is a single replacing line in the shop greeting area, abo
 
 Fishing completion reuses the existing expedition progress strip below the owner gauge, rather than drawing a second overlay on top of it. Menu/settings/collection/guide/mail and transitions suppress the strip. Existing six-second lifetime and reward/claim logic are unchanged.
 
-New behavioral checks cover exact purchase amounts, double-confirm safety, expiry, inline bounds, owner-gauge non-overlap, modal suppression, and unchanged expedition state. Rendered 270×480 and 270×660. Full suite and publication checks in progress.
+New behavioral checks cover exact purchase amounts, double-confirm safety, expiry, inline bounds, owner-gauge non-overlap, modal suppression, and unchanged expedition state. Rendered 270×480 and 270×660. All 53 automated suites and work/release/gateway CI passed. Public assets were downloaded and compared against the verified source; see PUBLISHED.json. Phone application remains unverified.
+
+## Rendered screens
+
+![purchase](screens/purchase_660.png)
+
+![closed_sale](screens/closed_sale_660.png)
+
+![owner_complete](screens/owner_complete_660.png)

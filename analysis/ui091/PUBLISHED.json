@@ -1,0 +1,27 @@
+{
+  "version": "0.91",
+  "source_commit": "97ac6534dbf9f2c13c5a1321b62ea57a1a959439",
+  "assets": {
+    "version.json": {
+      "bytes": 198,
+      "sha256": "4b8d04fe6cff2d118bc25300d423af982755165a258dbdb21f410b6c57968a52"
+    },
+    "patch.pck": {
+      "bytes": 47615712,
+      "sha256": "80b6b16a125039bd7957a2d6df15b5eb1e1a5efb29e5e8bc576b4b8fc6c3b919"
+    },
+    "game-source.zip": {
+      "bytes": 47290395,
+      "sha256": "2021af37756217fc4244145b6ef05f12b7bf409b14a8739971398edc4b2d32a0"
+    }
+  },
+  "status": "published_and_gateway_verified",
+  "phone_verified": false,
+  "source_overlay_files_verified": 329,
+  "zip_crc_verified": true,
+  "work_ci": 40802762797,
+  "release_ci": 40803248701,
+  "gateway_ci": 40803526534,
+  "all_ci_conclusion": "success",
+  "gateway_evidence": "PUBLIC UPDATE VERIFIED code91 size47615712 sha256=80b6b16a125039bd7957a2d6df15b5eb1e1a5efb29e5e8bc576b4b8fc6c3b919"
+}

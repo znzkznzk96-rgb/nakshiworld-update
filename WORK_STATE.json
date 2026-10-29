@@ -1,24 +1,24 @@
 {
   "schema_version": 3,
   "work_branch": "work/valley-runtime",
-  "status": "ui091_verifying",
-  "release_baseline": "v0.90",
-  "source_commit": "3a5e55f1bb582eed017037608beced93350b199b",
-  "current_task": "거래 알림 및 낚시터 탐험 완료 알림 겹침 수정",
+  "status": "published_verified",
+  "release_baseline": "v0.91",
+  "source_commit": "97ac6534dbf9f2c13c5a1321b62ea57a1a959439",
+  "current_task": "거래·탐험 알림 겹침 수정 및 v0.91 공개 검증 완료",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
-  "verification": "analysis/ui091/REPORT.md",
+  "verification": "analysis/ui091/PUBLISHED.json",
   "phone_verified": false,
   "release_authorized": true,
-  "next_step": "알림 배치 수정·회귀 검사·업데이트 반영",
-  "updated_at": "2026-10-28",
+  "next_step": "사용자 휴대폰 v0.91 적용 확인",
+  "updated_at": "2026-10-29",
   "support_audit": "analysis/support-balance-085/REPORT.md",
   "support_utility_report": "analysis/support-utility-085/REPORT.md",
   "target_release": "v0.91",
   "last_release_deployed": true,
   "this_change": {
     "implemented": true,
-    "deployed": false,
+    "deployed": true,
     "release_authorized": true
   }
 }
