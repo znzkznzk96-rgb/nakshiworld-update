@@ -107,8 +107,7 @@ func sell(m, key: String) -> bool:
 	m.gold += int(d.price)
 	m._save_game()
 	m.play("catch")
-	m.V.commerce.notice = "%s 판매 · +%d 비늘" % [d.name, int(d.price)]
-	m.V.commerce.notice_time = m.ui_clock
+	m.V.commerce.report(m,"판매 완료 · +%d 비늘"%int(d.price),int(d.price))
 	return true
 
 func act(m, action: String) -> bool:

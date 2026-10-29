@@ -4,6 +4,32 @@ var rects: = {}
 var notice: = ""
 var notice_time: = -10.0
 var notice_icon: Texture2D
+var notice_delta := 0
+var notice_currency := "gold"
+var notice_shop := ""
+var feedback_rect := Rect2()
+var feedback_dark := false
+var currency_anchors := {}
+var notice_bounds := Rect2()
+func report(m,text: String,delta: int=0,currency: String="gold") -> void:
+	notice=text;notice_time=m.ui_clock;notice_delta=delta;notice_currency=currency;notice_shop=m.V.shop;m.toast_t=0.0
+func alive(m) -> bool:
+	return notice!="" and m.ui_clock-notice_time<1.5
+func draw_currency_delta(m) -> void:
+	if not alive(m) or notice_delta==0 or m.scene!="village" or m.V.shop!="" or m.market_open: return
+	if m.settings_open or m.guide.opened or m.mailbox.opened or m.personal_dex.opened or m.expedition.opened!="": return
+	var at: Vector2=currency_anchors.get(notice_currency,Vector2(195,m.top_y+28))
+	m._text(("+" if notice_delta>0 else "")+str(notice_delta),at,6,Color("92e5bf") if notice_delta>0 else Color("f2c482"),true,66)
+func draw_inline(v,m) -> void:
+	notice_bounds=Rect2()
+	if not alive(m) or v.shop=="" or v.shop!=notice_shop or feedback_rect.size==Vector2.ZERO: return
+	notice_bounds=feedback_rect
+	m.text_items=m.text_items.filter(func(it):return not notice_bounds.has_point(it[1]))
+	m._ui_rect(notice_bounds,Color("15343d") if feedback_dark else Color("f3e5c5"))
+	var line: String=notice
+	while line.length()>1 and m._text_w(line,8)>notice_bounds.size.x-12: line=line.left(line.length()-2)+"…"
+	m._text(line,notice_bounds.get_center()+Vector2(0,3),8,Color("ffe4a4") if feedback_dark else Color("6c4d28"),true,notice_bounds.size.x-10)
+
 func quote(v, m, a: String) -> Dictionary:
 	var k = a.split(":"); var n: int = int(k[1]) if k.size() > 1 else 0
 	var q: Dictionary = {"action": a, "currency": "gold", "price": 0, "title": "", "icon": null, "target": 0}
@@ -72,16 +98,17 @@ func confirm(v, m) -> bool:
 	if pending.is_empty(): return false
 	var q: Dictionary = pending.duplicate(); var current: = quote(v, m, q.action)
 	if current.is_empty() or current.target != q.target or current.price != q.price:
-		pending = {};notice = "상품 상태가 바뀌었어요. 다시 선택해 주세요.";notice_time = m.ui_clock;return false
-	if balance(m, q) < q.price: return false
+		pending = {};report(m,"상품 상태가 바뀌었어요. 다시 선택해 주세요.");return false
+	if balance(m, q) < q.price:
+		report(m,"재화가 부족해요");return false
 
 	pending = {}; var before: = balance(m, q)
 	if str(q.action).begins_with("buyback:"):
 		if not m.buyback.purchase(m,int(q.target)):
-			notice="보관통과 어깨 공간을 확인해 주세요.";notice_time=m.ui_clock;return false
+			report(m,"보관통과 어깨 공간을 확인해 주세요.");return false
 	else: v._act(m, q.action)
 	if before - balance(m, q) != int(q.price): return false
-	notice = "%s 구매되었습니다." % q.title;notice_time = m.ui_clock;notice_icon = q.icon;m.toast_t = 0.0
+	report(m,"구매 완료 · −%d %s"%[int(q.price),"진주" if q.currency=="pearl" else "비늘"],-int(q.price),str(q.currency));notice_icon=q.icon
 	return true
 func press(v, m, p: Vector2) -> void :
 	for item in rects.get("quantities",[]):
@@ -135,12 +162,4 @@ func draw(v, m, h: float) -> void :
 				m._ui_style_box(m.sb_primary if int(pending.action.get_slice(":",2))==amount else m.sb_btn,b)
 				m._text("%d개" % amount,b.get_center()+Vector2(0,4),9,Color("fff0d1") if int(pending.action.get_slice(":",2))==amount else Color("513b29"),true,36)
 				rects.quantities.append([b,amount])
-	var age: float = m.ui_clock - notice_time
-	if notice != "" and age < 2.0:
-		var alpha: float = minf(1, age / 0.12) * minf(1, (2 - age) / 0.4)
-		var yy: float = m.top_y + 91 - 5 * smoothstep(0, 0.25, age)
-		var toast: = Rect2(13, yy, 244, 41)
-		m.text_items = m.text_items.filter( func(it): return not toast.grow(2).has_point(it[1]))
-		m._ui_style_box(m.hud_reference_style, toast)
-		m._text(m._ui_wrap(notice, 12, 224, 2), Vector2(135, yy + 25), 12, Color(1, 0.94, 0.72, alpha), true, 224, true)
-
+	if pending.is_empty(): draw_inline(v,m)

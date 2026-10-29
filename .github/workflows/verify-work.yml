@@ -18,8 +18,8 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          curl -fL --retry 2 https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v0.89/game-source.zip -o "$RUNNER_TEMP/source.zip"
-          echo "5ad1a1ae9cc971861cfb41dcab5e8381891f0976444c03c3198c5952446d073e  $RUNNER_TEMP/source.zip" | sha256sum -c -
+          curl -fL --retry 2 https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v0.90/game-source.zip -o "$RUNNER_TEMP/source.zip"
+          echo "87036acbd124bac0b8ea189e4632678d36422b42b1fea93e6b7b613f80d1be13  $RUNNER_TEMP/source.zip" | sha256sum -c -
           python3 automation/restore_source.py "$RUNNER_TEMP/source.zip" "$RUNNER_TEMP/project"
           curl -fL --retry 2 https://github.com/godotengine/godot/releases/download/4.4.1-stable/Godot_v4.4.1-stable_linux.x86_64.zip -o "$RUNNER_TEMP/godot.zip"
           unzip -q "$RUNNER_TEMP/godot.zip" -d "$RUNNER_TEMP/godot"
@@ -36,7 +36,7 @@ jobs:
           grep -F 'EXPEDITION_BAKE files=130' evidence/bake.log
           "$GODOT" --headless --editor --path "$RUNNER_TEMP/project" --import > evidence/prepared-import.log 2>&1
           if grep -E 'SCRIPT ERROR:|Parse Error:|Failed to load script' evidence/prepared-import.log; then exit 1; fi
-          for suite in ui090 codex089 aquarium_b ui_guide pouch_inventory expedition_result support_utility combat_feedback bag_event_order bag_formation selected_ui bag_interaction startup_assets soul_pouch expedition_hard_balance expedition_label bundle_aqua expedition080 expedition079 testing_gift soldier_dex approved_ui expedition_motion expedition expedition_save expedition_balance action_readability economy_balance rod_aura atmosphere_encounter angler_scene market_reader odds_rewards reservoir_layers owner_gauge bag_list bundles_buyback equipment visual guide shop audio_save bundle_preview rewards reader fish_surface regional inventory_layout personal_dex bait_roles measurement_speed village_entry_audio; do
+          for suite in notification091 ui090 codex089 aquarium_b ui_guide pouch_inventory expedition_result support_utility combat_feedback bag_event_order bag_formation selected_ui bag_interaction startup_assets soul_pouch expedition_hard_balance expedition_label bundle_aqua expedition080 expedition079 testing_gift soldier_dex approved_ui expedition_motion expedition expedition_save expedition_balance action_readability economy_balance rod_aura atmosphere_encounter angler_scene market_reader odds_rewards reservoir_layers owner_gauge bag_list bundles_buyback equipment visual guide shop audio_save bundle_preview rewards reader fish_surface regional inventory_layout personal_dex bait_roles measurement_speed village_entry_audio; do
             XDG_DATA_HOME="$RUNNER_TEMP/isolated-$suite" timeout 90 "$GODOT" --headless --path "$RUNNER_TEMP/project" --script "tests/${suite}_verify.gd" > "evidence/$suite.log" 2>&1 || { cat "evidence/$suite.log"; exit 1; }
             cat "evidence/$suite.log"
             grep -F 'VERIFY failures=[]' "evidence/$suite.log"
@@ -105,6 +105,12 @@ jobs:
           set -euo pipefail
           XDG_DATA_HOME="$RUNNER_TEMP/isolated-formation" timeout 90 xvfb-run -a "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/formation_scroll_preview.gd -- "$GITHUB_WORKSPACE/evidence/formation" > evidence/formation.log 2>&1
           if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/formation.log; then cat evidence/formation.log; exit 1; fi
+      - name: Render transaction and expedition notification placement
+        shell: bash
+        run: |
+          set -euo pipefail
+          XDG_DATA_HOME="$RUNNER_TEMP/isolated-notification091" timeout 90 xvfb-run -a "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/notification091_preview.gd -- "$GITHUB_WORKSPACE/evidence/notification091" > evidence/notification091.log 2>&1
+          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/notification091.log; then cat evidence/notification091.log; exit 1; fi
       - name: Preserve verification logs
         if: always()
         uses: actions/upload-artifact@v4

@@ -165,6 +165,7 @@ func _effects(m, r: Rect2, front: bool) -> void:
 			m._ui_rect(Rect2(p+Vector2(1,-1),Vector2(2,1)),Color(.7,.96,.96,.35))
 
 func draw(v, m, r: Rect2, y: float) -> void:
+	v.commerce.feedback_rect=Rect2(18,r.end.y-25,234,18);v.commerce.feedback_dark=true
 	var chip:=Rect2(13,y-6,244,25)
 	_dark_panel(m,chip)
 	m._text("%d / %d마리 · 분당 %.1f 비늘"%[m.aqua_count(),m.aqua_capacity(),m.aqua_rate()],chip.get_center()+Vector2(0,4),10,Color("e8f1df"),true,232)

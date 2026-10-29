@@ -562,6 +562,8 @@ func show_judge(t: String) -> void :
 			parts.append({"kind": "burst", "p": Vector2(VW / 2.0, WATER - 46), "v": Vector2(cos(a) * randf_range(50, 90), sin(a) * randf_range(20, 45)), "life": 0.55, "max": 0.55, "col": Color("ffe9a0") if i % 3 else Color.WHITE, "ph": 0.0, "sz": 2})
 
 func show_toast(t: String, col: = Color.WHITE, action_text: bool = false) -> void :
+	if scene=="village" and V.shop not in ["","museum"] and not action_text:
+		V.commerce.report(self,t);return
 	toast_txt = t;toast_t = 1.2;toast_col = col;toast_action = action_text
 
 func vib_run() -> Array: return [160 + int(140 * S.grade / 4.0)]
@@ -1371,6 +1373,7 @@ func _draw_overlays(t: float, h: float) -> void :
 	if market_open and scene == "village":
 
 		text_items = text_items.filter( func(it): return it[1].y < top_y + 70)
+	V.commerce.feedback_rect=Rect2();V.commerce.feedback_dark=false
 	V.draw_shop(self, h)
 	if market_open: _draw_market()
 	if settings_open:
@@ -2293,11 +2296,14 @@ func _draw_ui(t: float, h: float) -> void :
 	var right: = bx + 230.0
 	var ps: = str(pearl)
 	right -= _text_w(ps, 14);_text(ps, Vector2(right, ty), 14, hc)
+	V.commerce.currency_anchors.pearl=Vector2(right+_text_w(ps,14)/2,top_y+28)
 	right -= 13;_ui_texture(icons["pearl_s"], Vector2(right, ty - 9))
 	var gs: = str(gold)
 	right -= 6 + _text_w(gs, 14);_text(gs, Vector2(right, ty), 14, hc)
+	V.commerce.currency_anchors.gold=Vector2(right+_text_w(gs,14)/2,top_y+28)
 	right -= 14;_ui_texture(icons["coin_s"], Vector2(right, ty - 10))
 	_text(environment.clock_label(), Vector2(bx + 10, ty), 10 if scene == "village" else 12, hc, false, 96 if scene == "village" else right - bx - 34)
+	V.commerce.draw_currency_delta(self)
 	_draw_weight(top_y + tex_hud_bar.get_height() + 1)
 	if scene == "fish":
 		owner_ui.draw(self)
@@ -2482,7 +2488,9 @@ func sell_all() -> void :
 		g += int(f.price);buyback.remember(f)
 	if g == 0: return
 	gold += g;bag.clear();_save_game()
-	play("catch");buzz([40, 40, 80]);show_toast("+%d 비늘" % g, Color("ffd24a"))
+	play("catch");buzz([40, 40, 80])
+	if scene=="village": V.commerce.report(self,"판매 완료 · +%d 비늘"%g,g)
+	else: show_toast("+%d 비늘"%g,Color("ffd24a"))
 	msg = "화면을 터치하면 던지기"
 
 func show_tip(key: String, txt: String) -> void :
