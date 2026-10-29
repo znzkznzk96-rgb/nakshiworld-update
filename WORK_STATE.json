@@ -4,7 +4,7 @@
   "status": "layout_verified_art_retry_pending",
   "release_baseline": "v0.92",
   "source_commit": "b80cdd2301ef030116cecb20be0c6b5535efa8e7",
-  "current_task": "구매창 원본 확대·빈 미끼 중복 아이콘 수정 검증 완료; 길잡이 아트 대기",
+  "current_task": "미끼 없음 PixelLab 아이콘 1장 제작·적용",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
   "verification": "analysis/guide093/REPORT.md",
