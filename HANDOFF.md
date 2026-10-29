@@ -6,3 +6,6 @@
 
 [공개검증](analysis/ui090/PUBLISHED.json), [상세·화면](analysis/ui090/REPORT.md), [검사](analysis/ui090/tests.json), [이전 인계](docs/historical/HANDOFF_pre_publish090.md).
 초기 로컬 shop/audio_save 실패는 기존 테스트 저장소 재사용 때문이며 새 격리 저장소에서 통과. 첫 작업 CI의 formation preview 종료 리소스 오류는 fixture 오디오 비활성/참조 해제로 수정 후 재검사 성공. 다음: 사용자 휴대폰 v0.90 확인.
+
+## 2026-10-29 후속 작업
+사용자 거래창 안 알림 개선 승인 및 낚시터 탐험 완료/주인 게이지 겹침 수정 요청. [UI091](docs/decisions/UI091.md).
