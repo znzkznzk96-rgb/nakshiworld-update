@@ -1,0 +1,122 @@
+[
+  {
+    "name": "atmosphere-v2/cloud-wisp/request.json",
+    "request": {
+      "description": "One isolated thin elongated wind stretched cirrus cloud, uneven torn edges and separated little wisps at right, gently curved horizontal shape, much wider than tall. Crisp 16-bit pixel art landscape sprite, pale white and very light cyan with subtle blue underside, sparse fine stepped pixels at edges. Natural asymmetry, no repeated circular puff shapes, no outline. Transparent background, no scenery. Use ONLY white, light cool blue and pale cyan. Flat connected clusters of color, absolutely no contour strokes or rings inside the cloud, no warm colors.",
+      "negative_description": "pink, magenta, peach, yellow, red, brown, warm color, colored outline, orange outline, bubble pattern, internal contour lines, black outline, thick outline, gray storm cloud, smoke plume, cotton balls, repeating identical puffs, rectangle, hard rectangular border, text, scene, mountains, sky background, photorealistic, gradient blur",
+      "image_size": {
+        "width": 128,
+        "height": 64
+      },
+      "no_background": true,
+      "coverage_percentage": 80,
+      "outline": "lineless",
+      "shading": "basic shading",
+      "detail": "low detail",
+      "text_guidance_scale": 12,
+      "seed": 2026103002
+    },
+    "references": {}
+  },
+  {
+    "name": "atmosphere-v2/cloud-tall/request.json",
+    "request": {
+      "description": "One isolated irregular cumulus cloud, tall billowing center slightly to the right, two small low lobes at left, thin feathery end on right, distinct vertical tuft silhouette. Crisp 16-bit pixel art landscape sprite. Warm white top left highlights, cool pale cyan midtone and soft blue shaded underside, 4 clustered colors, natural asymmetric stepped pixel silhouette. No outline. Entire cloud inside canvas, transparent background, no sky or terrain. Use ONLY white, light cool blue and pale cyan. Flat connected clusters of color, absolutely no contour strokes or rings inside the cloud, no warm colors.",
+      "negative_description": "pink, magenta, peach, yellow, red, brown, warm color, colored outline, orange outline, bubble pattern, internal contour lines, black outline, thick outline, gray storm cloud, smoke plume, cotton balls, repeating identical puffs, rectangle, hard rectangular border, text, scene, mountains, sky background, photorealistic, gradient blur",
+      "image_size": {
+        "width": 128,
+        "height": 64
+      },
+      "no_background": true,
+      "coverage_percentage": 80,
+      "outline": "lineless",
+      "shading": "basic shading",
+      "detail": "low detail",
+      "text_guidance_scale": 12,
+      "seed": 2026103001
+    },
+    "references": {}
+  },
+  {
+    "name": "atmosphere-v2/mist/request.json",
+    "request": {
+      "description": "A single very thin horizontal ribbon of drifting mountain valley water mist, low lying fog with irregular wispy ends and several natural gaps, translucent pale cyan white vapor, barely visible blue underside, airy and horizontally stretched, low height, no rounded cumulonimbus lobes. Delicate 16-bit pixel art atmospheric overlay for a lush turquoise valley, irregular fine pixel edges dissolving into transparent background. No outline, no landscape, no water surface, no objects, no text. Use ONLY white, light cool blue and pale cyan. Flat connected clusters of color, absolutely no contour strokes or rings inside the cloud, no warm colors.",
+      "negative_description": "pink, magenta, peach, yellow, red, brown, warm color, colored outline, orange outline, bubble pattern, internal contour lines, black outline, thick outline, gray storm cloud, smoke plume, cotton balls, repeating identical puffs, rectangle, hard rectangular border, text, scene, mountains, sky background, photorealistic, gradient blur",
+      "image_size": {
+        "width": 128,
+        "height": 64
+      },
+      "no_background": true,
+      "coverage_percentage": 80,
+      "outline": "lineless",
+      "shading": "basic shading",
+      "detail": "low detail",
+      "text_guidance_scale": 12,
+      "seed": 2026103003
+    },
+    "references": {}
+  },
+  {
+    "name": "atmosphere-v2/cloud-wide/request.json",
+    "request": {
+      "description": "One isolated broad asymmetric fair weather cloud, long low horizontal silhouette with a large rounded billow on the left and smaller tapering wisps trailing right. Crisp 16-bit pixel art scenery sprite for a lush bright blue sky mountain valley. White sunlit upper lobes, light icy cyan middle tones, muted pale blue lower shadows, 4 carefully clustered shades. Organic stepped pixel edges, hand crafted natural cloud shape, no dark outline. Entire cloud within canvas, generous transparent margins. No sky, no terrain, no objects. Use ONLY white, light cool blue and pale cyan. Flat connected clusters of color, absolutely no contour strokes or rings inside the cloud, no warm colors.",
+      "negative_description": "pink, magenta, peach, yellow, red, brown, warm color, colored outline, orange outline, bubble pattern, internal contour lines, black outline, thick outline, gray storm cloud, smoke plume, cotton balls, repeating identical puffs, rectangle, hard rectangular border, text, scene, mountains, sky background, photorealistic, gradient blur",
+      "image_size": {
+        "width": 128,
+        "height": 64
+      },
+      "no_background": true,
+      "coverage_percentage": 80,
+      "outline": "lineless",
+      "shading": "basic shading",
+      "detail": "low detail",
+      "text_guidance_scale": 12,
+      "seed": 2026103000
+    },
+    "references": {}
+  },
+  {
+    "name": "deer/request.json",
+    "request": {
+      "description": "Single elegant small wild sika deer stag standing on all four legs, full body strict side view facing right, slender natural quadruped anatomy, modest branching antlers, warm chestnut back, cream belly and rump, subtle cream spots, clearly shaded muscles and legs with cool blue teal reflected shadows. Detailed clean 16-bit pixel art for a distant wildlife sprite in a lush turquoise mountain fishing game. Strong readable silhouette, four slender legs, ears and short tail. Top left sunlight, 4 distinct shades per material. Feet on same ground line, centered with generous transparent margin for animation. No scenery.",
+      "negative_description": "human, biped, chibi, huge head, huge antlers, moose, elk, realistic photograph, painting, blur, scenery, ground, cast shadow, text, sprite sheet",
+      "image_size": {
+        "width": 64,
+        "height": 64
+      },
+      "no_background": true,
+      "coverage_percentage": 75,
+      "view": "side",
+      "direction": "east",
+      "shading": "detailed shading",
+      "outline": "selective outline",
+      "detail": "highly detailed",
+      "seed": 2026102981
+    },
+    "references": {}
+  },
+  {
+    "name": "deer/run.request.json",
+    "request": {
+      "action": "Deer running in place facing right, natural quadruped bounding gallop cycle, four legs alternate extended and tucked, subtle body rise and fall. Keep same deer anatomy, antlers, colors and side view. Fixed camera, centered, no translation.",
+      "frame_count": 8,
+      "no_background": true,
+      "seed": 2026102982
+    },
+    "references": {
+      "first_frame": "deer/original.png SHA256 674cbac832a435fef128c5cb533b70626ddb06710e9d85b97cbd673afd5b7a43"
+    }
+  },
+  {
+    "name": "deer/idle.request.json",
+    "request": {
+      "action": "Deer standing still facing right, calm subtle breathing, ears twitch and head slowly turns slightly then returns. Four hooves planted on ground, same anatomy and antlers, fixed camera, no walking, seamless idle loop.",
+      "frame_count": 4,
+      "no_background": true,
+      "seed": 2026102983
+    },
+    "references": {
+      "first_frame": "deer/original.png SHA256 674cbac832a435fef128c5cb533b70626ddb06710e9d85b97cbd673afd5b7a43"
+    }
+  }
+]

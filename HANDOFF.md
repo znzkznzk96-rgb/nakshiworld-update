@@ -1,16 +1,10 @@
-# v0.94 계곡 생태효과 — 제작·적용·배포 승인
-구름3종/안개1종 유료 재제작 명시승인, 한장씩검수. 사슴작게어둡게/뒤돌아귀환, 계곡물고기3마리, 이끼조각 풍성하게. 완료후검사및공개배포. 이전공개0.93검증근거아래유지.
+# v0.94 — 계곡 생태 효과 공개 배포 완료
 
-# 계곡 생태 레이어 시안 진행
-사슴 PixelLab 원경 명암/달리기·정지 모션, 장식어종은 계곡 기존20종만. 아직 미배포.
+Release https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v0.94
+소스 bcd53f5e574ab37b48e56cf863b6a6904d37dbb0 / PR26. [공개 검증](analysis/release094/PUBLIC_VERIFICATION.json), [검사](analysis/release094/REPORT.md), [아트 요청](analysis/release094/ART_PROVENANCE.json).
 
-# v0.93 — 공개 배포·운영 다운로드 검증 완료
+로컬57개/원격작업CI/배포CI/운영게이트웨이CI 통과. 앱실제주소에서PCK47,704,688bytes/SHA256검증. 공개3파일/소스ZIP CRC/유지소스363파일일치. 휴대폰적용미확인.
 
-공개 https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v0.93
-소스 aea11ba1a9b11668be211648898803a276076cc3, PR25. [검증결과](analysis/release093/PUBLIC_VERIFICATION.json), [로컬검증](analysis/release093/REPORT.md). 로컬56개 및원격작업/배포/게이트웨이CI모두통과. 실제APK업데이트주소로PCK47,649,104bytes/SHA256검증. 공개3파일/ZIP CRC/유지소스342파일동일확인. 휴대폰적용은미확인.
+사슴실제PixelLab모션9+5프레임,작고어둡게/같은절벽으로반전귀환. 계곡어종20·21·28 장식3마리. 구름2종을크기·깊이·비율별로배치,가느다란구름은약한안개로만사용. 첫분홍구름/최종잎사귀형안개는불합격·미배포. 사용자가승인한추가4회만차감,마지막잔액4(사용전다시확인). 풍성한이끼조각/새/빛/기포. 세이브·낚시수치변경없음.
 
-변경: 빈미끼(소진포함)는빈슬롯, 낚시중메뉴와함께숨김. 우편0.93 ‘계곡 개방과 전설 물고기 선물’에서 저수지20종전설각1+100000비늘 일회수령. 구선물과별도ID/저장실패롤백/포획기록보존. 계곡자격증+6600비늘해금, 캐릭터가림/짧은화면버튼겹침/어혼구매이미지확대수정. B2는최종거절되어미사용.
-
-길잡이미완성시안은 이번배포에서제외, 기존운영화면유지. 작업원본 ad09a22894775c26a1dadc15ede35bb801f8dd88 및 analysis/guide093 보존. 첫낚시아이콘품질실패로유료재제작별도대기. 마지막PixelLab잔액12(13→12 B2생성후), 사용전다시확인. 추가생성없음.
-
-이전작업이력 [보존](docs/historical/HANDOFF_pre_release093.md).
+길잡이시안원본/미완성아이콘작업은이전과동일하게별도보존. 이전기록 [보존](docs/historical/HANDOFF_pre_release094.md).

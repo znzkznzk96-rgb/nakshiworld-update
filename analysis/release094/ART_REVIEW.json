@@ -3,7 +3,7 @@
   "cloud-tall": "accepted: taller asymmetric cloud silhouette",
   "cloud-wisp": "accepted: narrow torn airy texture",
   "mist": "rejected: opaque green leaf-like ribbon; not deployed",
-  "fog_runtime": "accepted cloud-wisp texture reused at low opacity, varying depth and drift; no extra paid generation",
+  "fog_runtime": "narrow cloud-wisp used only as very low-opacity drifting fog; rejected green leaf-like mist never shipped.",
   "usage": "4 approved generations consumed, remaining4; original failed pink cloud separate1",
   "deer": "original64px PixelLab run9/idle5, small cool dark tint, reverses exit",
   "fish": [
@@ -11,5 +11,5 @@
     21,
     28
   ],
-  "final_sky": "cloud-wide and cloud-tall with differing scale/aspect/depth; wisp excluded from sky after real render"
+  "final_sky": "wide and tall accepted PixelLab clouds; broad cloud reused at flatter scales for distant forms. Wisp excluded from sky after in-game inspection."
 }

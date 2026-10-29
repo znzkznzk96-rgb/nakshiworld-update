@@ -1,0 +1,34 @@
+{
+  "version": {
+    "code": 94,
+    "name": "0.94"
+  },
+  "source_commit": "bcd53f5e574ab37b48e56cf863b6a6904d37dbb0",
+  "assets": {
+    "version.json": {
+      "size": 198,
+      "sha256": "c52c15ae9a5f53c948f3b97619ae867b66b71b3922cea8995d0a48a06e82a3c7",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v0.94/version.json"
+    },
+    "patch.pck": {
+      "size": 47704688,
+      "sha256": "fd88ba26aac2e6948d6eba5cee228d8c1a8d0e845a3eea732708c76ac94e7dbf",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v0.94/patch.pck"
+    },
+    "game-source.zip": {
+      "size": 47391272,
+      "sha256": "bdf6f8e2fcd919cec27f8484e2f8696f3d766973e54fccf2197a72bb660334f4",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v0.94/game-source.zip"
+    }
+  },
+  "phone_verified": false,
+  "source_overlay_files_verified": 363,
+  "zip_crc_verified": true,
+  "public_assets_verified": true,
+  "work_ci": 40840544114,
+  "release_ci": 40841221958,
+  "gateway_ci": 40841659038,
+  "gateway_job": 123339239897,
+  "pr": 26,
+  "gateway_download_verified": true
+}
