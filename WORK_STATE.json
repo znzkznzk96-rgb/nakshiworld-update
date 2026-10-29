@@ -4,13 +4,13 @@
   "status": "v096_deployed_verified",
   "release_baseline": "v0.96",
   "source_commit": "9aec550c9ddc6b3f913368fdca630a7a995da139",
-  "current_task": "PixelLab 포획기 신규 후보2장",
+  "current_task": "선택 수달형 왼쪽 바라보는 부유 기본자세1장",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
   "verification": "analysis/release-096/RELEASE_VERIFICATION.json",
   "phone_verified": false,
   "release_authorized": true,
-  "next_step": "후보2장 외형 사용자 확인",
+  "next_step": "기본자세 사용자 확인 후 모션",
   "updated_at": "2026-10-30",
   "support_audit": "analysis/support-balance-085/REPORT.md",
   "support_utility_report": "analysis/support-utility-085/REPORT.md",
@@ -49,7 +49,7 @@
     "withdrawn_recommendation": "수족관 지급률1/8"
   },
   "robot_redesign": {
-    "report": "docs/design/capture-robot-v4/REVIEW.md",
+    "report": "docs/design/capture-otter-base/REVIEW.md",
     "applied": false,
     "deployed": false
   }
