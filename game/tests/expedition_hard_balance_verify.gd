@@ -29,7 +29,7 @@ func run() -> void:
     actual.start(r,1000);actual.battle.utility_revision=0;actual.battle.fighters.map(func(f): f.erase("support_budget"));expected.start(r,1000);fast(expected)
     var frames:=0
     while actual.active() and frames<100000:actual.update(.1,1000);frames+=1
-    if actual.active() or not equivalent(actual,expected) or int(actual.battle.reward)!=(26*r if actual.battle.status=="win" else 0):failures.append(["runtime parity",iv,r,sample])
+    if actual.active() or not equivalent(actual,expected) or int(actual.battle.reward)!=(actual.FIRST_GOLD[r-1] if actual.battle.status=="win" else 0):failures.append(["runtime parity",iv,r,sample])
     cases+=1
    # Existing in-progress expeditions must keep all three old encounters unchanged.
    var old=prepare(old_path,r,[3,1,7],1,3,iv);old.start(r,1000);old.update(4.1,1000);old.update(1.5,1000)

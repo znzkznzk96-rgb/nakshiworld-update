@@ -18,7 +18,7 @@ const CHIEF_POS: = Vector2(1270, 27)
 const CHIEF_TALK: = ["배가 주민들을 태워 오고 있다네.", "회관에서 어장을 관리해 보게!", "수족관에 물고기를 전시하면 수입이 늘지."]
 const GREET: = {"up": "장비와 미끼를 챙겨요!", "bait": "오늘은 어떤 미끼를 쓸까요?", "aqua": "우리 물고기를 보러 와요!", "museum": "만난 물고기를 기록해요!", "work": "판매와 손질을 맡겨요!", "harbor": "더 큰 배로 손님을 맞아요!", "hall": "어장을 키워 더 오래 낚시해요!", "forge": "낚싯대를 고르고 정비해요!"}
 const KEEPER: = {"up": "k_up", "bait": "k_bait", "aqua": "k_aqua", "museum": "k_museum", "work": "k_work", "harbor": "k_work", "hall": "chief", "forge": "k_up"}
-const PARTS: = [["float", "찌", "★2 입질 해금", 165], ["hook", "바늘", "★3 입질 해금", 330], ["line", "줄", "★4 입질 해금", 594], ["reel", "릴", "모든 ★ · 주인 자격", 990]]
+const PARTS: = [["float", "찌", "★2 입질 해금", 660], ["hook", "바늘", "★3 입질 해금", 1320], ["line", "줄", "★4 입질 해금", 2376], ["reel", "릴", "모든 ★ · 주인 자격", 3960]]
 const SOUL_STAR: = [1, 2, 4, 8, 20]
 const SOUL_GRADE: = [1, 2, 4, 8, 16]
 const UPGRADE_COST: = [160, 420, 1000, 2400, 6000]
@@ -26,7 +26,7 @@ const FORGE_COST: = [120, 360, 900, 2100, 4800]
 const POND_CAP_COST: = [300, 800, 1800, 4200, 9000]
 const POND_REGEN_COST: = [250, 700, 1600, 3800, 8000]
 const ROD_NAME: = ["대나무 낚싯대", "카본 낚싯대", "원투 낚싯대", "선상 낚싯대", "심해 낚싯대", "은하 낚싯대"]
-const ROD_COST: = [0, 2000, 35000, 700000, 4500000, 19000000]
+const ROD_COST: = [0, 8000, 140000, 2800000, 18000000, 76000000]
 var museum_region := 0
 var bundle_preview = preload("res://addons/reservoir/bundle_preview.gd").new()
 var market_list = preload("res://addons/reservoir/market_list.gd").new()
@@ -302,7 +302,6 @@ func draw(m, h: float) -> void :
 				var age: float = fposmod(t * 0.16 + n * 0.5, 1.0)
 				var pos: Vector2 = o + Vector2(b[2].get_center().x + sin(t * 0.4 + n) * 5, - b[2].size.y - 25 - age * 24)
 				m.draw_texture(art.smoke, pos.round(), Color(0.85, 0.89, 0.88, (1 - age) * 0.28))
-		if i == 3: _aquarium_fish(m, o + Vector2(1024, 0), t)
 	for x in [520.0, 1148.0, 1370.0]:
 		if _visible(x, 40):
 			_sprite(m, "lamp", o + Vector2(x, 48))
@@ -336,19 +335,6 @@ func draw(m, h: float) -> void :
 	if shop == "":
 		rects.zoom=[]
 		m.expedition.draw_strip(m)
-
-func _aquarium_fish(m, c: Vector2, t: float) -> void:
-	# Keep the original building windows; draw only the owned swimming fish.
-	if m.aqua.is_empty(): return
-	var centers := [Vector2(-64, -37), Vector2(3, -77), Vector2(66, -37)]
-	for i in 3:
-		var fish = m.aqua[(i + floori(t / 5) * 3) % m.aqua.size()]
-		if fish == null: continue
-		var tx: Texture2D = m.fish_tex[int(fish.sp)]
-		var region: Rect2i = m.fish_used[int(fish.sp)]
-		var size := Vector2(region.size) * minf(20.0 / region.size.x, 9.0 / region.size.y)
-		var pos: Vector2 = c + centers[i] + Vector2(roundf(sin(t * 0.6 + i) * 3), sin(t + i) * 3)
-		m.draw_texture_rect_region(tx, Rect2((pos - size / 2).round(), size.round()), Rect2(region))
 
 func _bubble(m, c: Vector2, s: String) -> void :
 	var w = minf(m._text_w(s, 9) * 1.15 + 24, 250.0)
@@ -599,13 +585,14 @@ func _draw_hall(m, r, y: float) -> void :
 func _draw_forge(m, r: Rect2, y: float) -> void :
 	if enhancement.busy():
 		enhancement.draw(self, m, r, y);return
-	for i in 2:
-		var tr: Rect2 = Rect2(r.position.x + 14 + i * 112, y, 108, 25)
-		var selected: bool = (i == 0 and forge_tab == "rods") or (i == 1 and forge_tab == "upgrade")
+	for i in 3:
+		var tr: Rect2 = Rect2(r.position.x + 14 + i * 75, y, 72, 25)
+		var selected: bool = (i == 0 and forge_tab == "rods") or (i == 1 and forge_tab == "upgrade") or (i == 2 and forge_tab == "robot")
 		m._ui_style_box(active_style.header if selected else active_style.card, tr)
-		m._text(["낚싯대", "정비 강화"][i], tr.get_center() + Vector2(0, 4), 10, Color("fff0d1") if selected else active_style.ink, true, 102)
-		rects.rows.append([tr, "forgetab:" + ["rods", "upgrade"][i]])
+		m._text(["낚싯대", "정비", "포획 로봇"][i], tr.get_center() + Vector2(0, 4), 10, Color("fff0d1") if selected else active_style.ink, true, 66)
+		rects.rows.append([tr, "forgetab:" + ["rods", "upgrade", "robot"][i]])
 	y += 31
+	if forge_tab=="robot": m.capture_robot.draw_shop(m,r,y);return
 	if forge_tab == "rods":
 		var card_h: float=floorf((r.end.y-y-12)/3.0)-5
 		for i in 6:
@@ -645,6 +632,8 @@ func _shop_press(m, pos: Vector2) -> void :
 		else: shop = ""
 
 func _act(m, a: String) -> void :
+	if a=="robot:manage": m.capture_robot.opened=true;return
+	if m.capture_robot.action(m,a): return
 	if a=="bundles": bundle_preview.legacy_dex=false;return
 	if m.equipment.act(m, a): return
 	if enhancement.act(self, m, a): return

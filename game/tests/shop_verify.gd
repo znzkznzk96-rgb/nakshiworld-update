@@ -22,17 +22,17 @@ func run() -> void:
 	m.progression.main_completed[0]=true;m.progression.certificates[0]=true
 	for slot in 4:
 		check(m.region_shop.price(m,0,slot)==int(m.V.PARTS[slot][3]),"reservoir part unchanged")
-	check(m.region_shop.price(m,1,0)==255 and m.region_shop.price(m,1,3)==1485,"valley displayed part amounts")
+	check(m.region_shop.price(m,1,0)==1020 and m.region_shop.price(m,1,3)==5940,"valley displayed part amounts")
 	var original_prices: Array=[0,3300,52000,1030000,6700000,28300000]
 	for area in range(1,6):
 		for slot in 4:
-			check(m.region_shop.price(m,area,slot)==roundi(maxi(10,roundi(original_prices[area]*[.05,.10,.18,.30][slot]/10.0)*10)*1.5),"regional parts exactly 1.5x original price")
-	m.gold=6599
-	check(not m.region_shop.unlock(m,1) and m.gold==6599,"new fee enforced without partial charge")
+			check(m.region_shop.price(m,area,slot)==roundi(maxi(10,roundi(original_prices[area]*[.05,.10,.18,.30][slot]/10.0)*10)*1.5)*4,"regional parts exactly 4x previous price")
+	m.gold=19799
+	check(not m.region_shop.unlock(m,1) and m.gold==19799,"new fee enforced without partial charge")
 	m.gold=100000
 	var unlock_gold: int=m.gold
-	check(m.region_shop.unlock(m,1) and m.gold==unlock_gold-6600,"licensed region charges once")
-	check(m.region_shop.unlock(m,1) and m.gold==unlock_gold-6600,"repeat unlock never charges twice")
+	check(m.region_shop.unlock(m,1) and m.gold==unlock_gold-19800,"licensed region charges once")
+	check(m.region_shop.unlock(m,1) and m.gold==unlock_gold-19800,"repeat unlock never charges twice")
 	check(not c.quote(m.V,m,"bait:1:5").is_empty(),"region unlock opens bait")
 	check(c.quote(m.V,m,"rpart:1:1").is_empty(),"part sequence enforced")
 	for slot in 4:

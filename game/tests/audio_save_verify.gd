@@ -19,9 +19,14 @@ func run() -> void:
 	m.gold=0;m.forge_pending={};m._load_game()
 	check(m.gold==paid and m.forge_lv==level and not m.forge_pending.success,"failure/cost persisted before animation")
 	var saved: Dictionary=store.read("user://save.json")
-	saved.aqua=[{"price":300.0},null,null];saved.time=Time.get_unix_time_from_system()-3600
+	saved.boat_lv=0;saved.aqua=[{"price":300.0},null,null];saved.time=Time.get_unix_time_from_system()-3600
 	store.write("user://save.json",saved);m._load_game();var settled: int=m.gold;m._load_game()
+	check(settled-int(saved.gold)==45,"one offline hour pays 75 percent of former 60")
 	check(m.gold==settled,"offline reward cannot repeat on reload")
+	check(is_equal_approx(m.aqua_rate(),0.75),"base aquarium rate reduced by 25 percent")
+	m.boat_lv=5
+	check(is_equal_approx(m.V.multiplier(m),5.25) and is_equal_approx(m.aqua_rate(),3.9375),"maximum visitor multiplier remains unchanged")
+	m.boat_lv=0
 	m.settings_open=true;m.set_view="main";m.reset_confirm=false;m._draw_settings()
 	m._settings_press(m.set_rects.reset.get_center());check(m.reset_confirm,"reset requires confirmation")
 	m._draw_settings();m._settings_press(m.set_rects.no.get_center());check(not m.reset_confirm and m.gold==settled,"no preserves progress")

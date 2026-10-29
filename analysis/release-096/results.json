@@ -1,0 +1,302 @@
+[
+  {
+    "suite": "guide_ac",
+    "passed": true,
+    "exit": 0
+  },
+  {
+    "suite": "valley094",
+    "passed": true,
+    "exit": 0
+  },
+  {
+    "suite": "arrival_gift",
+    "passed": true,
+    "exit": 0
+  },
+  {
+    "suite": "valley093",
+    "passed": true,
+    "exit": 0
+  },
+  {
+    "suite": "bait092",
+    "passed": true,
+    "exit": 0
+  },
+  {
+    "suite": "notification091",
+    "passed": true,
+    "exit": 0
+  },
+  {
+    "suite": "ui090",
+    "passed": true,
+    "exit": 0
+  },
+  {
+    "suite": "codex089",
+    "passed": true,
+    "exit": 0
+  },
+  {
+    "suite": "aquarium_b",
+    "passed": true,
+    "exit": 0
+  },
+  {
+    "suite": "ui_guide",
+    "passed": true,
+    "exit": 0
+  },
+  {
+    "suite": "pouch_inventory",
+    "passed": true,
+    "exit": 0
+  },
+  {
+    "suite": "combat_feedback",
+    "passed": true,
+    "exit": 0
+  },
+  {
+    "suite": "support_utility",
+    "passed": true,
+    "exit": 0
+  },
+  {
+    "suite": "expedition_result",
+    "passed": true,
+    "exit": 0
+  },
+  {
+    "suite": "bag_event_order",
+    "passed": true,
+    "exit": 0
+  },
+  {
+    "suite": "bag_formation",
+    "passed": true,
+    "exit": 0
+  },
+  {
+    "suite": "selected_ui",
+    "passed": true,
+    "exit": 0
+  },
+  {
+    "suite": "bag_interaction",
+    "passed": true,
+    "exit": 0
+  },
+  {
+    "suite": "expedition_label",
+    "passed": true,
+    "exit": 0
+  },
+  {
+    "suite": "bundle_aqua",
+    "passed": true,
+    "exit": 0
+  },
+  {
+    "suite": "expedition_hard_balance",
+    "passed": true,
+    "exit": 0
+  },
+  {
+    "suite": "expedition080",
+    "passed": true,
+    "exit": 0
+  },
+  {
+    "suite": "expedition079",
+    "passed": true,
+    "exit": 0
+  },
+  {
+    "suite": "testing_gift",
+    "passed": true,
+    "exit": 0
+  },
+  {
+    "suite": "startup_assets",
+    "passed": true,
+    "exit": 0
+  },
+  {
+    "suite": "soldier_dex",
+    "passed": true,
+    "exit": 0
+  },
+  {
+    "suite": "expedition_motion",
+    "passed": true,
+    "exit": 0
+  },
+  {
+    "suite": "expedition",
+    "passed": true,
+    "exit": 0
+  },
+  {
+    "suite": "approved_ui",
+    "passed": true,
+    "exit": 0
+  },
+  {
+    "suite": "soul_pouch",
+    "passed": true,
+    "exit": 0
+  },
+  {
+    "suite": "expedition_save",
+    "passed": true,
+    "exit": 0
+  },
+  {
+    "suite": "economy_balance",
+    "passed": true,
+    "exit": 0
+  },
+  {
+    "suite": "action_readability",
+    "passed": true,
+    "exit": 0
+  },
+  {
+    "suite": "rod_aura",
+    "passed": true,
+    "exit": 0
+  },
+  {
+    "suite": "angler_scene",
+    "passed": true,
+    "exit": 0
+  },
+  {
+    "suite": "market_reader",
+    "passed": true,
+    "exit": 0
+  },
+  {
+    "suite": "atmosphere_encounter",
+    "passed": true,
+    "exit": 0
+  },
+  {
+    "suite": "odds_rewards",
+    "passed": true,
+    "exit": 0
+  },
+  {
+    "suite": "reservoir_layers",
+    "passed": true,
+    "exit": 0
+  },
+  {
+    "suite": "expedition_balance",
+    "passed": true,
+    "exit": 0
+  },
+  {
+    "suite": "bag_list",
+    "passed": true,
+    "exit": 0
+  },
+  {
+    "suite": "owner_gauge",
+    "passed": true,
+    "exit": 0
+  },
+  {
+    "suite": "bundles_buyback",
+    "passed": true,
+    "exit": 0
+  },
+  {
+    "suite": "guide",
+    "passed": true,
+    "exit": 0
+  },
+  {
+    "suite": "visual",
+    "passed": true,
+    "exit": 0
+  },
+  {
+    "suite": "equipment",
+    "passed": true,
+    "exit": 0
+  },
+  {
+    "suite": "shop",
+    "passed": true,
+    "exit": 0
+  },
+  {
+    "suite": "audio_save",
+    "passed": true,
+    "exit": 0
+  },
+  {
+    "suite": "rewards",
+    "passed": true,
+    "exit": 0
+  },
+  {
+    "suite": "bundle_preview",
+    "passed": true,
+    "exit": 0
+  },
+  {
+    "suite": "reader",
+    "passed": true,
+    "exit": 0
+  },
+  {
+    "suite": "regional",
+    "passed": true,
+    "exit": 0
+  },
+  {
+    "suite": "fish_surface",
+    "passed": true,
+    "exit": 0
+  },
+  {
+    "suite": "inventory_layout",
+    "passed": true,
+    "exit": 0
+  },
+  {
+    "suite": "personal_dex",
+    "passed": true,
+    "exit": 0
+  },
+  {
+    "suite": "village_entry_audio",
+    "passed": true,
+    "exit": 0
+  },
+  {
+    "suite": "measurement_speed",
+    "passed": true,
+    "exit": 0
+  },
+  {
+    "suite": "bait_roles",
+    "passed": true,
+    "exit": 0
+  },
+  {
+    "suite": "capture_robot",
+    "passed": true,
+    "exit": 0
+  },
+  {
+    "suite": "balance096",
+    "passed": true,
+    "exit": 0
+  }
+]

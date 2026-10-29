@@ -21,8 +21,8 @@ func run() -> void:
 	check(m.equipment.equip(m, "rod:2", false), "rod detaches")
 	var before: int = m.gold
 	check(m.equipment.sell(m, "rod:2"), "detached rod sale")
-	check(m.gold == before + 17500 and m.rod_enh[2] == 0, "sale value and enhancement reset")
-	check(not m.equipment.sell(m, "rod:2") and m.gold == before + 17500, "duplicate sale rejected")
+	check(m.gold == before + 70000 and m.rod_enh[2] == 0, "sale value and enhancement reset")
+	check(not m.equipment.sell(m, "rod:2") and m.gold == before + 70000, "duplicate sale rejected")
 	check(not m.V.commerce.quote(m.V, m, "rod:2").is_empty(), "sold rod can be repurchased")
 	m.V._act(m, "rod:2")
 	check(2 in m.equipment.rods and m.equipment.rod_equipped, "rod repurchase equips")

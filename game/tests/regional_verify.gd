@@ -75,9 +75,9 @@ func run() -> void:
 	check(m.progression.donate(m,0,2,0) and not m.progression.licensed(1),"completed main waits for receipt")
 	check(m.progression.claim_reward(m,0,0) and m.progression.licensed(1),"receive grants certificate and eligibility")
 	check(m.gold==before,"bundle completion does not pay region cost")
-	check(m.progression.available_regions==[0,1],"valley available without test override");m.gold=6599
-	check(not m.region_shop.unlock(m,1) and m.gold==6599,"insufficient currency cannot unlock")
-	m.gold=7300;check(m.region_shop.unlock(m,1) and m.gold==700,"certificate then separate currency purchase")
+	check(m.progression.available_regions==[0,1],"valley available without test override");m.gold=19799
+	check(not m.region_shop.unlock(m,1) and m.gold==19799,"insufficient currency cannot unlock")
+	m.gold=20500;check(m.region_shop.unlock(m,1) and m.gold==700,"certificate then separate currency purchase")
 	check(m.region_shop.unlock(m,1) and m.gold==700,"repeat unlock does not charge twice")
 	m.active_region=1;m._layout();m.environment.show_scene(true)
 	check(m.environment.valley.root.visible and not m.bg_node.visible and not m.environment.layer.visible,"valley replaces reservoir layers")
