@@ -4,23 +4,23 @@
   "status": "bait_b2_valley_verified_guide_art_pending",
   "release_baseline": "v0.92",
   "source_commit": "b80cdd2301ef030116cecb20be0c6b5535efa8e7",
-  "current_task": "B2 PixelLab 미끼·조건부 계곡입장 및 렌더수정 완료,56검사통과",
+  "current_task": "빈미끼·메뉴동일숨김·일회선물 및 v0.93 배포",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
   "verification": "analysis/bait-b2-valley093/REPORT.md",
   "phone_verified": false,
-  "release_authorized": false,
+  "release_authorized": true,
   "next_step": "길잡이 아트 별도 대기; 현재 변경 미배포",
   "updated_at": "2026-10-29",
   "support_audit": "analysis/support-balance-085/REPORT.md",
   "support_utility_report": "analysis/support-utility-085/REPORT.md",
-  "target_release": null,
+  "target_release": "v0.93",
   "last_release_deployed": true,
   "this_change": {
     "implemented": false,
     "layout_implemented": true,
     "art_complete": false,
     "deployed": false,
-    "release_authorized": false
+    "release_authorized": true
   }
 }
