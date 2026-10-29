@@ -1,0 +1,14 @@
+{
+  "description": "Single aquatic fish-capture robot game sprite. Cute sturdy mechanical worker with a clearly distinct square robot HEAD, two bright amber rectangular eyes in a dark face visor, a squat rounded teal armored TORSO, and TWO LARGE articulated brass robot ARMS ending in open three-finger GRABBERS reaching forward and down to scoop a fish. Large visible dark rectangular fish intake hatch on belly with metal rim. Broad buoyant shoulder collar, small rear thruster. Three-quarter side view facing left, both arms clearly visible separated from torso, entire machine centered with padding. Readable mechanical robot silhouette, head torso elbows hands, NOT a submarine, NOT a fish, NOT a boat, no porthole, no legs, no feet. High quality cozy 16-bit pixel art, saturated turquoise enamel, warm brass joints, navy shadows, crisp chunky pixel clusters, 3-4 shades, minimal surface decoration. No water, no ground, no background, no text, no speech bubble, no extra objects. Complete lower half visible for later underwater tinting.",
+  "image_size": {
+    "width": 96,
+    "height": 96
+  },
+  "no_background": true,
+  "view": "side",
+  "direction": "west",
+  "outline": "selective outline",
+  "shading": "medium shading",
+  "detail": "medium detail",
+  "seed": 2026103003
+}
