@@ -31,5 +31,19 @@
     }
   },
   "charged_generations": 0.0,
-  "outcome": "No generated asset. Reuse existing approved art/ui_forest/slot.png and guide64 icons; no additional paid calls."
+  "outcome": "No generated asset. Reuse existing approved art/ui_forest/slot.png and guide64 icons; no additional paid calls.",
+  "audit": {
+    "actual_concept_size": [
+      36,
+      36
+    ],
+    "declared_concept_size": [
+      38,
+      38
+    ],
+    "configuration_error_confirmed": true,
+    "http_rejection_cause_confirmed": false,
+    "reference_issue": "Referenced pre-theme art/ui/menu_btn.png, not the runtime ui_forest/menu.png. Do not reuse this request as a successful example.",
+    "next_attempt_rule": "Read exact PNG dimensions and runtime texture before a separately authorized future request."
+  }
 }

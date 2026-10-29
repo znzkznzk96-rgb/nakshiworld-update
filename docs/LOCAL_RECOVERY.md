@@ -1,3 +1,7 @@
+## 최신 복구 기준 — 2026-10-29 공개 v0.92
+
+v0.92 전체 game-source.zip + 활성 작업브랜치 overlay가 최신. [현재 인계](../HANDOFF.md), [공개검증](../analysis/ui092/PUBLISHED.json). 아래 v0.88과 이전 작업공간 기록은 과거 이력. 이번 PixelLab 신규 요청은 실패/차감0이며 기존 아트 재사용, 상세 UI092 검증 참조.
+
 ## 최신 복구 기준 — 2026-10-27 공개 v0.88
 
 v0.88 전체 game-source.zip과 최신 작업브랜치를 사용한다. 수족관·도감 변경은 GitHub에 저장되고 공개됐다. 검증: [v0.88](../analysis/release-088/PUBLISHED.json). 이전 배포 중단 기록은 과거 이력이다. 휴대폰 적용 확인만 남았다.

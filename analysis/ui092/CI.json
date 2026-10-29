@@ -1,0 +1,12 @@
+{
+  "work_run": 40809631846,
+  "work_conclusion": "success",
+  "code_commit": "c2b612b6b732b92be708f459c1adb72e0835ed14",
+  "source_commit": "b80cdd2301ef030116cecb20be0c6b5535efa8e7",
+  "pull_request": 24,
+  "release_status": "success",
+  "release_run": 40810084906,
+  "gateway_run": 40810434305,
+  "gateway_job": 123239186900,
+  "gateway_status": "success"
+}
