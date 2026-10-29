@@ -1,16 +1,16 @@
 {
   "schema_version": 3,
   "work_branch": "work/valley-runtime",
-  "status": "guide_ac_implemented_local_verified",
-  "release_baseline": "v0.94",
-  "source_commit": "bcd53f5e574ab37b48e56cf863b6a6904d37dbb0",
-  "current_task": "A홈/C상세 이미지gen아트·Godot구현 및58검사완료",
+  "status": "guide_ac_v095_deployed_verified",
+  "release_baseline": "v0.95",
+  "source_commit": "2215713d6141f1e1e59bb05bb4e4ce7b492d7b57",
+  "current_task": "A홈/C상세 v0.95 공개·운영 다운로드 검증 완료",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
   "verification": "analysis/guide-ac/REPORT.md",
   "phone_verified": false,
   "release_authorized": true,
-  "next_step": "v0.95 배포 및 공개 다운로드 검증",
+  "next_step": "사용자 휴대폰에서 업데이트 후 길잡이 확인",
   "updated_at": "2026-10-29",
   "support_audit": "analysis/support-balance-085/REPORT.md",
   "support_utility_report": "analysis/support-utility-085/REPORT.md",
@@ -19,7 +19,7 @@
   "this_change": {
     "implemented": true,
     "art_complete": true,
-    "deployed": false,
+    "deployed": true,
     "release_authorized": true
   }
 }
