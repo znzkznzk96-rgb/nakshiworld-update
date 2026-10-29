@@ -20,3 +20,6 @@ Release https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v0.94
 
 ### 신규 텍스트기반 낚시 아이콘도 불합격
 금빛장비/릴·찌형태불일치/상단여백부족. 추가생성중단,게임미적용. [검수](analysis/guide-fresh/REPORT.md).
+
+## 현재 작업 — A/C 길잡이 제작방법 전환
+사용자내장이미지생성도구전환과Godot구현승인. PixelLab중단/거절본사용금지. A8카드홈·C그림상세·기존25주제보존·네이티브텍스트및스크롤 구현검증후보여준다. 공개배포없음. 상세결정GAME_BIBLE최신항목.
