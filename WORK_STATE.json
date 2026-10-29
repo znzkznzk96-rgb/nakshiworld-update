@@ -4,7 +4,7 @@
   "status": "layout_verified_art_retry_pending",
   "release_baseline": "v0.92",
   "source_commit": "b80cdd2301ef030116cecb20be0c6b5535efa8e7",
-  "current_task": "PixelLab 미끼 없음 아이콘 교체 완료; 길잡이 아트 대기",
+  "current_task": "B2 PixelLab 아이콘 및 기존조건 계곡해금 활성화",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
   "verification": "analysis/guide093/REPORT.md",
