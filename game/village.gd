@@ -367,7 +367,7 @@ func draw_bottom(m, h: float) -> void :
 	var aims: = [0.0, MAP_W * 0.5 - 135.0 / zoom, float(MAP_W)]
 	rects.nav = []
 	for i in 3:
-		var nr: = Rect2(8 + i * 85, y + 42, 79, 25)
+		var nr: = Rect2(8 + i * 85, y + 50, 79, 25)
 		m._ui_style_box(m.sb_btn, nr)
 		m._text(names[i], nr.position + Vector2(39, 17), 10, Color("382619"), true, 73)
 		rects.nav.append([nr, aims[i]])

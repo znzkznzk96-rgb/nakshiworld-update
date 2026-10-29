@@ -1,0 +1,35 @@
+{
+  "http_status": 400,
+  "job_id": null,
+  "error_body": "not retained by urllib exception; exact server rejection reason unknown",
+  "posts": 1,
+  "retry": false,
+  "before": {
+    "credits": {
+      "type": "usd",
+      "usd": 0.0
+    },
+    "subscription": {
+      "type": "generations",
+      "status": "active",
+      "plan": "Tier 1: Pixel Apprentice",
+      "generations": 15.0,
+      "total": 2000.0
+    }
+  },
+  "after": {
+    "credits": {
+      "type": "usd",
+      "usd": 0.0
+    },
+    "subscription": {
+      "type": "generations",
+      "status": "active",
+      "plan": "Tier 1: Pixel Apprentice",
+      "generations": 15.0,
+      "total": 2000.0
+    }
+  },
+  "charged_generations": 0.0,
+  "outcome": "No generated asset. Reuse existing approved art/ui_forest/slot.png and guide64 icons; no additional paid calls."
+}

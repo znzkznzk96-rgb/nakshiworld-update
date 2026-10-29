@@ -25,7 +25,7 @@ func run() -> void:
 	check(results[2].rare>results[0].rare+0.12,"rare bait improves grade odds")
 	check(absf(results[2].mean-results[0].mean)<0.01,"rare bait does not change size distribution")
 	shop.selected_bait=1;shop.stocks[1]=0;m.bait=1;m.start_wait()
-	check(m.S.bait_id==0 and m.bait==0,"empty large bait falls back without retaining size effect")
+	check(m.S.bait_id==-1 and m.bait==1,"empty selected bait uses bare hook without consuming unselected worm")
 	m.start_wait();check(m.S.bait_id==-1 and m.S.bare,"empty all uses original bare hook")
 	check(shop.BAIT_PRICES[0]==5 and shop.BAIT_PRICES[1]==15 and shop.BAIT_PRICES[2]==20,"reviewed early costs")
 	m.audio_feedback.dispose();m.queue_free();await process_frame

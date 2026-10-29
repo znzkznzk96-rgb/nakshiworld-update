@@ -9,15 +9,16 @@ const Reader = preload("res://addons/reservoir/topic_reader.gd")
 var button := Rect2()
 var rects := {}
 func draw_button(m) -> void:
-	button = Rect2(96, m.get_viewport_rect().size.y-m.bot_pad-99, 38, 38)
-	m._ui_style_box(m.sb_btn,button)
-	m._ui_texture_rect(preload("res://art/guide64/book.png"),Rect2(button.position+Vector2(6,3),Vector2(26,26)))
-	m._text("가이드",button.position+Vector2(19,32),7,Color("513b29"),true,32)
+	button = Rect2(96, m.get_viewport_rect().size.y-m.bot_pad-100, 34, 32)
+	m._ui_texture_rect(m.e_slots.slot,button)
+	m._ui_texture_rect(preload("res://art/guide64/book.png"),Rect2(button.position+Vector2(5,3),Vector2(24,24)))
+	m._text("가이드",button.position+Vector2(17,41),8,Color("fff0d1"),true,42,true)
+	m._text("?",button.position+Vector2(19,21),10,Color("fff0d1"),true,12,true)
 
 func content(m) -> Array:
 	match "%d:%d" % [tab, topic]:
 		"0:0": return ["찌가 완전히 잠길 때 탭해요.", "훅 게이지의 별이 중앙에 오면 탭!", "싸울 때 누르면 감고, 떼면 풀어요.", "돌진 전 웅크리면 미리 손을 떼요.", "점프 중에는 떼고 착수할 때 탭!", "자세한 동작: 설정 → 몸짓 도감"]
-		"0:1": return ["별은 어종군, 등급은 희귀도예요.", "등급: 노멀 → 레어 → 유니크", "→ 전설 → 신화", "파츠를 순서대로 장착하면", "더 높은 별의 입질이 열려요.", "미끼와 어장 재고도 영향을 줘요.", "PERFECT는 등급 상승 기회가 있어요."]
+		"0:1": return ["별은 어종군, 등급은 희귀도예요.", "등급: 노멀 → 레어 → 유니크", "→ 전설 → 신화", "파츠를 순서대로 장착하면", "더 높은 별의 입질이 열려요.", "미끼와 어장 재고도 영향을 줘요.", "낚시터 왼쪽 메뉴 옆 미끼 버튼에서 보유 미끼를 골라요.", "캐스팅 전에 변경할 수 있고, 소진 시 다른 미끼를 자동 사용하지 않아요.", "빈 바늘도 직접 선택할 수 있어요.", "PERFECT는 등급 상승 기회가 있어요."]
 		"0:2": return ["줄자는 어종마다 같은 눈금을 써요.", "같은 어종의 크기를 비교해 보세요.", "동네저수지 최대 길이: %dcm" % m.RESERVOIR_MAX_CM, "어종별 한도는 이보다 작을 수 있어요.", "기존 물고기와 기록은 유지돼요."]
 		"1:0": return ["찌 장착: ★2 어종군 입질 해금", "찌 + 바늘: ★3 해금", "찌 + 바늘 + 줄: ★4 해금", "앞 단계 파츠도 장착해야 해요.", "릴은 주인 낚시를 위한 마지막 파츠예요.", "모든 지역 파츠 장착 후 주인 게이지를 채워요.", "별 해금과 희귀 등급은 별개예요."]
 		"1:1": return ["가방에서 장착·해제할 수 있어요.", "장착한 장비는 먼저 해제해야 팔려요.", "물고기가 든 보관함은 비워 주세요.", "판매한 낚싯대의 강화는 초기화돼요.", "다시 구매할 수 있지만 강화는 복구 안 돼요."]

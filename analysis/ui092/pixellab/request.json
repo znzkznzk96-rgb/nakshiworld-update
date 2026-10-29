@@ -1,0 +1,24 @@
+{
+  "description": "Exactly ONE compact square empty inventory button frame for a cozy 16-bit fishing RPG. Match the reference menu button material and pixel style: dark walnut wood, thin warm copper bronze edges, small stepped bronze corners, crisp dark brown outer outline. Front view, symmetrical square, rim only 3 pixels thick. Plain uninterrupted very dark brown interior reserved for an engine-rendered bait icon and count. NO hamburger lines, NO icon, NO letters, NO text, NO numbers, NO symbols, NO extra buttons. Entire square fits canvas with one transparent exterior pixel margin. Clean readable square pixel clusters with three shades per material, no blur, no gradients, no big ornaments. This is a smaller companion of the reference button.",
+  "image_size": {
+    "width": 32,
+    "height": 32
+  },
+  "seed": 202610292,
+  "no_background": true,
+  "concept_image": {
+    "image": {
+      "type": "base64",
+      "base64": "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",
+      "format": "png"
+    },
+    "size": {
+      "width": 38,
+      "height": 38
+    }
+  },
+  "color_palette": "dark walnut brown, copper bronze, warm gold edge highlights",
+  "target_palette": {
+    "max_colors": 16
+  }
+}

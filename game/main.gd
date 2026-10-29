@@ -102,6 +102,7 @@ var scene: = "fish"
 var V = preload("res://village.gd").new()
 var region_shop = preload("res://addons/reservoir/region_shop.gd").new()
 var guide = preload("res://addons/reservoir/guide.gd").new()
+var bait_picker = preload("res://addons/reservoir/bait_picker.gd").new()
 var mailbox = preload("res://addons/reservoir/mailbox.gd").new()
 var drag_player: AudioStreamPlayer
 var equipment = preload("res://addons/reservoir/equipment.gd").new()
@@ -1169,6 +1170,7 @@ func show_result(ok: bool) -> void :
 
 
 func _unhandled_input(e: InputEvent) -> void :
+	if bait_picker.input_event(self,e): return
 	if not title_open and expedition.input_event(self,e): return
 	if personal_dex.input_event(self,e): return
 	if title_open:
@@ -1214,6 +1216,7 @@ func press(pos: = Vector2.ZERO) -> void :
 	if inventory.selected >= 0: inventory.detail_press(pos);return
 	if scene == "spots": spots.press(self, pos);return
 	if settings_open: _settings_press(pos);return
+	if bait_picker.press(self,pos): return
 	if gear_rect.has_point(pos): settings_open = true;holding = false;return
 
 	if not trans.is_empty(): return
@@ -1276,7 +1279,7 @@ func _process(dt: float) -> void :
 		if not trans.done and trans.t >= TR_CLOSE + 0.1:
 			trans.done = true;_switch_scene(trans.to)
 		if trans.t >= TR_CLOSE + TR_HOLD + TR_OPEN: trans = {}
-	if expedition.opened!="" or personal_dex.opened or guide.opened or mailbox.opened or settings_open or market_open or not V.commerce.pending.is_empty() or not equipment.pending_sale.is_empty() or inventory.selected >= 0: queue_redraw();return
+	if bait_picker.opened or expedition.opened!="" or personal_dex.opened or guide.opened or mailbox.opened or settings_open or market_open or not V.commerce.pending.is_empty() or not equipment.pending_sale.is_empty() or inventory.selected >= 0: queue_redraw();return
 	if scene == "spots": spots.process(dt);queue_redraw();return
 	if scene == "village":
 		toast_t = max(0.0, toast_t - dt);judge_t = max(0.0, judge_t - dt)
@@ -1374,6 +1377,7 @@ func _draw_overlays(t: float, h: float) -> void :
 
 		text_items = text_items.filter( func(it): return it[1].y < top_y + 70)
 	V.commerce.feedback_rect=Rect2();V.commerce.feedback_dark=false
+	bait_picker.draw_popup(self)
 	V.draw_shop(self, h)
 	if market_open: _draw_market()
 	if settings_open:
@@ -1406,6 +1410,7 @@ func start_trans(to: String) -> void :
 	menu_open = false;holding = false;play("ui", -5.0)
 
 func _switch_scene(to: String) -> void :
+	bait_picker.opened=false
 	title_screen.leaving = false
 	if is_instance_valid(title_screen.root): title_screen.root.hide()
 	V.visitors.hide_all(V.res + V.locals)
@@ -2319,6 +2324,7 @@ func _draw_ui(t: float, h: float) -> void :
 	var y0: float = maxf(uw_bot + oy + 29.0, h - 108 - bot_pad)
 	var slots_y: = y0 + 40
 	_draw_slots(slots_y)
+	bait_picker.draw_button(self,y0)
 	if S.phase in ["idle", "result"] and not title_open: _draw_menu(y0)
 	if S.phase == "fight":
 
