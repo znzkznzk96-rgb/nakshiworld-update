@@ -41,7 +41,7 @@ func run() -> void:
 			for height in [480,540,600]:
 				m.ui_commands=[];m.text_items=[];m.guide.draw(m,height)
 				for item in m.text_items: check(item[1].y<height,"guide fits")
-	m.guide.page=5;m.guide.press(m,m.guide.rects.tabs[0].get_center());check(m.guide.page==0,"tab resets page")
+	m.guide.change_screen("home");m.guide.draw(m,540);m.guide.page=5;m.guide.press(m,m.guide.rects.tabs[0].get_center());check(m.guide.page==0 and m.guide.screen=="topics","category opens topic list and resets old page state")
 	m.mailbox.detail=m.mailbox.letters[0].id;m.mailbox.draw(m,540)
 	m.mailbox.detail_page=5;m.mailbox.press(m,m.mailbox.rects.toggle.get_center());check(m.mailbox.detail_page==0,"mail detail toggle resets page")
 	print("READER_VERIFY failures=",failures)

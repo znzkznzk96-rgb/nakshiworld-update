@@ -1,0 +1,12 @@
+{
+  "description": "One complete diagonal dark wooden fishing rod with cork handle at lower left, slender rod arching towards upper right, black fishing line hanging from the tip and one red and white round bobber hanging on the right. Clearly recognizable fishing rod and bobber together, like an illustrated fishing equipment badge. Single isolated icon for cozy 16-bit fishing RPG help menu. Crisp square pixel clusters, warm dark brown one-pixel outline, rich clean color, 3 shades per material, subtle upper-left highlight. Centered with 4 pixel transparent margin. No text, no letters, no button frame, no scene outside the object.",
+  "negative_description": "blurry, photorealistic, letters, text, numbers, UI frame, multiple separate icons, cropped object, low saturation",
+  "image_size": {
+    "width": 64,
+    "height": 64
+  },
+  "no_background": true,
+  "text_guidance_scale": 10,
+  "coverage_percentage": 80,
+  "seed": 2026102901
+}

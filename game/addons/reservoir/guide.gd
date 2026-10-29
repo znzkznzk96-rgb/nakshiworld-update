@@ -8,6 +8,27 @@ var page := 0
 const Reader = preload("res://addons/reservoir/topic_reader.gd")
 var button := Rect2()
 var rects := {}
+var screen := "home"
+var scroll := 0.0
+var content_height := 0.0
+var viewport := Rect2()
+var clip_root: Control
+var body_layer: Node2D
+var body_text: Array=[]
+var body_commands: Array=[]
+var textures := {}
+var pointer := -2
+var start := Vector2.ZERO
+var last := Vector2.ZERO
+var dragged := false
+var native_at := -1000
+const HOME_ICONS := ["fishing","equipment","pond","village","growth","alchemy","soldier","exploration"]
+const SUBTITLES := ["조작·등급","장착·강화","재고·지역","상점·시설","해금·수집","어혼 조합","편성·합성","출발·보상"]
+const INK := Color("513b29")
+const PAPER := Color("fff1d5")
+const TEAL := Color("08646b")
+var text_boxes: Array=[]
+
 func draw_button(m) -> void:
 	button = Rect2(96, m.get_viewport_rect().size.y-m.bot_pad-100, 34, 32)
 	m._ui_texture_rect(m.e_slots.slot,button)
@@ -45,44 +66,187 @@ func content(m) -> Array:
 		"7:1": return ["세 병사 각각의 체력 막대를 확인할 수 있어요.", "피해 숫자는 빨간색이에요. 함께 뜨는 역할 아이콘으로 공격 주체를 구분해요.", "회복은 초록색, 보호막과 방어 효과는 파란색이에요.", "숫자는 해당 병사의 행동에 맞춰 따로 표시돼요."]
 		"7:2": return ["지원 병사도 기본 공격을 계속해요.", "등불 아귀: 아군 일반 공격 피해 +15%.", "메기 약사: 적 공격력 20% 감소.", "의무병: 3초마다 지속 회복.", "치유사: 위험한 피격 직전 긴급 회복.", "약초지기: 피격 전에 보호막 제공.", "같은 효과는 중복 발동하지 않아요.", "적 한 마리당 병사별 회복과 추가 보호막 합계는 최대 체력의 35%까지예요."]
 	return []
-func draw(m, h: float) -> void:
-	m.text_items.clear()
-	m._ui_rect(Rect2(-m.ox, 0, m.VW+2*m.ox, h), Color(0.02,0.04,0.06,0.86))
-	var panel_height: float=minf(440,h-88)
-	var r := Rect2(12, floorf((h-panel_height)/2), 246, panel_height)
-	m._ui_style_box(m.sb_panel, r)
-	preload("res://addons/reservoir/ui_theme.gd").title(m, r, "낚시월드 길잡이")
-	var close := Rect2(r.end.x-32,r.position.y+9,22,23)
-	m._ui_texture(m.icons.close,close.position)
-	rects = {"close":close.grow(3), "tabs":[], "topics":[]}
-	for i in TABS.size():
-		var b := Rect2(22+(i%4)*57,r.position.y+47+(i/4)*29,54,25)
-		m._ui_style_box(m.sb_primary if tab==i else m.sb_btn,b)
-		m._text(TABS[i],b.get_center()+Vector2(0,3),9,Color("fff0d1") if tab==i else Color("382619"),true,50)
-		rects.tabs.append(b)
-	var width: float=228.0/TOPICS[tab].size()
+func open_home() -> void:
+	opened=true;screen="home";scroll=0;page=0;pointer=-2
+func sync_layer() -> void:
+	if is_instance_valid(clip_root): clip_root.visible=opened and screen!="home"
+func icon(m,name: String,r: Rect2) -> void:
+	var path: String="res://art/ui/guide093/"+name+".png"
+	if ResourceLoader.exists(path):
+		if not textures.has(name):textures[name]=load(path)
+		m._ui_texture_rect(textures[name],r);return
+	# Work-branch layout preview only: final PixelLab icons are blocked after failed pilot.
+	if name=="soldier":m.expedition.sprite(m,0,r);return
+	if name.begins_with("gem"):
+		var id:=int(name.substr(3));m._ui_texture_rect(m.icons.pearl_s,r,false,m.GRADE_C[id]);return
+	var fallback: Texture2D=m.icons.float
+	match name:
+		"equipment":fallback=m.icons.m_bag
+		"pond":fallback=m.V.tex.get("aquarium",m.icons.m_book)
+		"village":fallback=m.V.tex.get("hall",m.icons.m_village)
+		"growth":fallback=m.icons.scale
+		"alchemy":fallback=m.expedition.textures.alchemy
+		"exploration":fallback=m.expedition.textures.explore
+	m._ui_texture_rect(fallback,r)
+func paragraph(m,value: String,pos: Vector2,width: float,size: int=10,col: Color=INK) -> float:
+	var lines: Array[String]=preload("res://addons/reservoir/text_layout.gd").wrap(m,value,size,width)
+	for i in lines.size():
+		m._text(lines[i],pos+Vector2(0,i*(size+5)),size,col,false,width)
+		text_boxes.append([Rect2(pos+Vector2(0,i*(size+5)-size),Vector2(width,size+5)),lines[i]])
+	return float(lines.size()*(size+5))
+func card(m,r: Rect2) -> void:
+	m._ui_style_box(m.sb_btn,r)
+func row(m,r: Rect2,title: String,kind: String="") -> void:
+	card(m,r)
+	if kind!="": icon(m,kind,Rect2(r.position+Vector2(7,7),Vector2(r.size.y-14,r.size.y-14)))
+	var inset: float=r.size.y+2 if kind!="" else 12
+	paragraph(m,title,r.position+Vector2(inset,r.size.y/2+4),r.size.x-inset-24,10)
+	m._ui_line(r.position+Vector2(r.size.x-17,r.size.y/2-4),r.position+Vector2(r.size.x-13,r.size.y/2),INK,2)
+	m._ui_line(r.position+Vector2(r.size.x-13,r.size.y/2),r.position+Vector2(r.size.x-17,r.size.y/2+4),INK,2)
+func setup_layer(m) -> void:
+	if not is_instance_valid(m.text_layer): return
+	if not is_instance_valid(clip_root):
+		clip_root=Control.new();clip_root.name="GuideScrollClip";clip_root.clip_contents=true;clip_root.mouse_filter=Control.MOUSE_FILTER_IGNORE
+		m.text_layer.add_child(clip_root)
+		body_layer=Node2D.new();body_layer.set_script(load("res://text_layer.gd"));clip_root.add_child(body_layer)
+	clip_root.position=viewport.position;clip_root.size=viewport.size;clip_root.visible=true
+	body_layer.position=-viewport.position;body_layer.items=body_text;body_layer.commands=body_commands;body_layer.queue_redraw()
+func draw(m,h: float) -> void:
+	sync_layer();m.text_items.clear();text_boxes.clear()
+	m._ui_rect(Rect2(-m.ox,0,m.VW+2*m.ox,h),Color(.02,.04,.06,.86))
+	var height: float=minf(500,h-88)
+	var r:=Rect2(12,floorf((h-height)/2),246,height)
+	m._ui_style_box(m.sb_panel,r)
+	preload("res://addons/reservoir/ui_theme.gd").title(m,r,"낚시월드 길잡이" if screen=="home" else TABS[tab])
+	var close:=Rect2(r.end.x-32,r.position.y+9,22,23);m._ui_texture(m.icons.close,close.position)
+	rects={"close":close.grow(2),"tabs":[],"topics":[],"links":[]}
+	if screen!="home":
+		var back:=Rect2(r.position+Vector2(9,9),Vector2(24,23));card(m,back);m._ui_line(back.get_center()+Vector2(2,-4),back.get_center()+Vector2(-2,0),INK,2);m._ui_line(back.get_center()+Vector2(-2,0),back.get_center()+Vector2(2,4),INK,2);rects.back=back
+	viewport=Rect2(r.position+Vector2(10,48),Vector2(r.size.x-20,r.size.y-60))
+	if screen=="home":
+		if is_instance_valid(clip_root):clip_root.hide()
+		paragraph(m,"무엇이 궁금하세요?",r.position+Vector2(16,62),214,12)
+		paragraph(m,"그림을 눌러 살펴보세요",r.position+Vector2(16,80),214,9,Color("877055"))
+		var rh: float=floorf((r.size.y-118)/4)
+		for i in 8:
+			var b:=Rect2(r.position+Vector2(12+(i%2)*113,91+(i/2)*rh),Vector2(109,rh-6));card(m,b)
+			icon(m,HOME_ICONS[i],Rect2(b.position+Vector2(5,(b.size.y-44)/2),Vector2(44,44)))
+			paragraph(m,TABS[i],b.position+Vector2(51,b.size.y/2-2),54,10)
+			paragraph(m,SUBTITLES[i],b.position+Vector2(51,b.size.y/2+15),54,8,Color("7d654d"))
+			rects.tabs.append(b)
+		m._text("필요한 주제부터 확인하세요",Vector2(135,r.end.y-15),9,Color("877055"),true,218)
+		return
+	var old_text: Array=m.text_items;var old_commands: Array=m.ui_commands;m.text_items=[];m.ui_commands=[]
+	var y: float=viewport.position.y+8-scroll
+	if screen=="topics":y=draw_topics(m,y)
+	elif tab==0 and topic==1:y=draw_stars(m,y)
+	else:y=draw_article(m,y)
+	content_height=y+scroll-viewport.position.y+8
+	scroll=clampf(scroll,0,maximum())
+	body_text=m.text_items;body_commands=m.ui_commands;m.text_items=old_text;m.ui_commands=old_commands
+	setup_layer(m)
+	if maximum()>0:
+		var track:=Rect2(r.end.x-8,viewport.position.y,2,viewport.size.y);m._ui_rect(track,Color("d5c5a1"))
+		var thumb: float=maxf(18,viewport.size.y*viewport.size.y/content_height)
+		m._ui_rect(Rect2(track.position+Vector2(0,(track.size.y-thumb)*scroll/maximum()),Vector2(2,thumb)),Color("98714a"))
+func draw_topics(m,y: float) -> float:
+	icon(m,HOME_ICONS[tab],Rect2(108,y,54,54));y+=75
+	m._text(TABS[tab]+" 도움말",Vector2(135,y),14,INK,true,210);y+=26
 	for i in TOPICS[tab].size():
-		var b := Rect2(22+i*width,r.position.y+112,width-4,24)
-		m._ui_style_box(m.sb_btn,b)
-		m._text(TOPICS[tab][i],b.get_center()+Vector2(0,3),8,Color("27674e") if topic == i else Color("68533d"),true,width-8)
-		rects.topics.append(b)
-	if tab==5 and topic==0:
-		m._ui_texture_rect(preload("res://addons/reservoir/soul_pouch_shop.gd").icon(),Rect2(108,r.position.y+148,54,54))
-	elif tab in [5,6]:
-		m.expedition.sprite(m,0,Rect2(108,r.position.y+148,54,54))
-	elif tab==7:
-		m._ui_texture_rect(m.expedition.textures.explore,Rect2(108,r.position.y+148,54,54))
-	else: Reader.illustration(m,["fish","tackle","hall","boat","aquarium"][tab],r.position.y+148)
-	m._text(TOPICS[tab][topic],Vector2(135,r.position.y+220),13,Color("382619"),true,220)
-	rects.reader=Reader.draw(m,content(m),page,r.position.y+242,r.end.y-64)
-	m._text("탭을 눌러 필요한 설명을 확인하세요",Vector2(135,r.end.y-17),9,Color("796b58"),true,220)
-func press(_m, pos: Vector2) -> void:
-	_m.play("ui")
-	if rects.get("close",Rect2()).has_point(pos): opened=false;return
-	for i in rects.get("tabs",[]).size():
-		if rects.tabs[i].has_point(pos): tab=i;topic=0;page=0;return
-	for i in rects.get("topics",[]).size():
-		if rects.topics[i].has_point(pos): topic=i;page=0;return
-	var reader: Dictionary = rects.get("reader",{})
-	if reader.get("previous",Rect2()).has_point(pos): page=maxi(0,page-1)
-	if reader.get("following",Rect2()).has_point(pos): page=mini(reader.count-1,page+1)
+		var r:=Rect2(24,y,222,43);row(m,r,TOPICS[tab][i]);rects.topics.append(r);y+=51
+	return y
+func article_footer(m,y: float) -> float:
+	if tab==0 and topic!=0:
+		var b:=Rect2(24,y,222,34);row(m,b,"기본 조작 보기","fishing");rects.links.append([b,"basics"]);y+=42
+	var b:=Rect2(24,y,222,34);row(m,b,TABS[tab]+" 도움말 목록");rects.links.append([b,"topics"]);return y+42
+func draw_stars(m,y: float) -> float:
+	m._text("별과 등급",Vector2(135,y+12),17,INK,true,210);y+=33
+	y+=paragraph(m,"서로 다른 두 가지 기준이에요",Vector2(28,y),210,10)+12
+	var r:=Rect2(24,y,222,180);card(m,r)
+	m._text("★ 별 = 어종군",Vector2(37,y+24),14,INK,false,192)
+	m._ui_fish(1,Rect2(94,y+38,78,41))
+	m._text("★1 ~ ★5 어종군",Vector2(135,y+96),11,Color("977036"),true,190)
+	paragraph(m,"어떤 어종이 입질할지 정해요",Vector2(35,y+117),200,10)
+	m._ui_rect(Rect2(32,y+128,206,43),Color("d9eee0"))
+	m._ui_texture_rect(m.icons["float"],Rect2(36,y+136,24,24));m._ui_texture_rect(m.icons["hook"],Rect2(58,y+136,24,24));m._ui_texture_rect(m.icons["line"],Rect2(80,y+136,24,24))
+	paragraph(m,"지역 파츠를 차례로 장착",Vector2(109,y+143),122,8,TEAL)
+	paragraph(m,"높은 별 입질이 열려요",Vector2(109,y+158),122,8,TEAL)
+	y+=190
+	r=Rect2(24,y,222,230);card(m,r)
+	m._text("등급 = 희귀도",Vector2(37,y+25),14,INK,false,192)
+	for i in 5:
+		var x: float=34+(i%3)*67 if i<3 else 67+(i-3)*67
+		var cy: float=y+39+(0 if i<3 else 71)
+		var cell:=Rect2(x,cy,62,65);card(m,cell);icon(m,"gem%d"%i,Rect2(x+11,cy+4,40,40))
+		m._text(m.GRADE_N[i],Vector2(x+31,cy+57),9,INK,true,52)
+	paragraph(m,"같은 어종도 등급이 달라요",Vector2(35,y+195),200,10)
+	m._ui_rect(Rect2(32,y+205,206,17),Color("d9eee0"));m._text("미끼와 어장 재고도 영향을 줘요",Vector2(135,y+217),8,TEAL,true,196)
+	y+=240
+	# Preserve all explanations, including newly added bait usage, below the visual summary.
+	for line in content(m):
+		var lines: Array[String]=preload("res://addons/reservoir/text_layout.gd").wrap(m,line,10,194)
+		var bh: float=lines.size()*15+18;card(m,Rect2(24,y,222,bh));paragraph(m,line,Vector2(37,y+18),194,10);y+=bh+7
+	return article_footer(m,y+4)
+func draw_article(m,y: float) -> float:
+	icon(m,HOME_ICONS[tab],Rect2(111,y,48,48));y+=68
+	m._text(TOPICS[tab][topic],Vector2(135,y),15,INK,true,210);y+=22
+	for i in content(m).size():
+		var value: String=content(m)[i]
+		var lines: Array[String]=preload("res://addons/reservoir/text_layout.gd").wrap(m,value,11,184)
+		var height: float=maxf(45,lines.size()*16+22)
+		var r:=Rect2(24,y,222,height);card(m,r)
+		m._ui_circle(r.position+Vector2(14,17),3,TEAL)
+		paragraph(m,value,r.position+Vector2(25,21),184,11)
+		y+=height+8
+	return article_footer(m,y+4)
+func maximum() -> float:return maxf(0,content_height-viewport.size.y)
+func change_screen(value: String) -> void:
+	screen=value;scroll=0;page=0;pointer=-2;dragged=false
+func press(m,pos: Vector2) -> void:
+	if rects.get("close",Rect2()).has_point(pos):opened=false;sync_layer();return
+	if rects.get("back",Rect2()).has_point(pos):change_screen("home" if screen=="topics" else "topics");sync_layer();return
+	if screen=="home":
+		for i in rects.get("tabs",[]).size():
+			if rects.tabs[i].has_point(pos):tab=i;topic=0;change_screen("topics");m.play("ui");return
+	elif viewport.has_point(pos):
+		for i in rects.get("topics",[]).size():
+			if rects.topics[i].has_point(pos):topic=i;change_screen("article");m.play("ui");return
+		for link in rects.get("links",[]):
+			if link[0].has_point(pos):
+				if link[1]=="basics":topic=0;change_screen("article")
+				else:change_screen("topics")
+				return
+func input_event(m,e: InputEvent) -> bool:
+	if not opened:return false
+	if (e is InputEventMouseButton or e is InputEventMouseMotion) and e.device==-1:return true
+	if e is InputEventScreenTouch:
+		native_at=Time.get_ticks_msec();var p: Vector2=e.position-Vector2(m.ox,0)
+		if e.pressed:
+			if pointer==-2:pointer=e.index;start=p;last=p;dragged=false
+		elif pointer==e.index:
+			pointer=-2
+			if not e.canceled and not dragged:press(m,p)
+		return true
+	if e is InputEventScreenDrag:
+		if pointer==e.index:
+			var p: Vector2=e.position-Vector2(m.ox,0)
+			if start.distance_to(p)>5:dragged=true
+			if dragged and viewport.has_point(start) and screen!="home":scroll=clampf(scroll+last.y-p.y,0,maximum())
+			last=p
+		return true
+	if e is InputEventMouseButton:
+		var p: Vector2=e.position-Vector2(m.ox,0)
+		if e.button_index in [MOUSE_BUTTON_WHEEL_UP,MOUSE_BUTTON_WHEEL_DOWN]:
+			if e.pressed and viewport.has_point(p):scroll=clampf(scroll+(42 if e.button_index==MOUSE_BUTTON_WHEEL_DOWN else -42),0,maximum())
+		elif e.button_index==MOUSE_BUTTON_LEFT:
+			if e.pressed:pointer=-1;start=p;last=p;dragged=false
+			elif pointer==-1:
+				pointer=-2
+				if not dragged:press(m,p)
+		return true
+	if e is InputEventMouseMotion and pointer==-1:
+		var p: Vector2=e.position-Vector2(m.ox,0)
+		if start.distance_to(p)>5:dragged=true
+		if dragged and viewport.has_point(start) and screen!="home":scroll=clampf(scroll+last.y-p.y,0,maximum())
+		last=p
+	return true
