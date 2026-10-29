@@ -48,7 +48,7 @@ func run() -> void:
 	check(m.region_shop.is_unlocked(1) and m.region_shop.stocks[1]==4,"region and bait save round trip")
 	check("r1_hook" in m.equipment.active_parts,"regional equipment persists")
 	m.region_shop.stocks[1]=0;m.bait=1
-	check(m.region_shop.take_bait(m)==1.0 and m.bait==0,"empty selected bait falls back to worm")
+	check(m.region_shop.take_bait(m)==0.85 and m.bait==1,"empty selected bait preserves unselected worm")
 	check(m.region_shop.take_bait(m)==0.85,"empty inventory uses bare hook")
 	m.V.open_shop(m,"work");m.text_items=[];m.V.draw_shop(m,660)
 	check(m.text_items.any(func(it):return "보유 비늘" in str(it[2])),"sell tab displays scales")

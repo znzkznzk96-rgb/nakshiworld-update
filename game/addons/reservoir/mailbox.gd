@@ -72,14 +72,15 @@ func mark(m, id: String) -> void :
 	if id not in read_ids: read_ids.append(id);m._save_game()
 func envelope(m, r: Rect2, col: Color) -> void :
 	m._ui_texture_rect(preload("res://art/guide64/mail.png"),Rect2(r.get_center()-Vector2(12,12),Vector2(24,24)))
-func draw_button(m) -> void :
-	button = Rect2(51, m.get_viewport_rect().size.y-m.bot_pad-99, 38, 38)
-	m._ui_style_box(m.sb_btn,button)
-	m._ui_texture_rect(preload("res://art/guide64/mail.png"),Rect2(button.position+Vector2(6,3),Vector2(26,26)))
-	m._text("우편",button.position+Vector2(19,32),7,Color("513b29"),true,32)
+func draw_button(m) -> void:
+	button = Rect2(51, m.get_viewport_rect().size.y-m.bot_pad-100, 34, 32)
+	m._ui_texture_rect(m.e_slots.slot,button)
+	m._ui_texture_rect(preload("res://art/guide64/mail.png"),Rect2(button.position+Vector2(5,3),Vector2(24,24)))
+	m._text("우편",button.position+Vector2(17,41),8,Color("fff0d1"),true,42,true)
 	if unread() > 0:
-		m._ui_rect(Rect2(button.position+Vector2(29,3),Vector2(6,6)),Color("a43b30"))
-		m._ui_rect(Rect2(button.position+Vector2(30,4),Vector2(2,2)),Color("ffb999"))
+		m._ui_rect(Rect2(button.position+Vector2(27,1),Vector2(6,6)),Color("a43b30"))
+		m._ui_rect(Rect2(button.position+Vector2(28,2),Vector2(2,2)),Color("ffb999"))
+
 func draw(m, h: float) -> void :
 	var height := minf(440.0 if detail != "" else 364.0,h-88)
 	var r := Rect2(13,maxf(8,(h-height)/2),244,height)

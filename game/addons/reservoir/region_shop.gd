@@ -24,8 +24,8 @@ func restore(data: Dictionary) -> void:
 	stocks=[0,0,0,0,0,0]
 	var saved: Array = data.get("stocks",[])
 	for i in mini(6,saved.size()): stocks[i]=maxi(0,int(saved[i]))
-	selected_bait=clampi(int(data.get("selected_bait",0)),0,5)
-	if not bait_unlocked(selected_bait): selected_bait=0
+	selected_bait=clampi(int(data.get("selected_bait",0)),-1,5)
+	if selected_bait>=0 and not bait_unlocked(selected_bait): selected_bait=0
 func serialize() -> Dictionary:
 	return {"unlocked":unlocked,"stocks":stocks,"selected_bait":selected_bait}
 func is_unlocked(n: int) -> bool: return n in unlocked
@@ -63,12 +63,11 @@ func part_data(m, key: String) -> Dictionary:
 	if n<0 or n>5 or slot<0 or key!=part_key(n,slot): return {}
 	return {"key":"part:"+key,"name":TITLES[n]+" "+m.V.PARTS[slot][1],"icon":icon(m,n,slot),"price":price(m,n,slot)/2,"equipped":key in m.equipment.active_parts,"desc":"지역 %d · %s" % [n+1,["★2 입질 해금","★3 입질 해금","★4 입질 해금","주인 낚시 준비"][slot]]}
 func bait_unlocked(i: int) -> bool: return i>=0 and i<6 and is_unlocked(BAIT_REGION[i])
-func stock(m, i: int) -> int: return m.bait if i==0 else int(stocks[i])
+func stock(m, i: int) -> int: return 0 if i<0 or i>=6 else (m.bait if i==0 else int(stocks[i]))
 func take_bait(m) -> float:
 	var i:=selected_bait
-	if not bait_unlocked(i) or stock(m,i)<=0: i=0
 	last_bait=-1
-	if stock(m,i)<=0: return 0.85
+	if not bait_unlocked(i) or stock(m,i)<=0: return 0.85
 	if i==0: m.bait-=1
 	else: stocks[i]-=1
 	last_bait=i
@@ -115,7 +114,7 @@ func bait_icon(i: int) -> Texture2D:
 	if not icons.has(key): icons[key]=load("res://art/rewards67/"+key+".png")
 	return icons[key]
 func draw_bait(m,v,r: Rect2,y: float) -> void:
-	m._text("사용 미끼: "+BAIT_NAMES[selected_bait],Vector2(135,y+3),9,Color("6a4a2a"),true,230);y+=12
+	m._text("사용 미끼: "+(BAIT_NAMES[selected_bait] if selected_bait>=0 else "빈 바늘"),Vector2(135,y+3),9,Color("6a4a2a"),true,230);y+=12
 	for i in 6:
 		var cell:=Rect2(r.position.x+12,y+i*34,230,32)
 		m._ui_style_box(v.active_style.card,cell)
@@ -127,4 +126,4 @@ func draw_bait(m,v,r: Rect2,y: float) -> void:
 		m._text("구매" if bait_unlocked(i) else "잠김",buy.get_center()+Vector2(0,4),9,v.active_style.ink,true,68)
 		if bait_unlocked(i): v.rects.rows.append([buy,"bait:%d:1" % i])
 		if bait_unlocked(i) and stock(m,i)>0: v.rects.rows.append([Rect2(cell.position,Vector2(148,32)),"baitselect:%d" % i])
-	m._text("미끼 이름을 눌러 사용 선택 · 없으면 지렁이",Vector2(135,y+219),8,Color("675c4b"),true,232)
+	m._text("미끼 이름을 눌러 선택 · 소진 시 빈 바늘",Vector2(135,y+219),8,Color("675c4b"),true,232)

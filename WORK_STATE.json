@@ -1,23 +1,23 @@
 {
   "schema_version": 3,
   "work_branch": "work/valley-runtime",
-  "status": "implementation_authorized",
+  "status": "verified_awaiting_release",
   "release_baseline": "v0.91",
   "source_commit": "97ac6534dbf9f2c13c5a1321b62ea57a1a959439",
-  "current_task": "UI092 미끼 선택·마을 아이콘 버튼",
+  "current_task": "UI092 구현·54검사 완료, 공개배포 진행",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
-  "verification": "analysis/ui091/PUBLISHED.json",
+  "verification": "analysis/ui092/REPORT.md",
   "phone_verified": false,
   "release_authorized": true,
-  "next_step": "PixelLab 프레임 제작 및 UI 구현",
+  "next_step": "작업 CI 및 v0.92 배포·공개 검증",
   "updated_at": "2026-10-29",
   "support_audit": "analysis/support-balance-085/REPORT.md",
   "support_utility_report": "analysis/support-utility-085/REPORT.md",
   "target_release": "v0.92",
   "last_release_deployed": true,
   "this_change": {
-    "implemented": false,
+    "implemented": true,
     "deployed": false,
     "release_authorized": true
   }
