@@ -1171,7 +1171,6 @@ func show_result(ok: bool) -> void :
 
 func _unhandled_input(e: InputEvent) -> void :
 	if bait_picker.input_event(self,e): return
-	if guide.input_event(self,e): return
 	if not title_open and expedition.input_event(self,e): return
 	if personal_dex.input_event(self,e): return
 	if title_open:
@@ -1210,7 +1209,7 @@ func press(pos: = Vector2.ZERO) -> void :
 	if mailbox.opened: mailbox.press(self, pos);return
 	if not equipment.pending_sale.is_empty(): equipment.press_confirmation(self, pos);return
 	if scene == "village" and guide.button.has_point(pos) and V.shop == "" and not market_open and not settings_open:
-		guide.open_home();menu_open = false;holding = false;play("ui");return
+		guide.opened = true;menu_open = false;holding = false;play("ui");return
 	if scene == "village" and mailbox.button.has_point(pos) and V.shop == "" and not market_open and not settings_open:
 		mailbox.opened = true;menu_open = false;holding = false;play("ui");return
 	if not V.commerce.pending.is_empty(): V.commerce.press(V, self, pos);return
@@ -1374,7 +1373,6 @@ func _draw() -> void :
 	_draw_overlays(t, h)
 
 func _draw_overlays(t: float, h: float) -> void :
-	guide.sync_layer()
 	if market_open and scene == "village":
 
 		text_items = text_items.filter( func(it): return it[1].y < top_y + 70)

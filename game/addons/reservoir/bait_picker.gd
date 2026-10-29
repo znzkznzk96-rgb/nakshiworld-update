@@ -1,6 +1,5 @@
 extends RefCounted
 # Compact left-side bait selection. All stats and inventory belong to region_shop.
-var no_bait_icon: Texture2D=preload("res://art/ui/no_bait_b2.png")
 var opened := false
 var button := Rect2()
 var panel := Rect2()
@@ -12,7 +11,7 @@ var start := Vector2.ZERO
 var dragging := false
 
 func visible(m) -> bool:
-	return m.scene=="fish" and not m.title_open and not m.lesson_open and not m.menu_open and not m.settings_open and not m.market_open and not m.personal_dex.opened and not m.mailbox.opened and not m.guide.opened and m.expedition.opened=="" and m.trans.is_empty()
+	return m.scene=="fish" and m.S.phase in ["idle","result"] and not m.title_open and not m.lesson_open and not m.menu_open and not m.settings_open and not m.market_open and not m.personal_dex.opened and not m.mailbox.opened and not m.guide.opened and m.expedition.opened=="" and m.trans.is_empty()
 func can_change(m) -> bool:
 	return m.S.phase=="idle" or (m.S.phase=="result" and not m.S.get("ok",false))
 func layout(y: float) -> void:
@@ -29,15 +28,12 @@ func draw_button(m,y: float) -> void:
 	m._ui_texture_rect(m.e_slots.slot,button)
 	if id>=0:
 		m._ui_texture_rect(m.region_shop.bait_icon(id),Rect2(button.position+Vector2(5,3),Vector2(22,22)))
-	else: draw_no_bait(m,button.position+Vector2(5,3))
+	if id<0: return
 	var count: String=str(m.region_shop.stock(m,id)) if id>=0 else "—"
 	if id>=0 and m.region_shop.stock(m,id)>999: count="999+"
 	m._text(count,button.position+Vector2(16,27),8,Color("fff0d1"),true,26,true)
 	if can_change(m) and id>=0 and m.region_shop.stock(m,id)==0:
 		m._text("소진",button.position+Vector2(16,-3),7,Color("ffcc9b"),true,32,true)
-func draw_no_bait(m,p: Vector2) -> void:
-	# Approved B2: PixelLab smiling dough pair and minus badge, original unmodified.
-	m._ui_texture_rect(no_bait_icon,Rect2(p,Vector2(22,22)))
 func draw_popup(m) -> void:
 	if not opened or not visible(m): return
 	if not can_change(m): opened=false;return

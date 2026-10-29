@@ -30,7 +30,7 @@ static func draw(mail,m,r: Rect2) -> void:
 	m._text("읽음",Vector2(237,r.position.y+55),8,Color("847052"),true,29)
 	var title: Array=Layout.wrap(m,letter.title,11,216)
 	for i in mini(2,title.size()): m._text(title[i],Vector2(27,r.position.y+78+i*15),11,Color("382619"),false,216)
-	var gift: bool=letter.id=="0.78"
+	var gift: bool=letter.id in ["0.78","0.93"]
 	var footer: float=r.end.y-(85 if gift else 47)
 	if mail.full_text:
 		m._text("전체 업데이트 내용",Vector2(27,r.position.y+115),9,Color("247e80"),false,216)
@@ -52,7 +52,7 @@ static func draw(mail,m,r: Rect2) -> void:
 			for paragraph in item.get("display",item.body): lines.append_array(Layout.wrap(m,str(paragraph),8,198))
 			for j in mini(2,lines.size()):
 				m._text(lines[j],Vector2(36,y+35+j*14),8,Color("513b29"),false,198)
-		if pages==1: m._text("전체 내용은 상세 보기에서 확인해요.",Vector2(27,footer-10),8,Color("847052"),false,216)
+		if pages==1 and letter.id!="0.93": m._text("전체 내용은 상세 보기에서 확인해요.",Vector2(27,footer-10),8,Color("847052"),false,216)
 		if pages>1:
 			# Card navigation uses the same hit targets as the full-text reader.
 			mail.rects.reader={"count":pages}
@@ -64,8 +64,9 @@ static func draw(mail,m,r: Rect2) -> void:
 	if gift:
 		var gift_rect:=Rect2(27,r.end.y-45,216,28)
 		m._ui_style_box(m.sb_primary,gift_rect)
-		var claimed: bool=preload("res://addons/reservoir/testing_gift.gd").ID in m.testing_grants
-		m._text("테스트 선물 수령 완료" if claimed else "테스트 선물 받기",gift_rect.get_center()+Vector2(0,4),10,Color("fff0d1"),true,206);mail.rects.gift=gift_rect
+		var gift_id: String=preload("res://addons/reservoir/arrival_gift.gd").ID if letter.id=="0.93" else preload("res://addons/reservoir/testing_gift.gd").ID
+		var claimed: bool=gift_id in m.testing_grants
+		m._text(("선물 수령 완료" if claimed else "전설 20마리 + 10만 비늘 받기") if letter.id=="0.93" else ("테스트 선물 수령 완료" if claimed else "테스트 선물 받기"),gift_rect.get_center()+Vector2(0,4),10,Color("fff0d1"),true,206);mail.rects.gift=gift_rect
 	var back:=Rect2(27,footer,87,30);var toggle:=Rect2(156,footer,87,30)
 	for b in [back,toggle]: m._ui_style_box(m.sb_btn,b)
 	m._text("목록으로",back.get_center()+Vector2(0,4),10,Color("513b29"),true,77)
