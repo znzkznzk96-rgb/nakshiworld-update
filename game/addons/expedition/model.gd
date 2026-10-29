@@ -8,6 +8,8 @@ const ENEMY_ATTACK_SCALE = [3.0,3.5,3.2,5.0,2.5,4.5,1.5,3.5,3.5,1.0]
 const START_SHIELD_RATIO = 0.044
 const POUCH_DROP_CHANCE = 0.25
 const POUCH_PRICE = 500
+const FIRST_GOLD = [200,300,500,800,1200,1800,2500,3500,4500,6000]
+const REPEAT_GOLD = [10,15,25,35,50,65,85,110,140,180]
 const FIRST_POUCHES = [1,1,2,1,3,1,4,1,1,5]
 const BOSS_POUCH_CHANCE = {3:0.05,5:0.08,7:0.12,10:0.20}
 var pouches: int = 0
@@ -182,7 +184,7 @@ func start(round_no: int,now: float) -> bool:
 		if u.is_empty(): return false
 		var st: Dictionary=stats(u)
 		fighters.append({"id":u.id,"uid":u.uid,"hp":st.hp,"max_hp":st.hp,"atk":st.atk,"def":st.def,"shield":0,"hits":0})
-	battle={"utility_revision":1,"utility_tick":0,"rescue_ready":0,"ward_ready":0,"reward_revision":1,"pouch_reward":0,"repeat_pouch_roll":rng.randf(),"balance_revision":BALANCE_REVISION,"status":"running","round":round_no,"index":0,"fighters":fighters,"ticks":0,"clock":0.0,"phase":"approach","phase_time":0.0,"reward":0,"cleared":0,"first":round_no not in completed,"last_damage":0,"progress":0.0,"result_seen":false}
+	battle={"utility_revision":1,"utility_tick":0,"rescue_ready":0,"ward_ready":0,"reward_revision":2,"pouch_reward":0,"repeat_pouch_roll":rng.randf(),"balance_revision":BALANCE_REVISION,"status":"running","round":round_no,"index":0,"fighters":fighters,"ticks":0,"clock":0.0,"phase":"approach","phase_time":0.0,"reward":0,"cleared":0,"first":round_no not in completed,"last_damage":0,"progress":0.0,"result_seen":false}
 	spawn_enemy()
 	return true
 
@@ -304,7 +306,10 @@ func finish(win: bool,now: float=0) -> void:
 	battle.status="win" if win else "loss"
 	battle.result_seen=false
 	if int(battle.get("reward_revision",0))>=1:
-		battle.reward=(26*int(battle.round) if bool(battle.first) else 2*int(battle.round)) if win else 0
+		if int(battle.get("reward_revision",0))>=2:
+			battle.reward=(FIRST_GOLD[int(battle.round)-1] if bool(battle.first) else REPEAT_GOLD[int(battle.round)-1]) if win else 0
+		else:
+			battle.reward=(26*int(battle.round) if bool(battle.first) else 2*int(battle.round)) if win else 0
 		battle.pouch_reward=0
 		if win and bool(battle.first): battle.pouch_reward=FIRST_POUCHES[int(battle.round)-1]
 		elif win and float(battle.get("repeat_pouch_roll",1.0))<float(BOSS_POUCH_CHANCE.get(int(battle.round),0.0)): battle.pouch_reward=1

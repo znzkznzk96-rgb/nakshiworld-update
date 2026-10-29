@@ -137,7 +137,9 @@ var forge_pending: = {}
 var forge_seen: = false
 var pond_cap_lv: = 0
 var pond_regen_lv: = 0
-var pond_stock: = 80.0
+var pond_base := 40.0
+var capture_robot = preload("res://addons/reservoir/capture_robot.gd").new()
+var pond_stock: = 40.0
 var DEX: = {}
 var environment = preload("res://addons/reservoir/environment.gd").new()
 var bg_node: Sprite2D
@@ -438,12 +440,14 @@ func start_cast() -> void :
 		holding = false
 		show_tip("", "가방의 인벤토리에서 낚싯대를 장착해 주세요")
 		return
+	var insufficient: bool=pond_stock<1.0
 	pond_stock = maxf(0.0, pond_stock - 1.0)
-	S = {"phase": "cast", "t": 0.0}
+	S = {"phase": "cast", "t": 0.0, "insufficient":insufficient}
 	set_anim("cast", false);msg = "";audio_feedback.sound(self,"cast",-6)
 	_save_game()
 
 func start_wait() -> void :
+	var insufficient: bool=bool(S.get("insufficient",pond_stock<1.0))
 	var bait_multiplier: float = region_shop.take_bait(self)
 	var bare: bool = bait_multiplier < 1.0
 	var sp_w: = []
@@ -476,7 +480,7 @@ func start_wait() -> void :
 		S.lf = bait_length_cm(S.sp) / float(FISH_LEN[S.sp])
 	else: S.lf = minf(S.lf, species_max_cm(S.sp) / FISH_LEN[S.sp])
 	S.size = 0 if S.lf < 0.9 else (1 if S.lf < 1.15 else (2 if S.lf < 1.35 else 3))
-	S.biteAt = clock + randf_range(BITE_WAIT[0], BITE_WAIT[1]) * (BAIT_WAIT_MUL if S.bare else 1.0) * (3.5 if pond_stock <= 0.0 else lerpf(1.0, 1.6, 1.0 - stock_ratio))
+	S.biteAt = clock + randf_range(BITE_WAIT[0], BITE_WAIT[1]) * (BAIT_WAIT_MUL if S.bare else 1.0) * (3.5 if insufficient else lerpf(1.0, 1.6, 1.0 - stock_ratio))
 	S.fakeI = 0;ripples.clear()
 	var t: = clock + randf_range(0.5, 0.9)
 	while t < S.biteAt - 0.4:
@@ -1198,6 +1202,7 @@ func _unhandled_input(e: InputEvent) -> void :
 		_slider_set(e.position.x - ox)
 
 func press(pos: = Vector2.ZERO) -> void :
+	if capture_robot.press(self,pos): return
 	if expedition.opened!="": expedition.press(self,pos);return
 	if scene=="village" and V.shop=="" and not menu_open and not market_open and not settings_open and expedition.rects.get("strip",Rect2()).has_point(pos): expedition.open(self,"explore");return
 	if personal_dex.opened: personal_dex.press(self,pos);return
@@ -1270,6 +1275,7 @@ func _process(dt: float) -> void :
 	tip_t = maxf(0.0, tip_t - dt)
 	bag_disp = move_toward(bag_disp, bag_weight(), dt * maxf(0.5, bag_cap()) * 1.2)
 	pond_stock = minf(pond_max(), pond_stock + pond_recovery() * dt / 3600.0)
+	capture_robot.update(self,dt)
 	if scene != "village": aqua_acc += aqua_rate() / 60.0 * dt
 	if aqua_acc >= 1.0: gold += int(aqua_acc);aqua_acc -= int(aqua_acc)
 	if not trans.is_empty():
@@ -1277,7 +1283,7 @@ func _process(dt: float) -> void :
 		if not trans.done and trans.t >= TR_CLOSE + 0.1:
 			trans.done = true;_switch_scene(trans.to)
 		if trans.t >= TR_CLOSE + TR_HOLD + TR_OPEN: trans = {}
-	if bait_picker.opened or expedition.opened!="" or personal_dex.opened or guide.opened or mailbox.opened or settings_open or market_open or not V.commerce.pending.is_empty() or not equipment.pending_sale.is_empty() or inventory.selected >= 0: queue_redraw();return
+	if capture_robot.opened or bait_picker.opened or expedition.opened!="" or personal_dex.opened or guide.opened or mailbox.opened or settings_open or market_open or not V.commerce.pending.is_empty() or not equipment.pending_sale.is_empty() or inventory.selected >= 0: queue_redraw();return
 	if scene == "spots": spots.process(dt);queue_redraw();return
 	if scene == "village":
 		toast_t = max(0.0, toast_t - dt);judge_t = max(0.0, judge_t - dt)
@@ -1367,6 +1373,7 @@ func _draw() -> void :
 		"fail", "result": pass
 	draw_set_transform(Vector2.ZERO)
 	for i in range(n0, text_items.size()): text_items[i][1] += Vector2(0, oy)
+	capture_robot.draw_surface(self)
 	_draw_ui(t, h)
 	if lesson_open and lesson_after != "book": _draw_lesson_card(t)
 	_draw_overlays(t, h)
@@ -1392,6 +1399,7 @@ func _draw_overlays(t: float, h: float) -> void :
 	personal_dex.draw(self,h)
 	expedition.draw_result_notice(self)
 	expedition.draw(self,h)
+	capture_robot.draw_panel(self,h)
 	if text_layer:
 		text_layer.position.x = ox
 		text_layer.items = text_items
@@ -1410,6 +1418,7 @@ func start_trans(to: String) -> void :
 
 func _switch_scene(to: String) -> void :
 	bait_picker.opened=false
+	capture_robot.opened=false
 	title_screen.leaving = false
 	if is_instance_valid(title_screen.root): title_screen.root.hide()
 	V.visitors.hide_all(V.res + V.locals)
@@ -2541,7 +2550,7 @@ func _draw_weight(y: float) -> void :
 			_ui_rect(Rect2(x + 36, y + 24, w - 42, 5), Color("27342f"))
 			_ui_rect(Rect2(x + 37, y + 25, (w - 44) * stock_ratio, 3), Color("68c5d3") if stock_ratio > 0.25 else Color("e3a64d"))
 
-func pond_max() -> float: return 80.0 + pond_cap_lv * 20.0
+func pond_max() -> float: return pond_base + pond_cap_lv * 20.0
 func pond_recovery() -> float: return 30.0 + pond_regen_lv * 10.0
 
 
@@ -2603,7 +2612,7 @@ func _save_game() -> bool:
 	if resetting or development_preview: return false
 	var ok: bool = preload("res://addons/reservoir/save_store.gd").write("user://save.json", {"testing_grants":testing_grants.duplicate(),"buyback":buyback.serialize(),"regional_progress":progression.serialize(),"active_region":active_region,"region_shop": region_shop.serialize(), "equipment": equipment.serialize(), "mail_read": mailbox.read_ids, "mail_deleted": mailbox.deleted_ids, "v": SAVE_VER, "gold": gold, "pearl": pearl, "bag": bag_items(), "bag_lv": bag_lv, "parts": parts_owned, "tips": tips_seen,
 		"town_zoom": V.zoom, "boat_lv": boat_lv, "town_lv": town_lv, "forge_lv": forge_lv, "rod_lv": rod_lv, "rod_owned": rod_owned, "rod_enh": rod_enh, "protection_tickets": protection_tickets, "forge_pending": forge_pending, "forge_seen": forge_seen, 
-		"pond_cap_lv": pond_cap_lv, "pond_regen_lv": pond_regen_lv, "pond_stock": pond_stock, 
+		"capture_robot":capture_robot.serialize(),"pond_base":pond_base,"pond_cap_lv": pond_cap_lv, "pond_regen_lv": pond_regen_lv, "pond_stock": pond_stock,
 		"expedition": expedition.data.serialize(), "bait": bait, "souls": souls, "aqua_lv": aqua_lv, "aqua": aqua, "dex": DEX, "personal_dex": personal_dex.serialize(), "catch_counts": catch_counts, "catch_legacy": catch_legacy, "world_time": environment.day_seconds, "time": Time.get_unix_time_from_system()})
 	if not ok and not save_warning:
 		save_warning=true;tip_txt="저장 실패 · 저장 공간을 확인해 주세요";tip_t=8.0
@@ -2614,7 +2623,7 @@ func aqua_rate() -> float:
 	var r: = 0.0
 	for f in aqua:
 		if f != null: r += float(f.price) / 300.0
-	return r * V.multiplier(self)
+	return r * V.multiplier(self) * 0.75 # Approved aquarium income adjustment; visitor multiplier unchanged.
 
 func _load_game() -> void :
 	var d: Dictionary = preload("res://addons/reservoir/save_store.gd").read("user://save.json")
@@ -2646,6 +2655,8 @@ func _load_game() -> void :
 	forge_pending = d.get("forge_pending", {})
 	forge_seen = bool(d.get("forge_seen", false))
 	equipment.restore(self, d.get("equipment", {}))
+	capture_robot.restore(d.get("capture_robot",{}))
+	pond_base=40.0 if d.has("pond_base") and float(d.pond_base)<=40 else 80.0
 	pond_cap_lv = clampi(int(d.get("pond_cap_lv", 0)), 0, 5);pond_regen_lv = clampi(int(d.get("pond_regen_lv", 0)), 0, 5)
 	pond_stock = clampf(float(d.get("pond_stock", 80.0)), 0.0, pond_max())
 	personal_dex.restore(d.get("personal_dex",{}))

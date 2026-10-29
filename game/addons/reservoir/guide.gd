@@ -175,18 +175,16 @@ func draw_stars(m,y: float) -> float:
 	paragraph(m,"같은 어종도 등급이 달라요",Vector2(35,y+195),200,10)
 	m._ui_rect(Rect2(32,y+205,206,17),Color("d9eee0"));m._text("미끼와 어장 재고도 영향을 줘요",Vector2(135,y+217),8,TEAL,true,196)
 	y+=240
-	# Preserve all explanations, including newly added bait usage, below the visual summary.
-	for line in content(m):
-		var lines: Array[String]=preload("res://addons/reservoir/text_layout.gd").wrap(m,line,10,194)
-		var bh: float=lines.size()*15+18;card(m,Rect2(24,y,222,bh));paragraph(m,line,Vector2(37,y+18),194,10);y+=bh+7
-	return article_footer(m,y+4)
+	y=draw_sections(m,y)
+	return article_footer(m,y+8)
+
 func draw_basics(m,y: float) -> float:
 	m._text("이렇게 낚아요",Vector2(135,y+15),17,INK,true,210);y+=38
 	y+=paragraph(m,"그림으로 배우는 기본 조작",Vector2(54,y),174,10)+14
 	var art := ["bite","hook","reel","dash","land"]
 	var titles := ["찌가 잠기면 탭!","별이 중앙에 오면 탭!","누르면 감고, 떼면 풀어요","돌진 전에는 손 떼기","착수하는 순간 탭!"]
 	for i in 5:
-		var r:=Rect2(24,y,222,126);card(m,r)
+		var r:=Rect2(24,y,222,126)
 		m._ui_style_box(m.sb_primary,Rect2(32,y+8,22,22))
 		m._text(str(i+1),Vector2(43,y+24),12,Color("fff1d5"),true,18)
 		paragraph(m,titles[i],Vector2(61,y+23),174,10)
@@ -198,15 +196,47 @@ func draw_basics(m,y: float) -> float:
 func draw_article(m,y: float) -> float:
 	icon(m,HOME_ICONS[tab],Rect2(105,y,60,60));y+=78
 	m._text(TOPICS[tab][topic],Vector2(135,y),15,INK,true,210);y+=22
-	for i in content(m).size():
-		var value: String=content(m)[i]
-		var lines: Array[String]=preload("res://addons/reservoir/text_layout.gd").wrap(m,value,11,184)
-		var height: float=maxf(45,lines.size()*16+22)
-		var r:=Rect2(24,y,222,height);card(m,r)
-		m._ui_circle(r.position+Vector2(14,17),3,TEAL)
-		paragraph(m,value,r.position+Vector2(25,21),184,11)
-		y+=height+8
-	return article_footer(m,y+4)
+	y=draw_sections(m,y)
+	return article_footer(m,y+8)
+# Each range groups related original explanations; joining keeps old line breaks
+# from splitting a sentence into separate UI boxes. No gameplay values are copied.
+func section_specs() -> Array:
+	match "%d:%d" % [tab,topic]:
+		"0:1":return [["별과 희귀도",0,3],["높은 별을 만나려면",3,6],["미끼 고르기",6,9],["PERFECT 챔질",9,10]]
+		"0:2":return [["크기 비교",0,2],["최대 길이와 기록",2,5]]
+		"0:3":return [["주인 게이지 쌓기",0,2],["주인 등장 조건",2,4],["도전 후 게이지",4,6]]
+		"1:0":return [["별 해금 순서",0,3,true],["파츠 장착 조건",3,7]]
+		"1:1":return [["장착과 판매",0,3],["낚싯대 판매 시 주의",3,5]]
+		"1:2":return [["강화 방법",0,1],["현재 강화 정보",1,4,true],["강화 전 확인",4,7]]
+		"2:0":return [["현재 어장",0,2,true],["재고와 입질",2,4],["저수지·계곡의 예외",4,7]]
+		"2:1":return [["어장 키우기",0,2],["현재 회복 능력",2,4,true],["쉬는 동안 회복",4,6]]
+		"2:2":return [["낚시터 이동",0,2],["다음 지역 해금",2,6]]
+		"3:0":return [["현재 운항 정보",0,3,true],["배 업그레이드",3,5]]
+		"3:1":return [["시설별 할 일",0,5,true],["마을 둘러보기",5,6]]
+		"3:2":return [["우편 읽기",0,3],["읽음과 삭제",3,5]]
+		"4:0":return [["혼 얻기와 사용",0,3],["손질할 물고기 고르기",3,7]]
+		"4:1":return [["현재 수족관",0,2,true],["수익과 확장",2,6]]
+		"4:2":return [["쉬는 동안 수익 받기",0,4],["예상 수익",4,6]]
+		"5:0":return [["어혼과 주머니 얻기",0,3],["주머니 열기",3,6],["탐험 보상",6,7]]
+		"5:1":return [["재료 선택",0,3],["조합과 미리보기",3,5],["소모 재료와 보유 한도",5,7]]
+		"5:2":return [["합성 조건",0,3],["비용과 개체값",3,5],["병사 보호와 제한",5,7]]
+		"6:0":return [["역할과 자리",0,3],["공격과 생존",3,5],["배치 바꾸기",5,6]]
+		"6:1":return [["병사 강화",0,3],["3성 희귀도",3,5],["탐험 중 제한",5,6]]
+		"6:2":return [["처음 편성할 때",0,2],["전투가 어렵다면",2,4],["상황에 맞는 조합",4,6]]
+		"7:0":return [["출발과 진행 확인",0,3],["결과와 보상",3,6]]
+		"7:1":return [["체력과 피해 확인",0,2],["회복과 보호 효과",2,4]]
+		"7:2":return [["지원도 공격해요",0,1],["병사별 지원 효과",1,6,true],["중복과 회복 한도",6,8]]
+	return []
+func draw_sections(m,y: float) -> float:
+	var source: Array=content(m)
+	for spec in section_specs():
+		y+=paragraph(m,str(spec[0]),Vector2(34,y+12),202,12,TEAL)+12
+		var parts: PackedStringArray=[]
+		for i in range(spec[1],spec[2]):parts.append(str(source[i]))
+		var value: String=("\n" if spec.size()>3 and spec[3] else " ").join(parts)
+		y+=paragraph(m,value,Vector2(34,y+11),202,11)+22
+	return y
+
 func maximum() -> float:return maxf(0,content_height-viewport.size.y)
 func change_screen(value: String) -> void:
 	screen=value;scroll=0;page=0;pointer=-2;dragged=false

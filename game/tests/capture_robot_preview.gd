@@ -1,0 +1,18 @@
+extends SceneTree
+func _initialize(): call_deferred("run")
+func capture(m,out,name):
+ m.queue_redraw();await process_frame;await process_frame;await RenderingServer.frame_post_draw
+ root.get_texture().get_image().save_png(out.path_join(name+".png"))
+func run():
+ var out=OS.get_cmdline_user_args()[0];DirAccess.make_dir_recursive_absolute(out)
+ root.content_scale_mode=Window.CONTENT_SCALE_MODE_CANVAS_ITEMS
+ var ui=CanvasLayer.new();root.add_child(ui);var txt=Node2D.new();txt.set_script(load("res://text_layer.gd"));ui.add_child(txt)
+ var m=load("res://main.gd").new();m.text_layer=txt;m.development_preview=true;m.SET.sfx=0;m.SET.music=0;root.add_child(m);await process_frame;m.set_process(false)
+ m.title_open=false;m.lesson_open=false;m.tip_t=0;m.trans={};m.TUT.done=true;m.gold=5000;m.expedition.data.restore({})
+ for h in [480,660]:
+  root.content_scale_size=Vector2i(270,h);root.size=Vector2i(540,h*2);await process_frame;m._layout();m._switch_scene("village")
+  m.V.shop="forge";m.V.forge_tab="robot";m.capture_robot.restore({});await capture(m,out,"shop_buy_%d"%h)
+  m.capture_robot.owned=true;m.capture_robot.enabled=true;await capture(m,out,"shop_upgrade_%d"%h)
+  m._switch_scene("fish");m._layout();m.capture_robot.job=m.capture_robot.make_fish(m);await capture(m,out,"fishing_%d"%h)
+  m.capture_robot.opened=true;await capture(m,out,"manage_%d"%h);m.capture_robot.opened=false
+ m.audio_feedback.dispose();m.queue_free();await process_frame;quit()

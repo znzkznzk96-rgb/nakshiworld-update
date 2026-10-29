@@ -17,12 +17,12 @@ func run() -> void:
  check(d.open_pouches(1).is_empty() and d.open_pouches(-1).is_empty(),"invalid open cannot change inventory")
  var chance_report=[]
  for r in range(1,11):
-  d=prepared();d.start(r,1000);d.finish(true,1000);check(d.battle.reward==26*r and d.battle.pouch_reward==d.FIRST_POUCHES[r-1],"first clear %d"%r)
+  d=prepared();d.start(r,1000);d.finish(true,1000);check(d.battle.reward==d.FIRST_GOLD[r-1] and d.battle.pouch_reward==d.FIRST_POUCHES[r-1],"first clear %d"%r)
   var q=d.claim();check(d.pouches==d.FIRST_POUCHES[r-1] and d.claim().is_empty(),"first claim once %d"%r)
   var wins:=0;d.rng.seed=83000+r
   for i in 10000:
    d.battle={};d.recovery_until=0;d.start(r,1000);var snap=d.serialize().duplicate(true);d.finish(true,1000)
-   check(d.battle.reward==2*r,"repeat scales %d"%r);wins+=int(d.battle.pouch_reward)
+   check(d.battle.reward==d.REPEAT_GOLD[r-1],"repeat scales %d"%r);wins+=int(d.battle.pouch_reward)
    var reward=d.battle.pouch_reward;d.finish(true,1000);check(d.battle.pouch_reward==reward,"finish cannot reroll")
    if i==0:
     var resumed=prepared();resumed.restore(snap);resumed.rng.seed=999;resumed.finish(true,1000);check(resumed.battle.pouch_reward==reward,"saved boss roll stable")
@@ -40,6 +40,6 @@ func run() -> void:
  m.fail_saves=false;check(helper.open(v,m,0) and d.pouches==0 and d.souls.reduce(func(a,b):return a+b,0)==1,"open saved")
  var saved=d.serialize().duplicate(true);d.restore({});m._load_game();check(d.serialize()==saved,"bag and souls persist")
  d=prepared();m.expedition.data=d;d.start(5,1000);d.finish(true,1000);snapshot=d.serialize().duplicate(true);var gold=m.gold;m.fail_saves=true;m.expedition.rects={"claim":Rect2(0,0,20,20)};m.expedition.press(m,Vector2(10,10));check(d.serialize()==snapshot and m.gold==gold,"failed claim save rollback")
- m.fail_saves=false;m.expedition.press(m,Vector2(10,10));check(d.battle.is_empty() and d.pouches==3 and m.gold==gold+130,"claim grant saved")
+ m.fail_saves=false;m.expedition.press(m,Vector2(10,10));check(d.battle.is_empty() and d.pouches==3 and m.gold==gold+1200,"claim grant saved")
  m.audio_feedback.dispose();m.queue_free();await process_frame
  print("POUCH_RATES ",JSON.stringify(chance_report));print("SOUL_POUCH_VERIFY failures=",failures);quit(0 if failures.is_empty() else 1)
