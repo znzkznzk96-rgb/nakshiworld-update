@@ -17,3 +17,6 @@ Release https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v0.94
 
 ## 최신 사용자 피드백
 시안crop 기반 낚시홈아이콘은지저분하다는이유로거절. 게임에사용하지않음. 이미지입력없는PixelLab 신규낚시1종제작후제시. 기존결과는실패이력으로보존. 상세결정은GAME_BIBLE최신항목.
+
+### 신규 텍스트기반 낚시 아이콘도 불합격
+금빛장비/릴·찌형태불일치/상단여백부족. 추가생성중단,게임미적용. [검수](analysis/guide-fresh/REPORT.md).
