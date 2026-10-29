@@ -4,13 +4,13 @@
   "status": "v096_deployed_verified",
   "release_baseline": "v0.96",
   "source_commit": "9aec550c9ddc6b3f913368fdca630a7a995da139",
-  "current_task": "포획로봇 v3 원본 한 장 제작",
+  "current_task": "PixelLab 포획기 신규 후보2장",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
   "verification": "analysis/release-096/RELEASE_VERIFICATION.json",
   "phone_verified": false,
   "release_authorized": true,
-  "next_step": "외형 먼저 확인 후 모션",
+  "next_step": "후보2장 외형 사용자 확인",
   "updated_at": "2026-10-30",
   "support_audit": "analysis/support-balance-085/REPORT.md",
   "support_utility_report": "analysis/support-utility-085/REPORT.md",
@@ -49,7 +49,7 @@
     "withdrawn_recommendation": "수족관 지급률1/8"
   },
   "robot_redesign": {
-    "report": "docs/design/capture-robot-v3/REVIEW.md",
+    "report": "docs/design/capture-robot-v4/REVIEW.md",
     "applied": false,
     "deployed": false
   }
