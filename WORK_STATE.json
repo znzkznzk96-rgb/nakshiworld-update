@@ -4,13 +4,13 @@
   "status": "v096_deployed_verified",
   "release_baseline": "v0.96",
   "source_commit": "9aec550c9ddc6b3f913368fdca630a7a995da139",
-  "current_task": "v0.96 공개·실제 업데이트 다운로드 검증 완료",
+  "current_task": "상점B 확정·PixelLab 새 로봇 원화/대기모션 제작",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
   "verification": "analysis/release-096/RELEASE_VERIFICATION.json",
   "phone_verified": false,
   "release_authorized": true,
-  "next_step": "사용자 앱에서0.96 업데이트 후 확인",
+  "next_step": "원화 외형 확인 및 추가 생성량 확보 후 포획모션, 상점B/말풍선 구현",
   "updated_at": "2026-10-30",
   "support_audit": "analysis/support-balance-085/REPORT.md",
   "support_utility_report": "analysis/support-utility-085/REPORT.md",
@@ -47,5 +47,10 @@
     },
     "latest_report": "analysis/expedition-cash-20261030/REPORT.md",
     "withdrawn_recommendation": "수족관 지급률1/8"
+  },
+  "robot_redesign": {
+    "report": "docs/design/capture-robot-v2/REVIEW.md",
+    "applied": false,
+    "deployed": false
   }
 }

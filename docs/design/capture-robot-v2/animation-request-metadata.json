@@ -1,0 +1,7 @@
+{
+  "action": "Seamless subtle idle loop for a floating underwater capture robot. Rear propeller rotates slowly, top amber antenna gently pulses, whole body gently bobs up and down by only one pixel. Keep the same side facing orientation, rigid teal body, brass round eye and all mechanical parts identical. No turning, no walking, no legs, no water, no speech bubble, no camera motion. Return to the starting pose.",
+  "frame_count": 4,
+  "no_background": true,
+  "seed": 2026103002,
+  "enhance_prompt": false
+}
