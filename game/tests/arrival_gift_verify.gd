@@ -21,6 +21,8 @@ func run() -> void:
 		m.S={"phase":phase};m.bait_picker.draw_button(m,500);check(not m.bait_picker.visible(m) and m.bait_picker.button.size==Vector2.ZERO,"bait hidden during "+phase)
 	m.S={"phase":"idle"};m.region_shop.selected_bait=-1;m.text_items=[];m.ui_commands=[];m.bait_picker.draw_button(m,500)
 	check(m.ui_commands.size()==1 and m.text_items.is_empty(),"bare hook shows only empty slot frame")
+	m.region_shop.selected_bait=0;m.bait=0;m.text_items=[];m.ui_commands=[];m.bait_picker.draw_button(m,500)
+	check(m.ui_commands.size()==1 and m.text_items.is_empty(),"depleted bait also shows empty slot")
 	m._load_game();check(not Gift.claim(m) and m.bag.size()==21 and m.gold==100123,"reload preserves claim and contents")
 	m.testing_grants=[];var before: int=m.gold;var count: int=m.bag.size()
 	DirAccess.make_dir_absolute("user://save.json.tmp")

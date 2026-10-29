@@ -25,6 +25,7 @@ func draw_button(m,y: float) -> void:
 		opened=false;button=Rect2();return
 	layout(y)
 	var id: int=m.region_shop.selected_bait if can_change(m) else m.S.get("bait_id",m.region_shop.selected_bait)
+	if id>=0 and m.region_shop.stock(m,id)==0: id=-1
 	m._ui_texture_rect(m.e_slots.slot,button)
 	if id>=0:
 		m._ui_texture_rect(m.region_shop.bait_icon(id),Rect2(button.position+Vector2(5,3),Vector2(22,22)))
