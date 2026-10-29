@@ -1,0 +1,350 @@
+[
+  {
+    "suite": "guide_ac",
+    "passed": true,
+    "exit": 0,
+    "seconds": 5.2
+  },
+  {
+    "suite": "valley094",
+    "passed": true,
+    "exit": 0,
+    "seconds": 6.8
+  },
+  {
+    "suite": "arrival_gift",
+    "passed": true,
+    "exit": 0,
+    "seconds": 10.1
+  },
+  {
+    "suite": "valley093",
+    "passed": true,
+    "exit": 0,
+    "seconds": 3.2
+  },
+  {
+    "suite": "bait092",
+    "passed": true,
+    "exit": 0,
+    "seconds": 3.2
+  },
+  {
+    "suite": "notification091",
+    "passed": true,
+    "exit": 0,
+    "seconds": 3.2
+  },
+  {
+    "suite": "ui090",
+    "passed": true,
+    "exit": 0,
+    "seconds": 3.2
+  },
+  {
+    "suite": "codex089",
+    "passed": true,
+    "exit": 0,
+    "seconds": 3.2
+  },
+  {
+    "suite": "aquarium_b",
+    "passed": true,
+    "exit": 0,
+    "seconds": 3.2
+  },
+  {
+    "suite": "ui_guide",
+    "passed": true,
+    "exit": 0,
+    "seconds": 4.2
+  },
+  {
+    "suite": "pouch_inventory",
+    "passed": true,
+    "exit": 0,
+    "seconds": 3.2
+  },
+  {
+    "suite": "combat_feedback",
+    "passed": true,
+    "exit": 0,
+    "seconds": 1.2
+  },
+  {
+    "suite": "support_utility",
+    "passed": true,
+    "exit": 0,
+    "seconds": 2.2
+  },
+  {
+    "suite": "expedition_result",
+    "passed": true,
+    "exit": 0,
+    "seconds": 4.2
+  },
+  {
+    "suite": "bag_event_order",
+    "passed": true,
+    "exit": 0,
+    "seconds": 4.3
+  },
+  {
+    "suite": "bag_formation",
+    "passed": true,
+    "exit": 0,
+    "seconds": 3.2
+  },
+  {
+    "suite": "selected_ui",
+    "passed": true,
+    "exit": 0,
+    "seconds": 3.2
+  },
+  {
+    "suite": "bag_interaction",
+    "passed": true,
+    "exit": 0,
+    "seconds": 3.2
+  },
+  {
+    "suite": "expedition_label",
+    "passed": true,
+    "exit": 0,
+    "seconds": 1.2
+  },
+  {
+    "suite": "bundle_aqua",
+    "passed": true,
+    "exit": 0,
+    "seconds": 4.3
+  },
+  {
+    "suite": "expedition_hard_balance",
+    "passed": true,
+    "exit": 0,
+    "seconds": 10.3
+  },
+  {
+    "suite": "expedition080",
+    "passed": true,
+    "exit": 0,
+    "seconds": 3.2
+  },
+  {
+    "suite": "expedition079",
+    "passed": true,
+    "exit": 0,
+    "seconds": 1.3
+  },
+  {
+    "suite": "testing_gift",
+    "passed": true,
+    "exit": 0,
+    "seconds": 3.2
+  },
+  {
+    "suite": "startup_assets",
+    "passed": true,
+    "exit": 0,
+    "seconds": 16.2
+  },
+  {
+    "suite": "soldier_dex",
+    "passed": true,
+    "exit": 0,
+    "seconds": 4.3
+  },
+  {
+    "suite": "expedition_motion",
+    "passed": true,
+    "exit": 0,
+    "seconds": 1.2
+  },
+  {
+    "suite": "expedition",
+    "passed": true,
+    "exit": 0,
+    "seconds": 1.4
+  },
+  {
+    "suite": "approved_ui",
+    "passed": true,
+    "exit": 0,
+    "seconds": 4.4
+  },
+  {
+    "suite": "soul_pouch",
+    "passed": true,
+    "exit": 0,
+    "seconds": 20.3
+  },
+  {
+    "suite": "expedition_save",
+    "passed": true,
+    "exit": 0,
+    "seconds": 4.4
+  },
+  {
+    "suite": "economy_balance",
+    "passed": true,
+    "exit": 0,
+    "seconds": 4.2
+  },
+  {
+    "suite": "action_readability",
+    "passed": true,
+    "exit": 0,
+    "seconds": 5.3
+  },
+  {
+    "suite": "rod_aura",
+    "passed": true,
+    "exit": 0,
+    "seconds": 3.2
+  },
+  {
+    "suite": "angler_scene",
+    "passed": true,
+    "exit": 0,
+    "seconds": 1.2
+  },
+  {
+    "suite": "market_reader",
+    "passed": true,
+    "exit": 0,
+    "seconds": 3.2
+  },
+  {
+    "suite": "atmosphere_encounter",
+    "passed": true,
+    "exit": 0,
+    "seconds": 5.3
+  },
+  {
+    "suite": "odds_rewards",
+    "passed": true,
+    "exit": 0,
+    "seconds": 4.2
+  },
+  {
+    "suite": "reservoir_layers",
+    "passed": true,
+    "exit": 0,
+    "seconds": 3.2
+  },
+  {
+    "suite": "expedition_balance",
+    "passed": true,
+    "exit": 0,
+    "seconds": 15.2
+  },
+  {
+    "suite": "bag_list",
+    "passed": true,
+    "exit": 0,
+    "seconds": 4.0
+  },
+  {
+    "suite": "owner_gauge",
+    "passed": true,
+    "exit": 0,
+    "seconds": 4.3
+  },
+  {
+    "suite": "bundles_buyback",
+    "passed": true,
+    "exit": 0,
+    "seconds": 3.2
+  },
+  {
+    "suite": "guide",
+    "passed": true,
+    "exit": 0,
+    "seconds": 3.2
+  },
+  {
+    "suite": "visual",
+    "passed": true,
+    "exit": 0,
+    "seconds": 6.2
+  },
+  {
+    "suite": "equipment",
+    "passed": true,
+    "exit": 0,
+    "seconds": 7.3
+  },
+  {
+    "suite": "shop",
+    "passed": true,
+    "exit": 0,
+    "seconds": 6.3
+  },
+  {
+    "suite": "audio_save",
+    "passed": true,
+    "exit": 0,
+    "seconds": 6.3
+  },
+  {
+    "suite": "rewards",
+    "passed": true,
+    "exit": 0,
+    "seconds": 3.2
+  },
+  {
+    "suite": "bundle_preview",
+    "passed": true,
+    "exit": 0,
+    "seconds": 4.3
+  },
+  {
+    "suite": "reader",
+    "passed": true,
+    "exit": 0,
+    "seconds": 6.3
+  },
+  {
+    "suite": "regional",
+    "passed": true,
+    "exit": 0,
+    "seconds": 5.3
+  },
+  {
+    "suite": "fish_surface",
+    "passed": true,
+    "exit": 0,
+    "seconds": 6.3
+  },
+  {
+    "suite": "inventory_layout",
+    "passed": true,
+    "exit": 0,
+    "seconds": 5.3
+  },
+  {
+    "suite": "personal_dex",
+    "passed": true,
+    "exit": 0,
+    "seconds": 6.3
+  },
+  {
+    "suite": "village_entry_audio",
+    "passed": true,
+    "exit": 0,
+    "seconds": 4.1
+  },
+  {
+    "suite": "measurement_speed",
+    "passed": true,
+    "exit": 0,
+    "seconds": 4.3
+  },
+  {
+    "suite": "bait_roles",
+    "passed": true,
+    "exit": 0,
+    "seconds": 5.2
+  }
+]

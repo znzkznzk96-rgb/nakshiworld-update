@@ -1,0 +1,160 @@
+{
+  "generator": "built-in imagegen",
+  "reference": "approved A home / C detail",
+  "assets": {
+    "lantern.png": {
+      "sha256": "bc95a57cddc5806a0208619a0f2d799cad13ed6fc8e0407e4fe62355c9d156c4",
+      "size": [
+        362,
+        299
+      ]
+    },
+    "pond.png": {
+      "sha256": "0f92f58ba06249402c52aca372105e9ce61c8f5a0e57d26acec2b7784db83f1e",
+      "size": [
+        362,
+        388
+      ]
+    },
+    "stars.png": {
+      "sha256": "84b4dd56c4521886dbb03f9be39d9337a4c19bc106dd3d4ff42d99f84e8ba22a",
+      "size": [
+        362,
+        319
+      ]
+    },
+    "gem1.png": {
+      "sha256": "b69cf15f6a99dbd788a2eb2d5df04fd8c1d068766259af6a3b38ced366ee2e18",
+      "size": [
+        64,
+        98
+      ]
+    },
+    "gem4.png": {
+      "sha256": "4ddc201897d1519b3cb163d07d06a14f3be53fb6d82e94a2cbf48125127826c1",
+      "size": [
+        66,
+        98
+      ]
+    },
+    "gem0.png": {
+      "sha256": "64ae058712804e589d5c9f6e9355b28378f243ef71860f9534f336039f79c9ae",
+      "size": [
+        65,
+        98
+      ]
+    },
+    "gems.png": {
+      "sha256": "67b3ef9b606676b79d5030c7124991b4ec74a6ea520f911524a2f8ca906d14bf",
+      "size": [
+        362,
+        300
+      ]
+    },
+    "growth.png": {
+      "sha256": "faea38029630acbf588a219f8fc9e1a9d092160da6dd31154ef9ffb08a18d336",
+      "size": [
+        332,
+        322
+      ]
+    },
+    "gem2.png": {
+      "sha256": "9d3ab309641f73366eed1180fad087560891eb3d240cc2836be759956056c07c",
+      "size": [
+        64,
+        98
+      ]
+    },
+    "alchemy.png": {
+      "sha256": "30e975cba08e3991c09034f959390cde736fdc85a934e829fd3249880bca6d2c",
+      "size": [
+        353,
+        331
+      ]
+    },
+    "exploration.png": {
+      "sha256": "fe33450396996851bdb5f940a7f9972a046ca481e4aed2046c694614b5a28b34",
+      "size": [
+        353,
+        337
+      ]
+    },
+    "lesson_bite.png": {
+      "sha256": "80a4e2df37e9befc6ad988b34b39bf1086cf39f83d6567c0c26b6f9aca651647",
+      "size": [
+        412,
+        501
+      ]
+    },
+    "soldier.png": {
+      "sha256": "07c89e94c93176cd5d79f9509140c91e0b604971aa5e27d20046cc327465e077",
+      "size": [
+        343,
+        320
+      ]
+    },
+    "equipment.png": {
+      "sha256": "30bcfb5979c8ca8e2333bc2454598c059c78ed8a848aa0b1541c3c478c7bdae5",
+      "size": [
+        361,
+        393
+      ]
+    },
+    "lesson_dash.png": {
+      "sha256": "a41f503e50c381dd7eb1ee5cac90b4089f9f17c5f88dee85eb8486156d18dcdd",
+      "size": [
+        430,
+        501
+      ]
+    },
+    "lesson_land.png": {
+      "sha256": "d88a8acb78eb67d955cde542084106cec9276744ad23e0e7882aaa17371028d6",
+      "size": [
+        420,
+        501
+      ]
+    },
+    "lesson_reel.png": {
+      "sha256": "b51268d15a9350d7317c7695a36c6f9c6c62dfe99f9d002c5430e7451990a109",
+      "size": [
+        432,
+        501
+      ]
+    },
+    "gem3.png": {
+      "sha256": "340752edfe327815a306f430a47d6ca1694ffb88df64a3f8e666e27110978423",
+      "size": [
+        64,
+        98
+      ]
+    },
+    "village.png": {
+      "sha256": "71859e7bfb0670f13e5edbcf6eb5b2b18e483669254c060aed2d853e1cc2bc88",
+      "size": [
+        348,
+        370
+      ]
+    },
+    "book.png": {
+      "sha256": "a11f50661e5ee4b2cf1cdf9577408d61a6764f0a4a6b9e88f3fd7da4a9959c06",
+      "size": [
+        362,
+        295
+      ]
+    },
+    "lesson_hook.png": {
+      "sha256": "9ed3dfced6a07b7deee9aa9ccccdb93b99961bc6b63deeff003204609424e798",
+      "size": [
+        413,
+        501
+      ]
+    },
+    "fishing.png": {
+      "sha256": "737eb8b03b26aca5a5da63b4d4d343a378ecf347787b5262db56aeb8bafa17eb",
+      "size": [
+        362,
+        368
+      ]
+    }
+  }
+}

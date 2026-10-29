@@ -1176,9 +1176,7 @@ func _unhandled_input(e: InputEvent) -> void :
 	if title_open:
 		if e is InputEventMouseButton and e.button_index == MOUSE_BUTTON_LEFT and e.pressed: title_screen.press(self, e.position - Vector2(ox, 0))
 		return
-	if guide.opened:
-		if e is InputEventMouseButton and e.button_index == MOUSE_BUTTON_LEFT and e.pressed: guide.press(self, e.position - Vector2(ox, 0))
-		return
+	if guide.input_event(self,e): return
 	if mailbox.opened:
 		if e is InputEventMouseButton and e.button_index == MOUSE_BUTTON_LEFT and e.pressed: mailbox.press(self, e.position - Vector2(ox, 0))
 		return
@@ -1209,7 +1207,7 @@ func press(pos: = Vector2.ZERO) -> void :
 	if mailbox.opened: mailbox.press(self, pos);return
 	if not equipment.pending_sale.is_empty(): equipment.press_confirmation(self, pos);return
 	if scene == "village" and guide.button.has_point(pos) and V.shop == "" and not market_open and not settings_open:
-		guide.opened = true;menu_open = false;holding = false;play("ui");return
+		guide.open_home();menu_open = false;holding = false;play("ui");return
 	if scene == "village" and mailbox.button.has_point(pos) and V.shop == "" and not market_open and not settings_open:
 		mailbox.opened = true;menu_open = false;holding = false;play("ui");return
 	if not V.commerce.pending.is_empty(): V.commerce.press(V, self, pos);return
@@ -1335,6 +1333,7 @@ func _process(dt: float) -> void :
 
 
 func _draw() -> void :
+	guide.sync_layer()
 	var t: = clock * 1000.0
 	var h: = get_viewport_rect().size.y
 	text_items = []

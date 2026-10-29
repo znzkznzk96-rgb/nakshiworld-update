@@ -1,25 +1,25 @@
 {
   "schema_version": 3,
   "work_branch": "work/valley-runtime",
-  "status": "guide_ac_imagegen_implementation",
+  "status": "guide_ac_implemented_local_verified",
   "release_baseline": "v0.94",
   "source_commit": "bcd53f5e574ab37b48e56cf863b6a6904d37dbb0",
-  "current_task": "내장이미지생성으로 A홈/C상세 제작·Godot구현",
+  "current_task": "A홈/C상세 이미지gen아트·Godot구현 및58검사완료",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
-  "verification": "analysis/release094/PUBLIC_VERIFICATION.json",
+  "verification": "analysis/guide-ac/REPORT.md",
   "phone_verified": false,
-  "release_authorized": false,
-  "next_step": "그림제작→기존25주제연결→모바일검수→work저장",
+  "release_authorized": true,
+  "next_step": "v0.95 배포 및 공개 다운로드 검증",
   "updated_at": "2026-10-29",
   "support_audit": "analysis/support-balance-085/REPORT.md",
   "support_utility_report": "analysis/support-utility-085/REPORT.md",
-  "target_release": "v0.94",
+  "target_release": "v0.95",
   "last_release_deployed": true,
   "this_change": {
-    "implemented": false,
-    "art_complete": false,
+    "implemented": true,
+    "art_complete": true,
     "deployed": false,
-    "release_authorized": false
+    "release_authorized": true
   }
 }
