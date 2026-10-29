@@ -1,24 +1,24 @@
 {
   "schema_version": 3,
   "work_branch": "work/valley-runtime",
-  "status": "published_verified",
+  "status": "implementation_authorized",
   "release_baseline": "v0.92",
   "source_commit": "b80cdd2301ef030116cecb20be0c6b5535efa8e7",
-  "current_task": "미끼 선택·마을 버튼 v0.92 공개 검증 완료",
+  "current_task": "GUIDE093 시안 기반 길잡이 및 PixelLab 아이콘",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
   "verification": "analysis/ui092/PUBLISHED.json",
   "phone_verified": false,
-  "release_authorized": true,
-  "next_step": "사용자 휴대폰 v0.92 적용 확인",
+  "release_authorized": false,
+  "next_step": "아이콘 단일순차제작·검수 및 길잡이 구현",
   "updated_at": "2026-10-29",
   "support_audit": "analysis/support-balance-085/REPORT.md",
   "support_utility_report": "analysis/support-utility-085/REPORT.md",
-  "target_release": "v0.92",
+  "target_release": null,
   "last_release_deployed": true,
   "this_change": {
-    "implemented": true,
-    "deployed": true,
-    "release_authorized": true
+    "implemented": false,
+    "deployed": false,
+    "release_authorized": false
   }
 }
