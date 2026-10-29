@@ -26,13 +26,22 @@ func draw_button(m,y: float) -> void:
 	layout(y)
 	var id: int=m.region_shop.selected_bait if can_change(m) else m.S.get("bait_id",m.region_shop.selected_bait)
 	m._ui_texture_rect(m.e_slots.slot,button)
-	var icon: Texture2D=m.region_shop.bait_icon(id) if id>=0 else m.icons.hook
-	m._ui_texture_rect(icon,Rect2(button.position+Vector2(5,3),Vector2(22,22)))
+	if id>=0:
+		m._ui_texture_rect(m.region_shop.bait_icon(id),Rect2(button.position+Vector2(5,3),Vector2(22,22)))
+	else: draw_empty_tin(m,button.position+Vector2(5,3))
 	var count: String=str(m.region_shop.stock(m,id)) if id>=0 else "—"
 	if id>=0 and m.region_shop.stock(m,id)>999: count="999+"
 	m._text(count,button.position+Vector2(16,27),8,Color("fff0d1"),true,26,true)
 	if can_change(m) and id>=0 and m.region_shop.stock(m,id)==0:
 		m._text("소진",button.position+Vector2(16,-3),7,Color("ffcc9b"),true,32,true)
+func draw_empty_tin(m,p: Vector2) -> void:
+	# Open, visibly empty bait tin: native integer pixel shapes, no equipment hook.
+	for part in [
+		[Rect2(3,3,16,3),"243536"],[Rect2(4,3,14,1),"b0d4c4"],
+		[Rect2(2,7,18,12),"243536"],[Rect2(3,8,16,10),"547c73"],
+		[Rect2(4,9,14,5),"b0d4c4"],[Rect2(5,10,12,3),"182f30"],
+		[Rect2(4,15,14,2),"729e8c"],[Rect2(6,19,10,1),"182f30"]]:
+		var r: Rect2=part[0];r.position+=p;m._ui_rect(r,Color(part[1]))
 func draw_popup(m) -> void:
 	if not opened or not visible(m): return
 	if not can_change(m): opened=false;return
@@ -56,7 +65,7 @@ func draw_popup(m) -> void:
 		if selected: m._text("✓",r.position+Vector2(84,10),8,Color("fff0d1"),true,10)
 	m._ui_style_box(m.sb_btn,bare_button)
 	if m.region_shop.selected_bait<0: m._ui_rect(bare_button.grow(-4),Color("07515c"))
-	m._text("빈 바늘 사용",bare_button.get_center()+Vector2(0,3),8,Color("fff0d1") if m.region_shop.selected_bait<0 else Color("513b29"),true,170)
+	m._text("미끼 없음",bare_button.get_center()+Vector2(0,3),8,Color("fff0d1") if m.region_shop.selected_bait<0 else Color("513b29"),true,170)
 func select(m,id: int) -> bool:
 	if not can_change(m) or (id>=0 and (not m.region_shop.bait_unlocked(id) or m.region_shop.stock(m,id)<=0)): return false
 	if id < -1 or id>5: return false

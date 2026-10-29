@@ -131,9 +131,11 @@ func draw(v, m, h: float) -> void :
 			if not entry.is_empty(): m._ui_fish(int(entry.fish.sp),Rect2(85,r.position.y+49,100,58))
 		elif icon:
 			var master: Texture2D = icon.get_meta("master", icon)
-			var size: Vector2 = master.get_size()
-			if size.x <= 80 and size.y <= 80: m._ui_texture(master, Vector2(135, r.position.y + 82) - size / 2)
-			else: m._ui_texture(icon, Vector2(135, r.position.y + 82) - icon.get_size() / 2)
+			var size: Vector2 = master.get_size() if master.get_width()<=80 and master.get_height()<=80 else icon.get_size()
+			var shown: Texture2D = master if master.get_width()<=80 and master.get_height()<=80 else icon
+			var scale: float = minf(1.0,minf(96.0/maxf(size.x,1.0),64.0/maxf(size.y,1.0)))
+			var fitted: Vector2 = (size*scale).floor()
+			m._ui_texture_rect(shown,Rect2((Vector2(135,r.position.y+82)-fitted/2).floor(),fitted))
 		m._text(m._ui_wrap(pending.title, 12, 208, 2), Vector2(135, r.position.y + 132), 12, Color("513b29"), true, 208)
 		var unit: String = "진주" if pending.currency == "pearl" else "비늘"
 		m._text("%s %s" % [str(pending.price), unit], Vector2(135, r.position.y + 157), 14, Color("513b29"), true, 205)
