@@ -29,4 +29,4 @@ func run():
  m.equipment.active_parts=[];m.TUT.done=true;m.lesson_open=false;m.S={"phase":"idle"}
  for i in 20:
   m.start_wait();check(int(m.S.sp)>=20 and int(m.S.sp)<40,"valley encounters use valley catalog")
- m.audio_feedback.dispose();m.queue_free();await process_frame;print("VALLEY093 failures=",failures);quit(0 if failures.is_empty() else 1)
+ m.audio_feedback.dispose();m.queue_free();await process_frame;print("VALLEY093_VERIFY failures=",failures);quit(0 if failures.is_empty() else 1)
