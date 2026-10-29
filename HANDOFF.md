@@ -11,3 +11,6 @@ Release https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v0.94
 
 ## 다음 작업 — 새 길잡이 A/C
 2026-10-29 사용자 새 A홈/C상세 확정 및 PixelLab 예상횟수 질문. 결정·견적은 [GAME_BIBLE](docs/GAME_BIBLE.md)의 마지막 항목 참조. 약20장(18~22장) 계획, 유료호출0·구현0·새배포없음. 기존25주제 보존, 실제 생성 전 자산명세/설정별차감/잔액 확인. 이전 v0.94 배포 결과는 위 기록 유지.
+
+### 단일 시험 제작 승인
+사용자 새 A홈의 낚시 아이콘1종만 PixelLab 제작 요청. 단일POST 후 원본/확대/시안 비교를 제시한다. 후속 아이콘/자동재생성/배포 없음. 최신 결정은 GAME_BIBLE 마지막 항목.
