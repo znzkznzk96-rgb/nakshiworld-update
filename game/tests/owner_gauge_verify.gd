@@ -67,6 +67,6 @@ func run() -> void:
 			var owners: Array=m.CATALOG.by_star(area,4)
 			var label: String=m.FISH_NAME[int(owners[0])] if not owners.is_empty() else "주인의 기척"
 			check(m._text_w(label,9)+m._text_w("100%",9)+10<=ui.label_bounds.size.x,"full owner name and maximum percent fit without overlap %d"%area)
-	check(p.available_regions==[0],"art does not enable unfinished fishing grounds")
+	check(p.available_regions==[0,1],"later unfinished fishing grounds stay disabled")
 	print("OWNER_GAUGE_VERIFY failures=",failures)
 	m.audio_feedback.dispose();m.queue_free();await process_frame;quit(0 if failures.is_empty() else 1)

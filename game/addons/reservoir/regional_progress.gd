@@ -1,7 +1,7 @@
 extends RefCounted
-# Approved bundle and regional owner gauge rules. Unreleased region entry stays disabled.
+# Approved bundle and regional owner gauge rules. Reservoir and approved valley entry are available; later regions stay disabled.
 const CATALOG = preload("res://addons/reservoir/regional_catalog.gd")
-var available_regions: Array = [0]
+var available_regions: Array = [0,1]
 var main_targets: Dictionary = {}
 var certificates: Array = [false,false,false,false,false,false]
 var main_completed: Array = [false,false,false,false,false,false]

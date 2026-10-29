@@ -9,9 +9,10 @@ var native := false
 func setup(m) -> void:
 	root = Node2D.new();root.name = "ValleyLayers";root.z_index = -20
 	root.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
-	native = is_instance_valid(m.text_layer)
-	if native: m.text_layer.get_parent().add_child(root)
-	else: m.add_child(root)
+	native = false
+	# A negative z within the UI CanvasLayer still covers the game actors.
+	# Keep the valley behind actors in their own world canvas.
+	m.add_child(root)
 	plate = Sprite2D.new();plate.centered=false;plate.texture=load("res://art/bg/valley_selected_1080x2640.png")
 	root.add_child(plate);layers.plate=plate
 	for kind in ["drifting_clouds","reverse_waterfall","underwater_light","surface_reflection"]:

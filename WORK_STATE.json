@@ -1,24 +1,26 @@
 {
   "schema_version": 3,
   "work_branch": "work/valley-runtime",
-  "status": "published_verified",
+  "status": "release093_verified_publish_pending",
   "release_baseline": "v0.92",
   "source_commit": "b80cdd2301ef030116cecb20be0c6b5535efa8e7",
-  "current_task": "미끼 선택·마을 버튼 v0.92 공개 검증 완료",
+  "current_task": "v0.93 로컬56검사통과,배포중",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
-  "verification": "analysis/ui092/PUBLISHED.json",
+  "verification": "analysis/release093/REPORT.md",
   "phone_verified": false,
   "release_authorized": true,
-  "next_step": "사용자 휴대폰 v0.92 적용 확인",
+  "next_step": "work CI 통과 후 main병합 및실제배포검증",
   "updated_at": "2026-10-29",
   "support_audit": "analysis/support-balance-085/REPORT.md",
   "support_utility_report": "analysis/support-utility-085/REPORT.md",
-  "target_release": "v0.92",
+  "target_release": "v0.93",
   "last_release_deployed": true,
   "this_change": {
     "implemented": true,
-    "deployed": true,
+    "layout_implemented": true,
+    "art_complete": true,
+    "deployed": false,
     "release_authorized": true
   }
 }

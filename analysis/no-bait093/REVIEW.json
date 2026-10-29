@@ -1,0 +1,11 @@
+{
+  "generator": "PixelLab create-image-bitforge",
+  "post_count": 1,
+  "usage": 1,
+  "balance_before": 14,
+  "balance_after": 13,
+  "sha256": "5e817e8c94ce32f484c1c0bc4e6a7d777efc5f2c062c0a6fc7808d36edb42c61",
+  "quality": "Pouch silhouette and palette accepted as base icon. Generated badge is not a legible minus; deterministic native UI minus badge overlays the base at runtime. Original PNG unchanged, transparent margin cropped via region only.",
+  "applied": true,
+  "deployed": false
+}

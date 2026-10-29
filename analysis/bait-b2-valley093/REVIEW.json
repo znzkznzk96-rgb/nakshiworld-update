@@ -1,0 +1,14 @@
+{
+  "generator": "PixelLab create-image-bitforge",
+  "seed": 2026102962,
+  "post_count": 1,
+  "generations_used": 1,
+  "balance_before": 13,
+  "balance_after": 12,
+  "reference_sha256": "92a1ace98bba7d762495c5cffe2ef135cfa735cdec49499c62ec6dc963b34eed",
+  "output_sha256": "bc222d00e21130391e12fecc28e2844e09e46236624c879597b737e7ad653148",
+  "quality_pass": true,
+  "review": "Two smiling golden dough balls, blush, cream highlights, minus badge, transparent background. Silhouette is taller and texture finer than concept; readable at actual22px. Original PNG unmodified, no native badge substitute.",
+  "applied": true,
+  "deployed": false
+}

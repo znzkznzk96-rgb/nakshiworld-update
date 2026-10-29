@@ -11,7 +11,7 @@ var start := Vector2.ZERO
 var dragging := false
 
 func visible(m) -> bool:
-	return m.scene=="fish" and not m.title_open and not m.lesson_open and not m.menu_open and not m.settings_open and not m.market_open and not m.personal_dex.opened and not m.mailbox.opened and not m.guide.opened and m.expedition.opened=="" and m.trans.is_empty()
+	return m.scene=="fish" and m.S.phase in ["idle","result"] and not m.title_open and not m.lesson_open and not m.menu_open and not m.settings_open and not m.market_open and not m.personal_dex.opened and not m.mailbox.opened and not m.guide.opened and m.expedition.opened=="" and m.trans.is_empty()
 func can_change(m) -> bool:
 	return m.S.phase=="idle" or (m.S.phase=="result" and not m.S.get("ok",false))
 func layout(y: float) -> void:
@@ -25,9 +25,11 @@ func draw_button(m,y: float) -> void:
 		opened=false;button=Rect2();return
 	layout(y)
 	var id: int=m.region_shop.selected_bait if can_change(m) else m.S.get("bait_id",m.region_shop.selected_bait)
+	if id>=0 and m.region_shop.stock(m,id)==0: id=-1
 	m._ui_texture_rect(m.e_slots.slot,button)
-	var icon: Texture2D=m.region_shop.bait_icon(id) if id>=0 else m.icons.hook
-	m._ui_texture_rect(icon,Rect2(button.position+Vector2(5,3),Vector2(22,22)))
+	if id>=0:
+		m._ui_texture_rect(m.region_shop.bait_icon(id),Rect2(button.position+Vector2(5,3),Vector2(22,22)))
+	if id<0: return
 	var count: String=str(m.region_shop.stock(m,id)) if id>=0 else "—"
 	if id>=0 and m.region_shop.stock(m,id)>999: count="999+"
 	m._text(count,button.position+Vector2(16,27),8,Color("fff0d1"),true,26,true)
@@ -56,7 +58,7 @@ func draw_popup(m) -> void:
 		if selected: m._text("✓",r.position+Vector2(84,10),8,Color("fff0d1"),true,10)
 	m._ui_style_box(m.sb_btn,bare_button)
 	if m.region_shop.selected_bait<0: m._ui_rect(bare_button.grow(-4),Color("07515c"))
-	m._text("빈 바늘 사용",bare_button.get_center()+Vector2(0,3),8,Color("fff0d1") if m.region_shop.selected_bait<0 else Color("513b29"),true,170)
+	m._text("미끼 없음",bare_button.get_center()+Vector2(0,3),8,Color("fff0d1") if m.region_shop.selected_bait<0 else Color("513b29"),true,170)
 func select(m,id: int) -> bool:
 	if not can_change(m) or (id>=0 and (not m.region_shop.bait_unlocked(id) or m.region_shop.stock(m,id)<=0)): return false
 	if id < -1 or id>5: return false

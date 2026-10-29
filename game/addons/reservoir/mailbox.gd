@@ -19,6 +19,11 @@ var detail_page := 0
 var full_text := false
 const Reader = preload("res://addons/reservoir/topic_reader.gd")
 func sections(letter: Dictionary) -> Array:
+	if letter.id=="0.93":
+		return [
+			{"name":"일회성 선물","icon":"fish","body":letter.body.slice(5),"display":["저수지 전종 전설 물고기 각 1마리","총 20마리 + 100,000비늘 선물!"]},
+			{"name":"계곡 해금","icon":"museum","body":letter.body.slice(0,3),"display":["저수지 메인 번들 → 자격증 받기","6,600비늘로 계곡 입장!"]},
+			{"name":"미끼·구매창","icon":"tackle","body":letter.body.slice(3,5),"display":["빈 미끼는 빈칸 · 낚시 중 숨김","어혼 구매창 그림 크기 수정"]}]
 	# Curated presentation, separate from the complete release archive.
 	if letter.id == "0.72":
 		return [
@@ -127,6 +132,9 @@ func press(m, p: Vector2) -> void :
 	m.play("ui")
 	if rects.get("close", Rect2()).has_point(p): opened = false;detail = "";full_text=false;deleting = false;checked.clear();return
 	if detail != "":
+		if detail=="0.93" and rects.get("gift",Rect2()).has_point(p):
+			if preload("res://addons/reservoir/arrival_gift.gd").claim(m): m.show_toast("전설 물고기 20마리 · 100,000비늘 수령",Color("91e8dc"))
+			return
 		if detail=="0.78" and rects.get("gift",Rect2()).has_point(p):
 			if preload("res://addons/reservoir/testing_gift.gd").claim(m): m.show_toast("테스트 선물을 받았어요!",Color("91e8dc"))
 			return

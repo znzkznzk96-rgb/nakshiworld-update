@@ -55,7 +55,7 @@ func press(m, p: Vector2) -> void :
 		elif m.region_shop.unlock(m,index):
 			m.active_region = index;m._layout();m.start_trans("fish")
 		else:
-			notice = "해금에 필요한 비늘이 부족해요";notice_until = m.ui_clock + 2.5
+			notice = m.region_shop.unlock_error if m.region_shop.unlock_error!="" else "해금에 필요한 비늘이 부족해요";notice_until = m.ui_clock + 2.5
 func draw(m, h: float) -> void :
 	m._ui_rect(Rect2( - m.ox, 0, m.VW + 2 * m.ox, h), Color("183d4b"))
 	for band in 12: m._ui_rect(Rect2( - m.ox, band * h / 12, m.VW + 2 * m.ox, h / 12 + 1), Color("163444").lerp(Color("315b60"), band / 11.0))
@@ -65,10 +65,12 @@ func draw(m, h: float) -> void :
 	if h >= 540: m._text("%d / 6" % (index + 1), Vector2(135, m.top_y + 64), 11, Color("e6d5ad"), true, 200)
 	var cy: float = clampf(h * 0.48, m.top_y + 230, h - 226) if h >= 540 else h * 0.5 + 4
 	var top: float = cy - 170
+	var card_height: float=minf(340,h-m.bot_pad-118-top)
+	var image_height: float=card_height-100
 	for i in 6:
 		var cx: float = 135 + (i - scroll) * 238 + shift
 		if cx < -120 or cx > 390: continue
-		var r: = Rect2(roundf(cx - 112), roundf(top), 224, 340)
+		var r: = Rect2(roundf(cx - 112), roundf(top), 224, card_height)
 		m._ui_style_box(m.hud_reference_style, r)
 		if i == index:
 			var pulse: float = 0.65 + 0.25 * sin(m.ui_clock * 3)
@@ -80,12 +82,12 @@ func draw(m, h: float) -> void :
 				m._ui_line(border.end, border.end - Vector2(border.size.x, 0), col, 1)
 				m._ui_line(border.end, border.end - Vector2(0, border.size.y), col, 1)
 		var image_pos: Vector2 = r.position + Vector2(8, 8)
-		m._ui_texture(images[i], image_pos, Color.WHITE if m.region_shop.is_unlocked(i) else Color(0.48, 0.53, 0.59, 1))
-		if not m.region_shop.is_unlocked(i): m._ui_texture(chains, image_pos + Vector2(0, 84))
+		m._ui_texture_rect_region(images[i],Rect2(image_pos,Vector2(208,image_height)),Rect2(0,(240-image_height)/2,208,image_height),Color.WHITE if m.region_shop.is_unlocked(i) else Color(0.48,0.53,0.59,1))
+		if not m.region_shop.is_unlocked(i): m._ui_texture(chains, image_pos + Vector2(0, image_height*0.35))
 		var name: String = m._ui_wrap(NAMES[i], 12, 204, 2)
-		m._text(name, Vector2(cx, r.position.y + 268), 12, Color("fff0d1"), true, 204)
-		m._text(m._ui_wrap(CONCEPT[i], 8, 204, 1), Vector2(cx, r.position.y + 287), 8, Color("d5c8b2"), true, 204)
-		var button: = Rect2(r.position + Vector2(12, 298), Vector2(200, 29))
+		m._text(name, Vector2(cx, r.position.y + image_height+28), 12, Color("fff0d1"), true, 204)
+		m._text(m._ui_wrap(CONCEPT[i], 8, 204, 1), Vector2(cx, r.position.y + image_height+47), 8, Color("d5c8b2"), true, 204)
+		var button: = Rect2(r.position + Vector2(12, card_height-42), Vector2(200, 29))
 		m._ui_style_box(m.sb_primary if m.region_shop.is_unlocked(i) else m.sb_btn, button)
 		m._text("입장하기" if m.region_shop.is_unlocked(i) else "준비 중" if i not in m.progression.available_regions else "자격증 필요" if not m.progression.licensed(i) else "해금 · %s 비늘" % price_text(PRICES[i]), button.get_center() + Vector2(0, 5), 11, Color("fff0d1") if m.region_shop.is_unlocked(i) else Color("62584b"), true, 188)
 		if i == index: rects.enter = button
@@ -94,7 +96,7 @@ func draw(m, h: float) -> void :
 		m._ui_style_box(m.sb_chip, item[0]);m._text(item[1], item[0].get_center() + Vector2(0, 5), 14, Color("513b29"), true, 20)
 	rects.left = left;rects.right = right
 	var note: String = notice if m.ui_clock < notice_until else "좌우로 밀어 낚시터 선택하기"
-	if h >= 540: m._text(m._ui_wrap(note, 10, 244, 2), Vector2(135, top + 364), 10, Color("e6d5ad"), true, 244)
+	m._text(m._ui_wrap(note,8,244,1),Vector2(135,top+card_height+14),8,Color("e6d5ad"),true,244)
 	var back: = Rect2(60, h - m.bot_pad - 93, 150, 32)
 	m._ui_style_box(m.sb_btn, back);m._text("뒤로가기", back.get_center() + Vector2(0, 5), 12, Color("513b29"), true, 138)
 	rects.back = back
