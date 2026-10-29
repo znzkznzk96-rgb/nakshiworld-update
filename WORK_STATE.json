@@ -1,16 +1,16 @@
 {
   "schema_version": 3,
   "work_branch": "work/valley-runtime",
-  "status": "release096_preparing",
-  "release_baseline": "v0.95",
-  "source_commit": "2215713d6141f1e1e59bb05bb4e4ce7b492d7b57",
-  "current_task": "v0.96 승인 변경 통합 및 배포",
+  "status": "v096_deployed_verified",
+  "release_baseline": "v0.96",
+  "source_commit": "9aec550c9ddc6b3f913368fdca630a7a995da139",
+  "current_task": "v0.96 공개·실제 업데이트 다운로드 검증 완료",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
-  "verification": "analysis/release-096/results.json",
+  "verification": "analysis/release-096/RELEASE_VERIFICATION.json",
   "phone_verified": false,
   "release_authorized": true,
-  "next_step": "해금3/장비4 및 탐험 보상 후보 검토(미적용)",
+  "next_step": "사용자 앱에서0.96 업데이트 후 확인",
   "updated_at": "2026-10-30",
   "support_audit": "analysis/support-balance-085/REPORT.md",
   "support_utility_report": "analysis/support-utility-085/REPORT.md",
@@ -18,15 +18,16 @@
   "last_release_deployed": true,
   "this_change": {
     "implemented": true,
-    "deployed": false,
-    "release_authorized": true
+    "deployed": true,
+    "release_authorized": true,
+    "remote_saved": true
   },
   "robot_balance": {
     "status": "local_implemented_verified",
     "report": "analysis/capture-robot-reservation/REPORT.md",
     "prices_approved": true,
     "game_applied": true,
-    "remote_saved": false,
+    "remote_saved": true,
     "target_max_per_hour": 72,
     "implementation": "analysis/capture-robot-implementation/REPORT.md",
     "entry_simulation": "analysis/valley-entry-robot/REPORT.md"
