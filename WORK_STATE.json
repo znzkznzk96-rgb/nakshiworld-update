@@ -1,24 +1,24 @@
 {
   "schema_version": 3,
   "work_branch": "work/valley-runtime",
-  "status": "published_verified",
+  "status": "implementation_authorized",
   "release_baseline": "v0.91",
   "source_commit": "97ac6534dbf9f2c13c5a1321b62ea57a1a959439",
-  "current_task": "거래·탐험 알림 겹침 수정 및 v0.91 공개 검증 완료",
+  "current_task": "UI092 미끼 선택·마을 아이콘 버튼",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
   "verification": "analysis/ui091/PUBLISHED.json",
   "phone_verified": false,
   "release_authorized": true,
-  "next_step": "사용자 휴대폰 v0.91 적용 확인",
+  "next_step": "PixelLab 프레임 제작 및 UI 구현",
   "updated_at": "2026-10-29",
   "support_audit": "analysis/support-balance-085/REPORT.md",
   "support_utility_report": "analysis/support-utility-085/REPORT.md",
-  "target_release": "v0.91",
+  "target_release": "v0.92",
   "last_release_deployed": true,
   "this_change": {
-    "implemented": true,
-    "deployed": true,
+    "implemented": false,
+    "deployed": false,
     "release_authorized": true
   }
 }
