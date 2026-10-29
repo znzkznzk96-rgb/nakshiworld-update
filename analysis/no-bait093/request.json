@@ -1,0 +1,12 @@
+{
+  "description": "Single inventory icon for NO FISHING BAIT: a squat warm tan leather fishing bait pouch, open wide empty dark interior clearly visible, rolled rim, small teal cord tied on side. A bold red circular badge attached on lower right containing one thick cream horizontal minus dash. NOT a hook, NOT a tin box. Charming chunky 16-bit pixel art, dark brown outline, 3 shades per material, saturated warm caramel leather and turquoise accent matching cozy fishing RPG. Large simple readable silhouette, fills 85 percent of canvas with transparent margin. No writing, no letters, no numbers, no surrounding button frame. Front three-quarter view.",
+  "negative_description": "hook, fish hook, metal box, thin lines, lettering, text, realistic, blurry, background, tiny details, multiple objects",
+  "image_size": {
+    "width": 64,
+    "height": 64
+  },
+  "no_background": true,
+  "text_guidance_scale": 10,
+  "coverage_percentage": 85,
+  "seed": 2026102942
+}
