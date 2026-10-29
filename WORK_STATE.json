@@ -1,13 +1,13 @@
 {
   "schema_version": 3,
   "work_branch": "work/valley-runtime",
-  "status": "ui091_authorized",
+  "status": "ui091_verifying",
   "release_baseline": "v0.90",
   "source_commit": "3a5e55f1bb582eed017037608beced93350b199b",
   "current_task": "거래 알림 및 낚시터 탐험 완료 알림 겹침 수정",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
-  "verification": "analysis/ui090/PUBLISHED.json",
+  "verification": "analysis/ui091/REPORT.md",
   "phone_verified": false,
   "release_authorized": true,
   "next_step": "알림 배치 수정·회귀 검사·업데이트 반영",
@@ -17,7 +17,7 @@
   "target_release": "v0.91",
   "last_release_deployed": true,
   "this_change": {
-    "implemented": false,
+    "implemented": true,
     "deployed": false,
     "release_authorized": true
   }

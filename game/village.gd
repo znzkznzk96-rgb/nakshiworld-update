@@ -392,6 +392,7 @@ func press(m, pos: Vector2) -> void :
 			open_shop(m, b[1]);return
 
 func open_shop(m, k: String) -> void :
+	commerce.notice=""
 	aqua_manage = false;aqua_page = 0;aqua_pick_page = 0;aqua_selected = -1;aqua_notice = ""
 	bundle_preview.legacy_dex=false;bundle_preview.selected=-1;bundle_preview.reward_open=false;bundle_preview.bulk_open=false;bundle_preview.bulk_plan=[];bundle_preview.just_claimed=false
 	aquarium.reset()
@@ -413,6 +414,7 @@ func draw_shop(m, h: float) -> void :
 		return
 	var panel_y: = maxf(top + 32.0, roundf(h * 0.5) - 190)
 	var r = Rect2(8, panel_y, 254, minf(440.0 if shop=="museum" else 380.0, h - panel_y - 44))
+	commerce.feedback_rect=Rect2(r.position+Vector2(9,46),Vector2(r.size.x-18,18))
 	active_style = shop_styles[shop]
 	m._ui_style_box(active_style.panel, r)
 	var header: = Rect2(r.position + Vector2(5, 5), Vector2(r.size.x - 10, 39))
@@ -722,7 +724,7 @@ func _act(m, a: String) -> void :
 			tab = k[1];market_list.reset()
 		"sell":
 			var f: Dictionary = m.bag[n]
-			m.buyback.remember(f);m.gold += int(f.price);m.bag.remove_at(n);m.show_toast("+%d 비늘" % int(f.price), Color("ffd24a"));m.play("catch")
+			m.buyback.remember(f);m.gold += int(f.price);m.bag.remove_at(n);commerce.report(m,"판매 완료 · +%d 비늘"%int(f.price),int(f.price));m.play("catch")
 		"sellall": m.sell_all()
 		"clean":
 			var f: Dictionary = m.bag[n]

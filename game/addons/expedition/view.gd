@@ -736,11 +736,9 @@ func draw_training(m,y: float,bottom: float) -> void:
 	if spacious: m._text("초록색 +수치는 다음 강화의 증가량입니다.",Vector2(135,info_y+38),8,Color("6c553b"),true,230)
 	button(m,"training_back",Rect2(22,minf(bottom-29,info_y+(48 if spacious else 33)),226,25),"병사 보관함으로")
 
-func draw_result_notice(m) -> void:
-	if m.scene=="village" or result_notice<=0 or data.battle.is_empty() or data.active(): return
-	var r: Rect2=Rect2(43,m.top_y+72,184,24)
-	m._ui_style_box(m.sb_chip,r)
-	m._text("탐험 성공 · 마을에서 결과 확인" if data.battle.status=="win" else "탐험 실패 · 마을에서 결과 확인",r.get_center()+Vector2(0,3),8,Color("fff0d1"),true,174)
+func draw_result_notice(_m) -> void:
+	# Completion uses the same reserved strip as progress, never a second overlay.
+	pass
 
 func draw_formation(m,y: float,bottom: float) -> void:
 	role_badges=[]
@@ -952,7 +950,7 @@ func draw_expedition_result(m,h: float) -> void:
 	m._text("보상 수령 후 편성으로" if c.win else "병사는 사라지지 않아요",Vector2(135,y+282),8,Color("796044"),true,210)
 
 func fishing_strip_visible(m) -> bool:
-	return m.scene=="fish" and data.active() and opened=="" and not m.title_open and not m.menu_open and not m.market_open and not m.settings_open and not m.personal_dex.opened and not m.guide.opened and not m.mailbox.opened and m.trans.is_empty()
+	return m.scene=="fish" and not data.battle.is_empty() and (data.active() or result_notice>0) and opened=="" and not m.title_open and not m.menu_open and not m.market_open and not m.settings_open and not m.personal_dex.opened and not m.guide.opened and not m.mailbox.opened and m.trans.is_empty()
 
 func fishing_strip_rect(m) -> Rect2:
 	return Rect2(8,m.top_y+(123 if m.owner_ui.visible(m) else 70),254,24)
@@ -960,8 +958,11 @@ func fishing_strip_rect(m) -> Rect2:
 func draw_fishing_strip(m) -> void:
 	if not fishing_strip_visible(m): return
 	var r: Rect2=fishing_strip_rect(m)
-	var progress: float=clampf(float(data.battle.get("progress",0)),0,100)
 	m._ui_style_box(m.hud_reference_style,r)
+	if not data.active():
+		m._text("탐험 성공 · 마을에서 결과 확인" if data.battle.status=="win" else "탐험 실패 · 마을에서 결과 확인",r.get_center()+Vector2(0,3),8,Color("ffe3a0"),true,r.size.x-18)
+		return
+	var progress: float=clampf(float(data.battle.get("progress",0)),0,100)
 	m._text("탐험 "+stage_name(int(data.battle.round)),r.position+Vector2(9,15),9,Color("ffe3a0"),false,65)
 	m._ui_rect(Rect2(r.position+Vector2(79,10),Vector2(127,4)),Color("493a2b"))
 	m._ui_rect(Rect2(r.position+Vector2(79,10),Vector2(floorf(127*progress/100),4)),Color("30baa8"))
