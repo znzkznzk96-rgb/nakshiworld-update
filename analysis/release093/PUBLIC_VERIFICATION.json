@@ -1,0 +1,33 @@
+{
+  "version": {
+    "code": 93,
+    "name": "0.93"
+  },
+  "source_commit": "aea11ba1a9b11668be211648898803a276076cc3",
+  "assets": {
+    "version.json": {
+      "size": 198,
+      "sha256": "5b0a3e839b5a4f4d92915049009d0721ec588686dbe6fd90120312032778bbf5",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v0.93/version.json"
+    },
+    "patch.pck": {
+      "size": 47649104,
+      "sha256": "30999a7e553a5a43eec507af4e3a5245d09215162f61c801a69896743954beca",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v0.93/patch.pck"
+    },
+    "game-source.zip": {
+      "size": 47313509,
+      "sha256": "318eafdacaf3256003abe9dba6d09143b0ba6cd7bd6ee4b5c98e12731ebaff07",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v0.93/game-source.zip"
+    }
+  },
+  "phone_verified": false,
+  "source_overlay_files_verified": 342,
+  "zip_crc_verified": true,
+  "public_assets_verified": true,
+  "work_ci": 40826431794,
+  "release_ci": 40826636611,
+  "gateway_ci": 40827003040,
+  "gateway_verified": true,
+  "pr": 25
+}

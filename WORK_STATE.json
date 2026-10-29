@@ -1,16 +1,16 @@
 {
   "schema_version": 3,
   "work_branch": "work/valley-runtime",
-  "status": "release093_verified_publish_pending",
-  "release_baseline": "v0.92",
-  "source_commit": "b80cdd2301ef030116cecb20be0c6b5535efa8e7",
-  "current_task": "v0.93 로컬56검사통과,배포중",
+  "status": "v093_published_verified",
+  "release_baseline": "v0.93",
+  "source_commit": "aea11ba1a9b11668be211648898803a276076cc3",
+  "current_task": "v0.93 공개배포 및 운영다운로드 검증 완료",
   "handoff": "HANDOFF.md",
   "game_bible": "docs/GAME_BIBLE.md",
   "verification": "analysis/release093/REPORT.md",
   "phone_verified": false,
   "release_authorized": true,
-  "next_step": "work CI 통과 후 main병합 및실제배포검증",
+  "next_step": "길잡이 시안 아이콘 재제작은 별도대기; 휴대폰적용미확인",
   "updated_at": "2026-10-29",
   "support_audit": "analysis/support-balance-085/REPORT.md",
   "support_utility_report": "analysis/support-utility-085/REPORT.md",
@@ -20,7 +20,7 @@
     "implemented": true,
     "layout_implemented": true,
     "art_complete": true,
-    "deployed": false,
+    "deployed": true,
     "release_authorized": true
   }
 }
