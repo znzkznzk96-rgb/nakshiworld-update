@@ -16,6 +16,7 @@ var stocks: Array = [0,0,0,0,0,0]
 var selected_bait := 0
 var last_bait := -1
 var icons := {}
+var unlock_error := ""
 func restore(data: Dictionary) -> void:
 	unlocked=[0]
 	for value in data.get("unlocked",[]):
@@ -30,12 +31,15 @@ func serialize() -> Dictionary:
 	return {"unlocked":unlocked,"stocks":stocks,"selected_bait":selected_bait}
 func is_unlocked(n: int) -> bool: return n in unlocked
 func unlock(m, n: int) -> bool:
+	unlock_error=""
 	if n<1 or n>5: return false
 	if is_unlocked(n): return true
 	if n not in m.progression.available_regions or not is_unlocked(n-1) or not m.progression.licensed(n): return false
 	var cost: int = int(SPOTS.PRICES[n])
 	if m.gold < cost: return false
-	m.gold -= cost;unlocked.append(n);m._save_game()
+	m.gold -= cost;unlocked.append(n)
+	if not m._save_game():
+		m.gold += cost;unlocked.erase(n);unlock_error="저장하지 못했어요. 다시 시도해 주세요.";return false
 	return true
 func part_key(n: int, slot: int) -> String:
 	return KEYS[slot] if n==0 else "r%d_%s" % [n,KEYS[slot]]
