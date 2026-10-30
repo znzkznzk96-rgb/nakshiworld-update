@@ -1,11 +1,13 @@
 {
   "work_branch": "work/valley-runtime",
-  "status": "resume_101_verification",
+  "status": "ui_selection_icon_audit",
   "release_baseline": "v1.00",
   "target_release": "v1.01",
-  "release_authorized": true,
+  "release_authorized": false,
   "deployed": false,
   "phone_verified": false,
   "handoff": "HANDOFF.md",
-  "next_step": "Restore approved local changes, verify, publish 1.01"
+  "next_step": "스킬 시트 재사용 또는 PixelLab15종 제작 선택 후 진행; 유료생성/새배포 미승인",
+  "current_task": "2026-10-31 어혼 선택/연성 결과A/병사합성A 선택 및 PixelLab 아이콘 조사",
+  "latest_decision": "docs/decisions/UI_20261031_ICON_AUDIT.md"
 }
