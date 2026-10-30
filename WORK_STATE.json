@@ -1,14 +1,14 @@
 {
   "work_branch": "work/valley-runtime",
-  "status": "puffer_impact_motion_review_ready",
+  "status": "remaining_evolution_stills_in_progress",
   "release_baseline": "v1.02",
   "target_release": "v1.02",
   "release_authorized": true,
   "deployed": true,
   "phone_verified": false,
   "handoff": "HANDOFF.md",
-  "next_step": "사용자 새타격모션 검토; 게임연결·배포 미진행",
-  "current_task": "2성·3성 공격모션 및 타격효과 재제작",
+  "next_step": "각1장순차제작·검수·원본저장;모션대기",
+  "current_task": "나머지14병사2성·3성28장시안",
   "latest_decision": "docs/GAME_BIBLE.md",
   "paid_generation_authorized": {
     "count": 15,
@@ -49,6 +49,13 @@
     "motion_paid_generations": 4,
     "motion_report": "docs/design/puffer-evolution/MOTION_REVIEW.md",
     "latest_motion_paid_generations": 14,
-    "latest_motion_report": "docs/design/puffer-evolution/IMPACT_REVIEW.md"
+    "latest_motion_report": "docs/design/puffer-evolution/IMPACT_REVIEW.md",
+    "impact_motion_adopted": true
+  },
+  "remaining_evolutions": {
+    "requested": 28,
+    "completed": 0,
+    "motion": "on_hold",
+    "deployed": false
   }
 }
