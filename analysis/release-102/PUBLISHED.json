@@ -1,0 +1,40 @@
+{
+  "version": {
+    "code": 102,
+    "name": "1.02"
+  },
+  "source_commit": "f2a6c14a09768389e76b2beef8fdc43332b659da",
+  "assets": {
+    "version.json": {
+      "size": 199,
+      "sha256": "06cfe51a0d63bdf1bc4d2b698560a9294c23e0a89f97540e46af992b79ca449d",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.02/version.json"
+    },
+    "patch.pck": {
+      "size": 51704400,
+      "sha256": "b388b3a7d19e37dd689a7bea4af0f5abb892fcb081553023c244c2f657efd16c",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.02/patch.pck"
+    },
+    "game-source.zip": {
+      "size": 51938368,
+      "sha256": "d5de638527a6fc47c927a3eb80d98edd683151270be08483a645243263b22a9c",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.02/game-source.zip"
+    }
+  },
+  "phone_verified": false,
+  "source_overlay_files_verified": 439,
+  "zip_crc_verified": true,
+  "public_assets_verified": true,
+  "work_ci": 41095310822,
+  "release_ci": 41096049556,
+  "public_ci": 41096547823,
+  "remote_suites": 64,
+  "local_verified": false,
+  "local_limitation": "Godot executable SIGSEGV in current host; remote CI passed",
+  "apk_update_download_verified": true,
+  "changes": [
+    "reservoir thumbnail matte cropped at draw time",
+    "collected grade markers use GRADE_C"
+  ],
+  "pr": 32
+}
