@@ -1,0 +1,48 @@
+{
+  "request-settings.json": {
+    "image_size": {
+      "width": 160,
+      "height": 128
+    },
+    "description": "Evolve this exact character to tier 2. Brown loach medic. Add teal leather-and-silver chest guard, small shoulder plates and reinforced teal medic satchel with cream medical emblem. Retain whiskers, long curved brown body, pale belly and teal fins. Upgrade satchel with visible neatly secured green medicine vials. Preserve crisp pixel style, original facing and palette. No cape, text, background or extra limbs. Full body, no clipping.",
+    "width": 160,
+    "height": 128,
+    "no_background": true,
+    "seed": 20261031,
+    "reference": {
+      "path": "evolution-roster/loach/star1.png",
+      "sha256": "4fc66a12a1d89e88a1491ff2bd69ad6a0717b3dce7cd34c70e687ab0ba97c207"
+    }
+  },
+  "reference.json": {
+    "path": "evolution-roster/loach/star1.png",
+    "sha256": "4fc66a12a1d89e88a1491ff2bd69ad6a0717b3dce7cd34c70e687ab0ba97c207"
+  },
+  "submitted.json": {
+    "time": 1793385115.337025,
+    "endpoint": "edit-image",
+    "single_post": true
+  },
+  "response.json": {
+    "usage": null,
+    "background_job_id": "687f3a2c-b8fc-4cb0-9a71-d0306b343500",
+    "status": "processing"
+  },
+  "cost.json": {
+    "charged_generations": 1
+  },
+  "validation.json": {
+    "size": [
+      160,
+      128
+    ],
+    "bbox": [
+      19,
+      36,
+      135,
+      109
+    ],
+    "sha256": "a30ec131339956cae2e2a944edc096a3160f4695bfe357d0fd8c01bc3d7659ed",
+    "charged_generations": 1
+  }
+}

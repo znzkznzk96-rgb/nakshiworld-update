@@ -1,0 +1,48 @@
+{
+  "request-settings.json": {
+    "image_size": {
+      "width": 160,
+      "height": 128
+    },
+    "description": "Evolve this exact character to tier 2. Turquoise flying fish swordsman. Add silver-blue breastplate and wing-root shoulder armor. Enlarge long translucent fin wings with bright blue edges. Upgrade sword to a longer curved cyan crystal blade. Retain yellow belly, cute fish face and athletic compact shape. Preserve crisp pixel style, original facing and palette. No cape, text, background or extra limbs. Full body, no clipping.",
+    "width": 160,
+    "height": 128,
+    "no_background": true,
+    "seed": 20261031,
+    "reference": {
+      "path": "evolution-roster/flying/star1.png",
+      "sha256": "52abc933db64fe2526716b1a8f598eee20fb343161f707fb8a0adf206781d703"
+    }
+  },
+  "reference.json": {
+    "path": "evolution-roster/flying/star1.png",
+    "sha256": "52abc933db64fe2526716b1a8f598eee20fb343161f707fb8a0adf206781d703"
+  },
+  "submitted.json": {
+    "time": 1793384993.89016,
+    "endpoint": "edit-image",
+    "single_post": true
+  },
+  "response.json": {
+    "usage": null,
+    "background_job_id": "b0d5b938-5642-4e41-b4b3-6217f9e39034",
+    "status": "processing"
+  },
+  "cost.json": {
+    "charged_generations": 1
+  },
+  "validation.json": {
+    "size": [
+      160,
+      128
+    ],
+    "bbox": [
+      16,
+      16,
+      144,
+      111
+    ],
+    "sha256": "4848b6ba7b2a1f05d60de129c813d758ea526189614cba378b2d1419ea2a6247",
+    "charged_generations": 1
+  }
+}
