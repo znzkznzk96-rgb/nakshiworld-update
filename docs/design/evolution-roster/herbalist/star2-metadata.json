@@ -1,0 +1,48 @@
+{
+  "request-settings.json": {
+    "image_size": {
+      "width": 160,
+      "height": 128
+    },
+    "description": "Evolve this exact character to tier 2. Round yellow-green herbalist fish carrying flower basket. Add leaf-green silver-edged chest guard and layered leaf shoulder plates. Upgrade basket into reinforced living-wood herb pack with white flowers and small aqua medicine bottles. Keep cute round fish and yellow belly. Preserve crisp pixel style, original facing and palette. No cape, text, background or extra limbs. Full body, no clipping.",
+    "width": 160,
+    "height": 128,
+    "no_background": true,
+    "seed": 20261031,
+    "reference": {
+      "path": "evolution-roster/herbalist/star1.png",
+      "sha256": "ffeff1419b038b4f3f1d8b8a9b0a14d8947eb5c349ce00c1793171f78b9594bb"
+    }
+  },
+  "reference.json": {
+    "path": "evolution-roster/herbalist/star1.png",
+    "sha256": "ffeff1419b038b4f3f1d8b8a9b0a14d8947eb5c349ce00c1793171f78b9594bb"
+  },
+  "submitted.json": {
+    "time": 1793385811.8611262,
+    "endpoint": "edit-image",
+    "single_post": true
+  },
+  "response.json": {
+    "usage": null,
+    "background_job_id": "679bd441-ba71-41b8-931f-dec81d9990e7",
+    "status": "processing"
+  },
+  "cost.json": {
+    "charged_generations": 1
+  },
+  "validation.json": {
+    "size": [
+      160,
+      128
+    ],
+    "bbox": [
+      14,
+      14,
+      126,
+      117
+    ],
+    "sha256": "c2eaf057709765eec972aefe13d1cbc8652c063ddba30c9d05bae2cfc2d1dc38",
+    "charged_generations": 1
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "request-settings.json": {
+    "image_size": {
+      "width": 160,
+      "height": 128
+    },
+    "description": "Major tier3 evolution: rebuild body armor and silhouette. Round yellow-green grove guardian healer. Distinct overlapping emerald leaf armor, flowering branch fin crown and broad layered leaf shoulders. Large carved living-wood herb backpack with luminous white flowers and aqua crystal seed pods. Cute round face, exposed yellow belly, sturdy short feet. Same crisp pixels, facing and colors. No cape or background. Full body.",
+    "width": 160,
+    "height": 128,
+    "no_background": true,
+    "seed": 20261031,
+    "reference": {
+      "path": "evolution-roster/herbalist/star1.png",
+      "sha256": "ffeff1419b038b4f3f1d8b8a9b0a14d8947eb5c349ce00c1793171f78b9594bb"
+    }
+  },
+  "reference.json": {
+    "path": "evolution-roster/herbalist/star1.png",
+    "sha256": "ffeff1419b038b4f3f1d8b8a9b0a14d8947eb5c349ce00c1793171f78b9594bb"
+  },
+  "submitted.json": {
+    "time": 1793385874.6360064,
+    "endpoint": "edit-image",
+    "single_post": true
+  },
+  "response.json": {
+    "usage": null,
+    "background_job_id": "3ab446b0-529c-441b-9681-4342b393525e",
+    "status": "processing"
+  },
+  "cost.json": {
+    "charged_generations": 1
+  },
+  "validation.json": {
+    "size": [
+      160,
+      128
+    ],
+    "bbox": [
+      28,
+      8,
+      133,
+      119
+    ],
+    "sha256": "b6b3a3e9be119bd401c904c83a82b6a1e928700bd33b556d11a5a647c1c7f682",
+    "charged_generations": 1
+  }
+}

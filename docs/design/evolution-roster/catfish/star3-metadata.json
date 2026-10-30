@@ -1,0 +1,48 @@
+{
+  "request-settings.json": {
+    "image_size": {
+      "width": 160,
+      "height": 128
+    },
+    "description": "Major tier3 evolution: rebuild body armor and silhouette. Purple catfish counterstrike juggernaut. Thick dark-violet gunmetal armor, stacked round shoulder plates, swept gold fin crest, large circular steel shield with violet crystal lightning core and reinforced studs. Keep long whiskers and exposed cream fish face. Solid compact heroic fish. Same crisp pixels, facing and colors. No cape or background. Full body.",
+    "width": 160,
+    "height": 128,
+    "no_background": true,
+    "seed": 20261031,
+    "reference": {
+      "path": "evolution-roster/catfish/star1.png",
+      "sha256": "c764907656eccf110837ced2aa2a92ed9ffff6dfcf0753758326b7622da4b0eb"
+    }
+  },
+  "reference.json": {
+    "path": "evolution-roster/catfish/star1.png",
+    "sha256": "c764907656eccf110837ced2aa2a92ed9ffff6dfcf0753758326b7622da4b0eb"
+  },
+  "submitted.json": {
+    "time": 1793385761.1406302,
+    "endpoint": "edit-image",
+    "single_post": true
+  },
+  "response.json": {
+    "usage": null,
+    "background_job_id": "f3d92867-3fa7-4ee6-9eb7-d2ea4502f2b9",
+    "status": "processing"
+  },
+  "cost.json": {
+    "charged_generations": 1
+  },
+  "validation.json": {
+    "size": [
+      160,
+      128
+    ],
+    "bbox": [
+      26,
+      36,
+      140,
+      115
+    ],
+    "sha256": "b270db7a8482b09959f4091cafa96329dd8337f167c8787cca18eebcdbb15d39",
+    "charged_generations": 1
+  }
+}
