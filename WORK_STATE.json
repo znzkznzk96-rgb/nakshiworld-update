@@ -1,13 +1,13 @@
 {
   "work_branch": "work/valley-runtime",
-  "status": "puffer_evolution_star2_rejected",
+  "status": "puffer_two_star_revision_and_three_star_requested",
   "release_baseline": "v1.02",
   "target_release": "v1.02",
   "release_authorized": true,
   "deployed": true,
   "phone_verified": false,
   "handoff": "HANDOFF.md",
-  "next_step": "2성 실패결과 공유; 갑옷/실루엣을 강조한 추가유료재제작 지시 대기",
+  "next_step": "복어2성 재제작과3성첫제작 각1회, 결과둘다직접표시",
   "current_task": "복어 방패병 2성·3성 진화 파일럿",
   "latest_decision": "docs/GAME_BIBLE.md",
   "paid_generation_authorized": {
