@@ -1,10 +1,11 @@
 {
-  "status": "release_098_preparing",
-  "active_branch": "work/valley-runtime",
-  "version": "0.98",
+  "work_branch": "work/valley-runtime",
+  "status": "resume_101_verification",
+  "release_baseline": "v1.00",
+  "target_release": "v1.01",
   "release_authorized": true,
   "deployed": false,
   "phone_verified": false,
   "handoff": "HANDOFF.md",
-  "next_step": "Regression tests, publish v0.98, verify public download"
+  "next_step": "Restore approved local changes, verify, publish 1.01"
 }
