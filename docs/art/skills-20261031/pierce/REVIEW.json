@@ -1,0 +1,18 @@
+{
+  "status": "pass",
+  "note": "Wooden hammer breaks blue armor into separated fragments; readable at native size.",
+  "native_and_nearest_reviewed": true,
+  "size": [
+    64,
+    64
+  ],
+  "mode": "RGBA",
+  "bbox": [
+    4,
+    8,
+    60,
+    56
+  ],
+  "paid_generations": 1.0,
+  "sha256": "c0b5b61d9f62d920a4127bcfd104dc201cca56bad6795bce4ad102057b83553e"
+}

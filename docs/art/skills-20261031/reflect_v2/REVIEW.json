@@ -1,0 +1,18 @@
+{
+  "status": "pass",
+  "note": "Blue shield with prominent golden U-turn arrow; reflection readable at native size.",
+  "native_and_nearest_reviewed": true,
+  "size": [
+    64,
+    64
+  ],
+  "mode": "RGBA",
+  "bbox": [
+    12,
+    2,
+    50,
+    60
+  ],
+  "paid_generations": 1.0,
+  "sha256": "1ab16d1775e4b642329f81d827beba798a3ec5081f910d669c9245413e0d7ef4"
+}

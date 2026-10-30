@@ -433,3 +433,17 @@ func utility_base(target: Dictionary,source: Dictionary) -> float:
 	var target_growth: float=float(target.max_hp)/float(catalog.soldiers[int(target.id)].stars["1"].hp)
 	var source_growth: float=float(source.max_hp)/float(catalog.soldiers[int(source.id)].stars["1"].hp)
 	return float(target.max_hp)*minf(1.0,source_growth/target_growth)
+
+# Native element matches	the soldier's established training element, not a player choice.
+func native_element(uid:int)->int:
+	var u:Dictionary=unit(uid)
+	return int(catalog.soldiers[int(u.id)].elements[0]) if not u.is_empty() else -1
+func can_salvage(uid:int)->bool:
+	var u:Dictionary=unit(uid)
+	return not u.is_empty() and not bool(u.get("locked",false)) and uid not in team and not active() and pending.is_empty()
+func salvage(uid:int)->Dictionary:
+	if not can_salvage(uid):return {}
+	var element:int=native_element(uid)
+	soldiers=soldiers.filter(func(u):return int(u.uid)!=uid)
+	souls[element]+=1
+	return {"element":element,"souls":1,"gold":250}

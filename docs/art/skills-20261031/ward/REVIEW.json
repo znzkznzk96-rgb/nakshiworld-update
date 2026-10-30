@@ -1,0 +1,18 @@
+{
+  "status": "pass",
+  "note": "Green leaf and teal shield distinct and readable at native size.",
+  "native_and_nearest_reviewed": true,
+  "size": [
+    64,
+    64
+  ],
+  "mode": "RGBA",
+  "bbox": [
+    8,
+    3,
+    57,
+    61
+  ],
+  "paid_generations": 1.0,
+  "sha256": "fd4ed2d7fa9ffcc02f0bc44a733c6beb619f521704d6100d67d8d90959e58073"
+}

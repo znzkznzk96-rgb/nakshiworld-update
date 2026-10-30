@@ -1,0 +1,18 @@
+{
+  "status": "fail",
+  "note": "Arrow appears to pass behind shield, no clearly bent rebound arrow. Retry within two-attempt limit.",
+  "native_and_nearest_reviewed": true,
+  "size": [
+    64,
+    64
+  ],
+  "mode": "RGBA",
+  "bbox": [
+    2,
+    3,
+    60,
+    61
+  ],
+  "paid_generations": 1.0,
+  "sha256": "83c41d3414ba85af7d48af5fbda1605728ac795071bbe3e2d211ed279ddc1549"
+}

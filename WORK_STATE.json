@@ -1,14 +1,14 @@
 {
   "work_branch": "work/valley-runtime",
-  "status": "pixellab_skills15_in_progress",
+  "status": "v101_implementation_verified_pending_ci_deployment",
   "release_baseline": "v1.00",
   "target_release": "v1.01",
   "release_authorized": true,
   "deployed": false,
   "phone_verified": false,
   "handoff": "HANDOFF.md",
-  "next_step": "재생 생성응답·검수 후 나머지8종; 승인UI구현중",
-  "current_task": "PixelLab 스킬15종 각1장 신규제작",
+  "next_step": "원격 CI 통과 후 main 병합, v1.01 릴리스와 운영 URL 검증",
+  "current_task": "승인 A안 UI·PixelLab15종 신규제작·병사관리 개선 배포",
   "latest_decision": "docs/decisions/UI_20261031_ICON_AUDIT.md",
   "paid_generation_authorized": {
     "count": 15,
@@ -18,11 +18,22 @@
   },
   "icon_generation": {
     "requested": 15,
-    "passed": 6,
-    "rejected": 1,
-    "charged_generations": 7,
-    "in_flight": "regen",
+    "passed": 15,
+    "rejected": 2,
+    "charged_generations": 17,
+    "in_flight": null,
     "report": "docs/art/skills-20261031/REPORT.md"
   },
-  "icon_generation_status": "10 passed icons, 11 charged generations total; each icon <=2 authorized attempts. Remaining5 in progress. Not deployed."
+  "icon_generation_status": "Completed 15 accepted icons / 17 paid generations. Bolt and reflect accepted second attempts.",
+  "local_verification": {
+    "suites": 64,
+    "failed": 0,
+    "final_icon_load_check": true,
+    "screens": 21,
+    "heights": [
+      480,
+      540,
+      660
+    ]
+  }
 }
