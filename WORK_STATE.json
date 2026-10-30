@@ -1,13 +1,18 @@
 {
   "work_branch": "work/valley-runtime",
-  "status": "ui_selection_icon_audit",
+  "status": "pixellab_skills15_authorized",
   "release_baseline": "v1.00",
   "target_release": "v1.01",
   "release_authorized": false,
   "deployed": false,
   "phone_verified": false,
   "handoff": "HANDOFF.md",
-  "next_step": "스킬 시트 재사용 또는 PixelLab15종 제작 선택 후 진행; 유료생성/새배포 미승인",
-  "current_task": "2026-10-31 어혼 선택/연성 결과A/병사합성A 선택 및 PixelLab 아이콘 조사",
-  "latest_decision": "docs/decisions/UI_20261031_ICON_AUDIT.md"
+  "next_step": "기존 연결 읽기 확인 및 첫1종 생성·검수",
+  "current_task": "PixelLab 스킬15종 각1장 신규제작",
+  "latest_decision": "docs/decisions/UI_20261031_ICON_AUDIT.md",
+  "paid_generation_authorized": {
+    "count": 15,
+    "per_skill": 1,
+    "retry": false
+  }
 }
