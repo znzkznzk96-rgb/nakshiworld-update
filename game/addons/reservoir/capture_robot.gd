@@ -14,6 +14,7 @@ const WATER_BACKDROP = preload("res://art/bg/reservoir_approved.png")
 const WORKSHOP = preload("res://art/ui/capture_robot_b/workshop.png")
 const LICENSE = preload("res://art/rewards67/license_0.png")
 const PARTS = [preload("res://art/ui/capture_robot_b/speed.png"),preload("res://art/ui/capture_robot_b/storage.png"),preload("res://art/ui/capture_robot_b/precision.png")]
+var micro_icons = preload("res://addons/reservoir/robot_micro_icons.gd").new()
 var icon_art = preload("res://addons/reservoir/robot_icon_art.gd").new()
 var shop_tab := 0
 var visual_time := 0.0
@@ -235,8 +236,8 @@ func surface_layout(m) -> Dictionary:
 	var bob:=sin(t)*1.5
 	var follow:=sin(t-0.12)*1.5
 	var center:=Vector2(237,water-2+bob)
-	# Content-led size: a 44x30 icon, or Zzz plus a separate fixed timer.
-	return {"robot":Rect2(center-Vector2(27,17),Vector2(54,27)),"bubble":Rect2(196,water-66+follow,68,40),"water":water}
+	# Bubble remains narrower than the robot; glyphs use native logical pixels.
+	return {"robot":Rect2(center-Vector2(27,17),Vector2(54,27)),"bubble":Rect2(218,water-48+follow,38,24),"water":water}
 func draw_bubble(m,r: Rect2) -> void:
 	# Crisp stepped corners and a short pixel tail, moving together with all contents.
 	m._ui_rect(r,Color("593720"))
@@ -262,25 +263,27 @@ func draw_surface(m) -> void:
 	m._ui_line(Vector2(251,water+1),Vector2(260,water+1),Color(.45,.8,.94,.55),1)
 	draw_bubble(m,bubble)
 	var p:=bubble.position.round()
-	var box:=Rect2(p+Vector2(10,5),Vector2(48,30))
+	var glyph_pos:=p+Vector2(5,4)
+	var frame:int=1 if sin(visual_time*5)>0 else 0
 	if not enabled:
-		icon_art.draw(m,"sleep",Rect2(p+Vector2(5,5),Vector2(29,28)))
-		m._text("OFF",p+Vector2(49,24),8,Color("68533d"),true,27)
-	elif fish.size()>=CAPS[capacity]:
-		icon_art.draw(m,"full",box,Color(1,1,1,.85+.15*sin(visual_time*3.0)))
-	elif flash>0:
-		box.position.y+=roundf(sin(visual_time*7))
-		icon_art.draw(m,"success",box)
+		micro_icons.draw(m,"sleep",glyph_pos)
+		m._text("OFF",p+Vector2(25,17),7,Color("68533d"),true,20)
+	elif fish.size()>=CAPS[capacity]:micro_icons.draw(m,"full",glyph_pos,frame)
+	elif flash>0:micro_icons.draw(m,"success",glyph_pos,frame)
 	elif job.is_empty():
-		icon_art.draw(m,"sleep",Rect2(p+Vector2(5,5+roundf(sin(visual_time*3))),Vector2(29,28)))
+		micro_icons.draw(m,"sleep",glyph_pos)
 		var seconds:=ceili((1-escrow)*3600/maxf(1,m.pond_recovery()))
-		m._text("%d초"%seconds,p+Vector2(49,24),8,Color("493421"),true,28)
-	else:
-		box.position.y+=roundf(sin(visual_time*7))
-		icon_art.draw(m,"capture",box)
+		micro_icons.timer(m,p+Vector2(18,9),seconds)
+	else:micro_icons.draw(m,"capture",glyph_pos,frame)
 func draw_panel(m,h: float) -> void:
 	if not opened: return
 	rects={};var r:=Rect2(16,maxf(80,(h-250)/2),238,250)
+	# Text is rendered after all UI surfaces: discard occluded lower-layer labels.
+	var behind:Array=[]
+	for item in m.text_items:
+		if item[1].y>=r.position.y-4 and item[1].y<=r.end.y+16:continue
+		var dimmed:Array=item.duplicate();var c:Color=dimmed[6];c.a*=0.35;dimmed[6]=c;behind.append(dimmed)
+	m.text_items=behind
 	m._ui_rect(Rect2(0,0,270,h),Color(0,0,0,.65));m._ui_style_box(m.sb_panel,r)
 	m._text("포획 로봇",r.position+Vector2(119,26),14,Color("493421"),true)
 	draw_robot(m,Rect2(r.position+Vector2(71,37),Vector2(96,48)))
