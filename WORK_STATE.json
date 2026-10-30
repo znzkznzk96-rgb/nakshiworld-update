@@ -1,15 +1,15 @@
 {
   "work_branch": "work/valley-runtime",
-  "status": "v102_dex_fix_pending_remote_verification",
-  "release_baseline": "v1.01",
+  "status": "v102_deployed_verified",
+  "release_baseline": "v1.02",
   "target_release": "v1.02",
   "release_authorized": true,
-  "deployed": false,
+  "deployed": true,
   "phone_verified": false,
   "handoff": "HANDOFF.md",
-  "next_step": "원격64검사/화면렌더 후 v1.02 배포, 공개다운로드검증",
+  "next_step": "기존 앱에서 1.02 도감 그림/등급색 휴대폰 확인",
   "current_task": "도감 동네저수지 썸네일 크기와 수집 등급 색상 수정",
-  "latest_decision": "docs/decisions/UI_20261031_ICON_AUDIT.md",
+  "latest_decision": "docs/GAME_BIBLE.md",
   "paid_generation_authorized": {
     "count": 15,
     "max_total_attempts_per_skill": 2,
@@ -29,7 +29,14 @@
     "status": "unavailable_current_runtime",
     "reason": "Godot --version exits SIGSEGV; no local pass claimed"
   },
-  "source_commit": "49a401c491209c32b9edcc896b9b10402b60c932",
-  "verification": "analysis/release-101/PUBLISHED.json",
-  "remote_saved": true
+  "source_commit": "f2a6c14a09768389e76b2beef8fdc43332b659da",
+  "verification": "analysis/release-102/PUBLISHED.json",
+  "remote_saved": true,
+  "remote_verification": {
+    "suites": 64,
+    "failed": 0,
+    "work_ci": 41095310822,
+    "release_ci": 41096049556,
+    "public_ci": 41096547823
+  }
 }
