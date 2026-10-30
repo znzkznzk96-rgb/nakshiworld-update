@@ -54,7 +54,7 @@ func run() -> void:
  v.open(m,"explore");v.explore_tab=1;m.text_items=[];m.ui_commands=[];v.draw(m,540)
  v.formation_native_until=0
  native_engine_tap(v.rects["formation_unit:1"].get_center()+Vector2(m.ox,0))
- check(1 in v.data.team and not v.formation_pointer,"real engine formation tap after idle")
+ check(v.formation_uid==1 and not v.formation_pointer,"real engine formation tap opens comparison after idle")
  Input.emulate_mouse_from_touch=false;Input.use_accumulated_input=true;Input.flush_buffered_events()
  await process_frame;await process_frame
  print("BAG_EVENT_ORDER_VERIFY failures=",failures);m.audio_feedback.dispose();m.queue_free();await process_frame;await process_frame;quit(0 if failures.is_empty() else 1)
