@@ -1,0 +1,37 @@
+{
+  "version": {
+    "code": 100,
+    "name": "1.00"
+  },
+  "source_commit": "862dcd9c5492a37eb557150f59c9247b4425bc2f",
+  "assets": {
+    "version.json": {
+      "size": 199,
+      "sha256": "831d7d0ad179d481203056e717366fb5a0385eeb2939b6f29baeb43053be72ca",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.00/version.json"
+    },
+    "patch.pck": {
+      "size": 51640752,
+      "sha256": "a50c726ab7eff800d87386202a1e95f845baab57cb916dabbdd83f65d548281d",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.00/patch.pck"
+    },
+    "game-source.zip": {
+      "size": 51890408,
+      "sha256": "c03848b383fd286008ee3849b633ecf399bb114d7825eeb1eb42d62fdad08d9c",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.00/game-source.zip"
+    }
+  },
+  "phone_verified": false,
+  "source_overlay_files_verified": 421,
+  "zip_crc_verified": true,
+  "public_assets_verified": true,
+  "work_commit": "937fc1ce21029f2a17ddda490a809fa68ba72d80",
+  "release_ci": 41022815056,
+  "work_ci": 41022756321,
+  "public_ci": 41023168073,
+  "ci_conclusions": "success",
+  "local_regression_suites": 47,
+  "focused_robot100_test": "passed",
+  "gateway_download_verified": true,
+  "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v1.00"
+}
