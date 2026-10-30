@@ -1,0 +1,12 @@
+{
+  "description": "Single compact fantasy RPG skill icon, crisp 16-bit pixel art, bold clean dark outline, 3 shades per color, simple readable silhouette, centered with 5 pixel empty margin, no frame, no letters, transparent background. A large bright fresh green medicinal leaf overlapping the front of a teal protective shield with pale silver rim. Leaf runs diagonally from lower left to upper right, with simple pale central vein. Blue teal shield is clearly visible behind leaf. Compact solid icon with two main shapes. No cross, no heart, no text.",
+  "image_size": {
+    "width": 64,
+    "height": 64
+  },
+  "no_background": true,
+  "outline": "single color black outline",
+  "shading": "basic shading",
+  "detail": "low detail",
+  "seed": 202610310
+}

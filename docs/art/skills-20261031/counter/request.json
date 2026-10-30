@@ -1,0 +1,12 @@
+{
+  "description": "Single compact fantasy RPG skill icon, crisp 16-bit pixel art, bold clean dark outline, 3 shades per color, simple readable silhouette, centered with 5 pixel empty margin, no frame, no letters, transparent background. One short silver sword with dark blue handle pointing up-right, encircled on its left by one LARGE orange curved U-turn arrow with a clearly visible triangular arrowhead pointing back toward the sword. The orange counterattack arrow must occupy half the image. Two distinct simple shapes. No shield, no text.",
+  "image_size": {
+    "width": 64,
+    "height": 64
+  },
+  "no_background": true,
+  "outline": "single color black outline",
+  "shading": "basic shading",
+  "detail": "low detail",
+  "seed": 202610310
+}

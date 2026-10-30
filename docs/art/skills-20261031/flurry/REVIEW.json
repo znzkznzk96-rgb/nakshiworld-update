@@ -1,0 +1,18 @@
+{
+  "status": "pass",
+  "note": "Crossed silver blades and turquoise slash edges, two swords obvious at native size, margins pass.",
+  "native_and_nearest_reviewed": true,
+  "size": [
+    64,
+    64
+  ],
+  "mode": "RGBA",
+  "bbox": [
+    9,
+    8,
+    55,
+    56
+  ],
+  "paid_generations": 1.0,
+  "sha256": "49bb72051255e81f1fa32f2ff231486be71cc0d47e52fced8ad5098895bb1fad"
+}

@@ -26,5 +26,8 @@ func _initialize() -> void:
 	assert(load("res://art/ui/capture_robot_b/motions.png").get_size()==Vector2(1440,240),"B robot motion atlas exported")
 	for asset in ["sleep","capture","success","full","workshop","speed","storage","precision"]:
 		assert(load("res://art/ui/capture_robot_b/%s.png"%asset) is Texture2D,"robot status art exported")
+	for key in expedition.management.SKILLS:
+		var icon=load("res://art/ui/soldier_skills/%s.png"%key)
+		assert(icon is Texture2D and icon.get_size()==Vector2(64,64),"PixelLab skill icon exported: "+key)
 	print("PACKED_ANGLER_VERIFY failures=[]")
 	quit()

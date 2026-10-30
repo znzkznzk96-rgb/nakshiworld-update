@@ -46,7 +46,7 @@ func draw(owner,m,y:float,bottom:float)->void:
  for i in 4:
   var r:=Rect2(18+i*59,y,57,23)
   button(m,"role_filter:"+["all","attack","defense","support"][i],r,["전체","공격","방어","지원"][i])
-  if v.role_filter==["all","attack","defense","support"][i]:m._ui_rect(Rect2(r.position+Vector2(5,20),Vector2(47,2)),green)
+  if v.role_filter==["all","attack","defense","support"][i]:v.management.select(m,r)
  y+=31
  label(m,"보유 병사",Vector2(20,y+7),9)
  label(m,"성급 / 강화",Vector2(245,y+7)-Vector2(m._text_w("성급 / 강화",8),0),8,Color("75614d"))
@@ -77,8 +77,9 @@ func comparison(m,cards:bool):
  var green:=Color("39715c");var red:=Color("a44e3c");var muted:=Color("75614d")
  var old:Dictionary=data.unit(data.team[v.formation_target]) if v.formation_target<data.team.size() else {};var chosen:Dictionary=data.unit(v.formation_uid)
  var before:Dictionary=data.stats(old) if not old.is_empty() else {"atk":0,"hp":0,"def":0};var after:Dictionary=data.stats(chosen)
- # Keep the top formation visible. Only the roster is covered by this review-only dialog.
- var dy:float=minf(282,m.get_viewport_rect().size.y-338)-282
+ # Center the comparison and dim the full scene behind it.
+ v.management.dim(m,Rect2(12,roundf((m.get_viewport_rect().size.y-326)/2),246,326))
+ var dy:float=roundf((m.get_viewport_rect().size.y-326)/2)-282
  var r:=Rect2(12,282+dy,246,326)
  modal_rects={"cancel":Rect2(229,287+dy,22,22)}
  m._ui_style_box(m.sb_chip,r)
@@ -87,7 +88,7 @@ func comparison(m,cards:bool):
  for i in 3:
   var tr:=Rect2(23+i*76,311+dy,72,25)
   m._ui_style_box(m.sb_btn,tr)
-  if i==2-v.formation_target:m._ui_rect(tr.grow(-3),green,false,1)
+  if i==2-v.formation_target:v.management.select(m,tr)
   modal_rects["target:%d"%(2-i)]=tr
   label(m,["뒤","중간","앞"][i],tr.get_center()+Vector2(0,4),10,green if i==2-v.formation_target else muted,true,66)
  label(m,"현재 "+["앞","중간","뒤"][v.formation_target]+"자리",Vector2(76,352+dy),8,muted,true,102)

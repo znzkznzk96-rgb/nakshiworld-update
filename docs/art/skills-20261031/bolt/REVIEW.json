@@ -1,0 +1,8 @@
+{
+  "status": "fail",
+  "native_and_nearest_reviewed": true,
+  "reason": "Golden arrow visible but required jagged lightning cue absent; not distinct as electric skill.",
+  "clipping": false,
+  "paid_generations": 1.0,
+  "next_calls": "stopped; no retry"
+}

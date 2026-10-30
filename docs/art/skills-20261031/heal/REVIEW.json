@@ -1,0 +1,18 @@
+{
+  "status": "pass",
+  "note": "Single cyan drop enclosing red heart; strong silhouette, alpha and margins pass.",
+  "native_and_nearest_reviewed": true,
+  "size": [
+    64,
+    64
+  ],
+  "mode": "RGBA",
+  "bbox": [
+    10,
+    4,
+    54,
+    60
+  ],
+  "paid_generations": 1.0,
+  "sha256": "42d88cb9fd63b4dd700e85c5b0a35669436385c8c583815174b3cb05278f6330"
+}

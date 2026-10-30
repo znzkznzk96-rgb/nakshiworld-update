@@ -17,6 +17,7 @@ var notice: String = ""
 var choosing_slot: int = -1
 var approved: Dictionary = {}
 var result_notice: float = 0.0
+var management = preload("res://addons/expedition/management_ui.gd").new()
 var training_uid: int = -1
 var effect_kind: String = ""
 var effect_time: float = 0.0
@@ -58,6 +59,7 @@ const ROOMS = ["젖은 현관","비어 있는 탈의실","반짝이는 세면대
 const WALLS = ["24596e","347c74","225f79","956526","3d366f","395472","263d70","1d6a67","704530","2e2352"]
 
 func setup() -> void:
+	management.bind(self)
 	for i in 10:
 		var path: String="res://art/expedition/rooms/room%02d.png"%(i+1)
 		if ResourceLoader.exists(path): textures["room%d"%i]=load(path)
@@ -293,11 +295,12 @@ func draw(m,h: float) -> void:
 	if opened=="explore": button(m,"go_alchemy",Rect2(184,y+8,44,20),"연성")
 	else:
 		button(m,"go_explore",Rect2(112,y+8,44,20),"탐험")
-		button(m,"roster",Rect2(158,y+8,70,20),"병사 강화")
+		button(m,"roster",Rect2(158,y+8,70,20),"병사 관리")
 	button(m,"close",Rect2(233,y+8,22,20),"×")
 	if effect_kind!="": draw_upgrade_effect(m,y+37,bottom);return
 	if not data.pending.is_empty(): draw_pending(m,y+37,bottom);return
-	if opened=="merge_confirm": draw_confirmation(m,y+37,bottom)
+	if opened=="management": management.detail(m)
+	elif opened=="merge_confirm": draw_confirmation(m,y+37,bottom)
 	elif opened=="explore": draw_explore(m,y+37,bottom)
 	elif opened=="training": draw_training(m,y+37,bottom)
 	else: draw_alchemy(m,y+37,bottom)
@@ -307,7 +310,7 @@ func draw(m,h: float) -> void:
 func draw_explore(m,y: float,bottom: float) -> void:
 	for i in 2:
 		button(m,"explore_tab:%d"%i,Rect2(17+i*119,y,117,24),["탐사 노선","병사 배치"][i])
-		if explore_tab==i: m._ui_rect(Rect2(23+i*119,y+20,105,2),Color("159d9d"))
+		if explore_tab==i: management.select(m,Rect2(17+i*119,y,117,24))
 	y+=31
 	if explore_tab==1:
 		draw_formation(m,y,bottom);return
@@ -344,7 +347,7 @@ func draw_explore(m,y: float,bottom: float) -> void:
 		m._ui_texture_rect_region(approved.route,r,CARD_REGIONS[idx])
 		if idx+1>data.unlocked: m._ui_rect(r.grow(-3),Color(.04,.06,.09,.53))
 		if idx+1==selected_round:
-			m._ui_rect(r.grow(1),Color("12c6ca"),false,1)
+			management.select(m,r)
 			for corner in [r.position,r.position+Vector2(r.size.x-4,0),r.end-Vector2(4,4),r.position+Vector2(0,r.size.y-4)]: m._ui_rect(Rect2(corner,Vector2(4,4)),Color("a7fff0"),false,1)
 		rects["round:%d"%(idx+1)]=r
 	var remaining: int=maxi(0,ceili(data.recovery_until-Time.get_unix_time_from_system()))
@@ -387,13 +390,13 @@ func craft_geometry(y: float,bottom: float) -> Dictionary:
 	return {"size":size,"result_h":result_h,"result_y":result_y,"owned_y":owned_y,"craft_y":owned_y+64}
 
 func draw_alchemy(m,y: float,bottom: float) -> void:
-	for i in 2:
-		var r: Rect2=Rect2(17+i*119,y,117,25)
-		if tab==i: primary(m,"tab:%d"%i,r,["어혼 연성","병사 합성"][i])
-		else: button(m,"tab:%d"%i,r,["어혼 연성","병사 합성"][i])
+	for i in 3:
+		var r: Rect2=Rect2(17+i*79,y,77,25)
+		button(m,"tab:%d"%i,r,["어혼 연성","병사 합성","병사"][i])
+		if tab==i:management.select(m,r)
 	y+=35
 	if tab==0:
-		m._text(notice if notice!="" else "어혼을 조합하세요.",Vector2(135,y+9),10,Color("9b4329") if notice!="" else Color("382619"),true,234)
+		m._text(notice if notice!="" else "어혼 두 개를 선택하세요.",Vector2(135,y+9),10,Color("9b4329") if notice!="" else Color("382619"),true,234)
 		var layout: Dictionary=flow_layout if not flow_layout.is_empty() else craft_geometry(y,bottom)
 		var owned_y: float=layout.owned_y
 		var result_h: float=layout.result_h
@@ -403,7 +406,7 @@ func draw_alchemy(m,y: float,bottom: float) -> void:
 			var r: Rect2=Rect2(84+i*102-size/2,y+16,size,size)
 			m._ui_style_box(m.hud_reference_style,r);m._ui_rect(r.grow(-4),Color("092b39"))
 			m._ui_texture_rect(textures[EFILES[int(pair[i])]],r.grow(-8))
-			if pair_slot==i: m._ui_rect(r.grow(-2),Color("3bf2e1"),false,1)
+			if pair_slot==i: management.select(m,r,"✓ "+str(i+1))
 			m._text(data.ELEMENTS[int(pair[i])],r.get_center()+Vector2(0,size/2+12),9,Color("382619"),true,63)
 			rects["pair:%d"%i]=r
 		var plus: Vector2=Vector2(135,y+16+size/2)
@@ -431,61 +434,20 @@ func draw_alchemy(m,y: float,bottom: float) -> void:
 			var r: Rect2=Rect2(17+i*48,owned_y+14,44,31)
 			m._ui_style_box(m.hud_reference_style,r);m._ui_rect(r.grow(-3),Color("092c38"))
 			m._ui_texture_rect(textures[EFILES[i]],Rect2(r.position+Vector2(10,2),Vector2(24,24)))
-			if i in pair: m._ui_rect(r.grow(-1),Color("27dfd6"),false,1)
+			if i in pair: management.select(m,r,"2개" if pair[0]==i and pair[1]==i else "1개")
 			m._text(str(data.souls[i]),r.position+Vector2(35,26),8,Color("fff0d1"),true,16,true)
 			m._text(data.ELEMENTS[i],r.position+Vector2(22,41),8,Color("382619"),true,42)
 			rects["element:%d"%i]=r
 		primary(m,"craft",Rect2(18,float(layout.craft_y),234,25),"연성하기 · 어혼 2개")
 		return
-	soul_row(m,y);y+=30
-	var rows: int=maxi(1,mini(4,int((bottom-y-90)/56)))
-	roster_viewport=Rect2(18,y,234,rows*56)
-	roster_max_scroll=maxf(0,(data.soldiers.size()-rows)*56.0)
-	roster_scroll=clampf(roster_scroll,0,roster_max_scroll)
-	var first: int=floori(roster_scroll/56.0)
-	page=first/rows
-	for i in rows:
-		var n: int=first+i
-		if n>=data.soldiers.size(): break
-		var u: Dictionary=data.soldiers[n];var st: Dictionary=data.stats(u);var spec: Dictionary=data.catalog.soldiers[int(u.id)]
-		var r: Rect2=Rect2(18,y+i*56,234,53)
-		m._ui_rect(r,Color("d2b577") if int(u.uid) in selected else Color("eddbb6"));sprite(m,int(u.id),Rect2(r.position,Vector2(42,40)))
-		m._text(("%s %s +%d"%["★".repeat(int(u.star)),spec.name,int(u.get("level",0))])+rarity_label(u),r.position+Vector2(44,12),8,Color("382619"),false,156 if tab==2 else 182)
-		m._text("체%d 공%d 방%d · 개체 +%d/%d/%d"%[st.hp,st.atk,st.def,u.iv[0],u.iv[1],u.iv[2]],r.position+Vector2(44,25),7,Color("6c553b"),false,145 if tab==2 else 183)
-		m._text(spec.description,r.position+Vector2(44,37),7,Color("6c553b"),false,145 if tab==2 else 183)
-		rects["select:%d"%int(u.uid)]=r
-		if tab==2:
-			lock_icon(m,"lock:%d"%int(u.uid),Rect2(r.end.x-25,r.position.y,24,22),bool(u.locked))
-			button(m,"upgrade:%d"%int(u.uid),Rect2(r.end.x-37,r.position.y+33,36,18),"강화")
-	var controls_bottom: float=roster_viewport.end.y+82
-	if roster_max_scroll>0:
-		var thumb: float=maxf(15,roster_viewport.size.y*rows/maxi(1,data.soldiers.size()))
-		m._ui_rect(Rect2(254,y,2,roster_viewport.size.y),Color("d7c7a6"))
-		m._ui_rect(Rect2(254,y+roster_scroll/roster_max_scroll*(roster_viewport.size.y-thumb),2,thumb),Color("96794d"))
-	if tab==2 or (notice=="" and selected.size()!=2): m._text("%d/60마리 · 위아래로 스크롤"%data.soldiers.size(),Vector2(135,roster_viewport.end.y+17),8,Color("6c553b"),true,230)
-	bottom=minf(bottom,controls_bottom)
-
-	if tab==2:
-		m._text("강화 버튼으로 육성 · 자물쇠로 잠금",Vector2(135,bottom-25),8,Color("6c553b"),true,232)
-	if tab==1:
-		var q: Dictionary=data.merge_cost(int(selected[0]),int(selected[1])) if selected.size()==2 else {}
-		if notice!="": m._text(notice,Vector2(135,roster_viewport.end.y+14),8,Color("9b4329"),true,232)
-		elif not q.is_empty():
-			m._text("어혼 %d개 + %d비늘 · 새 %d성"%[int(q.souls.reduce(func(a,b):return a+b,0)),q.gold,q.star],Vector2(135,roster_viewport.end.y+14),8,Color("6c553b"),true,232)
-		button(m,"merge_review",Rect2(22,bottom-64,226,28),"합성 결과·소모 재료 확인",not q.is_empty() and not data.active())
-		m._text("같은 별 +3 병사 2마리 · 잠금 병사는 보호",Vector2(135,bottom-23),8,Color("6c553b"),true,232)
+	management.grid(m,y,bottom)
 
 func draw_pending(m,y: float,bottom: float) -> void:
 	var p: Dictionary=data.pending
 	if p.kind=="craft":
 		var u: Dictionary=data.unit(int(p.uid))
 		if u.is_empty(): return
-		sprite(m,int(u.id),Rect2(72,y+15,126,102),int(m.ui_clock*7)%int(data.catalog.soldiers[int(u.id)].frame_count))
-		m._text("★".repeat(int(u.star))+" "+data.catalog.soldiers[int(u.id)].name,Vector2(135,y+140),12,Color("382619"),true,232)
-		m._text("체력 +%d%% · 공격 +%d%% · 방어 +%d%%"%u.iv,Vector2(135,y+170),9,Color("855c26"),true,232)
-		m._text(data.catalog.soldiers[int(u.id)].description,Vector2(135,y+196),9,Color("6c553b"),true,232)
-		if int(u.star)==3: m._text(["레어","유니크","전설"][int(u.rarity)],Vector2(135,y+222),13,Color("a96d23"),true,232)
-		button(m,"pending_done",Rect2(22,minf(bottom-55,y+246),226,30),"병사 보관함으로")
+		management.result(m,u)
 	elif p.kind=="merge":
 		sprite(m,int(p.id),Rect2(94,y,82,69))
 		m._text("새 %d성 %s"%[p.star,data.catalog.soldiers[int(p.id)].name],Vector2(135,y+87),11,Color("382619"),true,230)
@@ -532,6 +494,29 @@ func press(m,pos: Vector2) -> void:
 	if effect_kind!="":
 		if key in ["roster","go_alchemy","go_explore"]: effect_kind=""
 		else: return
+	if key.begins_with("manage_filter:"):role_filter=key.get_slice(":",1);roster_scroll=0;return
+	if key=="manage_back":opened="alchemy";tab=2;return
+	if key=="manage_lock":
+		var u:Dictionary=data.unit(management.uid)
+		if not u.is_empty():
+			var previous:bool=u.locked;u.locked=not previous
+			if not m._save_game():u.locked=previous;m.show_toast("저장하지 못했어요",Color("ffdc96"))
+		return
+	if key=="salvage_open":
+		if data.can_salvage(management.uid):management.confirm=true
+		else:m.show_toast("잠금·출전·탐험 중인 병사는 분해할 수 없어요",Color("ffdc96"))
+		return
+	if key=="salvage_cancel":management.confirm=false;return
+	if key=="salvage_confirm":
+		var before:Dictionary=data.serialize().duplicate(true);var old_gold:int=m.gold
+		var reward:Dictionary=data.salvage(management.uid)
+		if reward.is_empty():management.confirm=false;return
+		m.gold+=int(reward.gold)
+		if not m._save_game():
+			data.restore(before);m.gold=old_gold;m.show_toast("저장하지 못했어요. 다시 시도해 주세요",Color("ffdc96"));return
+		management.confirm=false;management.uid=-1;opened="alchemy";tab=2;selected=[]
+		m.show_toast(data.ELEMENTS[reward.element]+" 어혼 1개 · 250비늘 반환",Color("ffdc96"));return
+	if key=="pending_again":data.pending={};opened="alchemy";tab=0;m._save_game();return
 	if key=="roster": opened="alchemy";tab=2;page=0;roster_scroll=0;return
 	if key=="go_alchemy": open(m,"alchemy");return
 	if key=="go_explore": open(m,"explore");return
@@ -601,7 +586,7 @@ func press(m,pos: Vector2) -> void:
 		if notice!="": m.show_toast(notice,Color("ffdc96"))
 		return
 	elif key.begins_with("select:") and tab==2:
-		training_uid=int(key.split(":")[1]);opened="training"
+		management.uid=int(key.split(":")[1]);management.confirm=false;opened="management"
 	elif key=="train":
 		var before: Dictionary=data.serialize().duplicate(true);var old_gold: int=m.gold
 		var cost: Dictionary=data.train(training_uid,m.gold)

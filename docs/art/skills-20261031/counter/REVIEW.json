@@ -1,0 +1,18 @@
+{
+  "status": "pass",
+  "note": "Silver sword and bold orange returning arrows clearly signal counterattack.",
+  "native_and_nearest_reviewed": true,
+  "size": [
+    64,
+    64
+  ],
+  "mode": "RGBA",
+  "bbox": [
+    10,
+    9,
+    53,
+    56
+  ],
+  "paid_generations": 1.0,
+  "sha256": "b30468d03c684497b442651be84d23e5c3a60db4a7edd3980beebba021069472"
+}

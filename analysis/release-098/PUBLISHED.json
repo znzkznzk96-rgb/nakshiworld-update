@@ -1,0 +1,36 @@
+{
+  "version": {
+    "code": 98,
+    "name": "0.98"
+  },
+  "source_commit": "8eab4b1c475a22bb6c72e15bd13f8f75ea0eb0f5",
+  "assets": {
+    "version.json": {
+      "size": 198,
+      "sha256": "98ead5276e2e30651cb2cf9bba52ca4e395c89031e9c2e3b2de71e180c5cee52",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v0.98/version.json"
+    },
+    "patch.pck": {
+      "size": 51627856,
+      "sha256": "cd3cc69da0a99662841cc82bc2e67d55c8dbab6e27ee781a7715d39d0ee10703",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v0.98/patch.pck"
+    },
+    "game-source.zip": {
+      "size": 51884874,
+      "sha256": "52efdb6861f28c21f157ecf2dd6f5c7bb24f6bd8196bc85d22b6cf24fc2fb674",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v0.98/game-source.zip"
+    }
+  },
+  "phone_verified": false,
+  "source_overlay_files_verified": 417,
+  "zip_crc_verified": true,
+  "public_assets_verified": true,
+  "work_commit": "c8dda3fcc0cfbf43aa3f1986dab156c691a0c056",
+  "release_ci": 41018996034,
+  "work_ci": 41018675080,
+  "public_ci": 41019355634,
+  "ci_conclusions": "success",
+  "local_regression_suites": 63,
+  "gateway_download_verified": true,
+  "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v0.98"
+}

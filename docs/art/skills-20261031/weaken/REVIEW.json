@@ -1,0 +1,18 @@
+{
+  "status": "pass",
+  "note": "Purple potion silhouette forms a clear downward debuff arrow.",
+  "native_and_nearest_reviewed": true,
+  "size": [
+    64,
+    64
+  ],
+  "mode": "RGBA",
+  "bbox": [
+    11,
+    4,
+    53,
+    59
+  ],
+  "paid_generations": 1.0,
+  "sha256": "ffb7d9725e1ffbfc87f47ed8b7846e8f549af56edf9c609cbc3e99b3834cb270"
+}

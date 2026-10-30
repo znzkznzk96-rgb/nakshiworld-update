@@ -1,0 +1,116 @@
+{
+  "icons": [
+    {
+      "key": "drain",
+      "name": "흡수",
+      "accepted_attempt": "drain",
+      "sha256": "1c79edb03cbb6b590db9795c8528cf4d6fcfbd60b359cc2882052bb374f43acc",
+      "attempts": 1
+    },
+    {
+      "key": "bolt",
+      "name": "전격 화살",
+      "accepted_attempt": "bolt_v2",
+      "sha256": "ad9d2d1d6405304a38da2690c27e56825a19f506cecce964770634e25bbd9be3",
+      "attempts": 2
+    },
+    {
+      "key": "thorns",
+      "name": "독가시",
+      "accepted_attempt": "thorns",
+      "sha256": "179741736b3e0f6ba345ce2e20038e93b2115d508733aa07a547d9f61b34ae45",
+      "attempts": 1
+    },
+    {
+      "key": "shield",
+      "name": "보호막",
+      "accepted_attempt": "shield",
+      "sha256": "fe134bb7f46820edbec2bf13e060126c814b1a3c2560ec5df37f319a7bc382a8",
+      "attempts": 1
+    },
+    {
+      "key": "curse",
+      "name": "등불의 격려",
+      "accepted_attempt": "curse",
+      "sha256": "ee4e2fe3f97066e51653a5fd3ed607f124930fc9039343ec14dae6fecae66870",
+      "attempts": 1
+    },
+    {
+      "key": "flurry",
+      "name": "연속 베기",
+      "accepted_attempt": "flurry",
+      "sha256": "49bb72051255e81f1fa32f2ff231486be71cc0d47e52fced8ad5098895bb1fad",
+      "attempts": 1
+    },
+    {
+      "key": "regen",
+      "name": "재생",
+      "accepted_attempt": "regen",
+      "sha256": "19616e3c570f5344b090bca0230847b53a5a0c7b57669c913028aacbf1148016",
+      "attempts": 1
+    },
+    {
+      "key": "heal",
+      "name": "긴급 회복",
+      "accepted_attempt": "heal",
+      "sha256": "42d88cb9fd63b4dd700e85c5b0a35669436385c8c583815174b3cb05278f6330",
+      "attempts": 1
+    },
+    {
+      "key": "mend",
+      "name": "자가 회복",
+      "accepted_attempt": "mend",
+      "sha256": "7f6a3b27adf49fbe07c79e342c40a116cde36b324eaeac48b51c10d3ca721996",
+      "attempts": 1
+    },
+    {
+      "key": "weaken",
+      "name": "약화",
+      "accepted_attempt": "weaken",
+      "sha256": "ffb7d9725e1ffbfc87f47ed8b7846e8f549af56edf9c609cbc3e99b3834cb270",
+      "attempts": 1
+    },
+    {
+      "key": "pierce",
+      "name": "방어 관통",
+      "accepted_attempt": "pierce",
+      "sha256": "c0b5b61d9f62d920a4127bcfd104dc201cca56bad6795bce4ad102057b83553e",
+      "attempts": 1
+    },
+    {
+      "key": "counter",
+      "name": "반격",
+      "accepted_attempt": "counter",
+      "sha256": "b30468d03c684497b442651be84d23e5c3a60db4a7edd3980beebba021069472",
+      "attempts": 1
+    },
+    {
+      "key": "ward",
+      "name": "보호 약초",
+      "accepted_attempt": "ward",
+      "sha256": "fd4ed2d7fa9ffcc02f0bc44a733c6beb619f521704d6100d67d8d90959e58073",
+      "attempts": 1
+    },
+    {
+      "key": "poison",
+      "name": "맹독",
+      "accepted_attempt": "poison",
+      "sha256": "dfb7a98bd70c022ad3a695532bd8d9b8796df321d0bd31ed3331f17fc3c4f7e6",
+      "attempts": 1
+    },
+    {
+      "key": "reflect",
+      "name": "피해 반사",
+      "accepted_attempt": "reflect_v2",
+      "sha256": "1ab16d1775e4b642329f81d827beba798a3ec5081f910d669c9245413e0d7ef4",
+      "attempts": 2
+    }
+  ],
+  "accepted": 15,
+  "paid_calls": 17,
+  "failed_attempts": [
+    "bolt",
+    "reflect"
+  ],
+  "per_icon_max": 2
+}

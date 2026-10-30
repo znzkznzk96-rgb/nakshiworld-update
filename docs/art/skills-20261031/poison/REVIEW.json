@@ -1,0 +1,18 @@
+{
+  "status": "pass",
+  "note": "Purple hilt dagger with large green venom drops; clear at native size.",
+  "native_and_nearest_reviewed": true,
+  "size": [
+    64,
+    64
+  ],
+  "mode": "RGBA",
+  "bbox": [
+    4,
+    2,
+    60,
+    60
+  ],
+  "paid_generations": 1.0,
+  "sha256": "dfb7a98bd70c022ad3a695532bd8d9b8796df321d0bd31ed3331f17fc3c4f7e6"
+}

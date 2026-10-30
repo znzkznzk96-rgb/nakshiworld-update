@@ -1,0 +1,12 @@
+{
+  "description": "Single compact fantasy RPG skill icon, crisp 16-bit pixel art, bold clean dark outline, 3 shades per color, simple readable silhouette, centered with 5 pixel empty margin, no frame, no letters, transparent background. A squat purple glass debuff potion bottle with a cork stopper, and one large bold downward pointing violet arrow in front at lower right. Purple liquid, pale lavender glass highlights. Clearly readable downward arrow. No skull, no text.",
+  "image_size": {
+    "width": 64,
+    "height": 64
+  },
+  "no_background": true,
+  "outline": "single color black outline",
+  "shading": "basic shading",
+  "detail": "low detail",
+  "seed": 202610310
+}

@@ -1,56 +1,39 @@
 {
-  "schema_version": 3,
   "work_branch": "work/valley-runtime",
-  "status": "v096_deployed_verified",
-  "release_baseline": "v0.96",
-  "source_commit": "9aec550c9ddc6b3f913368fdca630a7a995da139",
-  "current_task": "선택 수달형 왼쪽 바라보는 부유 기본자세1장",
-  "handoff": "HANDOFF.md",
-  "game_bible": "docs/GAME_BIBLE.md",
-  "verification": "analysis/release-096/RELEASE_VERIFICATION.json",
-  "phone_verified": false,
+  "status": "v101_implementation_verified_pending_ci_deployment",
+  "release_baseline": "v1.00",
+  "target_release": "v1.01",
   "release_authorized": true,
-  "next_step": "기본자세 사용자 확인 후 모션",
-  "updated_at": "2026-10-30",
-  "support_audit": "analysis/support-balance-085/REPORT.md",
-  "support_utility_report": "analysis/support-utility-085/REPORT.md",
-  "target_release": "v0.96",
-  "last_release_deployed": true,
-  "this_change": {
-    "implemented": true,
-    "deployed": true,
-    "release_authorized": true,
-    "remote_saved": true
+  "deployed": false,
+  "phone_verified": false,
+  "handoff": "HANDOFF.md",
+  "next_step": "원격 CI 통과 후 main 병합, v1.01 릴리스와 운영 URL 검증",
+  "current_task": "승인 A안 UI·PixelLab15종 신규제작·병사관리 개선 배포",
+  "latest_decision": "docs/decisions/UI_20261031_ICON_AUDIT.md",
+  "paid_generation_authorized": {
+    "count": 15,
+    "max_total_attempts_per_skill": 2,
+    "includes_prior_calls": true,
+    "automatic_retry": false
   },
-  "robot_balance": {
-    "status": "local_implemented_verified",
-    "report": "analysis/capture-robot-reservation/REPORT.md",
-    "prices_approved": true,
-    "game_applied": true,
-    "remote_saved": true,
-    "target_max_per_hour": 72,
-    "implementation": "analysis/capture-robot-implementation/REPORT.md",
-    "entry_simulation": "analysis/valley-entry-robot/REPORT.md"
+  "icon_generation": {
+    "requested": 15,
+    "passed": 15,
+    "rejected": 2,
+    "charged_generations": 17,
+    "in_flight": null,
+    "report": "docs/art/skills-20261031/REPORT.md"
   },
-  "campaign_balance": {
-    "report": "analysis/campaign-100-200h/REPORT.md",
-    "target_active_hours": [
-      100,
-      200
-    ],
-    "hours_per_day": 2,
-    "future_four_regions": "hypothetical_not_implemented",
-    "balance_changes_applied": {
-      "aquarium_income_multiplier": 0.75,
-      "visitor_multiplier": "unchanged",
-      "experimental_price_multipliers": false
-    },
-    "latest_report": "analysis/expedition-cash-20261030/REPORT.md",
-    "withdrawn_recommendation": "수족관 지급률1/8"
-  },
-  "robot_redesign": {
-    "report": "docs/design/capture-otter-base/REVIEW.md",
-    "applied": false,
-    "deployed": false
+  "icon_generation_status": "Completed 15 accepted icons / 17 paid generations. Bolt and reflect accepted second attempts.",
+  "local_verification": {
+    "suites": 64,
+    "failed": 0,
+    "final_icon_load_check": true,
+    "screens": 21,
+    "heights": [
+      480,
+      540,
+      660
+    ]
   }
 }

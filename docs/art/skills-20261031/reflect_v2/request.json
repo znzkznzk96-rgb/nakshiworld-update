@@ -1,0 +1,12 @@
+{
+  "description": "Single compact fantasy RPG skill icon, crisp 16-bit pixel art, bold clean dark outline, 3 shades per color, simple readable silhouette, centered with 5 pixel empty margin, no frame, no letters, transparent background. A blue shield on the RIGHT HALF of icon. On the LEFT HALF draw a very large thick bright golden U-TURN ARROW, like a sideways horseshoe: a short line comes from upper-left toward shield, then bends 180 degrees and returns to lower-left ending in a BIG LEFT-POINTING TRIANGULAR ARROWHEAD. The entire golden returning arrow must remain OUTSIDE the shield and be unobstructed. Gold arrow occupies half icon. Blue shield occupies other half. This is DAMAGE REFLECTION, not arrow piercing. No straight arrows through shield. Very simple two bold symbols, no text.",
+  "image_size": {
+    "width": 64,
+    "height": 64
+  },
+  "no_background": true,
+  "outline": "single color black outline",
+  "shading": "basic shading",
+  "detail": "low detail",
+  "seed": 202610310
+}
