@@ -1,0 +1,48 @@
+{
+  "request-settings.json": {
+    "image_size": {
+      "width": 160,
+      "height": 128
+    },
+    "description": "Evolve this exact character to tier 2. Dark navy spotted flatfish shield soldier. Add silver-edged indigo armor plates following wide flat oval body, small crescent brow guard. Upgrade rectangular wooden shield to indigo metal with silver reinforced corners. Keep yellow spots, asymmetric fish face and fins. Preserve crisp pixel style, original facing and palette. No cape, text, background or extra limbs. Full body, no clipping.",
+    "width": 160,
+    "height": 128,
+    "no_background": true,
+    "seed": 20261031,
+    "reference": {
+      "path": "evolution-roster/flounder/star1.png",
+      "sha256": "a048be469e2c2493a98350bdca0daf79d420cbb8e8f9315c90ed72a93be6dc31"
+    }
+  },
+  "reference.json": {
+    "path": "evolution-roster/flounder/star1.png",
+    "sha256": "a048be469e2c2493a98350bdca0daf79d420cbb8e8f9315c90ed72a93be6dc31"
+  },
+  "submitted.json": {
+    "time": 1793385374.5555599,
+    "endpoint": "edit-image",
+    "single_post": true
+  },
+  "response.json": {
+    "usage": null,
+    "background_job_id": "8458812d-9f90-4799-91bc-27e93df5e189",
+    "status": "processing"
+  },
+  "cost.json": {
+    "charged_generations": 1
+  },
+  "validation.json": {
+    "size": [
+      160,
+      128
+    ],
+    "bbox": [
+      16,
+      31,
+      123,
+      112
+    ],
+    "sha256": "0f27364091b15e39d67008a81cabbc6bf8ee5ddc0e06f9f57950c33dd04e9576",
+    "charged_generations": 1
+  }
+}
