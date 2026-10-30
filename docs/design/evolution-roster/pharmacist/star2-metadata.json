@@ -1,0 +1,48 @@
+{
+  "request-settings.json": {
+    "image_size": {
+      "width": 160,
+      "height": 128
+    },
+    "description": "Evolve this exact character to tier 2. Yellow-green catfish alchemist holding green potion. Add dark-green brass-edged chest guard, small shoulder plates and belt with two round vials. Upgrade potion to a reinforced faceted emerald flask. Keep whiskers, yellow fish face and green dorsal fins. Preserve crisp pixel style, original facing and palette. No cape, text, background or extra limbs. Full body, no clipping.",
+    "width": 160,
+    "height": 128,
+    "no_background": true,
+    "seed": 20261031,
+    "reference": {
+      "path": "evolution-roster/pharmacist/star1.png",
+      "sha256": "6c3fc89f9cecde9686a8fc65303fe85e3324511f30b73ad0800f7bf146784040"
+    }
+  },
+  "reference.json": {
+    "path": "evolution-roster/pharmacist/star1.png",
+    "sha256": "6c3fc89f9cecde9686a8fc65303fe85e3324511f30b73ad0800f7bf146784040"
+  },
+  "submitted.json": {
+    "time": 1793385479.6394665,
+    "endpoint": "edit-image",
+    "single_post": true
+  },
+  "response.json": {
+    "usage": null,
+    "background_job_id": "6d46e303-3606-4219-a8d9-b44a47a514d8",
+    "status": "processing"
+  },
+  "cost.json": {
+    "charged_generations": 1
+  },
+  "validation.json": {
+    "size": [
+      160,
+      128
+    ],
+    "bbox": [
+      18,
+      28,
+      129,
+      111
+    ],
+    "sha256": "b343729fa4837b8974efddcbbe05e04c5193d3368a84b1f408b62cd7624853fb",
+    "charged_generations": 1
+  }
+}

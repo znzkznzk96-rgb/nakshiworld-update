@@ -54,9 +54,9 @@
   },
   "remaining_evolutions": {
     "requested": 28,
-    "completed": 16,
+    "completed": 20,
     "motion": "on_hold",
     "deployed": false,
-    "charged_generations": 16
+    "charged_generations": 20
   }
 }

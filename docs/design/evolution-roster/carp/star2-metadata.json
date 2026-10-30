@@ -1,0 +1,48 @@
+{
+  "request-settings.json": {
+    "image_size": {
+      "width": 160,
+      "height": 128
+    },
+    "description": "Evolve this exact character to tier 2. Orange carp hammer fighter. Add copper silver-edged curved body armor and thick shoulder guards, small red forehead plate. Upgrade wooden mallet to a large square steel hammer with orange crystal inset. Preserve bright orange scales, cute eye and short fish limbs. Preserve crisp pixel style, original facing and palette. No cape, text, background or extra limbs. Full body, no clipping.",
+    "width": 160,
+    "height": 128,
+    "no_background": true,
+    "seed": 20261031,
+    "reference": {
+      "path": "evolution-roster/carp/star1.png",
+      "sha256": "879ffe3e34e881291d2efeb1ea01d1cc413740465289d7f21033a892f425d0e0"
+    }
+  },
+  "reference.json": {
+    "path": "evolution-roster/carp/star1.png",
+    "sha256": "879ffe3e34e881291d2efeb1ea01d1cc413740465289d7f21033a892f425d0e0"
+  },
+  "submitted.json": {
+    "time": 1793385593.9466357,
+    "endpoint": "edit-image",
+    "single_post": true
+  },
+  "response.json": {
+    "usage": null,
+    "background_job_id": "39e67a8d-e10d-4933-a20d-ff04b6f0d588",
+    "status": "processing"
+  },
+  "cost.json": {
+    "charged_generations": 1
+  },
+  "validation.json": {
+    "size": [
+      160,
+      128
+    ],
+    "bbox": [
+      16,
+      26,
+      142,
+      107
+    ],
+    "sha256": "7b91f8d7c66cd56edf02ad847dc840cc4f164453f85a6f7fe0ac58eccb5a25eb",
+    "charged_generations": 1
+  }
+}

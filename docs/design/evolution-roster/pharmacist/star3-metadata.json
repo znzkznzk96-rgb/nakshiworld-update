@@ -1,0 +1,48 @@
+{
+  "request-settings.json": {
+    "image_size": {
+      "width": 160,
+      "height": 128
+    },
+    "description": "Major tier3 evolution: rebuild body armor and silhouette. Yellow-green catfish master alchemist. Layered emerald brass-edged protective armor, raised leaf-fin crest, compact backpack with two purple-green reagent canisters. Hold a large ornate emerald potion vessel with violet crystal stopper. Cute whiskered fish face exposed, compact strong body. Same crisp pixels, facing and colors. No cape or background. Full body.",
+    "width": 160,
+    "height": 128,
+    "no_background": true,
+    "seed": 20261031,
+    "reference": {
+      "path": "evolution-roster/pharmacist/star1.png",
+      "sha256": "6c3fc89f9cecde9686a8fc65303fe85e3324511f30b73ad0800f7bf146784040"
+    }
+  },
+  "reference.json": {
+    "path": "evolution-roster/pharmacist/star1.png",
+    "sha256": "6c3fc89f9cecde9686a8fc65303fe85e3324511f30b73ad0800f7bf146784040"
+  },
+  "submitted.json": {
+    "time": 1793385537.2250295,
+    "endpoint": "edit-image",
+    "single_post": true
+  },
+  "response.json": {
+    "usage": null,
+    "background_job_id": "a5ba4550-9614-4155-92f2-26c27d162582",
+    "status": "processing"
+  },
+  "cost.json": {
+    "charged_generations": 1
+  },
+  "validation.json": {
+    "size": [
+      160,
+      128
+    ],
+    "bbox": [
+      28,
+      16,
+      127,
+      115
+    ],
+    "sha256": "fcef27e571a1b860ad37f0e6cc5d09865b18e4a4be4c6d0d786c63fa22282315",
+    "charged_generations": 1
+  }
+}

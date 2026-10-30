@@ -1,1 +1,1 @@
-16/28 static candidates generated, reviewed and preserved. No motion calls or deployment. Perch tier distinction modest; final user review pending.
+20/28 static candidates generated, reviewed and preserved. No motion calls or deployment. Perch tier distinction modest; final user review pending.
