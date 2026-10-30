@@ -1,0 +1,14 @@
+{
+  "description": "A cute compact aquatic capture robot for a 16-bit side-view fishing game. Single standalone sprite, facing left, fully visible body. Rounded horizontal teal submarine with one large expressive warm yellow circular eye in a bronze rim, broad simple rounded silhouette, small bronze rear propeller, a tiny top antenna lamp, two short folded mechanical grabbing claws below body. Smooth readable pixel clusters, rich saturated teal panels with 3-4 shades, warm brass edges, dark navy outlines. No legs, no wheels, no feet, no human, no water, no background, no text, no speech bubble, no shadow. Entire lower half of body must be drawn, it will later be tinted underwater by game. Compact cute functional machine, restrained detail, clear eye and propeller, centered with generous transparent padding.",
+  "image_size": {
+    "width": 96,
+    "height": 96
+  },
+  "no_background": true,
+  "view": "side",
+  "direction": "west",
+  "outline": "selective outline",
+  "shading": "medium shading",
+  "detail": "medium detail",
+  "seed": 2026103001
+}

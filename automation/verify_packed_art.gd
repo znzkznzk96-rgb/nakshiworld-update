@@ -23,5 +23,8 @@ func _initialize() -> void:
 	for name in ["heart","leaf","star","check","right","close","fish","plus","rod","soldier","soul0","soul1","soul2","soul3","soul4","region0","region1","region2","region3","region4","region5"]:
 		var texture=load("res://art/ui/codex/%s.png"%name)
 		assert(texture is Texture2D and texture.get_size()==Vector2(32,32),"codex PixelLab asset exported: "+name)
+	assert(load("res://art/ui/capture_robot_b/motions.png").get_size()==Vector2(1440,240),"B robot motion atlas exported")
+	for asset in ["sleep","capture","success","full","workshop","speed","storage","precision"]:
+		assert(load("res://art/ui/capture_robot_b/%s.png"%asset) is Texture2D,"robot status art exported")
 	print("PACKED_ANGLER_VERIFY failures=[]")
 	quit()

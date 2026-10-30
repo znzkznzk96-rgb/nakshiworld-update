@@ -1,0 +1,14 @@
+{
+  "description": "A very cute tiny otter-shaped fishing automaton, low horizontal rounded chocolate brown body, cream round muzzle and cheeks, tiny round ears, black bead eyes, small flat paddle tail behind. Teal little metal backpack with subtle brass seam makes clear it is a crafted helper. Two short rounded paws hold a tiny shallow brass scoop basket at chest. Compact chunky chibi otter proportions, small head blended into body, stubby paws, gentle expression. Natural cozy creature silhouette with only subtle mechanical details, no separate square robot head. Single standalone sprite, transparent background, full body visible centered with padding. Cozy 16-bit game pixel art, deliberately chunky clean pixel clusters, restrained 3 shade palette, dark navy selective outline, saturated colors, no dithering, no soft blur. Three-quarter side view facing left. Very small compact adorable aquatic catching helper, no humanoid body, no square head, no long robot arms, no large porthole, no fish being caught, no water, no text, no speech bubble. Designed for 40 pixel tall in-game display.",
+  "image_size": {
+    "width": 96,
+    "height": 96
+  },
+  "no_background": true,
+  "view": "side",
+  "direction": "west",
+  "outline": "selective outline",
+  "shading": "medium shading",
+  "detail": "medium detail",
+  "seed": 2026103011
+}

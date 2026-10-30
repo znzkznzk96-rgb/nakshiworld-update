@@ -1,0 +1,18 @@
+{
+  "description": "The SAME cute brown otter with cream muzzle belly, tiny round ears, black bead eyes, teal backpack and subtle brass trim from reference, now FLOATING ON ITS BACK horizontally, belly facing up. SIDE VIEW FACING LEFT: head and nose at LEFT side of image looking toward LEFT edge, hind feet and long flat tail extend toward RIGHT edge. Body reclined horizontal, NOT standing, NOT sitting. Short forepaws resting gently on cream belly, little hind feet lifted a little. Teal small backpack nestled under back visible along lower silhouette, preserve character identity and original pixel colors. Relaxed adorable expression. Single complete full body sprite centered with padding, transparent background, no water painted, no splash, no ground, no fish, no basket, no text. Crisp clean 16-bit pixel art, chunky readable pixel clusters and 3 shades like reference, not smooth illustration. Floating rest pose for a side-view fishing game.",
+  "image_size": {
+    "width": 96,
+    "height": 96
+  },
+  "no_background": true,
+  "view": "side",
+  "direction": "west",
+  "outline": "selective outline",
+  "shading": "medium shading",
+  "detail": "medium detail",
+  "seed": 2026103020,
+  "style_image": {
+    "reference_path": "docs/design/capture-robot-v4/b/robot.png"
+  },
+  "style_strength": 65
+}
