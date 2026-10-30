@@ -1,0 +1,12 @@
+{
+  "action": "One heavy shield slam combat cycle using this exact armored green guardian. Preserve the exact helmet face, amber eyes, layered emerald armor, large back spikes, compact body and bright green crystal shield. Begin in the reference pose, brace and lower the body, pull shield inward, thrust it forcefully forward to the right, then settle back into the exact original stance. Solid heavy armor, planted feet, small recoil, fixed camera and scale. No turns, no transformations, no new limbs, no cape or added weapons. Crisp consistent pixel art.",
+  "frame_count": 8,
+  "seed": 20261031,
+  "no_background": true,
+  "enhance_prompt": false,
+  "reference": {
+    "path": "evolution-puffer/star3-armor/original.png",
+    "sha256": "83e6d3d8509dabbc75bcd52842764d6ad34a180a52a5a5dbb2cb241196d7f884"
+  },
+  "first_and_last_frame": "../star3-armor/original.png"
+}

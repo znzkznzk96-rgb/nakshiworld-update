@@ -1,13 +1,13 @@
 {
   "work_branch": "work/valley-runtime",
-  "status": "approved_puffer_motion_in_progress",
+  "status": "approved_puffer_motion_preview_ready",
   "release_baseline": "v1.02",
   "target_release": "v1.02",
   "release_authorized": true,
   "deployed": true,
   "phone_verified": false,
   "handoff": "HANDOFF.md",
-  "next_step": "승인 원본으로 각8프레임 모션 제작 및 검수",
+  "next_step": "사용자 모션 검토; 게임 별등급 리소스 연결은 미적용",
   "current_task": "채택된 복어2성·3성 모션",
   "latest_decision": "docs/GAME_BIBLE.md",
   "paid_generation_authorized": {
@@ -43,8 +43,10 @@
     "adopted": true,
     "star2": "star2-armor",
     "star3": "star3-armor",
-    "total_pilot_paid_generations": 7,
-    "animations": 0,
-    "deployed": false
+    "total_pilot_paid_generations": 11,
+    "animations": 2,
+    "deployed": false,
+    "motion_paid_generations": 4,
+    "motion_report": "docs/design/puffer-evolution/MOTION_REVIEW.md"
   }
 }

@@ -1,0 +1,12 @@
+{
+  "action": "A single compact shield bash combat cycle. Preserve this exact cute round puffer, big amber eye, silver edged turquoise overlapping armor, wooden round shield and tiny feet. Begin at the reference pose, crouch slightly and lift the shield, push the shield forward firmly to the right, recoil softly and return to the exact starting pose. Stay in place, feet grounded, fixed camera and scale, no turns. Keep all armor plates attached, no new limbs, no added effects. Clear readable pixel animation.",
+  "frame_count": 8,
+  "seed": 20261031,
+  "no_background": true,
+  "enhance_prompt": false,
+  "reference": {
+    "path": "evolution-puffer/star2-armor/original.png",
+    "sha256": "553046ba313e2343ad6d9e49c5dcbc3a1b29496d43afe23ff40ea3a9a6dfc186"
+  },
+  "first_and_last_frame": "../star2-armor/original.png"
+}

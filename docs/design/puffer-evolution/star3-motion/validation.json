@@ -1,0 +1,128 @@
+[
+  {
+    "frame": 0,
+    "bbox": [
+      9,
+      20,
+      119,
+      110
+    ],
+    "sha256": "b106b1542b2bafd1b082d2ed70f2615e081859ce0823e3b306c37991df0787eb",
+    "alpha_extrema": [
+      0,
+      255
+    ]
+  },
+  {
+    "frame": 1,
+    "bbox": [
+      9,
+      20,
+      118,
+      110
+    ],
+    "sha256": "0a61d7f36012749fcbd56ecea60660d283707b1409d6fde53b007ed8af92c29a",
+    "alpha_extrema": [
+      0,
+      255
+    ]
+  },
+  {
+    "frame": 2,
+    "bbox": [
+      9,
+      21,
+      116,
+      110
+    ],
+    "sha256": "e3c76b1ac20e41adb96f38787c7d56d1a7709b30f8642acdc8d7f55cf2a9b53c",
+    "alpha_extrema": [
+      0,
+      255
+    ]
+  },
+  {
+    "frame": 3,
+    "bbox": [
+      9,
+      20,
+      112,
+      110
+    ],
+    "sha256": "036933ddd62198798de99cf11d5dd05f9417b1fd7b0fb82974a34e0dd5ddcfa6",
+    "alpha_extrema": [
+      0,
+      255
+    ]
+  },
+  {
+    "frame": 4,
+    "bbox": [
+      8,
+      19,
+      109,
+      110
+    ],
+    "sha256": "01cd1c29af53c16693c966ec0a2dc6f8472c5a29d771ec732657f78f974a1b99",
+    "alpha_extrema": [
+      0,
+      255
+    ]
+  },
+  {
+    "frame": 5,
+    "bbox": [
+      8,
+      20,
+      110,
+      110
+    ],
+    "sha256": "bcb5a094d48e441232f9d08be646abdf4f7280c5a065b89a2710ba52eb617530",
+    "alpha_extrema": [
+      0,
+      255
+    ]
+  },
+  {
+    "frame": 6,
+    "bbox": [
+      11,
+      19,
+      118,
+      110
+    ],
+    "sha256": "0f186ce7f2a41deefe07bafcbf199edc147afa9dd2430c0307a9be8f9953568a",
+    "alpha_extrema": [
+      0,
+      255
+    ]
+  },
+  {
+    "frame": 7,
+    "bbox": [
+      10,
+      19,
+      121,
+      110
+    ],
+    "sha256": "d470dc2f47032be45b7c79b5684b7d36ab462730fb3211d4d5fde6ad86bc49e9",
+    "alpha_extrema": [
+      0,
+      255
+    ]
+  },
+  {
+    "frame": 8,
+    "bbox": [
+      9,
+      20,
+      119,
+      110
+    ],
+    "sha256": "9e8b3598a6ab9ae24dbab6045f633c2b905c38676e06810cc6429d3a9d6c10de",
+    "alpha_extrema": [
+      0,
+      255
+    ]
+  }
+]
