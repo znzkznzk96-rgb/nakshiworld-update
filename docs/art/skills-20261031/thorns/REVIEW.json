@@ -1,0 +1,18 @@
+{
+  "status": "pass",
+  "note": "Three green pointed thorn tips and drops readable; clean silhouette and transparency.",
+  "native_and_nearest_reviewed": true,
+  "size": [
+    64,
+    64
+  ],
+  "mode": "RGBA",
+  "bbox": [
+    15,
+    8,
+    49,
+    56
+  ],
+  "paid_generations": 1.0,
+  "sha256": "179741736b3e0f6ba345ce2e20038e93b2115d508733aa07a547d9f61b34ae45"
+}

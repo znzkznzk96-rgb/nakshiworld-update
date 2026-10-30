@@ -1,13 +1,13 @@
 {
   "work_branch": "work/valley-runtime",
-  "status": "pixellab_skills15_retry_and_release_authorized",
+  "status": "pixellab_skills15_in_progress",
   "release_baseline": "v1.00",
   "target_release": "v1.01",
   "release_authorized": true,
   "deployed": false,
   "phone_verified": false,
   "handoff": "HANDOFF.md",
-  "next_step": "전격화살2차→나머지13종 순차검수→UI통합·전체검증·공개배포",
+  "next_step": "재생 생성응답·검수 후 나머지8종; 승인UI구현중",
   "current_task": "PixelLab 스킬15종 각1장 신규제작",
   "latest_decision": "docs/decisions/UI_20261031_ICON_AUDIT.md",
   "paid_generation_authorized": {
@@ -18,11 +18,10 @@
   },
   "icon_generation": {
     "requested": 15,
-    "generated": 2,
-    "passed": 1,
+    "passed": 6,
     "rejected": 1,
-    "not_called": 13,
-    "charged_generations": 2,
+    "charged_generations": 7,
+    "in_flight": "regen",
     "report": "docs/art/skills-20261031/REPORT.md"
   }
 }

@@ -1,0 +1,18 @@
+{
+  "status": "pass",
+  "note": "Blue round shield with central boss and cyan crescent; clear at native size, transparent and unclipped.",
+  "native_and_nearest_reviewed": true,
+  "size": [
+    64,
+    64
+  ],
+  "mode": "RGBA",
+  "bbox": [
+    6,
+    6,
+    58,
+    58
+  ],
+  "paid_generations": 1.0,
+  "sha256": "fe134bb7f46820edbec2bf13e060126c814b1a3c2560ec5df37f319a7bc382a8"
+}

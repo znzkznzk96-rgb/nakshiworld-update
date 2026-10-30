@@ -1,0 +1,18 @@
+{
+  "status": "pass",
+  "note": "Purple lantern and warm lit window distinct; encouragement light metaphor; clear native silhouette and transparent margin.",
+  "native_and_nearest_reviewed": true,
+  "size": [
+    64,
+    64
+  ],
+  "mode": "RGBA",
+  "bbox": [
+    20,
+    8,
+    46,
+    56
+  ],
+  "paid_generations": 1.0,
+  "sha256": "ee4e2fe3f97066e51653a5fd3ed607f124930fc9039343ec14dae6fecae66870"
+}
