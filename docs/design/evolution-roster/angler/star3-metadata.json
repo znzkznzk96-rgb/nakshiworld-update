@@ -1,0 +1,48 @@
+{
+  "request-settings.json": {
+    "image_size": {
+      "width": 160,
+      "height": 128
+    },
+    "description": "Evolve this exact character to tier 3. Purple anglerfish abyss lantern keeper. Heavy curved amethyst carapace, tall layered dorsal fin crown, thick silver edging. Head lure curves over an imposing caged amber lantern staff. Large luminous amber eye and playful fish grin. Powerful compact round body, exposed purple face. Preserve crisp pixel style, original facing and palette. No cape, text, background or extra limbs. Full body, no clipping.",
+    "width": 160,
+    "height": 128,
+    "no_background": true,
+    "seed": 20261031,
+    "reference": {
+      "path": "evolution-roster/angler/star1.png",
+      "sha256": "94084b55fd51ef037ab3811ed7e95c025a5bf98719500bf08f9a2e38efe0dc83"
+    }
+  },
+  "reference.json": {
+    "path": "evolution-roster/angler/star1.png",
+    "sha256": "94084b55fd51ef037ab3811ed7e95c025a5bf98719500bf08f9a2e38efe0dc83"
+  },
+  "submitted.json": {
+    "time": 1793384839.486583,
+    "endpoint": "edit-image",
+    "single_post": true
+  },
+  "response.json": {
+    "usage": null,
+    "background_job_id": "0e6bca90-f33d-4426-be7d-ff9219afaef4",
+    "status": "processing"
+  },
+  "cost.json": {
+    "charged_generations": 1
+  },
+  "validation.json": {
+    "size": [
+      160,
+      128
+    ],
+    "bbox": [
+      17,
+      29,
+      130,
+      111
+    ],
+    "sha256": "fedc3b1502b5d3a2df8573231444ef92483ff5bac28ee16cfd7b99d32134fd88",
+    "charged_generations": 1
+  }
+}

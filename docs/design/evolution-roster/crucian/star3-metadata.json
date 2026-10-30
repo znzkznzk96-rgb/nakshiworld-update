@@ -1,0 +1,48 @@
+{
+  "request-settings.json": {
+    "image_size": {
+      "width": 160,
+      "height": 128
+    },
+    "description": "Evolve this exact character to tier 3. Orange crucian sun guardian. Thick layered ivory armor wraps round fish body, raised sunray fin crest, broad rounded shoulder plates. Large ivory gold-rimmed sun shield with amber crystal center. Expose orange fish face and round belly. Strong solid silhouette, cute eyes. Preserve crisp pixel style, original facing and palette. No cape, text, background or extra limbs. Full body, no clipping.",
+    "width": 160,
+    "height": 128,
+    "no_background": true,
+    "seed": 20261031,
+    "reference": {
+      "path": "evolution-roster/crucian/star1.png",
+      "sha256": "acca859716be805c06bf6221b2ce77dc9a08eeb7ea38a281e9fca2a801a217a3"
+    }
+  },
+  "reference.json": {
+    "path": "evolution-roster/crucian/star1.png",
+    "sha256": "acca859716be805c06bf6221b2ce77dc9a08eeb7ea38a281e9fca2a801a217a3"
+  },
+  "submitted.json": {
+    "time": 1793384693.172707,
+    "endpoint": "edit-image",
+    "single_post": true
+  },
+  "response.json": {
+    "usage": null,
+    "background_job_id": "daaa27b2-8e8d-4def-ad07-0932e95a63c3",
+    "status": "processing"
+  },
+  "cost.json": {
+    "charged_generations": 1
+  },
+  "validation.json": {
+    "size": [
+      160,
+      128
+    ],
+    "bbox": [
+      27,
+      9,
+      133,
+      119
+    ],
+    "sha256": "9828b3d26b82754088b0a966be9b05cd8a957b3bb44e0db27d5129ee287aeeca",
+    "charged_generations": 1
+  }
+}
