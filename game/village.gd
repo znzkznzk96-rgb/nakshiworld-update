@@ -398,8 +398,9 @@ func draw_shop(m, h: float) -> void :
 	if shop=="aqua":
 		aquarium.draw_room(self,m,h)
 		return
-	var panel_y: = maxf(top + 32.0, roundf(h * 0.5) - 190)
-	var r = Rect2(8, panel_y, 254, minf(440.0 if shop=="museum" else 380.0, h - panel_y - 44))
+	var robot_shop: bool=shop=="forge" and forge_tab=="robot"
+	var panel_y: = maxf(top + (6.0 if robot_shop else 32.0), roundf(h * 0.5) - (240 if robot_shop else 190))
+	var r = Rect2(8, panel_y, 254, minf(500.0 if robot_shop else (440.0 if shop=="museum" else 380.0), h - panel_y - (12 if robot_shop else 44)))
 	commerce.feedback_rect=Rect2(r.position+Vector2(9,46),Vector2(r.size.x-18,18))
 	active_style = shop_styles[shop]
 	m._ui_style_box(active_style.panel, r)
@@ -419,8 +420,8 @@ func draw_shop(m, h: float) -> void :
 		var back:=Rect2(82,r.position.y+46,106,24)
 		m._ui_style_box(m.sb_btn,back);m._text("번들 보기",back.get_center()+Vector2(0,4),10,active_style.ink,true,92)
 		rects.rows.append([back,"bundles"])
-	else: m._text(GREET[shop], Vector2(135, r.position.y + 59), 9, active_style.ink, true, 232)
-	var y: float = r.position.y + 78
+	elif not robot_shop: m._text(GREET[shop], Vector2(135, r.position.y + 59), 9, active_style.ink, true, 232)
+	var y: float = r.position.y + (50 if robot_shop else 78)
 	match shop:
 		"up":
 			for i in 4:
