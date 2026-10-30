@@ -1,14 +1,14 @@
 {
   "work_branch": "work/valley-runtime",
-  "status": "cute_puffer_two_candidates_ready",
+  "status": "approved_puffer_motion_in_progress",
   "release_baseline": "v1.02",
   "target_release": "v1.02",
   "release_authorized": true,
   "deployed": true,
   "phone_verified": false,
   "handoff": "HANDOFF.md",
-  "next_step": "사용자2성·3성시안검토; 채택후모션범위확정",
-  "current_task": "귀여운 복어2성/3성 재제작",
+  "next_step": "승인 원본으로 각8프레임 모션 제작 및 검수",
+  "current_task": "채택된 복어2성·3성 모션",
   "latest_decision": "docs/GAME_BIBLE.md",
   "paid_generation_authorized": {
     "count": 15,
@@ -40,12 +40,10 @@
     "public_ci": 41096547823
   },
   "evolution_pilot": {
-    "style": "cute round original puffer",
-    "star2": "candidate with crystal shield",
-    "star3": "candidate with crown cape and star shield",
-    "this_turn_paid_generations": 2,
-    "total_pilot_paid_generations": 5,
-    "adopted": false,
+    "adopted": true,
+    "star2": "star2-armor",
+    "star3": "star3-armor",
+    "total_pilot_paid_generations": 7,
     "animations": 0,
     "deployed": false
   }
