@@ -1,0 +1,42 @@
+{
+  "version": {
+    "code": 101,
+    "name": "1.01"
+  },
+  "source_commit": "49a401c491209c32b9edcc896b9b10402b60c932",
+  "assets": {
+    "version.json": {
+      "size": 199,
+      "sha256": "2a6499773e1a0738bf836f5c5e084cccb16c211a4a7dc0c71bd27065173dce62",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.01/version.json"
+    },
+    "patch.pck": {
+      "size": 51703056,
+      "sha256": "fcbc2cee79cd17657b5e350413c502b4105b38e7a8afa519d8c428aba8545296",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.01/patch.pck"
+    },
+    "game-source.zip": {
+      "size": 51938094,
+      "sha256": "7c7f247a77ce652ed0f0a0f7a0b6e2f6bcab0f9f7d13e0231635615ee21b6b00",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.01/game-source.zip"
+    }
+  },
+  "phone_verified": false,
+  "source_overlay_files_verified": 439,
+  "zip_crc_verified": true,
+  "public_assets_verified": true,
+  "pr": 30,
+  "local_suites": 64,
+  "local_failures": 0,
+  "rendered_screens": 21,
+  "icon_count": 15,
+  "charged_generations": 17,
+  "max_attempts_per_icon": 2,
+  "work_ci": 41087872717,
+  "release_ci": 41088751742,
+  "public_verification_ci": 41089383191,
+  "work_tested_commit": "2563e459c09aee0abc5c4bd284a1931d6f616167",
+  "unchanged_tree_merge": "ea27de2ad0730395086d086b227228dd0616c61a",
+  "repository_tree": "d001c2f60344c80826617a85ee74163113222120",
+  "installed_apk_update_address_verified": true
+}
