@@ -1,0 +1,48 @@
+{
+  "request-settings.json": {
+    "image_size": {
+      "width": 160,
+      "height": 128
+    },
+    "description": "Evolve this exact character to tier 2. Round purple crescent shield fish. Add pearl-silver violet body plates and small crescent brow crest. Upgrade round crescent shield with a thick silver rim and luminous gold moon inset. Preserve cream belly, purple fins, yellow eye and compact cute body. Preserve crisp pixel style, original facing and palette. No cape, text, background or extra limbs. Full body, no clipping.",
+    "width": 160,
+    "height": 128,
+    "no_background": true,
+    "seed": 20261031,
+    "reference": {
+      "path": "evolution-roster/crescent/star1.png",
+      "sha256": "3f70938fa5da2b77daea8e7db5038448a7ae1598e6a7a2c2d3a0cb4aa07848b7"
+    }
+  },
+  "reference.json": {
+    "path": "evolution-roster/crescent/star1.png",
+    "sha256": "3f70938fa5da2b77daea8e7db5038448a7ae1598e6a7a2c2d3a0cb4aa07848b7"
+  },
+  "submitted.json": {
+    "time": 1793386132.0447333,
+    "endpoint": "edit-image",
+    "single_post": true
+  },
+  "response.json": {
+    "usage": null,
+    "background_job_id": "eba80f5d-30b7-4447-9bd4-008640b686d6",
+    "status": "processing"
+  },
+  "cost.json": {
+    "charged_generations": 1
+  },
+  "validation.json": {
+    "size": [
+      160,
+      128
+    ],
+    "bbox": [
+      20,
+      37,
+      126,
+      112
+    ],
+    "sha256": "3e2ec7393faf55f30e2b2b89058a55e7f275281f756b37dddbeb234b987b8619",
+    "charged_generations": 1
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "request-settings.json": {
+    "image_size": {
+      "width": 160,
+      "height": 128
+    },
+    "description": "Evolve this exact character to tier 2. Teal purple-finned dual dagger fish rogue. Add dark violet silver-edged light breastplate, narrow shoulder guards and brow plate leaving pink eye visible. Upgrade BOTH daggers to curved violet blades with emerald poison edges. Keep fish snout, sharp purple fins and compact agile body. Preserve crisp pixel style, original facing and palette. No cape, text, background or extra limbs. Full body, no clipping.",
+    "width": 160,
+    "height": 128,
+    "no_background": true,
+    "seed": 20261031,
+    "reference": {
+      "path": "evolution-roster/rogue/star1.png",
+      "sha256": "50c50e6b78002c9b643e1767f7ecfee5a8e573cbc4bbe5aeacf0056381eaf442"
+    }
+  },
+  "reference.json": {
+    "path": "evolution-roster/rogue/star1.png",
+    "sha256": "50c50e6b78002c9b643e1767f7ecfee5a8e573cbc4bbe5aeacf0056381eaf442"
+  },
+  "submitted.json": {
+    "time": 1793385930.121039,
+    "endpoint": "edit-image",
+    "single_post": true
+  },
+  "response.json": {
+    "usage": null,
+    "background_job_id": "111a4299-9c12-493d-9b7c-df977f3f9245",
+    "status": "processing"
+  },
+  "cost.json": {
+    "charged_generations": 1
+  },
+  "validation.json": {
+    "size": [
+      160,
+      128
+    ],
+    "bbox": [
+      19,
+      21,
+      139,
+      112
+    ],
+    "sha256": "8f013b4d97f3cdb625c42910bc67e4f000c20080f3a8f00b3ec71377b12e9731",
+    "charged_generations": 1
+  }
+}

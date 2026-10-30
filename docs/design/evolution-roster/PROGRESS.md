@@ -1,1 +1,8 @@
-24/28 static candidates generated, reviewed and preserved. No motion calls or deployment. Perch tier distinction modest; final user review pending.
+# 나머지 14병사 2성·3성 정지시안 28장 완료
+
+사용자요청28장모두첫제작완료,총28회분차감,모션호출0/게임미적용/새배포없음. 복어기존외형및타격모션은사용자채택유지. 각시안원본투명PNG/실제요청/참조해시/작업ID/검수저장. 28장크기·투명·캔버스경계검사완료. 나머지시안은채택대기.
+
+보완후보: 퍼치2↔3단계차이작음, 등불아귀3성은진화가약하고2성보다약해보임, 약초지기2성원형과가까움, 쌍단검2↔3차이작음. 나머지도사용자시각선택필요. 아귀3성추가재시도는자동승인검토가추가유료승인불명확으로차단. request/reference파일만생성,submitted/job/결과없음,추가POST및차감0. 예전2회허용을이번시안에포괄적용하지않음. 명시승인전추가유료생성금지.
+
+[상세검수](docs/design/evolution-roster/REVIEW.json), [원본폴더](docs/design/evolution-roster/), [비교표·ZIP](docs/design/evolution-roster/PREVIEWS.json). 다음: 사용자시안선택/보완범위결정. 모션대기유지.
+

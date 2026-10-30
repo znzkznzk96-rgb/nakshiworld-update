@@ -1,14 +1,14 @@
 {
   "work_branch": "work/valley-runtime",
-  "status": "remaining_evolution_stills_in_progress",
+  "status": "remaining_28_evolution_stills_review_ready",
   "release_baseline": "v1.02",
   "target_release": "v1.02",
   "release_authorized": true,
   "deployed": true,
   "phone_verified": false,
   "handoff": "HANDOFF.md",
-  "next_step": "각1장순차제작·검수·원본저장;모션대기",
-  "current_task": "나머지14병사2성·3성28장시안",
+  "next_step": "시안검토및보완선택;모션대기",
+  "current_task": "나머지14병사2성·3성28장시안완료",
   "latest_decision": "docs/GAME_BIBLE.md",
   "paid_generation_authorized": {
     "count": 15,
@@ -54,9 +54,13 @@
   },
   "remaining_evolutions": {
     "requested": 28,
-    "completed": 24,
+    "completed": 28,
+    "charged_generations": 28,
+    "motion_calls": 0,
     "motion": "on_hold",
+    "adopted": false,
     "deployed": false,
-    "charged_generations": 24
+    "review": "docs/design/evolution-roster/REVIEW.json",
+    "blocked_retry": "angler star3; no paid POST; needs explicit additional authorization"
   }
 }
