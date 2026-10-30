@@ -1,13 +1,13 @@
 {
   "work_branch": "work/valley-runtime",
-  "status": "selected_evolution_revision_in_progress",
+  "status": "selected_evolution_revision_review_needed",
   "release_baseline": "v1.02",
   "target_release": "v1.02",
   "release_authorized": true,
   "deployed": true,
   "phone_verified": false,
   "handoff": "HANDOFF.md",
-  "next_step": "시안검토및보완선택;모션대기",
+  "next_step": "재시안검토및누락무기·진화폭보완; 모션대기",
   "current_task": "7종진화형태재제작+잉어3성방향수정",
   "latest_decision": "docs/GAME_BIBLE.md",
   "paid_generation_authorized": {
@@ -65,9 +65,19 @@
   },
   "selected_revision": {
     "requested": 8,
-    "completed": 5,
+    "completed_outputs": 8,
+    "generated_stills": 7,
+    "charged_generations": 7,
+    "lossless_carp_facing_fix": true,
     "motion_calls": 0,
     "deployed": false,
-    "charged_generations": 5
+    "adopted": false,
+    "review": "docs/design/evolution-revisions/REVIEW.json",
+    "limitations": [
+      "eel crossbow unclear",
+      "flying sword omitted",
+      "herbalist basket unclear",
+      "crucian/angler evolution weak"
+    ]
   }
 }
