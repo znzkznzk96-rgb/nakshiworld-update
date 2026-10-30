@@ -1,18 +1,27 @@
 {
   "work_branch": "work/valley-runtime",
-  "status": "pixellab_skills15_authorized",
+  "status": "pixellab_skills15_stopped_after_quality_failure",
   "release_baseline": "v1.00",
   "target_release": "v1.01",
   "release_authorized": false,
   "deployed": false,
   "phone_verified": false,
   "handoff": "HANDOFF.md",
-  "next_step": "기존 연결 읽기 확인 및 첫1종 생성·검수",
+  "next_step": "전격화살 번개누락 검토, 추가재생성 승인 전 호출금지; 나머지13종 미호출",
   "current_task": "PixelLab 스킬15종 각1장 신규제작",
   "latest_decision": "docs/decisions/UI_20261031_ICON_AUDIT.md",
   "paid_generation_authorized": {
     "count": 15,
     "per_skill": 1,
     "retry": false
+  },
+  "icon_generation": {
+    "requested": 15,
+    "generated": 2,
+    "passed": 1,
+    "rejected": 1,
+    "not_called": 13,
+    "charged_generations": 2,
+    "report": "docs/art/skills-20261031/REPORT.md"
   }
 }
