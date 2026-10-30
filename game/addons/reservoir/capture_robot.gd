@@ -10,9 +10,11 @@ const SLEEP = preload("res://art/ui/capture_robot_b/sleep.png")
 const CAPTURE = preload("res://art/ui/capture_robot_b/capture.png")
 const SUCCESS = preload("res://art/ui/capture_robot_b/success.png")
 const FULL = preload("res://art/ui/capture_robot_b/full.png")
+const WATER_BACKDROP = preload("res://art/bg/reservoir_approved.png")
 const WORKSHOP = preload("res://art/ui/capture_robot_b/workshop.png")
 const LICENSE = preload("res://art/rewards67/license_0.png")
 const PARTS = [preload("res://art/ui/capture_robot_b/speed.png"),preload("res://art/ui/capture_robot_b/storage.png"),preload("res://art/ui/capture_robot_b/precision.png")]
+var icon_art = preload("res://addons/reservoir/robot_icon_art.gd").new()
 var shop_tab := 0
 var visual_time := 0.0
 var visual_bounds := {}
@@ -152,13 +154,16 @@ func draw_shop(m,r: Rect2,y: float) -> void:
 	var x:=r.position.x+12
 	var w:=r.size.x-24
 	var available:=r.end.y-y-9
-	var hero_h:=clampf(available-210,31,92)
+	var hero_h:=clampf(available-232,31,92)
 	var hero:=Rect2(x,y,w,hero_h)
-	m._ui_rect(hero,Color("292528"))
-	m._ui_texture_rect(WORKSHOP,hero,true,Color(.8,.8,.8,1))
-	m._ui_rect(hero,Color(0,0,0,.22))
-	m._text("포획 로봇",Vector2(x+12,y+14),11,Color("fff0d1"))
-	m._text("보유 중" if owned else "구매 전",Vector2(x+12,y+28),8,Color("e3be86"))
+	# Reuse the approved lake artwork. Crop to the panel aspect, never tile/stretch.
+	var source_w:=540.0
+	var source_h:=source_w*hero.size.y/hero.size.x
+	var source:=Rect2(395,650-source_h*.45,source_w,source_h)
+	m._ui_texture_rect_region(WATER_BACKDROP,hero,source)
+	m._ui_rect(Rect2(x+4,y+3,82,minf(31,hero_h-4)),Color(.94,.96,.86,.88))
+	m._text("포획 로봇",Vector2(x+12,y+14),11,Color("173b4b"))
+	m._text("보유 중" if owned else "구매 전",Vector2(x+12,y+28),8,Color("254e5a"))
 	draw_robot(m,Rect2(x+w-102,y+maxf(0,(hero_h-48)/2),96,48))
 	visual_bounds.hero=hero
 	y+=hero_h+5
@@ -176,14 +181,16 @@ func draw_shop(m,r: Rect2,y: float) -> void:
 		var names: Array=["속도","보관","정밀"]
 		var values: Array=["%d마리/h"%RATES[speed],"%d마리"%CAPS[capacity],"★%d %s"%[precision+1,m.GRADE_N[precision]]]
 		for i in 3:
-			var tr:=Rect2(x+i*(w+3)/3,y,(w-6)/3,50)
+			var tr:=Rect2(roundf(x+i*(w+3)/3),y,floorf((w-6)/3),72)
 			m._ui_style_box(m.V.shop_styles.forge.header if i==shop_tab else m.V.shop_styles.forge.card,tr)
-			m._ui_texture_rect(PARTS[i],Rect2(tr.position+Vector2(tr.size.x/2-10,2),Vector2(20,19)))
+			var icon_box:=Rect2(tr.position+Vector2((tr.size.x-34)/2,7),Vector2(34,30))
+			visual_bounds["tab_icon_%d"%i]=icon_art.draw(m,["speed","storage","precision"][i],icon_box)
+			visual_bounds["tab_%d"%i]=tr
 			var ink:=Color("fff0d1") if i==shop_tab else Color("493421")
-			m._text(names[i],tr.position+Vector2(tr.size.x/2,32),10,ink,true,tr.size.x-6)
-			m._text(values[i],tr.position+Vector2(tr.size.x/2,44),8,ink,true,tr.size.x-6)
+			m._text(names[i],tr.position+Vector2(tr.size.x/2,51),10,ink,true,tr.size.x-6)
+			m._text(values[i],tr.position+Vector2(tr.size.x/2,64),8,ink,true,tr.size.x-6)
 			rects["tab_%d"%i]=tr
-		y+=55
+		y+=77
 		var detail:=Rect2(x,y,w,112)
 		m._ui_style_box(m.V.shop_styles.forge.card,detail)
 		m._text(["포획 속도 강화","보관 공간 강화","정밀 장치 강화"][shop_tab],Vector2(x+w/2,y+15),11,Color("493421"),true,w-12)
@@ -217,7 +224,7 @@ func draw_shop(m,r: Rect2,y: float) -> void:
 		y+=117
 		var storage:=Rect2(x,y,w,29)
 		m._ui_style_box(m.V.shop_styles.forge.card,storage)
-		m._ui_texture_rect(FULL,Rect2(x+6,y+6,25,15))
+		icon_art.draw(m,"full",Rect2(x+5,y+4,28,20))
 		m._text("보관함 %d/%d"%[fish.size(),CAPS[capacity]],Vector2(x+36,y+19),10,Color("493421"),false,w-93)
 		row(m,Rect2(x+w-54,y+3,50,23),"확인","manage")
 		visual_bounds.storage=storage
@@ -228,7 +235,8 @@ func surface_layout(m) -> Dictionary:
 	var bob:=sin(t)*1.5
 	var follow:=sin(t-0.12)*1.5
 	var center:=Vector2(237,water-2+bob)
-	return {"robot":Rect2(center-Vector2(27,17),Vector2(54,27)),"bubble":Rect2(215 if job.is_empty() else 219,water-43+follow,44 if job.is_empty() else 36,20),"water":water}
+	# Content-led size: a 44x30 icon, or Zzz plus a separate fixed timer.
+	return {"robot":Rect2(center-Vector2(27,17),Vector2(54,27)),"bubble":Rect2(196,water-66+follow,68,40),"water":water}
 func draw_bubble(m,r: Rect2) -> void:
 	# Crisp stepped corners and a short pixel tail, moving together with all contents.
 	m._ui_rect(r,Color("593720"))
@@ -253,21 +261,23 @@ func draw_surface(m) -> void:
 	m._ui_line(Vector2(215,water),Vector2(223,water),Color(.45,.8,.94,.65),1)
 	m._ui_line(Vector2(251,water+1),Vector2(260,water+1),Color(.45,.8,.94,.55),1)
 	draw_bubble(m,bubble)
-	var p:=bubble.position
+	var p:=bubble.position.round()
+	var box:=Rect2(p+Vector2(10,5),Vector2(48,30))
 	if not enabled:
-		m._ui_texture_rect(SLEEP,Rect2(p+Vector2(2,3),Vector2(14,13)))
-		m._text("OFF",p+Vector2(25,13),7,Color("68533d"),true)
+		icon_art.draw(m,"sleep",Rect2(p+Vector2(5,5),Vector2(29,28)))
+		m._text("OFF",p+Vector2(49,24),8,Color("68533d"),true,27)
 	elif fish.size()>=CAPS[capacity]:
-		m._ui_texture_rect(FULL,Rect2(p+Vector2(5,3),Vector2(26,15)),false,Color(1,1,1,.72+.28*sin(visual_time*3.0)))
+		icon_art.draw(m,"full",box,Color(1,1,1,.85+.15*sin(visual_time*3.0)))
 	elif flash>0:
-		m._ui_texture_rect(SUCCESS,Rect2(p+Vector2(6,2+roundf(sin(visual_time*7))),Vector2(24,17)))
+		box.position.y+=roundf(sin(visual_time*7))
+		icon_art.draw(m,"success",box)
 	elif job.is_empty():
-		var z_y:=roundf(sin(visual_time*3))
-		m._ui_texture_rect(SLEEP,Rect2(p+Vector2(2,3+z_y),Vector2(13,13)))
+		icon_art.draw(m,"sleep",Rect2(p+Vector2(5,5+roundf(sin(visual_time*3))),Vector2(29,28)))
 		var seconds:=ceili((1-escrow)*3600/maxf(1,m.pond_recovery()))
-		m._text("%d초"%seconds,p+Vector2(29,13),6,Color("493421"),true,26)
+		m._text("%d초"%seconds,p+Vector2(49,24),8,Color("493421"),true,28)
 	else:
-		m._ui_texture_rect(CAPTURE,Rect2(p+Vector2(5,2+roundf(sin(visual_time*7))),Vector2(26,17)))
+		box.position.y+=roundf(sin(visual_time*7))
+		icon_art.draw(m,"capture",box)
 func draw_panel(m,h: float) -> void:
 	if not opened: return
 	rects={};var r:=Rect2(16,maxf(80,(h-250)/2),238,250)

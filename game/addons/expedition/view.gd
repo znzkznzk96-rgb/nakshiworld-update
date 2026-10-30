@@ -35,6 +35,9 @@ var roster_in_list := false
 var roster_native_until := 0
 var flow_layout := {}
 var panel_bounds := Rect2()
+var formation_ui = preload("res://addons/expedition/formation_ui.gd").new()
+var formation_uid:int=-1
+var formation_target:int=0
 var formation_scroll := 0.0
 var formation_viewport := Rect2()
 var formation_max_scroll := 0.0
@@ -74,6 +77,7 @@ func setup() -> void:
 func open(m,screen: String) -> void:
 	if screen=="explore" and m.scene!="village" and not data.battle.is_empty() and not data.active():
 		m.show_toast("탐험 결과는 마을에서 확인해 주세요",Color("ffdc96"));return
+	formation_uid=-1
 	opened=screen;effect_kind="";page=0;roster_scroll=0;roster_pointer=false;formation_scroll=0;formation_pointer=false;role_filter="all";selected=[];notice="";choosing_slot=-1;m.menu_open=false;m.holding=false
 	selected_round=mini(data.unlocked,maxi(1,selected_round))
 	if screen=="explore" and not data.battle.is_empty() and not data.active(): explore_tab=0
@@ -514,6 +518,8 @@ func input_event(m,e: InputEvent) -> bool:
 	return true
 
 func press(m,pos: Vector2) -> void:
+	if formation_uid>=0 and opened=="explore" and explore_tab==1:
+		formation_ui.press(self,m,pos);return
 	var key: String=""
 	# Small lock controls take priority over their containing row.
 	for k in rects:
@@ -538,12 +544,8 @@ func press(m,pos: Vector2) -> void:
 		return
 	if key.begins_with("formation_unit:"):
 		if data.active(): m.show_toast("탐험 중에는 편성을 바꿀 수 없어요",Color("ffdc96"));return
-		var uid: int=int(key.split(":")[1])
-		if uid in data.team: data.team.erase(uid)
-		elif choosing_slot>=0 and choosing_slot<data.team.size(): data.team[choosing_slot]=uid
-		elif data.team.size()<3: data.team.append(uid)
-		else: m.show_toast("바꿀 편성 칸을 위에서 선택하세요",Color("ffdc96"))
-		choosing_slot=-1;m._save_game();return
+		formation_uid=int(key.split(":")[1]);formation_target=mini(data.team.size(),2);return
+
 	if key.begins_with("upgrade:"): training_uid=int(key.split(":")[1]);opened="training";return
 	if key=="roster_close": choosing_slot=-1;return
 	if key=="remove_slot":
@@ -740,60 +742,13 @@ func draw_result_notice(_m) -> void:
 	# Completion uses the same reserved strip as progress, never a second overlay.
 	pass
 
-func draw_formation(m,y: float,bottom: float) -> void:
-	role_badges=[]
-	for visual in 3:
-		var i: int=2-visual
-		var r:=Rect2(18+visual*80,y+13,74,87)
-		m._text(["앞","중간","뒤"][i],Vector2(r.get_center().x,y+8),9,Color("6c553b"),true,74)
-		m._ui_style_box(m.sb_btn,r)
-		if choosing_slot==i: m._ui_rect(r.grow(-2),Color("169f9d"),false,1)
-		if i<data.team.size():
-			var u: Dictionary=data.unit(int(data.team[i]));var spec: Dictionary=data.catalog.soldiers[int(u.id)]
-			sprite(m,int(u.id),Rect2(r.position+Vector2(6,1),Vector2(42,36)))
-			symbol(m,str(spec.role),Rect2(r.position+Vector2(49,8),Vector2(18,18)))
-			role_badge(m,str(spec.role),Rect2(r.position+Vector2(12,36),Vector2(54,14)))
-			m._text("★".repeat(int(u.star))+" +%d"%int(u.get("level",0)),Vector2(r.get_center().x,r.position.y+61),8,Color("382619"),true,66)
-			button(m,"clear_slot:%d"%i,Rect2(r.position+Vector2(7,65),Vector2(60,20)),"해제",not data.active())
-		else: m._text("빈 칸",r.get_center()+Vector2(0,4),9,Color("796044"),true,68)
-		rects["slot:%d"%i]=r
-	for i in 4:
-		var role: String=["all","attack","defense","support"][i]
-		var r:=Rect2(18+i*59,y+106,57,23)
-		button(m,"role_filter:"+role,r,["전체","공격","방어","지원"][i])
-		if role_filter==role: m._ui_rect(Rect2(r.position+Vector2(5,20),Vector2(r.size.x-10,2)),Color("159d9d"))
-	m._text("탐험 중 · 편성 변경 불가" if data.active() else "위 카드에서 해제 · 밀어서 순서 변경",Vector2(135,y+143),8,Color("6c553b"),true,234)
-	var list_y: float=y+150
-	var units: Array=data.soldiers.filter(func(u): return role_filter=="all" or data.catalog.soldiers[int(u.id)].role==role_filter)
-	formation_viewport=Rect2(18,list_y,234,maxf(47,bottom-list_y-22))
-	formation_max_scroll=maxf(0,units.size()*47.0-formation_viewport.size.y)
-	formation_scroll=clampf(formation_scroll,0,formation_max_scroll)
-	for n in units.size():
-		var row_y: float=list_y+n*47-roundf(formation_scroll)
-		if row_y<formation_viewport.position.y or row_y+44>formation_viewport.end.y: continue
-		var u: Dictionary=units[n];var spec: Dictionary=data.catalog.soldiers[int(u.id)]
-		var r:=Rect2(18,row_y,234,44)
-		var equipped: bool=int(u.uid) in data.team
-		m._ui_style_box(m.sb_chip,r)
-		if equipped: m._ui_rect(r.grow(-2),Color("398253"),false,1)
-		sprite(m,int(u.id),Rect2(r.position+Vector2(1,2),Vector2(38,38)))
-		m._text(spec.name+" +%d"%int(u.get("level",0)),r.position+Vector2(42,14),9,Color("382619"),false,146)
-		role_badge(m,str(spec.role),Rect2(r.position+Vector2(42,22),Vector2(56,17)))
-		if equipped: m._text("✓ 편성 중",r.position+Vector2(103,34),8,Color("398253"),false,72)
-		var action:=Rect2(r.position+Vector2(191,9),Vector2(38,26))
-		m._ui_style_box(m.sb_btn,action)
-		m._text("해제" if equipped else "편성",action.get_center()+Vector2(0,3),8,Color("8c4935") if equipped else Color("513b29"),true,32)
-		rects["formation_unit:%d"%int(u.uid)]=r
-	if units.is_empty(): m._text("해당 역할의 병사가 없어요",Vector2(135,list_y+25),10,Color("796044"),true,230)
-	if formation_max_scroll>0:
-		var thumb: float=maxf(20,formation_viewport.size.y*formation_viewport.size.y/(units.size()*47.0))
-		m._ui_rect(Rect2(254,list_y,2,formation_viewport.size.y),Color("d3c39e"))
-		m._ui_rect(Rect2(254,list_y+formation_scroll/formation_max_scroll*(formation_viewport.size.y-thumb),2,thumb),Color("9d7c4c"))
-	m._text("%d마리 · 위아래로 밀어 보기"%units.size(),Vector2(135,bottom-7),8,Color("6c553b"),true,234)
+func draw_formation(m,y:float,bottom:float)->void:
+	formation_ui.draw(self,m,y,bottom)
 
 func formation_begin(p: Vector2,id: int) -> void:
 	formation_pointer=true;formation_pointer_id=id;formation_start=p;formation_last=p;formation_dragged=false
-	formation_in_list=formation_viewport.has_point(p);drag_slot=-1
+	formation_in_list=formation_uid<0 and formation_viewport.has_point(p);drag_slot=-1
+	if formation_uid>=0:return
 	for i in data.team.size():
 		if rects.get("clear_slot:%d"%i,Rect2()).has_point(p): return
 		if rects.get("slot:%d"%i,Rect2()).has_point(p): drag_slot=i

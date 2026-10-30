@@ -77,30 +77,7 @@ func _material(v, m, r: Rect2, icon: Texture2D, name: String, required: int, own
 	m._text("보유 %d" % owned, r.position + Vector2(53, 51), 10, Color("75614d"), true, 97)
 func draw(v, m, r: Rect2, y: float) -> void :
 	if busy(): _cinematic(v, m, r, y);return
-	var rod: int = m.rod_lv; var level: int = m.forge_lv
-	m._ui_style_box(v.active_style.card, Rect2(26, y, 218, 49))
-	m._ui_texture(v.rods[rod], Vector2(33, y + 8))
-	m._text(v.ROD_NAME[rod], Vector2(154, y + 19), 12, v.active_style.ink, true, 162)
-	m._text("현재 +%d  /  최대 +%d" % [level, LIMIT[rod]], Vector2(154, y + 38), 11, v.active_style.ink, true, 162)
-	if r.end.y - y < 270:
-		m._text("감기 +%d%% · 장력 -%d%% · 판매 +%d%%" % [level * 3, level * 2, level * 5], Vector2(135, y + 65), 10, v.active_style.ink, true, 232)
-		y -= 14
-	else:
-		m._text("감기 +%d%% · 장력 증가 -%d%%" % [level * 3, level * 2], Vector2(135, y + 64), 10, v.active_style.ink, true, 232)
-		m._text("판매가 +%d%%" % (level * 5), Vector2(135, y + 78), 10, v.active_style.ink, true, 232)
-	if level >= LIMIT[rod]:
-		m._text("이 낚싯대의 최고 강화 단계입니다", Vector2(135, y + 128), 12, v.active_style.ink, true, 230);return
-	var chance_box: = Rect2(26, y + 85, 218, 36)
-	m._ui_style_box(v.active_style.header, chance_box)
-	m._text("강화 성공률", Vector2(85, y + 109), 12, Color("fff0d1"), true, 100)
-	m._text("%d%%" % roundi(chance(rod, level) * 100), Vector2(195, y + 111), 20, Color("ffdf89"), true, 78)
-	_material(v, m, Rect2(26, y + 127, 105, 58), v.tool_icons.soul, "혼", soul_cost(rod, level), m.souls)
-	_material(v, m, Rect2(139, y + 127, 105, 58), m.icons.scale, "비늘", cost(level, rod), m.gold)
-	var danger: String = "실패 시 1단계 하락 · 보호권으로 방지" if risky(rod, level) else "실패해도 강화 단계가 유지돼요"
-	m._text(danger, Vector2(135, y + 199), 10, Color("a34a40") if risky(rod, level) else Color("456a50"), true, 228)
-	_button(v, m, Rect2(26, y + 207, 218, 23), "하락 보호권 %s · 보유 %d장" % ["사용" if use_protection else "미사용", m.protection_tickets], "forge_protect", risky(rod, level) and m.protection_tickets > 0)
-	_button(v, m, Rect2(26, y + 236, 105, 26), "보호권 1진주", "forge_ticket", m.pearl >= 1)
-	_button(v, m, Rect2(139, y + 236, 105, 26), "강화 시작", "forge", m.equipment.rod_equipped and m.gold >= cost(level, rod) and m.souls >= soul_cost(rod, level))
+	preload("res://addons/reservoir/forge_layout.gd").new().draw_upgrade(v,m,r,y+3)
 func _cinematic(v, m, r: Rect2, y: float) -> void :
 	var scene: = Rect2(39, y + 5, 192, 112)
 	m._ui_rect(scene, Color("211d24"))

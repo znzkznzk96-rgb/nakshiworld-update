@@ -16,7 +16,7 @@ const BUILD: = [
 ]
 const CHIEF_POS: = Vector2(1270, 27)
 const CHIEF_TALK: = ["배가 주민들을 태워 오고 있다네.", "회관에서 어장을 관리해 보게!", "수족관에 물고기를 전시하면 수입이 늘지."]
-const GREET: = {"up": "장비와 미끼를 챙겨요!", "bait": "오늘은 어떤 미끼를 쓸까요?", "aqua": "우리 물고기를 보러 와요!", "museum": "만난 물고기를 기록해요!", "work": "판매와 손질을 맡겨요!", "harbor": "더 큰 배로 손님을 맞아요!", "hall": "어장을 키워 더 오래 낚시해요!", "forge": "낚싯대를 고르고 정비해요!"}
+const GREET: = {"up": "장비와 미끼를 챙겨요!", "bait": "오늘은 어떤 미끼를 쓸까요?", "aqua": "우리 물고기를 보러 와요!", "museum": "만난 물고기를 기록해요!", "work": "판매와 손질을 맡겨요!", "harbor": "더 큰 배로 손님을 맞아요!", "hall": "어장을 키워 더 오래 낚시해요!", "forge": "낚싯대를 고르고 강화해요!"}
 const KEEPER: = {"up": "k_up", "bait": "k_bait", "aqua": "k_aqua", "museum": "k_museum", "work": "k_work", "harbor": "k_work", "hall": "chief", "forge": "k_up"}
 const PARTS: = [["float", "찌", "★2 입질 해금", 660], ["hook", "바늘", "★3 입질 해금", 1320], ["line", "줄", "★4 입질 해금", 2376], ["reel", "릴", "모든 ★ · 주인 자격", 3960]]
 const SOUL_STAR: = [1, 2, 4, 8, 20]
@@ -383,7 +383,7 @@ func open_shop(m, k: String) -> void :
 	bundle_preview.legacy_dex=false;bundle_preview.selected=-1;bundle_preview.reward_open=false;bundle_preview.bulk_open=false;bundle_preview.bulk_plan=[];bundle_preview.just_claimed=false
 	aquarium.reset()
 	market_list.reset()
-	shop = k;tab = "sell";forge_tab = "rods";rod_page = 0;pick_slot = -1;m.play("ui", -8.0)
+	shop = k;tab = "sell";forge_tab = "rods";rod_page = m.rod_lv;pick_slot = -1;m.play("ui", -8.0)
 
 
 func draw_shop(m, h: float) -> void :
@@ -399,8 +399,9 @@ func draw_shop(m, h: float) -> void :
 		aquarium.draw_room(self,m,h)
 		return
 	var robot_shop: bool=shop=="forge" and forge_tab=="robot"
-	var panel_y: = maxf(top + (6.0 if robot_shop else 32.0), roundf(h * 0.5) - (240 if robot_shop else 190))
-	var r = Rect2(8, panel_y, 254, minf(500.0 if robot_shop else (440.0 if shop=="museum" else 380.0), h - panel_y - (12 if robot_shop else 44)))
+	var compact_forge: bool=shop=="forge" and h<560
+	var panel_y: = maxf(top + (6.0 if robot_shop or compact_forge else 32.0), roundf(h * 0.5) - (240 if robot_shop else 190))
+	var r = Rect2(8, panel_y, 254, minf(500.0 if robot_shop else (440.0 if shop=="museum" else 380.0), h - panel_y - (12 if robot_shop or compact_forge else 44)))
 	commerce.feedback_rect=Rect2(r.position+Vector2(9,46),Vector2(r.size.x-18,18))
 	active_style = shop_styles[shop]
 	m._ui_style_box(active_style.panel, r)
@@ -590,29 +591,14 @@ func _draw_forge(m, r: Rect2, y: float) -> void :
 		var tr: Rect2 = Rect2(r.position.x + 14 + i * 75, y, 72, 25)
 		var selected: bool = (i == 0 and forge_tab == "rods") or (i == 1 and forge_tab == "upgrade") or (i == 2 and forge_tab == "robot")
 		m._ui_style_box(active_style.header if selected else active_style.card, tr)
-		m._text(["낚싯대", "정비", "포획 로봇"][i], tr.get_center() + Vector2(0, 4), 10, Color("fff0d1") if selected else active_style.ink, true, 66)
+		m._text(["낚싯대", "강화", "포획 로봇"][i], tr.get_center() + Vector2(0, 4), 10, Color("fff0d1") if selected else active_style.ink, true, 66)
 		rects.rows.append([tr, "forgetab:" + ["rods", "upgrade", "robot"][i]])
 	y += 31
 	if forge_tab=="robot": m.capture_robot.draw_shop(m,r,y);return
 	if forge_tab == "rods":
-		var card_h: float=floorf((r.end.y-y-12)/3.0)-5
-		for i in 6:
-			var cell:=Rect2(r.position.x+12+(i%2)*117,y+floori(i/2.0)*(card_h+5),113,card_h)
-			m._ui_style_box(active_style.card,cell)
-			var owned: bool=i in m.equipment.rods
-			var current: bool=i==m.rod_lv and m.equipment.rod_equipped
-			m._ui_texture_rect(rods[i],Rect2(cell.position+Vector2(4,4),Vector2(26,26)),false)
-			m._text(ROD_NAME[i],cell.position+Vector2(33,14),10,active_style.ink,false,76)
-			m._text("+%d · 감기 +%d%%" % [int(m.rod_enh[i]),i*12],cell.position+Vector2(33,27),8,Color("68533d"),false,76)
-			var buy:=Rect2(cell.position.x+4,cell.end.y-28,105,24)
-			m._ui_style_box(m.sb_btn,buy)
-			var caption: String="사용 중" if current else ("장착" if owned else "%s 비늘" % m.spots.price_text(ROD_COST[i]))
-			m._text(caption,buy.get_center()+Vector2(0,4),10,active_style.ink,true,96)
-			if owned and not current: rects.rows.append([buy,"equip:%d"%i])
-			elif not owned and i<=m.rod_owned+1: rects.rows.append([buy,"rod:%d"%i])
-			elif not owned: m._text("잠김",Vector2(cell.end.x-17,cell.position.y+40),8,Color("796b58"),true,30)
-
+		preload("res://addons/reservoir/forge_layout.gd").new().draw_rods(self,m,r,y+3)
 		return
+
 	enhancement.draw(self, m, r, y)
 
 func _shop_press(m, pos: Vector2) -> void :
@@ -633,6 +619,7 @@ func _shop_press(m, pos: Vector2) -> void :
 		else: shop = ""
 
 func _act(m, a: String) -> void :
+	if a.begins_with("rodselect:"): rod_page=clampi(int(a.get_slice(":",1)),0,5);return
 	if a=="robot:manage": m.capture_robot.opened=true;return
 	if m.capture_robot.action(m,a): return
 	if a=="bundles": bundle_preview.legacy_dex=false;return
