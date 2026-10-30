@@ -1,0 +1,25 @@
+{
+  "version": {
+    "code": 97,
+    "name": "0.97"
+  },
+  "source_commit": "09fb30af991fefd251e9f15939c6e6c2896639fa",
+  "work_commit": "cfffd5c89b3100467296f44fe178c367b5c3aef8",
+  "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v0.97",
+  "work_ci": 41003774988,
+  "release_ci": 41004260949,
+  "public_ci": 41004599823,
+  "ci_conclusions": "success",
+  "source_overlay_files_verified": 403,
+  "zip_crc_verified": true,
+  "gateway_download_verified": true,
+  "phone_verified": false,
+  "patch": {
+    "size": 51415600,
+    "sha256": "826e03a0337b0a98dac31bc5646f529daba8d8e6751695412a8091c5fed3f7a3"
+  },
+  "source_zip": {
+    "size": 51676129,
+    "sha256": "1986e013f24a962fb43b075d605ece62cae300dc178290e59d42cb8831b40565"
+  }
+}
