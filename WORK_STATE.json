@@ -1,13 +1,13 @@
 {
   "work_branch": "work/valley-runtime",
-  "status": "puffer_two_star_revision_and_three_star_requested",
+  "status": "puffer_star2_star3_candidates_ready",
   "release_baseline": "v1.02",
   "target_release": "v1.02",
   "release_authorized": true,
   "deployed": true,
   "phone_verified": false,
   "handoff": "HANDOFF.md",
-  "next_step": "복어2성 재제작과3성첫제작 각1회, 결과둘다직접표시",
+  "next_step": "사용자2성/3성시안 외형검토 후 모션범위결정",
   "current_task": "복어 방패병 2성·3성 진화 파일럿",
   "latest_decision": "docs/GAME_BIBLE.md",
   "paid_generation_authorized": {
@@ -40,20 +40,12 @@
     "public_ci": 41096547823
   },
   "evolution_pilot": {
-    "species": "puffer",
-    "stars": [
-      2,
-      3
-    ],
-    "all_species_batch": false,
-    "release_authorized": false,
-    "initial_images_per_star": 1,
-    "result": {
-      "passed": 0,
-      "rejected": 1,
-      "charged_generations": 1,
-      "star3_generated": false,
-      "animation_generated": false
-    }
+    "star2": "revised candidate, more humanoid",
+    "star3": "new candidate, more frontal/humanoid",
+    "this_turn_paid_generations": 2,
+    "total_pilot_paid_generations": 3,
+    "adopted": false,
+    "animations": 0,
+    "deployed": false
   }
 }
