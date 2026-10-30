@@ -1,0 +1,25 @@
+{
+  "action": "A devastating heavy shield RAM attack, much stronger than a small shield jab. Keep the EXACT approved emerald armored guardian, helmet face, amber eyes, back spikes and green crystal shield. Frames 1-4: crouch very deeply, twist torso LEFT and pull shield back to load power; shield core charges lime green. Frames 5-7: explosive whole-body lunge 28 pixels RIGHT, shoulder behind shield, shield extends far forward. At contact a large WHITE-LIME angular impact star erupts beyond the right shield rim, a broad emerald shockwave ring expands RIGHT, and 6 sharp poison crystal shards spray forward. Frames 8-10: recoil heavily, ring and shards scatter and fade. Last frames recover to exact starting pose. One hit only. Fast strike, slow anticipation and recoil, visible footwork. Static camera, keep design and size, no cape, no extra limbs, no opponent, no screen-wide flashes. Leave face readable; effects in front of shield, not covering body. Transparent pixel art.",
+  "frame_count": 12,
+  "seed": 20261031,
+  "no_background": true,
+  "enhance_prompt": false,
+  "reference": {
+    "path": "evolution-puffer/impact-reference/star3.png",
+    "sha256": "8fc349a395145313ef0fb8820481e15375caeb65c375fd35454aad8711962b4f"
+  },
+  "padding": {
+    "canvas": [
+      192,
+      192
+    ],
+    "original": [
+      128,
+      128
+    ],
+    "offset": [
+      16,
+      32
+    ]
+  }
+}

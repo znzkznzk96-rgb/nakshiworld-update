@@ -1,1 +1,1 @@
-2-star impact generation passed visual review: cyan impact star and crescent shockwave in front of shield, recognizable original armor, no edge clipping. 13 returned frames, 192x192. Charged7 generations. 3-star single POST job 327846bf-d854-4714-bf4b-82e423bc8c85 processing. No retry or deployment.
+Both jobs completed. See IMPACT_REVIEW.md. No in-flight paid job.

@@ -1,13 +1,13 @@
 {
   "work_branch": "work/valley-runtime",
-  "status": "puffer_attack_effect_revision_in_progress",
+  "status": "puffer_impact_motion_review_ready",
   "release_baseline": "v1.02",
   "target_release": "v1.02",
   "release_authorized": true,
   "deployed": true,
   "phone_verified": false,
   "handoff": "HANDOFF.md",
-  "next_step": "2성새공격완료,3성기존job생성중; 재POST금지",
+  "next_step": "사용자 새타격모션 검토; 게임연결·배포 미진행",
   "current_task": "2성·3성 공격모션 및 타격효과 재제작",
   "latest_decision": "docs/GAME_BIBLE.md",
   "paid_generation_authorized": {
@@ -43,10 +43,12 @@
     "adopted": true,
     "star2": "star2-armor",
     "star3": "star3-armor",
-    "total_pilot_paid_generations": 18,
+    "total_pilot_paid_generations": 25,
     "animations": 2,
     "deployed": false,
     "motion_paid_generations": 4,
-    "motion_report": "docs/design/puffer-evolution/MOTION_REVIEW.md"
+    "motion_report": "docs/design/puffer-evolution/MOTION_REVIEW.md",
+    "latest_motion_paid_generations": 14,
+    "latest_motion_report": "docs/design/puffer-evolution/IMPACT_REVIEW.md"
   }
 }
