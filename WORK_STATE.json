@@ -65,8 +65,9 @@
   },
   "selected_revision": {
     "requested": 8,
-    "completed": 0,
+    "completed": 3,
     "motion_calls": 0,
-    "deployed": false
+    "deployed": false,
+    "charged_generations": 3
   }
 }

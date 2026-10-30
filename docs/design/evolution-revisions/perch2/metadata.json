@@ -1,0 +1,48 @@
+{
+  "request-settings.json": {
+    "image_size": {
+      "width": 160,
+      "height": 128
+    },
+    "description": "Middle evolution: cute FIN LANCER creature. Recognizable fish snout, big amber eye, blue scales, pale belly. Broader athletic fish body, enlarged swept dorsal crest, fin-shaped shoulder scales, forked tail. Small silver-blue chest guard, long spear with three-pronged aqua crystal tip. Body and fins evolve; do not hide fish inside a round helmet. Cute and cool, not fully humanoid. Face RIGHT, crisp pixel art, transparent, full body.",
+    "width": 160,
+    "height": 128,
+    "no_background": true,
+    "seed": 20261101,
+    "reference": {
+      "path": "evolution-roster/perch/star1.png",
+      "sha256": "4dbbe900674b24dfa0cf55f8db8987a7cbe0f03b3f9b2125c822071660042c0d"
+    }
+  },
+  "reference.json": {
+    "path": "evolution-roster/perch/star1.png",
+    "sha256": "4dbbe900674b24dfa0cf55f8db8987a7cbe0f03b3f9b2125c822071660042c0d"
+  },
+  "submitted.json": {
+    "time": 1793386907.6478155,
+    "endpoint": "edit-image",
+    "single_post": true
+  },
+  "response.json": {
+    "usage": null,
+    "background_job_id": "127afa6b-c92c-4676-84de-4f94f2234a9e",
+    "status": "processing"
+  },
+  "cost.json": {
+    "charged_generations": 1
+  },
+  "validation.json": {
+    "size": [
+      160,
+      128
+    ],
+    "bbox": [
+      35,
+      32,
+      127,
+      113
+    ],
+    "sha256": "1e6fb3a8121ef920f0a661e00ddbd6248e719c75eaadb241101801cfe7c90225",
+    "charged_generations": 1
+  }
+}

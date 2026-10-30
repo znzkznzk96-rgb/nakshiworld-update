@@ -1,0 +1,48 @@
+{
+  "request-settings.json": {
+    "image_size": {
+      "width": 160,
+      "height": 128
+    },
+    "description": "Final evolution: cute powerful SUN FISH BEAST. Orange fish face, big amber eyes, broad round body, huge sun-ray fan tail, ivory shell scales growing on back and shoulders, two sun-ray brow horns. Large golden sun-disc shield with amber core. Change creature anatomy, not just human armor. Orange/ivory/amber palette. Confident cute face, dramatic new silhouette. Face RIGHT. Crisp pixel art, transparent, full body.",
+    "width": 160,
+    "height": 128,
+    "no_background": true,
+    "seed": 20261101,
+    "reference": {
+      "path": "evolution-roster/crucian/star1.png",
+      "sha256": "acca859716be805c06bf6221b2ce77dc9a08eeb7ea38a281e9fca2a801a217a3"
+    }
+  },
+  "reference.json": {
+    "path": "evolution-roster/crucian/star1.png",
+    "sha256": "acca859716be805c06bf6221b2ce77dc9a08eeb7ea38a281e9fca2a801a217a3"
+  },
+  "submitted.json": {
+    "time": 1793386768.862617,
+    "endpoint": "edit-image",
+    "single_post": true
+  },
+  "response.json": {
+    "usage": null,
+    "background_job_id": "38fa6390-987c-40fd-93fb-cad5e74258c0",
+    "status": "processing"
+  },
+  "cost.json": {
+    "charged_generations": 1
+  },
+  "validation.json": {
+    "size": [
+      160,
+      128
+    ],
+    "bbox": [
+      12,
+      16,
+      146,
+      116
+    ],
+    "sha256": "2183f2b81721967c9b61153c7c470f7d667c49107831b4637fa8c00986f50b1e",
+    "charged_generations": 1
+  }
+}
