@@ -188,7 +188,7 @@ func draw_collection(m,r: Rect2) -> void:
 				m._text("수집 등급",cell.position+Vector2(64,31),8,MUTED,false,51)
 				var grades: Array=m.fish_grades(id)
 				for g in 5:
-					grade_mark(m,Rect2(cell.position+Vector2(114+g*16,23),Vector2(13,9)),g in grades)
+					grade_mark(m,Rect2(cell.position+Vector2(114+g*16,23),Vector2(13,9)),g in grades,g)
 
 			chevron(m,cell.position+Vector2(207,cell.size.y/2-4))
 			rects.fish.append([cell,id])
@@ -206,9 +206,9 @@ func draw_collection(m,r: Rect2) -> void:
 		var thumb: float=maxf(12,track.size.y*visible_rows/rows_total)
 		m._ui_rect(Rect2(track.position+Vector2(0,(track.size.y-thumb)*scroll/maximum()),Vector2(3,thumb)),Color("8d6037"))
 	m._text("병사를 누르면 특징과 어혼 조합" if soldier_mode() else "물고기를 누르면 상세 기록",Vector2(135,r.end.y-16),9,MUTED,true,230)
-func grade_mark(m,r: Rect2,acquired: bool) -> void:
-	var outline: Color=Color("075960") if acquired else Color("ad9b79")
-	var fill: Color=Color("09999b") if acquired else Color("ede2c8")
+func grade_mark(m,r: Rect2,acquired: bool,grade: int) -> void:
+	var fill: Color=m.GRADE_C[grade] if acquired else Color("ede2c8")
+	var outline: Color=fill.darkened(.48) if acquired else Color("ad9b79")
 	var pts:=PackedVector2Array([Vector2(0,2),Vector2(3,3),Vector2(5,0),Vector2(10,0),Vector2(13,4),Vector2(10,8),Vector2(5,8),Vector2(3,5),Vector2(0,7)])
 	for i in pts.size(): pts[i]=r.position+pts[i]
 	m._ui_polygon(pts,PackedColorArray([outline]))
@@ -224,7 +224,10 @@ func record_icon(m,kind: String,box: Rect2) -> void:
 	if not record_icons.has(kind):
 		var path: String="res://art/ui/codex/%s.png"%kind
 		if ResourceLoader.exists(path):record_icons[kind]=load(path)
-	if record_icons.has(kind):m._ui_texture_rect(record_icons[kind],box,false)
+	if record_icons.has(kind):
+		# The original reservoir thumbnail alone includes a solid gray matte.
+		if kind=="region0":m._ui_texture_rect_region(record_icons[kind],box,Rect2(6,6,20,19))
+		else:m._ui_texture_rect(record_icons[kind],box,false)
 func specimen(m,f: Dictionary,kind: String) -> String:
 	if f.is_empty():return "아직 기록이 없어요"
 	if f.get("legacy",false):return "길이·무게 기록 없음" if kind=="grade" else "등급·무게 기록 없음"

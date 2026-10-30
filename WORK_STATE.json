@@ -1,14 +1,14 @@
 {
   "work_branch": "work/valley-runtime",
-  "status": "v101_deployed_verified",
+  "status": "v102_dex_fix_pending_remote_verification",
   "release_baseline": "v1.01",
-  "target_release": "v1.01",
+  "target_release": "v1.02",
   "release_authorized": true,
-  "deployed": true,
+  "deployed": false,
   "phone_verified": false,
   "handoff": "HANDOFF.md",
-  "next_step": "기존 앱에서 1.01 적용 후 휴대폰 실제 실행 확인",
-  "current_task": "승인 A안 UI·PixelLab15종 신규제작·병사관리 개선 배포",
+  "next_step": "원격64검사/화면렌더 후 v1.02 배포, 공개다운로드검증",
+  "current_task": "도감 동네저수지 썸네일 크기와 수집 등급 색상 수정",
   "latest_decision": "docs/decisions/UI_20261031_ICON_AUDIT.md",
   "paid_generation_authorized": {
     "count": 15,
@@ -26,15 +26,8 @@
   },
   "icon_generation_status": "Completed 15 accepted icons / 17 paid generations. Bolt and reflect accepted second attempts.",
   "local_verification": {
-    "suites": 64,
-    "failed": 0,
-    "final_icon_load_check": true,
-    "screens": 21,
-    "heights": [
-      480,
-      540,
-      660
-    ]
+    "status": "unavailable_current_runtime",
+    "reason": "Godot --version exits SIGSEGV; no local pass claimed"
   },
   "source_commit": "49a401c491209c32b9edcc896b9b10402b60c932",
   "verification": "analysis/release-101/PUBLISHED.json",

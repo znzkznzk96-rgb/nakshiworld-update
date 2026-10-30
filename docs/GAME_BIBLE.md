@@ -1,3 +1,6 @@
+## 2026-10-31 도감 표시 수정
+사용자 요청: 동네저수지만 작아진 그림을 다른 낚시터와 같은 표시크기로 수정. 잡은 물고기 등급표시를 색상으로 구분. 기존등급색 GRADE_C 사용, 원본아트/획득기록/밸런스 유지.
+
 Warning: truncated output (original token count: 28289)
 Total output lines: 710
 
