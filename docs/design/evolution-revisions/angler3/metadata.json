@@ -1,0 +1,48 @@
+{
+  "request-settings.json": {
+    "image_size": {
+      "width": 160,
+      "height": 128
+    },
+    "description": "Final evolution: adorable formidable ABYSS LANTERN BEAST. Big round purple fish head, amber eyes, mischievous toothy grin. Broad round body, huge batlike purple fins, curled tail, two short crystal brow horns and silver-amethyst armored back scales. Thick arched head lure suspends a huge ornate amber soul lantern. Tiny clawed feet, compact creature anatomy, dramatic silhouette change. No human knight suit or cape. Face RIGHT, crisp pixel art, transparent, full body.",
+    "width": 160,
+    "height": 128,
+    "no_background": true,
+    "seed": 20261101,
+    "reference": {
+      "path": "evolution-roster/angler/star1.png",
+      "sha256": "94084b55fd51ef037ab3811ed7e95c025a5bf98719500bf08f9a2e38efe0dc83"
+    }
+  },
+  "reference.json": {
+    "path": "evolution-roster/angler/star1.png",
+    "sha256": "94084b55fd51ef037ab3811ed7e95c025a5bf98719500bf08f9a2e38efe0dc83"
+  },
+  "submitted.json": {
+    "time": 1793386972.4245872,
+    "endpoint": "edit-image",
+    "single_post": true
+  },
+  "response.json": {
+    "usage": null,
+    "background_job_id": "c0f2ea2c-818b-4000-a5d9-4cb56687d219",
+    "status": "processing"
+  },
+  "cost.json": {
+    "charged_generations": 1
+  },
+  "validation.json": {
+    "size": [
+      160,
+      128
+    ],
+    "bbox": [
+      14,
+      21,
+      139,
+      116
+    ],
+    "sha256": "547c5d8d8051bf7b0d9c337a348dd44db7eb7a1d8e98061c302dbff8de3d6589",
+    "charged_generations": 1
+  }
+}
