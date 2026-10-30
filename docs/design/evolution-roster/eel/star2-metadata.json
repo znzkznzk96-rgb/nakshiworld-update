@@ -1,0 +1,48 @@
+{
+  "request-settings.json": {
+    "image_size": {
+      "width": 128,
+      "height": 128
+    },
+    "description": "Evolve this exact character to tier 2. Yellow electric eel crossbow archer. Add navy and brass segmented back armor, small insulated shoulder guards and amber brow plate. Upgrade wooden crossbow with yellow copper lightning coils. Retain long curled eel tail and cheerful face. Preserve crisp pixel style, original facing and palette. No cape, text, background or extra limbs. Full body, no clipping.",
+    "width": 128,
+    "height": 128,
+    "no_background": true,
+    "seed": 20261031,
+    "reference": {
+      "path": "evolution-roster/eel/star1.png",
+      "sha256": "564a9f73e926eb638d68578c710225db803e33fcf4520d7ea00615fbb16fa195"
+    }
+  },
+  "reference.json": {
+    "path": "evolution-roster/eel/star1.png",
+    "sha256": "564a9f73e926eb638d68578c710225db803e33fcf4520d7ea00615fbb16fa195"
+  },
+  "submitted.json": {
+    "time": 1793384514.3631186,
+    "endpoint": "edit-image",
+    "single_post": true
+  },
+  "response.json": {
+    "usage": null,
+    "background_job_id": "9f1c55ca-02d3-4352-ba31-13c8e4e079cf",
+    "status": "processing"
+  },
+  "cost.json": {
+    "charged_generations": 1
+  },
+  "validation.json": {
+    "size": [
+      128,
+      128
+    ],
+    "bbox": [
+      11,
+      20,
+      120,
+      115
+    ],
+    "sha256": "05571c6c56b1548189a639caffc35c4af41841e42fea86daa5132f5880162173",
+    "charged_generations": 1
+  }
+}

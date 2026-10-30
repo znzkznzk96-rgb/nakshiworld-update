@@ -1,0 +1,48 @@
+{
+  "request-settings.json": {
+    "image_size": {
+      "width": 160,
+      "height": 128
+    },
+    "description": "Evolve this exact character to tier 3. Blue perch elite lancer. Transform into a compact deep-blue armored fish champion: thick silver-edged scale plates, swept fin crest helmet exposing eye and fish snout, reinforced boots, imposing trident-like blue crystal lance. Clearly stronger body silhouette than tier2. Preserve crisp pixel style, original facing and palette. No cape, text, background or extra limbs. Full body, no clipping.",
+    "width": 160,
+    "height": 128,
+    "no_background": true,
+    "seed": 20261031,
+    "reference": {
+      "path": "evolution-roster/perch/star1.png",
+      "sha256": "4dbbe900674b24dfa0cf55f8db8987a7cbe0f03b3f9b2125c822071660042c0d"
+    }
+  },
+  "reference.json": {
+    "path": "evolution-roster/perch/star1.png",
+    "sha256": "4dbbe900674b24dfa0cf55f8db8987a7cbe0f03b3f9b2125c822071660042c0d"
+  },
+  "submitted.json": {
+    "time": 1793384446.0596595,
+    "endpoint": "edit-image",
+    "single_post": true
+  },
+  "response.json": {
+    "usage": null,
+    "background_job_id": "1c72841c-60ab-439e-a2ce-b6ea27ac3e7d",
+    "status": "processing"
+  },
+  "cost.json": {
+    "charged_generations": 1
+  },
+  "validation.json": {
+    "size": [
+      160,
+      128
+    ],
+    "bbox": [
+      22,
+      10,
+      141,
+      116
+    ],
+    "sha256": "e0219124fe531181a7137e77a8d6b06f891d402c571b531f93d8e5accc415645",
+    "charged_generations": 1
+  }
+}
