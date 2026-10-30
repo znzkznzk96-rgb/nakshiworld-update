@@ -1,14 +1,14 @@
 {
   "work_branch": "work/valley-runtime",
-  "status": "puffer_star2_star3_candidates_ready",
+  "status": "cute_puffer_evolution_requested",
   "release_baseline": "v1.02",
   "target_release": "v1.02",
   "release_authorized": true,
   "deployed": true,
   "phone_verified": false,
   "handoff": "HANDOFF.md",
-  "next_step": "사용자2성/3성시안 외형검토 후 모션범위결정",
-  "current_task": "복어 방패병 2성·3성 진화 파일럿",
+  "next_step": "기존원본 기반 각1장 순차생성·검수·표시",
+  "current_task": "귀여운 복어2성/3성 재제작",
   "latest_decision": "docs/GAME_BIBLE.md",
   "paid_generation_authorized": {
     "count": 15,
