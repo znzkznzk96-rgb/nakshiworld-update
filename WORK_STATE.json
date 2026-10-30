@@ -1,14 +1,14 @@
 {
   "work_branch": "work/valley-runtime",
-  "status": "approved_puffer_motion_preview_ready",
+  "status": "puffer_attack_effect_revision_in_progress",
   "release_baseline": "v1.02",
   "target_release": "v1.02",
   "release_authorized": true,
   "deployed": true,
   "phone_verified": false,
   "handoff": "HANDOFF.md",
-  "next_step": "사용자 모션 검토; 게임 별등급 리소스 연결은 미적용",
-  "current_task": "채택된 복어2성·3성 모션",
+  "next_step": "각1회순차생성·검수·비교영상제공",
+  "current_task": "2성·3성 공격모션 및 타격효과 재제작",
   "latest_decision": "docs/GAME_BIBLE.md",
   "paid_generation_authorized": {
     "count": 15,
