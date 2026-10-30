@@ -13,11 +13,11 @@ func run() -> void:
 	m.development_preview=true;m.set_process(false);m.title_open=false;m.lesson_open=false;m.tip_t=0;m.guide.opened=false;m.mailbox.opened=false;m.trans={};m.TUT.done=true;m.scene="fish";m.S={"phase":"idle"}
 	m.DEX={};m.REC={};m.personal_dex.restore({})
 	for sp in range(14):
-		m.DEX[m.fish_key(sp)]=[0,1,2];m.catch_counts[m.fish_key(sp)]=[10,2,1,0,0]
+		m.DEX[m.fish_key(sp)]=[0,1,2,3,4] if sp%2==0 else [0,2];m.catch_counts[m.fish_key(sp)]=[10,2,1,0,0]
 		m.personal_dex.observe(sp,2,m.FISH_LEN[sp]*1.05,.25,"2026-10-23")
 		m.personal_dex.observe(sp,1,m.FISH_LEN[sp]*1.4,.5,"2026-10-23")
 		m.personal_dex.observe(sp,0,m.FISH_LEN[sp]*1.2,.6,"2026-10-23")
-	for height in [480,540]:
+	for height in [480,540,660]:
 		root.content_scale_size=Vector2i(270,height);root.size=Vector2i(540,height*2);await process_frame
 		m.personal_dex.open(m);await capture(m,out,"dex_collection_%d"%height)
 		m.personal_dex.selected=1
