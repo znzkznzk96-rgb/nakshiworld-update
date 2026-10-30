@@ -1,0 +1,18 @@
+{
+  "status": "pass",
+  "note": "Green leaves and red heart legible, leaf count incidental; no clipping and clean alpha.",
+  "native_and_nearest_reviewed": true,
+  "size": [
+    64,
+    64
+  ],
+  "mode": "RGBA",
+  "bbox": [
+    9,
+    8,
+    55,
+    56
+  ],
+  "paid_generations": 1.0,
+  "sha256": "19616e3c570f5344b090bca0230847b53a5a0c7b57669c913028aacbf1148016"
+}

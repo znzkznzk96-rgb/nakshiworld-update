@@ -1,0 +1,12 @@
+{
+  "description": "Single compact fantasy RPG skill icon, crisp 16-bit pixel art, bold clean dark outline, 3 shades per color, simple readable silhouette, centered with 5 pixel empty margin, no frame, no letters, transparent background. Self healing skill: a small steel blue shield with a BIG bright green plus symbol overlapping its lower right corner. Shield left, plus right. Simple bold emblem. Silver rim, cobalt blue center, vivid green cross. No heart.",
+  "image_size": {
+    "width": 64,
+    "height": 64
+  },
+  "no_background": true,
+  "outline": "single color black outline",
+  "shading": "basic shading",
+  "detail": "low detail",
+  "seed": 202610310
+}

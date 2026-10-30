@@ -23,5 +23,6 @@
     "charged_generations": 7,
     "in_flight": "regen",
     "report": "docs/art/skills-20261031/REPORT.md"
-  }
+  },
+  "icon_generation_status": "10 passed icons, 11 charged generations total; each icon <=2 authorized attempts. Remaining5 in progress. Not deployed."
 }

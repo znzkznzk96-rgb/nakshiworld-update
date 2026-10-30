@@ -1,0 +1,18 @@
+{
+  "status": "pass",
+  "note": "Blue shield with distinct green recovery cross; clear silhouette.",
+  "native_and_nearest_reviewed": true,
+  "size": [
+    64,
+    64
+  ],
+  "mode": "RGBA",
+  "bbox": [
+    7,
+    3,
+    58,
+    62
+  ],
+  "paid_generations": 1.0,
+  "sha256": "7f6a3b27adf49fbe07c79e342c40a116cde36b324eaeac48b51c10d3ca721996"
+}
