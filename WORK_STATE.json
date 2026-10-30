@@ -7,7 +7,7 @@
   "deployed": true,
   "phone_verified": false,
   "handoff": "HANDOFF.md",
-  "next_step": "각1회순차생성·검수·비교영상제공",
+  "next_step": "2성새공격완료,3성기존job생성중; 재POST금지",
   "current_task": "2성·3성 공격모션 및 타격효과 재제작",
   "latest_decision": "docs/GAME_BIBLE.md",
   "paid_generation_authorized": {
@@ -43,7 +43,7 @@
     "adopted": true,
     "star2": "star2-armor",
     "star3": "star3-armor",
-    "total_pilot_paid_generations": 11,
+    "total_pilot_paid_generations": 18,
     "animations": 2,
     "deployed": false,
     "motion_paid_generations": 4,
