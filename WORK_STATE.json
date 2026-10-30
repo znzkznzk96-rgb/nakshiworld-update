@@ -1,13 +1,13 @@
 {
   "work_branch": "work/valley-runtime",
-  "status": "equipment_revision_in_progress",
+  "status": "equipment_candidates_review_needed",
   "release_baseline": "v1.02",
   "target_release": "v1.02",
   "release_authorized": true,
   "deployed": true,
   "phone_verified": false,
   "handoff": "HANDOFF.md",
-  "next_step": "6종 제작 검수",
+  "next_step": "사용자 시안검토; 이미지 GitHub 저장 자동검토 차단, 별도 파일 제공",
   "current_task": "6종 장비 중심 재시안",
   "latest_decision": "docs/GAME_BIBLE.md",
   "paid_generation_authorized": {
@@ -86,8 +86,18 @@
   },
   "equipment_revision": {
     "requested": 6,
-    "completed": 0,
+    "completed": 6,
+    "charged_generations": 6,
     "motion_calls": 0,
-    "deployed": false
+    "deployed": false,
+    "remote_images_saved": false,
+    "remote_upload_blocked": true,
+    "limitations": [
+      "crucian shield not oversized rectangular",
+      "eel crossbow/armor not achieved",
+      "angler lantern undersized",
+      "flying iaido pose not achieved",
+      "herbalist layered leaf armor unclear"
+    ]
   }
 }
