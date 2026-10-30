@@ -248,10 +248,13 @@ func draw_bubble(m,r: Rect2) -> void:
 	m._ui_rect(Rect2(r.get_center().x-1,r.end.y+1,2,1),Color("593720"))
 func draw_surface(m) -> void:
 	button=Rect2()
-	if not owned or m.scene!="fish" or m.S.phase in ["fight","hook","catch"] or m.market_open or m.settings_open or m.menu_open: return
+	if not owned or m.scene!="fish" or m.market_open or m.settings_open or m.menu_open: return
+	var first_command:int=m.ui_commands.size()
+	var first_text:int=m.text_items.size()
 	var layout:=surface_layout(m)
 	var robot: Rect2=layout.robot
 	var bubble: Rect2=layout.bubble
+	bubble.position=bubble.position.round()
 	button=robot.merge(bubble).grow(3)
 	var state:=0
 	if enabled and flash>0: state=2
@@ -275,6 +278,11 @@ func draw_surface(m) -> void:
 		var seconds:=ceili((1-escrow)*3600/maxf(1,m.pond_recovery()))
 		micro_icons.timer(m,p+Vector2(18,9),seconds)
 	else:micro_icons.draw(m,"capture",glyph_pos,frame)
+	if m.S.phase in ["hook","pre","fight","catch"]:
+		m._fade_ui(first_command,first_text,0.28)
+		for i in range(first_command,m.ui_commands.size()):
+			if m.ui_commands[i][0]=="line":m.ui_commands[i][3].a*=0.28
+		button=Rect2()
 func draw_panel(m,h: float) -> void:
 	if not opened: return
 	rects={};var r:=Rect2(16,maxf(80,(h-250)/2),238,250)
