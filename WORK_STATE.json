@@ -1,14 +1,14 @@
 {
   "work_branch": "work/valley-runtime",
-  "status": "selected_evolution_revision_review_needed",
+  "status": "equipment_revision_in_progress",
   "release_baseline": "v1.02",
   "target_release": "v1.02",
   "release_authorized": true,
   "deployed": true,
   "phone_verified": false,
   "handoff": "HANDOFF.md",
-  "next_step": "재시안검토및누락무기·진화폭보완; 모션대기",
-  "current_task": "7종진화형태재제작+잉어3성방향수정",
+  "next_step": "6종 제작 검수",
+  "current_task": "6종 장비 중심 재시안",
   "latest_decision": "docs/GAME_BIBLE.md",
   "paid_generation_authorized": {
     "count": 15,
@@ -78,6 +78,16 @@
       "flying sword omitted",
       "herbalist basket unclear",
       "crucian/angler evolution weak"
+    ],
+    "adopted_items": [
+      "rogue3",
+      "carp3"
     ]
+  },
+  "equipment_revision": {
+    "requested": 6,
+    "completed": 0,
+    "motion_calls": 0,
+    "deployed": false
   }
 }
