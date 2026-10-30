@@ -1,0 +1,14 @@
+{
+  "status": "rejected",
+  "reason": "Shield changes, but no visible shoulder armor or brow guard and silhouette remains nearly identical to base. Insufficient tier-2 evolution.",
+  "dimensions": [
+    128,
+    128
+  ],
+  "reference": "../star1.png",
+  "paid_generations": 1,
+  "sha256": "93a891a6ab618e4baeda1dbe0d100f6a3ff1fb790988affc7603ed577ba29807",
+  "job_id": "69be683c-3fbd-4c50-be18-40b52b46d02f",
+  "later_paid_requests": 0,
+  "technical_note": "Completed job recovered from last_response.image without a second POST."
+}
