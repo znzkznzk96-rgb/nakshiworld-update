@@ -1,13 +1,13 @@
 {
   "work_branch": "work/valley-runtime",
-  "status": "v101_implementation_verified_pending_ci_deployment",
-  "release_baseline": "v1.00",
+  "status": "v101_deployed_verified",
+  "release_baseline": "v1.01",
   "target_release": "v1.01",
   "release_authorized": true,
-  "deployed": false,
+  "deployed": true,
   "phone_verified": false,
   "handoff": "HANDOFF.md",
-  "next_step": "원격 CI 통과 후 main 병합, v1.01 릴리스와 운영 URL 검증",
+  "next_step": "기존 앱에서 1.01 적용 후 휴대폰 실제 실행 확인",
   "current_task": "승인 A안 UI·PixelLab15종 신규제작·병사관리 개선 배포",
   "latest_decision": "docs/decisions/UI_20261031_ICON_AUDIT.md",
   "paid_generation_authorized": {
@@ -35,5 +35,8 @@
       540,
       660
     ]
-  }
+  },
+  "source_commit": "49a401c491209c32b9edcc896b9b10402b60c932",
+  "verification": "analysis/release-101/PUBLISHED.json",
+  "remote_saved": true
 }
