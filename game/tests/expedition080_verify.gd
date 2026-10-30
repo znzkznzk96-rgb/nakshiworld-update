@@ -9,10 +9,15 @@ func run() -> void:
 	var v=m.expedition;var d=v.data;d.restore({})
 	for id in [3,0,6,1]: d.add_unit(id,1,[0,0,0])
 	v.open(m,"explore");v.explore_tab=1
-	for uid in [1,2,3]: v.rects={"formation_unit:%d"%uid:Rect2(0,0,20,20)};v.press(m,Vector2(10,10))
-	check(d.team==[1,2,3],"tap equips first three in order")
-	v.rects={"formation_unit:2":Rect2(0,0,20,20)};v.press(m,Vector2(10,10));check(d.team==[1,3],"tap equipped unit removes")
-	v.choosing_slot=0;v.rects={"formation_unit:4":Rect2(0,0,20,20)};v.press(m,Vector2(10,10));check(d.team==[4,3],"selected slot replaces")
+	for uid in [1,2,3]:
+		v.rects={"formation_unit:%d"%uid:Rect2(0,0,20,20)};v.press(m,Vector2(10,10))
+		check(not uid in d.team,"selection does not equip before confirmation")
+		v.draw_formation(m,139,650);v.press(m,v.formation_ui.modal_rects.confirm.get_center())
+	check(d.team==[1,2,3],"confirmation equips first three in order")
+	v.rects={"clear_slot:1":Rect2(0,0,20,20)};v.press(m,Vector2(10,10));check(d.team==[1,3],"explicit remove clears selected slot")
+	v.rects={"formation_unit:4":Rect2(0,0,20,20)};v.press(m,Vector2(10,10));v.formation_target=0
+	v.draw_formation(m,139,650);v.press(m,v.formation_ui.modal_rects.confirm.get_center());check(d.team==[4,3],"confirmed slot replaces")
+
 	d.team=[1,2,3];d.start(1,1000);v.rects={"formation_unit:1":Rect2(0,0,20,20)};v.press(m,Vector2(10,10));check(d.team==[1,2,3],"active team cannot change")
 	for i in 60: d.update(.1,1000)
 	check(d.battle.fx.has("incoming") and d.battle.fx.has("blocked") and d.battle.fx.has("outgoing"),"damage events captured")
