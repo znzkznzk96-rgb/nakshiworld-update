@@ -1,14 +1,14 @@
 {
   "work_branch": "work/valley-runtime",
-  "status": "v102_deployed_verified",
+  "status": "puffer_evolution_pilot",
   "release_baseline": "v1.02",
   "target_release": "v1.02",
   "release_authorized": true,
   "deployed": true,
   "phone_verified": false,
   "handoff": "HANDOFF.md",
-  "next_step": "기존 앱에서 1.02 도감 그림/등급색 휴대폰 확인",
-  "current_task": "도감 동네저수지 썸네일 크기와 수집 등급 색상 수정",
+  "next_step": "기존1성 참조로 2성/3성 각 원화1장 생성·검수 후 모션",
+  "current_task": "복어 방패병 2성·3성 진화 파일럿",
   "latest_decision": "docs/GAME_BIBLE.md",
   "paid_generation_authorized": {
     "count": 15,
@@ -38,5 +38,15 @@
     "work_ci": 41095310822,
     "release_ci": 41096049556,
     "public_ci": 41096547823
+  },
+  "evolution_pilot": {
+    "species": "puffer",
+    "stars": [
+      2,
+      3
+    ],
+    "all_species_batch": false,
+    "release_authorized": false,
+    "initial_images_per_star": 1
   }
 }
