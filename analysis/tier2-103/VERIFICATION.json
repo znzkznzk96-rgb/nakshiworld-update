@@ -1,0 +1,41 @@
+{
+  "status": "local_implemented_build_verified_public_upload_blocked",
+  "baseline": "v1.02",
+  "target": "v1.03",
+  "source_baseline_sha256": "d5de638527a6fc47c927a3eb80d98edd683151270be08483a645243263b22a9c",
+  "art_sheets": 15,
+  "frame_counts": {
+    "puffer": 13,
+    "others": 15
+  },
+  "new_paid_generations": 0,
+  "screens": 41,
+  "packed_art": "passed",
+  "regression": {
+    "suites": 65,
+    "failed": 0,
+    "isolation": "fresh per-suite directories"
+  },
+  "deployed": false,
+  "phone_verified": false,
+  "block": "Automatic approval review rejected uploading private art to public GitHub znzkznzk96-rgb/nakshiworld-update; explicit destination/disclosure approval required. No workaround used.",
+  "candidate_patch": {
+    "code": 103,
+    "name": "1.03",
+    "sha256": "b42113994ba0d2588e472a7ec1815660195130ba451fd9d3e6e6bebfcfadaa7f",
+    "size": 52616496,
+    "status": "local_candidate_not_published"
+  },
+  "remote_art_state": "5 image blobs accepted before rejection; no game commit/tree/ref update containing them; remaining upload stopped",
+  "limitations": [
+    "known generated-art differences retained",
+    "1-star and 3-star visuals unchanged",
+    "dex recipe remains 1-star base view",
+    "all battle/save/balance data unchanged"
+  ],
+  "source_zip": {
+    "size": 54124337,
+    "sha256": "a343fb1567d04d813a16facc6634e2b4548c4c9665476dca06ce55493a9c27fe",
+    "maintained_files_match": true
+  }
+}

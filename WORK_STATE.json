@@ -1,13 +1,13 @@
 {
   "work_branch": "work/valley-runtime",
-  "status": "v103_tier2_integration",
+  "status": "v103_local_verified_public_art_upload_blocked",
   "release_baseline": "v1.02",
   "target_release": "v1.03",
   "release_authorized": true,
   "deployed": false,
   "phone_verified": false,
   "handoff": "HANDOFF.md",
-  "next_step": "v1.02전체소스복원·성급별아트연결·전체검증",
+  "next_step": "사용자 공개GitHub 이미지 업로드 명시승인 후 work저장·CI·main병합·배포검증",
   "current_task": "완성2성15종 외형·모션 적용 및 공개배포",
   "latest_decision": "docs/GAME_BIBLE.md",
   "paid_generation_authorized": {
@@ -26,12 +26,16 @@
   },
   "icon_generation_status": "Completed 15 accepted icons / 17 paid generations. Bolt and reflect accepted second attempts.",
   "local_verification": {
-    "status": "unavailable_current_runtime",
-    "reason": "Godot --version exits SIGSEGV; no local pass claimed"
+    "status": "passed",
+    "suites": 65,
+    "failed": 0,
+    "screens": 41,
+    "packed_art": "passed",
+    "full_source_matches": true
   },
   "source_commit": "f2a6c14a09768389e76b2beef8fdc43332b659da",
-  "verification": "analysis/release-102/PUBLISHED.json",
-  "remote_saved": true,
+  "verification": "analysis/tier2-103/VERIFICATION.json",
+  "remote_saved": false,
   "remote_verification": {
     "suites": 64,
     "failed": 0,
@@ -239,5 +243,10 @@
       "charged_generations_field": "old7 initial motion +72.4 pose resume =79.4"
     },
     "user_adopted": true
+  },
+  "public_upload_block": {
+    "action": "2성아트 공개GitHub 업로드",
+    "reason": "자동승인검토가 목적지/공개명시승인부족으로거절",
+    "destination": "znzkznzk96-rgb/nakshiworld-update"
   }
 }
