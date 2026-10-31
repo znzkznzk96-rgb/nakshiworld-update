@@ -1,6 +1,6 @@
 {
   "work_branch": "work/valley-runtime",
-  "status": "tier2_skeleton_processing",
+  "status": "tier2_carp_pose_preparing",
   "release_baseline": "v1.02",
   "target_release": "v1.02",
   "release_authorized": true,
@@ -108,28 +108,28 @@
     "expected_total": 98,
     "auto_retry": false,
     "deployed": false,
-    "in_flight": {
-      "species": "flying",
-      "job_id": "c2e2a8f4-8476-4ab5-8d64-603c6dc168da",
-      "endpoint": "animate-with-skeleton-v3",
-      "expected_generations": 4,
-      "revision": "compact local effect; fade before recovery; last allowed motion attempt"
-    },
-    "passed": 0,
+    "in_flight": null,
+    "passed": 1,
     "failed": 1,
     "cumulative_soldier_generations": 93,
     "resume_budget": {
       "max_generations_per_motion": 13,
       "includes_pose_and_revisions": true,
-      "charged": 8.1,
+      "charged": 12.2,
       "prior_cumulative": 93
     },
     "transfer_blocked": false,
     "asset_transfer_authorized": true,
     "flying": {
-      "generations": 8.1,
-      "passed": false,
-      "reason": "second attempt effect expanded beyond widened canvas"
+      "generations": 12.1,
+      "passed": true,
+      "user_adopted": false,
+      "library_file_id": "libfile_3cc892441b8481918a2cebab1958911c",
+      "frames": 15,
+      "edge_touch": 0
+    },
+    "carp": {
+      "pose_generations": 0.1
     }
   }
 }
