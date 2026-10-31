@@ -1,6 +1,6 @@
 {
   "work_branch": "work/valley-runtime",
-  "status": "tier2_angler_pose",
+  "status": "tier2_angler_processing",
   "release_baseline": "v1.02",
   "target_release": "v1.02",
   "release_authorized": true,
@@ -108,7 +108,12 @@
     "expected_total": 98,
     "auto_retry": false,
     "deployed": false,
-    "in_flight": null,
+    "in_flight": {
+      "species": "angler",
+      "job_id": "7ea8a1ac-73a5-46f6-b1b7-666834783920",
+      "endpoint": "animate-with-skeleton-v3",
+      "expected_generations": 4
+    },
     "passed": 12,
     "failed": 1,
     "cumulative_soldier_generations": 134.7,
@@ -164,9 +169,7 @@
       "reason": "two-handed waist-level thrust/recovery achieved; frame08 right-edge effect clipping persists after one-frame edit; edit rejected"
     },
     "batch_library_file_id": "libfile_cdb025e80020819183ea51535d8424d4",
-    "not_called": [
-      "angler"
-    ],
+    "not_called": [],
     "stop_reason": null,
     "second_resume": {
       "authorized": true,
