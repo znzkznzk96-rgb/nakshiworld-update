@@ -1,13 +1,13 @@
 {
   "work_branch": "work/valley-runtime",
-  "status": "tier2_motion_failed_stopped",
+  "status": "tier2_pose_control_preparing",
   "release_baseline": "v1.02",
   "target_release": "v1.02",
   "release_authorized": true,
   "deployed": true,
   "phone_verified": false,
   "handoff": "HANDOFF.md",
-  "next_step": "퍼치 실패결과 확인; 자동재생성/후속종호출 금지",
+  "next_step": "날치2성 자세좌표 검토→단일생성→프레임검수",
   "current_task": "2성 병사 모션 순차제작",
   "latest_decision": "docs/GAME_BIBLE.md",
   "paid_generation_authorized": {
@@ -111,6 +111,12 @@
     "in_flight": null,
     "passed": 0,
     "failed": 1,
-    "cumulative_soldier_generations": 93
+    "cumulative_soldier_generations": 93,
+    "resume_budget": {
+      "max_generations_per_motion": 13,
+      "includes_pose_and_revisions": true,
+      "charged": 0,
+      "prior_cumulative": 93
+    }
   }
 }
