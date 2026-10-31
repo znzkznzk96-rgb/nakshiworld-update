@@ -1,13 +1,13 @@
 {
   "work_branch": "work/valley-runtime",
-  "status": "v103_local_verified_public_art_upload_blocked",
+  "status": "v103_public_upload_approved",
   "release_baseline": "v1.02",
   "target_release": "v1.03",
   "release_authorized": true,
   "deployed": false,
   "phone_verified": false,
   "handoff": "HANDOFF.md",
-  "next_step": "사용자 공개GitHub 이미지 업로드 명시승인 후 work저장·CI·main병합·배포검증",
+  "next_step": "검증본 원격저장·CI·main병합·배포검증",
   "current_task": "완성2성15종 외형·모션 적용 및 공개배포",
   "latest_decision": "docs/GAME_BIBLE.md",
   "paid_generation_authorized": {
@@ -244,9 +244,6 @@
     },
     "user_adopted": true
   },
-  "public_upload_block": {
-    "action": "2성아트 공개GitHub 업로드",
-    "reason": "자동승인검토가 목적지/공개명시승인부족으로거절",
-    "destination": "znzkznzk96-rgb/nakshiworld-update"
-  }
+  "public_upload_block": null,
+  "public_art_upload_authorized": true
 }
