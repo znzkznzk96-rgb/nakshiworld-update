@@ -1,14 +1,14 @@
 {
   "work_branch": "work/valley-runtime",
-  "status": "tier2_all14_internal_pass_user_review_pending",
+  "status": "v103_tier2_integration",
   "release_baseline": "v1.02",
-  "target_release": "v1.02",
+  "target_release": "v1.03",
   "release_authorized": true,
-  "deployed": true,
+  "deployed": false,
   "phone_verified": false,
   "handoff": "HANDOFF.md",
-  "next_step": "14종 사용자 검토·채택 대기; 게임 적용/배포 없음",
-  "current_task": "2성 병사14종 모션 제작·보완 완료",
+  "next_step": "v1.02전체소스복원·성급별아트연결·전체검증",
+  "current_task": "완성2성15종 외형·모션 적용 및 공개배포",
   "latest_decision": "docs/GAME_BIBLE.md",
   "paid_generation_authorized": {
     "count": 15,
@@ -237,6 +237,7 @@
       "all_pose_resume": 72.4,
       "cumulative": 165.4,
       "charged_generations_field": "old7 initial motion +72.4 pose resume =79.4"
-    }
+    },
+    "user_adopted": true
   }
 }
