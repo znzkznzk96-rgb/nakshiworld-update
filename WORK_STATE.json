@@ -1,6 +1,6 @@
 {
   "work_branch": "work/valley-runtime",
-  "status": "tier2_remaining_resumed",
+  "status": "tier2_eel_processing",
   "release_baseline": "v1.02",
   "target_release": "v1.02",
   "release_authorized": true,
@@ -108,14 +108,19 @@
     "expected_total": 98,
     "auto_retry": false,
     "deployed": false,
-    "in_flight": null,
+    "in_flight": {
+      "species": "eel",
+      "job_id": "f51ae7b3-b6df-42cc-9f59-564b8f670ab6",
+      "endpoint": "animate-with-skeleton-v3",
+      "expected_generations": 4
+    },
     "passed": 6,
     "failed": 1,
     "cumulative_soldier_generations": 134.7,
     "resume_budget": {
       "max_generations_per_motion": 13,
       "includes_pose_and_revisions": true,
-      "charged": 41.7,
+      "charged": 41.8,
       "prior_cumulative": 93
     },
     "transfer_blocked": false,
@@ -176,7 +181,7 @@
     "stop_reason": null,
     "second_resume": {
       "authorized": true,
-      "new_charged": 0,
+      "new_charged": 0.1,
       "perch_remaining": 3.9
     }
   }
