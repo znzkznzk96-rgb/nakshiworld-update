@@ -1,13 +1,13 @@
 {
   "work_branch": "work/valley-runtime",
-  "status": "tier2_pose_control_preparing",
+  "status": "tier2_asset_transfer_blocked",
   "release_baseline": "v1.02",
   "target_release": "v1.02",
   "release_authorized": true,
   "deployed": true,
   "phone_verified": false,
   "handoff": "HANDOFF.md",
-  "next_step": "날치2성 자세좌표 검토→단일생성→프레임검수",
+  "next_step": "PixelLab에 기존2성 원본이미지 전송 명시승인 필요",
   "current_task": "2성 병사 모션 순차제작",
   "latest_decision": "docs/GAME_BIBLE.md",
   "paid_generation_authorized": {
@@ -117,6 +117,7 @@
       "includes_pose_and_revisions": true,
       "charged": 0,
       "prior_cumulative": 93
-    }
+    },
+    "transfer_blocked": true
   }
 }
