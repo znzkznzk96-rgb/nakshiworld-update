@@ -1,6 +1,6 @@
 {
   "work_branch": "work/valley-runtime",
-  "status": "tier2_rogue_processing",
+  "status": "tier2_angler_pose",
   "release_baseline": "v1.02",
   "target_release": "v1.02",
   "release_authorized": true,
@@ -102,25 +102,20 @@
   },
   "soldier_tier2": {
     "requested": 14,
-    "completed": 12,
+    "completed": 13,
     "charged_generations": 48.7,
     "expected_generations_each": 7,
     "expected_total": 98,
     "auto_retry": false,
     "deployed": false,
-    "in_flight": {
-      "species": "rogue",
-      "job_id": "2ec21b9b-ca94-4607-af32-a8207a36f301",
-      "endpoint": "animate-with-skeleton-v3",
-      "expected_generations": 4
-    },
-    "passed": 11,
+    "in_flight": null,
+    "passed": 12,
     "failed": 1,
     "cumulative_soldier_generations": 134.7,
     "resume_budget": {
       "max_generations_per_motion": 13,
       "includes_pose_and_revisions": true,
-      "charged": 62.3,
+      "charged": 66.4,
       "prior_cumulative": 93
     },
     "transfer_blocked": false,
@@ -175,7 +170,7 @@
     "stop_reason": null,
     "second_resume": {
       "authorized": true,
-      "new_charged": 20.6,
+      "new_charged": 24.7,
       "perch_remaining": 3.9
     },
     "eel": {
@@ -209,6 +204,12 @@
       "passed": true,
       "user_adopted": false,
       "library_file_id": "libfile_09dc41c6e4e0819188b013ab09890828"
+    },
+    "rogue": {
+      "generations": 4.1,
+      "passed": true,
+      "user_adopted": false,
+      "library_file_id": "libfile_889013db1550819197eb2c9208c86b95"
     }
   }
 }
