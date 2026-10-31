@@ -1,6 +1,6 @@
 {
   "work_branch": "work/valley-runtime",
-  "status": "tier2_carp_pose_preparing",
+  "status": "tier2_carp_processing",
   "release_baseline": "v1.02",
   "target_release": "v1.02",
   "release_authorized": true,
@@ -108,7 +108,12 @@
     "expected_total": 98,
     "auto_retry": false,
     "deployed": false,
-    "in_flight": null,
+    "in_flight": {
+      "species": "carp",
+      "job_id": "f34dc990-c0cf-4dc1-a4f0-60292c9178a7",
+      "endpoint": "animate-with-skeleton-v3",
+      "expected_generations": 4
+    },
     "passed": 1,
     "failed": 1,
     "cumulative_soldier_generations": 93,
