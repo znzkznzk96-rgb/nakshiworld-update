@@ -1,6 +1,6 @@
 {
   "work_branch": "work/valley-runtime",
-  "status": "tier2_catfish_processing",
+  "status": "tier2_crucian_processing",
   "release_baseline": "v1.02",
   "target_release": "v1.02",
   "release_authorized": true,
@@ -109,18 +109,18 @@
     "auto_retry": false,
     "deployed": false,
     "in_flight": {
-      "species": "catfish",
-      "job_id": "67b59c04-6b06-4cdc-9577-0b29321fad1c",
+      "species": "crucian",
+      "job_id": "252c3ff9-1687-4152-8dd9-370a6c0d7711",
       "endpoint": "animate-with-skeleton-v3",
       "expected_generations": 4
     },
-    "passed": 4,
+    "passed": 5,
     "failed": 1,
     "cumulative_soldier_generations": 93,
     "resume_budget": {
       "max_generations_per_motion": 13,
       "includes_pose_and_revisions": true,
-      "charged": 24.5,
+      "charged": 28.6,
       "prior_cumulative": 93
     },
     "transfer_blocked": false,
@@ -150,6 +150,12 @@
       "passed": true,
       "user_adopted": false,
       "library_file_id": "libfile_1b751aa2f6f881919940d139ee767f37"
+    },
+    "catfish": {
+      "generations": 4.1,
+      "passed": true,
+      "user_adopted": false,
+      "library_file_id": "libfile_5769dcf35fb88191b8514f8e30901f8e"
     }
   }
 }
