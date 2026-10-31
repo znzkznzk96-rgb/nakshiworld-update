@@ -1,13 +1,13 @@
 {
   "work_branch": "work/valley-runtime",
-  "status": "tier2_pose_control_preparing",
+  "status": "tier2_skeleton_processing",
   "release_baseline": "v1.02",
   "target_release": "v1.02",
   "release_authorized": true,
   "deployed": true,
   "phone_verified": false,
   "handoff": "HANDOFF.md",
-  "next_step": "명시적 PixelLab 원본전송 승인 후 날치2성 자세추정/프레임제작",
+  "next_step": "기존 날치 job GET 조회→15프레임 검수; 재POST금지",
   "current_task": "2성 병사 모션 순차제작",
   "latest_decision": "docs/GAME_BIBLE.md",
   "paid_generation_authorized": {
@@ -108,7 +108,13 @@
     "expected_total": 98,
     "auto_retry": false,
     "deployed": false,
-    "in_flight": null,
+    "in_flight": {
+      "species": "flying",
+      "job_id": "b6d521ef-7a6b-4ad0-b052-69031f7ada92",
+      "endpoint": "animate-with-skeleton-v3",
+      "expected_generations": 4,
+      "pose_generations": 0.1
+    },
     "passed": 0,
     "failed": 1,
     "cumulative_soldier_generations": 93,
