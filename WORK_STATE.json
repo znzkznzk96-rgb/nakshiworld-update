@@ -1,13 +1,13 @@
 {
   "work_branch": "work/valley-runtime",
-  "status": "tier2_motion_preparing",
+  "status": "tier2_motion_processing",
   "release_baseline": "v1.02",
   "target_release": "v1.02",
   "release_authorized": true,
   "deployed": true,
   "phone_verified": false,
   "handoff": "HANDOFF.md",
-  "next_step": "퍼치2성 단일제작·검수",
+  "next_step": "퍼치 작업 조회 후 프레임검수; 실패시 중단",
   "current_task": "2성 병사 모션 순차제작",
   "latest_decision": "docs/GAME_BIBLE.md",
   "paid_generation_authorized": {
@@ -107,6 +107,10 @@
     "expected_generations_each": 7,
     "expected_total": 98,
     "auto_retry": false,
-    "deployed": false
+    "deployed": false,
+    "in_flight": {
+      "species": "perch",
+      "job_id": "bb9524e2-0a17-45a9-b918-65a29216bd7e"
+    }
   }
 }
