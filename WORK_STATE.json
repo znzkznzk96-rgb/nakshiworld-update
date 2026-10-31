@@ -1,6 +1,6 @@
 {
   "work_branch": "work/valley-runtime",
-  "status": "tier2_perch_margin_fix_processing",
+  "status": "tier2_perch_single_frame_edit",
   "release_baseline": "v1.02",
   "target_release": "v1.02",
   "release_authorized": true,
@@ -110,9 +110,9 @@
     "deployed": false,
     "in_flight": {
       "species": "perch",
-      "job_id": "b105c359-b8a0-4fbc-8101-afa9ccf9af1a",
-      "endpoint": "animate-with-skeleton-v3",
-      "expected_generations": 4
+      "job_id": "8b31d6ab-c024-4105-9c94-1b2f164a7e66",
+      "endpoint": "edit-image-pixen",
+      "expected_generations": 1
     },
     "passed": 6,
     "failed": 1,
@@ -120,7 +120,7 @@
     "resume_budget": {
       "max_generations_per_motion": 13,
       "includes_pose_and_revisions": true,
-      "charged": 36.7,
+      "charged": 40.7,
       "prior_cumulative": 93
     },
     "transfer_blocked": false,
@@ -164,9 +164,9 @@
       "library_file_id": "libfile_5ed81cb10a0c819182350af2da9a7749"
     },
     "perch": {
-      "generations": 4.1,
+      "generations": 8.1,
       "passed": false,
-      "reason": "waist-level two-handed thrust and recovery achieved; one effect frame clips right edge"
+      "reason": "two-handed thrust preserved; only frame08 still clips; single-frame effect-only edit requested"
     }
   }
 }
