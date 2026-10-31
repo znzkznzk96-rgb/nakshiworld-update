@@ -110,10 +110,10 @@
     "deployed": false,
     "in_flight": {
       "species": "flying",
-      "job_id": "b6d521ef-7a6b-4ad0-b052-69031f7ada92",
+      "job_id": "6ffa3f05-0e99-4338-8d0d-3b15cc7e8c30",
       "endpoint": "animate-with-skeleton-v3",
       "expected_generations": 4,
-      "pose_generations": 0.1
+      "revision": "256x192 right margin; original scale preserved"
     },
     "passed": 0,
     "failed": 1,
@@ -121,10 +121,15 @@
     "resume_budget": {
       "max_generations_per_motion": 13,
       "includes_pose_and_revisions": true,
-      "charged": 0,
+      "charged": 4.1,
       "prior_cumulative": 93
     },
     "transfer_blocked": false,
-    "asset_transfer_authorized": true
+    "asset_transfer_authorized": true,
+    "flying": {
+      "first_attempt": "motion/impact/recovery present; 4 frames right clipping",
+      "generations": 4.1,
+      "passed": false
+    }
   }
 }
