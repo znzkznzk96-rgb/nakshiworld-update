@@ -1,14 +1,14 @@
 {
   "work_branch": "work/valley-runtime",
-  "status": "equipment_candidates_review_needed",
+  "status": "tier2_motion_preparing",
   "release_baseline": "v1.02",
   "target_release": "v1.02",
   "release_authorized": true,
   "deployed": true,
   "phone_verified": false,
   "handoff": "HANDOFF.md",
-  "next_step": "사용자 시안검토; 이미지 GitHub 저장 자동검토 차단, 별도 파일 제공",
-  "current_task": "6종 장비 중심 재시안",
+  "next_step": "퍼치2성 단일제작·검수",
+  "current_task": "2성 병사 모션 순차제작",
   "latest_decision": "docs/GAME_BIBLE.md",
   "paid_generation_authorized": {
     "count": 15,
@@ -99,5 +99,14 @@
       "flying iaido pose not achieved",
       "herbalist layered leaf armor unclear"
     ]
+  },
+  "soldier_tier2": {
+    "requested": 14,
+    "completed": 0,
+    "charged_generations": 0,
+    "expected_generations_each": 7,
+    "expected_total": 98,
+    "auto_retry": false,
+    "deployed": false
   }
 }
