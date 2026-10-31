@@ -1,6 +1,6 @@
 {
   "work_branch": "work/valley-runtime",
-  "status": "tier2_perch_frame_edit_submitting",
+  "status": "tier2_perch_frame_edit_processing",
   "release_baseline": "v1.02",
   "target_release": "v1.02",
   "release_authorized": true,
@@ -108,7 +108,12 @@
     "expected_total": 98,
     "auto_retry": false,
     "deployed": false,
-    "in_flight": null,
+    "in_flight": {
+      "species": "perch",
+      "job_id": "6cf115cf-a830-4265-9fdb-4c9fed91a9ff",
+      "endpoint": "edit-image-pixen",
+      "expected_generations": 1
+    },
     "passed": 13,
     "failed": 1,
     "cumulative_soldier_generations": 134.7,
