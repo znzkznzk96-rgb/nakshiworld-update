@@ -1,14 +1,14 @@
 {
   "work_branch": "work/valley-runtime",
-  "status": "tier2_perch_frame_edit_processing",
+  "status": "tier2_all14_internal_pass_user_review_pending",
   "release_baseline": "v1.02",
   "target_release": "v1.02",
   "release_authorized": true,
   "deployed": true,
   "phone_verified": false,
   "handoff": "HANDOFF.md",
-  "next_step": "미제작7종 순차제작→퍼치잔여3.9회분내 국소보완",
-  "current_task": "2성 병사 모션 순차제작",
+  "next_step": "14종 사용자 검토·채택 대기; 게임 적용/배포 없음",
+  "current_task": "2성 병사14종 모션 제작·보완 완료",
   "latest_decision": "docs/GAME_BIBLE.md",
   "paid_generation_authorized": {
     "count": 15,
@@ -103,24 +103,19 @@
   "soldier_tier2": {
     "requested": 14,
     "completed": 14,
-    "charged_generations": 48.7,
-    "expected_generations_each": 7,
-    "expected_total": 98,
+    "charged_generations": 79.4,
+    "expected_generations_each": 4.1,
+    "expected_total": null,
     "auto_retry": false,
     "deployed": false,
-    "in_flight": {
-      "species": "perch",
-      "job_id": "7a87b262-031e-4394-b0de-019dab1034ea",
-      "endpoint": "edit-image-pixen",
-      "expected_generations": 1
-    },
-    "passed": 13,
-    "failed": 1,
-    "cumulative_soldier_generations": 134.7,
+    "in_flight": null,
+    "passed": 14,
+    "failed": 0,
+    "cumulative_soldier_generations": 165.4,
     "resume_budget": {
       "max_generations_per_motion": 13,
       "includes_pose_and_revisions": true,
-      "charged": 71.4,
+      "charged": 72.4,
       "prior_cumulative": 93
     },
     "transfer_blocked": false,
@@ -164,17 +159,30 @@
       "library_file_id": "libfile_5ed81cb10a0c819182350af2da9a7749"
     },
     "perch": {
-      "generations": 10.1,
-      "passed": false,
-      "reason": "full frame expansion rejected: character resized and effect still clipped; trying cropped effect-only edit"
+      "generations": 11.1,
+      "passed": true,
+      "user_adopted": false,
+      "frames": 15,
+      "edge_touch": 0,
+      "canvas": [
+        320,
+        192
+      ],
+      "library_file_id": "libfile_dc94f184840c8191822419b0b363c0fe",
+      "repair": "frame08 PixelLab crop edit only; original body/hand pixels unchanged; other14 transparently padded",
+      "limitation": "frame08 spear-tip glow longer",
+      "rejected_edits": [
+        "perch-framefix",
+        "perch-outpaint"
+      ]
     },
-    "batch_library_file_id": "libfile_cdb025e80020819183ea51535d8424d4",
+    "batch_library_file_id": "libfile_b1b2e631a5e88191beb6c14ff6c6a1aa",
     "not_called": [],
     "stop_reason": null,
     "second_resume": {
       "authorized": true,
-      "new_charged": 29.7,
-      "perch_remaining": 2.9
+      "new_charged": 30.7,
+      "perch_remaining": 1.9
     },
     "eel": {
       "generations": 4.1,
@@ -220,6 +228,15 @@
       "user_adopted": false,
       "library_file_id": "libfile_c90c8df9dd98819195740e0c494c052a",
       "limitation": "small distant ember remains in final frame"
+    },
+    "incomplete": [],
+    "cost_accounting": {
+      "historical_before_pose_resume": 93,
+      "previous_pose_resume": 41.7,
+      "this_continuation": 30.7,
+      "all_pose_resume": 72.4,
+      "cumulative": 165.4,
+      "charged_generations_field": "old7 initial motion +72.4 pose resume =79.4"
     }
   }
 }
