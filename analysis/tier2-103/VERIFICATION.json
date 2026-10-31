@@ -1,5 +1,5 @@
 {
-  "status": "local_implemented_build_verified_public_upload_blocked",
+  "status": "local_verified_public_upload_authorized_ci_pending",
   "baseline": "v1.02",
   "target": "v1.03",
   "source_baseline_sha256": "d5de638527a6fc47c927a3eb80d98edd683151270be08483a645243263b22a9c",
@@ -18,7 +18,7 @@
   },
   "deployed": false,
   "phone_verified": false,
-  "block": "Automatic approval review rejected uploading private art to public GitHub znzkznzk96-rgb/nakshiworld-update; explicit destination/disclosure approval required. No workaround used.",
+  "block": null,
   "candidate_patch": {
     "code": 103,
     "name": "1.03",
@@ -26,7 +26,7 @@
     "size": 52616496,
     "status": "local_candidate_not_published"
   },
-  "remote_art_state": "5 image blobs accepted before rejection; no game commit/tree/ref update containing them; remaining upload stopped",
+  "remote_art_state": "all15 verified blobs uploaded; commit/CI pending",
   "limitations": [
     "known generated-art differences retained",
     "1-star and 3-star visuals unchanged",
@@ -37,5 +37,6 @@
     "size": 54124337,
     "sha256": "a343fb1567d04d813a16facc6634e2b4548c4c9665476dca06ce55493a9c27fe",
     "maintained_files_match": true
-  }
+  },
+  "public_art_approval": "2026-10-31 explicit user approval following destination/disclosure question"
 }

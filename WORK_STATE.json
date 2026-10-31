@@ -1,13 +1,13 @@
 {
   "work_branch": "work/valley-runtime",
-  "status": "v103_public_upload_approved",
+  "status": "v103_uploaded_ci_pending",
   "release_baseline": "v1.02",
   "target_release": "v1.03",
   "release_authorized": true,
   "deployed": false,
   "phone_verified": false,
   "handoff": "HANDOFF.md",
-  "next_step": "검증본 원격저장·CI·main병합·배포검증",
+  "next_step": "작업브랜치65검사·렌더 후 main병합·배포",
   "current_task": "완성2성15종 외형·모션 적용 및 공개배포",
   "latest_decision": "docs/GAME_BIBLE.md",
   "paid_generation_authorized": {
@@ -35,7 +35,7 @@
   },
   "source_commit": "f2a6c14a09768389e76b2beef8fdc43332b659da",
   "verification": "analysis/tier2-103/VERIFICATION.json",
-  "remote_saved": false,
+  "remote_saved": true,
   "remote_verification": {
     "suites": 64,
     "failed": 0,
