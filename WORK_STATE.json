@@ -1,6 +1,6 @@
 {
   "work_branch": "work/valley-runtime",
-  "status": "tier2_crucian_processing",
+  "status": "tier2_perch_processing",
   "release_baseline": "v1.02",
   "target_release": "v1.02",
   "release_authorized": true,
@@ -109,18 +109,18 @@
     "auto_retry": false,
     "deployed": false,
     "in_flight": {
-      "species": "crucian",
-      "job_id": "252c3ff9-1687-4152-8dd9-370a6c0d7711",
+      "species": "perch",
+      "job_id": "0fb95ddd-4f1c-4d13-8484-09f4f6dd46f3",
       "endpoint": "animate-with-skeleton-v3",
       "expected_generations": 4
     },
-    "passed": 5,
+    "passed": 6,
     "failed": 1,
     "cumulative_soldier_generations": 93,
     "resume_budget": {
       "max_generations_per_motion": 13,
       "includes_pose_and_revisions": true,
-      "charged": 28.6,
+      "charged": 32.7,
       "prior_cumulative": 93
     },
     "transfer_blocked": false,
@@ -156,6 +156,12 @@
       "passed": true,
       "user_adopted": false,
       "library_file_id": "libfile_5769dcf35fb88191b8514f8e30901f8e"
+    },
+    "crucian": {
+      "generations": 4.1,
+      "passed": true,
+      "user_adopted": false,
+      "library_file_id": "libfile_5ed81cb10a0c819182350af2da9a7749"
     }
   }
 }
