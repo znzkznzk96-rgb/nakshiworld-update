@@ -110,7 +110,7 @@
     "deployed": false,
     "in_flight": {
       "species": "perch",
-      "job_id": "6cf115cf-a830-4265-9fdb-4c9fed91a9ff",
+      "job_id": "7a87b262-031e-4394-b0de-019dab1034ea",
       "endpoint": "edit-image-pixen",
       "expected_generations": 1
     },
@@ -120,7 +120,7 @@
     "resume_budget": {
       "max_generations_per_motion": 13,
       "includes_pose_and_revisions": true,
-      "charged": 70.4,
+      "charged": 71.4,
       "prior_cumulative": 93
     },
     "transfer_blocked": false,
@@ -164,17 +164,17 @@
       "library_file_id": "libfile_5ed81cb10a0c819182350af2da9a7749"
     },
     "perch": {
-      "generations": 9.1,
+      "generations": 10.1,
       "passed": false,
-      "reason": "two-handed waist-level thrust/recovery achieved; frame08 right-edge effect clipping persists after one-frame edit; edit rejected"
+      "reason": "full frame expansion rejected: character resized and effect still clipped; trying cropped effect-only edit"
     },
     "batch_library_file_id": "libfile_cdb025e80020819183ea51535d8424d4",
     "not_called": [],
     "stop_reason": null,
     "second_resume": {
       "authorized": true,
-      "new_charged": 28.7,
-      "perch_remaining": 3.9
+      "new_charged": 29.7,
+      "perch_remaining": 2.9
     },
     "eel": {
       "generations": 4.1,
