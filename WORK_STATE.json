@@ -1,13 +1,13 @@
 {
   "work_branch": "work/valley-runtime",
-  "status": "tier2_partial_pass_quality_stop",
+  "status": "tier2_remaining_resumed",
   "release_baseline": "v1.02",
   "target_release": "v1.02",
   "release_authorized": true,
   "deployed": true,
   "phone_verified": false,
   "handoff": "HANDOFF.md",
-  "next_step": "통과6종 사용자검토; 퍼치효과1프레임 미완성 해결방식 검토, 나머지7종미호출",
+  "next_step": "미제작7종 순차제작→퍼치잔여3.9회분내 국소보완",
   "current_task": "2성 병사 모션 순차제작",
   "latest_decision": "docs/GAME_BIBLE.md",
   "paid_generation_authorized": {
@@ -173,6 +173,11 @@
       "rogue",
       "angler"
     ],
-    "stop_reason": "불합격 후 후속호출중단; 효과범위문장반복과금하지않음"
+    "stop_reason": null,
+    "second_resume": {
+      "authorized": true,
+      "new_charged": 0,
+      "perch_remaining": 3.9
+    }
   }
 }
