@@ -1,13 +1,13 @@
 {
   "work_branch": "work/valley-runtime",
-  "status": "tier2_perch_single_frame_edit",
+  "status": "tier2_partial_pass_quality_stop",
   "release_baseline": "v1.02",
   "target_release": "v1.02",
   "release_authorized": true,
   "deployed": true,
   "phone_verified": false,
   "handoff": "HANDOFF.md",
-  "next_step": "기존 날치 job GET 조회→15프레임 검수; 재POST금지",
+  "next_step": "통과6종 사용자검토; 퍼치효과1프레임 미완성 해결방식 검토, 나머지7종미호출",
   "current_task": "2성 병사 모션 순차제작",
   "latest_decision": "docs/GAME_BIBLE.md",
   "paid_generation_authorized": {
@@ -102,25 +102,20 @@
   },
   "soldier_tier2": {
     "requested": 14,
-    "completed": 1,
-    "charged_generations": 7,
+    "completed": 7,
+    "charged_generations": 48.7,
     "expected_generations_each": 7,
     "expected_total": 98,
     "auto_retry": false,
     "deployed": false,
-    "in_flight": {
-      "species": "perch",
-      "job_id": "8b31d6ab-c024-4105-9c94-1b2f164a7e66",
-      "endpoint": "edit-image-pixen",
-      "expected_generations": 1
-    },
+    "in_flight": null,
     "passed": 6,
     "failed": 1,
-    "cumulative_soldier_generations": 93,
+    "cumulative_soldier_generations": 134.7,
     "resume_budget": {
       "max_generations_per_motion": 13,
       "includes_pose_and_revisions": true,
-      "charged": 40.7,
+      "charged": 41.7,
       "prior_cumulative": 93
     },
     "transfer_blocked": false,
@@ -164,9 +159,20 @@
       "library_file_id": "libfile_5ed81cb10a0c819182350af2da9a7749"
     },
     "perch": {
-      "generations": 8.1,
+      "generations": 9.1,
       "passed": false,
-      "reason": "two-handed thrust preserved; only frame08 still clips; single-frame effect-only edit requested"
-    }
+      "reason": "two-handed waist-level thrust/recovery achieved; frame08 right-edge effect clipping persists after one-frame edit; edit rejected"
+    },
+    "batch_library_file_id": "libfile_cdb025e80020819183ea51535d8424d4",
+    "not_called": [
+      "eel",
+      "loach",
+      "healer",
+      "pharmacist",
+      "herbalist",
+      "rogue",
+      "angler"
+    ],
+    "stop_reason": "불합격 후 후속호출중단; 효과범위문장반복과금하지않음"
   }
 }
