@@ -1,14 +1,14 @@
 {
   "work_branch": "work/valley-runtime",
-  "status": "v103_release_build_running",
-  "release_baseline": "v1.02",
+  "status": "v103_deployed_verified",
+  "release_baseline": "v1.03",
   "target_release": "v1.03",
   "release_authorized": true,
-  "deployed": false,
+  "deployed": true,
   "phone_verified": false,
   "handoff": "HANDOFF.md",
-  "next_step": "1.03 공개빌드 완료 후 Release3파일·운영다운로드검증",
-  "current_task": "완성2성15종 외형·모션 적용 및 공개배포",
+  "next_step": "기존 앱에서 1.03 업데이트 및 2성 병사 표시 사용자 확인",
+  "current_task": "2성15종 외형·타격모션 적용 및 1.03 공개 배포 완료",
   "latest_decision": "docs/GAME_BIBLE.md",
   "paid_generation_authorized": {
     "count": 15,
@@ -34,13 +34,14 @@
     "full_source_matches": true
   },
   "source_commit": "6430fa1f6816dc47fd89768e3aefd63867882014",
-  "verification": "analysis/tier2-103/VERIFICATION.json",
+  "verification": "analysis/release-103/PUBLISHED.json",
   "remote_saved": true,
   "remote_verification": {
     "suites": 65,
     "failed": 0,
     "work_ci": 41194098857,
-    "release_ci": 41194503408
+    "release_ci": 41194503408,
+    "public_ci": 41194782791
   },
   "evolution_pilot": {
     "adopted": true,
@@ -53,7 +54,9 @@
     "motion_report": "docs/design/puffer-evolution/MOTION_REVIEW.md",
     "latest_motion_paid_generations": 14,
     "latest_motion_report": "docs/design/puffer-evolution/IMPACT_REVIEW.md",
-    "impact_motion_adopted": true
+    "impact_motion_adopted": true,
+    "deployed_star2": true,
+    "deployed_star3": false
   },
   "remaining_evolutions": {
     "requested": 28,
@@ -110,7 +113,7 @@
     "expected_generations_each": 4.1,
     "expected_total": null,
     "auto_retry": false,
-    "deployed": false,
+    "deployed": true,
     "in_flight": null,
     "passed": 14,
     "failed": 0,
@@ -126,7 +129,7 @@
     "flying": {
       "generations": 12.1,
       "passed": true,
-      "user_adopted": false,
+      "user_adopted": true,
       "library_file_id": "libfile_3cc892441b8481918a2cebab1958911c",
       "frames": 15,
       "edge_touch": 0
@@ -134,37 +137,37 @@
     "carp": {
       "generations": 4.1,
       "passed": true,
-      "user_adopted": false,
+      "user_adopted": true,
       "library_file_id": "libfile_733610e2689c8191bdbff94a534aca12"
     },
     "flounder": {
       "generations": 4.1,
       "passed": true,
-      "user_adopted": false,
+      "user_adopted": true,
       "library_file_id": "libfile_47db175e69508191997397df496e2cd6"
     },
     "crescent": {
       "generations": 4.1,
       "passed": true,
-      "user_adopted": false,
+      "user_adopted": true,
       "library_file_id": "libfile_1b751aa2f6f881919940d139ee767f37"
     },
     "catfish": {
       "generations": 4.1,
       "passed": true,
-      "user_adopted": false,
+      "user_adopted": true,
       "library_file_id": "libfile_5769dcf35fb88191b8514f8e30901f8e"
     },
     "crucian": {
       "generations": 4.1,
       "passed": true,
-      "user_adopted": false,
+      "user_adopted": true,
       "library_file_id": "libfile_5ed81cb10a0c819182350af2da9a7749"
     },
     "perch": {
       "generations": 11.1,
       "passed": true,
-      "user_adopted": false,
+      "user_adopted": true,
       "frames": 15,
       "edge_touch": 0,
       "canvas": [
@@ -190,45 +193,45 @@
     "eel": {
       "generations": 4.1,
       "passed": true,
-      "user_adopted": false,
+      "user_adopted": true,
       "limitation": "recoil subtle",
       "library_file_id": "libfile_9be7c90b155c8191861042e2f7296361"
     },
     "healer": {
       "generations": 4.1,
       "passed": true,
-      "user_adopted": false,
+      "user_adopted": true,
       "limitation": "pearl launches from staff center and is absent during follow-through",
       "library_file_id": "libfile_f57794a8ddc081919cafef51a1640e0c"
     },
     "loach": {
       "generations": 4.1,
       "passed": true,
-      "user_adopted": false,
+      "user_adopted": true,
       "library_file_id": "libfile_ab47900d037c81918ca2af5e2d556758"
     },
     "pharmacist": {
       "generations": 4.1,
       "passed": true,
-      "user_adopted": false,
+      "user_adopted": true,
       "library_file_id": "libfile_4f63bc87b74481919f39eb7b4e1a441f"
     },
     "herbalist": {
       "generations": 4.1,
       "passed": true,
-      "user_adopted": false,
+      "user_adopted": true,
       "library_file_id": "libfile_09dc41c6e4e0819188b013ab09890828"
     },
     "rogue": {
       "generations": 4.1,
       "passed": true,
-      "user_adopted": false,
+      "user_adopted": true,
       "library_file_id": "libfile_889013db1550819197eb2c9208c86b95"
     },
     "angler": {
       "generations": 4.1,
       "passed": true,
-      "user_adopted": false,
+      "user_adopted": true,
       "library_file_id": "libfile_c90c8df9dd98819195740e0c494c052a",
       "limitation": "small distant ember remains in final frame"
     },
@@ -241,7 +244,8 @@
       "cumulative": 165.4,
       "charged_generations_field": "old7 initial motion +72.4 pose resume =79.4"
     },
-    "user_adopted": true
+    "user_adopted": true,
+    "release": "v1.03"
   },
   "public_upload_block": null,
   "public_art_upload_authorized": true
