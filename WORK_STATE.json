@@ -1,6 +1,6 @@
 {
   "work_branch": "work/valley-runtime",
-  "status": "tier2_pharmacist_processing",
+  "status": "tier2_herbalist_processing",
   "release_baseline": "v1.02",
   "target_release": "v1.02",
   "release_authorized": true,
@@ -102,25 +102,25 @@
   },
   "soldier_tier2": {
     "requested": 14,
-    "completed": 10,
+    "completed": 11,
     "charged_generations": 48.7,
     "expected_generations_each": 7,
     "expected_total": 98,
     "auto_retry": false,
     "deployed": false,
     "in_flight": {
-      "species": "pharmacist",
-      "job_id": "a7e4f17b-4450-485f-9264-fe4db351f3a4",
+      "species": "herbalist",
+      "job_id": "b7af1287-5559-46b4-ba86-69bac200af0d",
       "endpoint": "animate-with-skeleton-v3",
       "expected_generations": 4
     },
-    "passed": 9,
+    "passed": 10,
     "failed": 1,
     "cumulative_soldier_generations": 134.7,
     "resume_budget": {
       "max_generations_per_motion": 13,
       "includes_pose_and_revisions": true,
-      "charged": 54.1,
+      "charged": 58.2,
       "prior_cumulative": 93
     },
     "transfer_blocked": false,
@@ -170,14 +170,13 @@
     },
     "batch_library_file_id": "libfile_cdb025e80020819183ea51535d8424d4",
     "not_called": [
-      "herbalist",
       "rogue",
       "angler"
     ],
     "stop_reason": null,
     "second_resume": {
       "authorized": true,
-      "new_charged": 12.4,
+      "new_charged": 16.5,
       "perch_remaining": 3.9
     },
     "eel": {
@@ -199,6 +198,12 @@
       "passed": true,
       "user_adopted": false,
       "library_file_id": "libfile_ab47900d037c81918ca2af5e2d556758"
+    },
+    "pharmacist": {
+      "generations": 4.1,
+      "passed": true,
+      "user_adopted": false,
+      "library_file_id": "libfile_4f63bc87b74481919f39eb7b4e1a441f"
     }
   }
 }
