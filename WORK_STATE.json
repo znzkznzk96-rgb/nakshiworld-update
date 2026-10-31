@@ -1,6 +1,6 @@
 {
   "work_branch": "work/valley-runtime",
-  "status": "tier2_loach_processing",
+  "status": "tier2_pharmacist_processing",
   "release_baseline": "v1.02",
   "target_release": "v1.02",
   "release_authorized": true,
@@ -102,25 +102,25 @@
   },
   "soldier_tier2": {
     "requested": 14,
-    "completed": 9,
+    "completed": 10,
     "charged_generations": 48.7,
     "expected_generations_each": 7,
     "expected_total": 98,
     "auto_retry": false,
     "deployed": false,
     "in_flight": {
-      "species": "loach",
-      "job_id": "cdd9d354-d024-4cfd-9378-edaae1df410c",
+      "species": "pharmacist",
+      "job_id": "a7e4f17b-4450-485f-9264-fe4db351f3a4",
       "endpoint": "animate-with-skeleton-v3",
       "expected_generations": 4
     },
-    "passed": 8,
+    "passed": 9,
     "failed": 1,
     "cumulative_soldier_generations": 134.7,
     "resume_budget": {
       "max_generations_per_motion": 13,
       "includes_pose_and_revisions": true,
-      "charged": 50,
+      "charged": 54.1,
       "prior_cumulative": 93
     },
     "transfer_blocked": false,
@@ -170,7 +170,6 @@
     },
     "batch_library_file_id": "libfile_cdb025e80020819183ea51535d8424d4",
     "not_called": [
-      "pharmacist",
       "herbalist",
       "rogue",
       "angler"
@@ -178,7 +177,7 @@
     "stop_reason": null,
     "second_resume": {
       "authorized": true,
-      "new_charged": 8.3,
+      "new_charged": 12.4,
       "perch_remaining": 3.9
     },
     "eel": {
@@ -194,6 +193,12 @@
       "user_adopted": false,
       "limitation": "pearl launches from staff center and is absent during follow-through",
       "library_file_id": "libfile_f57794a8ddc081919cafef51a1640e0c"
+    },
+    "loach": {
+      "generations": 4.1,
+      "passed": true,
+      "user_adopted": false,
+      "library_file_id": "libfile_ab47900d037c81918ca2af5e2d556758"
     }
   }
 }
