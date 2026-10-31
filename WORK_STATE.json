@@ -1,6 +1,6 @@
 {
   "work_branch": "work/valley-runtime",
-  "status": "tier2_rogue_submitting",
+  "status": "tier2_rogue_processing",
   "release_baseline": "v1.02",
   "target_release": "v1.02",
   "release_authorized": true,
@@ -108,7 +108,12 @@
     "expected_total": 98,
     "auto_retry": false,
     "deployed": false,
-    "in_flight": null,
+    "in_flight": {
+      "species": "rogue",
+      "job_id": "2ec21b9b-ca94-4607-af32-a8207a36f301",
+      "endpoint": "animate-with-skeleton-v3",
+      "expected_generations": 4
+    },
     "passed": 11,
     "failed": 1,
     "cumulative_soldier_generations": 134.7,
@@ -165,7 +170,6 @@
     },
     "batch_library_file_id": "libfile_cdb025e80020819183ea51535d8424d4",
     "not_called": [
-      "rogue",
       "angler"
     ],
     "stop_reason": null,
