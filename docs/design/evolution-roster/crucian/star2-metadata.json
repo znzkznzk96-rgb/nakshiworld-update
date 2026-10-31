@@ -1,0 +1,48 @@
+{
+  "request-settings.json": {
+    "image_size": {
+      "width": 160,
+      "height": 128
+    },
+    "description": "Evolve this exact character to tier 2. Round orange crucian shield fish. Add pearl-white silver-rimmed curved back plates and a small sun brow crest. Replace wooden shield with white-metal round shield bearing gold sun emblem. Keep round orange scales, pale belly and big cute eye. Preserve crisp pixel style, original facing and palette. No cape, text, background or extra limbs. Full body, no clipping.",
+    "width": 160,
+    "height": 128,
+    "no_background": true,
+    "seed": 20261031,
+    "reference": {
+      "path": "evolution-roster/crucian/star1.png",
+      "sha256": "acca859716be805c06bf6221b2ce77dc9a08eeb7ea38a281e9fca2a801a217a3"
+    }
+  },
+  "reference.json": {
+    "path": "evolution-roster/crucian/star1.png",
+    "sha256": "acca859716be805c06bf6221b2ce77dc9a08eeb7ea38a281e9fca2a801a217a3"
+  },
+  "submitted.json": {
+    "time": 1793384646.020949,
+    "endpoint": "edit-image",
+    "single_post": true
+  },
+  "response.json": {
+    "usage": null,
+    "background_job_id": "10a23e51-fd80-457e-9456-976175ba52ac",
+    "status": "processing"
+  },
+  "cost.json": {
+    "charged_generations": 1
+  },
+  "validation.json": {
+    "size": [
+      160,
+      128
+    ],
+    "bbox": [
+      11,
+      21,
+      132,
+      114
+    ],
+    "sha256": "8e40e5610c4096a75c98cbcbb473a112b7271e873ee5aed524a059b098aaf57c",
+    "charged_generations": 1
+  }
+}

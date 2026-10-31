@@ -14,12 +14,12 @@ jobs:
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
-      - name: Restore verified v1.00 source and overlay
+      - name: Restore verified v1.02 source and overlay
         shell: bash
         run: |
           set -euo pipefail
-          curl -fL --retry 2 https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.00/game-source.zip -o "$RUNNER_TEMP/source.zip"
-          echo "c03848b383fd286008ee3849b633ecf399bb114d7825eeb1eb42d62fdad08d9c  $RUNNER_TEMP/source.zip" | sha256sum -c -
+          curl -fL --retry 2 https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.02/game-source.zip -o "$RUNNER_TEMP/source.zip"
+          echo "d5de638527a6fc47c927a3eb80d98edd683151270be08483a645243263b22a9c  $RUNNER_TEMP/source.zip" | sha256sum -c -
           python3 automation/restore_source.py "$RUNNER_TEMP/source.zip" "$RUNNER_TEMP/project"
           curl -fL --retry 2 https://github.com/godotengine/godot/releases/download/4.4.1-stable/Godot_v4.4.1-stable_linux.x86_64.zip -o "$RUNNER_TEMP/godot.zip"
           unzip -q "$RUNNER_TEMP/godot.zip" -d "$RUNNER_TEMP/godot"
@@ -36,7 +36,7 @@ jobs:
           grep -F 'EXPEDITION_BAKE files=130' evidence/bake.log
           "$GODOT" --headless --editor --path "$RUNNER_TEMP/project" --import > evidence/prepared-import.log 2>&1
           if grep -E 'SCRIPT ERROR:|Parse Error:|Failed to load script' evidence/prepared-import.log; then exit 1; fi
-          for suite in management101 formation_compare forge_layout robot_ui_revision capture_robot balance096 guide_ac valley094 arrival_gift valley093 bait092 notification091 ui090 codex089 aquarium_b ui_guide pouch_inventory expedition_result support_utility combat_feedback bag_event_order bag_formation selected_ui bag_interaction startup_assets soul_pouch expedition_hard_balance expedition_label bundle_aqua expedition080 expedition079 testing_gift soldier_dex approved_ui expedition_motion expedition expedition_save expedition_balance action_readability economy_balance rod_aura atmosphere_encounter angler_scene market_reader odds_rewards reservoir_layers owner_gauge bag_list bundles_buyback equipment visual guide shop audio_save bundle_preview rewards reader fish_surface regional inventory_layout personal_dex bait_roles measurement_speed village_entry_audio; do
+          for suite in tier2_motion management101 formation_compare forge_layout robot_ui_revision capture_robot balance096 guide_ac valley094 arrival_gift valley093 bait092 notification091 ui090 codex089 aquarium_b ui_guide pouch_inventory expedition_result support_utility combat_feedback bag_event_order bag_formation selected_ui bag_interaction startup_assets soul_pouch expedition_hard_balance expedition_label bundle_aqua expedition080 expedition079 testing_gift soldier_dex approved_ui expedition_motion expedition expedition_save expedition_balance action_readability economy_balance rod_aura atmosphere_encounter angler_scene market_reader odds_rewards reservoir_layers owner_gauge bag_list bundles_buyback equipment visual guide shop audio_save bundle_preview rewards reader fish_surface regional inventory_layout personal_dex bait_roles measurement_speed village_entry_audio; do
             XDG_DATA_HOME="$RUNNER_TEMP/isolated-$suite" timeout 90 "$GODOT" --headless --path "$RUNNER_TEMP/project" --script "tests/${suite}_verify.gd" > "evidence/$suite.log" 2>&1 || { cat "evidence/$suite.log"; exit 1; }
             cat "evidence/$suite.log"
             grep -F 'VERIFY failures=[]' "evidence/$suite.log"
@@ -123,6 +123,12 @@ jobs:
           set -euo pipefail
           XDG_DATA_HOME="$RUNNER_TEMP/isolated-management101" timeout 90 xvfb-run -a "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/management101_preview.gd -- "$GITHUB_WORKSPACE/evidence/management101" > evidence/management101.log 2>&1
           if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/management101.log; then cat evidence/management101.log; exit 1; fi
+      - name: Render tier2 roster formation and combat
+        shell: bash
+        run: |
+          set -euo pipefail
+          XDG_DATA_HOME="$RUNNER_TEMP/isolated-tier2" timeout 120 xvfb-run -a "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/tier2_motion_preview.gd -- "$GITHUB_WORKSPACE/evidence/tier2" > evidence/tier2-screens.log 2>&1
+          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/tier2-screens.log; then cat evidence/tier2-screens.log; exit 1; fi
       - name: Preserve verification logs
         if: always()
         uses: actions/upload-artifact@v4

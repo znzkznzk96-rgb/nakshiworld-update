@@ -1,0 +1,48 @@
+{
+  "request-settings.json": {
+    "image_size": {
+      "width": 160,
+      "height": 128
+    },
+    "description": "Evolve this exact character to tier 2. Blue perch spear fighter. Add curved cobalt breastplate, silver fin-shaped shoulder armor and brow guard. Upgrade spear to a broad blue crystal spearhead with silver socket. Keep blue scales and large friendly eye. Preserve crisp pixel style, original facing and palette. No cape, text, background or extra limbs. Full body, no clipping.",
+    "width": 160,
+    "height": 128,
+    "no_background": true,
+    "seed": 20261031,
+    "reference": {
+      "path": "evolution-roster/perch/star1.png",
+      "sha256": "4dbbe900674b24dfa0cf55f8db8987a7cbe0f03b3f9b2125c822071660042c0d"
+    }
+  },
+  "reference.json": {
+    "path": "evolution-roster/perch/star1.png",
+    "sha256": "4dbbe900674b24dfa0cf55f8db8987a7cbe0f03b3f9b2125c822071660042c0d"
+  },
+  "submitted.json": {
+    "time": 1793384385.4260259,
+    "endpoint": "edit-image",
+    "single_post": true
+  },
+  "response.json": {
+    "usage": null,
+    "background_job_id": "66ad7bf0-7a0f-40fc-be58-2a2888f0c87d",
+    "status": "processing"
+  },
+  "cost.json": {
+    "charged_generations": 1
+  },
+  "validation.json": {
+    "size": [
+      160,
+      128
+    ],
+    "bbox": [
+      18,
+      9,
+      147,
+      116
+    ],
+    "sha256": "7625300a953aea73d9232684119b324ec83c2099e64e1989775def62d5dec2eb",
+    "charged_generations": 1
+  }
+}

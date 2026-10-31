@@ -1,0 +1,48 @@
+{
+  "request-settings.json": {
+    "image_size": {
+      "width": 160,
+      "height": 128
+    },
+    "description": "Final evolution: cute magical GROVE FISH SPIRIT. Yellow-green fish face, warm big eyes, plump pale belly. Larger round fish body, huge leaf fan tail, branchlike dorsal crest with white flowers and aqua crystal buds. Emerald leaf scales on shoulders/back. Tiny sturdy fin-arms and feet, living-wood herb basket on back. Friendly forest creature, NOT a humanoid wearing leaf hood. Dramatic new silhouette. Face RIGHT, crisp pixel art, transparent, full body.",
+    "width": 160,
+    "height": 128,
+    "no_background": true,
+    "seed": 20261101,
+    "reference": {
+      "path": "evolution-roster/herbalist/star1.png",
+      "sha256": "ffeff1419b038b4f3f1d8b8a9b0a14d8947eb5c349ce00c1793171f78b9594bb"
+    }
+  },
+  "reference.json": {
+    "path": "evolution-roster/herbalist/star1.png",
+    "sha256": "ffeff1419b038b4f3f1d8b8a9b0a14d8947eb5c349ce00c1793171f78b9594bb"
+  },
+  "submitted.json": {
+    "time": 1793387116.717632,
+    "endpoint": "edit-image",
+    "single_post": true
+  },
+  "response.json": {
+    "usage": null,
+    "background_job_id": "34b0c004-84a8-47be-813f-51377a2f5be5",
+    "status": "processing"
+  },
+  "cost.json": {
+    "charged_generations": 1
+  },
+  "validation.json": {
+    "size": [
+      160,
+      128
+    ],
+    "bbox": [
+      13,
+      9,
+      145,
+      116
+    ],
+    "sha256": "f7eaa574b89a70216f7aa57bea3ef7c6774e666de84b91987f1affcdbb90ee8d",
+    "charged_generations": 1
+  }
+}

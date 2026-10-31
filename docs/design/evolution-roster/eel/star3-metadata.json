@@ -1,0 +1,48 @@
+{
+  "request-settings.json": {
+    "image_size": {
+      "width": 128,
+      "height": 128
+    },
+    "description": "Evolve this exact character to tier 3. Yellow electric eel storm arbalester. Distinct armored segmented serpentine back and thick brass shoulder plates, lightning fin crest, huge compact twin-coil electric crossbow with blue energy bolt. Preserve curved yellow eel body and tail, big friendly eye, no humanoid replacement. Preserve crisp pixel style, original facing and palette. No cape, text, background or extra limbs. Full body, no clipping.",
+    "width": 128,
+    "height": 128,
+    "no_background": true,
+    "seed": 20261031,
+    "reference": {
+      "path": "evolution-roster/eel/star1.png",
+      "sha256": "564a9f73e926eb638d68578c710225db803e33fcf4520d7ea00615fbb16fa195"
+    }
+  },
+  "reference.json": {
+    "path": "evolution-roster/eel/star1.png",
+    "sha256": "564a9f73e926eb638d68578c710225db803e33fcf4520d7ea00615fbb16fa195"
+  },
+  "submitted.json": {
+    "time": 1793384571.9210806,
+    "endpoint": "edit-image",
+    "single_post": true
+  },
+  "response.json": {
+    "usage": null,
+    "background_job_id": "e25a284e-80a2-44bc-9dd2-05ff5c847634",
+    "status": "processing"
+  },
+  "cost.json": {
+    "charged_generations": 1
+  },
+  "validation.json": {
+    "size": [
+      128,
+      128
+    ],
+    "bbox": [
+      11,
+      20,
+      113,
+      115
+    ],
+    "sha256": "548ca5a18ec098504607a3974f0e0636695f286c0973824463b118356d8d830a",
+    "charged_generations": 1
+  }
+}

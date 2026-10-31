@@ -1,0 +1,48 @@
+{
+  "request-settings.json": {
+    "image_size": {
+      "width": 160,
+      "height": 128
+    },
+    "description": "Major tier3 evolution: rebuild body armor and silhouette. Turquoise flying fish sky blade champion. Swept silver-blue helmet framing large eye, layered aerodynamic armor and dramatically larger blade-shaped blue fin wings. Broad curved lightning-edged cyan saber, gold accents at wing joints. Compact heroic fish, clearly transformed silhouette. Same crisp pixels, facing and colors. No cape or background. Full body.",
+    "width": 160,
+    "height": 128,
+    "no_background": true,
+    "seed": 20261031,
+    "reference": {
+      "path": "evolution-roster/flying/star1.png",
+      "sha256": "52abc933db64fe2526716b1a8f598eee20fb343161f707fb8a0adf206781d703"
+    }
+  },
+  "reference.json": {
+    "path": "evolution-roster/flying/star1.png",
+    "sha256": "52abc933db64fe2526716b1a8f598eee20fb343161f707fb8a0adf206781d703"
+  },
+  "submitted.json": {
+    "time": 1793385050.7481248,
+    "endpoint": "edit-image",
+    "single_post": true
+  },
+  "response.json": {
+    "usage": null,
+    "background_job_id": "7b54cc0a-b996-4683-a750-59a77d0d9fde",
+    "status": "processing"
+  },
+  "cost.json": {
+    "charged_generations": 1
+  },
+  "validation.json": {
+    "size": [
+      160,
+      128
+    ],
+    "bbox": [
+      15,
+      30,
+      149,
+      107
+    ],
+    "sha256": "8c123f31459d435075d111f38e9664613c27656fabdcfd8cb8e6bc0e999da89e",
+    "charged_generations": 1
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "request-settings.json": {
+    "image_size": {
+      "width": 160,
+      "height": 128
+    },
+    "description": "Major tier3 evolution: rebuild body armor and silhouette. Purple eclipse shield guardian. Thick layered midnight-violet silver armor, large crescent fin crest and broad rounded shoulders. Imposing circular moon shield with silver outer rim, gold crescent and violet eclipse crystal. Exposed cream fish face, bright friendly eye, short sturdy feet. Same crisp pixels, facing and colors. No cape or background. Full body.",
+    "width": 160,
+    "height": 128,
+    "no_background": true,
+    "seed": 20261031,
+    "reference": {
+      "path": "evolution-roster/crescent/star1.png",
+      "sha256": "3f70938fa5da2b77daea8e7db5038448a7ae1598e6a7a2c2d3a0cb4aa07848b7"
+    }
+  },
+  "reference.json": {
+    "path": "evolution-roster/crescent/star1.png",
+    "sha256": "3f70938fa5da2b77daea8e7db5038448a7ae1598e6a7a2c2d3a0cb4aa07848b7"
+  },
+  "submitted.json": {
+    "time": 1793386200.182304,
+    "endpoint": "edit-image",
+    "single_post": true
+  },
+  "response.json": {
+    "usage": null,
+    "background_job_id": "65ae1f68-dbf3-47f7-8ab2-a436d4d168dc",
+    "status": "processing"
+  },
+  "cost.json": {
+    "charged_generations": 1
+  },
+  "validation.json": {
+    "size": [
+      160,
+      128
+    ],
+    "bbox": [
+      26,
+      12,
+      137,
+      116
+    ],
+    "sha256": "94c50e6327d161a6eb0c36773226869a1da5598289d636eb2348792f508aad31",
+    "charged_generations": 1
+  }
+}

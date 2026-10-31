@@ -1,0 +1,197 @@
+[
+  {
+    "frame": 0,
+    "bbox": [
+      24,
+      60,
+      136,
+      148
+    ],
+    "pixel_sha256": "89a0f9f1461448f398bdedcfbce51c61be314ef8f1ddd31416cef7fc6cf79d55",
+    "file_sha256": "35d109949e963d6d2714425669c4a9cd640519f98cead8c1032e6caec1fae4c6",
+    "alpha_extrema": [
+      0,
+      255
+    ]
+  },
+  {
+    "frame": 1,
+    "bbox": [
+      24,
+      60,
+      134,
+      148
+    ],
+    "pixel_sha256": "77a03a94689daa9d73f37036d19218332251a95ac861826a2f647a4f32e01f07",
+    "file_sha256": "b55a1dd723343368d7d0d45b057d5f709679dd4ee7a033707a6c884dce0beead",
+    "alpha_extrema": [
+      0,
+      255
+    ]
+  },
+  {
+    "frame": 2,
+    "bbox": [
+      24,
+      63,
+      127,
+      148
+    ],
+    "pixel_sha256": "35c0f1388d3b15fcedb9e5c87cba72c8c4f11dc82e3286f72a3e8564b2736454",
+    "file_sha256": "26c0e65ee64692e67c558cd3e6504e6565e3cbb43d7cff401178cff49782d0e6",
+    "alpha_extrema": [
+      0,
+      255
+    ]
+  },
+  {
+    "frame": 3,
+    "bbox": [
+      26,
+      65,
+      129,
+      148
+    ],
+    "pixel_sha256": "f66f8f79649d5704337b460c18c049238e81b56c4a44ba1458640be69b78a3d6",
+    "file_sha256": "6a0464c2ff1cb9e0906baa34d1a57b463903f52fe59a59950e9038b5c8c6edc8",
+    "alpha_extrema": [
+      0,
+      255
+    ]
+  },
+  {
+    "frame": 4,
+    "bbox": [
+      27,
+      66,
+      128,
+      148
+    ],
+    "pixel_sha256": "3bbcc665f9e375d1fe9aaae48a3be8df4800f6060db7e470e7fcedd27a0b9796",
+    "file_sha256": "487db16f0eed15be7e03d7b6c757486be4acef2fa6441cafe0b3c61ecbc8d51f",
+    "alpha_extrema": [
+      0,
+      255
+    ]
+  },
+  {
+    "frame": 5,
+    "bbox": [
+      27,
+      65,
+      127,
+      148
+    ],
+    "pixel_sha256": "b46ab012198e21d28ab3175bde565736859df806ad06c6dad3b2fa9eaffe389b",
+    "file_sha256": "a2fb162f0038e923e7a426e8068978c6307b0cf49cbfa2366b96bf3a48eef3c5",
+    "alpha_extrema": [
+      0,
+      255
+    ]
+  },
+  {
+    "frame": 6,
+    "bbox": [
+      25,
+      48,
+      160,
+      156
+    ],
+    "pixel_sha256": "f9885ede4540d5e14f4d26d08a5715787d248a32608fa6d2a7608cc72ff0dbd6",
+    "file_sha256": "272cd0418318a93a1f77204e1ca2f54d448da1ba4090d6eaafd95a6c72964a6e",
+    "alpha_extrema": [
+      0,
+      255
+    ]
+  },
+  {
+    "frame": 7,
+    "bbox": [
+      27,
+      43,
+      166,
+      156
+    ],
+    "pixel_sha256": "3f703e192221e53e89a8dd238a072343a8d25f0dec09f7f0f20658f5349cce8a",
+    "file_sha256": "2789aeb69f7cb7591c5ebfd74fda8fe51f731d189db4af18c5ddcc41020f7408",
+    "alpha_extrema": [
+      0,
+      255
+    ]
+  },
+  {
+    "frame": 8,
+    "bbox": [
+      27,
+      39,
+      166,
+      163
+    ],
+    "pixel_sha256": "7a0bb8971956c279f51f3e1df63aa5d3d44dceacd0e65a16c47dbb469959c48b",
+    "file_sha256": "93d8eb69d59d49ffe5acc7938c9f861e96661b1ce2eef04af29b3255d109fe97",
+    "alpha_extrema": [
+      0,
+      255
+    ]
+  },
+  {
+    "frame": 9,
+    "bbox": [
+      26,
+      63,
+      164,
+      148
+    ],
+    "pixel_sha256": "4c00be2ad47bca65713d4d23682cf8b498eeb47ee5eca71d73aa8af8f766c31d",
+    "file_sha256": "f02c7e2d62c661682059266b82e74df7b283de6c58f2f28df7df46a232c9d078",
+    "alpha_extrema": [
+      0,
+      255
+    ]
+  },
+  {
+    "frame": 10,
+    "bbox": [
+      24,
+      61,
+      152,
+      148
+    ],
+    "pixel_sha256": "d2275b72e06b794125eb6812b721d570c6878375684346081dada1251adad255",
+    "file_sha256": "941481be1138799de7e2ce8af1695ddaa072ccd844a078069f3aa5071b82ef8e",
+    "alpha_extrema": [
+      0,
+      255
+    ]
+  },
+  {
+    "frame": 11,
+    "bbox": [
+      24,
+      60,
+      141,
+      148
+    ],
+    "pixel_sha256": "5046435deab12557d79dfc8d0a7ecf42f7a4736263c3320265035bb6527a4468",
+    "file_sha256": "c9146bc26ba7dd343a8cd6d5994f9a36734bdb27595c6651ee8dded0850ee3a0",
+    "alpha_extrema": [
+      0,
+      255
+    ]
+  },
+  {
+    "frame": 12,
+    "bbox": [
+      24,
+      60,
+      136,
+      148
+    ],
+    "pixel_sha256": "4e5108ccda81d77b8d573ffcb61c60472f6dfab0a28aa6c9d16a1bb6542e34c7",
+    "file_sha256": "debf66c0bc1a01d8204a66d7b935609c26160b1aff5f415039d91878b232a6e9",
+    "alpha_extrema": [
+      0,
+      255
+    ]
+  }
+]

@@ -1,0 +1,48 @@
+{
+  "request-settings.json": {
+    "image_size": {
+      "width": 160,
+      "height": 128
+    },
+    "description": "Final evolution: cute majestic SKY BLADE FISH DRAGON. Turquoise fish snout, big amber eye, pale yellow chest, athletic curved fish body. Huge swept blade-fin wings with electric blue tips, long forked tail, two swept head crests. Silver-blue natural scales at wing roots. Hold broad curved aqua saber, NOT a lightning spear. Dramatically evolved winged creature, no human head or full metal suit. Face RIGHT, crisp pixel sprite, transparent, full body.",
+    "width": 160,
+    "height": 128,
+    "no_background": true,
+    "seed": 20261101,
+    "reference": {
+      "path": "evolution-roster/flying/star1.png",
+      "sha256": "52abc933db64fe2526716b1a8f598eee20fb343161f707fb8a0adf206781d703"
+    }
+  },
+  "reference.json": {
+    "path": "evolution-roster/flying/star1.png",
+    "sha256": "52abc933db64fe2526716b1a8f598eee20fb343161f707fb8a0adf206781d703"
+  },
+  "submitted.json": {
+    "time": 1793387053.7106304,
+    "endpoint": "edit-image",
+    "single_post": true
+  },
+  "response.json": {
+    "usage": null,
+    "background_job_id": "ec50dd3d-7f2e-4cd6-a401-60b065b43fe3",
+    "status": "processing"
+  },
+  "cost.json": {
+    "charged_generations": 1
+  },
+  "validation.json": {
+    "size": [
+      160,
+      128
+    ],
+    "bbox": [
+      12,
+      22,
+      148,
+      116
+    ],
+    "sha256": "5fe6be055ccbccdfaaba84ce2eddfc082547a73ff3453714f956d9570fb291d8",
+    "charged_generations": 1
+  }
+}

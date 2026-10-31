@@ -29,5 +29,9 @@ func _initialize() -> void:
 	for key in expedition.management.SKILLS:
 		var icon=load("res://art/ui/soldier_skills/%s.png"%key)
 		assert(icon is Texture2D and icon.get_size()==Vector2(64,64),"PixelLab skill icon exported: "+key)
+	for id in 15:
+		var spec:Dictionary=expedition.data.catalog.soldiers[id]
+		assert(expedition.frame_count(id,2)==(13 if spec.id=="puffer" else 15),"tier2 frames packed")
+		assert(expedition.textures[spec.id+"_tier2"] is Texture2D,"tier2 atlas packed")
 	print("PACKED_ANGLER_VERIFY failures=[]")
 	quit()

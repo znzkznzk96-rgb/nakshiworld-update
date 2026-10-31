@@ -5,7 +5,7 @@ var v:
  set(value):owner_ref=weakref(value)
 var data
 var modal_rects:Dictionary={}
-func sprite(m,id,box):v.sprite(m,id,box)
+func sprite(m,id,box,star=1):v.sprite(m,id,box,0,1.0,star)
 func button(m,key,r,txt):v.button(m,key,r,txt)
 func label(m,s,p,size=9,c=Color("493421"),center=false,w=220):m._text(s,p,size,c,center,w)
 func stars(m,u,p,center=false):
@@ -29,7 +29,7 @@ func draw(owner,m,y:float,bottom:float)->void:
   label(m,["앞","중간","뒤"][slot],r.position+Vector2(37,15),9,green,true,64)
   if not u.is_empty():
    v.role_badges.push_front({"role":spec.role,"rect":r})
-   sprite(m,int(u.id),Rect2(r.position+Vector2(17,20),Vector2(40,35)))
+   sprite(m,int(u.id),Rect2(r.position+Vector2(17,20),Vector2(40,35)),int(u.star))
    label(m,"★".repeat(int(u.star))+(" +%d"%u.get("level",0) if compact else ""),r.position+Vector2(37,62),8,Color("a57425"),true,68)
    if not compact:
     label(m,spec.name,r.position+Vector2(37,75),8,Color("493421"),true,68)
@@ -60,7 +60,7 @@ func draw(owner,m,y:float,bottom:float)->void:
   var r:=Rect2(18+(i%2)*119,y+floori(i/2.0)*70-roundf(v.formation_scroll),115,66)
   if r.position.y<y or r.end.y>v.formation_viewport.end.y:continue
   m._ui_style_box(m.sb_chip,r)
-  sprite(m,int(u.id),Rect2(r.position+Vector2(70,3),Vector2(34,32)))
+  sprite(m,int(u.id),Rect2(r.position+Vector2(70,3),Vector2(34,32)),int(u.star))
   stars(m,u,r.position+Vector2(7,17))
   label(m,"강화 +%d"%u.get("level",0),r.position+Vector2(7,30),8)
   label(m,spec.name,r.position+Vector2(8,44),8,Color("493421"),false,99)
@@ -97,7 +97,7 @@ func comparison(m,cards:bool):
   var u:Dictionary=old if i==0 else chosen;var x:float=23+i*118
   if u.is_empty():
    label(m,"빈 자리",Vector2(x+53,390+dy),10,muted,true,106);continue
-  sprite(m,int(u.id),Rect2(x+35,356+dy,36,34))
+  sprite(m,int(u.id),Rect2(x+35,356+dy,36,34),int(u.star))
   label(m,data.catalog.soldiers[int(u.id)].name,Vector2(x+53,403+dy),9,Color("493421"),true,106)
   label(m,"★".repeat(int(u.star))+"  +%d"%u.get("level",0),Vector2(x+53,418+dy),9,Color("a57425"),true,106)
  label(m,"→",Vector2(135,381+dy),12,muted,true,20)

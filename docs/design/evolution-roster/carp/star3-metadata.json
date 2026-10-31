@@ -1,0 +1,48 @@
+{
+  "request-settings.json": {
+    "image_size": {
+      "width": 160,
+      "height": 128
+    },
+    "description": "Major tier3 evolution: rebuild body armor and silhouette. Orange carp thunder hammer champion. Thick layered copper steel armor, broad forged shoulder plates, tall swept red fin crest helmet exposing fish face. Massive square silver-black hammer with bright amber lightning core. Compact muscular armored fish silhouette, cute big eye. Same crisp pixels, facing and colors. No cape or background. Full body.",
+    "width": 160,
+    "height": 128,
+    "no_background": true,
+    "seed": 20261031,
+    "reference": {
+      "path": "evolution-roster/carp/star1.png",
+      "sha256": "879ffe3e34e881291d2efeb1ea01d1cc413740465289d7f21033a892f425d0e0"
+    }
+  },
+  "reference.json": {
+    "path": "evolution-roster/carp/star1.png",
+    "sha256": "879ffe3e34e881291d2efeb1ea01d1cc413740465289d7f21033a892f425d0e0"
+  },
+  "submitted.json": {
+    "time": 1793385654.2794604,
+    "endpoint": "edit-image",
+    "single_post": true
+  },
+  "response.json": {
+    "usage": null,
+    "background_job_id": "d3c345d3-b57c-47ba-a825-bf34000c423a",
+    "status": "processing"
+  },
+  "cost.json": {
+    "charged_generations": 1
+  },
+  "validation.json": {
+    "size": [
+      160,
+      128
+    ],
+    "bbox": [
+      27,
+      9,
+      128,
+      119
+    ],
+    "sha256": "862e6c50c3dde96de07e6c1edd182dab23bdae59ae4eeb6780794be5c13ae3d7",
+    "charged_generations": 1
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "request-settings.json": {
+    "image_size": {
+      "width": 160,
+      "height": 128
+    },
+    "description": "Major tier3 evolution: rebuild body armor and silhouette. Blue fan-finned tide oracle. Brilliant layered blue-white fan tail like a crown, pearl-silver curved armor, aquamarine crest framing fish face. Large sculpted coral staff holding an impressive aqua pearl, delicate crystal prongs. Cute compact fish body, exposed friendly eye. Same crisp pixels, facing and colors. No cape or background. Full body.",
+    "width": 160,
+    "height": 128,
+    "no_background": true,
+    "seed": 20261031,
+    "reference": {
+      "path": "evolution-roster/healer/star1.png",
+      "sha256": "b0450e7e88a2c8ceef32816129eebb079f1b34fb9bda3787fffa0bd62c08d4c7"
+    }
+  },
+  "reference.json": {
+    "path": "evolution-roster/healer/star1.png",
+    "sha256": "b0450e7e88a2c8ceef32816129eebb079f1b34fb9bda3787fffa0bd62c08d4c7"
+  },
+  "submitted.json": {
+    "time": 1793385311.1347597,
+    "endpoint": "edit-image",
+    "single_post": true
+  },
+  "response.json": {
+    "usage": null,
+    "background_job_id": "6bcf9341-54e9-4c3e-ab6e-af50f1b15d48",
+    "status": "processing"
+  },
+  "cost.json": {
+    "charged_generations": 1
+  },
+  "validation.json": {
+    "size": [
+      160,
+      128
+    ],
+    "bbox": [
+      15,
+      13,
+      145,
+      117
+    ],
+    "sha256": "a990e3a23a6b562d0874389758e0fe882a8d10ec2fa4f771c3b19bdd00629d1d",
+    "charged_generations": 1
+  }
+}

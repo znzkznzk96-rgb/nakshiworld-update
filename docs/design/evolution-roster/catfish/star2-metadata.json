@@ -1,0 +1,48 @@
+{
+  "request-settings.json": {
+    "image_size": {
+      "width": 160,
+      "height": 128
+    },
+    "description": "Evolve this exact character to tier 2. Purple whiskered catfish shield soldier. Add gunmetal violet-edged curved shoulder and back plates, small forehead guard. Upgrade small shield to a thick circular steel shield with purple lightning emblem. Retain purple whiskers, cream face, golden fins and cute eyes. Preserve crisp pixel style, original facing and palette. No cape, text, background or extra limbs. Full body, no clipping.",
+    "width": 160,
+    "height": 128,
+    "no_background": true,
+    "seed": 20261031,
+    "reference": {
+      "path": "evolution-roster/catfish/star1.png",
+      "sha256": "c764907656eccf110837ced2aa2a92ed9ffff6dfcf0753758326b7622da4b0eb"
+    }
+  },
+  "reference.json": {
+    "path": "evolution-roster/catfish/star1.png",
+    "sha256": "c764907656eccf110837ced2aa2a92ed9ffff6dfcf0753758326b7622da4b0eb"
+  },
+  "submitted.json": {
+    "time": 1793385710.526567,
+    "endpoint": "edit-image",
+    "single_post": true
+  },
+  "response.json": {
+    "usage": null,
+    "background_job_id": "41672f95-fe45-4e42-8162-565d8a27c068",
+    "status": "processing"
+  },
+  "cost.json": {
+    "charged_generations": 1
+  },
+  "validation.json": {
+    "size": [
+      160,
+      128
+    ],
+    "bbox": [
+      25,
+      37,
+      127,
+      116
+    ],
+    "sha256": "5b07926bf0353868b57516b4d0e2a513e39e8e1492ed8936140c3abcdf1d51aa",
+    "charged_generations": 1
+  }
+}

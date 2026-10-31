@@ -10,6 +10,7 @@ var pair: Array = [0,0]
 var pair_slot: int = 0
 var rects: Dictionary = {}
 var textures: Dictionary = {}
+var tier2: Dictionary = {}
 var drag_slot: int = -1
 var drag_start: Vector2
 var drag_pos: Vector2
@@ -59,6 +60,8 @@ const ROOMS = ["젖은 현관","비어 있는 탈의실","반짝이는 세면대
 const WALLS = ["24596e","347c74","225f79","956526","3d366f","395472","263d70","1d6a67","704530","2e2352"]
 
 func setup() -> void:
+	tier2=JSON.parse_string(FileAccess.get_file_as_string("res://art/expedition/tier2/manifest.json"))
+	for id in tier2: textures[id+"_tier2"]=load("res://art/expedition/tier2/%s.png"%id)
 	management.bind(self)
 	for i in 10:
 		var path: String="res://art/expedition/rooms/room%02d.png"%(i+1)
@@ -106,11 +109,44 @@ func button(m,key: String,r: Rect2,label: String,enabled: bool=true) -> void:
 	m._text(label,r.get_center()+Vector2(0,3),9,Color("382619") if enabled else Color("796b58"),true,r.size.x-8)
 	rects[key]=r
 
-func sprite(m,id: int,box: Rect2,frame: int=0,alpha: float=1.0) -> void:
-	var u: Dictionary=data.catalog.soldiers[id]
-	var sz: Vector2=Vector2(int(u.frame_size[0]),int(u.frame_size[1]))
-	var size: Vector2=sz*minf(box.size.x/sz.x,box.size.y/sz.y)
-	m._ui_texture_rect_region(textures[u.id],Rect2((box.get_center()-size/2).round(),size.round()),Rect2(frame%int(u.frame_count)*sz.x,0,sz.x,sz.y),Color(1,1,1,alpha))
+func fighter_star(f: Dictionary) -> int:
+	# Existing in-progress saves have no star snapshot: resolve their stable unit UID.
+	var owned: Dictionary=data.unit(int(f.get("uid",-1)))
+	return int(owned.get("star",f.get("star",1)))
+
+func frame_count(id: int,star: int=1) -> int:
+	var spec: Dictionary=data.catalog.soldiers[id]
+	return int(tier2[spec.id].frames) if star==2 and tier2.has(spec.id) else int(spec.frame_count)
+
+func sprite_geometry(id: int,box: Rect2,frame: int=0,star: int=1,motion: bool=false) -> Dictionary:
+	var spec: Dictionary=data.catalog.soldiers[id]
+	if star==2 and tier2.has(spec.id):
+		var art: Dictionary=tier2[spec.id]
+		var bounds: Array=art.motion_bounds if motion else art.idle_bounds
+		var size:=Vector2(float(bounds[2])-float(bounds[0]),float(bounds[3])-float(bounds[1]))
+		var scale: float=minf(box.size.x/size.x,box.size.y/size.y)
+		var drawn: Vector2=size*scale
+		return {"texture":str(spec.id)+"_tier2","rect":Rect2((box.get_center()-drawn/2).round(),drawn.round()),"region":Rect2((frame%int(art.frames))*int(art.size[0])+int(bounds[0]),int(bounds[1]),size.x,size.y)}
+	var size:=Vector2(int(spec.frame_size[0]),int(spec.frame_size[1]))
+	var drawn: Vector2=size*minf(box.size.x/size.x,box.size.y/size.y)
+	return {"texture":spec.id,"rect":Rect2((box.get_center()-drawn/2).round(),drawn.round()),"region":Rect2(frame%int(spec.frame_count)*size.x,0,size.x,size.y)}
+
+func sprite(m,id: int,box: Rect2,frame: int=0,alpha: float=1.0,star: int=1,motion: bool=false) -> void:
+	var g: Dictionary=sprite_geometry(id,box,frame,star,motion)
+	m._ui_texture_rect_region(textures[g.texture],g.rect,g.region,Color(1,1,1,alpha))
+
+func battle_sprite(m,id:int,box:Rect2,frame:int,alpha:float,star:int) -> void:
+	if star!=2:
+		sprite(m,id,box,frame,alpha,star,true);return
+	var spec:Dictionary=data.catalog.soldiers[id]
+	var art:Dictionary=tier2[spec.id]
+	var b:Array=art.motion_bounds;var idle:Array=art.idle_bounds
+	# Effect width must not shrink the body. Anchor to the idle character, not canvas center.
+	var scale:float=minf(box.size.y/(float(b[3])-float(b[1])),box.size.x/128.0)
+	var anchor_x:float=(float(idle[0])+float(idle[2]))/2.0
+	var size:=Vector2(float(b[2])-float(b[0]),float(b[3])-float(b[1]))
+	var pos:=Vector2(box.get_center().x+(float(b[0])-anchor_x)*scale,box.end.y-size.y*scale)
+	m._ui_texture_rect_region(textures[spec.id+"_tier2"],Rect2(pos.round(),(size*scale).round()),Rect2(frame%int(art.frames)*int(art.size[0])+int(b[0]),int(b[1]),size.x,size.y),Color(1,1,1,alpha))
 
 func atlas(texture: Texture2D,region: Rect2) -> AtlasTexture:
 	var a=AtlasTexture.new();a.atlas=texture;a.region=region;return a
@@ -211,16 +247,18 @@ func battle_art(m,r: Rect2) -> void:
 		var f: Dictionary=b.fighters[i];var effect: Dictionary=fighter_effect(f,fx)
 		if float(effect.alpha)<=0: continue
 		var u: Dictionary=data.catalog.soldiers[int(f.id)]
+		var star: int=fighter_star(f)
+		var count: int=frame_count(int(f.id),star)
 		var frame: int=0
-		if phase=="fight" and int(f.hp)>0: frame=mini(int(u.frame_count)-1,int(t/1.5*int(u.frame_count)))
+		if phase=="fight" and int(f.hp)>0: frame=mini(count-1,int(t/1.5*count))
 		for event in fx.get("support",[]):
-			if int(event.source)==int(f.get("uid",-1)) and age<.6: frame=mini(int(u.frame_count)-1,int(age/.6*int(u.frame_count)))
+			if int(event.source)==int(f.get("uid",-1)) and age<.6: frame=mini(count-1,int(age/.6*count))
 		var x: float=r.position.x+8+(2-i)*34+float(effect.x)
 		if phase=="fight": x+=sin(clampf(t/1.1,0,1)*PI)*(27 if int(f.uid)==front_uid else 3)
 		if phase=="approach": x-=8*(1-minf(1,float(b.phase_time)/4.0))
 		var fh: float=minf(43,r.size.y*.70)
 		if phase=="approach": effect.y+=sin(float(b.phase_time)*12+i)*1.5
-		sprite(m,int(f.id),Rect2(x,ground-fh+float(effect.y),48*fh/40,fh),frame,float(effect.alpha))
+		battle_sprite(m,int(f.id),Rect2(x,ground-fh+float(effect.y),48*fh/40,fh),frame,float(effect.alpha),star)
 		var hp: float=float(f.hp)
 		if age<.38 and int(fx.get("hit_uid",-1))==int(f.uid): hp=float(fx.get("front_hp_before",hp))
 		# Stable lanes keep all three bars apart during attack lunges.
@@ -240,7 +278,7 @@ func battle_art(m,r: Rect2) -> void:
 			else:
 				m._ui_rect(Rect2(c-Vector2(1,4),Vector2(2,8)),color)
 				m._ui_rect(Rect2(c-Vector2(4,1),Vector2(8,2)),color)
-		if u.id=="eel" and phase=="fight" and int(f.hp)>0 and t>0.55 and t<1.5:
+		if star!=2 and u.id=="eel" and phase=="fight" and int(f.hp)>0 and t>0.55 and t<1.5:
 			var p: float=(t-.55)/.95
 			m._ui_texture_rect(textures.bolt,Rect2(lerpf(x+30,r.position.x+165,p),ground-22,13,5))
 	var key: String=str(b.enemy.id) if b.enemy.id is String else str(int(b.enemy.id))
@@ -366,7 +404,7 @@ func draw_roster(m,y: float,bottom: float) -> void:
 		if n>=data.soldiers.size(): break
 		var u: Dictionary=data.soldiers[n];var spec: Dictionary=data.catalog.soldiers[int(u.id)]
 		var r: Rect2=Rect2(18,y+34+i*49,234,45)
-		m._ui_style_box(m.sb_btn,r);sprite(m,int(u.id),Rect2(r.position+Vector2(2,1),Vector2(43,40)))
+		m._ui_style_box(m.sb_btn,r);sprite(m,int(u.id),Rect2(r.position+Vector2(2,1),Vector2(43,40)),0,1.0,int(u.star))
 		m._text(spec.name+" · "+ROLES[spec.role],r.position+Vector2(49,14),9,Color("382619"),false,177)
 		m._text(spec.description,r.position+Vector2(49,29),8,Color("6c553b"),false,177)
 		m._text("★".repeat(int(u.star))+rarity_label(u)+(" · 편성 중" if int(u.uid) in data.team else ""),r.position+Vector2(49,40),7,Color("96703b"),false,177)
@@ -449,7 +487,7 @@ func draw_pending(m,y: float,bottom: float) -> void:
 		if u.is_empty(): return
 		management.result(m,u)
 	elif p.kind=="merge":
-		sprite(m,int(p.id),Rect2(94,y,82,69))
+		sprite(m,int(p.id),Rect2(94,y,82,69),0,1.0,int(p.star))
 		m._text("새 %d성 %s"%[p.star,data.catalog.soldiers[int(p.id)].name],Vector2(135,y+87),11,Color("382619"),true,230)
 		m._text("계승할 개체값 한 묶음을 고르세요",Vector2(135,y+112),10,Color("6c553b"),true,230)
 		for i in 3:
@@ -627,7 +665,7 @@ func draw_confirmation(m,y: float,bottom: float) -> void:
 	var q: Dictionary=data.merge_cost(int(selected[0]),int(selected[1]))
 	m._text("두 병사가 소모됩니다",Vector2(135,y+15),13,Color("9b4329"),true,230)
 	for i in 2:
-		var u: Dictionary=data.unit(int(selected[i]));sprite(m,int(u.id),Rect2(41+i*108,y+24,80,65))
+		var u: Dictionary=data.unit(int(selected[i]));sprite(m,int(u.id),Rect2(41+i*108,y+24,80,65),0,1.0,int(u.star))
 		m._text(data.catalog.soldiers[int(u.id)].name,Vector2(81+i*108,y+105),9,Color("382619"),true,104)
 	m._text("가능한 결과 · 각 동일 확률",Vector2(135,y+133),10,Color("382619"),true,230)
 	for i in q.candidates.size():
@@ -687,7 +725,7 @@ func draw_training(m,y: float,bottom: float) -> void:
 	var hero_h: float=76 if spacious else 55
 	var hero:=Rect2(18,y+2,234,hero_h)
 	m._ui_style_box(m.sb_chip,hero)
-	sprite(m,int(u.id),Rect2(hero.position+Vector2(7,2),Vector2(62,hero_h-4)),int(m.ui_clock*7)%int(spec.frame_count))
+	sprite(m,int(u.id),Rect2(hero.position+Vector2(7,2),Vector2(62,hero_h-4)),int(m.ui_clock*7)%frame_count(int(u.id),int(u.star)),1.0,int(u.star),true)
 	m._text(spec.name,hero.position+Vector2(76,18),11,Color("382619"),false,150)
 	role_badge(m,str(spec.role),Rect2(hero.position+Vector2(76,25),Vector2(58,19)))
 	m._text("★".repeat(int(u.star))+" +%d"%int(u.get("level",0)),hero.position+Vector2(140,38),9,Color("8b611e"),false,88)
@@ -824,7 +862,7 @@ func draw_upgrade_effect(m,y: float,bottom: float) -> void:
 	m._ui_style_box(m.sb_chip,box.grow(5))
 	m._ui_rect(box,Color("092f38"))
 	var alpha: float=clampf((effect_time-1.0)/0.4,0,1) if effect_kind=="alchemy" else 1.0
-	sprite(m,int(u.id),Rect2(box.position+Vector2(22,37),Vector2(84,70)),int(m.ui_clock*7),alpha)
+	sprite(m,int(u.id),Rect2(box.position+Vector2(22,37),Vector2(84,70)),int(m.ui_clock*7),alpha,int(u.star),true)
 	var fi: int=mini(9,int(effect_time/0.11)) if effect_kind=="alchemy" else mini(12,int(effect_time/0.09))
 	var fade: float=1-alpha if effect_kind=="alchemy" else 1-clampf((effect_time-1.17)/0.35,0,1)
 	if effect_kind=="alchemy" and effect_time<0.77:
@@ -880,7 +918,7 @@ func draw_expedition_result(m,h: float) -> void:
 	m._text(c.heading,Vector2(135,y+26),16,Color("ffe4a2") if c.win else Color("ffc3a2"),true,214)
 	m._text(c.stage,Vector2(135,y+53),10,Color("6c553b"),true,216)
 	room(m,Rect2(26,y+65,218,75),int(b.round)-1)
-	for i in b.fighters.size(): sprite(m,int(b.fighters[i].id),Rect2(34+i*65,y+77,64,61),0,1.0 if c.win else .72)
+	for i in b.fighters.size(): sprite(m,int(b.fighters[i].id),Rect2(34+i*65,y+77,64,61),0,1.0 if c.win else .72,fighter_star(b.fighters[i]))
 	m._text(c.message,Vector2(135,y+160),11,Color("8c6421") if c.win else Color("8c4935"),true,216)
 	m._ui_rect(Rect2(31,y+171,208,54),Color("e8d4a8"))
 	m._text("획득 보상" if c.win else "탐험 기록",Vector2(135,y+185),9,Color("725636"),true,196)

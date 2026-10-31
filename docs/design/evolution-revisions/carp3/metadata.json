@@ -1,0 +1,12 @@
+{
+  "operation": "lossless_horizontal_mirror",
+  "source": "evolution-roster/carp/star3/original.png",
+  "source_sha256": "862e6c50c3dde96de07e6c1edd182dab23bdae59ae4eeb6780794be5c13ae3d7",
+  "output_sha256": "a92eeae05c08da0a567d63a32bf486e4d4c62bbf9b37d54c44b47d596c8530e3",
+  "size": [
+    160,
+    128
+  ],
+  "verified_pixel_exact_mirror": true,
+  "charged_generations": 0
+}

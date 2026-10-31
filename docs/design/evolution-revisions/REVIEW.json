@@ -1,0 +1,21 @@
+{
+  "requested_outputs": 8,
+  "generated_revisions": 7,
+  "charged_generations": 7,
+  "lossless_carp_direction_edit": 1,
+  "motion_calls": 0,
+  "game_applied": false,
+  "deployed": false,
+  "adopted": false,
+  "visual_review": {
+    "crucian3": "Orange fish face restored, large golden sun shield. Natural fish silhouette but major creature-evolution features weak; candidate only.",
+    "eel3": "Winged S-shaped thunder eel, strong creature change. Crossbow not clearly retained; role equipment fails specification. Original faced left; delivery losslessly mirrored right.",
+    "perch2": "Fish face and dorsal fin restored, silver brow plate and small crystal spear. Original faced left; delivery losslessly mirrored right. Three-pronged tip absent.",
+    "angler3": "Rounder purple head and enlarged amber eye, lantern retained. Major final-evolution body change still weak; candidate only.",
+    "flying3": "Large fin wings, longer fish body and tail. Saber omitted; role equipment fails specification. Delivery mirrored right.",
+    "herbalist3": "Natural round fish body with flower and aqua-crystal dorsal crest. Herb basket missing/unclear; delivery mirrored right. Candidate only.",
+    "rogue3": "Strong dark teal shark silhouette, large purple blade crest, exactly two curved cyan-green daggers; right facing retained.",
+    "carp3": "Exact approved copper armor/red crest/glowing hammer pixels horizontally mirrored right. Pixelwise exact mirror verified. No paid generation."
+  },
+  "source_originals_preserved": true
+}

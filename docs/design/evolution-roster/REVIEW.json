@@ -1,0 +1,32 @@
+{
+  "status": "review_candidates_not_adopted",
+  "requested": 28,
+  "motion_calls": 0,
+  "deployed": false,
+  "visual_review": {
+    "perch": "2성 큰 파란 결정창·은 어깨갑,3성 흉갑강화. 2↔3 차이약함/보완후보.",
+    "eel": "2성남색보호구,3성전기화살과강화석궁. 몸체진화는작은편.",
+    "crucian": "2성은방패·태양문양·흰지느러미,3성몸을감싸는아이보리중갑.",
+    "angler": "2성큰등불·청남색보호구,3성작은등불·은지느러미. 3성진화불충분/보완후보. 추가유료재시도자동검토차단,POST없음.",
+    "flying": "2성긴청록검·큰날개·흉갑,3성큰번개검·이마보호구. 날개형태유지.",
+    "loach": "2성청록보호구·구급가방,3성큰2단구급배낭. 수염과긴꼬리유지.",
+    "healer": "2성산호보주지팡이·흉갑,3성큰보주지팡이·결정관장식. 꼬리실루엣변화.",
+    "flounder": "2성은테두리남색방패,3성큰결정타워방패·남색중갑. 3성점무늬대부분장갑에가려짐.",
+    "pharmacist": "2성녹색보호구·약병,3성큰약품통·보라결정마개·잎볏. 3성얼굴은더정면형.",
+    "carp": "2성구리갑옷·강철망치,3성두꺼운어깨갑·붉은볏·발광망치. 3성무기크기는요청보다작음.",
+    "catfish": "2성검은금속보호구·번개방패,3성남색중갑·큰보라결정방패.",
+    "herbalist": "2성원형과가까움/보완후보. 3성잎갑옷·꽃관·큰잎배낭으로명확한변화.",
+    "rogue": "2성보라경갑·보라쌍검,3성분절허리갑·청록쌍검. 2↔3실루엣차이작음/보완후보.",
+    "crescent": "2성은청색판금·달방패,3성보라중갑투구·큰어깨판금·강화달방패로명확한변화."
+  },
+  "blocked_retry": {
+    "unit": "angler",
+    "tier": 3,
+    "reason": "automatic review required explicit additional paid retry authorization",
+    "submitted_marker": false,
+    "charge": 0
+  },
+  "completed": 28,
+  "charged_generations": 28.0,
+  "technical_validation": "28 transparent PNGs, all source-size match, all alpha 0..255, all recorded bounds inside canvas. No animations generated. User design adoption pending."
+}

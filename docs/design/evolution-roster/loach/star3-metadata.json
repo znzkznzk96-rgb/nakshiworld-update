@@ -1,0 +1,48 @@
+{
+  "request-settings.json": {
+    "image_size": {
+      "width": 160,
+      "height": 128
+    },
+    "description": "Major tier3 evolution: rebuild body armor and silhouette. Brown loach field surgeon champion. Teal silver-rimmed segmented armor on curved back, leaf-shaped shoulder plates, compact reinforced medical backpack with two large aqua healing canisters and ivory medical emblem. Keep whiskered cute fish face, long loach tail, visible pale belly. Same crisp pixels, facing and colors. No cape or background. Full body.",
+    "width": 160,
+    "height": 128,
+    "no_background": true,
+    "seed": 20261031,
+    "reference": {
+      "path": "evolution-roster/loach/star1.png",
+      "sha256": "4fc66a12a1d89e88a1491ff2bd69ad6a0717b3dce7cd34c70e687ab0ba97c207"
+    }
+  },
+  "reference.json": {
+    "path": "evolution-roster/loach/star1.png",
+    "sha256": "4fc66a12a1d89e88a1491ff2bd69ad6a0717b3dce7cd34c70e687ab0ba97c207"
+  },
+  "submitted.json": {
+    "time": 1793385182.4867244,
+    "endpoint": "edit-image",
+    "single_post": true
+  },
+  "response.json": {
+    "usage": null,
+    "background_job_id": "a8bb0d84-d743-41db-9bf5-fbc83316207f",
+    "status": "processing"
+  },
+  "cost.json": {
+    "charged_generations": 1
+  },
+  "validation.json": {
+    "size": [
+      160,
+      128
+    ],
+    "bbox": [
+      26,
+      34,
+      133,
+      111
+    ],
+    "sha256": "bbd6b1ba3642938e265e7c8a4f7a75e83fdc4acb714cdbe5db5adac3df27fef6",
+    "charged_generations": 1
+  }
+}

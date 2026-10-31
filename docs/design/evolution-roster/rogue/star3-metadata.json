@@ -1,0 +1,48 @@
+{
+  "request-settings.json": {
+    "image_size": {
+      "width": 160,
+      "height": 128
+    },
+    "description": "Major tier3 evolution: rebuild body armor and silhouette. Teal fish venom assassin champion. Layered obsidian-violet armor, swept bladed purple dorsal crest and angular shoulder plates. TWO imposing curved emerald poison daggers with violet guards. Preserve pink eye, fish snout, fins and compact agile anatomy. Powerful silhouette without cloak. Same crisp pixels, facing and colors. No cape or background. Full body.",
+    "width": 160,
+    "height": 128,
+    "no_background": true,
+    "seed": 20261031,
+    "reference": {
+      "path": "evolution-roster/rogue/star1.png",
+      "sha256": "50c50e6b78002c9b643e1767f7ecfee5a8e573cbc4bbe5aeacf0056381eaf442"
+    }
+  },
+  "reference.json": {
+    "path": "evolution-roster/rogue/star1.png",
+    "sha256": "50c50e6b78002c9b643e1767f7ecfee5a8e573cbc4bbe5aeacf0056381eaf442"
+  },
+  "submitted.json": {
+    "time": 1793386078.692864,
+    "endpoint": "edit-image",
+    "single_post": true
+  },
+  "response.json": {
+    "usage": null,
+    "background_job_id": "63c19f8d-259a-493e-99a0-d4ea83208286",
+    "status": "processing"
+  },
+  "cost.json": {
+    "charged_generations": 1
+  },
+  "validation.json": {
+    "size": [
+      160,
+      128
+    ],
+    "bbox": [
+      28,
+      21,
+      130,
+      111
+    ],
+    "sha256": "7e7f14f2279343bda6abffec9d44031bd2e913b54b7a980252818c76a8d69eec",
+    "charged_generations": 1
+  }
+}

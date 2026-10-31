@@ -1,0 +1,25 @@
+{
+  "action": "Dynamic shield ATTACK, not guarding. Preserve this exact cute puffer and turquoise silver-edged armor. Use the empty canvas for a clear powerful lunge to the RIGHT. First pull body and wooden shield BACK to the LEFT and crouch deeply, then explode forward 24 pixels to the RIGHT, thrusting the shield far in front of the body. At full extension a sharp cyan-white starburst erupts at the outer RIGHT edge of the shield, with a short turquoise crescent shockwave and 4 bright pixel sparks flying right. Recoil after the hit, effects dissipate completely, step back to original pose. Strong anticipation, very fast strike, slower recovery. Entire character leans and feet step visibly; shield remains attached. Same face, body, armor, wooden shield, fixed camera, no zoom, no opponent. Effect appears only at impact in front of shield, never as a permanent aura. Clean transparent pixel art.",
+  "frame_count": 12,
+  "seed": 20261031,
+  "no_background": true,
+  "enhance_prompt": false,
+  "reference": {
+    "path": "evolution-puffer/impact-reference/star2.png",
+    "sha256": "35d109949e963d6d2714425669c4a9cd640519f98cead8c1032e6caec1fae4c6"
+  },
+  "padding": {
+    "canvas": [
+      192,
+      192
+    ],
+    "original": [
+      128,
+      128
+    ],
+    "offset": [
+      16,
+      32
+    ]
+  }
+}

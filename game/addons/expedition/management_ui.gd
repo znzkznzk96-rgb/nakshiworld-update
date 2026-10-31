@@ -44,7 +44,7 @@ func grid(m,y:float,bottom:float):
   for i in 2:
    var r:=Rect2(48+i*83,y+15,49,47);m._ui_style_box(m.sb_chip,r)
    if i<v.selected.size():
-    var u:Dictionary=d.unit(v.selected[i]);v.sprite(m,u.id,r.grow(-6));select(m,r,str(i+1))
+    var u:Dictionary=d.unit(v.selected[i]);v.sprite(m,u.id,r.grow(-6),0,1.0,int(u.star));select(m,r,str(i+1))
    else:text(m,'재료 선택',r.get_center()+Vector2(0,3),7,true,46)
   text(m,'+',Vector2(114,y+43),14,true,20)
   text(m,'→ ★'+str(int(d.unit(v.selected[0]).star)+1) if not v.selected.is_empty() else '→ ?',Vector2(233,y+43),9,true,38)
@@ -65,7 +65,7 @@ func grid(m,y:float,bottom:float):
   var u:Dictionary=units[first+i];var spec:Dictionary=d.catalog.soldiers[int(u.id)]
   var r:=Rect2(18+(i%3)*79,y+floori(i/3.0)*68,76,64)
   m._ui_style_box(m.sb_chip,r)
-  v.sprite(m,int(u.id),Rect2(r.position+Vector2(22,3),Vector2(32,28)))
+  v.sprite(m,int(u.id),Rect2(r.position+Vector2(22,3),Vector2(32,28)),0,1.0,int(u.star))
   text(m,m._ui_wrap(spec.name,7,68,1),r.position+Vector2(38,42),7,true,69)
   text(m,'★'.repeat(int(u.star))+' +%d'%u.level,r.position+Vector2(38,55),8,true,69)
   if v.tab==1 and int(u.uid) in v.selected:select(m,r,str(v.selected.find(int(u.uid))+1))
@@ -91,7 +91,7 @@ func detail(m):
  var spec:Dictionary=d.catalog.soldiers[int(u.id)];var st:Dictionary=d.stats(u)
  var y:float=modal(m,326 if not confirm else 244)
  text(m,'병사 상세' if not confirm else '병사를 분해할까요?',Vector2(135,y+23),13,true)
- v.sprite(m,int(u.id),Rect2(34,y+34,66,55))
+ v.sprite(m,int(u.id),Rect2(34,y+34,66,55),0,1.0,int(u.star))
  text(m,spec.name,Vector2(111,y+51),10,false,130)
  text(m,'★'.repeat(int(u.star))+' +%d'%u.level,Vector2(111,y+69),9)
  text(m,d.ELEMENTS[d.native_element(uid)]+' 속성 · '+v.ROLES[spec.role],Vector2(111,y+85),9)
@@ -128,7 +128,7 @@ func result(m,u:Dictionary):
  text(m,'연성 완료!',Vector2(135,y+24),15,true)
  text(m,'새로운 병사를 획득했어요',Vector2(135,y+41),9,true)
  m._ui_style_box(m.sb_chip,Rect2(42,y+49,186,128))
- v.sprite(m,u.id,Rect2(96,y+56,78,69))
+ v.sprite(m,u.id,Rect2(96,y+56,78,69),0,1.0,int(u.star))
  text(m,'★'.repeat(int(u.star)),Vector2(135,y+141),11,true,210,Color('a57425'))
  text(m,spec.name,Vector2(135,y+163),12,true,174)
  for i in 3:
@@ -154,7 +154,7 @@ func merge_list(m,y:float,bottom:float):
   var r:=Rect2(47+i*101,y+29,75,53)
   m._ui_style_box(m.sb_chip,r)
   if i<v.selected.size():
-   var u:Dictionary=d.unit(v.selected[i]);v.sprite(m,u.id,Rect2(r.position+Vector2(20,1),Vector2(34,28)))
+   var u:Dictionary=d.unit(v.selected[i]);v.sprite(m,u.id,Rect2(r.position+Vector2(20,1),Vector2(34,28)),0,1.0,int(u.star))
    text(m,'★'.repeat(int(u.star))+' +%d'%u.level,r.position+Vector2(37,38),8,true,68)
    select(m,r,str(i+1))
   else:text(m,'+ 선택',r.position+Vector2(37,31),12,true,68)
@@ -175,7 +175,7 @@ func merge_list(m,y:float,bottom:float):
   var u:Dictionary=d.soldiers[first+i];var spec:Dictionary=d.catalog.soldiers[int(u.id)];var st:Dictionary=d.stats(u)
   var r:=Rect2(18,y+i*pitch,234,55)
   m._ui_style_box(m.sb_chip,r)
-  v.sprite(m,u.id,Rect2(r.position+Vector2(6,13),Vector2(40,37)))
+  v.sprite(m,u.id,Rect2(r.position+Vector2(6,13),Vector2(40,37)),0,1.0,int(u.star))
   text(m,spec.name,r.position+Vector2(52,15),10,false,172)
   text(m,'★'.repeat(int(u.star))+'  +%d'%u.level,r.position+Vector2(52,29),8,false,110)
   text(m,'체%d  공%d  방%d'%[st.hp,st.atk,st.def],r.position+Vector2(52,39),8,false,172)

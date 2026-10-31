@@ -1,0 +1,128 @@
+[
+  {
+    "frame": 0,
+    "bbox": [
+      8,
+      28,
+      120,
+      116
+    ],
+    "sha256": "a659bb3e443eb41c65d4bb3302faf1530b9aa665326b2e3355da8d35f611d93f",
+    "alpha_extrema": [
+      0,
+      255
+    ]
+  },
+  {
+    "frame": 1,
+    "bbox": [
+      9,
+      29,
+      118,
+      116
+    ],
+    "sha256": "a346a0ae4879d854bdd04e3d710794ffd4984c9f9670aa105b44ee3d48febc67",
+    "alpha_extrema": [
+      0,
+      255
+    ]
+  },
+  {
+    "frame": 2,
+    "bbox": [
+      10,
+      30,
+      115,
+      116
+    ],
+    "sha256": "50a88ad3d0b0cd4a143952514d0a8d0b4a46b7d6215e1189c4ae7c65bb665a69",
+    "alpha_extrema": [
+      0,
+      255
+    ]
+  },
+  {
+    "frame": 3,
+    "bbox": [
+      11,
+      31,
+      111,
+      116
+    ],
+    "sha256": "f12cacaebadeb4e285f8038091189bd6d865b7f49aa703df02451694a959b2d9",
+    "alpha_extrema": [
+      0,
+      255
+    ]
+  },
+  {
+    "frame": 4,
+    "bbox": [
+      10,
+      32,
+      110,
+      116
+    ],
+    "sha256": "86544337ac0b2236b3c2d313edaa09d563102b6fab104b338092ab6e84b2af9f",
+    "alpha_extrema": [
+      0,
+      255
+    ]
+  },
+  {
+    "frame": 5,
+    "bbox": [
+      11,
+      31,
+      110,
+      116
+    ],
+    "sha256": "083ca63332a0e484b7d4aa42fd1a00c8099f0a8db44358d6a6e4f77d8b14507a",
+    "alpha_extrema": [
+      0,
+      255
+    ]
+  },
+  {
+    "frame": 6,
+    "bbox": [
+      11,
+      29,
+      116,
+      116
+    ],
+    "sha256": "f5bbfc690d909f9c96520c794334119aaf3d8698119c29bc89590f7ecdf361f7",
+    "alpha_extrema": [
+      0,
+      255
+    ]
+  },
+  {
+    "frame": 7,
+    "bbox": [
+      10,
+      29,
+      119,
+      116
+    ],
+    "sha256": "271abb69d941db4a42ae0e61adf32f7ff79a8b027b8f87df7db70fe7f12587ab",
+    "alpha_extrema": [
+      0,
+      255
+    ]
+  },
+  {
+    "frame": 8,
+    "bbox": [
+      8,
+      28,
+      120,
+      116
+    ],
+    "sha256": "decdc7bb5ebfa067b799e9460c11d9ddea8f98737218645050176f2e93fad292",
+    "alpha_extrema": [
+      0,
+      255
+    ]
+  }
+]

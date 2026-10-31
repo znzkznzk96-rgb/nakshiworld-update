@@ -1,14 +1,14 @@
 {
   "work_branch": "work/valley-runtime",
-  "status": "v102_deployed_verified",
+  "status": "v103_uploaded_ci_pending",
   "release_baseline": "v1.02",
-  "target_release": "v1.02",
+  "target_release": "v1.03",
   "release_authorized": true,
-  "deployed": true,
+  "deployed": false,
   "phone_verified": false,
   "handoff": "HANDOFF.md",
-  "next_step": "기존 앱에서 1.02 도감 그림/등급색 휴대폰 확인",
-  "current_task": "도감 동네저수지 썸네일 크기와 수집 등급 색상 수정",
+  "next_step": "작업브랜치65검사·렌더 후 main병합·배포",
+  "current_task": "완성2성15종 외형·모션 적용 및 공개배포",
   "latest_decision": "docs/GAME_BIBLE.md",
   "paid_generation_authorized": {
     "count": 15,
@@ -26,11 +26,15 @@
   },
   "icon_generation_status": "Completed 15 accepted icons / 17 paid generations. Bolt and reflect accepted second attempts.",
   "local_verification": {
-    "status": "unavailable_current_runtime",
-    "reason": "Godot --version exits SIGSEGV; no local pass claimed"
+    "status": "passed",
+    "suites": 65,
+    "failed": 0,
+    "screens": 41,
+    "packed_art": "passed",
+    "full_source_matches": true
   },
   "source_commit": "f2a6c14a09768389e76b2beef8fdc43332b659da",
-  "verification": "analysis/release-102/PUBLISHED.json",
+  "verification": "analysis/tier2-103/VERIFICATION.json",
   "remote_saved": true,
   "remote_verification": {
     "suites": 64,
@@ -38,5 +42,208 @@
     "work_ci": 41095310822,
     "release_ci": 41096049556,
     "public_ci": 41096547823
-  }
+  },
+  "evolution_pilot": {
+    "adopted": true,
+    "star2": "star2-armor",
+    "star3": "star3-armor",
+    "total_pilot_paid_generations": 25,
+    "animations": 2,
+    "deployed": false,
+    "motion_paid_generations": 4,
+    "motion_report": "docs/design/puffer-evolution/MOTION_REVIEW.md",
+    "latest_motion_paid_generations": 14,
+    "latest_motion_report": "docs/design/puffer-evolution/IMPACT_REVIEW.md",
+    "impact_motion_adopted": true
+  },
+  "remaining_evolutions": {
+    "requested": 28,
+    "completed": 28,
+    "charged_generations": 28,
+    "motion_calls": 0,
+    "motion": "on_hold",
+    "adopted": false,
+    "deployed": false,
+    "review": "docs/design/evolution-roster/REVIEW.json",
+    "blocked_retry": "angler star3; no paid POST; needs explicit additional authorization"
+  },
+  "selected_revision": {
+    "requested": 8,
+    "completed_outputs": 8,
+    "generated_stills": 7,
+    "charged_generations": 7,
+    "lossless_carp_facing_fix": true,
+    "motion_calls": 0,
+    "deployed": false,
+    "adopted": false,
+    "review": "docs/design/evolution-revisions/REVIEW.json",
+    "limitations": [
+      "eel crossbow unclear",
+      "flying sword omitted",
+      "herbalist basket unclear",
+      "crucian/angler evolution weak"
+    ],
+    "adopted_items": [
+      "rogue3",
+      "carp3"
+    ]
+  },
+  "equipment_revision": {
+    "requested": 6,
+    "completed": 6,
+    "charged_generations": 6,
+    "motion_calls": 0,
+    "deployed": false,
+    "remote_images_saved": false,
+    "remote_upload_blocked": true,
+    "limitations": [
+      "crucian shield not oversized rectangular",
+      "eel crossbow/armor not achieved",
+      "angler lantern undersized",
+      "flying iaido pose not achieved",
+      "herbalist layered leaf armor unclear"
+    ]
+  },
+  "soldier_tier2": {
+    "requested": 14,
+    "completed": 14,
+    "charged_generations": 79.4,
+    "expected_generations_each": 4.1,
+    "expected_total": null,
+    "auto_retry": false,
+    "deployed": false,
+    "in_flight": null,
+    "passed": 14,
+    "failed": 0,
+    "cumulative_soldier_generations": 165.4,
+    "resume_budget": {
+      "max_generations_per_motion": 13,
+      "includes_pose_and_revisions": true,
+      "charged": 72.4,
+      "prior_cumulative": 93
+    },
+    "transfer_blocked": false,
+    "asset_transfer_authorized": true,
+    "flying": {
+      "generations": 12.1,
+      "passed": true,
+      "user_adopted": false,
+      "library_file_id": "libfile_3cc892441b8481918a2cebab1958911c",
+      "frames": 15,
+      "edge_touch": 0
+    },
+    "carp": {
+      "generations": 4.1,
+      "passed": true,
+      "user_adopted": false,
+      "library_file_id": "libfile_733610e2689c8191bdbff94a534aca12"
+    },
+    "flounder": {
+      "generations": 4.1,
+      "passed": true,
+      "user_adopted": false,
+      "library_file_id": "libfile_47db175e69508191997397df496e2cd6"
+    },
+    "crescent": {
+      "generations": 4.1,
+      "passed": true,
+      "user_adopted": false,
+      "library_file_id": "libfile_1b751aa2f6f881919940d139ee767f37"
+    },
+    "catfish": {
+      "generations": 4.1,
+      "passed": true,
+      "user_adopted": false,
+      "library_file_id": "libfile_5769dcf35fb88191b8514f8e30901f8e"
+    },
+    "crucian": {
+      "generations": 4.1,
+      "passed": true,
+      "user_adopted": false,
+      "library_file_id": "libfile_5ed81cb10a0c819182350af2da9a7749"
+    },
+    "perch": {
+      "generations": 11.1,
+      "passed": true,
+      "user_adopted": false,
+      "frames": 15,
+      "edge_touch": 0,
+      "canvas": [
+        320,
+        192
+      ],
+      "library_file_id": "libfile_dc94f184840c8191822419b0b363c0fe",
+      "repair": "frame08 PixelLab crop edit only; original body/hand pixels unchanged; other14 transparently padded",
+      "limitation": "frame08 spear-tip glow longer",
+      "rejected_edits": [
+        "perch-framefix",
+        "perch-outpaint"
+      ]
+    },
+    "batch_library_file_id": "libfile_b1b2e631a5e88191beb6c14ff6c6a1aa",
+    "not_called": [],
+    "stop_reason": null,
+    "second_resume": {
+      "authorized": true,
+      "new_charged": 30.7,
+      "perch_remaining": 1.9
+    },
+    "eel": {
+      "generations": 4.1,
+      "passed": true,
+      "user_adopted": false,
+      "limitation": "recoil subtle",
+      "library_file_id": "libfile_9be7c90b155c8191861042e2f7296361"
+    },
+    "healer": {
+      "generations": 4.1,
+      "passed": true,
+      "user_adopted": false,
+      "limitation": "pearl launches from staff center and is absent during follow-through",
+      "library_file_id": "libfile_f57794a8ddc081919cafef51a1640e0c"
+    },
+    "loach": {
+      "generations": 4.1,
+      "passed": true,
+      "user_adopted": false,
+      "library_file_id": "libfile_ab47900d037c81918ca2af5e2d556758"
+    },
+    "pharmacist": {
+      "generations": 4.1,
+      "passed": true,
+      "user_adopted": false,
+      "library_file_id": "libfile_4f63bc87b74481919f39eb7b4e1a441f"
+    },
+    "herbalist": {
+      "generations": 4.1,
+      "passed": true,
+      "user_adopted": false,
+      "library_file_id": "libfile_09dc41c6e4e0819188b013ab09890828"
+    },
+    "rogue": {
+      "generations": 4.1,
+      "passed": true,
+      "user_adopted": false,
+      "library_file_id": "libfile_889013db1550819197eb2c9208c86b95"
+    },
+    "angler": {
+      "generations": 4.1,
+      "passed": true,
+      "user_adopted": false,
+      "library_file_id": "libfile_c90c8df9dd98819195740e0c494c052a",
+      "limitation": "small distant ember remains in final frame"
+    },
+    "incomplete": [],
+    "cost_accounting": {
+      "historical_before_pose_resume": 93,
+      "previous_pose_resume": 41.7,
+      "this_continuation": 30.7,
+      "all_pose_resume": 72.4,
+      "cumulative": 165.4,
+      "charged_generations_field": "old7 initial motion +72.4 pose resume =79.4"
+    },
+    "user_adopted": true
+  },
+  "public_upload_block": null,
+  "public_art_upload_authorized": true
 }

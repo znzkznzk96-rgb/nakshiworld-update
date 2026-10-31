@@ -1,0 +1,48 @@
+{
+  "request-settings.json": {
+    "image_size": {
+      "width": 160,
+      "height": 128
+    },
+    "description": "Evolve this exact character to tier 2. Purple round anglerfish lantern support. Add dark violet silver-rimmed shell armor over back and small cheek guards. Upgrade handheld lantern to a larger ornate violet metal lantern with warm amber core. Keep arched head lure, purple fins and round toothy cute face. Preserve crisp pixel style, original facing and palette. No cape, text, background or extra limbs. Full body, no clipping.",
+    "width": 160,
+    "height": 128,
+    "no_background": true,
+    "seed": 20261031,
+    "reference": {
+      "path": "evolution-roster/angler/star1.png",
+      "sha256": "94084b55fd51ef037ab3811ed7e95c025a5bf98719500bf08f9a2e38efe0dc83"
+    }
+  },
+  "reference.json": {
+    "path": "evolution-roster/angler/star1.png",
+    "sha256": "94084b55fd51ef037ab3811ed7e95c025a5bf98719500bf08f9a2e38efe0dc83"
+  },
+  "submitted.json": {
+    "time": 1793384768.2348874,
+    "endpoint": "edit-image",
+    "single_post": true
+  },
+  "response.json": {
+    "usage": null,
+    "background_job_id": "93b170db-e82f-4f62-896a-887cad26cfa3",
+    "status": "processing"
+  },
+  "cost.json": {
+    "charged_generations": 1
+  },
+  "validation.json": {
+    "size": [
+      160,
+      128
+    ],
+    "bbox": [
+      17,
+      29,
+      137,
+      112
+    ],
+    "sha256": "6ed0af96ccc831afe71d199ff833641aa7b32dc32c4f5fccca5a1117a5a163f4",
+    "charged_generations": 1
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "request-settings.json": {
+    "image_size": {
+      "width": 160,
+      "height": 128
+    },
+    "description": "Major tier3 evolution: rebuild body armor and silhouette. Dark navy flatfish fortress guardian. Wide layered indigo-silver carapace, bold crescent fin crest, heavy angular side armor following flatfish body. Huge rectangular dark blue tower shield with cyan moon crystal and thick silver rim. Preserve spotted flatfish face and cute eye. Same crisp pixels, facing and colors. No cape or background. Full body.",
+    "width": 160,
+    "height": 128,
+    "no_background": true,
+    "seed": 20261031,
+    "reference": {
+      "path": "evolution-roster/flounder/star1.png",
+      "sha256": "a048be469e2c2493a98350bdca0daf79d420cbb8e8f9315c90ed72a93be6dc31"
+    }
+  },
+  "reference.json": {
+    "path": "evolution-roster/flounder/star1.png",
+    "sha256": "a048be469e2c2493a98350bdca0daf79d420cbb8e8f9315c90ed72a93be6dc31"
+  },
+  "submitted.json": {
+    "time": 1793385417.3409543,
+    "endpoint": "edit-image",
+    "single_post": true
+  },
+  "response.json": {
+    "usage": null,
+    "background_job_id": "fd7118fa-1d0a-4c61-a7bf-defc08fb8b41",
+    "status": "processing"
+  },
+  "cost.json": {
+    "charged_generations": 1
+  },
+  "validation.json": {
+    "size": [
+      160,
+      128
+    ],
+    "bbox": [
+      16,
+      33,
+      141,
+      115
+    ],
+    "sha256": "c699546f3be0131a1c601fd22eb8f11f8e87791681a6913d3f77b981d8f57780",
+    "charged_generations": 1
+  }
+}

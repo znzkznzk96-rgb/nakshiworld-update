@@ -1,0 +1,48 @@
+{
+  "request-settings.json": {
+    "image_size": {
+      "width": 160,
+      "height": 128
+    },
+    "description": "Evolve this exact character to tier 2. Blue fan-finned fish healer. Add pearl-white silver-edged chest and shoulder guards, small aqua crystal forehead ornament. Upgrade red coral staff with a glowing blue pearl set inside branching coral. Keep huge blue-white fan tail, large friendly eye and fish shape. Preserve crisp pixel style, original facing and palette. No cape, text, background or extra limbs. Full body, no clipping.",
+    "width": 160,
+    "height": 128,
+    "no_background": true,
+    "seed": 20261031,
+    "reference": {
+      "path": "evolution-roster/healer/star1.png",
+      "sha256": "b0450e7e88a2c8ceef32816129eebb079f1b34fb9bda3787fffa0bd62c08d4c7"
+    }
+  },
+  "reference.json": {
+    "path": "evolution-roster/healer/star1.png",
+    "sha256": "b0450e7e88a2c8ceef32816129eebb079f1b34fb9bda3787fffa0bd62c08d4c7"
+  },
+  "submitted.json": {
+    "time": 1793385250.7236307,
+    "endpoint": "edit-image",
+    "single_post": true
+  },
+  "response.json": {
+    "usage": null,
+    "background_job_id": "5ceeb92b-4c9a-43bf-bcd9-e3cc7042201a",
+    "status": "processing"
+  },
+  "cost.json": {
+    "charged_generations": 1
+  },
+  "validation.json": {
+    "size": [
+      160,
+      128
+    ],
+    "bbox": [
+      17,
+      24,
+      148,
+      111
+    ],
+    "sha256": "01d93f46c9cc22cb25f03496cab08b4df1659676f07b12e3cc474c3c3a1a7478",
+    "charged_generations": 1
+  }
+}

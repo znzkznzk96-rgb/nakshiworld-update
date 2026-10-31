@@ -1,0 +1,48 @@
+{
+  "request-settings.json": {
+    "image_size": {
+      "width": 128,
+      "height": 128
+    },
+    "description": "Final evolution: cute formidable THUNDER EEL WYVERN. Yellow eel face, long curled tail, thicker S-shaped body, two lightning horns, big jagged electric fin-wings and navy back scales. Powerful short forelimbs hold a twin-coil crossbow with cyan bolt. Yellow/navy/cyan, friendly eyes. Dramatically evolved creature anatomy, not human armor. Face RIGHT, crisp pixel sprite, transparent, full body.",
+    "width": 128,
+    "height": 128,
+    "no_background": true,
+    "seed": 20261101,
+    "reference": {
+      "path": "evolution-roster/eel/star1.png",
+      "sha256": "564a9f73e926eb638d68578c710225db803e33fcf4520d7ea00615fbb16fa195"
+    }
+  },
+  "reference.json": {
+    "path": "evolution-roster/eel/star1.png",
+    "sha256": "564a9f73e926eb638d68578c710225db803e33fcf4520d7ea00615fbb16fa195"
+  },
+  "submitted.json": {
+    "time": 1793386845.131972,
+    "endpoint": "edit-image",
+    "single_post": true
+  },
+  "response.json": {
+    "usage": null,
+    "background_job_id": "9afc0f97-b167-41f1-94f1-d106afdd5593",
+    "status": "processing"
+  },
+  "cost.json": {
+    "charged_generations": 1
+  },
+  "validation.json": {
+    "size": [
+      128,
+      128
+    ],
+    "bbox": [
+      5,
+      28,
+      121,
+      119
+    ],
+    "sha256": "7649a2a2c8441fbaab401d5f45353905f0a9d72fd0878ab26c3faff57a07298b",
+    "charged_generations": 1
+  }
+}

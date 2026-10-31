@@ -1,0 +1,50 @@
+{
+  "crucian3": {
+    "name": "crucian",
+    "tier": 3,
+    "source": "evolution-roster/crucian/star1.png",
+    "prompt": "Final evolution: cute powerful SUN FISH BEAST. Orange fish face, big amber eyes, broad round body, huge sun-ray fan tail, ivory shell scales growing on back and shoulders, two sun-ray brow horns. Large golden sun-disc shield with amber core. Change creature anatomy, not just human armor. Orange/ivory/amber palette. Confident cute face, dramatic new silhouette. Face RIGHT. Crisp pixel art, transparent, full body."
+  },
+  "eel3": {
+    "name": "eel",
+    "tier": 3,
+    "source": "evolution-roster/eel/star1.png",
+    "prompt": "Final evolution: cute formidable THUNDER EEL WYVERN. Yellow eel face, long curled tail, thicker S-shaped body, two lightning horns, big jagged electric fin-wings and navy back scales. Powerful short forelimbs hold a twin-coil crossbow with cyan bolt. Yellow/navy/cyan, friendly eyes. Dramatically evolved creature anatomy, not human armor. Face RIGHT, crisp pixel sprite, transparent, full body."
+  },
+  "perch2": {
+    "name": "perch",
+    "tier": 2,
+    "source": "evolution-roster/perch/star1.png",
+    "prompt": "Middle evolution: cute FIN LANCER creature. Recognizable fish snout, big amber eye, blue scales, pale belly. Broader athletic fish body, enlarged swept dorsal crest, fin-shaped shoulder scales, forked tail. Small silver-blue chest guard, long spear with three-pronged aqua crystal tip. Body and fins evolve; do not hide fish inside a round helmet. Cute and cool, not fully humanoid. Face RIGHT, crisp pixel art, transparent, full body."
+  },
+  "angler3": {
+    "name": "angler",
+    "tier": 3,
+    "source": "evolution-roster/angler/star1.png",
+    "prompt": "Final evolution: adorable formidable ABYSS LANTERN BEAST. Big round purple fish head, amber eyes, mischievous toothy grin. Broad round body, huge batlike purple fins, curled tail, two short crystal brow horns and silver-amethyst armored back scales. Thick arched head lure suspends a huge ornate amber soul lantern. Tiny clawed feet, compact creature anatomy, dramatic silhouette change. No human knight suit or cape. Face RIGHT, crisp pixel art, transparent, full body."
+  },
+  "flying3": {
+    "name": "flying",
+    "tier": 3,
+    "source": "evolution-roster/flying/star1.png",
+    "prompt": "Final evolution: cute majestic SKY BLADE FISH DRAGON. Turquoise fish snout, big amber eye, pale yellow chest, athletic curved fish body. Huge swept blade-fin wings with electric blue tips, long forked tail, two swept head crests. Silver-blue natural scales at wing roots. Hold broad curved aqua saber, NOT a lightning spear. Dramatically evolved winged creature, no human head or full metal suit. Face RIGHT, crisp pixel sprite, transparent, full body."
+  },
+  "herbalist3": {
+    "name": "herbalist",
+    "tier": 3,
+    "source": "evolution-roster/herbalist/star1.png",
+    "prompt": "Final evolution: cute magical GROVE FISH SPIRIT. Yellow-green fish face, warm big eyes, plump pale belly. Larger round fish body, huge leaf fan tail, branchlike dorsal crest with white flowers and aqua crystal buds. Emerald leaf scales on shoulders/back. Tiny sturdy fin-arms and feet, living-wood herb basket on back. Friendly forest creature, NOT a humanoid wearing leaf hood. Dramatic new silhouette. Face RIGHT, crisp pixel art, transparent, full body."
+  },
+  "rogue3": {
+    "name": "rogue",
+    "tier": 3,
+    "source": "evolution-roster/rogue/star1.png",
+    "prompt": "Final evolution: cute fierce VENOM REEF SHARK assassin. Teal fish snout, bright pink eyes, powerful compact shark body. Tall swept purple blade-fin crest, broad crescent tail, purple shoulder fins. Obsidian-violet natural scale armor. Each short forelimb holds ONE big curved emerald poison dagger, exactly TWO blades. Agile predatory creature silhouette, no skirt, cape or human torso. Cute confident face. Face RIGHT, crisp pixel sprite, transparent, full body."
+  },
+  "carp3": {
+    "name": "carp",
+    "tier": 3,
+    "source": "evolution-roster/carp/star3/original.png",
+    "prompt": "DIRECTION CORRECTION ONLY. Horizontally mirror this EXACT approved orange armored fish hammer champion so its face, nose, body and stance point RIGHT instead of left. Preserve identical copper armor shapes, red dorsal crest, cute face, round body, feet, glowing amber hammer, colors, pixel style, size and details. Do not redesign, upgrade, add or remove anything. Mirror the whole character including hammer consistently. Transparent background, full body."
+  }
+}
