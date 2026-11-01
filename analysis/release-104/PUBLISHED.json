@@ -1,0 +1,16 @@
+{
+  "version": "1.04",
+  "source_commit": "0d73acc6003029fb1874d760b67cb24d724c9db5",
+  "work_ci": 41267657763,
+  "release_ci": 41268049607,
+  "public_ci": 41268312571,
+  "all_ci": "success",
+  "patch_size": 53877120,
+  "patch_sha256": "a1fc803931cd327e0ebd0ff39de8c37d4d0f5bfa9cf6835407941ff1d2ad84b6",
+  "source_size": 57307618,
+  "source_sha256": "5c29b36e97f5863754885c193b4ced951717196ee2da77592a5e4ebff8c51576",
+  "source_crc": "passed",
+  "changed_game_files_match": 22,
+  "installed_app_gateway": "verified",
+  "phone_verified": false
+}
