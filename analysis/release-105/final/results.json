@@ -1,0 +1,46 @@
+[
+  {
+    "suite": "tier_skills",
+    "pass": true
+  },
+  {
+    "suite": "combat_feedback",
+    "pass": true
+  },
+  {
+    "suite": "management101",
+    "pass": true
+  },
+  {
+    "suite": "selected_ui",
+    "pass": true
+  },
+  {
+    "suite": "expedition_motion",
+    "pass": true
+  },
+  {
+    "suite": "startup_assets",
+    "pass": true
+  },
+  {
+    "suite": "notification091",
+    "pass": true
+  },
+  {
+    "suite": "arrival_gift",
+    "pass": true
+  },
+  {
+    "suite": "guide_ac",
+    "pass": true
+  },
+  {
+    "suite": "expedition_save",
+    "pass": true
+  },
+  {
+    "suite": "action_readability",
+    "pass": true
+  }
+]

@@ -1,0 +1,3 @@
+Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org
+
+BAIT_ROLES_VERIFY failures=[] results=[{ "rare": 0.2876, "large": 0.1616, "mean": 1.00248537566431 }, { "rare": 0.2947, "large": 0.2915, "mean": 1.08420533454852 }, { "rare": 0.4598, "large": 0.157, "mean": 0.99974976451897 }]
