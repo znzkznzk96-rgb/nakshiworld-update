@@ -1,0 +1,33 @@
+{
+  "version": {
+    "code": 105,
+    "name": "1.05",
+    "sha256": "eb84dd0b65b54a69c28ae38970263900cad46e59cfc22f534946edaa835b7d2c",
+    "size": 57712016,
+    "source_commit": "a83a6c1850f2ed07b76fb02ddf58579137db2061"
+  },
+  "assets": {
+    "game-source.zip": {
+      "size": 61640649,
+      "sha256": "7dbc745c001d56c84a438cbba867d913055564d80c8fd91640c8e6d6ff0c91de"
+    },
+    "patch.pck": {
+      "size": 57712016,
+      "sha256": "eb84dd0b65b54a69c28ae38970263900cad46e59cfc22f534946edaa835b7d2c"
+    },
+    "version.json": {
+      "size": 199,
+      "sha256": "9d01edbaf2456f1e1b5cd880277077340c27d601cf9360d640ef3c7cf0622b6c"
+    }
+  },
+  "work_ci": 41305612149,
+  "release_ci": 41306178864,
+  "gateway_ci": 41306463582,
+  "phone_verified": false,
+  "local_gateway": "HTTP403; server CI actual APK URL download and SHA256 verified",
+  "packed_skills_icons": 45,
+  "local_changed_files_match": 61,
+  "unchanged_baseline_files_match": 1401,
+  "zip_crc": true,
+  "remote_source_overlay_files_verified": 529
+}
