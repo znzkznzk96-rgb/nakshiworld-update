@@ -1,11 +1,11 @@
 {
   "work_branch": "work/valley-runtime",
-  "status": "v104_ready_for_ci",
-  "release_baseline": "v1.03",
+  "status": "v104_deployed_verified",
+  "release_baseline": "v1.04",
   "target_release": "v1.04",
-  "deployed": false,
+  "deployed": true,
   "phone_verified": false,
   "handoff": "analysis/release-104/README.md",
-  "current_task": "3성15종 업데이트",
-  "next_step": "검사 후 배포 및 공개파일 검증"
+  "current_task": "3성15종 업데이트 공개배포 완료",
+  "next_step": "기존 앱1.04 업데이트 및3성 표시 사용자 확인"
 }
