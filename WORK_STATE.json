@@ -1,11 +1,11 @@
 {
-  "work_branch": "work/valley-runtime",
-  "status": "v104_deployed_verified",
+  "work_branch": "work/skills-105",
+  "status": "v105_resuming_verification",
   "release_baseline": "v1.04",
-  "target_release": "v1.04",
-  "deployed": true,
+  "target_release": "v1.05",
+  "deployed": false,
   "phone_verified": false,
-  "handoff": "analysis/release-104/README.md",
-  "current_task": "3성15종 업데이트 공개배포 완료",
-  "next_step": "기존 앱1.04 업데이트 및3성 표시 사용자 확인"
+  "handoff": "HANDOFF.md",
+  "current_task": "승인된 스킬45종·아이콘·강화비1.05 배포",
+  "next_step": "로컬최종본대조·화면검증·원격저장·CI·배포"
 }

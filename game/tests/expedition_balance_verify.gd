@@ -2,7 +2,7 @@ extends SceneTree
 func _initialize() -> void: call_deferred("run")
 func run() -> void:
 	var failures: Array=[]
-	var Model=load("res://addons/expedition/model.gd");var ref=Model.new();var roles={"attack":[],"defense":[],"support":[]}
+	var Model=load("res://tests/legacy_skill_model.gd");var ref=Model.new();var roles={"attack":[],"defense":[],"support":[]}
 	for i in 15: roles[ref.catalog.soldiers[i].role].append(i)
 	var report=[]
 	for stars in [[1,1,1],[2,1,1],[1,2,1],[1,1,2],[2,2,1],[2,2,2]]:

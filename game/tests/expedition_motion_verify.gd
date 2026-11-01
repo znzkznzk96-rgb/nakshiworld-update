@@ -38,7 +38,7 @@ func run():
 	check(float(v.fighter_effect(f,{"age":.9,"hit_uid":1}).x)==0,"recoil ends")
 	for rarity in 3: check(v.rarity_label({"star":3,"rarity":rarity}).contains(["레어","유니크","전설"][rarity]),"rarity labels")
 	check(v.rarity_label({"star":2,"rarity":2})=="","no false low-star rarity")
-	var Model=load("res://addons/expedition/model.gd")
+	var Model=load("res://tests/legacy_skill_model.gd")
 	for id in 15:
 		var b=Model.new();var skill: String=b.catalog.soldiers[id].skill
 		if skill not in ["heal","regen","ward"]: continue

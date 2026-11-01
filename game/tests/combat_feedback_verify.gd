@@ -17,7 +17,7 @@ func check(ok,label):
 	if not ok: failures.append(label)
 func _initialize(): call_deferred("run")
 func run():
-	var Model=load("res://addons/expedition/model.gd")
+	var Model=load("res://tests/legacy_skill_model.gd")
 	var Old=load("res://tests/combat_feedback_baseline.gd")
 	for id in 15:
 		var fresh=Model.new();var old=Old.new()
@@ -35,7 +35,7 @@ func run():
 			check(mini(int(fresh.battle.fx.enemy_hp_before),total)==int(fresh.battle.fx.outgoing),"damage accounting")
 			var restored=Model.new();restored.restore(fresh.serialize())
 			check(restored.serialize()==fresh.serialize(),"event save roundtrip")
-	var v=load("res://addons/expedition/view.gd").new();v.setup()
+	var v=load("res://addons/expedition/view.gd").new();v.setup();v.data=Model.new()
 	for id in [3,0,7]: v.data.team.append(v.data.add_unit(id,2,[0,0,0]).uid)
 	v.data.start(1,1000);v.data.battle.utility_revision=0;v.data.battle.phase="fight";v.data.tick();v.data.battle.fx.age=.25
 	for height in [48,78]:

@@ -364,8 +364,14 @@ func draw_explore(m,y: float,bottom: float) -> void:
 		var r: Rect2=Rect2(17,y+23,236,85);room(m,r,int(b.round)-1);battle_art(m,r)
 		for i in b.fighters.size():
 			var f: Dictionary=b.fighters[i]
-			m._text("%s  %d/%d"%[data.catalog.soldiers[int(f.id)].name,int(f.hp),int(f.max_hp)],Vector2(25,y+130+i*20),10,Color("382619"),false,220)
-		m._text("지원 총량: 병사별 HP 35% · 적마다 회복" if int(b.get("utility_revision",0))>=1 else "기존 탐험 규칙 · 다음 출발부터 지원 개선",Vector2(135,y+187),7,Color("6c553b"),true,220)
+			if data.TIER_SKILLS.enabled(data):
+				management.skill(m,str(data.catalog.soldiers[int(f.id)].skill),Rect2(24,y+116+i*20,16,16),int(f.star))
+				m._text("%s %d/%d"%[data.catalog.soldiers[int(f.id)].name,int(f.hp),int(f.max_hp)],Vector2(44,y+130+i*20),8,Color("382619"),false,156)
+				var left:float=maxf(0,float(f.skill_ready)-float(b.skill_time))
+				m._text("—" if int(f.hp)<=0 else ("준비" if left<=.01 else "%.1f초"%left),Vector2(226,y+130+i*20),8,Color("39715c"),true,42)
+			else:
+				m._text("%s  %d/%d"%[data.catalog.soldiers[int(f.id)].name,int(f.hp),int(f.max_hp)],Vector2(25,y+130+i*20),10,Color("382619"),false,220)
+		m._text("자동 스킬 · 회복 30% / 보호막 35% 상한" if data.TIER_SKILLS.enabled(data) else ("지원 총량: 병사별 HP 35% · 적마다 회복" if int(b.get("utility_revision",0))>=1 else "기존 탐험 규칙 · 다음 출발부터 지원 개선"),Vector2(135,y+187),7,Color("6c553b"),true,220)
 		m._text(("조우 %d/3 · 클리어하면 %d비늘"%[mini(3,int(b.index)+1),(26 if bool(b.first) else 2)*int(b.round)]) if int(b.get("reward_revision",0))>=1 else ("조우 %d/3 · 획득 %d비늘"%[mini(3,int(b.index)+1),int(b.reward)]),Vector2(135,y+203),10,Color("382619"),true,220)
 		if data.active():
 			button(m,"minimize",Rect2(22,bottom-65,226,29),"마을에서 진행 보기")
@@ -411,7 +417,7 @@ func draw_roster(m,y: float,bottom: float) -> void:
 		var r: Rect2=Rect2(18,y+34+i*49,234,45)
 		m._ui_style_box(m.sb_btn,r);sprite(m,int(u.id),Rect2(r.position+Vector2(2,1),Vector2(43,40)),0,1.0,int(u.star))
 		m._text(spec.name+" · "+ROLES[spec.role],r.position+Vector2(49,14),9,Color("382619"),false,177)
-		m._text(spec.description,r.position+Vector2(49,29),8,Color("6c553b"),false,177)
+		m._text(management.skill_name(u),r.position+Vector2(49,29),8,Color("6c553b"),false,177)
 		m._text("★".repeat(int(u.star))+rarity_label(u)+(" · 편성 중" if int(u.uid) in data.team else ""),r.position+Vector2(49,40),7,Color("96703b"),false,177)
 		rects["unit:%d"%int(u.uid)]=r
 	button(m,"prev",Rect2(18,y+237,35,23),"‹");button(m,"next",Rect2(217,y+237,35,23),"›")

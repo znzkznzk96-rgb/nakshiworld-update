@@ -1,6 +1,7 @@
 extends RefCounted
 # One save transaction owns inventory, pending alchemy, battle and unclaimed rewards.
 const ELEMENTS = ["물", "전기", "독", "빛", "어둠"]
+const TIER_SKILLS = preload("res://addons/expedition/tier_skills.gd")
 const TICK = 1.5
 const POWER = 0.2
 const BALANCE_REVISION = 1
@@ -14,6 +15,7 @@ const FIRST_POUCHES = [1,1,2,1,3,1,4,1,1,5]
 const BOSS_POUCH_CHANCE = {3:0.05,5:0.08,7:0.12,10:0.20}
 var pouches: int = 0
 const TRAINING = [0.70,0.80,0.90,1.0]
+const TRAINING_GOLD = [[100,200,400],[2000,4000,8000],[32000,64000,128000]]
 var catalog: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://addons/expedition/catalog.json"))
 var souls: Array = [0,0,0,0,0]
 var soldiers: Array = []
@@ -160,7 +162,7 @@ func training_cost(uid: int) -> Dictionary:
 	var u: Dictionary=unit(uid)
 	if u.is_empty() or int(u.get("level",0))>=3: return {}
 	var level: int=int(u.get("level",0))
-	return {"gold":int(u.star)*[100,200,400][level],"element":int(catalog.soldiers[int(u.id)].elements[0]),"souls":level+1}
+	return {"gold":int(TRAINING_GOLD[int(u.star)-1][level]),"element":int(catalog.soldiers[int(u.id)].elements[0]),"souls":level+1}
 
 func train(uid: int,gold: int) -> Dictionary:
 	var cost: Dictionary=training_cost(uid)
@@ -183,8 +185,8 @@ func start(round_no: int,now: float) -> bool:
 		var u: Dictionary=unit(int(uid))
 		if u.is_empty(): return false
 		var st: Dictionary=stats(u)
-		fighters.append({"id":u.id,"uid":u.uid,"hp":st.hp,"max_hp":st.hp,"atk":st.atk,"def":st.def,"shield":0,"hits":0})
-	battle={"utility_revision":1,"utility_tick":0,"rescue_ready":0,"ward_ready":0,"reward_revision":2,"pouch_reward":0,"repeat_pouch_roll":rng.randf(),"balance_revision":BALANCE_REVISION,"status":"running","round":round_no,"index":0,"fighters":fighters,"ticks":0,"clock":0.0,"phase":"approach","phase_time":0.0,"reward":0,"cleared":0,"first":round_no not in completed,"last_damage":0,"progress":0.0,"result_seen":false}
+		fighters.append({"id":u.id,"uid":u.uid,"star":u.star,"hp":st.hp,"max_hp":st.hp,"atk":st.atk,"def":st.def,"shield":0,"hits":0})
+	battle={"tier_skill_revision":1,"utility_revision":1,"utility_tick":0,"rescue_ready":0,"ward_ready":0,"reward_revision":2,"pouch_reward":0,"repeat_pouch_roll":rng.randf(),"balance_revision":BALANCE_REVISION,"status":"running","round":round_no,"index":0,"fighters":fighters,"ticks":0,"clock":0.0,"phase":"approach","phase_time":0.0,"reward":0,"cleared":0,"first":round_no not in completed,"last_damage":0,"progress":0.0,"result_seen":false}
 	spawn_enemy()
 	return true
 
@@ -201,8 +203,10 @@ func spawn_enemy() -> void:
 	if int(battle.get("utility_revision",0))>=1:
 		for f in battle.fighters: f.support_budget=roundi(int(f.max_hp)*0.35)
 	battle.fx={};battle.ticks=0;battle.clock=0.0;battle.phase="approach";battle.phase_time=0.0
+	if TIER_SKILLS.enabled(self): TIER_SKILLS.init_encounter(self)
 
 func skill(f: Dictionary) -> String:
+	if TIER_SKILLS.enabled(self) and int(f.get("star",1))>=1:return ""
 	return str(catalog.soldiers[int(f.id)].skill)
 
 func damage(atk: float,defense: float) -> int:
@@ -212,6 +216,8 @@ func hurt(f: Dictionary,amount: int) -> void:
 	var blocked: int=mini(int(f.shield),amount);f.shield-=blocked;f.hp=maxi(0,int(f.hp)-amount+blocked)
 
 func tick() -> void:
+	if TIER_SKILLS.enabled(self):
+		TIER_SKILLS.advance(self,TICK);return
 	if int(battle.get("utility_revision",0))>=1: tick_utility()
 	else: tick_legacy()
 
@@ -288,6 +294,11 @@ func update(dt: float,now: float) -> bool:
 	if battle.phase=="approach":
 		if float(battle.phase_time)>=4.0: battle.phase="fight";battle.phase_time=0.0
 	elif battle.phase=="fight":
+		if TIER_SKILLS.enabled(self):
+			var before_second:int=floori(float(battle.skill_time))
+			var before_ticks:int=int(battle.ticks)
+			TIER_SKILLS.advance(self,dt)
+			return battle.phase!="fight" or int(battle.ticks)!=before_ticks or floori(float(battle.skill_time))!=before_second
 		battle.clock+=dt
 		if float(battle.clock)>=TICK:
 			battle.clock-=TICK;tick();return true
@@ -371,13 +382,13 @@ func tick_utility() -> void:
 	battle.utility_tick=int(battle.get("utility_tick",0))+1
 	var enemy: Dictionary=battle.enemy
 	var front: Dictionary=living[0]
-	var enemy_def: float=float(enemy.defense)
-	var enemy_atk: float=float(enemy.atk)
+	var enemy_def: float=TIER_SKILLS.enemy_stat(self,"defense") if TIER_SKILLS.enabled(self) else float(enemy.defense)
+	var enemy_atk: float=TIER_SKILLS.enemy_stat(self,"atk") if TIER_SKILLS.enabled(self) else float(enemy.atk)
 	for f in living:
 		if skill(f)=="curse": pass # replaced with team exposure
 		if skill(f)=="weaken": enemy_atk*=0.8
 	# Debuffs do not multiply with duplicate soldiers.
-	enemy_def=maxf(enemy_def,float(enemy.defense)*0.7);enemy_atk=maxf(enemy_atk,float(enemy.atk)*0.8)
+	enemy_def=maxf(enemy_def,float(enemy.defense)*0.7);enemy_atk=maxf(enemy_atk,float(enemy.atk)*(0.7 if TIER_SKILLS.enabled(self) else 0.8))
 	battle.fx={"front_hp_before":int(front.hp),"enemy_hp_before":int(enemy.hp),"age":0.0,"hit_uid":int(front.uid),"death_uid":-1,"support":[],"enemy_hit":true}
 	var attack: int=roundi(int(enemy.poison)*POWER)
 	var heals: Array=[]
@@ -392,18 +403,25 @@ func tick_utility() -> void:
 		if int(battle.ticks)%3==0 and sk=="flurry": power*=1.5
 		var dealt: int=damage(power,enemy_def*0.5 if sk=="pierce" else enemy_def)
 		if living.any(func(v):return skill(v)=="curse"): dealt=roundi(dealt*(1.0+float(UTILITY_PROFILE.expose)))
+		if TIER_SKILLS.enabled(self):dealt+=TIER_SKILLS.normal_bonus(self,f)
 		attack+=dealt
 		battle.fx.attacks.append({"source":int(f.uid),"role":str(catalog.soldiers[int(f.id)].role),"amount":dealt})
 		if sk=="drain": f.hp=mini(int(f.max_hp),int(f.hp)+roundi(power*0.18*POWER))
 		if sk=="poison": enemy.poison=mini(18,int(enemy.poison)+maxi(1,roundi(power*0.08)))
-	var incoming: int=damage(enemy_atk,float(front.def))
+	var enemy_due:bool=not TIER_SKILLS.enabled(self)
+	if TIER_SKILLS.enabled(self):
+		enemy_due=false # Timed engine schedules enemy independently.
+		if enemy_due:battle.enemy_ready=float(battle.get("enemy_ready",TICK))+TICK
+	var incoming: int=damage(enemy_atk,float(front.def)) if enemy_due else 0
+	if TIER_SKILLS.enabled(self) and enemy_due:incoming=TIER_SKILLS.before_hurt(self,front,incoming)
 	battle.fx.blocked=mini(int(front.shield),incoming)
 	battle.fx.incoming=mini(int(front.hp),incoming-int(battle.fx.blocked))
-	utility_hurt(front,incoming);front.hits+=1
-	if skill(front)=="thorns": enemy.poison=mini(18,int(enemy.poison)+3)
+	if enemy_due:
+		utility_hurt(front,incoming);front.hits+=1
+	if enemy_due and skill(front)=="thorns": enemy.poison=mini(18,int(enemy.poison)+3)
 	var retaliation: int=0
 	if skill(front)=="reflect": retaliation+=roundi(incoming*0.25)
-	if skill(front)=="counter" and int(front.hits)%3==0: retaliation+=damage(float(front.atk)*1.5,enemy_def)
+	if enemy_due and skill(front)=="counter" and int(front.hits)%3==0: retaliation+=damage(float(front.atk)*1.5,enemy_def)
 	attack+=retaliation
 	for event in battle.fx.attacks:
 		if int(event.source)==int(front.uid): event.amount+=retaliation
