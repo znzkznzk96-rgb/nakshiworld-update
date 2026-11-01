@@ -1,6 +1,6 @@
 extends SceneTree
 var failures=[]
-var Model=preload("res://addons/expedition/model.gd")
+var Model=preload("res://tests/legacy_skill_model.gd")
 var Old=preload("res://tests/combat_feedback_baseline.gd")
 func _initialize():call_deferred("run")
 func check(ok,label):

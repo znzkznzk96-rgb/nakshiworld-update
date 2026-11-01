@@ -18,7 +18,7 @@ func fast(d) -> void:
 func equivalent(a,b) -> bool:
  return a.battle.status==b.battle.status and a.battle.fighters==b.battle.fighters
 func run() -> void:
- var actual_path="res://addons/expedition/model.gd";var old_path="res://tests/analysis/baseline080_model.gd";var cases:=0;var saves:=0
+ var actual_path="res://tests/legacy_skill_model.gd";var old_path="res://tests/analysis/baseline080_model.gd";var cases:=0;var saves:=0
  for iv in [0,4,8]:
   for r in range(1,11):
    for sample in 12:

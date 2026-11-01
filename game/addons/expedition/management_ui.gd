@@ -8,13 +8,20 @@ var skill_textures:Dictionary={}
 const SKILLS=['drain','bolt','thorns','shield','curse','flurry','regen','heal','mend','weaken','pierce','counter','ward','poison','reflect']
 const NAMES=['흡수','전격 화살','독가시','보호막','등불의 격려','연속 베기','재생','긴급 회복','자가 회복','약화','방어 관통','반격','보호 약초','맹독','피해 반사']
 func bind(owner):owner_ref=weakref(owner)
+func skill_name(u:Dictionary)->String:
+ var info:Dictionary=v.data.TIER_SKILLS.info(int(u.id),int(u.star))
+ return str(info.name)+' · %d초'%int(info.cd) if not info.is_empty() else NAMES[int(u.id)]
+func skill_description(u:Dictionary)->String:
+ var info:Dictionary=v.data.TIER_SKILLS.info(int(u.id),int(u.star))
+ return str(info.description) if not info.is_empty() else str(v.data.catalog.soldiers[int(u.id)].description)
 func text(m,s,p,size=9,center=false,w=220,c=Color('493421')):m._text(s,p,size,c,center,w)
-func skill(m,key:String,r:Rect2):
+func skill(m,key:String,r:Rect2,star:int=1):
  var i:int=SKILLS.find(key)
  if i<0:return
- if not skill_textures.has(key):
-  skill_textures[key]=load('res://art/ui/soldier_skills/'+key+'.png')
- m._ui_texture_rect(skill_textures[key],r)
+ var cache_key:String='%d_%02d'%[star,i]
+ if not skill_textures.has(cache_key):
+  skill_textures[cache_key]=load('res://art/ui/soldier_skills/tiered/t%d_%02d.tres'%[star,i])
+ m._ui_texture_rect(skill_textures[cache_key],r)
 func select(m,r:Rect2,number:String=''):
  m._ui_rect(r.grow(-1),Color('68411d'),false,3)
  m._ui_rect(r.grow(-2),Color('f4bd4d'),false,2)
@@ -108,9 +115,9 @@ func detail(m):
   v.symbol(m,['hp','attack','defense'][i],Rect2(x,y+99,16,16))
   text(m,['체력','공격','방어'][i],Vector2(x+20,y+108),8,false,45)
   text(m,str(st[['hp','atk','def'][i]]),Vector2(x+35,y+124),11,true,65)
- skill(m,spec.skill,Rect2(30,y+137,32,32))
- text(m,NAMES[SKILLS.find(spec.skill)],Vector2(69,y+149),10,false,170)
- var lines:String=m._ui_wrap(spec.description,8,165,2)
+ skill(m,spec.skill,Rect2(30,y+137,32,32),int(u.star))
+ text(m,skill_name(u),Vector2(69,y+149),10,false,170)
+ var lines:String=m._ui_wrap(skill_description(u),8,165,2)
  var index:int=0
  for line in lines.split('\n'):
   text(m,line,Vector2(69,y+162+index*12),8,false,168);index+=1
@@ -138,10 +145,10 @@ func result(m,u:Dictionary):
   text(m,['체력','공격','방어'][i],Vector2(x+24,y+197),8,false,42)
   text(m,'+%d%%'%int(u.iv[i]),Vector2(x+43,y+214),10,true,45)
  m._ui_style_box(m.sb_chip,Rect2(28,y+229,214,49))
- skill(m,spec.skill,Rect2(33,y+235,32,32))
- text(m,NAMES[SKILLS.find(spec.skill)],Vector2(72,y+243),10,false,160)
+ skill(m,spec.skill,Rect2(33,y+235,32,32),int(u.star))
+ text(m,skill_name(u),Vector2(72,y+243),10,false,160)
  var n:int=0
- for line in m._ui_wrap(spec.description,8,160,2).split('\n'):
+ for line in m._ui_wrap(skill_description(u),8,160,2).split('\n'):
   text(m,line,Vector2(72,y+257+n*11),8,false,160);n+=1
  v.primary(m,'pending_again',Rect2(29,y+285,212,25),'어혼 연성으로 돌아가기')
  v.button(m,'pending_done',Rect2(29,y+316,212,24),'병사 보관함으로')
@@ -179,7 +186,7 @@ func merge_list(m,y:float,bottom:float):
   text(m,spec.name,r.position+Vector2(52,15),10,false,172)
   text(m,'★'.repeat(int(u.star))+'  +%d'%u.level,r.position+Vector2(52,29),8,false,110)
   text(m,'체%d  공%d  방%d'%[st.hp,st.atk,st.def],r.position+Vector2(52,39),8,false,172)
-  text(m,m._ui_wrap(spec.description,7,172,1),r.position+Vector2(52,49),7,false,172)
+  text(m,m._ui_wrap(skill_description(u),7,172,1),r.position+Vector2(52,49),7,false,172)
   if bool(u.locked):
    v.lock_icon(m,'lock_status:%d'%u.uid,Rect2(r.end.x-25,r.position.y+18,20,22),true)
   elif int(u.uid) in d.team:text(m,'출전',r.position+Vector2(199,28),7,true,40,Color('39715c'))
