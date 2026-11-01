@@ -1,0 +1,21 @@
+{
+  "source_commit": "2d5dda1d3dca018bc93a24b99ebec1d11cd5ab7a",
+  "work_ci": 41305612149,
+  "result": "success",
+  "suite_count": 68,
+  "skill_checks": 454,
+  "training_cases": 135,
+  "rendered_pngs": 221,
+  "visually_reviewed": [
+    "tier1-detail.png",
+    "tier2-detail.png",
+    "tier3-detail.png",
+    "battle.png"
+  ],
+  "artifact_sha256": "3f6af0d2f0381f5cf1f3885345ec4adb3a005c8dc46a5aa4569061eea3a9a14c",
+  "remote_overlay_files_match": 61,
+  "pr": 36,
+  "merge_commit": "a83a6c1850f2ed07b76fb02ddf58579137db2061",
+  "release_status": "building",
+  "phone_verified": false
+}

@@ -1,11 +1,11 @@
 {
   "work_branch": "work/skills-105",
-  "status": "v105_resuming_verification",
-  "release_baseline": "v1.04",
+  "status": "v105_deployed_verified",
+  "release_baseline": "v1.05",
   "target_release": "v1.05",
-  "deployed": false,
+  "deployed": true,
   "phone_verified": false,
   "handoff": "HANDOFF.md",
-  "current_task": "승인된 스킬45종·아이콘·강화비1.05 배포",
-  "next_step": "로컬최종본대조·화면검증·원격저장·CI·배포"
+  "current_task": "스킬45종·아이콘·강화비1.05공개완료",
+  "next_step": "기존앱1.05업데이트 및 휴대폰표시 사용자확인"
 }
