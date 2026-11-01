@@ -20,7 +20,7 @@ func run():
    check(box.grow(1).encloses(g.rect),spec.id+' display bounds')
    if frame>0:check(g.rect==previous,spec.id+' stable animation position and size')
    previous=g.rect
-  for star in [1,3]:
+  for star in [1]:
    var g:Dictionary=v.sprite_geometry(id,box,0,star)
    check(g.texture==spec.id,spec.id+' unchanged other star')
    check(v.frame_count(id,star)==int(spec.frame_count),spec.id+' unchanged other frames')

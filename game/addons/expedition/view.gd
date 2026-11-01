@@ -11,6 +11,7 @@ var pair_slot: int = 0
 var rects: Dictionary = {}
 var textures: Dictionary = {}
 var tier2: Dictionary = {}
+var tier3: Dictionary = {}
 var drag_slot: int = -1
 var drag_start: Vector2
 var drag_pos: Vector2
@@ -62,6 +63,8 @@ const WALLS = ["24596e","347c74","225f79","956526","3d366f","395472","263d70","1
 func setup() -> void:
 	tier2=JSON.parse_string(FileAccess.get_file_as_string("res://art/expedition/tier2/manifest.json"))
 	for id in tier2: textures[id+"_tier2"]=load("res://art/expedition/tier2/%s.png"%id)
+	tier3=JSON.parse_string(FileAccess.get_file_as_string("res://art/expedition/tier3/manifest.json"))
+	for id in tier3: textures[id+"_tier3"]=load("res://art/expedition/tier3/%s.png"%id)
 	management.bind(self)
 	for i in 10:
 		var path: String="res://art/expedition/rooms/room%02d.png"%(i+1)
@@ -116,17 +119,19 @@ func fighter_star(f: Dictionary) -> int:
 
 func frame_count(id: int,star: int=1) -> int:
 	var spec: Dictionary=data.catalog.soldiers[id]
-	return int(tier2[spec.id].frames) if star==2 and tier2.has(spec.id) else int(spec.frame_count)
+	var arts:Dictionary=tier3 if star==3 else tier2
+	return int(arts[spec.id].frames) if star in [2,3] and arts.has(spec.id) else int(spec.frame_count)
 
 func sprite_geometry(id: int,box: Rect2,frame: int=0,star: int=1,motion: bool=false) -> Dictionary:
 	var spec: Dictionary=data.catalog.soldiers[id]
-	if star==2 and tier2.has(spec.id):
-		var art: Dictionary=tier2[spec.id]
+	var arts:Dictionary=tier3 if star==3 else tier2
+	if star in [2,3] and arts.has(spec.id):
+		var art: Dictionary=arts[spec.id]
 		var bounds: Array=art.motion_bounds if motion else art.idle_bounds
 		var size:=Vector2(float(bounds[2])-float(bounds[0]),float(bounds[3])-float(bounds[1]))
 		var scale: float=minf(box.size.x/size.x,box.size.y/size.y)
 		var drawn: Vector2=size*scale
-		return {"texture":str(spec.id)+"_tier2","rect":Rect2((box.get_center()-drawn/2).round(),drawn.round()),"region":Rect2((frame%int(art.frames))*int(art.size[0])+int(bounds[0]),int(bounds[1]),size.x,size.y)}
+		return {"texture":str(spec.id)+"_tier%d"%star,"rect":Rect2((box.get_center()-drawn/2).round(),drawn.round()),"region":Rect2((frame%int(art.frames))*int(art.size[0])+int(bounds[0]),int(bounds[1]),size.x,size.y)}
 	var size:=Vector2(int(spec.frame_size[0]),int(spec.frame_size[1]))
 	var drawn: Vector2=size*minf(box.size.x/size.x,box.size.y/size.y)
 	return {"texture":spec.id,"rect":Rect2((box.get_center()-drawn/2).round(),drawn.round()),"region":Rect2(frame%int(spec.frame_count)*size.x,0,size.x,size.y)}
@@ -136,17 +141,17 @@ func sprite(m,id: int,box: Rect2,frame: int=0,alpha: float=1.0,star: int=1,motio
 	m._ui_texture_rect_region(textures[g.texture],g.rect,g.region,Color(1,1,1,alpha))
 
 func battle_sprite(m,id:int,box:Rect2,frame:int,alpha:float,star:int) -> void:
-	if star!=2:
+	if star not in [2,3]:
 		sprite(m,id,box,frame,alpha,star,true);return
 	var spec:Dictionary=data.catalog.soldiers[id]
-	var art:Dictionary=tier2[spec.id]
+	var art:Dictionary=(tier3 if star==3 else tier2)[spec.id]
 	var b:Array=art.motion_bounds;var idle:Array=art.idle_bounds
 	# Effect width must not shrink the body. Anchor to the idle character, not canvas center.
 	var scale:float=minf(box.size.y/(float(b[3])-float(b[1])),box.size.x/128.0)
 	var anchor_x:float=(float(idle[0])+float(idle[2]))/2.0
 	var size:=Vector2(float(b[2])-float(b[0]),float(b[3])-float(b[1]))
 	var pos:=Vector2(box.get_center().x+(float(b[0])-anchor_x)*scale,box.end.y-size.y*scale)
-	m._ui_texture_rect_region(textures[spec.id+"_tier2"],Rect2(pos.round(),(size*scale).round()),Rect2(frame%int(art.frames)*int(art.size[0])+int(b[0]),int(b[1]),size.x,size.y),Color(1,1,1,alpha))
+	m._ui_texture_rect_region(textures[spec.id+"_tier%d"%star],Rect2(pos.round(),(size*scale).round()),Rect2(frame%int(art.frames)*int(art.size[0])+int(b[0]),int(b[1]),size.x,size.y),Color(1,1,1,alpha))
 
 func atlas(texture: Texture2D,region: Rect2) -> AtlasTexture:
 	var a=AtlasTexture.new();a.atlas=texture;a.region=region;return a

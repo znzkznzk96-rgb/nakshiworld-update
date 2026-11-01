@@ -33,5 +33,7 @@ func _initialize() -> void:
 		var spec:Dictionary=expedition.data.catalog.soldiers[id]
 		assert(expedition.frame_count(id,2)==(13 if spec.id=="puffer" else 15),"tier2 frames packed")
 		assert(expedition.textures[spec.id+"_tier2"] is Texture2D,"tier2 atlas packed")
+		assert(expedition.frame_count(id,3)==(13 if spec.id=="puffer" else 15),"tier3 frames packed")
+		assert(expedition.textures[spec.id+"_tier3"] is Texture2D,"tier3 atlas packed")
 	print("PACKED_ANGLER_VERIFY failures=[]")
 	quit()
