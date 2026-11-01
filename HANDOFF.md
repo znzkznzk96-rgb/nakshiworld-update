@@ -7,3 +7,6 @@
 [공개검증](analysis/release-105/PUBLISHED.json),[CI](analysis/release-105/CI.json),[앱주소다운로드증거](analysis/release-105/GATEWAY.txt),[릴리스](https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v1.05).
 
 로컬운영URL조회는HTTP403으로실패했으나원격CI가실제설치앱URL다운로드·해시검증완료. 휴대폰적용은사용자확인대기. 다음: 기존앱1.05업데이트확인. 새생성/재배포자동반복금지. 과거인계는Git이력보존.
+
+## 현재 후속 작업 — 타일 바다 시안
+사용자 요청으로 일반19종 외형 시안을 실제 저수지/계곡 기준으로 전면 재검토. 지침은 GAME_BIBLE 최신항목. 이전 두 시트 미승인, 주인 미정. 공개1.05 유지, 게임코드 변경 없음.
