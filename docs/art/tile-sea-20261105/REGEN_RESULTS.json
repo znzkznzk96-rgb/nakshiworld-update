@@ -1,0 +1,99 @@
+{
+  "date_kst": "2026-11-05",
+  "scope": [
+    2,
+    3,
+    8,
+    12,
+    13,
+    17
+  ],
+  "model": "generate-image-v2",
+  "requests": 6,
+  "concurrency_max": 1,
+  "automatic_retries": 0,
+  "charged_generations": 60,
+  "balance_before": 1287.6,
+  "balance_after_confirmed": 1227.6,
+  "all_19_internal_pass": true,
+  "existing_13_unchanged": true,
+  "user_final_acceptance_pending": true,
+  "game_applied": false,
+  "deployed": false,
+  "boss_concepts": [
+    {
+      "candidate": "A",
+      "name": "백자성채 개복치",
+      "status": "proposal_only",
+      "method": "built-in image generation"
+    },
+    {
+      "candidate": "B",
+      "name": "심청유리 실러캔스",
+      "status": "proposal_only",
+      "method": "built-in image generation"
+    }
+  ],
+  "results": [
+    {
+      "id": 2,
+      "name": "줄눈전갱이",
+      "status": "internal_pass",
+      "seed": 2026111502,
+      "charged_generations": 10,
+      "sha256": "4d7365741c307c6a8546f4662454510506a07ad55a771f31b1e5bd538b39443f",
+      "reference_sha256": "aeb0e94651535948a8c0f54426ed6f748274945821b4238b67a70de895cad588",
+      "notes": "좌향·청록전갱이몸통·상아줄눈으로분리된파랑타일3칸·주황꼬리·은크림배 통과. 실제이미지수신,명암/윤곽/알파/잘림검수."
+    },
+    {
+      "id": 3,
+      "name": "고등어",
+      "status": "internal_pass",
+      "seed": 2026111503,
+      "charged_generations": 10,
+      "sha256": "043fcf98d877cb15b0a3307d8331bf220a4d4655aac370b153158697c737286d",
+      "reference_sha256": "aeb0e94651535948a8c0f54426ed6f748274945821b4238b67a70de895cad588",
+      "notes": "긴실모양지느러미제거됨. 좌향·청색등과짙은파상줄무늬·은배·짧은지느러미·두등지느러미·갈래꼬리 통과. 명암/윤곽/알파/여백 통과."
+    },
+    {
+      "id": 8,
+      "name": "수영모해파리",
+      "status": "internal_pass",
+      "seed": 2026111508,
+      "charged_generations": 10,
+      "sha256": "f132aac4faf483e76cfecc25262e180cce1a4b136ec4a4aa054f8fd6a2f7d0a8",
+      "reference_sha256": "e4efc6534a9409579ac27e965c43681fc5d30a909ba725c5b6d4cf941dd581a9",
+      "notes": "자홍/보라색수영모갓의면분할·굴곡테두리·굵고분리된촉수명암 보완됨. 좌향진행실루엣·윤곽·알파·여백 통과."
+    },
+    {
+      "id": 12,
+      "name": "모자이크가자미",
+      "status": "internal_pass",
+      "seed": 2026111512,
+      "charged_generations": 10,
+      "sha256": "eb252837292152e2343949af7a103d88404dfbbd2c2a487963e94e6c461e648f",
+      "reference_sha256": "e4efc6534a9409579ac27e965c43681fc5d30a909ba725c5b6d4cf941dd581a9",
+      "notes": "생성이미지확보. 좌향·납작타원몸통·같은쪽두눈·청색/상아타일격자·주변지느러미 통과. 시안보다격자칸많고주황테두리약한차이기록. 명암/윤곽/알파/여백정상."
+    },
+    {
+      "id": 13,
+      "name": "튜브복어",
+      "status": "internal_pass",
+      "seed": 2026111513,
+      "charged_generations": 10,
+      "sha256": "46b8cb42edcc738a4f17c95d18eeee0af23b8671f5ef505a4b89f4f46ec37dd8",
+      "reference_sha256": "66b413002c5d301c406612a2023fa4bc10c0bcd0ebb8909b6e0825a3d95e1b79",
+      "notes": "튜브가배아래수평타원으로수정됨. 좌향주황복어·작은가시·크림/주황튜브·눈/꼬리/명암/윤곽통과. 불필요한안경/모자없는변형선택."
+    },
+    {
+      "id": 17,
+      "name": "바둑판가오리",
+      "status": "internal_pass",
+      "seed": 2026111517,
+      "charged_generations": 10,
+      "sha256": "244ebff803c622192ae8dd7d65c3bb24d1c557a18fe55a251a13a0236ed1ab59",
+      "reference_sha256": "e4efc6534a9409579ac27e965c43681fc5d30a909ba725c5b6d4cf941dd581a9",
+      "notes": "펼친마름모날개전체에남색/상아바둑판격자명확. 좌향머리·금색눈·긴꼬리·윤곽·알파·잘림통과. 기존부분무늬문제해결."
+    }
+  ]
+}
