@@ -6,7 +6,7 @@
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/art/tile-sea-20261105/FINAL_HANDOFF.md",
-  "current_task": "12모자이크가자미·17바둑판가오리 유영자세 재제작",
-  "next_step": "12 단일제작 및 검수 후 17 단일제작 및 검수",
+  "current_task": "12가자미·17가오리 유영자세 수정본 완료·사용자검토대기",
+  "next_step": "수정12/17 사용자채택확인. 기존20종보존,게임/모션미적용",
   "art_record": "docs/art/tile-sea-20261105/BOSS_TWO_RESULTS.json"
 }
