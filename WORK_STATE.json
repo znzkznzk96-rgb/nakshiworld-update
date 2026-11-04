@@ -6,7 +6,7 @@
   "deployed": true,
   "phone_verified": false,
   "handoff": "HANDOFF.md",
-  "current_task": "남은17종 중7종처리·10감성돔생성중",
-  "next_step": "10검수후11~19 순차진행;03/08불합격격리",
-  "art_record": "HANDOFF.md 2026-11-05 최신항목 및 개인보존"
+  "current_task": "타일바다남은17종 단일제작완료:통과12/보완4/서비스실패1",
+  "next_step": "결과검토·보완03/08/13/17 및 실패02/12는추가제작전사용자지시;게임미적용",
+  "art_record": "docs/art/tile-sea-20261105/RESULTS.json"
 }
