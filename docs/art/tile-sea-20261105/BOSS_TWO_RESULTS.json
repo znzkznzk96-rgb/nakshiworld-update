@@ -1,0 +1,62 @@
+{
+  "authorized_requests_total": 2,
+  "submitted_requests": 2,
+  "complete_requests": 2,
+  "selected_candidates": 2,
+  "user_approval": "pending",
+  "automatic_retries": 0,
+  "total_charged": 20,
+  "verified_balance_after": 1197.6,
+  "candidates": [
+    {
+      "id": 20,
+      "name": "심청유리 실러캔스",
+      "status": "candidate",
+      "visual_notes": "좌향·청록유리색·긴둥근수조창·수위선·계단3개·분리된3엽꼬리 확인. 시안보다지느러미가작고96x64에서계단은단순화됨. 후보A,사용자채택대기.",
+      "model": "generate-image-v2",
+      "seed": 2026110620,
+      "request_count": 1,
+      "automatic_retries": 0,
+      "charged_generations": 10,
+      "balance_before": 1217.6,
+      "expected_balance_after": 1207.6,
+      "checks": {
+        "alpha": true,
+        "no_clipping": true,
+        "shape_color_outline_features_direction": "좌향·청록유리색·긴둥근수조창·수위선·계단3개·분리된3엽꼬리 확인. 시안보다지느러미가작고96x64에서계단은단순화됨. 후보A,사용자채택대기."
+      },
+      "selected_index": 2,
+      "returned_variants": 9,
+      "sha256": "ea7569f07a18c1f47b4c30bb77f31177600f6e904f2ae40abd23f70cdfd92cf5",
+      "request_sha256": "b61d226b4166217945b56aeca2f0ac5cd3d2211f75b403d3e233d57242a7143d",
+      "reference_sha256": "5d8fd3113902bf6561bf3e8ea1d7a7583af2c657924bac4995cbf5b8dd5b8733",
+      "shape_reference_sha256": "fcd6583e2ec496a90abda542392a1401076207c05f75d06d2d56c8c71f345e41"
+    },
+    {
+      "id": 20,
+      "name": "심청유리 실러캔스",
+      "status": "candidate",
+      "visual_notes": "좌향·긴둥근수조창·수위선·계단3개·분리된3엽꼬리 확인. 후보A보다수조청록색이밝고지느러미는청남색. 시안보다지느러미가작고계단단순화됨. 후보B,사용자채택대기.",
+      "model": "generate-image-v2",
+      "seed": 2026110621,
+      "request_count": 1,
+      "automatic_retries": 0,
+      "charged_generations": 10,
+      "balance_before": 1207.6,
+      "expected_balance_after": 1197.6,
+      "checks": {
+        "alpha": true,
+        "no_clipping": true,
+        "shape_color_outline_features_direction": "좌향·긴둥근수조창·수위선·계단3개·분리된3엽꼬리 확인. 후보A보다수조청록색이밝고지느러미는청남색. 시안보다지느러미가작고계단단순화됨. 후보B,사용자채택대기."
+      },
+      "selected_index": 4,
+      "returned_variants": 9,
+      "sha256": "b0017e330f4252fcb40a0a1c1944829be2f1a0c94b88ca08e7935c338402375f",
+      "request_sha256": "f750075d9836e9f1a6f8ad06363b319ed9341a3a0c9c3db2c5c4e3c584e602bd",
+      "reference_sha256": "5d8fd3113902bf6561bf3e8ea1d7a7583af2c657924bac4995cbf5b8dd5b8733",
+      "shape_reference_sha256": "fcd6583e2ec496a90abda542392a1401076207c05f75d06d2d56c8c71f345e41"
+    }
+  ],
+  "game_applied": false,
+  "deployed": false
+}
