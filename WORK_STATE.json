@@ -6,8 +6,8 @@
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/art/tile-sea-20261105/FINAL_HANDOFF.md",
-  "current_task": "타일바다 맵 시안1장·계곡 저해상도 렌더 회귀 조사 완료",
-  "next_step": "맵 시안 피드백 및 계곡 고해상도 배경 분리/실앱경로 검증. 게임 미수정·새 배포 없음",
+  "current_task": "계곡 원본 해상도 렌더 복구·타일바다 시안 확정",
+  "next_step": "계곡 실제 SubViewport 경로 검사·캐릭터 가림/지역전환 검증. 타일바다 레이어 보류·새 배포 없음",
   "art_record": "docs/art/tile-sea-20261105/BOSS_TWO_RESULTS.json",
   "map_record": "docs/art/tile-sea-20261105/MAP_VALLEY_AUDIT.md"
 }
