@@ -6,7 +6,6 @@
   "deployed": true,
   "phone_verified": false,
   "handoff": "HANDOFF.md",
-  "current_task": "타일바다19종 제작중 첫망둥어 불합격으로중단",
-  "next_step": "1회분사용·통과0·18종미호출; 입력/방향/개체수제어 수정 검토",
-  "art_evidence": "docs/art/tile-sea-20261101/EVIDENCE.json"
+  "current_task": "타일바다19종 PixelLab제작재개",
+  "next_step": "망둥어입력보완재시도1회 검수 후18종순차진행"
 }
