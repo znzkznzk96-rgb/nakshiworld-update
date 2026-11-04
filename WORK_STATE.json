@@ -6,7 +6,7 @@
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/art/tile-sea-20261105/HANDOFF.md",
-  "current_task": "채팅이동 준비완료·주인 PixelLab 새원본2개 미완료",
-  "next_step": "활성 HANDOFF 현재 인수인계부터 읽고 네트워크 확인→기존job/잔액 조회→첫 결과 회수→승인된 두번째1회 제작",
-  "art_record": "docs/art/tile-sea-20261105/HANDOFF.md"
+  "current_task": "실러캔스 PixelLab 새후보2개 완료·사용자채택대기",
+  "next_step": "후보A/B 사용자선택. 추가유료생성/모션/게임적용/배포는미실행",
+  "art_record": "docs/art/tile-sea-20261105/BOSS_TWO_RESULTS.json"
 }
