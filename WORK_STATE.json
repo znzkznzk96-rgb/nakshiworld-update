@@ -6,8 +6,8 @@
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/art/tile-sea-20261105/FINAL_HANDOFF.md",
-  "current_task": "계곡 원본 해상도 렌더 복구·타일바다 시안 확정",
-  "next_step": "계곡 실제 SubViewport 경로 검사·캐릭터 가림/지역전환 검증. 타일바다 레이어 보류·새 배포 없음",
+  "current_task": "계곡 해상도 복구 코드 저장·관련6검사 통과·이미지검수 남음",
+  "next_step": "그래픽 환경에서 valley_native_verify 전후3높이 검수. 타일바다 레이어 보류·미배포",
   "art_record": "docs/art/tile-sea-20261105/BOSS_TWO_RESULTS.json",
-  "map_record": "docs/art/tile-sea-20261105/MAP_VALLEY_AUDIT.md"
+  "map_record": "docs/art/tile-sea-20261105/VALLEY_NATIVE_FIX.md"
 }
