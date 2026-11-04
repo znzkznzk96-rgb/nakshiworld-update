@@ -6,7 +6,7 @@
   "deployed": true,
   "phone_verified": false,
   "handoff": "HANDOFF.md",
-  "current_task": "타일바다 미완성6종재생성·주인시안2장",
-  "next_step": "02/03/08/12/13/17각1회순차검수·주인A/B시안제시",
-  "art_record": "docs/art/tile-sea-20261105/RESULTS.json"
+  "current_task": "일반19종내부검수통과·주인A/B시안제시완료",
+  "next_step": "주인A백자성채개복치/B심청유리실러캔스선택대기·일반19종최종검토",
+  "art_record": "docs/art/tile-sea-20261105/REGEN_RESULTS.json"
 }
