@@ -5,8 +5,8 @@
   "target_release": "v1.05",
   "deployed": true,
   "phone_verified": false,
-  "handoff": "docs/art/tile-sea-20261105/HANDOFF.md",
-  "current_task": "타일바다 주인 PixelLab B 확정·최종20종 모음 제작",
-  "next_step": "기존19종 원본+B 원본 그대로 모음 표시·보존. 게임적용/모션/배포 없음",
+  "handoff": "docs/art/tile-sea-20261105/FINAL_HANDOFF.md",
+  "current_task": "타일바다20종 모음 완료·주인B 확정",
+  "next_step": "사용자 전체20종 검토",
   "art_record": "docs/art/tile-sea-20261105/BOSS_TWO_RESULTS.json"
 }
