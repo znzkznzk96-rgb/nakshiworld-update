@@ -6,7 +6,7 @@
   "deployed": true,
   "phone_verified": false,
   "handoff": "HANDOFF.md",
-  "current_task": "타일바다19종 PixelLab 재개·01망둥어 입력검토",
-  "next_step": "종별1회 순차생성·원본/nearest 검수·실패후중단",
-  "art_record": "HANDOFF.md 최신항목 및 개인보존 tile-sea-20261104-review.zip"
+  "current_task": "01망둥어 내부통과·02줄눈전갱이 정책오류5000",
+  "next_step": "03~19 미호출17종; 서비스실패로후속중단·망둥어사용자채택대기",
+  "art_record": "HANDOFF.md 2026-11-05 최신항목 및 개인보존"
 }
