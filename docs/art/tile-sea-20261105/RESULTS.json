@@ -1,0 +1,196 @@
+{
+  "date_kst": "2026-11-05",
+  "scope": "03-19 each one request; 01 and 02 not regenerated",
+  "model": "generate-image-v2",
+  "size": [
+    96,
+    64
+  ],
+  "direction": "west",
+  "request_count": 17,
+  "automatic_retries": 0,
+  "returned_variants_per_completed_request": 9,
+  "selected_originals": 16,
+  "counts": {
+    "rejected": 4,
+    "internal_pass": 12,
+    "provider_policy_failure": 1
+  },
+  "charged_generations": 160,
+  "balance_before": 1447.6,
+  "game_applied": false,
+  "deployed": false,
+  "results": [
+    {
+      "id": 3,
+      "name": "고등어",
+      "status": "rejected",
+      "notes": "좌향·청색 줄무늬·명암은 양호하나 참조 날치의 긴 실모양 지느러미가 전이됨. 고등어 고유형태 불합격. 재생성 없이 격리.",
+      "seed": 2026110503,
+      "charged_generations": 10,
+      "result_sha256": "dc3c553b738f93559616f7b72deaf3d6b0aa8bf1ec3ccc4386745ea4b7652854",
+      "reference_sha256": "ee4910e2f6a51410595967ac832f35913a5247dd5f1921781e0e79204438852d"
+    },
+    {
+      "id": 4,
+      "name": "학꽁치",
+      "status": "internal_pass",
+      "notes": "좌향·긴 아래턱·가늘고 곧은 은청색 몸통·주황 지느러미·명암·윤곽·특징 통과. 원본과 정수확대 검수, 사용자최종채택대기.",
+      "seed": 2026110504,
+      "charged_generations": 10,
+      "result_sha256": "3b5e49e758ef9f76fae87508fd368ee741f4558880d8543ebad05f54f4a52912",
+      "reference_sha256": "7a6fee7ac81100d2287c58d363dc27d1b983d377df8207d0571f7ee646eae008"
+    },
+    {
+      "id": 5,
+      "name": "깨진타일놀래미",
+      "status": "internal_pass",
+      "notes": "좌향·청록 몸통·갈라진 상아 타일판3개·산호색 톱니등지느러미·진한 명암·윤곽 통과. 꼬리와 가슴지느러미 분리, 작은 크기에서도 타일 읽힘.",
+      "seed": 2026110505,
+      "charged_generations": 10,
+      "result_sha256": "b9e93529e9d90a311b9622eb07c486f637d8b30cf0e49b4d3618d960ed236eec",
+      "reference_sha256": "5d8fd3113902bf6561bf3e8ea1d7a7583af2c657924bac4995cbf5b8dd5b8733"
+    },
+    {
+      "id": 6,
+      "name": "복어",
+      "status": "internal_pass",
+      "notes": "좌향·둥근 복어 체형·올리브/크림 고유색·갈색 반점·작은 가시·주황 지느러미 모두 통과. 명암/윤곽 선명, 알파와 여백 정상.",
+      "seed": 2026110506,
+      "charged_generations": 10,
+      "result_sha256": "f43b2dd1a261bafdc5f69a351d8e38cd2147851b2d07faaf0ed043d467e3d416",
+      "reference_sha256": "bd59ab68ac6de0b317fceae84fd824c52e02331b05f5cae302e57ac7201e167f"
+    },
+    {
+      "id": 7,
+      "name": "타일망둥",
+      "status": "internal_pass",
+      "notes": "좌향·짧고 굵은 망둥 체형·두 등지느러미·코발트색·상아색 사각타일 핵심무늬 통과. 명암/윤곽/지느러미 분리 양호.",
+      "seed": 2026110507,
+      "charged_generations": 10,
+      "result_sha256": "30d23ad1bcf2e8f68c702725d5fe48aec80bea58599aa0a6ee0633821e0d7a56",
+      "reference_sha256": "c28a85bc3c67b2e08be3d5a54442af6476289692d71c3131b75939ac4ceecf49"
+    },
+    {
+      "id": 8,
+      "name": "수영모해파리",
+      "status": "rejected",
+      "notes": "좌향 진행과 자홍/보라 색은 통과. 촉수가 승인시안보다 가늘고 갓의 풍부한 명암·굴곡 테두리 표현이 약함. 형태/기존게임 분위기 불합격, 보완후보로만 보존.",
+      "seed": 2026110508,
+      "charged_generations": 10,
+      "result_sha256": "4a8b51a49b5ea811f009b695b77d5e010eb93bc3c3059e392256091492058250",
+      "reference_sha256": "e4efc6534a9409579ac27e965c43681fc5d30a909ba725c5b6d4cf941dd581a9"
+    },
+    {
+      "id": 9,
+      "name": "균열도자기우럭",
+      "status": "internal_pass",
+      "notes": "좌향·보라 우럭 머리·상아 도자기판·분홍 균열·청색 등가시 모두 식별됨. 명암/윤곽/알파/여백 통과. 꼬리는 시안보다 갈라짐이 깊은 차이 있음.",
+      "seed": 2026110509,
+      "charged_generations": 10,
+      "result_sha256": "406faf89e65a6eee32307179710666050e76895ea21d4d4450c76c3b9adf45b2",
+      "reference_sha256": "e4efc6534a9409579ac27e965c43681fc5d30a909ba725c5b6d4cf941dd581a9"
+    },
+    {
+      "id": 10,
+      "name": "감성돔",
+      "status": "internal_pass",
+      "notes": "좌향·높은 타원형 감성돔 체형·은청색 몸통·짙은 세로줄·가시등지느러미·갈라진 꼬리 통과. 원본에서도 무늬/명암/윤곽 읽힘.",
+      "seed": 2026110510,
+      "charged_generations": 10,
+      "result_sha256": "87f9808d0f38b68ca559c9536ded45498b00b357429429b02e4053f1c5dc86a1",
+      "reference_sha256": "e4efc6534a9409579ac27e965c43681fc5d30a909ba725c5b6d4cf941dd581a9"
+    },
+    {
+      "id": 11,
+      "name": "청소솔쥐치",
+      "status": "internal_pass",
+      "notes": "좌향·납작한 쥐치 체형·긴 등가시·배 아래 크림색 솔·올리브 무늬·주황 지느러미 통과. 솔 가닥수는시안과완전일치아니나핵심특징식별됨. 명암/윤곽 양호.",
+      "seed": 2026110511,
+      "charged_generations": 10,
+      "result_sha256": "32064a5f8766ada16ffaf34057f31526e4f189f01f893c9b80307f330455f23a",
+      "reference_sha256": "bd59ab68ac6de0b317fceae84fd824c52e02331b05f5cae302e57ac7201e167f"
+    },
+    {
+      "id": 12,
+      "name": "모자이크가자미",
+      "status": "provider_policy_failure",
+      "notes": "서비스정책오류5000으로이미지없음; 추가재시도없이격리하고13으로진행.",
+      "seed": 2026110512,
+      "charged_generations": 0,
+      "result_sha256": null,
+      "reference_sha256": "e4efc6534a9409579ac27e965c43681fc5d30a909ba725c5b6d4cf941dd581a9"
+    },
+    {
+      "id": 13,
+      "name": "튜브복어",
+      "status": "rejected",
+      "notes": "좌향·주황색·튜브 존재는 통과. 튜브가 승인시안의 배아래 수평타원형이 아니라 몸뒤 세로링으로 생성되어 핵심외형 불합격. 재생성없음.",
+      "seed": 2026110513,
+      "charged_generations": 10,
+      "result_sha256": "515bfd8555e736325b5037a1e05cc025a068c80a49b10d1e0e375afea37212d6",
+      "reference_sha256": "66b413002c5d301c406612a2023fa4bc10c0bcd0ebb8909b6e0825a3d95e1b79"
+    },
+    {
+      "id": 14,
+      "name": "유령락스장어",
+      "status": "internal_pass",
+      "notes": "좌향·흰청색 긴 장어·청록 옆선·보라 갈라진꼬리·머리와아가미 장식 통과. 시안보다 꼬리 리본이 짧은 차이 있음. 명암/윤곽/알파/여백 통과.",
+      "seed": 2026110514,
+      "charged_generations": 10,
+      "result_sha256": "80da9335cf7809ae30f82f7ce9cb50cb1d9094929845aa65d1a6fcaffb90df33",
+      "reference_sha256": "7a6fee7ac81100d2287c58d363dc27d1b983d377df8207d0571f7ee646eae008"
+    },
+    {
+      "id": 15,
+      "name": "참돔",
+      "status": "internal_pass",
+      "notes": "좌향·붉은 참돔 체형·가시등지느러미·은분홍 배·윗몸 청록반점·갈라진 꼬리 통과. 명암/윤곽/지느러미 분리 양호, 반점은작은도트로표현.",
+      "seed": 2026110515,
+      "charged_generations": 10,
+      "result_sha256": "68a3bc0696049d61accfa93cd15c767f7bbb2b8dfd714f64ac64220f99bed4f9",
+      "reference_sha256": "f355c98694cf65907b7194df86b0873b648740e9bd3579b7985badccf253d79e"
+    },
+    {
+      "id": 16,
+      "name": "농어",
+      "status": "internal_pass",
+      "notes": "좌향·길고 굵은 농어 체형·큰 입·분리된두등지느러미·올리브 반점·은크림 배 통과. 명암/윤곽·지느러미분리 양호.",
+      "seed": 2026110516,
+      "charged_generations": 10,
+      "result_sha256": "ab58ccf6afc3ad4dcbfcb6f1423bed3e1542ccbfc944749586335bd547b22ba2",
+      "reference_sha256": "5d8fd3113902bf6561bf3e8ea1d7a7583af2c657924bac4995cbf5b8dd5b8733"
+    },
+    {
+      "id": 17,
+      "name": "바둑판가오리",
+      "status": "rejected",
+      "notes": "좌향·마름모날개·긴꼬리·남색/상아색은통과. 원본/6배확대재검토결과 바둑무늬가날개전체에충분히퍼지지않고칸수가적어 핵심무늬 불합격. 추가호출없이보완후보보존.",
+      "seed": 2026110517,
+      "charged_generations": 10,
+      "result_sha256": "38763986acf9e7c98d543a6cebe408cfecfc58a46c67e56fe41479675db70650",
+      "reference_sha256": "e4efc6534a9409579ac27e965c43681fc5d30a909ba725c5b6d4cf941dd581a9"
+    },
+    {
+      "id": 18,
+      "name": "유리타일돌돔",
+      "status": "internal_pass",
+      "notes": "좌향·높은타원체형·선명한청록·검은세로줄·사각유리반사·파랑등가시 통과. 원본에서도타일과줄무늬구분,명암/윤곽/알파 정상.",
+      "seed": 2026110518,
+      "charged_generations": 10,
+      "result_sha256": "01ad2fd07c6d8881111995cfa748dfad735725fd7fcadb0eef65cca3fa2d02aa",
+      "reference_sha256": "e4efc6534a9409579ac27e965c43681fc5d30a909ba725c5b6d4cf941dd581a9"
+    },
+    {
+      "id": 19,
+      "name": "배수구 대왕장어",
+      "status": "internal_pass",
+      "notes": "좌향·남보라 장어몸통·청록뿔/수염·소용돌이아가미·상아등타일·청록꼬리 통과. 시안보다몸의S자굽힘이큰차이있음,닫힌고리없음. 명암/윤곽/알파/여백 통과.",
+      "seed": 2026110519,
+      "charged_generations": 10,
+      "result_sha256": "120350d05315f4a27c5a64849d0bd2a39af945b20987e630c26702ad40aec2e5",
+      "reference_sha256": "68d0791a05a9fe475680496d4ff2df616607ae7903c475049b552c2099baba01"
+    }
+  ],
+  "balance_after_confirmed": 1287.6
+}
