@@ -1,0 +1,21 @@
+{
+  "name": "심청유리 실러캔스",
+  "selected_concept": "B",
+  "status": "needs_revision",
+  "request_count": 1,
+  "returned_variants": 9,
+  "automatic_retries": 0,
+  "model": "generate-image-v2",
+  "seed": 2026110520,
+  "size": [
+    96,
+    64
+  ],
+  "charged_generations": 10,
+  "balance_before": 1227.6,
+  "verified_balance_after": 1217.6,
+  "notes": "좌향·청록색·수조·수위선 통과. 내부 계단3개 재현 실패,3엽 꼬리 구분 약함. 추가 생성 없음. 일반19종 유지. 게임 적용/모션/배포 없음.",
+  "result_sha256": "0ebd5806f1f9966a59ab2effa02f24535aa479c3b2fa370b9670b768d52effb2",
+  "reference_sha256": "5d8fd3113902bf6561bf3e8ea1d7a7583af2c657924bac4995cbf5b8dd5b8733",
+  "request_sha256": "c4acef19862f6cc9a54092f43b1046c8dd606aa4d0bdd7a07bdc06683b4012ff"
+}
