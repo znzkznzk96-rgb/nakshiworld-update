@@ -6,7 +6,7 @@
   "deployed": true,
   "phone_verified": false,
   "handoff": "HANDOFF.md",
-  "current_task": "01망둥어 내부통과·02줄눈전갱이 정책오류5000",
-  "next_step": "03~19 미호출17종; 서비스실패로후속중단·망둥어사용자채택대기",
+  "current_task": "타일바다03~19 남은17종 명시재개",
+  "next_step": "03고등어부터 각1회 순차생성·검수·실패종격리",
   "art_record": "HANDOFF.md 2026-11-05 최신항목 및 개인보존"
 }
