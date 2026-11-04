@@ -6,7 +6,7 @@
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/art/tile-sea-20261105/HANDOFF.md",
-  "current_task": "B 시안 충실 PixelLab 새 원본2개·첫 요청 접수 후 네트워크 차단",
-  "next_step": "첫 접수 작업 결과/차감 조회 복구 우선. 첫 요청 재전송 금지. 이후 준비된 두 번째 단일 요청",
-  "art_record": "docs/art/tile-sea-20261105/BOSS_RESULTS.json"
+  "current_task": "채팅이동 준비완료·주인 PixelLab 새원본2개 미완료",
+  "next_step": "활성 HANDOFF 현재 인수인계부터 읽고 네트워크 확인→기존job/잔액 조회→첫 결과 회수→승인된 두번째1회 제작",
+  "art_record": "docs/art/tile-sea-20261105/HANDOFF.md"
 }
