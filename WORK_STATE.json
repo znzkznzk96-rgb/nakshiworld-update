@@ -6,7 +6,7 @@
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/art/tile-sea-20261105/FINAL_HANDOFF.md",
-  "current_task": "12가자미·17가오리 유영자세 수정본 완료·사용자검토대기",
-  "next_step": "수정12/17 사용자채택확인. 기존20종보존,게임/모션미적용",
+  "current_task": "타일바다 맵 제작·계곡 도트 표시 문제 조사",
+  "next_step": "v1.05 실제 배경과 렌더링 확인 후 동일 구도 타일바다 검토본 제작. 배포 없음",
   "art_record": "docs/art/tile-sea-20261105/BOSS_TWO_RESULTS.json"
 }
