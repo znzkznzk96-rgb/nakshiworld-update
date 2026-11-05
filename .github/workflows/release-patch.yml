@@ -27,8 +27,8 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          curl -fL --retry 3 https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.04/game-source.zip -o "$RUNNER_TEMP/base-source.zip"
-          echo "5c29b36e97f5863754885c193b4ced951717196ee2da77592a5e4ebff8c51576  $RUNNER_TEMP/base-source.zip" | sha256sum -c -
+          curl -fL --retry 3 https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.05/game-source.zip -o "$RUNNER_TEMP/base-source.zip"
+          echo "7dbc745c001d56c84a438cbba867d913055564d80c8fd91640c8e6d6ff0c91de  $RUNNER_TEMP/base-source.zip" | sha256sum -c -
           python3 automation/restore_source.py "$RUNNER_TEMP/base-source.zip" "$RUNNER_TEMP/project"
           python3 automation/prepare_release.py "$RUNNER_TEMP/release-notes.md"
           git diff --exit-code -- game/addons/reservoir/release_notes.gd
@@ -63,6 +63,14 @@ jobs:
             grep -F 'VERIFY failures=[]' "$RUNNER_TEMP/$suite-tests.log"
             if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' "$RUNNER_TEMP/$suite-tests.log"; then exit 1; fi
           done
+      - name: Verify valley native background composition
+        shell: bash
+        run: |
+          set -euo pipefail
+          XDG_DATA_HOME="$RUNNER_TEMP/isolated-valley-native" timeout 90 "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --headless --path "$RUNNER_TEMP/project" --script tests/valley_native_verify.gd -- "$RUNNER_TEMP/valley-native" > "$RUNNER_TEMP/valley-native.log" 2>&1
+          cat "$RUNNER_TEMP/valley-native.log"
+          grep -F 'VALLEY_NATIVE_VERIFY failures=[]' "$RUNNER_TEMP/valley-native.log"
+          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' "$RUNNER_TEMP/valley-native.log"; then exit 1; fi
       - name: Export patch and matching manifest
         shell: bash
         run: |

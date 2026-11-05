@@ -6,13 +6,22 @@ var layers: Dictionary = {}
 var elapsed := 0.0
 var map_rect := Rect2()
 var native := false
+var native_canvas: CanvasLayer
 func setup(m) -> void:
 	root = Node2D.new();root.name = "ValleyLayers";root.z_index = -20
 	root.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
-	native = false
-	# A negative z within the UI CanvasLayer still covers the game actors.
-	# Keep the valley behind actors in their own world canvas.
-	m.add_child(root)
+	# Render scenery at output resolution, behind the transparent game viewport.
+	# CanvasLayer order (not a negative z inside the UI canvas) prevents occlusion.
+	native = is_instance_valid(m.text_layer) and m.get_viewport() is SubViewport and m.text_layer.get_viewport() != m.get_viewport()
+	if native:
+		native_canvas = CanvasLayer.new()
+		native_canvas.name = "ValleyNativeBackground"
+		native_canvas.layer = -1
+		m.text_layer.get_viewport().add_child(native_canvas)
+		native_canvas.add_child(root)
+		m.tree_exiting.connect(dispose, CONNECT_ONE_SHOT)
+	else:
+		m.add_child(root)
 	plate = Sprite2D.new();plate.centered=false;plate.texture=load("res://art/bg/valley_selected_1080x2640.png")
 	root.add_child(plate);layers.plate=plate
 	for kind in ["drifting_clouds","reverse_waterfall","underwater_light","surface_reflection"]:
@@ -44,5 +53,5 @@ func waterfall_y(time: float, index: int) -> float:
 func dispose() -> void:
 	for kind in layers:
 		if kind != "plate" and is_instance_valid(layers[kind]): layers[kind].valley=null
-	if native and is_instance_valid(root): root.queue_free()
+	if is_instance_valid(native_canvas): native_canvas.queue_free()
 	layers.clear()
