@@ -1,9 +1,5 @@
-# 1.05 공개 배포·다운로드 검증 완료 — 2026-11-01
+# 현재 인수인계
 
-1·2·3성45개시간형스킬·후열전열지원·스탯비례위력·효과상한·등급별45아이콘·강화비변경 공개완료. 1성흡수는하트시안,소용돌이거절본미적용. 진행중탐험구규칙유지·새탐험부터새스킬. 신규생성0.
+[타일바다 1.07 상세 인수인계](docs/releases/tile-107/HANDOFF.md)와 [Codex 실행 안내](docs/CODEX_HANDOFF.md)를 읽는다. 최신 작업 브랜치는 WORK_STATE.json이 지정한다.
 
-소스 a83a6c1850f2ed07b76fb02ddf58579137db2061 / PR36. 작업CI68검사·스킬454·강화135통과,221화면생성·주요4화면검수. 배포/운영CI성공. 공개3파일크기/SHA256·ZIP CRC·원격유지소스529파일·로컬변경61/기존1401파일일치. PCK57,712,016바이트,실제PCK45아이콘로드통과.
-
-[공개검증](analysis/release-105/PUBLISHED.json),[CI](analysis/release-105/CI.json),[앱주소다운로드증거](analysis/release-105/GATEWAY.txt),[릴리스](https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v1.05).
-
-로컬운영URL조회는HTTP403으로실패했으나원격CI가실제설치앱URL다운로드·해시검증완료. 휴대폰적용은사용자확인대기. 다음: 기존앱1.05업데이트확인. 새생성/재배포자동반복금지. 과거인계는Git이력보존.
+이전 루트 1.05 인수인계는 [원문](docs/historical/2026-11-06-before-codex-handoff/HANDOFF.md)에 보존했다. 현재 완료 상태로 사용하지 않는다.
