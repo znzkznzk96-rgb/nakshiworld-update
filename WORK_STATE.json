@@ -7,7 +7,8 @@
   "phone_verified": false,
   "handoff": "docs/art/tile-sea-20261105/FINAL_HANDOFF.md",
   "current_task": "타일바다24레이어·20종·장식유영·번들3종 연결",
-  "next_step": "계곡수치재사용/기존해금비·파츠유지 구현·전체검증·work저장. 새배포없음",
+  "next_step": "계곡 3높이 실화면 검수 완료. 타일바다 승인 연결 작업 및 배포 전 전체검사; 새배포 없음",
   "art_record": "docs/art/tile-sea-20261105/BOSS_TWO_RESULTS.json",
-  "map_record": "docs/art/tile-sea-20261105/VALLEY_NATIVE_FIX.md"
+  "map_record": "docs/art/tile-sea-20261105/VALLEY_NATIVE_FIX.md",
+  "valley_review": "docs/art/tile-sea-20261105/VALLEY_NATIVE_FIX.md"
 }

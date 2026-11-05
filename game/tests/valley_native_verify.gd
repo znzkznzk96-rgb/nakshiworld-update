@@ -38,6 +38,8 @@ func run():
 		app._fit();await process_frame
 		m.active_region=1;m._layout();m._switch_scene("fish")
 		m.environment.valley.elapsed=5.0
+		# Processing is paused for deterministic captures; refresh actor draw commands after layout.
+		m.queue_redraw()
 		check(sv.size==Vector2i(270,h),"actor viewport stays logical at %d"%h)
 		check(sv.transparent_bg and valley.root.visible,"native scenery composite visible %d"%h)
 		check(absf(valley.map_rect.position.y+valley.map_rect.size.y*0.565-m.WATER)<=0.5,"water anchor matches %d"%h)
