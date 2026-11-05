@@ -6,7 +6,7 @@
   "deployed": true,
   "phone_verified": true,
   "handoff": "docs/art/tile-background-new-20261106/HANDOFF.md",
-  "current_task": "타일바다 고해상도 배경 직접 생성",
-  "next_step": "PixelLab/저해상도 확대 없이 신규 이미지 생성·사용자 검토",
+  "current_task": "타일바다 B 확정·구름/식물 제거 배경 편집",
+  "next_step": "B 구도 유지한 기본배경 검수",
   "deferred_work_branch": "work/skills-105"
 }
