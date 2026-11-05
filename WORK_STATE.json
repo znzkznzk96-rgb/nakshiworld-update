@@ -1,12 +1,12 @@
 {
-  "work_branch": "work/tile-background-new-20261106",
-  "status": "new_tile_background_art",
+  "work_branch": "work/tile-release-107",
+  "status": "tile_107_implementation",
   "release_baseline": "v1.06",
-  "target_release": "v1.06",
-  "deployed": true,
-  "phone_verified": true,
-  "handoff": "docs/art/tile-background-new-20261106/HANDOFF.md",
-  "current_task": "깔끔한 B 배경 확정·번들과 라이선스 아트 점검 완료",
-  "next_step": "번들 구성 제시·타일바다 라이선스 선택교체1장 검토",
+  "target_release": "v1.07",
+  "deployed": false,
+  "phone_verified": false,
+  "handoff": "docs/releases/tile-107/HANDOFF.md",
+  "current_task": "승인 배경·최종 물고기·번들 적용 및 배포",
+  "next_step": "구현 후 관련검사·전체검사·1.07 배포",
   "deferred_work_branch": "work/skills-105"
 }
