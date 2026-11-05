@@ -6,7 +6,7 @@
   "deployed": true,
   "phone_verified": true,
   "handoff": "docs/art/tile-background-new-20261106/HANDOFF.md",
-  "current_task": "B 물그라데이션 정리 및 계곡 기준 번들안 제시",
-  "next_step": "기본 배경·번들 사용자 검토",
+  "current_task": "깔끔한 B 배경 확정·번들과 라이선스 아트 점검 완료",
+  "next_step": "번들 구성 제시·타일바다 라이선스 선택교체1장 검토",
   "deferred_work_branch": "work/skills-105"
 }
