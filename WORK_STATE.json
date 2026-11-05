@@ -1,12 +1,16 @@
 {
-  "work_branch": "work/valley-clarity-106",
-  "status": "v106_deployed_verified",
+  "work_branch": "work/tile-release-107",
+  "status": "tile_107_blocked_asset_integrity",
   "release_baseline": "v1.06",
-  "target_release": "v1.06",
-  "deployed": true,
+  "target_release": "v1.07",
+  "deployed": false,
   "phone_verified": false,
-  "handoff": "docs/releases/valley-106/HANDOFF.md",
-  "current_task": "계곡 선명도 개선만 1.06 공개·다운로드 검증 완료",
-  "next_step": "기존 앱 1.06 적용 사용자 확인; 타일바다 새 작업 별도",
-  "deferred_work_branch": "work/skills-105"
+  "handoff": "docs/releases/tile-107/HANDOFF.md",
+  "current_task": "Codex 인수인계 저장; 타일바다 배경 원본 무결성 복구 후 검증 재개",
+  "next_step": "CODEX_HANDOFF.md의 배경 SHA/PNG 복구 → 전체 회귀·native 화면 검수 → 기존 승인 범위 v1.07 배포",
+  "deferred_work_branch": "work/skills-105",
+  "codex_entry": "docs/CODEX_HANDOFF.md",
+  "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
+  "verification": "docs/handoff/2026-11-06/EVIDENCE.json",
+  "baseline_phone_verified": true
 }

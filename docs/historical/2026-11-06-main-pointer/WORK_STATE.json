@@ -1,0 +1,12 @@
+{
+  "work_branch": "work/valley-clarity-106",
+  "status": "v106_deployed_verified",
+  "release_baseline": "v1.06",
+  "target_release": "v1.06",
+  "deployed": true,
+  "phone_verified": false,
+  "handoff": "docs/releases/valley-106/HANDOFF.md",
+  "current_task": "계곡 선명도 개선만 1.06 공개·다운로드 검증 완료",
+  "next_step": "기존 앱 1.06 적용 사용자 확인; 타일바다 새 작업 별도",
+  "deferred_work_branch": "work/skills-105"
+}
