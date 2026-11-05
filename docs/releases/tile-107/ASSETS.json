@@ -1,0 +1,133 @@
+{
+  "background": {
+    "path": "game/art/bg/tile_sea_clean.png",
+    "size": [
+      809,
+      1944
+    ],
+    "sha256": "8149e81a427aaa87a47b460dacbcee4deb293615cf3560c22b3bc6c359c089b7"
+  },
+  "fish": [
+    {
+      "id": 1,
+      "name": "망둥어",
+      "path": "game/art/fish/l2_00.png",
+      "sha256": "1fdff95fddbaaa097c8339d0d49faf5ad00b177995faa25b8e3f120d63b0f1f1"
+    },
+    {
+      "id": 2,
+      "name": "줄눈전갱이",
+      "path": "game/art/fish/l2_01.png",
+      "sha256": "4d7365741c307c6a8546f4662454510506a07ad55a771f31b1e5bd538b39443f"
+    },
+    {
+      "id": 3,
+      "name": "고등어",
+      "path": "game/art/fish/l2_02.png",
+      "sha256": "043fcf98d877cb15b0a3307d8331bf220a4d4655aac370b153158697c737286d"
+    },
+    {
+      "id": 4,
+      "name": "학꽁치",
+      "path": "game/art/fish/l2_03.png",
+      "sha256": "3b5e49e758ef9f76fae87508fd368ee741f4558880d8543ebad05f54f4a52912"
+    },
+    {
+      "id": 5,
+      "name": "깨진타일놀래미",
+      "path": "game/art/fish/l2_04.png",
+      "sha256": "b9e93529e9d90a311b9622eb07c486f637d8b30cf0e49b4d3618d960ed236eec"
+    },
+    {
+      "id": 6,
+      "name": "복어",
+      "path": "game/art/fish/l2_05.png",
+      "sha256": "f43b2dd1a261bafdc5f69a351d8e38cd2147851b2d07faaf0ed043d467e3d416"
+    },
+    {
+      "id": 7,
+      "name": "타일망둥",
+      "path": "game/art/fish/l2_06.png",
+      "sha256": "30d23ad1bcf2e8f68c702725d5fe48aec80bea58599aa0a6ee0633821e0d7a56"
+    },
+    {
+      "id": 8,
+      "name": "수영모해파리",
+      "path": "game/art/fish/l2_07.png",
+      "sha256": "f132aac4faf483e76cfecc25262e180cce1a4b136ec4a4aa054f8fd6a2f7d0a8"
+    },
+    {
+      "id": 9,
+      "name": "균열도자기우럭",
+      "path": "game/art/fish/l2_08.png",
+      "sha256": "406faf89e65a6eee32307179710666050e76895ea21d4d4450c76c3b9adf45b2"
+    },
+    {
+      "id": 10,
+      "name": "감성돔",
+      "path": "game/art/fish/l2_09.png",
+      "sha256": "87f9808d0f38b68ca559c9536ded45498b00b357429429b02e4053f1c5dc86a1"
+    },
+    {
+      "id": 11,
+      "name": "청소솔쥐치",
+      "path": "game/art/fish/l2_10.png",
+      "sha256": "32064a5f8766ada16ffaf34057f31526e4f189f01f893c9b80307f330455f23a"
+    },
+    {
+      "id": 12,
+      "name": "모자이크가자미",
+      "path": "game/art/fish/l2_11.png",
+      "sha256": "fc7498f55f8ed46f529546671adfeb3e22048f34d12dbe5f1e6104905167ec03"
+    },
+    {
+      "id": 13,
+      "name": "튜브복어",
+      "path": "game/art/fish/l2_12.png",
+      "sha256": "46b8cb42edcc738a4f17c95d18eeee0af23b8671f5ef505a4b89f4f46ec37dd8"
+    },
+    {
+      "id": 14,
+      "name": "유령락스장어",
+      "path": "game/art/fish/l2_13.png",
+      "sha256": "80da9335cf7809ae30f82f7ce9cb50cb1d9094929845aa65d1a6fcaffb90df33"
+    },
+    {
+      "id": 15,
+      "name": "참돔",
+      "path": "game/art/fish/l2_14.png",
+      "sha256": "68a3bc0696049d61accfa93cd15c767f7bbb2b8dfd714f64ac64220f99bed4f9"
+    },
+    {
+      "id": 16,
+      "name": "농어",
+      "path": "game/art/fish/l2_15.png",
+      "sha256": "ab58ccf6afc3ad4dcbfcb6f1423bed3e1542ccbfc944749586335bd547b22ba2"
+    },
+    {
+      "id": 17,
+      "name": "바둑판가오리",
+      "path": "game/art/fish/l2_16.png",
+      "sha256": "45e05789936bb69f156b99b03d1fba88837e7cf022ae5ae8db6c6f2447277827"
+    },
+    {
+      "id": 18,
+      "name": "유리타일돌돔",
+      "path": "game/art/fish/l2_17.png",
+      "sha256": "01ad2fd07c6d8881111995cfa748dfad735725fd7fcadb0eef65cca3fa2d02aa"
+    },
+    {
+      "id": 19,
+      "name": "배수구 대왕장어",
+      "path": "game/art/fish/l2_18.png",
+      "sha256": "120350d05315f4a27c5a64849d0bd2a39af945b20987e630c26702ad40aec2e5"
+    },
+    {
+      "id": 20,
+      "name": "심청유리 실러캔스",
+      "path": "game/art/fish/l2_19.png",
+      "sha256": "b0017e330f4252fcb40a0a1c1944829be2f1a0c94b88ca08e7935c338402375f"
+    }
+  ],
+  "new_paid_calls": 0
+}

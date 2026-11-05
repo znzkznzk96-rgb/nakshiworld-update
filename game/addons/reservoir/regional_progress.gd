@@ -1,7 +1,7 @@
 extends RefCounted
-# Approved bundle and regional owner gauge rules. Reservoir and approved valley entry are available; later regions stay disabled.
+# Approved bundle and regional owner gauge rules. Reservoir and approved valley entry are available; rift and later regions stay disabled.
 const CATALOG = preload("res://addons/reservoir/regional_catalog.gd")
-var available_regions: Array = [0,1]
+var available_regions: Array = [0,1,2]
 var main_targets: Dictionary = {}
 var certificates: Array = [false,false,false,false,false,false]
 var main_completed: Array = [false,false,false,false,false,false]
@@ -25,10 +25,10 @@ func restore(data: Dictionary) -> void:
 	# Old automatic payouts are marked paid only when their completion flag existed.
 	# A completed main bundle without its certificate is recoverable via Receive.
 	if not data.has("reward_claimed"):
-		for area in 2:
+		for area in 3:
 			for kind in 3:
 				if bundle_done(area,kind): reward_claimed[bundle_key(area,kind)]=bool(certificates[area]) if kind==0 else true
-	for area in 2:
+	for area in 3:
 		for kind in 3:
 			var targets:=bundle_targets(area,kind)
 			var counts:=bundle_counts(area,kind)
@@ -70,19 +70,19 @@ func donate(m, area: int, bag_index: int, target_index: int) -> bool:
 	return donate_bundle(m,area,0,bag_index,target_index)
 
 
-const MAIN_SPECIES = [[1,3,8,9,14,17],[21,24,28,31,34,37]]
-const SUB_SPECIES = [[0,2,5,6,10,15],[20,23,25,22,32,36]]
-const SOUL_REWARD = [15,30]
+const MAIN_SPECIES = [[1,3,8,9,14,17],[21,24,28,31,34,37],[40,43,48,49,54,57]]
+const SUB_SPECIES = [[0,2,5,6,10,15],[20,23,25,22,32,36],[41,42,44,45,50,55]]
+const SOUL_REWARD = [15,30,30]
 var extra_donations: Dictionary = {}
 var bundle_values: Dictionary = {}
 var extra_completed: Dictionary = {}
 func _init() -> void:
-	for area in 2:
+	for area in 3:
 		var list: Array=[]
 		for sp in MAIN_SPECIES[area]: list.append({"species":CATALOG.key(sp),"grade":0,"count":1})
 		main_targets[str(area)]=list
 func bundle_targets(area: int, kind: int) -> Array:
-	if area<0 or area>1: return []
+	if area<0 or area>2: return []
 	if kind==0: return main_targets.get(str(area),[])
 	var result: Array=[]
 	var species: Array=SUB_SPECIES[area] if kind==1 else [area*20+19]
@@ -95,7 +95,7 @@ func bundle_counts(area: int, kind: int) -> Array:
 	while result.size()<bundle_targets(area,kind).size(): result.append(0)
 	return result
 func bundle_done(area: int, kind: int) -> bool:
-	if area<0 or area>1: return false
+	if area<0 or area>2: return false
 	return bool(main_completed[area]) if kind==0 else bool(extra_completed.get(bundle_key(area,kind),false))
 func matching_bag(m, area: int, kind: int, target_index: int) -> Array:
 	var targets: Array=bundle_targets(area,kind)

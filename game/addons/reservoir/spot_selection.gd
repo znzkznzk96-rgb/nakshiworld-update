@@ -16,6 +16,7 @@ var notice: = ""
 var notice_until: = 0.0
 func setup() -> void :
 	for n in ART: images.append(load("res://art/refresh53/%s.png" % ("reservoir_clean" if n == "reservoir" else n)))
+	images[2]=load("res://art/bg/tile_sea_clean.png")
 	chains = load("res://art/refresh53/chains.png")
 func enter() -> void : pointer = false;dragging = false;shift = 0;scroll = index;notice = ""
 func process(dt: float) -> void :
@@ -82,7 +83,11 @@ func draw(m, h: float) -> void :
 				m._ui_line(border.end, border.end - Vector2(border.size.x, 0), col, 1)
 				m._ui_line(border.end, border.end - Vector2(0, border.size.y), col, 1)
 		var image_pos: Vector2 = r.position + Vector2(8, 8)
-		m._ui_texture_rect_region(images[i],Rect2(image_pos,Vector2(208,image_height)),Rect2(0,(240-image_height)/2,208,image_height),Color.WHITE if m.region_shop.is_unlocked(i) else Color(0.48,0.53,0.59,1))
+		var image_source:=Rect2(0,(240-image_height)/2,208,image_height)
+		if i==2:
+			var crop_height: float=809.0*image_height/208.0
+			image_source=Rect2(0,(1944.0-crop_height)/2.0,809,crop_height)
+		m._ui_texture_rect_region(images[i],Rect2(image_pos,Vector2(208,image_height)),image_source,Color.WHITE if m.region_shop.is_unlocked(i) else Color(0.48,0.53,0.59,1))
 		if not m.region_shop.is_unlocked(i): m._ui_texture(chains, image_pos + Vector2(0, image_height*0.35))
 		var name: String = m._ui_wrap(NAMES[i], 12, 204, 2)
 		m._text(name, Vector2(cx, r.position.y + image_height+28), 12, Color("fff0d1"), true, 204)

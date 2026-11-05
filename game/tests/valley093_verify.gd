@@ -6,7 +6,7 @@ func _initialize():call_deferred("run")
 func run():
  var m=load("res://main.gd").new();m.SET.sfx=0;m.SET.music=0;root.add_child(m);await process_frame;m.set_process(false)
  m.title_open=false;m.trans={};m.progression.restore({});m.region_shop.restore({});m.gold=10000
- check(m.progression.available_regions==[0,1],"only completed regions enabled")
+ check(m.progression.available_regions==[0,1,2],"only completed regions enabled")
  check(not m.region_shop.unlock(m,1) and m.gold==10000,"no certificate no charge")
  m.progression.restore({"main_completed":[true],"certificates":[true]})
  m.development_preview=true
@@ -20,7 +20,7 @@ func run():
  check(m.active_region==1 and m.region_shop.is_unlocked(1) and m.progression.licensed(1),"old license and new unlock survive save reload")
  check(m.region_shop.unlock(m,1) and m.gold==0,"repeat entry free")
  m.gold=999999999;m.progression.main_completed[1]=true;m.progression.certificates[1]=true
- check(not m.region_shop.unlock(m,2),"unfinished tile sea remains locked even licensed")
+ check(not m.region_shop.unlock(m,3),"unfinished rift remains locked even licensed")
  check(m.environment.valley.root.get_parent()==m and m.environment.valley.root.z_index<0,"background stays behind actors in world canvas")
  for h in [480,660]:
   m.text_items=[];m.ui_commands=[];m.spots.scroll=1;m.spots.draw(m,h)

@@ -12,6 +12,7 @@ const LAYER_ORDER := {
 	"chimney_smoke":-24,"village_lights":-12,"lamp_light":-11,"fireflies":-10
 }
 var valley = preload("res://addons/reservoir/valley_environment.gd").new()
+var tile = preload("res://addons/reservoir/tile_environment.gd").new()
 var active_region := 0
 var scene_visible := true
 var backplate: Sprite2D
@@ -66,12 +67,12 @@ func setup(m) -> void:
 	layer=layers.fish;light_layer=layers.underwater_light
 	water_layers.assign([layers.surface_water,layers.post_ripples,layers.bubbles])
 	atmosphere_layers.assign([layers.clouds,layers.plants,layers.birds,layers.fireflies])
-	valley.setup(m)
+	valley.setup(m);tile.setup(m)
 
 func layout(m) -> void:
 	active_region=m.active_region;bottom=m.uw_bot;extra=m.oy;canvas_height=m.get_viewport_rect().size.y
-	valley.layout(m)
-	if m.get_viewport() is SubViewport: m.get_viewport().transparent_bg=active_region==1
+	valley.layout(m);tile.layout(m)
+	if m.get_viewport() is SubViewport: m.get_viewport().transparent_bg=active_region in [1,2]
 	var view: Vector2=m.get_viewport_rect().size
 	# Uniform cover; never independent X/Y stretching.
 	var scale: float=maxf(view.x/SOURCE.x,view.y/SOURCE.y)
@@ -116,7 +117,7 @@ func update(dt: float) -> void:
 	for kind in layers: layers[kind].queue_redraw()
 
 func show_scene(is_fishing: bool) -> void:
-	scene_visible=is_fishing;valley.set_visible(is_fishing and active_region==1)
+	scene_visible=is_fishing;valley.set_visible(is_fishing and active_region==1);tile.set_visible(is_fishing and active_region==2)
 	var show: bool=is_fishing and active_region==0
 	if is_instance_valid(backplate):backplate.visible=show
 	front.visible=show;moon.visible=show

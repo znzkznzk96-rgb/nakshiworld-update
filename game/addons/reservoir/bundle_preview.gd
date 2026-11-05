@@ -89,9 +89,9 @@ func draw(m,h: float) -> void:
 	else:
 		m._ui_texture_rect(m.V.tool_icons.scale,Rect2(reward.position+Vector2(8,7),Vector2(24,24)),false)
 		var caption: String="보상 준비 중"
-		if region<2: caption="%s 비늘 · 혼 %d개"%[_amount(reward_preview_amount(m,region,tab)),m.progression.SOUL_REWARD[region]] if tab==1 else "%s 비늘 · 진주 2개"%_amount(reward_preview_amount(m,region,tab))
+		if region<3: caption="%s 비늘 · 혼 %d개"%[_amount(reward_preview_amount(m,region,tab)),m.progression.SOUL_REWARD[region]] if tab==1 else "%s 비늘 · 진주 2개"%_amount(reward_preview_amount(m,region,tab))
 		m._text(caption,reward.position+Vector2(39,16),10,Color("382619"),false,192)
-		m._text(("받은 보상" if m.progression.claimed(region,tab) else "받기 버튼으로 수령") if done else ("완료 예상 · 미기증은 노멀·평균 기준" if region<2 else "보상 준비 중"),reward.position+Vector2(39,30),9,Color("513b29"),false,192)
+		m._text(("받은 보상" if m.progression.claimed(region,tab) else "받기 버튼으로 수령") if done else ("완료 예상 · 미기증은 노멀·평균 기준" if region<3 else "보상 준비 중"),reward.position+Vector2(39,30),9,Color("513b29"),false,192)
 	button(m,"register",("보상 확인" if m.progression.claimed(region,tab) else "보상 받기") if done else ("보유 물고기 기증" if not targets.is_empty() else "번들 준비 중"),Rect2(17,bottom-48,154,29),done)
 	button(m,"dex","도감",Rect2(177,bottom-48,76,29))
 	m._text("기증 %d / %d · 일괄 기증은 낮은 등급부터"%[total,targets.size()],Vector2(135,bottom-7),9,Color("68533d"),true,236)
@@ -221,14 +221,14 @@ func _amount(value: int) -> String:
 	return result
 
 func reward_amount(m, area: int, kind: int) -> int:
-	if area<0 or area>1 or kind not in [1,2]: return 0
+	if area<0 or area>2 or kind not in [1,2]: return 0
 	var value: int=int(m.progression.bundle_values.get(m.progression.bundle_key(area,kind),0))
 	return roundi(value*(1.2 if kind==1 else 1.5))
 
 # Already donated specimens retain their recorded sale values. Missing specimens
 # use current normal/average values for presentation only; payout is unchanged.
 func reward_preview_amount(m, area: int, kind: int) -> int:
-	if area<0 or area>1 or kind not in [1,2]: return 0
+	if area<0 or area>2 or kind not in [1,2]: return 0
 	if m.progression.bundle_done(area,kind): return reward_amount(m,area,kind)
 	var value: int=int(m.progression.bundle_values.get(m.progression.bundle_key(area,kind),0))
 	var targets: Array=m.progression.bundle_targets(area,kind)
