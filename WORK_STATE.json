@@ -1,11 +1,11 @@
 {
-  "work_branch": "work/skills-105",
-  "status": "v105_deployed_verified",
+  "work_branch": "work/valley-clarity-106",
+  "status": "valley_only_release_authorized",
   "release_baseline": "v1.05",
-  "target_release": "v1.05",
-  "deployed": true,
+  "target_release": "v1.06",
+  "deployed": false,
   "phone_verified": false,
-  "handoff": "HANDOFF.md",
-  "current_task": "스킬45종·아이콘·강화비1.05공개완료",
-  "next_step": "기존앱1.05업데이트 및 휴대폰표시 사용자확인"
+  "handoff": "docs/releases/valley-106/HANDOFF.md",
+  "current_task": "계곡 선명도 개선만 검증·배포",
+  "next_step": "검증된 계곡 코드만 적용 후 전체 검사 및 공개 다운로드 검증"
 }
