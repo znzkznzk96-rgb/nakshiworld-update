@@ -5,9 +5,9 @@
   "target_release": "v1.05",
   "deployed": true,
   "phone_verified": false,
-  "handoff": "docs/art/tile-sea-20261105/FINAL_HANDOFF.md",
-  "current_task": "타일바다24레이어·20종·장식유영·번들3종 연결",
-  "next_step": "계곡 3높이 실화면 검수 완료. 타일바다 승인 연결 작업 및 배포 전 전체검사; 새배포 없음",
+  "handoff": "docs/art/tile-layers-20261105/HANDOFF.md",
+  "current_task": "타일바다 배경 원본해상도 보존·24레이어·PixelLab6원본",
+  "next_step": "해상도 경로 구성 및 게1장 검수 후 순차제작. 물고기/번들 제외, 새배포 없음",
   "art_record": "docs/art/tile-sea-20261105/BOSS_TWO_RESULTS.json",
   "map_record": "docs/art/tile-sea-20261105/VALLEY_NATIVE_FIX.md",
   "valley_review": "docs/art/tile-sea-20261105/VALLEY_NATIVE_FIX.md"
