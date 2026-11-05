@@ -1,5 +1,7 @@
 # Codex에서 바로 이어하기 — 2026-11-06 KST
 
+다운로드/프록시 오류가 나면 [네트워크 오류 이어하기](CODEX_NETWORK_RECOVERY.md)를 먼저 따른다. 새 Codex 환경의 연결·인증이 검증됐다는 의미가 아니다.
+
 ## 첫 행동
 WORK_STATE가 지정한 `work/tile-release-107`의 최신 원격 HEAD를 사용한다. 1.07 구현 기준은 `c18f28d3be7c3dbe2486c9bc87de53e333a7059e`. 이 문서 커밋은 게임을 변경하지 않는다. Git clone 후 main에 머물면 1.07을 놓친다.
 

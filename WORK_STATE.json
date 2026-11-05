@@ -12,5 +12,6 @@
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
   "verification": "docs/handoff/2026-11-06/EVIDENCE.json",
-  "baseline_phone_verified": true
+  "baseline_phone_verified": true,
+  "environment_recovery": "docs/CODEX_NETWORK_RECOVERY.md"
 }
