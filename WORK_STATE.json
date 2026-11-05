@@ -6,7 +6,7 @@
   "deployed": true,
   "phone_verified": true,
   "handoff": "docs/art/tile-background-new-20261106/HANDOFF.md",
-  "current_task": "타일바다 B 확정·구름/식물 제거 배경 편집",
-  "next_step": "B 구도 유지한 기본배경 검수",
+  "current_task": "B 물그라데이션 정리 및 계곡 기준 번들안 제시",
+  "next_step": "기본 배경·번들 사용자 검토",
   "deferred_work_branch": "work/skills-105"
 }
