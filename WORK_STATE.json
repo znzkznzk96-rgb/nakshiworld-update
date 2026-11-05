@@ -6,8 +6,8 @@
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/art/tile-sea-20261105/FINAL_HANDOFF.md",
-  "current_task": "타일바다 확정 배경 레이어 재개·24개 추가 요소 제안",
-  "next_step": "레이어 배치·동작 구체화. 계곡 수정본 이미지검수 미완료 유지·새 배포 없음",
+  "current_task": "타일바다24레이어·20종·장식유영·번들3종 연결",
+  "next_step": "계곡수치재사용/기존해금비·파츠유지 구현·전체검증·work저장. 새배포없음",
   "art_record": "docs/art/tile-sea-20261105/BOSS_TWO_RESULTS.json",
   "map_record": "docs/art/tile-sea-20261105/VALLEY_NATIVE_FIX.md"
 }
