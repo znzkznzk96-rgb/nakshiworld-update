@@ -1,0 +1,38 @@
+{
+  "version": {
+    "code": 106,
+    "name": "1.06"
+  },
+  "source_commit": "a0ea3dfdb4d768cccd2410e57c57f272adbeafff",
+  "assets": {
+    "version.json": {
+      "size": 199,
+      "sha256": "9051e07e64eae387c17e5828d7c6f1c36aba8c19d790d0327fc065bfe23c49c9",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.06/version.json"
+    },
+    "patch.pck": {
+      "size": 57713984,
+      "sha256": "4a5d49dd02bf3eba24d76acb47923c1a9d7afe2ca19f24081cc637eae9cd2d7b",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.06/patch.pck"
+    },
+    "game-source.zip": {
+      "size": 61642915,
+      "sha256": "3c4b1a317955fa53f2f8351d9fbd1d0978502cafd0f6655a969132b6ab064dd5",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.06/game-source.zip"
+    }
+  },
+  "phone_verified": false,
+  "source_overlay_files_verified": 531,
+  "zip_crc_verified": true,
+  "public_assets_verified": true,
+  "checks": {
+    "work": "https://github.com/znzkznzk96-rgb/nakshiworld-update/actions/runs/42053827750",
+    "release": "https://github.com/znzkznzk96-rgb/nakshiworld-update/actions/runs/42054943979",
+    "gateway": "https://github.com/znzkznzk96-rgb/nakshiworld-update/actions/runs/42055671565",
+    "all": "success"
+  },
+  "gateway_evidence": [
+    "2026-11-05T15:30:52.9264624Z PUBLIC UPDATE VERIFIED {\"code\": 106, \"name\": \"1.06\", \"sha256\": \"4a5d49dd02bf3eba24d76acb47923c1a9d7afe2ca19f24081cc637eae9cd2d7b\", \"size\": 57713984, \"source_commit\": \"a0ea3dfdb4d768cccd2410e57c57f272adbeafff\"}",
+    "2026-11-05T15:31:11.1761535Z PUBLIC_RELEASE_ASSETS_VERIFIED {\"version\": {\"code\": 106, \"name\": \"1.06\"}, \"source_commit\": \"a0ea3dfdb4d768cccd2410e57c57f272adbeafff\", \"assets\": {\"version.json\": {\"size\": 199, \"sha256\": \"9051e07e64eae387c17e5828d7c6f1c36aba8c19d790d0327fc065bfe23c49c9\", \"url\": \"https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.06/version.json\"}, \"patch.pck\": {\"size\": 57713984, \"sha256\": \"4a5d49dd02bf3eba24d76acb47923c1a9d7afe2ca19f24081cc637eae9cd2d7b\", \"url\": \"https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.06/patch.pck\"}, \"game-source.zip\": {\"size\": 61642915, \"sha256\": \"3c4b1a317955fa53f2f8351d9fbd1d0978502cafd0f6655a969132b6ab064dd5\", \"url\": \"https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.06/game-source.zip\"}}, \"phone_verified\": false, \"source_overlay_files_verified\": 531, \"zip_crc_verified\": true, \"public_assets_verified\": true}"
+  ]
+}
