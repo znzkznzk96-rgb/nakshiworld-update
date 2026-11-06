@@ -1,0 +1,127 @@
+name: Verify tile background screens without deployment
+on:
+  push:
+    branches: [work/tile-release-107]
+    paths: ['.github/workflows/tile-background-stage2.yml']
+permissions:
+  contents: write
+concurrency:
+  group: tile-background-stage2
+  cancel-in-progress: false
+jobs:
+  screens:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify and restore v1.06 full source
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p evidence
+          curl -fL --connect-timeout 15 --max-time 120 https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.06/game-source.zip -o "$RUNNER_TEMP/source-v106.zip"
+          echo "3c4b1a317955fa53f2f8351d9fbd1d0978502cafd0f6655a969132b6ab064dd5  $RUNNER_TEMP/source-v106.zip" | sha256sum -c -
+          python3 - <<'PY'
+          import pathlib,zipfile,json,os
+          p=pathlib.Path(os.environ["RUNNER_TEMP"])/"source-v106.zip"
+          assert p.stat().st_size==61642915
+          with zipfile.ZipFile(p) as z:
+              assert z.testzip() is None
+              assert all(x.startswith("game/") and ".." not in pathlib.PurePosixPath(x).parts for x in z.namelist())
+              z.extractall(pathlib.Path(os.environ["RUNNER_TEMP"])/"baseline")
+          pathlib.Path("evidence/source.json").write_text(json.dumps({"version":"1.06","bytes":p.stat().st_size,"sha256":"3c4b1a317955fa53f2f8351d9fbd1d0978502cafd0f6655a969132b6ab064dd5","crc_verified":True,"overlay_commit":os.environ["GITHUB_SHA"]},indent=2))
+          PY
+          python3 automation/restore_source.py "$RUNNER_TEMP/source-v106.zip" "$RUNNER_TEMP/project"
+      - name: Verify approved assets before engine
+        run: |
+          python3 -m pip install Pillow==11.3.0
+          python3 - <<'PY'
+          import pathlib,hashlib,json,os
+          from PIL import Image
+          project=pathlib.Path(os.environ["RUNNER_TEMP"])/"project"
+          a=json.loads(pathlib.Path("docs/releases/tile-107/ASSETS.json").read_text())
+          for item in [a["background"]]+a["fish"]:
+              p=project/pathlib.PurePosixPath(item["path"]).relative_to("game")
+              assert hashlib.sha256(p.read_bytes()).hexdigest()==item["sha256"],str(p)
+              with Image.open(p) as im: im.verify()
+              with Image.open(p) as im:
+                  im.load()
+                  if item is a["background"]: assert list(im.size)==item["size"]
+          print("APPROVED_ASSETS_DECODE_AND_HASH_MATCH")
+          PY
+      - name: Install pinned engine and rendering dependencies
+        run: |
+          set -euo pipefail
+          curl -fL --connect-timeout 15 --max-time 120 https://github.com/godotengine/godot/releases/download/4.4.1-stable/Godot_v4.4.1-stable_linux.x86_64.zip -o "$RUNNER_TEMP/godot.zip"
+          unzip -q "$RUNNER_TEMP/godot.zip" -d "$RUNNER_TEMP/godot"
+          chmod +x "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
+          sudo apt-get update -qq
+          sudo apt-get install -y xvfb libgl1-mesa-dri > /dev/null
+      - name: Import and related functional checks
+        shell: bash
+        run: |
+          set -euo pipefail
+          GODOT="$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
+          "$GODOT" --headless --editor --path "$RUNNER_TEMP/project" --import > evidence/import.log 2>&1
+          if grep -E 'SCRIPT ERROR:|Parse Error:|Failed to load script' evidence/import.log; then exit 1; fi
+          "$GODOT" --headless --path "$RUNNER_TEMP/project" --script tests/bake_expedition_assets.gd > evidence/bake.log 2>&1
+          grep -F 'EXPEDITION_BAKE files=130' evidence/bake.log
+          "$GODOT" --headless --editor --path "$RUNNER_TEMP/project" --import > evidence/prepared-import.log 2>&1
+          for suite in tile107 startup_assets regional valley093; do
+            XDG_DATA_HOME="$RUNNER_TEMP/stage2-$suite" timeout 90 "$GODOT" --headless --path "$RUNNER_TEMP/project" --script "tests/${suite}_verify.gd" > "evidence/$suite.log" 2>&1 || { cat "evidence/$suite.log"; exit 1; }
+            grep -F 'VERIFY failures=[]' "evidence/$suite.log"
+            if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' "evidence/$suite.log"; then cat "evidence/$suite.log"; exit 1; fi
+          done
+      - name: Render actual fishing and selection at three heights
+        shell: bash
+        run: |
+          set -euo pipefail
+          GODOT="$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
+          XDG_DATA_HOME="$RUNNER_TEMP/stage2-native" timeout 90 xvfb-run -a "$GODOT" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/tile107_native_verify.gd -- "$GITHUB_WORKSPACE/evidence/screens" > evidence/tile-native.log 2>&1 || { cat evidence/tile-native.log; exit 1; }
+          grep -F 'TILE107_NATIVE_VERIFY failures=[]' evidence/tile-native.log
+          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/tile-native.log; then cat evidence/tile-native.log; exit 1; fi
+      - name: Render v1.06 baseline selection for comparison
+        shell: bash
+        run: |
+          set -euo pipefail
+          BASE="$RUNNER_TEMP/baseline/game"
+          cp docs/qa/tile-background-stage2/before_selection.gd "$BASE/tests/stage2_before_selection.gd"
+          GODOT="$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
+          "$GODOT" --headless --editor --path "$BASE" --import > evidence/baseline-import.log 2>&1
+          "$GODOT" --headless --path "$BASE" --script tests/bake_expedition_assets.gd > evidence/baseline-bake.log 2>&1
+          "$GODOT" --headless --editor --path "$BASE" --import > evidence/baseline-prepared-import.log 2>&1
+          XDG_DATA_HOME="$RUNNER_TEMP/stage2-before" timeout 90 xvfb-run -a "$GODOT" --audio-driver Dummy --rendering-method gl_compatibility --path "$BASE" --script tests/stage2_before_selection.gd -- "$GITHUB_WORKSPACE/evidence/screens" > evidence/before.log 2>&1
+          grep -F 'BASELINE_SELECTION_CAPTURED' evidence/before.log
+          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/before.log; then cat evidence/before.log; exit 1; fi
+      - name: Record screen evidence without publishing
+        run: |
+          python3 - <<'PY'
+          import json,pathlib,shutil,os
+          from PIL import Image,ImageDraw
+          out=pathlib.Path("docs/qa/tile-background-stage2/results");out.mkdir(parents=True,exist_ok=True)
+          src=pathlib.Path("evidence/screens")
+          for p in src.glob("*.png"): shutil.copy2(p,out/p.name)
+          images=[Image.open(src/n).convert("RGB") for n in ["before_selection_540.png","selection_540.png","tile_540.png"]]
+          w,h=images[0].size
+          canvas=Image.new("RGB",(w*3,h+45),"#172d38")
+          draw=ImageDraw.Draw(canvas)
+          for i,(label,im) in enumerate(zip(["v1.06 selection","Approved PNG selection","Approved PNG fishing"],images)):
+              canvas.paste(im,(i*w,45));draw.text((i*w+20,15),label,fill="white")
+          canvas.save(out/"comparison_540.png")
+          report={"source":json.loads(pathlib.Path("evidence/source.json").read_text()),"png_sha256":"1c2ce9d432cf1aa38ed462d2570291fe63c316f50aecc851f0a5a532d84d1f4b","related_tests":["tile107","startup_assets","regional","valley093","tile107_native"],"heights":[480,540,660],"screens":sorted(p.name for p in out.glob("*.png")),"full_regression_run":False,"deployed":False,"phone_verified":False}
+          (out/"VERIFICATION.json").write_text(json.dumps(report,indent=2)+"\n")
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/qa/tile-background-stage2/results
+          git commit -m "docs: preserve actual tile background screen evidence [skip ci]"
+          git push origin HEAD:refs/heads/work/tile-release-107
+      - name: Preserve source and screen evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tile-background-stage2
+          path: |
+            evidence/
+            docs/qa/tile-background-stage2/results/
+            ${{ runner.temp }}/source-v106.zip
