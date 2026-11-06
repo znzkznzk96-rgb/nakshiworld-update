@@ -1,0 +1,596 @@
+{
+  "date_kst": "2026-11-07",
+  "stage": "Game update stage 1: static comparison",
+  "status": "repository_diff_reviewed_full_release_zip_comparison_blocked",
+  "baseline": {
+    "tag": "v1.06",
+    "commit": "a0ea3dfdb4d768cccd2410e57c57f272adbeafff",
+    "release_zip_bytes": 61642915,
+    "release_zip_sha256": "3c4b1a317955fa53f2f8351d9fbd1d0978502cafd0f6655a969132b6ab064dd5",
+    "metadata_confirmed": true,
+    "zip_downloaded": false,
+    "download_error": "curl exit 28: connection timeout after 4002 milliseconds; no retry"
+  },
+  "work_commit": "77d1083e69e93288451f627e930cfc45adfec5f2",
+  "ahead_commits": 16,
+  "counts": {
+    "total": 64,
+    "game_code": 8,
+    "fish_images": 20,
+    "tests": 7,
+    "automation_and_workflows": 5,
+    "docs": 24
+  },
+  "static_checks": {
+    "old_species_preserved": true,
+    "old_means_preserved": true,
+    "new_means_copy_valley": true
+  },
+  "findings": [
+    {
+      "id": "A1",
+      "severity": "blocker",
+      "result": "확정",
+      "detail": "삭제명세에 art/bg/tile_sea_clean.png가 있고 현재 tree에는 없지만 tile_environment.gd와 spot_selection.gd가 여전히 로드한다."
+    },
+    {
+      "id": "A2",
+      "severity": "blocker",
+      "result": "확정",
+      "detail": "최종 승인 801x1962 대신 ASSETS.json, tile_environment.gd, main.gd, spot_selection.gd와 tile107 tests에 이전 809x1944/좌표가 남아 있다."
+    },
+    {
+      "id": "A3",
+      "severity": "verification_required",
+      "detail": "20 PNG 및 카탈로그 항목은 존재한다. 이번 감사에서는 PNG 디코드/승인본 해시/12·17 시안 일치/실화면 검사를 하지 않았다."
+    },
+    {
+      "id": "A4",
+      "severity": "verification_required",
+      "detail": "메인6/서브6/주인1, 혼30, 120%/150%, 계곡 보상 이후 입장 및 312000비늘 조건의 구현 흔적은 확인. 동작/저장실패/재접속 검사는 미실행."
+    },
+    {
+      "id": "A5",
+      "severity": "verification_required",
+      "detail": "main.gd의 세이브 로드 active_region 상한 1->2 및 regional_progress.restore 대상 2->3 변경. 기존 세이브 회귀검사가 필요하다."
+    },
+    {
+      "id": "A6",
+      "severity": "blocker_for_release",
+      "detail": "활성 브랜치의 마지막 CI는 c18f28d3의 failure. 최신 77d1083 승인 배경 검사는 없다. 107 버전/릴리스 안내의 존재는 검증·공개 완료 근거가 아니다."
+    },
+    {
+      "id": "A7",
+      "severity": "documentation_conflict",
+      "detail": "AGENTS/PROJECT_INSTRUCTIONS/CODEX_HANDOFF에는 과거 복구취소·보류 문구가 남고 최신 HANDOFF/GAME_BIBLE에는 새 승인본 적용이 기록되어 있다. 최신 사용자 지시가 우선."
+    }
+  ],
+  "latest_work_runs": [
+    {
+      "id": 42071213782,
+      "sha": "c18f28d3be7c3dbe2486c9bc87de53e333a7059e",
+      "conclusion": "failure",
+      "name": "Verify work branch without deployment"
+    }
+  ],
+  "changed_files": [
+    {
+      "filename": ".github/workflows/release-patch.yml",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "previous_filename": null
+    },
+    {
+      "filename": ".github/workflows/verify-work.yml",
+      "status": "modified",
+      "additions": 15,
+      "deletions": 5,
+      "changes": 20,
+      "previous_filename": null
+    },
+    {
+      "filename": "AGENTS.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 0,
+      "changes": 4,
+      "previous_filename": null
+    },
+    {
+      "filename": "CHANGELOG.md",
+      "status": "modified",
+      "additions": 20,
+      "deletions": 1,
+      "changes": 21,
+      "previous_filename": null
+    },
+    {
+      "filename": "HANDOFF.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 7,
+      "changes": 10,
+      "previous_filename": null
+    },
+    {
+      "filename": "START_HERE.md",
+      "status": "modified",
+      "additions": 7,
+      "deletions": 10,
+      "changes": 17,
+      "previous_filename": null
+    },
+    {
+      "filename": "WORK_STATE.json",
+      "status": "modified",
+      "additions": 13,
+      "deletions": 7,
+      "changes": 20,
+      "previous_filename": null
+    },
+    {
+      "filename": "automation/deleted-game-files.json",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 1,
+      "changes": 3,
+      "previous_filename": null
+    },
+    {
+      "filename": "automation/release-history.json",
+      "status": "modified",
+      "additions": 12,
+      "deletions": 0,
+      "changes": 12,
+      "previous_filename": null
+    },
+    {
+      "filename": "automation/release.json",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "previous_filename": null
+    },
+    {
+      "filename": "docs/CODEX_HANDOFF.md",
+      "status": "added",
+      "additions": 63,
+      "deletions": 0,
+      "changes": 63,
+      "previous_filename": null
+    },
+    {
+      "filename": "docs/CODEX_NETWORK_RECOVERY.md",
+      "status": "added",
+      "additions": 20,
+      "deletions": 0,
+      "changes": 20,
+      "previous_filename": null
+    },
+    {
+      "filename": "docs/CONTINUE_HERE.md",
+      "status": "modified",
+      "additions": 9,
+      "deletions": 22,
+      "changes": 31,
+      "previous_filename": null
+    },
+    {
+      "filename": "docs/GAME_BIBLE.md",
+      "status": "modified",
+      "additions": 37,
+      "deletions": 0,
+      "changes": 37,
+      "previous_filename": null
+    },
+    {
+      "filename": "docs/PROJECT_INSTRUCTIONS.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 0,
+      "changes": 4,
+      "previous_filename": null
+    },
+    {
+      "filename": "docs/TOOLS_AND_PLUGINS.md",
+      "status": "added",
+      "additions": 39,
+      "deletions": 0,
+      "changes": 39,
+      "previous_filename": null
+    },
+    {
+      "filename": "docs/art/tile-background-new-20261106/BUNDLE_AUDIT.md",
+      "status": "added",
+      "additions": 14,
+      "deletions": 0,
+      "changes": 14,
+      "previous_filename": null
+    },
+    {
+      "filename": "docs/art/tile-background-new-20261106/HANDOFF.md",
+      "status": "added",
+      "additions": 9,
+      "deletions": 0,
+      "changes": 9,
+      "previous_filename": null
+    },
+    {
+      "filename": "docs/handoff/2026-11-06/EVIDENCE.json",
+      "status": "added",
+      "additions": 78,
+      "deletions": 0,
+      "changes": 78,
+      "previous_filename": null
+    },
+    {
+      "filename": "docs/historical/2026-11-06-before-codex-handoff/HANDOFF.md",
+      "status": "added",
+      "additions": 9,
+      "deletions": 0,
+      "changes": 9,
+      "previous_filename": null
+    },
+    {
+      "filename": "docs/historical/2026-11-06-before-codex-handoff/START_HERE.md",
+      "status": "added",
+      "additions": 12,
+      "deletions": 0,
+      "changes": 12,
+      "previous_filename": null
+    },
+    {
+      "filename": "docs/historical/2026-11-06-before-codex-handoff/WORK_STATE.json",
+      "status": "added",
+      "additions": 12,
+      "deletions": 0,
+      "changes": 12,
+      "previous_filename": null
+    },
+    {
+      "filename": "docs/historical/2026-11-06-before-codex-handoff/docs/CONTINUE_HERE.md",
+      "status": "added",
+      "additions": 25,
+      "deletions": 0,
+      "changes": 25,
+      "previous_filename": null
+    },
+    {
+      "filename": "docs/historical/2026-11-06-before-corrupt-exclusion/AGENTS.md",
+      "status": "added",
+      "additions": 13,
+      "deletions": 0,
+      "changes": 13,
+      "previous_filename": null
+    },
+    {
+      "filename": "docs/historical/2026-11-06-before-corrupt-exclusion/docs/PROJECT_INSTRUCTIONS.md",
+      "status": "added",
+      "additions": 55,
+      "deletions": 0,
+      "changes": 55,
+      "previous_filename": null
+    },
+    {
+      "filename": "docs/releases/tile-107/ASSETS.json",
+      "status": "added",
+      "additions": 133,
+      "deletions": 0,
+      "changes": 133,
+      "previous_filename": null
+    },
+    {
+      "filename": "docs/releases/tile-107/HANDOFF.md",
+      "status": "added",
+      "additions": 38,
+      "deletions": 0,
+      "changes": 38,
+      "previous_filename": null
+    },
+    {
+      "filename": "docs/releases/valley-106/HANDOFF.md",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 2,
+      "changes": 8,
+      "previous_filename": null
+    },
+    {
+      "filename": "docs/releases/valley-106/PUBLISHED.json",
+      "status": "added",
+      "additions": 38,
+      "deletions": 0,
+      "changes": 38,
+      "previous_filename": null
+    },
+    {
+      "filename": "game/addons/reservoir/bundle_preview.gd",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 4,
+      "changes": 8,
+      "previous_filename": null
+    },
+    {
+      "filename": "game/addons/reservoir/environment.gd",
+      "status": "modified",
+      "additions": 5,
+      "deletions": 4,
+      "changes": 9,
+      "previous_filename": null
+    },
+    {
+      "filename": "game/addons/reservoir/regional_catalog.gd",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 4,
+      "changes": 8,
+      "previous_filename": null
+    },
+    {
+      "filename": "game/addons/reservoir/regional_progress.gd",
+      "status": "modified",
+      "additions": 10,
+      "deletions": 10,
+      "changes": 20,
+      "previous_filename": null
+    },
+    {
+      "filename": "game/addons/reservoir/release_notes.gd",
+      "status": "modified",
+      "additions": 12,
+      "deletions": 0,
+      "changes": 12,
+      "previous_filename": null
+    },
+    {
+      "filename": "game/addons/reservoir/spot_selection.gd",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 1,
+      "changes": 7,
+      "previous_filename": null
+    },
+    {
+      "filename": "game/addons/reservoir/tile_environment.gd",
+      "status": "added",
+      "additions": 28,
+      "deletions": 0,
+      "changes": 28,
+      "previous_filename": null
+    },
+    {
+      "filename": "game/art/fish/l2_00.png",
+      "status": "added",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "game/art/fish/l2_01.png",
+      "status": "added",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "game/art/fish/l2_02.png",
+      "status": "added",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "game/art/fish/l2_03.png",
+      "status": "added",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "game/art/fish/l2_04.png",
+      "status": "added",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "game/art/fish/l2_05.png",
+      "status": "added",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "game/art/fish/l2_06.png",
+      "status": "added",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "game/art/fish/l2_07.png",
+      "status": "added",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "game/art/fish/l2_08.png",
+      "status": "added",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "game/art/fish/l2_09.png",
+      "status": "added",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "game/art/fish/l2_10.png",
+      "status": "added",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "game/art/fish/l2_11.png",
+      "status": "added",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "game/art/fish/l2_12.png",
+      "status": "added",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "game/art/fish/l2_13.png",
+      "status": "added",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "game/art/fish/l2_14.png",
+      "status": "added",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "game/art/fish/l2_15.png",
+      "status": "added",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "game/art/fish/l2_16.png",
+      "status": "added",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "game/art/fish/l2_17.png",
+      "status": "added",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "game/art/fish/l2_18.png",
+      "status": "added",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "game/art/fish/l2_19.png",
+      "status": "added",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "previous_filename": null
+    },
+    {
+      "filename": "game/main.gd",
+      "status": "modified",
+      "additions": 16,
+      "deletions": 5,
+      "changes": 21,
+      "previous_filename": null
+    },
+    {
+      "filename": "game/tests/bundles_buyback_verify.gd",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "previous_filename": null
+    },
+    {
+      "filename": "game/tests/economy_balance_verify.gd",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "previous_filename": null
+    },
+    {
+      "filename": "game/tests/owner_gauge_verify.gd",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "previous_filename": null
+    },
+    {
+      "filename": "game/tests/regional_verify.gd",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "previous_filename": null
+    },
+    {
+      "filename": "game/tests/tile107_native_verify.gd",
+      "status": "added",
+      "additions": 41,
+      "deletions": 0,
+      "changes": 41,
+      "previous_filename": null
+    },
+    {
+      "filename": "game/tests/tile107_verify.gd",
+      "status": "added",
+      "additions": 64,
+      "deletions": 0,
+      "changes": 64,
+      "previous_filename": null
+    },
+    {
+      "filename": "game/tests/valley093_verify.gd",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "previous_filename": null
+    }
+  ],
+  "limitations": [
+    "Actual v1.06 game-source.zip was unavailable; repository base-commit comparison cannot establish byte-for-byte equality with packaged full source.",
+    "No source restore, PNG decode, paid generation, Godot tests, preview rendering, workflow dispatch or deployment performed.",
+    "Only audit documentation saved on isolated diagnostic branch; active game branch unchanged."
+  ],
+  "next_stage": "Complete release ZIP acquisition/comparison when an available supported transfer path is established; then transfer verified approved background and align both screens before feature testing."
+}
