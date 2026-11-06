@@ -1,0 +1,31 @@
+name: Verify approved PNG transfer only
+on:
+  push:
+    branches: [work/tile-png-stage2-20261107]
+    paths: ['.github/workflows/verify-approved-png-stage2.yml']
+permissions:
+  contents: write
+concurrency:
+  group: approved-png-stage2
+  cancel-in-progress: false
+jobs:
+  verify-png:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: work/tile-png-stage2-20261107
+      - name: Install PNG decoder
+        run: python3 -m pip install Pillow==11.3.0
+      - name: Reconstruct and re-download approved PNG
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 docs/transfers/tile-png-stage2/reconstruct_verify.py
+      - name: Preserve PNG verification evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: approved-png-stage2
+          path: |
+            game/art/bg/tile_sea_approved_20261107.png
+            docs/transfers/tile-png-stage2/VERIFICATION.json
