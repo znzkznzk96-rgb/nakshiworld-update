@@ -1,17 +1,21 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "approved_new_tile_background",
+  "status": "background_remote_verified_screen_pending",
   "release_baseline": "v1.06",
   "target_release": "v1.07",
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/releases/tile-107/HANDOFF.md",
-  "current_task": "승인 1번 PNG 원격 검증 및 두 화면 적용",
-  "next_step": "원격 PNG 검증 → 전체 검사 및 화면 → 배포·운영 다운로드 검증",
+  "current_task": "승인 1번 PNG 원격검증 완료·두 화면 적용 대기",
+  "next_step": "v1.06 전체소스 확보 → 배경 경로·크기·배치·ASSETS 동기화 → 실제 화면 비교",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
   "verification": "docs/handoff/2026-11-06/EVIDENCE.json",
   "baseline_phone_verified": true,
-  "environment_recovery": "docs/CODEX_NETWORK_RECOVERY.md"
+  "environment_recovery": "docs/CODEX_NETWORK_RECOVERY.md",
+  "background_verified_branch": "work/tile-png-stage2-20261107",
+  "background_verified_commit": "ebdb67293522c91c750945ee56cacd645d72f444",
+  "background_verified_path": "game/art/bg/tile_sea_approved_20261107.png",
+  "background_verification": "https://github.com/znzkznzk96-rgb/nakshiworld-update/blob/ebdb67293522c91c750945ee56cacd645d72f444/docs/transfers/tile-png-stage2/VERIFICATION.json"
 }

@@ -36,3 +36,7 @@
 2026-11-07 접속 진단: Work 터미널의 GitHub 직접 조회 두 건은 5초 내 응답이 없었고 연결된 GitHub 문서·커밋 조회는 성공했다. 이전 세션 중단 원인은 미확인.
 
 2026-11-07 최종 1번 선정 및 2번 원본 휴지통 이동 완료. PNG 원격 저장·화면 적용 대기.
+
+## 2026-11-07 — 단계별 2단계: 승인 PNG 전송·원격 검증 통과
+승인 1번 원본(801×1962, 1,716,343바이트, SHA-256 1c2ce9d432cf1aa38ed462d2570291fe63c316f50aecc851f0a5a532d84d1f4b)의 디코드·해시 확인 후 39조각으로 전송했다. 원격 조각 39개 재조회 일치 및 PNG 재조립→새 경로 저장→원격 PNG 재다운로드 크기·해시·디코드 일치를 확인했다. [검증 원본](https://github.com/znzkznzk96-rgb/nakshiworld-update/blob/ebdb67293522c91c750945ee56cacd645d72f444/docs/transfers/tile-png-stage2/VERIFICATION.json), [전송 전용 CI](https://github.com/znzkznzk96-rgb/nakshiworld-update/actions/runs/42314179779) 성공.
+이미지는 `work/tile-png-stage2-20261107`의 `game/art/bg/tile_sea_approved_20261107.png`에 보존. 활성 게임 브랜치에는 아직 이미지·게임 코드·ASSETS를 합치지 않았다. 이전 손상 파일을 복구한 것이 아니며 신규 생성·유료 호출0. 두 화면 적용·비교, 전체 게임 검사, 공개 배포·휴대폰 확인은 미완료. v1.06 전체소스 ZIP 직접 다운로드는 연결 시간초과로 미확보이며 실행 화면 확인 전 전체소스 확보가 필요하다. 현재 최신 포인터는 WORK_STATE의 background_verified_*를 사용한다.
