@@ -1,6 +1,10 @@
 extends RefCounted
 # Approved clean plate only. Future clouds/plants/water effects are not baked in here.
-const SOURCE := Vector2(809,1944)
+const SOURCE := Vector2(801,1962)
+const PLATE_PATH := "res://art/bg/tile_sea_approved_20261107.png"
+const DECK_Y := 887.0
+const WATER_Y := 977.0
+const SAND_Y := 1790.0
 var root: Node2D
 var plate: Sprite2D
 var native := false
@@ -15,7 +19,7 @@ func setup(m) -> void:
 		m.text_layer.get_viewport().add_child(native_canvas);native_canvas.add_child(root)
 		m.tree_exiting.connect(dispose,CONNECT_ONE_SHOT)
 	else: m.add_child(root)
-	plate=Sprite2D.new();plate.centered=false;plate.texture=load("res://art/bg/tile_sea_clean.png")
+	plate=Sprite2D.new();plate.centered=false;plate.texture=load(PLATE_PATH)
 	root.add_child(plate);root.hide()
 func layout(m) -> void:
 	var view: Vector2=m.get_viewport_rect().size

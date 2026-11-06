@@ -24,7 +24,7 @@ func run():
 	check(m.active_region==2 and m.region_shop.is_unlocked(2),"tile entry survives restart")
 	check(m.region_shop.unlock(m,2) and m.gold==0,"repeat entry free")
 	check(m.environment.tile.root.visible and not m.environment.valley.root.visible and not m.bg_node.visible,"tile scene only")
-	check(m.environment.tile.plate.texture.get_size()==Vector2(809,1944),"native source unchanged")
+	check(m.environment.tile.plate.texture.get_size()==Vector2(801,1962),"native source unchanged")
 	check(m.fish_tex.size()==60 and m.CATALOG.by_star(2,4)==[59],"tile full catalog and owner")
 	for sp in range(40,60):
 		check(m.fish_tex[sp]!=null and m.fish_used[sp].size.x>0,"approved fish texture loaded")

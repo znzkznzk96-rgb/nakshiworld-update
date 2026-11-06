@@ -1,11 +1,11 @@
 {
   "background": {
-    "path": "game/art/bg/tile_sea_clean.png",
+    "path": "game/art/bg/tile_sea_approved_20261107.png",
     "size": [
-      809,
-      1944
+      801,
+      1962
     ],
-    "sha256": "8149e81a427aaa87a47b460dacbcee4deb293615cf3560c22b3bc6c359c089b7"
+    "sha256": "1c2ce9d432cf1aa38ed462d2570291fe63c316f50aecc851f0a5a532d84d1f4b"
   },
   "fish": [
     {

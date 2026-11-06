@@ -24,9 +24,12 @@ func run():
 		await process_frame;app._fit();await process_frame
 		m.active_region=2;m._layout();m._switch_scene("fish");m.queue_redraw()
 		check(sv.size==Vector2i(270,h) and sv.transparent_bg and tile.root.visible,"native composite at %d"%h)
-		check(absf(tile.map_rect.position.y+tile.map_rect.size.y*973.0/1944.0-m.WATER)<=0.5,"water aligned at %d"%h)
+		check(absf(tile.map_rect.position.y+tile.map_rect.size.y*tile.WATER_Y/tile.SOURCE.y-m.WATER)<=0.5,"water aligned at %d"%h)
 		check(m.SURF<m.WATER and m.uw_bot>m.WATER,"usable underwater area %d"%h)
 		await capture(out.path_join("tile_%d.png"%h))
+		m._switch_scene("spots");m.spots.index=2;m.spots.scroll=2;m.spots.shift=0;m.queue_redraw()
+		check(m.spots.images[2].get_size()==tile.SOURCE,"selection uses approved original at %d"%h)
+		await capture(out.path_join("selection_%d.png"%h))
 		m._switch_scene("village");check(not tile.root.visible,"village hides native plate")
 		m.V.open_shop(m,"museum");m.V.bundle_preview.region=2
 		for kind in 3:

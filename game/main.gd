@@ -350,11 +350,11 @@ func _layout() -> void :
 
 	if active_region == 2:
 		oy = 0.0
-		var tile_scale: float = maxf(vs.x / 809.0,vs.y / 1944.0)
-		var tile_top: float = (vs.y - 1944.0 * tile_scale) / 2.0
-		SURF = roundi(tile_top + 835.0 * tile_scale)
-		WATER = roundi(tile_top + 973.0 * tile_scale)
-		uw_bot = minf(tile_top + 1710.0 * tile_scale,vs.y - bot_pad - 137.0)
+		var tile_scale: float = maxf(vs.x / environment.tile.SOURCE.x,vs.y / environment.tile.SOURCE.y)
+		var tile_top: float = (vs.y - environment.tile.SOURCE.y * tile_scale) / 2.0
+		SURF = roundi(tile_top + environment.tile.DECK_Y * tile_scale)
+		WATER = roundi(tile_top + environment.tile.WATER_Y * tile_scale)
+		uw_bot = minf(tile_top + environment.tile.SAND_Y * tile_scale,vs.y - bot_pad - 137.0)
 		PY = SURF - 57;CATY = SURF - 32;PX = 50;CATX = 29
 		environment.layout(self)
 		for r in fx_rid: RenderingServer.canvas_item_set_transform(r,Transform2D.IDENTITY)
