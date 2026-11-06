@@ -6,7 +6,7 @@
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/releases/tile-107/HANDOFF.md",
-  "current_task": "새 타일 배경·번들 적용 및 v1.07 배포",
+  "current_task": "승인 1번 PNG 원격 검증 및 두 화면 적용",
   "next_step": "원격 PNG 검증 → 전체 검사 및 화면 → 배포·운영 다운로드 검증",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
