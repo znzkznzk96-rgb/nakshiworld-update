@@ -1,0 +1,39 @@
+{
+  "step": 4,
+  "date_kst": "2026-11-07",
+  "scope": "Synthetic ASCII multipart transfer only; no approved PNG, game edits, workflow changes or deployment.",
+  "data_commit": "718a9f7135e1055fad0e705b1dc7cae7325111b5",
+  "part_paths": [
+    "docs/diagnostics/transfer-probe-20261107/part00.txt",
+    "docs/diagnostics/transfer-probe-20261107/part01.txt",
+    "docs/diagnostics/transfer-probe-20261107/part02.txt"
+  ],
+  "verification": {
+    "parts": [
+      {
+        "index": 0,
+        "bytes": 64000,
+        "sha256": "c36457cf4a7d72c1449636a385539e90251373934d8c285aad2dc5d381f7f04b"
+      },
+      {
+        "index": 1,
+        "bytes": 64000,
+        "sha256": "3d08add9a00ba5c2b8fcc35d6bf24ca7d8ec9918e34fd3521e40041a1f7a76e2"
+      },
+      {
+        "index": 2,
+        "bytes": 64000,
+        "sha256": "2bfc1972d4b2fa7e272d600d69351a34edfedc51d8cf4d3c5e3e40a07fb6f51e"
+      }
+    ],
+    "total_bytes": 192000,
+    "expected_sha256": "38336cdf345531437fc98387cce8530536b6e396b7fa7e5dbf0c1bbd99772482",
+    "received_sha256": "38336cdf345531437fc98387cce8530536b6e396b7fa7e5dbf0c1bbd99772482",
+    "exact_match": true
+  },
+  "limitations": [
+    "192000-byte ASCII data only; no PNG/Base64 decoding or image-size transfer tested.",
+    "Concatenation and SHA-256 checked locally after remote retrieval; GitHub Actions reconstruction not tested.",
+    "Chat read-only transition root cause remains unconfirmed."
+  ]
+}
