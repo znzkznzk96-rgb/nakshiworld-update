@@ -1,16 +1,17 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "tile_107_blocked_asset_integrity",
+  "status": "see_active_work_branch",
   "release_baseline": "v1.06",
   "target_release": "v1.07",
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/releases/tile-107/HANDOFF.md",
-  "current_task": "Codex 인수인계 저장; 타일바다 배경 원본 무결성 복구 후 검증 재개",
-  "next_step": "CODEX_HANDOFF.md의 배경 SHA/PNG 복구 → 전체 회귀·native 화면 검수 → 기존 승인 범위 v1.07 배포",
+  "current_task": "미배포 작업 상태는 work_branch의 최신 WORK_STATE.json 참조",
+  "next_step": "활성 브랜치의 WORK_STATE와 HANDOFF 확인",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
   "verification": "docs/handoff/2026-11-06/EVIDENCE.json",
-  "baseline_phone_verified": true
+  "baseline_phone_verified": true,
+  "active_state_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/blob/work/tile-release-107/WORK_STATE.json"
 }
