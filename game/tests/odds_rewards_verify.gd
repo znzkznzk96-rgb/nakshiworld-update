@@ -23,7 +23,7 @@ func run() -> void:
 	check(depleted_rare>100,"depleted early pond preserves higher-star access")
 	var p=m.progression;var ui=m.V.bundle_preview;p.restore({});m.forge_lv=0
 	var saved: Dictionary=p.serialize().duplicate(true);var gold: int=m.gold
-	for area in 2:
+	for area in 3:
 		for kind in [1,2]:
 			check(ui.reward_preview_amount(m,area,kind)>0,"empty donation shows completion estimate %d/%d"%[area,kind])
 			ui.region=area;ui.tab=kind;ui.draw(m,540)
@@ -35,6 +35,6 @@ func run() -> void:
 		var sp: int=p.SUB_SPECIES[0][i];expected+=m.fish_price(sp,ui.star(sp),0,1.0)
 	check(ui.reward_preview_amount(m,0,1)==roundi(expected*1.2),"partial estimate retains actual value plus only missing fish")
 	p.extra_completed={"0:1":true};check(ui.reward_preview_amount(m,0,1)==900,"completed display uses actual paid amount")
-	check(ui.reward_preview_amount(m,0,0)==0 and ui.reward_preview_amount(m,2,1)==0,"main and future conditions untouched")
+	check(ui.reward_preview_amount(m,0,0)==0 and ui.reward_preview_amount(m,3,1)==0,"main and future conditions untouched")
 	print("ODDS_REWARDS_VERIFY failures=",failures," stars=",stars," grades=",grades)
 	m.queue_free();await process_frame;quit(0 if failures.is_empty() else 1)
