@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "rejected_worm_waves_fan_ray_revision",
+  "status": "fan_rays_and_flat_water_reflection_preview_verified",
   "release_baseline": "v1.09",
   "target_release": "v1.10",
   "deployed": false,
   "phone_verified": false,
-  "handoff": "analysis/tile-layers-stage6/HANDOFF.md",
-  "current_task": "게임시계광축·비동기랜덤두께·실제곡선파도 시안/검사완료",
-  "next_step": "곡선파도폐기·분산수면반사·폭차명확한부채꼴광축 재설계",
+  "handoff": "analysis/tile-layers-stage7/HANDOFF.md",
+  "current_task": "거절곡선파도제거·굵기차이명확한부채꼴광축새시안완료",
+  "next_step": "사용자 새시안 검토; 본편 적용·배포 없음",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -136,8 +136,8 @@
     "candidate_ready": true
   },
   "tile_layer_preview": {
-    "path": "analysis/tile-layers-stage6/display.webp",
-    "verification": "analysis/tile-layers-stage6/VERIFICATION.json",
+    "path": "analysis/tile-layers-stage7/display.webp",
+    "verification": "analysis/tile-layers-stage7/VERIFICATION.json",
     "production_integrated": false,
     "paid_generation": 0,
     "deployed": false,
