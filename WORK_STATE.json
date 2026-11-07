@@ -6,7 +6,7 @@
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/regional-bundle-rewards/HANDOFF.md",
-  "current_task": "지역별 번들 보상 차등 및 박물관 타일 이미지 분리복원 구현",
+  "current_task": "지역 번들 해금비 기준 서브10%·주인30% 정정",
   "next_step": "화면 검토, 새 패치 배포는 별도 승인 대기. 상세검사 regional-bundle-rewards/VERIFICATION.json.",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
@@ -83,6 +83,6 @@
   "regional_bundle_followup": {
     "deployed": false,
     "release_authorized": false,
-    "verification": "docs/qa/regional-bundle-rewards/VERIFICATION.json"
+    "verification": "docs/qa/regional-bundle-rewards/CORRECTION_VERIFICATION.json"
   }
 }

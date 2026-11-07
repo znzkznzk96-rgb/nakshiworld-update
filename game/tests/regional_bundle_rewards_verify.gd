@@ -12,8 +12,11 @@ func run() -> void:
    p.restore({});m.gold=0;m.souls=0;m.pearl=0
    var key=p.bundle_key(area,kind)
    p.extra_completed[key]=true;p.bundle_values[key]=1001
-   var expected: int=([1201,1502,1802][area] if kind==1 else [1502,2002,2503][area])
+   var expected: int=([1201,1980,31200][area] if kind==1 else [1502,5940,93600][area])
    check(ui.reward_amount(m,area,kind)==expected and ui.reward_preview_amount(m,area,kind)==expected,"display exact amount")
+   if area>0:
+    p.bundle_values[key]=999999
+    check(ui.reward_preview_amount(m,area,kind)==expected,"unlock cost reward independent of donation value")
    m.development_preview=true
    check(not p.claim_reward(m,area,kind) and m.gold==0 and m.souls==0 and m.pearl==0 and not p.claimed(area,kind),"failed save rolls back")
    m.development_preview=false
