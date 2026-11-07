@@ -72,7 +72,14 @@ func donate(m, area: int, bag_index: int, target_index: int) -> bool:
 
 const MAIN_SPECIES = [[1,3,8,9,14,17],[21,24,28,31,34,37],[40,43,48,49,54,57]]
 const SUB_SPECIES = [[0,2,5,6,10,15],[20,23,25,22,32,36],[41,42,44,45,50,55]]
-const SOUL_REWARD = [15,30,30]
+const SOUL_REWARD = [15,30,50]
+const PEARL_REWARD = [2,4,6]
+const SPOT_PRICES = preload("res://addons/reservoir/spot_selection.gd")
+
+func reward_gold(area: int, kind: int, donated_value: int=0) -> int:
+	if area < 0 or area > 2 or kind not in [1,2]: return 0
+	if area == 0: return roundi(donated_value*(1.2 if kind==1 else 1.5))
+	return roundi(SPOT_PRICES.PRICES[area]*(0.1 if kind==1 else 0.3))
 var extra_donations: Dictionary = {}
 var bundle_values: Dictionary = {}
 var extra_completed: Dictionary = {}
@@ -165,9 +172,9 @@ func claim_reward(m, area: int, kind: int) -> bool:
 	var gold: int=m.gold;var souls: int=m.souls;var pearl: int=m.pearl
 	if kind==0: certificates[area]=true
 	else:
-		m.gold+=roundi(int(bundle_values.get(bundle_key(area,kind),0))*(1.2 if kind==1 else 1.5))
+		m.gold+=reward_gold(area,kind,int(bundle_values.get(bundle_key(area,kind),0)))
 		if kind==1: m.souls+=SOUL_REWARD[area]
-		else: m.pearl+=2
+		else: m.pearl+=PEARL_REWARD[area]
 	reward_claimed[bundle_key(area,kind)]=true
 	if m._save_game(): return true
 	restore(old);m.gold=gold;m.souls=souls;m.pearl=pearl

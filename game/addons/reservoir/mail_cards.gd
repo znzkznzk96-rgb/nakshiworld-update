@@ -1,4 +1,5 @@
 extends RefCounted
+const Gifts=preload("res://addons/reservoir/mail_gifts.gd")
 const Layout=preload("res://addons/reservoir/text_layout.gd")
 const Reader=preload("res://addons/reservoir/topic_reader.gd")
 static func cards(mail,letter: Dictionary) -> Array:
@@ -30,7 +31,8 @@ static func draw(mail,m,r: Rect2) -> void:
 	m._text("읽음",Vector2(237,r.position.y+55),8,Color("847052"),true,29)
 	var title: Array=Layout.wrap(m,letter.title,11,216)
 	for i in mini(2,title.size()): m._text(title[i],Vector2(27,r.position.y+78+i*15),11,Color("382619"),false,216)
-	var gift: bool=letter.id in ["0.78","0.93","1.08"]
+	var gift_info: Dictionary=Gifts.info(letter.id)
+	var gift: bool=not gift_info.is_empty()
 	var footer: float=r.end.y-(85 if gift else 47)
 	if mail.full_text:
 		m._text("전체 업데이트 내용",Vector2(27,r.position.y+115),9,Color("247e80"),false,216)
@@ -64,11 +66,8 @@ static func draw(mail,m,r: Rect2) -> void:
 	if gift:
 		var gift_rect:=Rect2(27,r.end.y-45,216,28)
 		m._ui_style_box(m.sb_primary,gift_rect)
-		var gift_id: String=preload("res://addons/reservoir/arrival_gift.gd").ID if letter.id=="0.93" else preload("res://addons/reservoir/testing_gift.gd").ID
-		if letter.id=="1.08": gift_id=preload("res://addons/reservoir/valley_gift108.gd").ID
-		var claimed: bool=gift_id in m.testing_grants
-		var caption: String=(("선물 수령 완료" if claimed else "전설 20마리 + 10만 비늘 받기") if letter.id=="0.93" else ("테스트 선물 수령 완료" if claimed else "테스트 선물 받기"))
-		if letter.id=="1.08": caption="선물 수령 완료" if claimed else "계곡 20종 + 100만 비늘 받기"
+		var claimed: bool=gift_info.id in m.testing_grants
+		var caption: String=gift_info.claimed if claimed else gift_info.button
 		m._text(caption,gift_rect.get_center()+Vector2(0,4),10,Color("fff0d1"),true,206);mail.rects.gift=gift_rect
 	var back:=Rect2(27,footer,87,30);var toggle:=Rect2(156,footer,87,30)
 	for b in [back,toggle]: m._ui_style_box(m.sb_btn,b)

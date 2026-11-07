@@ -1,0 +1,30 @@
+{
+  "passed": 7,
+  "total": 7,
+  "suites": {
+    "bundles_buyback": true,
+    "tile107": true,
+    "odds_rewards": true,
+    "bundle_preview": true,
+    "regional_bundle_rewards": true,
+    "rewards": true,
+    "regional": true
+  },
+  "unlock_costs": [
+    0,
+    19800,
+    312000
+  ],
+  "sub_gold": [
+    null,
+    1980,
+    31200
+  ],
+  "owner_gold": [
+    null,
+    5940,
+    93600
+  ],
+  "old_full72": "preceding implementation only; corrected scope verified separately",
+  "deployed": false
+}

@@ -2,6 +2,7 @@ extends RefCounted
 # Existing museum panel/art, now connected to specimen donations.
 const SPOTS = preload("res://addons/reservoir/spot_selection.gd")
 const CATALOG = preload("res://addons/reservoir/regional_catalog.gd")
+const MUSEUM_TILE = preload("res://art/refresh53/tile_sea.png")
 var region := 0
 var tab := 0
 var selected := -1
@@ -43,7 +44,7 @@ func draw(m,h: float) -> void:
 		var tile:=Rect2(25+j*79,y+7,62,38)
 		m._ui_rect(Rect2(tile.position+Vector2(2,3),tile.size),Color(0,0,0,0.3))
 		m._ui_rect(tile.grow(2),Color("e5c671") if n==region else Color("587782"))
-		var tex: Texture2D=m.spots.images[n];var ts:=tex.get_size()
+		var tex: Texture2D=MUSEUM_TILE if n==2 else m.spots.images[n];var ts:=tex.get_size()
 		m._ui_texture_rect_region(tex,tile,Rect2(0,0,ts.x,ts.x*38.0/62.0),Color.WHITE if n==region else Color(0.55,0.62,0.63))
 		m._text(str(n+1),Vector2(tile.position.x+7,tile.end.y-3),9,Color("fff0d1"),true,12,true)
 		rects["region:%d"%n]=tile.grow(3)
@@ -89,9 +90,9 @@ func draw(m,h: float) -> void:
 	else:
 		m._ui_texture_rect(m.V.tool_icons.scale,Rect2(reward.position+Vector2(8,7),Vector2(24,24)),false)
 		var caption: String="보상 준비 중"
-		if region<3: caption="%s 비늘 · 혼 %d개"%[_amount(reward_preview_amount(m,region,tab)),m.progression.SOUL_REWARD[region]] if tab==1 else "%s 비늘 · 진주 2개"%_amount(reward_preview_amount(m,region,tab))
+		if region<3: caption="%s 비늘 · 혼 %d개"%[_amount(reward_preview_amount(m,region,tab)),m.progression.SOUL_REWARD[region]] if tab==1 else "%s 비늘 · 진주 %d개"%[_amount(reward_preview_amount(m,region,tab)),m.progression.PEARL_REWARD[region]]
 		m._text(caption,reward.position+Vector2(39,16),10,Color("382619"),false,192)
-		m._text(("받은 보상" if m.progression.claimed(region,tab) else "받기 버튼으로 수령") if done else ("완료 예상 · 미기증은 노멀·평균 기준" if region<3 else "보상 준비 중"),reward.position+Vector2(39,30),9,Color("513b29"),false,192)
+		m._text(("받은 보상" if m.progression.claimed(region,tab) else "받기 버튼으로 수령") if done else (("해금비의 %d%% · 완료 후 수령"%(10 if tab==1 else 30)) if region in [1,2] else "완료 예상 · 미기증은 노멀·평균 기준" if region==0 else "보상 준비 중"),reward.position+Vector2(39,30),9,Color("513b29"),false,192)
 	button(m,"register",("보상 확인" if m.progression.claimed(region,tab) else "보상 받기") if done else ("보유 물고기 기증" if not targets.is_empty() else "번들 준비 중"),Rect2(17,bottom-48,154,29),done)
 	button(m,"dex","도감",Rect2(177,bottom-48,76,29))
 	m._text("기증 %d / %d · 일괄 기증은 낮은 등급부터"%[total,targets.size()],Vector2(135,bottom-7),9,Color("68533d"),true,236)
@@ -107,7 +108,7 @@ func reward_dialog(m,h: float) -> void:
 	m._text(SPOTS.NAMES[region]+" · "+["필수 번들","서브 번들","주인 번들"][tab],Vector2(135,r.position.y+54),11,Color("513b29"),true,202)
 	var reward: String="낚시 자격증 %d급\n다음 낚시터 구매 자격"%(region+1)
 	if tab==1: reward="%s 비늘\n물고기의 혼 %d개"%[_amount(reward_amount(m,region,tab)),m.progression.SOUL_REWARD[region]]
-	elif tab==2: reward="%s 비늘\n진주 2개"%_amount(reward_amount(m,region,tab))
+	elif tab==2: reward="%s 비늘\n진주 %d개"%[_amount(reward_amount(m,region,tab)),m.progression.PEARL_REWARD[region]]
 	m._text(reward,Vector2(135,r.position.y+88),12,Color("513b29"),true,200)
 	var received: bool=m.progression.claimed(region,tab)
 	m._text(dialog_notice if dialog_notice!="" else ("수령 완료 · 저장됐어요" if received else "받기를 누르면 보상이 지급돼요"),Vector2(135,r.position.y+139),9,Color("68533d"),true,200)
@@ -223,13 +224,13 @@ func _amount(value: int) -> String:
 func reward_amount(m, area: int, kind: int) -> int:
 	if area<0 or area>2 or kind not in [1,2]: return 0
 	var value: int=int(m.progression.bundle_values.get(m.progression.bundle_key(area,kind),0))
-	return roundi(value*(1.2 if kind==1 else 1.5))
+	return m.progression.reward_gold(area,kind,value)
 
 # Already donated specimens retain their recorded sale values. Missing specimens
 # use current normal/average values for presentation only; payout is unchanged.
 func reward_preview_amount(m, area: int, kind: int) -> int:
 	if area<0 or area>2 or kind not in [1,2]: return 0
-	if m.progression.bundle_done(area,kind): return reward_amount(m,area,kind)
+	if area>0 or m.progression.bundle_done(area,kind): return reward_amount(m,area,kind)
 	var value: int=int(m.progression.bundle_values.get(m.progression.bundle_key(area,kind),0))
 	var targets: Array=m.progression.bundle_targets(area,kind)
 	var counts: Array=m.progression.bundle_counts(area,kind)
@@ -237,4 +238,4 @@ func reward_preview_amount(m, area: int, kind: int) -> int:
 		var missing: int=maxi(0,int(targets[i].count)-int(counts[i]))
 		var sp: int=species_id(targets[i])
 		value+=missing*m.fish_price(sp,star(sp),0,1.0)
-	return roundi(value*(1.2 if kind==1 else 1.5))
+	return m.progression.reward_gold(area,kind,value)

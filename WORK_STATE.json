@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "v108_gift_published_and_gateway_verified",
+  "status": "v109_ci_pending",
   "release_baseline": "v1.08",
-  "target_release": "v1.08",
+  "target_release": "v1.09",
   "deployed": true,
   "phone_verified": false,
-  "handoff": "docs/releases/valley-gift-108/HANDOFF.md",
-  "current_task": "v1.08 계곡20종+100만비늘 일회성 우편 공개·운영다운로드 검증 완료",
-  "next_step": "기존 앱에서 v1.08 업데이트 → 우편의 계곡20종+100만비늘 받기. 사용자 실제 수령 확인은 별도.",
+  "handoff": "docs/releases/109/HANDOFF.md",
+  "current_task": "타일 입 방향 수정·전어종 낚시 크기 차등",
+  "next_step": "CI42384392014 success → merge PR42 → verify release and gateway; no phone confirmation yet",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -40,18 +40,18 @@
     "run": 42374175452,
     "all_executed_in_release_run": true
   },
-  "standard_full_workflow_success": false,
+  "standard_full_workflow_success": true,
   "remaining_global_render_checks": false,
   "release_authorization": {
-    "date": "2026-11-07",
-    "user_request": "타일 바다 확인하게 계곡 물고기 전종 1개씩이랑 100만비늘 보내주셈 일회성으로",
-    "scope": "one-time valley20 plus1000000 scales delivery patch"
+    "date": "2026-11-08",
+    "user_request": "업데이트하고 배포하자",
+    "scope": "current reviewed fixes and verified mail common refactor v1.09"
   },
-  "release_preflight": "docs/releases/valley-gift-108/PREFLIGHT.json",
+  "release_preflight": "docs/releases/109/PREFLIGHT.json",
   "release_source_commit": "188643645a202a833d0a9a7f61e203674e1f6e99",
   "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v1.08",
   "release_build_run": 42374175452,
-  "release_build_status": "success",
+  "release_build_status": "not_started",
   "public_verification_run": 42374557040,
   "public_verification_status": "success",
   "public_patch": {
@@ -59,5 +59,38 @@
     "sha256": "6597489de9c1de5acbdfa27061dbe6907b94a9cab2c0ce36d28be92807b18e5a",
     "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.08/patch.pck"
   },
-  "standard_full_workflow_note": "Historical verify-work run failed stale test; corrected tests plus remaining screens verified, actual release workflow full gate succeeded."
+  "standard_full_workflow_note": "Followup unified work verification run42379577723 succeeded: full71 plus independent restart and native/global/mail renders. Existing release v1.08 remains unchanged.",
+  "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md#2026-11-07--소규모-작업-효율채팅-중단-대비",
+  "approved_followup": "우편 단일원본·공통지급·검사통합 구현/검증 완료. 공개v1.08 유지, 새 배포 미승인.",
+  "session_continuity": {
+    "context_remaining": "not_available_to_assistant",
+    "resume": "START_HERE.md → WORK_STATE.json → active branch HANDOFF",
+    "checkpoint": "meaningful stages; branch/SHA plus passed checks and next action; external CI run ID when started",
+    "read_only_cause": "not established; do not attribute to context without evidence"
+  },
+  "followup": {
+    "status": "verified_unpublished",
+    "deployed": false,
+    "release_authorized": false,
+    "verification": "docs/qa/mail-common/VERIFICATION.json",
+    "source_commit": "272e5f466901109c111111910a7505d59404f6fc",
+    "ci_run": 42379577723,
+    "ci_status": "success",
+    "headless_suites": 71,
+    "independent_restart": "passed",
+    "mail_render_comparison": "27_of_27_identical"
+  },
+  "regional_bundle_followup": {
+    "deployed": false,
+    "release_authorized": false,
+    "verification": "docs/qa/regional-bundle-rewards/CORRECTION_VERIFICATION.json"
+  },
+  "fish_render_followup": {
+    "verification": "docs/qa/fish-anchor-size/VERIFICATION.json",
+    "deployed": false,
+    "release_authorized": false,
+    "headless_passed": 73,
+    "headless_total": 73
+  },
+  "release_verification_run": 42384392014
 }

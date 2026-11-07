@@ -14,12 +14,12 @@ jobs:
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
-      - name: Restore verified v1.06 source and overlay
+      - name: Restore verified v1.08 source and overlay
         shell: bash
         run: |
           set -euo pipefail
-          curl -fL --retry 2 https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.07/game-source.zip -o "$RUNNER_TEMP/source.zip"
-          echo "9cce3b7897b9f2a45e5783424bcda5d5d2a5593d4e02faa2e79a4fb51a43b62b  $RUNNER_TEMP/source.zip" | sha256sum -c -
+          curl -fL --retry 2 https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.08/game-source.zip -o "$RUNNER_TEMP/source.zip"
+          echo "9121b639e2a03fe6d8a18a8689918ddb0c231a097eaf29f03db20d62e67b319f  $RUNNER_TEMP/source.zip" | sha256sum -c -
           python3 automation/restore_source.py "$RUNNER_TEMP/source.zip" "$RUNNER_TEMP/project"
           curl -fL --retry 2 https://github.com/godotengine/godot/releases/download/4.4.1-stable/Godot_v4.4.1-stable_linux.x86_64.zip -o "$RUNNER_TEMP/godot.zip"
           unzip -q "$RUNNER_TEMP/godot.zip" -d "$RUNNER_TEMP/godot"
@@ -36,12 +36,15 @@ jobs:
           grep -F 'EXPEDITION_BAKE files=130' evidence/bake.log
           "$GODOT" --headless --editor --path "$RUNNER_TEMP/project" --import > evidence/prepared-import.log 2>&1
           if grep -E 'SCRIPT ERROR:|Parse Error:|Failed to load script' evidence/prepared-import.log; then exit 1; fi
-          for suite in valley_gift108 tile107 tier_skills training_costs tier3_motion tier2_motion management101 formation_compare forge_layout robot_ui_revision capture_robot balance096 guide_ac valley094 arrival_gift valley093 bait092 notification091 ui090 codex089 aquarium_b ui_guide pouch_inventory expedition_result support_utility combat_feedback bag_event_order bag_formation selected_ui bag_interaction startup_assets soul_pouch expedition_hard_balance expedition_label bundle_aqua expedition080 expedition079 testing_gift soldier_dex approved_ui expedition_motion expedition expedition_save expedition_balance action_readability economy_balance rod_aura atmosphere_encounter angler_scene market_reader odds_rewards reservoir_layers owner_gauge bag_list bundles_buyback equipment visual guide shop audio_save bundle_preview rewards reader fish_surface regional inventory_layout personal_dex bait_roles measurement_speed village_entry_audio; do
+          for suite in fish_anchor_size regional_bundle_rewards mail_gifts valley_gift108 arrival_gift testing_gift reader tile107 tier_skills training_costs tier3_motion tier2_motion management101 formation_compare forge_layout robot_ui_revision capture_robot balance096 guide_ac valley094 valley093 bait092 notification091 ui090 codex089 aquarium_b ui_guide pouch_inventory expedition_result support_utility combat_feedback bag_event_order bag_formation selected_ui bag_interaction startup_assets soul_pouch expedition_hard_balance expedition_label bundle_aqua expedition080 expedition079 soldier_dex approved_ui expedition_motion expedition expedition_save expedition_balance action_readability economy_balance rod_aura atmosphere_encounter angler_scene market_reader odds_rewards reservoir_layers owner_gauge bag_list bundles_buyback equipment visual guide shop audio_save bundle_preview rewards fish_surface regional inventory_layout personal_dex bait_roles measurement_speed village_entry_audio; do
             XDG_DATA_HOME="$RUNNER_TEMP/isolated-$suite" timeout 90 "$GODOT" --headless --path "$RUNNER_TEMP/project" --script "tests/${suite}_verify.gd" > "evidence/$suite.log" 2>&1 || { cat "evidence/$suite.log"; exit 1; }
             cat "evidence/$suite.log"
             grep -F 'VERIFY failures=[]' "evidence/$suite.log"
             if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' "evidence/$suite.log"; then exit 1; fi
           done
+          XDG_DATA_HOME="$RUNNER_TEMP/isolated-mail_gifts" timeout 90 "$GODOT" --headless --path "$RUNNER_TEMP/project" --script tests/mail_gifts_verify.gd -- resume > evidence/mail-gifts-resume.log 2>&1
+          grep -F 'MAIL_GIFTS_VERIFY failures=[]' evidence/mail-gifts-resume.log
+          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/mail-gifts-resume.log; then exit 1; fi
       - name: Verify valley native background composition
         shell: bash
         run: |
@@ -155,6 +158,15 @@ jobs:
           set -euo pipefail
           XDG_DATA_HOME="$RUNNER_TEMP/isolated-tier2" timeout 120 xvfb-run -a "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/tier3_motion_preview.gd -- "$GITHUB_WORKSPACE/evidence/tier2" > evidence/tier2-screens.log 2>&1
           if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/tier2-screens.log; then cat evidence/tier2-screens.log; exit 1; fi
+      - name: Render existing gift letters at three phone heights
+        shell: bash
+        run: |
+          set -euo pipefail
+          for h in 480 540 660; do
+            XDG_DATA_HOME="$RUNNER_TEMP/mail-preview-$h" timeout 90 xvfb-run -a "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/mail_gifts_preview.gd -- "$GITHUB_WORKSPACE/evidence/mail" "$h" > "evidence/mail-$h.log" 2>&1
+            grep -F 'MAIL_GIFTS_PREVIEW failures=[]' "evidence/mail-$h.log"
+            if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' "evidence/mail-$h.log"; then exit 1; fi
+          done
       - name: Preserve verification logs
         if: always()
         uses: actions/upload-artifact@v4

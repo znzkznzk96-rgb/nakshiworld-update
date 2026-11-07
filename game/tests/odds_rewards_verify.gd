@@ -27,7 +27,7 @@ func run() -> void:
 		for kind in [1,2]:
 			check(ui.reward_preview_amount(m,area,kind)>0,"empty donation shows completion estimate %d/%d"%[area,kind])
 			ui.region=area;ui.tab=kind;ui.draw(m,540)
-			check(m.text_items.any(func(it):return "완료 예상" in str(it[2])),"estimate explicitly labeled")
+			check(m.text_items.any(func(it):return "완료 예상" in str(it[2]) or "해금비의" in str(it[2])),"estimate explicitly labeled")
 	check(p.serialize()==saved and m.gold==gold,"view never changes progress or money")
 	p.bundle_values={"0:1":750};p.extra_donations={"0:1":[1,1,1,0,0,0]}
 	var expected:=750

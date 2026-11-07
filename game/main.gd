@@ -1566,8 +1566,17 @@ func _bite_circle(tt: float) -> Array:
 
 
 func _fish_display_length(star: int, scale: float, preview: bool, sp: int = -1) -> float:
-	if sp >= 20 and sp < 60: return maxf(20.0 if preview else 30.0,(12.0+1.5*sqrt(float(FISH_LEN[sp])))*scale)
+	if sp >= 0 and sp < FISH_LEN.size():
+		# Species mean sets body length; caller scale retains individual length factor.
+		return clampf((6.0+3.0*sqrt(float(FISH_LEN[sp])))*scale,12.0 if preview else 18.0,80.0 if preview else 120.0)
 	return maxf(20.0 if preview else 30.0, (16.0 + star * 4.0) * scale)
+
+func _fish_texture_u(sp: int, along_body: float) -> float:
+	var used: Rect2i=fish_used[sp]
+	# Tile originals face left. Body geometry always runs from head to tail.
+	var x: float=used.position.x+used.size.x*along_body if sp>=40 and sp<60 else used.end.x-used.size.x*along_body
+	return x/float(fish_tex[sp].get_width())
+
 
 func _draw_bite_shadow(t: float, lx: float, dip: float) -> void :
 	var z: int = S.size
@@ -1821,8 +1830,8 @@ func _shadow_fish(c: Vector2, star: int, grade: int, t: float, beh: String, spik
 		var b: Vector2 = pts[i + 1]
 		var na: Vector2 = nrms[i]
 		var nb: Vector2 = nrms[i + 1]
-		var u0: = (used.end.x - used.size.x * float(i) / N) / tsz.x
-		var u1: = (used.end.x - used.size.x * float(i + 1) / N) / tsz.x
+		var u0: = _fish_texture_u(sp,float(i)/N)
+		var u1: = _fish_texture_u(sp,float(i+1)/N)
 		var v0: = used.position.y / tsz.y
 		var v1: = used.end.y / tsz.y
 		var vertices := PackedVector2Array([a - na * hw, b - nb * hw, b + nb * hw, a + na * hw])
