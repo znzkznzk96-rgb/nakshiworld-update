@@ -1,0 +1,67 @@
+{
+  "cloud-far": {
+    "sha256": "f15f0354dc31762f997967da0d8386786fa414fbb853ed58989a741db2aab8ab",
+    "bytes": 1926,
+    "status": "hold"
+  },
+  "cloud-near": {
+    "sha256": "e96a13306f15673d37a27f21a9287c28a5da84eb221c3d970b83a66173d67edc",
+    "bytes": 2016,
+    "status": "hold"
+  },
+  "horizon-mist": {
+    "sha256": "9e0f36267b2036d91a2e0accf70935080a1d056ffe634b66c4406f2dadc2933f",
+    "bytes": 4194,
+    "status": "hold"
+  },
+  "arch-vine": {
+    "sha256": "e69b0535d5196aaa15ad220378744b5a6c6465e989cced194d421c0a59ce9df3",
+    "bytes": 4642,
+    "status": "pass"
+  },
+  "ledge-grass": {
+    "sha256": "adc73cac5e7240800686bad8413b6159564517a15d2ab9571c595e99566ff51c",
+    "bytes": 4202,
+    "status": "hold"
+  },
+  "floor-ribbon": {
+    "sha256": "7660d51bff2c93982ef4b3a8ae9c2c6a8b99f9a634a5144ae995ce4b5bee30f6",
+    "bytes": 3097,
+    "status": "pass"
+  },
+  "floor-broad": {
+    "sha256": "d46c527dc9216b3b5aef3c4105adfbcf08b3a697b3f6dc321ba16651a624a23b",
+    "bytes": 3919,
+    "status": "pass"
+  },
+  "wall-ribbon": {
+    "sha256": "7bef306364cfa61b94028303234390f22ff42d88bc1274fe6e6d0a319d49a077",
+    "bytes": 2851,
+    "status": "pass"
+  },
+  "fish-far": {
+    "sha256": "8a309b94b4eaef081112d0d15ebf34ba5ecdbe003a061ca5609d9125443904cf",
+    "bytes": 2813,
+    "status": "hold"
+  },
+  "fish-mid": {
+    "sha256": "6da8bb9e02b84110e22d9574596908779cca9ae253cd5f09a0d48bb94dd658dc",
+    "bytes": 3574,
+    "status": "pass"
+  },
+  "fish-near": {
+    "sha256": "ceca569ec1d92e9b10944c0ce7d5817bb12c9a4b751d9ecce9d6cb2c3d260b10",
+    "bytes": 4630,
+    "status": "hold"
+  },
+  "bubble-cluster": {
+    "sha256": "8aa6abd3e8348f83ac10a7d04039739d2708f34e8b70371b9a536b198f496a70",
+    "bytes": 3548,
+    "status": "hold"
+  },
+  "water-specks": {
+    "sha256": "56d5014480bbea6b58194a095a2addff186999e308520f3461a8eb0a0f5978d5",
+    "bytes": 1883,
+    "status": "hold"
+  }
+}

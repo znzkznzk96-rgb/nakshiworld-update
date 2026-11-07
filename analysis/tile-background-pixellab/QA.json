@@ -251,5 +251,51 @@
     "model": "create-image-bitforge",
     "generations_reported": 1.0,
     "production_integrated": false
+  },
+  "bubble-cluster": {
+    "status": "hold",
+    "notes": "Five bubbles rendered, but gray checkerboard-like pixels are baked inside rather than transparent interiors. Not safe to use as requested; withheld without extra generation.",
+    "native_and_nearest4x_reviewed": true,
+    "size": [
+      48,
+      64
+    ],
+    "bbox": [
+      1,
+      3,
+      47,
+      63
+    ],
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "sha256": "8aa6abd3e8348f83ac10a7d04039739d2708f34e8b70371b9a536b198f496a70",
+    "model": "create-image-pixen",
+    "generations_reported": 1.0,
+    "production_integrated": false
+  },
+  "water-specks": {
+    "status": "hold",
+    "notes": "Full32x32 opaque alpha255 with baked checkerboard and one central mote instead of sparse transparent flecks; not usable overlay.",
+    "native_and_nearest4x_reviewed": true,
+    "size": [
+      32,
+      32
+    ],
+    "bbox": [
+      0,
+      0,
+      32,
+      32
+    ],
+    "alpha_extrema": [
+      255,
+      255
+    ],
+    "sha256": "56d5014480bbea6b58194a095a2addff186999e308520f3461a8eb0a0f5978d5",
+    "model": "create-image-pixen",
+    "generations_reported": 1.0,
+    "production_integrated": false
   }
 }

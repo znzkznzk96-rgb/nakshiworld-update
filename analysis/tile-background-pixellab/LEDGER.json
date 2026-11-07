@@ -1,0 +1,14 @@
+{
+  "outputs": 13,
+  "internal_pass": 5,
+  "held": 8,
+  "generations_before": 1152.6,
+  "generations_after": 1139.6,
+  "actual_generations_used": 13.0,
+  "api_usage_reported": 13.0,
+  "credits_usd_delta": 0.0,
+  "paid_in_flight": 0,
+  "quality_regenerations": 0,
+  "technical_retries": 0,
+  "deployed": false
+}

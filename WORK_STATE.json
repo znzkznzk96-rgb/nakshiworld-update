@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "eight_background_assets_reviewed_four_plants_passed",
+  "status": "pixellab_thirteen_outputs_five_usable_eight_withheld",
   "release_baseline": "v1.09",
   "target_release": "v1.10",
   "deployed": false,
   "phone_verified": false,
   "handoff": "analysis/tile-background-pixellab/HANDOFF.md",
-  "current_task": "타일배경13개PixelLab정지자산순차생성검수",
-  "next_step": "원경단일물고기첫장검수중,중/근경어·기포·부유물순서진행",
+  "current_task": "PixelLab13장생성/원본검수완료,사용가능5·보류8로전체배경아트미완성",
+  "next_step": "통과5장과보류8장시각검토. 추가품질재생성·게임통합·배포미진행.",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -194,5 +194,18 @@
     "two_opposite_flows": true,
     "deployed": false,
     "release_authorized": false
+  },
+  "tile_background_pixellab": {
+    "outputs": 13,
+    "internal_pass": 5,
+    "held": 8,
+    "complete": false,
+    "paid_generations_used": 13,
+    "quality_regenerations": 0,
+    "technical_retries": 0,
+    "ledger": "analysis/tile-background-pixellab/LEDGER.json",
+    "verification": "analysis/tile-background-pixellab/VERIFICATION.json",
+    "production_integrated": false,
+    "deployed": false
   }
 }
