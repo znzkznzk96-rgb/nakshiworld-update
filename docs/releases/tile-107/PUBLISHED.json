@@ -1,0 +1,88 @@
+{
+  "version": {
+    "code": 107,
+    "name": "1.07"
+  },
+  "source_commit": "4883f05868142f8bcbbfe5b1edb4adc4f36f8a02",
+  "assets": {
+    "version.json": {
+      "size": 199,
+      "sha256": "a5b8b91e52ee87bfb767bbb42b475b352db726f6c75bd76631d0383ae10b2704",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.07/version.json"
+    },
+    "patch.pck": {
+      "size": 59064288,
+      "sha256": "dfa3e01304b860d5818c36e7cec2d93ee52052ebe15851ae5ef05c896003d61a",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.07/patch.pck"
+    },
+    "game-source.zip": {
+      "size": 63274948,
+      "sha256": "9cce3b7897b9f2a45e5783424bcda5d5d2a5593d4e02faa2e79a4fb51a43b62b",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.07/game-source.zip"
+    }
+  },
+  "phone_verified": false,
+  "source_overlay_files_verified": 555,
+  "zip_crc_verified": true,
+  "public_assets_verified": true,
+  "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v1.07",
+  "pr": 39,
+  "game_tree_sha": "c82fc1c6b9e73ad7f51a9158d4690cb1481b3cf5",
+  "release_run": {
+    "id": 42321703288,
+    "conclusion": "success",
+    "headless_suites_executed": 68,
+    "valley_native": "passed",
+    "packed_existing_art": "passed",
+    "packed_tile_background_and20_fish": "passed",
+    "damaged_deleted_path": "excluded"
+  },
+  "public_run": {
+    "id": 42322135801,
+    "conclusion": "success"
+  },
+  "gateway": {
+    "url": "https://nakshiworld-update-kr.znzkznzk96.workers.dev",
+    "manifest_code": 107,
+    "manifest_name": "1.07",
+    "source_commit": "4883f05868142f8bcbbfe5b1edb4adc4f36f8a02",
+    "patch_bytes": 59064288,
+    "patch_sha256": "dfa3e01304b860d5818c36e7cec2d93ee52052ebe15851ae5ef05c896003d61a",
+    "actual_apk_download_url_checked": true,
+    "float_version_query_checked": true,
+    "magic": "GDPC",
+    "probe": "ok"
+  },
+  "preflight": "../../qa/tile-release-stage5/PREFLIGHT.json",
+  "screens_generated": 221,
+  "representative_screens_manually_reviewed": 24,
+  "total_headless_suite_coverage": 69,
+  "additional_reused_suite": "tier3_motion from prior same-game-tree verification",
+  "approved_pngs_decode_size_sha_verified": 21,
+  "public_verification_artifact": {
+    "id": 13553662176,
+    "name": "public-release-verification",
+    "size_in_bytes": 599,
+    "url": "https://api.github.com/repos/znzkznzk96-rgb/nakshiworld-update/actions/artifacts/13553662176",
+    "archive_download_url": "https://api.github.com/repos/znzkznzk96-rgb/nakshiworld-update/actions/artifacts/13553662176/zip",
+    "expired": false,
+    "created_at": "2026-11-07T01:06:09Z",
+    "expires_at": "2027-02-05T01:05:49Z",
+    "updated_at": "2026-11-07T01:06:09Z",
+    "digest": "sha256:9674540c498de7afa6e84f419807dd9da214aa54308c5fa5d098c09a3ddf2953",
+    "workflow_run": {
+      "id": 42322135801,
+      "repository_id": 1423971848,
+      "head_repository_id": 1423971848,
+      "head_branch": "main",
+      "head_sha": "4883f05868142f8bcbbfe5b1edb4adc4f36f8a02"
+    }
+  },
+  "artifact_download_sha_verified": true,
+  "tag_matches_source": true,
+  "metadata_matches_actual_downloads": true,
+  "published": true,
+  "no_new_paid_generation": true,
+  "real_user_save_used": false,
+  "notes": "Read-only chat internal cause remains unestablished. Earlier fixture/import failures preserved in stage4 review; actual release import and all gates succeeded."
+}
