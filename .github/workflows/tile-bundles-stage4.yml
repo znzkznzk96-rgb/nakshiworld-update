@@ -1,5 +1,5 @@
 name: Verify tile bundles saves and remaining regression without deployment
-# Limit scene and resource-loader threading after a native import-exit abort.
+# Keep one-shot verification scripts out of editor documentation/import lifecycle.
 on:
   push:
     branches: [work/tile-release-107]
@@ -34,9 +34,6 @@ jobs:
               assert z.testzip() is None
               z.extractall(pathlib.Path(os.environ["RUNNER_TEMP"])/"legacy")
           PY
-          cp docs/qa/tile-bundles-stage4/legacy_save.gd "$RUNNER_TEMP/legacy/game/tests/stage4_legacy.gd"
-          cp docs/qa/tile-bundles-stage4/bundle_verify.gd "$RUNNER_TEMP/project/tests/stage4_bundle.gd"
-          cp docs/qa/tile-bundles-stage4/resume_verify.gd "$RUNNER_TEMP/project/tests/stage4_resume.gd"
       - name: Install pinned engine and render dependencies
         run: |
           set -euo pipefail
@@ -59,6 +56,9 @@ jobs:
             "$GODOT" --headless --path "$RUNNER_TEMP/$version" --script tests/bake_expedition_assets.gd > "evidence/bake-$key.log" 2>&1
             "$GODOT" --single-threaded-scene --rendering-method gl_compatibility --audio-driver Dummy --headless --editor --path "$RUNNER_TEMP/$version" --import > "evidence/prepared-$key.log" 2>&1
           done
+          cp docs/qa/tile-bundles-stage4/legacy_save.gd "$RUNNER_TEMP/legacy/game/tests/stage4_legacy.gd"
+          cp docs/qa/tile-bundles-stage4/bundle_verify.gd "$RUNNER_TEMP/project/tests/stage4_bundle.gd"
+          cp docs/qa/tile-bundles-stage4/resume_verify.gd "$RUNNER_TEMP/project/tests/stage4_resume.gd"
           XDG_DATA_HOME="$RUNNER_TEMP/stage4-migration" timeout 90 "$GODOT" --headless --path "$RUNNER_TEMP/legacy/game" --script tests/stage4_legacy.gd > evidence/legacy.log 2>&1 || { cat evidence/legacy.log; exit 1; }
           grep -F 'LEGACY106_STAGE4_SAVE_CREATED' evidence/legacy.log
       - name: Verify actual write-failure rollback and bundle UI
