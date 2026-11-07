@@ -1,0 +1,530 @@
+{
+  "date_kst": "2026-11-07",
+  "stage": 3,
+  "source_commit": "b20238d90739065a4f92f907d32d40238ed8387d",
+  "evidence_commit": "9058f7988cfd4648e0ae3d94f5595bd119324271",
+  "approved_sources": [
+    "tile-sea-final20.zip (except12/17)",
+    "tile-sea-12-17-swimming-pose.zip (12/17)"
+  ],
+  "approval_match_count": 20,
+  "per_species": [
+    {
+      "id": 1,
+      "name": "망둥어",
+      "bytes": 2912,
+      "size": [
+        96,
+        64
+      ],
+      "bbox": [
+        12,
+        15,
+        84,
+        49
+      ],
+      "sha256": "1fdff95fddbaaa097c8339d0d49faf5ad00b177995faa25b8e3f120d63b0f1f1",
+      "approved_match": true,
+      "asset_manifest_match": true,
+      "transparent": true,
+      "edge_contact": false,
+      "appearance_review": "matches_approved_original",
+      "color_shading_review": "native_and_nearest_reviewed_with_reservoir_originals",
+      "outline_alpha_crop": "pass",
+      "feature_note": "갈색 망둥어 체형·등지느러미"
+    },
+    {
+      "id": 2,
+      "name": "줄눈전갱이",
+      "bytes": 2624,
+      "size": [
+        96,
+        64
+      ],
+      "bbox": [
+        8,
+        14,
+        88,
+        48
+      ],
+      "sha256": "4d7365741c307c6a8546f4662454510506a07ad55a771f31b1e5bd538b39443f",
+      "approved_match": true,
+      "asset_manifest_match": true,
+      "transparent": true,
+      "edge_contact": false,
+      "appearance_review": "matches_approved_original",
+      "color_shading_review": "native_and_nearest_reviewed_with_reservoir_originals",
+      "outline_alpha_crop": "pass",
+      "feature_note": "청록 전갱이·상아 줄눈·주황 꼬리"
+    },
+    {
+      "id": 3,
+      "name": "고등어",
+      "bytes": 2687,
+      "size": [
+        96,
+        64
+      ],
+      "bbox": [
+        8,
+        13,
+        88,
+        49
+      ],
+      "sha256": "043fcf98d877cb15b0a3307d8331bf220a4d4655aac370b153158697c737286d",
+      "approved_match": true,
+      "asset_manifest_match": true,
+      "transparent": true,
+      "edge_contact": false,
+      "appearance_review": "matches_approved_original",
+      "color_shading_review": "native_and_nearest_reviewed_with_reservoir_originals",
+      "outline_alpha_crop": "pass",
+      "feature_note": "청색 고등어 등무늬·갈래꼬리"
+    },
+    {
+      "id": 4,
+      "name": "학꽁치",
+      "bytes": 2147,
+      "size": [
+        96,
+        64
+      ],
+      "bbox": [
+        2,
+        21,
+        94,
+        45
+      ],
+      "sha256": "3b5e49e758ef9f76fae87508fd368ee741f4558880d8543ebad05f54f4a52912",
+      "approved_match": true,
+      "asset_manifest_match": true,
+      "transparent": true,
+      "edge_contact": false,
+      "appearance_review": "matches_approved_original",
+      "color_shading_review": "native_and_nearest_reviewed_with_reservoir_originals",
+      "outline_alpha_crop": "pass",
+      "feature_note": "길고 가는 턱·은색 몸통"
+    },
+    {
+      "id": 5,
+      "name": "깨진타일놀래미",
+      "bytes": 4824,
+      "size": [
+        96,
+        64
+      ],
+      "bbox": [
+        6,
+        8,
+        90,
+        56
+      ],
+      "sha256": "b9e93529e9d90a311b9622eb07c486f637d8b30cf0e49b4d3618d960ed236eec",
+      "approved_match": true,
+      "asset_manifest_match": true,
+      "transparent": true,
+      "edge_contact": false,
+      "appearance_review": "matches_approved_original",
+      "color_shading_review": "native_and_nearest_reviewed_with_reservoir_originals",
+      "outline_alpha_crop": "pass",
+      "feature_note": "깨진 상아 타일판·청록 체형"
+    },
+    {
+      "id": 6,
+      "name": "복어",
+      "bytes": 3496,
+      "size": [
+        96,
+        64
+      ],
+      "bbox": [
+        16,
+        9,
+        85,
+        56
+      ],
+      "sha256": "f43b2dd1a261bafdc5f69a351d8e38cd2147851b2d07faaf0ed043d467e3d416",
+      "approved_match": true,
+      "asset_manifest_match": true,
+      "transparent": true,
+      "edge_contact": false,
+      "appearance_review": "matches_approved_original",
+      "color_shading_review": "native_and_nearest_reviewed_with_reservoir_originals",
+      "outline_alpha_crop": "pass",
+      "feature_note": "둥근 복어 몸통·가시"
+    },
+    {
+      "id": 7,
+      "name": "타일망둥",
+      "bytes": 2886,
+      "size": [
+        96,
+        64
+      ],
+      "bbox": [
+        14,
+        14,
+        85,
+        50
+      ],
+      "sha256": "30d23ad1bcf2e8f68c702725d5fe48aec80bea58599aa0a6ee0633821e0d7a56",
+      "approved_match": true,
+      "asset_manifest_match": true,
+      "transparent": true,
+      "edge_contact": false,
+      "appearance_review": "matches_approved_original",
+      "color_shading_review": "native_and_nearest_reviewed_with_reservoir_originals",
+      "outline_alpha_crop": "pass",
+      "feature_note": "푸른 망둥어·밝은 타일무늬"
+    },
+    {
+      "id": 8,
+      "name": "수영모해파리",
+      "bytes": 3232,
+      "size": [
+        96,
+        64
+      ],
+      "bbox": [
+        15,
+        10,
+        83,
+        53
+      ],
+      "sha256": "f132aac4faf483e76cfecc25262e180cce1a4b136ec4a4aa054f8fd6a2f7d0a8",
+      "approved_match": true,
+      "asset_manifest_match": true,
+      "transparent": true,
+      "edge_contact": false,
+      "appearance_review": "matches_approved_original",
+      "color_shading_review": "native_and_nearest_reviewed_with_reservoir_originals",
+      "outline_alpha_crop": "pass",
+      "feature_note": "분홍 수영모 갓·분리된 촉수"
+    },
+    {
+      "id": 9,
+      "name": "균열도자기우럭",
+      "bytes": 4000,
+      "size": [
+        96,
+        64
+      ],
+      "bbox": [
+        11,
+        9,
+        84,
+        55
+      ],
+      "sha256": "406faf89e65a6eee32307179710666050e76895ea21d4d4450c76c3b9adf45b2",
+      "approved_match": true,
+      "asset_manifest_match": true,
+      "transparent": true,
+      "edge_contact": false,
+      "appearance_review": "matches_approved_original",
+      "color_shading_review": "native_and_nearest_reviewed_with_reservoir_originals",
+      "outline_alpha_crop": "pass",
+      "feature_note": "보라 몸통·균열 도자기판"
+    },
+    {
+      "id": 10,
+      "name": "감성돔",
+      "bytes": 3636,
+      "size": [
+        96,
+        64
+      ],
+      "bbox": [
+        15,
+        10,
+        81,
+        54
+      ],
+      "sha256": "87f9808d0f38b68ca559c9536ded45498b00b357429429b02e4053f1c5dc86a1",
+      "approved_match": true,
+      "asset_manifest_match": true,
+      "transparent": true,
+      "edge_contact": false,
+      "appearance_review": "matches_approved_original",
+      "color_shading_review": "native_and_nearest_reviewed_with_reservoir_originals",
+      "outline_alpha_crop": "pass",
+      "feature_note": "은색 몸통·짙은 세로무늬"
+    },
+    {
+      "id": 11,
+      "name": "청소솔쥐치",
+      "bytes": 2968,
+      "size": [
+        96,
+        64
+      ],
+      "bbox": [
+        14,
+        2,
+        82,
+        52
+      ],
+      "sha256": "32064a5f8766ada16ffaf34057f31526e4f189f01f893c9b80307f330455f23a",
+      "approved_match": true,
+      "asset_manifest_match": true,
+      "transparent": true,
+      "edge_contact": false,
+      "appearance_review": "matches_approved_original",
+      "color_shading_review": "native_and_nearest_reviewed_with_reservoir_originals",
+      "outline_alpha_crop": "pass",
+      "feature_note": "올리브 몸통·솔 형태 지느러미"
+    },
+    {
+      "id": 12,
+      "name": "모자이크가자미",
+      "bytes": 3492,
+      "size": [
+        96,
+        64
+      ],
+      "bbox": [
+        13,
+        11,
+        83,
+        53
+      ],
+      "sha256": "fc7498f55f8ed46f529546671adfeb3e22048f34d12dbe5f1e6104905167ec03",
+      "approved_match": true,
+      "asset_manifest_match": true,
+      "transparent": true,
+      "edge_contact": false,
+      "appearance_review": "matches_approved_original",
+      "color_shading_review": "native_and_nearest_reviewed_with_reservoir_originals",
+      "outline_alpha_crop": "pass",
+      "feature_note": "청색/상아 모자이크·지느러미 띠·짧은 꼬리"
+    },
+    {
+      "id": 13,
+      "name": "튜브복어",
+      "bytes": 3103,
+      "size": [
+        96,
+        64
+      ],
+      "bbox": [
+        12,
+        11,
+        87,
+        56
+      ],
+      "sha256": "46b8cb42edcc738a4f17c95d18eeee0af23b8671f5ef505a4b89f4f46ec37dd8",
+      "approved_match": true,
+      "asset_manifest_match": true,
+      "transparent": true,
+      "edge_contact": false,
+      "appearance_review": "matches_approved_original",
+      "color_shading_review": "native_and_nearest_reviewed_with_reservoir_originals",
+      "outline_alpha_crop": "pass",
+      "feature_note": "주황 복어·몸 아래 튜브"
+    },
+    {
+      "id": 14,
+      "name": "유령락스장어",
+      "bytes": 2777,
+      "size": [
+        96,
+        64
+      ],
+      "bbox": [
+        1,
+        14,
+        94,
+        55
+      ],
+      "sha256": "80da9335cf7809ae30f82f7ce9cb50cb1d9094929845aa65d1a6fcaffb90df33",
+      "approved_match": true,
+      "asset_manifest_match": true,
+      "transparent": true,
+      "edge_contact": false,
+      "appearance_review": "matches_approved_original",
+      "color_shading_review": "native_and_nearest_reviewed_with_reservoir_originals",
+      "outline_alpha_crop": "pass",
+      "feature_note": "청백색 장어·보라 외곽 곡선"
+    },
+    {
+      "id": 15,
+      "name": "참돔",
+      "bytes": 3215,
+      "size": [
+        96,
+        64
+      ],
+      "bbox": [
+        22,
+        12,
+        79,
+        51
+      ],
+      "sha256": "68a3bc0696049d61accfa93cd15c767f7bbb2b8dfd714f64ac64220f99bed4f9",
+      "approved_match": true,
+      "asset_manifest_match": true,
+      "transparent": true,
+      "edge_contact": false,
+      "appearance_review": "matches_approved_original",
+      "color_shading_review": "native_and_nearest_reviewed_with_reservoir_originals",
+      "outline_alpha_crop": "pass",
+      "feature_note": "붉은 참돔·비늘과 지느러미"
+    },
+    {
+      "id": 16,
+      "name": "농어",
+      "bytes": 5025,
+      "size": [
+        96,
+        64
+      ],
+      "bbox": [
+        5,
+        9,
+        90,
+        55
+      ],
+      "sha256": "ab58ccf6afc3ad4dcbfcb6f1423bed3e1542ccbfc944749586335bd547b22ba2",
+      "approved_match": true,
+      "asset_manifest_match": true,
+      "transparent": true,
+      "edge_contact": false,
+      "appearance_review": "matches_approved_original",
+      "color_shading_review": "native_and_nearest_reviewed_with_reservoir_originals",
+      "outline_alpha_crop": "pass",
+      "feature_note": "녹색 농어·큰 입·반점"
+    },
+    {
+      "id": 17,
+      "name": "바둑판가오리",
+      "bytes": 2961,
+      "size": [
+        96,
+        64
+      ],
+      "bbox": [
+        11,
+        10,
+        86,
+        52
+      ],
+      "sha256": "45e05789936bb69f156b99b03d1fba88837e7cf022ae5ae8db6c6f2447277827",
+      "approved_match": true,
+      "asset_manifest_match": true,
+      "transparent": true,
+      "edge_contact": false,
+      "appearance_review": "matches_approved_original",
+      "color_shading_review": "native_and_nearest_reviewed_with_reservoir_originals",
+      "outline_alpha_crop": "pass",
+      "feature_note": "사선 유영자세·분리된 두 날개·바둑판무늬"
+    },
+    {
+      "id": 18,
+      "name": "유리타일돌돔",
+      "bytes": 3657,
+      "size": [
+        96,
+        64
+      ],
+      "bbox": [
+        15,
+        8,
+        81,
+        55
+      ],
+      "sha256": "01ad2fd07c6d8881111995cfa748dfad735725fd7fcadb0eef65cca3fa2d02aa",
+      "approved_match": true,
+      "asset_manifest_match": true,
+      "transparent": true,
+      "edge_contact": false,
+      "appearance_review": "matches_approved_original",
+      "color_shading_review": "native_and_nearest_reviewed_with_reservoir_originals",
+      "outline_alpha_crop": "pass",
+      "feature_note": "청록 몸통·유리타일 세로판"
+    },
+    {
+      "id": 19,
+      "name": "배수구 대왕장어",
+      "bytes": 4482,
+      "size": [
+        96,
+        64
+      ],
+      "bbox": [
+        3,
+        9,
+        92,
+        59
+      ],
+      "sha256": "120350d05315f4a27c5a64849d0bd2a39af945b20987e630c26702ad40aec2e5",
+      "approved_match": true,
+      "asset_manifest_match": true,
+      "transparent": true,
+      "edge_contact": false,
+      "appearance_review": "matches_approved_original",
+      "color_shading_review": "native_and_nearest_reviewed_with_reservoir_originals",
+      "outline_alpha_crop": "pass",
+      "feature_note": "굽은 장어·배수구 형태·보라/청록 강조"
+    },
+    {
+      "id": 20,
+      "name": "심청유리 실러캔스",
+      "bytes": 4565,
+      "size": [
+        96,
+        64
+      ],
+      "bbox": [
+        5,
+        8,
+        91,
+        55
+      ],
+      "sha256": "b0017e330f4252fcb40a0a1c1944829be2f1a0c94b88ca08e7935c338402375f",
+      "approved_match": true,
+      "asset_manifest_match": true,
+      "transparent": true,
+      "edge_contact": false,
+      "appearance_review": "matches_approved_original",
+      "color_shading_review": "native_and_nearest_reviewed_with_reservoir_originals",
+      "outline_alpha_crop": "pass",
+      "feature_note": "청록 실러캔스·긴 수조창·분리된 꼬리"
+    }
+  ],
+  "visual_review": {
+    "native_and_nearest": true,
+    "reservoir_original20_compared": true,
+    "all20_detail_screens_opened": true,
+    "three_height_collection_scroll_checked": true,
+    "replacement12_17_short_and_tall_checked": true,
+    "unseen_state_checked": true,
+    "approved_limitations_retained": [
+      "12의 사선 깊이 차이는 기존 제작 기록처럼 미약함",
+      "17 바둑판 무늬는 곡면 원근으로 불규칙한 승인 원본 그대로 유지"
+    ]
+  },
+  "test_correction": {
+    "file": "game/tests/codex089_verify.gd",
+    "old_expectation": "지역0/1만20종, 지역2부터준비중",
+    "new_expectation": "지역0/1/2는20종, 지역3부터준비중",
+    "production_assets_changed": false,
+    "failed_run": 42316841578,
+    "passed_run": 42317071546,
+    "reused_personal_dex_pass": 42316841578
+  },
+  "binary_read_diagnostic": {
+    "failed_tool": "fetch_blob",
+    "error": "UnicodeDecodeError while interpreting PNG as UTF-8",
+    "working_route": "fetch_file with encoding=base64",
+    "png_corruption_observed": false
+  },
+  "automatic_full_regression": {
+    "run_id": 42317071379,
+    "status_at_recording": "in_progress",
+    "conclusion_not_claimed": true
+  },
+  "synthetic_records": true,
+  "real_user_save_used": false,
+  "new_paid_calls": 0,
+  "deployed": false,
+  "phone_verified": false
+}

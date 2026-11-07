@@ -37,3 +37,6 @@ main 또는 codex/r2-migration의 game/**·automation/**·release-patch.yml 변�
 
 ## Cloudflare와 배포
 운영 업데이트 주소는 `https://nakshiworld-update-kr.znzkznzk96.workers.dev`. `version.json`과 `patch.pck?v=<code>`를 실제 설치 앱 방식으로 받는 검사는 verify-deployment.yml에 있다. R2 이전용 tools/publish_r2_patch.py 등을 최신 배포 절차로 임의 선택하지 않는다. 현재 release-patch.yml은 검증된 전체소스 복원→검사→PCK/manifest/source ZIP→draft 업로드→공개 순서다. 배포 완료 후 운영검증 성공과 휴대폰 성공을 별개로 기록한다.
+
+## 2026-11-07 — PNG 읽기 경로 확인
+작은 PNG에 fetch_blob을 사용하면 바이너리를 UTF-8로 해석하는 UnicodeDecodeError가 발생한 사례가 있다. PNG 손상 판정과 구분한다. 이번20종은 fetch_file의 encoding=base64로 읽어 원래 바이트를 복원했고 승인 원본/ASSETS SHA 및 PNG 디코드가 일치했다. 큰 PNG 쓰기의39조각 전송·원격 재조립·재다운로드 검증은 WORK_STATE의 background_verification 링크 참조. 이 결과를 대화 읽기전용 장애 해결로 해석하지 않는다.

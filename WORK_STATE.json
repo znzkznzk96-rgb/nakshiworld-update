@@ -1,17 +1,17 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "background_screens_verified_full_regression_pending",
+  "status": "fish_art_and_dex_verified_bundle_review_pending",
   "release_baseline": "v1.06",
   "target_release": "v1.07",
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/releases/tile-107/HANDOFF.md",
-  "current_task": "2단계 완료·3단계 물고기20종 승인본/도감 검수 대기",
-  "next_step": "물고기20종 승인본(12/17 포함)·도감 실화면 검수 → 번들/해금/세이브 검증 → 전체 회귀검사 → 배포",
+  "current_task": "3단계 완료·4단계 번들/해금/보상/세이브 전용 검수 대기",
+  "next_step": "기존 통과한 tile107 항목 재사용 → 번들/해금 UI·보상/중복방지/저장실패/재접속 경계 검수 → 전체 CI 결과 확인 → 배포 준비",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
-  "verification": "docs/qa/tile-background-stage2/results/VERIFICATION.json",
+  "verification": "docs/qa/tile-fish-stage3/REVIEW.json",
   "baseline_phone_verified": true,
   "environment_recovery": "docs/CODEX_NETWORK_RECOVERY.md",
   "background_verified_branch": "work/tile-png-stage2-20261107",
@@ -28,5 +28,8 @@
     "sha256": "3c4b1a317955fa53f2f8351d9fbd1d0978502cafd0f6655a969132b6ab064dd5",
     "artifact_id": 13550491990,
     "local_cache_available_this_session": true
-  }
+  },
+  "fish_verification_run": 42317071546,
+  "automatic_full_regression_run": 42317071379,
+  "automatic_full_regression_status": "in_progress"
 }
