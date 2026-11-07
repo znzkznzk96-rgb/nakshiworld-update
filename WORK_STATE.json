@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "presentation_and_candidate_pipeline_ready_difficulty_proposal",
+  "status": "regional_difficulty_simulating_no_balance_changes",
   "release_baseline": "v1.09",
   "target_release": "v1.09",
   "deployed": true,
   "phone_verified": false,
-  "handoff": "docs/qa/presentation-release-efficiency/HANDOFF.md",
-  "current_task": "정적물고기우향·대형어확대·검증후보재사용배포구조,지역난이도개선안",
-  "next_step": "CI42388161422 전체/화면/동일후보 생성 확인. 난이도안 결정 후 구현. 새 배포 없음.",
+  "handoff": "analysis/regional-difficulty-20261108/HANDOFF.md",
+  "current_task": "지역별 난이도 실제로직 시뮬레이션 탐색",
+  "next_step": "O/P/Q 장력제어 비교후 별도seed검증. 밸런스미적용/새배포없음.",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -106,7 +106,8 @@
     "difficulty_implemented": false,
     "proposal": "docs/qa/presentation-release-efficiency/DIFFICULTY_PROPOSAL.md",
     "ci_run": 42388161422,
-    "ci_status": "in_progress",
-    "source_commit": "f0c39c5ed752c826a703d53d7465fc58488ea24a"
+    "ci_status": "success",
+    "source_commit": "f0c39c5ed752c826a703d53d7465fc58488ea24a",
+    "candidate_built": true
   }
 }
