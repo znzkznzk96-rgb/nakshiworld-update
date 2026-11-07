@@ -1,0 +1,133 @@
+{
+  "scope": "tile sea only",
+  "new_round_authorized_static_outputs": 7,
+  "resubmitted_held_nonfish": 6,
+  "old_held_fish_replaced_by_actual_tile_species": true,
+  "fish_source_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    9,
+    10,
+    14,
+    15,
+    17
+  ],
+  "existing_passed_plants_retained": [
+    "arch-vine",
+    "floor-ribbon",
+    "floor-broad",
+    "wall-ribbon"
+  ],
+  "gull_flight_animation": {
+    "model": "animate-with-text-v3",
+    "frame_count": 8,
+    "calls": 1,
+    "gate": "only after gull source passes; no blind retry"
+  },
+  "simultaneous_paid_limit": 1,
+  "single_post_each": true,
+  "deployed": false,
+  "assets": [
+    {
+      "name": "cloud-far",
+      "model": "create-image-bitforge",
+      "size": [
+        180,
+        48
+      ],
+      "seed": 2026111001,
+      "description": "A distant long low cloud bank, irregular flat connected white cloud silhouette with delicate pale blue underside and tiny broken wisps. The actual reference is the pixel and cloud-shape guide. A flat distant cloud, not spheres, no black outline.",
+      "reference": "art/atmosphere/cloud_far.png",
+      "original_reference_sha256": "94a293191606c6339eba0eb386c8d3dd5f3da652ea37be4022f2614fe3db8ba8",
+      "input_reference_sha256": "3286d351788f0a355a5a827e2ba4fa0e78f203f99b526d84fc9ea032b69f5f11",
+      "padding_only_original_pixels_unchanged": true,
+      "style_strength": 38
+    },
+    {
+      "name": "cloud-near",
+      "model": "create-image-bitforge",
+      "size": [
+        180,
+        64
+      ],
+      "seed": 2026111002,
+      "description": "A broad natural cumulus cloud bank with asymmetrical ragged fluffy upper edges and flatter lower edge, bright white and pale sky-blue shadows, fine clustered pixel detail like the actual reference. Not separated balls, no dark outlines.",
+      "reference": "art/atmosphere/cloud_cumulus.png",
+      "original_reference_sha256": "9aca8ac5e3ffd87ac3c02c1befa90ee96b38457fc10581c4e65aec44659d5497",
+      "input_reference_sha256": "9b91f464dc6f3f525f1c5dc0e946fbdcd88d5afd6ab1edf7250c3e4750a26aea",
+      "padding_only_original_pixels_unchanged": true,
+      "style_strength": 38
+    },
+    {
+      "name": "horizon-mist",
+      "model": "create-image-bitforge",
+      "size": [
+        180,
+        48
+      ],
+      "seed": 2026111003,
+      "description": "A low horizontal bank of very thin broken pale cyan mist wisps, spread across the center as scattered soft-edged pixel dust. Faint low-density mist, no solid ribbon, no zigzag or lightning, no border or stroke. Use the reference wispy pixel clustering, not a closed object.",
+      "reference": "art/atmosphere/cloud_wisp.png",
+      "original_reference_sha256": "1f6c031be5c596abf631fcb80db611cf596fafd4a38d87e4747915c87f3eb4fa",
+      "input_reference_sha256": "8a2137e37260056b04197e74f1f049bbb2fc1ab2417928a4014b300dea476b17",
+      "padding_only_original_pixels_unchanged": true,
+      "style_strength": 22
+    },
+    {
+      "name": "ledge-grass",
+      "model": "create-image-bitforge",
+      "size": [
+        64,
+        48
+      ],
+      "seed": 2026111004,
+      "description": "One tiny isolated short green grass tuft and a small emerald moss tuft beside it, 5 narrow uneven blades, dark green shadow and light mint green tips. Entire plant only with tiny roots. No stone, no tiles, no dirt, no pot, no square patch or background.",
+      "reference": "art/atmosphere/reed_left.png",
+      "original_reference_sha256": "85a7c6824cebce39b4f57e62bacadc7afc2603ec88096cb620fca3dbfdccb079",
+      "input_reference_sha256": "6e186178ff53bc0873a693a6adff1ff968d9730632fb8ecce09e259f0e97ef4b",
+      "padding_only_original_pixels_unchanged": true,
+      "style_strength": 34
+    },
+    {
+      "name": "bubble-cluster",
+      "model": "create-image-pixen",
+      "size": [
+        64,
+        64
+      ],
+      "seed": 2026111005,
+      "description": "A sparse group of five simple small hollow cyan circular rings with thin bright blue-cyan rims and a tiny white highlight at upper left. Each ring interior is empty, identical to the empty surrounding canvas. Different sizes and separated rings. Pure clean pixel outline shapes only. No grey fill, no checkerboard pattern, no shadow, no scenery, no text, no background.",
+      "visual_inputs": [],
+      "background_removal_task": "remove_complex_background"
+    },
+    {
+      "name": "water-specks",
+      "model": "create-image-pixen",
+      "size": [
+        64,
+        64
+      ],
+      "seed": 2026111006,
+      "description": "A sparse distribution of twelve tiny isolated pale aqua and cream-white pixel dots, 1 to 3 square pixels per dot, randomly scattered over an otherwise completely empty canvas. No central object, no stars, no glow, no checkerboard texture, no frame, no scenery. Crisp pixel particles only.",
+      "visual_inputs": [],
+      "background_removal_task": "remove_complex_background"
+    },
+    {
+      "name": "gull",
+      "model": "create-image-pixen",
+      "size": [
+        64,
+        64
+      ],
+      "seed": 2026111007,
+      "description": "One small flying seagull facing right in side view, white and light grey body, charcoal wing tips, tiny yellow beak, one dark eye, wings raised for the start of flight. Entire wings and tail inside at least six empty margin pixels on every edge. Cozy crisp 16-bit pixel art, 3 to 4 shades per color, selective outline. Single complete bird sprite only, not a flock, no sky, no clouds, no branch, no text, no checkerboard background.",
+      "visual_inputs": [],
+      "background_removal_task": "remove_complex_background"
+    }
+  ]
+}
