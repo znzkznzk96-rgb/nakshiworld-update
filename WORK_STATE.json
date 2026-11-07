@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "regional_bundle_rewards_implemented_unpublished",
+  "status": "fish_anchor_size_verified_unpublished",
   "release_baseline": "v1.08",
   "target_release": "v1.08",
   "deployed": true,
   "phone_verified": false,
-  "handoff": "docs/qa/regional-bundle-rewards/HANDOFF.md",
-  "current_task": "지역 번들 해금비 기준 서브10%·주인30% 정정",
-  "next_step": "화면 검토, 새 패치 배포는 별도 승인 대기. 상세검사 regional-bundle-rewards/VERIFICATION.json.",
+  "handoff": "docs/qa/fish-anchor-size/HANDOFF.md",
+  "current_task": "타일 입 방향 수정·전어종 낚시 크기 차등",
+  "next_step": "입연결·크기차이 실화면 검토. 새 패치 공개는 별도 승인.",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -84,5 +84,12 @@
     "deployed": false,
     "release_authorized": false,
     "verification": "docs/qa/regional-bundle-rewards/CORRECTION_VERIFICATION.json"
+  },
+  "fish_render_followup": {
+    "verification": "docs/qa/fish-anchor-size/VERIFICATION.json",
+    "deployed": false,
+    "release_authorized": false,
+    "headless_passed": 73,
+    "headless_total": 73
   }
 }
