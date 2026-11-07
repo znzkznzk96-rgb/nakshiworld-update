@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "tile_layer_motion_visibility_revision",
+  "status": "tile_layer_detail_motion_preview_verified",
   "release_baseline": "v1.09",
   "target_release": "v1.10",
   "deployed": false,
   "phone_verified": false,
-  "handoff": "analysis/tile-layers-stage2/HANDOFF.md",
-  "current_task": "타일바다12개레이어 시안 구현·관련검사 완료",
-  "next_step": "물고기 유영/꼬리·기포·수초·물빛 가시성 강화, 움직이는 GIF와 MP4 검증",
+  "handoff": "analysis/tile-layers-stage3/HANDOFF.md",
+  "current_task": "움직임·디테일 강화 시안 완료, 96프레임 GIF/8초 MP4 검증",
+  "next_step": "사용자 화면 검토, 본편 적용·배포 미진행",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -136,10 +136,10 @@
     "candidate_ready": true
   },
   "tile_layer_preview": {
-    "path": "analysis/tile-layers-stage2/water_3-display.webp",
-    "verification": "analysis/tile-layers-stage2/VERIFICATION.json",
+    "path": "analysis/tile-layers-stage3/detail-display.webp",
+    "verification": "analysis/tile-layers-stage3/VERIFICATION.json",
     "production_integrated": false,
-    "paid_generation": 4,
+    "paid_generation": 0,
     "deployed": false,
     "layers": 12
   },
