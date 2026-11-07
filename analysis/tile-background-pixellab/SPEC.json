@@ -1,0 +1,158 @@
+{
+  "date_kst": "2026-11-08",
+  "total": 13,
+  "static_outputs_only": true,
+  "paid_concurrent_limit": 1,
+  "technical_attempt_limit_including_initial": 3,
+  "quality_regeneration_authorized": false,
+  "on_ambiguous_item": "hold; independent remaining items may proceed per latest prior user direction",
+  "first_quality_gate": true,
+  "existing_water_light_shaders_preserved": true,
+  "production_integration": "after art review",
+  "deployed": false,
+  "assets": [
+    {
+      "name": "cloud-far",
+      "width": 128,
+      "height": 48,
+      "model": "create-image-pixen",
+      "seed": 2026110901,
+      "single_output": true,
+      "visual_inputs": [],
+      "reference_role": "text only; fish colors/pixel readability compared against actual approved reservoir originals, not rejected school",
+      "description": "One single long low soft distant white cloud, three shallow connected rounded lobes, pale icy cyan underside, warm white upper plane, broad flat horizontal base, small distant cloud with simple readable masses. No dark outline."
+    },
+    {
+      "name": "cloud-near",
+      "width": 128,
+      "height": 64,
+      "model": "create-image-pixen",
+      "seed": 2026110902,
+      "single_output": true,
+      "visual_inputs": [],
+      "reference_role": "text only; fish colors/pixel readability compared against actual approved reservoir originals, not rejected school",
+      "description": "One single asymmetrical compact cumulus cloud, four rounded connected puffy lobes, bright warm-white upper planes, pale aqua and soft sky-blue underside, clean readable large silhouette, not a storm cloud. No dark outline."
+    },
+    {
+      "name": "horizon-mist",
+      "width": 192,
+      "height": 32,
+      "model": "create-image-pixen",
+      "seed": 2026110903,
+      "single_output": true,
+      "visual_inputs": [],
+      "reference_role": "text only; fish colors/pixel readability compared against actual approved reservoir originals, not rejected school",
+      "description": "One very wide thin horizontal drifting water-mist wisp, broken low flowing pale cyan-white cloud wisps, sparse and airy with transparent gaps, only a narrow low ribbon of fog, no dense wall and no scenery. No dark outline."
+    },
+    {
+      "name": "arch-vine",
+      "width": 64,
+      "height": 128,
+      "model": "create-image-pixen",
+      "seed": 2026110904,
+      "single_output": true,
+      "visual_inputs": [],
+      "reference_role": "text only; fish colors/pixel readability compared against actual approved reservoir originals, not rejected school",
+      "description": "One sparse hanging vine growing from a tiny root knot at the top, two winding stems and small alternating pointed heart-shaped leaves, emerald and jade green leaves with mint highlights and deep teal shadows, graceful trailing silhouette, entire tips visible with at least 5 transparent pixels at all edges."
+    },
+    {
+      "name": "ledge-grass",
+      "width": 64,
+      "height": 48,
+      "model": "create-image-pixen",
+      "seed": 2026110905,
+      "single_output": true,
+      "visual_inputs": [],
+      "reference_role": "text only; fish colors/pixel readability compared against actual approved reservoir originals, not rejected school",
+      "description": "One small low clump of five short thin jade grass blades and a tiny irregular emerald moss tuft growing from a narrow root base, mint highlights, deep teal shadow, asymmetrical low horizontal silhouette, no soil or pot."
+    },
+    {
+      "name": "floor-ribbon",
+      "width": 64,
+      "height": 80,
+      "model": "create-image-pixen",
+      "seed": 2026110906,
+      "single_output": true,
+      "visual_inputs": [],
+      "reference_role": "text only; fish colors/pixel readability compared against actual approved reservoir originals, not rejected school",
+      "description": "One compact clump of seven narrow curved submerged eelgrass ribbon leaves, emerald and turquoise blades, deep teal shadows and mint edge highlights, short dark roots, fan-shaped plant silhouette only, full tips and roots visible."
+    },
+    {
+      "name": "floor-broad",
+      "width": 64,
+      "height": 80,
+      "model": "create-image-pixen",
+      "seed": 2026110907,
+      "single_output": true,
+      "visual_inputs": [],
+      "reference_role": "text only; fish colors/pixel readability compared against actual approved reservoir originals, not rejected school",
+      "description": "One small low submerged aquatic plant, five broad oval gently wavy blue-green leaves with clear stems and short dark roots, jade green midtones, mint highlights, dark teal shadows, asymmetrical silhouette."
+    },
+    {
+      "name": "wall-ribbon",
+      "width": 64,
+      "height": 96,
+      "model": "create-image-pixen",
+      "seed": 2026110908,
+      "single_output": true,
+      "visual_inputs": [],
+      "reference_role": "text only; fish colors/pixel readability compared against actual approved reservoir originals, not rejected school",
+      "description": "One small submerged side-growing aquatic plant anchored at its LEFT middle by a small root knot, five long slender curved blue-green ribbon leaves sweeping right and gently downward, teal shadows and mint highlights, all leaf tips uncut."
+    },
+    {
+      "name": "fish-far",
+      "width": 48,
+      "height": 32,
+      "model": "create-image-pixen",
+      "seed": 2026110909,
+      "single_output": true,
+      "visual_inputs": [],
+      "reference_role": "text only; fish colors/pixel readability compared against actual approved reservoir originals, not rejected school",
+      "description": "Exactly ONE complete small slender minnow facing RIGHT, side profile with a pointed head, one readable dark eye, silver-white belly, turquoise blue back and small coral-orange forked tail and fins. Body, dorsal fin and forked tail distinct. Clean natural fish shape. Not a school, no second fish, no decorative objects."
+    },
+    {
+      "name": "fish-mid",
+      "width": 64,
+      "height": 40,
+      "model": "create-image-pixen",
+      "seed": 2026110910,
+      "single_output": true,
+      "visual_inputs": [],
+      "reference_role": "text only; fish colors/pixel readability compared against actual approved reservoir originals, not rejected school",
+      "description": "Exactly ONE complete streamlined small silver-blue mackerel-like fish facing RIGHT, side profile, pointed head, one dark eye, cobalt blue back with three short dark dorsal bars, bright silver belly, small navy forked tail and clear pectoral fin. Clean natural fish shape, not a school."
+    },
+    {
+      "name": "fish-near",
+      "width": 80,
+      "height": 48,
+      "model": "create-image-pixen",
+      "seed": 2026110911,
+      "single_output": true,
+      "visual_inputs": [],
+      "reference_role": "text only; fish colors/pixel readability compared against actual approved reservoir originals, not rejected school",
+      "description": "Exactly ONE complete oval-bodied reef fish facing RIGHT, side profile, a clear dark eye, turquoise body with two ivory vertical bands, coral-orange dorsal and tail fins with dark teal edging, readable scales in small tidy clusters, distinct tail and fins, natural fish shape. No gold. Not a school."
+    },
+    {
+      "name": "bubble-cluster",
+      "width": 48,
+      "height": 64,
+      "model": "create-image-pixen",
+      "seed": 2026110912,
+      "single_output": true,
+      "visual_inputs": [],
+      "reference_role": "text only; fish colors/pixel readability compared against actual approved reservoir originals, not rejected school",
+      "description": "One small sparse rising cluster of exactly five separate round water bubbles in different sizes, transparent interiors and thin broken pale aqua rims, tiny white specular highlight pixels at upper left, 3 to 9 pixel diameters with ample transparent gaps between all bubbles. No water background, no foam and no text."
+    },
+    {
+      "name": "water-specks",
+      "width": 32,
+      "height": 32,
+      "model": "create-image-pixen",
+      "seed": 2026110913,
+      "single_output": true,
+      "visual_inputs": [],
+      "reference_role": "text only; fish colors/pixel readability compared against actual approved reservoir originals, not rejected school",
+      "description": "One sparse cluster of six tiny separate underwater floating motes, pale aqua and cream-white tiny irregular pixel flecks, 1 to 3 pixels each, generous empty transparent space, a few tiny highlights only, no large objects, no starburst, no sparkles with rays, no fish."
+    }
+  ]
+}
