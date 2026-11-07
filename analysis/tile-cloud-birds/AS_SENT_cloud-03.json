@@ -1,0 +1,14 @@
+{
+  "description": "One isolated horizontal feathery cirrus cloud sprite, long tapering wisps flowing left and right from a broad low soft center. Slightly arched and asymmetric, about seven times wider than high. Pale ivory white highlights, very pale lavender underlayer, three shades, clean broad pixel clusters, lineless cozy 16-bit pixel art. No tiny speckled dots, no round bubble row, no tall peaks. Entire shape inside transparent canvas with six blank margin pixels. No sky, no rectangular field, no sea, no water, no horizon, no ground, no checkerboard, no text.",
+  "image_size": {
+    "width": 192,
+    "height": 48
+  },
+  "outline": "lineless",
+  "detail": "low detail",
+  "view": "side",
+  "no_background": true,
+  "background_removal_task": "remove_complex_background",
+  "seed": 2026111303,
+  "enhance_prompt": false
+}

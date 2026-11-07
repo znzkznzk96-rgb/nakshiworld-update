@@ -1,0 +1,10 @@
+{
+  "generations_before": 1127.6,
+  "generations_after": 1124.6,
+  "actual_used": 3.0,
+  "paid_calls": 3,
+  "technical_retries": 0,
+  "quality_regenerations": 0,
+  "new_bird_generation_calls": 0,
+  "pending_jobs": 0
+}

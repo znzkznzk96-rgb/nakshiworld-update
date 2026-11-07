@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "four_cloud_variants_and_bird_sampling_in_progress",
+  "status": "four_clouds_and_stable_birds_preview_ready",
   "release_baseline": "v1.09",
   "target_release": "v1.10",
   "deployed": false,
   "phone_verified": false,
   "handoff": "analysis/tile-cloud-birds/HANDOFF.md",
   "current_task": "승인 구름 포함4종 양방향 이동·새 축소표시 안정화",
-  "next_step": "PixelLab 추가구름3종 순차검수·기존9프레임새 표시 샘플링 개선",
+  "next_step": "4종 양방향/순환구름·새 축소 개선 시안 검토; 본편통합/배포 미승인",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -231,6 +231,15 @@
   "tile_pier_cloud": {
     "verification": "analysis/tile-pier-cloud/VERIFICATION.json",
     "paid_generations": 2,
+    "production_integrated": false,
+    "deployed": false
+  },
+  "tile_cloud_birds": {
+    "verification": "analysis/tile-cloud-birds/VERIFICATION.json",
+    "cloud_variants": 4,
+    "new_clouds": 3,
+    "paid_generations": 3,
+    "bird_original_frames": 9,
     "production_integrated": false,
     "deployed": false
   }

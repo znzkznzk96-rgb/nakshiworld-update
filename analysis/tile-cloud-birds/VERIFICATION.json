@@ -1,0 +1,119 @@
+{
+  "native_render_exit_code": 0,
+  "native_frames": 90,
+  "native_resolution": [
+    540,
+    1320
+  ],
+  "native_errors": false,
+  "native_warning": "test-only raw Image loads need imported resources for eventual export",
+  "gif_frames": 72,
+  "gif_duration_ms": 6000,
+  "hud": [
+    {
+      "rect": [
+        22,
+        10,
+        517,
+        57
+      ],
+      "identical": true
+    },
+    {
+      "rect": [
+        26,
+        78,
+        257,
+        125
+      ],
+      "identical": true
+    },
+    {
+      "rect": [
+        285,
+        78,
+        513,
+        125
+      ],
+      "identical": true
+    }
+  ],
+  "clouds": {
+    "variants": 4,
+    "new_pixelLab_assets": 3,
+    "left": 2,
+    "right": 2,
+    "loop_shape_randomization_check": {
+      "frames_each": 9,
+      "native_bird_levels": 3,
+      "passed": true,
+      "snapshots": [
+        {
+          "forms": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "seconds": 0
+        },
+        {
+          "forms": [
+            3,
+            1,
+            2,
+            3
+          ],
+          "seconds": 100
+        },
+        {
+          "forms": [
+            2,
+            3,
+            3,
+            2
+          ],
+          "seconds": 250
+        },
+        {
+          "forms": [
+            2,
+            3,
+            2,
+            1
+          ],
+          "seconds": 500
+        },
+        {
+          "forms": [
+            3,
+            1,
+            1,
+            0
+          ],
+          "seconds": 1000
+        }
+      ]
+    }
+  },
+  "bird_filter": "premultiplied Lanczos cached once, fixed common crop, native pixel alignment including2x window stretch",
+  "native_bird_sizes": [
+    [
+      18,
+      20
+    ],
+    [
+      26,
+      28
+    ],
+    [
+      34,
+      36
+    ]
+  ],
+  "native_and_nearest_motion_frames_reviewed": true,
+  "original_bird_pngs_unchanged": true,
+  "production_integrated": false,
+  "deployed": false,
+  "paid_generations": 3
+}
