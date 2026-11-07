@@ -1,17 +1,17 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "v110_verified_draft_upload_complete_publication_fixing",
-  "release_baseline": "v1.09",
+  "status": "v110_published_and_gateway_verified",
+  "release_baseline": "v1.10",
   "target_release": "v1.10",
-  "deployed": false,
+  "deployed": true,
   "phone_verified": false,
   "handoff": "docs/releases/110/HANDOFF.md",
-  "current_task": "승인 타일장식 본편통합·전체검사·v1.10 공개배포",
-  "next_step": "릴리즈ID로 기존초안자산/봉인후보 재검증후 공개→원래게시job재실행→운영검증",
+  "current_task": "v1.10 난이도·타일풍경 개선 공개 및 운영 검증 완료",
+  "next_step": "기존 앱에서 v1.10 업데이트 후 사용자 휴대폰 실제 적용 확인",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
-  "verification": "docs/releases/109/PUBLISHED.json",
+  "verification": "docs/releases/110/PUBLISHED.json",
   "baseline_phone_verified": true,
   "environment_recovery": "docs/CODEX_NETWORK_RECOVERY.md",
   "background_verified_branch": "work/tile-png-stage2-20261107",
@@ -23,10 +23,10 @@
   "screen_evidence_commit": "04fa33a116915c0b7a7ca86ee235a24a4cf4d4d2",
   "screen_verification_run": 42315352676,
   "full_source_verified": {
-    "release": "v1.09",
-    "size": 63283837,
-    "sha256": "2814eacc410710ccf71514a655c3955b4210efe64512f35daf3eb2602c6b5b1f",
-    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.09/game-source.zip"
+    "release": "v1.10",
+    "size": 63390669,
+    "sha256": "f54abc1ba4529a9a3f9f1fe1dca2a6a4c249d12e3f598be70b1de98092d850a2",
+    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.10/game-source.zip"
   },
   "fish_verification_run": 42317071546,
   "automatic_full_regression_run": 42317071379,
@@ -35,9 +35,9 @@
   "bundle_verification_run": 42319985467,
   "bundle_evidence_commit": "dd8297cc9de9a5423091b61e06f166ee22023de4",
   "headless_regression_coverage": {
-    "passed": 73,
-    "total": 73,
-    "run": 42384392014,
+    "passed": 78,
+    "total": 78,
+    "run": 42423468177,
     "all_executed_in_release_run": true
   },
   "standard_full_workflow_success": true,
@@ -48,18 +48,18 @@
     "scope": "현재 승인 타일바다 레이어 전체와 미배포 난이도/표시/공통빛/수면 개선 v1.10"
   },
   "release_preflight": "docs/releases/109/PREFLIGHT.json",
-  "release_source_commit": "2d4e0bcd3f31783ed231720ee20657140e4f0d4c",
-  "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v1.09",
+  "release_source_commit": "12dfd5d1b96aa2ecfee558d491991d123950700a",
+  "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v1.10",
   "release_build_run": 42424163257,
-  "release_build_status": "draft_uploaded_publication_metadata_404_fixing",
-  "public_verification_run": 42386115096,
+  "release_build_status": "success",
+  "public_verification_run": 42424518551,
   "public_verification_status": "success",
   "public_patch": {
-    "size": 59072592,
-    "sha256": "55f920f673d98c37de6bfe9886904588c81addec1c28514937eea7ce146ca53b",
-    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.09/patch.pck"
+    "size": 59184272,
+    "sha256": "64620fd393fd1c2076f550e5eeaf08f2adac7d6832f6f30a59d0a88d07d958a9",
+    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.10/patch.pck"
   },
-  "standard_full_workflow_note": "Final-source CI42384392014 all73/native/global render passed. Corrected release build42385588281 and authenticated public verification42386115096 succeeded.",
+  "standard_full_workflow_note": "Final-source78/native/global/PCK CI42423468177 success; identical candidate published without rebuild. Draft-ID resume42424430555 and original publisher42424163257 attempt2 success; gateway/full source verification42424518551 success.",
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md#2026-11-07--소규모-작업-효율채팅-중단-대비",
   "approved_followup": "우편 단일원본·공통지급·검사통합 구현/검증 완료. 공개v1.08 유지, 새 배포 미승인.",
   "session_continuity": {
@@ -92,7 +92,7 @@
     "headless_passed": 73,
     "headless_total": 73
   },
-  "release_verification_run": 42384392014,
+  "release_verification_run": 42423468177,
   "prior_build_issue": {
     "run": 42384973558,
     "cause": "packed mail check hardcoded1.08; prepublication assertion",
@@ -118,23 +118,24 @@
     "production_balance_changed": false,
     "phone_tested": false
   },
-  "release_authorized": true,
+  "release_authorized": false,
   "balance110": {
     "applied": true,
-    "deployed": false,
+    "deployed": true,
     "release_authorized": false,
     "equivalence_conditions": 1296,
     "equivalence_exact": true,
     "verification": "docs/qa/balance110/VERIFICATION.json",
-    "ci_run": 42391006308,
+    "ci_run": 42423468177,
     "ci_status": "success",
-    "source_commit": "584e3ee9c52dc54bca586334fe0ffa7e5a10ac44",
-    "headless_passed": 75,
-    "headless_total": 75,
-    "candidate_artifact": 13582180975,
-    "candidate_fingerprint": "9971deb6317a71477b90a17a59c13257e4b0141535074ecd0041c7619d987977",
-    "candidate_ready": false,
-    "candidate_note": "기존검증후보는조명변경이전소스. 새조명포함후보는미빌드/미배포."
+    "source_commit": "12dfd5d1b96aa2ecfee558d491991d123950700a",
+    "headless_passed": 78,
+    "headless_total": 78,
+    "candidate_artifact": 13594114063,
+    "candidate_fingerprint": "6ffaa8c8854dd132aa070b8e7d383be682c38d6d22a3c09313dbf0206558414a",
+    "candidate_ready": true,
+    "candidate_note": "전체 승인레이어/난이도 포함 최종 후보와 동일파일 공개 완료.",
+    "implementation_source_commit": "584e3ee9c52dc54bca586334fe0ffa7e5a10ac44"
   },
   "tile_layer_preview": {
     "path": "analysis/tile-layers-stage9/display.webp",
@@ -170,7 +171,7 @@
     "ledger": "analysis/tile-layer-art-v1/PLANT_LEDGER.json",
     "quality": "analysis/tile-layer-art-v1/PLANT_QA.json"
   },
-  "public_release": "v1.09",
+  "public_release": "v1.10",
   "shared_vertical_light": {
     "applied": true,
     "regions": [
@@ -179,7 +180,7 @@
       2
     ],
     "production_integrated": true,
-    "deployed": false,
+    "deployed": true,
     "release_authorized": false,
     "checks": "75_of_75_full_plus_shared_light_and_native_screens_passed",
     "verification": "docs/qa/shared-vertical-light/VERIFICATION.json",
@@ -192,7 +193,7 @@
     ],
     "verification": "docs/qa/tile-surface-shader/VERIFICATION.json",
     "two_opposite_flows": true,
-    "deployed": false,
+    "deployed": true,
     "release_authorized": false
   },
   "tile_background_pixellab": {
@@ -221,11 +222,13 @@
   },
   "tile_background_dream": {
     "production_integrated": true,
-    "deployed": false
+    "deployed": true,
+    "release_authorized": false
   },
   "tile_pier_cloud": {
     "production_integrated": true,
-    "deployed": false
+    "deployed": true,
+    "release_authorized": false
   },
   "tile_cloud_birds": {
     "verification": "analysis/tile-cloud-birds/VERIFICATION.json",
@@ -234,13 +237,15 @@
     "paid_generations": 3,
     "bird_original_frames": 9,
     "production_integrated": true,
-    "deployed": false
+    "deployed": true,
+    "release_authorized": false
   },
   "tile_scenery": {
     "verification": "docs/qa/tile-scenery/VERIFICATION.json",
     "production_integrated": true,
-    "deployed": false,
-    "local_related_pass": true
+    "deployed": true,
+    "local_related_pass": true,
+    "release_authorized": false
   },
   "full_release_ci": {
     "run": 42423468177,
@@ -252,6 +257,10 @@
     "artifact_id": 13594114063,
     "input_fingerprint": "6ffaa8c8854dd132aa070b8e7d383be682c38d6d22a3c09313dbf0206558414a",
     "source_commit": "12dfd5d1b96aa2ecfee558d491991d123950700a",
-    "ready": true
-  }
+    "run": 42423468177,
+    "ready": true,
+    "published": true,
+    "rebuild_on_publish": false
+  },
+  "release_resume_run": 42424430555
 }
