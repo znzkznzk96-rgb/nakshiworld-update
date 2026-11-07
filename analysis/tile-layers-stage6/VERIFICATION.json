@@ -1,0 +1,48 @@
+{
+  "clips": {
+    "tile-sea-sun-v5.gif": {
+      "frames": 96,
+      "distinct": 96,
+      "duration_ms": 8000,
+      "loop": 0
+    },
+    "tile-surface-closeup-v5.gif": {
+      "frames": 96,
+      "distinct": 96,
+      "duration_ms": 8000,
+      "loop": 0
+    }
+  },
+  "surface_roi_220_555_540_655_changes": true,
+  "sky_architecture_unchanged_above_y555": true,
+  "sun_hour_provider": "environment.hour()",
+  "morning_noon_afternoon_slopes": [
+    0.3889087297,
+    0,
+    -0.4763139721
+  ],
+  "ray_top_widths_at_0s": [
+    33.727,
+    30.973,
+    40.074,
+    57.18
+  ],
+  "ray_top_widths_at_3s": [
+    52.297,
+    35.506,
+    20.472,
+    33.621
+  ],
+  "ray_top_widths_at_7s": [
+    44.257,
+    33.919,
+    37.37,
+    26.841
+  ],
+  "clock_and_width_checks": "passed",
+  "three_phone_heights": "passed",
+  "video_time": "fixed real game noon; time-of-day comparison9/12/16stills, no accelerated sun shown as real-time",
+  "production_integrated": false,
+  "deployed": false,
+  "paid_generation": 0
+}
