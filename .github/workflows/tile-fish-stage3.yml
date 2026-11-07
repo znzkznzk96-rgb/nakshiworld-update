@@ -1,0 +1,115 @@
+name: Verify tile fish and dex without deployment
+on:
+  push:
+    branches: [work/tile-release-107]
+    paths: ['.github/workflows/tile-fish-stage3.yml']
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: tile-fish-stage3
+  cancel-in-progress: false
+jobs:
+  fish-dex:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - name: Reuse verified source artifact from stage2
+        uses: actions/download-artifact@v4
+        with:
+          name: tile-background-stage2
+          run-id: 42315352676
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/previous
+      - name: Restore current source and verify approved fish
+        run: |
+          set -euo pipefail
+          SOURCE="$RUNNER_TEMP/previous/_temp/source-v106.zip"
+          echo "3c4b1a317955fa53f2f8351d9fbd1d0978502cafd0f6655a969132b6ab064dd5  $SOURCE" | sha256sum -c -
+          python3 automation/restore_source.py "$SOURCE" "$RUNNER_TEMP/project"
+          cp docs/qa/tile-fish-stage3/dex_preview.gd "$RUNNER_TEMP/project/tests/tile_dex_stage3.gd"
+          python3 -m pip install Pillow==11.3.0
+          python3 - <<'PY'
+          import pathlib,hashlib,json,os
+          from PIL import Image
+          root=pathlib.Path(os.environ["RUNNER_TEMP"])/"project"
+          rows=json.loads(pathlib.Path("docs/qa/tile-fish-stage3/APPROVED_MATCH.json").read_text())
+          for row in rows:
+              p=root/"art/fish"/("l2_%02d.png"%(row["id"]-1))
+              assert hashlib.sha256(p.read_bytes()).hexdigest()==row["sha256"],str(p)
+              with Image.open(p) as im:im.verify()
+              with Image.open(p) as im:im.load();assert im.size==(96,64)
+          print("APPROVED_FINAL20_INCLUDING_SWIMMING12_17_MATCH")
+          PY
+      - name: Install pinned engine and render dependencies
+        run: |
+          curl -fL --connect-timeout 15 --max-time 120 https://github.com/godotengine/godot/releases/download/4.4.1-stable/Godot_v4.4.1-stable_linux.x86_64.zip -o "$RUNNER_TEMP/godot.zip"
+          unzip -q "$RUNNER_TEMP/godot.zip" -d "$RUNNER_TEMP/godot"
+          chmod +x "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
+          sudo apt-get update -qq
+          sudo apt-get install -y xvfb libgl1-mesa-dri > /dev/null
+      - name: Import and run dex-specific regression
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p evidence
+          GODOT="$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
+          "$GODOT" --headless --editor --path "$RUNNER_TEMP/project" --import > evidence/import.log 2>&1
+          if grep -E 'SCRIPT ERROR:|Parse Error:|Failed to load script' evidence/import.log; then exit 1; fi
+          "$GODOT" --headless --path "$RUNNER_TEMP/project" --script tests/bake_expedition_assets.gd > evidence/bake.log 2>&1
+          "$GODOT" --headless --editor --path "$RUNNER_TEMP/project" --import > evidence/prepared-import.log 2>&1
+          for suite in personal_dex codex089; do
+            XDG_DATA_HOME="$RUNNER_TEMP/stage3-$suite" timeout 90 "$GODOT" --headless --path "$RUNNER_TEMP/project" --script "tests/${suite}_verify.gd" > "evidence/$suite.log" 2>&1 || { cat "evidence/$suite.log"; exit 1; }
+            grep -F 'VERIFY failures=[]' "evidence/$suite.log"
+            if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' "evidence/$suite.log"; then cat "evidence/$suite.log"; exit 1; fi
+          done
+      - name: Verify and render all20 dex entries at three heights
+        shell: bash
+        run: |
+          set -euo pipefail
+          GODOT="$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
+          XDG_DATA_HOME="$RUNNER_TEMP/stage3-render" timeout 120 xvfb-run -a "$GODOT" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/tile_dex_stage3.gd -- "$GITHUB_WORKSPACE/evidence/screens" > evidence/dex-native.log 2>&1 || { cat evidence/dex-native.log; exit 1; }
+          grep -F 'TILE_DEX_STAGE3_VERIFY failures=[]' evidence/dex-native.log
+          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/dex-native.log; then cat evidence/dex-native.log; exit 1; fi
+      - name: Preserve reviewed originals and actual dex evidence
+        run: |
+          python3 - <<'PY'
+          import pathlib,json,os,shutil
+          from PIL import Image,ImageDraw,ImageFont
+          root=pathlib.Path(os.environ["RUNNER_TEMP"])/"project"
+          out=pathlib.Path("docs/qa/tile-fish-stage3/results");out.mkdir(parents=True,exist_ok=True)
+          for p in pathlib.Path("evidence/screens").glob("*.png"):shutil.copy2(p,out/p.name)
+          rows=json.loads(pathlib.Path("docs/qa/tile-fish-stage3/APPROVED_MATCH.json").read_text())
+          font=ImageFont.truetype(str(root/"font/Galmuri11.ttf"),22)
+          for prefix,label in [("l2","타일바다"),("l0","저수지 기준")]:
+              sheet=Image.new("RGB",(1920,1280),"#182d39");d=ImageDraw.Draw(sheet)
+              for i in range(20):
+                  x=(i%5)*384;y=(i//5)*320;im=Image.open(root/"art/fish"/f"{prefix}_{i:02d}.png").convert("RGBA")
+                  d.rounded_rectangle((x+4,y+4,x+379,y+315),8,fill="#274553")
+                  d.text((x+12,y+9),f"{i+1:02d} "+(rows[i]["name"] if prefix=="l2" else label),font=font,fill="white")
+                  sheet.paste(im,(x+14,y+45),im)
+                  scale=max(1,min(288//im.width,192//im.height));large=im.resize((im.width*scale,im.height*scale),Image.Resampling.NEAREST)
+                  sheet.paste(large,(x+48,y+116),large)
+              sheet.save(out/(prefix+"_original_and_nearest.png"))
+          names=["list_540_00.png","detail_540_12.png","detail_540_17.png"]
+          images=[Image.open(out/n).convert("RGB") for n in names]
+          w,h=images[0].size;canvas=Image.new("RGB",(w*3,h),"#182d39")
+          for i,im in enumerate(images):canvas.paste(im,(i*w,0))
+          canvas.save(out/"dex_comparison.png")
+          report={"source_commit":os.environ["GITHUB_SHA"],"approval_archives":["tile-sea-final20.zip (except12/17)","tile-sea-12-17-swimming-pose.zip (12/17)"],"approved_matches":20,"dimensions":[96,64],"edge_contacts":0,"heights":[480,540,660],"tests":["personal_dex","codex089","tile_dex_stage3"],"synthetic_test_records":True,"actual_user_save_used":False,"game_assets_changed":False,"deployed":False,"full_regression_run":False}
+          (out/"VERIFICATION.json").write_text(json.dumps(report,indent=2)+"\n")
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/qa/tile-fish-stage3/results
+          git commit -m "docs: preserve approved fish and actual dex verification [skip ci]"
+          git push origin HEAD:refs/heads/work/tile-release-107
+      - name: Preserve dex evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tile-fish-stage3
+          path: |
+            evidence/
+            docs/qa/tile-fish-stage3/results/
