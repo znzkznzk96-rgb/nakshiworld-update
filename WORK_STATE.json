@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "v110_balance_applied_unpublished",
+  "status": "v110_applied_verified_candidate_ready_unpublished",
   "release_baseline": "v1.09",
   "target_release": "v1.10",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/balance110/HANDOFF.md",
   "current_task": "승인 난이도 적용·표시수정·1.10 검증후보 준비",
-  "next_step": "CI42391006308 전체/화면/1.10후보생성완료 확인 후 기록. 공개 금지.",
+  "next_step": "사용자 배포승인 전 work 브랜치/1.10 후보 유지. 승인 후 동일후보만 공개·운영 검증.",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -127,7 +127,12 @@
     "equivalence_exact": true,
     "verification": "docs/qa/balance110/VERIFICATION.json",
     "ci_run": 42391006308,
-    "ci_status": "in_progress",
-    "source_commit": "584e3ee9c52dc54bca586334fe0ffa7e5a10ac44"
+    "ci_status": "success",
+    "source_commit": "584e3ee9c52dc54bca586334fe0ffa7e5a10ac44",
+    "headless_passed": 75,
+    "headless_total": 75,
+    "candidate_artifact": 13582180975,
+    "candidate_fingerprint": "9971deb6317a71477b90a17a59c13257e4b0141535074ecd0041c7619d987977",
+    "candidate_ready": true
   }
 }

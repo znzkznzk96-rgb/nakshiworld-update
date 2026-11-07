@@ -4,16 +4,49 @@
     "code": 110,
     "name": "1.10"
   },
+  "source_commit": "584e3ee9c52dc54bca586334fe0ffa7e5a10ac44",
+  "approved": true,
   "release_authorized": false,
   "deployed": false,
   "published_version": "v1.09",
-  "equivalence": "EQUIVALENCE.json",
-  "related": [
-    "fishing_difficulty"
-  ],
-  "equivalence_conditions": 1296,
-  "equivalence_exact": true,
-  "source_reference_commit": "f0c39c5ed752c826a703d53d7465fc58488ea24a",
-  "future_rod_policy": "unverified proposal5.3/10/20 inactive; existing tier increments extrapolated from calibrated rod2",
-  "full_ci": "pending"
+  "equivalence": {
+    "conditions": 1296,
+    "exact": true,
+    "evidence": "EQUIVALENCE.json"
+  },
+  "related_checks": {
+    "passed": 7,
+    "evidence": "RELATED.json"
+  },
+  "full": {
+    "passed": 75,
+    "total": 75,
+    "run": 42391006308,
+    "conclusion": "success",
+    "native_and_global_screens": true
+  },
+  "candidate": {
+    "id": 13582180975,
+    "name": "release-candidate-9971deb6317a71477b90a17a59c13257e4b0141535074ecd0041c7619d987977",
+    "size": 117250335,
+    "archive_sha256": "fecd08d15ad6efe3e4587306a09a7959789a82d81a4714b529391b19bf958728",
+    "expires_at_utc": "2026-12-07T16:29:52Z",
+    "input_fingerprint": "9971deb6317a71477b90a17a59c13257e4b0141535074ecd0041c7619d987977",
+    "files": [
+      "patch.pck",
+      "game-source.zip",
+      "version.json",
+      "candidate.json"
+    ],
+    "pack_checks": [
+      "PACKED_ANGLER_VERIFY",
+      "PACKED_TILE107_VERIFY"
+    ],
+    "status": "verified_unpublished"
+  },
+  "pipeline_unit_tests": 6,
+  "forge_screen": "upgrade.png",
+  "future_rods": "Unverified5.3/10/20 inactive. Existing later-tier increments extrapolated from calibrated rod2; future regions remain disabled.",
+  "save_format_changed": false,
+  "existing_save_preserved": true
 }
