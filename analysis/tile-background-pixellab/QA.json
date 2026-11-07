@@ -67,5 +67,74 @@
     "model": "create-image-pixen",
     "generations_reported": 1.0,
     "production_integrated": false
+  },
+  "arch-vine": {
+    "status": "pass",
+    "notes": "Readable hanging paired stems, emerald/jade leaves with mint lights and teal shadows, all tips/root inside alpha margins; root knot can attach to tile ledge.",
+    "native_and_nearest4x_reviewed": true,
+    "size": [
+      64,
+      128
+    ],
+    "bbox": [
+      14,
+      5,
+      60,
+      123
+    ],
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "sha256": "e69b0535d5196aaa15ad220378744b5a6c6465e989cced194d421c0a59ce9df3",
+    "model": "create-image-pixen",
+    "generations_reported": 1.0,
+    "production_integrated": false
+  },
+  "ledge-grass": {
+    "status": "hold",
+    "notes": "Generated a square stone-floor scenery tile around the grass, not an isolated transparent plant; cannot safely overlay on approved background.",
+    "native_and_nearest4x_reviewed": true,
+    "size": [
+      64,
+      48
+    ],
+    "bbox": [
+      4,
+      2,
+      60,
+      45
+    ],
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "sha256": "adc73cac5e7240800686bad8413b6159564517a15d2ab9571c595e99566ff51c",
+    "model": "create-image-pixen",
+    "generations_reported": 1.0,
+    "production_integrated": false
+  },
+  "floor-ribbon": {
+    "status": "pass",
+    "notes": "Clean isolated turquoise/emerald ribbon plant with readable leaves/teal shadows and intact roots, native64x80 and4x checked.",
+    "native_and_nearest4x_reviewed": true,
+    "size": [
+      64,
+      80
+    ],
+    "bbox": [
+      4,
+      7,
+      59,
+      75
+    ],
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "sha256": "7660d51bff2c93982ef4b3a8ae9c2c6a8b99f9a634a5144ae995ce4b5bee30f6",
+    "model": "create-image-pixen",
+    "generations_reported": 1.0,
+    "production_integrated": false
   }
 }
