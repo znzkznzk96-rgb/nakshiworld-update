@@ -1,0 +1,19 @@
+{
+  "usage": {
+    "type": "generations",
+    "generations": 1.0
+  },
+  "http_status": 200,
+  "seed": 2026110801,
+  "model": "create-image-bitforge",
+  "request_count": 1,
+  "status": "received_unreviewed",
+  "result_sha256": "6c9a2de5890c7d94d9199944f0acc16eed264d7b83a406159a4f74351eba9d0e",
+  "result_bytes": 4755,
+  "image_size": [
+    128,
+    64
+  ],
+  "mode": "RGBA",
+  "transmitted_request_sha256": "f0cf495c7e0c4f92aff245b30d31210bf37f4965ca482577b4cd5f50b327f540"
+}
