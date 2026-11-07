@@ -1,0 +1,11 @@
+{
+  "production_integrated": true,
+  "deployed": false,
+  "source_asset_count": 21,
+  "local_related": "TILE_SCENERY_VERIFY failures=[]",
+  "export_loader": "imported Texture2D.get_image/decompress, ResourceLoader.exists",
+  "full_ci": "pending",
+  "packed_art": "pending",
+  "native_capture": "completed, review pending",
+  "no_new_generation": true
+}

@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "v110_production_integration_and_release_authorized",
+  "status": "v110_integrated_local_checks_passed_full_ci_pending",
   "release_baseline": "v1.09",
   "target_release": "v1.10",
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/releases/110/HANDOFF.md",
   "current_task": "승인 타일장식 본편통합·전체검사·v1.10 공개배포",
-  "next_step": "import된Texture2D 기반 본편통합 및 관련검사",
+  "next_step": "최종소스 전체CI/packed검사/후보 생성 통과 후 동일바이트 공개",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -220,18 +220,11 @@
     "verification": "analysis/tile-background-pixellab-r2/VERIFICATION.json"
   },
   "tile_background_dream": {
-    "verification": "analysis/tile-background-dream/VERIFICATION.json",
-    "paid_generations": 2,
-    "fish_species": 4,
-    "fish_instances": 6,
-    "plants": 5,
-    "production_integrated": false,
+    "production_integrated": true,
     "deployed": false
   },
   "tile_pier_cloud": {
-    "verification": "analysis/tile-pier-cloud/VERIFICATION.json",
-    "paid_generations": 2,
-    "production_integrated": false,
+    "production_integrated": true,
     "deployed": false
   },
   "tile_cloud_birds": {
@@ -240,7 +233,13 @@
     "new_clouds": 3,
     "paid_generations": 3,
     "bird_original_frames": 9,
-    "production_integrated": false,
+    "production_integrated": true,
     "deployed": false
+  },
+  "tile_scenery": {
+    "verification": "docs/qa/tile-scenery/VERIFICATION.json",
+    "production_integrated": true,
+    "deployed": false,
+    "local_related_pass": true
   }
 }

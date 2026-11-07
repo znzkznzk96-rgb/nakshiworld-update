@@ -40,5 +40,11 @@ func _initialize() -> void:
 	var expected_version: String=OS.get_cmdline_user_args()[1]
 	if load("res://addons/reservoir/release_notes.gd").LETTERS[0].id!=expected_version:
 		push_error("Packed release mail does not match "+expected_version);quit(1);return
+	var decor=load("res://addons/reservoir/tile_scenery.gd").new()
+	for name in ["cloud-00","cloud-01","cloud-02","cloud-03","mist","support","arch-vine","floor-ribbon","floor-broad","wall-ribbon","bubble-cluster","water-specks"]:
+		assert(load("res://art/atmosphere/tile/"+name+".png") is Texture2D,"tile scenery packed: "+name)
+	for i in 9: assert(decor.read_image("res://art/atmosphere/tile/gull-flight-%02d.png"%i).get_size()==Vector2i(80,80),"imported gull decoded in actual PCK")
+	for shader in ["tile_cloud_family","tile_mist_soft","tile_support_depth","tile_dream_tone"]:assert(load("res://addons/reservoir/"+shader+".gdshader") is Shader,"tile shader packed")
+	decor.free()
 	print("PACKED_ANGLER_VERIFY failures=[]")
 	quit()
