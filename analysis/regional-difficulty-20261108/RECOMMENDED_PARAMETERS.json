@@ -1,0 +1,41 @@
+{
+  "id": "final_Q",
+  "region": [
+    1,
+    1.4,
+    3.8
+  ],
+  "rods": [
+    1,
+    1.65,
+    2.9,
+    5.3,
+    10,
+    20
+  ],
+  "species_exp": 0.04,
+  "star_resist": 0.06,
+  "grade_resist": 0.04,
+  "load_exp": 0.32,
+  "loss_exp": 0.75,
+  "control_exp": 0.9,
+  "enhance_control": 0.06,
+  "warning_floor": 0.55,
+  "preserve_reservoir": true,
+  "region_star_resist": [
+    0,
+    0.16,
+    0.06
+  ],
+  "validated_regions": [
+    0,
+    1,
+    2
+  ],
+  "validated_rod_tiers": [
+    0,
+    1,
+    2
+  ],
+  "future_rod_values_status": "provisional, not simulated in this study"
+}

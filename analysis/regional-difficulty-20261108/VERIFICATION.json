@@ -1,0 +1,860 @@
+{
+  "date_kst": "2026-11-08",
+  "status": "recommendation_only_not_applied",
+  "trials_total": 71380,
+  "designs_including_baseline": 20,
+  "main_source_sha256": "b09ec23dde9dcf9ec442d644ca128dd5428b9d34d240c03321edd5f3f2f06008",
+  "production_commit": "f0c39c5ed752c826a703d53d7465fc58488ea24a",
+  "engine": "4.4.1.stable.official.49a5bc7b6",
+  "normal_holdout": [
+    {
+      "round": "final-validation-0",
+      "config": "final_Q",
+      "scenario": {
+        "area": 0.0,
+        "enh": 0.0,
+        "grade": 0.0,
+        "profile": 1.0,
+        "rod": 0.0,
+        "star": 0.0
+      },
+      "dt": 0.05,
+      "n": 250,
+      "success": 248,
+      "success_pct": 99.2,
+      "wilson95_pct": [
+        97.13,
+        99.78
+      ],
+      "median_success_seconds": 33.25,
+      "p90_success_seconds": 62.245,
+      "p90_all_ended_seconds": 63.17,
+      "outcomes": {
+        "success": 248,
+        "timeout": 2
+      }
+    },
+    {
+      "round": "final-validation-1",
+      "config": "final_Q",
+      "scenario": {
+        "area": 1.0,
+        "enh": 0.0,
+        "grade": 0.0,
+        "profile": 1.0,
+        "rod": 0.0,
+        "star": 0.0
+      },
+      "dt": 0.05,
+      "n": 250,
+      "success": 243,
+      "success_pct": 97.2,
+      "wilson95_pct": [
+        94.33,
+        98.64
+      ],
+      "median_success_seconds": 50.0,
+      "p90_success_seconds": 80.96,
+      "p90_all_ended_seconds": 82.95,
+      "outcomes": {
+        "success": 243,
+        "timeout": 7
+      }
+    },
+    {
+      "round": "final-validation-1",
+      "config": "final_Q",
+      "scenario": {
+        "area": 1.0,
+        "enh": 0.0,
+        "grade": 0.0,
+        "profile": 1.0,
+        "rod": 1.0,
+        "star": 0.0
+      },
+      "dt": 0.05,
+      "n": 250,
+      "success": 250,
+      "success_pct": 100.0,
+      "wilson95_pct": [
+        98.49,
+        100.0
+      ],
+      "median_success_seconds": 23.3,
+      "p90_success_seconds": 39.715,
+      "p90_all_ended_seconds": 39.715,
+      "outcomes": {
+        "success": 250
+      }
+    },
+    {
+      "round": "final-validation-1",
+      "config": "final_Q",
+      "scenario": {
+        "area": 1.0,
+        "enh": 3.0,
+        "grade": 0.0,
+        "profile": 1.0,
+        "rod": 1.0,
+        "star": 0.0
+      },
+      "dt": 0.05,
+      "n": 250,
+      "success": 250,
+      "success_pct": 100.0,
+      "wilson95_pct": [
+        98.49,
+        100.0
+      ],
+      "median_success_seconds": 18.125,
+      "p90_success_seconds": 30.935,
+      "p90_all_ended_seconds": 30.935,
+      "outcomes": {
+        "success": 250
+      }
+    },
+    {
+      "round": "validation-2",
+      "config": "recommended_Q",
+      "scenario": {
+        "area": 2.0,
+        "enh": 0.0,
+        "grade": 0.0,
+        "profile": 1.0,
+        "rod": 0.0,
+        "star": 0.0
+      },
+      "dt": 0.05,
+      "n": 250,
+      "success": 147,
+      "success_pct": 58.8,
+      "wilson95_pct": [
+        52.61,
+        64.72
+      ],
+      "median_success_seconds": 59.9,
+      "p90_success_seconds": 73.65,
+      "p90_all_ended_seconds": 71.91,
+      "outcomes": {
+        "success": 147,
+        "점프할 때 감고 있어서 바늘이 털렸어요": 37,
+        "줄이 너무 오래 느슨해서 바늘이 빠졌어요": 59,
+        "줄이 끊어졌어요. 돌진할 땐 손을 떼세요": 7
+      }
+    },
+    {
+      "round": "validation-2",
+      "config": "recommended_Q",
+      "scenario": {
+        "area": 2.0,
+        "enh": 8.0,
+        "grade": 0.0,
+        "profile": 1.0,
+        "rod": 1.0,
+        "star": 0.0
+      },
+      "dt": 0.05,
+      "n": 250,
+      "success": 231,
+      "success_pct": 92.4,
+      "wilson95_pct": [
+        88.44,
+        95.08
+      ],
+      "median_success_seconds": 20.75,
+      "p90_success_seconds": 29.35,
+      "p90_all_ended_seconds": 29.305,
+      "outcomes": {
+        "success": 231,
+        "줄이 너무 오래 느슨해서 바늘이 빠졌어요": 19
+      }
+    },
+    {
+      "round": "validation-2",
+      "config": "recommended_Q",
+      "scenario": {
+        "area": 2.0,
+        "enh": 0.0,
+        "grade": 0.0,
+        "profile": 1.0,
+        "rod": 2.0,
+        "star": 0.0
+      },
+      "dt": 0.05,
+      "n": 250,
+      "success": 237,
+      "success_pct": 94.8,
+      "wilson95_pct": [
+        91.31,
+        96.94
+      ],
+      "median_success_seconds": 17.0,
+      "p90_success_seconds": 23.94,
+      "p90_all_ended_seconds": 23.81,
+      "outcomes": {
+        "success": 237,
+        "줄이 너무 오래 느슨해서 바늘이 빠졌어요": 13
+      }
+    },
+    {
+      "round": "validation-2",
+      "config": "recommended_Q",
+      "scenario": {
+        "area": 2.0,
+        "enh": 5.0,
+        "grade": 0.0,
+        "profile": 1.0,
+        "rod": 2.0,
+        "star": 0.0
+      },
+      "dt": 0.05,
+      "n": 250,
+      "success": 242,
+      "success_pct": 96.8,
+      "wilson95_pct": [
+        93.81,
+        98.37
+      ],
+      "median_success_seconds": 12.75,
+      "p90_success_seconds": 19.13,
+      "p90_all_ended_seconds": 19.165,
+      "outcomes": {
+        "success": 242,
+        "줄이 너무 오래 느슨해서 바늘이 빠졌어요": 8
+      }
+    },
+    {
+      "round": "validation-2",
+      "config": "recommended_Q",
+      "scenario": {
+        "area": 2.0,
+        "enh": 10.0,
+        "grade": 0.0,
+        "profile": 1.0,
+        "rod": 2.0,
+        "star": 0.0
+      },
+      "dt": 0.05,
+      "n": 250,
+      "success": 245,
+      "success_pct": 98.0,
+      "wilson95_pct": [
+        95.4,
+        99.14
+      ],
+      "median_success_seconds": 10.2,
+      "p90_success_seconds": 16.08,
+      "p90_all_ended_seconds": 16.215,
+      "outcomes": {
+        "success": 245,
+        "줄이 너무 오래 느슨해서 바늘이 빠졌어요": 5
+      }
+    }
+  ],
+  "owner_rare_holdout": [
+    {
+      "round": "final-validation-1",
+      "config": "final_Q",
+      "scenario": {
+        "area": 1.0,
+        "enh": 0.0,
+        "grade": 1.0,
+        "profile": 1.0,
+        "rod": 1.0,
+        "star": 4.0
+      },
+      "dt": 0.05,
+      "n": 250,
+      "success": 199,
+      "success_pct": 79.6,
+      "wilson95_pct": [
+        74.17,
+        84.13
+      ],
+      "median_success_seconds": 27.15,
+      "p90_success_seconds": 50.67,
+      "p90_all_ended_seconds": 48.77,
+      "outcomes": {
+        "success": 199,
+        "줄이 끊어졌어요. 돌진할 땐 손을 떼세요": 51
+      }
+    },
+    {
+      "round": "final-validation-1",
+      "config": "final_Q",
+      "scenario": {
+        "area": 1.0,
+        "enh": 3.0,
+        "grade": 1.0,
+        "profile": 1.0,
+        "rod": 1.0,
+        "star": 4.0
+      },
+      "dt": 0.05,
+      "n": 250,
+      "success": 223,
+      "success_pct": 89.2,
+      "wilson95_pct": [
+        84.74,
+        92.47
+      ],
+      "median_success_seconds": 22.2,
+      "p90_success_seconds": 42.43,
+      "p90_all_ended_seconds": 42.575,
+      "outcomes": {
+        "success": 223,
+        "줄이 끊어졌어요. 돌진할 땐 손을 떼세요": 27
+      }
+    },
+    {
+      "round": "final-validation-1",
+      "config": "final_Q",
+      "scenario": {
+        "area": 1.0,
+        "enh": 8.0,
+        "grade": 1.0,
+        "profile": 1.0,
+        "rod": 1.0,
+        "star": 4.0
+      },
+      "dt": 0.05,
+      "n": 250,
+      "success": 244,
+      "success_pct": 97.6,
+      "wilson95_pct": [
+        94.86,
+        98.9
+      ],
+      "median_success_seconds": 16.525,
+      "p90_success_seconds": 35.725,
+      "p90_all_ended_seconds": 35.575,
+      "outcomes": {
+        "success": 244,
+        "줄이 끊어졌어요. 돌진할 땐 손을 떼세요": 6
+      }
+    },
+    {
+      "round": "validation-2",
+      "config": "recommended_Q",
+      "scenario": {
+        "area": 2.0,
+        "enh": 0.0,
+        "grade": 1.0,
+        "profile": 1.0,
+        "rod": 2.0,
+        "star": 4.0
+      },
+      "dt": 0.05,
+      "n": 250,
+      "success": 118,
+      "success_pct": 47.2,
+      "wilson95_pct": [
+        41.1,
+        53.38
+      ],
+      "median_success_seconds": 67.25,
+      "p90_success_seconds": 101.47,
+      "p90_all_ended_seconds": 105.71,
+      "outcomes": {
+        "줄이 너무 오래 느슨해서 바늘이 빠졌어요": 60,
+        "줄이 끊어졌어요. 돌진할 땐 손을 떼세요": 55,
+        "success": 118,
+        "timeout": 17
+      }
+    },
+    {
+      "round": "validation-2",
+      "config": "recommended_Q",
+      "scenario": {
+        "area": 2.0,
+        "enh": 5.0,
+        "grade": 1.0,
+        "profile": 1.0,
+        "rod": 2.0,
+        "star": 4.0
+      },
+      "dt": 0.05,
+      "n": 250,
+      "success": 189,
+      "success_pct": 75.6,
+      "wilson95_pct": [
+        69.91,
+        80.51
+      ],
+      "median_success_seconds": 46.9,
+      "p90_success_seconds": 74.55,
+      "p90_all_ended_seconds": 74.61,
+      "outcomes": {
+        "줄이 너무 오래 느슨해서 바늘이 빠졌어요": 52,
+        "success": 189,
+        "줄이 끊어졌어요. 돌진할 땐 손을 떼세요": 8,
+        "timeout": 1
+      }
+    },
+    {
+      "round": "validation-2",
+      "config": "recommended_Q",
+      "scenario": {
+        "area": 2.0,
+        "enh": 10.0,
+        "grade": 1.0,
+        "profile": 1.0,
+        "rod": 2.0,
+        "star": 4.0
+      },
+      "dt": 0.05,
+      "n": 250,
+      "success": 204,
+      "success_pct": 81.6,
+      "wilson95_pct": [
+        76.33,
+        85.91
+      ],
+      "median_success_seconds": 35.5,
+      "p90_success_seconds": 56.14,
+      "p90_all_ended_seconds": 56.0,
+      "outcomes": {
+        "줄이 너무 오래 느슨해서 바늘이 빠졌어요": 43,
+        "success": 204,
+        "줄이 끊어졌어요. 돌진할 땐 손을 떼세요": 3
+      }
+    }
+  ],
+  "time_step_sensitivity": [
+    {
+      "scenario": {
+        "area": 2.0,
+        "enh": 0.0,
+        "grade": 0.0,
+        "profile": 1.0,
+        "rod": 0.0,
+        "star": 0.0
+      },
+      "success_delta_pp": -0.5,
+      "median_delta_seconds": 0.575,
+      "dt005": {
+        "round": "dt-0.05",
+        "config": "final_Q",
+        "scenario": {
+          "area": 2.0,
+          "enh": 0.0,
+          "grade": 0.0,
+          "profile": 1.0,
+          "rod": 0.0,
+          "star": 0.0
+        },
+        "dt": 0.05,
+        "n": 200,
+        "success": 114,
+        "success_pct": 57.0,
+        "wilson95_pct": [
+          50.07,
+          63.67
+        ],
+        "median_success_seconds": 61.35,
+        "p90_success_seconds": 79.36,
+        "p90_all_ended_seconds": 72.795,
+        "outcomes": {
+          "줄이 끊어졌어요. 돌진할 땐 손을 떼세요": 3,
+          "줄이 너무 오래 느슨해서 바늘이 빠졌어요": 52,
+          "success": 114,
+          "점프할 때 감고 있어서 바늘이 털렸어요": 31
+        }
+      },
+      "dt0025": {
+        "round": "dt-0.025",
+        "config": "final_Q",
+        "scenario": {
+          "area": 2.0,
+          "enh": 0.0,
+          "grade": 0.0,
+          "profile": 1.0,
+          "rod": 0.0,
+          "star": 0.0
+        },
+        "dt": 0.025,
+        "n": 200,
+        "success": 113,
+        "success_pct": 56.5,
+        "wilson95_pct": [
+          49.57,
+          63.18
+        ],
+        "median_success_seconds": 61.925,
+        "p90_success_seconds": 76.385,
+        "p90_all_ended_seconds": 73.797,
+        "outcomes": {
+          "줄이 너무 오래 느슨해서 바늘이 빠졌어요": 48,
+          "success": 113,
+          "점프할 때 감고 있어서 바늘이 털렸어요": 36,
+          "줄이 끊어졌어요. 돌진할 땐 손을 떼세요": 3
+        }
+      }
+    },
+    {
+      "scenario": {
+        "area": 2.0,
+        "enh": 5.0,
+        "grade": 0.0,
+        "profile": 1.0,
+        "rod": 2.0,
+        "star": 0.0
+      },
+      "success_delta_pp": 0.0,
+      "median_delta_seconds": -0.438,
+      "dt005": {
+        "round": "dt-0.05",
+        "config": "final_Q",
+        "scenario": {
+          "area": 2.0,
+          "enh": 5.0,
+          "grade": 0.0,
+          "profile": 1.0,
+          "rod": 2.0,
+          "star": 0.0
+        },
+        "dt": 0.05,
+        "n": 200,
+        "success": 188,
+        "success_pct": 94.0,
+        "wilson95_pct": [
+          89.81,
+          96.53
+        ],
+        "median_success_seconds": 13.35,
+        "p90_success_seconds": 18.9,
+        "p90_all_ended_seconds": 18.9,
+        "outcomes": {
+          "success": 188,
+          "줄이 너무 오래 느슨해서 바늘이 빠졌어요": 12
+        }
+      },
+      "dt0025": {
+        "round": "dt-0.025",
+        "config": "final_Q",
+        "scenario": {
+          "area": 2.0,
+          "enh": 5.0,
+          "grade": 0.0,
+          "profile": 1.0,
+          "rod": 2.0,
+          "star": 0.0
+        },
+        "dt": 0.025,
+        "n": 200,
+        "success": 188,
+        "success_pct": 94.0,
+        "wilson95_pct": [
+          89.81,
+          96.53
+        ],
+        "median_success_seconds": 12.912,
+        "p90_success_seconds": 19.648,
+        "p90_all_ended_seconds": 19.085,
+        "outcomes": {
+          "줄이 너무 오래 느슨해서 바늘이 빠졌어요": 12,
+          "success": 188
+        }
+      }
+    },
+    {
+      "scenario": {
+        "area": 2.0,
+        "enh": 10.0,
+        "grade": 1.0,
+        "profile": 1.0,
+        "rod": 2.0,
+        "star": 4.0
+      },
+      "success_delta_pp": 2.5,
+      "median_delta_seconds": -1.075,
+      "dt005": {
+        "round": "dt-0.05",
+        "config": "final_Q",
+        "scenario": {
+          "area": 2.0,
+          "enh": 10.0,
+          "grade": 1.0,
+          "profile": 1.0,
+          "rod": 2.0,
+          "star": 4.0
+        },
+        "dt": 0.05,
+        "n": 200,
+        "success": 171,
+        "success_pct": 85.5,
+        "wilson95_pct": [
+          79.95,
+          89.71
+        ],
+        "median_success_seconds": 36.7,
+        "p90_success_seconds": 55.8,
+        "p90_all_ended_seconds": 55.53,
+        "outcomes": {
+          "success": 171,
+          "줄이 너무 오래 느슨해서 바늘이 빠졌어요": 27,
+          "줄이 끊어졌어요. 돌진할 땐 손을 떼세요": 2
+        }
+      },
+      "dt0025": {
+        "round": "dt-0.025",
+        "config": "final_Q",
+        "scenario": {
+          "area": 2.0,
+          "enh": 10.0,
+          "grade": 1.0,
+          "profile": 1.0,
+          "rod": 2.0,
+          "star": 4.0
+        },
+        "dt": 0.025,
+        "n": 200,
+        "success": 176,
+        "success_pct": 88.0,
+        "wilson95_pct": [
+          82.77,
+          91.8
+        ],
+        "median_success_seconds": 35.625,
+        "p90_success_seconds": 60.712,
+        "p90_all_ended_seconds": 58.463,
+        "outcomes": {
+          "success": 176,
+          "줄이 너무 오래 느슨해서 바늘이 빠졌어요": 23,
+          "줄이 끊어졌어요. 돌진할 땐 손을 떼세요": 1
+        }
+      }
+    },
+    {
+      "scenario": {
+        "area": 2.0,
+        "enh": 10.0,
+        "grade": 3.0,
+        "profile": 1.0,
+        "rod": 2.0,
+        "star": 4.0
+      },
+      "success_delta_pp": 6.5,
+      "median_delta_seconds": -5.4,
+      "dt005": {
+        "round": "dt-0.05",
+        "config": "final_Q",
+        "scenario": {
+          "area": 2.0,
+          "enh": 10.0,
+          "grade": 3.0,
+          "profile": 1.0,
+          "rod": 2.0,
+          "star": 4.0
+        },
+        "dt": 0.05,
+        "n": 200,
+        "success": 163,
+        "success_pct": 81.5,
+        "wilson95_pct": [
+          75.54,
+          86.27
+        ],
+        "median_success_seconds": 39.95,
+        "p90_success_seconds": 83.34,
+        "p90_all_ended_seconds": 83.305,
+        "outcomes": {
+          "success": 163,
+          "줄이 끊어졌어요. 돌진할 땐 손을 떼세요": 26,
+          "timeout": 2,
+          "줄이 너무 오래 느슨해서 바늘이 빠졌어요": 9
+        }
+      },
+      "dt0025": {
+        "round": "dt-0.025",
+        "config": "final_Q",
+        "scenario": {
+          "area": 2.0,
+          "enh": 10.0,
+          "grade": 3.0,
+          "profile": 1.0,
+          "rod": 2.0,
+          "star": 4.0
+        },
+        "dt": 0.025,
+        "n": 200,
+        "success": 176,
+        "success_pct": 88.0,
+        "wilson95_pct": [
+          82.77,
+          91.8
+        ],
+        "median_success_seconds": 34.55,
+        "p90_success_seconds": 67.7,
+        "p90_all_ended_seconds": 67.938,
+        "outcomes": {
+          "success": 176,
+          "줄이 너무 오래 느슨해서 바늘이 빠졌어요": 8,
+          "줄이 끊어졌어요. 돌진할 땐 손을 떼세요": 15,
+          "timeout": 1
+        }
+      }
+    }
+  ],
+  "rounds": [
+    {
+      "round": "coarse",
+      "trials": 4320,
+      "raw_sha256": "488bdaa4cdd6ac37b3556f54eeb1ca3e19e5be57561a9958384397a1cfc4a045",
+      "config_sha256": "dccdbe1c219d67c9dbaae8dae629cf2854917d74b12765b2aac52fb0044d2a56",
+      "log": "Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org\n\nSIM_COMPLETE trials=4320\n"
+    },
+    {
+      "round": "coarse2-0",
+      "trials": 4500,
+      "raw_sha256": "b8436488fc851384ad9abda3d46d83f7e2a53e37b7fe0ce173dafda2dd77a67c",
+      "config_sha256": "987d20ce7f958cad8145e0a9f16dd7d05e67188436b483dafb0bc625cdfdb0b0",
+      "log": "Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org\n\nSIM_COMPLETE trials=4500\n"
+    },
+    {
+      "round": "coarse2-1",
+      "trials": 4500,
+      "raw_sha256": "5ea62512ea4409ce15d2d8690f20e64dae0f32fae245f4d6deeb3869111bf1ff",
+      "config_sha256": "f6812e641fbd6fe1e88f37f0a741d1b626f37598813d3d2a1fdb1b73921823d1",
+      "log": "Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org\n\nSIM_COMPLETE trials=4500\n"
+    },
+    {
+      "round": "coarse3-0",
+      "trials": 3000,
+      "raw_sha256": "8aee8b4c23fb72130f14772e63e54743d6a8db2a10dcdc49e00c4a662632e008",
+      "config_sha256": "895986f3d775979d7d8392038106245fe60c1507421bebd3744da20980b4c835",
+      "log": "Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org\n\nSIM_COMPLETE trials=3000\n"
+    },
+    {
+      "round": "coarse3-1",
+      "trials": 3000,
+      "raw_sha256": "c0ec97c882200e41079dde5b857bff223da960b89a96263dc4c799ffa877c0bc",
+      "config_sha256": "4b89c970a5d20c5480acfaeca5ca153927c97680405ba69bbf6f232dff189dab",
+      "log": "Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org\n\nSIM_COMPLETE trials=3000\n"
+    },
+    {
+      "round": "control-1",
+      "trials": 4500,
+      "raw_sha256": "e0f661c98d685677e9929a1b5c67c0963593cd9e1180255e7cd0a35c4c4e6e68",
+      "config_sha256": "e3e7bc6219c17b835566bb2a4bc5a3ee7b8bdd87e95a8746b2724ac5c7fb2f99",
+      "log": "Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org\n\nSIM_COMPLETE trials=4500\n"
+    },
+    {
+      "round": "control-2",
+      "trials": 4500,
+      "raw_sha256": "31908ae24211a2f3fa2363e09765d23e9b48b38a16141ee1cffcd6a4654fe87a",
+      "config_sha256": "24005e58ecaf84246a3ae7133a7c4c49d1a0db61aa7cd6f8e1f81709933a54c5",
+      "log": "Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org\n\nSIM_COMPLETE trials=4500\n"
+    },
+    {
+      "round": "dt-0.025",
+      "trials": 800,
+      "raw_sha256": "09c8394caadee12b7d327bb31ab63be0974caec821856d26a0ba0c03c571d37b",
+      "config_sha256": "87df371a713da625b6df7ef96d338810fa2608fc86bd274d7add139199a6a459",
+      "log": "Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org\n\nSIM_COMPLETE trials=800\n"
+    },
+    {
+      "round": "dt-0.05",
+      "trials": 800,
+      "raw_sha256": "4245aefabf763184b51ead148ca62bf268635fd19e388dc331eeb8bffe333abd",
+      "config_sha256": "013db37ce535a10c303952d6e5d76035a37b9012ba6d90a8689e238514bae291",
+      "log": "Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org\n\nSIM_COMPLETE trials=800\n"
+    },
+    {
+      "round": "final-validation-0",
+      "trials": 1500,
+      "raw_sha256": "7a1d0f444481404c7376ab5614eeaf02da280515fac263d3536e0539a1ac9482",
+      "config_sha256": "a9764e9c603f7ff90aed472962f5d991382db9035034e7a40b884f5585634273",
+      "log": "Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org\n\nSIM_COMPLETE trials=1500\n"
+    },
+    {
+      "round": "final-validation-1",
+      "trials": 4500,
+      "raw_sha256": "bbf172a2891c674d942c050ac5f974ce70ea7039a9294c9039cc1a5562ed6ce7",
+      "config_sha256": "0c09d3602639d370258d9032889f69d1ea3d9599cf326f4fa4db61b6bdd201dd",
+      "log": "Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org\n\nSIM_COMPLETE trials=4500\n"
+    },
+    {
+      "round": "size-grade-1",
+      "trials": 2160,
+      "raw_sha256": "1322beb3bc9074edd9a9905886521b3a98b0e7b38dd73dcbfc629ecd83db42cc",
+      "config_sha256": "46697721b6a01b8f6dd12902384ec40b71a7a058344f142411829a8e544d062b",
+      "log": "Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org\n\nSIM_COMPLETE trials=2160\n"
+    },
+    {
+      "round": "size-grade-2",
+      "trials": 2160,
+      "raw_sha256": "067f2c832c486d079996117a05283c904225f1096d7b47575d5b861e428e14fa",
+      "config_sha256": "bfdc17d44fc75e85e1fe1b27b28943fa5e6d4fd0d0c7b65c5a94b2817c4774b5",
+      "log": "Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org\n\nSIM_COMPLETE trials=2160\n"
+    },
+    {
+      "round": "stress-0",
+      "trials": 1440,
+      "raw_sha256": "8694b6ae33823f1c0ebadb0c367962609a4ce2c7b8b42e29fcc770c74bed98a0",
+      "config_sha256": "1fd23b9f0d489b9beeaa46e15c2fe93c5e8677b7ec169cb5526ae707c1b4070e",
+      "log": "Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org\n\nSIM_COMPLETE trials=1440\n"
+    },
+    {
+      "round": "stress-1",
+      "trials": 3600,
+      "raw_sha256": "a2151b56b7f935e6b34536fe1bbb66e24aaa9478d8a0c016689fec5623017998",
+      "config_sha256": "edde3be053fb03960256d7fbc64254e4f0af05ea2c724967aa6ac30c4aea8fff",
+      "log": "Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org\n\nSIM_COMPLETE trials=3600\n"
+    },
+    {
+      "round": "stress-2",
+      "trials": 3600,
+      "raw_sha256": "ea0f2e210cbd9b4ee4424e934ab84f4d0eb6c2e0a171a875850796cacb5ba3e2",
+      "config_sha256": "836ef9f0ef1fffe2d88b00f055122fbee3d407885739f0594aaf08139d40058e",
+      "log": "Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org\n\nSIM_COMPLETE trials=3600\n"
+    },
+    {
+      "round": "validation-0",
+      "trials": 3000,
+      "raw_sha256": "66c1c26aa69b691cc75c6c2b1510a2b6be48c80afeb78ee4920841a259609866",
+      "config_sha256": "4bb1c648be5190af30cdc90c8bf208e19c3102f74a8583cc57a7ad78f75f115c",
+      "log": "Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org\n\nSIM_COMPLETE trials=3000\n"
+    },
+    {
+      "round": "validation-1",
+      "trials": 9000,
+      "raw_sha256": "7ab45727878c5ea71b52eb6c07fc3c97b3ec9df4f552a023bd70dee35f1f3e75",
+      "config_sha256": "a9f79d6bf8afb7b3b8f58dbe2e69c21b0e5d0b5b53100fc0803584c1aa55d278",
+      "log": "Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org\n\nSIM_COMPLETE trials=9000\n"
+    },
+    {
+      "round": "validation-2",
+      "trials": 10500,
+      "raw_sha256": "d4f862ef5abbae12d946c39b574718071cc2eaa206907f701992d3070952cb67",
+      "config_sha256": "e0e3a4fbb2fd4dd7953ecbfd8c642a38130be8c3dc1d419b406800a490cd48fa",
+      "log": "Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org\n\nSIM_COMPLETE trials=10500\n"
+    }
+  ],
+  "controllers": [
+    {
+      "profile": 0,
+      "reaction_seconds": 0.45,
+      "mistake_probability_per_observed_behavior": 0.13
+    },
+    {
+      "profile": 1,
+      "reaction_seconds": 0.23,
+      "mistake_probability_per_observed_behavior": 0.045
+    },
+    {
+      "profile": 2,
+      "reaction_seconds": 0.1,
+      "mistake_probability_per_observed_behavior": 0.005
+    }
+  ],
+  "limits": {
+    "fight_seconds": 120,
+    "failure_types_counted": true,
+    "durations_are_success_conditional": true,
+    "actual_human_success_rates_measured": false,
+    "release_deployed": false,
+    "region2_final_vs_validated_Q": "effective parameters identical for region2; final candidate preserves reservoir and increases valley rank resistance only"
+  },
+  "raw_storage": "Scratch raw JSONL; SHA/config/seeds/harness/cell aggregates persisted for deterministic replay; raw bytes are not claimed remotely stored"
+}

@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "regional_difficulty_simulating_no_balance_changes",
+  "status": "regional_difficulty_simulation_complete_recommendation_unapplied",
   "release_baseline": "v1.09",
   "target_release": "v1.09",
   "deployed": true,
   "phone_verified": false,
   "handoff": "analysis/regional-difficulty-20261108/HANDOFF.md",
-  "current_task": "지역별 난이도 실제로직 시뮬레이션 탐색",
-  "next_step": "O/P/Q 장력제어 비교후 별도seed검증. 밸런스미적용/새배포없음.",
+  "current_task": "71380회 시뮬레이션 완료·추천안 정리",
+  "next_step": "사용자가 추천안 선택하면 전투계산에 구현/관련검증. 현재 밸런스미적용·새배포없음.",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -109,5 +109,13 @@
     "ci_status": "success",
     "source_commit": "f0c39c5ed752c826a703d53d7465fc58488ea24a",
     "candidate_built": true
+  },
+  "difficulty_study": {
+    "report": "analysis/regional-difficulty-20261108/REPORT.md",
+    "verification": "analysis/regional-difficulty-20261108/VERIFICATION.json",
+    "trials": 71380,
+    "designs_including_baseline": 19,
+    "production_balance_changed": false,
+    "phone_tested": false
   }
 }

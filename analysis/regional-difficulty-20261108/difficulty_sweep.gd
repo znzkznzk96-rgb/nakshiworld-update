@@ -14,11 +14,13 @@ class Probe extends "res://tests/difficulty_sim_main.gd":
    S.warningDuration=S.bt
  func apply_profile():
   simulation_bonus_factor=1.0;simulation_loss_factor=1.0
-  if cfg.get("baseline",false):return
+  if cfg.get("baseline",false) or (active_region==0 and cfg.get("preserve_reservoir",false)):return
   var resistance:float=cfg.region[active_region]
   var species:float=pow(maxf(.5,float(FISH_LEN[S.sp])/float(FISH_LEN[active_region*20])),float(cfg.get("species_exp",.06)))
   var size_factor:float=pow(float(S.lf),float(cfg.get("size_exp",.45)))
-  var rank_factor:float=1+float(cfg.get("star_resist",.10))*int(S.star)+float(cfg.get("grade_resist",.06))*int(S.grade)
+  var rank_rate:float=float(cfg.get("star_resist",.10))
+  if cfg.has("region_star_resist"):rank_rate=float(cfg.region_star_resist[active_region])
+  var rank_factor:float=1+rank_rate*int(S.star)+float(cfg.get("grade_resist",.06))*int(S.grade)
   simulation_loss_factor=pow(resistance*species*size_factor*rank_factor,-float(cfg.get("loss_exp",0)))
   S.reelMul=float(cfg.rods[rod_lv])*(1+float(cfg.get("enhance",.06))*forge_lv)/(resistance*species*size_factor*rank_factor)
   var load:float=pow(resistance,float(cfg.get("load_exp",.32)))
@@ -35,7 +37,7 @@ func run():
   m.cfg=cfg
   for scenario in config.scenarios:
    for n in int(config.trials):
-    var sd:int=123456+n*7919+int(scenario.star)*100003+int(scenario.grade)*1009+int(scenario.get("variant",0))*37
+    var sd:int=int(config.get("seed_offset",0))+123456+n*7919+int(scenario.star)*100003+int(scenario.grade)*1009+int(scenario.get("variant",0))*37
     seed(sd);m.active_region=int(scenario.area);m.rod_lv=int(scenario.rod);m.forge_lv=int(scenario.enh)
     var choices:Array=m.CATALOG.by_star(m.active_region,int(scenario.star))
     var sp:int=int(scenario.get("sp",choices[int(scenario.get("variant",0))%choices.size()]))
