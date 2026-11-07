@@ -1,4 +1,4 @@
-# Synthetic tile-entry check starts with valley already unlocked.
+# Preserve each original v108 mail paragraph exactly once across sections.
 name: Verify one-time valley gift108 before publishing
 on:
   push:
@@ -43,11 +43,11 @@ jobs:
           grep -F 'VALLEY_GIFT108_VERIFY failures=[]' evidence/gift.log
           XDG_DATA_HOME="$RUNNER_TEMP/gift108" timeout 90 "$GODOT" --headless --path "$RUNNER_TEMP/project" --script tests/gift108_resume.gd > evidence/resume.log 2>&1 || { cat evidence/resume.log; exit 1; }
           grep -F 'VALLEY_GIFT108_RESUME_VERIFY failures=[]' evidence/resume.log
-          for suite in arrival_gift testing_gift; do
+          for suite in reader arrival_gift testing_gift; do
             XDG_DATA_HOME="$RUNNER_TEMP/old-$suite" timeout 90 "$GODOT" --headless --path "$RUNNER_TEMP/project" --script "tests/${suite}_verify.gd" > "evidence/$suite.log" 2>&1 || { cat "evidence/$suite.log"; exit 1; }
             grep -F 'VERIFY failures=[]' "evidence/$suite.log"
           done
-          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/gift.log evidence/resume.log evidence/arrival_gift.log evidence/testing_gift.log; then exit 1; fi
+          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/gift.log evidence/resume.log evidence/reader.log evidence/arrival_gift.log evidence/testing_gift.log; then exit 1; fi
       - name: Render actual mail at three phone heights
         run: |
           set -euo pipefail
