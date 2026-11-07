@@ -1,0 +1,3 @@
+# Four cloud variants and bird sampling — 2026-11-08
+
+User approved current cloud shape in analysis/tile-pier-cloud/cloud.png. Keep it as variant0; add3 PixelLab clouds sequentially with individual quality gates. Four forms, locally seeded random bidirectional drift and edge wrapping. Diagnose existing nine-frame gull miniatures, retain original motion, improve downsampling/native pixel alignment without new bird generation. Preserve pier depth fade, dreamy grade and sparse fish/plants. Prior HANDOFF: analysis/tile-pier-cloud/HANDOFF.md. Environment scratch was reset; remote source/art being restored from verifiedv1.09 plus current overlay/deletions. No production integration/deployment.
