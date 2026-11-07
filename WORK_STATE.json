@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "v110_applied_verified_candidate_ready_unpublished",
+  "status": "tile_layer_water_preview_ready",
   "release_baseline": "v1.09",
   "target_release": "v1.10",
   "deployed": true,
   "phone_verified": false,
-  "handoff": "docs/qa/balance110/HANDOFF.md",
-  "current_task": "승인 난이도 적용·표시수정·1.10 검증후보 준비",
-  "next_step": "사용자 배포승인 전 work 브랜치/1.10 후보 유지. 승인 후 동일후보만 공개·운영 검증.",
+  "handoff": "analysis/tile-layers-stage1/HANDOFF.md",
+  "current_task": "타일바다 독립레이어 물효과1차시안",
+  "next_step": "물효과밀도/동작 검토후 구름·식물시안.본편미등록,기존1.10검증후보유지,배포금지.",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -134,5 +134,12 @@
     "candidate_artifact": 13582180975,
     "candidate_fingerprint": "9971deb6317a71477b90a17a59c13257e4b0141535074ecd0041c7619d987977",
     "candidate_ready": true
+  },
+  "tile_layer_preview": {
+    "path": "analysis/tile-layers-stage1/water_3.webp",
+    "verification": "analysis/tile-layers-stage1/VERIFICATION.json",
+    "production_integrated": false,
+    "paid_generation": 0,
+    "deployed": false
   }
 }
