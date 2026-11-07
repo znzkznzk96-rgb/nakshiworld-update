@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "three_region_vertical_light_applied_full_checks_running",
+  "status": "three_region_vertical_light_production_applied_verified",
   "release_baseline": "v1.09",
   "target_release": "v1.10",
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/qa/shared-vertical-light/HANDOFF.md",
-  "current_task": "부채꼴/고정광원제거·노이즈자체생성세로빛결시안검증완료",
-  "next_step": "최종75개전체검사·3지역실화면검증진행",
+  "current_task": "저수지/계곡/타일본편공통세로빛교체완료·75전체+공통조명검사통과",
+  "next_step": "미배포상태유지. 향후배포승인시새후보생성/소스일치/패키지·운영검증필요.",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -143,7 +143,8 @@
     "paid_generation": 0,
     "deployed": false,
     "layers": 11,
-    "light_implementation": "one procedural 2D fbm vertical field, no cone/apex/pattern texture"
+    "light_implementation": "one procedural 2D fbm vertical field, no cone/apex/pattern texture",
+    "light_production_integrated": true
   },
   "tile_art_generation": {
     "authorized_art_outputs": 6,
@@ -180,6 +181,8 @@
     "production_integrated": true,
     "deployed": false,
     "release_authorized": false,
-    "checks": "running"
+    "checks": "75_of_75_full_plus_shared_light_and_native_screens_passed",
+    "verification": "docs/qa/shared-vertical-light/VERIFICATION.json",
+    "source_commit": "d8a5ef337655b579261133091cd2292be0ca5d4f"
   }
 }

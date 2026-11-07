@@ -1,0 +1,32 @@
+{
+  "0": {
+    "light_change_bbox": [
+      0,
+      676,
+      540,
+      1180
+    ],
+    "changed_pixels": 162417,
+    "upper_hud_unchanged": true
+  },
+  "1": {
+    "light_change_bbox": [
+      0,
+      746,
+      540,
+      1202
+    ],
+    "changed_pixels": 145167,
+    "upper_hud_unchanged": true
+  },
+  "2": {
+    "light_change_bbox": [
+      0,
+      660,
+      540,
+      1120
+    ],
+    "changed_pixels": 150640,
+    "upper_hud_unchanged": true
+  }
+}

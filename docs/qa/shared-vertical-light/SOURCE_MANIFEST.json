@@ -1,0 +1,30 @@
+{
+  "environment.gd": {
+    "sha256": "be445b411c65b44e5683cd7d508aee6e058423a2f17c560bc19d043259ca7e34",
+    "overlay_matches_runtime": true
+  },
+  "valley_environment.gd": {
+    "sha256": "c18c750891de75b7d03a7f05d8240b94768708949dc8adbe6c6d57918d39e1fd",
+    "overlay_matches_runtime": true
+  },
+  "tile_environment.gd": {
+    "sha256": "780c1530f23a60e8330bb4d0488b05ed390c49b96b9fcc3423cdd3824e9956d1",
+    "overlay_matches_runtime": true
+  },
+  "valley_layer.gd": {
+    "sha256": "17b52033181e592377500bc2f4124a6c838d7dbeb6b8dcd4ad1bcb83e79980ef",
+    "overlay_matches_runtime": true
+  },
+  "valley_life.gd": {
+    "sha256": "15e59d3837ff4f026e4ecdb879d294e5c345446f5d735eb489205bdd13214284",
+    "overlay_matches_runtime": true
+  },
+  "vertical_water_light.gd": {
+    "sha256": "b3010534d405a2e40c0a2cb2f135712cf815566bcbb053b3a1b3460a81946b36",
+    "overlay_matches_runtime": true
+  },
+  "vertical_water_light.gdshader": {
+    "sha256": "50ac8a4991b3acb3df643d4b6d2ec406a72d36dbb33e9eeb3c7b5a2ecb031e57",
+    "overlay_matches_runtime": true
+  }
+}
