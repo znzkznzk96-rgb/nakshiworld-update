@@ -1,0 +1,15 @@
+{
+  "source_commit": "bc896cbf696a8869f5a1c5d670cf217388f49f68",
+  "checks": [
+    {
+      "path": "analysis/tile-pier-cloud/support.png",
+      "exact": true
+    },
+    {
+      "path": "analysis/tile-pier-cloud/cloud.png",
+      "exact": true
+    }
+  ],
+  "all_exact": true,
+  "deployed": false
+}
