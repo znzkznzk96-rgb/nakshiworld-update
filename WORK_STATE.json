@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "tile_water_direction_surface_revision",
+  "status": "tile_random_fish_and_water_preview_verified",
   "release_baseline": "v1.09",
   "target_release": "v1.10",
   "deployed": false,
   "phone_verified": false,
-  "handoff": "analysis/tile-layers-stage3/HANDOFF.md",
-  "current_task": "움직임·디테일 강화 시안 완료, 96프레임 GIF/8초 MP4 검증",
-  "next_step": "양방향 장식어·선무늬 제거·빛/기포/수면 개선 및 영상 검수",
+  "handoff": "analysis/tile-layers-stage4/HANDOFF.md",
+  "current_task": "양방향 무작위 장식어·선무늬 삭제·빛/기포/수면 개선 시안 완료",
+  "next_step": "사용자 시안 검토; 본편 통합·배포 미진행",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -136,12 +136,12 @@
     "candidate_ready": true
   },
   "tile_layer_preview": {
-    "path": "analysis/tile-layers-stage3/detail-display.webp",
-    "verification": "analysis/tile-layers-stage3/VERIFICATION.json",
+    "path": "analysis/tile-layers-stage4/display.webp",
+    "verification": "analysis/tile-layers-stage4/VERIFICATION.json",
     "production_integrated": false,
     "paid_generation": 0,
     "deployed": false,
-    "layers": 12
+    "layers": 11
   },
   "tile_art_generation": {
     "authorized_art_outputs": 6,
