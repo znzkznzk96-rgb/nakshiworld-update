@@ -1,0 +1,106 @@
+{
+  "version": {
+    "code": 108,
+    "name": "1.08"
+  },
+  "source_commit": "188643645a202a833d0a9a7f61e203674e1f6e99",
+  "assets": {
+    "version.json": {
+      "size": 199,
+      "sha256": "2da9278020cb1dab012b5bb0f0049e9c0fe1fc2a16b38b888f48b1a6f2fef844",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.08/version.json"
+    },
+    "patch.pck": {
+      "size": 59070816,
+      "sha256": "6597489de9c1de5acbdfa27061dbe6907b94a9cab2c0ce36d28be92807b18e5a",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.08/patch.pck"
+    },
+    "game-source.zip": {
+      "size": 63277815,
+      "sha256": "9121b639e2a03fe6d8a18a8689918ddb0c231a097eaf29f03db20d62e67b319f",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.08/game-source.zip"
+    }
+  },
+  "phone_verified": false,
+  "source_overlay_files_verified": 557,
+  "zip_crc_verified": true,
+  "public_assets_verified": true,
+  "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v1.08",
+  "prs": [
+    40,
+    41
+  ],
+  "preflight": "PREFLIGHT.json",
+  "preflight_run": 42373955421,
+  "release_run": 42374175452,
+  "public_run": 42374557040,
+  "release_status": "success",
+  "public_status": "success",
+  "headless_suites_passed": 70,
+  "packed_gift_script": "verified ID and1000000 amount",
+  "packed_art": "passed including tile background20 fish",
+  "gift": {
+    "id": "valley-once-20261107-108",
+    "valley_species": [
+      20,
+      39
+    ],
+    "quantity_each": 1,
+    "total_fish": 20,
+    "grade": 0,
+    "size": "average",
+    "gold": 1000000,
+    "once_per_save": true,
+    "previous_grant_ids_preserved": true,
+    "actual_user_claim_confirmed": false
+  },
+  "rollback": "actual filesystem failure tested with unchanged primary bytes",
+  "independent_restart": "passed including no duplicate and valley main bundle→tile312000unlock",
+  "mail_original_paragraphs": "preserved exactly once",
+  "renders": {
+    "heights": [
+      480,
+      540,
+      660
+    ],
+    "screens": 9,
+    "visually_reviewed": 9
+  },
+  "gateway": {
+    "base": "https://nakshiworld-update-kr.znzkznzk96.workers.dev",
+    "manifest": {
+      "code": 108,
+      "name": "1.08",
+      "source_commit": "188643645a202a833d0a9a7f61e203674e1f6e99"
+    },
+    "patch_size": 59070816,
+    "patch_sha256": "6597489de9c1de5acbdfa27061dbe6907b94a9cab2c0ce36d28be92807b18e5a",
+    "actual_apk_url_download_verified": true
+  },
+  "public_verification_artifact": {
+    "id": 13575091788,
+    "name": "public-release-verification",
+    "size_in_bytes": 600,
+    "url": "https://api.github.com/repos/znzkznzk96-rgb/nakshiworld-update/actions/artifacts/13575091788",
+    "archive_download_url": "https://api.github.com/repos/znzkznzk96-rgb/nakshiworld-update/actions/artifacts/13575091788/zip",
+    "expired": false,
+    "created_at": "2026-11-07T12:55:09Z",
+    "expires_at": "2027-02-05T12:54:50Z",
+    "updated_at": "2026-11-07T12:55:09Z",
+    "digest": "sha256:a698852e386e147ab4b3281a8082ed5aaa588efd2419782d45cc77fad796cddf",
+    "workflow_run": {
+      "id": 42374557040,
+      "repository_id": 1423971848,
+      "head_repository_id": 1423971848,
+      "head_branch": "main",
+      "head_sha": "188643645a202a833d0a9a7f61e203674e1f6e99"
+    }
+  },
+  "public_artifact_sha_verified": true,
+  "real_user_save_used": false,
+  "paid_generation": 0,
+  "attempt_history": [
+    "../../qa/valley-gift-108/ATTEMPTS.json",
+    "../../qa/valley-gift-108/MAIL_READER_FAILURE.json"
+  ]
+}
