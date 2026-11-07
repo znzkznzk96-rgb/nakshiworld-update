@@ -15,6 +15,24 @@ jobs:
     timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
+      - name: Require verified stage5 game tree before v107 build
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import json,subprocess,os,urllib.request
+          v=json.load(open("automation/release.json"))
+          if v["code"]==107:
+              r=json.load(open("docs/qa/tile-release-stage5/PREFLIGHT.json"))
+              assert subprocess.check_output(["git","rev-parse","HEAD:game"],text=True).strip()==r["game_tree_sha"]
+              for p,k in [("automation/restore_source.py","restore_source_blob"),("automation/deleted-game-files.json","deleted_files_blob")]:
+                  assert subprocess.check_output(["git","rev-parse","HEAD:"+p],text=True).strip()==r[k]
+              req=urllib.request.Request("https://api.github.com/repos/znzkznzk96-rgb/nakshiworld-update/actions/runs/"+str(r["render_run"]),headers={"Authorization":"Bearer "+os.environ["GH_TOKEN"],"Accept":"application/vnd.github+json"})
+              with urllib.request.urlopen(req,timeout=30) as response:run=json.load(response)
+              assert run["conclusion"]=="success" and run["status"]=="completed"
+              assert r["headless_suites"]==69 and r["png_originals_verified"]==21
+              print("V107_PREFLIGHT_EXACT_GAME_TREE_VERIFIED")
+          PY
       - name: Install pinned build tools
         shell: bash
         run: |

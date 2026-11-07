@@ -9,7 +9,11 @@
 - [4단계 상세 검증](../../qa/tile-bundles-stage4/REVIEW.json), [화면·기계결과](../../qa/tile-bundles-stage4/results/VERIFICATION.json), [실제 보상 화면](../../qa/tile-bundles-stage4/results/bundle_rewards_comparison.png), [성공 실행](https://github.com/znzkznzk96-rgb/nakshiworld-update/actions/runs/42319985467).
 - 전체69개 headless suite 통과 근거: 기존 전체실행49개 + 이번18개 + 2단계 regional + 3단계 personal_dex. 테스트 기대값만 변경했으며 게임 소스·Godot 버전 기준 동일. 표준 전체 workflow 자체는 이전 odds_rewards 실패 상태이므로 전체 CI 성공으로 부르지 않는다.
 
-## 다음: 5단계 배포 준비
+## 5단계 사전 검수 완료·공개 배포 진행
+- 남은 공통 렌더13그룹 성공·221PNG 생성, 주요24화면 수동 확인. 승인 PNG21개 SHA/디코드/크기 정상. [사전 검수](../../qa/tile-release-stage5/PREFLIGHT.json).
+- 4단계 검수 이후 게임 트리 불변. 배포 workflow에서 동일 game 트리·복원/삭제명세·성공 렌더 run을 확인하고 전체 배포 검사 및 PCK 실물 자산 확인 후 게시한다.
+
+## 다음: 공개 배포 검증
 1. 표준 전체 workflow에서 실행되지 않은 공통 화면 렌더 검사와 배포 조건을 확인한다. 이미 통과한 동일 조건 검사는 재사용한다.
 2. 전체 소스 ZIP·PCK·version.json을 구성하고 버전·소스 커밋·실제 크기·SHA·자산 포함·세이브 호환을 점검한다.
 3. 최신 사용자 명시 승인으로 이번 v1.07 공개 배포까지 진행한다. 실제 운영 다운로드 검증과 휴대폰 적용 확인은 각각 기록한다.
