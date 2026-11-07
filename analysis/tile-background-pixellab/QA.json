@@ -1,0 +1,25 @@
+{
+  "cloud-far": {
+    "status": "pass",
+    "notes": "White/cyan readable cloud mass, clean alpha/no clipping, spare small wisp usable; dark teal edge noted, distant-opacity screen review pending.",
+    "native_and_nearest4x_reviewed": true,
+    "size": [
+      128,
+      48
+    ],
+    "bbox": [
+      17,
+      12,
+      110,
+      41
+    ],
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "sha256": "f15f0354dc31762f997967da0d8386786fa414fbb853ed58989a741db2aab8ab",
+    "model": "create-image-pixen",
+    "generations_reported": 1.0,
+    "production_integrated": false
+  }
+}
