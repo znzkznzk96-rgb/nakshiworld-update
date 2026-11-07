@@ -1,5 +1,6 @@
-# v1.09 배포 진행
-2026-11-08 KST. 사용자 승인, PR42/43 병합. 최종 배포소스2d4e0bcd3f31783ed231720ee20657140e4f0d4c. CI42384392014 전체/화면 성공, 게임트리는 PREFLIGHT와 동일.
-- 활성 Build42385588281 실행 중. 공개3파일/운영/폰 미확인.
-- 이전 Build42384973558은 검사우편1.08 고정으로 공개 전 assertion 중단. 검사버전을 release.json 인자로 수정하고90초 제한. 원본손상 없음.
-- 다음: 활성 build 성공 및 자동gateway성공 → PUBLIC_VERIFICATION/PUBLISHED 기록 → work/main 문서 동기화. 폰 적용은 사용자 확인 별도.
+# v1.09 공개 완료·검증 보완
+2026-11-08 KST. source2d4e0bcd3f31783ed231720ee20657140e4f0d4c, build42385588281 성공, v1.09 공개3파일 존재.
+- gateway42385938012에서 앱방식 manifest109/patch59072592/SHA55f920f673d98c37de6bfe9886904588c81addec1c28514937eea7ce146ca53b 성공.
+- source ZIP 단계만 GitHub 비인증API403 rate limit. 기존 Actions token을 api.github.com 메타데이터 요청에만 적용하도록 보완. 새 게임 빌드 불필요.
+- 이전 packed-mail1.08 고정검사 수정PR43 반영됨. 최종 CI42384392014 성공. 휴대폰 미확인.
+- 다음: 인증 적용 deployment검증 성공 → PUBLIC/PUBLISHED/WORK_STATE 원격 기록.

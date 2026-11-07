@@ -3,7 +3,10 @@ import hashlib, io, json, os, pathlib, urllib.request, zipfile
 REPO = 'znzkznzk96-rgb/nakshiworld-update'
 expected = json.loads(pathlib.Path('automation/release.json').read_text())
 def get(url):
-    req = urllib.request.Request(url, headers={'User-Agent':'nakshiworld-release-verification','Cache-Control':'no-cache'})
+    headers = {'User-Agent':'nakshiworld-release-verification','Cache-Control':'no-cache'}
+    if url.startswith('https://api.github.com/') and os.environ.get('GH_TOKEN'):
+        headers['Authorization'] = 'Bearer '+os.environ['GH_TOKEN']
+    req = urllib.request.Request(url, headers=headers)
     with urllib.request.urlopen(req, timeout=120) as response:
         assert response.status == 200
         return response.read()

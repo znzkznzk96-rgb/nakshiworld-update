@@ -86,6 +86,8 @@ jobs:
           PY
 
       - name: Verify published source ZIP and all release assets
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: python3 deployment/verify_public_release.py
       - uses: actions/upload-artifact@v4
         if: always()
