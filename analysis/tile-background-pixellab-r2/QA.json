@@ -67,5 +67,51 @@
     "model": "create-image-bitforge",
     "generations_reported": 1.0,
     "production_integrated": false
+  },
+  "ledge-grass": {
+    "status": "hold",
+    "notes": "No stone background now, but silhouette became a circular vine/wreath rather than short grass; not accepted as grass. Ledge role will use a small copy of the already-passed PixelLab ribbon plant.",
+    "native_and_nearest4x_reviewed": true,
+    "size": [
+      64,
+      48
+    ],
+    "bbox": [
+      14,
+      2,
+      48,
+      46
+    ],
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "sha256": "03c5a6b7c0ee3d46301b28b6f248906cb9d4a614085c3134fe6a9141fe31fe79",
+    "model": "create-image-bitforge",
+    "generations_reported": 1.0,
+    "production_integrated": false
+  },
+  "bubble-cluster": {
+    "status": "pass",
+    "notes": "Six clean cyan hollow rings with alpha-empty interiors and small highlights, no checkerboard or grey fills; native64x64/4x verified. Count differs from draft5 but fine for variable decoration.",
+    "native_and_nearest4x_reviewed": true,
+    "size": [
+      64,
+      64
+    ],
+    "bbox": [
+      2,
+      8,
+      62,
+      56
+    ],
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "sha256": "778d1b3f9eb58d1b8fa1852157f206e56d8dfc3a5fab6abaa2c5ae8295f9c7e1",
+    "model": "create-image-pixen",
+    "generations_reported": 1.0,
+    "production_integrated": false
   }
 }
