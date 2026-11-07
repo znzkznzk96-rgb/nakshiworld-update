@@ -1,0 +1,31 @@
+{
+  "actual_native_renderer": "Godot4.4.1 gl_compatibility OpenGL4.5 llvmpipe",
+  "shader_compile_or_script_errors": false,
+  "shader_material_rays": 4,
+  "noise_texture": "FastNoiseLite128x128 nearest repeat",
+  "blend": "add",
+  "headless_node_uniform_repeat_night_test": "passed",
+  "headless_three_phone_heights": "passed",
+  "isolated_light_changes_0_to_3s_pixels": 133538,
+  "isolated_light_change_bbox": [
+    52,
+    660,
+    540,
+    1100
+  ],
+  "isolated_light_above_water_unchanged": true,
+  "gif_frames": 96,
+  "gif_distinct_frames": 96,
+  "gif_duration_ms": 8000,
+  "gif_loop": 0,
+  "old_polygon_light_removed": true,
+  "user_shader_reference_used": [
+    "vertical UV flow",
+    "sine UV.x warp",
+    "repeated texture sampling",
+    "depth fade"
+  ],
+  "paid_generation": 0,
+  "production_integrated": false,
+  "deployed": false
+}

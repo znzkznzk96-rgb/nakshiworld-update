@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "tile_canvas_shader_light_implementation",
+  "status": "canvas_shader_light_preview_applied_verified",
   "release_baseline": "v1.09",
   "target_release": "v1.10",
   "deployed": false,
   "phone_verified": false,
-  "handoff": "analysis/tile-layers-stage7/HANDOFF.md",
-  "current_task": "거절곡선파도제거·굵기차이명확한부채꼴광축새시안완료",
-  "next_step": "참고코드기반ShaderMaterial·부채꼴/노이즈마스크 구현 및 실제 GPU렌더검증",
+  "handoff": "analysis/tile-layers-stage8/HANDOFF.md",
+  "current_task": "참고CanvasItem셰이더4개재질로빛시안교체·실제GPU검증완료",
+  "next_step": "사용자 셰이더 시안 검토; 본편전체레이어통합/배포 미진행",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -136,12 +136,13 @@
     "candidate_ready": true
   },
   "tile_layer_preview": {
-    "path": "analysis/tile-layers-stage7/display.webp",
-    "verification": "analysis/tile-layers-stage7/VERIFICATION.json",
+    "path": "analysis/tile-layers-stage8/display.webp",
+    "verification": "analysis/tile-layers-stage8/VERIFICATION.json",
     "production_integrated": false,
     "paid_generation": 0,
     "deployed": false,
-    "layers": 11
+    "layers": 11,
+    "light_implementation": "canvas_item ShaderMaterial, blend_add, repeated noise texture"
   },
   "tile_art_generation": {
     "authorized_art_outputs": 6,
