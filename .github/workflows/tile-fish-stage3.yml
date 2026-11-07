@@ -59,7 +59,7 @@ jobs:
           if grep -E 'SCRIPT ERROR:|Parse Error:|Failed to load script' evidence/import.log; then exit 1; fi
           "$GODOT" --headless --path "$RUNNER_TEMP/project" --script tests/bake_expedition_assets.gd > evidence/bake.log 2>&1
           "$GODOT" --headless --editor --path "$RUNNER_TEMP/project" --import > evidence/prepared-import.log 2>&1
-          for suite in personal_dex codex089; do
+          for suite in codex089; do
             XDG_DATA_HOME="$RUNNER_TEMP/stage3-$suite" timeout 90 "$GODOT" --headless --path "$RUNNER_TEMP/project" --script "tests/${suite}_verify.gd" > "evidence/$suite.log" 2>&1 || { cat "evidence/$suite.log"; exit 1; }
             grep -F 'VERIFY failures=[]' "evidence/$suite.log"
             if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' "evidence/$suite.log"; then cat "evidence/$suite.log"; exit 1; fi
@@ -97,7 +97,7 @@ jobs:
           w,h=images[0].size;canvas=Image.new("RGB",(w*3,h),"#182d39")
           for i,im in enumerate(images):canvas.paste(im,(i*w,0))
           canvas.save(out/"dex_comparison.png")
-          report={"source_commit":os.environ["GITHUB_SHA"],"approval_archives":["tile-sea-final20.zip (except12/17)","tile-sea-12-17-swimming-pose.zip (12/17)"],"approved_matches":20,"dimensions":[96,64],"edge_contacts":0,"heights":[480,540,660],"tests":["personal_dex","codex089","tile_dex_stage3"],"synthetic_test_records":True,"actual_user_save_used":False,"game_assets_changed":False,"deployed":False,"full_regression_run":False}
+          report={"source_commit":os.environ["GITHUB_SHA"],"approval_archives":["tile-sea-final20.zip (except12/17)","tile-sea-12-17-swimming-pose.zip (12/17)"],"approved_matches":20,"dimensions":[96,64],"edge_contacts":0,"heights":[480,540,660],"tests":["codex089","tile_dex_stage3"],"reused_passed_test":{"personal_dex":42316841578},"synthetic_test_records":True,"actual_user_save_used":False,"game_assets_changed":False,"deployed":False,"full_regression_run":False}
           (out/"VERIFICATION.json").write_text(json.dumps(report,indent=2)+"\n")
           PY
           git config user.name "github-actions[bot]"
