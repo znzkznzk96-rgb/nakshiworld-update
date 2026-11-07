@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "tile_layer_six_art_authorized_first_request_prepared",
+  "status": "tile_art_first_request_error_corrected_request_auto_review_blocked",
   "release_baseline": "v1.09",
   "target_release": "v1.10",
   "deployed": true,
   "phone_verified": false,
   "handoff": "analysis/tile-layer-art-v1/HANDOFF.md",
   "current_task": "원경어군2·바닥수초2·벽식물2 제작,첫어군검수부터",
-  "next_step": "첫어군1회제출→원본/확대/실제표시검수→통과시에만다음장.공개금지.",
+  "next_step": "수정첫장추가요청명시승인필요.승인후기존수정요청접수/차감/결과부터확인,새POST무작정반복금지.",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -140,6 +140,14 @@
     "verification": "analysis/tile-layers-stage1/VERIFICATION.json",
     "production_integrated": false,
     "paid_generation": 0,
+    "deployed": false
+  },
+  "tile_art_generation": {
+    "authorized_art_outputs": 6,
+    "first_error_outputs": 0,
+    "first_error_charge": 0,
+    "corrected_request_auto_review_blocked": true,
+    "corrected_acceptance_unknown": true,
     "deployed": false
   }
 }
