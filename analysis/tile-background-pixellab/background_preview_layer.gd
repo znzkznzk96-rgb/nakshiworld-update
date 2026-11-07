@@ -2,15 +2,17 @@ extends Node2D
 # New PixelLab sprites only. Source coordinate overlay; input/save untouched.
 var elapsed:float=0
 var assets:Dictionary={}
+var bounds:Dictionary={}
 func _ready():
  for key in ["cloud-far","cloud-near","horizon-mist","arch-vine","ledge-grass","floor-ribbon","floor-broad","wall-ribbon","fish-far","fish-mid","fish-near","bubble-cluster","water-specks"]:
   var path:String="res://tests/tile_background_assets/"+key+".png"
-  if FileAccess.file_exists(path):assets[key]=ImageTexture.create_from_image(Image.load_from_file(path))
+  if FileAccess.file_exists(path):
+   var image:Image=Image.load_from_file(path);assets[key]=ImageTexture.create_from_image(image);bounds[key]=Rect2(image.get_used_rect())
 func sprite(key:String,pos:Vector2,width:float,tint:Color=Color.WHITE,flip:bool=false):
  if not assets.has(key):return
- var tex:Texture2D=assets[key];var h:float=width*tex.get_height()/float(tex.get_width())
+ var tex:Texture2D=assets[key];var used:Rect2=bounds[key];var h:float=width*used.size.y/used.size.x
  draw_set_transform(pos,0,Vector2(-1 if flip else 1,1))
- draw_texture_rect(tex,Rect2(-width*.5,-h*.5,width,h),false,tint)
+ draw_texture_rect_region(tex,Rect2(-width*.5,-h*.5,width,h),used,tint)
  draw_set_transform(Vector2.ZERO,0,Vector2.ONE)
 func _draw():
  sprite("cloud-far",Vector2(466+sin(elapsed*.035)*90,355),143,Color(.90,.98,1,.72))

@@ -1,0 +1,13 @@
+{
+  "description": "One single asymmetrical compact cumulus cloud, four rounded connected puffy lobes, bright warm-white upper planes, pale aqua and soft sky-blue underside, clean readable large silhouette, not a storm cloud. No dark outline. Isolated static environment sprite for a cozy crisp 16-bit pixel art mobile fishing game with turquoise tiled ruins. Clear square pixel clusters, three or four shades per color, readable at native size, no anti-aliased blur, no glow, no background, no tile or ground, no scenery, no letters or UI, no motion trails, no sprite sheet. Keep the entire object inside canvas with transparent margins. ",
+  "image_size": {
+    "width": 128,
+    "height": 64
+  },
+  "outline": "lineless",
+  "detail": "medium detail",
+  "view": "side",
+  "no_background": true,
+  "seed": 2026110902,
+  "enhance_prompt": false
+}
