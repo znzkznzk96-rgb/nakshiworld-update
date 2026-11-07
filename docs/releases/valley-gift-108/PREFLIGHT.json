@@ -1,0 +1,64 @@
+{
+  "version": {
+    "code": 108,
+    "name": "1.08"
+  },
+  "date": "2026-11-07",
+  "run": 42373284549,
+  "conclusion": "success",
+  "game_tree_sha": "7f85952d20ea79bcac66a494525e78fb27256557",
+  "source_commit": "f8152c8f9c8c4e770fd233422dbc72baf15d11c3",
+  "gift": {
+    "id": "valley-once-20261107-108",
+    "species": "sp20..39",
+    "quantity_each": 1,
+    "total": 20,
+    "grade": "normal",
+    "size": "average",
+    "scales": 1000000,
+    "once_per_save": true
+  },
+  "verified": [
+    "actual mailbox claim button",
+    "additive gift preserves wallet and existing specimen",
+    "existing grant IDs retained",
+    "preview/reset guards",
+    "real FileAccess failure rollback and primary bytes unchanged",
+    "repeat and reload rejected",
+    "independent Godot process payload and duplicate protection",
+    "valley main6 donation and license plus exact312000 tile unlock",
+    "previous arrival and testing gifts unchanged",
+    "no forged catch/dex/highest records",
+    "no automatic donation or unlock"
+  ],
+  "render_heights": [
+    480,
+    540,
+    660
+  ],
+  "screens": 9,
+  "visual_review": "before/claimed/detail at all three heights; buttons remain visible without overlapping text",
+  "artifact": {
+    "id": 13573989776,
+    "name": "valley-gift108",
+    "size_in_bytes": 856929,
+    "url": "https://api.github.com/repos/znzkznzk96-rgb/nakshiworld-update/actions/artifacts/13573989776",
+    "archive_download_url": "https://api.github.com/repos/znzkznzk96-rgb/nakshiworld-update/actions/artifacts/13573989776/zip",
+    "expired": false,
+    "created_at": "2026-11-07T12:38:36Z",
+    "expires_at": "2027-02-05T12:37:03Z",
+    "updated_at": "2026-11-07T12:38:36Z",
+    "digest": "sha256:edd17d0b3831419f9e791b7f19732eccbd680b96cea2c7355ab7d8f4f62c122a",
+    "workflow_run": {
+      "id": 42373284549,
+      "repository_id": 1423971848,
+      "head_repository_id": 1423971848,
+      "head_branch": "work/tile-release-107",
+      "head_sha": "f8152c8f9c8c4e770fd233422dbc72baf15d11c3"
+    }
+  },
+  "artifact_download_sha_verified": true,
+  "artifact_crc_verified": true,
+  "real_user_save_used": false,
+  "published": false
+}

@@ -16,7 +16,7 @@ jobs:
     timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
-      - name: Require verified stage5 game tree before v107 build
+      - name: Require verified game source before release build
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
