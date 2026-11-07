@@ -11,6 +11,7 @@ var native := false
 var native_canvas: CanvasLayer
 var map_rect := Rect2()
 var light:Node2D
+var surface_water:Node2D
 func setup(m) -> void:
 	root=Node2D.new();root.name="TileSeaBackground";root.z_index=-20
 	root.texture_filter=CanvasItem.TEXTURE_FILTER_NEAREST
@@ -23,7 +24,9 @@ func setup(m) -> void:
 	plate=Sprite2D.new();plate.centered=false;plate.texture=load(PLATE_PATH)
 	root.add_child(plate)
 	light=load("res://addons/reservoir/vertical_water_light.gd").new();light.name="TileVerticalWaterLight"
-	plate.add_child(light);root.hide()
+	plate.add_child(light)
+	surface_water=load("res://addons/reservoir/tile_surface_water.gd").new()
+	plate.add_child(surface_water);root.hide()
 func layout(m) -> void:
 	var view: Vector2=m.get_viewport_rect().size
 	var scale: float=maxf(view.x/SOURCE.x,view.y/SOURCE.y)
