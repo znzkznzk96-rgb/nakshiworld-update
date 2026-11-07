@@ -1,0 +1,11 @@
+{
+  "floor-plant-01": {
+    "status": "internal_pass",
+    "form": "narrow curved ribbon clump with visible roots",
+    "color": "teal emerald mint, no gold or gray wash",
+    "pixels": "crisp selective outline, readable at native64x80 and nearest4x",
+    "alpha": "transparent, bounding box1,2,63,77; edge margin smaller than requested but no visible truncation",
+    "cost_generations": 1,
+    "screen_review": "pending"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "description": "One compact clump of seven narrow curved ribbon leaves of submerged eelgrass, emerald green and turquoise blades, dark teal shadows and small mint highlights, short exposed dark roots at the base, fan-shaped silhouette. Isolated side-view 16-bit pixel art environment sprite for a cozy turquoise tiled underwater ruin. Crisp square pixel clusters, three or four shades per color, selective dark teal outline. Small decoration, restrained detail, readable silhouette. Entire plant including roots visible, at least four transparent pixels margin, except hanging anchor. No fish, no bubbles, no water, no scenery, no floor, no tile, no flowers, no gold, no text, no blur, no glow, no background. Single static sprite, not a sprite sheet.",
+  "image_size": {
+    "width": 64,
+    "height": 80
+  },
+  "outline": "selective outline",
+  "detail": "medium detail",
+  "view": "side",
+  "no_background": true,
+  "seed": 2026110810,
+  "enhance_prompt": false
+}
