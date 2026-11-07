@@ -62,7 +62,9 @@ func setup(m) -> void:
 		node.set_script(load("res://addons/reservoir/reservoir_layer.gd"));node.environment=self;node.game=m;node.kind=kind
 		node.z_index=LAYER_ORDER[kind];node.texture_filter=CanvasItem.TEXTURE_FILTER_NEAREST
 		if kind=="underwater_light":
-			var rays:=ShaderMaterial.new();rays.shader=load("res://addons/reservoir/reservoir_rays.gdshader");node.material=rays
+			var rays:=ShaderMaterial.new();rays.shader=load("res://addons/reservoir/vertical_water_light.gdshader");node.material=rays
+			rays.set_shader_parameter("source_pixels",Vector2(803,820))
+			rays.set_shader_parameter("seed_offset",399.67199999999997)
 		m.add_child(node);layers[kind]=node
 	layer=layers.fish;light_layer=layers.underwater_light
 	water_layers.assign([layers.surface_water,layers.post_ripples,layers.bubbles])
@@ -103,13 +105,17 @@ func scenery_tint() -> Color:
 
 func update(dt: float) -> void:
 	valley.update(dt);elapsed+=dt;day_seconds+=dt
+	var h:float=hour()
+	valley.layers.underwater_light.update_light(elapsed,h)
+	tile.light.update_light(elapsed,h)
 	if not scene_visible or active_region!=0: return
 	var night:=night_strength()
 	moon.modulate=Color(1,1,1,lerpf(0.7,1.0,night))
 	for mat in [material,front.material]:
 		mat.set_shader_parameter("hour",hour());mat.set_shader_parameter("night",night)
 	light_layer.material.set_shader_parameter("elapsed",elapsed)
-	light_layer.material.set_shader_parameter("night",night)
+	light_layer.material.set_shader_parameter("sun_shear",cos(clampf((h-6)/12,0,1)*PI)*.55*820.0/803.0)
+	light_layer.material.set_shader_parameter("light_intensity",smoothstep(5.5,7.5,h)*(1-smoothstep(17,19,h)))
 	# Environment motion30Hz, independent of gameplay RNG/physics.
 	redraw_clock+=dt
 	if dt>0.0 and redraw_clock<1.0/30.0: return

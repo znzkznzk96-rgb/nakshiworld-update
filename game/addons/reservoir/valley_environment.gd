@@ -24,10 +24,14 @@ func setup(m) -> void:
 		m.add_child(root)
 	plate = Sprite2D.new();plate.centered=false;plate.texture=load("res://art/bg/valley_selected_1080x2640.png")
 	root.add_child(plate);layers.plate=plate
-	for kind in ["drifting_clouds","reverse_waterfall","underwater_light","surface_reflection"]:
+	for kind in ["drifting_clouds","reverse_waterfall","surface_reflection"]:
 		var layer := Node2D.new()
 		layer.set_script(load("res://addons/reservoir/valley_layer.gd"));layer.kind=kind;layer.valley=self
 		root.add_child(layer);layers[kind]=layer
+	var light=load("res://addons/reservoir/vertical_water_light.gd").new()
+	light.name="ValleyVerticalWaterLight"
+	light.source_rect=Rect2(0,1492,1080,1009)
+	plate.add_child(light);layers.underwater_light=light
 	var life := Node2D.new()
 	life.set_script(load("res://addons/reservoir/valley_life.gd"));life.valley=self
 	root.add_child(life);layers.life=life
@@ -52,6 +56,6 @@ func waterfall_y(time: float, index: int) -> float:
 	return base-fposmod(time*28.0+index*17.1,base-top)
 func dispose() -> void:
 	for kind in layers:
-		if kind != "plate" and is_instance_valid(layers[kind]): layers[kind].valley=null
+		if kind not in ["plate","underwater_light"] and is_instance_valid(layers[kind]): layers[kind].valley=null
 	if is_instance_valid(native_canvas): native_canvas.queue_free()
 	layers.clear()

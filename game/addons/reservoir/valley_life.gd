@@ -39,9 +39,6 @@ func _draw():
  # Thin textured mist uses varied depth, speed and opacity.
  for i in 3:
   sprite(mist,Vector2([155,178,163][i]+sin(t*(0.13+i*0.04)+i)*10,[325,377,412][i]),Vector2([78,88,124][i],[24,27,26][i]),Color(0.77,0.95,0.93,[0.035,0.045,0.055][i]))
- for j in 4:
-  var x: float=130+j*43+sin(t*0.22+j)*7
-  draw_colored_polygon(PackedVector2Array([Vector2(x,435),Vector2(x+13,435),Vector2(x-28,625),Vector2(x-53,625)]),Color(0.76,0.95,0.74,0.055))
  for i in 3:
   var phase: float=t*[0.16,0.13,0.11][i]+i*2
   var pos:=Vector2([177,182,163][i]+sin(phase)*[51,58,46][i],[485,548,597][i]+sin(t*0.6+i)*3)

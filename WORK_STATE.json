@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "approved_vertical_light_production_integration_three_regions",
+  "status": "three_region_vertical_light_applied_full_checks_running",
   "release_baseline": "v1.09",
   "target_release": "v1.10",
   "deployed": false,
   "phone_verified": false,
-  "handoff": "analysis/tile-layers-stage9/HANDOFF.md",
+  "handoff": "docs/qa/shared-vertical-light/HANDOFF.md",
   "current_task": "부채꼴/고정광원제거·노이즈자체생성세로빛결시안검증완료",
-  "next_step": "3지역기존수중광원을공통절차셰이더로교체·관련/전체검사·실화면검수",
+  "next_step": "최종75개전체검사·3지역실화면검증진행",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -133,7 +133,8 @@
     "headless_total": 75,
     "candidate_artifact": 13582180975,
     "candidate_fingerprint": "9971deb6317a71477b90a17a59c13257e4b0141535074ecd0041c7619d987977",
-    "candidate_ready": true
+    "candidate_ready": false,
+    "candidate_note": "기존검증후보는조명변경이전소스. 새조명포함후보는미빌드/미배포."
   },
   "tile_layer_preview": {
     "path": "analysis/tile-layers-stage9/display.webp",
@@ -168,5 +169,17 @@
     "ledger": "analysis/tile-layer-art-v1/PLANT_LEDGER.json",
     "quality": "analysis/tile-layer-art-v1/PLANT_QA.json"
   },
-  "public_release": "v1.09"
+  "public_release": "v1.09",
+  "shared_vertical_light": {
+    "applied": true,
+    "regions": [
+      0,
+      1,
+      2
+    ],
+    "production_integrated": true,
+    "deployed": false,
+    "release_authorized": false,
+    "checks": "running"
+  }
 }
