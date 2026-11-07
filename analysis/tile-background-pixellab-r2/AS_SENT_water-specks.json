@@ -1,0 +1,14 @@
+{
+  "description": "A sparse distribution of twelve tiny isolated pale aqua and cream-white pixel dots, 1 to 3 square pixels per dot, randomly scattered over an otherwise completely empty canvas. No central object, no stars, no glow, no checkerboard texture, no frame, no scenery. Crisp pixel particles only.",
+  "image_size": {
+    "width": 64,
+    "height": 64
+  },
+  "outline": "lineless",
+  "detail": "medium detail",
+  "view": "side",
+  "no_background": true,
+  "background_removal_task": "remove_complex_background",
+  "seed": 2026111006,
+  "enhance_prompt": false
+}

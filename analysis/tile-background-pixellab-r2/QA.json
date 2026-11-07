@@ -113,5 +113,28 @@
     "model": "create-image-pixen",
     "generations_reported": 1.0,
     "production_integrated": false
+  },
+  "water-specks": {
+    "status": "pass",
+    "notes": "Sparse separate1-3pixel pale aqua/cream motes on genuine transparent alpha, no rectangle/checkerboard; native64x64 and4x checked.",
+    "native_and_nearest4x_reviewed": true,
+    "size": [
+      64,
+      64
+    ],
+    "bbox": [
+      9,
+      12,
+      55,
+      53
+    ],
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "sha256": "9fb1ea0b694bd6c72373b37e22e98d71f0eaf0f8975e8b565ecb7cd4099894c5",
+    "model": "create-image-pixen",
+    "generations_reported": 1.0,
+    "production_integrated": false
   }
 }
