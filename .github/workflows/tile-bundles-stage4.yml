@@ -1,5 +1,5 @@
 name: Verify tile bundles saves and remaining regression without deployment
-# Migration fixture saves rec.json separately, matching the real v1.06 API.
+# Limit scene and resource-loader threading after a native import-exit abort.
 on:
   push:
     branches: [work/tile-release-107]
@@ -54,10 +54,10 @@ jobs:
           GODOT="$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
           for version in legacy/game project; do
             key="$(echo "$version" | tr / -)"
-            "$GODOT" --headless --editor --path "$RUNNER_TEMP/$version" --import > "evidence/import-$key.log" 2>&1
+            "$GODOT" --single-threaded-scene --rendering-method gl_compatibility --audio-driver Dummy --headless --editor --path "$RUNNER_TEMP/$version" --import > "evidence/import-$key.log" 2>&1
             if grep -E 'SCRIPT ERROR:|Parse Error:|Failed to load script' "evidence/import-$key.log"; then exit 1; fi
             "$GODOT" --headless --path "$RUNNER_TEMP/$version" --script tests/bake_expedition_assets.gd > "evidence/bake-$key.log" 2>&1
-            "$GODOT" --headless --editor --path "$RUNNER_TEMP/$version" --import > "evidence/prepared-$key.log" 2>&1
+            "$GODOT" --single-threaded-scene --rendering-method gl_compatibility --audio-driver Dummy --headless --editor --path "$RUNNER_TEMP/$version" --import > "evidence/prepared-$key.log" 2>&1
           done
           XDG_DATA_HOME="$RUNNER_TEMP/stage4-migration" timeout 90 "$GODOT" --headless --path "$RUNNER_TEMP/legacy/game" --script tests/stage4_legacy.gd > evidence/legacy.log 2>&1 || { cat evidence/legacy.log; exit 1; }
           grep -F 'LEGACY106_STAGE4_SAVE_CREATED' evidence/legacy.log
