@@ -1,0 +1,137 @@
+[
+  {
+    "file": "0.78_480_before.png",
+    "mailbox_pixel_identical": true,
+    "sha256": "2ef2cc33f6649f7f26190295b15e96208189c5db060c628648c74e8871d9be20"
+  },
+  {
+    "file": "0.78_480_claimed.png",
+    "mailbox_pixel_identical": true,
+    "sha256": "5926c7199adcb25815b06815a4be0f6becd52420475eb38f92cc4eb0029cbbb1"
+  },
+  {
+    "file": "0.78_480_detail.png",
+    "mailbox_pixel_identical": true,
+    "sha256": "9949f31a9f08a690303dfbd3bb8f4b96c15a3618177cc062f71b7d7ddbad8a80"
+  },
+  {
+    "file": "0.78_540_before.png",
+    "mailbox_pixel_identical": true,
+    "sha256": "e46360bfbcf7a8deb08d68ef4c0d3d2535709df2d77f243d3987febc12284cc0"
+  },
+  {
+    "file": "0.78_540_claimed.png",
+    "mailbox_pixel_identical": true,
+    "sha256": "176db4b2d87bb6bcdded7ee436d582bdd95d5d4fd25fd7a9fead3c007103a4ec"
+  },
+  {
+    "file": "0.78_540_detail.png",
+    "mailbox_pixel_identical": true,
+    "sha256": "413b35e77e7d7333df9815fbc81e216c7e737e80421a281316c40d1c24628d7a"
+  },
+  {
+    "file": "0.78_660_before.png",
+    "mailbox_pixel_identical": true,
+    "sha256": "6d385981c44fd26ba6ab10e8aacc74e4a2ab69ac7b970a13d23c4ee2f7b92ab5"
+  },
+  {
+    "file": "0.78_660_claimed.png",
+    "mailbox_pixel_identical": true,
+    "sha256": "a353bfd04ebea934b472f30c2164f3e84418400a6ef2d734175e5b8ab0e8339e"
+  },
+  {
+    "file": "0.78_660_detail.png",
+    "mailbox_pixel_identical": true,
+    "sha256": "a03abf03c40850a8877daadd64262c2a05077dc112f19151a0500ced97670c59"
+  },
+  {
+    "file": "0.93_480_before.png",
+    "mailbox_pixel_identical": true,
+    "sha256": "f40cf34e177fae20976d0b3acb443d26a69f61490c15c53887021682234ca182"
+  },
+  {
+    "file": "0.93_480_claimed.png",
+    "mailbox_pixel_identical": true,
+    "sha256": "9a0a64a94fbde1c93e63caab4425f4f5fb7e3bea3879cf3b85f17375d33c7041"
+  },
+  {
+    "file": "0.93_480_detail.png",
+    "mailbox_pixel_identical": true,
+    "sha256": "57d270c521d9693ab609607ad8fe4466343d3506ca4228814f5c77ef8dae3d3b"
+  },
+  {
+    "file": "0.93_540_before.png",
+    "mailbox_pixel_identical": true,
+    "sha256": "18854e3d2e13a3ba0c47bbe6109f3f79e4b0c871c9160dffc847d47e3e42cc2d"
+  },
+  {
+    "file": "0.93_540_claimed.png",
+    "mailbox_pixel_identical": true,
+    "sha256": "040d783faf4d1c3e99f00a8ff3e078150ca63d5ca31c36a665c3035db41109f3"
+  },
+  {
+    "file": "0.93_540_detail.png",
+    "mailbox_pixel_identical": true,
+    "sha256": "4045f4937826d242bd9a4f233273c2e7a8b9d86bad8c80547536159cda8f12b0"
+  },
+  {
+    "file": "0.93_660_before.png",
+    "mailbox_pixel_identical": true,
+    "sha256": "2932a13cee3fb88f3698f74d6360fa9333a79dc55f5971ec1380eacbb15eaf00"
+  },
+  {
+    "file": "0.93_660_claimed.png",
+    "mailbox_pixel_identical": true,
+    "sha256": "67e7f941da7fb97f01e2745edba06470420f616f960f3e638fc5d0f93c1dd77f"
+  },
+  {
+    "file": "0.93_660_detail.png",
+    "mailbox_pixel_identical": true,
+    "sha256": "65bd1da250603d16156142aca20453a2b8727cb55d899762ce18a4bb83d8e0d7"
+  },
+  {
+    "file": "1.08_480_before.png",
+    "mailbox_pixel_identical": true,
+    "sha256": "f40bb76b8e4801d54c20a7320d3d34f59bbba8669f7fd6e4d7aaccefdb02eb6e"
+  },
+  {
+    "file": "1.08_480_claimed.png",
+    "mailbox_pixel_identical": true,
+    "sha256": "4b081a6a7192bfae4123b9d9b2f17bd5dfdff180ddb91e246583bcb81adbe3ac"
+  },
+  {
+    "file": "1.08_480_detail.png",
+    "mailbox_pixel_identical": true,
+    "sha256": "7304a5db4f583bf4e740b727f3d9be92c708102997287d0914d7e26215be87a4"
+  },
+  {
+    "file": "1.08_540_before.png",
+    "mailbox_pixel_identical": true,
+    "sha256": "5fcec73ea3652fe5c3faf26b4c382283ef232a70e5feb8db6faa4ed3b27efa73"
+  },
+  {
+    "file": "1.08_540_claimed.png",
+    "mailbox_pixel_identical": true,
+    "sha256": "25d955259a065585b5990a246af31ed27c2233adc1ae910ed451cbf2f55b99d2"
+  },
+  {
+    "file": "1.08_540_detail.png",
+    "mailbox_pixel_identical": true,
+    "sha256": "af823bddee612dc3e18767c29a1500126bb0c614dfe26e33bec8946e8d11a9f4"
+  },
+  {
+    "file": "1.08_660_before.png",
+    "mailbox_pixel_identical": true,
+    "sha256": "738439dbe4936ac408ce4d473ac6b2b85cae055d2299c6702527b148588eacca"
+  },
+  {
+    "file": "1.08_660_claimed.png",
+    "mailbox_pixel_identical": true,
+    "sha256": "50b9b7c3cd869f56c771d08c6b79eec6b800abd4527b5b0b196dc200ed86edd6"
+  },
+  {
+    "file": "1.08_660_detail.png",
+    "mailbox_pixel_identical": true,
+    "sha256": "cc5d4a6a44e1ed1c5f6db3d246c074572cab94da21df326c492f2e3ec50d0926"
+  }
+]

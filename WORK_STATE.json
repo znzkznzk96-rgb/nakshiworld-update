@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "mail_common_related_passed_full_running",
+  "status": "mail_common_local_verified_ci_running",
   "release_baseline": "v1.08",
   "target_release": "v1.08",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/mail-common/HANDOFF.md",
   "current_task": "우편3종 단일원본·공통지급 및 중복CI 통합 검증",
-  "next_step": "진행 중 전체검사 결과 수집 → 통합CI 실제우편 화면 확인 → 최종 checkpoint",
+  "next_step": "통합CI 42379577723의 전체회귀·공통화면 결과 확인 → 최종검증기록 저장",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -69,9 +69,11 @@
     "read_only_cause": "not established; do not attribute to context without evidence"
   },
   "followup": {
-    "status": "related_checks_passed_full_running",
+    "status": "local_71_passed_27_mail_pixels_identical_ci_running",
     "deployed": false,
     "release_authorized": false,
-    "verification": "docs/qa/mail-common/VERIFICATION.json"
+    "verification": "docs/qa/mail-common/VERIFICATION.json",
+    "source_commit": "272e5f466901109c111111910a7505d59404f6fc",
+    "ci_run": 42379577723
   }
 }
