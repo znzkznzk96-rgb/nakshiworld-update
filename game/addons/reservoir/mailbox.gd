@@ -20,7 +20,7 @@ var full_text := false
 const Reader = preload("res://addons/reservoir/topic_reader.gd")
 func sections(letter: Dictionary) -> Array:
 	if letter.id=="1.08":
-		return [{"name":"일회성 확인 선물","icon":"fish","body":letter.body,"display":["계곡 물고기20종 각1마리","100만 비늘 · 해당 세이브에서1회"]},{"name":"타일바다 입장","icon":"museum","body":["계곡 필수 번들에 기증한 뒤 자격증을 받아요.","낚시터에서 312,000비늘로 타일바다를 해금해요."],"display":["계곡 필수 번들 기증 → 보상 수령","낚시터에서 타일바다 해금"]}]
+		return [{"name":"일회성 확인 선물","icon":"fish","body":letter.body.slice(0,2),"display":["계곡 물고기20종 각1마리","100만 비늘 · 해당 세이브에서1회"]},{"name":"타일바다 입장","icon":"museum","body":letter.body.slice(2),"display":["계곡 필수 번들 기증 → 보상 수령","낚시터에서 타일바다 해금"]}]
 	if letter.id=="0.93":
 		return [
 			{"name":"일회성 선물","icon":"fish","body":letter.body.slice(5),"display":["저수지 전종 전설 물고기 각 1마리","총 20마리 + 100,000비늘 선물!"]},

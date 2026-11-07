@@ -1,0 +1,9 @@
+{
+  "run": 42373549235,
+  "published": false,
+  "failed": "reader_verify original mail item",
+  "cause": "New sections used all original paragraphs in first group and invented two extra body paragraphs in second group.",
+  "fix": "Split original body into slice(0,2) and slice(2), preserve existing visible summaries.",
+  "gift_rollback_and_duplicates": "passed",
+  "fixture_fix_original_run": 42373131205
+}
