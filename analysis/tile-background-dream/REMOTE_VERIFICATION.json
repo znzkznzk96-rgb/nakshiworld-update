@@ -1,0 +1,16 @@
+{
+  "source_commit": "7ffe33e3889b42067d6d621e824f24efc6aa7bce",
+  "checks": [
+    {
+      "path": "analysis/tile-background-dream/mist.png",
+      "exact": true
+    },
+    {
+      "path": "analysis/tile-background-dream/cloud-fixed.png",
+      "exact": true
+    }
+  ],
+  "all_exact": true,
+  "png_manifest": "MANIFEST.json",
+  "deployed": false
+}

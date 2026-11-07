@@ -20,5 +20,35 @@
   "native_render_errors": false,
   "native_exit_code": 0,
   "gif_frames": 120,
-  "gif_duration_ms": 10000
+  "gif_duration_ms": 10000,
+  "hud_panel_checks": [
+    {
+      "rect": [
+        22,
+        10,
+        517,
+        57
+      ],
+      "identical": true
+    },
+    {
+      "rect": [
+        26,
+        78,
+        257,
+        125
+      ],
+      "identical": true
+    },
+    {
+      "rect": [
+        285,
+        78,
+        513,
+        125
+      ],
+      "identical": true
+    }
+  ],
+  "hud_top140_note": "Full top140 includes exposed background gaps, intentionally tinted. Panel interiors checked separately."
 }
