@@ -33,6 +33,13 @@ jobs:
               assert run["conclusion"]=="success" and run["status"]=="completed"
               assert r["headless_suites"]==69 and r["png_originals_verified"]==21
               print("V107_PREFLIGHT_EXACT_GAME_TREE_VERIFIED")
+          if v["code"]==108:
+              r=json.load(open("docs/releases/valley-gift-108/PREFLIGHT.json"))
+              assert subprocess.check_output(["git","rev-parse","HEAD:game"],text=True).strip()==r["game_tree_sha"]
+              req=urllib.request.Request("https://api.github.com/repos/znzkznzk96-rgb/nakshiworld-update/actions/runs/"+str(r["run"]),headers={"Authorization":"Bearer "+os.environ["GH_TOKEN"],"Accept":"application/vnd.github+json"})
+              with urllib.request.urlopen(req,timeout=30) as response:run=json.load(response)
+              assert run["conclusion"]=="success" and run["status"]=="completed"
+              print("V108_GIFT_PREFLIGHT_EXACT_GAME_TREE_VERIFIED")
           PY
       - name: Install pinned build tools
         shell: bash
