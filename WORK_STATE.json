@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "tile_dream_tone_cloud_mist_in_progress",
+  "status": "tile_dream_preview_ready",
   "release_baseline": "v1.09",
   "target_release": "v1.10",
   "deployed": false,
   "phone_verified": false,
   "handoff": "analysis/tile-background-dream/HANDOFF.md",
   "current_task": "구름·안개재제작/밝은몽환톤/1성장식어·수초축소",
-  "next_step": "PixelLab 구름1장 생성 및 원본/화면 검수 후 안개",
+  "next_step": "밝은 몽환톤/구름·안개/1성장식어·수초축소 시안 검토; 원형건축물 추가레이어는 제안",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -218,5 +218,14 @@
     "production_integrated": false,
     "deployed": false,
     "verification": "analysis/tile-background-pixellab-r2/VERIFICATION.json"
+  },
+  "tile_background_dream": {
+    "verification": "analysis/tile-background-dream/VERIFICATION.json",
+    "paid_generations": 2,
+    "fish_species": 4,
+    "fish_instances": 6,
+    "plants": 5,
+    "production_integrated": false,
+    "deployed": false
   }
 }

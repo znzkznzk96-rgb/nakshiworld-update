@@ -1,0 +1,6 @@
+{
+  "status": "http_error_stop",
+  "http_status": 422,
+  "body": "{\"detail\":[{\"type\":\"enum\",\"loc\":[\"body\",\"outline\"],\"msg\":\"Input should be 'single color black outline', 'single color outline', 'selective outline' or 'lineless'\",\"input\":\"no outline\",\"ctx\":{\"expected\":\"'single color black outline', 'single color outline', 'selective outline' or 'lineless'\"}}]}",
+  "request_count": 1
+}

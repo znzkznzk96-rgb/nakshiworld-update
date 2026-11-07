@@ -1,0 +1,10 @@
+{
+  "status": "usable_with_soft_additive_render",
+  "native_size": [
+    160,
+    48
+  ],
+  "native_and_nearest4x_reviewed": true,
+  "issue": "thin grey outlines in raw art",
+  "render_correction": "25sample alpha softness, pale lavender additive color; faint distant mist only, raw PNG unchanged"
+}
