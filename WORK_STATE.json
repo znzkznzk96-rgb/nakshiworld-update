@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "tile_layers_resume_independent_items",
+  "status": "tile_layers_preview_complete_ambiguous_assets_deferred",
   "release_baseline": "v1.09",
   "target_release": "v1.10",
-  "deployed": true,
+  "deployed": false,
   "phone_verified": false,
-  "handoff": "analysis/tile-layer-art-v1/HANDOFF.md",
-  "current_task": "원경어군2·바닥수초2·벽식물2 제작,첫어군검수부터",
-  "next_step": "어군 보류, 식물4장 개별검수 및 코드레이어 시안 구현",
+  "handoff": "analysis/tile-layers-stage2/HANDOFF.md",
+  "current_task": "타일바다12개레이어 시안 구현·관련검사 완료",
+  "next_step": "최종 시안 사용자 검토 후 본편 적용 여부 결정. 원경어군2·덩굴1 보류, 추가 유료 생성 없음.",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -136,11 +136,12 @@
     "candidate_ready": true
   },
   "tile_layer_preview": {
-    "path": "analysis/tile-layers-stage1/water_3.webp",
-    "verification": "analysis/tile-layers-stage1/VERIFICATION.json",
+    "path": "analysis/tile-layers-stage2/water_3-display.webp",
+    "verification": "analysis/tile-layers-stage2/VERIFICATION.json",
     "production_integrated": false,
-    "paid_generation": 0,
-    "deployed": false
+    "paid_generation": 4,
+    "deployed": false,
+    "layers": 12
   },
   "tile_art_generation": {
     "authorized_art_outputs": 6,
@@ -151,9 +152,20 @@
     "deployed": false,
     "technical_attempt_limit_per_image": 3,
     "first_output_received": true,
-    "accepted_outputs": 0,
+    "accepted_outputs": 3,
     "rejected_outputs": 1,
     "actual_generations_used": 1,
-    "quality_gate": "failed_stop"
-  }
+    "quality_gate": "failed_stop",
+    "status": "three_plants_passed_three_assets_deferred",
+    "withheld_assets": [
+      "far-school-01",
+      "far-school-02",
+      "wall-plant-01"
+    ],
+    "plant_generations_used": 4,
+    "total_generations_used_including_school": 5,
+    "ledger": "analysis/tile-layer-art-v1/PLANT_LEDGER.json",
+    "quality": "analysis/tile-layer-art-v1/PLANT_QA.json"
+  },
+  "public_release": "v1.09"
 }

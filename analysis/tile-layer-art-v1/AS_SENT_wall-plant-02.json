@@ -1,0 +1,13 @@
+{
+  "description": "One small side-growing submerged aquatic plant attached at the LEFT side by a tiny dark root knot, five long curved blue-green ribbon leaves sweeping right and down, deep teal shadows and mint highlights. No wall and no pot. Isolated side-view 16-bit pixel art environment sprite for a cozy turquoise tiled underwater ruin. Crisp square pixel clusters, three or four shades per color, selective dark teal outline. Small decoration, restrained detail, readable silhouette. Entire plant including roots visible, at least four transparent pixels margin, except hanging anchor. No fish, no bubbles, no water, no scenery, no floor, no tile, no flowers, no gold, no text, no blur, no glow, no background. Single static sprite, not a sprite sheet.",
+  "image_size": {
+    "width": 64,
+    "height": 96
+  },
+  "outline": "selective outline",
+  "detail": "medium detail",
+  "view": "side",
+  "no_background": true,
+  "seed": 2026110813,
+  "enhance_prompt": false
+}

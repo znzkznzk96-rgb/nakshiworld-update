@@ -102,12 +102,21 @@ func decorative_fish(near:bool)->void:
   draw_set_transform(Vector2.ZERO,0,Vector2.ONE)
 func plants()->void:
  if plant_textures.is_empty():return
- for i in 4:
-  var wall:bool=kind=="plants_wall"
+ var wall:bool=kind=="plants_wall"
+ var count:int=2 if wall else 4
+ for i in count:
   var tex:Texture2D=plant_textures[i%plant_textures.size()]
-  var x:float=([8,730,35,690][i] if wall else [30,160,620,724][i])
-  var y:float=([1660,1620,1740,1700][i] if wall else [1768,1800,1790,1745][i])
   var h:float=(85 if wall else 75)+(i%2)*12
   var w:float=h*tex.get_width()/float(tex.get_height())
-  var sway:float=sin(elapsed*.65+i)*1.5
-  draw_texture_rect(tex,Rect2(x+sway,y-h,w,h),false,Color(.78,.94,.96,.85*intensity))
+  if wall:
+   # Side-root knot stays attached to ruin; only leaves gently sway.
+   var anchor:Vector2=Vector2(28,1718) if i==0 else Vector2(750,1660)
+   draw_set_transform(anchor,sin(elapsed*.65+i)*.018,Vector2(1 if i==0 else -1,1))
+   draw_texture_rect(tex,Rect2(-w*.25,-h*.41,w,h),false,Color(.78,.94,.96,.85*intensity))
+   draw_set_transform(Vector2.ZERO,0,Vector2.ONE)
+  else:
+   var x:float=[30,160,620,724][i]
+   var y:float=[1768,1800,1790,1745][i]
+   draw_set_transform(Vector2(x+w*.5,y),sin(elapsed*.65+i)*.018,Vector2.ONE)
+   draw_texture_rect(tex,Rect2(-w*.5,-h,w,h),false,Color(.78,.94,.96,.85*intensity))
+   draw_set_transform(Vector2.ZERO,0,Vector2.ONE)

@@ -4,7 +4,7 @@
     1320
   ],
   "change_bbox": [
-    27,
+    11,
     577,
     540,
     1197
@@ -32,10 +32,20 @@
   ],
   "withheld": [
     "far-school-01",
-    "far-school-02"
+    "far-school-02",
+    "wall-plant-01"
   ],
-  "plant_screens_pending": [
-    "wall-plant-01",
+  "plant_screens_pending": [],
+  "plant_screen_pass": [
+    "floor-plant-01",
+    "floor-plant-02",
     "wall-plant-02"
-  ]
+  ],
+  "display_webp": "water_3-display.webp (lossy display only; pixel checks on original PNGs)",
+  "pixel_check_original_pngs": {
+    "before": "438b1f1c8e7d8cf4aa7eef3c8aef6b61d715f972b84eeaba5c99314a2d6324ee",
+    "water_0": "c69e9bb8f1cd445498153d7baec1082d060e96ae7daf7fad8ce6e8f6a26f8837",
+    "water_3": "66be27acec25f269c738bf25684a56350e5f025437a21e4ef6ca4e8ef8e63943",
+    "water_6": "7616a3378c7724ffff7b301cb4a341ad88fa1ac9f31302d2a6f8ebb6013914c4"
+  }
 }

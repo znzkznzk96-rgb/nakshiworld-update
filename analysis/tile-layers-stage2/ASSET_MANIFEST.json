@@ -1,0 +1,42 @@
+{
+  "wall-plant-01.png": {
+    "sha256": "c5dd0d08f9ee3c67a12ac3851f157fa23a35cef01f89390c527b63518096a73d",
+    "git_blob_sha": "c4275c413f13f83727e8995f1a41d792dd6e9604",
+    "bytes": 4323,
+    "size": [
+      64,
+      96
+    ],
+    "status": "withheld_ambiguous"
+  },
+  "floor-plant-01.png": {
+    "sha256": "3e269272f8250a246c0e8f0167a0f61188add754d45a980f7d99dce8817e8dcd",
+    "git_blob_sha": "6a61a10127895c7997978eb859bf655090d85065",
+    "bytes": 5037,
+    "size": [
+      64,
+      80
+    ],
+    "status": "internal_pass"
+  },
+  "wall-plant-02.png": {
+    "sha256": "30a63590b617fffc6cd3ce081967b1e98f16a07462f9489baf540baf1d62e797",
+    "git_blob_sha": "72839c58ed90f4520c00f5e60e3504d717138156",
+    "bytes": 3189,
+    "size": [
+      64,
+      96
+    ],
+    "status": "internal_pass"
+  },
+  "floor-plant-02.png": {
+    "sha256": "c5c770f9d87c7a964ad2f9df0882562a16ac91876521111f98c7f64f2e773c47",
+    "git_blob_sha": "4334e83e0667c160c26921ce80bf201ac5a967c2",
+    "bytes": 3828,
+    "size": [
+      64,
+      80
+    ],
+    "status": "internal_pass"
+  }
+}
