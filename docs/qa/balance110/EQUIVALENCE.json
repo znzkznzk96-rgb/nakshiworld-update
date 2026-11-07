@@ -1,0 +1,15 @@
+{
+  "trials_per_implementation": 1296,
+  "identical_rows": 1296,
+  "differences": 0,
+  "complete": true,
+  "compared": [
+    "success",
+    "duration",
+    "failure_reason",
+    "progress",
+    "max_tension",
+    "landing_taps"
+  ],
+  "reservoir_reference_fix": "landing uses preserved bonus_factor1 in both sides; earlier quoted reservoir normal results unaffected"
+}

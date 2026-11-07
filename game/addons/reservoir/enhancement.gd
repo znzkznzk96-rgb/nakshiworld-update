@@ -101,6 +101,6 @@ func _cinematic(v, m, r: Rect2, y: float) -> void :
 		var title: String = "강화 성공!" if ok else ("강화 실패 · 단계 하락" if int(record.next) < int(record.old) else "강화 실패 · 단계 유지")
 		m._text(title, Vector2(135, y + 141), 14, Color("b77c24") if ok else Color("81546e"), true, 230)
 		m._text("+%d → +%d" % [int(record.old), int(record.next)], Vector2(135, y + 174), 20, v.active_style.ink, true, 220)
-		var desc: String = "감기 +3% · 장력 증가 -2% · 판매가 +5%" if ok else ("보호권이 하락을 막았어요" if bool(record.protected) else "낚싯대는 파괴되지 않아요")
+		var desc: String = "감기·제어 성능↑ · 판매가 +5%" if ok else ("보호권이 하락을 막았어요" if bool(record.protected) else "낚싯대는 파괴되지 않아요")
 		m._text(desc, Vector2(135, y + 199), 9, v.active_style.ink, true, 232)
 		_button(v, m, Rect2(64, y + 216, 142, 28), "확인", "forge_done")

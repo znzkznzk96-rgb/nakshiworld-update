@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "regional_difficulty_simulation_complete_recommendation_unapplied",
+  "status": "v110_balance_applied_unpublished",
   "release_baseline": "v1.09",
-  "target_release": "v1.09",
+  "target_release": "v1.10",
   "deployed": true,
   "phone_verified": false,
-  "handoff": "analysis/regional-difficulty-20261108/HANDOFF.md",
-  "current_task": "71380회 시뮬레이션 완료·추천안 정리",
-  "next_step": "사용자가 추천안 선택하면 전투계산에 구현/관련검증. 현재 밸런스미적용·새배포없음.",
+  "handoff": "docs/qa/balance110/HANDOFF.md",
+  "current_task": "승인 난이도 적용·표시수정·1.10 검증후보 준비",
+  "next_step": "새전체CI/후보생성검증, 공개금지 유지.",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -117,5 +117,14 @@
     "designs_including_baseline": 19,
     "production_balance_changed": false,
     "phone_tested": false
+  },
+  "release_authorized": false,
+  "balance110": {
+    "applied": true,
+    "deployed": false,
+    "release_authorized": false,
+    "equivalence_conditions": 1296,
+    "equivalence_exact": true,
+    "verification": "docs/qa/balance110/VERIFICATION.json"
   }
 }

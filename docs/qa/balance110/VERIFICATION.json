@@ -1,0 +1,19 @@
+{
+  "date_kst": "2026-11-08",
+  "version": {
+    "code": 110,
+    "name": "1.10"
+  },
+  "release_authorized": false,
+  "deployed": false,
+  "published_version": "v1.09",
+  "equivalence": "EQUIVALENCE.json",
+  "related": [
+    "fishing_difficulty"
+  ],
+  "equivalence_conditions": 1296,
+  "equivalence_exact": true,
+  "source_reference_commit": "f0c39c5ed752c826a703d53d7465fc58488ea24a",
+  "future_rod_policy": "unverified proposal5.3/10/20 inactive; existing tier increments extrapolated from calibrated rod2",
+  "full_ci": "pending"
+}

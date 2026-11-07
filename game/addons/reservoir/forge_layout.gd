@@ -40,11 +40,13 @@ func draw_rods(v,m,r:Rect2,y:float):
  y+=129
  m._ui_rect(Rect2(x,y,3,17),Color("64836a"))
  label(m,v.ROD_NAME[selected],Vector2(x+9,y+13),12)
- badge(m,Rect2(x+172,y+1,54,14),"%+d%%p" % ((selected-m.rod_lv)*12))
+ var current_power:float=m.FISHING_DIFFICULTY.base_reel_power(m.rod_lv,m.active_region)
+ var selected_power:float=m.FISHING_DIFFICULTY.base_reel_power(selected,m.active_region)
+ badge(m,Rect2(x+172,y+1,54,14),"%+d%%p" % roundi((selected_power-current_power)*100))
  m._ui_rect(Rect2(x,y+21,w,21),Color("e4e7da"))
  label(m,"감기 성능",Vector2(x+4,y+33),10)
- label(m,"+%d%% → +%d%%" % [m.rod_lv*12,selected*12],Vector2(x+120,y+33),11,Color("39715c"),false,103)
- label(m,"물고기를 더 빠르게 끌어올려요",Vector2(x+4,y+49),9,Color("75614d"))
+ label(m,"+%d%% → +%d%%" % [roundi((current_power-1)*100),roundi((selected_power-1)*100)],Vector2(x+120,y+33),11,Color("39715c"),false,103)
+ label(m,"계곡·타일 기본 감는힘 기준" if m.active_region in [1,2] else "저수지 기준 · 지역별 성능이 달라요",Vector2(x+4,y+49),9,Color("75614d"))
  line(m,x,y+58,w)
  m._ui_texture_rect(m.icons.scale,Rect2(x+2,y+65,14,17))
  var owned:bool=selected in m.equipment.rods
@@ -73,9 +75,9 @@ func draw_upgrade(v,m,r:Rect2,y:float):
   var ico:Texture2D=v.tool_icons[["reel","line","scale"][i]]
   m._ui_texture_rect(ico,Rect2(x+3,yy-12,14,14))
   label(m,["감기 성능","장력 증가","판매가"][i],Vector2(x+23,yy),10)
-  label(m,["+%d%%"%(lv*3),"-%d%%"%(lv*2),"+%d%%"%(lv*5)][i],Vector2(x+128,yy),11,Color("75614d"),true)
+  label(m,m.FISHING_DIFFICULTY.upgrade_labels(lv,m.active_region)[i],Vector2(x+128,yy),11,Color("75614d"),true)
   label(m,"→",Vector2(x+160,yy),9,Color("9b8468"),true)
-  label(m,["+%d%%"%(nxt*3),"-%d%%"%(nxt*2),"+%d%%"%(nxt*5)][i],Vector2(x+198,yy),11,Color("39715c"),true)
+  label(m,m.FISHING_DIFFICULTY.upgrade_labels(nxt,m.active_region)[i],Vector2(x+198,yy),11,Color("39715c"),true)
  y+=92;line(m,x,y,w)
  if lv>=e.LIMIT[ri]:
   label(m,"최고 강화 단계입니다",Vector2(135,y+30),11,Color("39715c"),true);return

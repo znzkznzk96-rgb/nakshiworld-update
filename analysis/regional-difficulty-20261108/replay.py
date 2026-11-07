@@ -3,6 +3,8 @@ import argparse,hashlib,json,os,pathlib,shutil,subprocess
 p=argparse.ArgumentParser();p.add_argument('--project',type=pathlib.Path,required=True);p.add_argument('--godot',type=pathlib.Path,required=True);p.add_argument('--config',type=pathlib.Path,required=True);p.add_argument('--out',type=pathlib.Path,required=True);a=p.parse_args()
 a.out.mkdir(parents=True,exist_ok=True)
 source=(a.project/'main.gd').read_text();digest=hashlib.sha256(source.encode()).hexdigest()
+expected=json.loads(pathlib.Path(__file__).with_name('VERIFICATION.json').read_text())['main_source_sha256']
+assert digest==expected,'Restore the study source commit before replay; do not double-apply tuned production formulas'
 patches=[('extends Node2D','extends Node2D\nvar simulation_bonus_factor:float=1.0\nvar simulation_loss_factor:float=1.0'),('S.skimUsed = true;S.dist += 8;','S.skimUsed = true;S.dist += 8*simulation_bonus_factor;'),('S.dist -= pull * 2 * dt','S.dist -= pull * 2 * dt * simulation_loss_factor')]
 for old,new in patches:
  assert source.count(old)==1,old
