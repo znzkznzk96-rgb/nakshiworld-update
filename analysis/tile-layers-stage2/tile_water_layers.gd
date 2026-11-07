@@ -101,10 +101,10 @@ func decorative_fish(near:bool)->void:
   draw_texture_rect(tex,Rect2(0,0,width,h),false,Color(1,1,1,(.72 if near else .40)*intensity))
   draw_set_transform(Vector2.ZERO,0,Vector2.ONE)
 func plants()->void:
- if plant_textures.size()<2:return
+ if plant_textures.is_empty():return
  for i in 4:
   var wall:bool=kind=="plants_wall"
-  var tex:Texture2D=plant_textures[i%2]
+  var tex:Texture2D=plant_textures[i%plant_textures.size()]
   var x:float=([8,730,35,690][i] if wall else [30,160,620,724][i])
   var y:float=([1660,1620,1740,1700][i] if wall else [1768,1800,1790,1745][i])
   var h:float=(85 if wall else 75)+(i%2)*12

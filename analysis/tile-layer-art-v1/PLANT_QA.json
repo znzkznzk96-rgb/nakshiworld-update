@@ -7,5 +7,27 @@
     "alpha": "transparent, bounding box1,2,63,77; edge margin smaller than requested but no visible truncation",
     "cost_generations": 1,
     "screen_review": "pending"
+  },
+  "floor-plant-02": {
+    "status": "internal_pass",
+    "form": "broad lobed jade leaves, distinct from narrow clump",
+    "color": "green/jade with teal shadows and mint edges",
+    "pixels": "clear native and nearest4x; transparent uncut margin",
+    "cost_generations": 1,
+    "screen_review": "pending"
+  },
+  "wall-plant-01": {
+    "status": "withheld_ambiguous",
+    "form": "hanging vine readable but bottom leaf cluster touches canvas edge",
+    "color": "teal mint suitable",
+    "alpha_bbox": [
+      4,
+      0,
+      60,
+      96
+    ],
+    "clipping": "bottom edge ambiguity; not integrated",
+    "cost_generations": 1,
+    "next": "hold this item; user authorized independent remaining items"
   }
 }

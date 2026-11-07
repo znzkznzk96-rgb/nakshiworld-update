@@ -1,0 +1,41 @@
+{
+  "size": [
+    540,
+    1320
+  ],
+  "change_bbox": [
+    27,
+    577,
+    540,
+    1197
+  ],
+  "hud_sky_architecture_unchanged_above_y555": true,
+  "animation_changes_at_0_3_6": true,
+  "headless_480_540_660": "passed",
+  "original_background_modified": false,
+  "production_integrated": false,
+  "release_authorized": false,
+  "deployed": false,
+  "layers": [
+    "surface",
+    "reflection",
+    "light",
+    "caustics",
+    "particles",
+    "flow",
+    "bubbles",
+    "pier",
+    "fish_mid",
+    "fish_near",
+    "plants_floor",
+    "plants_wall"
+  ],
+  "withheld": [
+    "far-school-01",
+    "far-school-02"
+  ],
+  "plant_screens_pending": [
+    "wall-plant-01",
+    "wall-plant-02"
+  ]
+}
