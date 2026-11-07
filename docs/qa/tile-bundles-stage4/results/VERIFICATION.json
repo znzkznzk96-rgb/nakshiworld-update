@@ -1,0 +1,47 @@
+{
+  "source_commit": "1aee536b9cb3290fb74acc6215e8b5dbd9f28067",
+  "baseline": "verified v1.06 game-source.zip",
+  "legacy_save_generated_by_actual_v106": true,
+  "synthetic_save_only": true,
+  "real_user_save_used": false,
+  "real_filesystem_failure_cases": 6,
+  "restart": "separate Godot process",
+  "side_reward": {
+    "sale_sum": 621,
+    "scale": 1.2,
+    "paid": 745,
+    "souls": 30
+  },
+  "owner_reward": {
+    "sale_value": 1001,
+    "scale": 1.5,
+    "paid": 1502,
+    "pearls": 2
+  },
+  "tile_entry_fee": 312000,
+  "rift_unavailable": true,
+  "remaining_suites": [
+    "odds_rewards",
+    "reservoir_layers",
+    "owner_gauge",
+    "bag_list",
+    "bundles_buyback",
+    "equipment",
+    "visual",
+    "guide",
+    "shop",
+    "audio_save",
+    "bundle_preview",
+    "rewards",
+    "reader",
+    "fish_surface",
+    "inventory_layout",
+    "bait_roles",
+    "measurement_speed",
+    "village_entry_audio"
+  ],
+  "reused_passed_before_failure": 49,
+  "deployed": false,
+  "phone_verified": false,
+  "standard_full_workflow_success": false
+}
