@@ -1,0 +1,21 @@
+{
+  "source_commit": "ceef6bbc6c8d067dc5b88ee69713355f8035cb1e",
+  "checks": [
+    {
+      "path": "analysis/tile-cloud-birds/cloud-01.png",
+      "exact": true
+    },
+    {
+      "path": "analysis/tile-cloud-birds/cloud-02.png",
+      "exact": true
+    },
+    {
+      "path": "analysis/tile-cloud-birds/cloud-03.png",
+      "exact": true
+    }
+  ],
+  "all_exact": true,
+  "unchanged_approved_cloud": "../tile-pier-cloud/cloud.png",
+  "original_bird_source_proof": "BIRD_SOURCE_QA.json",
+  "deployed": false
+}
