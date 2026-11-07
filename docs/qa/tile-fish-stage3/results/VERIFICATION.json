@@ -1,0 +1,30 @@
+{
+  "source_commit": "b20238d90739065a4f92f907d32d40238ed8387d",
+  "approval_archives": [
+    "tile-sea-final20.zip (except12/17)",
+    "tile-sea-12-17-swimming-pose.zip (12/17)"
+  ],
+  "approved_matches": 20,
+  "dimensions": [
+    96,
+    64
+  ],
+  "edge_contacts": 0,
+  "heights": [
+    480,
+    540,
+    660
+  ],
+  "tests": [
+    "codex089",
+    "tile_dex_stage3"
+  ],
+  "reused_passed_test": {
+    "personal_dex": 42316841578
+  },
+  "synthetic_test_records": true,
+  "actual_user_save_used": false,
+  "game_assets_changed": false,
+  "deployed": false,
+  "full_regression_run": false
+}
