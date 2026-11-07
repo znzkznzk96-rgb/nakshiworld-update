@@ -54,7 +54,7 @@ func run():
 		check(not p.claim_reward(m,2,kind) and not p.claimed(2,kind),"failed claim rolls back")
 		m.development_preview=false
 		check(p.claim_reward(m,2,kind) and not p.claim_reward(m,2,kind),"claim exactly once")
-	check(m.gold==879 and m.souls==30 and m.pearl==2,"actual 606x1.2 + 101x1.5 rounded rewards")
+	check(m.gold==1344 and m.souls==50 and m.pearl==6,"actual 606x1.8 + 101x2.5 rounded rewards")
 	check(p.licensed(3),"tile main grants rift eligibility")
 	m.gold=99999999
 	check(not m.region_shop.unlock(m,3) and m.gold==99999999,"unfinished rift cannot charge")

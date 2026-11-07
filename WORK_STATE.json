@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "regional_bundle_rewards_pending_values_museum_restore",
+  "status": "regional_bundle_rewards_implemented_unpublished",
   "release_baseline": "v1.08",
   "target_release": "v1.08",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/regional-bundle-rewards/HANDOFF.md",
-  "current_task": "계곡·타일 번들보상 차등 및 박물관 타일 썸네일 이전그림 복원",
-  "next_step": "박물관 썸네일 분리복원·관련검사. 보상 지급량/배율과 기존수령분 처리 미정 확인.",
+  "current_task": "지역별 번들 보상 차등 및 박물관 타일 이미지 분리복원 구현",
+  "next_step": "화면 검토, 새 패치 배포는 별도 승인 대기. 상세검사 regional-bundle-rewards/VERIFICATION.json.",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -79,5 +79,10 @@
     "headless_suites": 71,
     "independent_restart": "passed",
     "mail_render_comparison": "27_of_27_identical"
+  },
+  "regional_bundle_followup": {
+    "deployed": false,
+    "release_authorized": false,
+    "verification": "docs/qa/regional-bundle-rewards/VERIFICATION.json"
   }
 }

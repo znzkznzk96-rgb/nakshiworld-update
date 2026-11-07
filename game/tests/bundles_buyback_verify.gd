@@ -26,7 +26,7 @@ func run() -> void:
 				check(p.bundle_counts(area,1)[2]==1,"partial side progress survives restart")
 		check(m.gold==main_gold,"completion waits for explicit claim")
 		check(p.claim_reward(m,area,1),"claim side")
-		check(m.gold==main_gold+900 and m.souls==(15 if area==0 else 45),"side rewards actual 750 sale value times120% and correct souls")
+		check(m.gold==main_gold+([900,1125][area]) and m.souls==(15 if area==0 else 45),"side rewards actual 750 sale value regional multiplier and correct souls")
 		check(not p.main_completed[area],"side completion needs no main completion")
 		m.bag=[fish(p.SUB_SPECIES[area][0])]
 		check(not p.donate_bundle(m,area,1,0,0) and m.bag.size()==1,"repeat side cannot consume or pay again")
@@ -43,7 +43,7 @@ func run() -> void:
 		m.bag=[fish(area*20+19,1001,4)]
 		check(p.donate_bundle(m,area,2,0,0),"owner accepts any grade")
 		check(p.claim_reward(m,area,2),"claim owner")
-		check(m.gold==main_gold+1502 and m.pearl==prior_pearl+2,"owner 150% nearest integer plus two pearls")
+		check(m.gold==main_gold+([1502,2002][area]) and m.pearl==prior_pearl+([2,4][area]),"owner regional reward rounding and pearls")
 		m._save_game();p.restore({});m._load_game()
 		check(p.bundle_done(area,2) and p.bundle_done(area,1) and p.bundle_done(area,0),"all completed flags persist")
 		m.bag=[fish(area*20+19)]
