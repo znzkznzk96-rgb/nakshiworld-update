@@ -1,0 +1,21 @@
+{
+  "usage": {
+    "type": "generations",
+    "generations": 1.0
+  },
+  "enhanced_prompt": null,
+  "enhance_usage": null,
+  "http_status": 200,
+  "seed": 2026110908,
+  "model": "create-image-pixen",
+  "request_count": 1,
+  "status": "received_unreviewed",
+  "result_sha256": "7bef306364cfa61b94028303234390f22ff42d88bc1274fe6e6d0a319d49a077",
+  "result_bytes": 2851,
+  "image_size": [
+    64,
+    96
+  ],
+  "mode": "RGBA",
+  "transmitted_request_sha256": "827b610e5c2e9653a45b20833bd7ed1c9f04b738d1939b1bac012327a515f3cc"
+}

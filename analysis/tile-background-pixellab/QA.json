@@ -136,5 +136,51 @@
     "model": "create-image-pixen",
     "generations_reported": 1.0,
     "production_integrated": false
+  },
+  "floor-broad": {
+    "status": "pass",
+    "notes": "Isolated blue-green broad leaf plant with distinct stems/veins and intact roots; transparent clean margins, no scenery, native/4x readable.",
+    "native_and_nearest4x_reviewed": true,
+    "size": [
+      64,
+      80
+    ],
+    "bbox": [
+      2,
+      10,
+      62,
+      70
+    ],
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "sha256": "d46c527dc9216b3b5aef3c4105adfbcf08b3a697b3f6dc321ba16651a624a23b",
+    "model": "create-image-pixen",
+    "generations_reported": 1.0,
+    "production_integrated": false
+  },
+  "wall-ribbon": {
+    "status": "pass",
+    "notes": "Side-root knot and separate long teal/mint ribbon leaves, clear transparent canvas, tip pixels inside bounds. Native/4x checked; actual wall anchor to be aligned.",
+    "native_and_nearest4x_reviewed": true,
+    "size": [
+      64,
+      96
+    ],
+    "bbox": [
+      2,
+      33,
+      63,
+      86
+    ],
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "sha256": "7bef306364cfa61b94028303234390f22ff42d88bc1274fe6e6d0a319d49a077",
+    "model": "create-image-pixen",
+    "generations_reported": 1.0,
+    "production_integrated": false
   }
 }

@@ -12,7 +12,14 @@ func sprite(key:String,pos:Vector2,width:float,tint:Color=Color.WHITE,flip:bool=
  if not assets.has(key):return
  var tex:Texture2D=assets[key];var used:Rect2=bounds[key];var h:float=width*used.size.y/used.size.x
  draw_set_transform(pos,0,Vector2(-1 if flip else 1,1))
- draw_texture_rect_region(tex,Rect2(-width*.5,-h*.5,width,h),used,tint)
+ if key in ["arch-vine","floor-ribbon","floor-broad","wall-ribbon"]:
+  for band in 10:
+   var a:float=band/10.0
+   var influence:float=a if key=="arch-vine" else (1-a if key.begins_with("floor") else absf(a-.4))
+   var shift:float=sin(elapsed*1.1+a*2+pos.x*.01)*3*influence*influence
+   draw_texture_rect_region(tex,Rect2(-width*.5+shift,-h*.5+a*h,width,h/10+.1),Rect2(used.position+Vector2(0,a*used.size.y),Vector2(used.size.x,used.size.y/10)),tint)
+ else:
+  draw_texture_rect_region(tex,Rect2(-width*.5,-h*.5,width,h),used,tint)
  draw_set_transform(Vector2.ZERO,0,Vector2.ONE)
 func _draw():
  sprite("cloud-far",Vector2(466+sin(elapsed*.035)*90,355),143,Color(.90,.98,1,.72))
