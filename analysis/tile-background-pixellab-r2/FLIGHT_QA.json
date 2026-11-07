@@ -1,0 +1,11 @@
+{
+  "status": "pass",
+  "requested_intervals": 8,
+  "received_pngs": 9,
+  "first_last_pixel_equal": false,
+  "loop_frames": 9,
+  "source_appearance_preserved": true,
+  "wings_up_down_recovery_visible": true,
+  "all_frames_transparent_and_uncut": true,
+  "native_and_nearest3x_sheet_reviewed": true
+}

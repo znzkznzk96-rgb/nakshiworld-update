@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "gull_source_passed_pixellab_flight_job_processing",
+  "status": "background_retry_preview_ready_with_clouds_held",
   "release_baseline": "v1.09",
   "target_release": "v1.10",
   "deployed": false,
   "phone_verified": false,
   "handoff": "analysis/tile-background-pixellab-r2/HANDOFF.md",
-  "current_task": "보류6비어류재제작·실제타일어류장식전환·갈매기원화/날갯짓제작",
-  "next_step": "기존PixelLab job fda4ebfe-767e-49d5-a1ab-af20ccbaa6b3 조회,새POST금지",
+  "current_task": "실제타일어류12종·갈매기9프레임·수초·기포 미리보기",
+  "next_step": "미리보기 검토; 구름/안개 보류 해결 후 승인 구성 본편 통합",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -207,5 +207,16 @@
     "verification": "analysis/tile-background-pixellab/VERIFICATION.json",
     "production_integrated": false,
     "deployed": false
+  },
+  "tile_background_pixellab_r2": {
+    "static_outputs": 7,
+    "static_pass": 3,
+    "static_held": 4,
+    "flight_frames": 9,
+    "actual_fish_reused": 12,
+    "paid_generations_used": 8,
+    "production_integrated": false,
+    "deployed": false,
+    "verification": "analysis/tile-background-pixellab-r2/VERIFICATION.json"
   }
 }

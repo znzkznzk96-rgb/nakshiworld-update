@@ -13,7 +13,7 @@ func _ready():
    var image:Image=Image.load_from_file(path);assets[key]=ImageTexture.create_from_image(image);bounds[key]=Rect2(image.get_used_rect())
  for id in [0,1,2,3,4,5,6,9,10,14,15,17]:
   var tex:Texture2D=load("res://art/fish/l2_%02d.png"%id);tile_fish.append(tex);fish_bounds.append(Rect2(tex.get_image().get_used_rect()))
- for i in 8:
+ for i in 9:
   var path:String="res://tests/tile_background_r2_assets/gull-flight-%02d.png"%i
   if FileAccess.file_exists(path):bird_frames.append(ImageTexture.create_from_image(Image.load_from_file(path)))
 func sprite(key:String,pos:Vector2,width:float,tint:Color=Color.WHITE,flip:bool=false):
@@ -45,11 +45,6 @@ func draw_fish(index:int,pos:Vector2,width:float,alpha:float,going_right:bool):
  draw_set_transform(Vector2.ZERO,0,Vector2.ONE)
 func _draw():
  # A broad far bank drifts slowly through the edge; nearer clouds move faster.
- sprite("cloud-far",Vector2(645+sin(elapsed*.025)*55,348),340,Color(.92,.98,1,.64))
- sprite("cloud-far",Vector2(330+sin(elapsed*.03+1)*45,505),195,Color(.92,.98,1,.48))
- sprite("cloud-near",Vector2(490+sin(elapsed*.043+1)*100,285),245)
- sprite("cloud-near",Vector2(737+sin(elapsed*.035+3)*70,441),155,Color(.95,1,1,.78))
- sprite("horizon-mist",Vector2(556+sin(elapsed*.08)*24,830),470,Color(.75,.98,.96,.18))
  sprite("arch-vine",Vector2(33,480),53)
  sprite("arch-vine",Vector2(72,710),38,Color(.87,.98,.94,.92))
  sprite("arch-vine",Vector2(746,1625),39,Color(.80,.95,.97,.9),true)
@@ -78,7 +73,7 @@ func _draw():
   var direction:float=1 if i%3 else -1
   var x:float=210+fposmod(i*127+elapsed*(13+i%3*5)*direction,640)
   var y:float=305+(i%4)*95+sin(elapsed*.75+i)*8
-  var width:float=[18,25,35][i%3]
+  var width:float=[22,38,55][i%3]
   if not bird_frames.is_empty():
    var tex:Texture2D=bird_frames[(int(elapsed*(7+i%2))+i*2)%bird_frames.size()]
    draw_set_transform(Vector2(x,y),0,Vector2(1 if direction>0 else -1,1))

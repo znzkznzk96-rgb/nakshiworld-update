@@ -1,0 +1,17 @@
+{
+  "production_integrated": false,
+  "deployed": false,
+  "capture": "150 native 540x1320 frames, 15fps, 10seconds",
+  "visual_review": "clouds/mist excluded after final scene review; bird flight stable, real tile fish both directions; held grass excluded",
+  "static_pass": 3,
+  "static_held": 4,
+  "flight_frames": 9,
+  "paid_generations_used": 8,
+  "game_source_changed": false,
+  "save_data_touched": false,
+  "gif_frames": 120,
+  "gif_duration_ms": 10000,
+  "hud_top_140_pixels_identical": true,
+  "native_render_exit_code": 0,
+  "native_render_errors": false
+}

@@ -1,7 +1,7 @@
 {
   "cloud-far": {
-    "status": "pass",
-    "notes": "Native and4x: irregular fluffy white/sky-blue cloud bank, no dark contour or bead spheres; right canvas contact suitable for a continuous/offscreen far bank, not centered isolated sprite.",
+    "status": "hold",
+    "notes": "Native and4x: irregular fluffy white/sky-blue cloud bank, no dark contour or bead spheres; right canvas contact suitable for a continuous/offscreen far bank, not centered isolated sprite. FINAL IN-SCENE OVERRIDE: rectangular noisy texture edges visible at game scale; excluded from final preview.",
     "native_and_nearest4x_reviewed": true,
     "size": [
       180,
@@ -23,8 +23,8 @@
     "production_integrated": false
   },
   "cloud-near": {
-    "status": "pass",
-    "notes": "Native/4x fluffy broken white-cyan cloud-bank clusters, no spherical balls or dark outlines, full alpha margins. A narrow gap separates cloud clusters; use as a bank rather than a single isolated puff.",
+    "status": "hold",
+    "notes": "Native/4x fluffy broken white-cyan cloud-bank clusters, no spherical balls or dark outlines, full alpha margins. A narrow gap separates cloud clusters; use as a bank rather than a single isolated puff. FINAL IN-SCENE OVERRIDE: rectangular noisy texture edges visible at game scale; excluded from final preview.",
     "native_and_nearest4x_reviewed": true,
     "size": [
       180,
@@ -46,8 +46,8 @@
     "production_integrated": false
   },
   "horizon-mist": {
-    "status": "pass",
-    "notes": "Two broken horizontal pale cyan-white wisps with empty gaps, no outlined zigzag/ribbon or solid backdrop. Native and4x reviewed; low-opacity horizon use.",
+    "status": "hold",
+    "notes": "Two broken horizontal pale cyan-white wisps with empty gaps, no outlined zigzag/ribbon or solid backdrop. Native and4x reviewed; low-opacity horizon use. FINAL IN-SCENE OVERRIDE: rectangular noisy texture edges visible at game scale; excluded from final preview.",
     "native_and_nearest4x_reviewed": true,
     "size": [
       180,
