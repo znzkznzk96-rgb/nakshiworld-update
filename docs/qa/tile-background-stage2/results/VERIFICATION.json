@@ -1,0 +1,44 @@
+{
+  "source": {
+    "version": "1.06",
+    "bytes": 61642915,
+    "sha256": "3c4b1a317955fa53f2f8351d9fbd1d0978502cafd0f6655a969132b6ab064dd5",
+    "crc_verified": true,
+    "overlay_commit": "2546f82527d0031d5abf38f8a2af382c31970f9d"
+  },
+  "png_sha256": "1c2ce9d432cf1aa38ed462d2570291fe63c316f50aecc851f0a5a532d84d1f4b",
+  "related_tests": [
+    "tile107",
+    "startup_assets",
+    "regional",
+    "valley093",
+    "tile107_native"
+  ],
+  "heights": [
+    480,
+    540,
+    660
+  ],
+  "screens": [
+    "before_selection_540.png",
+    "bundle_480_0.png",
+    "bundle_480_1.png",
+    "bundle_480_2.png",
+    "bundle_540_0.png",
+    "bundle_540_1.png",
+    "bundle_540_2.png",
+    "bundle_660_0.png",
+    "bundle_660_1.png",
+    "bundle_660_2.png",
+    "comparison_540.png",
+    "selection_480.png",
+    "selection_540.png",
+    "selection_660.png",
+    "tile_480.png",
+    "tile_540.png",
+    "tile_660.png"
+  ],
+  "full_regression_run": false,
+  "deployed": false,
+  "phone_verified": false
+}

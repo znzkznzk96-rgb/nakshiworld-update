@@ -1,0 +1,9 @@
+{
+  "run": 42319275772,
+  "phase": "current project editor import exit",
+  "exit": 134,
+  "observed": "double free or corruption (!prev)",
+  "source_hash_check": "passed",
+  "cause": "Native engine abort; precise underlying cause not established.",
+  "change": "Single-threaded scene mode and explicit GL compatibility / dummy audio for editor preparation. No production game change."
+}

@@ -1,0 +1,78 @@
+{
+  "checked_date_kst": "2026-11-06",
+  "source_commit": "c18f28d3be7c3dbe2486c9bc87de53e333a7059e",
+  "latest_release": {
+    "tag": "v1.06",
+    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v1.06",
+    "assets": [
+      {
+        "name": "game-source.zip",
+        "size": 61642915,
+        "digest": "sha256:3c4b1a317955fa53f2f8351d9fbd1d0978502cafd0f6655a969132b6ab064dd5"
+      },
+      {
+        "name": "patch.pck",
+        "size": 57713984,
+        "digest": "sha256:4a5d49dd02bf3eba24d76acb47923c1a9d7afe2ca19f24081cc637eae9cd2d7b"
+      },
+      {
+        "name": "version.json",
+        "size": 199,
+        "digest": "sha256:9051e07e64eae387c17e5828d7c6f1c36aba8c19d790d0327fc065bfe23c49c9"
+      }
+    ]
+  },
+  "runs": [
+    {
+      "id": 42071213782,
+      "name": "Verify work branch without deployment",
+      "sha": "c18f28d3be7c3dbe2486c9bc87de53e333a7059e",
+      "conclusion": "failure",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/actions/runs/42071213782"
+    },
+    {
+      "id": 42055671565,
+      "name": "Verify deployed update gateway",
+      "sha": "a0ea3dfdb4d768cccd2410e57c57f272adbeafff",
+      "conclusion": "success",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/actions/runs/42055671565"
+    },
+    {
+      "id": 42054943979,
+      "name": "Build and publish game patch",
+      "sha": "a0ea3dfdb4d768cccd2410e57c57f272adbeafff",
+      "conclusion": "success",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/actions/runs/42054943979"
+    },
+    {
+      "id": 42053827750,
+      "name": "Verify work branch without deployment",
+      "sha": "174368d79a51377e7defb15f11c4aa8633c12a2c",
+      "conclusion": "success",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/actions/runs/42053827750"
+    },
+    {
+      "id": 41949416683,
+      "name": "Verify work branch without deployment",
+      "sha": "a055e4642e5fe4f06845fcf3c03ec9cd08a0524a",
+      "conclusion": "success",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/actions/runs/41949416683"
+    }
+  ],
+  "asset_check": {
+    "background": {
+      "path": "game/art/bg/tile_sea_clean.png",
+      "expected_sha256": "8149e81a427aaa87a47b460dacbcee4deb293615cf3560c22b3bc6c359c089b7",
+      "actual_sha256": "17b35b9ac43ec971325dd627d888046e8ee0fa82e323261e360d796c6846abe8",
+      "decode_error": "broken data stream when reading image file"
+    },
+    "fish": {
+      "checked": 20,
+      "decoded": 20,
+      "hash_matched": 20
+    }
+  },
+  "verification_scope": "Read-only PNG/hash verification and handoff docs. No Godot rebuild, paid generation or deployment.",
+  "private_access_guide": "Located and read; credentials not tested or published",
+  "unavailable_attachment": "NAKSHIWORLD_FULL_HANDOFF(1).zip"
+}

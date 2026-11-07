@@ -1,9 +1,12 @@
-# 새 Codex 이어하기
+# 새 Codex에서 이어하기
 
-main START_HERE → AGENTS/PROJECT_INSTRUCTIONS → WORK_STATE.work_branch의 원격 최신 HEAD → 그 브랜치의 WORK_STATE/HANDOFF 순으로 읽는다.
+1. main START_HERE/AGENTS/PROJECT_INSTRUCTIONS와 WORK_STATE의 활성 브랜치를 확인한다.
+2. 원격 브랜치로 이동한 뒤 그 브랜치의 WORK_STATE가 가리키는 HANDOFF를 읽는다. 루트 HANDOFF도 같은 문서를 안내한다.
+3. [CODEX_HANDOFF.md](CODEX_HANDOFF.md)의 실행 순서와 장애·검증 증거를 따른다. 확정 기획은 [GAME_BIBLE.md](GAME_BIBLE.md), 도구는 [TOOLS_AND_PLUGINS.md](TOOLS_AND_PLUGINS.md).
+4. SHA가 같은 자료는 다시 읽지 않는다. 과거 LOCAL_RECOVERY/HANDOFF의 '현재'는 당시 상태다. 최신 포인터보다 우선하지 않는다.
+5. game/을 단독 실행하지 않는다. 게임 수정 시 검증한 전체 소스에 삭제 명세와 overlay를 적용한다. 문서만 수정 시 게임을 복원하지 않는다.
+6. 승인된 다음 작업부터 진행하고, 세이브·공통 시스템 변경 및 배포 전에 전체 검사/화면 검수를 수행한다. 작업·검증·공개·휴대폰 확인을 구분한다.
 
-[실행·복원·검사·남은 작업](https://github.com/znzkznzk96-rgb/nakshiworld-update/blob/work/tile-release-107/docs/CODEX_HANDOFF.md)과 [플러그인/PixelLab 사용법](https://github.com/znzkznzk96-rgb/nakshiworld-update/blob/work/tile-release-107/docs/TOOLS_AND_PLUGINS.md)이 활성 브랜치에 있다. 해당 브랜치 문서를 읽은 뒤 main의 과거 HANDOFF로 돌아가지 않는다.
+사용자가 “이어서 해줘”라고 하면 이 순서를 실행한다. 유료 생성·새 패치 배포 승인을 임의 확대하지 않는다. 확정사항을 재질문하지 않는다.
 
-원격 자료로 가능한 작업부터 진행하며 미저장 과거 채팅이나 비공개 인증의 자동 복구를 보장하지 않는다. 문서 작업에는 게임 빌드가 필요 없다.
-
-[이전 안내 원문](historical/2026-11-06-main-pointer/docs/CONTINUE_HERE.md).
+이전 안내는 [원문 이력](historical/2026-11-06-before-codex-handoff/docs/CONTINUE_HERE.md)에 보존.

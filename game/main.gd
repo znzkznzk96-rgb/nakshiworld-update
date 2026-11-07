@@ -348,6 +348,17 @@ func _layout() -> void :
 	var vs: = get_viewport_rect().size
 	ox = floorf(maxf(0.0, vs.x - VW) / 2.0)
 
+	if active_region == 2:
+		oy = 0.0
+		var tile_scale: float = maxf(vs.x / environment.tile.SOURCE.x,vs.y / environment.tile.SOURCE.y)
+		var tile_top: float = (vs.y - environment.tile.SOURCE.y * tile_scale) / 2.0
+		SURF = roundi(tile_top + environment.tile.DECK_Y * tile_scale)
+		WATER = roundi(tile_top + environment.tile.WATER_Y * tile_scale)
+		uw_bot = minf(tile_top + environment.tile.SAND_Y * tile_scale,vs.y - bot_pad - 137.0)
+		PY = SURF - 57;CATY = SURF - 32;PX = 50;CATX = 29
+		environment.layout(self)
+		for r in fx_rid: RenderingServer.canvas_item_set_transform(r,Transform2D.IDENTITY)
+		return
 	if active_region == 1:
 		oy = 0.0;uw_bot = vs.y - bot_pad - 137.0
 		var map_scale: float = maxf(vs.x / 1080.0,vs.y / 2640.0)
@@ -1555,7 +1566,7 @@ func _bite_circle(tt: float) -> Array:
 
 
 func _fish_display_length(star: int, scale: float, preview: bool, sp: int = -1) -> float:
-	if sp >= 20 and sp < 40: return maxf(20.0 if preview else 30.0,(12.0+1.5*sqrt(float(FISH_LEN[sp])))*scale)
+	if sp >= 20 and sp < 60: return maxf(20.0 if preview else 30.0,(12.0+1.5*sqrt(float(FISH_LEN[sp])))*scale)
 	return maxf(20.0 if preview else 30.0, (16.0 + star * 4.0) * scale)
 
 func _draw_bite_shadow(t: float, lx: float, dip: float) -> void :
@@ -1923,7 +1934,7 @@ func _aura_col(g: int, t: float, a: float, k: = 0) -> Color:
 
 
 func _exit_tree() -> void :
-	environment.valley.dispose()
+	environment.valley.dispose();environment.tile.dispose()
 	environment.dispose()
 	audio_feedback.dispose()
 	title_screen.dispose()
@@ -2157,7 +2168,7 @@ func _draw_landing(t: float, tip: Vector2) -> void :
 # Current playable reservoir. Locked future grounds have no invented limits.
 const RESERVOIR_MAX_CM := 150.0
 func species_max_cm(sp: int) -> float:
-	if sp >= 20 and sp < 40: return float(CATALOG.VALLEY_MAX[sp-20])
+	if sp >= 20 and sp < 60: return float(CATALOG.VALLEY_MAX[sp%20])
 	return minf(RESERVOIR_MAX_CM, FISH_LEN[clampi(sp, 0, FISH_LEN.size()-1)] * 1.65)
 func measurement_max_cm(sp: int) -> float:
 	if sp >= 20: return species_max_cm(sp)
@@ -2479,7 +2490,7 @@ func fish_price(sp: int, star: int, grade: int, lf: float) -> int:
 	var list: Array = CATALOG.by_star(CATALOG.region(sp),star)
 	var b: Array = PRICE_BASE[star]
 	var base: = lerpf(b[0], b[1], float(list.find(sp)) / maxf(1.0, list.size() - 1.0))
-	if sp >= 20 and sp < 40: base = float(VALLEY_PRICE[sp - 20])
+	if sp >= 20 and sp < 60: base = float(VALLEY_PRICE[sp % 20])
 	return int(round(base * PRICE_GRADE[grade] * minf(lf * lf, 2.5) * (1.0 + 0.05 * forge_lv)))
 
 func keep_fish() -> void :
@@ -2639,7 +2650,7 @@ func _load_game() -> void :
 	region_shop.restore(d.get("region_shop", {}))
 	progression.restore(d.get("regional_progress", {}))
 	buyback.restore(d.get("buyback",{}))
-	active_region = clampi(int(d.get("active_region",0)),0,1)
+	active_region = clampi(int(d.get("active_region",0)),0,2)
 	if active_region not in progression.available_regions or not region_shop.is_unlocked(active_region): active_region = 0
 	bag = d.get("bag", []);parts_owned = d.get("parts", []);tips_seen = d.get("tips", [])
 	bait = int(d.get("bait", 0));souls = int(d.get("souls", 0))

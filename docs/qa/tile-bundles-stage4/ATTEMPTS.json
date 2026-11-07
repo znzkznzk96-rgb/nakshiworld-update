@@ -1,0 +1,1 @@
+{"first_run":42318766406,"failure":"test fixture omitted _save_rec; direct dictionary lookup then failed","game_corruption":false,"fix":"save rec.json using baseline _save_rec and query public fish_record_cm accessor"}

@@ -1,0 +1,117 @@
+name: Verify tile bundles saves and remaining regression without deployment
+# Keep one-shot verification scripts out of editor documentation/import lifecycle.
+on:
+  push:
+    branches: [work/tile-release-107]
+    paths: ['.github/workflows/tile-bundles-stage4.yml']
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: tile-bundles-stage4
+  cancel-in-progress: false
+jobs:
+  bundles:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: tile-background-stage2
+          run-id: 42315352676
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/previous
+      - name: Reuse verified v106 baseline and prepare migration fixtures
+        run: |
+          set -euo pipefail
+          SOURCE="$RUNNER_TEMP/previous/_temp/source-v106.zip"
+          echo "3c4b1a317955fa53f2f8351d9fbd1d0978502cafd0f6655a969132b6ab064dd5  $SOURCE" | sha256sum -c -
+          python3 automation/restore_source.py "$SOURCE" "$RUNNER_TEMP/project"
+          python3 - <<'PY'
+          import pathlib,zipfile,os
+          with zipfile.ZipFile(pathlib.Path(os.environ["RUNNER_TEMP"])/"previous/_temp/source-v106.zip") as z:
+              assert z.testzip() is None
+              z.extractall(pathlib.Path(os.environ["RUNNER_TEMP"])/"legacy")
+          PY
+      - name: Install pinned engine and render dependencies
+        run: |
+          set -euo pipefail
+          curl -fL --connect-timeout 15 --max-time 120 https://github.com/godotengine/godot/releases/download/4.4.1-stable/Godot_v4.4.1-stable_linux.x86_64.zip -o "$RUNNER_TEMP/godot.zip"
+          unzip -q "$RUNNER_TEMP/godot.zip" -d "$RUNNER_TEMP/godot"
+          chmod +x "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
+          sudo apt-get update -qq
+          sudo apt-get install -y xvfb libgl1-mesa-dri > /dev/null
+          python3 -m pip install Pillow==11.3.0
+      - name: Prepare both versions and create real v106 synthetic save
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p evidence
+          GODOT="$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
+          for version in legacy/game project; do
+            key="$(echo "$version" | tr / -)"
+            "$GODOT" --single-threaded-scene --rendering-method gl_compatibility --audio-driver Dummy --headless --editor --path "$RUNNER_TEMP/$version" --import > "evidence/import-$key.log" 2>&1
+            if grep -E 'SCRIPT ERROR:|Parse Error:|Failed to load script' "evidence/import-$key.log"; then exit 1; fi
+            "$GODOT" --headless --path "$RUNNER_TEMP/$version" --script tests/bake_expedition_assets.gd > "evidence/bake-$key.log" 2>&1
+            "$GODOT" --single-threaded-scene --rendering-method gl_compatibility --audio-driver Dummy --headless --editor --path "$RUNNER_TEMP/$version" --import > "evidence/prepared-$key.log" 2>&1
+          done
+          cp docs/qa/tile-bundles-stage4/legacy_save.gd "$RUNNER_TEMP/legacy/game/tests/stage4_legacy.gd"
+          cp docs/qa/tile-bundles-stage4/bundle_verify.gd "$RUNNER_TEMP/project/tests/stage4_bundle.gd"
+          cp docs/qa/tile-bundles-stage4/resume_verify.gd "$RUNNER_TEMP/project/tests/stage4_resume.gd"
+          XDG_DATA_HOME="$RUNNER_TEMP/stage4-migration" timeout 90 "$GODOT" --headless --path "$RUNNER_TEMP/legacy/game" --script tests/stage4_legacy.gd > evidence/legacy.log 2>&1 || { cat evidence/legacy.log; exit 1; }
+          grep -F 'LEGACY106_STAGE4_SAVE_CREATED' evidence/legacy.log
+      - name: Verify actual write-failure rollback and bundle UI
+        shell: bash
+        run: |
+          set -euo pipefail
+          GODOT="$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
+          XDG_DATA_HOME="$RUNNER_TEMP/stage4-migration" timeout 120 xvfb-run -a "$GODOT" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/stage4_bundle.gd -- "$GITHUB_WORKSPACE/evidence/screens" > evidence/bundle.log 2>&1 || { cat evidence/bundle.log; exit 1; }
+          grep -F 'BUNDLE_STAGE4_VERIFY failures=[]' evidence/bundle.log
+          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/bundle.log; then cat evidence/bundle.log; exit 1; fi
+      - name: Verify receipt and entry after independent process restart
+        shell: bash
+        run: |
+          set -euo pipefail
+          GODOT="$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
+          XDG_DATA_HOME="$RUNNER_TEMP/stage4-migration" timeout 90 "$GODOT" --headless --path "$RUNNER_TEMP/project" --script tests/stage4_resume.gd > evidence/resume.log 2>&1 || { cat evidence/resume.log; exit 1; }
+          grep -F 'BUNDLE_STAGE4_RESUME_VERIFY failures=[]' evidence/resume.log
+          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/resume.log; then cat evidence/resume.log; exit 1; fi
+      - name: Run corrected reward check and previously unreached suites
+        shell: bash
+        run: |
+          set -euo pipefail
+          GODOT="$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
+          for suite in odds_rewards reservoir_layers owner_gauge bag_list bundles_buyback equipment visual guide shop audio_save bundle_preview rewards reader fish_surface inventory_layout bait_roles measurement_speed village_entry_audio; do
+            XDG_DATA_HOME="$RUNNER_TEMP/stage4-$suite" timeout 90 "$GODOT" --headless --path "$RUNNER_TEMP/project" --script "tests/${suite}_verify.gd" > "evidence/$suite.log" 2>&1 || { cat "evidence/$suite.log"; exit 1; }
+            grep -F 'VERIFY failures=[]' "evidence/$suite.log"
+            if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' "evidence/$suite.log"; then cat "evidence/$suite.log"; exit 1; fi
+          done
+      - name: Record bundle evidence without release or user-save upload
+        run: |
+          python3 - <<'PY'
+          import pathlib,shutil,json,os
+          from PIL import Image
+          out=pathlib.Path("docs/qa/tile-bundles-stage4/results");out.mkdir(parents=True,exist_ok=True)
+          for p in pathlib.Path("evidence/screens").glob("*.png"):shutil.copy2(p,out/p.name)
+          names=["main_claimed.png","sub_claimed.png","owner_claimed.png"]
+          ims=[Image.open(out/n).convert("RGB") for n in names];w,h=ims[0].size
+          canvas=Image.new("RGB",(w*3,h),"#172d38")
+          for i,im in enumerate(ims):canvas.paste(im,(w*i,0))
+          canvas.save(out/"bundle_rewards_comparison.png")
+          report={"source_commit":os.environ["GITHUB_SHA"],"baseline":"verified v1.06 game-source.zip","legacy_save_generated_by_actual_v106":True,"synthetic_save_only":True,"real_user_save_used":False,"real_filesystem_failure_cases":6,"restart":"separate Godot process","side_reward":{"sale_sum":621,"scale":1.2,"paid":745,"souls":30},"owner_reward":{"sale_value":1001,"scale":1.5,"paid":1502,"pearls":2},"tile_entry_fee":312000,"rift_unavailable":True,"remaining_suites":["odds_rewards","reservoir_layers","owner_gauge","bag_list","bundles_buyback","equipment","visual","guide","shop","audio_save","bundle_preview","rewards","reader","fish_surface","inventory_layout","bait_roles","measurement_speed","village_entry_audio"],"reused_passed_before_failure":49,"deployed":False,"phone_verified":False,"standard_full_workflow_success":False}
+          (out/"VERIFICATION.json").write_text(json.dumps(report,indent=2)+"\n")
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/qa/tile-bundles-stage4/results
+          git commit -m "docs: preserve bundle UI migration and rollback evidence [skip ci]"
+          git push origin HEAD:refs/heads/work/tile-release-107
+      - name: Preserve non-private verification evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tile-bundles-stage4
+          path: |
+            evidence/
+            docs/qa/tile-bundles-stage4/results/

@@ -1,0 +1,132 @@
+{
+  "date": "2026-11-07",
+  "stage": 4,
+  "status": "passed",
+  "source_commit": "1aee536b9cb3290fb74acc6215e8b5dbd9f28067",
+  "evidence_commit": "dd8297cc9de9a5423091b61e06f166ee22023de4",
+  "run": 42319985467,
+  "artifact": {
+    "id": 13552880536,
+    "name": "tile-bundles-stage4",
+    "size_in_bytes": 6201052,
+    "url": "https://api.github.com/repos/znzkznzk96-rgb/nakshiworld-update/actions/artifacts/13552880536",
+    "archive_download_url": "https://api.github.com/repos/znzkznzk96-rgb/nakshiworld-update/actions/artifacts/13552880536/zip",
+    "expired": false,
+    "created_at": "2026-11-07T00:46:42Z",
+    "expires_at": "2027-02-05T00:43:50Z",
+    "updated_at": "2026-11-07T00:46:42Z",
+    "digest": "sha256:a4af98c496b02d47e9f7e045be98992d80cf716f9b5fdd8d4586f4003da8d48b",
+    "workflow_run": {
+      "id": 42319985467,
+      "repository_id": 1423971848,
+      "head_repository_id": 1423971848,
+      "head_branch": "work/tile-release-107",
+      "head_sha": "1aee536b9cb3290fb74acc6215e8b5dbd9f28067"
+    }
+  },
+  "artifact_download_sha256_verified": true,
+  "artifact_crc_verified": true,
+  "legacy_source_zip_sha256": "3c4b1a317955fa53f2f8351d9fbd1d0978502cafd0f6655a969132b6ab064dd5",
+  "legacy_save": "Generated with actual v1.06 code; synthetic save.json and rec.json. No real user save.",
+  "preservation": [
+    "wallet",
+    "region unlocks",
+    "bag specimen properties",
+    "dex grades",
+    "length record",
+    "personal specimen record",
+    "partial valley donation"
+  ],
+  "write_failure": {
+    "mechanism": "Directory at isolated user://save.json.tmp blocks real FileAccess write",
+    "cases": [
+      "entry",
+      "batch donation",
+      "side reward claim",
+      "main certificate claim",
+      "single owner donation",
+      "owner reward claim"
+    ],
+    "assertions": [
+      "memory rollback",
+      "primary bytes unchanged"
+    ]
+  },
+  "reward_examples": {
+    "side": {
+      "sale_total": 621,
+      "paid_gold": 745,
+      "souls": 30
+    },
+    "owner": {
+      "sale_value": 1001,
+      "paid_gold": 1502,
+      "pearls": 2
+    },
+    "main": "next license only"
+  },
+  "entry_fee": 312000,
+  "restart": "Separate Godot process restores receipts and rejects duplicate claims",
+  "manual_visual_review": {
+    "screens": 16,
+    "result": "No obstructed buttons or overlapping reward/donation text found at540 logical height",
+    "comparison": "results/bundle_rewards_comparison.png",
+    "test_values_only": true
+  },
+  "regression": {
+    "total": 69,
+    "prior_full_run": {
+      "id": 42317071379,
+      "passed_before_failure": 49
+    },
+    "stage4_passed": [
+      "odds_rewards",
+      "reservoir_layers",
+      "owner_gauge",
+      "bag_list",
+      "bundles_buyback",
+      "equipment",
+      "visual",
+      "guide",
+      "shop",
+      "audio_save",
+      "bundle_preview",
+      "rewards",
+      "reader",
+      "fish_surface",
+      "inventory_layout",
+      "bait_roles",
+      "measurement_speed",
+      "village_entry_audio"
+    ],
+    "reused": {
+      "regional": 42315352676,
+      "personal_dex": 42316841578
+    },
+    "standard_full_workflow_success": false,
+    "remaining": "Common global render jobs skipped in historical standard full run; finish during stage5."
+  },
+  "attempts": [
+    {
+      "run": 42318766406,
+      "result": "fixture error missing rec.json; fixed"
+    },
+    {
+      "run": 42319275772,
+      "result": "native editor import exit134"
+    },
+    {
+      "run": 42319754616,
+      "result": "native editor import exit134 after scene-thread/renderer setting change"
+    },
+    {
+      "run": 42319985467,
+      "result": "success after moving one-shot fixtures outside editor import lifecycle; exact native cause not established"
+    }
+  ],
+  "production_changes": "None in stage4; corrected stale test expectation only",
+  "deployed": false,
+  "public_release": "v1.06",
+  "phone_verified": false,
+  "read_only_chat_root_cause": "not established"
+}
