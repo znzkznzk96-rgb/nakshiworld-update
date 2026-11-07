@@ -1,3 +1,7 @@
+## 2026-11-08 — 부채꼴 폐기·절차적 세로 빛결 시안
+- 최신요청으로4개광원/부채꼴tip-bottom마스크제거. 단일CanvasItem에서2Dfbm노이즈자체생성,폭/간격이불규칙한세로빛결·깊이감쇠·해방향shear.
+- native컴파일오류0/빛단독움직임/입력패턴·꼭짓점없음/3높이/GIF96프레임검사통과. 사용자시각채택미정,본편통합/배포/신규과금없음. [검증](analysis/tile-layers-stage9/VERIFICATION.json).
+
 ## 2026-11-08 — 참고 CanvasItem 셰이더 빛 시안 교체
 - 도형광축을4개TextureRect/ShaderMaterial로대체. UV흐름·sine왜곡·반복노이즈·깊이감쇠와부채꼴마스크,해방향/랜덤폭유지.
 - 실제OpenGL셰이더컴파일오류0,빛단독움직임/4개재질·반복·야간/3높이/GIF96프레임검사통과. 본편전체통합·배포·신규과금없음. [검증](analysis/tile-layers-stage8/VERIFICATION.json).

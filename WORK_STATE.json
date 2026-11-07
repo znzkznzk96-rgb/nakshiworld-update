@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "spotlight_rejected_procedural_vertical_light_revision",
+  "status": "procedural_vertical_noise_light_preview_verified",
   "release_baseline": "v1.09",
   "target_release": "v1.10",
   "deployed": false,
   "phone_verified": false,
-  "handoff": "analysis/tile-layers-stage8/HANDOFF.md",
-  "current_task": "참고CanvasItem셰이더4개재질로빛시안교체·실제GPU검증완료",
-  "next_step": "부채꼴/고정광원제거·2D노이즈자체생성세로빛결 구현검수",
+  "handoff": "analysis/tile-layers-stage9/HANDOFF.md",
+  "current_task": "부채꼴/고정광원제거·노이즈자체생성세로빛결시안검증완료",
+  "next_step": "사용자 새시안 검토, 본편전체통합·배포 없음",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -136,13 +136,13 @@
     "candidate_ready": true
   },
   "tile_layer_preview": {
-    "path": "analysis/tile-layers-stage8/display.webp",
-    "verification": "analysis/tile-layers-stage8/VERIFICATION.json",
+    "path": "analysis/tile-layers-stage9/display.webp",
+    "verification": "analysis/tile-layers-stage9/VERIFICATION.json",
     "production_integrated": false,
     "paid_generation": 0,
     "deployed": false,
     "layers": 11,
-    "light_implementation": "canvas_item ShaderMaterial, blend_add, repeated noise texture"
+    "light_implementation": "one procedural 2D fbm vertical field, no cone/apex/pattern texture"
   },
   "tile_art_generation": {
     "authorized_art_outputs": 6,
