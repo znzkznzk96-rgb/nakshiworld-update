@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "four_clouds_and_stable_birds_preview_ready",
+  "status": "v110_production_integration_and_release_authorized",
   "release_baseline": "v1.09",
   "target_release": "v1.10",
   "deployed": false,
   "phone_verified": false,
-  "handoff": "analysis/tile-cloud-birds/HANDOFF.md",
-  "current_task": "승인 구름 포함4종 양방향 이동·새 축소표시 안정화",
-  "next_step": "4종 양방향/순환구름·새 축소 개선 시안 검토; 본편통합/배포 미승인",
+  "handoff": "docs/releases/110/HANDOFF.md",
+  "current_task": "승인 타일장식 본편통합·전체검사·v1.10 공개배포",
+  "next_step": "import된Texture2D 기반 본편통합 및 관련검사",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -44,8 +44,8 @@
   "remaining_global_render_checks": false,
   "release_authorization": {
     "date": "2026-11-08",
-    "user_request": "업데이트하고 배포하자",
-    "scope": "current reviewed fixes and verified mail common refactor v1.09"
+    "user_request": "업데이트및 배포해줘 ㅇㅇ",
+    "scope": "현재 승인 타일바다 레이어 전체와 미배포 난이도/표시/공통빛/수면 개선 v1.10"
   },
   "release_preflight": "docs/releases/109/PREFLIGHT.json",
   "release_source_commit": "2d4e0bcd3f31783ed231720ee20657140e4f0d4c",
@@ -118,7 +118,7 @@
     "production_balance_changed": false,
     "phone_tested": false
   },
-  "release_authorized": false,
+  "release_authorized": true,
   "balance110": {
     "applied": true,
     "deployed": false,
