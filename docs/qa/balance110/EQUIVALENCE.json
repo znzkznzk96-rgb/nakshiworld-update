@@ -11,5 +11,9 @@
     "max_tension",
     "landing_taps"
   ],
-  "reservoir_reference_fix": "landing uses preserved bonus_factor1 in both sides; earlier quoted reservoir normal results unaffected"
+  "reservoir_reference_fix": "landing uses preserved bonus_factor1 in both sides; earlier quoted reservoir normal results unaffected",
+  "reference_raw_sha256": "5b91aea251806596d36ba7e33428890a711a70a85254142bcf99a1bd050740f9",
+  "production_raw_sha256": "5b91aea251806596d36ba7e33428890a711a70a85254142bcf99a1bd050740f9",
+  "main_sha256": "fe1d3115c79f34d9e6c310f46f563844d977cfed476ee48f70b850c1087230ac",
+  "module_sha256": "97dce87a0d50083206ad2eff9dd116c7ed62c44fb25b0795d4d9be187d627957"
 }
