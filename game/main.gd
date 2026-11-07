@@ -1568,7 +1568,8 @@ func _bite_circle(tt: float) -> Array:
 func _fish_display_length(star: int, scale: float, preview: bool, sp: int = -1) -> float:
 	if sp >= 0 and sp < FISH_LEN.size():
 		# Species mean sets body length; caller scale retains individual length factor.
-		return clampf((6.0+3.0*sqrt(float(FISH_LEN[sp])))*scale,12.0 if preview else 18.0,80.0 if preview else 120.0)
+		var base: float=clampf((6.0+3.0*sqrt(float(FISH_LEN[sp])))*scale,12.0 if preview else 18.0,80.0 if preview else 120.0)
+		return base if preview else minf(156.0,base*(1.0+0.35*smoothstep(50.0,180.0,float(FISH_LEN[sp]))))
 	return maxf(20.0 if preview else 30.0, (16.0 + star * 4.0) * scale)
 
 func _fish_texture_u(sp: int, along_body: float) -> float:
@@ -2114,7 +2115,11 @@ func _draw_fish_sprite(sp: int, pos: Vector2, k: = 1) -> int:
 	var tex: Texture2D = [fish_tex, fish_tex, fish_s2, fish_s3][k][sp]
 	var u: Rect2i = fish_used[sp]
 	var src: = Rect2i(u.position / k, u.size / k)
-	draw_texture_rect_region(tex, Rect2(int(pos.x), int(pos.y) - src.size.y / 2, src.size.x, src.size.y), Rect2(src))
+	var r:Rect2=Rect2(int(pos.x),int(pos.y)-src.size.y/2,src.size.x,src.size.y)
+	if sp>=40 and sp<60:
+		var uv:Rect2=Rect2(src);var ts:Vector2=tex.get_size()
+		draw_polygon(PackedVector2Array([r.position,Vector2(r.end.x,r.position.y),r.end,Vector2(r.position.x,r.end.y)]),PackedColorArray([Color.WHITE,Color.WHITE,Color.WHITE,Color.WHITE]),PackedVector2Array([Vector2(uv.end.x,uv.position.y)/ts,uv.position/ts,Vector2(uv.position.x,uv.end.y)/ts,uv.end/ts]),tex)
+	else: draw_texture_rect_region(tex,r,Rect2(src))
 	return src.size.x
 
 
@@ -2215,7 +2220,7 @@ func _draw_catch(t: float) -> void :
 	var used: Rect2 = Rect2(fish_used[int(S.sp)])
 	var fw: float = measurement_x(float(S.len)) - 35
 	var fh: float = fw * used.size.y / used.size.x
-	_ui_texture_rect_region(fish_tex[int(S.sp)], Rect2(35, yy - 5 - fh, fw, fh), used)
+	_ui_static_fish(int(S.sp),Rect2(35, yy - 5 - fh, fw, fh),used)
 	for i in 21:
 		var xx: float = 35 + i * measurement_width(S.sp) / 20.0
 		_ui_rect(Rect2(roundf(xx), yy, 1, 8 if i % 5 == 0 else 4), Color("765638"))
@@ -3047,11 +3052,20 @@ func _draw_failure() -> void :
 	var age: float = float(S.get("t", 0.5))
 	_fade_ui(first_command, first_text, minf(1.0, age / 0.15) * clampf((2.2 - age) / 0.5, 0.0, 1.0))
 
+# Static inspection/results use the historical right-facing presentation.
+# Only tile originals need a flip; preserve existing exceptions in other originals.
+func _ui_static_fish(sp: int, r: Rect2, source: Rect2) -> void:
+	if sp<40 or sp>=60:
+		_ui_texture_rect_region(fish_tex[sp],r,source);return
+	var ts: Vector2=fish_tex[sp].get_size()
+	var uv: PackedVector2Array=PackedVector2Array([Vector2(source.end.x,source.position.y)/ts,source.position/ts,Vector2(source.position.x,source.end.y)/ts,source.end/ts])
+	_ui_polygon(PackedVector2Array([r.position,Vector2(r.end.x,r.position.y),r.end,Vector2(r.position.x,r.end.y)]),PackedColorArray([Color.WHITE,Color.WHITE,Color.WHITE,Color.WHITE]),uv,fish_tex[sp])
+
 func _ui_fish(sp: int, box: Rect2) -> Rect2:
 	var source: Rect2 = Rect2(fish_used[sp])
 	var size: Vector2 = source.size * minf(box.size.x / source.size.x, box.size.y / source.size.y)
 	var r: = Rect2(box.get_center() - size / 2, size)
-	_ui_texture_rect_region(fish_tex[sp], r, source)
+	_ui_static_fish(sp,r,source)
 	return r
 
 func _fish_effect_rect(r: Rect2, c: Color) -> void :

@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "v109_published_and_gateway_verified",
+  "status": "presentation_and_candidate_pipeline_ready_difficulty_proposal",
   "release_baseline": "v1.09",
   "target_release": "v1.09",
   "deployed": true,
   "phone_verified": false,
-  "handoff": "docs/releases/109/HANDOFF.md",
-  "current_task": "v1.09 보상·박물관·낚시표시 개선 공개/운영 검증 완료",
-  "next_step": "기존 앱에서 v1.09 업데이트 후 실제 적용 확인. 휴대폰 적용은 사용자 확인 별도.",
+  "handoff": "docs/qa/presentation-release-efficiency/HANDOFF.md",
+  "current_task": "정적물고기우향·대형어확대·검증후보재사용배포구조,지역난이도개선안",
+  "next_step": "새전체CI와후보빌드확인, 지역난이도 개선안 결정. 새패치배포미승인.",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -97,5 +97,13 @@
     "run": 42384973558,
     "cause": "packed mail check hardcoded1.08; prepublication assertion",
     "fix_pr": 43
+  },
+  "presentation_followup": {
+    "deployed": false,
+    "release_authorized": false,
+    "related_checks": 6,
+    "pipeline_checks": 6,
+    "difficulty_implemented": false,
+    "proposal": "docs/qa/presentation-release-efficiency/DIFFICULTY_PROPOSAL.md"
   }
 }

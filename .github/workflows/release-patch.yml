@@ -8,181 +8,21 @@ permissions:
   contents: write
   actions: read
 concurrency:
-  group: game-patch-release-v109
+  group: game-patch-release
   cancel-in-progress: false
 jobs:
   release:
     runs-on: ubuntu-24.04
-    timeout-minutes: 25
+    timeout-minutes: 8
     steps:
       - uses: actions/checkout@v4
-      - name: Require verified game source before release build
+      - name: Publish identical verified candidate without rebuilding
         env:
           GH_TOKEN: ${{ github.token }}
-        run: |
-          python3 - <<'PY'
-          import json,subprocess,os,urllib.request
-          v=json.load(open("automation/release.json"))
-          if v["code"]==107:
-              r=json.load(open("docs/qa/tile-release-stage5/PREFLIGHT.json"))
-              assert subprocess.check_output(["git","rev-parse","HEAD:game"],text=True).strip()==r["game_tree_sha"]
-              for p,k in [("automation/restore_source.py","restore_source_blob"),("automation/deleted-game-files.json","deleted_files_blob")]:
-                  assert subprocess.check_output(["git","rev-parse","HEAD:"+p],text=True).strip()==r[k]
-              req=urllib.request.Request("https://api.github.com/repos/znzkznzk96-rgb/nakshiworld-update/actions/runs/"+str(r["render_run"]),headers={"Authorization":"Bearer "+os.environ["GH_TOKEN"],"Accept":"application/vnd.github+json"})
-              with urllib.request.urlopen(req,timeout=30) as response:run=json.load(response)
-              assert run["conclusion"]=="success" and run["status"]=="completed"
-              assert r["headless_suites"]==69 and r["png_originals_verified"]==21
-              print("V107_PREFLIGHT_EXACT_GAME_TREE_VERIFIED")
-          if v["code"]==108:
-              r=json.load(open("docs/releases/valley-gift-108/PREFLIGHT.json"))
-              assert subprocess.check_output(["git","rev-parse","HEAD:game"],text=True).strip()==r["game_tree_sha"]
-              req=urllib.request.Request("https://api.github.com/repos/znzkznzk96-rgb/nakshiworld-update/actions/runs/"+str(r["run"]),headers={"Authorization":"Bearer "+os.environ["GH_TOKEN"],"Accept":"application/vnd.github+json"})
-              with urllib.request.urlopen(req,timeout=30) as response:run=json.load(response)
-              assert run["conclusion"]=="success" and run["status"]=="completed"
-              print("V108_GIFT_PREFLIGHT_EXACT_GAME_TREE_VERIFIED")
-          if v["code"]==109:
-              r=json.load(open("docs/releases/109/PREFLIGHT.json"))
-              assert subprocess.check_output(["git","rev-parse","HEAD:game"],text=True).strip()==r["game_tree_sha"]
-              for p,k in [("automation/restore_source.py","restore_source_blob"),("automation/deleted-game-files.json","deleted_files_blob")]:
-                  assert subprocess.check_output(["git","rev-parse","HEAD:"+p],text=True).strip()==r[k]
-              req=urllib.request.Request("https://api.github.com/repos/znzkznzk96-rgb/nakshiworld-update/actions/runs/"+str(r["run"]),headers={"Authorization":"Bearer "+os.environ["GH_TOKEN"],"Accept":"application/vnd.github+json"})
-              with urllib.request.urlopen(req,timeout=30) as response:run=json.load(response)
-              assert run["conclusion"]=="success" and run["status"]=="completed" and run["head_sha"]==r["verified_commit"]
-              print("V109_PREFLIGHT_EXACT_GAME_TREE_VERIFIED")
-          PY
-      - name: Install pinned build tools
-        shell: bash
-        run: |
-          set -euo pipefail
-          mkdir -p "$RUNNER_TEMP/godot"
-          curl -fL --retry 3 https://github.com/godotengine/godot/releases/download/4.4.1-stable/Godot_v4.4.1-stable_linux.x86_64.zip -o "$RUNNER_TEMP/godot.zip"
-          unzip -q "$RUNNER_TEMP/godot.zip" -d "$RUNNER_TEMP/godot"
-          chmod +x "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
-      - name: Recover original assets and overlay maintained source
-        shell: bash
-        run: |
-          set -euo pipefail
-          curl -fL --retry 3 https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.08/game-source.zip -o "$RUNNER_TEMP/base-source.zip"
-          echo "9121b639e2a03fe6d8a18a8689918ddb0c231a097eaf29f03db20d62e67b319f  $RUNNER_TEMP/base-source.zip" | sha256sum -c -
-          python3 automation/restore_source.py "$RUNNER_TEMP/base-source.zip" "$RUNNER_TEMP/project"
-          python3 automation/prepare_release.py "$RUNNER_TEMP/release-notes.md"
-          git diff --exit-code -- game/addons/reservoir/release_notes.gd
-          GODOT="$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
-          "$GODOT" --headless --editor --path "$RUNNER_TEMP/project" --import > "$RUNNER_TEMP/import.log" 2>&1
-          if grep -E 'SCRIPT ERROR:|Parse Error:|Failed to load script' "$RUNNER_TEMP/import.log"; then exit 1; fi
-          "$GODOT" --headless --path "$RUNNER_TEMP/project" --script tests/bake_expedition_assets.gd > "$RUNNER_TEMP/bake.log" 2>&1
-          grep -F 'EXPEDITION_BAKE files=130' "$RUNNER_TEMP/bake.log"
-          "$GODOT" --headless --editor --path "$RUNNER_TEMP/project" --import > "$RUNNER_TEMP/prepared-import.log" 2>&1
-          if grep -E 'SCRIPT ERROR:|Parse Error:|Failed to load script' "$RUNNER_TEMP/prepared-import.log"; then exit 1; fi
-      - name: Verify equipment, saves and twelve animated lessons
-        shell: bash
-        run: |
-          set -euo pipefail
-          XDG_DATA_HOME="$RUNNER_TEMP/testdata" "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --headless --path "$RUNNER_TEMP/project" --script tests/equipment_verify.gd 2>&1 | tee "$RUNNER_TEMP/tests.log"
-          grep -F 'VERIFY failures=[]' "$RUNNER_TEMP/tests.log"
-          if grep -E 'SCRIPT ERROR:|Assertion failed' "$RUNNER_TEMP/tests.log"; then exit 1; fi
-      - name: Verify visual particle budgets for all grades and actions
-        shell: bash
-        run: |
-          set -euo pipefail
-          XDG_DATA_HOME="$RUNNER_TEMP/visual-testdata" "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --headless --path "$RUNNER_TEMP/project" --script tests/visual_verify.gd 2>&1 | tee "$RUNNER_TEMP/visual-tests.log"
-          grep -F 'VISUAL_VERIFY failures=[]' "$RUNNER_TEMP/visual-tests.log"
-          if grep -E 'SCRIPT ERROR:|Assertion failed' "$RUNNER_TEMP/visual-tests.log"; then exit 1; fi
-      - name: Verify guide, release mail and regional purchases
-        shell: bash
-        run: |
-          set -euo pipefail
-          for suite in fish_anchor_size regional_bundle_rewards mail_gifts valley_gift108 tile107 tier3_motion tier_skills training_costs tier2_motion management101 formation_compare forge_layout robot_ui_revision capture_robot balance096 guide_ac valley094 arrival_gift valley093 bait092 notification091 ui090 codex089 aquarium_b ui_guide pouch_inventory expedition_result support_utility combat_feedback bag_event_order bag_formation selected_ui bag_interaction startup_assets soul_pouch expedition_hard_balance expedition_label bundle_aqua expedition080 expedition079 testing_gift soldier_dex approved_ui expedition_motion expedition expedition_save expedition_balance action_readability economy_balance rod_aura atmosphere_encounter angler_scene market_reader odds_rewards guide shop audio_save bundle_preview rewards reader fish_surface regional inventory_layout bag_list bundles_buyback owner_gauge reservoir_layers personal_dex bait_roles measurement_speed village_entry_audio; do
-            XDG_DATA_HOME="$RUNNER_TEMP/$suite-testdata" timeout 90 "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --headless --path "$RUNNER_TEMP/project" --script "tests/${suite}_verify.gd" > "$RUNNER_TEMP/$suite-tests.log" 2>&1
-            cat "$RUNNER_TEMP/$suite-tests.log"
-            grep -F 'VERIFY failures=[]' "$RUNNER_TEMP/$suite-tests.log"
-            if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' "$RUNNER_TEMP/$suite-tests.log"; then exit 1; fi
-          done
-      - name: Verify valley native background composition
-        shell: bash
-        run: |
-          set -euo pipefail
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-valley-native" timeout 90 "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --headless --path "$RUNNER_TEMP/project" --script tests/valley_native_verify.gd -- "$RUNNER_TEMP/valley-native" > "$RUNNER_TEMP/valley-native.log" 2>&1
-          cat "$RUNNER_TEMP/valley-native.log"
-          grep -F 'VALLEY_NATIVE_VERIFY failures=[]' "$RUNNER_TEMP/valley-native.log"
-          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' "$RUNNER_TEMP/valley-native.log"; then exit 1; fi
-      - name: Export patch and matching manifest
-        shell: bash
-        run: |
-          set -euo pipefail
-          mkdir -p dist
-          "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --headless --path "$RUNNER_TEMP/project" --export-pack Android "$GITHUB_WORKSPACE/dist/patch.pck" > "$RUNNER_TEMP/export.log" 2>&1
-          python3 - <<'PY'
-          import hashlib,json,pathlib,os,zipfile
-          p=pathlib.Path('dist/patch.pck')
-          assert p.read_bytes()[:4]==b'GDPC' and p.stat().st_size>1000000
-          v=json.loads(pathlib.Path('automation/release.json').read_text())
-          assert isinstance(v['code'],int) and v['code']>60
-          v.update(sha256=hashlib.sha256(p.read_bytes()).hexdigest(),size=p.stat().st_size,source_commit=os.environ["GITHUB_SHA"])
-          pathlib.Path('dist/version.json').write_text(json.dumps(v,indent=2)+'\n')
-          project=pathlib.Path(os.environ['RUNNER_TEMP'])/'project'
-          with zipfile.ZipFile('dist/game-source.zip','w',zipfile.ZIP_DEFLATED) as z:
-              for item in project.rglob('*'):
-                  rel=item.relative_to(project)
-                  if item.is_file() and '.godot' not in rel.parts and item.suffix!='.log':
-                      assert 'keystore' not in item.name.lower()
-                      z.write(item,pathlib.Path('game')/rel)
-          PY
-      - name: Verify new art from the exported pack in an empty project
-        shell: bash
-        run: |
-          set -euo pipefail
-          mkdir -p "$RUNNER_TEMP/pack-check"
-          python3 - <<'PYCODE'
-          import os,pathlib
-          (pathlib.Path(os.environ['RUNNER_TEMP'])/'pack-check/project.godot').write_text('config_version=5\n[application]\nconfig/name="Packed art check"\n')
-          PYCODE
-          timeout 90 "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --headless --path "$RUNNER_TEMP/pack-check" --script "$GITHUB_WORKSPACE/automation/verify_packed_art.gd" -- "$GITHUB_WORKSPACE/dist/patch.pck" "$(python3 -c 'import json;print(json.load(open("automation/release.json"))["name"])')" > "$RUNNER_TEMP/packed-art.log" 2>&1
-          cat "$RUNNER_TEMP/packed-art.log"
-          grep -F 'PACKED_ANGLER_VERIFY failures=[]' "$RUNNER_TEMP/packed-art.log"
-          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' "$RUNNER_TEMP/packed-art.log"; then exit 1; fi
-      - name: Verify approved tile background fish and deleted path in actual pack
-        shell: bash
-        run: |
-          set -euo pipefail
-          timeout 90 "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --headless --path "$RUNNER_TEMP/pack-check" --script "$GITHUB_WORKSPACE/docs/qa/tile-release-stage5/packed_tile.gd" -- "$GITHUB_WORKSPACE/dist/patch.pck" > "$RUNNER_TEMP/packed-tile.log" 2>&1
-          cat "$RUNNER_TEMP/packed-tile.log"
-          grep -F 'PACKED_TILE107_VERIFY failures=[]' "$RUNNER_TEMP/packed-tile.log"
-          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' "$RUNNER_TEMP/packed-tile.log"; then exit 1; fi
-      - name: Publish only after all assets are uploaded
-        env:
-          GH_TOKEN: ${{ github.token }}
-        shell: bash
-        run: |
-          set -euo pipefail
-          TAG="$(python3 -c 'import json;print("v"+json.load(open("dist/version.json"))["name"])')"
-          if gh release view "$TAG" >/dev/null 2>&1; then
-            git fetch --depth=1 origin "refs/tags/$TAG:refs/tags/$TAG"
-            if [ "$(gh release view "$TAG" --json isDraft --jq .isDraft)" = false ] && git diff --quiet "$TAG" HEAD -- game automation/release.json; then
-              echo "This source version is already published; no changes required."
-              exit 0
-            fi
-            echo "Version exists with different source or an unfinished draft; increment the version or inspect the draft."
-            exit 1
-          fi
-          gh release create "$TAG" --target "$GITHUB_SHA" --draft --title "낚시월드 $TAG" --notes-file "$RUNNER_TEMP/release-notes.md"
-          gh release upload "$TAG" dist/patch.pck dist/version.json dist/game-source.zip
-          gh release edit "$TAG" --draft=false --latest
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: python3 automation/release_candidate.py publish --out dist
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: build-evidence
-          path: |
-            dist/patch.pck
-            dist/game-source.zip
-            dist/version.json
-            ${{ runner.temp }}/import.log
-            ${{ runner.temp }}/tests.log
-            ${{ runner.temp }}/*-tests.log
-            ${{ runner.temp }}/packed-art.log
-            ${{ runner.temp }}/packed-tile.log
-            ${{ runner.temp }}/valley-native.log
-            ${{ runner.temp }}/export.log
-
-
-
+          name: publication-result
+          path: dist/PUBLISH_RESULT.json
