@@ -1,0 +1,31 @@
+{
+  "date_kst": "2026-11-08",
+  "status": "blocked_by_automatic_approval_review",
+  "first_request": {
+    "http_status": 500,
+    "reason": "style reference96x64 does not match output128x64",
+    "outputs": 0,
+    "confirmed_generation_charge": 0
+  },
+  "corrected_input": {
+    "output": [
+      128,
+      64
+    ],
+    "style_canvas": [
+      128,
+      64
+    ],
+    "original_pixels": "preserved96x64 at16,0",
+    "resampling": false
+  },
+  "corrected_attempt": {
+    "auto_review_rejected": true,
+    "server_acceptance": "not_confirmed",
+    "outputs": "not_confirmed",
+    "charge": "not_confirmed"
+  },
+  "reason": "No explicit user approval for an additional paid request after reviewing the first failure and corrected-request risks",
+  "next_step": "Obtain explicit approval for corrected first-image request; after approval inspect existing corrected-attempt state/balance/results before any new POST",
+  "no_further_generation": true
+}

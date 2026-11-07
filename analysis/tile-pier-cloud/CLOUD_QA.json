@@ -1,0 +1,16 @@
+{
+  "status": "pass_for_scene_trial",
+  "native_size": [
+    192,
+    48
+  ],
+  "used_bbox": [
+    4,
+    7,
+    188,
+    39
+  ],
+  "native_and_nearest4x_reviewed": true,
+  "shape": "one horizontal wispy bank rather than stacked round lobes; clean transparent margins, no water fringe",
+  "scene_condition": "render shallow height with lower contrast lavender shadow and edge fade"
+}

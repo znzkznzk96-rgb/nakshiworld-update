@@ -1,0 +1,11 @@
+{
+  "static_calls": 7,
+  "flight_calls": 1,
+  "generations_before": 1139.6,
+  "generations_after": 1131.6,
+  "actual_generations_used": 8.0,
+  "quality_regenerations_per_asset_this_round": 1,
+  "actual_tile_fish_generation_calls": 0,
+  "paid_in_flight": 0,
+  "deployed": false
+}

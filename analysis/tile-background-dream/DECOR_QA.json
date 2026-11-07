@@ -1,0 +1,21 @@
+{
+  "allowed_local_species": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "global_species": [
+    40,
+    41,
+    42,
+    43
+  ],
+  "catalogue_star": 1,
+  "visible_instances": 6,
+  "old_instances": 13,
+  "plant_placements": 5,
+  "old_plant_placements": 11,
+  "source_fish_unmodified": true,
+  "aquarium_changed": false
+}

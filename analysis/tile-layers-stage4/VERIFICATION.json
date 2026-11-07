@@ -1,0 +1,31 @@
+{
+  "gif_frames": 96,
+  "distinct_frames": 96,
+  "duration_ms": 8000,
+  "loop": 0,
+  "upper555_unchanged": true,
+  "change_bbox": [
+    0,
+    566,
+    540,
+    1199
+  ],
+  "directions_at_0s": {
+    "left": 3,
+    "right": 5
+  },
+  "directions_at_2s": {
+    "left": 2,
+    "right": 6
+  },
+  "directions_at_8s": {
+    "left": 3,
+    "right": 5
+  },
+  "fish_turns_in_8s": 4,
+  "caustics_function_and_layer_removed": true,
+  "headless_3_heights": "passed",
+  "paid_generation": 0,
+  "production_integrated": false,
+  "deployed": false
+}

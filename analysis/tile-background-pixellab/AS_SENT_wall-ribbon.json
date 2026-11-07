@@ -1,0 +1,13 @@
+{
+  "description": "One small submerged side-growing aquatic plant anchored at its LEFT middle by a small root knot, five long slender curved blue-green ribbon leaves sweeping right and gently downward, teal shadows and mint highlights, all leaf tips uncut. Isolated static environment sprite in crisp cozy 16-bit pixel art style. Clear square pixel clusters, three or four shades per color, readable at native size, no anti-aliased blur, no glow, no background, no tile or ground, absolutely no stones, no surrounding tile, no colored rectangle, no scenery, no letters or UI, no motion trails, no sprite sheet. Keep the entire object inside canvas with transparent margins. ",
+  "image_size": {
+    "width": 64,
+    "height": 96
+  },
+  "outline": "selective outline",
+  "detail": "medium detail",
+  "view": "side",
+  "no_background": true,
+  "seed": 2026110908,
+  "enhance_prompt": false
+}

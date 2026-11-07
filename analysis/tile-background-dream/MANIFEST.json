@@ -1,0 +1,20 @@
+[
+  {
+    "path": "cloud-fixed.png",
+    "bytes": 4669,
+    "size": [
+      160,
+      64
+    ],
+    "sha256": "046aa090a1cf6582e60131b91fe1b06cc1f98dd14cd519c10cdb2001dfb6add3"
+  },
+  {
+    "path": "mist.png",
+    "bytes": 2383,
+    "size": [
+      160,
+      48
+    ],
+    "sha256": "2d1aaf65213af7871fc8382398c38a002a19577c672b1d8595c958113b3f7ff4"
+  }
+]

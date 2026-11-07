@@ -1,0 +1,18 @@
+{
+  "status": "rejected_quality_stop",
+  "accepted": false,
+  "reasons": [
+    "four separate minnows not produced; connected oversized composite form",
+    "body/tail/fins not independently readable",
+    "gold appendages and muted coloring diverge from approved reference"
+  ],
+  "outputs_received": 1,
+  "accepted_outputs": 0,
+  "generations_before": 1157.6,
+  "generations_after": 1156.6,
+  "actual_generations_used": 1,
+  "technical_attempt_limit_per_image": 3,
+  "production_integrated": false,
+  "deployed": false,
+  "further_paid_calls": 0
+}

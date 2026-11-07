@@ -1,0 +1,13 @@
+{
+  "description": "One small sparse rising cluster of exactly five separate round water bubbles in different sizes, transparent interiors and thin broken pale aqua rims, tiny white specular highlight pixels at upper left, 3 to 9 pixel diameters with ample transparent gaps between all bubbles. No water background, no foam and no text. Isolated static environment sprite in crisp cozy 16-bit pixel art style. Clear square pixel clusters, three or four shades per color, readable at native size, no anti-aliased blur, no glow, no background, no tile or ground, absolutely no stones, no surrounding tile, no colored rectangle, no scenery, no letters or UI, no motion trails, no sprite sheet. Keep the entire object inside canvas with transparent margins. ",
+  "image_size": {
+    "width": 48,
+    "height": 64
+  },
+  "outline": "lineless",
+  "detail": "medium detail",
+  "view": "side",
+  "no_background": true,
+  "seed": 2026110912,
+  "enhance_prompt": false
+}

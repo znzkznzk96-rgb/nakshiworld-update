@@ -1,0 +1,20 @@
+{
+  "gif_frames": 96,
+  "distinct_frames": 96,
+  "duration_ms": 8000,
+  "loop": 0,
+  "old_vs_new_same_seed_and_time": true,
+  "light_only_change_bbox": [
+    60,
+    659,
+    540,
+    1130
+  ],
+  "above_water_unchanged": true,
+  "brightness_roi_pixels_increased_gt5": 11460,
+  "brightness_roi_max_channel_increase": 59,
+  "headless_3_phone_heights": "passed",
+  "paid_generation": 0,
+  "production_integrated": false,
+  "deployed": false
+}

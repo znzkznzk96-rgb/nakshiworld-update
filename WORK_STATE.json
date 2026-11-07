@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "v109_published_and_gateway_verified",
+  "status": "v110_full_ci_in_progress",
   "release_baseline": "v1.09",
-  "target_release": "v1.09",
-  "deployed": true,
+  "target_release": "v1.10",
+  "deployed": false,
   "phone_verified": false,
-  "handoff": "docs/releases/109/HANDOFF.md",
-  "current_task": "v1.09 보상·박물관·낚시표시 개선 공개/운영 검증 완료",
-  "next_step": "기존 앱에서 v1.09 업데이트 후 실제 적용 확인. 휴대폰 적용은 사용자 확인 별도.",
+  "handoff": "docs/releases/110/HANDOFF.md",
+  "current_task": "승인 타일장식 본편통합·전체검사·v1.10 공개배포",
+  "next_step": "CI42423468177 성공 확인→PR46 병합→동일후보 공개→운영/3파일 검증",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -44,8 +44,8 @@
   "remaining_global_render_checks": false,
   "release_authorization": {
     "date": "2026-11-08",
-    "user_request": "업데이트하고 배포하자",
-    "scope": "current reviewed fixes and verified mail common refactor v1.09"
+    "user_request": "업데이트및 배포해줘 ㅇㅇ",
+    "scope": "현재 승인 타일바다 레이어 전체와 미배포 난이도/표시/공통빛/수면 개선 v1.10"
   },
   "release_preflight": "docs/releases/109/PREFLIGHT.json",
   "release_source_commit": "2d4e0bcd3f31783ed231720ee20657140e4f0d4c",
@@ -97,5 +97,155 @@
     "run": 42384973558,
     "cause": "packed mail check hardcoded1.08; prepublication assertion",
     "fix_pr": 43
+  },
+  "presentation_followup": {
+    "deployed": false,
+    "release_authorized": false,
+    "related_checks": 6,
+    "pipeline_checks": 6,
+    "difficulty_implemented": false,
+    "proposal": "docs/qa/presentation-release-efficiency/DIFFICULTY_PROPOSAL.md",
+    "ci_run": 42388161422,
+    "ci_status": "success",
+    "source_commit": "f0c39c5ed752c826a703d53d7465fc58488ea24a",
+    "candidate_built": true
+  },
+  "difficulty_study": {
+    "report": "analysis/regional-difficulty-20261108/REPORT.md",
+    "verification": "analysis/regional-difficulty-20261108/VERIFICATION.json",
+    "trials": 71380,
+    "designs_including_baseline": 19,
+    "production_balance_changed": false,
+    "phone_tested": false
+  },
+  "release_authorized": true,
+  "balance110": {
+    "applied": true,
+    "deployed": false,
+    "release_authorized": false,
+    "equivalence_conditions": 1296,
+    "equivalence_exact": true,
+    "verification": "docs/qa/balance110/VERIFICATION.json",
+    "ci_run": 42391006308,
+    "ci_status": "success",
+    "source_commit": "584e3ee9c52dc54bca586334fe0ffa7e5a10ac44",
+    "headless_passed": 75,
+    "headless_total": 75,
+    "candidate_artifact": 13582180975,
+    "candidate_fingerprint": "9971deb6317a71477b90a17a59c13257e4b0141535074ecd0041c7619d987977",
+    "candidate_ready": false,
+    "candidate_note": "기존검증후보는조명변경이전소스. 새조명포함후보는미빌드/미배포."
+  },
+  "tile_layer_preview": {
+    "path": "analysis/tile-layers-stage9/display.webp",
+    "verification": "analysis/tile-layers-stage9/VERIFICATION.json",
+    "production_integrated": false,
+    "paid_generation": 0,
+    "deployed": false,
+    "layers": 11,
+    "light_implementation": "one procedural 2D fbm vertical field, no cone/apex/pattern texture",
+    "light_production_integrated": true
+  },
+  "tile_art_generation": {
+    "authorized_art_outputs": 6,
+    "first_error_outputs": 0,
+    "first_error_charge": 0,
+    "corrected_request_auto_review_blocked": true,
+    "corrected_acceptance_unknown": false,
+    "deployed": false,
+    "technical_attempt_limit_per_image": 3,
+    "first_output_received": true,
+    "accepted_outputs": 3,
+    "rejected_outputs": 1,
+    "actual_generations_used": 1,
+    "quality_gate": "failed_stop",
+    "status": "three_plants_passed_three_assets_deferred",
+    "withheld_assets": [
+      "far-school-01",
+      "far-school-02",
+      "wall-plant-01"
+    ],
+    "plant_generations_used": 4,
+    "total_generations_used_including_school": 5,
+    "ledger": "analysis/tile-layer-art-v1/PLANT_LEDGER.json",
+    "quality": "analysis/tile-layer-art-v1/PLANT_QA.json"
+  },
+  "public_release": "v1.09",
+  "shared_vertical_light": {
+    "applied": true,
+    "regions": [
+      0,
+      1,
+      2
+    ],
+    "production_integrated": true,
+    "deployed": false,
+    "release_authorized": false,
+    "checks": "75_of_75_full_plus_shared_light_and_native_screens_passed",
+    "verification": "docs/qa/shared-vertical-light/VERIFICATION.json",
+    "source_commit": "d8a5ef337655b579261133091cd2292be0ca5d4f"
+  },
+  "tile_surface_water": {
+    "production_integrated": true,
+    "regions": [
+      2
+    ],
+    "verification": "docs/qa/tile-surface-shader/VERIFICATION.json",
+    "two_opposite_flows": true,
+    "deployed": false,
+    "release_authorized": false
+  },
+  "tile_background_pixellab": {
+    "outputs": 13,
+    "internal_pass": 5,
+    "held": 8,
+    "complete": false,
+    "paid_generations_used": 13,
+    "quality_regenerations": 0,
+    "technical_retries": 0,
+    "ledger": "analysis/tile-background-pixellab/LEDGER.json",
+    "verification": "analysis/tile-background-pixellab/VERIFICATION.json",
+    "production_integrated": false,
+    "deployed": false
+  },
+  "tile_background_pixellab_r2": {
+    "static_outputs": 7,
+    "static_pass": 3,
+    "static_held": 4,
+    "flight_frames": 9,
+    "actual_fish_reused": 12,
+    "paid_generations_used": 8,
+    "production_integrated": false,
+    "deployed": false,
+    "verification": "analysis/tile-background-pixellab-r2/VERIFICATION.json"
+  },
+  "tile_background_dream": {
+    "production_integrated": true,
+    "deployed": false
+  },
+  "tile_pier_cloud": {
+    "production_integrated": true,
+    "deployed": false
+  },
+  "tile_cloud_birds": {
+    "verification": "analysis/tile-cloud-birds/VERIFICATION.json",
+    "cloud_variants": 4,
+    "new_clouds": 3,
+    "paid_generations": 3,
+    "bird_original_frames": 9,
+    "production_integrated": true,
+    "deployed": false
+  },
+  "tile_scenery": {
+    "verification": "docs/qa/tile-scenery/VERIFICATION.json",
+    "production_integrated": true,
+    "deployed": false,
+    "local_related_pass": true
+  },
+  "full_release_ci": {
+    "run": 42423468177,
+    "status": "in_progress",
+    "source_commit": "12dfd5d1b96aa2ecfee558d491991d123950700a",
+    "pr": 46
   }
 }

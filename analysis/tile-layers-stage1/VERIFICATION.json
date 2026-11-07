@@ -1,0 +1,60 @@
+{
+  "date_kst": "2026-11-08",
+  "scope": "isolated preview only",
+  "source_plate": "res://art/bg/tile_sea_approved_20261107.png",
+  "source_sha256": "1c2ce9d432cf1aa38ed462d2570291fe63c316f50aecc851f0a5a532d84d1f4b",
+  "source_edited": false,
+  "paid_generation": 0,
+  "render_size": [
+    540,
+    1320
+  ],
+  "frame_times_seconds": [
+    0,
+    3,
+    6
+  ],
+  "pixel_checks": {
+    "water_0": {
+      "difference_bbox": [
+        34,
+        577,
+        507,
+        983
+      ],
+      "sky_and_hud_identical": true,
+      "bottom_and_equipment_identical": true
+    },
+    "water_3": {
+      "difference_bbox": [
+        36,
+        577,
+        508,
+        998
+      ],
+      "sky_and_hud_identical": true,
+      "bottom_and_equipment_identical": true
+    },
+    "water_6": {
+      "difference_bbox": [
+        31,
+        577,
+        512,
+        1011
+      ],
+      "sky_and_hud_identical": true,
+      "bottom_and_equipment_identical": true
+    }
+  },
+  "screenshot_format": "lossless WebP, decoded pixels checked identical to captured PNG",
+  "production_game_changed": false,
+  "v110_candidate_rebuilt": false,
+  "deployed": false,
+  "phone_heights_verified": [
+    480,
+    540,
+    660
+  ],
+  "lifecycle_clock_visibility_checks": "passed",
+  "approx_draw_primitives": 100
+}

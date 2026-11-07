@@ -1,0 +1,301 @@
+{
+  "cloud-far": {
+    "status": "hold",
+    "notes": "Initial native/4x geometry review passed, then actual-screen review failed: bead-like lobes and outline too prominent against approved tile sky. Prior pass is superseded; no regeneration.",
+    "native_and_nearest4x_reviewed": true,
+    "size": [
+      128,
+      48
+    ],
+    "bbox": [
+      17,
+      12,
+      110,
+      41
+    ],
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "sha256": "f15f0354dc31762f997967da0d8386786fa414fbb853ed58989a741db2aab8ab",
+    "model": "create-image-pixen",
+    "generations_reported": 1.0,
+    "production_integrated": false
+  },
+  "cloud-near": {
+    "status": "hold",
+    "notes": "Three round ball-like lobes with heavy outline read as spheres rather than natural cumulus; withheld, no regeneration.",
+    "native_and_nearest4x_reviewed": true,
+    "size": [
+      128,
+      64
+    ],
+    "bbox": [
+      54,
+      14,
+      98,
+      52
+    ],
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "sha256": "e96a13306f15673d37a27f21a9287c28a5da84eb221c3d970b83a66173d67edc",
+    "model": "create-image-pixen",
+    "generations_reported": 1.0,
+    "production_integrated": false
+  },
+  "horizon-mist": {
+    "status": "hold",
+    "notes": "Solid wavy ribbon/lightning silhouette with hard contour, not soft sparse water mist; left edge contact. Withheld.",
+    "native_and_nearest4x_reviewed": true,
+    "size": [
+      192,
+      32
+    ],
+    "bbox": [
+      0,
+      4,
+      187,
+      29
+    ],
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "sha256": "9e0f36267b2036d91a2e0accf70935080a1d056ffe634b66c4406f2dadc2933f",
+    "model": "create-image-pixen",
+    "generations_reported": 1.0,
+    "production_integrated": false
+  },
+  "arch-vine": {
+    "status": "pass",
+    "notes": "Readable hanging paired stems, emerald/jade leaves with mint lights and teal shadows, all tips/root inside alpha margins; root knot can attach to tile ledge.",
+    "native_and_nearest4x_reviewed": true,
+    "size": [
+      64,
+      128
+    ],
+    "bbox": [
+      14,
+      5,
+      60,
+      123
+    ],
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "sha256": "e69b0535d5196aaa15ad220378744b5a6c6465e989cced194d421c0a59ce9df3",
+    "model": "create-image-pixen",
+    "generations_reported": 1.0,
+    "production_integrated": false
+  },
+  "ledge-grass": {
+    "status": "hold",
+    "notes": "Generated a square stone-floor scenery tile around the grass, not an isolated transparent plant; cannot safely overlay on approved background.",
+    "native_and_nearest4x_reviewed": true,
+    "size": [
+      64,
+      48
+    ],
+    "bbox": [
+      4,
+      2,
+      60,
+      45
+    ],
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "sha256": "adc73cac5e7240800686bad8413b6159564517a15d2ab9571c595e99566ff51c",
+    "model": "create-image-pixen",
+    "generations_reported": 1.0,
+    "production_integrated": false
+  },
+  "floor-ribbon": {
+    "status": "pass",
+    "notes": "Clean isolated turquoise/emerald ribbon plant with readable leaves/teal shadows and intact roots, native64x80 and4x checked.",
+    "native_and_nearest4x_reviewed": true,
+    "size": [
+      64,
+      80
+    ],
+    "bbox": [
+      4,
+      7,
+      59,
+      75
+    ],
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "sha256": "7660d51bff2c93982ef4b3a8ae9c2c6a8b99f9a634a5144ae995ce4b5bee30f6",
+    "model": "create-image-pixen",
+    "generations_reported": 1.0,
+    "production_integrated": false
+  },
+  "floor-broad": {
+    "status": "pass",
+    "notes": "Isolated blue-green broad leaf plant with distinct stems/veins and intact roots; transparent clean margins, no scenery, native/4x readable.",
+    "native_and_nearest4x_reviewed": true,
+    "size": [
+      64,
+      80
+    ],
+    "bbox": [
+      2,
+      10,
+      62,
+      70
+    ],
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "sha256": "d46c527dc9216b3b5aef3c4105adfbcf08b3a697b3f6dc321ba16651a624a23b",
+    "model": "create-image-pixen",
+    "generations_reported": 1.0,
+    "production_integrated": false
+  },
+  "wall-ribbon": {
+    "status": "pass",
+    "notes": "Side-root knot and separate long teal/mint ribbon leaves, clear transparent canvas, tip pixels inside bounds. Native/4x checked; actual wall anchor to be aligned.",
+    "native_and_nearest4x_reviewed": true,
+    "size": [
+      64,
+      96
+    ],
+    "bbox": [
+      2,
+      33,
+      63,
+      86
+    ],
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "sha256": "7bef306364cfa61b94028303234390f22ff42d88bc1274fe6e6d0a319d49a077",
+    "model": "create-image-pixen",
+    "generations_reported": 1.0,
+    "production_integrated": false
+  },
+  "fish-far": {
+    "status": "hold",
+    "notes": "Single complete fish/alpha/tail are usable, but output copied pink/amber reference stripe and fins rather than specified turquoise/coral; left-facing. Color target not met, withheld rather than silently accepted.",
+    "native_and_nearest4x_reviewed": true,
+    "size": [
+      96,
+      64
+    ],
+    "bbox": [
+      7,
+      16,
+      88,
+      48
+    ],
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "sha256": "8a309b94b4eaef081112d0d15ebf34ba5ecdbe003a061ca5609d9125443904cf",
+    "model": "create-image-bitforge",
+    "generations_reported": 1.0,
+    "production_integrated": false
+  },
+  "fish-mid": {
+    "status": "pass",
+    "notes": "Readable complete silver-blue decorative fish with clear eye, fins and forked tail, no clipping; matches approved blue/silver reference palette. Use as generic ambient silverfish, not named mackerel (planned dorsal bars absent). Native96x64 and4x checked; display-size review pending.",
+    "native_and_nearest4x_reviewed": true,
+    "size": [
+      96,
+      64
+    ],
+    "bbox": [
+      1,
+      9,
+      95,
+      55
+    ],
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "sha256": "6da8bb9e02b84110e22d9574596908779cca9ae253cd5f09a0d48bb94dd658dc",
+    "model": "create-image-bitforge",
+    "generations_reported": 1.0,
+    "production_integrated": false
+  },
+  "fish-near": {
+    "status": "hold",
+    "notes": "Body became lumpy/spotted with yellow-green wash, cream bands/coral fins missing; not the intended clear reef-fish design. Withheld; no regeneration.",
+    "native_and_nearest4x_reviewed": true,
+    "size": [
+      96,
+      64
+    ],
+    "bbox": [
+      2,
+      7,
+      94,
+      55
+    ],
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "sha256": "ceca569ec1d92e9b10944c0ce7d5817bb12c9a4b751d9ecce9d6cb2c3d260b10",
+    "model": "create-image-bitforge",
+    "generations_reported": 1.0,
+    "production_integrated": false
+  },
+  "bubble-cluster": {
+    "status": "hold",
+    "notes": "Five bubbles rendered, but gray checkerboard-like pixels are baked inside rather than transparent interiors. Not safe to use as requested; withheld without extra generation.",
+    "native_and_nearest4x_reviewed": true,
+    "size": [
+      48,
+      64
+    ],
+    "bbox": [
+      1,
+      3,
+      47,
+      63
+    ],
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "sha256": "8aa6abd3e8348f83ac10a7d04039739d2708f34e8b70371b9a536b198f496a70",
+    "model": "create-image-pixen",
+    "generations_reported": 1.0,
+    "production_integrated": false
+  },
+  "water-specks": {
+    "status": "hold",
+    "notes": "Full32x32 opaque alpha255 with baked checkerboard and one central mote instead of sparse transparent flecks; not usable overlay.",
+    "native_and_nearest4x_reviewed": true,
+    "size": [
+      32,
+      32
+    ],
+    "bbox": [
+      0,
+      0,
+      32,
+      32
+    ],
+    "alpha_extrema": [
+      255,
+      255
+    ],
+    "sha256": "56d5014480bbea6b58194a095a2addff186999e308520f3461a8eb0a0f5978d5",
+    "model": "create-image-pixen",
+    "generations_reported": 1.0,
+    "production_integrated": false
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "description": "A sparse group of five simple small hollow cyan circular rings with thin bright blue-cyan rims and a tiny white highlight at upper left. Each ring interior is empty, identical to the empty surrounding canvas. Different sizes and separated rings. Pure clean pixel outline shapes only. No grey fill, no checkerboard pattern, no shadow, no scenery, no text, no background.",
+  "image_size": {
+    "width": 64,
+    "height": 64
+  },
+  "outline": "lineless",
+  "detail": "medium detail",
+  "view": "side",
+  "no_background": true,
+  "background_removal_task": "remove_complex_background",
+  "seed": 2026111005,
+  "enhance_prompt": false
+}

@@ -1,0 +1,7 @@
+{
+  "status": "usable_with_render_mask",
+  "shape": "clean rounded cloud, coherent ivory/lavender clusters",
+  "issue": "generated unwanted teal water fringe at bottom despite isolated request; source preserved",
+  "render_correction": "crop lower water fringe by Sprite source region then fade bottom edge in CanvasItem shader; no image rewriting, no paid retry",
+  "native_and_nearest4x_reviewed": true
+}

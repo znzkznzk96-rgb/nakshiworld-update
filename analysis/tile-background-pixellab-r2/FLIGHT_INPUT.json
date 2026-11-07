@@ -1,0 +1,17 @@
+{
+  "source": "gull.png",
+  "source_sha256": "77817a4615490168f5db829417cd2af7a5a287116e86e5509909b7cddcd211cd",
+  "input_size": [
+    80,
+    80
+  ],
+  "padding": [
+    8,
+    8
+  ],
+  "original_pixels_unchanged": true,
+  "input_sha256": "22c51accd1296df25e6a81f45fbf631fcedbd16b6c15c94c40c77f1623c5b581",
+  "frame_count": 8,
+  "seed": 2026111018,
+  "model": "animate-with-text-v3"
+}

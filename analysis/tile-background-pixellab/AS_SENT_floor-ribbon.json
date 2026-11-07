@@ -1,0 +1,13 @@
+{
+  "description": "One compact clump of seven narrow curved submerged eelgrass ribbon leaves, emerald and turquoise blades, deep teal shadows and mint edge highlights, short dark roots, fan-shaped plant silhouette only, full tips and roots visible. Isolated static environment sprite in crisp cozy 16-bit pixel art style. Clear square pixel clusters, three or four shades per color, readable at native size, no anti-aliased blur, no glow, no background, no tile or ground, absolutely no stones, no surrounding tile, no colored rectangle, no scenery, no letters or UI, no motion trails, no sprite sheet. Keep the entire object inside canvas with transparent margins. ",
+  "image_size": {
+    "width": 64,
+    "height": 80
+  },
+  "outline": "selective outline",
+  "detail": "medium detail",
+  "view": "side",
+  "no_background": true,
+  "seed": 2026110906,
+  "enhance_prompt": false
+}

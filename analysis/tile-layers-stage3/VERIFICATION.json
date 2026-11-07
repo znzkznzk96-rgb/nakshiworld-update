@@ -1,0 +1,19 @@
+{
+  "gif_frames": 96,
+  "gif_distinct_frames": 96,
+  "gif_duration_ms": 8000,
+  "gif_loops": 0,
+  "gif_bytes": 1891631,
+  "mp4_bytes": 936884,
+  "frame_difference_bbox": [
+    0,
+    577,
+    536,
+    1199
+  ],
+  "upper555_pixels_unchanged": true,
+  "headless_3_phone_heights": "passed",
+  "paid_generation": 0,
+  "production_integrated": false,
+  "deployed": false
+}

@@ -1,0 +1,9 @@
+{
+  "fishing_difficulty": true,
+  "forge_layout": true,
+  "equipment": true,
+  "regional": true,
+  "odds_rewards": true,
+  "guide": true,
+  "balance096": true
+}

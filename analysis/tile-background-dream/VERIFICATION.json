@@ -1,0 +1,54 @@
+{
+  "native_and_nearest_reviewed": true,
+  "native_resolution": [
+    540,
+    1320
+  ],
+  "cloud": "usable after excluding teal fringe and fading lower edge; raw output conditional",
+  "mist": "usable faint additive soft veil; grey raw lines removed from rendered color",
+  "fish": "4 common tile one-star species,6 instances; actual approved originals unchanged",
+  "plants": "11→5 placements",
+  "tone": "plate-only shader strength0.28, lavender/teal bright palette, original pixels preserved",
+  "circular_ruin": "unchanged; proposed seam glow/fragments/inner veil only",
+  "production_integrated": false,
+  "deployed": false,
+  "save_or_balance_changed": false,
+  "paid_generations": 2,
+  "technical_error": "initial422 invalid outline enum corrected once; failed native display launch and generated function declaration corrected, final capture separate",
+  "hud_top140_identical": false,
+  "native_frames": 150,
+  "native_render_errors": false,
+  "native_exit_code": 0,
+  "gif_frames": 120,
+  "gif_duration_ms": 10000,
+  "hud_panel_checks": [
+    {
+      "rect": [
+        22,
+        10,
+        517,
+        57
+      ],
+      "identical": true
+    },
+    {
+      "rect": [
+        26,
+        78,
+        257,
+        125
+      ],
+      "identical": true
+    },
+    {
+      "rect": [
+        285,
+        78,
+        513,
+        125
+      ],
+      "identical": true
+    }
+  ],
+  "hud_top140_note": "Full top140 includes exposed background gaps, intentionally tinted. Panel interiors checked separately."
+}

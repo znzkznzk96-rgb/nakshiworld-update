@@ -1,0 +1,163 @@
+{
+  "cloud-far": {
+    "status": "hold",
+    "notes": "Native and4x: irregular fluffy white/sky-blue cloud bank, no dark contour or bead spheres; right canvas contact suitable for a continuous/offscreen far bank, not centered isolated sprite. FINAL IN-SCENE OVERRIDE: rectangular noisy texture edges visible at game scale; excluded from final preview.",
+    "native_and_nearest4x_reviewed": true,
+    "size": [
+      180,
+      48
+    ],
+    "bbox": [
+      1,
+      6,
+      180,
+      42
+    ],
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "sha256": "16d859ddf2d60f8fc8bb4c352604ab79b0ea3eff50295e2bf41b67da40716d66",
+    "model": "create-image-bitforge",
+    "generations_reported": 1.0,
+    "production_integrated": false
+  },
+  "cloud-near": {
+    "status": "hold",
+    "notes": "Native/4x fluffy broken white-cyan cloud-bank clusters, no spherical balls or dark outlines, full alpha margins. A narrow gap separates cloud clusters; use as a bank rather than a single isolated puff. FINAL IN-SCENE OVERRIDE: rectangular noisy texture edges visible at game scale; excluded from final preview.",
+    "native_and_nearest4x_reviewed": true,
+    "size": [
+      180,
+      64
+    ],
+    "bbox": [
+      8,
+      10,
+      173,
+      56
+    ],
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "sha256": "c4fcadcf2f6a656395c2461e2c37223a9f6eb3f07d579ff8cdb83de943be324c",
+    "model": "create-image-bitforge",
+    "generations_reported": 1.0,
+    "production_integrated": false
+  },
+  "horizon-mist": {
+    "status": "hold",
+    "notes": "Two broken horizontal pale cyan-white wisps with empty gaps, no outlined zigzag/ribbon or solid backdrop. Native and4x reviewed; low-opacity horizon use. FINAL IN-SCENE OVERRIDE: rectangular noisy texture edges visible at game scale; excluded from final preview.",
+    "native_and_nearest4x_reviewed": true,
+    "size": [
+      180,
+      48
+    ],
+    "bbox": [
+      1,
+      22,
+      177,
+      43
+    ],
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "sha256": "e270c64043468a128af76649720fb574468dc862bb305e4b04c278581b882f0b",
+    "model": "create-image-bitforge",
+    "generations_reported": 1.0,
+    "production_integrated": false
+  },
+  "ledge-grass": {
+    "status": "hold",
+    "notes": "No stone background now, but silhouette became a circular vine/wreath rather than short grass; not accepted as grass. Ledge role will use a small copy of the already-passed PixelLab ribbon plant.",
+    "native_and_nearest4x_reviewed": true,
+    "size": [
+      64,
+      48
+    ],
+    "bbox": [
+      14,
+      2,
+      48,
+      46
+    ],
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "sha256": "03c5a6b7c0ee3d46301b28b6f248906cb9d4a614085c3134fe6a9141fe31fe79",
+    "model": "create-image-bitforge",
+    "generations_reported": 1.0,
+    "production_integrated": false
+  },
+  "bubble-cluster": {
+    "status": "pass",
+    "notes": "Six clean cyan hollow rings with alpha-empty interiors and small highlights, no checkerboard or grey fills; native64x64/4x verified. Count differs from draft5 but fine for variable decoration.",
+    "native_and_nearest4x_reviewed": true,
+    "size": [
+      64,
+      64
+    ],
+    "bbox": [
+      2,
+      8,
+      62,
+      56
+    ],
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "sha256": "778d1b3f9eb58d1b8fa1852157f206e56d8dfc3a5fab6abaa2c5ae8295f9c7e1",
+    "model": "create-image-pixen",
+    "generations_reported": 1.0,
+    "production_integrated": false
+  },
+  "water-specks": {
+    "status": "pass",
+    "notes": "Sparse separate1-3pixel pale aqua/cream motes on genuine transparent alpha, no rectangle/checkerboard; native64x64 and4x checked.",
+    "native_and_nearest4x_reviewed": true,
+    "size": [
+      64,
+      64
+    ],
+    "bbox": [
+      9,
+      12,
+      55,
+      53
+    ],
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "sha256": "9fb1ea0b694bd6c72373b37e22e98d71f0eaf0f8975e8b565ecb7cd4099894c5",
+    "model": "create-image-pixen",
+    "generations_reported": 1.0,
+    "production_integrated": false
+  },
+  "gull": {
+    "status": "pass",
+    "notes": "Complete white/grey gull facing right, readable eye/yellow beak/wing tips, clean alpha. Native64x64 and4x reviewed. Pad to80x80 for flight clearance without changing source pixels.",
+    "native_and_nearest4x_reviewed": true,
+    "size": [
+      64,
+      64
+    ],
+    "bbox": [
+      6,
+      3,
+      58,
+      59
+    ],
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "sha256": "77817a4615490168f5db829417cd2af7a5a287116e86e5509909b7cddcd211cd",
+    "model": "create-image-pixen",
+    "generations_reported": 1.0,
+    "production_integrated": false
+  }
+}

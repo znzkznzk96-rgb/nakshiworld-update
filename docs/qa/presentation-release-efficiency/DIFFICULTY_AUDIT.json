@@ -1,0 +1,185 @@
+{
+  "method": "same seed, normal one-star, fixed swim for1s, noise1, explicit non-tutorial; not a full fishing-duration simulation",
+  "rows": [
+    {
+      "enh": 0,
+      "progress_per_second": 12.85,
+      "reel_factor": 1.0,
+      "region": 0,
+      "region_factor": 1.0,
+      "rod": 0,
+      "tension_factor": 1.0,
+      "tension_per_second": 6.0
+    },
+    {
+      "enh": 5,
+      "progress_per_second": 14.7775,
+      "reel_factor": 1.15,
+      "region": 0,
+      "region_factor": 1.0,
+      "rod": 0,
+      "tension_factor": 0.9,
+      "tension_per_second": 5.4
+    },
+    {
+      "enh": 0,
+      "progress_per_second": 14.392,
+      "reel_factor": 1.12,
+      "region": 0,
+      "region_factor": 1.0,
+      "rod": 1,
+      "tension_factor": 0.92,
+      "tension_per_second": 5.52
+    },
+    {
+      "enh": 5,
+      "progress_per_second": 16.5508,
+      "reel_factor": 1.288,
+      "region": 0,
+      "region_factor": 1.0,
+      "rod": 1,
+      "tension_factor": 0.828,
+      "tension_per_second": 4.968
+    },
+    {
+      "enh": 0,
+      "progress_per_second": 15.934,
+      "reel_factor": 1.24,
+      "region": 0,
+      "region_factor": 1.0,
+      "rod": 2,
+      "tension_factor": 0.84,
+      "tension_per_second": 5.04
+    },
+    {
+      "enh": 5,
+      "progress_per_second": 18.3241,
+      "reel_factor": 1.426,
+      "region": 0,
+      "region_factor": 1.0,
+      "rod": 2,
+      "tension_factor": 0.756,
+      "tension_per_second": 4.536
+    },
+    {
+      "enh": 0,
+      "progress_per_second": 12.85,
+      "reel_factor": 1.0,
+      "region": 1,
+      "region_factor": 1.0,
+      "rod": 0,
+      "tension_factor": 1.0,
+      "tension_per_second": 6.0
+    },
+    {
+      "enh": 5,
+      "progress_per_second": 14.7775,
+      "reel_factor": 1.15,
+      "region": 1,
+      "region_factor": 1.0,
+      "rod": 0,
+      "tension_factor": 0.9,
+      "tension_per_second": 5.4
+    },
+    {
+      "enh": 0,
+      "progress_per_second": 14.392,
+      "reel_factor": 1.12,
+      "region": 1,
+      "region_factor": 1.0,
+      "rod": 1,
+      "tension_factor": 0.92,
+      "tension_per_second": 5.52
+    },
+    {
+      "enh": 5,
+      "progress_per_second": 16.5508,
+      "reel_factor": 1.288,
+      "region": 1,
+      "region_factor": 1.0,
+      "rod": 1,
+      "tension_factor": 0.828,
+      "tension_per_second": 4.968
+    },
+    {
+      "enh": 0,
+      "progress_per_second": 15.934,
+      "reel_factor": 1.24,
+      "region": 1,
+      "region_factor": 1.0,
+      "rod": 2,
+      "tension_factor": 0.84,
+      "tension_per_second": 5.04
+    },
+    {
+      "enh": 5,
+      "progress_per_second": 18.3241,
+      "reel_factor": 1.426,
+      "region": 1,
+      "region_factor": 1.0,
+      "rod": 2,
+      "tension_factor": 0.756,
+      "tension_per_second": 4.536
+    },
+    {
+      "enh": 0,
+      "progress_per_second": 12.85,
+      "reel_factor": 1.0,
+      "region": 2,
+      "region_factor": 1.0,
+      "rod": 0,
+      "tension_factor": 1.0,
+      "tension_per_second": 6.0
+    },
+    {
+      "enh": 5,
+      "progress_per_second": 14.7775,
+      "reel_factor": 1.15,
+      "region": 2,
+      "region_factor": 1.0,
+      "rod": 0,
+      "tension_factor": 0.9,
+      "tension_per_second": 5.4
+    },
+    {
+      "enh": 0,
+      "progress_per_second": 14.392,
+      "reel_factor": 1.12,
+      "region": 2,
+      "region_factor": 1.0,
+      "rod": 1,
+      "tension_factor": 0.92,
+      "tension_per_second": 5.52
+    },
+    {
+      "enh": 5,
+      "progress_per_second": 16.5508,
+      "reel_factor": 1.288,
+      "region": 2,
+      "region_factor": 1.0,
+      "rod": 1,
+      "tension_factor": 0.828,
+      "tension_per_second": 4.968
+    },
+    {
+      "enh": 0,
+      "progress_per_second": 15.934,
+      "reel_factor": 1.24,
+      "region": 2,
+      "region_factor": 1.0,
+      "rod": 2,
+      "tension_factor": 0.84,
+      "tension_per_second": 5.04
+    },
+    {
+      "enh": 5,
+      "progress_per_second": 18.3241,
+      "reel_factor": 1.426,
+      "region": 2,
+      "region_factor": 1.0,
+      "rod": 2,
+      "tension_factor": 0.756,
+      "tension_per_second": 4.536
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "description": "One isolated wide flat altocumulus cloud sprite shaped as two thin connected horizontal wisps, split trailing end on the right, broad shallow central mound on the left. About six times wider than high, pale ivory-white with very pale lavender shadows, three shades, soft low contrast edge, lineless crisp cozy 16-bit pixel clusters. Not a chain of round bubbles, not tall cauliflower. Entire cloud inside transparent canvas with six blank margin pixels. No sky rectangle, no water, no ocean, no reflection, no ground, no horizon, no checkerboard, no text.",
+  "image_size": {
+    "width": 192,
+    "height": 48
+  },
+  "outline": "lineless",
+  "detail": "low detail",
+  "view": "side",
+  "no_background": true,
+  "background_removal_task": "remove_complex_background",
+  "seed": 2026111302,
+  "enhance_prompt": false
+}

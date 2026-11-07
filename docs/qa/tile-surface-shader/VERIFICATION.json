@@ -1,0 +1,49 @@
+{
+  "region_scope": [
+    2
+  ],
+  "back_speed": 0.35,
+  "front_speed": 0.78,
+  "flow_directions": [
+    1,
+    -1
+  ],
+  "reference_cross_sin_cos_uv_displacement": true,
+  "pattern": "2 local-seeded256x96 irregular dot/foam alpha images, no global catch RNG",
+  "native_change_bbox": [
+    229,
+    570,
+    539,
+    655
+  ],
+  "pixels_changed_outside_surface_window": 0,
+  "other_regions_and_approved_light_sources_unchanged": {
+    "environment.gd": true,
+    "valley_environment.gd": true,
+    "valley_layer.gd": true,
+    "valley_life.gd": true,
+    "vertical_water_light.gd": true,
+    "vertical_water_light.gdshader": true
+  },
+  "tile_only_3_phone_heights_scene_dispose_rng_checks": "passed",
+  "shared_vertical_light_regression": "passed",
+  "tile107_regression": "passed",
+  "native_shader_script_errors": false,
+  "clips": {
+    "tile-surface-crossuv-full.gif": {
+      "frames": 96,
+      "distinct_frames": 96,
+      "duration_ms": 8000,
+      "loop": 0
+    },
+    "tile-surface-crossuv-closeup.gif": {
+      "frames": 96,
+      "distinct_frames": 96,
+      "duration_ms": 8000,
+      "loop": 0
+    }
+  },
+  "production_integrated": true,
+  "paid_generation": 0,
+  "deployed": false
+}

@@ -1,0 +1,18 @@
+{
+  "description": "One tiny isolated short green grass tuft and a small emerald moss tuft beside it, 5 narrow uneven blades, dark green shadow and light mint green tips. Entire plant only with tiny roots. No stone, no tiles, no dirt, no pot, no square patch or background. Crisp cozy 16-bit pixel art sprite. All artwork inside transparent margins. Transparent empty background. One static object, no scene, no text, no UI, no glow.",
+  "image_size": {
+    "width": 64,
+    "height": 48
+  },
+  "style_image": {
+    "type": "base64",
+    "base64": "iVBORw0KGgoAAAANSUhEUgAAAEAAAAAwCAYAAAChS3wfAAAFKElEQVR4nN1Zf0yUZRz/PO9778HdgeDMhIXlD7osdAPHjRBIayqWKyHCn7NfVrONWmpzrFZr6WZtTZESnZvOMZf8MAcmcimaycTsD8XCcCKZoBRyFgPu4LiDb3884IHvHZzt3vfl+Pz13PM8u+/vH+/3AcYYCk6B1KQnqEnMH9zpYFqzoB1e2MRUtT4wxjyA7GOKHfXwRoH6lh9zmPeKQACQX6VuEtQc73zjEXj/efWF1zzodKGe9cEKnfr0Vad4H5rvAsnLRbKFSTi9tUf1GqiZB5y9KRIANDQa4egmNOxXX3hAQw848mMfAEB/04XLP/Rr1v1o5gE1jRIAIHwiV8SW77XJ/gFXQN4JRqcaRxfm9h+ctMPOsHYXyOUONCcaInuHQHl+1PP4VSEEANk7PXcLL4yDj6HSDf3M6UdY1x5yMgCoazABAKxXGV2+oXllDgwsm/V+WTJpOa8Ga3aLtPprYfx1gQd+kbv050c9e5YsLvTSr/xTWKChiL9ZG/nHTeLLjI7VyM9/uijAeoMrobuDYeo6I1V82KtJKVREAcdrRAAAuYErV42y81Of9bOiSgGv7wJBAJr3OcZXH5C/1s3SPpGo28FQv8e7cOfqDLhtFx6Ige3WwFcIxVJu9RYXC4v0zW9DgZ212oxgov//GT058I6iaM3paOMMl/7m3XItl/phDOfrw3WjD0XKzgWZAoQB65ZXe2fcdtLBaKADrKn3/T8Vv/JKUfy+dt8M/xspK0eu7UlZIiXn6ka8s7EQFL9EmbGZYh5w4hp3+7aWkUn09RGaboYAAHZavQtZ2yBA0Aef8bG5dHSrPbFgoBMsEGlFvndvSXjTSABQeCmIqgAAlJ+RRr3T5+YyuZnvGBdsTgDA3m81H2A9OOZk8fg+dkXuDWW/eywavc4kO/+oiJ8/nSlS1Irw4MoBg3C1E5Z8LNJ3Z+XGPVilBwAkZEv01z677ELFeR1WbQe5XcDfxZ1BmAQAmOeLFPeBwaf1Zq2XyJLpu1LMygmlhPSRq8SYRFGtXKgvj8vDYMqScLJk+E6Wjy3zrbxAQLEQ2FUsILeEx3BiBs/07e1yWVqtnQxsOBvbKj25wejgnZL1ujJ9gGJptXqbm1UDMOcYCbd6sWaPQBevA0C/7O5gJQCA1XmM5s4AAII5jVH9SRfbWMQo/xADgvXVLP5FHSVsksdx7mG5VRd9ymjfwFwwcZmOHn3bRDGvhigmuSqF1d7B0Gc3AOgYtl92xojZi51Ud8J9L8M32SRU/ewCQLDdFdBULq8OQYdpKTqatdjjATuGTIwTM/j+tgrPXkqunua+pE7mV2UE++c5N4uI4OutR0EbFuKeVdnAioaw0tQq4Z82NThTAV9UDo/zdws9v83PSDRjvo6y84bfmbNImwGpYthbLREAxD0v0FM5noQWm8r3E3ON9/ZmD2l6Srz0EoGGKgkm9i0dRU8V0HxShONhEXeOdDEAmJkmUVd0KFpLeJtrfk5P/3aGYN7KLkw0AQfWU/AnwPuRsNRj4Tnp0jALT0k0kfm9MIp5zTi+QuB+zE7nneGTC7kCpiaLFJOkbMvrC6o+xMXlcIGbWwyYuUAkZzeX2dUbilsXujVxd9WJTsqMoJ4uQpTbiR47g2mCgGtV2j2MaEY4xBxJ4Xo3IIbAPakH7ae16fhUf4t+xGKgKMsEYj1AeCSBMYbeWzpMS1Gu3x8zmJ7GhTRMj6DJSQaSHn+IJ8HUiPEv/CCiLFwJkXG81MU+G0oAMC1Vm6nPfx311997TDaTAAAAAElFTkSuQmCC"
+  },
+  "style_strength": 34,
+  "outline": "selective outline",
+  "shading": "medium shading",
+  "detail": "medium detail",
+  "view": "side",
+  "no_background": true,
+  "seed": 2026111004
+}

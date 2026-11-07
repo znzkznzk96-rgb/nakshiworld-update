@@ -1,0 +1,14 @@
+{
+  "status": "complete_recommendation_not_applied",
+  "production_balance_changed": false,
+  "date_kst": "2026-11-08",
+  "source_main_sha256": "b09ec23dde9dcf9ec442d644ca128dd5428b9d34d240c03321edd5f3f2f06008",
+  "engine": "4.4.1.stable",
+  "completed_coarse_trials": 19320,
+  "completed_stress_trials": 8640,
+  "limitations": "synthetic delayed-action controllers; not measured human win rates; successful duration only with all failures/timeouts reported",
+  "next": "user decision on recommended balance; no production edit",
+  "trials_total": 71380,
+  "report": "REPORT.md",
+  "verification": "VERIFICATION.json"
+}

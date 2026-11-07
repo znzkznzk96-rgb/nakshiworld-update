@@ -1,0 +1,80 @@
+{
+  "date_kst": "2026-11-08",
+  "authorized_art_count": 6,
+  "max_outputs_per_art": 1,
+  "paid_concurrency": 1,
+  "automatic_post_retry": false,
+  "stop_on_rejection": true,
+  "assets": [
+    {
+      "id": "far-school-01",
+      "kind": "3-5 silver turquoise minnows, coral fins, readable forked tails and eyes",
+      "canvas": [
+        128,
+        64
+      ],
+      "status": "ready_to_submit"
+    },
+    {
+      "id": "far-school-02",
+      "kind": "different loose school, teal-blue bodies and pale fins, no identical layout",
+      "canvas": [
+        128,
+        64
+      ],
+      "status": "pending_first_review"
+    },
+    {
+      "id": "floor-plant-01",
+      "kind": "short narrow emerald/turquoise blades, dark teal shadows, mint edge light",
+      "canvas": [
+        64,
+        80
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "floor-plant-02",
+      "kind": "short broad rounded bluegreen leaves, distinct silhouette",
+      "canvas": [
+        64,
+        80
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "wall-plant-01",
+      "kind": "small hanging teal aquatic vine anchored to tile crack, sparse leaves",
+      "canvas": [
+        64,
+        96
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "wall-plant-02",
+      "kind": "side-growing clump with ribbon-like aquatic leaves, sparse roots",
+      "canvas": [
+        64,
+        96
+      ],
+      "status": "pending"
+    }
+  ],
+  "first_model": "create-image-bitforge",
+  "first_reference": "actual approved reservoir l0_00 original only; no temporary color image or init_image",
+  "render_plan": "near/mid use existing approved tile20 fish; far new sprites retain distinguishable anatomy/colors instead of dark dots",
+  "plant_reference_policy": "inspect actual approved plant/vegetation source before each request; no fish reference for plants",
+  "future_layers": [
+    "ripples",
+    "rays",
+    "bubbles",
+    "caustics",
+    "reflection",
+    "particles",
+    "water flow",
+    "deck ripples"
+  ],
+  "paid_requests_submitted": 0,
+  "deployed": false
+}

@@ -1,0 +1,21 @@
+{
+  "source_commit": "12dfd5d1b96aa2ecfee558d491991d123950700a",
+  "production_integrated": true,
+  "deployed": false,
+  "source_asset_count": 21,
+  "local_related": "TILE_SCENERY_VERIFY failures=[]",
+  "native_capture": {
+    "resolution": [
+      540,
+      1320
+    ],
+    "frames": 90,
+    "reviewed": true
+  },
+  "full_ci": {
+    "run": 42423468177,
+    "status": "in_progress"
+  },
+  "packed_art": "pending",
+  "new_generation": 0
+}

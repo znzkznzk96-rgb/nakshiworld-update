@@ -1,0 +1,14 @@
+{
+  "description": "A single isolated wide fluffy cloud bank sprite for a bright dreamy turquoise seaside pixel art game. Rounded irregular soft lobes, clean connected pixel clusters, warm ivory white highlights, very pale lavender bottom shadows, only three shades. No outline, no dithering, no speckles, no scenery, no blue rectangular sky, no ground, no text. Entire cloud comfortably inside transparent canvas with at least eight blank pixels on every edge. Horizontal cloud, simple cozy 16-bit pixel art, side view.",
+  "image_size": {
+    "width": 160,
+    "height": 64
+  },
+  "outline": "lineless",
+  "detail": "low detail",
+  "view": "side",
+  "no_background": true,
+  "background_removal_task": "remove_complex_background",
+  "seed": 2026111101,
+  "enhance_prompt": false
+}

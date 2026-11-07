@@ -1,0 +1,6 @@
+{
+  "status": "http_error_stop",
+  "http_status": 500,
+  "body": "{\"detail\":\"style_image must be size (64, 128), not torch.Size([64, 96])\"}",
+  "request_count": 1
+}

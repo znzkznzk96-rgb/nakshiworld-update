@@ -39,11 +39,6 @@ func _draw() -> void:
 			for j in 3:
 				var phase: float=fposmod(t*0.4+j/3.0,1.0)
 				draw_arc(Vector2(center,surface),width*(1.0-phase)+2,0,PI,20,Color(0.77,1.0,0.98,phase*0.35),1)
-		"underwater_light":
-			for j in 4:
-				var x: float=r.position.x+r.size.x*(0.28+j*0.14)+sin(t*0.2+j)*2
-				var depth: float=r.end.y-front
-				draw_colored_polygon(PackedVector2Array([Vector2(x,front+1),Vector2(x+2,front+1),Vector2(x+24,front+depth*0.88),Vector2(x+13,front+depth*0.88)]),Color(0.45,0.95,0.88,0.035+sin(t*0.35+j)*0.012))
 		"surface_reflection":
 			for j in 21:
 				var x: float=r.position.x+r.size.x*(0.44+fposmod(j*0.093+t*0.003,0.54))

@@ -1,0 +1,36 @@
+{
+  "shader_compile_or_script_errors": false,
+  "native_renderer": "Godot4.4.1 gl_compatibility llvmpipe OpenGL4.5",
+  "procedural_fields": 1,
+  "external_pattern_texture": false,
+  "white_neutral_quad": [
+    1,
+    1
+  ],
+  "triangle_fan_apex_uniforms_present": false,
+  "procedural_2d_fbm": true,
+  "anisotropic_noise_axes": [
+    24,
+    0.36,
+    59,
+    0.55
+  ],
+  "node_uniform_sun_night_test": "passed",
+  "headless_three_heights": "passed",
+  "isolated_light_change_bbox": [
+    0,
+    660,
+    540,
+    1120
+  ],
+  "isolated_light_changed_pixels": 135315,
+  "above_water_unchanged": true,
+  "gif_frames": 96,
+  "gif_distinct_frames": 96,
+  "gif_duration_ms": 8000,
+  "gif_loop": 0,
+  "shader_sha256": "65164e00e1598ca4e14c40695dd097a53acb71fb62ac664616e00b8353385d84",
+  "paid_generation": 0,
+  "production_integrated": false,
+  "deployed": false
+}

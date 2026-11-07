@@ -1,0 +1,11 @@
+{
+  "date_kst": "2026-11-08",
+  "verified_source_commit": "8cf0f290e166debfe9bf46203860bf4ddf3f2199",
+  "remote_head_and_work_state_verified": true,
+  "plant_originals_refetched_base64_and_byte_equal": 4,
+  "manifest": "ASSET_MANIFEST.json",
+  "git_blob_hash_checked_on_upload": true,
+  "production_integrated": false,
+  "deployed": false,
+  "public_release": "v1.09"
+}

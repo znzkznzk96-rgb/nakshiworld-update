@@ -1,0 +1,14 @@
+{
+  "description": "One isolated low wide stratocumulus cloud bank sprite, approximately six times wider than high, with a long flat left wisp and a slightly fuller rounded right shoulder. Pale ivory-white highlights and very pale lavender shadow, three broad clean shades. Soft low contrast silhouette, no dark outline, crisp cozy 16-bit pixel clusters. Airy horizontal shape, not piled round balls. Entire cloud inside transparent canvas with at least six empty margin pixels. No sky, no rectangle, no water, no sea, no horizon, no ground, no checkerboard, no text.",
+  "image_size": {
+    "width": 192,
+    "height": 48
+  },
+  "outline": "lineless",
+  "detail": "low detail",
+  "view": "side",
+  "no_background": true,
+  "background_removal_task": "remove_complex_background",
+  "seed": 2026111301,
+  "enhance_prompt": false
+}

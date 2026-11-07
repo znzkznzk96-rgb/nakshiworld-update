@@ -1,0 +1,15 @@
+{
+  "description": "One small flying seagull facing right in side view, white and light grey body, charcoal wing tips, tiny yellow beak, one dark eye, wings raised for the start of flight. Entire wings and tail inside at least six empty margin pixels on every edge. Cozy crisp 16-bit pixel art, 3 to 4 shades per color, selective outline. Single complete bird sprite only, not a flock, no sky, no clouds, no branch, no text, no checkerboard background.",
+  "image_size": {
+    "width": 64,
+    "height": 64
+  },
+  "outline": "selective outline",
+  "detail": "medium detail",
+  "view": "side",
+  "no_background": true,
+  "background_removal_task": "remove_complex_background",
+  "seed": 2026111007,
+  "enhance_prompt": false,
+  "direction": "east"
+}

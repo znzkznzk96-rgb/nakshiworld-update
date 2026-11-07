@@ -1,0 +1,72 @@
+{
+  "source_commit": "47a6633217e33d454825a5b2c29b54fd5fb15750",
+  "checks": [
+    {
+      "path": "analysis/tile-background-pixellab-r2/gull.png",
+      "exact": true
+    },
+    {
+      "path": "analysis/tile-background-pixellab-r2/bubble-cluster.png",
+      "exact": true
+    },
+    {
+      "path": "analysis/tile-background-pixellab-r2/gull-flight-01.png",
+      "exact": true
+    },
+    {
+      "path": "analysis/tile-background-pixellab-r2/gull-flight-07.png",
+      "exact": true
+    },
+    {
+      "path": "analysis/tile-background-pixellab-r2/ledge-grass.png",
+      "exact": true
+    },
+    {
+      "path": "analysis/tile-background-pixellab-r2/water-specks.png",
+      "exact": true
+    },
+    {
+      "path": "analysis/tile-background-pixellab-r2/gull-flight-03.png",
+      "exact": true
+    },
+    {
+      "path": "analysis/tile-background-pixellab-r2/cloud-far.png",
+      "exact": true
+    },
+    {
+      "path": "analysis/tile-background-pixellab-r2/gull-flight-02.png",
+      "exact": true
+    },
+    {
+      "path": "analysis/tile-background-pixellab-r2/cloud-near.png",
+      "exact": true
+    },
+    {
+      "path": "analysis/tile-background-pixellab-r2/gull-flight-05.png",
+      "exact": true
+    },
+    {
+      "path": "analysis/tile-background-pixellab-r2/gull-flight-04.png",
+      "exact": true
+    },
+    {
+      "path": "analysis/tile-background-pixellab-r2/horizon-mist.png",
+      "exact": true
+    },
+    {
+      "path": "analysis/tile-background-pixellab-r2/gull-flight-06.png",
+      "exact": true
+    },
+    {
+      "path": "analysis/tile-background-pixellab-r2/gull-flight-00.png",
+      "exact": true
+    },
+    {
+      "path": "analysis/tile-background-pixellab-r2/gull-flight-08.png",
+      "exact": true
+    }
+  ],
+  "all_16_png_exact": true,
+  "decode_dimensions_sha_manifest": "MANIFEST.json",
+  "deployed": false
+}

@@ -1,0 +1,53 @@
+[
+  {
+    "path": "../tile-pier-cloud/cloud.png",
+    "variant": 0,
+    "sha256": "151a4d05306fe6e9a1a970961fbad5b293518c893d3819918aaf658cda572421",
+    "approved_existing_source": true
+  },
+  {
+    "path": "cloud-01.png",
+    "size": [
+      192,
+      48
+    ],
+    "bbox": [
+      14,
+      0,
+      163,
+      46
+    ],
+    "bytes": 2912,
+    "sha256": "117043b216a0b66983455179d0f9a25c6b172b23ac86fc20a648b0f5eb937821"
+  },
+  {
+    "path": "cloud-02.png",
+    "size": [
+      192,
+      48
+    ],
+    "bbox": [
+      8,
+      4,
+      182,
+      43
+    ],
+    "bytes": 2928,
+    "sha256": "1ae1839fa4c8f9f793762772bbb5ffade1967cdf348d335c9ab37dc80232d053"
+  },
+  {
+    "path": "cloud-03.png",
+    "size": [
+      192,
+      48
+    ],
+    "bbox": [
+      8,
+      4,
+      184,
+      43
+    ],
+    "bytes": 3761,
+    "sha256": "21d6756a193e58a8a694bdbe34a50c8748e4f9606debaffa7384eaad28264805"
+  }
+]

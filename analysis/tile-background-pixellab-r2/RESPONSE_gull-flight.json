@@ -1,0 +1,105 @@
+{
+  "seed": 2026111018,
+  "type": "message_done",
+  "usage": {
+    "usd": 0.0,
+    "type": "generations",
+    "generations": 1,
+    "cost_if_paid": 0.027965030206574336
+  },
+  "status": "received_unreviewed",
+  "progress": 1.0,
+  "flow_kind": "animation",
+  "billing_usage": {
+    "type": "generations",
+    "generations": 1.0
+  },
+  "generation_id": "0613ae48-5003-47c6-8562-33e8260540c4",
+  "queue_position": 0,
+  "billing_charged": true,
+  "generation_started_at": "2026-11-07T20:43:39.32336+00:00",
+  "model": "animate-with-text-v3",
+  "files": [
+    {
+      "file": "gull-flight-00.png",
+      "bytes": 2545,
+      "sha256": "8ec5f3fe79252053d767e0a09c11a95505655b4ea02dadcc8d9ff23c13600045",
+      "size": [
+        80,
+        80
+      ]
+    },
+    {
+      "file": "gull-flight-01.png",
+      "bytes": 2757,
+      "sha256": "1ff8aa00976a2cb5dded35f703ec7b8abc3356003398615663ef4abcfda1bed9",
+      "size": [
+        80,
+        80
+      ]
+    },
+    {
+      "file": "gull-flight-02.png",
+      "bytes": 2024,
+      "sha256": "50526d2a3af0fda2f82abca938c9a5c8a3a5ef86c624327399e2305b0d482cfa",
+      "size": [
+        80,
+        80
+      ]
+    },
+    {
+      "file": "gull-flight-03.png",
+      "bytes": 1518,
+      "sha256": "758812c1952b60ef84304af177a211c398cdb6edead9e41e0d638651a58407bf",
+      "size": [
+        80,
+        80
+      ]
+    },
+    {
+      "file": "gull-flight-04.png",
+      "bytes": 1898,
+      "sha256": "e24c2c177bd4d0be4cfefd3cab41ffbef1ef7d777c6c40efe29b55a08733703a",
+      "size": [
+        80,
+        80
+      ]
+    },
+    {
+      "file": "gull-flight-05.png",
+      "bytes": 1781,
+      "sha256": "1971ed4e9b7ea57a2e9eaeacfd855a1ffbfa1fcc6691c0c553eb96c82780021c",
+      "size": [
+        80,
+        80
+      ]
+    },
+    {
+      "file": "gull-flight-06.png",
+      "bytes": 1523,
+      "sha256": "b015dbd42efaf2358804be57dc8a78538873c697f81180ca1d387902bf730578",
+      "size": [
+        80,
+        80
+      ]
+    },
+    {
+      "file": "gull-flight-07.png",
+      "bytes": 2136,
+      "sha256": "79fe1dbf653abafbca100bcb7870a311f7e9d860e4c1dbf2548a623f16bcc0ed",
+      "size": [
+        80,
+        80
+      ]
+    },
+    {
+      "file": "gull-flight-08.png",
+      "bytes": 2611,
+      "sha256": "a396cf942929977d726ca69fbd2f0195427302aa4b9ae0eeed72594163547d53",
+      "size": [
+        80,
+        80
+      ]
+    }
+  ]
+}

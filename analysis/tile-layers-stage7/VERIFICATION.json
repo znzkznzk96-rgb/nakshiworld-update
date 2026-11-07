@@ -1,0 +1,48 @@
+{
+  "clips": {
+    "tile-sea-fan-v6.gif": {
+      "frames": 96,
+      "distinct": 96,
+      "duration_ms": 8000,
+      "loop": 0
+    },
+    "tile-surface-v6.gif": {
+      "frames": 96,
+      "distinct": 96,
+      "duration_ms": 8000,
+      "loop": 0
+    }
+  },
+  "surface_motion": true,
+  "upper555_unchanged": true,
+  "curved_worm_glyphs_removed": true,
+  "fan_tip_bottom_widths_at_3s": [
+    [
+      10.18,
+      96.99
+    ],
+    [
+      6.52,
+      358.83
+    ],
+    [
+      3.48,
+      166.96
+    ],
+    [
+      5.33,
+      321.04
+    ]
+  ],
+  "widest_narrowest_bottom_ratio_at_0_3_7s": [
+    3.85,
+    3.7,
+    3.73
+  ],
+  "all_bottoms_over_6x_tips": true,
+  "headless_three_heights": "passed",
+  "sun_link_preserved": true,
+  "paid_generation": 0,
+  "production_integrated": false,
+  "deployed": false
+}

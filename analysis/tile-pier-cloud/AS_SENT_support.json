@@ -1,0 +1,14 @@
+{
+  "description": "One submerged support wall for a turquoise tiled fishing platform, shown straight-on in a side-view 16-bit pixel game. A flat continuous horizontal top edge with NO deck, NO roof and NO cap, supported by two thick square tiled columns with one broad arch-shaped open gap between them. Square ceramic tiles in dark cobalt blue and ocean teal, mint edge highlights, sparse thin desaturated gold trim. Strong clean rectangular blocks, crisp readable pixel clusters, three shades per color, selective outline, darker underwater atmosphere. Entire support structure only, on empty transparent background with small clear margins. NO water, no surface line, no sea floor, no landscape, no fish, no grass, no sky, no text, no checkerboard. Both columns extend vertically to the lower part. Intended as continuation UNDER an existing pier; no top-facing deck surface.",
+  "image_size": {
+    "width": 160,
+    "height": 192
+  },
+  "outline": "selective outline",
+  "detail": "medium detail",
+  "view": "side",
+  "no_background": true,
+  "background_removal_task": "remove_complex_background",
+  "seed": 2026111202,
+  "enhance_prompt": false
+}

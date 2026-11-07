@@ -1,0 +1,11 @@
+{
+  "date_kst": "2026-11-08",
+  "verified_art_commit": "0cbda00c877fd6fb2f7111cdc85b5e934c228036",
+  "originals_refetched_and_byte_equal": 13,
+  "local_decode_and_size_and_sha256_manifest": "MANIFEST.json",
+  "internal_pass": 5,
+  "held": 8,
+  "actual_generations_used": 13,
+  "production_integrated": false,
+  "deployed": false
+}

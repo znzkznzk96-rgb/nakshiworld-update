@@ -1,0 +1,14 @@
+{
+  "plant_outputs": 4,
+  "plant_internal_pass": 3,
+  "plant_withheld": 1,
+  "paid_calls_in_flight": 0,
+  "generations_before_plants": 1156.6,
+  "generations_after_plants": 1152.6,
+  "plant_actual_generations_used": 4,
+  "total_including_prior_school_failure": 5,
+  "credits_usd_delta": 0,
+  "technical_retries_used_for_plants": 0,
+  "production_integrated": false,
+  "deployed": false
+}

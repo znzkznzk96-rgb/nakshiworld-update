@@ -26,6 +26,7 @@ const OTHER_REGION_GRADE_P = [0.8653, 0.0661, 0.0628, 0.0042, 0.0016]
 const GRADE_N: = ["노멀", "레어", "유니크", "전설", "신화"]
 const GRADE_C: = [Color("c9d2d6"), Color("4fa3ff"), Color("b06cff"), Color("ffb340"), Color("ffffff")]
 const CATALOG = preload("res://addons/reservoir/regional_catalog.gd")
+const FISHING_DIFFICULTY = preload("res://addons/reservoir/fishing_difficulty.gd")
 const FISH_NAME = CATALOG.NAMES
 const FISH_LEN = CATALOG.MEANS
 const BY_STAR: = [[0, 1, 2, 3, 4, 5, 6, 7], [8, 9, 10, 11, 12, 13], [14, 15, 16], [17, 18], [19]]
@@ -550,6 +551,7 @@ func start_fight() -> void :
 	S.rod = rod_lv;S.line = 0;S.locMul = 1.0
 	S.tensionMul = (1.0 - 0.08 * S.rod) * (1.0 - 0.02 * forge_lv)
 	S.reelMul = (1.0 + 0.12 * S.rod) * (1.0 + 0.03 * forge_lv)
+	FISHING_DIFFICULTY.configure(self)
 	S.chaos = (S.star + S.grade) / 8.0
 	var u: = 0.3 if S.get("tutFish", false) else randf()
 	S.F = (S.grade + 0.2 + 0.6 * u) / 4.8
@@ -602,6 +604,7 @@ func next_behavior() -> void :
 	_next_behavior_pick(g, c, r, x, pRun, pJump, pDive, pRest)
 	S.runStreak = streak + 1 if S.beh == "tell" else 0
 	if S.beh != "swim": S.lastBeh = S.beh
+	FISHING_DIFFICULTY.warning_floor(self)
 
 # Early waters teach a small, species-stable vocabulary; grade changes force, not moves.
 func early_action_pool(region: int, species: int, star: int) -> Array:
@@ -1109,10 +1112,10 @@ func update_fight(dt: float) -> void :
 		S.slack = 0.0
 	else:
 		S.tension -= 40 * dt
-		S.dist -= pull * 2 * dt
+		S.dist -= pull * 2 * dt * float(S.get("progress_loss_factor",1.0))
 		S.slack += dt * (2.5 if S.beh == "charge" else (0.5 if S.beh == "skim" else 1.0))
 	if S.get("skimEnd", 0.0) > 0 and clock <= S.skimEnd and holding and not S.get("skimUsed", true):
-		S.skimUsed = true;S.dist += 8;show_toast("물보라 멈춤 챔질! +8", Color("fff0b0"), true);buzz([40, 30, 80])
+		S.skimUsed = true;S.dist += 8*float(S.get("progress_bonus_factor",1.0));show_toast("물보라 멈춤 챔질! +8", Color("fff0b0"), true);buzz([40, 30, 80])
 	S.tension = max(0.0, S.tension);S.dist = clamp(S.dist, 0.0, 100.0)
 	if S.tut:
 		S.tension = minf(S.tension, 95.0);S.dist = minf(S.dist, 90.0)
@@ -1264,7 +1267,7 @@ func press(pos: = Vector2.ZERO) -> void :
 			if S.t >= S.netEnd + 2.6 - CATCH_MEASURE_SAVED: show_result(true)
 		"fight":
 			if S.landUntil > 0 and clock <= S.landUntil and not S.jumpUsed:
-				S.jumpUsed = true;S.dist = min(100.0, S.dist + 12);show_toast("착수 챔질! +12", Color("fff0b0"), true);buzz([40, 30, 80]);play("land")
+				S.jumpUsed = true;S.dist = min(100.0, S.dist + 12*float(S.get("progress_bonus_factor",1.0)));show_toast("착수 챔질! +12", Color("fff0b0"), true);buzz([40, 30, 80]);play("land")
 
 
 func _process(dt: float) -> void :
@@ -1568,7 +1571,8 @@ func _bite_circle(tt: float) -> Array:
 func _fish_display_length(star: int, scale: float, preview: bool, sp: int = -1) -> float:
 	if sp >= 0 and sp < FISH_LEN.size():
 		# Species mean sets body length; caller scale retains individual length factor.
-		return clampf((6.0+3.0*sqrt(float(FISH_LEN[sp])))*scale,12.0 if preview else 18.0,80.0 if preview else 120.0)
+		var base: float=clampf((6.0+3.0*sqrt(float(FISH_LEN[sp])))*scale,12.0 if preview else 18.0,80.0 if preview else 120.0)
+		return base if preview else minf(156.0,base*(1.0+0.35*smoothstep(50.0,180.0,float(FISH_LEN[sp]))))
 	return maxf(20.0 if preview else 30.0, (16.0 + star * 4.0) * scale)
 
 func _fish_texture_u(sp: int, along_body: float) -> float:
@@ -2114,7 +2118,11 @@ func _draw_fish_sprite(sp: int, pos: Vector2, k: = 1) -> int:
 	var tex: Texture2D = [fish_tex, fish_tex, fish_s2, fish_s3][k][sp]
 	var u: Rect2i = fish_used[sp]
 	var src: = Rect2i(u.position / k, u.size / k)
-	draw_texture_rect_region(tex, Rect2(int(pos.x), int(pos.y) - src.size.y / 2, src.size.x, src.size.y), Rect2(src))
+	var r:Rect2=Rect2(int(pos.x),int(pos.y)-src.size.y/2,src.size.x,src.size.y)
+	if sp>=40 and sp<60:
+		var uv:Rect2=Rect2(src);var ts:Vector2=tex.get_size()
+		draw_polygon(PackedVector2Array([r.position,Vector2(r.end.x,r.position.y),r.end,Vector2(r.position.x,r.end.y)]),PackedColorArray([Color.WHITE,Color.WHITE,Color.WHITE,Color.WHITE]),PackedVector2Array([Vector2(uv.end.x,uv.position.y)/ts,uv.position/ts,Vector2(uv.position.x,uv.end.y)/ts,uv.end/ts]),tex)
+	else: draw_texture_rect_region(tex,r,Rect2(src))
 	return src.size.x
 
 
@@ -2215,7 +2223,7 @@ func _draw_catch(t: float) -> void :
 	var used: Rect2 = Rect2(fish_used[int(S.sp)])
 	var fw: float = measurement_x(float(S.len)) - 35
 	var fh: float = fw * used.size.y / used.size.x
-	_ui_texture_rect_region(fish_tex[int(S.sp)], Rect2(35, yy - 5 - fh, fw, fh), used)
+	_ui_static_fish(int(S.sp),Rect2(35, yy - 5 - fh, fw, fh),used)
 	for i in 21:
 		var xx: float = 35 + i * measurement_width(S.sp) / 20.0
 		_ui_rect(Rect2(roundf(xx), yy, 1, 8 if i % 5 == 0 else 4), Color("765638"))
@@ -3047,11 +3055,20 @@ func _draw_failure() -> void :
 	var age: float = float(S.get("t", 0.5))
 	_fade_ui(first_command, first_text, minf(1.0, age / 0.15) * clampf((2.2 - age) / 0.5, 0.0, 1.0))
 
+# Static inspection/results use the historical right-facing presentation.
+# Only tile originals need a flip; preserve existing exceptions in other originals.
+func _ui_static_fish(sp: int, r: Rect2, source: Rect2) -> void:
+	if sp<40 or sp>=60:
+		_ui_texture_rect_region(fish_tex[sp],r,source);return
+	var ts: Vector2=fish_tex[sp].get_size()
+	var uv: PackedVector2Array=PackedVector2Array([Vector2(source.end.x,source.position.y)/ts,source.position/ts,Vector2(source.position.x,source.end.y)/ts,source.end/ts])
+	_ui_polygon(PackedVector2Array([r.position,Vector2(r.end.x,r.position.y),r.end,Vector2(r.position.x,r.end.y)]),PackedColorArray([Color.WHITE,Color.WHITE,Color.WHITE,Color.WHITE]),uv,fish_tex[sp])
+
 func _ui_fish(sp: int, box: Rect2) -> Rect2:
 	var source: Rect2 = Rect2(fish_used[sp])
 	var size: Vector2 = source.size * minf(box.size.x / source.size.x, box.size.y / source.size.y)
 	var r: = Rect2(box.get_center() - size / 2, size)
-	_ui_texture_rect_region(fish_tex[sp], r, source)
+	_ui_static_fish(sp,r,source)
 	return r
 
 func _fish_effect_rect(r: Rect2, c: Color) -> void :

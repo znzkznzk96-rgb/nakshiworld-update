@@ -1,0 +1,32 @@
+{
+  "outputs": 13,
+  "internal_pass": 5,
+  "held": 8,
+  "native_all_asset_sheet": "NATIVE_REVIEW.webp",
+  "usable_sheet": "USABLE_REVIEW.webp",
+  "actual_native_preview": "PREVIEW.webp",
+  "preview_assets": [
+    "arch-vine",
+    "floor-ribbon",
+    "floor-broad",
+    "wall-ribbon",
+    "fish-mid"
+  ],
+  "rejected_assets_staged": false,
+  "preview_pixel_difference_bbox": [
+    1,
+    276,
+    526,
+    1186
+  ],
+  "hud_above180_unchanged": true,
+  "gif_frames": 96,
+  "gif_unique_frames": 96,
+  "gif_ms": 8000,
+  "gif_loop": 0,
+  "native_shader_script_errors": false,
+  "production_integrated": false,
+  "deployed": false,
+  "paid_generation_calls": 13,
+  "extra_quality_regenerations": 0
+}

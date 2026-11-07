@@ -1,0 +1,14 @@
+{
+  "description": "A single isolated thin horizontal veil of airborne fog, three very elongated wispy ivory and pale lavender ribbons gently fading to transparent empty space. Flat horizontal airy soft silhouette, sparse clean pixel clusters with smooth low contrast edges, two to three shades, cozy 16-bit pixel art environmental sprite. Only airborne mist, absolutely no sea surface, no water, no reflection, no ground, no island, no trees, no mountains, no clouds piled upward, no outline, no speckle dithering, no text. Full wisps comfortably inside canvas with blank transparent margins.",
+  "image_size": {
+    "width": 160,
+    "height": 48
+  },
+  "outline": "lineless",
+  "detail": "low detail",
+  "view": "side",
+  "no_background": true,
+  "background_removal_task": "remove_complex_background",
+  "seed": 2026111102,
+  "enhance_prompt": false
+}

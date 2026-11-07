@@ -1,0 +1,382 @@
+{
+  "total": 75,
+  "passed": 75,
+  "elapsed_seconds": 52.69,
+  "results": [
+    {
+      "suite": "fish_presentation",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "fish_anchor_size",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "regional_bundle_rewards",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "mail_gifts",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "valley_gift108",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "arrival_gift",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "testing_gift",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "reader",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "tile107",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "tier_skills",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "training_costs",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "tier3_motion",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "tier2_motion",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "management101",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "formation_compare",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "forge_layout",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "robot_ui_revision",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "capture_robot",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "balance096",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "guide_ac",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "valley094",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "valley093",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "bait092",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "notification091",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "ui090",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "codex089",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "aquarium_b",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "ui_guide",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "pouch_inventory",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "expedition_result",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "support_utility",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "combat_feedback",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "bag_event_order",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "bag_formation",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "selected_ui",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "bag_interaction",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "startup_assets",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "soul_pouch",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "expedition_hard_balance",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "expedition_label",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "bundle_aqua",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "expedition080",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "expedition079",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "soldier_dex",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "approved_ui",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "expedition_motion",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "expedition",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "expedition_save",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "expedition_balance",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "action_readability",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "economy_balance",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "rod_aura",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "atmosphere_encounter",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "angler_scene",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "market_reader",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "odds_rewards",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "reservoir_layers",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "owner_gauge",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "bag_list",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "bundles_buyback",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "equipment",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "visual",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "guide",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "shop",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "audio_save",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "bundle_preview",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "rewards",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "fish_surface",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "regional",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "inventory_layout",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "personal_dex",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "bait_roles",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "measurement_speed",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "village_entry_audio",
+      "passed": true,
+      "code": 0
+    },
+    {
+      "suite": "fishing_difficulty",
+      "passed": true,
+      "code": 0
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "cloud-01": {
+    "status": "conditional_scene_trial",
+    "native_and_nearest4x_reviewed": true,
+    "bbox": [
+      14,
+      0,
+      163,
+      46
+    ],
+    "shape": "asymmetric bank with long left tail and fuller right shoulder",
+    "issue": "top canvas contact and overly tall raw mound",
+    "render_condition": "flatten vertical scale to0.65 and alpha-fade top edge; original PNG unchanged"
+  },
+  "cloud-02": {
+    "status": "pass_for_scene_trial",
+    "native_and_nearest4x_reviewed": true,
+    "bbox": [
+      8,
+      4,
+      182,
+      43
+    ],
+    "shape": "left shoulder and split thin right trails; clean transparent margins, no water or sky rectangle"
+  },
+  "cloud-03": {
+    "status": "pass_for_scene_trial",
+    "native_and_nearest4x_reviewed": true,
+    "bbox": [
+      8,
+      4,
+      184,
+      43
+    ],
+    "shape": "feathery center and tapered wisps both sides; lavender/ivory palette, clean transparent margin"
+  }
+}

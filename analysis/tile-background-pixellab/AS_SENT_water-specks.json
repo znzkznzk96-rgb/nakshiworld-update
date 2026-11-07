@@ -1,0 +1,13 @@
+{
+  "description": "One sparse cluster of six tiny separate underwater floating motes, pale aqua and cream-white tiny irregular pixel flecks, 1 to 3 pixels each, generous empty transparent space, a few tiny highlights only, no large objects, no starburst, no sparkles with rays, no fish. Isolated static environment sprite in crisp cozy 16-bit pixel art style. Clear square pixel clusters, three or four shades per color, readable at native size, no anti-aliased blur, no glow, no background, no tile or ground, absolutely no stones, no surrounding tile, no colored rectangle, no scenery, no letters or UI, no motion trails, no sprite sheet. Keep the entire object inside canvas with transparent margins. ",
+  "image_size": {
+    "width": 32,
+    "height": 32
+  },
+  "outline": "lineless",
+  "detail": "medium detail",
+  "view": "side",
+  "no_background": true,
+  "seed": 2026110913,
+  "enhance_prompt": false
+}

@@ -1,0 +1,36 @@
+{
+  "production_integrated": true,
+  "regions": [
+    0,
+    1,
+    2
+  ],
+  "shader": "game/addons/reservoir/vertical_water_light.gdshader",
+  "common_native_controller": "game/addons/reservoir/vertical_water_light.gd",
+  "full_headless": {
+    "passed": 75,
+    "total": 75,
+    "evidence": "FULL_CHECKS.json",
+    "isolated_data": "fresh per-suite final run"
+  },
+  "focused_shared_light": "passed",
+  "three_region_native_screens": "SCREEN_VERIFICATION.json",
+  "shader_script_runtime_errors": false,
+  "clock_noon_night_scene_dispose_rng_checks": "passed",
+  "mail_independent_restart": "passed",
+  "old_valley_light_removed_from": [
+    "valley_layer.gd",
+    "valley_life.gd"
+  ],
+  "approved_background_assets_modified": false,
+  "other_tile_preview_layers_integrated": false,
+  "previous_candidate_reusable": false,
+  "previous_candidate_note": "old1.10source; lighting inputs changed, new candidate required before publication",
+  "prior_recheck_issue": {
+    "capture_robot_and_shop_failed_due_to_reused_test_saves": true,
+    "resolution": "fresh isolated directories; all75passed; no production save changes"
+  },
+  "paid_generation": 0,
+  "deployed": false,
+  "release_authorized": false
+}

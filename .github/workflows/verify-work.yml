@@ -11,15 +11,16 @@ concurrency:
 jobs:
   verify:
     runs-on: ubuntu-24.04
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
-      - name: Restore verified v1.08 source and overlay
+      - name: Restore verified v1.09 source and overlay
         shell: bash
         run: |
           set -euo pipefail
-          curl -fL --retry 2 https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.08/game-source.zip -o "$RUNNER_TEMP/source.zip"
-          echo "9121b639e2a03fe6d8a18a8689918ddb0c231a097eaf29f03db20d62e67b319f  $RUNNER_TEMP/source.zip" | sha256sum -c -
+          echo "VERIFICATION_STARTED=$(date +%s)" >> "$GITHUB_ENV"
+          curl -fL --retry 2 https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.09/game-source.zip -o "$RUNNER_TEMP/source.zip"
+          echo "2814eacc410710ccf71514a655c3955b4210efe64512f35daf3eb2602c6b5b1f  $RUNNER_TEMP/source.zip" | sha256sum -c -
           python3 automation/restore_source.py "$RUNNER_TEMP/source.zip" "$RUNNER_TEMP/project"
           curl -fL --retry 2 https://github.com/godotengine/godot/releases/download/4.4.1-stable/Godot_v4.4.1-stable_linux.x86_64.zip -o "$RUNNER_TEMP/godot.zip"
           unzip -q "$RUNNER_TEMP/godot.zip" -d "$RUNNER_TEMP/godot"
@@ -36,7 +37,7 @@ jobs:
           grep -F 'EXPEDITION_BAKE files=130' evidence/bake.log
           "$GODOT" --headless --editor --path "$RUNNER_TEMP/project" --import > evidence/prepared-import.log 2>&1
           if grep -E 'SCRIPT ERROR:|Parse Error:|Failed to load script' evidence/prepared-import.log; then exit 1; fi
-          for suite in fish_anchor_size regional_bundle_rewards mail_gifts valley_gift108 arrival_gift testing_gift reader tile107 tier_skills training_costs tier3_motion tier2_motion management101 formation_compare forge_layout robot_ui_revision capture_robot balance096 guide_ac valley094 valley093 bait092 notification091 ui090 codex089 aquarium_b ui_guide pouch_inventory expedition_result support_utility combat_feedback bag_event_order bag_formation selected_ui bag_interaction startup_assets soul_pouch expedition_hard_balance expedition_label bundle_aqua expedition080 expedition079 soldier_dex approved_ui expedition_motion expedition expedition_save expedition_balance action_readability economy_balance rod_aura atmosphere_encounter angler_scene market_reader odds_rewards reservoir_layers owner_gauge bag_list bundles_buyback equipment visual guide shop audio_save bundle_preview rewards fish_surface regional inventory_layout personal_dex bait_roles measurement_speed village_entry_audio; do
+          for suite in fishing_difficulty fish_presentation fish_anchor_size regional_bundle_rewards mail_gifts valley_gift108 arrival_gift testing_gift reader tile107 tier_skills training_costs tier3_motion tier2_motion management101 formation_compare forge_layout robot_ui_revision capture_robot balance096 guide_ac valley094 valley093 bait092 notification091 ui090 codex089 aquarium_b ui_guide pouch_inventory expedition_result support_utility combat_feedback bag_event_order bag_formation selected_ui bag_interaction startup_assets soul_pouch expedition_hard_balance expedition_label bundle_aqua expedition080 expedition079 soldier_dex approved_ui expedition_motion expedition expedition_save expedition_balance action_readability economy_balance rod_aura atmosphere_encounter angler_scene market_reader odds_rewards reservoir_layers owner_gauge bag_list bundles_buyback equipment visual guide shop audio_save bundle_preview rewards fish_surface regional inventory_layout personal_dex bait_roles measurement_speed village_entry_audio shared_vertical_light tile_surface_water tile_scenery; do
             XDG_DATA_HOME="$RUNNER_TEMP/isolated-$suite" timeout 90 "$GODOT" --headless --path "$RUNNER_TEMP/project" --script "tests/${suite}_verify.gd" > "evidence/$suite.log" 2>&1 || { cat "evidence/$suite.log"; exit 1; }
             cat "evidence/$suite.log"
             grep -F 'VERIFY failures=[]' "evidence/$suite.log"
@@ -67,16 +68,12 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          sudo apt-get update -qq
-          sudo apt-get install -y xvfb libgl1-mesa-dri > /dev/null
           XDG_DATA_HOME="$RUNNER_TEMP/isolated-tier-screens" timeout 90 xvfb-run -a "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/tier_skills_preview.gd -- "$GITHUB_WORKSPACE/evidence/tier-skills" > evidence/tier-skills-render.log 2>&1
           if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/tier-skills-render.log; then cat evidence/tier-skills-render.log; exit 1; fi
       - name: Render museum and buyback previews
         shell: bash
         run: |
           set -euo pipefail
-          sudo apt-get update -qq
-          sudo apt-get install -y xvfb libgl1-mesa-dri > /dev/null
           mkdir -p evidence/screens
           XDG_DATA_HOME="$RUNNER_TEMP/isolated-screens" timeout 90 xvfb-run -a "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/bundles_ui_preview.gd -- "$GITHUB_WORKSPACE/evidence/screens" > evidence/screens.log 2>&1 || { cat evidence/screens.log; exit 1; }
           cat evidence/screens.log
@@ -167,6 +164,34 @@ jobs:
             grep -F 'MAIL_GIFTS_PREVIEW failures=[]' "evidence/mail-$h.log"
             if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' "evidence/mail-$h.log"; then exit 1; fi
           done
+      - name: Build and validate reusable release candidate
+        shell: bash
+        timeout-minutes: 5
+        run: |
+          set -euo pipefail
+          start=$(date +%s)
+          python3 automation/test_release_candidate.py
+          mkdir -p candidate "$RUNNER_TEMP/candidate-pack-check"
+          GODOT="$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
+          python3 automation/prepare_release.py
+          git diff --exit-code -- game/addons/reservoir/release_notes.gd
+          timeout 120 "$GODOT" --headless --path "$RUNNER_TEMP/project" --export-pack Android "$GITHUB_WORKSPACE/candidate/patch.pck" > evidence/candidate-export.log 2>&1
+          python3 automation/release_candidate.py seal --project "$RUNNER_TEMP/project" --out candidate
+          echo 'config_version=5' > "$RUNNER_TEMP/candidate-pack-check/project.godot"
+          version=$(python3 -c 'import json;print(json.load(open("automation/release.json"))["name"])')
+          timeout 90 "$GODOT" --headless --path "$RUNNER_TEMP/candidate-pack-check" --script "$GITHUB_WORKSPACE/automation/verify_packed_art.gd" -- "$GITHUB_WORKSPACE/candidate/patch.pck" "$version" > evidence/candidate-pack.log 2>&1
+          grep -F 'PACKED_ANGLER_VERIFY failures=[]' evidence/candidate-pack.log
+          timeout 90 "$GODOT" --headless --path "$RUNNER_TEMP/candidate-pack-check" --script "$GITHUB_WORKSPACE/docs/qa/tile-release-stage5/packed_tile.gd" -- "$GITHUB_WORKSPACE/candidate/patch.pck" > evidence/candidate-tile.log 2>&1
+          grep -F 'PACKED_TILE107_VERIFY failures=[]' evidence/candidate-tile.log
+          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/candidate-*.log; then exit 1; fi
+          python3 -c 'import json,os;d=json.load(open("candidate/candidate.json"));open(os.environ["GITHUB_ENV"],"a").write("CANDIDATE_ARTIFACT=release-candidate-"+d["input_fingerprint"]+"\n")'
+          echo "candidate_build_seconds=$(( $(date +%s) - start ))" >> evidence/stage-timings.txt
+      - name: Preserve exact tested release candidate
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.CANDIDATE_ARTIFACT }}
+          path: candidate/
+          retention-days: 30
       - name: Preserve verification logs
         if: always()
         uses: actions/upload-artifact@v4
