@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "v110_integrated_local_checks_passed_full_ci_pending",
+  "status": "v110_full_ci_in_progress",
   "release_baseline": "v1.09",
   "target_release": "v1.10",
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/releases/110/HANDOFF.md",
   "current_task": "승인 타일장식 본편통합·전체검사·v1.10 공개배포",
-  "next_step": "최종소스 전체CI/packed검사/후보 생성 통과 후 동일바이트 공개",
+  "next_step": "CI42423468177 성공 확인→PR46 병합→동일후보 공개→운영/3파일 검증",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -241,5 +241,11 @@
     "production_integrated": true,
     "deployed": false,
     "local_related_pass": true
+  },
+  "full_release_ci": {
+    "run": 42423468177,
+    "status": "in_progress",
+    "source_commit": "12dfd5d1b96aa2ecfee558d491991d123950700a",
+    "pr": 46
   }
 }
