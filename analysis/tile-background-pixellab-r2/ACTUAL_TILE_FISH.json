@@ -1,0 +1,110 @@
+[
+  {
+    "species_index": 40,
+    "tile_index": 0,
+    "name": "망둥어",
+    "source": "art/fish/l2_00.png",
+    "sha256": "1fdff95fddbaaa097c8339d0d49faf5ad00b177995faa25b8e3f120d63b0f1f1",
+    "native_facing": "left",
+    "new_generation": false
+  },
+  {
+    "species_index": 41,
+    "tile_index": 1,
+    "name": "줄눈전갱이",
+    "source": "art/fish/l2_01.png",
+    "sha256": "4d7365741c307c6a8546f4662454510506a07ad55a771f31b1e5bd538b39443f",
+    "native_facing": "left",
+    "new_generation": false
+  },
+  {
+    "species_index": 42,
+    "tile_index": 2,
+    "name": "고등어",
+    "source": "art/fish/l2_02.png",
+    "sha256": "043fcf98d877cb15b0a3307d8331bf220a4d4655aac370b153158697c737286d",
+    "native_facing": "left",
+    "new_generation": false
+  },
+  {
+    "species_index": 43,
+    "tile_index": 3,
+    "name": "학꽁치",
+    "source": "art/fish/l2_03.png",
+    "sha256": "3b5e49e758ef9f76fae87508fd368ee741f4558880d8543ebad05f54f4a52912",
+    "native_facing": "left",
+    "new_generation": false
+  },
+  {
+    "species_index": 44,
+    "tile_index": 4,
+    "name": "깨진타일놀래미",
+    "source": "art/fish/l2_04.png",
+    "sha256": "b9e93529e9d90a311b9622eb07c486f637d8b30cf0e49b4d3618d960ed236eec",
+    "native_facing": "left",
+    "new_generation": false
+  },
+  {
+    "species_index": 45,
+    "tile_index": 5,
+    "name": "복어",
+    "source": "art/fish/l2_05.png",
+    "sha256": "f43b2dd1a261bafdc5f69a351d8e38cd2147851b2d07faaf0ed043d467e3d416",
+    "native_facing": "left",
+    "new_generation": false
+  },
+  {
+    "species_index": 46,
+    "tile_index": 6,
+    "name": "타일망둥",
+    "source": "art/fish/l2_06.png",
+    "sha256": "30d23ad1bcf2e8f68c702725d5fe48aec80bea58599aa0a6ee0633821e0d7a56",
+    "native_facing": "left",
+    "new_generation": false
+  },
+  {
+    "species_index": 49,
+    "tile_index": 9,
+    "name": "감성돔",
+    "source": "art/fish/l2_09.png",
+    "sha256": "87f9808d0f38b68ca559c9536ded45498b00b357429429b02e4053f1c5dc86a1",
+    "native_facing": "left",
+    "new_generation": false
+  },
+  {
+    "species_index": 50,
+    "tile_index": 10,
+    "name": "청소솔쥐치",
+    "source": "art/fish/l2_10.png",
+    "sha256": "32064a5f8766ada16ffaf34057f31526e4f189f01f893c9b80307f330455f23a",
+    "native_facing": "left",
+    "new_generation": false
+  },
+  {
+    "species_index": 54,
+    "tile_index": 14,
+    "name": "참돔",
+    "source": "art/fish/l2_14.png",
+    "sha256": "68a3bc0696049d61accfa93cd15c767f7bbb2b8dfd714f64ac64220f99bed4f9",
+    "native_facing": "left",
+    "new_generation": false
+  },
+  {
+    "species_index": 55,
+    "tile_index": 15,
+    "name": "농어",
+    "source": "art/fish/l2_15.png",
+    "sha256": "ab58ccf6afc3ad4dcbfcb6f1423bed3e1542ccbfc944749586335bd547b22ba2",
+    "native_facing": "left",
+    "new_generation": false
+  },
+  {
+    "species_index": 57,
+    "tile_index": 17,
+    "name": "유리타일돌돔",
+    "source": "art/fish/l2_17.png",
+    "sha256": "01ad2fd07c6d8881111995cfa748dfad735725fd7fcadb0eef65cca3fa2d02aa",
+    "native_facing": "left",
+    "new_generation": false
+  }
+]

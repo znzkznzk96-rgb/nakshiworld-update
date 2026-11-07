@@ -1,0 +1,25 @@
+{
+  "cloud-far": {
+    "status": "pass",
+    "notes": "Native and4x: irregular fluffy white/sky-blue cloud bank, no dark contour or bead spheres; right canvas contact suitable for a continuous/offscreen far bank, not centered isolated sprite.",
+    "native_and_nearest4x_reviewed": true,
+    "size": [
+      180,
+      48
+    ],
+    "bbox": [
+      1,
+      6,
+      180,
+      42
+    ],
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "sha256": "16d859ddf2d60f8fc8bb4c352604ab79b0ea3eff50295e2bf41b67da40716d66",
+    "model": "create-image-bitforge",
+    "generations_reported": 1.0,
+    "production_integrated": false
+  }
+}
