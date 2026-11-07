@@ -1,6 +1,7 @@
-# v1.09 공개 완료·검증 보완
-2026-11-08 KST. source2d4e0bcd3f31783ed231720ee20657140e4f0d4c, build42385588281 성공, v1.09 공개3파일 존재.
-- gateway42385938012에서 앱방식 manifest109/patch59072592/SHA55f920f673d98c37de6bfe9886904588c81addec1c28514937eea7ce146ca53b 성공.
-- source ZIP 단계만 GitHub 비인증API403 rate limit. 기존 Actions token을 api.github.com 메타데이터 요청에만 적용하도록 보완. 새 게임 빌드 불필요.
-- 이전 packed-mail1.08 고정검사 수정PR43 반영됨. 최종 CI42384392014 성공. 휴대폰 미확인.
-- 다음: 인증 적용 deployment검증 성공 → PUBLIC/PUBLISHED/WORK_STATE 원격 기록.
+# v1.09 공개·운영 검증 완료
+2026-11-08 KST. 사용자 업데이트/배포 명시승인에 따라 공개 완료.
+- 소스 2d4e0bcd3f31783ed231720ee20657140e4f0d4c, PR42/43/44. 최종소스 전체73검사 및 native/global화면 CI42384392014 성공. Build42385588281 성공.
+- PUBLIC검증42386115096 성공. 앱주소 manifest109/실제PCK 크기·SHA 일치. 공개3파일 크기·SHA 및ZIP CRC/overlay562파일 일치. 상세해시는 PUBLISHED.json.
+- 포함: 해금비기준 계곡1980/5940·타일31200/93600비늘, 박물관 이전 타일그림, 타일20종 입연결,60종 크기차등, 검증 우편공통화. 기존수령/세이브 유지.
+- 검사도구의 과거우편1.08 고정 assertion(PR43)과 비인증API403(PR44)을 수정. 소스손상 없음. 이전 build42384973558은 공개전 assertion 대기 상태로 job시간제한 종료 예정이며 성공 run과 구분.
+- 공개/운영 완료, 휴대폰 적용 미확인. 다음: 기존 앱에서1.09 업데이트 후 사용자 실제화면 확인.

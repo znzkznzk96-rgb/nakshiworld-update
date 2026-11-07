@@ -1,17 +1,17 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "v109_published_gateway_patch_verified_source_verification_rate_limited",
-  "release_baseline": "v1.08",
+  "status": "v109_published_and_gateway_verified",
+  "release_baseline": "v1.09",
   "target_release": "v1.09",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/releases/109/HANDOFF.md",
-  "current_task": "타일 입 방향 수정·전어종 낚시 크기 차등",
-  "next_step": "authenticated source ZIP verification via deployment-only PR, then record final verification",
+  "current_task": "v1.09 보상·박물관·낚시표시 개선 공개/운영 검증 완료",
+  "next_step": "기존 앱에서 v1.09 업데이트 후 실제 적용 확인. 휴대폰 적용은 사용자 확인 별도.",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
-  "verification": "docs/releases/valley-gift-108/PUBLISHED.json",
+  "verification": "docs/releases/109/PUBLISHED.json",
   "baseline_phone_verified": true,
   "environment_recovery": "docs/CODEX_NETWORK_RECOVERY.md",
   "background_verified_branch": "work/tile-png-stage2-20261107",
@@ -23,10 +23,10 @@
   "screen_evidence_commit": "04fa33a116915c0b7a7ca86ee235a24a4cf4d4d2",
   "screen_verification_run": 42315352676,
   "full_source_verified": {
-    "release": "v1.08",
-    "size": 63277815,
-    "sha256": "9121b639e2a03fe6d8a18a8689918ddb0c231a097eaf29f03db20d62e67b319f",
-    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.08/game-source.zip"
+    "release": "v1.09",
+    "size": 63283837,
+    "sha256": "2814eacc410710ccf71514a655c3955b4210efe64512f35daf3eb2602c6b5b1f",
+    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.09/game-source.zip"
   },
   "fish_verification_run": 42317071546,
   "automatic_full_regression_run": 42317071379,
@@ -35,9 +35,9 @@
   "bundle_verification_run": 42319985467,
   "bundle_evidence_commit": "dd8297cc9de9a5423091b61e06f166ee22023de4",
   "headless_regression_coverage": {
-    "passed": 70,
-    "total": 70,
-    "run": 42374175452,
+    "passed": 73,
+    "total": 73,
+    "run": 42384392014,
     "all_executed_in_release_run": true
   },
   "standard_full_workflow_success": true,
@@ -52,14 +52,14 @@
   "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v1.09",
   "release_build_run": 42385588281,
   "release_build_status": "success",
-  "public_verification_run": 42385938012,
-  "public_verification_status": "patch_success_source_api403_rate_limit_fixing",
+  "public_verification_run": 42386115096,
+  "public_verification_status": "success",
   "public_patch": {
-    "size": 59070816,
-    "sha256": "6597489de9c1de5acbdfa27061dbe6907b94a9cab2c0ce36d28be92807b18e5a",
-    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.08/patch.pck"
+    "size": 59072592,
+    "sha256": "55f920f673d98c37de6bfe9886904588c81addec1c28514937eea7ce146ca53b",
+    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.09/patch.pck"
   },
-  "standard_full_workflow_note": "Followup unified work verification run42379577723 succeeded: full71 plus independent restart and native/global/mail renders. Existing release v1.08 remains unchanged.",
+  "standard_full_workflow_note": "Final-source CI42384392014 all73/native/global render passed. Corrected release build42385588281 and authenticated public verification42386115096 succeeded.",
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md#2026-11-07--소규모-작업-효율채팅-중단-대비",
   "approved_followup": "우편 단일원본·공통지급·검사통합 구현/검증 완료. 공개v1.08 유지, 새 배포 미승인.",
   "session_continuity": {
@@ -69,8 +69,8 @@
     "read_only_cause": "not established; do not attribute to context without evidence"
   },
   "followup": {
-    "status": "verified_unpublished",
-    "deployed": false,
+    "status": "published_v109",
+    "deployed": true,
     "release_authorized": false,
     "verification": "docs/qa/mail-common/VERIFICATION.json",
     "source_commit": "272e5f466901109c111111910a7505d59404f6fc",
@@ -81,14 +81,14 @@
     "mail_render_comparison": "27_of_27_identical"
   },
   "regional_bundle_followup": {
-    "deployed": false,
-    "release_authorized": false,
+    "deployed": true,
+    "release_authorized": true,
     "verification": "docs/qa/regional-bundle-rewards/CORRECTION_VERIFICATION.json"
   },
   "fish_render_followup": {
     "verification": "docs/qa/fish-anchor-size/VERIFICATION.json",
-    "deployed": false,
-    "release_authorized": false,
+    "deployed": true,
+    "release_authorized": true,
     "headless_passed": 73,
     "headless_total": 73
   },
