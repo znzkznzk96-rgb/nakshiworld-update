@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "v107_published_and_gateway_download_verified",
+  "status": "valley_one_time_gift_108_in_progress",
   "release_baseline": "v1.07",
-  "target_release": "v1.07",
-  "deployed": true,
+  "target_release": "v1.08",
+  "deployed": false,
   "phone_verified": false,
-  "handoff": "docs/releases/tile-107/HANDOFF.md",
-  "current_task": "v1.07 타일바다 공개·운영 다운로드 검증 완료",
-  "next_step": "기존 앱에서 v1.07 적용 및 실제 플레이 사용자 확인. 추가 게임 변경·유료 생성·새 패치 자동 진행 없음.",
+  "handoff": "docs/releases/valley-gift-108/HANDOFF.md",
+  "current_task": "계곡20종 각1마리+100만비늘 일회성 우편 구현·검증·전달",
+  "next_step": "별도 우편ID 추가 → 실패롤백/재접속/기증/UI 검사 → 전체 배포 검사·공개 다운로드 검증",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -46,8 +46,8 @@
   "remaining_global_render_checks": false,
   "release_authorization": {
     "date": "2026-11-07",
-    "user_request": "5단계 진행 배포까지 진행해줘 ㅇㅇ",
-    "scope": "approved tile v1.07 only"
+    "user_request": "타일 바다 확인하게 계곡 물고기 전종 1개씩이랑 100만비늘 보내주셈 일회성으로",
+    "scope": "one-time valley20 plus1000000 scales delivery patch"
   },
   "release_preflight": "docs/qa/tile-release-stage5/PREFLIGHT.json",
   "release_source_commit": "4883f05868142f8bcbbfe5b1edb4adc4f36f8a02",
