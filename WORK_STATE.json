@@ -7,7 +7,7 @@
   "phone_verified": false,
   "handoff": "docs/releases/tile-107/HANDOFF.md",
   "current_task": "3단계 완료·4단계 번들/해금/보상/세이브 전용 검수 대기",
-  "next_step": "기존 통과한 tile107 항목 재사용 → 번들/해금 UI·보상/중복방지/저장실패/재접속 경계 검수 → 전체 CI 결과 확인 → 배포 준비",
+  "next_step": "4단계 번들/보상 검수에서 odds_rewards의 옛 지역2 미구현 기대값 수정·관련검증 → 전체 CI 미실행/실패 항목 확인 → 배포 준비",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -31,5 +31,6 @@
   },
   "fish_verification_run": 42317071546,
   "automatic_full_regression_run": 42317071379,
-  "automatic_full_regression_status": "in_progress"
+  "automatic_full_regression_status": "failure",
+  "full_regression_blocker": "odds_rewards_verify.gd:38 still treats tile region2 as future/no reward"
 }
