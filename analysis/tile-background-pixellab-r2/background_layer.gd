@@ -47,7 +47,7 @@ func _draw():
  # A broad far bank drifts slowly through the edge; nearer clouds move faster.
  sprite("cloud-far",Vector2(645+sin(elapsed*.025)*55,348),340,Color(.92,.98,1,.64))
  sprite("cloud-far",Vector2(330+sin(elapsed*.03+1)*45,505),195,Color(.92,.98,1,.48))
- sprite("cloud-near",Vector2(490+sin(elapsed*.043+1)*100,225),205)
+ sprite("cloud-near",Vector2(490+sin(elapsed*.043+1)*100,285),245)
  sprite("cloud-near",Vector2(737+sin(elapsed*.035+3)*70,441),155,Color(.95,1,1,.78))
  sprite("horizon-mist",Vector2(556+sin(elapsed*.08)*24,830),470,Color(.75,.98,.96,.18))
  sprite("arch-vine",Vector2(33,480),53)

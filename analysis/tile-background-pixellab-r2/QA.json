@@ -21,5 +21,51 @@
     "model": "create-image-bitforge",
     "generations_reported": 1.0,
     "production_integrated": false
+  },
+  "cloud-near": {
+    "status": "pass",
+    "notes": "Native/4x fluffy broken white-cyan cloud-bank clusters, no spherical balls or dark outlines, full alpha margins. A narrow gap separates cloud clusters; use as a bank rather than a single isolated puff.",
+    "native_and_nearest4x_reviewed": true,
+    "size": [
+      180,
+      64
+    ],
+    "bbox": [
+      8,
+      10,
+      173,
+      56
+    ],
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "sha256": "c4fcadcf2f6a656395c2461e2c37223a9f6eb3f07d579ff8cdb83de943be324c",
+    "model": "create-image-bitforge",
+    "generations_reported": 1.0,
+    "production_integrated": false
+  },
+  "horizon-mist": {
+    "status": "pass",
+    "notes": "Two broken horizontal pale cyan-white wisps with empty gaps, no outlined zigzag/ribbon or solid backdrop. Native and4x reviewed; low-opacity horizon use.",
+    "native_and_nearest4x_reviewed": true,
+    "size": [
+      180,
+      48
+    ],
+    "bbox": [
+      1,
+      22,
+      177,
+      43
+    ],
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "sha256": "e270c64043468a128af76649720fb574468dc862bb305e4b04c278581b882f0b",
+    "model": "create-image-bitforge",
+    "generations_reported": 1.0,
+    "production_integrated": false
   }
 }
