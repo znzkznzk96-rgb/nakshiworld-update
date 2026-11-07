@@ -1,3 +1,4 @@
+# Synthetic tile-entry check starts with valley already unlocked.
 name: Verify one-time valley gift108 before publishing
 on:
   push:
