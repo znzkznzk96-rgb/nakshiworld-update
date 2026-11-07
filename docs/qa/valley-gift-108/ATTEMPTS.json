@@ -1,0 +1,8 @@
+{
+  "run": 42373131205,
+  "gift_claim_rollback_duplicate_and_reload": "passed",
+  "independent_restart_payload": "passed",
+  "failure": "Synthetic entry check had not unlocked prerequisite valley region1",
+  "fix": "Set synthetic unlocked regions to[0,1] before validating normal gift donation and tile entry",
+  "production_gift_change": false
+}

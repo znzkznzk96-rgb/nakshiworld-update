@@ -1,0 +1,66 @@
+# Synthetic tile-entry check starts with valley already unlocked.
+name: Verify one-time valley gift108 before publishing
+on:
+  push:
+    branches: [work/tile-release-107]
+    paths: ['.github/workflows/valley-gift108.yml']
+permissions:
+  contents: read
+jobs:
+  gift:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - name: Restore verified v1.07 source and overlay
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -fL --retry 2 https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.07/game-source.zip -o "$RUNNER_TEMP/source.zip"
+          echo "9cce3b7897b9f2a45e5783424bcda5d5d2a5593d4e02faa2e79a4fb51a43b62b  $RUNNER_TEMP/source.zip" | sha256sum -c -
+          python3 automation/restore_source.py "$RUNNER_TEMP/source.zip" "$RUNNER_TEMP/project"
+          curl -fL --retry 2 https://github.com/godotengine/godot/releases/download/4.4.1-stable/Godot_v4.4.1-stable_linux.x86_64.zip -o "$RUNNER_TEMP/godot.zip"
+          unzip -q "$RUNNER_TEMP/godot.zip" -d "$RUNNER_TEMP/godot"
+          chmod +x "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
+      - name: Prepare verified source and engine
+        run: |
+          set -euo pipefail
+          mkdir -p evidence
+          GODOT="$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
+          "$GODOT" --headless --editor --path "$RUNNER_TEMP/project" --import > evidence/import.log 2>&1
+          if grep -E 'SCRIPT ERROR:|Parse Error:|Failed to load script' evidence/import.log; then exit 1; fi
+          "$GODOT" --headless --path "$RUNNER_TEMP/project" --script tests/bake_expedition_assets.gd > evidence/bake.log 2>&1
+          grep -F 'EXPEDITION_BAKE files=130' evidence/bake.log
+          "$GODOT" --headless --editor --path "$RUNNER_TEMP/project" --import > evidence/prepared.log 2>&1
+          if grep -E 'SCRIPT ERROR:|Parse Error:|Failed to load script' evidence/prepared.log; then exit 1; fi
+          cp docs/qa/valley-gift-108/resume_verify.gd "$RUNNER_TEMP/project/tests/gift108_resume.gd"
+          cp docs/qa/valley-gift-108/mail_preview.gd "$RUNNER_TEMP/project/tests/gift108_preview.gd"
+      - name: Verify gift rollback mail click and independent restart
+        run: |
+          set -euo pipefail
+          GODOT="$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
+          XDG_DATA_HOME="$RUNNER_TEMP/gift108" timeout 90 "$GODOT" --headless --path "$RUNNER_TEMP/project" --script tests/valley_gift108_verify.gd > evidence/gift.log 2>&1 || { cat evidence/gift.log; exit 1; }
+          grep -F 'VALLEY_GIFT108_VERIFY failures=[]' evidence/gift.log
+          XDG_DATA_HOME="$RUNNER_TEMP/gift108" timeout 90 "$GODOT" --headless --path "$RUNNER_TEMP/project" --script tests/gift108_resume.gd > evidence/resume.log 2>&1 || { cat evidence/resume.log; exit 1; }
+          grep -F 'VALLEY_GIFT108_RESUME_VERIFY failures=[]' evidence/resume.log
+          for suite in arrival_gift testing_gift; do
+            XDG_DATA_HOME="$RUNNER_TEMP/old-$suite" timeout 90 "$GODOT" --headless --path "$RUNNER_TEMP/project" --script "tests/${suite}_verify.gd" > "evidence/$suite.log" 2>&1 || { cat "evidence/$suite.log"; exit 1; }
+            grep -F 'VERIFY failures=[]' "evidence/$suite.log"
+          done
+          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/gift.log evidence/resume.log evidence/arrival_gift.log evidence/testing_gift.log; then exit 1; fi
+      - name: Render actual mail at three phone heights
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y xvfb libgl1-mesa-dri > /dev/null
+          GODOT="$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
+          for h in 480 540 660; do
+            XDG_DATA_HOME="$RUNNER_TEMP/preview-$h" timeout 90 xvfb-run -a "$GODOT" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/gift108_preview.gd -- "$GITHUB_WORKSPACE/evidence/screens" "$h" > "evidence/preview-$h.log" 2>&1 || { cat "evidence/preview-$h.log"; exit 1; }
+            grep -F 'VALLEY_GIFT108_PREVIEW failures=[]' "evidence/preview-$h.log"
+            if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' "evidence/preview-$h.log"; then cat "evidence/preview-$h.log"; exit 1; fi
+          done
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: valley-gift108
+          path: evidence/

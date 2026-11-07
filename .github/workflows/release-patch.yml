@@ -16,7 +16,7 @@ jobs:
     timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
-      - name: Require verified stage5 game tree before v107 build
+      - name: Require verified game source before release build
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -33,6 +33,13 @@ jobs:
               assert run["conclusion"]=="success" and run["status"]=="completed"
               assert r["headless_suites"]==69 and r["png_originals_verified"]==21
               print("V107_PREFLIGHT_EXACT_GAME_TREE_VERIFIED")
+          if v["code"]==108:
+              r=json.load(open("docs/releases/valley-gift-108/PREFLIGHT.json"))
+              assert subprocess.check_output(["git","rev-parse","HEAD:game"],text=True).strip()==r["game_tree_sha"]
+              req=urllib.request.Request("https://api.github.com/repos/znzkznzk96-rgb/nakshiworld-update/actions/runs/"+str(r["run"]),headers={"Authorization":"Bearer "+os.environ["GH_TOKEN"],"Accept":"application/vnd.github+json"})
+              with urllib.request.urlopen(req,timeout=30) as response:run=json.load(response)
+              assert run["conclusion"]=="success" and run["status"]=="completed"
+              print("V108_GIFT_PREFLIGHT_EXACT_GAME_TREE_VERIFIED")
           PY
       - name: Install pinned build tools
         shell: bash
@@ -46,8 +53,8 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          curl -fL --retry 3 https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.06/game-source.zip -o "$RUNNER_TEMP/base-source.zip"
-          echo "3c4b1a317955fa53f2f8351d9fbd1d0978502cafd0f6655a969132b6ab064dd5  $RUNNER_TEMP/base-source.zip" | sha256sum -c -
+          curl -fL --retry 3 https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.07/game-source.zip -o "$RUNNER_TEMP/base-source.zip"
+          echo "9cce3b7897b9f2a45e5783424bcda5d5d2a5593d4e02faa2e79a4fb51a43b62b  $RUNNER_TEMP/base-source.zip" | sha256sum -c -
           python3 automation/restore_source.py "$RUNNER_TEMP/base-source.zip" "$RUNNER_TEMP/project"
           python3 automation/prepare_release.py "$RUNNER_TEMP/release-notes.md"
           git diff --exit-code -- game/addons/reservoir/release_notes.gd
@@ -76,7 +83,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          for suite in tile107 tier_skills training_costs tier2_motion management101 formation_compare forge_layout robot_ui_revision capture_robot balance096 guide_ac valley094 arrival_gift valley093 bait092 notification091 ui090 codex089 aquarium_b ui_guide pouch_inventory expedition_result support_utility combat_feedback bag_event_order bag_formation selected_ui bag_interaction startup_assets soul_pouch expedition_hard_balance expedition_label bundle_aqua expedition080 expedition079 testing_gift soldier_dex approved_ui expedition_motion expedition expedition_save expedition_balance action_readability economy_balance rod_aura atmosphere_encounter angler_scene market_reader odds_rewards guide shop audio_save bundle_preview rewards reader fish_surface regional inventory_layout bag_list bundles_buyback owner_gauge reservoir_layers personal_dex bait_roles measurement_speed village_entry_audio; do
+          for suite in valley_gift108 tile107 tier3_motion tier_skills training_costs tier2_motion management101 formation_compare forge_layout robot_ui_revision capture_robot balance096 guide_ac valley094 arrival_gift valley093 bait092 notification091 ui090 codex089 aquarium_b ui_guide pouch_inventory expedition_result support_utility combat_feedback bag_event_order bag_formation selected_ui bag_interaction startup_assets soul_pouch expedition_hard_balance expedition_label bundle_aqua expedition080 expedition079 testing_gift soldier_dex approved_ui expedition_motion expedition expedition_save expedition_balance action_readability economy_balance rod_aura atmosphere_encounter angler_scene market_reader odds_rewards guide shop audio_save bundle_preview rewards reader fish_surface regional inventory_layout bag_list bundles_buyback owner_gauge reservoir_layers personal_dex bait_roles measurement_speed village_entry_audio; do
             XDG_DATA_HOME="$RUNNER_TEMP/$suite-testdata" timeout 90 "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --headless --path "$RUNNER_TEMP/project" --script "tests/${suite}_verify.gd" > "$RUNNER_TEMP/$suite-tests.log" 2>&1
             cat "$RUNNER_TEMP/$suite-tests.log"
             grep -F 'VERIFY failures=[]' "$RUNNER_TEMP/$suite-tests.log"

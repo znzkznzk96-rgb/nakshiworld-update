@@ -35,5 +35,8 @@ func _initialize() -> void:
 		assert(expedition.textures[spec.id+"_tier2"] is Texture2D,"tier2 atlas packed")
 		assert(expedition.frame_count(id,3)==(13 if spec.id=="puffer" else 15),"tier3 frames packed")
 		assert(expedition.textures[spec.id+"_tier3"] is Texture2D,"tier3 atlas packed")
+	var gift108=load("res://addons/reservoir/valley_gift108.gd")
+	assert(gift108.ID=="valley-once-20261107-108" and gift108.GOLD_AMOUNT==1000000,"one-time valley gift script exported")
+	assert(load("res://addons/reservoir/release_notes.gd").LETTERS[0].id=="1.08","v108 mail exported")
 	print("PACKED_ANGLER_VERIFY failures=[]")
 	quit()
