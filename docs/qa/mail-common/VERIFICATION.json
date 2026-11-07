@@ -1,0 +1,16 @@
+{
+  "date_kst": "2026-11-07",
+  "baseline": "v1.08",
+  "source_zip_sha256": "9121b639e2a03fe6d8a18a8689918ddb0c231a097eaf29f03db20d62e67b319f",
+  "related_passed": [
+    "mail_gifts",
+    "valley_gift108",
+    "arrival_gift",
+    "testing_gift",
+    "reader"
+  ],
+  "full": "running",
+  "native_render": "local_X11_connection_unavailable_pending_CI",
+  "deployed": false,
+  "release_authorized": false
+}

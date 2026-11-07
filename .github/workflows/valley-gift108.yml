@@ -1,9 +1,7 @@
 # Recheck original mail paragraphs, gift persistence and actual mail layout.
 name: Verify one-time valley gift108 before publishing
 on:
-  push:
-    branches: [work/tile-release-107]
-    paths: ['.github/workflows/valley-gift108.yml']
+  workflow_dispatch: # Historical replay only; current checks run once in verify-work.
 permissions:
   contents: read
 jobs:

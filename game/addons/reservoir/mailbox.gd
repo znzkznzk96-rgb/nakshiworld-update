@@ -1,4 +1,5 @@
 extends RefCounted
+const Gifts=preload("res://addons/reservoir/mail_gifts.gd")
 const LETTERS: = [
 	{"id": "0.57", "title": "우편함과 조작 화면 개선", "summary": "업데이트 우편 · 드랙음 · 주민 표현", "body": ["마을 상단에 업데이트 우편함 추가", "버전별 상세 내용과 NEW 표시", "전체 읽기 및 선택 삭제 지원", "주황색 감기·낚시하러 가기 버튼 제거", "낚시터 이동은 메뉴의 낚시터 이용", "올려준 드랙 녹음으로 감기 소리 교체", "감는 동안 재생하고 손을 떼면 정지", "주민에게 얇은 검은 외곽선 추가", "걷는 동안 얼굴과 눈 모양 일정하게 유지"]}, 
 	{"id": "0.56", "title": "배경·주민·강화 밸런스 개선", "summary": "바위 테두리 · 주민 통일 · 강화 비용", "body": ["저수지 바위에 검은 테두리 적용", "타이틀 괴수 머리는 선명하게 표현", "아래로 갈수록 어두워지는 명암 적용", "부채꼴 빛 제거 및 시작 버튼 이동", "모든 연령 주민의 그림체 통일", "걷는 방향과 발 접지 보정", "도로 시작부 및 나무 접지 수정", "강화 비늘 비용 3배, 혼 비용 하향", "단계별 비용 1.2배 증가 유지"]}, 
@@ -134,15 +135,10 @@ func press(m, p: Vector2) -> void :
 	m.play("ui")
 	if rects.get("close", Rect2()).has_point(p): opened = false;detail = "";full_text=false;deleting = false;checked.clear();return
 	if detail != "":
-		if detail=="1.08" and rects.get("gift",Rect2()).has_point(p):
-			if preload("res://addons/reservoir/valley_gift108.gd").claim(m): m.show_toast("계곡20종 · 1,000,000비늘 수령",Color("91e8dc"))
-			elif preload("res://addons/reservoir/valley_gift108.gd").ID not in m.testing_grants: m.show_toast("저장하지 못했어요. 다시 눌러 주세요")
-			return
-		if detail=="0.93" and rects.get("gift",Rect2()).has_point(p):
-			if preload("res://addons/reservoir/arrival_gift.gd").claim(m): m.show_toast("전설 물고기 20마리 · 100,000비늘 수령",Color("91e8dc"))
-			return
-		if detail=="0.78" and rects.get("gift",Rect2()).has_point(p):
-			if preload("res://addons/reservoir/testing_gift.gd").claim(m): m.show_toast("테스트 선물을 받았어요!",Color("91e8dc"))
+		var gift: Dictionary=Gifts.info(detail)
+		if not gift.is_empty() and rects.get("gift",Rect2()).has_point(p):
+			if Gifts.claim(m,detail): m.show_toast(gift.toast,Color("91e8dc"))
+			elif gift.save_error and gift.id not in m.testing_grants: m.show_toast("저장하지 못했어요. 다시 눌러 주세요")
 			return
 		if rects.get("back", Rect2()).has_point(p): detail = "";topic=0;detail_page=0;full_text=false;return
 		if rects.get("toggle",Rect2()).has_point(p): full_text=not full_text;detail_page=0;return

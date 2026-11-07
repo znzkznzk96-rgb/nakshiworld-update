@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "v108_gift_published_and_gateway_verified",
+  "status": "mail_common_related_passed_full_running",
   "release_baseline": "v1.08",
   "target_release": "v1.08",
   "deployed": true,
   "phone_verified": false,
-  "handoff": "docs/releases/valley-gift-108/HANDOFF.md",
-  "current_task": "v1.08 계곡20종+100만비늘 일회성 우편 공개·운영다운로드 검증 완료",
-  "next_step": "기존 앱에서 v1.08 업데이트 → 우편의 계곡20종+100만비늘 받기. 사용자 실제 수령 확인은 별도.",
+  "handoff": "docs/qa/mail-common/HANDOFF.md",
+  "current_task": "우편3종 단일원본·공통지급 및 중복CI 통합 검증",
+  "next_step": "진행 중 전체검사 결과 수집 → 통합CI 실제우편 화면 확인 → 최종 checkpoint",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -67,5 +67,11 @@
     "resume": "START_HERE.md → WORK_STATE.json → active branch HANDOFF",
     "checkpoint": "meaningful stages; branch/SHA plus passed checks and next action; external CI run ID when started",
     "read_only_cause": "not established; do not attribute to context without evidence"
+  },
+  "followup": {
+    "status": "related_checks_passed_full_running",
+    "deployed": false,
+    "release_authorized": false,
+    "verification": "docs/qa/mail-common/VERIFICATION.json"
   }
 }
