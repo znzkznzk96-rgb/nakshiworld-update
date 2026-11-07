@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "bundle_unlock_rewards_save_verified_release_preparation_pending",
+  "status": "stage5_render_and_public_release_authorized",
   "release_baseline": "v1.06",
   "target_release": "v1.07",
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/releases/tile-107/HANDOFF.md",
-  "current_task": "4단계 완료·5단계 배포 준비 대기",
-  "next_step": "5단계: 미실행 전체 화면 검사·배포 조건 점검 및 패키지 준비. 공개 배포는 별도 승인 후 진행.",
+  "current_task": "5단계 공통 화면 검사·v1.07 공개 배포 진행",
+  "next_step": "남은 공통 화면 검사 통과 → v1.07 패키지 검증·공개 배포 → 실제 운영 다운로드 검증",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -44,5 +44,10 @@
     "personal_dex_stage3": 1
   },
   "standard_full_workflow_success": false,
-  "remaining_global_render_checks": true
+  "remaining_global_render_checks": true,
+  "release_authorization": {
+    "date": "2026-11-07",
+    "user_request": "5단계 진행 배포까지 진행해줘 ㅇㅇ",
+    "scope": "approved tile v1.07 only"
+  }
 }
