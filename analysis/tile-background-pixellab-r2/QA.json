@@ -136,5 +136,28 @@
     "model": "create-image-pixen",
     "generations_reported": 1.0,
     "production_integrated": false
+  },
+  "gull": {
+    "status": "pass",
+    "notes": "Complete white/grey gull facing right, readable eye/yellow beak/wing tips, clean alpha. Native64x64 and4x reviewed. Pad to80x80 for flight clearance without changing source pixels.",
+    "native_and_nearest4x_reviewed": true,
+    "size": [
+      64,
+      64
+    ],
+    "bbox": [
+      6,
+      3,
+      58,
+      59
+    ],
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "sha256": "77817a4615490168f5db829417cd2af7a5a287116e86e5509909b7cddcd211cd",
+    "model": "create-image-pixen",
+    "generations_reported": 1.0,
+    "production_integrated": false
   }
 }
