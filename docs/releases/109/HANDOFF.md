@@ -1,5 +1,6 @@
-# v1.09 배포 재개
-2026-11-08 KST. PR42 source e8e6935, CI42384392014 성공. 최초 Build42384973558은 packed_art 우편버전 고정1.08 assertion으로 공개 전 대기. 새 소스/아트 손상 없음. 구 build는 assertion 중단으로 publish 불가,25분 제한 종료 예정.
-- packed art 검사 버전을 release.json 인자로 대조하도록 수정하고90초 제한 추가. publish 동시성은 false 유지, 알려진 정지 run과 분리한 v109 group 사용.
-- 게임트리/최종73검사 소스는 기존 PREFLIGHT와 동일. 검사도구/배포workflow만 수정, 게임 검사 반복 불필요.
-- 다음: 이 수정 PR을 main에 병합 → 새 build/run과 공개3파일 및 운영검증 확인. 휴대폰 적용 별도.
+# v1.09 공개 완료·검증 보완
+2026-11-08 KST. source2d4e0bcd3f31783ed231720ee20657140e4f0d4c, build42385588281 성공, v1.09 공개3파일 존재.
+- gateway42385938012에서 앱방식 manifest109/patch59072592/SHA55f920f673d98c37de6bfe9886904588c81addec1c28514937eea7ce146ca53b 성공.
+- source ZIP 단계만 GitHub 비인증API403 rate limit. 기존 Actions token을 api.github.com 메타데이터 요청에만 적용하도록 보완. 새 게임 빌드 불필요.
+- 이전 packed-mail1.08 고정검사 수정PR43 반영됨. 최종 CI42384392014 성공. 휴대폰 미확인.
+- 다음: 인증 적용 deployment검증 성공 → PUBLIC/PUBLISHED/WORK_STATE 원격 기록.

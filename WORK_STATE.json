@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "v109_build_in_progress",
+  "status": "v109_published_gateway_patch_verified_source_verification_rate_limited",
   "release_baseline": "v1.08",
   "target_release": "v1.09",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/releases/109/HANDOFF.md",
   "current_task": "타일 입 방향 수정·전어종 낚시 크기 차등",
-  "next_step": "Build42384973558 then automatic gateway verification; fetch v1.09 files and record hashes; phone unverified",
+  "next_step": "authenticated source ZIP verification via deployment-only PR, then record final verification",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -48,12 +48,12 @@
     "scope": "current reviewed fixes and verified mail common refactor v1.09"
   },
   "release_preflight": "docs/releases/109/PREFLIGHT.json",
-  "release_source_commit": "e8e6935607dfdd86517919cd08437e61f0a2652e",
-  "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v1.08",
-  "release_build_run": 42384973558,
-  "release_build_status": "in_progress",
-  "public_verification_run": 42374557040,
-  "public_verification_status": "success",
+  "release_source_commit": "2d4e0bcd3f31783ed231720ee20657140e4f0d4c",
+  "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v1.09",
+  "release_build_run": 42385588281,
+  "release_build_status": "success",
+  "public_verification_run": 42385938012,
+  "public_verification_status": "patch_success_source_api403_rate_limit_fixing",
   "public_patch": {
     "size": 59070816,
     "sha256": "6597489de9c1de5acbdfa27061dbe6907b94a9cab2c0ce36d28be92807b18e5a",
@@ -92,5 +92,10 @@
     "headless_passed": 73,
     "headless_total": 73
   },
-  "release_verification_run": 42384392014
+  "release_verification_run": 42384392014,
+  "prior_build_issue": {
+    "run": 42384973558,
+    "cause": "packed mail check hardcoded1.08; prepublication assertion",
+    "fix_pr": 43
+  }
 }
