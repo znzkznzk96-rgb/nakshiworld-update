@@ -1,4 +1,4 @@
-# Preserve each original v108 mail paragraph exactly once across sections.
+# Recheck original mail paragraphs, gift persistence and actual mail layout.
 name: Verify one-time valley gift108 before publishing
 on:
   push:
