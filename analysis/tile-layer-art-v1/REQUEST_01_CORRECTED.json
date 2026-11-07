@@ -1,0 +1,20 @@
+{
+  "description": "One small distant fish school sprite for a bright cozy pixel-art underwater tiled-ruins fishing game. Exactly four separate complete tiny minnows swimming to the RIGHT in a loose staggered school, all in SIDE VIEW. Each minnow about 26 to 34 pixels long, gaps between fish, slight variation in size and vertical position. Clearly readable turquoise-blue backs, bright silvery bellies, small coral-orange tail and fins, one clear dark eye each. Crisp clustered pixel art, 3 to 4 shades per color, dark navy selective outlines, clean readable forked tails and distinct dorsal fins. Keep details legible when displayed at native size and at 75 percent size. Loose horizontal composition with generous transparent margins on all edges. This is a decorative distant school, not a hero fish, not a sprite animation sheet. No water, no scenery, no lighting rays, no bubbles, no ground, no border, no labels. Transparent background.",
+  "negative_description": "blurry, anti-aliased, photorealistic, fog, washed-out colors, yellow gold fish bodies, grayscale, uniform gold, text, backdrop, bubbles, overlapping fish, cropped tail, motion trails, sprite sheet frames, huge heroic single fish",
+  "image_size": {
+    "width": 128,
+    "height": 64
+  },
+  "no_background": true,
+  "outline": "selective outline",
+  "shading": "medium shading",
+  "detail": "medium detail",
+  "view": "side",
+  "direction": "east",
+  "style_strength": 35,
+  "style_image": {
+    "source": "approved l0_00 original on transparent128x64 canvas; original96x64 pixels unchanged at16,0",
+    "sha256": "b2adf65adae5148c9ab381256400aa57da51c46fd14c56aeec28cab7765fbc9b"
+  },
+  "seed": 2026110801
+}

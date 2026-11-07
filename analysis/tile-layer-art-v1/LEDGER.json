@@ -1,0 +1,15 @@
+{
+  "request_count": 1,
+  "outputs_received": 0,
+  "http_status": 500,
+  "server_error": "style_image must be size (64,128), got (64,96)",
+  "generations_before": 1157.6,
+  "generations_after": 1157.6,
+  "actual_generations_used": 0.0,
+  "credits_usd_before": 0.0,
+  "credits_usd_after": 0.0,
+  "automatic_retry": false,
+  "further_paid_requests": 0,
+  "status": "stopped_after_first_error",
+  "next_proposal": "keep output128x64; preserve original96x64 pixels, transparent-pad actual style reference to128x64; inspect exact padded input before a new explicitly approved request"
+}

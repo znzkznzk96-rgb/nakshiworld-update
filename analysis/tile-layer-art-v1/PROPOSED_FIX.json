@@ -1,0 +1,25 @@
+{
+  "status": "prepared_only_not_submitted",
+  "original": "game/art/fish/l0_00.png",
+  "original_size": [
+    96,
+    64
+  ],
+  "reference_canvas": [
+    128,
+    64
+  ],
+  "placement": [
+    16,
+    0
+  ],
+  "pixel_resampling": false,
+  "pixel_recoloring": false,
+  "original_pixels_preserved": true,
+  "prepared_png_sha256": "b2adf65adae5148c9ab381256400aa57da51c46fd14c56aeec28cab7765fbc9b",
+  "api_output_canvas": [
+    128,
+    64
+  ],
+  "additional_paid_request_made": false
+}
