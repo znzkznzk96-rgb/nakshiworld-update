@@ -182,5 +182,28 @@
     "model": "create-image-pixen",
     "generations_reported": 1.0,
     "production_integrated": false
+  },
+  "fish-far": {
+    "status": "hold",
+    "notes": "Single complete fish/alpha/tail are usable, but output copied pink/amber reference stripe and fins rather than specified turquoise/coral; left-facing. Color target not met, withheld rather than silently accepted.",
+    "native_and_nearest4x_reviewed": true,
+    "size": [
+      96,
+      64
+    ],
+    "bbox": [
+      7,
+      16,
+      88,
+      48
+    ],
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "sha256": "8a309b94b4eaef081112d0d15ebf34ba5ecdbe003a061ca5609d9125443904cf",
+    "model": "create-image-bitforge",
+    "generations_reported": 1.0,
+    "production_integrated": false
   }
 }

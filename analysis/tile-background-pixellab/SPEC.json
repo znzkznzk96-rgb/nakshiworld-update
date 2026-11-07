@@ -126,9 +126,9 @@
       "single_output": true,
       "visual_inputs": [
         {
-          "path": "art/fish/l0_07.png",
-          "role": "actual approved reservoir pixel/color style only, original unchanged96x64",
-          "sha256": "a09e70c432b23d10502eb18efa02d14bfbbd4ce4c5a15634b7f5c161a3ac47db"
+          "path": "art/fish/l0_18.png",
+          "role": "actual blue/silver palette; avoid winged l0_07 morphology",
+          "sha256": "a87f59d881fbd6fe0027a8c9008e95a9849eeb6552d55ba5b1dee634dc690787"
         }
       ],
       "reference_role": "text only; fish colors/pixel readability compared against actual approved reservoir originals, not rejected school",
