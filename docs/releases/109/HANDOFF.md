@@ -1,5 +1,5 @@
-# v1.09 배포 진행
-2026-11-08 KST. 사용자 승인 GAME_BIBLE. PR42 병합 완료, 배포소스 e8e6935607dfdd86517919cd08437e61f0a2652e.
-- 최종 CI42384392014 전체/화면 성공. PREFLIGHT.json 게임트리와 main 배포트리 일치 확인.
-- Build42384973558 진행 중. 공개 성공·운영 다운로드·휴대폰 성공은 아직 미확인.
-- 다음: build 성공/Release3파일/자동 gateway검증 확인 후 PUBLISHED.json 기록. 폰 적용은 사용자 확인 별도.
+# v1.09 배포 재개
+2026-11-08 KST. PR42 source e8e6935, CI42384392014 성공. 최초 Build42384973558은 packed_art 우편버전 고정1.08 assertion으로 공개 전 대기. 새 소스/아트 손상 없음. 구 build는 assertion 중단으로 publish 불가,25분 제한 종료 예정.
+- packed art 검사 버전을 release.json 인자로 대조하도록 수정하고90초 제한 추가. publish 동시성은 false 유지, 알려진 정지 run과 분리한 v109 group 사용.
+- 게임트리/최종73검사 소스는 기존 PREFLIGHT와 동일. 검사도구/배포workflow만 수정, 게임 검사 반복 불필요.
+- 다음: 이 수정 PR을 main에 병합 → 새 build/run과 공개3파일 및 운영검증 확인. 휴대폰 적용 별도.

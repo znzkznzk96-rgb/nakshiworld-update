@@ -8,7 +8,7 @@ permissions:
   contents: write
   actions: read
 concurrency:
-  group: game-patch-release
+  group: game-patch-release-v109
   cancel-in-progress: false
 jobs:
   release:
@@ -137,7 +137,7 @@ jobs:
           import os,pathlib
           (pathlib.Path(os.environ['RUNNER_TEMP'])/'pack-check/project.godot').write_text('config_version=5\n[application]\nconfig/name="Packed art check"\n')
           PYCODE
-          "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --headless --path "$RUNNER_TEMP/pack-check" --script "$GITHUB_WORKSPACE/automation/verify_packed_art.gd" -- "$GITHUB_WORKSPACE/dist/patch.pck" > "$RUNNER_TEMP/packed-art.log" 2>&1
+          timeout 90 "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --headless --path "$RUNNER_TEMP/pack-check" --script "$GITHUB_WORKSPACE/automation/verify_packed_art.gd" -- "$GITHUB_WORKSPACE/dist/patch.pck" "$(python3 -c 'import json;print(json.load(open("automation/release.json"))["name"])')" > "$RUNNER_TEMP/packed-art.log" 2>&1
           cat "$RUNNER_TEMP/packed-art.log"
           grep -F 'PACKED_ANGLER_VERIFY failures=[]' "$RUNNER_TEMP/packed-art.log"
           if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' "$RUNNER_TEMP/packed-art.log"; then exit 1; fi

@@ -37,6 +37,8 @@ func _initialize() -> void:
 		assert(expedition.textures[spec.id+"_tier3"] is Texture2D,"tier3 atlas packed")
 	var gift108=load("res://addons/reservoir/valley_gift108.gd")
 	assert(gift108.ID=="valley-once-20261107-108" and gift108.GOLD_AMOUNT==1000000,"one-time valley gift script exported")
-	assert(load("res://addons/reservoir/release_notes.gd").LETTERS[0].id=="1.08","v108 mail exported")
+	var expected_version: String=OS.get_cmdline_user_args()[1]
+	if load("res://addons/reservoir/release_notes.gd").LETTERS[0].id!=expected_version:
+		push_error("Packed release mail does not match "+expected_version);quit(1);return
 	print("PACKED_ANGLER_VERIFY failures=[]")
 	quit()
