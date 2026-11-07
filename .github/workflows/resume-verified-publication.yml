@@ -1,0 +1,61 @@
+name: Resume verified draft publication
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/resume-verified-publication.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: game-patch-release
+  cancel-in-progress: false
+jobs:
+  resume:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate sealed candidate and publish existing draft by release ID
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: |
+          python3 - <<'PY'
+          import importlib.util,json,os,pathlib,subprocess
+          spec=importlib.util.spec_from_file_location('candidate','automation/release_candidate.py')
+          module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
+          repo=os.environ['GITHUB_REPOSITORY']
+          def api(path):
+              return json.loads(subprocess.check_output(['gh','api',path]))
+          runs=api(f'repos/{repo}/actions/workflows/verify-work.yml/runs?status=success&per_page=20')['workflow_runs']
+          wanted='release-candidate-'+module.fingerprint()
+          chosen=None
+          for run in runs:
+              if run['event']!='push' or not run['head_branch'].startswith('work/'):continue
+              assets=api(f"repos/{repo}/actions/runs/{run['id']}/artifacts")['artifacts']
+              if not any(a['name']==wanted and not a['expired'] for a in assets):continue
+              folder=pathlib.Path('resume-candidate')/str(run['id']);folder.mkdir(parents=True,exist_ok=True)
+              subprocess.run(['gh','run','download',str(run['id']),'--name',wanted,'--dir',str(folder)],check=True,timeout=120)
+              candidate=module.validate(folder,run);chosen=(run,candidate);break
+          assert chosen,'No exact successful sealed candidate; do not publish'
+          run,candidate=chosen;tag='v'+candidate['version']['name']
+          releases=api(f'repos/{repo}/releases?per_page=100')
+          matches=[r for r in releases if r['tag_name']==tag];assert len(matches)==1,'Expected existing release'
+          release=matches[0]
+          assert release['target_commitish']==candidate['source_commit'],'Wrong source target'
+          for name,meta in candidate['files'].items():
+              asset=next(a for a in release['assets'] if a['name']==name)
+              assert asset['size']==meta['size'] and asset['digest']=='sha256:'+meta['sha256'],name
+          if release['draft']:
+              subprocess.run(['gh','api','--method','PATCH',f"repos/{repo}/releases/{release['id']}",'--input','-'],input=json.dumps({'draft':False,'make_latest':'true'}).encode(),check=True,stdout=subprocess.DEVNULL)
+          published=api(f"repos/{repo}/releases/{release['id']}")
+          assert not published['draft'] and published['tag_name']==tag
+          result={'tag':tag,'source_commit':candidate['source_commit'],'candidate_run':run['id'],'release_id':release['id'],'rebuild':False,'files':candidate['files']}
+          pathlib.Path('PUBLICATION_RESUMED.json').write_text(json.dumps(result,indent=2)+'\n')
+          print('VERIFIED_DRAFT_PUBLISHED',json.dumps(result))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: publication-resumed
+          path: PUBLICATION_RESUMED.json
