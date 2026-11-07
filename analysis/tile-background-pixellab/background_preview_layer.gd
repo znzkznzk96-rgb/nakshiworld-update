@@ -18,6 +18,13 @@ func sprite(key:String,pos:Vector2,width:float,tint:Color=Color.WHITE,flip:bool=
    var influence:float=a if key=="arch-vine" else (1-a if key.begins_with("floor") else absf(a-.4))
    var shift:float=sin(elapsed*1.1+a*2+pos.x*.01)*3*influence*influence
    draw_texture_rect_region(tex,Rect2(-width*.5+shift,-h*.5+a*h,width,h/10+.1),Rect2(used.position+Vector2(0,a*used.size.y),Vector2(used.size.x,used.size.y/10)),tint)
+ elif key.begins_with("fish"):
+  # Head-right source: keep body fixed; flex the actual tail pixels only.
+  draw_texture_rect_region(tex,Rect2(-width*.18,-h*.5,width*.68,h),Rect2(used.position+Vector2(used.size.x*.32,0),Vector2(used.size.x*.68,used.size.y)),tint)
+  for band in 4:
+   var a:float=band/4.0
+   var shift:float=sin(elapsed*6.0-a*.8+pos.y)*1.6*(1-a)
+   draw_texture_rect_region(tex,Rect2(-width*.5+a*width*.32,-h*.5+shift,width*.08,h),Rect2(used.position+Vector2(a*used.size.x*.32,0),Vector2(used.size.x*.08,used.size.y)),tint)
  else:
   draw_texture_rect_region(tex,Rect2(-width*.5,-h*.5,width,h),used,tint)
  draw_set_transform(Vector2.ZERO,0,Vector2.ONE)

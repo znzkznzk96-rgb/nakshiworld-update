@@ -133,7 +133,8 @@
       ],
       "reference_role": "text only; fish colors/pixel readability compared against actual approved reservoir originals, not rejected school",
       "description": "Exactly ONE complete streamlined small silver-blue mackerel-like fish facing RIGHT, side profile, pointed head, one dark eye, cobalt blue back with three short dark dorsal bars, bright silver belly, small navy forked tail and clear pectoral fin. Clean natural fish shape, not a school.",
-      "style_strength": 28
+      "style_strength": 28,
+      "role_update": "generic ambient silver-blue fish only, not a named game mackerel species; exact stripe motif not required for decorative role"
     },
     {
       "name": "fish-near",
@@ -144,14 +145,14 @@
       "single_output": true,
       "visual_inputs": [
         {
-          "path": "art/fish/l0_12.png",
-          "role": "actual approved reservoir pixel/color style only, original unchanged96x64",
-          "sha256": "80c335634c9ce2125cedcb3fb84fc9b0235bd18896f9fe7dbdde243e0475d391"
+          "path": "art/fish/l0_04.png",
+          "role": "actual striped green/ivory/warm fins shape/palette closer than plain bass; lower strength after observed source-pattern carryover",
+          "sha256": "bce75f4ed6675688253882dbd32d8e826e28c04c3b975c9cd9813b941d64a36a"
         }
       ],
       "reference_role": "text only; fish colors/pixel readability compared against actual approved reservoir originals, not rejected school",
       "description": "Exactly ONE complete oval-bodied reef fish facing RIGHT, side profile, a clear dark eye, turquoise body with two ivory vertical bands, coral-orange dorsal and tail fins with dark teal edging, readable scales in small tidy clusters, distinct tail and fins, natural fish shape. No gold. Not a school.",
-      "style_strength": 28
+      "style_strength": 10
     },
     {
       "name": "bubble-cluster",

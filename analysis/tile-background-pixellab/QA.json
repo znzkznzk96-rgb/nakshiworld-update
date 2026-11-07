@@ -205,5 +205,51 @@
     "model": "create-image-bitforge",
     "generations_reported": 1.0,
     "production_integrated": false
+  },
+  "fish-mid": {
+    "status": "pass",
+    "notes": "Readable complete silver-blue decorative fish with clear eye, fins and forked tail, no clipping; matches approved blue/silver reference palette. Use as generic ambient silverfish, not named mackerel (planned dorsal bars absent). Native96x64 and4x checked; display-size review pending.",
+    "native_and_nearest4x_reviewed": true,
+    "size": [
+      96,
+      64
+    ],
+    "bbox": [
+      1,
+      9,
+      95,
+      55
+    ],
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "sha256": "6da8bb9e02b84110e22d9574596908779cca9ae253cd5f09a0d48bb94dd658dc",
+    "model": "create-image-bitforge",
+    "generations_reported": 1.0,
+    "production_integrated": false
+  },
+  "fish-near": {
+    "status": "hold",
+    "notes": "Body became lumpy/spotted with yellow-green wash, cream bands/coral fins missing; not the intended clear reef-fish design. Withheld; no regeneration.",
+    "native_and_nearest4x_reviewed": true,
+    "size": [
+      96,
+      64
+    ],
+    "bbox": [
+      2,
+      7,
+      94,
+      55
+    ],
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "sha256": "ceca569ec1d92e9b10944c0ce7d5817bb12c9a4b751d9ecce9d6cb2c3d260b10",
+    "model": "create-image-bitforge",
+    "generations_reported": 1.0,
+    "production_integrated": false
   }
 }
