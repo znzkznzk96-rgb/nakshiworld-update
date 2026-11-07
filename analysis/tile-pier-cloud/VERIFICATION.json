@@ -1,0 +1,58 @@
+{
+  "native_render_exit_code": 0,
+  "native_errors": false,
+  "native_frames": 90,
+  "resolution": [
+    540,
+    1320
+  ],
+  "gif_frames": 72,
+  "gif_duration_ms": 6000,
+  "hud_and_above_water_platform": [
+    {
+      "rect": [
+        22,
+        10,
+        517,
+        57
+      ],
+      "identical": true
+    },
+    {
+      "rect": [
+        26,
+        78,
+        257,
+        125
+      ],
+      "identical": true
+    },
+    {
+      "rect": [
+        285,
+        78,
+        513,
+        125
+      ],
+      "identical": true
+    },
+    {
+      "rect": [
+        0,
+        580,
+        218,
+        656
+      ],
+      "identical": true
+    }
+  ],
+  "support_source_top_y": 977,
+  "support_width": 258,
+  "support_fade_zero_at_source_y": 1210.88,
+  "support_render_order": "behind_decor_fish",
+  "cloud_final_scene_review": "passed thin wide cloud with reduced edge contrast; no rectangular sky or water fringe",
+  "support_final_scene_review": "passed connected tiled support fading below waterline; source platform preserved",
+  "paid_generations": 2,
+  "production_integrated": false,
+  "deployed": false
+}

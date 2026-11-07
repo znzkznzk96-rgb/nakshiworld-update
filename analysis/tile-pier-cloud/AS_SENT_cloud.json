@@ -1,0 +1,14 @@
+{
+  "description": "One elongated thin stratocumulus cloud wisp, very wide and low horizontal silhouette, length to height ratio at least six to one. Two softly connected broad flat wisps, gentle natural uneven top, flattened soft lower edge. Pale ivory white highlights and very pale lavender shadows, airy and light. Cozy crisp 16-bit pixel art, broad clean pixel clusters, only three shades, no dark outline. One cloud sprite in an otherwise empty transparent canvas. No stacked round bubbles, no tall cauliflower peaks, no yellow cream puffs, no ocean, no ground, no island, no reflection, no horizon line, no sky rectangle, no text, no checker pattern. Leave transparent margins on every edge.",
+  "image_size": {
+    "width": 192,
+    "height": 48
+  },
+  "outline": "lineless",
+  "detail": "low detail",
+  "view": "side",
+  "no_background": true,
+  "background_removal_task": "remove_complex_background",
+  "seed": 2026111201,
+  "enhance_prompt": false
+}

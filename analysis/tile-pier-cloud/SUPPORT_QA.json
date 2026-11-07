@@ -1,0 +1,13 @@
+{
+  "status": "pass_for_scene_trial",
+  "native_and_nearest3x_reviewed": true,
+  "shape": "continuous top band, two square tiled columns and open arch; no water/landscape baked in",
+  "color": "cobalt/teal tiles, gold grout muted with underwater shader",
+  "bbox": [
+    0,
+    32,
+    160,
+    180
+  ],
+  "render": "usedrect258wide, top sourceY977; alpha fades to0 at depth0.98, water color increases with depth"
+}

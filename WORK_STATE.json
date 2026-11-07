@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "cloud_shape_and_submerged_pier_in_progress",
+  "status": "cloud_shape_and_submerged_pier_preview_ready",
   "release_baseline": "v1.09",
   "target_release": "v1.10",
   "deployed": false,
   "phone_verified": false,
   "handoff": "analysis/tile-pier-cloud/HANDOFF.md",
   "current_task": "구름 형상 교체·발판 수중 지지구조/수심감쇠 시안",
-  "next_step": "PixelLab 구름1장 검수, 타일 지지구조1장 생성 후 연결",
+  "next_step": "새 구름/수중연결 구조물 시안 검토 후 본편통합; 배포 미승인",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -225,6 +225,12 @@
     "fish_species": 4,
     "fish_instances": 6,
     "plants": 5,
+    "production_integrated": false,
+    "deployed": false
+  },
+  "tile_pier_cloud": {
+    "verification": "analysis/tile-pier-cloud/VERIFICATION.json",
+    "paid_generations": 2,
     "production_integrated": false,
     "deployed": false
   }
