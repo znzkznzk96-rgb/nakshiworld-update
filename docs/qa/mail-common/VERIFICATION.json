@@ -111,8 +111,31 @@
   "independent_resume": "passed",
   "ci": {
     "run": 42379577723,
-    "status": "in_progress"
+    "job": 128424157196,
+    "status": "completed",
+    "conclusion": "success",
+    "source_commit": "272e5f466901109c111111910a7505d59404f6fc",
+    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/actions/runs/42379577723",
+    "artifact_id": 13576942789,
+    "artifact_name": "work-verification",
+    "artifact_size": 82750927,
+    "logs": "CI_LOG.txt"
   },
   "letter_originals_unchanged": true,
-  "release_metadata_unchanged": true
+  "release_metadata_unchanged": true,
+  "static_checks": [
+    "YAML parse",
+    "71 unique suites and existing test scripts",
+    "JSON and local links",
+    "historical mail bodies byte-preserved",
+    "release metadata and deployment workflow unchanged",
+    "work branch cannot trigger release"
+  ],
+  "artifact_hashes": {
+    "HEADLESS_LOGS.txt": "e6063d81356593c3fa5b7b684ace4bccfe9d3638eb02b47f9c2835262feb50cf",
+    "SCREEN_COMPARISON.json": "def21d40bc821552ec588c898d8ad705a3cd740797a793198f0e1c8c109f9b10",
+    "mail-overview.png": "4930bf3bc6be7f2ec5f9f5570be26a6a67d41ecb7a4bfdaa549c8f9c3c961de8",
+    "CI_LOG.txt": "8ce2bb11ceb1f6d5c52fd8424c504d4cb54ac98d81109f1e83c32b33e8c26c86"
+  },
+  "status": "verified_unpublished"
 }

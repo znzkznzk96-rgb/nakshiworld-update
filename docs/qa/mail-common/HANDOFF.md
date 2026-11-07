@@ -1,11 +1,17 @@
-# 우편 공통화·검사 통합 — 로컬 검증 완료·CI 진행 중
-2026-11-07 KST. 기존 승인: GAME_BIBLE의 작업 간소화 방향.
+# 우편 공통화·검사 통합 — 검증 완료·미배포
+2026-11-07 KST. 기존 승인: GAME_BIBLE의 작업 간소화 방향. 공개v1.08은 유지한다.
 
-- 공개 기준 v1.08, 소스ZIP SHA/CRC 검증 후 전체 복원+활성 overlay/삭제명세 적용.
-- mail_gifts.gd에 기존3종 ID·payload·버튼/수령표시/토스트를 통합. 기존3개 claim 진입점·상수는 호환 wrapper로 유지. 과거 우편 원문 불변.
-- 기존 valley/arrival/testing/reader 및 새3종 공통 지급·실제쓰기실패/원본save보존·연속수령 검사 통과. 전체71개와 별도 프로세스 재접속 검사 통과.
-- verify-work에 관련검사·독립 재접속·3종/3높이 우편렌더 통합. 옛 valley-gift108 workflow는 수동 이력재현용으로 보존해 push 중복 실행 제거.
-- 로컬렌더 초기 X11 연결 실패 후 같은 프로세스 환경에서 Xorg/Godot 실행으로 해결. 우편3종×3높이×수령전/후/상세27장 생성, 기존구현 대비 우편영역 픽셀27/27 동일. [화면비교](SCREEN_COMPARISON.json), [실화면](mail-overview.png).
-- 새 패치 배포 미승인·미배포. 공개v1.08·기존 사용자 휴대폰 수령 확인대기는 유지.
-- 원격 코드 checkpoint `272e5f466901109c111111910a7505d59404f6fc` 내용 확인. 통합CI [42379577723](https://github.com/znzkznzk96-rgb/nakshiworld-update/actions/runs/42379577723) 진행 중.
-- 다음: 통합CI의 전체회귀·공통화면 결과 확인 후 최종 기록 저장. 검증 상세는 [VERIFICATION](VERIFICATION.json).
+## 완료
+- `mail_gifts.gd`에 기존3종의 ID·payload·버튼/수령표시·토스트를 통합하고 공통 지급/저장실패 롤백 적용. 기존3개 claim 진입점과 상수는 호환 wrapper로 유지.
+- 수령ID·지급량·기존보유/진행·세이브 의미·우편 원문·UI/아트·밸런스 불변. 게임버전/배포workflow/릴리스정보 불변.
+- 관련검사·독립재접속·우편3종/3높이 화면을 기존 verify-work에 통합. 옛 valley-gift108 전용workflow는 수동 이력재현용으로 보존하여 중복 자동실행 제거. 새workflow 없음.
+
+## 검증·원격 저장
+- v1.08 전체ZIP SHA/CRC 검증 후 활성 overlay와 삭제명세 적용. 고정Godot4.4.1 사용.
+- 로컬71개 전체검사+독립재접속 통과. 실제쓰기실패 전부롤백/원본save바이트/3종연속수령/중복·재접속방지/이전선물/원문보존 확인. 실제 사용자세이브 미사용.
+- 실제우편27장(3종×480/540/660×수령전/후/상세) 생성. 기존구현 대비 우편영역27/27 픽셀동일. [비교](SCREEN_COMPARISON.json), [실화면](mail-overview.png). 초기 로컬X11 연결실패는 같은프로세스환경 Xorg/Godot 실행으로 해결.
+- 코드 `272e5f466901109c111111910a7505d59404f6fc`와 증거checkpoint `820ceb6a911c858ad8c74005bcaff32b8bea16d2` 원격내용 확인.
+- 통합CI [42379577723](https://github.com/znzkznzk96-rgb/nakshiworld-update/actions/runs/42379577723) 최종success. 전체회귀/독립재접속/계곡·타일·공통·우편화면 전부 통과. 상세해시·원본로그·artifact는 [VERIFICATION](VERIFICATION.json).
+
+## 다음 단계·배포 구분
+승인된 정리작업 완료. 다음 게임 작업 지시를 따른다. 이 정리는 공개미배포이며 추가배포 승인은 없다. 공개v1.08 운영검증 완료/사용자휴대폰 실제수령 미확인은 [기존배포 인수인계](../../releases/valley-gift-108/HANDOFF.md)를 유지한다. 새게임수정은 최신 전체ZIP+이 브랜치 overlay/삭제명세로 시작한다. 통과한 동일검사는 새변경/실패/의심 없이 반복하지 않는다.

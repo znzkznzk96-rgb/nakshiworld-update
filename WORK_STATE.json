@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "mail_common_local_verified_ci_running",
+  "status": "mail_common_verified_unpublished_followup",
   "release_baseline": "v1.08",
   "target_release": "v1.08",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/mail-common/HANDOFF.md",
-  "current_task": "우편3종 단일원본·공통지급 및 중복CI 통합 검증",
-  "next_step": "통합CI 42379577723의 전체회귀·공통화면 결과 확인 → 최종검증기록 저장",
+  "current_task": "승인된 우편3종 공통화·중복CI 간소화 구현 및 전체검증 완료",
+  "next_step": "다음 게임 작업 지시 대기. 이번 정리의 공개 배포는 별도 명시 승인 필요.",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -40,7 +40,7 @@
     "run": 42374175452,
     "all_executed_in_release_run": true
   },
-  "standard_full_workflow_success": false,
+  "standard_full_workflow_success": true,
   "remaining_global_render_checks": false,
   "release_authorization": {
     "date": "2026-11-07",
@@ -59,9 +59,9 @@
     "sha256": "6597489de9c1de5acbdfa27061dbe6907b94a9cab2c0ce36d28be92807b18e5a",
     "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.08/patch.pck"
   },
-  "standard_full_workflow_note": "Historical verify-work run failed stale test; corrected tests plus remaining screens verified, actual release workflow full gate succeeded.",
+  "standard_full_workflow_note": "Followup unified work verification run42379577723 succeeded: full71 plus independent restart and native/global/mail renders. Existing release v1.08 remains unchanged.",
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md#2026-11-07--소규모-작업-효율채팅-중단-대비",
-  "approved_followup": "우편 정보 단일원본/공통 지급·관련검사 묶음/중복 CI 간소화. 현재는 절차만 저장했으며 코드 미적용, 새 배포 미승인.",
+  "approved_followup": "우편 단일원본·공통지급·검사통합 구현/검증 완료. 공개v1.08 유지, 새 배포 미승인.",
   "session_continuity": {
     "context_remaining": "not_available_to_assistant",
     "resume": "START_HERE.md → WORK_STATE.json → active branch HANDOFF",
@@ -69,11 +69,15 @@
     "read_only_cause": "not established; do not attribute to context without evidence"
   },
   "followup": {
-    "status": "local_71_passed_27_mail_pixels_identical_ci_running",
+    "status": "verified_unpublished",
     "deployed": false,
     "release_authorized": false,
     "verification": "docs/qa/mail-common/VERIFICATION.json",
     "source_commit": "272e5f466901109c111111910a7505d59404f6fc",
-    "ci_run": 42379577723
+    "ci_run": 42379577723,
+    "ci_status": "success",
+    "headless_suites": 71,
+    "independent_restart": "passed",
+    "mail_render_comparison": "27_of_27_identical"
   }
 }
