@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "v109_preparing_authorized",
+  "status": "v109_ci_pending",
   "release_baseline": "v1.08",
   "target_release": "v1.09",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/releases/109/HANDOFF.md",
   "current_task": "타일 입 방향 수정·전어종 낚시 크기 차등",
-  "next_step": "v1.09 notes and exact-source CI, release merge, public three-file and gateway verification",
+  "next_step": "CI42384392014 success → merge PR42 → verify release and gateway; no phone confirmation yet",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -47,11 +47,11 @@
     "user_request": "업데이트하고 배포하자",
     "scope": "current reviewed fixes and verified mail common refactor v1.09"
   },
-  "release_preflight": "docs/releases/valley-gift-108/PREFLIGHT.json",
+  "release_preflight": "docs/releases/109/PREFLIGHT.json",
   "release_source_commit": "188643645a202a833d0a9a7f61e203674e1f6e99",
   "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v1.08",
   "release_build_run": 42374175452,
-  "release_build_status": "success",
+  "release_build_status": "not_started",
   "public_verification_run": 42374557040,
   "public_verification_status": "success",
   "public_patch": {
@@ -91,5 +91,6 @@
     "release_authorized": false,
     "headless_passed": 73,
     "headless_total": 73
-  }
+  },
+  "release_verification_run": 42384392014
 }

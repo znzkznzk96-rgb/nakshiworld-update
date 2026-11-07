@@ -1,0 +1,19 @@
+{
+  "version": {
+    "code": 109,
+    "name": "1.09"
+  },
+  "date_kst": "2026-11-08",
+  "run": 42384392014,
+  "verified_commit": "bd7654376a627de8dd67dac2ed0b98af9e788b2e",
+  "game_tree_sha": "d8ebc6856b5e5c97580e148868b68aa095acd56c",
+  "restore_source_blob": "b6b1fa39835bc2a886348417504fb9a647fc66cf",
+  "deleted_files_blob": "a00bb350ddcce2b9300575d254c1d30f804b76a3",
+  "required_conclusion": "success",
+  "local_full": {
+    "passed": 73,
+    "total": 73
+  },
+  "user_authorized": true,
+  "scope": "regional rewards/museum restore/tile mouth UV/species display sizes/mail common"
+}
