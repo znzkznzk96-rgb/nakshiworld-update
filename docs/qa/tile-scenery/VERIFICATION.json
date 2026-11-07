@@ -1,8 +1,157 @@
 {
   "source_commit": "12dfd5d1b96aa2ecfee558d491991d123950700a",
   "production_integrated": true,
-  "deployed": false,
+  "deployed": true,
   "source_asset_count": 21,
+  "art_remote_blobs_exact": [
+    {
+      "path": "game/art/atmosphere/tile/arch-vine.png",
+      "blob_sha": "882854b365ea22c6b8e2b85d7dd2e531e5626f37",
+      "remote_sha": "882854b365ea22c6b8e2b85d7dd2e531e5626f37",
+      "size": 4642,
+      "exact": true
+    },
+    {
+      "path": "game/art/atmosphere/tile/bubble-cluster.png",
+      "blob_sha": "321140892467a3714a60547b4372b2be29250084",
+      "remote_sha": "321140892467a3714a60547b4372b2be29250084",
+      "size": 2390,
+      "exact": true
+    },
+    {
+      "path": "game/art/atmosphere/tile/cloud-00.png",
+      "blob_sha": "843208f017e59a13871df23c4f2748476866e17a",
+      "remote_sha": "843208f017e59a13871df23c4f2748476866e17a",
+      "size": 4811,
+      "exact": true
+    },
+    {
+      "path": "game/art/atmosphere/tile/cloud-01.png",
+      "blob_sha": "eb0d581f3bafc758cbf217a6bbe7671f71358821",
+      "remote_sha": "eb0d581f3bafc758cbf217a6bbe7671f71358821",
+      "size": 2912,
+      "exact": true
+    },
+    {
+      "path": "game/art/atmosphere/tile/cloud-02.png",
+      "blob_sha": "14aff69184cecb692665eb0d4f881ef5b45d05c9",
+      "remote_sha": "14aff69184cecb692665eb0d4f881ef5b45d05c9",
+      "size": 2928,
+      "exact": true
+    },
+    {
+      "path": "game/art/atmosphere/tile/cloud-03.png",
+      "blob_sha": "f624f0708cf2bb5e4b1df4ccf60c630db4f59283",
+      "remote_sha": "f624f0708cf2bb5e4b1df4ccf60c630db4f59283",
+      "size": 3761,
+      "exact": true
+    },
+    {
+      "path": "game/art/atmosphere/tile/floor-broad.png",
+      "blob_sha": "0fa21d388a56d230b10961f4bd85b30b10cfed56",
+      "remote_sha": "0fa21d388a56d230b10961f4bd85b30b10cfed56",
+      "size": 3919,
+      "exact": true
+    },
+    {
+      "path": "game/art/atmosphere/tile/floor-ribbon.png",
+      "blob_sha": "91daef4416892c697b266f762d48dc65f97ae517",
+      "remote_sha": "91daef4416892c697b266f762d48dc65f97ae517",
+      "size": 3097,
+      "exact": true
+    },
+    {
+      "path": "game/art/atmosphere/tile/gull-flight-00.png",
+      "blob_sha": "6233f3ae68bc8a959fe23906dc45ae31d88fc341",
+      "remote_sha": "6233f3ae68bc8a959fe23906dc45ae31d88fc341",
+      "size": 2545,
+      "exact": true
+    },
+    {
+      "path": "game/art/atmosphere/tile/gull-flight-01.png",
+      "blob_sha": "8849624297555c2150852beebaff60463d3ab21e",
+      "remote_sha": "8849624297555c2150852beebaff60463d3ab21e",
+      "size": 2757,
+      "exact": true
+    },
+    {
+      "path": "game/art/atmosphere/tile/gull-flight-02.png",
+      "blob_sha": "4c9c8841e6fe41245fe6052a46418daef223418a",
+      "remote_sha": "4c9c8841e6fe41245fe6052a46418daef223418a",
+      "size": 2024,
+      "exact": true
+    },
+    {
+      "path": "game/art/atmosphere/tile/gull-flight-03.png",
+      "blob_sha": "25f097ce4fb564f666d240db7add6d2aa8d7ba22",
+      "remote_sha": "25f097ce4fb564f666d240db7add6d2aa8d7ba22",
+      "size": 1518,
+      "exact": true
+    },
+    {
+      "path": "game/art/atmosphere/tile/gull-flight-04.png",
+      "blob_sha": "46dd2e4036363a21a834d39f940869b35a6aa5ee",
+      "remote_sha": "46dd2e4036363a21a834d39f940869b35a6aa5ee",
+      "size": 1898,
+      "exact": true
+    },
+    {
+      "path": "game/art/atmosphere/tile/gull-flight-05.png",
+      "blob_sha": "0ff86c6fd1ac8206f762422a8f04c8bca722bc8c",
+      "remote_sha": "0ff86c6fd1ac8206f762422a8f04c8bca722bc8c",
+      "size": 1781,
+      "exact": true
+    },
+    {
+      "path": "game/art/atmosphere/tile/gull-flight-06.png",
+      "blob_sha": "fc815c507718e2e5edd5324a61215dc494b0cd48",
+      "remote_sha": "fc815c507718e2e5edd5324a61215dc494b0cd48",
+      "size": 1523,
+      "exact": true
+    },
+    {
+      "path": "game/art/atmosphere/tile/gull-flight-07.png",
+      "blob_sha": "f78cadadeb0fa0298371a30ebb4879f4d86e62b3",
+      "remote_sha": "f78cadadeb0fa0298371a30ebb4879f4d86e62b3",
+      "size": 2136,
+      "exact": true
+    },
+    {
+      "path": "game/art/atmosphere/tile/gull-flight-08.png",
+      "blob_sha": "275ab2aa68c2d200768bbd0743c5afb89a0e13c1",
+      "remote_sha": "275ab2aa68c2d200768bbd0743c5afb89a0e13c1",
+      "size": 2611,
+      "exact": true
+    },
+    {
+      "path": "game/art/atmosphere/tile/mist.png",
+      "blob_sha": "cb12f3cd69bd28e539d5728ec4d0abacbe2b793c",
+      "remote_sha": "cb12f3cd69bd28e539d5728ec4d0abacbe2b793c",
+      "size": 2383,
+      "exact": true
+    },
+    {
+      "path": "game/art/atmosphere/tile/support.png",
+      "blob_sha": "af73503fc5e55cc8a1107eae258e04507dd03951",
+      "remote_sha": "af73503fc5e55cc8a1107eae258e04507dd03951",
+      "size": 16834,
+      "exact": true
+    },
+    {
+      "path": "game/art/atmosphere/tile/wall-ribbon.png",
+      "blob_sha": "4ea16efe9def4f10aea37b8cea532d68c38b80d9",
+      "remote_sha": "4ea16efe9def4f10aea37b8cea532d68c38b80d9",
+      "size": 2851,
+      "exact": true
+    },
+    {
+      "path": "game/art/atmosphere/tile/water-specks.png",
+      "blob_sha": "d7f7c5babd9f764127da5fbbd495e34dfe5cbfd5",
+      "remote_sha": "d7f7c5babd9f764127da5fbbd495e34dfe5cbfd5",
+      "size": 398,
+      "exact": true
+    }
+  ],
   "local_related": "TILE_SCENERY_VERIFY failures=[]",
   "native_capture": {
     "resolution": [
@@ -14,8 +163,10 @@
   },
   "full_ci": {
     "run": 42423468177,
-    "status": "in_progress"
+    "status": "success",
+    "suites": 78
   },
-  "packed_art": "pending",
+  "packed_art": "success",
+  "publication": "docs/releases/110/PUBLISHED.json",
   "new_generation": 0
 }
