@@ -1,4 +1,5 @@
 name: Verify tile bundles saves and remaining regression without deployment
+# Migration fixture saves rec.json separately, matching the real v1.06 API.
 on:
   push:
     branches: [work/tile-release-107]

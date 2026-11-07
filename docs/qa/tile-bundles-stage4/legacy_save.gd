@@ -8,6 +8,8 @@ func run():
 	m.DEX={m.fish_key(5):[2]};m.REC={m.fish_key(5):17.2};m.catch_counts={m.fish_key(5):[0,0,1,0,0]}
 	m.personal_dex.observe(5,2,17.2,0.08,"2026-11-06")
 	m.progression.restore({"certificates":[true,false],"main_completed":[true,false],"donations":{"1":[1,0,0,0,0,0]}})
+	m._save_rec()
+	assert(FileAccess.file_exists("user://rec.json"))
 	assert(m._save_game())
 	m.audio_feedback.dispose();m.queue_free();await process_frame
 	print("LEGACY106_STAGE4_SAVE_CREATED");quit(0)

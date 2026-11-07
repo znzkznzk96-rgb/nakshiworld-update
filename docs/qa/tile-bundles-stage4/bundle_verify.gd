@@ -30,7 +30,7 @@ func run():
 	check(m.gold==654321 and m.souls==23 and m.pearl==17,"real v106 save wallet migrates unchanged")
 	check(m.active_region==1 and m.region_shop.unlocked==[0,1],"legacy region flags retained")
 	check(m.bag.size()==1 and m.bag[0].sp==5 and m.bag[0].grade==2 and m.bag[0].price==111,"legacy exact held specimen retained")
-	check(m.fish_grades(5)==[2] and absf(float(m.REC[m.fish_key(5)])-17.2)<0.001,"legacy dex and length retained")
+	check(m.fish_grades(5)==[2] and absf(m.fish_record_cm(5)-17.2)<0.001,"legacy dex and length retained")
 	check(not m.personal_dex.best(m,5,"weight").is_empty(),"legacy personal specimen retained")
 	check(m.progression.bundle_counts(1,0)[0]==1 and not m.progression.bundle_done(2,0),"partial legacy donation retained without invented tile completion")
 	# Remaining operations use new synthetic balances and bags only.
