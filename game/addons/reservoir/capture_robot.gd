@@ -327,6 +327,7 @@ func draw_panel(m,h: float) -> void:
 	row(m,Rect2(r.position+Vector2(15,r.size.y-42),Vector2(208,28)),"닫기","close")
 
 func input_event(m,e:InputEvent) -> bool:
+	if (e is InputEventMouseButton or e is InputEventMouseMotion) and e.device==-1 and Time.get_ticks_msec()-last_touch<500:return true
 	if not opened: return false
 	if e is InputEventMouseButton:
 		if e.device==-1 and Time.get_ticks_msec()-last_touch<500:return true
