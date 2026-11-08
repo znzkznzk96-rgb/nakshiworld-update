@@ -6,3 +6,5 @@
 최종소스 f6166542f618b878264aa99c2a9630a76763a9bb, 전체CI 42529115176 실행중. https://github.com/znzkznzk96-rgb/nakshiworld-update/actions/runs/42529115176 . 재개시이run결과부터확인하며새게임변경없으면반복검증하지않는다. 성공한동일fingerprint후보만공개.
 
 전체CI42529115176최종success. 고유88검사·실화면·PCK통과,동일후보 13637076247/fingerprint b0f1b1ab8db47906612d459b1b4301293af411989f9dc4c2062ed4b6102ff64e. 검증세부VERIFICATION.json. 다음:PR51승인범위반영→재검사/재빌드없이동일후보공개→운영검증. 아직공개v1.12/휴대폰미확인.
+
+PR51병합 7bd3091250cf9cb0d264611f57c074a7e7fb4789. 공개작업 42529982880 진행중: https://github.com/znzkznzk96-rgb/nakshiworld-update/actions/runs/42529982880 . 승인범위배포이며재빌드없음. 재개시이run과후속운영검증부터확인.
