@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "hooked_fight_body_size_verified_not_deployed",
+  "status": "bundle_next_unlock_correction_approved",
   "release_baseline": "v1.10",
   "target_release": "v1.10",
   "deployed": true,
   "phone_verified": false,
-  "handoff": "docs/qa/fight-body-size/HANDOFF.md",
-  "current_task": "사진의 줄에 걸린 파이팅 본체 크기 차등 수정",
-  "next_step": "사용자가 파이팅 본체 크기 전후 비교 검토; 새 버전·배포는 별도 지시 후 진행",
+  "handoff": "docs/qa/bundle-next-unlock/HANDOFF.md",
+  "current_task": "계곡 보상 다음지역 기준 정정·저수지 주인5940·타일 선택그림 복원",
+  "next_step": "승인결정 원격검증 후 코드·관련검사·실화면 작업",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -274,5 +274,10 @@
     "ci_artifact": 13597648289,
     "release_ready": false,
     "note": "최종소스 전체 회귀·공통실화면·PCK검증 성공. 신규 공개버전 미지정/새배포 미승인. CI후보는 검사산출물이며 공개v1.10 대체하지 않음."
+  },
+  "bundle_next_unlock": {
+    "status": "approved_before_implementation",
+    "deployed": false,
+    "release_authorized": false
   }
 }
