@@ -1,0 +1,89 @@
+{
+  "version": {
+    "code": 112,
+    "name": "1.12"
+  },
+  "source_commit": "2e88947e794336ff218ccc69066f39f7570ba753",
+  "assets": {
+    "version.json": {
+      "size": 199,
+      "sha256": "31dd81f7411a98422a02fa80ffcbb5d81484d749a24c049caab4a9205fd678de",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.12/version.json"
+    },
+    "patch.pck": {
+      "size": 59225600,
+      "sha256": "bf28a2b8c3c868a3ee803d87d0db5f5278b53fba10534cf50f8bdb6e14889cd2",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.12/patch.pck"
+    },
+    "game-source.zip": {
+      "size": 63411998,
+      "sha256": "aa1b81bb9dd74ba3e5a7a907f0922e31b5a5e4021864272b1976cee72874c1a0",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.12/game-source.zip"
+    }
+  },
+  "phone_verified": false,
+  "source_overlay_files_verified": 615,
+  "zip_crc_verified": true,
+  "public_assets_verified": true,
+  "published": true,
+  "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v1.12",
+  "release_id": 438457348,
+  "merge_commit": "d208938aa047f8e1df6dcd2093c7b62c4207fd35",
+  "candidate_run": 42512752576,
+  "candidate_artifact": {
+    "id": 13630855169,
+    "name": "release-candidate-73e1052e892046baced17bfeb20e63d073fff5db21f72b9ee38ff6f0cf4c7ec0",
+    "size_in_bytes": 117432983,
+    "url": "https://api.github.com/repos/znzkznzk96-rgb/nakshiworld-update/actions/artifacts/13630855169",
+    "archive_download_url": "https://api.github.com/repos/znzkznzk96-rgb/nakshiworld-update/actions/artifacts/13630855169/zip",
+    "expired": false,
+    "created_at": "2026-11-08T19:06:33Z",
+    "expires_at": "2026-12-08T19:06:29Z",
+    "updated_at": "2026-11-08T19:06:33Z",
+    "digest": "sha256:28f1d0cda3cd40b82df8ad4541e3fb34cd1bbcf7c08a9370859cb5315e8dc7e9",
+    "workflow_run": {
+      "id": 42512752576,
+      "repository_id": 1423971848,
+      "head_repository_id": 1423971848,
+      "head_branch": "work/tile-release-107",
+      "head_sha": "2e88947e794336ff218ccc69066f39f7570ba753"
+    }
+  },
+  "full_verify_suites": 88,
+  "full_verify_errors": [],
+  "native_and_pck": "passed",
+  "publication_run": 42513431137,
+  "publication_attempt": 2,
+  "publication_retry_reason": "created draft visibility delay; existing draft reused, no rebuild",
+  "gateway_verification_run": 42513581900,
+  "gateway_manifest": {
+    "code": 112,
+    "name": "1.12",
+    "source_commit": "2e88947e794336ff218ccc69066f39f7570ba753",
+    "size": 59225600,
+    "sha256": "bf28a2b8c3c868a3ee803d87d0db5f5278b53fba10534cf50f8bdb6e14889cd2"
+  },
+  "gateway_verified": true,
+  "verification_artifacts": [
+    {
+      "id": 13630052946,
+      "name": "public-release-verification",
+      "size_in_bytes": 601,
+      "url": "https://api.github.com/repos/znzkznzk96-rgb/nakshiworld-update/actions/artifacts/13630052946",
+      "archive_download_url": "https://api.github.com/repos/znzkznzk96-rgb/nakshiworld-update/actions/artifacts/13630052946/zip",
+      "expired": false,
+      "created_at": "2026-11-08T19:09:31Z",
+      "expires_at": "2027-02-06T19:09:14Z",
+      "updated_at": "2026-11-08T19:09:31Z",
+      "digest": "sha256:b1add7288f4a583185be62ee170b4a83a4e9fdc4ae46f6d19f6446bac3d1703b",
+      "workflow_run": {
+        "id": 42513581900,
+        "repository_id": 1423971848,
+        "head_repository_id": 1423971848,
+        "head_branch": "main",
+        "head_sha": "d208938aa047f8e1df6dcd2093c7b62c4207fd35"
+      }
+    }
+  ],
+  "rebuild_on_publish": false
+}

@@ -1,17 +1,17 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "release112_publication_retry_existing_draft",
-  "release_baseline": "v1.11",
+  "status": "release112_published_verified",
+  "release_baseline": "v1.12",
   "target_release": "v1.12",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/releases/112/HANDOFF.md",
-  "current_task": "승인변경묶음v1.12배포",
-  "next_step": "버전/우편준비→최종전체CI→동일후보공개→운영다운로드검증",
+  "current_task": "v1.12공개/운영검증완료",
+  "next_step": "휴대폰 게임내 업데이트 후 실제 적용 확인; 새 변경은 별도 승인",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
-  "verification": "docs/releases/111/PUBLISHED.json",
+  "verification": "docs/releases/112/PUBLISHED.json",
   "baseline_phone_verified": true,
   "environment_recovery": "docs/CODEX_NETWORK_RECOVERY.md",
   "background_verified_branch": "work/tile-png-stage2-20261107",
@@ -23,10 +23,10 @@
   "screen_evidence_commit": "04fa33a116915c0b7a7ca86ee235a24a4cf4d4d2",
   "screen_verification_run": 42315352676,
   "full_source_verified": {
-    "release": "v1.11",
-    "size": 63394910,
-    "sha256": "c860c7f7ea3128536e1cc1a5d4022296ef5849469f2a8d5b78e92c98aaad1d03",
-    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.11/game-source.zip"
+    "release": "v1.12",
+    "size": 63411998,
+    "sha256": "aa1b81bb9dd74ba3e5a7a907f0922e31b5a5e4021864272b1976cee72874c1a0",
+    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.12/game-source.zip"
   },
   "fish_verification_run": 42317071546,
   "automatic_full_regression_run": 42317071379,
@@ -48,16 +48,16 @@
     "scope": "현재 파이팅 본체/번들보상/타일선택그림 수정묶음 v1.11"
   },
   "release_preflight": "docs/releases/109/PREFLIGHT.json",
-  "release_source_commit": "f2eba5ef5a829ea1f20205412a4998a3e6944d0a",
-  "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v1.11",
+  "release_source_commit": "2e88947e794336ff218ccc69066f39f7570ba753",
+  "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v1.12",
   "release_build_run": 42436616470,
   "release_build_status": "success",
   "public_verification_run": 42436745858,
   "public_verification_status": "success",
   "public_patch": {
-    "size": 59187680,
-    "sha256": "15f7ced46a98d075febd4eb0761d11a9da4af381ddfa66b1c4c7ff662af2a250",
-    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.11/patch.pck"
+    "size": 59225600,
+    "sha256": "bf28a2b8c3c868a3ee803d87d0db5f5278b53fba10534cf50f8bdb6e14889cd2",
+    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.12/patch.pck"
   },
   "standard_full_workflow_note": "v1.11 final-source79 headless/native/global/PCK CI42435987555 success; identical candidate13600105454 published without rebuild. Publisher42436616470 attempt2 and gateway/source42436745858 success.",
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md#2026-11-07--소규모-작업-효율채팅-중단-대비",
@@ -118,7 +118,7 @@
     "production_balance_changed": false,
     "phone_tested": false
   },
-  "release_authorized": true,
+  "release_authorized": false,
   "balance110": {
     "applied": true,
     "deployed": true,
@@ -171,7 +171,7 @@
     "ledger": "analysis/tile-layer-art-v1/PLANT_LEDGER.json",
     "quality": "analysis/tile-layer-art-v1/PLANT_QA.json"
   },
-  "public_release": "v1.11",
+  "public_release": "v1.12",
   "shared_vertical_light": {
     "applied": true,
     "regions": [
@@ -303,7 +303,7 @@
     "gateway_verification_run": 42436745858
   },
   "regional_night": {
-    "deployed": false,
+    "deployed": true,
     "release_authorized": false,
     "status": "full_verified",
     "verification": "docs/qa/regional-night/VERIFICATION.json",
@@ -318,7 +318,7 @@
   },
   "night_glow": {
     "status": "full_verified",
-    "deployed": false,
+    "deployed": true,
     "release_authorized": false,
     "verification": "docs/qa/night-glow/VERIFICATION.json",
     "native_frames": 18,
@@ -332,7 +332,7 @@
   },
   "night_play": {
     "status": "full_verified",
-    "deployed": false,
+    "deployed": true,
     "release_authorized": false,
     "verification": "docs/qa/night-play/VERIFICATION.json",
     "native_frames": 24,
@@ -346,7 +346,7 @@
   },
   "lantern_flame_fix": {
     "status": "full_verified",
-    "deployed": false,
+    "deployed": true,
     "release_authorized": false,
     "verification": "docs/qa/lantern-flame-fix/VERIFICATION.json",
     "native_frames": 24,
@@ -360,7 +360,7 @@
   },
   "helmet_headlamp": {
     "status": "full_verified",
-    "deployed": false,
+    "deployed": true,
     "release_authorized": false,
     "verification": "docs/qa/helmet-headlamp/VERIFICATION.json",
     "native_frames": 28,
@@ -375,7 +375,7 @@
   },
   "headlamp_local_light": {
     "status": "full_verified",
-    "deployed": false,
+    "deployed": true,
     "release_authorized": false,
     "verification": "docs/qa/headlamp-local-light/VERIFICATION.json",
     "release_ready": false,
@@ -390,7 +390,8 @@
     "request": "업데이트및 배포가자 ㅇㅇ",
     "authorized": true,
     "scope": "밤조명/헬멧랜턴·3지역가격·오프라인3h·주인종별1마리",
-    "publication_started": false
+    "publication_started": true,
+    "fulfilled": true
   },
   "economy_analysis": {
     "report": "docs/analysis/tile-income-20261108/REPORT.md",
@@ -437,13 +438,14 @@
     "previous_hours": 8,
     "pond_recovery_hours": 8,
     "status": "full_verified",
-    "deployed": false,
+    "deployed": true,
     "verification": "docs/qa/offline-three-hours/VERIFICATION.json",
     "source_commit": "2605f84eb6aa0dadd5a66c80df0c67af86c64d7f",
     "ci_run": 42500929931,
     "ci_status": "success",
     "unique_verify_results": 88,
-    "verification_artifact": 13626040474
+    "verification_artifact": 13626040474,
+    "release_authorized": false
   },
   "three_region_price_rebalance": {
     "status": "implemented_full_verified",
@@ -457,7 +459,7 @@
     "target_days_approx": 7,
     "reference_owner_count": 5,
     "preserve_stored_specimen_prices": true,
-    "deployed": false,
+    "deployed": true,
     "price_table": "docs/qa/three-region-prices/PRICE_TABLE.md",
     "simulation": "docs/qa/three-region-prices/SIMULATION.json",
     "verification": "docs/qa/three-region-prices/VERIFICATION.json",
@@ -465,7 +467,8 @@
     "ci_run": 42503357139,
     "ci_status": "success",
     "unique_verify_results": 88,
-    "verification_artifact": 13626995881
+    "verification_artifact": 13626995881,
+    "release_authorized": false
   },
   "owner_reward_review": {
     "status": "implemented_full_verified",
@@ -477,40 +480,44 @@
     "aquarium_income_separation": "not_approved_not_applied",
     "offline_income_hours": 3,
     "preserve_stored_specimen_prices": true,
-    "deployed": false,
+    "deployed": true,
     "source_commit": "ff92b0dee342c9e012bf6008cc3e82aec0dd5d0b",
     "ci_run": 42507823870,
     "ci_status": "success",
     "verification": "docs/qa/owner-sale-500000/VERIFICATION.json",
     "unique_verify_results": 88,
-    "verification_artifact": 13628401994
+    "verification_artifact": 13628401994,
+    "release_authorized": false
   },
   "owner_aquarium_cap": {
     "status": "implemented_full_verified",
     "per_species": 1,
     "income": "stored_sale_price_linked_unchanged",
     "legacy": "keep_highest_price_one_return_others_to_bag_without_loss",
-    "deployed": false,
+    "deployed": true,
     "verification": "docs/qa/owner-aquarium-cap/VERIFICATION.json",
     "source_commit": "e7899537a9f4a86a913dc5f6b5a8b1be350e5a7c",
     "ci_run": 42511245899,
     "ci_status": "success",
     "unique_verify_results": 88,
-    "verification_artifact": 13629867199
+    "verification_artifact": 13629867199,
+    "release_authorized": false
   },
   "release112": {
     "source_commit": "2e88947e794336ff218ccc69066f39f7570ba753",
     "ci_run": 42512752576,
     "ci_status": "success",
     "pr": 50,
-    "deployed": false,
+    "deployed": true,
     "phone_verified": false,
-    "release_authorized": true,
+    "release_authorized": false,
     "headless_suites": 88,
     "candidate_artifact": 13630855169,
     "merge_commit": "d208938aa047f8e1df6dcd2093c7b62c4207fd35",
     "publication_run": 42513431137,
-    "publication_status": "retry_after_draft_list_visibility_delay",
-    "draft_id": 438457348
+    "publication_status": "success_attempt2",
+    "draft_id": 438457348,
+    "gateway_verification_run": 42513581900,
+    "gateway_verification_status": "success"
   }
 }
