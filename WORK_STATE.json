@@ -6,8 +6,8 @@
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/headlamp-local-light/HANDOFF.md",
-  "current_task": "승인 야간·헤드랜턴 업데이트 저장 완료; 공개 배포 보류·타일바다 판매가 조회",
-  "next_step": "타일바다 현행 가격 안내 후 사용자 다음 지시 대기; 공개 배포 금지",
+  "current_task": "야간 업데이트 저장 완료·미배포; 타일 판매수익/해금비 60만회 분석 완료",
+  "next_step": "분석 결과 검토 후 타일 경제 목표시간·가격/보상/어장 보호 변경 지시 대기; 수치 미변경·배포 금지",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -391,5 +391,11 @@
     "authorized": false,
     "public_release_unchanged": "v1.11",
     "publication_started": false
+  },
+  "economy_analysis": {
+    "report": "docs/analysis/tile-income-20261108/REPORT.md",
+    "results": "docs/analysis/tile-income-20261108/RESULTS.json",
+    "draws": 600000,
+    "game_changed": false
   }
 }
