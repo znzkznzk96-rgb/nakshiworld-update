@@ -2659,10 +2659,39 @@ func _save_game() -> bool:
 	elif ok: save_warning=false
 	return ok
 
+func aqua_can_add(f: Dictionary) -> bool:
+	var sp:int=int(f.get("sp",-1))
+	if sp<0 or sp%20!=19: return true
+	for existing in aqua:
+		if existing!=null and int(existing.get("sp",-1))==sp: return false
+	return true
+
+func _aqua_restore_owner_limit() -> int:
+	# Return legacy duplicates intact, even when the bag is already full.
+	# Highest stored price wins; equal prices preserve the first occupied slot.
+	var keep:Dictionary={}
+	for i in aqua.size():
+		if aqua[i]==null: continue
+		var sp:int=int(aqua[i].get("sp",-1))
+		if sp<0 or sp%20!=19: continue
+		if not keep.has(sp) or float(aqua[i].price)>float(aqua[int(keep[sp])].price): keep[sp]=i
+	var returned:int=0
+	for i in aqua.size():
+		if aqua[i]==null: continue
+		var sp:int=int(aqua[i].get("sp",-1))
+		if keep.has(sp) and int(keep[sp])!=i:
+			bag.append(aqua[i]);aqua[i]=null;returned+=1
+	return returned
+
 func aqua_rate() -> float:
 	var r: = 0.0
+	var owners:Dictionary={}
 	for f in aqua:
-		if f != null: r += float(f.price) / 300.0
+		if f==null: continue
+		var sp:int=int(f.get("sp",-1))
+		if sp>=0 and sp%20==19: owners[sp]=maxf(float(owners.get(sp,0.0)),float(f.price))
+		else: r+=float(f.price)/300.0
+	for value in owners.values(): r+=float(value)/300.0
 	return r * V.multiplier(self) * 0.75 # Approved aquarium income adjustment; visitor multiplier unchanged.
 
 func _load_game() -> void :
@@ -2708,6 +2737,7 @@ func _load_game() -> void :
 	while aqua_lv < 4 and AQUA_CAP[aqua_lv] < mini(aq.size(), 20): aqua_lv += 1
 	aqua.resize(aqua_capacity())
 	for i in aqua.size(): aqua[i] = aq[i] if i < aq.size() else null
+	var returned_owners:int=_aqua_restore_owner_limit()
 	_load_catch_counts(d)
 	_migrate_fish_records()
 	var away: = clampf(Time.get_unix_time_from_system() - float(d.get("time", 0)), 0, 8 * 3600)
@@ -2716,6 +2746,8 @@ func _load_game() -> void :
 	var earn: = int(aqua_rate() * income_away / 60.0)
 	if earn > 0 and d.has("time"):
 		gold += earn;tip_txt = "쉬는 동안 수족관에서 %d 비늘을 벌었어요!" % earn;tip_t = 5.0
+	if returned_owners>0:
+		tip_txt="중복 주인 %d마리를 보관통으로 돌려보냈어요 · 종류별 1마리 전시"%returned_owners;tip_t=8.0
 	_save_game()
 
 

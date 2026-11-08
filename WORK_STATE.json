@@ -1,11 +1,11 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "owner_aquarium_species_cap_implementation",
+  "status": "owner_aquarium_cap_related_verified_ci_pending",
   "release_baseline": "v1.11",
   "target_release": "v1.11",
   "deployed": true,
   "phone_verified": false,
-  "handoff": "docs/qa/owner-sale-500000/HANDOFF.md",
+  "handoff": "docs/qa/owner-aquarium-cap/HANDOFF.md",
   "current_task": "주인수족관종류별1마리제한·판매가연동유지",
   "next_step": "주인중복입수차단·기존중복보관통복귀·관련/전체검사; 배포금지",
   "deferred_work_branch": "work/skills-105",
@@ -421,7 +421,7 @@
     "target_days_approx": 7,
     "target_active_hours_approx": 21,
     "owner_fish_displayed": 5,
-    "status": "week_target_not_met_after_approved_owner_increase",
+    "status": "prior_five_owner_simulations_superseded_by_one_per_species_cap",
     "supersedes": "6h/day for3-4days",
     "analysis_assumption_pending": {
       "aquarium_slots": 6,
@@ -486,10 +486,11 @@
     "verification_artifact": 13628401994
   },
   "owner_aquarium_cap": {
-    "status": "approved_pending_implementation",
+    "status": "implemented_related_verified_ci_pending",
     "per_species": 1,
     "income": "stored_sale_price_linked_unchanged",
     "legacy": "keep_highest_price_one_return_others_to_bag_without_loss",
-    "deployed": false
+    "deployed": false,
+    "verification": "docs/qa/owner-aquarium-cap/VERIFICATION.json"
   }
 }

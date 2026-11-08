@@ -1,0 +1,16 @@
+{
+  "status": "related_passed_ci_pending",
+  "decision_commit": "6d58b734f6735fcf58ca6e70e9e12026120f3a28",
+  "local_suites": [
+    "bundle_aqua",
+    "aquarium_b",
+    "regional",
+    "audio_save"
+  ],
+  "per_owner_species": 1,
+  "linked_income_unchanged": true,
+  "legacy_duplicates": "highest stored price retained; extras returned intact despite full bag",
+  "offline_hours": 3,
+  "deployed": false,
+  "phone_verified": false
+}
