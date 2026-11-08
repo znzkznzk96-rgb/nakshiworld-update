@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "region4_gameplay_research_proposed",
+  "status": "facility_growth_rebalance_analysis",
   "release_baseline": "v1.13",
   "target_release": "v1.13",
   "deployed": true,
   "phone_verified": false,
-  "handoff": "docs/design/region4-6-gameplay-research-20261109/HANDOFF.md",
-  "current_task": "4~6지역낚시변화비교·후보제안",
-  "next_step": "사용자후보검토;구체기획/시안구현미승인·공개v1.13유지",
+  "handoff": "docs/analysis/facility-growth-20261109/HANDOFF.md",
+  "current_task": "수족관/여객선/어장규모/회복시설 지역2회성장재설계",
+  "next_step": "현행진단→4시설효과/가격/초기재고연계시뮬→구체수치/이행정책기록",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -656,7 +656,7 @@
     "published": "docs/releases/113/PUBLISHED.json"
   },
   "region4_gameplay_research": {
-    "status": "proposed_not_approved",
+    "status": "on_hold_by_user",
     "report": "docs/design/region4-6-gameplay-research-20261109/REPORT.md",
     "sources": "docs/design/region4-6-gameplay-research-20261109/SOURCES.md",
     "compared_games": 6,
@@ -664,5 +664,20 @@
     "game_changed": false,
     "paid_art_generated": false,
     "deployed": false
+  },
+  "facility_growth_rebalance": {
+    "requested": true,
+    "facilities": [
+      "aquarium",
+      "ferry",
+      "pond_capacity",
+      "pond_recovery"
+    ],
+    "upgrades_per_region_approx": 2,
+    "target_regions": 6,
+    "specific_values": "pending_simulation",
+    "initial_stock": "current_new40_legacy80_to_review",
+    "deployed": false,
+    "release_authorized": false
   }
 }
