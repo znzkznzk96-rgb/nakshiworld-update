@@ -53,8 +53,23 @@
   "public_release": "v1.11",
   "full_ci": {
     "run": 42445928608,
-    "status": "in_progress"
+    "status": "success",
+    "unique_verify_results": 86,
+    "artifact": 13603906178,
+    "candidate_artifact": 13603332334,
+    "candidate_publication_authorized": false,
+    "packed_verified": true
   },
   "comparison": "comparison.webp",
-  "source_commit": "4bdf9b4dea9188426d45a922c45720bbaca17b30"
+  "source_commit": "4bdf9b4dea9188426d45a922c45720bbaca17b30",
+  "night_pixel_comparison": {
+    "1": {
+      "brightened_pixels": 514489,
+      "darkened_pixels": 0
+    },
+    "2": {
+      "brightened_pixels": 571920,
+      "darkened_pixels": 0
+    }
+  }
 }

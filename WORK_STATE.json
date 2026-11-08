@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "night_glow_full_verification_running",
+  "status": "night_glow_full_verified_not_deployed",
   "release_baseline": "v1.11",
   "target_release": "v1.11",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/night-glow/HANDOFF.md",
   "current_task": "계곡/타일 밤 주변 잔광 레이어 추가",
-  "next_step": "전체검사42445928608 완료 확인",
+  "next_step": "야간 주변잔광 시안 사용자 검토; 새 수정/공개배포는 별도 지시 후 진행",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -317,7 +317,7 @@
     "release_ready": false
   },
   "night_glow": {
-    "status": "related_native_verified",
+    "status": "full_verified",
     "deployed": false,
     "release_authorized": false,
     "verification": "docs/qa/night-glow/VERIFICATION.json",
@@ -325,6 +325,9 @@
     "day_pixels_changed": 0,
     "source_commit": "4bdf9b4dea9188426d45a922c45720bbaca17b30",
     "ci_run": 42445928608,
-    "ci_status": "in_progress"
+    "ci_status": "success",
+    "unique_verify_results": 86,
+    "verification_artifact": 13603906178,
+    "release_ready": false
   }
 }
