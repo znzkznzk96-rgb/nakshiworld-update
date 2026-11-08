@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "robot_ui_details_full_ci_in_progress",
+  "status": "robot_ui_details_full_verified_not_deployed",
   "release_baseline": "v1.12",
   "target_release": "v1.12",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/robot-ui-details/HANDOFF.md",
   "current_task": "포획로봇목록·공통UI여백·합성부족량표시",
-  "next_step": "전체CI42517742751결과 확인·최종검증기록; 배포미승인",
+  "next_step": "요청3종 구현·전체검증 완료. 신규배포 승인 또는 새요청 대기",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -533,11 +533,12 @@
     "unique_verify_results": 88
   },
   "robot_ui_details": {
-    "status": "related_and_native_verified",
+    "status": "implemented_full_verified",
     "source_commit": "8ddaf799becc8779edbab1a3912cbf9ed9de9ac8",
     "ci_run": 42517742751,
-    "ci_status": "in_progress",
+    "ci_status": "success",
     "verification": "docs/qa/robot-ui-details/VERIFICATION.json",
-    "deployed": false
+    "deployed": false,
+    "unique_verify_results": 88
   }
 }

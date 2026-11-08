@@ -1,5 +1,5 @@
 {
-  "status": "related_verified_ci_pending",
+  "status": "full_verified",
   "local_suites": [
     "capture_robot",
     "robot_ui_revision",
@@ -21,6 +21,51 @@
   "phone_verified": false,
   "source_commit": "8ddaf799becc8779edbab1a3912cbf9ed9de9ac8",
   "ci_run": 42517742751,
-  "ci_status": "in_progress",
-  "ghost_touch_guard": true
+  "ci_status": "success",
+  "ghost_touch_guard": true,
+  "unique_verify_results": 88,
+  "errors": [],
+  "remote_code_matches_local": true,
+  "remote_pngs_match_originals": true,
+  "native_and_pck": "passed",
+  "artifacts": [
+    {
+      "id": 13632815028,
+      "name": "release-candidate-6be4e15c67fbc7ec9117088e9e4e23c329c4537634a920a69b30cc514156cced",
+      "size_in_bytes": 117440372,
+      "url": "https://api.github.com/repos/znzkznzk96-rgb/nakshiworld-update/actions/artifacts/13632815028",
+      "archive_download_url": "https://api.github.com/repos/znzkznzk96-rgb/nakshiworld-update/actions/artifacts/13632815028/zip",
+      "expired": false,
+      "created_at": "2026-11-08T20:05:58Z",
+      "expires_at": "2026-12-08T20:05:54Z",
+      "updated_at": "2026-11-08T20:05:58Z",
+      "digest": "sha256:1fc340ed549e1198f682751480010c3da93f5bbde98ca5f3fed6d4cfdbf8f8b6",
+      "workflow_run": {
+        "id": 42517742751,
+        "repository_id": 1423971848,
+        "head_repository_id": 1423971848,
+        "head_branch": "work/tile-release-107",
+        "head_sha": "8ddaf799becc8779edbab1a3912cbf9ed9de9ac8"
+      }
+    },
+    {
+      "id": 13632491269,
+      "name": "work-verification",
+      "size_in_bytes": 132753315,
+      "url": "https://api.github.com/repos/znzkznzk96-rgb/nakshiworld-update/actions/artifacts/13632491269",
+      "archive_download_url": "https://api.github.com/repos/znzkznzk96-rgb/nakshiworld-update/actions/artifacts/13632491269/zip",
+      "expired": false,
+      "created_at": "2026-11-08T20:06:02Z",
+      "expires_at": "2027-02-06T19:59:05Z",
+      "updated_at": "2026-11-08T20:06:02Z",
+      "digest": "sha256:5f33d6d6f511c0dc2fa2d22b04b7558458a583febf2bc3ec6259868606ffc928",
+      "workflow_run": {
+        "id": 42517742751,
+        "repository_id": 1423971848,
+        "head_repository_id": 1423971848,
+        "head_branch": "work/tile-release-107",
+        "head_sha": "8ddaf799becc8779edbab1a3912cbf9ed9de9ac8"
+      }
+    }
+  ]
 }
