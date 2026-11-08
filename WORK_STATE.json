@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "offline_three_hours_full_ci_running",
+  "status": "offline_three_hours_full_verified_not_deployed",
   "release_baseline": "v1.11",
   "target_release": "v1.11",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/offline-three-hours/HANDOFF.md",
   "current_task": "수족관오프라인수익상한3시간·UI/저장검증·주간수익재분석",
-  "next_step": "동일소스전체검사·원격기록; 가격은3시간재분석결과검토후별도확정",
+  "next_step": "3시간오프라인정산조건으로약일주일목표가격안확정검토; 새배포는별도지시후신규버전으로진행",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -399,7 +399,7 @@
     "game_changed": false
   },
   "tile_price_proposal": {
-    "status": "proposed_not_approved",
+    "status": "requires_recalibration_after_offline_cap_3h",
     "recommended": "weekly_final",
     "report": "docs/analysis/tile-weekly-five-owners-20261109/REPORT.md",
     "price_table": "docs/analysis/tile-weekly-five-owners-20261109/PRICE_TABLE.md",
@@ -428,16 +428,21 @@
       "boat_expansions": 2
     },
     "deployment_authorized": false,
-    "analysis": "docs/analysis/tile-weekly-five-owners-20261109/REPORT.md"
+    "analysis": "docs/qa/offline-three-hours/PACING_3H.json",
+    "offline_income_cap_hours": 3,
+    "previous_analysis": "docs/analysis/tile-weekly-five-owners-20261109/REPORT.md"
   },
   "offline_aquarium": {
     "approved_hours": 3,
     "previous_hours": 8,
     "pond_recovery_hours": 8,
-    "status": "full_ci_running",
+    "status": "full_verified",
     "deployed": false,
     "verification": "docs/qa/offline-three-hours/VERIFICATION.json",
     "source_commit": "2605f84eb6aa0dadd5a66c80df0c67af86c64d7f",
-    "ci_run": 42500929931
+    "ci_run": 42500929931,
+    "ci_status": "success",
+    "unique_verify_results": 88,
+    "verification_artifact": 13626040474
   }
 }

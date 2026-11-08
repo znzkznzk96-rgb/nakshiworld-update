@@ -1,5 +1,5 @@
 {
-  "status": "related_passed_full_ci_running",
+  "status": "full_verified",
   "local_related_suites": [
     "audio_save",
     "aquarium_b",
@@ -25,5 +25,74 @@
   "deployed": false,
   "release_ready": false,
   "source_commit": "2605f84eb6aa0dadd5a66c80df0c67af86c64d7f",
-  "ci_run": 42500929931
+  "ci_run": 42500929931,
+  "native_aquarium_frames": [
+    {
+      "path": "off3-screens/aquarium_B_480.png",
+      "bytes": 146464,
+      "sha256": "8ac22ac94db7b66ff9211f6d59c60514d5a806dfc8cfa3c3ba3519b1dbc0999a"
+    },
+    {
+      "path": "off3-screens/aquarium_B_660.png",
+      "bytes": 156506,
+      "sha256": "be021940d1feab1a443896d74eb4ac912eb15d130d1f4a236bfe6754c7db5118"
+    },
+    {
+      "path": "off3-screens/aquarium_manage_480.png",
+      "bytes": 109286,
+      "sha256": "1f8e02bda831ce65885ac6249e92ce6ee1a71d7817aece1e89d74d63101aa133"
+    },
+    {
+      "path": "off3-screens/aquarium_manage_660.png",
+      "bytes": 130543,
+      "sha256": "daaee6d79a544daae5000ed5f49b2fd309a213733dc29db49cf8fd0fdd8e0d5a"
+    }
+  ],
+  "full_ci": {
+    "run": 42500929931,
+    "job": 128793295982,
+    "status": "success",
+    "unique_verify_results": 88,
+    "script_errors": 0,
+    "artifacts": [
+      {
+        "id": 13626040474,
+        "name": "work-verification",
+        "size_in_bytes": 134271687,
+        "url": "https://api.github.com/repos/znzkznzk96-rgb/nakshiworld-update/actions/artifacts/13626040474",
+        "archive_download_url": "https://api.github.com/repos/znzkznzk96-rgb/nakshiworld-update/actions/artifacts/13626040474/zip",
+        "expired": false,
+        "created_at": "2026-11-08T16:46:20Z",
+        "expires_at": "2027-02-06T16:38:37Z",
+        "updated_at": "2026-11-08T16:46:20Z",
+        "digest": "sha256:624cfe86839fc4e7df476ff2d81b72d63ebbb5c309fa625530691d30392871a0",
+        "workflow_run": {
+          "id": 42500929931,
+          "repository_id": 1423971848,
+          "head_repository_id": 1423971848,
+          "head_branch": "work/tile-release-107",
+          "head_sha": "2605f84eb6aa0dadd5a66c80df0c67af86c64d7f"
+        }
+      },
+      {
+        "id": 13625925963,
+        "name": "release-candidate-25f4f74e560d02bb00e656aad859b5364d90e0c18fa667c57b7206738d5bbdf9",
+        "size_in_bytes": 117427918,
+        "url": "https://api.github.com/repos/znzkznzk96-rgb/nakshiworld-update/actions/artifacts/13625925963",
+        "archive_download_url": "https://api.github.com/repos/znzkznzk96-rgb/nakshiworld-update/actions/artifacts/13625925963/zip",
+        "expired": false,
+        "created_at": "2026-11-08T16:46:15Z",
+        "expires_at": "2026-12-08T16:46:10Z",
+        "updated_at": "2026-11-08T16:46:15Z",
+        "digest": "sha256:d9d61c2c871521267c01cc1ff281e578794b62241518777de04b2e99efb24893",
+        "workflow_run": {
+          "id": 42500929931,
+          "repository_id": 1423971848,
+          "head_repository_id": 1423971848,
+          "head_branch": "work/tile-release-107",
+          "head_sha": "2605f84eb6aa0dadd5a66c80df0c67af86c64d7f"
+        }
+      }
+    ]
+  }
 }
