@@ -4,3 +4,5 @@
 - 관련4검사/3높이×2지역×낮밤×대기파이팅24실화면 통과. 정오540높이 양지역/양상태 pixel변경0. 같은 수중영역 밝기 상승 확인.
 - [비교](comparison.webp), [검증·측정](VERIFICATION.json), [낮동일/수중밝기](COMPARISON.json).
 - 다음은 최종소스 자동전체검사. 공개v1.11 유지, 새배포 미승인. 원본 PNG/세이브/RNG/밸런스/기존UI 유지, 신규과금0.
+
+최종소스 `4ce49e960cb0d327f68cd40b0242c25b7a17d5e2`, 자동전체검사 [42480777927](https://github.com/znzkznzk96-rgb/nakshiworld-update/actions/runs/42480777927) 진행중. 기존1.11설정 CI후보는 검사용이며 공개하지 않는다.

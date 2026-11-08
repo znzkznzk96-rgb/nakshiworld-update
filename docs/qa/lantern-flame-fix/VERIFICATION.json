@@ -101,7 +101,9 @@
   "published": false,
   "public_release": "v1.11",
   "full_ci": {
-    "status": "pending"
+    "run": 42480777927,
+    "status": "in_progress"
   },
-  "image": "comparison.webp"
+  "image": "comparison.webp",
+  "source_commit": "4ce49e960cb0d327f68cd40b0242c25b7a17d5e2"
 }
