@@ -6,7 +6,7 @@
 정상플레이에서 항상 발생하는 장애나 이미 사용자의 물고기가 사라졌다는 증거는 아니다. 쓰기실패 상황의 인메모리/디스크 불일치와 성공오표시를 재현한 높은위험 결함이다. 기존 세이브형식/가격/확률은 유지.
 
 ## 추가 검사·시뮬
-- 실제 파일쓰기실패:11경로×100회=1100건. 메모리/디스크 보존 실패0. 단일수정후11경로 상세 TRANSACTIONS_AFTER.json, 반복 TRANSACTION_STRESS.json. 기존 감사 이전 전체CI42517742751 88/native/PCK 성공 재사용, 수정후 전체CI 별도대기.
+- 실제 파일쓰기실패:11경로×100회=1100건. 메모리/디스크 보존 실패0. 단일수정후11경로 상세 TRANSACTIONS_AFTER.json, 반복 TRANSACTION_STRESS.json. 기존 감사 이전 전체CI42517742751 88/native/PCK 성공 재사용, 수정후 최종전체CI42520510386 88/native/PCK 성공.
 - 전투:실제 model.tick 3000판·69510틱, 가장긴208틱. HP/보호막 범위·종료·수령중복 실패0, model serialize/restore 372회 일치. 애니메이션대기시간은 직접 넘겼으며 실제벽시계의전체진행 시뮬은 아님. 무작위조합/별/강화/라운드 표본이며 특정팀밸런스 권장안도 아님. BATTLE_SIMULATION.json.
 - 경제:기존 실제Godot추첨180092개 기록을 현재판매가·주인종별1마리로 재평가. 3지역×3초기수족관조건×2운영정책×15seed/미끼조합=270조건. ECONOMY_SIMULATION.json.
 
@@ -20,3 +20,6 @@
 
 ## 재현
 Godot4.4.1, 격리 XDG_DATA_HOME에서 tests/analysis/critical_audit_probe.gd -- OUTPUT_JSON; tests/analysis/critical_transaction_stress.gd -- OUTPUT_JSON; tests/analysis/critical_battle_sim.gd -- OUTPUT_JSON. 경제 replay_economy.py LEDGER_JSON CURRENT_PRICE_TABLE_JSON(원시추첨해시는결과JSON에있음). 상세실패/검증은 VERIFICATION.json.
+
+## 최종 검증
+소스 5af8315a183170336e52b32d28570eca1b8171f7, 전체CI https://github.com/znzkznzk96-rgb/nakshiworld-update/actions/runs/42520510386 성공:고유88개·오류0·native/PCK통과. 첫수정CI42520058429의미리보기구매테스트조건불일치는격리실제저장fixture로수정. 게임로직추가변경없음. 이후27개로컬검사와최종전체CI통과. 검사후게임코드변경없음. 상세산출물 VERIFICATION.json. 공개v1.12 유지, 새배포 없음.
