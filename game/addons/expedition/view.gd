@@ -106,10 +106,19 @@ func panel(m,r: Rect2) -> void:
 	m._ui_style_box(m.hud_reference_style,r)
 	m._ui_rect(r.grow(-5),Color("f6e6c1"))
 
+func card(m,r:Rect2) -> void:
+	m._ui_style_box(m.sb_chip,r)
+	m._ui_rect(r.grow(-4),Color("b4d3c8"))
+	m._ui_rect(Rect2(r.position+Vector2(6,5),Vector2(r.size.x-12,2)),Color("d5e8d9"))
+	m._ui_rect(Rect2(r.position+Vector2(6,r.size.y-7),Vector2(r.size.x-12,2)),Color("86b3a9"))
+
 func button(m,key: String,r: Rect2,label: String,enabled: bool=true) -> void:
 	m._ui_style_box(m.sb_btn,r)
-	if not enabled: m._ui_rect(r.grow(-3),Color(0.2,0.15,0.1,0.28))
-	m._text(label,r.get_center()+Vector2(0,3),9,Color("382619") if enabled else Color("796b58"),true,r.size.x-8)
+	var selected:bool=(key.begins_with("manage_filter:") or key.begins_with("role_filter:")) and key.get_slice(":",1)==role_filter
+	selected=selected or (key.begins_with("tab:") and int(key.get_slice(":",1))==tab) or (key.begins_with("explore_tab:") and int(key.get_slice(":",1))==explore_tab)
+	m._ui_rect(r.grow(-4),Color("397d78") if selected else (Color("17565d") if enabled else Color("64736e")))
+	m._ui_rect(Rect2(r.position+Vector2(6,5),Vector2(r.size.x-12,2)),Color("82c7b9") if enabled else Color("89968d"))
+	m._text(label,r.get_center()+Vector2(0,3),9,Color("fff4d6") if enabled else Color("e0dfcc"),true,r.size.x-8)
 	rects[key]=r
 
 func fighter_star(f: Dictionary) -> int:

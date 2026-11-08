@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "expedition_ui_contrast_implementation",
+  "status": "expedition_ui_contrast_related_and_native_verified",
   "release_baseline": "v1.12",
   "target_release": "v1.12",
   "deployed": true,
   "phone_verified": false,
-  "handoff": "docs/qa/expedition-ui-contrast/HANDOFF.md",
+  "handoff": "docs/releases/112/HANDOFF.md",
   "current_task": "탐험/연성 버튼·카드색 분리",
-  "next_step": "창배경유지·버튼/카드 대비개선→관련검사/실화면→원격저장; 배포미승인",
+  "next_step": "자동전체CI 확인·색상시안 사용자 검토; 새 배포 미승인",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -521,9 +521,10 @@
     "gateway_verification_status": "success"
   },
   "ui_contrast": {
-    "status": "approved_direction_palette_preview",
+    "status": "implemented_related_and_native_verified",
     "scope": "exploration/alchemy buttons and soldier cards",
     "window_background": "unchanged",
-    "deployed": false
+    "deployed": false,
+    "verification": "docs/qa/expedition-ui-contrast/VERIFICATION.json"
   }
 }

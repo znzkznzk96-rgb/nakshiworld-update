@@ -1,0 +1,46 @@
+{
+  "status": "related_and_native_passed",
+  "local_suites": [
+    "management101",
+    "formation_compare",
+    "approved_ui",
+    "selected_ui"
+  ],
+  "screens": [
+    {
+      "screen": "merge",
+      "size": [
+        810,
+        1980
+      ],
+      "before_sha256": "01f0ce85278c6e295f68dfad9d4801481a5faffba05ac7dd9a861d8a2f6a5f6e",
+      "after_sha256": "1195b5989c24afef3b7f8f29703bc4129baecbda031795de6cb5a8a3be9f00a0",
+      "window_margin_pixels_unchanged": true
+    },
+    {
+      "screen": "roster",
+      "size": [
+        810,
+        1980
+      ],
+      "before_sha256": "d1974f7d67863b8a1af2ebb3fe14bac52c2d2fd566ee407067791183b17c4dda",
+      "after_sha256": "4e773b90b5dc83062738bf207d197e90ca3a16ca69a35c6903e07d3c209db178",
+      "window_margin_pixels_unchanged": true
+    },
+    {
+      "screen": "formation",
+      "size": [
+        810,
+        1980
+      ],
+      "before_sha256": "92cd4f95dad25497622a1792be296beae02d8a44d48d841cc340fc130682f223",
+      "after_sha256": "87c416cb801c755c3f661ce9f651aab70700deb35f5551bbf6c9b38639129256",
+      "window_margin_pixels_unchanged": true
+    }
+  ],
+  "window_background": "unchanged f6e6c1",
+  "button_fill": "17565d",
+  "selected_fill": "397d78",
+  "card_fill": "b4d3c8",
+  "deployed": false
+}
