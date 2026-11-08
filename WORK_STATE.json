@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "v111_published_and_gateway_verified",
+  "status": "regional_night_approved_before_implementation",
   "release_baseline": "v1.11",
   "target_release": "v1.11",
   "deployed": true,
   "phone_verified": false,
-  "handoff": "docs/releases/111/HANDOFF.md",
-  "current_task": "v1.11 본체크기·번들보상·타일선택그림 수정 공개 및 운영검증 완료",
-  "next_step": "기존 앱에서 v1.11 업데이트 후 사용자 휴대폰 실제 적용 확인",
+  "handoff": "docs/qa/regional-night/HANDOFF.md",
+  "current_task": "계곡 은은한 달빛밤·타일 보랏빛 황혼 구현",
+  "next_step": "결정 원격검증 후 야간배경·레이어·배우 연동 및 실제화면 비교",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -301,5 +301,10 @@
     "publication_run": 42436616470,
     "publication_status": "success_attempt2",
     "gateway_verification_run": 42436745858
+  },
+  "regional_night": {
+    "deployed": false,
+    "release_authorized": false,
+    "status": "approved"
   }
 }
