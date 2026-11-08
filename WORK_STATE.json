@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "weekly_five_owner_price_proposal_ready_not_applied",
+  "status": "aquarium_offline_three_hours_implementation",
   "release_baseline": "v1.11",
   "target_release": "v1.11",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/headlamp-local-light/HANDOFF.md",
-  "current_task": "주인5마리·하루3시간·약7일 후보 분석 완료·주인18000안 제시",
-  "next_step": "수족관6칸·배2회·주인교체운영 가정과 새20종가격표 사용자 검토; 미확정가격 적용금지·배포금지",
+  "current_task": "수족관오프라인수익상한3시간·UI/저장검증·주간수익재분석",
+  "next_step": "수족관정산만3시간으로분리·경계/중복정산검사·전체회귀·3시간기준주간가격분석",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -429,5 +429,12 @@
     },
     "deployment_authorized": false,
     "analysis": "docs/analysis/tile-weekly-five-owners-20261109/REPORT.md"
+  },
+  "offline_aquarium": {
+    "approved_hours": 3,
+    "previous_hours": 8,
+    "pond_recovery_hours": 8,
+    "status": "decision_saved",
+    "deployed": false
   }
 }
