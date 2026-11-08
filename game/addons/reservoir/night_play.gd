@@ -1,21 +1,13 @@
 extends RefCounted
 # Presentation only. Deterministic particles never touch catch RNG or save data.
-const LANTERN_SOURCE_RECT:=Rect2(85,0,171,280)
-const LANTERN_SIZE:=Vector2(9,14)
-const FLAME_SOURCE:=Vector2(168.455,166.886)
-var lantern:AtlasTexture
 func active(m)->bool:return m.active_region in [1,2] and m.scene=="fish"
-func anchor(m)->Vector2:return Vector2(m.PX+42,m.SURF-8)
-# Hotspot measured from the unchanged source flame; identical transform to the sprite.
-func flame(m)->Vector2:return anchor(m)-LANTERN_SIZE*.5+(FLAME_SOURCE-LANTERN_SOURCE_RECT.position)/LANTERN_SOURCE_RECT.size*LANTERN_SIZE
+func flame(m)->Vector2:return m.angler_scene.headlamp_world
 func draw(m)->void:
  if not active(m):return
  var night:float=m.environment.night_strength()
  if night<=.00001:return
- if lantern==null:
-  lantern=AtlasTexture.new();lantern.atlas=load("res://art/ui/guide_ac/lantern.png");lantern.region=LANTERN_SOURCE_RECT;lantern.filter_clip=true
- var p:Vector2=anchor(m)+Vector2(0,m.oy)
- m._ui_texture_rect(lantern,Rect2(p-LANTERN_SIZE*.5,LANTERN_SIZE),false,Color(1,1,1,night))
+ var ground=m.environment.valley if m.active_region==1 else m.environment.tile
+ ground.night_glow.update_play(m,ground.map_rect)
  var fighting:bool=m.S.get("phase","")=="fight"
  var fish:Vector2=m.S.get("lastF",{}).get("p",Vector2(-1000,-1000))
  var radius:float=maxf(34,float(m.S.get("lastF",{}).get("body_length",48))*.65)

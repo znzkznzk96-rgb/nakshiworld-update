@@ -10,6 +10,9 @@ var cats: Dictionary = {"idle":[],"look":[],"hop":[]}
 var root := Transform2D.IDENTITY
 var upper := Transform2D.IDENTITY
 var tint := Color.WHITE
+const HEADLAMP_SOURCE:=Vector2(89,38) # Center of existing turquoise helmet lamp, unchanged 160px face PNG.
+var headlamp_world:=Vector2.ZERO
+var headlamp_transform:=Transform2D.IDENTITY
 var tip := Vector2.ZERO
 var crank := 0.0
 var last_clock := -1.0
@@ -153,7 +156,10 @@ func draw(m) -> Vector2:
 	elif kind=="failure":face="sad"
 	elif kind=="capture":face="surprise"
 	elif fposmod(local,3.4)>3.16:face="blink"
-	tex(m,"face-"+face,upper*offset_xf(Vector2(48+shift,48+head_y)))
+	var head_xf:Transform2D=upper*offset_xf(Vector2(48+shift,48+head_y))
+	tex(m,"face-"+face,head_xf)
+	headlamp_transform=root*head_xf
+	headlamp_world=headlamp_transform*HEADLAMP_SOURCE-Vector2(0,m.oy)
 	var rod_xf: Transform2D=root*arm_xf
 	m.draw_set_transform_matrix(rod_xf)
 	var skin: Array=SKINS[clampi(m.rod_lv,0,5)]

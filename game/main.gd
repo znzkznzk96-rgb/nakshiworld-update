@@ -1376,8 +1376,8 @@ func _draw() -> void :
 	draw_set_transform(Vector2(0, oy))
 	var n0: = text_items.size()
 
-	night_play.draw(self)
 	var tip: Vector2 = angler_scene.draw(self)
+	night_play.draw(self)
 	_draw_reaction(t)
 	var fr: int = anim_frame()
 	match S.phase:

@@ -95,8 +95,8 @@ func night_strength() -> float:
 	return smoothstep(17.0,20.0,h) if h>=12.0 else 1.0-smoothstep(5.0,8.0,h)
 
 func actor_tint() -> Color:
-	if active_region==1:return Color.WHITE.lerp(Color(0.62,0.74,0.95).lerp(Color.WHITE,.34),night_strength())
-	if active_region==2:return Color.WHITE.lerp(Color(0.86,0.73,1.0).lerp(Color.WHITE,.30),night_strength())
+	if active_region==1:return Color.WHITE.lerp(Color(0.82,0.88,1.0),night_strength())
+	if active_region==2:return Color.WHITE.lerp(Color(0.94,0.86,1.0),night_strength())
 	# The nearby lantern illuminates the rig and cat, not only the plate behind them.
 	return scenery_tint().lerp(Color(1.0,0.84,0.60),night_strength()*0.86)
 

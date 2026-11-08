@@ -1,0 +1,41 @@
+{
+  "local_related_suites": [
+    "night_play",
+    "night_glow",
+    "regional_night",
+    "fish_anchor_size",
+    "fight_body_size"
+  ],
+  "result": "passed",
+  "native_standard_frames": 24,
+  "native_motion_poses": 16,
+  "native_motion_frames": 4,
+  "day_comparison": {
+    "day_r1_idle_identical": true,
+    "day_r1_fight_identical": true,
+    "r1_fix-screens-after_water_rgb_mean": [
+      26.197266666666668,
+      104.99236666666667,
+      175.3256
+    ],
+    "r1_head-screens-after_water_rgb_mean": [
+      38.25315,
+      147.75786666666667,
+      228.63065
+    ],
+    "day_r2_idle_identical": true,
+    "day_r2_fight_identical": true,
+    "r2_fix-screens-after_water_rgb_mean": [
+      86.54458333333334,
+      76.06413333333333,
+      178.57153333333332
+    ],
+    "r2_head-screens-after_water_rgb_mean": [
+      103.89143333333334,
+      95.8237,
+      214.79503333333332
+    ]
+  },
+  "full_ci": "pending",
+  "deployed": false
+}

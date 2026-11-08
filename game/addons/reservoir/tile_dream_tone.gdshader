@@ -13,5 +13,5 @@ void fragment(){
  float value=dot(day,vec3(0.2126,0.7152,0.0722));
  vec3 lavender=mix(vec3(0.18,0.14,0.37),vec3(0.77,0.57,0.86),smoothstep(0.0,1.0,value));
  vec3 twilight=mix(day*vec3(0.68,0.48,0.95),lavender,0.62);
- COLOR = vec4(mix(day,twilight,night_strength*0.88),c.a);
+ COLOR = vec4(mix(day,twilight,night_strength*0.68),c.a);
 }

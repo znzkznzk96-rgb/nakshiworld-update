@@ -31,13 +31,13 @@ void fragment(){
  float surface=profile==0?0.565:0.498;
  float water=smoothstep(surface,surface+0.05,UV.y);
  float quiet=1.0-fighting*soft_pool(UV,fight_uv,vec2(0.20,0.10))*0.6;
- float ambient=water*(profile==0?0.18:0.13)*night_strength;
+ float ambient=water*(profile==0?0.30:0.25)*night_strength;
  float biological=(soft_pool(UV,vec2(0.23,0.84),vec2(0.20,0.12))*0.10+soft_pool(UV,vec2(0.77,0.72),vec2(0.17,0.14))*0.09)*night_strength*quiet;
- float cool=min(light*night_strength*0.28,0.28)+ambient+biological;
- float warm_halo=soft_pool(UV,lantern_uv,lantern_span)*0.24;
- float warm_core=soft_pool(UV,lantern_uv,lantern_span*0.19)*0.40;
+ float cool=min(light*night_strength*0.38,0.38)+ambient+biological;
+ float warm_halo=soft_pool(UV,lantern_uv,lantern_span)*0.45;
+ float warm_core=soft_pool(UV,lantern_uv,lantern_span*0.10)*0.85;
  float warm=(warm_halo+warm_core)*night_strength;
  float alpha=max(cool+warm,0.00001);
- vec3 emission=tint*cool+vec3(1.0,0.65,0.27)*warm;
+ vec3 emission=tint*cool+vec3(0.65,1.0,0.93)*warm;
  COLOR=vec4(emission/alpha,alpha);
 }
