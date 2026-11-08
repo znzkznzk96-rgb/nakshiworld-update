@@ -1,6 +1,6 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "release112_final_source_verification_pending",
+  "status": "release112_final_ci_in_progress",
   "release_baseline": "v1.11",
   "target_release": "v1.12",
   "deployed": true,
@@ -497,5 +497,14 @@
     "ci_status": "success",
     "unique_verify_results": 88,
     "verification_artifact": 13629867199
+  },
+  "release112": {
+    "source_commit": "2e88947e794336ff218ccc69066f39f7570ba753",
+    "ci_run": 42512752576,
+    "ci_status": "in_progress",
+    "pr": 50,
+    "deployed": false,
+    "phone_verified": false,
+    "release_authorized": true
   }
 }
