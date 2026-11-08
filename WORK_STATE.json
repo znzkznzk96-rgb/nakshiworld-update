@@ -525,6 +525,9 @@
     "scope": "exploration/alchemy buttons and soldier cards",
     "window_background": "unchanged",
     "deployed": false,
-    "verification": "docs/qa/expedition-ui-contrast/VERIFICATION.json"
+    "verification": "docs/qa/expedition-ui-contrast/VERIFICATION.json",
+    "source_commit": "639f6c458335eb3c3f447b074cfb91bda10026fe",
+    "ci_run": 42515709162,
+    "ci_status": "queued_at_checkpoint"
   }
 }

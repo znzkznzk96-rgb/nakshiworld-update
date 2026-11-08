@@ -42,5 +42,11 @@
   "button_fill": "17565d",
   "selected_fill": "397d78",
   "card_fill": "b4d3c8",
-  "deployed": false
+  "deployed": false,
+  "source_commit": "639f6c458335eb3c3f447b074cfb91bda10026fe",
+  "remote_png_hashes_match": true,
+  "final_selected_tab_native_and_check_passed": true,
+  "ci_run": 42515709162,
+  "ci_status": "queued_at_checkpoint",
+  "full_ci_passed": false
 }
