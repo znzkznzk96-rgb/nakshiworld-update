@@ -1,6 +1,6 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "critical_audit_fixes_related_verified_full_ci_pending",
+  "status": "critical_audit_fixes_full_ci_in_progress",
   "release_baseline": "v1.12",
   "target_release": "v1.12",
   "deployed": true,
@@ -540,5 +540,16 @@
     "verification": "docs/qa/robot-ui-details/VERIFICATION.json",
     "deployed": false,
     "unique_verify_results": 88
+  },
+  "audit": {
+    "status": "fixes_and_simulations_completed_ci_in_progress",
+    "source_commit": "ef6cdb6d41394249ddd883799e943a04d7895a76",
+    "ci_run": 42520058429,
+    "ci_status": "in_progress",
+    "transaction_failure_trials": 1100,
+    "battle_trials": 3000,
+    "economy_conditions": 270,
+    "report": "docs/qa/critical-audit-20261109/REPORT.md",
+    "deployed": false
   }
 }

@@ -1,0 +1,30 @@
+{
+  "status": "related_passed_full_ci_pending",
+  "baseline_reused": {
+    "source": "8ddaf799becc8779edbab1a3912cbf9ed9de9ac8",
+    "run": 42517742751,
+    "passed_suites": 88
+  },
+  "source_commit": "ef6cdb6d41394249ddd883799e943a04d7895a76",
+  "ci_run": 42520058429,
+  "ci_status": "in_progress",
+  "related_suites": [
+    "equipment",
+    "bundles_buyback",
+    "aquarium_b",
+    "audio_save",
+    "management101",
+    "valley093",
+    "shop",
+    "odds_rewards"
+  ],
+  "real_io_failure_trials": 1100,
+  "battle_trials": 3000,
+  "battle_ticks": 69510,
+  "battle_state_roundtrips": 372,
+  "economy_conditions": 270,
+  "economy_actual_godot_draws": 180092,
+  "remote_code_files_equal": 10,
+  "deployed": false,
+  "phone_verified": false
+}
