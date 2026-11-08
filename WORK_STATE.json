@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "owner_sale_prices_40000_500000_implementation",
+  "status": "owner_sale_prices_implemented_ci_pending",
   "release_baseline": "v1.11",
   "target_release": "v1.11",
   "deployed": true,
   "phone_verified": false,
-  "handoff": "docs/qa/three-region-prices/HANDOFF.md",
+  "handoff": "docs/qa/owner-sale-500000/HANDOFF.md",
   "current_task": "주인판매가저수지8000·계곡40000·타일500000적용",
-  "next_step": "주인가격/등급배율·기존저장개체검증·수족관연동진행속도재기록·전체CI; 배포금지",
+  "next_step": "전체CI 완료 확인·원격 검증기록 저장; 배포금지",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -421,7 +421,7 @@
     "target_days_approx": 7,
     "target_active_hours_approx": 21,
     "owner_fish_displayed": 5,
-    "status": "user_target_confirmed_specific_prices_pending",
+    "status": "week_target_not_met_after_approved_owner_increase",
     "supersedes": "6h/day for3-4days",
     "analysis_assumption_pending": {
       "aquarium_slots": 6,
@@ -468,7 +468,7 @@
     "verification_artifact": 13626995881
   },
   "owner_reward_review": {
-    "status": "user_approved_implementation",
+    "status": "implemented_ci_pending",
     "approved_sale_prices": [
       8000,
       40000,

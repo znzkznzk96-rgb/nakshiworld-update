@@ -23,7 +23,7 @@ func run() -> void:
 	check(m.bag[0].sp==20 and m.aqua[1].sp==20 and m.bag[0].price==13 and m.aqua[1].price==13 and m.fish_counts(20)[1]==1,"bag aquarium and regional history survive reload")
 	check(m.fish_record_cm(5)>17 and m.fish_record_cm(20)==11.5,"both maximum records survive reload")
 	check(m._fish_display_length(1,2.0,false,32)<m._fish_display_length(1,2.0,false,29),"small cloud minnow remains smaller than trout at same star")
-	var approved_prices: Array = [[20, 25, 30, 35, 40, 45, 50, 55, 100, 130, 160, 190, 220, 250, 400, 550, 700, 1500, 2200, 8000], [100, 140, 180, 200, 120, 120, 200, 220, 500, 600, 700, 900, 600, 800, 1800, 2200, 2500, 4500, 5500, 16000], [500, 700, 900, 1000, 600, 600, 1000, 1100, 2000, 2400, 2800, 3600, 2400, 3200, 5500, 6500, 7500, 12000, 15000, 20000]]
+	var approved_prices: Array = [[20, 25, 30, 35, 40, 45, 50, 55, 100, 130, 160, 190, 220, 250, 400, 550, 700, 1500, 2200, 8000], [100, 140, 180, 200, 120, 120, 200, 220, 500, 600, 700, 900, 600, 800, 1800, 2200, 2500, 4500, 5500, 40000], [500, 700, 900, 1000, 600, 600, 1000, 1100, 2000, 2400, 2800, 3600, 2400, 3200, 5500, 6500, 7500, 12000, 15000, 500000]]
 	for area in 3:
 		for local in 20:
 			var sp:int=area*20+local
@@ -47,6 +47,9 @@ func run() -> void:
 	m.S={"sp":20,"star":0,"grade":0,"len":10.0,"weight":.08,"lf":1.0}
 	m.keep_fish()
 	check(m.bag[-1].price==100 and m.bag[0].price==13,"new catch receives new value without repricing old fish")
+	m.S={"sp":59,"star":4,"grade":0,"len":180.0,"weight":.08,"lf":1.0}
+	m.keep_fish()
+	check(m.bag[-1].price==500000 and m.bag[0].price==13,"new owner gets500000 while legacy specimen retains13")
 	check(m.AQUARIUM_OFFLINE_HOURS==3,"three-hour offline cap preserved")
 	check(m.measurement_max_cm(25)==10 and m.measurement_max_cm(28)==60 and m.measurement_max_cm(39)==300,"species-fixed valley ruler ranges")
 	seed(92469)
