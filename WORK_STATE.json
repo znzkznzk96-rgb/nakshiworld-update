@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "night_play_visibility_approved",
+  "status": "night_play_related_native_verified",
   "release_baseline": "v1.11",
   "target_release": "v1.11",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/night-play/HANDOFF.md",
   "current_task": "계곡/타일 랜턴·수중야광·파이팅 가독성 조합",
-  "next_step": "결정 원격확인 후 랜턴/수중입자·최저가독성 구현",
+  "next_step": "최종 야간플레이 소스 자동전체검사 확인",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -331,8 +331,11 @@
     "release_ready": false
   },
   "night_play": {
-    "status": "approved",
+    "status": "related_native_verified",
     "deployed": false,
-    "release_authorized": false
+    "release_authorized": false,
+    "verification": "docs/qa/night-play/VERIFICATION.json",
+    "native_frames": 24,
+    "day_pixels_changed": 0
   }
 }

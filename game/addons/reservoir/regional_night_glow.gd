@@ -15,3 +15,13 @@ func _ready()->void:
 func set_strength(value:float)->void:
  strength=clampf(value,0,1);visible=strength>0.00001
  if shader_material!=null:shader_material.set_shader_parameter("night_strength",strength)
+
+func update_play(m,map_rect:Rect2)->void:
+ if shader_material==null or not map_rect.has_area():return
+ var pos:=Vector2(m.PX+42,m.SURF-8)
+ shader_material.set_shader_parameter("lantern_uv",(pos-map_rect.position)/map_rect.size)
+ shader_material.set_shader_parameter("lantern_span",Vector2(60,45)/map_rect.size)
+ var fighting:bool=m.S.get("phase","")=="fight"
+ var fish:Vector2=m.S.get("lastF",{}).get("p",Vector2(-1000,-1000))
+ shader_material.set_shader_parameter("fight_uv",(fish-map_rect.position)/map_rect.size)
+ shader_material.set_shader_parameter("fighting",1.0 if fighting else 0.0)

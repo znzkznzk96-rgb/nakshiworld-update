@@ -64,6 +64,7 @@ const FONT_SC: = [1.0, 1.0, 1.0, 1.0]
 var text_layer: Node2D
 var owner_ui = preload("res://addons/reservoir/owner_gauge_ui.gd").new()
 var ui_demo: = false
+var night_play=preload("res://addons/reservoir/night_play.gd").new()
 var ui_commands: = []
 var text_items: = []
 var top_y: = 2.0
@@ -1375,6 +1376,7 @@ func _draw() -> void :
 	draw_set_transform(Vector2(0, oy))
 	var n0: = text_items.size()
 
+	night_play.draw(self)
 	var tip: Vector2 = angler_scene.draw(self)
 	_draw_reaction(t)
 	var fr: int = anim_frame()
@@ -1503,7 +1505,11 @@ func _line(a: Vector2, b: Vector2, col: Color, sag: = 0.0) -> void :
 		pts.append(p)
 	if ui_demo:
 		for i in range(1, pts.size()): _ui_line(pts[i - 1], pts[i], col, 1.0)
-	else: draw_polyline(pts, col, 1.0)
+	else:
+		if active_region in [1,2] and S.get("phase","") in ["fight","catch"]:
+			var night:float=environment.night_strength()
+			if night>0:draw_polyline(pts,Color(.025,.035,.07,night*.72),2.5)
+		draw_polyline(pts, col, 1.0)
 
 func _draw_bobber(x: float, y: float) -> void :
 

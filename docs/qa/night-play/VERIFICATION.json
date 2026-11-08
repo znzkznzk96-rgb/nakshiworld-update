@@ -1,0 +1,87 @@
+{
+  "date": "2026-11-08",
+  "decision_commit": "a0d850199c5c9bb94cfbddd9ceec7a86c3716c50",
+  "restored_baseline": {
+    "release": "v1.11",
+    "source_sha256": "c860c7f7ea3128536e1cc1a5d4022296ef5849469f2a8d5b78e92c98aaad1d03",
+    "source_size": 63394910
+  },
+  "related_suites": {
+    "night_play": "passed",
+    "night_glow": "passed",
+    "regional_night": "passed",
+    "fish_anchor_size": "passed",
+    "fight_body_size": "passed"
+  },
+  "native": {
+    "heights": [
+      480,
+      540,
+      660
+    ],
+    "hours": [
+      12,
+      0
+    ],
+    "phases": [
+      "idle",
+      "fight"
+    ],
+    "frames": 24,
+    "passed": true
+  },
+  "day_equivalence": {
+    "1:idle": {
+      "exact": true,
+      "changed_pixels": 0
+    },
+    "1:fight": {
+      "exact": true,
+      "changed_pixels": 0
+    },
+    "2:idle": {
+      "exact": true,
+      "changed_pixels": 0
+    },
+    "2:fight": {
+      "exact": true,
+      "changed_pixels": 0
+    }
+  },
+  "day_equivalence_height": 540,
+  "lantern": {
+    "source": "game/art/ui/guide_ac/lantern.png",
+    "sha256": "bc95a57cddc5806a0208619a0f2d799cad13ed6fc8e0407e4fe62355c9d156c4",
+    "file_modified": false,
+    "source_region": [
+      85,
+      0,
+      171,
+      280
+    ]
+  },
+  "visibility": [
+    "warm actor and lantern background light",
+    "cool underwater ambient minimum",
+    "ten deterministic sparse light motes",
+    "motes suppressed near hooked fish",
+    "fish original full white draw modulation preserved",
+    "tension color preserved with dark line underlay"
+  ],
+  "unchanged": [
+    "reservoir original lights",
+    "approved PNG bytes",
+    "day rendering",
+    "save data",
+    "catch RNG",
+    "game balance",
+    "existing UI layout"
+  ],
+  "new_paid_generations": 0,
+  "published": false,
+  "public_release": "v1.11",
+  "full_ci": {
+    "status": "pending"
+  },
+  "comparison": "comparison.webp"
+}
