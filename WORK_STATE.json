@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "expedition_ui_contrast_palette_confirmed_ci_in_progress",
+  "status": "expedition_ui_contrast_full_verified_not_deployed",
   "release_baseline": "v1.12",
   "target_release": "v1.12",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/releases/112/HANDOFF.md",
   "current_task": "통일된 탐험·연성 UI 업데이트 최종검증",
-  "next_step": "자동CI42515709162 완료확인후 검증기록갱신; 배포미승인",
+  "next_step": "통일색상 구현/전체검증 완료. 신규배포 승인 또는 새요청 대기",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -521,14 +521,15 @@
     "gateway_verification_status": "success"
   },
   "ui_contrast": {
-    "status": "implemented_related_and_native_verified",
+    "status": "implemented_full_verified",
     "scope": "exploration/alchemy buttons and soldier cards",
     "window_background": "unchanged",
     "deployed": false,
     "verification": "docs/qa/expedition-ui-contrast/VERIFICATION.json",
     "source_commit": "639f6c458335eb3c3f447b074cfb91bda10026fe",
     "ci_run": 42515709162,
-    "ci_status": "in_progress",
-    "palette_confirmed": true
+    "ci_status": "success",
+    "palette_confirmed": true,
+    "unique_verify_results": 88
   }
 }
