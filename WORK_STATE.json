@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "night_play_full_verified_not_deployed",
+  "status": "lantern_flame_fix_approved",
   "release_baseline": "v1.11",
   "target_release": "v1.11",
   "deployed": true,
   "phone_verified": false,
-  "handoff": "docs/qa/night-play/HANDOFF.md",
-  "current_task": "계곡/타일 랜턴·수중야광·파이팅 가독성 조합",
-  "next_step": "랜턴·수중야광·파이팅 가시성 시안 사용자 검토; 새공개배포는 별도 지시 후 진행",
+  "handoff": "docs/qa/lantern-flame-fix/HANDOFF.md",
+  "current_task": "랜턴 불꽃중심 조명 교정·밤 전체 가독성 밝기 상향",
+  "next_step": "결정 원격확인 후 좁은 코어/후광 및 야간톤 수정",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -343,5 +343,10 @@
     "unique_verify_results": 88,
     "verification_artifact": 13615954579,
     "release_ready": false
+  },
+  "lantern_flame_fix": {
+    "status": "approved",
+    "deployed": false,
+    "release_authorized": false
   }
 }
