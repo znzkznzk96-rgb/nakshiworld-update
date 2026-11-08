@@ -5,3 +5,5 @@
 - 초기 비교장면의 비유효 수심을 정상범위로 고쳐 다시 캡처했으며 실제 안내UI는 변경하지 않음.
 - [비교](comparison.webp), [검증·해시](VERIFICATION.json), [낮동일성](DAY_EQUIVALENCE.json).
 - 다음은 최종소스 전체검사. 공개v1.11 유지, 미배포/새배포 미승인, 신규과금0.
+
+최종소스 `c438ba57a260058fe47f7665ef4db6e4c33e5d17`, 자동전체검사 [42478875199](https://github.com/znzkznzk96-rgb/nakshiworld-update/actions/runs/42478875199) 진행중. 기존1.11설정의 CI후보는 검사용이며 새 공개승인/기존v1.11 덮어게시용이 아니다.
