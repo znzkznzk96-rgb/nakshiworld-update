@@ -1,17 +1,17 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "v111_verified_candidate_ready",
-  "release_baseline": "v1.10",
+  "status": "v111_published_and_gateway_verified",
+  "release_baseline": "v1.11",
   "target_release": "v1.11",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/releases/111/HANDOFF.md",
-  "current_task": "승인 수정묶음 v1.11 검증·공개·운영다운로드",
-  "next_step": "검증후보 그대로 main 공개 후 운영다운로드와 전체소스 검증",
+  "current_task": "v1.11 본체크기·번들보상·타일선택그림 수정 공개 및 운영검증 완료",
+  "next_step": "기존 앱에서 v1.11 업데이트 후 사용자 휴대폰 실제 적용 확인",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
-  "verification": "docs/releases/110/PUBLISHED.json",
+  "verification": "docs/releases/111/PUBLISHED.json",
   "baseline_phone_verified": true,
   "environment_recovery": "docs/CODEX_NETWORK_RECOVERY.md",
   "background_verified_branch": "work/tile-png-stage2-20261107",
@@ -23,10 +23,10 @@
   "screen_evidence_commit": "04fa33a116915c0b7a7ca86ee235a24a4cf4d4d2",
   "screen_verification_run": 42315352676,
   "full_source_verified": {
-    "release": "v1.10",
-    "size": 63390669,
-    "sha256": "f54abc1ba4529a9a3f9f1fe1dca2a6a4c249d12e3f598be70b1de98092d850a2",
-    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.10/game-source.zip"
+    "release": "v1.11",
+    "size": 63394910,
+    "sha256": "c860c7f7ea3128536e1cc1a5d4022296ef5849469f2a8d5b78e92c98aaad1d03",
+    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.11/game-source.zip"
   },
   "fish_verification_run": 42317071546,
   "automatic_full_regression_run": 42317071379,
@@ -35,9 +35,9 @@
   "bundle_verification_run": 42319985467,
   "bundle_evidence_commit": "dd8297cc9de9a5423091b61e06f166ee22023de4",
   "headless_regression_coverage": {
-    "passed": 78,
-    "total": 78,
-    "run": 42423468177,
+    "passed": 79,
+    "total": 79,
+    "run": 42435987555,
     "all_executed_in_release_run": true
   },
   "standard_full_workflow_success": true,
@@ -49,17 +49,17 @@
   },
   "release_preflight": "docs/releases/109/PREFLIGHT.json",
   "release_source_commit": "f2eba5ef5a829ea1f20205412a4998a3e6944d0a",
-  "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v1.10",
-  "release_build_run": 42424163257,
+  "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v1.11",
+  "release_build_run": 42436616470,
   "release_build_status": "success",
-  "public_verification_run": 42424518551,
+  "public_verification_run": 42436745858,
   "public_verification_status": "success",
   "public_patch": {
-    "size": 59184272,
-    "sha256": "64620fd393fd1c2076f550e5eeaf08f2adac7d6832f6f30a59d0a88d07d958a9",
-    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.10/patch.pck"
+    "size": 59187680,
+    "sha256": "15f7ced46a98d075febd4eb0761d11a9da4af381ddfa66b1c4c7ff662af2a250",
+    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.11/patch.pck"
   },
-  "standard_full_workflow_note": "Final-source78/native/global/PCK CI42423468177 success; identical candidate published without rebuild. Draft-ID resume42424430555 and original publisher42424163257 attempt2 success; gateway/full source verification42424518551 success.",
+  "standard_full_workflow_note": "v1.11 final-source79 headless/native/global/PCK CI42435987555 success; identical candidate13600105454 published without rebuild. Publisher42436616470 attempt2 and gateway/source42436745858 success.",
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md#2026-11-07--소규모-작업-효율채팅-중단-대비",
   "approved_followup": "우편 단일원본·공통지급·검사통합 구현/검증 완료. 공개v1.08 유지, 새 배포 미승인.",
   "session_continuity": {
@@ -118,7 +118,7 @@
     "production_balance_changed": false,
     "phone_tested": false
   },
-  "release_authorized": true,
+  "release_authorized": false,
   "balance110": {
     "applied": true,
     "deployed": true,
@@ -171,7 +171,7 @@
     "ledger": "analysis/tile-layer-art-v1/PLANT_LEDGER.json",
     "quality": "analysis/tile-layer-art-v1/PLANT_QA.json"
   },
-  "public_release": "v1.10",
+  "public_release": "v1.11",
   "shared_vertical_light": {
     "applied": true,
     "regions": [
@@ -259,13 +259,13 @@
     "source_commit": "f2eba5ef5a829ea1f20205412a4998a3e6944d0a",
     "run": 42435987555,
     "ready": true,
-    "published": false,
+    "published": true,
     "rebuild_on_publish": false
   },
   "release_resume_run": 42424430555,
   "fight_body_size": {
     "verification": "docs/qa/fight-body-size/VERIFICATION.json",
-    "deployed": false,
+    "deployed": true,
     "release_authorized": false,
     "native_fight_landing_pass": true,
     "ci_run": 42432192399,
@@ -277,7 +277,7 @@
   },
   "bundle_next_unlock": {
     "status": "full_verified",
-    "deployed": false,
+    "deployed": true,
     "release_authorized": false,
     "related_suites": 7,
     "native_pass": true,
@@ -293,9 +293,13 @@
     "source_commit": "f2eba5ef5a829ea1f20205412a4998a3e6944d0a",
     "verification_run": 42435987555,
     "verification_status": "success",
-    "deployed": false,
+    "deployed": true,
     "phone_verified": false,
-    "release_authorized": true,
-    "candidate_artifact": 13600105454
+    "release_authorized": false,
+    "candidate_artifact": 13600105454,
+    "draft_id": 437974282,
+    "publication_run": 42436616470,
+    "publication_status": "success_attempt2",
+    "gateway_verification_run": 42436745858
   }
 }
