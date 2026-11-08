@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "owner_sale_prices_full_verified_not_deployed",
+  "status": "owner_aquarium_species_cap_implementation",
   "release_baseline": "v1.11",
   "target_release": "v1.11",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/owner-sale-500000/HANDOFF.md",
-  "current_task": "주인판매가저수지8000·계곡40000·타일500000적용",
-  "next_step": "현재 변경 검증완료·배포보류. 추가 밸런스 결정 또는 새 배포 승인 대기.",
+  "current_task": "주인수족관종류별1마리제한·판매가연동유지",
+  "next_step": "주인중복입수차단·기존중복보관통복귀·관련/전체검사; 배포금지",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -484,5 +484,12 @@
     "verification": "docs/qa/owner-sale-500000/VERIFICATION.json",
     "unique_verify_results": 88,
     "verification_artifact": 13628401994
+  },
+  "owner_aquarium_cap": {
+    "status": "approved_pending_implementation",
+    "per_species": 1,
+    "income": "stored_sale_price_linked_unchanged",
+    "legacy": "keep_highest_price_one_return_others_to_bag_without_loss",
+    "deployed": false
   }
 }
