@@ -64,6 +64,7 @@ const FONT_SC: = [1.0, 1.0, 1.0, 1.0]
 var text_layer: Node2D
 var owner_ui = preload("res://addons/reservoir/owner_gauge_ui.gd").new()
 var ui_demo: = false
+var headlamp_light=preload("res://addons/reservoir/headlamp_light.gd").new()
 var night_play=preload("res://addons/reservoir/night_play.gd").new()
 var ui_commands: = []
 var text_items: = []
@@ -245,6 +246,7 @@ func _notification(what: int) -> void :
 	if what == NOTIFICATION_APPLICATION_RESUMED: audio_feedback.suspended=false
 
 func _ready() -> void :
+	add_child(headlamp_light)
 	development_preview = "--valley-preview" in OS.get_cmdline_user_args()
 	_cleanup_reset()
 	randomize()

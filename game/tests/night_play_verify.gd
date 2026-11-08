@@ -14,7 +14,7 @@ func run():
   check(m.ui_commands.is_empty(),"day has no lamp or particles")
   m.environment.set_hour(0);m.ui_commands=[];m.night_play.draw(m)
   check(m.ui_commands.size()>1,"night water particles present")
-  check(m.environment.actor_tint().g>.78 and m.environment.actor_tint().b>.90,"actor readable without blanket yellow tint")
+  check(m.environment.actor_tint().is_equal_approx(Color(.62,.74,.95) if region==1 else Color(.86,.73,1)),"unlit actor tint restored; local light supplies brightness")
   var ground=m.environment.valley if region==1 else m.environment.tile
   check(not FileAccess.get_file_as_string("res://addons/reservoir/night_play.gd").contains("guide_ac/lantern.png"),"no added floor lantern asset")
   m.S={"phase":"fight","star":0,"sp":21 if region==1 else 42,"lastF":{"p":Vector2(135,330),"body_length":90}}

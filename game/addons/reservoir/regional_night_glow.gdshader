@@ -36,7 +36,7 @@ void fragment(){
  float cool=min(light*night_strength*0.38,0.38)+ambient+biological;
  float warm_halo=soft_pool(UV,lantern_uv,lantern_span)*0.45;
  float warm_core=soft_pool(UV,lantern_uv,lantern_span*0.10)*0.85;
- float warm=(warm_halo+warm_core)*night_strength;
+ float warm=0.0; // Helmet illumination is composited over the actor, not behind it.
  float alpha=max(cool+warm,0.00001);
  vec3 emission=tint*cool+vec3(0.65,1.0,0.93)*warm;
  COLOR=vec4(emission/alpha,alpha);

@@ -22,6 +22,12 @@ func run():
       seed(440+region);m.S={"sp":28 if region==1 else 49,"star":1,"grade":0,"lf":1.0};m.start_fight();m.S.beh="swim";m.S.dist=35;m.S.fx=156;m.S.fy=minf(m.uw_bot-45,m.WATER+75);m.S.dispY=m.S.fy;m._last_draw_t=-1;m.fclock=0
      e.set_hour(hour);m.queue_redraw();await process_frame;await process_frame;await RenderingServer.frame_post_draw
      root.get_texture().get_image().save_png(out.path_join("r%d_h%d_t%d_%s.png"%[region,height,hour,phase]))
+     if not before and height==540 and hour==0 and phase=="idle":
+      m.headlamp_light.enabled=false;m.queue_redraw();await process_frame;await process_frame;await RenderingServer.frame_post_draw
+      root.get_texture().get_image().save_png(out.path_join("r%d_helmet_light_off.png"%region))
+      m.headlamp_light.enabled=true;m.queue_redraw();await process_frame;await process_frame;await RenderingServer.frame_post_draw
+      check(m.headlamp_light.visible and m.headlamp_light.sprites.size()==m.angler_scene.light_parts.size(),"original actor mask receives local light")
+      check(m.headlamp_light.shader_material.get_shader_parameter("lamp_position").distance_to(m.angler_scene.headlamp_world+Vector2(0,m.oy))<.001,"foreground illumination shares helmet source")
      if not before and hour==0:
       check(m.night_play.flame(m).distance_to(m.angler_scene.headlamp_transform*Vector2(89,38)-Vector2(0,m.oy))<.001,"headlamp aligned to helmet same frame")
       check(m.night_play.flame(m).y<m.SURF-40,"no floor lamp hotspot")

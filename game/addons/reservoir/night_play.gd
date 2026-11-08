@@ -3,6 +3,7 @@ extends RefCounted
 func active(m)->bool:return m.active_region in [1,2] and m.scene=="fish"
 func flame(m)->Vector2:return m.angler_scene.headlamp_world
 func draw(m)->void:
+ m.headlamp_light.sync(m)
  if not active(m):return
  var night:float=m.environment.night_strength()
  if night<=.00001:return
