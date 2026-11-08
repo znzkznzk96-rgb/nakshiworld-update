@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "owner_income_unlock_joint_proposal_verified_not_applied",
+  "status": "owner_only_income_separation_fixed_unlock_analysis",
   "release_baseline": "v1.12",
   "target_release": "v1.12",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/analysis/owner-income-unlock-20261109/HANDOFF.md",
-  "current_task": "주인수족관기준6만/다음해금비2500만추천(미적용)",
-  "next_step": "추천안/기본주인판매가대비2%/접속민감도 사용자검토; 구현/배포 미승인",
+  "current_task": "주인만 전시수입 분리·해금비4635000 고정 비교",
+  "next_step": "현행해금비 고정·주인기준값별 재분석; 구체값/이행정책 미정·구현배포 없음",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -559,7 +559,7 @@
     "balance_changed": false
   },
   "joint_balance_proposal": {
-    "status": "recommended_not_approved_not_applied",
+    "status": "superseded_unlock_increase_not_adopted",
     "owner_sale_bases": [
       8000,
       40000,
@@ -580,6 +580,20 @@
     "report": "docs/analysis/owner-income-unlock-20261109/REPORT.md",
     "verification": "docs/analysis/owner-income-unlock-20261109/VERIFICATION.json",
     "game_changed": false,
+    "deployed": false
+  },
+  "owner_income_direction": {
+    "date": "2026-11-09",
+    "owner_only": true,
+    "sale_bases": [
+      8000,
+      40000,
+      500000
+    ],
+    "unlock_fee": 4635000,
+    "income_bases": "pending_simulation",
+    "ordinary_income": "unchanged_sale_linked",
+    "implemented": false,
     "deployed": false
   }
 }
