@@ -6,8 +6,8 @@
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/headlamp-local-light/HANDOFF.md",
-  "current_task": "야간 업데이트 저장 완료·미배포; 타일 판매수익/해금비 60만회 분석 완료",
-  "next_step": "분석 결과 검토 후 타일 경제 목표시간·가격/보상/어장 보호 변경 지시 대기; 수치 미변경·배포 금지",
+  "current_task": "타일 판매가 상향 후보6종·수족관 병행 재시뮬 완료; 추천안 제시 단계",
+  "next_step": "추천 가격표 사용자 검토·확정 후에만 게임수치 적용; 공개 배포 금지",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -396,6 +396,16 @@
     "report": "docs/analysis/tile-income-20261108/REPORT.md",
     "results": "docs/analysis/tile-income-20261108/RESULTS.json",
     "draws": 600000,
+    "game_changed": false
+  },
+  "tile_price_proposal": {
+    "status": "proposed_not_approved",
+    "report": "docs/analysis/tile-price-proposals-20261108/REPORT.md",
+    "price_table": "docs/analysis/tile-price-proposals-20261108/PRICE_TABLE.md",
+    "results": "docs/analysis/tile-price-proposals-20261108/RESULTS.json",
+    "recommended": "rounded",
+    "draws": 180000,
+    "seeds": 5,
     "game_changed": false
   }
 }
