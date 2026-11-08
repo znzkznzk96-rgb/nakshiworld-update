@@ -1,0 +1,7451 @@
+[
+  {
+    "file": "joint-owner-ledger.json",
+    "bytes": 40275306,
+    "sha256": "540762c512fa9adb8351dbe601d8b19fe816ea6e0dd76d03db6217b7951447ac",
+    "draws": 754503,
+    "cases": [
+      {
+        "bait": 0,
+        "main_seen": [
+          43,
+          49,
+          57,
+          40,
+          54,
+          48
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 1,
+          "cycle": 40.0,
+          "forge": 1,
+          "id": "slow",
+          "pond_cap": 1,
+          "pond_regen": 1,
+          "success": 0.85
+        },
+        "region": 2,
+        "seed": 20261310,
+        "stars": [
+          2958,
+          262,
+          66,
+          6,
+          32
+        ],
+        "trial": 0
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          40,
+          48,
+          43,
+          54,
+          49,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 1,
+          "cycle": 40.0,
+          "forge": 1,
+          "id": "slow",
+          "pond_cap": 1,
+          "pond_regen": 1,
+          "success": 0.85
+        },
+        "region": 2,
+        "seed": 20261320,
+        "stars": [
+          2955,
+          279,
+          52,
+          5,
+          33
+        ],
+        "trial": 0
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          40,
+          54,
+          48,
+          43,
+          49,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 1,
+          "cycle": 40.0,
+          "forge": 1,
+          "id": "slow",
+          "pond_cap": 1,
+          "pond_regen": 1,
+          "success": 0.85
+        },
+        "region": 2,
+        "seed": 20261330,
+        "stars": [
+          2958,
+          265,
+          51,
+          15,
+          35
+        ],
+        "trial": 0
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          43,
+          48,
+          54,
+          49,
+          40,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 1,
+          "cycle": 40.0,
+          "forge": 1,
+          "id": "slow",
+          "pond_cap": 1,
+          "pond_regen": 1,
+          "success": 0.85
+        },
+        "region": 2,
+        "seed": 20262310,
+        "stars": [
+          2954,
+          256,
+          69,
+          6,
+          35
+        ],
+        "trial": 1
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          40,
+          48,
+          43,
+          54,
+          57,
+          49
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 1,
+          "cycle": 40.0,
+          "forge": 1,
+          "id": "slow",
+          "pond_cap": 1,
+          "pond_regen": 1,
+          "success": 0.85
+        },
+        "region": 2,
+        "seed": 20262320,
+        "stars": [
+          2959,
+          263,
+          53,
+          16,
+          34
+        ],
+        "trial": 1
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          40,
+          49,
+          54,
+          48,
+          43,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 1,
+          "cycle": 40.0,
+          "forge": 1,
+          "id": "slow",
+          "pond_cap": 1,
+          "pond_regen": 1,
+          "success": 0.85
+        },
+        "region": 2,
+        "seed": 20262330,
+        "stars": [
+          2977,
+          260,
+          47,
+          6,
+          33
+        ],
+        "trial": 1
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          43,
+          40,
+          49,
+          48,
+          57,
+          54
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 1,
+          "cycle": 40.0,
+          "forge": 1,
+          "id": "slow",
+          "pond_cap": 1,
+          "pond_regen": 1,
+          "success": 0.85
+        },
+        "region": 2,
+        "seed": 20263310,
+        "stars": [
+          2984,
+          246,
+          50,
+          8,
+          34
+        ],
+        "trial": 2
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          40,
+          49,
+          54,
+          43,
+          48
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 1,
+          "cycle": 40.0,
+          "forge": 1,
+          "id": "slow",
+          "pond_cap": 1,
+          "pond_regen": 1,
+          "success": 0.85
+        },
+        "region": 2,
+        "seed": 20263320,
+        "stars": [
+          2981,
+          252,
+          51,
+          4,
+          33
+        ],
+        "trial": 2
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          40,
+          49,
+          43,
+          48,
+          54
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 1,
+          "cycle": 40.0,
+          "forge": 1,
+          "id": "slow",
+          "pond_cap": 1,
+          "pond_regen": 1,
+          "success": 0.85
+        },
+        "region": 2,
+        "seed": 20263330,
+        "stars": [
+          2982,
+          254,
+          53,
+          4,
+          35
+        ],
+        "trial": 2
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          43,
+          40,
+          48,
+          57,
+          49,
+          54
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 1,
+          "cycle": 40.0,
+          "forge": 1,
+          "id": "slow",
+          "pond_cap": 1,
+          "pond_regen": 1,
+          "success": 0.85
+        },
+        "region": 2,
+        "seed": 20264310,
+        "stars": [
+          2957,
+          278,
+          40,
+          11,
+          34
+        ],
+        "trial": 3
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          43,
+          49,
+          54,
+          40,
+          48,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 1,
+          "cycle": 40.0,
+          "forge": 1,
+          "id": "slow",
+          "pond_cap": 1,
+          "pond_regen": 1,
+          "success": 0.85
+        },
+        "region": 2,
+        "seed": 20264320,
+        "stars": [
+          2959,
+          263,
+          58,
+          11,
+          34
+        ],
+        "trial": 3
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          40,
+          43,
+          54,
+          49,
+          48,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 1,
+          "cycle": 40.0,
+          "forge": 1,
+          "id": "slow",
+          "pond_cap": 1,
+          "pond_regen": 1,
+          "success": 0.85
+        },
+        "region": 2,
+        "seed": 20264330,
+        "stars": [
+          2971,
+          265,
+          41,
+          4,
+          39
+        ],
+        "trial": 3
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          54,
+          40,
+          43,
+          48,
+          49,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 1,
+          "cycle": 40.0,
+          "forge": 1,
+          "id": "slow",
+          "pond_cap": 1,
+          "pond_regen": 1,
+          "success": 0.85
+        },
+        "region": 2,
+        "seed": 20265310,
+        "stars": [
+          2970,
+          247,
+          60,
+          12,
+          34
+        ],
+        "trial": 4
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          43,
+          40,
+          48,
+          49,
+          54,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 1,
+          "cycle": 40.0,
+          "forge": 1,
+          "id": "slow",
+          "pond_cap": 1,
+          "pond_regen": 1,
+          "success": 0.85
+        },
+        "region": 2,
+        "seed": 20265320,
+        "stars": [
+          2991,
+          245,
+          53,
+          4,
+          34
+        ],
+        "trial": 4
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          43,
+          48,
+          40,
+          57,
+          49,
+          54
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 1,
+          "cycle": 40.0,
+          "forge": 1,
+          "id": "slow",
+          "pond_cap": 1,
+          "pond_regen": 1,
+          "success": 0.85
+        },
+        "region": 2,
+        "seed": 20265330,
+        "stars": [
+          2959,
+          263,
+          51,
+          9,
+          39
+        ],
+        "trial": 4
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          49,
+          48,
+          43,
+          40,
+          54,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 1,
+          "cycle": 40.0,
+          "forge": 1,
+          "id": "slow",
+          "pond_cap": 1,
+          "pond_regen": 1,
+          "success": 0.85
+        },
+        "region": 2,
+        "seed": 20266310,
+        "stars": [
+          2979,
+          235,
+          64,
+          10,
+          34
+        ],
+        "trial": 5
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          40,
+          48,
+          43,
+          57,
+          49,
+          54
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 1,
+          "cycle": 40.0,
+          "forge": 1,
+          "id": "slow",
+          "pond_cap": 1,
+          "pond_regen": 1,
+          "success": 0.85
+        },
+        "region": 2,
+        "seed": 20266320,
+        "stars": [
+          2985,
+          242,
+          53,
+          9,
+          33
+        ],
+        "trial": 5
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          43,
+          40,
+          57,
+          54,
+          48,
+          49
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 1,
+          "cycle": 40.0,
+          "forge": 1,
+          "id": "slow",
+          "pond_cap": 1,
+          "pond_regen": 1,
+          "success": 0.85
+        },
+        "region": 2,
+        "seed": 20266330,
+        "stars": [
+          2982,
+          238,
+          54,
+          11,
+          35
+        ],
+        "trial": 5
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          43,
+          57,
+          48,
+          40,
+          49,
+          54
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 1,
+          "cycle": 40.0,
+          "forge": 1,
+          "id": "slow",
+          "pond_cap": 1,
+          "pond_regen": 1,
+          "success": 0.85
+        },
+        "region": 2,
+        "seed": 20267310,
+        "stars": [
+          3007,
+          238,
+          40,
+          5,
+          34
+        ],
+        "trial": 6
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          40,
+          54,
+          49,
+          43,
+          48,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 1,
+          "cycle": 40.0,
+          "forge": 1,
+          "id": "slow",
+          "pond_cap": 1,
+          "pond_regen": 1,
+          "success": 0.85
+        },
+        "region": 2,
+        "seed": 20267320,
+        "stars": [
+          2987,
+          242,
+          58,
+          5,
+          33
+        ],
+        "trial": 6
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          48,
+          57,
+          49,
+          43,
+          54,
+          40
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 1,
+          "cycle": 40.0,
+          "forge": 1,
+          "id": "slow",
+          "pond_cap": 1,
+          "pond_regen": 1,
+          "success": 0.85
+        },
+        "region": 2,
+        "seed": 20267330,
+        "stars": [
+          3005,
+          222,
+          52,
+          9,
+          36
+        ],
+        "trial": 6
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          48,
+          40,
+          49,
+          43,
+          54,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 1,
+          "cycle": 40.0,
+          "forge": 1,
+          "id": "slow",
+          "pond_cap": 1,
+          "pond_regen": 1,
+          "success": 0.85
+        },
+        "region": 2,
+        "seed": 20268310,
+        "stars": [
+          2973,
+          249,
+          57,
+          6,
+          36
+        ],
+        "trial": 7
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          57,
+          48,
+          43,
+          40,
+          49,
+          54
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 1,
+          "cycle": 40.0,
+          "forge": 1,
+          "id": "slow",
+          "pond_cap": 1,
+          "pond_regen": 1,
+          "success": 0.85
+        },
+        "region": 2,
+        "seed": 20268320,
+        "stars": [
+          2993,
+          238,
+          50,
+          9,
+          33
+        ],
+        "trial": 7
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          54,
+          48,
+          49,
+          43,
+          40,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 1,
+          "cycle": 40.0,
+          "forge": 1,
+          "id": "slow",
+          "pond_cap": 1,
+          "pond_regen": 1,
+          "success": 0.85
+        },
+        "region": 2,
+        "seed": 20268330,
+        "stars": [
+          2968,
+          265,
+          45,
+          10,
+          36
+        ],
+        "trial": 7
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          49,
+          54,
+          43,
+          40,
+          57,
+          48
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 1,
+          "cycle": 40.0,
+          "forge": 1,
+          "id": "slow",
+          "pond_cap": 1,
+          "pond_regen": 1,
+          "success": 0.85
+        },
+        "region": 2,
+        "seed": 20269310,
+        "stars": [
+          2972,
+          259,
+          55,
+          6,
+          34
+        ],
+        "trial": 8
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          48,
+          54,
+          40,
+          49,
+          43
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 1,
+          "cycle": 40.0,
+          "forge": 1,
+          "id": "slow",
+          "pond_cap": 1,
+          "pond_regen": 1,
+          "success": 0.85
+        },
+        "region": 2,
+        "seed": 20269320,
+        "stars": [
+          2974,
+          268,
+          43,
+          6,
+          33
+        ],
+        "trial": 8
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          48,
+          49,
+          54,
+          43,
+          40,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 1,
+          "cycle": 40.0,
+          "forge": 1,
+          "id": "slow",
+          "pond_cap": 1,
+          "pond_regen": 1,
+          "success": 0.85
+        },
+        "region": 2,
+        "seed": 20269330,
+        "stars": [
+          2998,
+          236,
+          49,
+          3,
+          37
+        ],
+        "trial": 8
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          40,
+          49,
+          43,
+          48,
+          54,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 1,
+          "cycle": 40.0,
+          "forge": 1,
+          "id": "slow",
+          "pond_cap": 1,
+          "pond_regen": 1,
+          "success": 0.85
+        },
+        "region": 2,
+        "seed": 20270310,
+        "stars": [
+          2990,
+          244,
+          54,
+          7,
+          32
+        ],
+        "trial": 9
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          54,
+          48,
+          43,
+          40,
+          49,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 1,
+          "cycle": 40.0,
+          "forge": 1,
+          "id": "slow",
+          "pond_cap": 1,
+          "pond_regen": 1,
+          "success": 0.85
+        },
+        "region": 2,
+        "seed": 20270320,
+        "stars": [
+          2992,
+          244,
+          46,
+          9,
+          33
+        ],
+        "trial": 9
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          49,
+          43,
+          40,
+          48,
+          54,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 1,
+          "cycle": 40.0,
+          "forge": 1,
+          "id": "slow",
+          "pond_cap": 1,
+          "pond_regen": 1,
+          "success": 0.85
+        },
+        "region": 2,
+        "seed": 20270330,
+        "stars": [
+          2976,
+          256,
+          47,
+          9,
+          36
+        ],
+        "trial": 9
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          54,
+          40,
+          48,
+          43,
+          49,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 1,
+          "cycle": 40.0,
+          "forge": 1,
+          "id": "slow",
+          "pond_cap": 1,
+          "pond_regen": 1,
+          "success": 0.85
+        },
+        "region": 2,
+        "seed": 20271310,
+        "stars": [
+          2993,
+          244,
+          50,
+          5,
+          31
+        ],
+        "trial": 10
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          40,
+          49,
+          43,
+          48,
+          54,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 1,
+          "cycle": 40.0,
+          "forge": 1,
+          "id": "slow",
+          "pond_cap": 1,
+          "pond_regen": 1,
+          "success": 0.85
+        },
+        "region": 2,
+        "seed": 20271320,
+        "stars": [
+          2946,
+          273,
+          64,
+          7,
+          34
+        ],
+        "trial": 10
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          49,
+          40,
+          48,
+          43,
+          57,
+          54
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 1,
+          "cycle": 40.0,
+          "forge": 1,
+          "id": "slow",
+          "pond_cap": 1,
+          "pond_regen": 1,
+          "success": 0.85
+        },
+        "region": 2,
+        "seed": 20271330,
+        "stars": [
+          2991,
+          255,
+          38,
+          7,
+          36
+        ],
+        "trial": 10
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          43,
+          40,
+          54,
+          48,
+          49,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 1,
+          "cycle": 40.0,
+          "forge": 1,
+          "id": "slow",
+          "pond_cap": 1,
+          "pond_regen": 1,
+          "success": 0.85
+        },
+        "region": 2,
+        "seed": 20272310,
+        "stars": [
+          2986,
+          244,
+          46,
+          8,
+          35
+        ],
+        "trial": 11
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          43,
+          40,
+          48,
+          49,
+          54,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 1,
+          "cycle": 40.0,
+          "forge": 1,
+          "id": "slow",
+          "pond_cap": 1,
+          "pond_regen": 1,
+          "success": 0.85
+        },
+        "region": 2,
+        "seed": 20272320,
+        "stars": [
+          2988,
+          247,
+          52,
+          4,
+          32
+        ],
+        "trial": 11
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          40,
+          43,
+          48,
+          54,
+          49,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 1,
+          "cycle": 40.0,
+          "forge": 1,
+          "id": "slow",
+          "pond_cap": 1,
+          "pond_regen": 1,
+          "success": 0.85
+        },
+        "region": 2,
+        "seed": 20272330,
+        "stars": [
+          2977,
+          244,
+          57,
+          10,
+          37
+        ],
+        "trial": 11
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          40,
+          49,
+          48,
+          43,
+          54
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 1,
+          "cycle": 40.0,
+          "forge": 1,
+          "id": "slow",
+          "pond_cap": 1,
+          "pond_regen": 1,
+          "success": 0.85
+        },
+        "region": 2,
+        "seed": 20273310,
+        "stars": [
+          2975,
+          253,
+          60,
+          2,
+          33
+        ],
+        "trial": 12
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          48,
+          40,
+          43,
+          54,
+          49,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 1,
+          "cycle": 40.0,
+          "forge": 1,
+          "id": "slow",
+          "pond_cap": 1,
+          "pond_regen": 1,
+          "success": 0.85
+        },
+        "region": 2,
+        "seed": 20273320,
+        "stars": [
+          2984,
+          245,
+          51,
+          8,
+          35
+        ],
+        "trial": 12
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          54,
+          48,
+          43,
+          49,
+          40,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 1,
+          "cycle": 40.0,
+          "forge": 1,
+          "id": "slow",
+          "pond_cap": 1,
+          "pond_regen": 1,
+          "success": 0.85
+        },
+        "region": 2,
+        "seed": 20273330,
+        "stars": [
+          2988,
+          234,
+          54,
+          10,
+          36
+        ],
+        "trial": 12
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          43,
+          48,
+          40,
+          54,
+          49,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 1,
+          "cycle": 40.0,
+          "forge": 1,
+          "id": "slow",
+          "pond_cap": 1,
+          "pond_regen": 1,
+          "success": 0.85
+        },
+        "region": 2,
+        "seed": 20274310,
+        "stars": [
+          2979,
+          244,
+          59,
+          10,
+          34
+        ],
+        "trial": 13
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          54,
+          48,
+          49,
+          40,
+          43,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 1,
+          "cycle": 40.0,
+          "forge": 1,
+          "id": "slow",
+          "pond_cap": 1,
+          "pond_regen": 1,
+          "success": 0.85
+        },
+        "region": 2,
+        "seed": 20274320,
+        "stars": [
+          2983,
+          249,
+          51,
+          7,
+          32
+        ],
+        "trial": 13
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          57,
+          49,
+          40,
+          43,
+          48,
+          54
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 1,
+          "cycle": 40.0,
+          "forge": 1,
+          "id": "slow",
+          "pond_cap": 1,
+          "pond_regen": 1,
+          "success": 0.85
+        },
+        "region": 2,
+        "seed": 20274330,
+        "stars": [
+          2988,
+          242,
+          50,
+          8,
+          36
+        ],
+        "trial": 13
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          43,
+          40,
+          48,
+          49,
+          54,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 1,
+          "cycle": 40.0,
+          "forge": 1,
+          "id": "slow",
+          "pond_cap": 1,
+          "pond_regen": 1,
+          "success": 0.85
+        },
+        "region": 2,
+        "seed": 20275310,
+        "stars": [
+          2960,
+          257,
+          66,
+          6,
+          33
+        ],
+        "trial": 14
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          54,
+          49,
+          40,
+          43,
+          48,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 1,
+          "cycle": 40.0,
+          "forge": 1,
+          "id": "slow",
+          "pond_cap": 1,
+          "pond_regen": 1,
+          "success": 0.85
+        },
+        "region": 2,
+        "seed": 20275320,
+        "stars": [
+          2956,
+          261,
+          58,
+          11,
+          34
+        ],
+        "trial": 14
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          40,
+          49,
+          48,
+          43,
+          54,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 1,
+          "cycle": 40.0,
+          "forge": 1,
+          "id": "slow",
+          "pond_cap": 1,
+          "pond_regen": 1,
+          "success": 0.85
+        },
+        "region": 2,
+        "seed": 20275330,
+        "stars": [
+          2957,
+          260,
+          69,
+          2,
+          38
+        ],
+        "trial": 14
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          49,
+          40,
+          54,
+          57,
+          43,
+          48
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 1,
+          "cycle": 40.0,
+          "forge": 1,
+          "id": "slow",
+          "pond_cap": 1,
+          "pond_regen": 1,
+          "success": 0.85
+        },
+        "region": 2,
+        "seed": 20276310,
+        "stars": [
+          2961,
+          254,
+          61,
+          16,
+          32
+        ],
+        "trial": 15
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          49,
+          48,
+          40,
+          43,
+          54,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 1,
+          "cycle": 40.0,
+          "forge": 1,
+          "id": "slow",
+          "pond_cap": 1,
+          "pond_regen": 1,
+          "success": 0.85
+        },
+        "region": 2,
+        "seed": 20276320,
+        "stars": [
+          2959,
+          271,
+          47,
+          12,
+          34
+        ],
+        "trial": 15
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          49,
+          43,
+          40,
+          54,
+          48,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 1,
+          "cycle": 40.0,
+          "forge": 1,
+          "id": "slow",
+          "pond_cap": 1,
+          "pond_regen": 1,
+          "success": 0.85
+        },
+        "region": 2,
+        "seed": 20276330,
+        "stars": [
+          2973,
+          239,
+          64,
+          6,
+          39
+        ],
+        "trial": 15
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          40,
+          43,
+          48,
+          49,
+          54,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 1,
+          "cycle": 40.0,
+          "forge": 1,
+          "id": "slow",
+          "pond_cap": 1,
+          "pond_regen": 1,
+          "success": 0.85
+        },
+        "region": 2,
+        "seed": 20277310,
+        "stars": [
+          2969,
+          259,
+          54,
+          6,
+          35
+        ],
+        "trial": 16
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          40,
+          54,
+          48,
+          43,
+          49,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 1,
+          "cycle": 40.0,
+          "forge": 1,
+          "id": "slow",
+          "pond_cap": 1,
+          "pond_regen": 1,
+          "success": 0.85
+        },
+        "region": 2,
+        "seed": 20277320,
+        "stars": [
+          2974,
+          263,
+          45,
+          6,
+          34
+        ],
+        "trial": 16
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          54,
+          40,
+          48,
+          49,
+          43,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 1,
+          "cycle": 40.0,
+          "forge": 1,
+          "id": "slow",
+          "pond_cap": 1,
+          "pond_regen": 1,
+          "success": 0.85
+        },
+        "region": 2,
+        "seed": 20277330,
+        "stars": [
+          2958,
+          250,
+          74,
+          6,
+          37
+        ],
+        "trial": 16
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          40,
+          48,
+          49,
+          43,
+          54
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 1,
+          "cycle": 40.0,
+          "forge": 1,
+          "id": "slow",
+          "pond_cap": 1,
+          "pond_regen": 1,
+          "success": 0.85
+        },
+        "region": 2,
+        "seed": 20278310,
+        "stars": [
+          2982,
+          257,
+          49,
+          4,
+          33
+        ],
+        "trial": 17
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          40,
+          54,
+          43,
+          48,
+          49,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 1,
+          "cycle": 40.0,
+          "forge": 1,
+          "id": "slow",
+          "pond_cap": 1,
+          "pond_regen": 1,
+          "success": 0.85
+        },
+        "region": 2,
+        "seed": 20278320,
+        "stars": [
+          2958,
+          265,
+          53,
+          14,
+          32
+        ],
+        "trial": 17
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          40,
+          49,
+          48,
+          43,
+          54,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 1,
+          "cycle": 40.0,
+          "forge": 1,
+          "id": "slow",
+          "pond_cap": 1,
+          "pond_regen": 1,
+          "success": 0.85
+        },
+        "region": 2,
+        "seed": 20278330,
+        "stars": [
+          2970,
+          259,
+          50,
+          5,
+          36
+        ],
+        "trial": 17
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          43,
+          49,
+          40,
+          54,
+          48,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 1,
+          "cycle": 40.0,
+          "forge": 1,
+          "id": "slow",
+          "pond_cap": 1,
+          "pond_regen": 1,
+          "success": 0.85
+        },
+        "region": 2,
+        "seed": 20279310,
+        "stars": [
+          3008,
+          230,
+          46,
+          4,
+          35
+        ],
+        "trial": 18
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          54,
+          43,
+          40,
+          49,
+          48,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 1,
+          "cycle": 40.0,
+          "forge": 1,
+          "id": "slow",
+          "pond_cap": 1,
+          "pond_regen": 1,
+          "success": 0.85
+        },
+        "region": 2,
+        "seed": 20279320,
+        "stars": [
+          2985,
+          257,
+          44,
+          8,
+          33
+        ],
+        "trial": 18
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          54,
+          43,
+          40,
+          48,
+          57,
+          49
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 1,
+          "cycle": 40.0,
+          "forge": 1,
+          "id": "slow",
+          "pond_cap": 1,
+          "pond_regen": 1,
+          "success": 0.85
+        },
+        "region": 2,
+        "seed": 20279330,
+        "stars": [
+          2965,
+          260,
+          57,
+          8,
+          36
+        ],
+        "trial": 18
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          40,
+          49,
+          43,
+          48,
+          54,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 1,
+          "cycle": 40.0,
+          "forge": 1,
+          "id": "slow",
+          "pond_cap": 1,
+          "pond_regen": 1,
+          "success": 0.85
+        },
+        "region": 2,
+        "seed": 20280310,
+        "stars": [
+          2995,
+          235,
+          56,
+          2,
+          34
+        ],
+        "trial": 19
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          40,
+          48,
+          43,
+          54,
+          49,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 1,
+          "cycle": 40.0,
+          "forge": 1,
+          "id": "slow",
+          "pond_cap": 1,
+          "pond_regen": 1,
+          "success": 0.85
+        },
+        "region": 2,
+        "seed": 20280320,
+        "stars": [
+          2996,
+          227,
+          50,
+          9,
+          36
+        ],
+        "trial": 19
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          48,
+          49,
+          43,
+          40,
+          54,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 1,
+          "cycle": 40.0,
+          "forge": 1,
+          "id": "slow",
+          "pond_cap": 1,
+          "pond_regen": 1,
+          "success": 0.85
+        },
+        "region": 2,
+        "seed": 20280330,
+        "stars": [
+          2973,
+          239,
+          63,
+          11,
+          36
+        ],
+        "trial": 19
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          43,
+          49,
+          57,
+          40,
+          48,
+          54
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 2,
+          "cycle": 30.0,
+          "forge": 3,
+          "id": "reference",
+          "pond_cap": 2,
+          "pond_regen": 2,
+          "success": 0.9
+        },
+        "region": 2,
+        "seed": 20261310,
+        "stars": [
+          3808,
+          316,
+          76,
+          11,
+          44
+        ],
+        "trial": 0
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          40,
+          48,
+          49,
+          43,
+          54,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 2,
+          "cycle": 30.0,
+          "forge": 3,
+          "id": "reference",
+          "pond_cap": 2,
+          "pond_regen": 2,
+          "success": 0.9
+        },
+        "region": 2,
+        "seed": 20261320,
+        "stars": [
+          3787,
+          342,
+          77,
+          13,
+          42
+        ],
+        "trial": 0
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          40,
+          54,
+          48,
+          43,
+          57,
+          49
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 2,
+          "cycle": 30.0,
+          "forge": 3,
+          "id": "reference",
+          "pond_cap": 2,
+          "pond_regen": 2,
+          "success": 0.9
+        },
+        "region": 2,
+        "seed": 20261330,
+        "stars": [
+          3788,
+          330,
+          78,
+          11,
+          47
+        ],
+        "trial": 0
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          43,
+          48,
+          54,
+          40,
+          49,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 2,
+          "cycle": 30.0,
+          "forge": 3,
+          "id": "reference",
+          "pond_cap": 2,
+          "pond_regen": 2,
+          "success": 0.9
+        },
+        "region": 2,
+        "seed": 20262310,
+        "stars": [
+          3816,
+          321,
+          69,
+          7,
+          43
+        ],
+        "trial": 1
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          40,
+          48,
+          43,
+          54,
+          57,
+          49
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 2,
+          "cycle": 30.0,
+          "forge": 3,
+          "id": "reference",
+          "pond_cap": 2,
+          "pond_regen": 2,
+          "success": 0.9
+        },
+        "region": 2,
+        "seed": 20262320,
+        "stars": [
+          3813,
+          293,
+          87,
+          11,
+          45
+        ],
+        "trial": 1
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          40,
+          49,
+          48,
+          43,
+          54,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 2,
+          "cycle": 30.0,
+          "forge": 3,
+          "id": "reference",
+          "pond_cap": 2,
+          "pond_regen": 2,
+          "success": 0.9
+        },
+        "region": 2,
+        "seed": 20262330,
+        "stars": [
+          3820,
+          307,
+          77,
+          12,
+          49
+        ],
+        "trial": 1
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          43,
+          40,
+          49,
+          57,
+          48,
+          54
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 2,
+          "cycle": 30.0,
+          "forge": 3,
+          "id": "reference",
+          "pond_cap": 2,
+          "pond_regen": 2,
+          "success": 0.9
+        },
+        "region": 2,
+        "seed": 20263310,
+        "stars": [
+          3825,
+          318,
+          63,
+          5,
+          47
+        ],
+        "trial": 2
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          40,
+          49,
+          54,
+          43,
+          57,
+          48
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 2,
+          "cycle": 30.0,
+          "forge": 3,
+          "id": "reference",
+          "pond_cap": 2,
+          "pond_regen": 2,
+          "success": 0.9
+        },
+        "region": 2,
+        "seed": 20263320,
+        "stars": [
+          3821,
+          315,
+          62,
+          12,
+          42
+        ],
+        "trial": 2
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          57,
+          40,
+          49,
+          43,
+          54,
+          48
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 2,
+          "cycle": 30.0,
+          "forge": 3,
+          "id": "reference",
+          "pond_cap": 2,
+          "pond_regen": 2,
+          "success": 0.9
+        },
+        "region": 2,
+        "seed": 20263330,
+        "stars": [
+          3788,
+          341,
+          67,
+          11,
+          47
+        ],
+        "trial": 2
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          43,
+          40,
+          48,
+          57,
+          49,
+          54
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 2,
+          "cycle": 30.0,
+          "forge": 3,
+          "id": "reference",
+          "pond_cap": 2,
+          "pond_regen": 2,
+          "success": 0.9
+        },
+        "region": 2,
+        "seed": 20264310,
+        "stars": [
+          3827,
+          309,
+          63,
+          7,
+          44
+        ],
+        "trial": 3
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          43,
+          49,
+          54,
+          40,
+          48,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 2,
+          "cycle": 30.0,
+          "forge": 3,
+          "id": "reference",
+          "pond_cap": 2,
+          "pond_regen": 2,
+          "success": 0.9
+        },
+        "region": 2,
+        "seed": 20264320,
+        "stars": [
+          3803,
+          338,
+          61,
+          11,
+          43
+        ],
+        "trial": 3
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          40,
+          43,
+          54,
+          49,
+          48,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 2,
+          "cycle": 30.0,
+          "forge": 3,
+          "id": "reference",
+          "pond_cap": 2,
+          "pond_regen": 2,
+          "success": 0.9
+        },
+        "region": 2,
+        "seed": 20264330,
+        "stars": [
+          3814,
+          319,
+          62,
+          12,
+          48
+        ],
+        "trial": 3
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          54,
+          40,
+          43,
+          48,
+          49,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 2,
+          "cycle": 30.0,
+          "forge": 3,
+          "id": "reference",
+          "pond_cap": 2,
+          "pond_regen": 2,
+          "success": 0.9
+        },
+        "region": 2,
+        "seed": 20265310,
+        "stars": [
+          3805,
+          318,
+          76,
+          14,
+          43
+        ],
+        "trial": 4
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          43,
+          40,
+          48,
+          49,
+          57,
+          54
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 2,
+          "cycle": 30.0,
+          "forge": 3,
+          "id": "reference",
+          "pond_cap": 2,
+          "pond_regen": 2,
+          "success": 0.9
+        },
+        "region": 2,
+        "seed": 20265320,
+        "stars": [
+          3831,
+          308,
+          75,
+          6,
+          43
+        ],
+        "trial": 4
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          48,
+          43,
+          54,
+          40,
+          49,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 2,
+          "cycle": 30.0,
+          "forge": 3,
+          "id": "reference",
+          "pond_cap": 2,
+          "pond_regen": 2,
+          "success": 0.9
+        },
+        "region": 2,
+        "seed": 20265330,
+        "stars": [
+          3807,
+          328,
+          64,
+          7,
+          47
+        ],
+        "trial": 4
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          49,
+          40,
+          48,
+          43,
+          54,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 2,
+          "cycle": 30.0,
+          "forge": 3,
+          "id": "reference",
+          "pond_cap": 2,
+          "pond_regen": 2,
+          "success": 0.9
+        },
+        "region": 2,
+        "seed": 20266310,
+        "stars": [
+          3795,
+          340,
+          62,
+          13,
+          43
+        ],
+        "trial": 5
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          40,
+          48,
+          43,
+          54,
+          49,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 2,
+          "cycle": 30.0,
+          "forge": 3,
+          "id": "reference",
+          "pond_cap": 2,
+          "pond_regen": 2,
+          "success": 0.9
+        },
+        "region": 2,
+        "seed": 20266320,
+        "stars": [
+          3816,
+          318,
+          67,
+          7,
+          42
+        ],
+        "trial": 5
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          43,
+          40,
+          48,
+          49,
+          54,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 2,
+          "cycle": 30.0,
+          "forge": 3,
+          "id": "reference",
+          "pond_cap": 2,
+          "pond_regen": 2,
+          "success": 0.9
+        },
+        "region": 2,
+        "seed": 20266330,
+        "stars": [
+          3777,
+          340,
+          81,
+          10,
+          48
+        ],
+        "trial": 5
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          43,
+          57,
+          48,
+          49,
+          40,
+          54
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 2,
+          "cycle": 30.0,
+          "forge": 3,
+          "id": "reference",
+          "pond_cap": 2,
+          "pond_regen": 2,
+          "success": 0.9
+        },
+        "region": 2,
+        "seed": 20267310,
+        "stars": [
+          3825,
+          308,
+          69,
+          9,
+          44
+        ],
+        "trial": 6
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          48,
+          43,
+          40,
+          54,
+          49,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 2,
+          "cycle": 30.0,
+          "forge": 3,
+          "id": "reference",
+          "pond_cap": 2,
+          "pond_regen": 2,
+          "success": 0.9
+        },
+        "region": 2,
+        "seed": 20267320,
+        "stars": [
+          3844,
+          292,
+          69,
+          12,
+          45
+        ],
+        "trial": 6
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          48,
+          57,
+          43,
+          40,
+          49,
+          54
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 2,
+          "cycle": 30.0,
+          "forge": 3,
+          "id": "reference",
+          "pond_cap": 2,
+          "pond_regen": 2,
+          "success": 0.9
+        },
+        "region": 2,
+        "seed": 20267330,
+        "stars": [
+          3799,
+          310,
+          87,
+          9,
+          48
+        ],
+        "trial": 6
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          48,
+          40,
+          49,
+          43,
+          54,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 2,
+          "cycle": 30.0,
+          "forge": 3,
+          "id": "reference",
+          "pond_cap": 2,
+          "pond_regen": 2,
+          "success": 0.9
+        },
+        "region": 2,
+        "seed": 20268310,
+        "stars": [
+          3826,
+          313,
+          65,
+          9,
+          44
+        ],
+        "trial": 7
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          57,
+          48,
+          43,
+          40,
+          49,
+          54
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 2,
+          "cycle": 30.0,
+          "forge": 3,
+          "id": "reference",
+          "pond_cap": 2,
+          "pond_regen": 2,
+          "success": 0.9
+        },
+        "region": 2,
+        "seed": 20268320,
+        "stars": [
+          3831,
+          310,
+          59,
+          12,
+          41
+        ],
+        "trial": 7
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          54,
+          48,
+          49,
+          40,
+          43,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 2,
+          "cycle": 30.0,
+          "forge": 3,
+          "id": "reference",
+          "pond_cap": 2,
+          "pond_regen": 2,
+          "success": 0.9
+        },
+        "region": 2,
+        "seed": 20268330,
+        "stars": [
+          3821,
+          324,
+          61,
+          9,
+          46
+        ],
+        "trial": 7
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          49,
+          54,
+          43,
+          40,
+          48,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 2,
+          "cycle": 30.0,
+          "forge": 3,
+          "id": "reference",
+          "pond_cap": 2,
+          "pond_regen": 2,
+          "success": 0.9
+        },
+        "region": 2,
+        "seed": 20269310,
+        "stars": [
+          3824,
+          323,
+          59,
+          6,
+          43
+        ],
+        "trial": 8
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          43,
+          48,
+          54,
+          49,
+          40,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 2,
+          "cycle": 30.0,
+          "forge": 3,
+          "id": "reference",
+          "pond_cap": 2,
+          "pond_regen": 2,
+          "success": 0.9
+        },
+        "region": 2,
+        "seed": 20269320,
+        "stars": [
+          3793,
+          335,
+          76,
+          7,
+          46
+        ],
+        "trial": 8
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          48,
+          40,
+          43,
+          54,
+          49,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 2,
+          "cycle": 30.0,
+          "forge": 3,
+          "id": "reference",
+          "pond_cap": 2,
+          "pond_regen": 2,
+          "success": 0.9
+        },
+        "region": 2,
+        "seed": 20269330,
+        "stars": [
+          3844,
+          304,
+          58,
+          5,
+          47
+        ],
+        "trial": 8
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          48,
+          40,
+          49,
+          43,
+          54
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 2,
+          "cycle": 30.0,
+          "forge": 3,
+          "id": "reference",
+          "pond_cap": 2,
+          "pond_regen": 2,
+          "success": 0.9
+        },
+        "region": 2,
+        "seed": 20270310,
+        "stars": [
+          3798,
+          337,
+          73,
+          6,
+          45
+        ],
+        "trial": 9
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          54,
+          49,
+          48,
+          43,
+          40,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 2,
+          "cycle": 30.0,
+          "forge": 3,
+          "id": "reference",
+          "pond_cap": 2,
+          "pond_regen": 2,
+          "success": 0.9
+        },
+        "region": 2,
+        "seed": 20270320,
+        "stars": [
+          3819,
+          318,
+          63,
+          10,
+          43
+        ],
+        "trial": 9
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          49,
+          43,
+          40,
+          48,
+          54,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 2,
+          "cycle": 30.0,
+          "forge": 3,
+          "id": "reference",
+          "pond_cap": 2,
+          "pond_regen": 2,
+          "success": 0.9
+        },
+        "region": 2,
+        "seed": 20270330,
+        "stars": [
+          3789,
+          340,
+          63,
+          12,
+          50
+        ],
+        "trial": 9
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          54,
+          40,
+          48,
+          49,
+          43,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 2,
+          "cycle": 30.0,
+          "forge": 3,
+          "id": "reference",
+          "pond_cap": 2,
+          "pond_regen": 2,
+          "success": 0.9
+        },
+        "region": 2,
+        "seed": 20271310,
+        "stars": [
+          3824,
+          302,
+          77,
+          11,
+          43
+        ],
+        "trial": 10
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          40,
+          49,
+          43,
+          48,
+          57,
+          54
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 2,
+          "cycle": 30.0,
+          "forge": 3,
+          "id": "reference",
+          "pond_cap": 2,
+          "pond_regen": 2,
+          "success": 0.9
+        },
+        "region": 2,
+        "seed": 20271320,
+        "stars": [
+          3820,
+          321,
+          61,
+          7,
+          45
+        ],
+        "trial": 10
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          49,
+          43,
+          40,
+          48,
+          54,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 2,
+          "cycle": 30.0,
+          "forge": 3,
+          "id": "reference",
+          "pond_cap": 2,
+          "pond_regen": 2,
+          "success": 0.9
+        },
+        "region": 2,
+        "seed": 20271330,
+        "stars": [
+          3806,
+          334,
+          72,
+          4,
+          48
+        ],
+        "trial": 10
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          43,
+          40,
+          54,
+          48,
+          49,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 2,
+          "cycle": 30.0,
+          "forge": 3,
+          "id": "reference",
+          "pond_cap": 2,
+          "pond_regen": 2,
+          "success": 0.9
+        },
+        "region": 2,
+        "seed": 20272310,
+        "stars": [
+          3835,
+          301,
+          74,
+          6,
+          44
+        ],
+        "trial": 11
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          43,
+          40,
+          48,
+          49,
+          54,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 2,
+          "cycle": 30.0,
+          "forge": 3,
+          "id": "reference",
+          "pond_cap": 2,
+          "pond_regen": 2,
+          "success": 0.9
+        },
+        "region": 2,
+        "seed": 20272320,
+        "stars": [
+          3830,
+          295,
+          74,
+          8,
+          45
+        ],
+        "trial": 11
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          40,
+          43,
+          48,
+          54,
+          49,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 2,
+          "cycle": 30.0,
+          "forge": 3,
+          "id": "reference",
+          "pond_cap": 2,
+          "pond_regen": 2,
+          "success": 0.9
+        },
+        "region": 2,
+        "seed": 20272330,
+        "stars": [
+          3829,
+          299,
+          75,
+          9,
+          47
+        ],
+        "trial": 11
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          40,
+          49,
+          43,
+          48,
+          54,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 2,
+          "cycle": 30.0,
+          "forge": 3,
+          "id": "reference",
+          "pond_cap": 2,
+          "pond_regen": 2,
+          "success": 0.9
+        },
+        "region": 2,
+        "seed": 20273310,
+        "stars": [
+          3840,
+          295,
+          70,
+          8,
+          45
+        ],
+        "trial": 12
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          48,
+          40,
+          43,
+          54,
+          49,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 2,
+          "cycle": 30.0,
+          "forge": 3,
+          "id": "reference",
+          "pond_cap": 2,
+          "pond_regen": 2,
+          "success": 0.9
+        },
+        "region": 2,
+        "seed": 20273320,
+        "stars": [
+          3833,
+          295,
+          69,
+          12,
+          45
+        ],
+        "trial": 12
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          54,
+          49,
+          48,
+          43,
+          40,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 2,
+          "cycle": 30.0,
+          "forge": 3,
+          "id": "reference",
+          "pond_cap": 2,
+          "pond_regen": 2,
+          "success": 0.9
+        },
+        "region": 2,
+        "seed": 20273330,
+        "stars": [
+          3812,
+          324,
+          64,
+          10,
+          49
+        ],
+        "trial": 12
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          43,
+          48,
+          40,
+          49,
+          54,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 2,
+          "cycle": 30.0,
+          "forge": 3,
+          "id": "reference",
+          "pond_cap": 2,
+          "pond_regen": 2,
+          "success": 0.9
+        },
+        "region": 2,
+        "seed": 20274310,
+        "stars": [
+          3814,
+          333,
+          57,
+          10,
+          43
+        ],
+        "trial": 13
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          54,
+          48,
+          49,
+          40,
+          43,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 2,
+          "cycle": 30.0,
+          "forge": 3,
+          "id": "reference",
+          "pond_cap": 2,
+          "pond_regen": 2,
+          "success": 0.9
+        },
+        "region": 2,
+        "seed": 20274320,
+        "stars": [
+          3822,
+          317,
+          64,
+          7,
+          43
+        ],
+        "trial": 13
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          57,
+          49,
+          40,
+          43,
+          48,
+          54
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 2,
+          "cycle": 30.0,
+          "forge": 3,
+          "id": "reference",
+          "pond_cap": 2,
+          "pond_regen": 2,
+          "success": 0.9
+        },
+        "region": 2,
+        "seed": 20274330,
+        "stars": [
+          3816,
+          308,
+          67,
+          14,
+          49
+        ],
+        "trial": 13
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          43,
+          40,
+          48,
+          54,
+          49,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 2,
+          "cycle": 30.0,
+          "forge": 3,
+          "id": "reference",
+          "pond_cap": 2,
+          "pond_regen": 2,
+          "success": 0.9
+        },
+        "region": 2,
+        "seed": 20275310,
+        "stars": [
+          3798,
+          345,
+          60,
+          7,
+          44
+        ],
+        "trial": 14
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          54,
+          49,
+          43,
+          40,
+          48,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 2,
+          "cycle": 30.0,
+          "forge": 3,
+          "id": "reference",
+          "pond_cap": 2,
+          "pond_regen": 2,
+          "success": 0.9
+        },
+        "region": 2,
+        "seed": 20275320,
+        "stars": [
+          3828,
+          306,
+          67,
+          10,
+          45
+        ],
+        "trial": 14
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          40,
+          49,
+          48,
+          54,
+          43,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 2,
+          "cycle": 30.0,
+          "forge": 3,
+          "id": "reference",
+          "pond_cap": 2,
+          "pond_regen": 2,
+          "success": 0.9
+        },
+        "region": 2,
+        "seed": 20275330,
+        "stars": [
+          3802,
+          344,
+          59,
+          4,
+          50
+        ],
+        "trial": 14
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          49,
+          40,
+          54,
+          57,
+          43,
+          48
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 2,
+          "cycle": 30.0,
+          "forge": 3,
+          "id": "reference",
+          "pond_cap": 2,
+          "pond_regen": 2,
+          "success": 0.9
+        },
+        "region": 2,
+        "seed": 20276310,
+        "stars": [
+          3821,
+          304,
+          78,
+          10,
+          44
+        ],
+        "trial": 15
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          49,
+          48,
+          40,
+          43,
+          54,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 2,
+          "cycle": 30.0,
+          "forge": 3,
+          "id": "reference",
+          "pond_cap": 2,
+          "pond_regen": 2,
+          "success": 0.9
+        },
+        "region": 2,
+        "seed": 20276320,
+        "stars": [
+          3843,
+          311,
+          60,
+          5,
+          45
+        ],
+        "trial": 15
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          49,
+          43,
+          48,
+          40,
+          54,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 2,
+          "cycle": 30.0,
+          "forge": 3,
+          "id": "reference",
+          "pond_cap": 2,
+          "pond_regen": 2,
+          "success": 0.9
+        },
+        "region": 2,
+        "seed": 20276330,
+        "stars": [
+          3809,
+          330,
+          62,
+          7,
+          48
+        ],
+        "trial": 15
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          40,
+          43,
+          48,
+          54,
+          49
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 2,
+          "cycle": 30.0,
+          "forge": 3,
+          "id": "reference",
+          "pond_cap": 2,
+          "pond_regen": 2,
+          "success": 0.9
+        },
+        "region": 2,
+        "seed": 20277310,
+        "stars": [
+          3838,
+          314,
+          66,
+          3,
+          42
+        ],
+        "trial": 16
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          40,
+          54,
+          48,
+          43,
+          49,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 2,
+          "cycle": 30.0,
+          "forge": 3,
+          "id": "reference",
+          "pond_cap": 2,
+          "pond_regen": 2,
+          "success": 0.9
+        },
+        "region": 2,
+        "seed": 20277320,
+        "stars": [
+          3825,
+          315,
+          64,
+          15,
+          43
+        ],
+        "trial": 16
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          54,
+          40,
+          48,
+          43,
+          49,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 2,
+          "cycle": 30.0,
+          "forge": 3,
+          "id": "reference",
+          "pond_cap": 2,
+          "pond_regen": 2,
+          "success": 0.9
+        },
+        "region": 2,
+        "seed": 20277330,
+        "stars": [
+          3804,
+          315,
+          73,
+          11,
+          49
+        ],
+        "trial": 16
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          40,
+          48,
+          43,
+          49,
+          54,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 2,
+          "cycle": 30.0,
+          "forge": 3,
+          "id": "reference",
+          "pond_cap": 2,
+          "pond_regen": 2,
+          "success": 0.9
+        },
+        "region": 2,
+        "seed": 20278310,
+        "stars": [
+          3815,
+          308,
+          82,
+          7,
+          43
+        ],
+        "trial": 17
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          40,
+          54,
+          48,
+          43,
+          49,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 2,
+          "cycle": 30.0,
+          "forge": 3,
+          "id": "reference",
+          "pond_cap": 2,
+          "pond_regen": 2,
+          "success": 0.9
+        },
+        "region": 2,
+        "seed": 20278320,
+        "stars": [
+          3807,
+          317,
+          76,
+          16,
+          42
+        ],
+        "trial": 17
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          40,
+          43,
+          48,
+          49,
+          54,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 2,
+          "cycle": 30.0,
+          "forge": 3,
+          "id": "reference",
+          "pond_cap": 2,
+          "pond_regen": 2,
+          "success": 0.9
+        },
+        "region": 2,
+        "seed": 20278330,
+        "stars": [
+          3824,
+          299,
+          74,
+          15,
+          47
+        ],
+        "trial": 17
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          43,
+          49,
+          40,
+          54,
+          48,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 2,
+          "cycle": 30.0,
+          "forge": 3,
+          "id": "reference",
+          "pond_cap": 2,
+          "pond_regen": 2,
+          "success": 0.9
+        },
+        "region": 2,
+        "seed": 20279310,
+        "stars": [
+          3798,
+          330,
+          65,
+          13,
+          42
+        ],
+        "trial": 18
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          54,
+          43,
+          49,
+          40,
+          48,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 2,
+          "cycle": 30.0,
+          "forge": 3,
+          "id": "reference",
+          "pond_cap": 2,
+          "pond_regen": 2,
+          "success": 0.9
+        },
+        "region": 2,
+        "seed": 20279320,
+        "stars": [
+          3790,
+          337,
+          72,
+          9,
+          45
+        ],
+        "trial": 18
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          54,
+          43,
+          40,
+          48,
+          49,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 2,
+          "cycle": 30.0,
+          "forge": 3,
+          "id": "reference",
+          "pond_cap": 2,
+          "pond_regen": 2,
+          "success": 0.9
+        },
+        "region": 2,
+        "seed": 20279330,
+        "stars": [
+          3817,
+          308,
+          67,
+          15,
+          47
+        ],
+        "trial": 18
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          40,
+          43,
+          49,
+          57,
+          48,
+          54
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 2,
+          "cycle": 30.0,
+          "forge": 3,
+          "id": "reference",
+          "pond_cap": 2,
+          "pond_regen": 2,
+          "success": 0.9
+        },
+        "region": 2,
+        "seed": 20280310,
+        "stars": [
+          3815,
+          327,
+          54,
+          13,
+          43
+        ],
+        "trial": 19
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          40,
+          48,
+          43,
+          49,
+          54,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 2,
+          "cycle": 30.0,
+          "forge": 3,
+          "id": "reference",
+          "pond_cap": 2,
+          "pond_regen": 2,
+          "success": 0.9
+        },
+        "region": 2,
+        "seed": 20280320,
+        "stars": [
+          3816,
+          311,
+          71,
+          14,
+          42
+        ],
+        "trial": 19
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          48,
+          49,
+          43,
+          40,
+          54,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 2,
+          "cycle": 30.0,
+          "forge": 3,
+          "id": "reference",
+          "pond_cap": 2,
+          "pond_regen": 2,
+          "success": 0.9
+        },
+        "region": 2,
+        "seed": 20280330,
+        "stars": [
+          3824,
+          308,
+          61,
+          7,
+          51
+        ],
+        "trial": 19
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          43,
+          49,
+          57,
+          40,
+          48,
+          54
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 3,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "fast",
+          "pond_cap": 3,
+          "pond_regen": 3,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20261310,
+        "stars": [
+          4441,
+          385,
+          99,
+          9,
+          51
+        ],
+        "trial": 0
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          40,
+          48,
+          54,
+          49,
+          43,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 3,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "fast",
+          "pond_cap": 3,
+          "pond_regen": 3,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20261320,
+        "stars": [
+          4414,
+          419,
+          95,
+          10,
+          56
+        ],
+        "trial": 0
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          40,
+          54,
+          49,
+          48,
+          43,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 3,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "fast",
+          "pond_cap": 3,
+          "pond_regen": 3,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20261330,
+        "stars": [
+          4403,
+          439,
+          87,
+          12,
+          58
+        ],
+        "trial": 0
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          43,
+          48,
+          54,
+          40,
+          49,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 3,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "fast",
+          "pond_cap": 3,
+          "pond_regen": 3,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20262310,
+        "stars": [
+          4465,
+          388,
+          85,
+          8,
+          51
+        ],
+        "trial": 1
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          40,
+          54,
+          43,
+          48,
+          57,
+          49
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 3,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "fast",
+          "pond_cap": 3,
+          "pond_regen": 3,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20262320,
+        "stars": [
+          4423,
+          416,
+          74,
+          28,
+          54
+        ],
+        "trial": 1
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          40,
+          49,
+          54,
+          43,
+          48,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 3,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "fast",
+          "pond_cap": 3,
+          "pond_regen": 3,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20262330,
+        "stars": [
+          4429,
+          417,
+          76,
+          14,
+          59
+        ],
+        "trial": 1
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          43,
+          40,
+          48,
+          49,
+          54,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 3,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "fast",
+          "pond_cap": 3,
+          "pond_regen": 3,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20263310,
+        "stars": [
+          4451,
+          397,
+          82,
+          13,
+          53
+        ],
+        "trial": 2
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          49,
+          54,
+          40,
+          43,
+          48,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 3,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "fast",
+          "pond_cap": 3,
+          "pond_regen": 3,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20263320,
+        "stars": [
+          4506,
+          356,
+          76,
+          8,
+          52
+        ],
+        "trial": 2
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          57,
+          40,
+          49,
+          43,
+          48,
+          54
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 3,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "fast",
+          "pond_cap": 3,
+          "pond_regen": 3,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20263330,
+        "stars": [
+          4458,
+          377,
+          86,
+          16,
+          57
+        ],
+        "trial": 2
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          43,
+          40,
+          48,
+          49,
+          54,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 3,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "fast",
+          "pond_cap": 3,
+          "pond_regen": 3,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20264310,
+        "stars": [
+          4430,
+          407,
+          91,
+          14,
+          50
+        ],
+        "trial": 3
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          43,
+          40,
+          48,
+          54,
+          57,
+          49
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 3,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "fast",
+          "pond_cap": 3,
+          "pond_regen": 3,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20264320,
+        "stars": [
+          4431,
+          386,
+          106,
+          19,
+          53
+        ],
+        "trial": 3
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          40,
+          49,
+          54,
+          48,
+          43,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 3,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "fast",
+          "pond_cap": 3,
+          "pond_regen": 3,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20264330,
+        "stars": [
+          4424,
+          403,
+          92,
+          17,
+          56
+        ],
+        "trial": 3
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          54,
+          48,
+          40,
+          43,
+          49,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 3,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "fast",
+          "pond_cap": 3,
+          "pond_regen": 3,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20265310,
+        "stars": [
+          4413,
+          434,
+          84,
+          14,
+          51
+        ],
+        "trial": 4
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          40,
+          43,
+          48,
+          49,
+          54,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 3,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "fast",
+          "pond_cap": 3,
+          "pond_regen": 3,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20265320,
+        "stars": [
+          4481,
+          370,
+          90,
+          10,
+          54
+        ],
+        "trial": 4
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          48,
+          43,
+          40,
+          54,
+          57,
+          49
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 3,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "fast",
+          "pond_cap": 3,
+          "pond_regen": 3,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20265330,
+        "stars": [
+          4443,
+          414,
+          77,
+          4,
+          59
+        ],
+        "trial": 4
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          49,
+          40,
+          43,
+          54,
+          48,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 3,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "fast",
+          "pond_cap": 3,
+          "pond_regen": 3,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20266310,
+        "stars": [
+          4436,
+          416,
+          80,
+          14,
+          52
+        ],
+        "trial": 5
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          40,
+          48,
+          43,
+          54,
+          49,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 3,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "fast",
+          "pond_cap": 3,
+          "pond_regen": 3,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20266320,
+        "stars": [
+          4451,
+          406,
+          73,
+          12,
+          51
+        ],
+        "trial": 5
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          43,
+          40,
+          48,
+          49,
+          54,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 3,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "fast",
+          "pond_cap": 3,
+          "pond_regen": 3,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20266330,
+        "stars": [
+          4427,
+          411,
+          85,
+          14,
+          56
+        ],
+        "trial": 5
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          43,
+          57,
+          48,
+          49,
+          54,
+          40
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 3,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "fast",
+          "pond_cap": 3,
+          "pond_regen": 3,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20267310,
+        "stars": [
+          4422,
+          424,
+          84,
+          13,
+          53
+        ],
+        "trial": 6
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          48,
+          43,
+          40,
+          54,
+          49,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 3,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "fast",
+          "pond_cap": 3,
+          "pond_regen": 3,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20267320,
+        "stars": [
+          4443,
+          397,
+          88,
+          10,
+          53
+        ],
+        "trial": 6
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          48,
+          57,
+          43,
+          54,
+          40,
+          49
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 3,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "fast",
+          "pond_cap": 3,
+          "pond_regen": 3,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20267330,
+        "stars": [
+          4410,
+          426,
+          91,
+          17,
+          55
+        ],
+        "trial": 6
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          48,
+          40,
+          49,
+          43,
+          54,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 3,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "fast",
+          "pond_cap": 3,
+          "pond_regen": 3,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20268310,
+        "stars": [
+          4442,
+          413,
+          87,
+          7,
+          55
+        ],
+        "trial": 7
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          57,
+          48,
+          43,
+          40,
+          49,
+          54
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 3,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "fast",
+          "pond_cap": 3,
+          "pond_regen": 3,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20268320,
+        "stars": [
+          4454,
+          397,
+          77,
+          16,
+          53
+        ],
+        "trial": 7
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          43,
+          54,
+          48,
+          57,
+          49,
+          40
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 3,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "fast",
+          "pond_cap": 3,
+          "pond_regen": 3,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20268330,
+        "stars": [
+          4419,
+          423,
+          85,
+          13,
+          58
+        ],
+        "trial": 7
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          43,
+          48,
+          40,
+          49,
+          57,
+          54
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 3,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "fast",
+          "pond_cap": 3,
+          "pond_regen": 3,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20269310,
+        "stars": [
+          4444,
+          393,
+          89,
+          15,
+          52
+        ],
+        "trial": 8
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          43,
+          40,
+          48,
+          54,
+          49,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 3,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "fast",
+          "pond_cap": 3,
+          "pond_regen": 3,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20269320,
+        "stars": [
+          4432,
+          417,
+          75,
+          12,
+          53
+        ],
+        "trial": 8
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          48,
+          40,
+          43,
+          54,
+          49,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 3,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "fast",
+          "pond_cap": 3,
+          "pond_regen": 3,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20269330,
+        "stars": [
+          4461,
+          379,
+          71,
+          18,
+          57
+        ],
+        "trial": 8
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          57,
+          43,
+          48,
+          40,
+          49,
+          54
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 3,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "fast",
+          "pond_cap": 3,
+          "pond_regen": 3,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20270310,
+        "stars": [
+          4421,
+          429,
+          74,
+          13,
+          54
+        ],
+        "trial": 9
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          54,
+          49,
+          48,
+          43,
+          40,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 3,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "fast",
+          "pond_cap": 3,
+          "pond_regen": 3,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20270320,
+        "stars": [
+          4458,
+          400,
+          73,
+          12,
+          56
+        ],
+        "trial": 9
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          49,
+          43,
+          40,
+          48,
+          57,
+          54
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 3,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "fast",
+          "pond_cap": 3,
+          "pond_regen": 3,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20270330,
+        "stars": [
+          4425,
+          411,
+          88,
+          15,
+          57
+        ],
+        "trial": 9
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          54,
+          43,
+          48,
+          40,
+          49,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 3,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "fast",
+          "pond_cap": 3,
+          "pond_regen": 3,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20271310,
+        "stars": [
+          4426,
+          417,
+          87,
+          19,
+          52
+        ],
+        "trial": 10
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          40,
+          49,
+          43,
+          48,
+          54,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 3,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "fast",
+          "pond_cap": 3,
+          "pond_regen": 3,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20271320,
+        "stars": [
+          4461,
+          400,
+          79,
+          8,
+          52
+        ],
+        "trial": 10
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          49,
+          43,
+          40,
+          48,
+          54,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 3,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "fast",
+          "pond_cap": 3,
+          "pond_regen": 3,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20271330,
+        "stars": [
+          4421,
+          419,
+          88,
+          8,
+          57
+        ],
+        "trial": 10
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          43,
+          40,
+          54,
+          48,
+          49,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 3,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "fast",
+          "pond_cap": 3,
+          "pond_regen": 3,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20272310,
+        "stars": [
+          4450,
+          402,
+          96,
+          5,
+          50
+        ],
+        "trial": 11
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          43,
+          40,
+          49,
+          48,
+          54,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 3,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "fast",
+          "pond_cap": 3,
+          "pond_regen": 3,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20272320,
+        "stars": [
+          4441,
+          395,
+          100,
+          6,
+          53
+        ],
+        "trial": 11
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          40,
+          43,
+          48,
+          49,
+          54,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 3,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "fast",
+          "pond_cap": 3,
+          "pond_regen": 3,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20272330,
+        "stars": [
+          4473,
+          384,
+          76,
+          11,
+          57
+        ],
+        "trial": 11
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          40,
+          49,
+          43,
+          57,
+          54,
+          48
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 3,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "fast",
+          "pond_cap": 3,
+          "pond_regen": 3,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20273310,
+        "stars": [
+          4467,
+          403,
+          65,
+          10,
+          54
+        ],
+        "trial": 12
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          54,
+          40,
+          43,
+          48,
+          49,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 3,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "fast",
+          "pond_cap": 3,
+          "pond_regen": 3,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20273320,
+        "stars": [
+          4461,
+          390,
+          77,
+          11,
+          54
+        ],
+        "trial": 12
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          54,
+          49,
+          48,
+          43,
+          40,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 3,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "fast",
+          "pond_cap": 3,
+          "pond_regen": 3,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20273330,
+        "stars": [
+          4467,
+          383,
+          75,
+          11,
+          58
+        ],
+        "trial": 12
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          49,
+          54,
+          43,
+          48,
+          40,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 3,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "fast",
+          "pond_cap": 3,
+          "pond_regen": 3,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20274310,
+        "stars": [
+          4436,
+          412,
+          81,
+          12,
+          52
+        ],
+        "trial": 13
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          54,
+          48,
+          49,
+          43,
+          40,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 3,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "fast",
+          "pond_cap": 3,
+          "pond_regen": 3,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20274320,
+        "stars": [
+          4435,
+          414,
+          84,
+          11,
+          52
+        ],
+        "trial": 13
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          57,
+          49,
+          40,
+          43,
+          48,
+          54
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 3,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "fast",
+          "pond_cap": 3,
+          "pond_regen": 3,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20274330,
+        "stars": [
+          4444,
+          407,
+          75,
+          10,
+          58
+        ],
+        "trial": 13
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          43,
+          40,
+          49,
+          48,
+          54,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 3,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "fast",
+          "pond_cap": 3,
+          "pond_regen": 3,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20275310,
+        "stars": [
+          4418,
+          421,
+          89,
+          16,
+          55
+        ],
+        "trial": 14
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          54,
+          49,
+          43,
+          40,
+          48,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 3,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "fast",
+          "pond_cap": 3,
+          "pond_regen": 3,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20275320,
+        "stars": [
+          4451,
+          412,
+          75,
+          13,
+          54
+        ],
+        "trial": 14
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          40,
+          49,
+          48,
+          54,
+          43,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 3,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "fast",
+          "pond_cap": 3,
+          "pond_regen": 3,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20275330,
+        "stars": [
+          4447,
+          396,
+          83,
+          15,
+          57
+        ],
+        "trial": 14
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          57,
+          49,
+          40,
+          54,
+          43,
+          48
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 3,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "fast",
+          "pond_cap": 3,
+          "pond_regen": 3,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20276310,
+        "stars": [
+          4403,
+          417,
+          101,
+          14,
+          53
+        ],
+        "trial": 15
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          49,
+          40,
+          48,
+          43,
+          54,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 3,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "fast",
+          "pond_cap": 3,
+          "pond_regen": 3,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20276320,
+        "stars": [
+          4452,
+          379,
+          95,
+          15,
+          53
+        ],
+        "trial": 15
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          49,
+          43,
+          48,
+          40,
+          54,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 3,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "fast",
+          "pond_cap": 3,
+          "pond_regen": 3,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20276330,
+        "stars": [
+          4440,
+          401,
+          81,
+          11,
+          58
+        ],
+        "trial": 15
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          40,
+          43,
+          48,
+          54,
+          49,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 3,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "fast",
+          "pond_cap": 3,
+          "pond_regen": 3,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20277310,
+        "stars": [
+          4445,
+          414,
+          71,
+          10,
+          52
+        ],
+        "trial": 16
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          40,
+          54,
+          48,
+          43,
+          49,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 3,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "fast",
+          "pond_cap": 3,
+          "pond_regen": 3,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20277320,
+        "stars": [
+          4450,
+          400,
+          86,
+          8,
+          52
+        ],
+        "trial": 16
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          54,
+          40,
+          48,
+          49,
+          43,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 3,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "fast",
+          "pond_cap": 3,
+          "pond_regen": 3,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20277330,
+        "stars": [
+          4420,
+          440,
+          66,
+          14,
+          58
+        ],
+        "trial": 16
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          40,
+          48,
+          49,
+          43,
+          54,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 3,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "fast",
+          "pond_cap": 3,
+          "pond_regen": 3,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20278310,
+        "stars": [
+          4445,
+          406,
+          83,
+          11,
+          51
+        ],
+        "trial": 17
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          40,
+          54,
+          48,
+          43,
+          49,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 3,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "fast",
+          "pond_cap": 3,
+          "pond_regen": 3,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20278320,
+        "stars": [
+          4463,
+          376,
+          90,
+          14,
+          52
+        ],
+        "trial": 17
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          40,
+          43,
+          48,
+          49,
+          54,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 3,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "fast",
+          "pond_cap": 3,
+          "pond_regen": 3,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20278330,
+        "stars": [
+          4475,
+          367,
+          90,
+          6,
+          57
+        ],
+        "trial": 17
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          43,
+          48,
+          40,
+          54,
+          49,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 3,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "fast",
+          "pond_cap": 3,
+          "pond_regen": 3,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20279310,
+        "stars": [
+          4439,
+          392,
+          93,
+          10,
+          53
+        ],
+        "trial": 18
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          54,
+          40,
+          43,
+          48,
+          49,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 3,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "fast",
+          "pond_cap": 3,
+          "pond_regen": 3,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20279320,
+        "stars": [
+          4491,
+          373,
+          81,
+          5,
+          52
+        ],
+        "trial": 18
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          54,
+          43,
+          40,
+          48,
+          49,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 3,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "fast",
+          "pond_cap": 3,
+          "pond_regen": 3,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20279330,
+        "stars": [
+          4453,
+          393,
+          82,
+          16,
+          58
+        ],
+        "trial": 18
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          40,
+          43,
+          57,
+          48,
+          49,
+          54
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 3,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "fast",
+          "pond_cap": 3,
+          "pond_regen": 3,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20280310,
+        "stars": [
+          4454,
+          378,
+          92,
+          25,
+          52
+        ],
+        "trial": 19
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          40,
+          48,
+          43,
+          49,
+          57,
+          54
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 3,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "fast",
+          "pond_cap": 3,
+          "pond_regen": 3,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20280320,
+        "stars": [
+          4467,
+          394,
+          73,
+          10,
+          53
+        ],
+        "trial": 19
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          48,
+          49,
+          43,
+          40,
+          54,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 3,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "fast",
+          "pond_cap": 3,
+          "pond_regen": 3,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20280330,
+        "stars": [
+          4437,
+          407,
+          90,
+          7,
+          58
+        ],
+        "trial": 19
+      }
+    ]
+  },
+  {
+    "file": "joint-owner-max-ledger.json",
+    "bytes": 17711971,
+    "sha256": "c1fe88fd56c0e0155b8645349405487af3432b676483e31199fafba776f70f93",
+    "draws": 331094,
+    "cases": [
+      {
+        "bait": 0,
+        "main_seen": [
+          43,
+          49,
+          54,
+          40,
+          48,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 5,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "max_upgrades",
+          "pond_cap": 5,
+          "pond_regen": 5,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20261310,
+        "stars": [
+          4572,
+          696,
+          168,
+          25,
+          57
+        ],
+        "trial": 0
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          40,
+          48,
+          43,
+          49,
+          54,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 5,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "max_upgrades",
+          "pond_cap": 5,
+          "pond_regen": 5,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20261320,
+        "stars": [
+          4512,
+          752,
+          171,
+          27,
+          59
+        ],
+        "trial": 0
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          40,
+          54,
+          49,
+          48,
+          43,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 5,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "max_upgrades",
+          "pond_cap": 5,
+          "pond_regen": 5,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20261330,
+        "stars": [
+          4517,
+          755,
+          171,
+          11,
+          64
+        ],
+        "trial": 0
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          43,
+          48,
+          54,
+          49,
+          40,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 5,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "max_upgrades",
+          "pond_cap": 5,
+          "pond_regen": 5,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20262310,
+        "stars": [
+          4592,
+          703,
+          149,
+          13,
+          57
+        ],
+        "trial": 1
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          40,
+          54,
+          43,
+          48,
+          49,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 5,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "max_upgrades",
+          "pond_cap": 5,
+          "pond_regen": 5,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20262320,
+        "stars": [
+          4545,
+          736,
+          153,
+          23,
+          57
+        ],
+        "trial": 1
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          40,
+          43,
+          48,
+          49,
+          54,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 5,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "max_upgrades",
+          "pond_cap": 5,
+          "pond_regen": 5,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20262330,
+        "stars": [
+          4530,
+          732,
+          175,
+          17,
+          64
+        ],
+        "trial": 1
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          43,
+          40,
+          49,
+          48,
+          54,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 5,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "max_upgrades",
+          "pond_cap": 5,
+          "pond_regen": 5,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20263310,
+        "stars": [
+          4587,
+          709,
+          142,
+          23,
+          57
+        ],
+        "trial": 2
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          43,
+          48,
+          40,
+          49,
+          54,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 5,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "max_upgrades",
+          "pond_cap": 5,
+          "pond_regen": 5,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20263320,
+        "stars": [
+          4541,
+          762,
+          130,
+          26,
+          60
+        ],
+        "trial": 2
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          57,
+          40,
+          48,
+          49,
+          43,
+          54
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 5,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "max_upgrades",
+          "pond_cap": 5,
+          "pond_regen": 5,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20263330,
+        "stars": [
+          4518,
+          755,
+          147,
+          27,
+          65
+        ],
+        "trial": 2
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          43,
+          40,
+          48,
+          49,
+          54,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 5,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "max_upgrades",
+          "pond_cap": 5,
+          "pond_regen": 5,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20264310,
+        "stars": [
+          4513,
+          758,
+          171,
+          15,
+          59
+        ],
+        "trial": 3
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          43,
+          40,
+          54,
+          48,
+          49,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 5,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "max_upgrades",
+          "pond_cap": 5,
+          "pond_regen": 5,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20264320,
+        "stars": [
+          4531,
+          744,
+          161,
+          22,
+          58
+        ],
+        "trial": 3
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          40,
+          49,
+          54,
+          43,
+          48,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 5,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "max_upgrades",
+          "pond_cap": 5,
+          "pond_regen": 5,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20264330,
+        "stars": [
+          4517,
+          766,
+          157,
+          14,
+          64
+        ],
+        "trial": 3
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          54,
+          48,
+          40,
+          49,
+          43,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 5,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "max_upgrades",
+          "pond_cap": 5,
+          "pond_regen": 5,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20265310,
+        "stars": [
+          4540,
+          766,
+          124,
+          34,
+          58
+        ],
+        "trial": 4
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          40,
+          43,
+          48,
+          49,
+          54,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 5,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "max_upgrades",
+          "pond_cap": 5,
+          "pond_regen": 5,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20265320,
+        "stars": [
+          4538,
+          749,
+          154,
+          22,
+          59
+        ],
+        "trial": 4
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          48,
+          43,
+          40,
+          54,
+          57,
+          49
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 5,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "max_upgrades",
+          "pond_cap": 5,
+          "pond_regen": 5,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20265330,
+        "stars": [
+          4582,
+          693,
+          153,
+          27,
+          64
+        ],
+        "trial": 4
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          49,
+          40,
+          43,
+          48,
+          54,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 5,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "max_upgrades",
+          "pond_cap": 5,
+          "pond_regen": 5,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20266310,
+        "stars": [
+          4531,
+          736,
+          170,
+          23,
+          58
+        ],
+        "trial": 5
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          40,
+          48,
+          43,
+          49,
+          54,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 5,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "max_upgrades",
+          "pond_cap": 5,
+          "pond_regen": 5,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20266320,
+        "stars": [
+          4527,
+          772,
+          142,
+          22,
+          57
+        ],
+        "trial": 5
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          43,
+          40,
+          48,
+          54,
+          49,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 5,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "max_upgrades",
+          "pond_cap": 5,
+          "pond_regen": 5,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20266330,
+        "stars": [
+          4539,
+          725,
+          179,
+          17,
+          63
+        ],
+        "trial": 5
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          43,
+          57,
+          48,
+          40,
+          49,
+          54
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 5,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "max_upgrades",
+          "pond_cap": 5,
+          "pond_regen": 5,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20267310,
+        "stars": [
+          4488,
+          776,
+          170,
+          31,
+          57
+        ],
+        "trial": 6
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          48,
+          43,
+          54,
+          40,
+          49,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 5,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "max_upgrades",
+          "pond_cap": 5,
+          "pond_regen": 5,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20267320,
+        "stars": [
+          4572,
+          717,
+          148,
+          26,
+          58
+        ],
+        "trial": 6
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          48,
+          57,
+          43,
+          49,
+          40,
+          54
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 5,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "max_upgrades",
+          "pond_cap": 5,
+          "pond_regen": 5,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20267330,
+        "stars": [
+          4548,
+          741,
+          145,
+          22,
+          66
+        ],
+        "trial": 6
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          48,
+          40,
+          49,
+          43,
+          54,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 5,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "max_upgrades",
+          "pond_cap": 5,
+          "pond_regen": 5,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20268310,
+        "stars": [
+          4510,
+          770,
+          152,
+          28,
+          59
+        ],
+        "trial": 7
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          57,
+          48,
+          43,
+          40,
+          49,
+          54
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 5,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "max_upgrades",
+          "pond_cap": 5,
+          "pond_regen": 5,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20268320,
+        "stars": [
+          4531,
+          746,
+          156,
+          21,
+          58
+        ],
+        "trial": 7
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          43,
+          54,
+          57,
+          48,
+          49,
+          40
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 5,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "max_upgrades",
+          "pond_cap": 5,
+          "pond_regen": 5,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20268330,
+        "stars": [
+          4526,
+          736,
+          173,
+          18,
+          64
+        ],
+        "trial": 7
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          43,
+          48,
+          40,
+          49,
+          54,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 5,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "max_upgrades",
+          "pond_cap": 5,
+          "pond_regen": 5,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20269310,
+        "stars": [
+          4484,
+          789,
+          151,
+          36,
+          56
+        ],
+        "trial": 8
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          43,
+          40,
+          48,
+          54,
+          49,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 5,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "max_upgrades",
+          "pond_cap": 5,
+          "pond_regen": 5,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20269320,
+        "stars": [
+          4481,
+          784,
+          166,
+          27,
+          58
+        ],
+        "trial": 8
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          48,
+          40,
+          43,
+          49,
+          54,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 5,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "max_upgrades",
+          "pond_cap": 5,
+          "pond_regen": 5,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20269330,
+        "stars": [
+          4538,
+          738,
+          160,
+          21,
+          63
+        ],
+        "trial": 8
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          57,
+          43,
+          40,
+          48,
+          49,
+          54
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 5,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "max_upgrades",
+          "pond_cap": 5,
+          "pond_regen": 5,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20270310,
+        "stars": [
+          4455,
+          808,
+          168,
+          30,
+          58
+        ],
+        "trial": 9
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          54,
+          49,
+          48,
+          43,
+          40,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 5,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "max_upgrades",
+          "pond_cap": 5,
+          "pond_regen": 5,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20270320,
+        "stars": [
+          4539,
+          757,
+          143,
+          25,
+          58
+        ],
+        "trial": 9
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          49,
+          43,
+          40,
+          48,
+          54,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 5,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "max_upgrades",
+          "pond_cap": 5,
+          "pond_regen": 5,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20270330,
+        "stars": [
+          4544,
+          734,
+          148,
+          29,
+          62
+        ],
+        "trial": 9
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          54,
+          40,
+          43,
+          48,
+          57,
+          49
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 5,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "max_upgrades",
+          "pond_cap": 5,
+          "pond_regen": 5,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20271310,
+        "stars": [
+          4525,
+          747,
+          163,
+          22,
+          58
+        ],
+        "trial": 10
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          40,
+          49,
+          43,
+          48,
+          54,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 5,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "max_upgrades",
+          "pond_cap": 5,
+          "pond_regen": 5,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20271320,
+        "stars": [
+          4547,
+          756,
+          144,
+          18,
+          56
+        ],
+        "trial": 10
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          49,
+          43,
+          40,
+          48,
+          54,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 5,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "max_upgrades",
+          "pond_cap": 5,
+          "pond_regen": 5,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20271330,
+        "stars": [
+          4579,
+          718,
+          139,
+          18,
+          62
+        ],
+        "trial": 10
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          43,
+          40,
+          54,
+          48,
+          49,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 5,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "max_upgrades",
+          "pond_cap": 5,
+          "pond_regen": 5,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20272310,
+        "stars": [
+          4498,
+          780,
+          157,
+          27,
+          57
+        ],
+        "trial": 11
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          43,
+          48,
+          40,
+          49,
+          57,
+          54
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 5,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "max_upgrades",
+          "pond_cap": 5,
+          "pond_regen": 5,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20272320,
+        "stars": [
+          4514,
+          751,
+          167,
+          28,
+          58
+        ],
+        "trial": 11
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          40,
+          54,
+          57,
+          48,
+          43,
+          49
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 5,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "max_upgrades",
+          "pond_cap": 5,
+          "pond_regen": 5,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20272330,
+        "stars": [
+          4567,
+          715,
+          137,
+          40,
+          63
+        ],
+        "trial": 11
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          40,
+          49,
+          57,
+          43,
+          54,
+          48
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 5,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "max_upgrades",
+          "pond_cap": 5,
+          "pond_regen": 5,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20273310,
+        "stars": [
+          4501,
+          753,
+          172,
+          27,
+          61
+        ],
+        "trial": 12
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          54,
+          49,
+          43,
+          40,
+          48,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 5,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "max_upgrades",
+          "pond_cap": 5,
+          "pond_regen": 5,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20273320,
+        "stars": [
+          4537,
+          739,
+          167,
+          19,
+          58
+        ],
+        "trial": 12
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          54,
+          49,
+          48,
+          43,
+          40,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 5,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "max_upgrades",
+          "pond_cap": 5,
+          "pond_regen": 5,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20273330,
+        "stars": [
+          4523,
+          763,
+          140,
+          24,
+          65
+        ],
+        "trial": 12
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          49,
+          54,
+          43,
+          48,
+          40,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 5,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "max_upgrades",
+          "pond_cap": 5,
+          "pond_regen": 5,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20274310,
+        "stars": [
+          4465,
+          809,
+          159,
+          24,
+          60
+        ],
+        "trial": 13
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          54,
+          48,
+          49,
+          43,
+          40,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 5,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "max_upgrades",
+          "pond_cap": 5,
+          "pond_regen": 5,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20274320,
+        "stars": [
+          4540,
+          742,
+          149,
+          30,
+          60
+        ],
+        "trial": 13
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          57,
+          49,
+          40,
+          48,
+          43,
+          54
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 5,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "max_upgrades",
+          "pond_cap": 5,
+          "pond_regen": 5,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20274330,
+        "stars": [
+          4559,
+          722,
+          159,
+          15,
+          64
+        ],
+        "trial": 13
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          43,
+          40,
+          49,
+          54,
+          48,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 5,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "max_upgrades",
+          "pond_cap": 5,
+          "pond_regen": 5,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20275310,
+        "stars": [
+          4497,
+          792,
+          148,
+          21,
+          57
+        ],
+        "trial": 14
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          54,
+          49,
+          40,
+          48,
+          43,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 5,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "max_upgrades",
+          "pond_cap": 5,
+          "pond_regen": 5,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20275320,
+        "stars": [
+          4488,
+          774,
+          170,
+          26,
+          58
+        ],
+        "trial": 14
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          40,
+          49,
+          48,
+          54,
+          43,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 5,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "max_upgrades",
+          "pond_cap": 5,
+          "pond_regen": 5,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20275330,
+        "stars": [
+          4482,
+          797,
+          149,
+          20,
+          68
+        ],
+        "trial": 14
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          57,
+          49,
+          40,
+          54,
+          43,
+          48
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 5,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "max_upgrades",
+          "pond_cap": 5,
+          "pond_regen": 5,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20276310,
+        "stars": [
+          4563,
+          738,
+          145,
+          17,
+          56
+        ],
+        "trial": 15
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          49,
+          40,
+          48,
+          43,
+          57,
+          54
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 5,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "max_upgrades",
+          "pond_cap": 5,
+          "pond_regen": 5,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20276320,
+        "stars": [
+          4502,
+          754,
+          169,
+          26,
+          59
+        ],
+        "trial": 15
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          49,
+          43,
+          48,
+          40,
+          57,
+          54
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 5,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "max_upgrades",
+          "pond_cap": 5,
+          "pond_regen": 5,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20276330,
+        "stars": [
+          4530,
+          755,
+          151,
+          22,
+          62
+        ],
+        "trial": 15
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          40,
+          43,
+          48,
+          54,
+          49,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 5,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "max_upgrades",
+          "pond_cap": 5,
+          "pond_regen": 5,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20277310,
+        "stars": [
+          4536,
+          750,
+          161,
+          15,
+          56
+        ],
+        "trial": 16
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          40,
+          54,
+          48,
+          43,
+          49,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 5,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "max_upgrades",
+          "pond_cap": 5,
+          "pond_regen": 5,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20277320,
+        "stars": [
+          4557,
+          725,
+          150,
+          29,
+          57
+        ],
+        "trial": 16
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          54,
+          40,
+          48,
+          43,
+          49,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 5,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "max_upgrades",
+          "pond_cap": 5,
+          "pond_regen": 5,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20277330,
+        "stars": [
+          4508,
+          765,
+          169,
+          16,
+          63
+        ],
+        "trial": 16
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          40,
+          48,
+          49,
+          43,
+          54,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 5,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "max_upgrades",
+          "pond_cap": 5,
+          "pond_regen": 5,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20278310,
+        "stars": [
+          4555,
+          739,
+          148,
+          21,
+          58
+        ],
+        "trial": 17
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          40,
+          54,
+          43,
+          48,
+          49,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 5,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "max_upgrades",
+          "pond_cap": 5,
+          "pond_regen": 5,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20278320,
+        "stars": [
+          4498,
+          764,
+          172,
+          27,
+          57
+        ],
+        "trial": 17
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          40,
+          43,
+          48,
+          49,
+          54,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 5,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "max_upgrades",
+          "pond_cap": 5,
+          "pond_regen": 5,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20278330,
+        "stars": [
+          4488,
+          781,
+          159,
+          29,
+          63
+        ],
+        "trial": 17
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          43,
+          48,
+          40,
+          54,
+          49,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 5,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "max_upgrades",
+          "pond_cap": 5,
+          "pond_regen": 5,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20279310,
+        "stars": [
+          4554,
+          718,
+          168,
+          22,
+          57
+        ],
+        "trial": 18
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          54,
+          40,
+          43,
+          49,
+          48,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 5,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "max_upgrades",
+          "pond_cap": 5,
+          "pond_regen": 5,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20279320,
+        "stars": [
+          4536,
+          747,
+          151,
+          26,
+          58
+        ],
+        "trial": 18
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          54,
+          43,
+          40,
+          48,
+          49,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 5,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "max_upgrades",
+          "pond_cap": 5,
+          "pond_regen": 5,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20279330,
+        "stars": [
+          4492,
+          759,
+          187,
+          17,
+          64
+        ],
+        "trial": 18
+      },
+      {
+        "bait": 0,
+        "main_seen": [
+          40,
+          43,
+          57,
+          54,
+          48,
+          49
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 5,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "max_upgrades",
+          "pond_cap": 5,
+          "pond_regen": 5,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20280310,
+        "stars": [
+          4535,
+          761,
+          150,
+          13,
+          62
+        ],
+        "trial": 19
+      },
+      {
+        "bait": 1,
+        "main_seen": [
+          40,
+          48,
+          43,
+          49,
+          54,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 5,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "max_upgrades",
+          "pond_cap": 5,
+          "pond_regen": 5,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20280320,
+        "stars": [
+          4526,
+          754,
+          153,
+          28,
+          57
+        ],
+        "trial": 19
+      },
+      {
+        "bait": 2,
+        "main_seen": [
+          48,
+          49,
+          40,
+          54,
+          43,
+          57
+        ],
+        "mode": "daily",
+        "profile": {
+          "boat": 5,
+          "cycle": 25.0,
+          "forge": 5,
+          "id": "max_upgrades",
+          "pond_cap": 5,
+          "pond_regen": 5,
+          "success": 0.95
+        },
+        "region": 2,
+        "seed": 20280330,
+        "stars": [
+          4508,
+          745,
+          182,
+          23,
+          63
+        ],
+        "trial": 19
+      }
+    ]
+  }
+]

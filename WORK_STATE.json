@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "owner_income_unlock_joint_simulation_in_progress",
+  "status": "owner_income_unlock_joint_proposal_verified_not_applied",
   "release_baseline": "v1.12",
   "target_release": "v1.12",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/analysis/owner-income-unlock-20261109/HANDOFF.md",
-  "current_task": "주인수족관수입분리+다음해금비 후보동시시뮬",
-  "next_step": "실제추첨/성공·시간프로필별시뮬→후보비교·추천안저장; 게임수치/배포변경금지",
+  "current_task": "주인수족관기준6만/다음해금비2500만추천(미적용)",
+  "next_step": "추천안/기본주인판매가대비2%/접속민감도 사용자검토; 구현/배포 미승인",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -557,5 +557,29 @@
     "unique_verify_results": 88,
     "verification": "docs/qa/critical-audit-20261109/VERIFICATION.json",
     "balance_changed": false
+  },
+  "joint_balance_proposal": {
+    "status": "recommended_not_approved_not_applied",
+    "owner_sale_bases": [
+      8000,
+      40000,
+      500000
+    ],
+    "owner_aquarium_income_bases": [
+      8000,
+      16000,
+      60000
+    ],
+    "next_unlock_fee": 25000000,
+    "reference_median_day": 7,
+    "reference_tank_slots": 20,
+    "reference_boat_level": 5,
+    "actual_draws": 1085597,
+    "economic_paths": 12960,
+    "threshold_evaluations": 466560,
+    "report": "docs/analysis/owner-income-unlock-20261109/REPORT.md",
+    "verification": "docs/analysis/owner-income-unlock-20261109/VERIFICATION.json",
+    "game_changed": false,
+    "deployed": false
   }
 }

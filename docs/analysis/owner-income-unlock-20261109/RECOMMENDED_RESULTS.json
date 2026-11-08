@@ -1,0 +1,527 @@
+{
+  "policy_summary": [
+    {
+      "profile": "slow_20",
+      "initial": "current",
+      "policy": "sell_new",
+      "median_day": 12.0,
+      "min_day": 10,
+      "max_day": 14,
+      "n": 60
+    },
+    {
+      "profile": "slow_20",
+      "initial": "current",
+      "policy": "income_greedy",
+      "median_day": 9.0,
+      "min_day": 8,
+      "max_day": 11,
+      "n": 60
+    },
+    {
+      "profile": "slow_20",
+      "initial": "current",
+      "policy": "roi_7day",
+      "median_day": 9.0,
+      "min_day": 8,
+      "max_day": 11,
+      "n": 60
+    },
+    {
+      "profile": "slow_20",
+      "initial": "none",
+      "policy": "sell_new",
+      "median_day": 13.5,
+      "min_day": 12,
+      "max_day": 15,
+      "n": 60
+    },
+    {
+      "profile": "slow_20",
+      "initial": "none",
+      "policy": "income_greedy",
+      "median_day": 9.0,
+      "min_day": 8,
+      "max_day": 11,
+      "n": 60
+    },
+    {
+      "profile": "slow_20",
+      "initial": "none",
+      "policy": "roi_7day",
+      "median_day": 9.0,
+      "min_day": 8,
+      "max_day": 11,
+      "n": 60
+    },
+    {
+      "profile": "reference_5",
+      "initial": "legacy",
+      "policy": "sell_new",
+      "median_day": 10.0,
+      "min_day": 9,
+      "max_day": 12,
+      "n": 60
+    },
+    {
+      "profile": "reference_5",
+      "initial": "legacy",
+      "policy": "income_greedy",
+      "median_day": 10.0,
+      "min_day": 8,
+      "max_day": 12,
+      "n": 60
+    },
+    {
+      "profile": "reference_5",
+      "initial": "legacy",
+      "policy": "roi_7day",
+      "median_day": 10.0,
+      "min_day": 8,
+      "max_day": 12,
+      "n": 60
+    },
+    {
+      "profile": "reference_5",
+      "initial": "current",
+      "policy": "sell_new",
+      "median_day": 10.0,
+      "min_day": 8,
+      "max_day": 12,
+      "n": 60
+    },
+    {
+      "profile": "reference_5",
+      "initial": "current",
+      "policy": "income_greedy",
+      "median_day": 10.0,
+      "min_day": 8,
+      "max_day": 11,
+      "n": 60
+    },
+    {
+      "profile": "reference_5",
+      "initial": "current",
+      "policy": "roi_7day",
+      "median_day": 10.0,
+      "min_day": 8,
+      "max_day": 11,
+      "n": 60
+    },
+    {
+      "profile": "reference_5",
+      "initial": "none",
+      "policy": "sell_new",
+      "median_day": 10.0,
+      "min_day": 9,
+      "max_day": 12,
+      "n": 60
+    },
+    {
+      "profile": "reference_5",
+      "initial": "none",
+      "policy": "income_greedy",
+      "median_day": 10.0,
+      "min_day": 8,
+      "max_day": 12,
+      "n": 60
+    },
+    {
+      "profile": "reference_5",
+      "initial": "none",
+      "policy": "roi_7day",
+      "median_day": 10.0,
+      "min_day": 8,
+      "max_day": 12,
+      "n": 60
+    },
+    {
+      "profile": "reference_20",
+      "initial": "legacy",
+      "policy": "sell_new",
+      "median_day": 9.5,
+      "min_day": 8,
+      "max_day": 11,
+      "n": 60
+    },
+    {
+      "profile": "reference_20",
+      "initial": "legacy",
+      "policy": "income_greedy",
+      "median_day": 7.0,
+      "min_day": 6,
+      "max_day": 8,
+      "n": 60
+    },
+    {
+      "profile": "reference_20",
+      "initial": "legacy",
+      "policy": "roi_7day",
+      "median_day": 7.0,
+      "min_day": 6,
+      "max_day": 8,
+      "n": 60
+    },
+    {
+      "profile": "reference_20",
+      "initial": "current",
+      "policy": "sell_new",
+      "median_day": 9.0,
+      "min_day": 7,
+      "max_day": 10,
+      "n": 60
+    },
+    {
+      "profile": "reference_20",
+      "initial": "current",
+      "policy": "income_greedy",
+      "median_day": 7.0,
+      "min_day": 6,
+      "max_day": 8,
+      "n": 60
+    },
+    {
+      "profile": "reference_20",
+      "initial": "current",
+      "policy": "roi_7day",
+      "median_day": 7.0,
+      "min_day": 6,
+      "max_day": 8,
+      "n": 60
+    },
+    {
+      "profile": "reference_20",
+      "initial": "none",
+      "policy": "sell_new",
+      "median_day": 10.0,
+      "min_day": 8,
+      "max_day": 11,
+      "n": 60
+    },
+    {
+      "profile": "reference_20",
+      "initial": "none",
+      "policy": "income_greedy",
+      "median_day": 7.0,
+      "min_day": 6,
+      "max_day": 8,
+      "n": 60
+    },
+    {
+      "profile": "reference_20",
+      "initial": "none",
+      "policy": "roi_7day",
+      "median_day": 7.0,
+      "min_day": 6,
+      "max_day": 8,
+      "n": 60
+    },
+    {
+      "profile": "fast_20",
+      "initial": "current",
+      "policy": "sell_new",
+      "median_day": 7.0,
+      "min_day": 6,
+      "max_day": 8,
+      "n": 60
+    },
+    {
+      "profile": "fast_20",
+      "initial": "current",
+      "policy": "income_greedy",
+      "median_day": 6.0,
+      "min_day": 5,
+      "max_day": 7,
+      "n": 60
+    },
+    {
+      "profile": "fast_20",
+      "initial": "current",
+      "policy": "roi_7day",
+      "median_day": 6.0,
+      "min_day": 5,
+      "max_day": 7,
+      "n": 60
+    },
+    {
+      "profile": "fast_20",
+      "initial": "none",
+      "policy": "sell_new",
+      "median_day": 7.0,
+      "min_day": 6,
+      "max_day": 9,
+      "n": 60
+    },
+    {
+      "profile": "fast_20",
+      "initial": "none",
+      "policy": "income_greedy",
+      "median_day": 6.0,
+      "min_day": 5,
+      "max_day": 7,
+      "n": 60
+    },
+    {
+      "profile": "fast_20",
+      "initial": "none",
+      "policy": "roi_7day",
+      "median_day": 6.0,
+      "min_day": 5,
+      "max_day": 7,
+      "n": 60
+    },
+    {
+      "profile": "max_20",
+      "initial": "current",
+      "policy": "sell_new",
+      "median_day": 6.0,
+      "min_day": 5,
+      "max_day": 7,
+      "n": 60
+    },
+    {
+      "profile": "max_20",
+      "initial": "current",
+      "policy": "income_greedy",
+      "median_day": 5.0,
+      "min_day": 4,
+      "max_day": 6,
+      "n": 60
+    },
+    {
+      "profile": "max_20",
+      "initial": "current",
+      "policy": "roi_7day",
+      "median_day": 5.0,
+      "min_day": 4,
+      "max_day": 6,
+      "n": 60
+    },
+    {
+      "profile": "max_20",
+      "initial": "none",
+      "policy": "sell_new",
+      "median_day": 6.0,
+      "min_day": 5,
+      "max_day": 8,
+      "n": 60
+    },
+    {
+      "profile": "max_20",
+      "initial": "none",
+      "policy": "income_greedy",
+      "median_day": 5.0,
+      "min_day": 5,
+      "max_day": 6,
+      "n": 60
+    },
+    {
+      "profile": "max_20",
+      "initial": "none",
+      "policy": "roi_7day",
+      "median_day": 5.0,
+      "min_day": 5,
+      "max_day": 6,
+      "n": 60
+    }
+  ],
+  "draws": 1085597,
+  "trace_cases": 240,
+  "parameter_paths": 2160,
+  "threshold_evaluations": 2160,
+  "income_bases": [
+    60000
+  ],
+  "fees": [
+    25000000
+  ],
+  "ranking": [],
+  "summary": [
+    {
+      "income_base": 60000,
+      "fee": 25000000,
+      "profile": "slow_20",
+      "initial": "current",
+      "n": 60,
+      "completed": 60,
+      "median_day": 9.0,
+      "p10_day": 8,
+      "p90_day": 10,
+      "min_day": 8,
+      "max_day": 11,
+      "median_active_hours": 25.56337404616641
+    },
+    {
+      "income_base": 60000,
+      "fee": 25000000,
+      "profile": "slow_20",
+      "initial": "none",
+      "n": 60,
+      "completed": 60,
+      "median_day": 9.0,
+      "p10_day": 8,
+      "p90_day": 10,
+      "min_day": 8,
+      "max_day": 11,
+      "median_active_hours": 25.942033602939336
+    },
+    {
+      "income_base": 60000,
+      "fee": 25000000,
+      "profile": "reference_5",
+      "initial": "legacy",
+      "n": 60,
+      "completed": 60,
+      "median_day": 10.0,
+      "p10_day": 9,
+      "p90_day": 11,
+      "min_day": 8,
+      "max_day": 12,
+      "median_active_hours": 27.561966631271176
+    },
+    {
+      "income_base": 60000,
+      "fee": 25000000,
+      "profile": "reference_5",
+      "initial": "current",
+      "n": 60,
+      "completed": 60,
+      "median_day": 10.0,
+      "p10_day": 8,
+      "p90_day": 11,
+      "min_day": 8,
+      "max_day": 11,
+      "median_active_hours": 27.126661831186645
+    },
+    {
+      "income_base": 60000,
+      "fee": 25000000,
+      "profile": "reference_5",
+      "initial": "none",
+      "n": 60,
+      "completed": 60,
+      "median_day": 10.0,
+      "p10_day": 9,
+      "p90_day": 11,
+      "min_day": 8,
+      "max_day": 12,
+      "median_active_hours": 27.608806709958102
+    },
+    {
+      "income_base": 60000,
+      "fee": 25000000,
+      "profile": "reference_20",
+      "initial": "legacy",
+      "n": 60,
+      "completed": 60,
+      "median_day": 7.0,
+      "p10_day": 7,
+      "p90_day": 8,
+      "min_day": 6,
+      "max_day": 8,
+      "median_active_hours": 20.217797173707126
+    },
+    {
+      "income_base": 60000,
+      "fee": 25000000,
+      "profile": "reference_20",
+      "initial": "current",
+      "n": 60,
+      "completed": 60,
+      "median_day": 7.0,
+      "p10_day": 6,
+      "p90_day": 8,
+      "min_day": 6,
+      "max_day": 8,
+      "median_active_hours": 19.839213917942054
+    },
+    {
+      "income_base": 60000,
+      "fee": 25000000,
+      "profile": "reference_20",
+      "initial": "none",
+      "n": 60,
+      "completed": 60,
+      "median_day": 7.0,
+      "p10_day": 7,
+      "p90_day": 8,
+      "min_day": 6,
+      "max_day": 8,
+      "median_active_hours": 19.839213917942054
+    },
+    {
+      "income_base": 60000,
+      "fee": 25000000,
+      "profile": "fast_20",
+      "initial": "current",
+      "n": 60,
+      "completed": 60,
+      "median_day": 6.0,
+      "p10_day": 5,
+      "p90_day": 6,
+      "min_day": 5,
+      "max_day": 7,
+      "median_active_hours": 15.10820289846124
+    },
+    {
+      "income_base": 60000,
+      "fee": 25000000,
+      "profile": "fast_20",
+      "initial": "none",
+      "n": 60,
+      "completed": 60,
+      "median_day": 6.0,
+      "p10_day": 5,
+      "p90_day": 6,
+      "min_day": 5,
+      "max_day": 7,
+      "median_active_hours": 15.364915950004843
+    },
+    {
+      "income_base": 60000,
+      "fee": 25000000,
+      "profile": "max_20",
+      "initial": "current",
+      "n": 60,
+      "completed": 60,
+      "median_day": 5.0,
+      "p10_day": 5,
+      "p90_day": 6,
+      "min_day": 4,
+      "max_day": 6,
+      "median_active_hours": 13.562977333421628
+    },
+    {
+      "income_base": 60000,
+      "fee": 25000000,
+      "profile": "max_20",
+      "initial": "none",
+      "n": 60,
+      "completed": 60,
+      "median_day": 5.0,
+      "p10_day": 5,
+      "p90_day": 6,
+      "min_day": 5,
+      "max_day": 6,
+      "median_active_hours": 13.805221457365832
+    }
+  ],
+  "ledger_hashes": {
+    "joint-owner-ledger.json": "540762c512fa9adb8351dbe601d8b19fe816ea6e0dd76d03db6217b7951447ac",
+    "joint-owner-max-ledger.json": "c1fe88fd56c0e0155b8645349405487af3432b676483e31199fafba776f70f93"
+  },
+  "duration_seconds": 7.022631645202637,
+  "offline_credit_hours_per_day": 3,
+  "source": "fe95f5593f6ba2a133caf81cee69bd70bf00cf15",
+  "notes": [
+    "fee goal only; region3 prepared not available",
+    "daily3h online plus3h total offline credit in max3h settlements, starts zero cash; gear upgrades already paid",
+    "main donations kept; optional side/owner donations skipped in fastest-policy comparison",
+    "starting5fish; empty expanded slots filled only by actual caught fish",
+    "normal aquarium value equals stored sale; owner income detached with grade/size/forge preserved, initial legacy capped by old stored sale",
+    "sell-new, income-greedy, fixed7day-credit-horizon payback policies compared; not a proven globally optimal policy",
+    "cycle/success profiles are explicit assumptions; real game start_wait/grade/gauge/stock RNG used",
+    "14day noncompletions censored as15 for ranking; completed counts explicit",
+    "no travel/bag/menu downtime, robot or expedition income; no shared-account savings/asset liquidation"
+  ]
+}
