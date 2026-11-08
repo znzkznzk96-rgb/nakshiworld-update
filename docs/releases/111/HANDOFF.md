@@ -9,3 +9,6 @@
 관련: [본체](../../qa/fight-body-size/HANDOFF.md), [번들·선택그림](../../qa/bundle-next-unlock/HANDOFF.md).
 
 최종소스 `f2eba5ef5a829ea1f20205412a4998a3e6944d0a`, 전체검사 [42435987555](https://github.com/znzkznzk96-rgb/nakshiworld-update/actions/runs/42435987555) 진행 중. 실패 시 해당 단계 원인 확인 후 이어받기.
+
+## 最終検査結果 / 최종 검사
+전체검사 42435987555 성공: 고유VERIFY83종·공통/native화면·실제PCK, 배포도구7검사 통과. 후보13600105454 / fingerprint a1b736ce9897099464ab5e9af7bcdac0bb6d6d8bcd637b38a06caef720da01ea. [검증](VERIFIED.json). 다음은 main에 동일입력 병합→동일후보 공개→운영/소스ZIP 검증. 아직 공개v1.10.

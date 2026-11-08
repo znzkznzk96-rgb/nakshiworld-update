@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "v111_final_verification_running",
+  "status": "v111_verified_candidate_ready",
   "release_baseline": "v1.10",
   "target_release": "v1.11",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/releases/111/HANDOFF.md",
   "current_task": "승인 수정묶음 v1.11 검증·공개·운영다운로드",
-  "next_step": "CI42435987555 성공 후 동일후보 main 공개 및 운영다운로드 검증",
+  "next_step": "검증후보 그대로 main 공개 후 운영다운로드와 전체소스 검증",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -92,7 +92,7 @@
     "headless_passed": 73,
     "headless_total": 73
   },
-  "release_verification_run": 42423468177,
+  "release_verification_run": 42435987555,
   "prior_build_issue": {
     "run": 42384973558,
     "cause": "packed mail check hardcoded1.08; prepublication assertion",
@@ -254,9 +254,13 @@
     "headless_suites": 78
   },
   "release_candidate": {
-    "ready": false,
+    "artifact_id": 13600105454,
+    "input_fingerprint": "a1b736ce9897099464ab5e9af7bcdac0bb6d6d8bcd637b38a06caef720da01ea",
+    "source_commit": "f2eba5ef5a829ea1f20205412a4998a3e6944d0a",
+    "run": 42435987555,
+    "ready": true,
     "published": false,
-    "note": "111 설정·배포도구 기준 새 후보 필요"
+    "rebuild_on_publish": false
   },
   "release_resume_run": 42424430555,
   "fight_body_size": {
@@ -288,9 +292,10 @@
   "release111": {
     "source_commit": "f2eba5ef5a829ea1f20205412a4998a3e6944d0a",
     "verification_run": 42435987555,
-    "verification_status": "in_progress",
+    "verification_status": "success",
     "deployed": false,
     "phone_verified": false,
-    "release_authorized": true
+    "release_authorized": true,
+    "candidate_artifact": 13600105454
   }
 }

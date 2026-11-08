@@ -1,0 +1,24 @@
+{
+  "version": {
+    "code": 111,
+    "name": "1.11"
+  },
+  "source_commit": "f2eba5ef5a829ea1f20205412a4998a3e6944d0a",
+  "verification_run": 42435987555,
+  "status": "success",
+  "unique_verify_results": 83,
+  "publisher_tests": 7,
+  "native_common_passed": true,
+  "packed_angler": true,
+  "packed_tile": true,
+  "candidate": {
+    "id": 13600105454,
+    "name": "release-candidate-a1b736ce9897099464ab5e9af7bcdac0bb6d6d8bcd637b38a06caef720da01ea",
+    "size": 117398837,
+    "digest": "sha256:ffe527ff32ea644b29cf2af1c1fab1882abe073f8cac8c469b6aff65473e9b79"
+  },
+  "verification_artifact": 13599623394,
+  "public_release": "v1.10",
+  "published": false,
+  "phone_verified": false
+}
