@@ -491,6 +491,9 @@
     "income": "stored_sale_price_linked_unchanged",
     "legacy": "keep_highest_price_one_return_others_to_bag_without_loss",
     "deployed": false,
-    "verification": "docs/qa/owner-aquarium-cap/VERIFICATION.json"
+    "verification": "docs/qa/owner-aquarium-cap/VERIFICATION.json",
+    "source_commit": "e7899537a9f4a86a913dc5f6b5a8b1be350e5a7c",
+    "ci_run": 42511245899,
+    "ci_status": "in_progress"
   }
 }

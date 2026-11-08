@@ -7,3 +7,5 @@
 관련4검사 bundle_aqua/aquarium_b/regional/audio_save 통과. 새 테스트:동종등급변형 차단·타지역공존·일반중복·빼고교체·가득찬보관통으로기존중복반환·동가우선순위·재접속·온오프라인중복수입차단. 테스트 fixture JSON숫자(int/float) 비교 정정 후 통과.
 
 과거 주인5마리 조건 시뮬(일주일/2~3일)은 새 종별제한 이후 진행속도 근거로 재사용 금지. 추가시뮬 미실시. 전체CI 다음단계. 공개v1.11 유지, 배포 미승인/미실시.
+
+구현 e7899537a9f4a86a913dc5f6b5a8b1be350e5a7c, 전체CI https://github.com/znzkznzk96-rgb/nakshiworld-update/actions/runs/42511245899 진행중. 원격3파일 blob SHA와 로컬 일치 확인.

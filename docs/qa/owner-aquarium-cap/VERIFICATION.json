@@ -12,5 +12,9 @@
   "legacy_duplicates": "highest stored price retained; extras returned intact despite full bag",
   "offline_hours": 3,
   "deployed": false,
-  "phone_verified": false
+  "phone_verified": false,
+  "source_commit": "e7899537a9f4a86a913dc5f6b5a8b1be350e5a7c",
+  "ci_run": 42511245899,
+  "ci_status": "in_progress",
+  "remote_code_matches_local": true
 }
