@@ -1,4 +1,5 @@
 shader_type canvas_item;
+uniform vec4 atmosphere_tint : source_color = vec4(1.0);
 uniform sampler2D cloud_tex : filter_linear;
 uniform sampler2D cloud_tall : filter_linear;
 uniform sampler2D cloud_wisp : filter_linear;
@@ -22,5 +23,5 @@ void fragment() {
  if(c.a>outc.a)outc=c;
  if(d.a>outc.a)outc=d;
  if(e.a>outc.a)outc=e;
- COLOR=vec4(mix(outc.rgb,vec3(0.90,0.97,1.0),0.72),outc.a*sky*0.65);
+ COLOR=vec4(mix(outc.rgb,vec3(0.90,0.97,1.0),0.72)*atmosphere_tint.rgb,outc.a*sky*0.65);
 }

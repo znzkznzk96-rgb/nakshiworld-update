@@ -87,7 +87,7 @@ func cat(m,kind: String,local: float) -> void:
 	debug.cat_action=action;debug.cat_frame=frame;debug.cat_air=air
 func draw(m) -> Vector2:
 	if textures.is_empty(): setup()
-	tint=m.environment.actor_tint() if m.active_region==0 else Color.WHITE
+	tint=m.environment.actor_tint()
 	var phase: String=m.S.phase
 	var local: float=float(m.S.get("t",0.0))
 	var kind: String="idle"

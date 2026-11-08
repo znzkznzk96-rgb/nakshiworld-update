@@ -95,6 +95,8 @@ func night_strength() -> float:
 	return smoothstep(17.0,20.0,h) if h>=12.0 else 1.0-smoothstep(5.0,8.0,h)
 
 func actor_tint() -> Color:
+	if active_region==1:return Color.WHITE.lerp(Color(0.62,0.74,0.95),night_strength())
+	if active_region==2:return Color.WHITE.lerp(Color(0.86,0.73,1.0),night_strength())
 	# The nearby lantern illuminates the rig and cat, not only the plate behind them.
 	return scenery_tint().lerp(Color(1.0,0.84,0.60),night_strength()*0.86)
 
@@ -106,6 +108,8 @@ func scenery_tint() -> Color:
 func update(dt: float) -> void:
 	valley.update(dt);elapsed+=dt;day_seconds+=dt
 	var h:float=hour()
+	valley.update_atmosphere(night_strength())
+	tile.update_atmosphere(night_strength())
 	valley.layers.underwater_light.update_light(elapsed,h)
 	tile.light.update_light(elapsed,h)
 	if not scene_visible or active_region!=0: return

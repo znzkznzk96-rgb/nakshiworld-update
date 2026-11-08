@@ -1,0 +1,46 @@
+{
+  "date": "2026-11-08",
+  "baseline": "v1.11",
+  "decision_commit": "bc25b65ae430b9081ac8f7eed6446f7d997f8b53",
+  "day_equivalence": {
+    "1": {
+      "exact": true,
+      "changed_pixels": 0
+    },
+    "2": {
+      "exact": true,
+      "changed_pixels": 0
+    }
+  },
+  "native": {
+    "hours": [
+      12,
+      18.5,
+      0
+    ],
+    "heights": [
+      480,
+      540,
+      660
+    ],
+    "frames": 18,
+    "passed": true
+  },
+  "related_suites": {
+    "regional_night": "passed",
+    "shared_vertical_light": "passed",
+    "valley094": "passed",
+    "tile_scenery": "passed"
+  },
+  "original_art_sha256": {
+    "art/bg/valley_selected_1080x2640.png": "8f754000173c7602a2d247cf735b5aa9dd053881ead79f76ea548bc453c37a8a",
+    "art/bg/tile_sea_approved_20261107.png": "1c2ce9d432cf1aa38ed462d2570291fe63c316f50aecc851f0a5a532d84d1f4b"
+  },
+  "new_paid_generations": 0,
+  "published": false,
+  "public_release": "v1.11",
+  "full_ci": {
+    "status": "pending"
+  },
+  "comparison": "comparison.webp"
+}

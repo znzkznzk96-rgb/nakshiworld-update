@@ -24,6 +24,7 @@ func setup(m) -> void:
 		m.add_child(root)
 	plate = Sprite2D.new();plate.centered=false;plate.texture=load("res://art/bg/valley_selected_1080x2640.png")
 	root.add_child(plate);layers.plate=plate
+	var tone:=ShaderMaterial.new();tone.shader=load("res://addons/reservoir/valley_moon_tone.gdshader");plate.material=tone
 	for kind in ["drifting_clouds","reverse_waterfall","surface_reflection"]:
 		var layer := Node2D.new()
 		layer.set_script(load("res://addons/reservoir/valley_layer.gd"));layer.kind=kind;layer.valley=self
@@ -48,6 +49,13 @@ func update(dt: float) -> void:
 	if not is_instance_valid(root) or not root.visible: return
 	for kind in layers:
 		if kind != "plate": layers[kind].queue_redraw()
+func update_atmosphere(night:float) -> void:
+	plate.material.set_shader_parameter("night_strength",night)
+	var tint:=Color.WHITE.lerp(Color(0.42,0.59,0.88),night)
+	for kind in ["reverse_waterfall","surface_reflection","life"]:
+		layers[kind].modulate=tint
+	var cloud:Node2D=layers.drifting_clouds
+	if cloud.material!=null:cloud.material.set_shader_parameter("atmosphere_tint",tint)
 func set_visible(value: bool) -> void:
 	if is_instance_valid(root): root.visible=value
 func waterfall_y(time: float, index: int) -> float:

@@ -36,6 +36,13 @@ func layout(m) -> void:
  var scale: float=maxf(view.x/SOURCE.x,view.y/SOURCE.y)
  map_rect=Rect2((view-SOURCE*scale)/2.0,SOURCE*scale)
  plate.position=map_rect.position;plate.scale=Vector2.ONE*scale
+func update_atmosphere(night:float)->void:
+ plate.material.set_shader_parameter("night_strength",night)
+ var tint:=Color.WHITE.lerp(Color(0.76,0.61,0.94),night)
+ scenery.modulate=tint
+ for i in surface_water.layers.size():
+  var base:=Color(.35,.85,.82) if i==0 else Color(.66,.98,.90)
+  surface_water.layers[i].material.set_shader_parameter("water_tint",base*tint)
 func set_visible(value: bool) -> void:
  if is_instance_valid(root): root.visible=value
 func dispose() -> void:
