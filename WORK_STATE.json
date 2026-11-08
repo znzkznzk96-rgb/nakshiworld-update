@@ -6,8 +6,8 @@
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/three-region-prices/HANDOFF.md",
-  "current_task": "계곡·타일주인보상저평가피드백·판매보상과수족관수익분리안비교",
-  "next_step": "주인조건/판매보상근거와후보별연동/분리수익효과제시; 미확정수족관변경·배포금지",
+  "current_task": "주인보상재검토완료·계곡4만/타일6만+전시수입분리안제시",
+  "next_step": "주인판매가와별도전시수입설계검토후확정·구현; 미확정수족관공식변경/배포금지",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -468,10 +468,21 @@
     "verification_artifact": 13626995881
   },
   "owner_reward_review": {
-    "status": "under_analysis",
+    "status": "proposal_ready_not_applied",
     "current_valley_owner": 16000,
     "current_tile_owner": 20000,
     "reason": "user finds rewards insufficient for gated hardest catches",
-    "game_changed": false
+    "game_changed": false,
+    "report": "docs/analysis/owner-value-review-20261109/REPORT.md",
+    "recommended_sale_prices": [
+      8000,
+      40000,
+      60000
+    ],
+    "proposed_display_income_basis": [
+      8000,
+      16000,
+      20000
+    ]
   }
 }

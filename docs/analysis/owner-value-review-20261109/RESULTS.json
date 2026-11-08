@@ -1,0 +1,1938 @@
+{
+  "status": "analysis_only_no_game_changes",
+  "basis_game_source": "6b22974fb502bec3774bc6be7333a2ce68ea0916",
+  "owner_candidates": {
+    "current": [
+      16000,
+      20000
+    ],
+    "moderate": [
+      40000,
+      60000
+    ],
+    "rewarding": [
+      50000,
+      100000
+    ],
+    "high": [
+      60000,
+      150000
+    ]
+  },
+  "median_successful_ordinary_catches_per_owner": 94.07894736842105,
+  "summary": [
+    {
+      "candidate": "current",
+      "policy": "linked",
+      "median_day": 7,
+      "min_day": 7,
+      "max_day": 8,
+      "median_active_hours": 19.657073283216356,
+      "n": 15,
+      "completed": 15
+    },
+    {
+      "candidate": "current",
+      "policy": "separate_income",
+      "median_day": 7,
+      "min_day": 7,
+      "max_day": 8,
+      "median_active_hours": 19.657073283216356,
+      "n": 15,
+      "completed": 15
+    },
+    {
+      "candidate": "moderate",
+      "policy": "linked",
+      "median_day": 5,
+      "min_day": 4,
+      "max_day": 6,
+      "median_active_hours": 12.031613432375392,
+      "n": 15,
+      "completed": 15
+    },
+    {
+      "candidate": "moderate",
+      "policy": "separate_income",
+      "median_day": 7,
+      "min_day": 6,
+      "max_day": 7,
+      "median_active_hours": 18.040940904765755,
+      "n": 15,
+      "completed": 15
+    },
+    {
+      "candidate": "rewarding",
+      "policy": "linked",
+      "median_day": 4,
+      "min_day": 4,
+      "max_day": 5,
+      "median_active_hours": 9.918250390685932,
+      "n": 15,
+      "completed": 15
+    },
+    {
+      "candidate": "rewarding",
+      "policy": "separate_income",
+      "median_day": 6,
+      "min_day": 6,
+      "max_day": 7,
+      "median_active_hours": 16.730711776872585,
+      "n": 15,
+      "completed": 15
+    },
+    {
+      "candidate": "high",
+      "policy": "linked",
+      "median_day": 3,
+      "min_day": 3,
+      "max_day": 4,
+      "median_active_hours": 8.983377775865991,
+      "n": 15,
+      "completed": 15
+    },
+    {
+      "candidate": "high",
+      "policy": "separate_income",
+      "median_day": 6,
+      "min_day": 5,
+      "max_day": 7,
+      "median_active_hours": 15.12154435667453,
+      "n": 15,
+      "completed": 15
+    }
+  ],
+  "results": [
+    {
+      "candidate": "current",
+      "valley_owner_base": 16000,
+      "tile_owner_base": 20000,
+      "policy": "linked",
+      "trial": 0,
+      "bait": 0,
+      "goal": {
+        "day": 8,
+        "active_hours": 21.04847394653103,
+        "at_login": true
+      },
+      "passive_earned": 2209377.271853531,
+      "aq_hourly_at_goal": 69084.34615384614
+    },
+    {
+      "candidate": "current",
+      "valley_owner_base": 16000,
+      "tile_owner_base": 20000,
+      "policy": "separate_income",
+      "trial": 0,
+      "bait": 0,
+      "goal": {
+        "day": 8,
+        "active_hours": 21.04847394653103,
+        "at_login": true
+      },
+      "passive_earned": 2209377.271853531,
+      "aq_hourly_at_goal": 69084.34615384614
+    },
+    {
+      "candidate": "moderate",
+      "valley_owner_base": 40000,
+      "tile_owner_base": 60000,
+      "policy": "linked",
+      "trial": 0,
+      "bait": 0,
+      "goal": {
+        "day": 5,
+        "active_hours": 13.668193396793246,
+        "at_login": false
+      },
+      "passive_earned": 2731468.193257241,
+      "aq_hourly_at_goal": 167366.7692307692
+    },
+    {
+      "candidate": "moderate",
+      "valley_owner_base": 40000,
+      "tile_owner_base": 60000,
+      "policy": "separate_income",
+      "trial": 0,
+      "bait": 0,
+      "goal": {
+        "day": 7,
+        "active_hours": 18.618940792864397,
+        "at_login": false
+      },
+      "passive_earned": 1834281.5624733837,
+      "aq_hourly_at_goal": 69084.34615384614
+    },
+    {
+      "candidate": "rewarding",
+      "valley_owner_base": 50000,
+      "tile_owner_base": 100000,
+      "policy": "linked",
+      "trial": 0,
+      "bait": 0,
+      "goal": {
+        "day": 4,
+        "active_hours": 11.107922914567606,
+        "at_login": false
+      },
+      "passive_earned": 2975817.8113791756,
+      "aq_hourly_at_goal": 243438.92307692303
+    },
+    {
+      "candidate": "rewarding",
+      "valley_owner_base": 50000,
+      "tile_owner_base": 100000,
+      "policy": "separate_income",
+      "trial": 0,
+      "bait": 0,
+      "goal": {
+        "day": 6,
+        "active_hours": 17.98212289942539,
+        "at_login": false
+      },
+      "passive_earned": 1583034.414686082,
+      "aq_hourly_at_goal": 69084.34615384614
+    },
+    {
+      "candidate": "high",
+      "valley_owner_base": 60000,
+      "tile_owner_base": 150000,
+      "policy": "linked",
+      "trial": 0,
+      "bait": 0,
+      "goal": {
+        "day": 4,
+        "active_hours": 9.019920290314591,
+        "at_login": true
+      },
+      "passive_earned": 3582853.1083501205,
+      "aq_hourly_at_goal": 345367.73076923075
+    },
+    {
+      "candidate": "high",
+      "valley_owner_base": 60000,
+      "tile_owner_base": 150000,
+      "policy": "separate_income",
+      "trial": 0,
+      "bait": 0,
+      "goal": {
+        "day": 6,
+        "active_hours": 16.552434114751808,
+        "at_login": false
+      },
+      "passive_earned": 1489194.2152742085,
+      "aq_hourly_at_goal": 64422.34615384614
+    },
+    {
+      "candidate": "current",
+      "valley_owner_base": 16000,
+      "tile_owner_base": 20000,
+      "policy": "linked",
+      "trial": 0,
+      "bait": 1,
+      "goal": {
+        "day": 7,
+        "active_hours": 18.033893944363033,
+        "at_login": true
+      },
+      "passive_earned": 2341460.718546253,
+      "aq_hourly_at_goal": 80117.30769230769
+    },
+    {
+      "candidate": "current",
+      "valley_owner_base": 16000,
+      "tile_owner_base": 20000,
+      "policy": "separate_income",
+      "trial": 0,
+      "bait": 1,
+      "goal": {
+        "day": 7,
+        "active_hours": 18.033893944363033,
+        "at_login": true
+      },
+      "passive_earned": 2341460.718546253,
+      "aq_hourly_at_goal": 80117.30769230769
+    },
+    {
+      "candidate": "moderate",
+      "valley_owner_base": 40000,
+      "tile_owner_base": 60000,
+      "policy": "linked",
+      "trial": 0,
+      "bait": 1,
+      "goal": {
+        "day": 4,
+        "active_hours": 11.591387430446702,
+        "at_login": false
+      },
+      "passive_earned": 2851689.056469419,
+      "aq_hourly_at_goal": 231219.69230769228
+    },
+    {
+      "candidate": "moderate",
+      "valley_owner_base": 40000,
+      "tile_owner_base": 60000,
+      "policy": "separate_income",
+      "trial": 0,
+      "bait": 1,
+      "goal": {
+        "day": 6,
+        "active_hours": 16.02842845923261,
+        "at_login": false
+      },
+      "passive_earned": 1940437.2232077548,
+      "aq_hourly_at_goal": 80117.30769230769
+    },
+    {
+      "candidate": "rewarding",
+      "valley_owner_base": 50000,
+      "tile_owner_base": 100000,
+      "policy": "linked",
+      "trial": 0,
+      "bait": 1,
+      "goal": {
+        "day": 4,
+        "active_hours": 9.017875825848169,
+        "at_login": true
+      },
+      "passive_earned": 3649958.1518300017,
+      "aq_hourly_at_goal": 344472.5769230769
+    },
+    {
+      "candidate": "rewarding",
+      "valley_owner_base": 50000,
+      "tile_owner_base": 100000,
+      "policy": "separate_income",
+      "trial": 0,
+      "bait": 1,
+      "goal": {
+        "day": 6,
+        "active_hours": 15.031475347577784,
+        "at_login": true
+      },
+      "passive_earned": 1860564.0240064994,
+      "aq_hourly_at_goal": 80117.30769230769
+    },
+    {
+      "candidate": "high",
+      "valley_owner_base": 60000,
+      "tile_owner_base": 150000,
+      "policy": "linked",
+      "trial": 0,
+      "bait": 1,
+      "goal": {
+        "day": 3,
+        "active_hours": 8.136542670831632,
+        "at_login": false
+      },
+      "passive_earned": 3350090.5964208483,
+      "aq_hourly_at_goal": 482917.49999999994
+    },
+    {
+      "candidate": "high",
+      "valley_owner_base": 60000,
+      "tile_owner_base": 150000,
+      "policy": "separate_income",
+      "trial": 0,
+      "bait": 1,
+      "goal": {
+        "day": 5,
+        "active_hours": 13.869552897110683,
+        "at_login": false
+      },
+      "passive_earned": 1527122.9255278262,
+      "aq_hourly_at_goal": 80117.30769230769
+    },
+    {
+      "candidate": "current",
+      "valley_owner_base": 16000,
+      "tile_owner_base": 20000,
+      "policy": "linked",
+      "trial": 0,
+      "bait": 2,
+      "goal": {
+        "day": 7,
+        "active_hours": 19.657073283216356,
+        "at_login": false
+      },
+      "passive_earned": 2093484.5018834672,
+      "aq_hourly_at_goal": 71505.0
+    },
+    {
+      "candidate": "current",
+      "valley_owner_base": 16000,
+      "tile_owner_base": 20000,
+      "policy": "separate_income",
+      "trial": 0,
+      "bait": 2,
+      "goal": {
+        "day": 7,
+        "active_hours": 19.657073283216356,
+        "at_login": false
+      },
+      "passive_earned": 2093484.5018834672,
+      "aq_hourly_at_goal": 71505.0
+    },
+    {
+      "candidate": "moderate",
+      "valley_owner_base": 40000,
+      "tile_owner_base": 60000,
+      "policy": "linked",
+      "trial": 0,
+      "bait": 2,
+      "goal": {
+        "day": 5,
+        "active_hours": 12.025014943969149,
+        "at_login": true
+      },
+      "passive_earned": 3083695.16770273,
+      "aq_hourly_at_goal": 174698.99999999997
+    },
+    {
+      "candidate": "moderate",
+      "valley_owner_base": 40000,
+      "tile_owner_base": 60000,
+      "policy": "separate_income",
+      "trial": 0,
+      "bait": 2,
+      "goal": {
+        "day": 7,
+        "active_hours": 18.037283542003863,
+        "at_login": true
+      },
+      "passive_earned": 1977704.7248149472,
+      "aq_hourly_at_goal": 69723.34615384614
+    },
+    {
+      "candidate": "rewarding",
+      "valley_owner_base": 50000,
+      "tile_owner_base": 100000,
+      "policy": "linked",
+      "trial": 0,
+      "bait": 2,
+      "goal": {
+        "day": 4,
+        "active_hours": 9.197000349580433,
+        "at_login": false
+      },
+      "passive_earned": 3270685.6750596813,
+      "aq_hourly_at_goal": 291164.88461538457
+    },
+    {
+      "candidate": "rewarding",
+      "valley_owner_base": 50000,
+      "tile_owner_base": 100000,
+      "policy": "separate_income",
+      "trial": 0,
+      "bait": 2,
+      "goal": {
+        "day": 6,
+        "active_hours": 16.39296713644984,
+        "at_login": false
+      },
+      "passive_earned": 1653887.482884056,
+      "aq_hourly_at_goal": 69723.34615384614
+    },
+    {
+      "candidate": "high",
+      "valley_owner_base": 60000,
+      "tile_owner_base": 150000,
+      "policy": "linked",
+      "trial": 0,
+      "bait": 2,
+      "goal": {
+        "day": 3,
+        "active_hours": 8.737350248811499,
+        "at_login": false
+      },
+      "passive_earned": 3266108.4518534676,
+      "aq_hourly_at_goal": 436747.1538461538
+    },
+    {
+      "candidate": "high",
+      "valley_owner_base": 60000,
+      "tile_owner_base": 150000,
+      "policy": "separate_income",
+      "trial": 0,
+      "bait": 2,
+      "goal": {
+        "day": 6,
+        "active_hours": 15.096017227310972,
+        "at_login": false
+      },
+      "passive_earned": 1563459.7954249668,
+      "aq_hourly_at_goal": 69723.34615384614
+    },
+    {
+      "candidate": "current",
+      "valley_owner_base": 16000,
+      "tile_owner_base": 20000,
+      "policy": "linked",
+      "trial": 1,
+      "bait": 0,
+      "goal": {
+        "day": 7,
+        "active_hours": 20.822355834996426,
+        "at_login": false
+      },
+      "passive_earned": 2140324.6419375204,
+      "aq_hourly_at_goal": 70527.46153846153
+    },
+    {
+      "candidate": "current",
+      "valley_owner_base": 16000,
+      "tile_owner_base": 20000,
+      "policy": "separate_income",
+      "trial": 1,
+      "bait": 0,
+      "goal": {
+        "day": 7,
+        "active_hours": 20.822355834996426,
+        "at_login": false
+      },
+      "passive_earned": 2140324.6419375204,
+      "aq_hourly_at_goal": 70527.46153846153
+    },
+    {
+      "candidate": "moderate",
+      "valley_owner_base": 40000,
+      "tile_owner_base": 60000,
+      "policy": "linked",
+      "trial": 1,
+      "bait": 0,
+      "goal": {
+        "day": 5,
+        "active_hours": 12.297012110480415,
+        "at_login": false
+      },
+      "passive_earned": 2896851.169806056,
+      "aq_hourly_at_goal": 177686.99999999997
+    },
+    {
+      "candidate": "moderate",
+      "valley_owner_base": 40000,
+      "tile_owner_base": 60000,
+      "policy": "separate_income",
+      "trial": 1,
+      "bait": 0,
+      "goal": {
+        "day": 7,
+        "active_hours": 18.184614340410214,
+        "at_login": false
+      },
+      "passive_earned": 1954291.4301296843,
+      "aq_hourly_at_goal": 70527.46153846153
+    },
+    {
+      "candidate": "rewarding",
+      "valley_owner_base": 50000,
+      "tile_owner_base": 100000,
+      "policy": "linked",
+      "trial": 1,
+      "bait": 0,
+      "goal": {
+        "day": 4,
+        "active_hours": 10.017729449154762,
+        "at_login": false
+      },
+      "passive_earned": 3094535.838473946,
+      "aq_hourly_at_goal": 296145.3461538461
+    },
+    {
+      "candidate": "rewarding",
+      "valley_owner_base": 50000,
+      "tile_owner_base": 100000,
+      "policy": "separate_income",
+      "trial": 1,
+      "bait": 0,
+      "goal": {
+        "day": 6,
+        "active_hours": 17.754639596628223,
+        "at_login": false
+      },
+      "passive_earned": 1712384.4029250902,
+      "aq_hourly_at_goal": 70527.46153846153
+    },
+    {
+      "candidate": "high",
+      "valley_owner_base": 60000,
+      "tile_owner_base": 150000,
+      "policy": "linked",
+      "trial": 1,
+      "bait": 0,
+      "goal": {
+        "day": 4,
+        "active_hours": 9.019294405699874,
+        "at_login": true
+      },
+      "passive_earned": 4110972.4392268597,
+      "aq_hourly_at_goal": 367321.84615384607
+    },
+    {
+      "candidate": "high",
+      "valley_owner_base": 60000,
+      "tile_owner_base": 150000,
+      "policy": "separate_income",
+      "trial": 1,
+      "bait": 0,
+      "goal": {
+        "day": 6,
+        "active_hours": 16.043796386637982,
+        "at_login": false
+      },
+      "passive_earned": 1592109.9967580473,
+      "aq_hourly_at_goal": 68127.23076923077
+    },
+    {
+      "candidate": "current",
+      "valley_owner_base": 16000,
+      "tile_owner_base": 20000,
+      "policy": "linked",
+      "trial": 1,
+      "bait": 1,
+      "goal": {
+        "day": 7,
+        "active_hours": 18.031083935954463,
+        "at_login": true
+      },
+      "passive_earned": 2055535.6563585086,
+      "aq_hourly_at_goal": 67577.1923076923
+    },
+    {
+      "candidate": "current",
+      "valley_owner_base": 16000,
+      "tile_owner_base": 20000,
+      "policy": "separate_income",
+      "trial": 1,
+      "bait": 1,
+      "goal": {
+        "day": 7,
+        "active_hours": 18.031083935954463,
+        "at_login": true
+      },
+      "passive_earned": 2055535.6563585086,
+      "aq_hourly_at_goal": 67577.1923076923
+    },
+    {
+      "candidate": "moderate",
+      "valley_owner_base": 40000,
+      "tile_owner_base": 60000,
+      "policy": "linked",
+      "trial": 1,
+      "bait": 1,
+      "goal": {
+        "day": 5,
+        "active_hours": 12.023777244010523,
+        "at_login": true
+      },
+      "passive_earned": 3205092.1692897277,
+      "aq_hourly_at_goal": 195112.73076923072
+    },
+    {
+      "candidate": "moderate",
+      "valley_owner_base": 40000,
+      "tile_owner_base": 60000,
+      "policy": "separate_income",
+      "trial": 1,
+      "bait": 1,
+      "goal": {
+        "day": 6,
+        "active_hours": 16.49884165998777,
+        "at_login": false
+      },
+      "passive_earned": 1749260.0254135316,
+      "aq_hourly_at_goal": 67577.1923076923
+    },
+    {
+      "candidate": "rewarding",
+      "valley_owner_base": 50000,
+      "tile_owner_base": 100000,
+      "policy": "linked",
+      "trial": 1,
+      "bait": 1,
+      "goal": {
+        "day": 4,
+        "active_hours": 9.063851318422355,
+        "at_login": false
+      },
+      "passive_earned": 3224183.997139777,
+      "aq_hourly_at_goal": 302608.7307692307
+    },
+    {
+      "candidate": "rewarding",
+      "valley_owner_base": 50000,
+      "tile_owner_base": 100000,
+      "policy": "separate_income",
+      "trial": 1,
+      "bait": 1,
+      "goal": {
+        "day": 6,
+        "active_hours": 15.047558605747199,
+        "at_login": false
+      },
+      "passive_earned": 1651531.350413386,
+      "aq_hourly_at_goal": 67136.53846153845
+    },
+    {
+      "candidate": "high",
+      "valley_owner_base": 60000,
+      "tile_owner_base": 150000,
+      "policy": "linked",
+      "trial": 1,
+      "bait": 1,
+      "goal": {
+        "day": 3,
+        "active_hours": 8.76733811113162,
+        "at_login": false
+      },
+      "passive_earned": 3205137.596111903,
+      "aq_hourly_at_goal": 453912.5769230768
+    },
+    {
+      "candidate": "high",
+      "valley_owner_base": 60000,
+      "tile_owner_base": 150000,
+      "policy": "separate_income",
+      "trial": 1,
+      "bait": 1,
+      "goal": {
+        "day": 5,
+        "active_hours": 14.36891542666934,
+        "at_login": false
+      },
+      "passive_earned": 1404560.596519564,
+      "aq_hourly_at_goal": 67136.53846153845
+    },
+    {
+      "candidate": "current",
+      "valley_owner_base": 16000,
+      "tile_owner_base": 20000,
+      "policy": "linked",
+      "trial": 1,
+      "bait": 2,
+      "goal": {
+        "day": 7,
+        "active_hours": 19.86284376312919,
+        "at_login": false
+      },
+      "passive_earned": 2072289.9395436563,
+      "aq_hourly_at_goal": 73071.6923076923
+    },
+    {
+      "candidate": "current",
+      "valley_owner_base": 16000,
+      "tile_owner_base": 20000,
+      "policy": "separate_income",
+      "trial": 1,
+      "bait": 2,
+      "goal": {
+        "day": 7,
+        "active_hours": 19.86284376312919,
+        "at_login": false
+      },
+      "passive_earned": 2072289.9395436563,
+      "aq_hourly_at_goal": 73071.6923076923
+    },
+    {
+      "candidate": "moderate",
+      "valley_owner_base": 40000,
+      "tile_owner_base": 60000,
+      "policy": "linked",
+      "trial": 1,
+      "bait": 2,
+      "goal": {
+        "day": 5,
+        "active_hours": 12.030893732138292,
+        "at_login": true
+      },
+      "passive_earned": 2938541.741299803,
+      "aq_hourly_at_goal": 173683.3846153846
+    },
+    {
+      "candidate": "moderate",
+      "valley_owner_base": 40000,
+      "tile_owner_base": 60000,
+      "policy": "separate_income",
+      "trial": 1,
+      "bait": 2,
+      "goal": {
+        "day": 7,
+        "active_hours": 18.04443343612929,
+        "at_login": true
+      },
+      "passive_earned": 1940288.0369637958,
+      "aq_hourly_at_goal": 72591.92307692306
+    },
+    {
+      "candidate": "rewarding",
+      "valley_owner_base": 50000,
+      "tile_owner_base": 100000,
+      "policy": "linked",
+      "trial": 1,
+      "bait": 2,
+      "goal": {
+        "day": 4,
+        "active_hours": 9.431254980438025,
+        "at_login": false
+      },
+      "passive_earned": 3129480.080102663,
+      "aq_hourly_at_goal": 274241.42307692306
+    },
+    {
+      "candidate": "rewarding",
+      "valley_owner_base": 50000,
+      "tile_owner_base": 100000,
+      "policy": "separate_income",
+      "trial": 1,
+      "bait": 2,
+      "goal": {
+        "day": 6,
+        "active_hours": 16.730711776872585,
+        "at_login": false
+      },
+      "passive_earned": 1627147.4553305446,
+      "aq_hourly_at_goal": 72591.92307692306
+    },
+    {
+      "candidate": "high",
+      "valley_owner_base": 60000,
+      "tile_owner_base": 150000,
+      "policy": "linked",
+      "trial": 1,
+      "bait": 2,
+      "goal": {
+        "day": 3,
+        "active_hours": 8.904380300923055,
+        "at_login": false
+      },
+      "passive_earned": 3225011.3074497064,
+      "aq_hourly_at_goal": 377747.6538461538
+    },
+    {
+      "candidate": "high",
+      "valley_owner_base": 60000,
+      "tile_owner_base": 150000,
+      "policy": "separate_income",
+      "trial": 1,
+      "bait": 2,
+      "goal": {
+        "day": 6,
+        "active_hours": 15.308268741258074,
+        "at_login": false
+      },
+      "passive_earned": 1528034.357394754,
+      "aq_hourly_at_goal": 58905.6923076923
+    },
+    {
+      "candidate": "current",
+      "valley_owner_base": 16000,
+      "tile_owner_base": 20000,
+      "policy": "linked",
+      "trial": 2,
+      "bait": 0,
+      "goal": {
+        "day": 8,
+        "active_hours": 21.60514519834349,
+        "at_login": false
+      },
+      "passive_earned": 2003817.5947950599,
+      "aq_hourly_at_goal": 63552.461538461524
+    },
+    {
+      "candidate": "current",
+      "valley_owner_base": 16000,
+      "tile_owner_base": 20000,
+      "policy": "separate_income",
+      "trial": 2,
+      "bait": 0,
+      "goal": {
+        "day": 8,
+        "active_hours": 21.60514519834349,
+        "at_login": false
+      },
+      "passive_earned": 2003817.5947950599,
+      "aq_hourly_at_goal": 63552.461538461524
+    },
+    {
+      "candidate": "moderate",
+      "valley_owner_base": 40000,
+      "tile_owner_base": 60000,
+      "policy": "linked",
+      "trial": 2,
+      "bait": 0,
+      "goal": {
+        "day": 6,
+        "active_hours": 15.036245950268329,
+        "at_login": true
+      },
+      "passive_earned": 3134741.1478886195,
+      "aq_hourly_at_goal": 164462.53846153844
+    },
+    {
+      "candidate": "moderate",
+      "valley_owner_base": 40000,
+      "tile_owner_base": 60000,
+      "policy": "separate_income",
+      "trial": 2,
+      "bait": 0,
+      "goal": {
+        "day": 7,
+        "active_hours": 20.168251499005894,
+        "at_login": false
+      },
+      "passive_earned": 1721842.4632330495,
+      "aq_hourly_at_goal": 63552.461538461524
+    },
+    {
+      "candidate": "rewarding",
+      "valley_owner_base": 50000,
+      "tile_owner_base": 100000,
+      "policy": "linked",
+      "trial": 2,
+      "bait": 0,
+      "goal": {
+        "day": 5,
+        "active_hours": 12.027267843782067,
+        "at_login": true
+      },
+      "passive_earned": 3478128.6725102877,
+      "aq_hourly_at_goal": 216133.61538461535
+    },
+    {
+      "candidate": "rewarding",
+      "valley_owner_base": 50000,
+      "tile_owner_base": 100000,
+      "policy": "separate_income",
+      "trial": 2,
+      "bait": 0,
+      "goal": {
+        "day": 7,
+        "active_hours": 18.93512032451259,
+        "at_login": false
+      },
+      "passive_earned": 1644175.5241714818,
+      "aq_hourly_at_goal": 58660.26923076923
+    },
+    {
+      "candidate": "high",
+      "valley_owner_base": 60000,
+      "tile_owner_base": 150000,
+      "policy": "linked",
+      "trial": 2,
+      "bait": 0,
+      "goal": {
+        "day": 4,
+        "active_hours": 9.654219357070149,
+        "at_login": false
+      },
+      "passive_earned": 3371754.102043365,
+      "aq_hourly_at_goal": 297301.1538461538
+    },
+    {
+      "candidate": "high",
+      "valley_owner_base": 60000,
+      "tile_owner_base": 150000,
+      "policy": "separate_income",
+      "trial": 2,
+      "bait": 0,
+      "goal": {
+        "day": 7,
+        "active_hours": 18.043665015636833,
+        "at_login": true
+      },
+      "passive_earned": 1592205.752275011,
+      "aq_hourly_at_goal": 54820.73076923076
+    },
+    {
+      "candidate": "current",
+      "valley_owner_base": 16000,
+      "tile_owner_base": 20000,
+      "policy": "linked",
+      "trial": 2,
+      "bait": 1,
+      "goal": {
+        "day": 7,
+        "active_hours": 18.635661277684978,
+        "at_login": false
+      },
+      "passive_earned": 1964194.2867895428,
+      "aq_hourly_at_goal": 62005.84615384615
+    },
+    {
+      "candidate": "current",
+      "valley_owner_base": 16000,
+      "tile_owner_base": 20000,
+      "policy": "separate_income",
+      "trial": 2,
+      "bait": 1,
+      "goal": {
+        "day": 7,
+        "active_hours": 18.635661277684978,
+        "at_login": false
+      },
+      "passive_earned": 1964194.2867895428,
+      "aq_hourly_at_goal": 62005.84615384615
+    },
+    {
+      "candidate": "moderate",
+      "valley_owner_base": 40000,
+      "tile_owner_base": 60000,
+      "policy": "linked",
+      "trial": 2,
+      "bait": 1,
+      "goal": {
+        "day": 5,
+        "active_hours": 12.027181182510876,
+        "at_login": true
+      },
+      "passive_earned": 3034195.875292673,
+      "aq_hourly_at_goal": 182539.03846153844
+    },
+    {
+      "candidate": "moderate",
+      "valley_owner_base": 40000,
+      "tile_owner_base": 60000,
+      "policy": "separate_income",
+      "trial": 2,
+      "bait": 1,
+      "goal": {
+        "day": 6,
+        "active_hours": 17.498730691569815,
+        "at_login": false
+      },
+      "passive_earned": 1710037.3016634237,
+      "aq_hourly_at_goal": 61201.03846153846
+    },
+    {
+      "candidate": "rewarding",
+      "valley_owner_base": 50000,
+      "tile_owner_base": 100000,
+      "policy": "linked",
+      "trial": 2,
+      "bait": 1,
+      "goal": {
+        "day": 4,
+        "active_hours": 9.305027781452786,
+        "at_login": false
+      },
+      "passive_earned": 3146963.53951513,
+      "aq_hourly_at_goal": 293060.423076923
+    },
+    {
+      "candidate": "rewarding",
+      "valley_owner_base": 50000,
+      "tile_owner_base": 100000,
+      "policy": "separate_income",
+      "trial": 2,
+      "bait": 1,
+      "goal": {
+        "day": 6,
+        "active_hours": 15.601921577787213,
+        "at_login": false
+      },
+      "passive_earned": 1593950.6141366179,
+      "aq_hourly_at_goal": 61201.03846153846
+    },
+    {
+      "candidate": "high",
+      "valley_owner_base": 60000,
+      "tile_owner_base": 150000,
+      "policy": "linked",
+      "trial": 2,
+      "bait": 1,
+      "goal": {
+        "day": 3,
+        "active_hours": 8.894143929640073,
+        "at_login": false
+      },
+      "passive_earned": 3089480.097250702,
+      "aq_hourly_at_goal": 439591.1538461538
+    },
+    {
+      "candidate": "high",
+      "valley_owner_base": 60000,
+      "tile_owner_base": 150000,
+      "policy": "separate_income",
+      "trial": 2,
+      "bait": 1,
+      "goal": {
+        "day": 6,
+        "active_hours": 15.031702980046427,
+        "at_login": true
+      },
+      "passive_earned": 1559052.6438048,
+      "aq_hourly_at_goal": 61201.03846153846
+    },
+    {
+      "candidate": "current",
+      "valley_owner_base": 16000,
+      "tile_owner_base": 20000,
+      "policy": "linked",
+      "trial": 2,
+      "bait": 2,
+      "goal": {
+        "day": 7,
+        "active_hours": 20.413027888620395,
+        "at_login": false
+      },
+      "passive_earned": 2003819.5166749211,
+      "aq_hourly_at_goal": 68513.1923076923
+    },
+    {
+      "candidate": "current",
+      "valley_owner_base": 16000,
+      "tile_owner_base": 20000,
+      "policy": "separate_income",
+      "trial": 2,
+      "bait": 2,
+      "goal": {
+        "day": 7,
+        "active_hours": 20.413027888620395,
+        "at_login": false
+      },
+      "passive_earned": 2003819.5166749211,
+      "aq_hourly_at_goal": 68513.1923076923
+    },
+    {
+      "candidate": "moderate",
+      "valley_owner_base": 40000,
+      "tile_owner_base": 60000,
+      "policy": "linked",
+      "trial": 2,
+      "bait": 2,
+      "goal": {
+        "day": 5,
+        "active_hours": 12.410287526191725,
+        "at_login": false
+      },
+      "passive_earned": 2762944.771915559,
+      "aq_hourly_at_goal": 152002.3846153846
+    },
+    {
+      "candidate": "moderate",
+      "valley_owner_base": 40000,
+      "tile_owner_base": 60000,
+      "policy": "separate_income",
+      "trial": 2,
+      "bait": 2,
+      "goal": {
+        "day": 7,
+        "active_hours": 18.047767633104655,
+        "at_login": true
+      },
+      "passive_earned": 1842682.1492990414,
+      "aq_hourly_at_goal": 67981.49999999999
+    },
+    {
+      "candidate": "rewarding",
+      "valley_owner_base": 50000,
+      "tile_owner_base": 100000,
+      "policy": "linked",
+      "trial": 2,
+      "bait": 2,
+      "goal": {
+        "day": 4,
+        "active_hours": 9.935771373302615,
+        "at_login": false
+      },
+      "passive_earned": 3141275.8770082593,
+      "aq_hourly_at_goal": 234992.07692307688
+    },
+    {
+      "candidate": "rewarding",
+      "valley_owner_base": 50000,
+      "tile_owner_base": 100000,
+      "policy": "separate_income",
+      "trial": 2,
+      "bait": 2,
+      "goal": {
+        "day": 6,
+        "active_hours": 16.900899976752406,
+        "at_login": false
+      },
+      "passive_earned": 1560772.3657187307,
+      "aq_hourly_at_goal": 67981.49999999999
+    },
+    {
+      "candidate": "high",
+      "valley_owner_base": 60000,
+      "tile_owner_base": 150000,
+      "policy": "linked",
+      "trial": 2,
+      "bait": 2,
+      "goal": {
+        "day": 3,
+        "active_hours": 8.983377775865991,
+        "at_login": false
+      },
+      "passive_earned": 3201198.7542917435,
+      "aq_hourly_at_goal": 352487.423076923
+    },
+    {
+      "candidate": "high",
+      "valley_owner_base": 60000,
+      "tile_owner_base": 150000,
+      "policy": "separate_income",
+      "trial": 2,
+      "bait": 2,
+      "goal": {
+        "day": 6,
+        "active_hours": 15.038099661313948,
+        "at_login": true
+      },
+      "passive_earned": 1436391.4096687182,
+      "aq_hourly_at_goal": 65285.99999999999
+    },
+    {
+      "candidate": "current",
+      "valley_owner_base": 16000,
+      "tile_owner_base": 20000,
+      "policy": "linked",
+      "trial": 3,
+      "bait": 0,
+      "goal": {
+        "day": 8,
+        "active_hours": 21.203813449968568,
+        "at_login": false
+      },
+      "passive_earned": 2151214.4263362437,
+      "aq_hourly_at_goal": 64254.11538461538
+    },
+    {
+      "candidate": "current",
+      "valley_owner_base": 16000,
+      "tile_owner_base": 20000,
+      "policy": "separate_income",
+      "trial": 3,
+      "bait": 0,
+      "goal": {
+        "day": 8,
+        "active_hours": 21.203813449968568,
+        "at_login": false
+      },
+      "passive_earned": 2151214.4263362437,
+      "aq_hourly_at_goal": 64254.11538461538
+    },
+    {
+      "candidate": "moderate",
+      "valley_owner_base": 40000,
+      "tile_owner_base": 60000,
+      "policy": "linked",
+      "trial": 3,
+      "bait": 0,
+      "goal": {
+        "day": 5,
+        "active_hours": 13.932944453243369,
+        "at_login": false
+      },
+      "passive_earned": 2805216.501349649,
+      "aq_hourly_at_goal": 146863.3846153846
+    },
+    {
+      "candidate": "moderate",
+      "valley_owner_base": 40000,
+      "tile_owner_base": 60000,
+      "policy": "separate_income",
+      "trial": 3,
+      "bait": 0,
+      "goal": {
+        "day": 7,
+        "active_hours": 19.888432480759665,
+        "at_login": false
+      },
+      "passive_earned": 1878584.841903649,
+      "aq_hourly_at_goal": 63154.3846153846
+    },
+    {
+      "candidate": "rewarding",
+      "valley_owner_base": 50000,
+      "tile_owner_base": 100000,
+      "policy": "linked",
+      "trial": 3,
+      "bait": 0,
+      "goal": {
+        "day": 4,
+        "active_hours": 11.066992798405257,
+        "at_login": false
+      },
+      "passive_earned": 3081640.694841224,
+      "aq_hourly_at_goal": 226093.15384615381
+    },
+    {
+      "candidate": "rewarding",
+      "valley_owner_base": 50000,
+      "tile_owner_base": 100000,
+      "policy": "separate_income",
+      "trial": 3,
+      "bait": 0,
+      "goal": {
+        "day": 7,
+        "active_hours": 18.1136450874669,
+        "at_login": false
+      },
+      "passive_earned": 1766499.2362571033,
+      "aq_hourly_at_goal": 63154.3846153846
+    },
+    {
+      "candidate": "high",
+      "valley_owner_base": 60000,
+      "tile_owner_base": 150000,
+      "policy": "linked",
+      "trial": 3,
+      "bait": 0,
+      "goal": {
+        "day": 4,
+        "active_hours": 9.022068607013662,
+        "at_login": true
+      },
+      "passive_earned": 3799004.6349879624,
+      "aq_hourly_at_goal": 339139.03846153844
+    },
+    {
+      "candidate": "high",
+      "valley_owner_base": 60000,
+      "tile_owner_base": 150000,
+      "policy": "separate_income",
+      "trial": 3,
+      "bait": 0,
+      "goal": {
+        "day": 6,
+        "active_hours": 17.69242258673879,
+        "at_login": false
+      },
+      "passive_earned": 1550434.188437465,
+      "aq_hourly_at_goal": 63154.3846153846
+    },
+    {
+      "candidate": "current",
+      "valley_owner_base": 16000,
+      "tile_owner_base": 20000,
+      "policy": "linked",
+      "trial": 3,
+      "bait": 1,
+      "goal": {
+        "day": 7,
+        "active_hours": 18.02683306225892,
+        "at_login": true
+      },
+      "passive_earned": 2298348.867319555,
+      "aq_hourly_at_goal": 70762.84615384614
+    },
+    {
+      "candidate": "current",
+      "valley_owner_base": 16000,
+      "tile_owner_base": 20000,
+      "policy": "separate_income",
+      "trial": 3,
+      "bait": 1,
+      "goal": {
+        "day": 7,
+        "active_hours": 18.02683306225892,
+        "at_login": true
+      },
+      "passive_earned": 2298348.867319555,
+      "aq_hourly_at_goal": 70762.84615384614
+    },
+    {
+      "candidate": "moderate",
+      "valley_owner_base": 40000,
+      "tile_owner_base": 60000,
+      "policy": "linked",
+      "trial": 3,
+      "bait": 1,
+      "goal": {
+        "day": 4,
+        "active_hours": 10.952960306239781,
+        "at_login": false
+      },
+      "passive_earned": 2970960.3432940682,
+      "aq_hourly_at_goal": 209562.23076923075
+    },
+    {
+      "candidate": "moderate",
+      "valley_owner_base": 40000,
+      "tile_owner_base": 60000,
+      "policy": "separate_income",
+      "trial": 3,
+      "bait": 1,
+      "goal": {
+        "day": 6,
+        "active_hours": 16.207933627799967,
+        "at_login": false
+      },
+      "passive_earned": 1957350.3664696186,
+      "aq_hourly_at_goal": 70762.84615384614
+    },
+    {
+      "candidate": "rewarding",
+      "valley_owner_base": 50000,
+      "tile_owner_base": 100000,
+      "policy": "linked",
+      "trial": 3,
+      "bait": 1,
+      "goal": {
+        "day": 4,
+        "active_hours": 9.012947406332461,
+        "at_login": true
+      },
+      "passive_earned": 4109464.98755874,
+      "aq_hourly_at_goal": 338605.9615384615
+    },
+    {
+      "candidate": "rewarding",
+      "valley_owner_base": 50000,
+      "tile_owner_base": 100000,
+      "policy": "separate_income",
+      "trial": 3,
+      "bait": 1,
+      "goal": {
+        "day": 6,
+        "active_hours": 15.025886592484428,
+        "at_login": true
+      },
+      "passive_earned": 1873705.3539629758,
+      "aq_hourly_at_goal": 70762.84615384614
+    },
+    {
+      "candidate": "high",
+      "valley_owner_base": 60000,
+      "tile_owner_base": 150000,
+      "policy": "linked",
+      "trial": 3,
+      "bait": 1,
+      "goal": {
+        "day": 3,
+        "active_hours": 7.220504060423262,
+        "at_login": false
+      },
+      "passive_earned": 3611090.0737440796,
+      "aq_hourly_at_goal": 500986.73076923075
+    },
+    {
+      "candidate": "high",
+      "valley_owner_base": 60000,
+      "tile_owner_base": 150000,
+      "policy": "separate_income",
+      "trial": 3,
+      "bait": 1,
+      "goal": {
+        "day": 5,
+        "active_hours": 14.511902614936183,
+        "at_login": false
+      },
+      "passive_earned": 1625046.3848341876,
+      "aq_hourly_at_goal": 70762.84615384614
+    },
+    {
+      "candidate": "current",
+      "valley_owner_base": 16000,
+      "tile_owner_base": 20000,
+      "policy": "linked",
+      "trial": 3,
+      "bait": 2,
+      "goal": {
+        "day": 7,
+        "active_hours": 20.36001367893293,
+        "at_login": false
+      },
+      "passive_earned": 2014318.9984935997,
+      "aq_hourly_at_goal": 66044.76923076922
+    },
+    {
+      "candidate": "current",
+      "valley_owner_base": 16000,
+      "tile_owner_base": 20000,
+      "policy": "separate_income",
+      "trial": 3,
+      "bait": 2,
+      "goal": {
+        "day": 7,
+        "active_hours": 20.36001367893293,
+        "at_login": false
+      },
+      "passive_earned": 2014318.9984935997,
+      "aq_hourly_at_goal": 66044.76923076922
+    },
+    {
+      "candidate": "moderate",
+      "valley_owner_base": 40000,
+      "tile_owner_base": 60000,
+      "policy": "linked",
+      "trial": 3,
+      "bait": 2,
+      "goal": {
+        "day": 5,
+        "active_hours": 12.30149772258126,
+        "at_login": false
+      },
+      "passive_earned": 2803031.476812388,
+      "aq_hourly_at_goal": 179237.0769230769
+    },
+    {
+      "candidate": "moderate",
+      "valley_owner_base": 40000,
+      "tile_owner_base": 60000,
+      "policy": "separate_income",
+      "trial": 3,
+      "bait": 2,
+      "goal": {
+        "day": 7,
+        "active_hours": 18.13319959408779,
+        "at_login": false
+      },
+      "passive_earned": 1867249.5761401758,
+      "aq_hourly_at_goal": 66044.76923076922
+    },
+    {
+      "candidate": "rewarding",
+      "valley_owner_base": 50000,
+      "tile_owner_base": 100000,
+      "policy": "linked",
+      "trial": 3,
+      "bait": 2,
+      "goal": {
+        "day": 4,
+        "active_hours": 10.242877388245855,
+        "at_login": false
+      },
+      "passive_earned": 3024822.801461889,
+      "aq_hourly_at_goal": 263980.38461538457
+    },
+    {
+      "candidate": "rewarding",
+      "valley_owner_base": 50000,
+      "tile_owner_base": 100000,
+      "policy": "separate_income",
+      "trial": 3,
+      "bait": 2,
+      "goal": {
+        "day": 6,
+        "active_hours": 16.86468129461275,
+        "at_login": false
+      },
+      "passive_earned": 1585336.5777863387,
+      "aq_hourly_at_goal": 66044.76923076922
+    },
+    {
+      "candidate": "high",
+      "valley_owner_base": 60000,
+      "tile_owner_base": 150000,
+      "policy": "linked",
+      "trial": 3,
+      "bait": 2,
+      "goal": {
+        "day": 4,
+        "active_hours": 9.010563425211817,
+        "at_login": true
+      },
+      "passive_earned": 3921725.628275393,
+      "aq_hourly_at_goal": 391783.8461538461
+    },
+    {
+      "candidate": "high",
+      "valley_owner_base": 60000,
+      "tile_owner_base": 150000,
+      "policy": "separate_income",
+      "trial": 3,
+      "bait": 2,
+      "goal": {
+        "day": 6,
+        "active_hours": 15.579122916767167,
+        "at_login": false
+      },
+      "passive_earned": 1506486.3219397047,
+      "aq_hourly_at_goal": 59745.80769230768
+    },
+    {
+      "candidate": "current",
+      "valley_owner_base": 16000,
+      "tile_owner_base": 20000,
+      "policy": "linked",
+      "trial": 4,
+      "bait": 0,
+      "goal": {
+        "day": 7,
+        "active_hours": 18.542556410452534,
+        "at_login": false
+      },
+      "passive_earned": 2317381.8177657756,
+      "aq_hourly_at_goal": 76566.80769230767
+    },
+    {
+      "candidate": "current",
+      "valley_owner_base": 16000,
+      "tile_owner_base": 20000,
+      "policy": "separate_income",
+      "trial": 4,
+      "bait": 0,
+      "goal": {
+        "day": 7,
+        "active_hours": 18.542556410452534,
+        "at_login": false
+      },
+      "passive_earned": 2317381.8177657756,
+      "aq_hourly_at_goal": 76566.80769230767
+    },
+    {
+      "candidate": "moderate",
+      "valley_owner_base": 40000,
+      "tile_owner_base": 60000,
+      "policy": "linked",
+      "trial": 4,
+      "bait": 0,
+      "goal": {
+        "day": 5,
+        "active_hours": 12.02917728121109,
+        "at_login": true
+      },
+      "passive_earned": 3528064.6172579806,
+      "aq_hourly_at_goal": 214782.23076923075
+    },
+    {
+      "candidate": "moderate",
+      "valley_owner_base": 40000,
+      "tile_owner_base": 60000,
+      "policy": "separate_income",
+      "trial": 4,
+      "bait": 0,
+      "goal": {
+        "day": 6,
+        "active_hours": 17.955989721343368,
+        "at_login": false
+      },
+      "passive_earned": 2042770.2788820383,
+      "aq_hourly_at_goal": 76566.80769230767
+    },
+    {
+      "candidate": "rewarding",
+      "valley_owner_base": 50000,
+      "tile_owner_base": 100000,
+      "policy": "linked",
+      "trial": 4,
+      "bait": 0,
+      "goal": {
+        "day": 4,
+        "active_hours": 9.020076912869234,
+        "at_login": true
+      },
+      "passive_earned": 3576778.260964964,
+      "aq_hourly_at_goal": 302360.19230769225
+    },
+    {
+      "candidate": "rewarding",
+      "valley_owner_base": 50000,
+      "tile_owner_base": 100000,
+      "policy": "separate_income",
+      "trial": 4,
+      "bait": 0,
+      "goal": {
+        "day": 6,
+        "active_hours": 16.460427909308137,
+        "at_login": false
+      },
+      "passive_earned": 1928259.8852279787,
+      "aq_hourly_at_goal": 76566.80769230767
+    },
+    {
+      "candidate": "high",
+      "valley_owner_base": 60000,
+      "tile_owner_base": 150000,
+      "policy": "linked",
+      "trial": 4,
+      "bait": 0,
+      "goal": {
+        "day": 3,
+        "active_hours": 8.184597603810168,
+        "at_login": false
+      },
+      "passive_earned": 3497115.9528312325,
+      "aq_hourly_at_goal": 453540.46153846144
+    },
+    {
+      "candidate": "high",
+      "valley_owner_base": 60000,
+      "tile_owner_base": 150000,
+      "policy": "separate_income",
+      "trial": 4,
+      "bait": 0,
+      "goal": {
+        "day": 6,
+        "active_hours": 15.12154435667453,
+        "at_login": false
+      },
+      "passive_earned": 1825745.845731088,
+      "aq_hourly_at_goal": 76566.80769230767
+    },
+    {
+      "candidate": "current",
+      "valley_owner_base": 16000,
+      "tile_owner_base": 20000,
+      "policy": "linked",
+      "trial": 4,
+      "bait": 1,
+      "goal": {
+        "day": 7,
+        "active_hours": 19.622207058420308,
+        "at_login": false
+      },
+      "passive_earned": 1948097.5142464105,
+      "aq_hourly_at_goal": 69908.1923076923
+    },
+    {
+      "candidate": "current",
+      "valley_owner_base": 16000,
+      "tile_owner_base": 20000,
+      "policy": "separate_income",
+      "trial": 4,
+      "bait": 1,
+      "goal": {
+        "day": 7,
+        "active_hours": 19.622207058420308,
+        "at_login": false
+      },
+      "passive_earned": 1948097.5142464105,
+      "aq_hourly_at_goal": 69908.1923076923
+    },
+    {
+      "candidate": "moderate",
+      "valley_owner_base": 40000,
+      "tile_owner_base": 60000,
+      "policy": "linked",
+      "trial": 4,
+      "bait": 1,
+      "goal": {
+        "day": 5,
+        "active_hours": 12.46536773502583,
+        "at_login": false
+      },
+      "passive_earned": 2727712.397815383,
+      "aq_hourly_at_goal": 182819.07692307688
+    },
+    {
+      "candidate": "moderate",
+      "valley_owner_base": 40000,
+      "tile_owner_base": 60000,
+      "policy": "separate_income",
+      "trial": 4,
+      "bait": 1,
+      "goal": {
+        "day": 7,
+        "active_hours": 18.040940904765755,
+        "at_login": false
+      },
+      "passive_earned": 1839394.6190115558,
+      "aq_hourly_at_goal": 67835.07692307692
+    },
+    {
+      "candidate": "rewarding",
+      "valley_owner_base": 50000,
+      "tile_owner_base": 100000,
+      "policy": "linked",
+      "trial": 4,
+      "bait": 1,
+      "goal": {
+        "day": 4,
+        "active_hours": 10.637700112513217,
+        "at_login": false
+      },
+      "passive_earned": 2936982.8123496864,
+      "aq_hourly_at_goal": 253177.9615384615
+    },
+    {
+      "candidate": "rewarding",
+      "valley_owner_base": 50000,
+      "tile_owner_base": 100000,
+      "policy": "separate_income",
+      "trial": 4,
+      "bait": 1,
+      "goal": {
+        "day": 6,
+        "active_hours": 17.17347059615018,
+        "at_login": false
+      },
+      "passive_earned": 1585097.8771734,
+      "aq_hourly_at_goal": 65752.96153846153
+    },
+    {
+      "candidate": "high",
+      "valley_owner_base": 60000,
+      "tile_owner_base": 150000,
+      "policy": "linked",
+      "trial": 4,
+      "bait": 1,
+      "goal": {
+        "day": 4,
+        "active_hours": 9.015136958942382,
+        "at_login": true
+      },
+      "passive_earned": 3689721.131112464,
+      "aq_hourly_at_goal": 340375.49999999994
+    },
+    {
+      "candidate": "high",
+      "valley_owner_base": 60000,
+      "tile_owner_base": 150000,
+      "policy": "separate_income",
+      "trial": 4,
+      "bait": 1,
+      "goal": {
+        "day": 6,
+        "active_hours": 15.869739537519115,
+        "at_login": false
+      },
+      "passive_earned": 1504475.6953423761,
+      "aq_hourly_at_goal": 61289.99999999999
+    },
+    {
+      "candidate": "current",
+      "valley_owner_base": 16000,
+      "tile_owner_base": 20000,
+      "policy": "linked",
+      "trial": 4,
+      "bait": 2,
+      "goal": {
+        "day": 7,
+        "active_hours": 19.131640458949843,
+        "at_login": false
+      },
+      "passive_earned": 2084670.1172819017,
+      "aq_hourly_at_goal": 77032.03846153844
+    },
+    {
+      "candidate": "current",
+      "valley_owner_base": 16000,
+      "tile_owner_base": 20000,
+      "policy": "separate_income",
+      "trial": 4,
+      "bait": 2,
+      "goal": {
+        "day": 7,
+        "active_hours": 19.131640458949843,
+        "at_login": false
+      },
+      "passive_earned": 2084670.1172819017,
+      "aq_hourly_at_goal": 77032.03846153844
+    },
+    {
+      "candidate": "moderate",
+      "valley_owner_base": 40000,
+      "tile_owner_base": 60000,
+      "policy": "linked",
+      "trial": 4,
+      "bait": 2,
+      "goal": {
+        "day": 5,
+        "active_hours": 12.031613432375392,
+        "at_login": true
+      },
+      "passive_earned": 2956923.5319209755,
+      "aq_hourly_at_goal": 207666.69230769228
+    },
+    {
+      "candidate": "moderate",
+      "valley_owner_base": 40000,
+      "tile_owner_base": 60000,
+      "policy": "separate_income",
+      "trial": 4,
+      "bait": 2,
+      "goal": {
+        "day": 6,
+        "active_hours": 17.90948964113711,
+        "at_login": false
+      },
+      "passive_earned": 1783603.6319683346,
+      "aq_hourly_at_goal": 71306.65384615384
+    },
+    {
+      "candidate": "rewarding",
+      "valley_owner_base": 50000,
+      "tile_owner_base": 100000,
+      "policy": "linked",
+      "trial": 4,
+      "bait": 2,
+      "goal": {
+        "day": 4,
+        "active_hours": 9.918250390685932,
+        "at_login": false
+      },
+      "passive_earned": 3051353.391934073,
+      "aq_hourly_at_goal": 313236.69230769225
+    },
+    {
+      "candidate": "rewarding",
+      "valley_owner_base": 50000,
+      "tile_owner_base": 100000,
+      "policy": "separate_income",
+      "trial": 4,
+      "bait": 2,
+      "goal": {
+        "day": 6,
+        "active_hours": 15.570557547332237,
+        "at_login": false
+      },
+      "passive_earned": 1616822.2107857296,
+      "aq_hourly_at_goal": 71306.65384615384
+    },
+    {
+      "candidate": "high",
+      "valley_owner_base": 60000,
+      "tile_owner_base": 150000,
+      "policy": "linked",
+      "trial": 4,
+      "bait": 2,
+      "goal": {
+        "day": 4,
+        "active_hours": 9.024852834994098,
+        "at_login": true
+      },
+      "passive_earned": 4055918.630324756,
+      "aq_hourly_at_goal": 405515.7692307692
+    },
+    {
+      "candidate": "high",
+      "valley_owner_base": 60000,
+      "tile_owner_base": 150000,
+      "policy": "separate_income",
+      "trial": 4,
+      "bait": 2,
+      "goal": {
+        "day": 6,
+        "active_hours": 15.03430096751089,
+        "at_login": true
+      },
+      "passive_earned": 1578583.548475687,
+      "aq_hourly_at_goal": 71306.65384615384
+    }
+  ],
+  "ledger_sha256": "cc317be5dfb75ab483b08be03e64a00835fc98375fc40e1d8c37fdda111c737a",
+  "recommended": "moderate",
+  "recommended_values": {
+    "reservoir_owner": 8000,
+    "valley_owner": 40000,
+    "tile_owner": 60000,
+    "aquarium_valuation_basis_proposal": [
+      8000,
+      16000,
+      20000
+    ]
+  },
+  "assumptions": {
+    "day_hours": 3,
+    "offline_credit_hours": 3,
+    "initial_cash": 0,
+    "initial_five_owners": "same existing stored-price reservoir1,valley2,tile2 normal/standard/forge3; no retroactive repricing",
+    "aquarium_slots": 6,
+    "boat_expansions": 2,
+    "forge": 3,
+    "normal_cycle_seconds": 30,
+    "success": 0.9,
+    "hook_miss": 0,
+    "grade_upgrade": 0.1,
+    "income_linked": "newly caught owner income basis equals candidate sale price",
+    "separate_income": "hypothetical new owner display-income basis remains previous regionowner8000/16000/20000 times same grade/length/forge factors; only sale reward rises",
+    "replacement": "replace only if display-income value improves, sell withdrawn old fish at its stored sale value; initial old five unchanged",
+    "candidates_valley": "valley price is proposal only; funding simulation concerns tile stage and current stored initial five, not freshly farmed high-price valley owners",
+    "excluded": "actual fight/player reaction/travel/bag,other grants/robot/expedition,gate completion; hypothesis not new code",
+    "statistics": "15paths=5seeds x3baits; ordinary perowner is ratio across14day paths; sample min/max not confidence interval"
+  }
+}
