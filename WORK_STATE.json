@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "helmet_headlamp_local_verified_full_ci_pending",
+  "status": "helmet_headlamp_full_ci_running",
   "release_baseline": "v1.11",
   "target_release": "v1.11",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/helmet-headlamp/HANDOFF.md",
   "current_task": "발밑 랜턴 삭제·실제 헬멧 헤드랜턴 연동·야간 밝기 재상향",
-  "next_step": "동일 소스 전체 회귀 CI 확인·원격 검증 기록",
+  "next_step": "전체 CI 42483060048 완료·로그 확인 후 최종 기록",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -366,6 +366,9 @@
     "native_frames": 28,
     "additional_motion_poses": 16,
     "day_pixels_changed": 0,
-    "release_ready": false
+    "release_ready": false,
+    "source_commit": "49eef75a61fdf7b4acaa345ba97e5fd7f88d7b81",
+    "ci_run": 42483060048,
+    "ci_status": "in_progress"
   }
 }
