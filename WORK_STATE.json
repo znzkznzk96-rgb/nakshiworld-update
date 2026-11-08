@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "v111_release_authorized",
+  "status": "v111_final_source_prepared",
   "release_baseline": "v1.10",
   "target_release": "v1.11",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/releases/111/HANDOFF.md",
   "current_task": "승인 수정묶음 v1.11 검증·공개·운영다운로드",
-  "next_step": "버전·우편·배포경로 준비 후 최종소스 전체검사",
+  "next_step": "최종소스 verify-work 전체검사·실화면·PCK/전체소스 후보 생성 후 동일파일 공개",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -254,13 +254,9 @@
     "headless_suites": 78
   },
   "release_candidate": {
-    "artifact_id": 13594114063,
-    "input_fingerprint": "6ffaa8c8854dd132aa070b8e7d383be682c38d6d22a3c09313dbf0206558414a",
-    "source_commit": "12dfd5d1b96aa2ecfee558d491991d123950700a",
-    "run": 42423468177,
-    "ready": true,
-    "published": true,
-    "rebuild_on_publish": false
+    "ready": false,
+    "published": false,
+    "note": "111 설정·배포도구 기준 새 후보 필요"
   },
   "release_resume_run": 42424430555,
   "fight_body_size": {

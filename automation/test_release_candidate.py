@@ -1,5 +1,6 @@
 """Isolated proof that publish cannot reuse stale/tampered/failed candidates."""
 import importlib.util, json, os, pathlib, subprocess, tempfile, unittest
+from unittest.mock import patch
 spec=importlib.util.spec_from_file_location('candidate',pathlib.Path(__file__).with_name('release_candidate.py'));m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
 class CandidateTests(unittest.TestCase):
  def setUp(self):
@@ -31,4 +32,31 @@ class CandidateTests(unittest.TestCase):
   with self.assertRaises(AssertionError):m.validate(self.out,r)
  def test_unrelated_docs_do_not_invalidate(self):
   (self.root/'README.md').write_text('docs');self.git('add','README.md');self.git('commit','-qm','docs');m.validate(self.out)
+ def test_draft_publication_uses_release_id_for_create_and_resume(self):
+  os.environ['GITHUB_REPOSITORY']='test/project'
+  (self.root/'automation/release-history.json').write_text(json.dumps([{'id':'1.10','body':['notes']}]))
+  for existing in [False,True]:
+   c=dict(self.meta,run_id=42)
+   assets=[{'name':n,'size':v['size'],'digest':'sha256:'+v['sha256']} for n,v in c['files'].items()]
+   release={'id':765,'tag_name':'v1.10','target_commitish':c['source_commit'],'draft':True,'assets':assets}
+   state={'exists':existing};calls=[]
+   def output(cmd,**kwargs):
+    calls.append(cmd);endpoint=cmd[-1]
+    if '/actions/workflows/' in endpoint:return json.dumps({'workflow_runs':[{'event':'push','head_branch':'work/test','id':42}]}).encode()
+    if endpoint.endswith('/artifacts'):return json.dumps({'artifacts':[{'name':'release-candidate-proof','expired':False}]}).encode()
+    if endpoint.endswith('/releases?per_page=100'):return json.dumps([release] if state['exists'] else []).encode()
+    if endpoint.endswith('/releases/765'):return json.dumps(release).encode()
+    raise AssertionError('Unexpected endpoint: '+endpoint)
+   def execute(cmd,**kwargs):
+    calls.append(cmd)
+    if cmd[:3]==['gh','release','create']:state['exists']=True
+    elif cmd[:4]==['gh','api','--method','PATCH']:
+     self.assertEqual(cmd[4],'repos/test/project/releases/765')
+     self.assertFalse(json.loads(kwargs['input'])['draft']);release['draft']=False
+    return subprocess.CompletedProcess(cmd,0)
+   with patch.object(m,'fingerprint',return_value='proof'),patch.object(m,'validate',return_value=c),patch.object(m.subprocess,'check_output',side_effect=output),patch.object(m.subprocess,'run',side_effect=execute):
+    m.publish(self.out)
+   self.assertFalse(release['draft'])
+   self.assertFalse(any('/releases/tags/' in str(cmd) for cmd in calls))
+   self.assertFalse(json.loads((self.out/'PUBLISH_RESULT.json').read_text())['rebuild'])
 if __name__=='__main__':unittest.main()
