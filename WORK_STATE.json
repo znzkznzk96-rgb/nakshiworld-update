@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "owner_rewards_reconsideration_after_user_feedback",
+  "status": "owner_sale_prices_40000_500000_implementation",
   "release_baseline": "v1.11",
   "target_release": "v1.11",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/three-region-prices/HANDOFF.md",
-  "current_task": "주인보상비율재조정안제시·타일60만기본후보(미적용)",
-  "next_step": "해금비비율기준주인8000/40000/600000안검토·진행기간/등급크기상한재검증후구체설계확정; 배포금지",
+  "current_task": "주인판매가저수지8000·계곡40000·타일500000적용",
+  "next_step": "주인가격/등급배율·기존저장개체검증·수족관연동진행속도재기록·전체CI; 배포금지",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -468,22 +468,15 @@
     "verification_artifact": 13626995881
   },
   "owner_reward_review": {
-    "status": "ratio_aligned_proposal_not_approved",
-    "current_valley_owner": 16000,
-    "current_tile_owner": 20000,
-    "reason": "user finds rewards insufficient for gated hardest catches",
-    "game_changed": false,
-    "report": "docs/analysis/owner-value-review-20261109/RATIO_PROPOSAL.md",
-    "recommended_sale_prices": [
+    "status": "user_approved_implementation",
+    "approved_sale_prices": [
       8000,
       40000,
-      600000
+      500000
     ],
-    "proposed_display_income_basis": [
-      8000,
-      16000,
-      20000
-    ],
-    "previous_60000_tile_proposal": "rejected_ratio_too_low"
+    "aquarium_income_separation": "not_approved_not_applied",
+    "offline_income_hours": 3,
+    "preserve_stored_specimen_prices": true,
+    "deployed": false
   }
 }
