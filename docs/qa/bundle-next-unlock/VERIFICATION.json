@@ -1,0 +1,53 @@
+{
+  "date": "2026-11-08",
+  "decision_commit": "5137ca41804abb2c7697f374b68e11116232c48d",
+  "source_commit": "a3d3b23ca2860f32df99a8e92fa6b79b206db1fe",
+  "baseline": {
+    "release": "v1.10",
+    "source_sha256": "f54abc1ba4529a9a3f9f1fe1dca2a6a4c249d12e3f598be70b1de98092d850a2",
+    "existing_verified_runtime_reused": true
+  },
+  "related_suites": {
+    "regional_bundle_rewards": "passed",
+    "bundles_buyback": "passed",
+    "inventory_layout": "passed",
+    "bundle_preview": "passed",
+    "rewards": "passed",
+    "regional": "passed",
+    "tile107": "passed"
+  },
+  "payouts": {
+    "reservoir_owner": 5940,
+    "valley_sub": 31200,
+    "valley_owner": 93600
+  },
+  "preserved": [
+    "reservoir_sub",
+    "tile_payouts",
+    "souls",
+    "pearls",
+    "existing_receipt_ids",
+    "no_automatic_retroactive_payment",
+    "fishing_background_and_layers"
+  ],
+  "native": {
+    "payouts": "passed",
+    "legacy_selection": "passed",
+    "fishing_original_retained": "passed",
+    "screens": [
+      810,
+      1620
+    ]
+  },
+  "art_sha256": {
+    "art/refresh53/tile_sea.png": "b14cd28b5d9b612eb8a64b725fe5b0c9d11d128d31f21c6d9e3ccaab72406329",
+    "art/bg/tile_sea_approved_20261107.png": "1c2ce9d432cf1aa38ed462d2570291fe63c316f50aecc851f0a5a532d84d1f4b"
+  },
+  "comparison": "comparison.webp",
+  "full_ci": {
+    "run": 42434835808,
+    "status": "in_progress"
+  },
+  "published": false,
+  "public_release": "v1.10"
+}

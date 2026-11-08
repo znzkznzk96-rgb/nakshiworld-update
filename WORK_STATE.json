@@ -281,6 +281,10 @@
     "release_authorized": false,
     "related_suites": 7,
     "native_pass": true,
-    "decision_commit": "5137ca41804abb2c7697f374b68e11116232c48d"
+    "decision_commit": "5137ca41804abb2c7697f374b68e11116232c48d",
+    "verification": "docs/qa/bundle-next-unlock/VERIFICATION.json",
+    "source_commit": "a3d3b23ca2860f32df99a8e92fa6b79b206db1fe",
+    "ci_run": 42434835808,
+    "ci_status": "in_progress"
   }
 }
