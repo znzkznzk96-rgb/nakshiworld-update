@@ -1,0 +1,27 @@
+{
+  "status": "analysis_verified_not_implemented",
+  "baseline_head": "7136e6050acbbfe598874d373fb3adcf6ccd0068",
+  "game_source": "fe95f5593f6ba2a133caf81cee69bd70bf00cf15",
+  "trace_hashes": {
+    "joint-owner-ledger.json": "540762c512fa9adb8351dbe601d8b19fe816ea6e0dd76d03db6217b7951447ac",
+    "joint-owner-max-ledger.json": "c1fe88fd56c0e0155b8645349405487af3432b676483e31199fafba776f70f93"
+  },
+  "trace_draws_reused": 1085597,
+  "new_godot_draws": 0,
+  "primary_economic_paths": 12960,
+  "total_economic_paths": 38880,
+  "threshold_evaluations": 466560,
+  "price_parity_samples": 1085597,
+  "price_mismatches": 0,
+  "fixed_fee_exact_parity_groups": 36,
+  "cash_conservation": true,
+  "owner_cap_asserted": true,
+  "fee_chronology_asserted": true,
+  "raw_paths_sha256": {
+    "grid": "63b78d30f7247eda06a5f2295d644fc9b63870b8d596a9bb11902d5c7942215a",
+    "6h": "6a1bdfc990146b20dfa84a88a56272e1bd1dca5b351180f26ab7e530016cdaf3",
+    "12h": "c698593c296eec0ed12b0a7e44b2ae8ba4cb52983891e001bf735237c114a11e"
+  },
+  "game_changed": false,
+  "deployed": false
+}

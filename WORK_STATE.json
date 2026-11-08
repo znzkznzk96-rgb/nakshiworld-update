@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "owner_income_raised_fee_simulation_authorized",
+  "status": "owner_income_raised_fee_simulation_verified_not_applied",
   "release_baseline": "v1.12",
   "target_release": "v1.12",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/analysis/owner-income-raised-fee-20261109/HANDOFF.md",
-  "current_task": "주인전시기준·해금비인상 조합 재시뮬",
-  "next_step": "동일추첨으로2만/4만/6만×해금비그리드 비교; 약7일목표 추천·구체값미정; 구현배포없음",
+  "current_task": "주인전시2만/해금2100만 추천·미적용",
+  "next_step": "조합사용자검토;3h/day기준7일·분할접속단축/주인보상비중절충안내;구현배포미승인",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -595,7 +595,7 @@
     "ordinary_income": "unchanged_sale_linked",
     "implemented": false,
     "deployed": false,
-    "status": "simulation_completed_not_implemented",
+    "status": "superseded_by_raised_fee_analysis_pending",
     "report": "docs/analysis/owner-income-fixed-fee-20261109/REPORT.md",
     "verification": "docs/analysis/owner-income-fixed-fee-20261109/VERIFICATION.json"
   },
@@ -617,6 +617,15 @@
       40000,
       60000
     ],
-    "unlock_fee": "pending_simulation"
+    "unlock_fee": "pending_simulation",
+    "status": "verified_recommendation_pending",
+    "recommended_income_bases": [
+      8000,
+      40000,
+      20000
+    ],
+    "recommended_unlock_fee": 21000000,
+    "report": "docs/analysis/owner-income-raised-fee-20261109/REPORT.md",
+    "verification": "docs/analysis/owner-income-raised-fee-20261109/VERIFICATION.json"
   }
 }
