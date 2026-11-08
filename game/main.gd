@@ -1731,21 +1731,18 @@ func _draw_fight(t: float, tip: Vector2) -> void :
 	var sag: = 60.0 if (S.beh == "charge" and not holding) else 0.0
 	var line_col: = tension_line_color(S.tension)
 
-	if S.has("mouth"):
-		var line_tip: Vector2 = tip
-		if tens >= 0.85: line_tip.x += sin(t * 0.045) * 0.65
-		_line(line_tip, S.mouth, line_col, sag)
 	var dx: = fx
 	var dy: = fy
 	if S.beh == "tell": dx += sin(t / 25.0) * 1.5
 	if S.beh == "thrash": dx += sin(t / 28.0) * 2.5;dy += cos(t / 37.0) * 1.5
 	if S.spike > 0: dx += sin(t / 12.0) * 3;dy += cos(t / 15.0) * 2
 	var scale: float = _fight_fish_scale(S.lf)
+	var body_length: float = _fight_body_length(int(S.sp), float(S.lf), int(S.star))
 	if cl:
 		for k in 3:
 			if k != S.cloneReal:
 				_shadow_fish(Vector2(dx + (CX[k] - CX[S.cloneReal]) * spread, dy + (CY[k] - CY[S.cloneReal]) * spread + sin(t / 300.0 + k) * 3), 
-					S.star, S.grade, t + k * 137, "rest" if S.cloneSub == "run" else "run", false, scale, {}, t / 1000.0 * TAU * 2, S.sp, 1.0, 1.0)
+					S.star, S.grade, t + k * 137, "rest" if S.cloneSub == "run" else "run", false, scale, {}, t / 1000.0 * TAU * 2, S.sp, 1.0, 1.0, body_length)
 	var face: float = float(S.dartDir) if run else (float(S.diveDir) if S.beh == "dive" else (-1.0 if S.beh in ["turn", "charge"] else 1.0))
 	if S.beh == "circle": face = -1.0 if sin(S.circA) > 0 else 1.0
 	if S.beh == "skim": face = float(S.skimDir)
@@ -1764,11 +1761,13 @@ func _draw_fight(t: float, tip: Vector2) -> void :
 	S.swimPh += dtd * TAU * S.pose.freq
 	var shake: = Vector2.ZERO
 	if S.spike > 0 and S.grade >= 3: shake = Vector2(randi_range(-1, 1) * (S.grade - 2), randi_range(-1, 1))
-	_shadow_fish(Vector2(dx, dy) + shake, S.star, S.grade, t, S.cloneSub if cl else S.beh, S.spike > 0, scale, S.pose, S.swimPh, S.sp, fs, 1.0)
+	_shadow_fish(Vector2(dx, dy) + shake, S.star, S.grade, t, S.cloneSub if cl else S.beh, S.spike > 0, scale, S.pose, S.swimPh, S.sp, fs, 1.0, body_length)
 	S.mouth = fish_mouth
-	if not S.has("mouthOk"): S.mouthOk = true;_line(tip, fish_mouth, line_col, sag)
-	S.lastF = {"p": Vector2(dx, dy) + shake, "scale": scale, "face": fs, "pose": S.pose.duplicate(), "phase": S.swimPh}
-	_draw_fish_tension(Vector2(dx, dy), scale, dtd)
+	var line_tip: Vector2 = tip
+	if tens >= 0.85: line_tip.x += sin(t * 0.045) * 0.65
+	_line(line_tip, fish_mouth, line_col, sag)
+	S.lastF = {"p": Vector2(dx, dy) + shake, "scale": scale, "body_length": body_length, "face": fs, "pose": S.pose.duplicate(), "phase": S.swimPh}
+	_draw_fish_tension(Vector2(dx, dy), scale, dtd, body_length)
 	if S.beh == "jump": _ripple(S.fx, 14, 0.6)
 	if S.landUntil > 0 and clock <= S.landUntil and not S.jumpUsed:
 		var k2: float = 1 - (S.landUntil - clock) / 0.5
@@ -1776,9 +1775,9 @@ func _draw_fight(t: float, tip: Vector2) -> void :
 		for i in range(-2, 3): draw_rect(Rect2(int(S.fx + i * 7), int(WATER - 4 - (4 - abs(i)) * 4 * (1 - k2)), 2, 2), Color.WHITE)
 
 
-func _shadow_fish(c: Vector2, star: int, grade: int, t: float, beh: String, spike: bool, scale: float, pose: Dictionary, phase: float, sp: int, face: float, alpha: float) -> void :
+func _shadow_fish(c: Vector2, star: int, grade: int, t: float, beh: String, spike: bool, scale: float, pose: Dictionary, phase: float, sp: int, face: float, alpha: float, body_length: float = -1.0) -> void :
 	var revealed: bool = alpha >= 1.0 or (S.phase == "pre" and S.get("judge", "MISS") != "MISS")
-	var L: = _fish_display_length(star, scale, alpha < 1.0, sp)
+	var L: float = body_length if body_length > 0.0 else _fish_display_length(star, scale, alpha < 1.0, sp)
 	# Keep subpixel motion: final display rasterizes the fish, not the 270px world.
 	var N: = 12
 	var fz: float = grade / 4.0
@@ -2167,6 +2166,12 @@ func _draw_reaction(t: float) -> void :
 func _fight_fish_scale(length_factor: float) -> float:
 	return 2.2 * (0.8 + 0.4 * (length_factor - 0.75))
 
+func _fight_body_length(sp: int, length_factor: float, star: int = 0) -> float:
+	var base: float = _fish_display_length(star, _fight_fish_scale(length_factor), false, sp)
+	if sp < 0 or sp >= FISH_LEN.size(): return base
+	var actual_cm: float = float(FISH_LEN[sp]) * length_factor
+	return minf(156.0, base + minf(72.0, maxf(0.0, actual_cm - 20.0) * 0.8))
+
 const SCOOP_T: = 1.15
 func _draw_landing(t: float, tip: Vector2) -> void :
 	if not S.has("lastF") or S.t >= SCOOP_T: return
@@ -2176,7 +2181,7 @@ func _draw_landing(t: float, tip: Vector2) -> void :
 	var dst: = Vector2(104, WATER + 9)
 	var p: Vector2 = (lf.p as Vector2).lerp(dst, e)
 	if k >= 1.0: p += Vector2(sin(t / 40.0) * 2, cos(t / 55.0))
-	_shadow_fish(p, S.star, S.grade, t, "run" if k >= 1.0 else "swim", false, lf.scale, lf.get("pose", {}), float(lf.get("phase", 0.0)) + S.t * TAU * 1.2, S.sp, float(lf.get("face", -1.0)), 1.0)
+	_shadow_fish(p, S.star, S.grade, t, "run" if k >= 1.0 else "swim", false, lf.scale, lf.get("pose", {}), float(lf.get("phase", 0.0)) + S.t * TAU * 1.2, S.sp, float(lf.get("face", -1.0)), 1.0, float(lf.get("body_length", -1.0)))
 	_line(tip, fish_mouth, Color(1, 1, 1, 0.8), 0.0)
 	if k >= 1.0:
 		_ripple(p.x, 8 + 4 * sin(t / 90.0), 0.6)
@@ -2405,12 +2410,13 @@ func _draw_notes() -> void :
 		else:
 			_judge_text(toast_txt, Vector2(VW / 2.0, WATER - 62 + oy), Color(toast_col.r, toast_col.g, toast_col.b, min(1.0, toast_t * 2)), toast_t / 1.2)
 
-func _tension_anchor(fish_pos: Vector2, scale: float) -> Vector2:
-	var offset: = maxf(20.0, _fish_display_length(S.star, scale, false,int(S.get("sp",0))) * 0.66 + 9.0)
+func _tension_anchor(fish_pos: Vector2, scale: float, body_length: float = -1.0) -> Vector2:
+	var length: float = body_length if body_length > 0.0 else _fish_display_length(S.star, scale, false,int(S.get("sp",0)))
+	var offset: = maxf(20.0, length * 0.66 + 9.0)
 	return Vector2(clampf(fish_pos.x - 22.0, 4.0, VW - 48.0), maxf(top_y + 66.0 - oy, fish_pos.y - offset))
 
-func _draw_fish_tension(fish_pos: Vector2, scale: float, dt: float) -> void :
-	var target: = _tension_anchor(fish_pos, scale)
+func _draw_fish_tension(fish_pos: Vector2, scale: float, dt: float, body_length: float = -1.0) -> void :
+	var target: = _tension_anchor(fish_pos, scale, body_length)
 	var previous: Vector2 = S.get("tensionHud", target)
 	var p: = previous.lerp(target, 1.0 - exp(-12.0 * dt)) if dt > 0 else target
 

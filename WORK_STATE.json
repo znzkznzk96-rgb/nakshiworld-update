@@ -7,7 +7,7 @@
   "phone_verified": false,
   "handoff": "docs/qa/fight-body-size/HANDOFF.md",
   "current_task": "사진의 줄에 걸린 파이팅 본체 크기 차등 수정",
-  "next_step": "본체/입앵커/장력표시/들어올리기 연결 후 실제 전후 비교",
+  "next_step": "실화면 전후 비교 검수 및 관련검사·원격저장 완료 후 보고",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
