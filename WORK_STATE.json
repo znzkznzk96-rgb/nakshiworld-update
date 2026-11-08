@@ -6,8 +6,8 @@
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/headlamp-local-light/HANDOFF.md",
-  "current_task": "하루6시간×3~4일 목표 확정·오프라인/기존수족관 포함 일별 분석 완료",
-  "next_step": "현행/소폭상향과 기존수족관 승계의 진행차이 검토; 최종가격·수족관 변경 미확정·배포금지",
+  "current_task": "주인5마리·적정업그레이드·하루3시간×약7일 목표 재시뮬레이션",
+  "next_step": "수족관6칸·배2회확장을 명시 가정으로 삼고 주인구성·배단계 민감도 비교 후 가격안 제시",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -412,17 +412,16 @@
   },
   "tile_pacing_target": {
     "date": "2026-11-09",
-    "active_hours_per_day": 6,
-    "target_days": [
-      3,
-      4
-    ],
-    "target_active_hours": [
-      18,
-      24
-    ],
-    "status": "target_confirmed_prices_pending",
-    "deployment_authorized": false,
-    "analysis": "docs/analysis/tile-pacing-6h-20261109/REPORT.md"
+    "active_hours_per_day": 3,
+    "target_days_approx": 7,
+    "target_active_hours_approx": 21,
+    "owner_fish_displayed": 5,
+    "status": "user_target_confirmed_specific_prices_pending",
+    "supersedes": "6h/day for3-4days",
+    "analysis_assumption_pending": {
+      "aquarium_slots": 6,
+      "boat_expansions": 2
+    },
+    "deployment_authorized": false
   }
 }
