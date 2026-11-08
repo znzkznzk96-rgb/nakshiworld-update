@@ -4,4 +4,4 @@
 
 버전112/1.12·업데이트 우편7항목 준비. 다음:최종버전 전체CI/native/PCK 성공확인→main PR merge로 동일봉인후보 공개→공개3파일/소스ZIP/운영다운로드 확인. 과거111후보로112를 배포하지 않음. 과거5주인 조건 시뮬은 새제한에 재사용금지. 휴대폰 적용 미확인.
 
-최종 소스 2e88947e794336ff218ccc69066f39f7570ba753. CI https://github.com/znzkznzk96-rgb/nakshiworld-update/actions/runs/42512752576 진행중, PR50 draft. reader 검사 통과. 다음:CI 성공후 PR본문 갱신/ready/expected head 병합.
+최종소스 2e88947e794336ff218ccc69066f39f7570ba753 CI42512752576 전체88/native/PCK 성공, 후보13630855169. PR50 main병합 d208938aa047f8e1df6dcd2093c7b62c4207fd35. 게시run42513431137 attempt1:초안생성직후 releases목록 지연으로 Created draft not found. 초안438457348 존재·빈assets 확인후 실패게시단계만 재시도. 기존초안/후보 재사용, 재빌드 없음. 다음:게시attempt2/운영검증 확인.

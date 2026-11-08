@@ -1,6 +1,6 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "release112_final_ci_in_progress",
+  "status": "release112_publication_retry_existing_draft",
   "release_baseline": "v1.11",
   "target_release": "v1.12",
   "deployed": true,
@@ -501,10 +501,16 @@
   "release112": {
     "source_commit": "2e88947e794336ff218ccc69066f39f7570ba753",
     "ci_run": 42512752576,
-    "ci_status": "in_progress",
+    "ci_status": "success",
     "pr": 50,
     "deployed": false,
     "phone_verified": false,
-    "release_authorized": true
+    "release_authorized": true,
+    "headless_suites": 88,
+    "candidate_artifact": 13630855169,
+    "merge_commit": "d208938aa047f8e1df6dcd2093c7b62c4207fd35",
+    "publication_run": 42513431137,
+    "publication_status": "retry_after_draft_list_visibility_delay",
+    "draft_id": 438457348
   }
 }
