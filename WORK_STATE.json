@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "three_region_prices_basis_saved_implementation_next",
+  "status": "three_region_prices_implemented_related_checks_full_ci_pending",
   "release_baseline": "v1.11",
   "target_release": "v1.11",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/three-region-prices/HANDOFF.md",
-  "current_task": "3지역60종새가격표산정완료·구현준비",
-  "next_step": "공유가격원본적용·신규포획/기존저장개체검사·관련검사·전체CI",
+  "current_task": "3지역60종새가격적용·신규/저장개체검증통과·전체CI준비",
+  "next_step": "관련8검사확인·동일소스전체회귀/네이티브/PCK검사·원격결과보존",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -446,7 +446,7 @@
     "verification_artifact": 13626040474
   },
   "three_region_price_rebalance": {
-    "status": "priced_basis_ready",
+    "status": "implemented",
     "offline_income_hours": 3,
     "regions": [
       0,
@@ -459,6 +459,7 @@
     "preserve_stored_specimen_prices": true,
     "deployed": false,
     "price_table": "docs/qa/three-region-prices/PRICE_TABLE.md",
-    "simulation": "docs/qa/three-region-prices/SIMULATION.json"
+    "simulation": "docs/qa/three-region-prices/SIMULATION.json",
+    "verification": "docs/qa/three-region-prices/VERIFICATION.json"
   }
 }
