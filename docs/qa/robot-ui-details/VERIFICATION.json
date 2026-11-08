@@ -18,5 +18,9 @@
   "legacy_robot_tile_species_restore_fixed": true,
   "save_schema_changed": false,
   "deployed": false,
-  "phone_verified": false
+  "phone_verified": false,
+  "source_commit": "8ddaf799becc8779edbab1a3912cbf9ed9de9ac8",
+  "ci_run": 42517742751,
+  "ci_status": "in_progress",
+  "ghost_touch_guard": true
 }
