@@ -672,11 +672,23 @@ func press(m,pos: Vector2) -> void:
 			opened="merge_confirm";notice="";return
 	elif key=="merge_cancel": opened="alchemy"
 	elif key=="merge_confirm":
-		if selected.size()==2:
-			var q: Dictionary=data.begin_merge(int(selected[0]),int(selected[1]),m.gold)
-			if q.is_empty(): notice="어혼·비늘 부족 또는 잠금 병사예요"
-			else: m.gold-=int(q.gold);selected=[];opened="alchemy"
-	elif key.begins_with("inherit:"): data.finish_merge(int(key.split(":")[1]))
+		if selected.size()!=2:return
+		var before:Dictionary=data.serialize().duplicate(true);var old_gold:int=m.gold
+		var old_selected:Array=selected.duplicate();var rng_state:int=data.rng.state
+		var q:Dictionary=data.begin_merge(int(selected[0]),int(selected[1]),m.gold)
+		if q.is_empty():notice="어혼·비늘 부족 또는 잠금 병사예요"
+		else:
+			m.gold-=int(q.gold)
+			if not m._save_game():
+				data.restore(before);data.rng.state=rng_state;m.gold=old_gold;selected=old_selected;notice="저장하지 못했어요. 재료는 그대로예요."
+			else:selected=[];opened="alchemy"
+		if notice!="":m.show_toast(notice,Color("ffdc96"))
+		return
+	elif key.begins_with("inherit:"):
+		var before:Dictionary=data.serialize().duplicate(true)
+		if data.finish_merge(int(key.split(":")[1])) and not m._save_game():
+			data.restore(before);m.show_toast("저장하지 못했어요. 계승을 다시 선택해 주세요",Color("ffdc96"))
+		return
 	elif key=="pending_done": data.pending={};opened="alchemy";tab=2;page=maxi(0,ceili(data.soldiers.size()/4.0)-1)
 	if notice!="": m.show_toast(notice,Color("ffdc96"))
 	m._save_game()

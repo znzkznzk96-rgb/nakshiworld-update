@@ -1,0 +1,8 @@
+{
+  "actual_failed_file_writes": true,
+  "failures": [],
+  "isolated_user_data": true,
+  "repetitions": 100,
+  "scenario_count": 11,
+  "trials": 1100
+}

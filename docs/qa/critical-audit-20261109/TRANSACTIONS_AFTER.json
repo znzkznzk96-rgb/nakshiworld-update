@@ -1,0 +1,68 @@
+[
+  {
+    "case": "buyback_real_write_failure",
+    "disk_unchanged": true,
+    "memory_unchanged": true,
+    "reported_result": false
+  },
+  {
+    "case": "sell_all_real_write_failure",
+    "disk_unchanged": true,
+    "memory_unchanged": true,
+    "reported_result": null
+  },
+  {
+    "case": "aqua_expand_real_write_failure",
+    "disk_unchanged": true,
+    "memory_unchanged": true,
+    "reported_result": false
+  },
+  {
+    "case": "merge_real_write_failure",
+    "disk_unchanged": true,
+    "memory_unchanged": true,
+    "reported_result": null
+  },
+  {
+    "case": "shop_boat_real_write_failure",
+    "disk_unchanged": true,
+    "memory_unchanged": true,
+    "reported_result": null
+  },
+  {
+    "case": "shop_bait_real_write_failure",
+    "disk_unchanged": true,
+    "memory_unchanged": true,
+    "reported_result": null
+  },
+  {
+    "case": "single_fish_sale_real_write_failure",
+    "disk_unchanged": true,
+    "memory_unchanged": true,
+    "reported_result": null
+  },
+  {
+    "case": "equip_real_write_failure",
+    "disk_unchanged": true,
+    "memory_unchanged": true,
+    "reported_result": false
+  },
+  {
+    "case": "gear_sale_real_write_failure",
+    "disk_unchanged": true,
+    "memory_unchanged": true,
+    "reported_result": false
+  },
+  {
+    "case": "keep_catch_real_write_failure",
+    "disk_unchanged": true,
+    "memory_unchanged": true,
+    "reported_result": null
+  },
+  {
+    "case": "inherit_real_write_failure",
+    "disk_unchanged": true,
+    "memory_unchanged": true,
+    "reported_result": null
+  }
+]

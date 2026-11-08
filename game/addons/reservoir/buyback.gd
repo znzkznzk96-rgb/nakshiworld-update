@@ -31,9 +31,12 @@ func can_receive(m, entry: Dictionary) -> bool:
 func purchase(m, id: int) -> bool:
 	var entry:=find(id)
 	if entry.is_empty() or not can_receive(m,entry) or m.gold<price(entry): return false
+	var before:Dictionary=serialize();var old_bag:Array=m.bag.duplicate(true);var old_gold:int=m.gold
 	var fish: Dictionary=entry.fish.duplicate(true)
 	fish.shoulder=float(fish.get("w",0))>m.bag_cap()-m.bag_weight()
-	m.gold-=price(entry);m.bag.append(fish);entries.erase(entry);m._save_game()
+	m.gold-=price(entry);m.bag.append(fish);entries.erase(entry)
+	if not m._save_game():
+		restore(before);m.bag=old_bag;m.gold=old_gold;return false
 	return true
 func input_event(m, e: InputEvent) -> bool:
 	if m.V.shop!="work" or m.V.tab!="buyback" or not m.V.commerce.pending.is_empty(): pointer=false;return false

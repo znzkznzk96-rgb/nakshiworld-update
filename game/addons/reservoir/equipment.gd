@@ -66,10 +66,11 @@ func can_sell(m, key: String) -> bool:
 	var d := item(m, key)
 	return not d.is_empty() and not bool(d.equipped) and int(d.price) > 0 and not m.V.enhancement.busy()
 
-func equip(m, key: String, on: bool) -> bool:
+func equip(m, key: String, on: bool, persist: bool=true) -> bool:
 	if m.V.enhancement.busy(): return false
 	var d := item(m, key)
 	if d.is_empty(): return false
+	var before:Dictionary=serialize().duplicate(true);var old_rod:int=m.rod_lv;var old_bag:int=m.bag_lv
 	var bits := key.split(":")
 	var n := int(bits[1])
 	match bits[0]:
@@ -91,12 +92,14 @@ func equip(m, key: String, on: bool) -> bool:
 					if m.region_shop.slot_key(existing)==m.region_shop.slot_key(bits[1]): active_parts.erase(existing)
 				active_parts.append(bits[1])
 			elif not on: active_parts.erase(bits[1])
-	m._save_game()
+	if persist and not m._save_game():
+		m.rod_lv=old_rod;m.bag_lv=old_bag;restore(m,before);return false
 	m.play("ui", -8.0)
 	return true
 
 func sell(m, key: String) -> bool:
 	if not can_sell(m, key): return false
+	var before:Dictionary=serialize().duplicate(true);var old_gold:int=m.gold;var old_parts:Array=m.parts_owned.duplicate();var old_enh:Array=m.rod_enh.duplicate()
 	var d := item(m, key)
 	var bits := key.split(":")
 	var n := int(bits[1])
@@ -105,7 +108,8 @@ func sell(m, key: String) -> bool:
 		"bag": bags.erase(n)
 		"part": m.parts_owned.erase(bits[1])
 	m.gold += int(d.price)
-	m._save_game()
+	if not m._save_game():
+		m.gold=old_gold;m.parts_owned=old_parts;m.rod_enh=old_enh;restore(m,before);return false
 	m.play("catch")
 	m.V.commerce.report(m,"판매 완료 · +%d 비늘"%int(d.price),int(d.price))
 	return true

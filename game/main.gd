@@ -2536,11 +2536,14 @@ func fish_price(sp: int, _star: int, grade: int, lf: float) -> int:
 	return int(round(base * PRICE_GRADE[grade] * minf(lf * lf, 2.5) * (1.0 + 0.05 * forge_lv)))
 
 func keep_fish() -> void :
-	var sh: bool = S.weight > bag_cap() - bag_weight()
-	bag.append({"sp": S.sp, "star": S.star, "grade": S.grade, "len": S.len, "w": S.weight, "price": fish_price(S.sp, S.star, S.grade, S.lf), "shoulder": sh})
-	if sh: show_tip("shoulder", "너무 커서 어깨에 멨어요. 이제 마을로!")
-	elif bag_cap() - bag_weight() < 0.1 * bag_cap(): show_tip("full", "보관통이 가득! 마을에 가서 팔거나 수족관에 넣어요")
-	play("ui");_save_game();_after_choice()
+	var before:Array=bag.duplicate(true)
+	var sh:bool=S.weight>bag_cap()-bag_weight()
+	bag.append({"sp":S.sp,"star":S.star,"grade":S.grade,"len":S.len,"w":S.weight,"price":fish_price(S.sp,S.star,S.grade,S.lf),"shoulder":sh})
+	if not _save_game():
+		bag=before;show_toast("저장하지 못했어요. 보관을 다시 눌러 주세요",Color("ffdc96"));return
+	if sh:show_tip("shoulder","너무 커서 어깨에 멨어요. 이제 마을로!")
+	elif bag_cap()-bag_weight()<.1*bag_cap():show_tip("full","보관통이 가득! 마을에 가서 팔거나 수족관에 넣어요")
+	play("ui");_after_choice()
 
 func release_fish() -> void :
 	play("splash_s", -6.0);_after_choice()
@@ -2550,11 +2553,15 @@ func _after_choice() -> void :
 	msg = "마을에 가서 팔아요" if bag_shoulder() else "화면을 터치하면 던지기"
 
 func sell_all() -> void :
+	var old_bag:Array=bag.duplicate(true);var old_buyback:Dictionary=buyback.serialize();var old_gold:int=gold
 	var g: = 0
 	for f in bag_items():
 		g += int(f.price);buyback.remember(f)
 	if g == 0: return
-	gold += g;bag.clear();_save_game()
+	gold += g;bag.clear()
+	if not _save_game():
+		bag=old_bag;buyback.restore(old_buyback);gold=old_gold
+		show_toast("저장하지 못했어요. 판매를 다시 시도해 주세요",Color("ffdc96"));return
 	play("catch");buzz([40, 40, 80])
 	if scene=="village": V.commerce.report(self,"판매 완료 · +%d 비늘"%g,g)
 	else: show_toast("+%d 비늘"%g,Color("ffd24a"))
@@ -3063,10 +3070,12 @@ func aqua_count() -> int:
 	return count
 func aqua_expand() -> bool:
 	if aqua_lv >= 4 or gold < AQUA_COST[aqua_lv]: return false
+	var old_gold:int=gold;var old_level:int=aqua_lv;var old_aqua:Array=aqua.duplicate(true)
 	gold -= AQUA_COST[aqua_lv]
 	aqua_lv += 1
 	aqua.resize(aqua_capacity())
-	_save_game()
+	if not _save_game():
+		gold=old_gold;aqua_lv=old_level;aqua=old_aqua;return false
 	return true
 func _ui_texture(t: Texture2D, p: Vector2, c: Color = Color.WHITE) -> void :
 	_ui_texture_rect(t, Rect2(p, t.get_size()), false, c)
