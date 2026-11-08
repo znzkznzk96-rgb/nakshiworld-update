@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "owner_aquarium_species_cap_full_verified_not_deployed",
+  "status": "release112_authorized_preparing",
   "release_baseline": "v1.11",
-  "target_release": "v1.11",
+  "target_release": "v1.12",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/owner-aquarium-cap/HANDOFF.md",
-  "current_task": "주인수족관종류별1마리제한·판매가연동유지",
-  "next_step": "종별1마리/기존중복복귀 전체검증완료; 새 요청 대기·배포금지",
+  "current_task": "승인변경묶음v1.12배포",
+  "next_step": "버전/우편준비→최종전체CI→동일후보공개→운영다운로드검증",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -118,7 +118,7 @@
     "production_balance_changed": false,
     "phone_tested": false
   },
-  "release_authorized": false,
+  "release_authorized": true,
   "balance110": {
     "applied": true,
     "deployed": true,
@@ -386,10 +386,10 @@
     "verification_artifact": 13618959416
   },
   "latest_release_instruction": {
-    "date": "2026-11-08",
-    "request": "업데이트해 배포하진말고",
-    "authorized": false,
-    "public_release_unchanged": "v1.11",
+    "date": "2026-11-09",
+    "request": "업데이트및 배포가자 ㅇㅇ",
+    "authorized": true,
+    "scope": "밤조명/헬멧랜턴·3지역가격·오프라인3h·주인종별1마리",
     "publication_started": false
   },
   "economy_analysis": {
