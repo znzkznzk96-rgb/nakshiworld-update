@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "owner_income_raised_fee_simulation_verified_not_applied",
+  "status": "release113_authorized_preparing",
   "release_baseline": "v1.12",
-  "target_release": "v1.12",
+  "target_release": "v1.13",
   "deployed": true,
   "phone_verified": false,
-  "handoff": "docs/analysis/owner-income-raised-fee-20261109/HANDOFF.md",
-  "current_task": "주인전시2만/해금2100만 추천·미적용",
-  "next_step": "조합사용자검토;3h/day기준7일·분할접속단축/주인보상비중절충안내;구현배포미승인",
+  "handoff": "docs/releases/113/HANDOFF.md",
+  "current_task": "기존밸런스유지·UI/로봇목록/거래안전 v1.13 준비",
+  "next_step": "최신전체소스·버전/안내준비후최종전체CI→동일후보공개→운영검증",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -118,7 +118,7 @@
     "production_balance_changed": false,
     "phone_tested": false
   },
-  "release_authorized": false,
+  "release_authorized": true,
   "balance110": {
     "applied": true,
     "deployed": true,
@@ -387,11 +387,10 @@
   },
   "latest_release_instruction": {
     "date": "2026-11-09",
-    "request": "업데이트및 배포가자 ㅇㅇ",
+    "request": "일단그럼 기존로 두고 업데이트 및 배포하자 ㅇㅇ",
     "authorized": true,
-    "scope": "밤조명/헬멧랜턴·3지역가격·오프라인3h·주인종별1마리",
-    "publication_started": true,
-    "fulfilled": true
+    "scope": "기존밸런스유지·UI/로봇목록/거래안전",
+    "fulfilled": false
   },
   "economy_analysis": {
     "report": "docs/analysis/tile-income-20261108/REPORT.md",
@@ -595,7 +594,7 @@
     "ordinary_income": "unchanged_sale_linked",
     "implemented": false,
     "deployed": false,
-    "status": "superseded_by_raised_fee_analysis_pending",
+    "status": "deferred_keep_existing_sale_linked",
     "report": "docs/analysis/owner-income-fixed-fee-20261109/REPORT.md",
     "verification": "docs/analysis/owner-income-fixed-fee-20261109/VERIFICATION.json"
   },
@@ -618,7 +617,7 @@
       60000
     ],
     "unlock_fee": "pending_simulation",
-    "status": "verified_recommendation_pending",
+    "status": "deferred_not_adopted",
     "recommended_income_bases": [
       8000,
       40000,
