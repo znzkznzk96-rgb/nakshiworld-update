@@ -7,7 +7,7 @@
   "phone_verified": false,
   "handoff": "docs/qa/headlamp-local-light/HANDOFF.md",
   "current_task": "캐릭터 전체 밝기 상향을 되돌리고 실제 헤드랜턴 국소 빛 레이어 구현",
-  "next_step": "전체 CI 42484826948 결과·로그 확인 및 최종 기록",
+  "next_step": "전체 CI 42485087378 결과·로그 확인 및 최종 기록",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -379,8 +379,8 @@
     "release_authorized": false,
     "verification": "docs/qa/headlamp-local-light/VERIFICATION.json",
     "release_ready": false,
-    "source_commit": "fce81ddb912403d93e5cdc26aabf6f1046f1fc66",
-    "ci_run": 42484826948,
+    "source_commit": "c74960ababa175a55a40fcd225799c1174e55f43",
+    "ci_run": 42485087378,
     "ci_status": "in_progress"
   }
 }

@@ -1,5 +1,5 @@
 {
-  "source_commit": "fce81ddb912403d93e5cdc26aabf6f1046f1fc66",
+  "source_commit": "c74960ababa175a55a40fcd225799c1174e55f43",
   "local_related_suites": [
     "night_play",
     "night_glow",
@@ -34,7 +34,7 @@
     "r2_day_fight_unchanged": true
   },
   "full_ci": {
-    "run": 42484826948,
+    "run": 42485087378,
     "status": "in_progress"
   },
   "deployed": false,
@@ -190,5 +190,12 @@
       "bytes": 1101484,
       "sha256": "120e1933da6e2214c615378cf54e17bc2ff019f8ec7c3f3f21ade75b8386b4d2"
     }
-  ]
+  ],
+  "previous_ci": {
+    "run": 42484826948,
+    "status": "failed",
+    "cause": "off-tree main.new()/free() left pre-created Node orphan",
+    "fix": "create render node in _ready only",
+    "local_balance096": "passed without exit resource error"
+  }
 }
