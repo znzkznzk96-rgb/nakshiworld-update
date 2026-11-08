@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "expedition_ui_contrast_related_and_native_verified",
+  "status": "expedition_ui_contrast_palette_confirmed_ci_in_progress",
   "release_baseline": "v1.12",
   "target_release": "v1.12",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/releases/112/HANDOFF.md",
-  "current_task": "탐험/연성 버튼·카드색 분리",
-  "next_step": "자동전체CI 확인·색상시안 사용자 검토; 새 배포 미승인",
+  "current_task": "통일된 탐험·연성 UI 업데이트 최종검증",
+  "next_step": "자동CI42515709162 완료확인후 검증기록갱신; 배포미승인",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -528,6 +528,7 @@
     "verification": "docs/qa/expedition-ui-contrast/VERIFICATION.json",
     "source_commit": "639f6c458335eb3c3f447b074cfb91bda10026fe",
     "ci_run": 42515709162,
-    "ci_status": "queued_at_checkpoint"
+    "ci_status": "in_progress",
+    "palette_confirmed": true
   }
 }
