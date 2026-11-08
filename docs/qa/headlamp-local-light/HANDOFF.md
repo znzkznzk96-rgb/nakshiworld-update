@@ -8,3 +8,5 @@
 소스: fce81ddb912403d93e5cdc26aabf6f1046f1fc66
 전체 CI: https://github.com/znzkznzk96-rgb/nakshiworld-update/actions/runs/42484826948
 [같은 밤의 조명 OFF/ON 비교](local-light-comparison.png) · [검증](VERIFICATION.json)
+
+이전 전체 CI 42484826948: balance096의 화면 미진입 main.new()/free()에서 추가 조명 Node가 _ready 이전에 고아로 남는 오류. 화면 진입 _ready 시점에만 생성하도록 수정해 관련 검사 재확인. 화면 효과 변경 없음.
