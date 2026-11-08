@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "release113_authorized_preparing",
+  "status": "release113_final_source_prepared",
   "release_baseline": "v1.12",
   "target_release": "v1.13",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/releases/113/HANDOFF.md",
-  "current_task": "기존밸런스유지·UI/로봇목록/거래안전 v1.13 준비",
-  "next_step": "최신전체소스·버전/안내준비후최종전체CI→동일후보공개→운영검증",
+  "current_task": "v1.13최종CI대기",
+  "next_step": "최종전체/실화면/PCK검사→동일후보공개→운영다운로드검증",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -626,5 +626,12 @@
     "recommended_unlock_fee": 21000000,
     "report": "docs/analysis/owner-income-raised-fee-20261109/REPORT.md",
     "verification": "docs/analysis/owner-income-raised-fee-20261109/VERIFICATION.json"
+  },
+  "release113": {
+    "status": "final_source_prepared",
+    "deployed": false,
+    "phone_verified": false,
+    "release_authorized": true,
+    "preflight": "docs/releases/113/PREFLIGHT.json"
   }
 }

@@ -1,0 +1,30 @@
+{
+  "version": {
+    "code": 113,
+    "name": "1.13"
+  },
+  "baseline": "v1.12",
+  "baseline_source": {
+    "size": 63411998,
+    "sha256": "aa1b81bb9dd74ba3e5a7a907f0922e31b5a5e4021864272b1976cee72874c1a0",
+    "crc_verified": true
+  },
+  "unchanged_balance_hashes": {
+    "game/addons/reservoir/fish_economy.gd": "92288d999cf610617b385eb41edc656d41a0abea6bfe3a0d1be8839074141f80",
+    "game/addons/reservoir/region_shop.gd": "4d605a0c210304f249b0251689a6ac3aac938d839ecea46d39e7211fe52d53fa",
+    "fish_price": "e366a9f52d138b5a119dd6aa6b995afd7655bda98ab74a5b91d9da4d668fb459",
+    "aqua_rate": "d237a746cd51639aac0156101a792f78bd7fd286a44266a05a90bb4fd544a50d",
+    "aqua_can_add": "fcb850c08f52874754751f699d17b0d2922bb9493ba1245a3a434fad52ee0f14",
+    "_aqua_restore_owner_limit": "d805592ecf682afb9c1b8cc91ab5772554b706ce67aefc7fe234c0734bb1734d"
+  },
+  "owner_aquarium": "stored_sale_price_linked",
+  "offline_hours": 3,
+  "next_unlock_fee": 4635000,
+  "owner_tile_sale_base": 500000,
+  "new_gifts": false,
+  "publication_authorized": true,
+  "pipeline_unit_checks_passed": 7,
+  "full_final_ci": "pending",
+  "public": "v1.12",
+  "phone_verified": false
+}
