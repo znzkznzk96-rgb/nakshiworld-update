@@ -543,13 +543,16 @@
   },
   "audit": {
     "status": "fixes_and_simulations_completed_ci_in_progress",
-    "source_commit": "ef6cdb6d41394249ddd883799e943a04d7895a76",
-    "ci_run": 42520058429,
+    "source_commit": "5af8315a183170336e52b32d28570eca1b8171f7",
+    "ci_run": 42520510386,
     "ci_status": "in_progress",
     "transaction_failure_trials": 1100,
     "battle_trials": 3000,
     "economy_conditions": 270,
     "report": "docs/qa/critical-audit-20261109/REPORT.md",
-    "deployed": false
+    "deployed": false,
+    "prior_ci_run": 42520058429,
+    "prior_ci_failure": "economy_balance preview save disabled; fixture corrected",
+    "additional_local_passed": 27
   }
 }

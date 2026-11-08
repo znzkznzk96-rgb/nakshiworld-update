@@ -5,8 +5,8 @@
     "run": 42517742751,
     "passed_suites": 88
   },
-  "source_commit": "ef6cdb6d41394249ddd883799e943a04d7895a76",
-  "ci_run": 42520058429,
+  "source_commit": "5af8315a183170336e52b32d28570eca1b8171f7",
+  "ci_run": 42520510386,
   "ci_status": "in_progress",
   "related_suites": [
     "equipment",
@@ -26,5 +26,8 @@
   "economy_actual_godot_draws": 180092,
   "remote_code_files_equal": 10,
   "deployed": false,
-  "phone_verified": false
+  "phone_verified": false,
+  "prior_ci_run": 42520058429,
+  "prior_ci_failure": "preview-mode purchase test expected success despite writes disabled; fixture corrected",
+  "additional_local_passed": 27
 }
