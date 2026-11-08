@@ -46,7 +46,15 @@
   "comparison": "comparison.webp",
   "full_ci": {
     "run": 42434835808,
-    "status": "in_progress"
+    "status": "success",
+    "artifact_id": 13599202521,
+    "unique_verify_results": 83,
+    "native_new_check": true,
+    "packed_angler": true,
+    "packed_tile": true,
+    "candidate_artifact_id": 13599267440,
+    "candidate_publication_authorized": false,
+    "candidate_note": "Existing1.10 candidate settings used only for full/PCK verification. Future publication needs new version and matching final candidate; do not republish over publicv1.10."
   },
   "published": false,
   "public_release": "v1.10"
