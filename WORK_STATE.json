@@ -477,6 +477,10 @@
     "aquarium_income_separation": "not_approved_not_applied",
     "offline_income_hours": 3,
     "preserve_stored_specimen_prices": true,
-    "deployed": false
+    "deployed": false,
+    "source_commit": "ff92b0dee342c9e012bf6008cc3e82aec0dd5d0b",
+    "ci_run": 42507823870,
+    "ci_status": "in_progress",
+    "verification": "docs/qa/owner-sale-500000/VERIFICATION.json"
   }
 }

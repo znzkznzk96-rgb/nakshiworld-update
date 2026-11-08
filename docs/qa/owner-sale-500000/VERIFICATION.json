@@ -1,0 +1,18 @@
+{
+  "status": "related_passed_full_ci_pending",
+  "source_commit": "ff92b0dee342c9e012bf6008cc3e82aec0dd5d0b",
+  "decision_commit": "223a47abccc084535a02d3a0614291039dff5749",
+  "local_suites": [
+    "regional",
+    "economy_balance",
+    "regional_bundle_rewards",
+    "bundles_buyback"
+  ],
+  "price_combinations": 3600,
+  "new_tile_owner": 500000,
+  "legacy_price_preserved": 13,
+  "runtime_source_equal": true,
+  "ci_run": 42507823870,
+  "deployed": false,
+  "release_authorized": false
+}

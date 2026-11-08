@@ -2,7 +2,7 @@ from pathlib import Path
 import json,math,heapq,statistics,hashlib,sys
 ROOT=Path(__file__).resolve().parent
 LEDGER=Path(sys.argv[1]) if len(sys.argv)>1 else Path('three-region-ledger.json')
-TABLES=Path(sys.argv[2]) if len(sys.argv)>2 else ROOT.parent.parent/'qa/three-region-prices/PRICE_TABLES.json'
+TABLES=Path(sys.argv[2]) if len(sys.argv)>2 else ROOT.parent/'three-region-prices/PRICE_TABLES.json'
 D=json.loads(LEDGER.read_text());BASE=json.loads(TABLES.read_text())['prices'];G=[1,1.3,1.7,2.2,3];CASES={'current':(16000,20000),'approved500':(40000,500000),'rewarding':(50000,100000),'high':(60000,150000)}
 rows=[];encounters=[]
 for c in D['cases']:
