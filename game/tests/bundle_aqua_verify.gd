@@ -89,5 +89,35 @@ func run() -> void:
 	touch.position=row[0].get_center()+Vector2(m.ox,0);touch.pressed=true;m._unhandled_input(touch);touch.pressed=false;m._unhandled_input(touch)
 	check(m.aqua_count()==1 and m.bag.size()==19 and v.aqua_manage and v.shop=="aqua","native tap inserts once and leaves UI open")
 	m._load_game();check(m.aqua_count()==1 and m.bag.size()==19,"aquarium transfer persists")
+	# Owner cap is by stable species, independent of grade/size/stored price.
+	m.development_preview=false;m.boat_lv=0;m.aqua_lv=1;m.aqua=[fish(19),null,null,null,null,null]
+	m.bag=[fish(19,4),fish(39),fish(59),fish(1),fish(1)]
+	var before_bag:Array=m.bag.duplicate(true)
+	a.act(v,m,"put:0")
+	check(m.bag==before_bag and m.aqua_count()==1 and "1마리" in v.aqua_notice,"same owner grade variant blocked without losing fish")
+	a.act(v,m,"put:1");a.act(v,m,"put:1")
+	check(m.aqua_count()==3 and m.aqua[1].sp==39 and m.aqua[2].sp==59,"different regional owners coexist")
+	a.act(v,m,"put:1");a.act(v,m,"put:1")
+	check(m.aqua_count()==5,"ordinary duplicates remain allowed")
+	a.act(v,m,"take:0");a.act(v,m,"put:0")
+	check(m.aqua[0].sp==19 and m.aqua[0].grade==4,"withdraw then replace owner with better specimen")
+	# Legacy duplicate migration preserves exact specimens even above bag capacity.
+	var low:Dictionary=fish(59);low.price=500000;low.w=5.0
+	var high:Dictionary=fish(59,4);high.price=1500000;high.w=5.0
+	var tied:Dictionary=high.duplicate(true);tied.len=99.0
+	m.aqua=[low,high,tied,fish(39),fish(19),fish(1)];m.bag=[fish(2)];m.bag[0].w=999.0
+	check(is_equal_approx(m.aqua_rate(),(1500000.0+100+100+100)/300*.75),"duplicate owner cannot multiply live income before migration")
+	check(m._save_game(),"legacy fixture saved")
+	m._load_game()
+	check(m.aqua_count()==4 and m.aqua[1]==JSON.parse_string(JSON.stringify(high)) and m.aqua[0]==null and m.aqua[2]==null,"highest owner retained, equal-price first slot wins")
+	check(m.bag.size()==3 and m.bag[1]==JSON.parse_string(JSON.stringify(low)) and m.bag[2]==JSON.parse_string(JSON.stringify(tied)) and m.bag_weight()>m.bag_cap(),"legacy extras returned intact despite full bag")
+	var saved_bag:Array=m.bag.duplicate(true);var saved_aqua:Array=m.aqua.duplicate(true)
+	m._load_game();check(m.bag==saved_bag and m.aqua==saved_aqua,"migration survives restart without repeated returns")
+	# Offline credit uses exactly the same one-per-species linked rate.
+	var store=load("res://addons/reservoir/save_store.gd")
+	var save:Dictionary=store.read("user://save.json");save.aqua=[low,high,tied,fish(39),fish(19),fish(1)];save.bag=[];save.gold=0;save.time=Time.get_unix_time_from_system()-4*3600
+	check(store.write("user://save.json",save),"offline duplicate fixture saved")
+	m._load_game()
+	check(m.gold==int(m.aqua_rate()*180) and m.aqua_count()==4 and m.bag.size()==2,"offline three-hour credit excludes duplicate owner income")
 	print("BUNDLE_AQUA_VERIFY failures=",failures)
 	m.free();quit(0 if failures.is_empty() else 1)

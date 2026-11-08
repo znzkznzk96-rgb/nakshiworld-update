@@ -1,0 +1,63 @@
+{
+  "status": "full_verified",
+  "decision_commit": "6d58b734f6735fcf58ca6e70e9e12026120f3a28",
+  "local_suites": [
+    "bundle_aqua",
+    "aquarium_b",
+    "regional",
+    "audio_save"
+  ],
+  "per_owner_species": 1,
+  "linked_income_unchanged": true,
+  "legacy_duplicates": "highest stored price retained; extras returned intact despite full bag",
+  "offline_hours": 3,
+  "deployed": false,
+  "phone_verified": false,
+  "source_commit": "e7899537a9f4a86a913dc5f6b5a8b1be350e5a7c",
+  "ci_run": 42511245899,
+  "ci_status": "success",
+  "remote_code_matches_local": true,
+  "unique_verify_results": 88,
+  "errors": [],
+  "native_and_pck": "passed",
+  "artifacts": [
+    {
+      "id": 13630050665,
+      "name": "release-candidate-651f68ef8d013c9ee8e6f82b6a157bb0011d3ff366f32c5b206e1118e0286b5e",
+      "size_in_bytes": 117432199,
+      "url": "https://api.github.com/repos/znzkznzk96-rgb/nakshiworld-update/actions/artifacts/13630050665",
+      "archive_download_url": "https://api.github.com/repos/znzkznzk96-rgb/nakshiworld-update/actions/artifacts/13630050665/zip",
+      "expired": false,
+      "created_at": "2026-11-08T18:49:13Z",
+      "expires_at": "2026-12-08T18:49:09Z",
+      "updated_at": "2026-11-08T18:49:13Z",
+      "digest": "sha256:afffd36ec957c33cf23fce9a5f520fd2b368d8d0ebc6d34bf5e5085ec3189353",
+      "workflow_run": {
+        "id": 42511245899,
+        "repository_id": 1423971848,
+        "head_repository_id": 1423971848,
+        "head_branch": "work/tile-release-107",
+        "head_sha": "e7899537a9f4a86a913dc5f6b5a8b1be350e5a7c"
+      }
+    },
+    {
+      "id": 13629867199,
+      "name": "work-verification",
+      "size_in_bytes": 134329949,
+      "url": "https://api.github.com/repos/znzkznzk96-rgb/nakshiworld-update/actions/artifacts/13629867199",
+      "archive_download_url": "https://api.github.com/repos/znzkznzk96-rgb/nakshiworld-update/actions/artifacts/13629867199/zip",
+      "expired": false,
+      "created_at": "2026-11-08T18:49:19Z",
+      "expires_at": "2027-02-06T18:41:24Z",
+      "updated_at": "2026-11-08T18:49:19Z",
+      "digest": "sha256:047730fc8980d3d468c1ee9e23aeb9c24bf668480a7f56e5bbc34aafbfef4b39",
+      "workflow_run": {
+        "id": 42511245899,
+        "repository_id": 1423971848,
+        "head_repository_id": 1423971848,
+        "head_branch": "work/tile-release-107",
+        "head_sha": "e7899537a9f4a86a913dc5f6b5a8b1be350e5a7c"
+      }
+    }
+  ]
+}

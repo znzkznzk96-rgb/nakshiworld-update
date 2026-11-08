@@ -1,0 +1,18 @@
+{
+  "1:idle": {
+    "exact": true,
+    "changed_pixels": 0
+  },
+  "1:fight": {
+    "exact": true,
+    "changed_pixels": 0
+  },
+  "2:idle": {
+    "exact": true,
+    "changed_pixels": 0
+  },
+  "2:fight": {
+    "exact": true,
+    "changed_pixels": 0
+  }
+}

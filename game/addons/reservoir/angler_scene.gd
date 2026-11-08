@@ -10,10 +10,14 @@ var cats: Dictionary = {"idle":[],"look":[],"hop":[]}
 var root := Transform2D.IDENTITY
 var upper := Transform2D.IDENTITY
 var tint := Color.WHITE
+const HEADLAMP_SOURCE:=Vector2(89,38) # Center of existing turquoise helmet lamp, unchanged 160px face PNG.
+var headlamp_world:=Vector2.ZERO
+var headlamp_transform:=Transform2D.IDENTITY
 var tip := Vector2.ZERO
 var crank := 0.0
 var last_clock := -1.0
 var debug := {}
+var light_parts:Array=[]
 
 func setup() -> void:
 	for n in ["lower","torso","upper","fore","hand","face-neutral","face-blink","face-focus","face-brace","face-cast","face-strain","face-surprise","face-joy","face-smile","face-sad"]:
@@ -37,6 +41,7 @@ func sm(x: float) -> float:
 	x=clampf(x,0,1);return x*x*(3-2*x)
 func tex(m,n: String,xf: Transform2D) -> void:
 	m.draw_set_transform_matrix(root*xf);m.draw_texture(textures[n],Vector2.ZERO,tint)
+	light_parts.append({"texture":textures[n],"transform":root*xf})
 func segment(m,n: String,sa: Vector2,sb: Vector2,a: Vector2,b: Vector2,xf: Transform2D) -> void:
 	var d: Vector2=b-a
 	tex(m,n,xf*offset_xf(a)*Transform2D(d.angle(),Vector2.ZERO)*scale_xy(d.length()/sa.distance_to(sb),1)*Transform2D(-(sb-sa).angle(),Vector2.ZERO)*offset_xf(-sa))
@@ -87,7 +92,8 @@ func cat(m,kind: String,local: float) -> void:
 	debug.cat_action=action;debug.cat_frame=frame;debug.cat_air=air
 func draw(m) -> Vector2:
 	if textures.is_empty(): setup()
-	tint=m.environment.actor_tint() if m.active_region==0 else Color.WHITE
+	light_parts.clear()
+	tint=m.environment.actor_tint()
 	var phase: String=m.S.phase
 	var local: float=float(m.S.get("t",0.0))
 	var kind: String="idle"
@@ -153,7 +159,10 @@ func draw(m) -> Vector2:
 	elif kind=="failure":face="sad"
 	elif kind=="capture":face="surprise"
 	elif fposmod(local,3.4)>3.16:face="blink"
-	tex(m,"face-"+face,upper*offset_xf(Vector2(48+shift,48+head_y)))
+	var head_xf:Transform2D=upper*offset_xf(Vector2(48+shift,48+head_y))
+	tex(m,"face-"+face,head_xf)
+	headlamp_transform=root*head_xf
+	headlamp_world=headlamp_transform*HEADLAMP_SOURCE-Vector2(0,m.oy)
 	var rod_xf: Transform2D=root*arm_xf
 	m.draw_set_transform_matrix(rod_xf)
 	var skin: Array=SKINS[clampi(m.rod_lv,0,5)]

@@ -220,7 +220,7 @@ func draw(v, m, r: Rect2, y: float) -> void:
 		m._text("%d→%d · %d비늘"%[m.aqua_capacity(),m.AQUA_CAP[m.aqua_lv+1],m.AQUA_COST[m.aqua_lv]],Vector2(195,expand.position.y+29),7,Color("f0c46e") if m.gold>=m.AQUA_COST[m.aqua_lv] else Color("e89c85"),true,114)
 		v.rects.rows.append([expand,"aexpand"])
 	else: m._text("최대 크기 · %d마리"%m.aqua_capacity(),Vector2(195,expand.position.y+29),7,Color("a4bdba"),true,110)
-	m._text(v.aqua_notice if v.aqua_notice!="" else "쉬는 동안에도 최대 8시간 수입",Vector2(135,r.end.y-13),9,Color("b3cccb"),true,232)
+	m._text(v.aqua_notice if v.aqua_notice!="" else "쉬는 동안에도 최대 %d시간 수입" % m.AQUARIUM_OFFLINE_HOURS,Vector2(135,r.end.y-13),9,Color("b3cccb"),true,232)
 
 func _manage(v, m, r: Rect2, y: float) -> void:
 	_button(v,m,Rect2(24,y+3,107,26),"보관통 · 넣기","alist_bag")
@@ -239,13 +239,14 @@ func _manage(v, m, r: Rect2, y: float) -> void:
 		if yy<viewport.position.y or yy+36>viewport.end.y: continue
 		var i: int=items[j]
 		var f: Dictionary=m.bag[i] if list_bag else m.aqua[i]
-		v._row(m,r,yy,m.fish_tex[int(f.sp)],m.FISH_NAME[int(f.sp)],"%s · %.1fcm"%[m.GRADE_N[int(f.grade)],float(f.len)],"넣기" if list_bag else "빼기",0,true,("put:" if list_bag else "take:")+str(i))
+		var allowed:bool=not list_bag or m.aqua_can_add(f)
+		v._row(m,r,yy,m.fish_tex[int(f.sp)],m.FISH_NAME[int(f.sp)],"%s · %.1fcm"%[m.GRADE_N[int(f.grade)],float(f.len)],("넣기" if allowed else "전시 중") if list_bag else "빼기",0,allowed,("put:" if list_bag else "take:")+str(i))
 	if items.is_empty(): m._text("보관통이 비었어요" if list_bag else "전시 중인 물고기가 없어요",Vector2(135,y+25),11,v.active_style.ink,true,220)
 	if maximum()>0:
 		var thumb:=maxf(12,viewport.size.y*viewport.size.y/(count*44.0-8))
 		m._ui_rect(Rect2(248,y,2,viewport.size.y),Color("bba387"))
 		m._ui_rect(Rect2(248,y+(viewport.size.y-thumb)*scroll/maximum(),2,thumb),Color("705139"))
-	m._text(v.aqua_notice if v.aqua_notice!="" else "휠 / 위아래로 밀어 보기",Vector2(135,r.end.y-49),9,v.active_style.ink,true,222)
+	m._text(v.aqua_notice if v.aqua_notice!="" else "주인은 종류별 1마리 · 밀어서 보기",Vector2(135,r.end.y-49),9,v.active_style.ink,true,222)
 	_button(v,m,Rect2(76,r.end.y-36,118,26),"수족관 보기","aback")
 func act(v, m, a: String) -> bool:
 	var k = a.split(":")
@@ -266,6 +267,7 @@ func act(v, m, a: String) -> bool:
 			if i >= 0 and i < m.aqua.size() and m.aqua[i] == null: v.pick_slot = i;v.aqua_manage=true;list_bag=true;reset();v.aqua_notice = ""
 		"put":
 			if i<0 or i>=m.bag.size(): return true
+			if not m.aqua_can_add(m.bag[i]): v.aqua_notice="같은 종류의 주인은 1마리만 전시할 수 있어요";return true
 			var slot: int=m.aqua.find(null)
 			if slot<0: v.aqua_notice="수족관이 가득 찼어요";return true
 			var old_bag: Array=m.bag.duplicate(true)

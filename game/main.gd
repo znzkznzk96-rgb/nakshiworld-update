@@ -64,6 +64,8 @@ const FONT_SC: = [1.0, 1.0, 1.0, 1.0]
 var text_layer: Node2D
 var owner_ui = preload("res://addons/reservoir/owner_gauge_ui.gd").new()
 var ui_demo: = false
+var headlamp_light:Node2D
+var night_play=preload("res://addons/reservoir/night_play.gd").new()
 var ui_commands: = []
 var text_items: = []
 var top_y: = 2.0
@@ -82,9 +84,8 @@ var gold: = 0
 const BAG_NAME: = ["맨손", "꿰미", "양동이", "그물망", "아이스박스 1", "아이스박스 2", "아이스박스 3", "아이스박스 4", "아이스박스 5"]
 const BAG_CAP: = [0.5, 1.5, 3.0, 6.0, 12.0, 20.0, 30.0, 45.0, 65.0]
 const BAG_PRICE: = [0, 150, 800, 4000, 20000, 80000, 300000, 1200000, 5000000]
-const PRICE_BASE: = [[10, 30], [50, 120], [200, 350], [1000, 1500], [8000, 8000]]
+const FISH_ECONOMY = preload("res://addons/reservoir/fish_economy.gd")
 const PRICE_GRADE: = [1.0, 1.3, 1.7, 2.2, 3.0]
-const VALLEY_PRICE: = [25, 35, 45, 50, 30, 30, 50, 55, 130, 145, 175, 225, 150, 195, 480, 560, 610, 2240, 2760, 16000]
 var bag: = []
 var bag_lv: = 0
 var tips_seen: = []
@@ -119,6 +120,7 @@ var bait: = 0
 var expedition = preload("res://addons/expedition/view.gd").new()
 var souls: = 0
 var testing_grants: Array = []
+const AQUARIUM_OFFLINE_HOURS := 3
 const AQUA_CAP: = [3, 6, 10, 15, 20]
 const AQUA_COST: = [300, 900, 2400, 6000]
 var aqua_lv: = 0
@@ -244,6 +246,8 @@ func _notification(what: int) -> void :
 	if what == NOTIFICATION_APPLICATION_RESUMED: audio_feedback.suspended=false
 
 func _ready() -> void :
+	headlamp_light=preload("res://addons/reservoir/headlamp_light.gd").new()
+	add_child(headlamp_light)
 	development_preview = "--valley-preview" in OS.get_cmdline_user_args()
 	_cleanup_reset()
 	randomize()
@@ -1376,6 +1380,7 @@ func _draw() -> void :
 	var n0: = text_items.size()
 
 	var tip: Vector2 = angler_scene.draw(self)
+	night_play.draw(self)
 	_draw_reaction(t)
 	var fr: int = anim_frame()
 	match S.phase:
@@ -1503,7 +1508,11 @@ func _line(a: Vector2, b: Vector2, col: Color, sag: = 0.0) -> void :
 		pts.append(p)
 	if ui_demo:
 		for i in range(1, pts.size()): _ui_line(pts[i - 1], pts[i], col, 1.0)
-	else: draw_polyline(pts, col, 1.0)
+	else:
+		if active_region in [1,2] and S.get("phase","") in ["fight","catch"]:
+			var night:float=environment.night_strength()
+			if night>0:draw_polyline(pts,Color(.025,.035,.07,night*.72),2.5)
+		draw_polyline(pts, col, 1.0)
 
 func _draw_bobber(x: float, y: float) -> void :
 
@@ -2509,11 +2518,8 @@ func bag_shoulder() -> bool:
 		if f.get("shoulder", false): return true
 	return false
 
-func fish_price(sp: int, star: int, grade: int, lf: float) -> int:
-	var list: Array = CATALOG.by_star(CATALOG.region(sp),star)
-	var b: Array = PRICE_BASE[star]
-	var base: = lerpf(b[0], b[1], float(list.find(sp)) / maxf(1.0, list.size() - 1.0))
-	if sp >= 20 and sp < 60: base = float(VALLEY_PRICE[sp % 20])
+func fish_price(sp: int, _star: int, grade: int, lf: float) -> int:
+	var base:float=FISH_ECONOMY.BASE[CATALOG.region(sp)][sp%20]
 	return int(round(base * PRICE_GRADE[grade] * minf(lf * lf, 2.5) * (1.0 + 0.05 * forge_lv)))
 
 func keep_fish() -> void :
@@ -2653,10 +2659,39 @@ func _save_game() -> bool:
 	elif ok: save_warning=false
 	return ok
 
+func aqua_can_add(f: Dictionary) -> bool:
+	var sp:int=int(f.get("sp",-1))
+	if sp<0 or sp%20!=19: return true
+	for existing in aqua:
+		if existing!=null and int(existing.get("sp",-1))==sp: return false
+	return true
+
+func _aqua_restore_owner_limit() -> int:
+	# Return legacy duplicates intact, even when the bag is already full.
+	# Highest stored price wins; equal prices preserve the first occupied slot.
+	var keep:Dictionary={}
+	for i in aqua.size():
+		if aqua[i]==null: continue
+		var sp:int=int(aqua[i].get("sp",-1))
+		if sp<0 or sp%20!=19: continue
+		if not keep.has(sp) or float(aqua[i].price)>float(aqua[int(keep[sp])].price): keep[sp]=i
+	var returned:int=0
+	for i in aqua.size():
+		if aqua[i]==null: continue
+		var sp:int=int(aqua[i].get("sp",-1))
+		if keep.has(sp) and int(keep[sp])!=i:
+			bag.append(aqua[i]);aqua[i]=null;returned+=1
+	return returned
+
 func aqua_rate() -> float:
 	var r: = 0.0
+	var owners:Dictionary={}
 	for f in aqua:
-		if f != null: r += float(f.price) / 300.0
+		if f==null: continue
+		var sp:int=int(f.get("sp",-1))
+		if sp>=0 and sp%20==19: owners[sp]=maxf(float(owners.get(sp,0.0)),float(f.price))
+		else: r+=float(f.price)/300.0
+	for value in owners.values(): r+=float(value)/300.0
 	return r * V.multiplier(self) * 0.75 # Approved aquarium income adjustment; visitor multiplier unchanged.
 
 func _load_game() -> void :
@@ -2702,13 +2737,17 @@ func _load_game() -> void :
 	while aqua_lv < 4 and AQUA_CAP[aqua_lv] < mini(aq.size(), 20): aqua_lv += 1
 	aqua.resize(aqua_capacity())
 	for i in aqua.size(): aqua[i] = aq[i] if i < aq.size() else null
+	var returned_owners:int=_aqua_restore_owner_limit()
 	_load_catch_counts(d)
 	_migrate_fish_records()
 	var away: = clampf(Time.get_unix_time_from_system() - float(d.get("time", 0)), 0, 8 * 3600)
 	pond_stock = minf(pond_max(), pond_stock + pond_recovery() * away / 3600.0)
-	var earn: = int(aqua_rate() * away / 60.0)
+	var income_away:float=minf(away,AQUARIUM_OFFLINE_HOURS*3600.0)
+	var earn: = int(aqua_rate() * income_away / 60.0)
 	if earn > 0 and d.has("time"):
 		gold += earn;tip_txt = "쉬는 동안 수족관에서 %d 비늘을 벌었어요!" % earn;tip_t = 5.0
+	if returned_owners>0:
+		tip_txt="중복 주인 %d마리를 보관통으로 돌려보냈어요 · 종류별 1마리 전시"%returned_owners;tip_t=8.0
 	_save_game()
 
 

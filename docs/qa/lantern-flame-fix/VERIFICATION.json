@@ -1,0 +1,115 @@
+{
+  "date": "2026-11-08",
+  "decision_commit": "d9455b6287dcb8d72091587d477fe0d6c92768bf",
+  "related_suites": {
+    "night_play_hotspot": "passed",
+    "night_glow": "passed",
+    "regional_night": "passed",
+    "fish_anchor_size": "passed"
+  },
+  "native": {
+    "heights": [
+      480,
+      540,
+      660
+    ],
+    "hours": [
+      12,
+      0
+    ],
+    "phases": [
+      "idle",
+      "fight"
+    ],
+    "frames": 24,
+    "passed": true
+  },
+  "comparison": {
+    "1:idle": {
+      "exact": true,
+      "changed_pixels": 0
+    },
+    "1:fight": {
+      "exact": true,
+      "changed_pixels": 0
+    },
+    "1:night_water": {
+      "before_luminance": 76.1195882057143,
+      "after_luminance": 92.75944105142857
+    },
+    "2:idle": {
+      "exact": true,
+      "changed_pixels": 0
+    },
+    "2:fight": {
+      "exact": true,
+      "changed_pixels": 0
+    },
+    "2:night_water": {
+      "before_luminance": 75.14786712457143,
+      "after_luminance": 87.44969256228572
+    }
+  },
+  "night_luminance_roi": {
+    "native_box": [
+      350,
+      1000,
+      700,
+      1250
+    ],
+    "world_height": 540,
+    "metric": "mean Rec709-weighted RGB, idle underwater"
+  },
+  "lantern_hotspot": {
+    "source": [
+      168.455,
+      166.886
+    ],
+    "source_region": [
+      85,
+      0,
+      171,
+      280
+    ],
+    "display_size": [
+      9,
+      14
+    ],
+    "mapping": "same source-to-display transform as lantern sprite",
+    "world_halo_before": [
+      60,
+      45
+    ],
+    "world_halo_after": [
+      22,
+      17
+    ],
+    "core_relative_span": 0.19,
+    "blanket_actor_yellow_tint_removed": true
+  },
+  "unchanged": [
+    "day pixels",
+    "original PNGs",
+    "fish color and body size",
+    "UI layout",
+    "world clock",
+    "save data",
+    "catch RNG",
+    "battle balance"
+  ],
+  "new_paid_generations": 0,
+  "published": false,
+  "public_release": "v1.11",
+  "full_ci": {
+    "run": 42480777927,
+    "status": "success",
+    "unique_verify_results": 88,
+    "artifact": 13617795891,
+    "candidate_artifact": 13617416626,
+    "candidate_publication_authorized": false,
+    "packed_verified": true
+  },
+  "image": "comparison.webp",
+  "source_commit": "4ce49e960cb0d327f68cd40b0242c25b7a17d5e2",
+  "closeup": "closeup.webp"
+}

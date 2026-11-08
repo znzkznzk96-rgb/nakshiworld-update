@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "v111_published_and_gateway_verified",
+  "status": "release112_final_ci_in_progress",
   "release_baseline": "v1.11",
-  "target_release": "v1.11",
+  "target_release": "v1.12",
   "deployed": true,
   "phone_verified": false,
-  "handoff": "docs/releases/111/HANDOFF.md",
-  "current_task": "v1.11 본체크기·번들보상·타일선택그림 수정 공개 및 운영검증 완료",
-  "next_step": "기존 앱에서 v1.11 업데이트 후 사용자 휴대폰 실제 적용 확인",
+  "handoff": "docs/releases/112/HANDOFF.md",
+  "current_task": "승인변경묶음v1.12배포",
+  "next_step": "버전/우편준비→최종전체CI→동일후보공개→운영다운로드검증",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -118,7 +118,7 @@
     "production_balance_changed": false,
     "phone_tested": false
   },
-  "release_authorized": false,
+  "release_authorized": true,
   "balance110": {
     "applied": true,
     "deployed": true,
@@ -301,5 +301,210 @@
     "publication_run": 42436616470,
     "publication_status": "success_attempt2",
     "gateway_verification_run": 42436745858
+  },
+  "regional_night": {
+    "deployed": false,
+    "release_authorized": false,
+    "status": "full_verified",
+    "verification": "docs/qa/regional-night/VERIFICATION.json",
+    "day_pixels_changed": 0,
+    "native_frames": 18,
+    "source_commit": "d831857a8035ae58fc37f221738e9a3c5de34aaa",
+    "ci_run": 42443864008,
+    "ci_status": "success",
+    "verification_artifact": 13601969338,
+    "unique_verify_results": 85,
+    "release_ready": false
+  },
+  "night_glow": {
+    "status": "full_verified",
+    "deployed": false,
+    "release_authorized": false,
+    "verification": "docs/qa/night-glow/VERIFICATION.json",
+    "native_frames": 18,
+    "day_pixels_changed": 0,
+    "source_commit": "4bdf9b4dea9188426d45a922c45720bbaca17b30",
+    "ci_run": 42445928608,
+    "ci_status": "success",
+    "unique_verify_results": 86,
+    "verification_artifact": 13603906178,
+    "release_ready": false
+  },
+  "night_play": {
+    "status": "full_verified",
+    "deployed": false,
+    "release_authorized": false,
+    "verification": "docs/qa/night-play/VERIFICATION.json",
+    "native_frames": 24,
+    "day_pixels_changed": 0,
+    "source_commit": "c438ba57a260058fe47f7665ef4db6e4c33e5d17",
+    "ci_run": 42478875199,
+    "ci_status": "success",
+    "unique_verify_results": 88,
+    "verification_artifact": 13615954579,
+    "release_ready": false
+  },
+  "lantern_flame_fix": {
+    "status": "full_verified",
+    "deployed": false,
+    "release_authorized": false,
+    "verification": "docs/qa/lantern-flame-fix/VERIFICATION.json",
+    "native_frames": 24,
+    "day_pixels_changed": 0,
+    "source_commit": "4ce49e960cb0d327f68cd40b0242c25b7a17d5e2",
+    "ci_run": 42480777927,
+    "ci_status": "success",
+    "unique_verify_results": 88,
+    "verification_artifact": 13617795891,
+    "release_ready": false
+  },
+  "helmet_headlamp": {
+    "status": "full_verified",
+    "deployed": false,
+    "release_authorized": false,
+    "verification": "docs/qa/helmet-headlamp/VERIFICATION.json",
+    "native_frames": 28,
+    "additional_motion_poses": 16,
+    "day_pixels_changed": 0,
+    "release_ready": false,
+    "source_commit": "49eef75a61fdf7b4acaa345ba97e5fd7f88d7b81",
+    "ci_run": 42483060048,
+    "ci_status": "success",
+    "unique_verify_results": 88,
+    "verification_artifact": 13618740687
+  },
+  "headlamp_local_light": {
+    "status": "full_verified",
+    "deployed": false,
+    "release_authorized": false,
+    "verification": "docs/qa/headlamp-local-light/VERIFICATION.json",
+    "release_ready": false,
+    "source_commit": "c74960ababa175a55a40fcd225799c1174e55f43",
+    "ci_run": 42485087378,
+    "ci_status": "success",
+    "unique_verify_results": 88,
+    "verification_artifact": 13618959416
+  },
+  "latest_release_instruction": {
+    "date": "2026-11-09",
+    "request": "업데이트및 배포가자 ㅇㅇ",
+    "authorized": true,
+    "scope": "밤조명/헬멧랜턴·3지역가격·오프라인3h·주인종별1마리",
+    "publication_started": false
+  },
+  "economy_analysis": {
+    "report": "docs/analysis/tile-income-20261108/REPORT.md",
+    "results": "docs/analysis/tile-income-20261108/RESULTS.json",
+    "draws": 600000,
+    "game_changed": false
+  },
+  "tile_price_proposal": {
+    "status": "superseded_by_implemented_three_region_rebalance",
+    "recommended": "weekly_final",
+    "report": "docs/analysis/tile-weekly-five-owners-20261109/REPORT.md",
+    "price_table": "docs/analysis/tile-weekly-five-owners-20261109/PRICE_TABLE.md",
+    "results": "docs/analysis/tile-weekly-five-owners-20261109/RESULTS.json",
+    "reference_aquarium_slots": 6,
+    "reference_boat_expansions": 2,
+    "owner_count": 5,
+    "median_day": 7,
+    "observed_days": [
+      7,
+      8
+    ],
+    "draws": 60013,
+    "game_changed": false
+  },
+  "tile_pacing_target": {
+    "date": "2026-11-09",
+    "active_hours_per_day": 3,
+    "target_days_approx": 7,
+    "target_active_hours_approx": 21,
+    "owner_fish_displayed": 5,
+    "status": "prior_five_owner_simulations_superseded_by_one_per_species_cap",
+    "supersedes": "6h/day for3-4days",
+    "analysis_assumption_pending": {
+      "aquarium_slots": 6,
+      "boat_expansions": 2
+    },
+    "deployment_authorized": false,
+    "analysis": "docs/qa/three-region-prices/DESIGN.md",
+    "offline_income_cap_hours": 3,
+    "previous_analysis": "docs/analysis/tile-weekly-five-owners-20261109/REPORT.md"
+  },
+  "offline_aquarium": {
+    "approved_hours": 3,
+    "previous_hours": 8,
+    "pond_recovery_hours": 8,
+    "status": "full_verified",
+    "deployed": false,
+    "verification": "docs/qa/offline-three-hours/VERIFICATION.json",
+    "source_commit": "2605f84eb6aa0dadd5a66c80df0c67af86c64d7f",
+    "ci_run": 42500929931,
+    "ci_status": "success",
+    "unique_verify_results": 88,
+    "verification_artifact": 13626040474
+  },
+  "three_region_price_rebalance": {
+    "status": "implemented_full_verified",
+    "offline_income_hours": 3,
+    "regions": [
+      0,
+      1,
+      2
+    ],
+    "target_day_hours": 3,
+    "target_days_approx": 7,
+    "reference_owner_count": 5,
+    "preserve_stored_specimen_prices": true,
+    "deployed": false,
+    "price_table": "docs/qa/three-region-prices/PRICE_TABLE.md",
+    "simulation": "docs/qa/three-region-prices/SIMULATION.json",
+    "verification": "docs/qa/three-region-prices/VERIFICATION.json",
+    "source_commit": "6b22974fb502bec3774bc6be7333a2ce68ea0916",
+    "ci_run": 42503357139,
+    "ci_status": "success",
+    "unique_verify_results": 88,
+    "verification_artifact": 13626995881
+  },
+  "owner_reward_review": {
+    "status": "implemented_full_verified",
+    "approved_sale_prices": [
+      8000,
+      40000,
+      500000
+    ],
+    "aquarium_income_separation": "not_approved_not_applied",
+    "offline_income_hours": 3,
+    "preserve_stored_specimen_prices": true,
+    "deployed": false,
+    "source_commit": "ff92b0dee342c9e012bf6008cc3e82aec0dd5d0b",
+    "ci_run": 42507823870,
+    "ci_status": "success",
+    "verification": "docs/qa/owner-sale-500000/VERIFICATION.json",
+    "unique_verify_results": 88,
+    "verification_artifact": 13628401994
+  },
+  "owner_aquarium_cap": {
+    "status": "implemented_full_verified",
+    "per_species": 1,
+    "income": "stored_sale_price_linked_unchanged",
+    "legacy": "keep_highest_price_one_return_others_to_bag_without_loss",
+    "deployed": false,
+    "verification": "docs/qa/owner-aquarium-cap/VERIFICATION.json",
+    "source_commit": "e7899537a9f4a86a913dc5f6b5a8b1be350e5a7c",
+    "ci_run": 42511245899,
+    "ci_status": "success",
+    "unique_verify_results": 88,
+    "verification_artifact": 13629867199
+  },
+  "release112": {
+    "source_commit": "2e88947e794336ff218ccc69066f39f7570ba753",
+    "ci_run": 42512752576,
+    "ci_status": "in_progress",
+    "pr": 50,
+    "deployed": false,
+    "phone_verified": false,
+    "release_authorized": true
   }
 }

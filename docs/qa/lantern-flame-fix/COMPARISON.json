@@ -1,0 +1,26 @@
+{
+  "1:idle": {
+    "exact": true,
+    "changed_pixels": 0
+  },
+  "1:fight": {
+    "exact": true,
+    "changed_pixels": 0
+  },
+  "1:night_water": {
+    "before_luminance": 76.1195882057143,
+    "after_luminance": 92.75944105142857
+  },
+  "2:idle": {
+    "exact": true,
+    "changed_pixels": 0
+  },
+  "2:fight": {
+    "exact": true,
+    "changed_pixels": 0
+  },
+  "2:night_water": {
+    "before_luminance": 75.14786712457143,
+    "after_luminance": 87.44969256228572
+  }
+}

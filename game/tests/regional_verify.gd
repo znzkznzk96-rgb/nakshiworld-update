@@ -20,22 +20,37 @@ func run() -> void:
 	m.bag=[{"sp":20,"star":0,"grade":1,"len":11.5,"w":0.08,"price":13}];m.aqua=[null,m.bag[0].duplicate(),null]
 	m._save_game();m.DEX={};m.REC={};m.catch_counts={};m.bag=[];m.aqua=[null,null,null]
 	m._load_rec();m._load_game()
-	check(m.bag[0].sp==20 and m.aqua[1].sp==20 and m.fish_counts(20)[1]==1,"bag aquarium and regional history survive reload")
+	check(m.bag[0].sp==20 and m.aqua[1].sp==20 and m.bag[0].price==13 and m.aqua[1].price==13 and m.fish_counts(20)[1]==1,"bag aquarium and regional history survive reload")
 	check(m.fish_record_cm(5)>17 and m.fish_record_cm(20)==11.5,"both maximum records survive reload")
 	check(m._fish_display_length(1,2.0,false,32)<m._fish_display_length(1,2.0,false,29),"small cloud minnow remains smaller than trout at same star")
-	var valley_prices := [25,35,45,50,30,30,50,55,130,145,175,225,150,195,480,560,610,2240,2760,16000]
-	for sp in range(20,40):
-		var star := 0
-		for s in range(5):
-			if sp in m.CATALOG.by_star(1,s): star=s
-		check(m.fish_price(sp,star,0,1.0)==valley_prices[sp-20],"conservative nominal price %d"%sp)
-		for grade in range(5):
-			for lf in [0.5,1.0,2.0]:
-				check(m.fish_price(sp,star,grade,lf)==int(round(valley_prices[sp-20]*m.PRICE_GRADE[grade]*minf(lf*lf,2.5))),"valley grade and length scaling %d"%sp)
-	check(m.fish_price(19,4,0,1.0)==8000 and m.fish_price(0,0,0,1.0)==10,"reservoir prices unchanged")
-	m.forge_lv=2
-	check(m.fish_price(39,4,0,1.0)==17600,"valley enhancement bonus preserved")
+	var approved_prices: Array = [[20, 25, 30, 35, 40, 45, 50, 55, 100, 130, 160, 190, 220, 250, 400, 550, 700, 1500, 2200, 8000], [100, 140, 180, 200, 120, 120, 200, 220, 500, 600, 700, 900, 600, 800, 1800, 2200, 2500, 4500, 5500, 40000], [500, 700, 900, 1000, 600, 600, 1000, 1100, 2000, 2400, 2800, 3600, 2400, 3200, 5500, 6500, 7500, 12000, 15000, 500000]]
+	for area in 3:
+		for local in 20:
+			var sp:int=area*20+local
+			var star:int=0
+			for rank in 5:
+				if sp in m.CATALOG.by_star(area,rank):star=rank
+			for forge in [0,2,5]:
+				m.forge_lv=forge
+				for grade in 5:
+					for lf in [.5,1.0,1.2,2.0]:
+						var expected:int=roundi(approved_prices[area][local]*m.PRICE_GRADE[grade]*minf(lf*lf,2.5)*(1+.05*forge))
+						check(m.fish_price(sp,star,grade,lf)==expected,"approved60species grade/length/forge value %d/%d/%s/%d"%[sp,grade,lf,forge])
 	m.forge_lv=0
+	m.boat_lv=0
+	check(is_equal_approx(m.aqua_rate(),13.0/300.0*.75),"legacy displayed fish income retains stored price")
+	m.gold=1000;m.buyback.restore({});m.sell_all()
+	check(m.gold==1013 and m.buyback.entries[0].sold_price==13 and m.buyback.entries[0].fish.price==13,"old specimen sells at stored13 after new table")
+	m._save_game();m.buyback.restore({});m._load_game()
+	var old_entry:Dictionary=m.buyback.entries[0]
+	check(m.buyback.price(old_entry)==16 and m.buyback.purchase(m,old_entry.id) and m.bag[-1].price==13,"saved buyback preserves original price and specimen")
+	m.S={"sp":20,"star":0,"grade":0,"len":10.0,"weight":.08,"lf":1.0}
+	m.keep_fish()
+	check(m.bag[-1].price==100 and m.bag[0].price==13,"new catch receives new value without repricing old fish")
+	m.S={"sp":59,"star":4,"grade":0,"len":180.0,"weight":.08,"lf":1.0}
+	m.keep_fish()
+	check(m.bag[-1].price==500000 and m.bag[0].price==13,"new owner gets500000 while legacy specimen retains13")
+	check(m.AQUARIUM_OFFLINE_HOURS==3,"three-hour offline cap preserved")
 	check(m.measurement_max_cm(25)==10 and m.measurement_max_cm(28)==60 and m.measurement_max_cm(39)==300,"species-fixed valley ruler ranges")
 	seed(92469)
 	for sp in range(20,40):

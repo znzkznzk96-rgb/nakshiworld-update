@@ -1,0 +1,5353 @@
+{
+  "draws": 180000,
+  "seeds": 5,
+  "cases": 30,
+  "price_profiles": {
+    "current": [
+      25,
+      35,
+      45,
+      50,
+      30,
+      30,
+      50,
+      55,
+      130,
+      145,
+      175,
+      225,
+      150,
+      195,
+      480,
+      560,
+      610,
+      2240,
+      2760,
+      16000
+    ],
+    "all_x10": [
+      250,
+      350,
+      450,
+      500,
+      300,
+      300,
+      500,
+      550,
+      1300,
+      1450,
+      1750,
+      2250,
+      1500,
+      1950,
+      4800,
+      5600,
+      6100,
+      22400,
+      27600,
+      160000
+    ],
+    "gentle": [
+      500,
+      700,
+      900,
+      1000,
+      600,
+      600,
+      1000,
+      1100,
+      1950,
+      2175,
+      2625,
+      3375,
+      2250,
+      2925,
+      4800,
+      5600,
+      6100,
+      13440,
+      16560,
+      32000
+    ],
+    "balanced": [
+      1000,
+      1400,
+      1800,
+      2000,
+      1200,
+      1200,
+      2000,
+      2200,
+      3900,
+      4350,
+      5250,
+      6750,
+      4500,
+      5850,
+      9600,
+      11200,
+      12200,
+      26880,
+      33120,
+      48000
+    ],
+    "active": [
+      1500,
+      2100,
+      2700,
+      3000,
+      1800,
+      1800,
+      3000,
+      3300,
+      5200,
+      5800,
+      7000,
+      9000,
+      6000,
+      7800,
+      12000,
+      14000,
+      15250,
+      33600,
+      41400,
+      64000
+    ],
+    "rounded": [
+      1500,
+      1800,
+      2200,
+      2500,
+      1800,
+      1800,
+      2500,
+      2800,
+      5000,
+      6000,
+      6500,
+      8000,
+      5500,
+      7000,
+      15000,
+      18000,
+      20000,
+      36000,
+      45000,
+      65000
+    ]
+  },
+  "price_parity_checks": 180000,
+  "price_parity_mismatches": 0,
+  "ledger_sha256": "7d4f72e733a04bd3a4b7e3835ba6538350dad1b5f06af93e204662dab971ccb9",
+  "results": [
+    {
+      "candidate": "current",
+      "trial": 0,
+      "bait": 0,
+      "mode": "full",
+      "sale_only_first_fee_hours": null,
+      "sale_only_steady_net_per_hour": 36489.24033199611,
+      "owner_share_of_gross": 0.4949354030303108,
+      "aquarium_boat0": {
+        "first_fee_hours": null,
+        "passive_earned_to_goal": 761093.6451363219,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 118592,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 17788.8
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 21.950871240856443,
+        "passive_earned_to_goal": 4096200.3265906656,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 396533,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 312269.7375
+      }
+    },
+    {
+      "candidate": "all_x10",
+      "trial": 0,
+      "bait": 0,
+      "mode": "full",
+      "sale_only_first_fee_hours": 11.206116411428573,
+      "sale_only_steady_net_per_hour": 370280.84258963313,
+      "owner_share_of_gross": 0.4949318432479945,
+      "aquarium_boat0": {
+        "first_fee_hours": 11.096232876541306,
+        "passive_earned_to_goal": 1020430.3190844354,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 986174,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 147926.1
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 6.6924416489298855,
+        "passive_earned_to_goal": 3658038.850375886,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 1546235,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 1217660.0625
+      }
+    },
+    {
+      "candidate": "gentle",
+      "trial": 0,
+      "bait": 0,
+      "mode": "full",
+      "sale_only_first_fee_hours": 16.96080734976354,
+      "sale_only_steady_net_per_hour": 267655.375213073,
+      "owner_share_of_gross": 0.1425387101711124,
+      "aquarium_boat0": {
+        "first_fee_hours": 16.436156010253818,
+        "passive_earned_to_goal": 374229.9955590714,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 197235,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 29585.25
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 9.416339966865628,
+        "passive_earned_to_goal": 2568040.608941986,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 630330,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 496384.875
+      }
+    },
+    {
+      "candidate": "balanced",
+      "trial": 0,
+      "bait": 0,
+      "mode": "full",
+      "sale_only_first_fee_hours": 8.57584925937547,
+      "sale_only_steady_net_per_hour": 518882.4807378128,
+      "owner_share_of_gross": 0.11085415760711585,
+      "aquarium_boat0": {
+        "first_fee_hours": 8.600538236533907,
+        "passive_earned_to_goal": 223197.65734005754,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 295852,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 44377.799999999996
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 6.199723578790808,
+        "passive_earned_to_goal": 2200073.027588915,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 769442,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 605935.5750000001
+      }
+    },
+    {
+      "candidate": "active",
+      "trial": 0,
+      "bait": 0,
+      "mode": "full",
+      "sale_only_first_fee_hours": 6.74975958337094,
+      "sale_only_steady_net_per_hour": 696123.6552551086,
+      "owner_share_of_gross": 0.11010302352153019,
+      "aquarium_boat0": {
+        "first_fee_hours": 6.883055692274329,
+        "passive_earned_to_goal": 205550.88575766838,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 296148,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 44422.2
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 5.087768045334019,
+        "passive_earned_to_goal": 2032674.2434052897,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 811502,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 639057.825
+      }
+    },
+    {
+      "candidate": "rounded",
+      "trial": 0,
+      "bait": 0,
+      "mode": "full",
+      "sale_only_first_fee_hours": 6.5838264254525845,
+      "sale_only_steady_net_per_hour": 709529.3345758178,
+      "owner_share_of_gross": 0.10967101524194363,
+      "aquarium_boat0": {
+        "first_fee_hours": 6.817048856254956,
+        "passive_earned_to_goal": 211332.8226729976,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 300774,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 45116.1
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 4.878971874159307,
+        "passive_earned_to_goal": 2198488.381539817,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 913637,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 719489.1375
+      }
+    },
+    {
+      "candidate": "current",
+      "trial": 0,
+      "bait": 0,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": null,
+      "sale_only_steady_net_per_hour": 19634.745512388192,
+      "owner_share_of_gross": 0.804853204191647,
+      "aquarium_boat0": {
+        "first_fee_hours": null,
+        "passive_earned_to_goal": 836892.9323089417,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 112794,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 16919.1
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 28.59470491910161,
+        "passive_earned_to_goal": 4448992.425842922,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 383536,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 302034.60000000003
+      }
+    },
+    {
+      "candidate": "all_x10",
+      "trial": 0,
+      "bait": 0,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 25.316585850162625,
+      "sale_only_steady_net_per_hour": 200450.5108369879,
+      "owner_share_of_gross": 0.8048621069250713,
+      "aquarium_boat0": {
+        "first_fee_hours": 19.820460433313634,
+        "passive_earned_to_goal": 1705194.0274619162,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 788564,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 118284.59999999999
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 9.681844614870569,
+        "passive_earned_to_goal": 4235171.920841999,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 1213453,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 955594.2374999999
+      }
+    },
+    {
+      "candidate": "gentle",
+      "trial": 0,
+      "bait": 0,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 44.083691247354494,
+      "sale_only_steady_net_per_hour": 105143.28747151975,
+      "owner_share_of_gross": 0.2961806429634359,
+      "aquarium_boat0": {
+        "first_fee_hours": 38.37942404816233,
+        "passive_earned_to_goal": 795436.5778657548,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 161726,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 24258.899999999998
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 16.301054101209488,
+        "passive_earned_to_goal": 3386875.912289924,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 499807,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 393598.0125
+      }
+    },
+    {
+      "candidate": "balanced",
+      "trial": 0,
+      "bait": 0,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 23.91443016085031,
+      "sale_only_steady_net_per_hour": 194289.27570390244,
+      "owner_share_of_gross": 0.23989746161497644,
+      "aquarium_boat0": {
+        "first_fee_hours": 21.804847955516564,
+        "passive_earned_to_goal": 609353.087297,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 236569,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 35485.35
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 11.636528289796644,
+        "passive_earned_to_goal": 2915438.3413126282,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 586977,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 462244.3875
+      }
+    },
+    {
+      "candidate": "active",
+      "trial": 0,
+      "bait": 0,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 16.162967726955014,
+      "sale_only_steady_net_per_hour": 283432.09797474573,
+      "owner_share_of_gross": 0.21944720576015406,
+      "aquarium_boat0": {
+        "first_fee_hours": 15.4294077740331,
+        "passive_earned_to_goal": 508825.9176461309,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 315426,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 47313.9
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 9.292963376340138,
+        "passive_earned_to_goal": 2639534.4615050103,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 628381,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 494850.0375
+      }
+    },
+    {
+      "candidate": "rounded",
+      "trial": 0,
+      "bait": 0,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 17.45198726733069,
+      "sale_only_steady_net_per_hour": 258691.11312839662,
+      "owner_share_of_gross": 0.24457746505412054,
+      "aquarium_boat0": {
+        "first_fee_hours": 16.589452084594377,
+        "passive_earned_to_goal": 572935.5618811353,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 320353,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 48052.95
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 9.671757339622228,
+        "passive_earned_to_goal": 2781719.7464611065,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 625463,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 492552.1125
+      }
+    },
+    {
+      "candidate": "current",
+      "trial": 0,
+      "bait": 1,
+      "mode": "full",
+      "sale_only_first_fee_hours": null,
+      "sale_only_steady_net_per_hour": 44241.53865932689,
+      "owner_share_of_gross": 0.49965892773701964,
+      "aquarium_boat0": {
+        "first_fee_hours": null,
+        "passive_earned_to_goal": 685235.1870238617,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 105316,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 15797.4
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 21.234472679201243,
+        "passive_earned_to_goal": 4052574.457986631,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 446750,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 351815.625
+      }
+    },
+    {
+      "candidate": "all_x10",
+      "trial": 0,
+      "bait": 1,
+      "mode": "full",
+      "sale_only_first_fee_hours": 10.879653040416473,
+      "sale_only_steady_net_per_hour": 458579.14264573983,
+      "owner_share_of_gross": 0.4996669585016607,
+      "aquarium_boat0": {
+        "first_fee_hours": 10.871259627450279,
+        "passive_earned_to_goal": 883052.9298981483,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 856654,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 128498.09999999999
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 6.690291101685505,
+        "passive_earned_to_goal": 3524598.9484555162,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 1397388,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 1100443.0499999998
+      }
+    },
+    {
+      "candidate": "gentle",
+      "trial": 0,
+      "bait": 1,
+      "mode": "full",
+      "sale_only_first_fee_hours": 14.427577352774332,
+      "sale_only_steady_net_per_hour": 317260.30177079287,
+      "owner_share_of_gross": 0.1452287109270565,
+      "aquarium_boat0": {
+        "first_fee_hours": 14.261150839872014,
+        "passive_earned_to_goal": 290262.0287355998,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 196524,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 29478.6
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 8.952996016026855,
+        "passive_earned_to_goal": 2396470.89792451,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 605978,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 477207.675
+      }
+    },
+    {
+      "candidate": "balanced",
+      "trial": 0,
+      "bait": 1,
+      "mode": "full",
+      "sale_only_first_fee_hours": 7.810832209341699,
+      "sale_only_steady_net_per_hour": 613648.9430311401,
+      "owner_share_of_gross": 0.1130250562254417,
+      "aquarium_boat0": {
+        "first_fee_hours": 7.860956039192139,
+        "passive_earned_to_goal": 183973.2637507352,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 223895,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 33584.25
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 5.785716410283786,
+        "passive_earned_to_goal": 2097548.751821685,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 740102,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 582830.3250000001
+      }
+    },
+    {
+      "candidate": "active",
+      "trial": 0,
+      "bait": 1,
+      "mode": "full",
+      "sale_only_first_fee_hours": 5.978654852043573,
+      "sale_only_steady_net_per_hour": 824330.5927687612,
+      "owner_share_of_gross": 0.11230783022665344,
+      "aquarium_boat0": {
+        "first_fee_hours": 6.0956923540695565,
+        "passive_earned_to_goal": 168725.29645065192,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 273269,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 40990.35
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 4.6814959174990225,
+        "passive_earned_to_goal": 1872050.623656021,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 818202,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 644334.075
+      }
+    },
+    {
+      "candidate": "rounded",
+      "trial": 0,
+      "bait": 1,
+      "mode": "full",
+      "sale_only_first_fee_hours": 5.902671923444177,
+      "sale_only_steady_net_per_hour": 838291.1714167073,
+      "owner_share_of_gross": 0.1119864494714625,
+      "aquarium_boat0": {
+        "first_fee_hours": 6.003688375202341,
+        "passive_earned_to_goal": 172568.99826405197,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 277539,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 41630.85
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 4.505630815214754,
+        "passive_earned_to_goal": 2020773.0863759557,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 930826,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 733025.475
+      }
+    },
+    {
+      "candidate": "current",
+      "trial": 0,
+      "bait": 1,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": null,
+      "sale_only_steady_net_per_hour": 20989.335645435556,
+      "owner_share_of_gross": 0.8004762595081352,
+      "aquarium_boat0": {
+        "first_fee_hours": null,
+        "passive_earned_to_goal": 823600.0102703584,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 102872,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 15430.8
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 27.930327012566863,
+        "passive_earned_to_goal": 4422949.990351579,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 407049,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 320551.08749999997
+      }
+    },
+    {
+      "candidate": "all_x10",
+      "trial": 0,
+      "bait": 1,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 23.517190367775488,
+      "sale_only_steady_net_per_hour": 222252.7703547526,
+      "owner_share_of_gross": 0.8004510176498761,
+      "aquarium_boat0": {
+        "first_fee_hours": 19.766190976653775,
+        "passive_earned_to_goal": 1689878.2329032314,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 789719,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 118457.84999999999
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 9.439043398042692,
+        "passive_earned_to_goal": 4156653.403228878,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 1321928,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 1041018.2999999999
+      }
+    },
+    {
+      "candidate": "gentle",
+      "trial": 0,
+      "bait": 1,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 38.42239581740976,
+      "sale_only_steady_net_per_hour": 120247.71023068135,
+      "owner_share_of_gross": 0.2868550129224695,
+      "aquarium_boat0": {
+        "first_fee_hours": 34.42113491858227,
+        "passive_earned_to_goal": 714513.8085180235,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 192528,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 28879.2
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 16.14176217688296,
+        "passive_earned_to_goal": 3204206.253734792,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 525468,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 413806.05
+      }
+    },
+    {
+      "candidate": "balanced",
+      "trial": 0,
+      "bait": 1,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 21.06331794861396,
+      "sale_only_steady_net_per_hour": 223778.3136398534,
+      "owner_share_of_gross": 0.23176168262115374,
+      "aquarium_boat0": {
+        "first_fee_hours": 19.84296319495126,
+        "passive_earned_to_goal": 521204.5941050295,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 236915,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 35537.25
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 11.505598506502988,
+        "passive_earned_to_goal": 2674851.6151900357,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 580183,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 456894.1125
+      }
+    },
+    {
+      "candidate": "active",
+      "trial": 0,
+      "bait": 1,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 14.608461384954612,
+      "sale_only_steady_net_per_hour": 327309.03905344685,
+      "owner_share_of_gross": 0.21155255417343236,
+      "aquarium_boat0": {
+        "first_fee_hours": 13.968243542006821,
+        "passive_earned_to_goal": 425261.502314513,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 285883,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 42882.45
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 9.031293983204685,
+        "passive_earned_to_goal": 2333334.965494408,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 597604,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 470613.14999999997
+      }
+    },
+    {
+      "candidate": "rounded",
+      "trial": 0,
+      "bait": 1,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 15.927548971871964,
+      "sale_only_steady_net_per_hour": 297871.0497320578,
+      "owner_share_of_gross": 0.23607595530950592,
+      "aquarium_boat0": {
+        "first_fee_hours": 15.234794764021272,
+        "passive_earned_to_goal": 488035.17038967245,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 290349,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 43552.35
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 9.483134365009935,
+        "passive_earned_to_goal": 2487919.5462766304,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 640094,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 504074.02499999997
+      }
+    },
+    {
+      "candidate": "current",
+      "trial": 0,
+      "bait": 2,
+      "mode": "full",
+      "sale_only_first_fee_hours": null,
+      "sale_only_steady_net_per_hour": 43891.538838764995,
+      "owner_share_of_gross": 0.5182024903732403,
+      "aquarium_boat0": {
+        "first_fee_hours": null,
+        "passive_earned_to_goal": 761902.5953768479,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 119427,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 17914.05
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 20.56640973466557,
+        "passive_earned_to_goal": 4113048.521440358,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 434099,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 341852.96249999997
+      }
+    },
+    {
+      "candidate": "all_x10",
+      "trial": 0,
+      "bait": 2,
+      "mode": "full",
+      "sale_only_first_fee_hours": 10.627905067577107,
+      "sale_only_steady_net_per_hour": 460488.1708206872,
+      "owner_share_of_gross": 0.5182064587672002,
+      "aquarium_boat0": {
+        "first_fee_hours": 10.627905067577107,
+        "passive_earned_to_goal": 1061872.6450012277,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 1063315,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 159497.25
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 6.0420323529739255,
+        "passive_earned_to_goal": 3760507.4758331156,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 1536709,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 1210158.3375000001
+      }
+    },
+    {
+      "candidate": "gentle",
+      "trial": 0,
+      "bait": 2,
+      "mode": "full",
+      "sale_only_first_fee_hours": 15.48846251615196,
+      "sale_only_steady_net_per_hour": 305168.13352059736,
+      "owner_share_of_gross": 0.1560647281482217,
+      "aquarium_boat0": {
+        "first_fee_hours": 14.971601628967731,
+        "passive_earned_to_goal": 370994.83168922,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 217976,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 32696.399999999998
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 8.83169840732291,
+        "passive_earned_to_goal": 2649649.889270902,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 585965,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 461447.4375
+      }
+    },
+    {
+      "candidate": "balanced",
+      "trial": 0,
+      "bait": 2,
+      "mode": "full",
+      "sale_only_first_fee_hours": 8.27202556073869,
+      "sale_only_steady_net_per_hour": 588960.5780689872,
+      "owner_share_of_gross": 0.1218008458476526,
+      "aquarium_boat0": {
+        "first_fee_hours": 8.288752660955955,
+        "passive_earned_to_goal": 267813.1789719255,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 277440,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 41616.0
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 5.716687370597104,
+        "passive_earned_to_goal": 2361793.668224105,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 844662,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 665171.325
+      }
+    },
+    {
+      "candidate": "active",
+      "trial": 0,
+      "bait": 2,
+      "mode": "full",
+      "sale_only_first_fee_hours": 6.283157619131285,
+      "sale_only_steady_net_per_hour": 789017.0345705475,
+      "owner_share_of_gross": 0.12116906062637417,
+      "aquarium_boat0": {
+        "first_fee_hours": 6.382597548815528,
+        "passive_earned_to_goal": 245637.3449971667,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 362742,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 54411.299999999996
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 4.695557868022341,
+        "passive_earned_to_goal": 2200601.2074536155,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 984945,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 775644.1875
+      }
+    },
+    {
+      "candidate": "rounded",
+      "trial": 0,
+      "bait": 2,
+      "mode": "full",
+      "sale_only_first_fee_hours": 6.208388139406497,
+      "sale_only_steady_net_per_hour": 808133.262010858,
+      "owner_share_of_gross": 0.12044830737866218,
+      "aquarium_boat0": {
+        "first_fee_hours": 6.299835171492452,
+        "passive_earned_to_goal": 253375.3873405678,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 376090,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 56413.5
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 4.5374368723524805,
+        "passive_earned_to_goal": 2332229.1129596457,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 1097120,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 863982.0
+      }
+    },
+    {
+      "candidate": "current",
+      "trial": 0,
+      "bait": 2,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": null,
+      "sale_only_steady_net_per_hour": 20639.60926203324,
+      "owner_share_of_gross": 0.8163932504602999,
+      "aquarium_boat0": {
+        "first_fee_hours": null,
+        "passive_earned_to_goal": 923520.9173380692,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 136653,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 20497.95
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 28.051488001891233,
+        "passive_earned_to_goal": 4456113.871483689,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 383618,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 302099.175
+      }
+    },
+    {
+      "candidate": "all_x10",
+      "trial": 0,
+      "bait": 2,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 24.68212461935605,
+      "sale_only_steady_net_per_hour": 222852.10230574172,
+      "owner_share_of_gross": 0.816398703714028,
+      "aquarium_boat0": {
+        "first_fee_hours": 19.575918132087153,
+        "passive_earned_to_goal": 1640148.201895158,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 747099,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 112064.84999999999
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 9.231542064258111,
+        "passive_earned_to_goal": 4239060.261733079,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 1381087,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 1087606.0125
+      }
+    },
+    {
+      "candidate": "gentle",
+      "trial": 0,
+      "bait": 2,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 42.01437922129255,
+      "sale_only_steady_net_per_hour": 113468.34981213787,
+      "owner_share_of_gross": 0.30840562171246166,
+      "aquarium_boat0": {
+        "first_fee_hours": 37.12620140255165,
+        "passive_earned_to_goal": 752995.2084506301,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 215695,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 32354.25
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 16.128311319088418,
+        "passive_earned_to_goal": 3358775.3829537253,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 499645,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 393470.4375
+      }
+    },
+    {
+      "candidate": "balanced",
+      "trial": 0,
+      "bait": 2,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 22.92355784614231,
+      "sale_only_steady_net_per_hour": 210204.55621685638,
+      "owner_share_of_gross": 0.2506275739014394,
+      "aquarium_boat0": {
+        "first_fee_hours": 21.15852494854001,
+        "passive_earned_to_goal": 561102.3006406289,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 224130,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 33619.5
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 11.502767130848849,
+        "passive_earned_to_goal": 2862189.767935255,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 571001,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 449663.2875
+      }
+    },
+    {
+      "candidate": "active",
+      "trial": 0,
+      "bait": 2,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 15.780024333439206,
+      "sale_only_steady_net_per_hour": 306941.37205375766,
+      "owner_share_of_gross": 0.2292704184297807,
+      "aquarium_boat0": {
+        "first_fee_hours": 15.00574663017445,
+        "passive_earned_to_goal": 483103.8610704714,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 276845,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 41526.75
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 9.143656056909421,
+        "passive_earned_to_goal": 2535253.108410084,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 666981,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 525247.5375
+      }
+    },
+    {
+      "candidate": "rounded",
+      "trial": 0,
+      "bait": 2,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 17.452864930179793,
+      "sale_only_steady_net_per_hour": 280242.9708603472,
+      "owner_share_of_gross": 0.25553154235683195,
+      "aquarium_boat0": {
+        "first_fee_hours": 16.258661349585488,
+        "passive_earned_to_goal": 546702.815721239,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 281170,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 42175.5
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 9.539313056776736,
+        "passive_earned_to_goal": 2708484.4321154403,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 667438,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 525607.4249999999
+      }
+    },
+    {
+      "candidate": "current",
+      "trial": 1,
+      "bait": 0,
+      "mode": "full",
+      "sale_only_first_fee_hours": null,
+      "sale_only_steady_net_per_hour": 37402.10296408367,
+      "owner_share_of_gross": 0.4945210529048336,
+      "aquarium_boat0": {
+        "first_fee_hours": null,
+        "passive_earned_to_goal": 576196.5621981495,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 93885,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 14082.75
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 23.664917860787735,
+        "passive_earned_to_goal": 4033184.2143805632,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 392136,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 308807.10000000003
+      }
+    },
+    {
+      "candidate": "all_x10",
+      "trial": 1,
+      "bait": 0,
+      "mode": "full",
+      "sale_only_first_fee_hours": 12.5002585755415,
+      "sale_only_steady_net_per_hour": 379405.30574268376,
+      "owner_share_of_gross": 0.494520999206431,
+      "aquarium_boat0": {
+        "first_fee_hours": 12.032389463494162,
+        "passive_earned_to_goal": 817300.797710089,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 636998,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 95549.7
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 6.981969269077509,
+        "passive_earned_to_goal": 3553223.8984677284,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 1419633,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 1117960.9874999998
+      }
+    },
+    {
+      "candidate": "gentle",
+      "trial": 1,
+      "bait": 0,
+      "mode": "full",
+      "sale_only_first_fee_hours": 17.23222119060555,
+      "sale_only_steady_net_per_hour": 267842.38334254886,
+      "owner_share_of_gross": 0.14188355926151627,
+      "aquarium_boat0": {
+        "first_fee_hours": 16.68927925731554,
+        "passive_earned_to_goal": 273167.04157208436,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 145901,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 21885.149999999998
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 9.84741767181641,
+        "passive_earned_to_goal": 2494430.371079723,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 520806,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 410134.725
+      }
+    },
+    {
+      "candidate": "balanced",
+      "trial": 1,
+      "bait": 0,
+      "mode": "full",
+      "sale_only_first_fee_hours": 8.888580416346638,
+      "sale_only_steady_net_per_hour": 518193.9610736703,
+      "owner_share_of_gross": 0.11032593249864568,
+      "aquarium_boat0": {
+        "first_fee_hours": 8.955347975402619,
+        "passive_earned_to_goal": 195242.28928994518,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 223777,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 33566.549999999996
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 6.095166870066275,
+        "passive_earned_to_goal": 2120565.001033713,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 721211,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 567953.6625
+      }
+    },
+    {
+      "candidate": "active",
+      "trial": 1,
+      "bait": 0,
+      "mode": "full",
+      "sale_only_first_fee_hours": 6.723177427503953,
+      "sale_only_steady_net_per_hour": 696309.6107465243,
+      "owner_share_of_gross": 0.10946624329814635,
+      "aquarium_boat0": {
+        "first_fee_hours": 6.864877107758246,
+        "passive_earned_to_goal": 170745.42376139198,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 258942,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 38841.299999999996
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 4.996448751451962,
+        "passive_earned_to_goal": 1928406.585060781,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 771448,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 607515.2999999999
+      }
+    },
+    {
+      "candidate": "rounded",
+      "trial": 1,
+      "bait": 0,
+      "mode": "full",
+      "sale_only_first_fee_hours": 6.496690408643915,
+      "sale_only_steady_net_per_hour": 707420.5095372398,
+      "owner_share_of_gross": 0.10931643756723976,
+      "aquarium_boat0": {
+        "first_fee_hours": 6.73977659095671,
+        "passive_earned_to_goal": 174763.84258298867,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 269289,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 40393.35
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 4.7892646832684544,
+        "passive_earned_to_goal": 2090492.9715230854,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 829688,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 653379.2999999999
+      }
+    },
+    {
+      "candidate": "current",
+      "trial": 1,
+      "bait": 0,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": null,
+      "sale_only_steady_net_per_hour": 18242.01911040751,
+      "owner_share_of_gross": 0.8095438611927706,
+      "aquarium_boat0": {
+        "first_fee_hours": null,
+        "passive_earned_to_goal": 942798.1441064691,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 106025,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 15903.75
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 26.414020029627835,
+        "passive_earned_to_goal": 4437672.533439469,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 423057,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 333157.38749999995
+      }
+    },
+    {
+      "candidate": "all_x10",
+      "trial": 1,
+      "bait": 0,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 22.63377312134915,
+      "sale_only_steady_net_per_hour": 186526.12158585814,
+      "owner_share_of_gross": 0.8095476546844248,
+      "aquarium_boat0": {
+        "first_fee_hours": 18.060709997725795,
+        "passive_earned_to_goal": 1884719.154100071,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 1023823,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 153573.44999999998
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 8.720587685204755,
+        "passive_earned_to_goal": 4239343.132545639,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 1299152,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 1023082.2
+      }
+    },
+    {
+      "candidate": "gentle",
+      "trial": 1,
+      "bait": 0,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 42.936167105907224,
+      "sale_only_steady_net_per_hour": 102829.78451019732,
+      "owner_share_of_gross": 0.2992324978036001,
+      "aquarium_boat0": {
+        "first_fee_hours": 36.12108501054799,
+        "passive_earned_to_goal": 952015.4687975432,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 212050,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 31807.5
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 15.638978632410334,
+        "passive_earned_to_goal": 3407279.963525291,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 521631,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 410784.4125
+      }
+    },
+    {
+      "candidate": "balanced",
+      "trial": 1,
+      "bait": 0,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 22.78843246534457,
+      "sale_only_steady_net_per_hour": 191078.450703558,
+      "owner_share_of_gross": 0.24257241579264746,
+      "aquarium_boat0": {
+        "first_fee_hours": 20.999601687926752,
+        "passive_earned_to_goal": 712480.1725425721,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 307148,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 46072.2
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 11.342782280030022,
+        "passive_earned_to_goal": 2931245.9731773227,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 621202,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 489196.575
+      }
+    },
+    {
+      "candidate": "active",
+      "trial": 1,
+      "bait": 0,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 15.906752652360257,
+      "sale_only_steady_net_per_hour": 279326.84310737776,
+      "owner_share_of_gross": 0.22177439162608079,
+      "aquarium_boat0": {
+        "first_fee_hours": 15.036883177170294,
+        "passive_earned_to_goal": 585742.862188079,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 393782,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 59067.299999999996
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 9.04124816086692,
+        "passive_earned_to_goal": 2655338.3399725067,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 672790,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 529822.125
+      }
+    },
+    {
+      "candidate": "rounded",
+      "trial": 1,
+      "bait": 0,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 16.994613801107157,
+      "sale_only_steady_net_per_hour": 254239.0207372232,
+      "owner_share_of_gross": 0.24691117585791364,
+      "aquarium_boat0": {
+        "first_fee_hours": 16.166649537490528,
+        "passive_earned_to_goal": 662005.8264176657,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 415928,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 62389.2
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 9.44921556198281,
+        "passive_earned_to_goal": 2789496.588320677,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 668827,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 526701.2625000001
+      }
+    },
+    {
+      "candidate": "current",
+      "trial": 1,
+      "bait": 1,
+      "mode": "full",
+      "sale_only_first_fee_hours": null,
+      "sale_only_steady_net_per_hour": 42545.928992715155,
+      "owner_share_of_gross": 0.5134161488526793,
+      "aquarium_boat0": {
+        "first_fee_hours": null,
+        "passive_earned_to_goal": 752352.7081360433,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 108869,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 16330.349999999999
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 20.015393953842956,
+        "passive_earned_to_goal": 4092751.772228926,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 469257,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 369539.8875
+      }
+    },
+    {
+      "candidate": "all_x10",
+      "trial": 1,
+      "bait": 1,
+      "mode": "full",
+      "sale_only_first_fee_hours": 9.958334467048356,
+      "sale_only_steady_net_per_hour": 441634.46341542195,
+      "owner_share_of_gross": 0.5134164409957296,
+      "aquarium_boat0": {
+        "first_fee_hours": 9.958334467048356,
+        "passive_earned_to_goal": 971641.3194738703,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 1088690,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 163303.5
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 5.974810956156029,
+        "passive_earned_to_goal": 3614451.47457952,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 1745907,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 1374901.7625
+      }
+    },
+    {
+      "candidate": "gentle",
+      "trial": 1,
+      "bait": 1,
+      "mode": "full",
+      "sale_only_first_fee_hours": 14.17398311102799,
+      "sale_only_steady_net_per_hour": 305290.12227131985,
+      "owner_share_of_gross": 0.14915370313857398,
+      "aquarium_boat0": {
+        "first_fee_hours": 13.716071225780306,
+        "passive_earned_to_goal": 357525.03548949515,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 217738,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 32660.699999999997
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 8.124112586060345,
+        "passive_earned_to_goal": 2625168.647160762,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 669093,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 526910.7374999999
+      }
+    },
+    {
+      "candidate": "balanced",
+      "trial": 1,
+      "bait": 1,
+      "mode": "full",
+      "sale_only_first_fee_hours": 7.363565652142614,
+      "sale_only_steady_net_per_hour": 589244.0475755584,
+      "owner_share_of_gross": 0.1161985196835854,
+      "aquarium_boat0": {
+        "first_fee_hours": 7.405192344311917,
+        "passive_earned_to_goal": 274242.932931041,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 315356,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 47303.4
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 5.123847875711098,
+        "passive_earned_to_goal": 2278480.6422615913,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 1012390,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 797257.125
+      }
+    },
+    {
+      "candidate": "active",
+      "trial": 1,
+      "bait": 1,
+      "mode": "full",
+      "sale_only_first_fee_hours": 5.450836675304084,
+      "sale_only_steady_net_per_hour": 794586.8142130765,
+      "owner_share_of_gross": 0.11530897962634863,
+      "aquarium_boat0": {
+        "first_fee_hours": 5.616594220061212,
+        "passive_earned_to_goal": 241264.42570713948,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 413049,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 61957.35
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 4.258098363374954,
+        "passive_earned_to_goal": 2102011.741852821,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 1041574,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 820239.525
+      }
+    },
+    {
+      "candidate": "rounded",
+      "trial": 1,
+      "bait": 1,
+      "mode": "full",
+      "sale_only_first_fee_hours": 5.332884177394517,
+      "sale_only_steady_net_per_hour": 802651.4200371602,
+      "owner_share_of_gross": 0.11530651650223958,
+      "aquarium_boat0": {
+        "first_fee_hours": 5.5590826205436175,
+        "passive_earned_to_goal": 254614.4731945562,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 427448,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 64117.2
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 4.13351557889831,
+        "passive_earned_to_goal": 2248955.0543218674,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 1149009,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 904844.5875
+      }
+    },
+    {
+      "candidate": "current",
+      "trial": 1,
+      "bait": 1,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": null,
+      "sale_only_steady_net_per_hour": 21315.51832538472,
+      "owner_share_of_gross": 0.8020864465288955,
+      "aquarium_boat0": {
+        "first_fee_hours": null,
+        "passive_earned_to_goal": 855849.9213653522,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 115010,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 17251.5
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 26.236088396992546,
+        "passive_earned_to_goal": 4436526.802072226,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 428089,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 337120.08749999997
+      }
+    },
+    {
+      "candidate": "all_x10",
+      "trial": 1,
+      "bait": 1,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 21.32743642285216,
+      "sale_only_steady_net_per_hour": 225469.35018956917,
+      "owner_share_of_gross": 0.8020816653542184,
+      "aquarium_boat0": {
+        "first_fee_hours": 17.894586865142347,
+        "passive_earned_to_goal": 1677657.1538897122,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 887831,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 133174.65
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 8.889046372515054,
+        "passive_earned_to_goal": 4161451.292908835,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 1305730,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 1028262.375
+      }
+    },
+    {
+      "candidate": "gentle",
+      "trial": 1,
+      "bait": 1,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 37.798457302611716,
+      "sale_only_steady_net_per_hour": 121747.75043921651,
+      "owner_share_of_gross": 0.2905391816059989,
+      "aquarium_boat0": {
+        "first_fee_hours": 33.10420272378332,
+        "passive_earned_to_goal": 758417.4095241282,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 182284,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 27342.6
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 14.835850013763197,
+        "passive_earned_to_goal": 3268542.2869002265,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 526589,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 414688.83749999997
+      }
+    },
+    {
+      "candidate": "balanced",
+      "trial": 1,
+      "bait": 1,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 20.013805037711812,
+      "sale_only_steady_net_per_hour": 226499.02058287614,
+      "owner_share_of_gross": 0.23497202944229775,
+      "aquarium_boat0": {
+        "first_fee_hours": 18.617037958204175,
+        "passive_earned_to_goal": 556040.5915721244,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 266350,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 39952.5
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 10.275086305337906,
+        "passive_earned_to_goal": 2735833.8360898495,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 619331,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 487723.1625
+      }
+    },
+    {
+      "candidate": "active",
+      "trial": 1,
+      "bait": 1,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 13.592948122313238,
+      "sale_only_steady_net_per_hour": 331250.07784019754,
+      "owner_share_of_gross": 0.21468465617202406,
+      "aquarium_boat0": {
+        "first_fee_hours": 13.183262766956126,
+        "passive_earned_to_goal": 452896.13374143577,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 302059,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 45308.85
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 8.124861897036084,
+        "passive_earned_to_goal": 2430829.309292047,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 685268,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 539648.5499999999
+      }
+    },
+    {
+      "candidate": "rounded",
+      "trial": 1,
+      "bait": 1,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 14.88035703209752,
+      "sale_only_steady_net_per_hour": 301418.71062563005,
+      "owner_share_of_gross": 0.23954932524972114,
+      "aquarium_boat0": {
+        "first_fee_hours": 14.255810599812282,
+        "passive_earned_to_goal": 518561.69557712536,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 360681,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 54102.15
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 8.497240950411149,
+        "passive_earned_to_goal": 2593773.1472584945,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 685360,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 539721.0
+      }
+    },
+    {
+      "candidate": "current",
+      "trial": 1,
+      "bait": 2,
+      "mode": "full",
+      "sale_only_first_fee_hours": null,
+      "sale_only_steady_net_per_hour": 42868.828736875774,
+      "owner_share_of_gross": 0.5194122301613305,
+      "aquarium_boat0": {
+        "first_fee_hours": null,
+        "passive_earned_to_goal": 670187.7097673058,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 104118,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 15617.699999999999
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 22.86870997457719,
+        "passive_earned_to_goal": 4049297.6282899003,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 389326,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 306594.22500000003
+      }
+    },
+    {
+      "candidate": "all_x10",
+      "trial": 1,
+      "bait": 2,
+      "mode": "full",
+      "sale_only_first_fee_hours": 12.51906670359288,
+      "sale_only_steady_net_per_hour": 450243.0448991103,
+      "owner_share_of_gross": 0.5194123663896063,
+      "aquarium_boat0": {
+        "first_fee_hours": 11.73320785031529,
+        "passive_earned_to_goal": 1098872.8131253212,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 829364,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 124404.59999999999
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 6.674578647139389,
+        "passive_earned_to_goal": 3725772.404861735,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 1479781,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 1165327.5374999999
+      }
+    },
+    {
+      "candidate": "gentle",
+      "trial": 1,
+      "bait": 2,
+      "mode": "full",
+      "sale_only_first_fee_hours": 16.628325251622787,
+      "sale_only_steady_net_per_hour": 290461.4929565243,
+      "owner_share_of_gross": 0.15578860694897126,
+      "aquarium_boat0": {
+        "first_fee_hours": 16.13654778427443,
+        "passive_earned_to_goal": 349004.43570741476,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 186295,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 27944.25
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 10.006252506060145,
+        "passive_earned_to_goal": 2514069.0591994626,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 520087,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 409568.5125
+      }
+    },
+    {
+      "candidate": "balanced",
+      "trial": 1,
+      "bait": 2,
+      "mode": "full",
+      "sale_only_first_fee_hours": 9.18246354483578,
+      "sale_only_steady_net_per_hour": 558796.009620106,
+      "owner_share_of_gross": 0.1215766166387415,
+      "aquarium_boat0": {
+        "first_fee_hours": 9.174363853183658,
+        "passive_earned_to_goal": 254871.91726814877,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 248809,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 37321.35
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 6.440638178494605,
+        "passive_earned_to_goal": 2192552.664833859,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 671349,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 528687.3374999999
+      }
+    },
+    {
+      "candidate": "active",
+      "trial": 1,
+      "bait": 2,
+      "mode": "full",
+      "sale_only_first_fee_hours": 7.16694044475106,
+      "sale_only_steady_net_per_hour": 751792.8330585338,
+      "owner_share_of_gross": 0.12068255511934894,
+      "aquarium_boat0": {
+        "first_fee_hours": 7.2420818557689355,
+        "passive_earned_to_goal": 242079.68684644005,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 307064,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 46059.6
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 5.2275932847998625,
+        "passive_earned_to_goal": 2056508.7393540007,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 779910,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 614179.125
+      }
+    },
+    {
+      "candidate": "rounded",
+      "trial": 1,
+      "bait": 2,
+      "mode": "full",
+      "sale_only_first_fee_hours": 7.183906436395297,
+      "sale_only_steady_net_per_hour": 761408.9502047498,
+      "owner_share_of_gross": 0.12060672949609308,
+      "aquarium_boat0": {
+        "first_fee_hours": 7.225872262834337,
+        "passive_earned_to_goal": 250049.24178741677,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 313922,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 47088.299999999996
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 5.110081567601432,
+        "passive_earned_to_goal": 2217484.507593125,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 867213,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 682930.2374999999
+      }
+    },
+    {
+      "candidate": "current",
+      "trial": 1,
+      "bait": 2,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": null,
+      "sale_only_steady_net_per_hour": 19918.768541213147,
+      "owner_share_of_gross": 0.8245766057668745,
+      "aquarium_boat0": {
+        "first_fee_hours": null,
+        "passive_earned_to_goal": 1112781.888233895,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 136170,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 20425.5
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 26.20769024721516,
+        "passive_earned_to_goal": 4470804.627909801,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 470675,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 370656.5625
+      }
+    },
+    {
+      "candidate": "all_x10",
+      "trial": 1,
+      "bait": 2,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 21.64969519537952,
+      "sale_only_steady_net_per_hour": 215648.581794941,
+      "owner_share_of_gross": 0.8245667761875106,
+      "aquarium_boat0": {
+        "first_fee_hours": 18.120304592753715,
+        "passive_earned_to_goal": 1643354.7840975118,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 1031179,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 154676.85
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 9.979266951122545,
+        "passive_earned_to_goal": 4202922.480424103,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 1416641,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 1115604.7874999999
+      }
+    },
+    {
+      "candidate": "gentle",
+      "trial": 1,
+      "bait": 2,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 40.17172013493321,
+      "sale_only_steady_net_per_hour": 112459.83068343412,
+      "owner_share_of_gross": 0.3200288969199207,
+      "aquarium_boat0": {
+        "first_fee_hours": 34.230911541193464,
+        "passive_earned_to_goal": 953126.9840409314,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 272339,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 40850.85
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 16.196897120315864,
+        "passive_earned_to_goal": 3331749.4226410184,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 608949,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 479547.33749999997
+      }
+    },
+    {
+      "candidate": "balanced",
+      "trial": 1,
+      "bait": 2,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 22.095275836409417,
+      "sale_only_steady_net_per_hour": 208932.83056003455,
+      "owner_share_of_gross": 0.26089528507107046,
+      "aquarium_boat0": {
+        "first_fee_hours": 20.522708605130635,
+        "passive_earned_to_goal": 616385.0441435646,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 309354,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 46403.1
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 12.09720406744622,
+        "passive_earned_to_goal": 2740957.8623402305,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 594734,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 468353.02499999997
+      }
+    },
+    {
+      "candidate": "active",
+      "trial": 1,
+      "bait": 2,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 14.842200509258335,
+      "sale_only_steady_net_per_hour": 305406.0742191514,
+      "owner_share_of_gross": 0.2389125189552084,
+      "aquarium_boat0": {
+        "first_fee_hours": 14.708741679595832,
+        "passive_earned_to_goal": 462776.67927255825,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 412472,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 61870.799999999996
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 9.611790944848362,
+        "passive_earned_to_goal": 2402286.4768412523,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 587946,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 463007.475
+      }
+    },
+    {
+      "candidate": "rounded",
+      "trial": 1,
+      "bait": 2,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 16.231792776039608,
+      "sale_only_steady_net_per_hour": 278326.59040495247,
+      "owner_share_of_gross": 0.26593480454375673,
+      "aquarium_boat0": {
+        "first_fee_hours": 15.889161500384503,
+        "passive_earned_to_goal": 542431.2240488977,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 418917,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 62837.549999999996
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 10.133969843008083,
+        "passive_earned_to_goal": 2555769.47209285,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 661212,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 520704.45
+      }
+    },
+    {
+      "candidate": "current",
+      "trial": 2,
+      "bait": 0,
+      "mode": "full",
+      "sale_only_first_fee_hours": null,
+      "sale_only_steady_net_per_hour": 38978.730282224074,
+      "owner_share_of_gross": 0.511311652938667,
+      "aquarium_boat0": {
+        "first_fee_hours": null,
+        "passive_earned_to_goal": 675667.5334203083,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 110358,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 16553.7
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 23.38741042464673,
+        "passive_earned_to_goal": 4031486.2159496825,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 391247,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 308107.01249999995
+      }
+    },
+    {
+      "candidate": "all_x10",
+      "trial": 2,
+      "bait": 0,
+      "mode": "full",
+      "sale_only_first_fee_hours": 12.15517118946099,
+      "sale_only_steady_net_per_hour": 395172.783631054,
+      "owner_share_of_gross": 0.5113177613436357,
+      "aquarium_boat0": {
+        "first_fee_hours": 12.146900063563265,
+        "passive_earned_to_goal": 929547.9414660651,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 779068,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 116860.2
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 7.149747748120444,
+        "passive_earned_to_goal": 3527547.388799416,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 1350055,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 1063168.3125
+      }
+    },
+    {
+      "candidate": "gentle",
+      "trial": 2,
+      "bait": 0,
+      "mode": "full",
+      "sale_only_first_fee_hours": 16.72177626314494,
+      "sale_only_steady_net_per_hour": 268415.6486258119,
+      "owner_share_of_gross": 0.14923042409833656,
+      "aquarium_boat0": {
+        "first_fee_hours": 16.29667659921446,
+        "passive_earned_to_goal": 305586.5149556316,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 199853,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 29977.949999999997
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 10.14768575020625,
+        "passive_earned_to_goal": 2434292.65010266,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 539777,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 425074.3875
+      }
+    },
+    {
+      "candidate": "balanced",
+      "trial": 2,
+      "bait": 0,
+      "mode": "full",
+      "sale_only_first_fee_hours": 9.144652794462763,
+      "sale_only_steady_net_per_hour": 516755.1049772081,
+      "owner_share_of_gross": 0.11626007285149968,
+      "aquarium_boat0": {
+        "first_fee_hours": 9.211781247567087,
+        "passive_earned_to_goal": 204050.5805915648,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 233721,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 35058.15
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 6.369632972380956,
+        "passive_earned_to_goal": 2057884.5099472194,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 669656,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 527354.1
+      }
+    },
+    {
+      "candidate": "active",
+      "trial": 2,
+      "bait": 0,
+      "mode": "full",
+      "sale_only_first_fee_hours": 6.84990379318245,
+      "sale_only_steady_net_per_hour": 695325.6239288517,
+      "owner_share_of_gross": 0.11535834661365643,
+      "aquarium_boat0": {
+        "first_fee_hours": 6.983082396262234,
+        "passive_earned_to_goal": 179844.92504415332,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 245944,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 36891.6
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 5.174016460212113,
+        "passive_earned_to_goal": 1849044.1002556607,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 804578,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 633605.1749999999
+      }
+    },
+    {
+      "candidate": "rounded",
+      "trial": 2,
+      "bait": 0,
+      "mode": "full",
+      "sale_only_first_fee_hours": 6.647534398388908,
+      "sale_only_steady_net_per_hour": 703437.4864391389,
+      "owner_share_of_gross": 0.1153040238843501,
+      "aquarium_boat0": {
+        "first_fee_hours": 6.748229885024468,
+        "passive_earned_to_goal": 181353.26476523106,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 254371,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 38155.65
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 4.956687202275714,
+        "passive_earned_to_goal": 1965874.7941685312,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 850342,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 669644.325
+      }
+    },
+    {
+      "candidate": "current",
+      "trial": 2,
+      "bait": 0,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": null,
+      "sale_only_steady_net_per_hour": 19317.4918784961,
+      "owner_share_of_gross": 0.8142390839041096,
+      "aquarium_boat0": {
+        "first_fee_hours": null,
+        "passive_earned_to_goal": 1147391.4756500623,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 136782,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 20517.3
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 27.32110962419976,
+        "passive_earned_to_goal": 4426846.366735379,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 385137,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 303295.38749999995
+      }
+    },
+    {
+      "candidate": "all_x10",
+      "trial": 2,
+      "bait": 0,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 24.36658697223328,
+      "sale_only_steady_net_per_hour": 197296.201634361,
+      "owner_share_of_gross": 0.814237249525481,
+      "aquarium_boat0": {
+        "first_fee_hours": 18.257227759741696,
+        "passive_earned_to_goal": 2202163.682425626,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 1051571,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 157735.65
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 8.336762690920331,
+        "passive_earned_to_goal": 4237079.776321138,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 1448767,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 1140904.0125
+      }
+    },
+    {
+      "candidate": "gentle",
+      "trial": 2,
+      "bait": 0,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 42.3133301069811,
+      "sale_only_steady_net_per_hour": 106193.5915883382,
+      "owner_share_of_gross": 0.30538267894109344,
+      "aquarium_boat0": {
+        "first_fee_hours": 35.576377836436954,
+        "passive_earned_to_goal": 1073163.8741363634,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 273563,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 41034.45
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 15.518290792388397,
+        "passive_earned_to_goal": 3405590.3109569284,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 504015,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 396911.8125
+      }
+    },
+    {
+      "candidate": "balanced",
+      "trial": 2,
+      "bait": 0,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 23.450263820547153,
+      "sale_only_steady_net_per_hour": 196796.01279253236,
+      "owner_share_of_gross": 0.2479686875199771,
+      "aquarium_boat0": {
+        "first_fee_hours": 21.050753282228968,
+        "passive_earned_to_goal": 802532.767632462,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 315472,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 47320.799999999996
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 11.017896043364921,
+        "passive_earned_to_goal": 2947411.2789095426,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 600086,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 472567.725
+      }
+    },
+    {
+      "candidate": "active",
+      "trial": 2,
+      "bait": 0,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 15.92399380510802,
+      "sale_only_steady_net_per_hour": 287400.0805583858,
+      "owner_share_of_gross": 0.2267949894885977,
+      "aquarium_boat0": {
+        "first_fee_hours": 14.888030719247423,
+        "passive_earned_to_goal": 681217.5630302564,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 420629,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 63094.35
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 8.722719381452007,
+        "passive_earned_to_goal": 2648702.307150516,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 686706,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 540780.975
+      }
+    },
+    {
+      "candidate": "rounded",
+      "trial": 2,
+      "bait": 0,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 17.498238006468465,
+      "sale_only_steady_net_per_hour": 261356.65872869483,
+      "owner_share_of_gross": 0.25266539964338913,
+      "aquarium_boat0": {
+        "first_fee_hours": 16.26157491868456,
+        "passive_earned_to_goal": 778136.1958362968,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 427200,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 64080.0
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 9.164718861201127,
+        "passive_earned_to_goal": 2796108.1995389387,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 680448,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 535852.7999999999
+      }
+    },
+    {
+      "candidate": "current",
+      "trial": 2,
+      "bait": 1,
+      "mode": "full",
+      "sale_only_first_fee_hours": null,
+      "sale_only_steady_net_per_hour": 44350.51869465726,
+      "owner_share_of_gross": 0.487126738782445,
+      "aquarium_boat0": {
+        "first_fee_hours": null,
+        "passive_earned_to_goal": 774050.843663605,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 128127,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 19219.05
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 21.664994965188306,
+        "passive_earned_to_goal": 4060155.5264188144,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 405082,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 319002.07499999995
+      }
+    },
+    {
+      "candidate": "all_x10",
+      "trial": 2,
+      "bait": 1,
+      "mode": "full",
+      "sale_only_first_fee_hours": 10.396689504872352,
+      "sale_only_steady_net_per_hour": 459673.46780124144,
+      "owner_share_of_gross": 0.4871339126647876,
+      "aquarium_boat0": {
+        "first_fee_hours": 10.280388913694377,
+        "passive_earned_to_goal": 883247.9318249383,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 788245,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 118236.75
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 6.25052043746601,
+        "passive_earned_to_goal": 3678700.5210134056,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 1480992,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 1166281.2
+      }
+    },
+    {
+      "candidate": "gentle",
+      "trial": 2,
+      "bait": 1,
+      "mode": "full",
+      "sale_only_first_fee_hours": 14.765232435937007,
+      "sale_only_steady_net_per_hour": 327324.0312736602,
+      "owner_share_of_gross": 0.140322184147795,
+      "aquarium_boat0": {
+        "first_fee_hours": 14.513065506735527,
+        "passive_earned_to_goal": 290075.60415274533,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 157649,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 23647.35
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 8.74534216100353,
+        "passive_earned_to_goal": 2555985.3564642486,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 625589,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 492651.33749999997
+      }
+    },
+    {
+      "candidate": "balanced",
+      "trial": 2,
+      "bait": 1,
+      "mode": "full",
+      "sale_only_first_fee_hours": 7.849054326895711,
+      "sale_only_steady_net_per_hour": 635278.7252135049,
+      "owner_share_of_gross": 0.10906779066465046,
+      "aquarium_boat0": {
+        "first_fee_hours": 7.899475933330269,
+        "passive_earned_to_goal": 211195.51798531672,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 239649,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 35947.35
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 5.620798413804586,
+        "passive_earned_to_goal": 2276801.210401251,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 840527,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 661915.0125
+      }
+    },
+    {
+      "candidate": "active",
+      "trial": 2,
+      "bait": 1,
+      "mode": "full",
+      "sale_only_first_fee_hours": 6.107289012853081,
+      "sale_only_steady_net_per_hour": 850922.6908243713,
+      "owner_share_of_gross": 0.1084299581104288,
+      "aquarium_boat0": {
+        "first_fee_hours": 6.275096036364992,
+        "passive_earned_to_goal": 204405.94680819332,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 298127,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 44719.049999999996
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 4.579346130255611,
+        "passive_earned_to_goal": 2067899.355792479,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 976127,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 768700.0125
+      }
+    },
+    {
+      "candidate": "rounded",
+      "trial": 2,
+      "bait": 1,
+      "mode": "full",
+      "sale_only_first_fee_hours": 6.090765773766434,
+      "sale_only_steady_net_per_hour": 869038.4857338556,
+      "owner_share_of_gross": 0.10805636421401928,
+      "aquarium_boat0": {
+        "first_fee_hours": 6.216274611182802,
+        "passive_earned_to_goal": 210340.3629916284,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 302785,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 45417.75
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 4.429335721453555,
+        "passive_earned_to_goal": 2222774.7733510598,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 1087761,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 856611.7875
+      }
+    },
+    {
+      "candidate": "current",
+      "trial": 2,
+      "bait": 1,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": null,
+      "sale_only_steady_net_per_hour": 20605.492238198043,
+      "owner_share_of_gross": 0.810266523166191,
+      "aquarium_boat0": {
+        "first_fee_hours": null,
+        "passive_earned_to_goal": 1211625.883080784,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 152903,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 22935.45
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 25.5088441008237,
+        "passive_earned_to_goal": 4475477.908964604,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 452507,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 356349.2625
+      }
+    },
+    {
+      "candidate": "all_x10",
+      "trial": 2,
+      "bait": 1,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 20.375996404902008,
+      "sale_only_steady_net_per_hour": 218407.32987100136,
+      "owner_share_of_gross": 0.8102665371956967,
+      "aquarium_boat0": {
+        "first_fee_hours": 16.951262867597222,
+        "passive_earned_to_goal": 1911914.8471868858,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 1144005,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 171600.75
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 9.16178904028876,
+        "passive_earned_to_goal": 4205843.646120205,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 1550390,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 1220932.125
+      }
+    },
+    {
+      "candidate": "gentle",
+      "trial": 2,
+      "bait": 1,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 37.26286799320885,
+      "sale_only_steady_net_per_hour": 119388.18482032743,
+      "owner_share_of_gross": 0.3002779188133212,
+      "aquarium_boat0": {
+        "first_fee_hours": 32.11044271812687,
+        "passive_earned_to_goal": 909719.698782015,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 299456,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 44918.4
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 14.924289517019371,
+        "passive_earned_to_goal": 3284315.798001944,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 592022,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 466217.325
+      }
+    },
+    {
+      "candidate": "balanced",
+      "trial": 2,
+      "bait": 1,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 19.76315910521154,
+      "sale_only_steady_net_per_hour": 222438.03168291724,
+      "owner_share_of_gross": 0.24348727600563105,
+      "aquarium_boat0": {
+        "first_fee_hours": 18.1454337085536,
+        "passive_earned_to_goal": 649918.9267816455,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 343201,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 51480.15
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 10.798252585061775,
+        "passive_earned_to_goal": 2752332.2649235167,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 661848,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 521205.3
+      }
+    },
+    {
+      "candidate": "active",
+      "trial": 2,
+      "bait": 1,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 13.595138218194657,
+      "sale_only_steady_net_per_hour": 325486.0791522858,
+      "owner_share_of_gross": 0.2226629887577744,
+      "aquarium_boat0": {
+        "first_fee_hours": 13.295583121651394,
+        "passive_earned_to_goal": 538352.1205809768,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 432083,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 64812.45
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 8.747681887635654,
+        "passive_earned_to_goal": 2410748.352348239,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 742844,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 584989.6499999999
+      }
+    },
+    {
+      "candidate": "rounded",
+      "trial": 2,
+      "bait": 1,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 14.633436716174574,
+      "sale_only_steady_net_per_hour": 295761.78053817194,
+      "owner_share_of_gross": 0.24816524795705666,
+      "aquarium_boat0": {
+        "first_fee_hours": 14.329503469778837,
+        "passive_earned_to_goal": 617071.4361573209,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 438834,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 65825.09999999999
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 9.107227279447683,
+        "passive_earned_to_goal": 2579719.134248843,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 744315,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 586148.0625
+      }
+    },
+    {
+      "candidate": "current",
+      "trial": 2,
+      "bait": 2,
+      "mode": "full",
+      "sale_only_first_fee_hours": null,
+      "sale_only_steady_net_per_hour": 42278.874188253074,
+      "owner_share_of_gross": 0.506430264179642,
+      "aquarium_boat0": {
+        "first_fee_hours": null,
+        "passive_earned_to_goal": 715765.748271127,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 114355,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 17153.25
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 20.940643042056312,
+        "passive_earned_to_goal": 4084420.2622258025,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 397790,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 313259.625
+      }
+    },
+    {
+      "candidate": "all_x10",
+      "trial": 2,
+      "bait": 2,
+      "mode": "full",
+      "sale_only_first_fee_hours": 10.286436892135738,
+      "sale_only_steady_net_per_hour": 444338.44608683645,
+      "owner_share_of_gross": 0.5064350711871614,
+      "aquarium_boat0": {
+        "first_fee_hours": 10.094689404353787,
+        "passive_earned_to_goal": 1091179.0727937126,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 975656,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 146348.4
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 5.745310173246639,
+        "passive_earned_to_goal": 3730654.765481697,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 1921397,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 1513100.1375
+      }
+    },
+    {
+      "candidate": "gentle",
+      "trial": 2,
+      "bait": 2,
+      "mode": "full",
+      "sale_only_first_fee_hours": 15.179559791442486,
+      "sale_only_steady_net_per_hour": 292889.3505631825,
+      "owner_share_of_gross": 0.14985337749666996,
+      "aquarium_boat0": {
+        "first_fee_hours": 14.603776370523422,
+        "passive_earned_to_goal": 360265.9786081136,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 198095,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 29714.25
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 8.479479029418105,
+        "passive_earned_to_goal": 2682545.723058121,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 651302,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 512900.325
+      }
+    },
+    {
+      "candidate": "balanced",
+      "trial": 2,
+      "bait": 2,
+      "mode": "full",
+      "sale_only_first_fee_hours": 7.836208653774734,
+      "sale_only_steady_net_per_hour": 565012.6769776784,
+      "owner_share_of_gross": 0.11676397331869608,
+      "aquarium_boat0": {
+        "first_fee_hours": 7.895182067391545,
+        "passive_earned_to_goal": 255506.07221967357,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 294167,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 44125.049999999996
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 5.6026332301032316,
+        "passive_earned_to_goal": 2349720.9251737315,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 986992,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 777256.2
+      }
+    },
+    {
+      "candidate": "active",
+      "trial": 2,
+      "bait": 2,
+      "mode": "full",
+      "sale_only_first_fee_hours": 5.9379128467938145,
+      "sale_only_steady_net_per_hour": 759279.4042679453,
+      "owner_share_of_gross": 0.11603087652391499,
+      "aquarium_boat0": {
+        "first_fee_hours": 6.202689960692794,
+        "passive_earned_to_goal": 238232.7818492236,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 390263,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 58539.45
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 4.67682017630059,
+        "passive_earned_to_goal": 2162995.5211994653,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 1092932,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 860683.95
+      }
+    },
+    {
+      "candidate": "rounded",
+      "trial": 2,
+      "bait": 2,
+      "mode": "full",
+      "sale_only_first_fee_hours": 5.803312370797333,
+      "sale_only_steady_net_per_hour": 772032.1031992144,
+      "owner_share_of_gross": 0.11557395291534654,
+      "aquarium_boat0": {
+        "first_fee_hours": 6.012310908571702,
+        "passive_earned_to_goal": 236369.30818288826,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 396360,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 59454.0
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 4.492328409081,
+        "passive_earned_to_goal": 2234365.93684195,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 1181779,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 930650.9625
+      }
+    },
+    {
+      "candidate": "current",
+      "trial": 2,
+      "bait": 2,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": null,
+      "sale_only_steady_net_per_hour": 21787.342461215867,
+      "owner_share_of_gross": 0.8277281753288813,
+      "aquarium_boat0": {
+        "first_fee_hours": null,
+        "passive_earned_to_goal": 1245748.748189236,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 172844,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 25926.6
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 25.668552306396176,
+        "passive_earned_to_goal": 4443994.002805389,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 431741,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 339996.0375
+      }
+    },
+    {
+      "candidate": "all_x10",
+      "trial": 2,
+      "bait": 2,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 20.492428473675908,
+      "sale_only_steady_net_per_hour": 234328.9980452766,
+      "owner_share_of_gross": 0.8277296707628786,
+      "aquarium_boat0": {
+        "first_fee_hours": 17.28743319879451,
+        "passive_earned_to_goal": 1772961.625012996,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 1100148,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 165022.19999999998
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 9.044644626874804,
+        "passive_earned_to_goal": 4204815.35621476,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 1583344,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 1246883.4
+      }
+    },
+    {
+      "candidate": "gentle",
+      "trial": 2,
+      "bait": 2,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 39.83840757431723,
+      "sale_only_steady_net_per_hour": 115177.5850899099,
+      "owner_share_of_gross": 0.32549563547369614,
+      "aquarium_boat0": {
+        "first_fee_hours": 33.85544096565429,
+        "passive_earned_to_goal": 950647.3728751094,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 259133,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 38869.95
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 15.311951067076253,
+        "passive_earned_to_goal": 3348013.381777375,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 574057,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 452069.8875
+      }
+    },
+    {
+      "candidate": "balanced",
+      "trial": 2,
+      "bait": 2,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 21.50100669140006,
+      "sale_only_steady_net_per_hour": 212445.2257914717,
+      "owner_share_of_gross": 0.26574801426423245,
+      "aquarium_boat0": {
+        "first_fee_hours": 19.61569964832888,
+        "passive_earned_to_goal": 657816.897756821,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 330044,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 49506.6
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 11.227673828128713,
+        "passive_earned_to_goal": 2812802.7275985694,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 695775,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 547922.8125
+      }
+    },
+    {
+      "candidate": "active",
+      "trial": 2,
+      "bait": 2,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 14.454496798215217,
+      "sale_only_steady_net_per_hour": 309712.5617212491,
+      "owner_share_of_gross": 0.24357924124189806,
+      "aquarium_boat0": {
+        "first_fee_hours": 14.201009527275389,
+        "passive_earned_to_goal": 533378.7962653167,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 393623,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 59043.45
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 9.096838102158028,
+        "passive_earned_to_goal": 2490610.872933623,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 735940,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 579552.75
+      }
+    },
+    {
+      "candidate": "rounded",
+      "trial": 2,
+      "bait": 2,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 15.978530515274032,
+      "sale_only_steady_net_per_hour": 283431.7555021482,
+      "owner_share_of_gross": 0.2702904931483169,
+      "aquarium_boat0": {
+        "first_fee_hours": 15.226898341481615,
+        "passive_earned_to_goal": 604883.2248340684,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 399774,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 59966.1
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 9.451661236505599,
+        "passive_earned_to_goal": 2651228.167075136,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 768753,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 605392.9874999999
+      }
+    },
+    {
+      "candidate": "current",
+      "trial": 3,
+      "bait": 0,
+      "mode": "full",
+      "sale_only_first_fee_hours": null,
+      "sale_only_steady_net_per_hour": 39190.4325042493,
+      "owner_share_of_gross": 0.5047567617951482,
+      "aquarium_boat0": {
+        "first_fee_hours": null,
+        "passive_earned_to_goal": 678300.7178909773,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 104325,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 15648.75
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 22.04262704145463,
+        "passive_earned_to_goal": 4072858.2559148865,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 393924,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 310215.14999999997
+      }
+    },
+    {
+      "candidate": "all_x10",
+      "trial": 3,
+      "bait": 0,
+      "mode": "full",
+      "sale_only_first_fee_hours": 11.228010362451657,
+      "sale_only_steady_net_per_hour": 397294.88750431105,
+      "owner_share_of_gross": 0.5047565779872056,
+      "aquarium_boat0": {
+        "first_fee_hours": 11.143972420512121,
+        "passive_earned_to_goal": 926666.7283600477,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 845339,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 126800.84999999999
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 6.327427068952669,
+        "passive_earned_to_goal": 3709506.6072061476,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 1515284,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 1193286.1500000001
+      }
+    },
+    {
+      "candidate": "gentle",
+      "trial": 3,
+      "bait": 0,
+      "mode": "full",
+      "sale_only_first_fee_hours": 16.81847255476664,
+      "sale_only_steady_net_per_hour": 275911.2003360873,
+      "owner_share_of_gross": 0.1464241686454961,
+      "aquarium_boat0": {
+        "first_fee_hours": 16.199558271007124,
+        "passive_earned_to_goal": 340644.480523932,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 201293,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 30193.949999999997
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 9.243895679533773,
+        "passive_earned_to_goal": 2659640.1685945657,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 578571,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 455624.6625
+      }
+    },
+    {
+      "candidate": "balanced",
+      "trial": 3,
+      "bait": 0,
+      "mode": "full",
+      "sale_only_first_fee_hours": 8.798982349762687,
+      "sale_only_steady_net_per_hour": 532681.4378958219,
+      "owner_share_of_gross": 0.11399080048992973,
+      "aquarium_boat0": {
+        "first_fee_hours": 8.739872661519664,
+        "passive_earned_to_goal": 231864.20640645578,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 216963,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 32544.449999999997
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 5.841733060020261,
+        "passive_earned_to_goal": 2338900.3400894096,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 779492,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 613849.9500000001
+      }
+    },
+    {
+      "candidate": "active",
+      "trial": 3,
+      "bait": 0,
+      "mode": "full",
+      "sale_only_first_fee_hours": 6.578679579629758,
+      "sale_only_steady_net_per_hour": 714998.8856379368,
+      "owner_share_of_gross": 0.11308932172023267,
+      "aquarium_boat0": {
+        "first_fee_hours": 6.67763641473737,
+        "passive_earned_to_goal": 214989.86101458425,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 284121,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 42618.15
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 4.829488683392715,
+        "passive_earned_to_goal": 2208417.3452382423,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 943570,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 743061.375
+      }
+    },
+    {
+      "candidate": "rounded",
+      "trial": 3,
+      "bait": 0,
+      "mode": "full",
+      "sale_only_first_fee_hours": 6.578679579629758,
+      "sale_only_steady_net_per_hour": 730305.6079342745,
+      "owner_share_of_gross": 0.11280778347961357,
+      "aquarium_boat0": {
+        "first_fee_hours": 6.661192576405066,
+        "passive_earned_to_goal": 223762.3846671989,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 294084,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 44112.6
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 4.705024604201749,
+        "passive_earned_to_goal": 2337769.756289081,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 1026579,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 808430.9625
+      }
+    },
+    {
+      "candidate": "current",
+      "trial": 3,
+      "bait": 0,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": null,
+      "sale_only_steady_net_per_hour": 21286.548659835968,
+      "owner_share_of_gross": 0.8155156560401098,
+      "aquarium_boat0": {
+        "first_fee_hours": null,
+        "passive_earned_to_goal": 739649.334407807,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 104810,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 15721.5
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 29.074587130333803,
+        "passive_earned_to_goal": 4418911.450133438,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 368826,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 290450.47500000003
+      }
+    },
+    {
+      "candidate": "all_x10",
+      "trial": 3,
+      "bait": 0,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 25.121985342178114,
+      "sale_only_steady_net_per_hour": 216966.6913669824,
+      "owner_share_of_gross": 0.8155094159765179,
+      "aquarium_boat0": {
+        "first_fee_hours": 20.294335193099815,
+        "passive_earned_to_goal": 1640944.3274053189,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 732563,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 109884.45
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 10.02423318836477,
+        "passive_earned_to_goal": 4225969.917596652,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 1173003,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 923739.8624999999
+      }
+    },
+    {
+      "candidate": "gentle",
+      "trial": 3,
+      "bait": 0,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 44.21568885154637,
+      "sale_only_steady_net_per_hour": 109525.57516483442,
+      "owner_share_of_gross": 0.30707661128307073,
+      "aquarium_boat0": {
+        "first_fee_hours": 38.61996970531029,
+        "passive_earned_to_goal": 737855.3051329172,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 146513,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 21976.95
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 17.059350906204493,
+        "passive_earned_to_goal": 3325439.4058672898,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 504062,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 396948.825
+      }
+    },
+    {
+      "candidate": "balanced",
+      "trial": 3,
+      "bait": 0,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 23.877866304269443,
+      "sale_only_steady_net_per_hour": 201459.2235789388,
+      "owner_share_of_gross": 0.2494580722465394,
+      "aquarium_boat0": {
+        "first_fee_hours": 22.15865142093374,
+        "passive_earned_to_goal": 568319.4659492738,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 219769,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 32965.35
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 12.314799959090287,
+        "passive_earned_to_goal": 2817390.42090142,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 556231,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 438031.9125
+      }
+    },
+    {
+      "candidate": "active",
+      "trial": 3,
+      "bait": 0,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 16.36728305073295,
+      "sale_only_steady_net_per_hour": 293392.9935606496,
+      "owner_share_of_gross": 0.22816569863999864,
+      "aquarium_boat0": {
+        "first_fee_hours": 15.834484489215999,
+        "passive_earned_to_goal": 483356.70018016757,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 280075,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 42011.25
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 9.845924422211676,
+        "passive_earned_to_goal": 2513032.9935252774,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 573968,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 451999.8
+      }
+    },
+    {
+      "candidate": "rounded",
+      "trial": 3,
+      "bait": 0,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 18.01870892652359,
+      "sale_only_steady_net_per_hour": 268020.9527453147,
+      "owner_share_of_gross": 0.2540608218224726,
+      "aquarium_boat0": {
+        "first_fee_hours": 16.93616442611002,
+        "passive_earned_to_goal": 540553.0470889215,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 284451,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 42667.65
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 10.299903354392363,
+        "passive_earned_to_goal": 2670756.232230733,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 655440,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 516159.0
+      }
+    },
+    {
+      "candidate": "current",
+      "trial": 3,
+      "bait": 1,
+      "mode": "full",
+      "sale_only_first_fee_hours": null,
+      "sale_only_steady_net_per_hour": 43037.611950286104,
+      "owner_share_of_gross": 0.5033141523285751,
+      "aquarium_boat0": {
+        "first_fee_hours": null,
+        "passive_earned_to_goal": 634432.2937914566,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 106047,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 15907.05
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 22.615626559544445,
+        "passive_earned_to_goal": 4017243.128223303,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 440836,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 347158.35
+      }
+    },
+    {
+      "candidate": "all_x10",
+      "trial": 3,
+      "bait": 1,
+      "mode": "full",
+      "sale_only_first_fee_hours": 11.612562405843294,
+      "sale_only_steady_net_per_hour": 446557.7123134392,
+      "owner_share_of_gross": 0.503311922308153,
+      "aquarium_boat0": {
+        "first_fee_hours": 11.262363059523363,
+        "passive_earned_to_goal": 769220.5574234203,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 616436,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 92465.4
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 7.024274548481952,
+        "passive_earned_to_goal": 3494406.7172590606,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 1312068,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 1033253.5499999999
+      }
+    },
+    {
+      "candidate": "gentle",
+      "trial": 3,
+      "bait": 1,
+      "mode": "full",
+      "sale_only_first_fee_hours": 14.946582366865671,
+      "sale_only_steady_net_per_hour": 311225.2241370514,
+      "owner_share_of_gross": 0.14389438758388298,
+      "aquarium_boat0": {
+        "first_fee_hours": 14.661546745086834,
+        "passive_earned_to_goal": 233803.02683692888,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 143542,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 21531.3
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 9.40872607002409,
+        "passive_earned_to_goal": 2339154.2319537345,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 514716,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 405338.85
+      }
+    },
+    {
+      "candidate": "balanced",
+      "trial": 3,
+      "bait": 1,
+      "mode": "full",
+      "sale_only_first_fee_hours": 8.03157787503334,
+      "sale_only_steady_net_per_hour": 601624.0772464309,
+      "owner_share_of_gross": 0.11194778871994886,
+      "aquarium_boat0": {
+        "first_fee_hours": 8.039749399213548,
+        "passive_earned_to_goal": 170538.32957004703,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 183874,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 27581.1
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 6.03366743937497,
+        "passive_earned_to_goal": 2048267.4526085495,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 699661,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 550983.0375
+      }
+    },
+    {
+      "candidate": "active",
+      "trial": 3,
+      "bait": 1,
+      "mode": "full",
+      "sale_only_first_fee_hours": 6.310779049985588,
+      "sale_only_steady_net_per_hour": 809134.5208714207,
+      "owner_share_of_gross": 0.11105746480586838,
+      "aquarium_boat0": {
+        "first_fee_hours": 6.3438809677580394,
+        "passive_earned_to_goal": 163099.01118430105,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 237764,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 35664.6
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 4.870487292047014,
+        "passive_earned_to_goal": 1864727.1265732227,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 812806,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 640084.725
+      }
+    },
+    {
+      "candidate": "rounded",
+      "trial": 3,
+      "bait": 1,
+      "mode": "full",
+      "sale_only_first_fee_hours": 6.176001486117822,
+      "sale_only_steady_net_per_hour": 822534.5909947037,
+      "owner_share_of_gross": 0.11089642576649365,
+      "aquarium_boat0": {
+        "first_fee_hours": 6.310779049985588,
+        "passive_earned_to_goal": 175705.1558941753,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 246934,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 37040.1
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 4.7028213407091375,
+        "passive_earned_to_goal": 2033247.0475096318,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 951286,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 749137.725
+      }
+    },
+    {
+      "candidate": "current",
+      "trial": 3,
+      "bait": 1,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": null,
+      "sale_only_steady_net_per_hour": 21154.441705864156,
+      "owner_share_of_gross": 0.8070241895841098,
+      "aquarium_boat0": {
+        "first_fee_hours": null,
+        "passive_earned_to_goal": 955141.5700414991,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 106462,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 15969.3
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 25.107821756379057,
+        "passive_earned_to_goal": 4489818.909287535,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 462649,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 364336.08749999997
+      }
+    },
+    {
+      "candidate": "all_x10",
+      "trial": 3,
+      "bait": 1,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 20.412908668596444,
+      "sale_only_steady_net_per_hour": 223896.64411856869,
+      "owner_share_of_gross": 0.8070192994610303,
+      "aquarium_boat0": {
+        "first_fee_hours": 16.67340626966024,
+        "passive_earned_to_goal": 1836244.014800861,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 928554,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 139283.1
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 8.092551193914515,
+        "passive_earned_to_goal": 4245106.12047095,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 1583626,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 1247105.4749999999
+      }
+    },
+    {
+      "candidate": "gentle",
+      "trial": 3,
+      "bait": 1,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 37.39112569456725,
+      "sale_only_steady_net_per_hour": 122206.91022492373,
+      "owner_share_of_gross": 0.29581256503981684,
+      "aquarium_boat0": {
+        "first_fee_hours": 32.314731710664816,
+        "passive_earned_to_goal": 858830.0088649851,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 212925,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 31938.75
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 14.372528781843872,
+        "passive_earned_to_goal": 3373525.515308923,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 528755,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 416394.5625
+      }
+    },
+    {
+      "candidate": "balanced",
+      "trial": 3,
+      "bait": 1,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 20.35480756448586,
+      "sale_only_steady_net_per_hour": 227620.92188572188,
+      "owner_share_of_gross": 0.239577067071957,
+      "aquarium_boat0": {
+        "first_fee_hours": 18.705579196833153,
+        "passive_earned_to_goal": 653901.4231768696,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 278566,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 41784.9
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 10.1585063274656,
+        "passive_earned_to_goal": 2904582.0726451417,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 665757,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 524283.6375
+      }
+    },
+    {
+      "candidate": "active",
+      "trial": 3,
+      "bait": 1,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 13.703863638718623,
+      "sale_only_steady_net_per_hour": 333036.4581777813,
+      "owner_share_of_gross": 0.21893071032077335,
+      "aquarium_boat0": {
+        "first_fee_hours": 13.21174708761717,
+        "passive_earned_to_goal": 564510.7320163389,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 370968,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 55645.2
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 8.059028437710136,
+        "passive_earned_to_goal": 2581172.918268917,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 770787,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 606994.7625000001
+      }
+    },
+    {
+      "candidate": "rounded",
+      "trial": 3,
+      "bait": 1,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 15.169004690512939,
+      "sale_only_steady_net_per_hour": 302935.2667824118,
+      "owner_share_of_gross": 0.24400290769330119,
+      "aquarium_boat0": {
+        "first_fee_hours": 14.33976857627309,
+        "passive_earned_to_goal": 642377.7253219968,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 376764,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 56514.6
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 8.357123864742968,
+        "passive_earned_to_goal": 2756820.202538971,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 775959,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 611067.7124999999
+      }
+    },
+    {
+      "candidate": "current",
+      "trial": 3,
+      "bait": 2,
+      "mode": "full",
+      "sale_only_first_fee_hours": null,
+      "sale_only_steady_net_per_hour": 45084.26017042482,
+      "owner_share_of_gross": 0.5309771990188452,
+      "aquarium_boat0": {
+        "first_fee_hours": null,
+        "passive_earned_to_goal": 744805.6251434755,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 131878,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 19781.7
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 20.905448273922673,
+        "passive_earned_to_goal": 4122455.3320089797,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 440453,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 346856.7375
+      }
+    },
+    {
+      "candidate": "all_x10",
+      "trial": 3,
+      "bait": 2,
+      "mode": "full",
+      "sale_only_first_fee_hours": 10.84457097966622,
+      "sale_only_steady_net_per_hour": 472402.84571282606,
+      "owner_share_of_gross": 0.5309850252602738,
+      "aquarium_boat0": {
+        "first_fee_hours": 10.678775453573147,
+        "passive_earned_to_goal": 992945.8421753701,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 952220,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 142833.0
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 6.20843131358795,
+        "passive_earned_to_goal": 3627020.978649832,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 1543738,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 1215693.6749999998
+      }
+    },
+    {
+      "candidate": "gentle",
+      "trial": 3,
+      "bait": 2,
+      "mode": "full",
+      "sale_only_first_fee_hours": 15.852982593309486,
+      "sale_only_steady_net_per_hour": 311771.25110674277,
+      "owner_share_of_gross": 0.16182713861569076,
+      "aquarium_boat0": {
+        "first_fee_hours": 15.392084190467648,
+        "passive_earned_to_goal": 349696.0709956337,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 215324,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 32298.6
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 9.099955813354473,
+        "passive_earned_to_goal": 2560034.3274457017,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 620142,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 488361.825
+      }
+    },
+    {
+      "candidate": "balanced",
+      "trial": 3,
+      "bait": 2,
+      "mode": "full",
+      "sale_only_first_fee_hours": 8.362394674916468,
+      "sale_only_steady_net_per_hour": 601342.3491245031,
+      "owner_share_of_gross": 0.12648767237805353,
+      "aquarium_boat0": {
+        "first_fee_hours": 8.37088373352693,
+        "passive_earned_to_goal": 230674.20407902513,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 246483,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 36972.45
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 5.7752896137946585,
+        "passive_earned_to_goal": 2200515.2928566597,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 813214,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 640406.0249999999
+      }
+    },
+    {
+      "candidate": "active",
+      "trial": 3,
+      "bait": 2,
+      "mode": "full",
+      "sale_only_first_fee_hours": 6.225229469002717,
+      "sale_only_steady_net_per_hour": 805051.8643168708,
+      "owner_share_of_gross": 0.12592465589211518,
+      "aquarium_boat0": {
+        "first_fee_hours": 6.484652940910065,
+        "passive_earned_to_goal": 211822.02591102466,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 327148,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 49072.2
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 4.8041895940768145,
+        "passive_earned_to_goal": 2052159.022866692,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 963095,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 758437.3125
+      }
+    },
+    {
+      "candidate": "rounded",
+      "trial": 3,
+      "bait": 2,
+      "mode": "full",
+      "sale_only_first_fee_hours": 5.957573378683846,
+      "sale_only_steady_net_per_hour": 828678.6652508215,
+      "owner_share_of_gross": 0.12445567301795246,
+      "aquarium_boat0": {
+        "first_fee_hours": 6.199794582816286,
+        "passive_earned_to_goal": 207012.59010693998,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 332259,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 49838.85
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 4.562056611405193,
+        "passive_earned_to_goal": 2117016.7771488507,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 1068814,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 841691.025
+      }
+    },
+    {
+      "candidate": "current",
+      "trial": 3,
+      "bait": 2,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": null,
+      "sale_only_steady_net_per_hour": 21273.220267709676,
+      "owner_share_of_gross": 0.8172913855052143,
+      "aquarium_boat0": {
+        "first_fee_hours": null,
+        "passive_earned_to_goal": 914476.2082504436,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 116011,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 17401.649999999998
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 26.850705361186023,
+        "passive_earned_to_goal": 4440835.1300698565,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 386064,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 304025.39999999997
+      }
+    },
+    {
+      "candidate": "all_x10",
+      "trial": 3,
+      "bait": 2,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 22.80890198066972,
+      "sale_only_steady_net_per_hour": 229182.45865162785,
+      "owner_share_of_gross": 0.8172945073066787,
+      "aquarium_boat0": {
+        "first_fee_hours": 17.776968047168,
+        "passive_earned_to_goal": 1734086.5083124135,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 989505,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 148425.75
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 9.261585381718588,
+        "passive_earned_to_goal": 4207140.255721764,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 1424674,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 1121930.7750000001
+      }
+    },
+    {
+      "candidate": "gentle",
+      "trial": 3,
+      "bait": 2,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 41.55604776611623,
+      "sale_only_steady_net_per_hour": 115373.92046199243,
+      "owner_share_of_gross": 0.3098011843606566,
+      "aquarium_boat0": {
+        "first_fee_hours": 35.187913243727664,
+        "passive_earned_to_goal": 867783.12994495,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 197901,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 29685.149999999998
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 15.888176845297101,
+        "passive_earned_to_goal": 3350784.7240815614,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 526020,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 414240.75
+      }
+    },
+    {
+      "candidate": "balanced",
+      "trial": 3,
+      "bait": 2,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 21.874910909700287,
+      "sale_only_steady_net_per_hour": 213418.60759883514,
+      "owner_share_of_gross": 0.2518580616875616,
+      "aquarium_boat0": {
+        "first_fee_hours": 20.284089414322064,
+        "passive_earned_to_goal": 640408.1385805829,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 296851,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 44527.65
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 11.623630006412254,
+        "passive_earned_to_goal": 2818976.4519671137,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 627221,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 493936.5375
+      }
+    },
+    {
+      "candidate": "active",
+      "trial": 3,
+      "bait": 2,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 15.26368798514527,
+      "sale_only_steady_net_per_hour": 311463.9650827404,
+      "owner_share_of_gross": 0.23044925819634196,
+      "aquarium_boat0": {
+        "first_fee_hours": 14.576312694541787,
+        "passive_earned_to_goal": 529246.3458015498,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 352918,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 52937.7
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 9.285180046820965,
+        "passive_earned_to_goal": 2475339.3302173787,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 679097,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 534788.8875000001
+      }
+    },
+    {
+      "candidate": "rounded",
+      "trial": 3,
+      "bait": 2,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 16.48228752460066,
+      "sale_only_steady_net_per_hour": 283761.72037092625,
+      "owner_share_of_gross": 0.25682589618256096,
+      "aquarium_boat0": {
+        "first_fee_hours": 15.888176845297101,
+        "passive_earned_to_goal": 606316.1924677847,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 358432,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 53764.799999999996
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 9.739862933341648,
+        "passive_earned_to_goal": 2630340.47553804,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 709544,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 558765.8999999999
+      }
+    },
+    {
+      "candidate": "current",
+      "trial": 4,
+      "bait": 0,
+      "mode": "full",
+      "sale_only_first_fee_hours": null,
+      "sale_only_steady_net_per_hour": 38142.986553904986,
+      "owner_share_of_gross": 0.5129213353633539,
+      "aquarium_boat0": {
+        "first_fee_hours": null,
+        "passive_earned_to_goal": 762902.2039770562,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 115164,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 17274.6
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 21.9338247805465,
+        "passive_earned_to_goal": 4087431.902523032,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 405330,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 319197.375
+      }
+    },
+    {
+      "candidate": "all_x10",
+      "trial": 4,
+      "bait": 0,
+      "mode": "full",
+      "sale_only_first_fee_hours": 11.455131290817299,
+      "sale_only_steady_net_per_hour": 386823.088376867,
+      "owner_share_of_gross": 0.5129251588175037,
+      "aquarium_boat0": {
+        "first_fee_hours": 11.379954443761068,
+        "passive_earned_to_goal": 1251463.1539138963,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 1024497,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 153674.55
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 6.290650699412137,
+        "passive_earned_to_goal": 3767231.018157409,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 1570197,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 1236530.1375
+      }
+    },
+    {
+      "candidate": "gentle",
+      "trial": 4,
+      "bait": 0,
+      "mode": "full",
+      "sale_only_first_fee_hours": 16.84371428398198,
+      "sale_only_steady_net_per_hour": 268921.894629296,
+      "owner_share_of_gross": 0.149398270094947,
+      "aquarium_boat0": {
+        "first_fee_hours": 16.05799982072647,
+        "passive_earned_to_goal": 407549.27793817624,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 204899,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 30734.85
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 9.336258824752877,
+        "passive_earned_to_goal": 2708718.1645047823,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 604751,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 476241.4125
+      }
+    },
+    {
+      "candidate": "balanced",
+      "trial": 4,
+      "bait": 0,
+      "mode": "full",
+      "sale_only_first_fee_hours": 8.928443677320889,
+      "sale_only_steady_net_per_hour": 518857.18523723434,
+      "owner_share_of_gross": 0.11639604819610705,
+      "aquarium_boat0": {
+        "first_fee_hours": 8.962102858502655,
+        "passive_earned_to_goal": 298166.2478619801,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 307349,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 46102.35
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 6.039434212053267,
+        "passive_earned_to_goal": 2368286.244382943,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 857428,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 675224.5499999999
+      }
+    },
+    {
+      "candidate": "active",
+      "trial": 4,
+      "bait": 0,
+      "mode": "full",
+      "sale_only_first_fee_hours": 6.732203739430163,
+      "sale_only_steady_net_per_hour": 697246.8050166252,
+      "owner_share_of_gross": 0.11548431837784384,
+      "aquarium_boat0": {
+        "first_fee_hours": 6.93210657207493,
+        "passive_earned_to_goal": 272428.68567226647,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 395371,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 59305.649999999994
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 4.954242899663437,
+        "passive_earned_to_goal": 2133628.049215402,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 1016638,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 800602.4249999999
+      }
+    },
+    {
+      "candidate": "rounded",
+      "trial": 4,
+      "bait": 0,
+      "mode": "full",
+      "sale_only_first_fee_hours": 6.673848794812544,
+      "sale_only_steady_net_per_hour": 707855.3665748206,
+      "owner_share_of_gross": 0.11563602848489171,
+      "aquarium_boat0": {
+        "first_fee_hours": 6.8648817348502655,
+        "passive_earned_to_goal": 280620.2991440438,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 401549,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 60232.35
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 4.869874420497608,
+        "passive_earned_to_goal": 2275292.2548532635,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 1117763,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 880238.3624999999
+      }
+    },
+    {
+      "candidate": "current",
+      "trial": 4,
+      "bait": 0,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": null,
+      "sale_only_steady_net_per_hour": 20284.009558096597,
+      "owner_share_of_gross": 0.8062477331861547,
+      "aquarium_boat0": {
+        "first_fee_hours": null,
+        "passive_earned_to_goal": 821591.2957685333,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 103344,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 15501.599999999999
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 29.59010966482503,
+        "passive_earned_to_goal": 4402256.963192042,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 385590,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 303652.125
+      }
+    },
+    {
+      "candidate": "all_x10",
+      "trial": 4,
+      "bait": 0,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 24.91407281225084,
+      "sale_only_steady_net_per_hour": 206964.52092442117,
+      "owner_share_of_gross": 0.8062372848000579,
+      "aquarium_boat0": {
+        "first_fee_hours": 21.273156055521863,
+        "passive_earned_to_goal": 1826999.300640202,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 716430,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 107464.5
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 9.958218498461239,
+        "passive_earned_to_goal": 4183922.213331669,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 1277750,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 1006228.125
+      }
+    },
+    {
+      "candidate": "gentle",
+      "trial": 4,
+      "bait": 0,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 43.42316557775136,
+      "sale_only_steady_net_per_hour": 107938.10712251037,
+      "owner_share_of_gross": 0.29444839257155725,
+      "aquarium_boat0": {
+        "first_fee_hours": 37.85010826613732,
+        "passive_earned_to_goal": 812092.0355114192,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 195313,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 29296.95
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 17.29303530046049,
+        "passive_earned_to_goal": 3270111.5292674005,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 447374,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 352307.02499999997
+      }
+    },
+    {
+      "candidate": "balanced",
+      "trial": 4,
+      "bait": 0,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 23.90884905514585,
+      "sale_only_steady_net_per_hour": 199307.07021631012,
+      "owner_share_of_gross": 0.23838564593108094,
+      "aquarium_boat0": {
+        "first_fee_hours": 22.227761209760953,
+        "passive_earned_to_goal": 592142.4148679485,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 214929,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 32239.35
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 12.234040045017117,
+        "passive_earned_to_goal": 2737184.1035028812,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 538401,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 423990.7875
+      }
+    },
+    {
+      "candidate": "active",
+      "trial": 4,
+      "bait": 0,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 16.275928743863478,
+      "sale_only_steady_net_per_hour": 290676.94845940394,
+      "owner_share_of_gross": 0.21778912555108876,
+      "aquarium_boat0": {
+        "first_fee_hours": 15.623321854471936,
+        "passive_earned_to_goal": 506204.53745563526,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 277928,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 41689.2
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 9.674185583055362,
+        "passive_earned_to_goal": 2432723.908031614,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 561008,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 441793.8
+      }
+    },
+    {
+      "candidate": "rounded",
+      "trial": 4,
+      "bait": 0,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 18.17205139548538,
+      "sale_only_steady_net_per_hour": 264872.30078487814,
+      "owner_share_of_gross": 0.24303598020825862,
+      "aquarium_boat0": {
+        "first_fee_hours": 17.07259145288049,
+        "passive_earned_to_goal": 574497.3516992077,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 291049,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 43657.35
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 10.205472578623999,
+        "passive_earned_to_goal": 2580268.355888603,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 608806,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 479434.725
+      }
+    },
+    {
+      "candidate": "current",
+      "trial": 4,
+      "bait": 1,
+      "mode": "full",
+      "sale_only_first_fee_hours": null,
+      "sale_only_steady_net_per_hour": 43160.81611896418,
+      "owner_share_of_gross": 0.4945145683760021,
+      "aquarium_boat0": {
+        "first_fee_hours": null,
+        "passive_earned_to_goal": 642007.56020807,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 96441,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 14466.15
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 20.977464159699984,
+        "passive_earned_to_goal": 4037170.493966897,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 424718,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 334465.425
+      }
+    },
+    {
+      "candidate": "all_x10",
+      "trial": 4,
+      "bait": 1,
+      "mode": "full",
+      "sale_only_first_fee_hours": 10.06977905684996,
+      "sale_only_steady_net_per_hour": 447770.62043811317,
+      "owner_share_of_gross": 0.4945232425725867,
+      "aquarium_boat0": {
+        "first_fee_hours": 10.06977905684996,
+        "passive_earned_to_goal": 874659.2776377014,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 835810,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 125371.5
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 6.229316332980604,
+        "passive_earned_to_goal": 3541170.454525237,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 1531307,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 1205904.2625
+      }
+    },
+    {
+      "candidate": "gentle",
+      "trial": 4,
+      "bait": 1,
+      "mode": "full",
+      "sale_only_first_fee_hours": 13.974432577704235,
+      "sale_only_steady_net_per_hour": 311664.14793712134,
+      "owner_share_of_gross": 0.14323173965162767,
+      "aquarium_boat0": {
+        "first_fee_hours": 13.687685684447139,
+        "passive_earned_to_goal": 278588.79686999944,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 184720,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 27708.0
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 8.503368101805199,
+        "passive_earned_to_goal": 2455848.8065117886,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 657604,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 517863.14999999997
+      }
+    },
+    {
+      "candidate": "balanced",
+      "trial": 4,
+      "bait": 1,
+      "mode": "full",
+      "sale_only_first_fee_hours": 7.232750825368068,
+      "sale_only_steady_net_per_hour": 602709.0399050157,
+      "owner_share_of_gross": 0.11141301113028987,
+      "aquarium_boat0": {
+        "first_fee_hours": 7.275009474634003,
+        "passive_earned_to_goal": 185981.28538934753,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 242566,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 36384.9
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 5.561078638660598,
+        "passive_earned_to_goal": 2059687.1085858555,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 886845,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 698390.4375
+      }
+    },
+    {
+      "candidate": "active",
+      "trial": 4,
+      "bait": 1,
+      "mode": "full",
+      "sale_only_first_fee_hours": 5.578374526929586,
+      "sale_only_steady_net_per_hour": 810242.4505707627,
+      "owner_share_of_gross": 0.1107220501667846,
+      "aquarium_boat0": {
+        "first_fee_hours": 5.7649408616327,
+        "passive_earned_to_goal": 171886.48395905053,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 312843,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 46926.45
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 4.616406864933786,
+        "passive_earned_to_goal": 1861262.2408914715,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 1015148,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 799429.0499999999
+      }
+    },
+    {
+      "candidate": "rounded",
+      "trial": 4,
+      "bait": 1,
+      "mode": "full",
+      "sale_only_first_fee_hours": 5.518990491438242,
+      "sale_only_steady_net_per_hour": 827565.7805283804,
+      "owner_share_of_gross": 0.10989893208125774,
+      "aquarium_boat0": {
+        "first_fee_hours": 5.638196041773676,
+        "passive_earned_to_goal": 175797.9984381199,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 323994,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 48599.1
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 4.51699765223379,
+        "passive_earned_to_goal": 1992821.1918099879,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 1084133,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 853754.7374999999
+      }
+    },
+    {
+      "candidate": "current",
+      "trial": 4,
+      "bait": 1,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": null,
+      "sale_only_steady_net_per_hour": 21359.2148752388,
+      "owner_share_of_gross": 0.8107439799525367,
+      "aquarium_boat0": {
+        "first_fee_hours": null,
+        "passive_earned_to_goal": 853138.7103843819,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 98370,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 14755.5
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 25.02259473370056,
+        "passive_earned_to_goal": 4488805.510912981,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 451476,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 355537.35
+      }
+    },
+    {
+      "candidate": "all_x10",
+      "trial": 4,
+      "bait": 1,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 19.851835049250855,
+      "sale_only_steady_net_per_hour": 225953.83289916668,
+      "owner_share_of_gross": 0.8107403114465815,
+      "aquarium_boat0": {
+        "first_fee_hours": 16.090936917812318,
+        "passive_earned_to_goal": 1587567.2926363577,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 888657,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 133298.55
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 8.171969114813997,
+        "passive_earned_to_goal": 4233856.674175727,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 1493014,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 1175748.5250000001
+      }
+    },
+    {
+      "candidate": "gentle",
+      "trial": 4,
+      "bait": 1,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 37.31730346252362,
+      "sale_only_steady_net_per_hour": 122554.93992422042,
+      "owner_share_of_gross": 0.300522672839873,
+      "aquarium_boat0": {
+        "first_fee_hours": 32.64569068253033,
+        "passive_earned_to_goal": 768045.4916298758,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 181245,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 27186.75
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 14.537429885672688,
+        "passive_earned_to_goal": 3371597.064386639,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 564651,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 444662.6625
+      }
+    },
+    {
+      "candidate": "balanced",
+      "trial": 4,
+      "bait": 1,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 19.983994076612678,
+      "sale_only_steady_net_per_hour": 228109.53454652242,
+      "owner_share_of_gross": 0.24370094155891017,
+      "aquarium_boat0": {
+        "first_fee_hours": 18.25729150451879,
+        "passive_earned_to_goal": 578110.3229203117,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 266597,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 39989.549999999996
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 10.295477457957704,
+        "passive_earned_to_goal": 2856796.4119534725,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 608776,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 479411.1
+      }
+    },
+    {
+      "candidate": "active",
+      "trial": 4,
+      "bait": 1,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 13.700737420497546,
+      "sale_only_steady_net_per_hour": 333665.0449169648,
+      "owner_share_of_gross": 0.2227875593860922,
+      "aquarium_boat0": {
+        "first_fee_hours": 13.317370959593696,
+        "passive_earned_to_goal": 509378.94653505465,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 327450,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 49117.5
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 8.105998541588324,
+        "passive_earned_to_goal": 2530540.4624339384,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 725724,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 571507.6499999999
+      }
+    },
+    {
+      "candidate": "rounded",
+      "trial": 4,
+      "bait": 1,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 14.808868506537646,
+      "sale_only_steady_net_per_hour": 303555.49026128824,
+      "owner_share_of_gross": 0.2484089698976579,
+      "aquarium_boat0": {
+        "first_fee_hours": 14.383005861258841,
+        "passive_earned_to_goal": 574604.0119248953,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 355069,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 53260.35
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 8.456320627028605,
+        "passive_earned_to_goal": 2700147.7964497744,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 730423,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 575208.1124999999
+      }
+    },
+    {
+      "candidate": "current",
+      "trial": 4,
+      "bait": 2,
+      "mode": "full",
+      "sale_only_first_fee_hours": null,
+      "sale_only_steady_net_per_hour": 41564.78171648826,
+      "owner_share_of_gross": 0.5353438299400388,
+      "aquarium_boat0": {
+        "first_fee_hours": null,
+        "passive_earned_to_goal": 743850.4910122599,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 104711,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 15706.65
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 20.558800971843908,
+        "passive_earned_to_goal": 4098117.369054395,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 425046,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 334723.725
+      }
+    },
+    {
+      "candidate": "all_x10",
+      "trial": 4,
+      "bait": 2,
+      "mode": "full",
+      "sale_only_first_fee_hours": 10.799574634880832,
+      "sale_only_steady_net_per_hour": 437215.7483551568,
+      "owner_share_of_gross": 0.5353490305228661,
+      "aquarium_boat0": {
+        "first_fee_hours": 10.265019604608467,
+        "passive_earned_to_goal": 1207795.4164353127,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 993074,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 148961.1
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 5.505596220316148,
+        "passive_earned_to_goal": 3814075.496598896,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 1766104,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 1390806.9
+      }
+    },
+    {
+      "candidate": "gentle",
+      "trial": 4,
+      "bait": 2,
+      "mode": "full",
+      "sale_only_first_fee_hours": 15.462268455126791,
+      "sale_only_steady_net_per_hour": 287081.6820498472,
+      "owner_share_of_gross": 0.16309268377550748,
+      "aquarium_boat0": {
+        "first_fee_hours": 14.809406659054984,
+        "passive_earned_to_goal": 393367.4764096154,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 224669,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 33700.35
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 8.545608427724598,
+        "passive_earned_to_goal": 2739511.4122219756,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 617459,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 486248.96249999997
+      }
+    },
+    {
+      "candidate": "balanced",
+      "trial": 4,
+      "bait": 2,
+      "mode": "full",
+      "sale_only_first_fee_hours": 8.33675623931878,
+      "sale_only_steady_net_per_hour": 552639.2194169296,
+      "owner_share_of_gross": 0.12751899828159935,
+      "aquarium_boat0": {
+        "first_fee_hours": 8.33675623931878,
+        "passive_earned_to_goal": 304376.20786381164,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 303555,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 45533.25
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 5.497416337260722,
+        "passive_earned_to_goal": 2444059.8945552357,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 883967,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 696124.0125
+      }
+    },
+    {
+      "candidate": "active",
+      "trial": 4,
+      "bait": 2,
+      "mode": "full",
+      "sale_only_first_fee_hours": 6.246735319078824,
+      "sale_only_steady_net_per_hour": 744461.9560881681,
+      "owner_share_of_gross": 0.12646068402885904,
+      "aquarium_boat0": {
+        "first_fee_hours": 6.271484368939865,
+        "passive_earned_to_goal": 277347.1750096924,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 397427,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 59614.049999999996
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 4.514224637361833,
+        "passive_earned_to_goal": 2287050.0012558484,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 1045323,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 823191.8624999999
+      }
+    },
+    {
+      "candidate": "rounded",
+      "trial": 4,
+      "bait": 2,
+      "mode": "full",
+      "sale_only_first_fee_hours": 6.221435205522635,
+      "sale_only_steady_net_per_hour": 755614.3316093988,
+      "owner_share_of_gross": 0.12646285785181882,
+      "aquarium_boat0": {
+        "first_fee_hours": 6.2547899414288715,
+        "passive_earned_to_goal": 287295.2691213681,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 403436,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 60515.399999999994
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 4.320985271765575,
+        "passive_earned_to_goal": 2406457.078928843,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 1157122,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 911233.575
+      }
+    },
+    {
+      "candidate": "current",
+      "trial": 4,
+      "bait": 2,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": null,
+      "sale_only_steady_net_per_hour": 22196.625231108577,
+      "owner_share_of_gross": 0.8326173876533189,
+      "aquarium_boat0": {
+        "first_fee_hours": null,
+        "passive_earned_to_goal": 1187951.887226803,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 158252,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 23737.8
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 24.801551669792556,
+        "passive_earned_to_goal": 4486859.568457741,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 451596,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 355631.85
+      }
+    },
+    {
+      "candidate": "all_x10",
+      "trial": 4,
+      "bait": 2,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 20.138599566864098,
+      "sale_only_steady_net_per_hour": 238434.19587234012,
+      "owner_share_of_gross": 0.8326018315110872,
+      "aquarium_boat0": {
+        "first_fee_hours": 16.503035365784534,
+        "passive_earned_to_goal": 2061409.125908409,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 1144826,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 171723.9
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 8.065444093271442,
+        "passive_earned_to_goal": 4262335.039927619,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 1734298,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 1365759.6749999998
+      }
+    },
+    {
+      "candidate": "gentle",
+      "trial": 4,
+      "bait": 2,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 39.25827105993202,
+      "sale_only_steady_net_per_hour": 117046.0233565809,
+      "owner_share_of_gross": 0.3328108040621082,
+      "aquarium_boat0": {
+        "first_fee_hours": 32.2708292602771,
+        "passive_earned_to_goal": 1018794.7927878578,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 257507,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 38626.049999999996
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 14.322088141897368,
+        "passive_earned_to_goal": 3434438.699565463,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 579103,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 456043.6125
+      }
+    },
+    {
+      "candidate": "balanced",
+      "trial": 4,
+      "bait": 2,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 20.56091642829276,
+      "sale_only_steady_net_per_hour": 215830.4808175992,
+      "owner_share_of_gross": 0.2722594092293251,
+      "aquarium_boat0": {
+        "first_fee_hours": 19.04648962251777,
+        "passive_earned_to_goal": 767827.5846356347,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 382872,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 57430.799999999996
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 10.249328699618443,
+        "passive_earned_to_goal": 2965163.463604827,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 666985,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 525250.6875
+      }
+    },
+    {
+      "candidate": "active",
+      "trial": 4,
+      "bait": 2,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 14.050960481474046,
+      "sale_only_steady_net_per_hour": 314614.93827861745,
+      "owner_share_of_gross": 0.24970774203373078,
+      "aquarium_boat0": {
+        "first_fee_hours": 13.582634472821354,
+        "passive_earned_to_goal": 640141.8797906704,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 455363,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 68304.45
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 8.200299129985495,
+        "passive_earned_to_goal": 2642862.889049656,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 823173,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 648248.7374999999
+      }
+    },
+    {
+      "candidate": "rounded",
+      "trial": 4,
+      "bait": 2,
+      "mode": "continuous",
+      "sale_only_first_fee_hours": 15.718583302222445,
+      "sale_only_steady_net_per_hour": 287962.15678395174,
+      "owner_share_of_gross": 0.27737161539316046,
+      "aquarium_boat0": {
+        "first_fee_hours": 14.67976279268012,
+        "passive_earned_to_goal": 724349.6657414392,
+        "invested": 0,
+        "display_fish": 3,
+        "display_value": 465086,
+        "boat_lv": 0,
+        "hourly_passive_at_goal": 69762.9
+      },
+      "aquarium_invest": {
+        "first_fee_hours": 8.582130210833066,
+        "passive_earned_to_goal": 2801334.4977220157,
+        "invested": 19580,
+        "display_fish": 20,
+        "display_value": 817312,
+        "boat_lv": 5,
+        "hourly_passive_at_goal": 643633.2
+      }
+    }
+  ],
+  "summary": [
+    {
+      "candidate": "current",
+      "mode": "full",
+      "sale_only": {
+        "completed": 0,
+        "n": 15,
+        "median": null,
+        "min": null,
+        "max": null
+      },
+      "aquarium_boat0": {
+        "completed": 0,
+        "n": 15,
+        "median": null,
+        "min": null,
+        "max": null
+      },
+      "aquarium_invest": {
+        "completed": 15,
+        "n": 15,
+        "median": 21.664994965188306,
+        "min": 20.015393953842956,
+        "max": 23.664917860787735
+      },
+      "median_owner_share": 0.506430264179642,
+      "median_net_per_hour": 42545.928992715155
+    },
+    {
+      "candidate": "current",
+      "mode": "continuous",
+      "sale_only": {
+        "completed": 0,
+        "n": 15,
+        "median": null,
+        "min": null,
+        "max": null
+      },
+      "aquarium_boat0": {
+        "completed": 0,
+        "n": 15,
+        "median": null,
+        "min": null,
+        "max": null
+      },
+      "aquarium_invest": {
+        "completed": 15,
+        "n": 15,
+        "median": 26.414020029627835,
+        "min": 24.801551669792556,
+        "max": 29.59010966482503
+      },
+      "median_owner_share": 0.8107439799525367,
+      "median_net_per_hour": 20989.335645435556
+    },
+    {
+      "candidate": "all_x10",
+      "mode": "full",
+      "sale_only": {
+        "completed": 15,
+        "n": 15,
+        "median": 10.879653040416473,
+        "min": 9.958334467048356,
+        "max": 12.51906670359288
+      },
+      "aquarium_boat0": {
+        "completed": 15,
+        "n": 15,
+        "median": 10.871259627450279,
+        "min": 9.958334467048356,
+        "max": 12.146900063563265
+      },
+      "aquarium_invest": {
+        "completed": 15,
+        "n": 15,
+        "median": 6.290650699412137,
+        "min": 5.505596220316148,
+        "max": 7.149747748120444
+      },
+      "median_owner_share": 0.5064350711871614,
+      "median_net_per_hour": 444338.44608683645
+    },
+    {
+      "candidate": "all_x10",
+      "mode": "continuous",
+      "sale_only": {
+        "completed": 15,
+        "n": 15,
+        "median": 22.63377312134915,
+        "min": 19.851835049250855,
+        "max": 25.316585850162625
+      },
+      "aquarium_boat0": {
+        "completed": 15,
+        "n": 15,
+        "median": 18.060709997725795,
+        "min": 16.090936917812318,
+        "max": 21.273156055521863
+      },
+      "aquarium_invest": {
+        "completed": 15,
+        "n": 15,
+        "median": 9.16178904028876,
+        "min": 8.065444093271442,
+        "max": 10.02423318836477
+      },
+      "median_owner_share": 0.8107403114465815,
+      "median_net_per_hour": 222252.7703547526
+    },
+    {
+      "candidate": "gentle",
+      "mode": "full",
+      "sale_only": {
+        "completed": 15,
+        "n": 15,
+        "median": 15.48846251615196,
+        "min": 13.974432577704235,
+        "max": 17.23222119060555
+      },
+      "aquarium_boat0": {
+        "completed": 15,
+        "n": 15,
+        "median": 14.971601628967731,
+        "min": 13.687685684447139,
+        "max": 16.68927925731554
+      },
+      "aquarium_invest": {
+        "completed": 15,
+        "n": 15,
+        "median": 9.099955813354473,
+        "min": 8.124112586060345,
+        "max": 10.14768575020625
+      },
+      "median_owner_share": 0.14915370313857398,
+      "median_net_per_hour": 292889.3505631825
+    },
+    {
+      "candidate": "gentle",
+      "mode": "continuous",
+      "sale_only": {
+        "completed": 15,
+        "n": 15,
+        "median": 40.17172013493321,
+        "min": 37.26286799320885,
+        "max": 44.21568885154637
+      },
+      "aquarium_boat0": {
+        "completed": 15,
+        "n": 15,
+        "median": 34.42113491858227,
+        "min": 32.11044271812687,
+        "max": 38.61996970531029
+      },
+      "aquarium_invest": {
+        "completed": 15,
+        "n": 15,
+        "median": 15.638978632410334,
+        "min": 14.322088141897368,
+        "max": 17.29303530046049
+      },
+      "median_owner_share": 0.300522672839873,
+      "median_net_per_hour": 115177.5850899099
+    },
+    {
+      "candidate": "balanced",
+      "mode": "full",
+      "sale_only": {
+        "completed": 15,
+        "n": 15,
+        "median": 8.33675623931878,
+        "min": 7.232750825368068,
+        "max": 9.18246354483578
+      },
+      "aquarium_boat0": {
+        "completed": 15,
+        "n": 15,
+        "median": 8.33675623931878,
+        "min": 7.275009474634003,
+        "max": 9.211781247567087
+      },
+      "aquarium_invest": {
+        "completed": 15,
+        "n": 15,
+        "median": 5.785716410283786,
+        "min": 5.123847875711098,
+        "max": 6.440638178494605
+      },
+      "median_owner_share": 0.1161985196835854,
+      "median_net_per_hour": 565012.6769776784
+    },
+    {
+      "candidate": "balanced",
+      "mode": "continuous",
+      "sale_only": {
+        "completed": 15,
+        "n": 15,
+        "median": 21.874910909700287,
+        "min": 19.76315910521154,
+        "max": 23.91443016085031
+      },
+      "aquarium_boat0": {
+        "completed": 15,
+        "n": 15,
+        "median": 20.284089414322064,
+        "min": 18.1454337085536,
+        "max": 22.227761209760953
+      },
+      "aquarium_invest": {
+        "completed": 15,
+        "n": 15,
+        "median": 11.342782280030022,
+        "min": 10.1585063274656,
+        "max": 12.314799959090287
+      },
+      "median_owner_share": 0.24370094155891017,
+      "median_net_per_hour": 212445.2257914717
+    },
+    {
+      "candidate": "active",
+      "mode": "full",
+      "sale_only": {
+        "completed": 15,
+        "n": 15,
+        "median": 6.283157619131285,
+        "min": 5.450836675304084,
+        "max": 7.16694044475106
+      },
+      "aquarium_boat0": {
+        "completed": 15,
+        "n": 15,
+        "median": 6.382597548815528,
+        "min": 5.616594220061212,
+        "max": 7.2420818557689355
+      },
+      "aquarium_invest": {
+        "completed": 15,
+        "n": 15,
+        "median": 4.8041895940768145,
+        "min": 4.258098363374954,
+        "max": 5.2275932847998625
+      },
+      "median_owner_share": 0.11530897962634863,
+      "median_net_per_hour": 759279.4042679453
+    },
+    {
+      "candidate": "active",
+      "mode": "continuous",
+      "sale_only": {
+        "completed": 15,
+        "n": 15,
+        "median": 14.842200509258335,
+        "min": 13.592948122313238,
+        "max": 16.36728305073295
+      },
+      "aquarium_boat0": {
+        "completed": 15,
+        "n": 15,
+        "median": 14.576312694541787,
+        "min": 13.183262766956126,
+        "max": 15.834484489215999
+      },
+      "aquarium_invest": {
+        "completed": 15,
+        "n": 15,
+        "median": 9.04124816086692,
+        "min": 8.059028437710136,
+        "max": 9.845924422211676
+      },
+      "median_owner_share": 0.2227875593860922,
+      "median_net_per_hour": 309712.5617212491
+    },
+    {
+      "candidate": "rounded",
+      "mode": "full",
+      "sale_only": {
+        "completed": 15,
+        "n": 15,
+        "median": 6.208388139406497,
+        "min": 5.332884177394517,
+        "max": 7.183906436395297
+      },
+      "aquarium_boat0": {
+        "completed": 15,
+        "n": 15,
+        "median": 6.299835171492452,
+        "min": 5.5590826205436175,
+        "max": 7.225872262834337
+      },
+      "aquarium_invest": {
+        "completed": 15,
+        "n": 15,
+        "median": 4.562056611405193,
+        "min": 4.13351557889831,
+        "max": 5.110081567601432
+      },
+      "median_owner_share": 0.1153040238843501,
+      "median_net_per_hour": 772032.1031992144
+    },
+    {
+      "candidate": "rounded",
+      "mode": "continuous",
+      "sale_only": {
+        "completed": 15,
+        "n": 15,
+        "median": 16.231792776039608,
+        "min": 14.633436716174574,
+        "max": 18.17205139548538
+      },
+      "aquarium_boat0": {
+        "completed": 15,
+        "n": 15,
+        "median": 15.888176845297101,
+        "min": 14.255810599812282,
+        "max": 17.07259145288049
+      },
+      "aquarium_invest": {
+        "completed": 15,
+        "n": 15,
+        "median": 9.451661236505599,
+        "min": 8.357123864742968,
+        "max": 10.299903354392363
+      },
+      "median_owner_share": 0.2484089698976579,
+      "median_net_per_hour": 283431.7555021482
+    }
+  ],
+  "recommended": "rounded",
+  "status": "proposal_only_not_approved_or_applied",
+  "source_game_commit": "c74960ababa175a55a40fcd225799c1174e55f43",
+  "assumptions": {
+    "normal_cycle_seconds": 30,
+    "success_probability": 0.9,
+    "hook_miss_probability": 0,
+    "hook_grade_upgrade_probability": 0.1,
+    "all_regional_parts_equipped": true,
+    "forge_level": 0,
+    "initial_gold": 0,
+    "pond_initial_capacity": 40,
+    "pond_regeneration_per_hour": 30,
+    "full_mode": "free refill each attempt, optimistic bound excluding rest/refill time",
+    "continuous_mode": "actual consumption/regeneration; depleted bite penalty included",
+    "aquarium_boat0": "empty original3 slots, boat0, hold top3 fish and sell withdrawn fish; no expansions",
+    "aquarium_invest": "empty original3 slots and boat0; pay actual boat upgrades160/420/1000/2400/6000 and tank upgrades300/900/2400/6000 from earned cash, then hold highest-value fish up to20; no travel/management time",
+    "all_policies": "main/sub/owner first donations subtract foregone sales; one-time rewards remain31200/93600; repeat owners retained; target4635000",
+    "excluded": "rod/part purchases already owned; bag limits, travel/management, real battle physics/reaction, other gifts, expedition, robot; no prior aquarium fish or starting assets",
+    "summary": "medians over5 seeds x3 bait types, sample min/max are not confidence intervals",
+    "selection_criteria": "assistant proposal, not user-set target: approximate5-10h funding with active aquarium investment across stock cases, ordinary catch income dominant, monotone price bands and round numbers; candidates not exhaustive optimizer",
+    "warning": "funding is not license/entry completion. Stock-related main-bundle obstacle remains, and rift still unavailable."
+  }
+}

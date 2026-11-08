@@ -1,0 +1,8 @@
+{
+  "main.gd": "847272147c65e3de9b43424452194a43178f31335b8ff6c41a4a7b719fd71217",
+  "addons/reservoir/regional_catalog.gd": "2f1f6804e4a8b2aea40d546cb6a63f10347548eb0fdb729279c9cd3435a2f17e",
+  "addons/reservoir/region_shop.gd": "4d605a0c210304f249b0251689a6ac3aac938d839ecea46d39e7211fe52d53fa",
+  "addons/reservoir/regional_progress.gd": "61456adc7f53173a708dcf5ab3e4c80b4e8f07a8a0ef976545705c5855e22074",
+  "addons/reservoir/spot_selection.gd": "49b75ac63c37c882d2489c4ec1e9cdb6a7f4bd1e7130e1fbe5ef090a01be9ccb",
+  "addons/reservoir/fishing_difficulty.gd": "97dce87a0d50083206ad2eff9dd116c7ed62c44fb25b0795d4d9be187d627957"
+}

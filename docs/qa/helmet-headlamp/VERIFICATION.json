@@ -1,0 +1,234 @@
+{
+  "local_related_suites": [
+    "night_play",
+    "night_glow",
+    "regional_night",
+    "fish_anchor_size",
+    "fight_body_size"
+  ],
+  "result": "passed",
+  "native_standard_frames": 24,
+  "native_motion_poses": 16,
+  "native_motion_frames": 4,
+  "day_comparison": {
+    "day_r1_idle_identical": true,
+    "day_r1_fight_identical": true,
+    "r1_fix-screens-after_water_rgb_mean": [
+      26.197266666666668,
+      104.99236666666667,
+      175.3256
+    ],
+    "r1_head-screens-after_water_rgb_mean": [
+      38.25315,
+      147.75786666666667,
+      228.63065
+    ],
+    "day_r2_idle_identical": true,
+    "day_r2_fight_identical": true,
+    "r2_fix-screens-after_water_rgb_mean": [
+      86.54458333333334,
+      76.06413333333333,
+      178.57153333333332
+    ],
+    "r2_head-screens-after_water_rgb_mean": [
+      103.89143333333334,
+      95.8237,
+      214.79503333333332
+    ]
+  },
+  "full_ci": {
+    "run": 42483060048,
+    "job": 128738971654,
+    "status": "success",
+    "source_commit": "49eef75a61fdf7b4acaa345ba97e5fd7f88d7b81",
+    "unique_verify_results": 88,
+    "script_errors": 0,
+    "verification_artifact": {
+      "id": 13618740687,
+      "name": "work-verification",
+      "size_in_bytes": 132577668,
+      "url": "https://api.github.com/repos/znzkznzk96-rgb/nakshiworld-update/actions/artifacts/13618740687",
+      "archive_download_url": "https://api.github.com/repos/znzkznzk96-rgb/nakshiworld-update/actions/artifacts/13618740687/zip",
+      "expired": false,
+      "created_at": "2026-11-08T13:08:53Z",
+      "expires_at": "2027-02-06T13:02:50Z",
+      "updated_at": "2026-11-08T13:08:53Z",
+      "digest": "sha256:9454746a63889774430033d2d509cc67969e2546fb82e35d6cb1c507b6df89c0",
+      "workflow_run": {
+        "id": 42483060048,
+        "repository_id": 1423971848,
+        "head_repository_id": 1423971848,
+        "head_branch": "work/tile-release-107",
+        "head_sha": "49eef75a61fdf7b4acaa345ba97e5fd7f88d7b81"
+      }
+    },
+    "candidate_artifact": {
+      "id": 13617459792,
+      "name": "release-candidate-9593062fcb375004a893fc052a71c21211969c4948f4cd0f356546767d5ae124",
+      "size_in_bytes": 117422519,
+      "url": "https://api.github.com/repos/znzkznzk96-rgb/nakshiworld-update/actions/artifacts/13617459792",
+      "archive_download_url": "https://api.github.com/repos/znzkznzk96-rgb/nakshiworld-update/actions/artifacts/13617459792/zip",
+      "expired": false,
+      "created_at": "2026-11-08T13:08:50Z",
+      "expires_at": "2026-12-08T13:08:46Z",
+      "updated_at": "2026-11-08T13:08:50Z",
+      "digest": "sha256:d827ea756082ad7db16f11e3a0cc24173d4b6ccddf59bc4ade8024a400c4dbb5",
+      "workflow_run": {
+        "id": 42483060048,
+        "repository_id": 1423971848,
+        "head_repository_id": 1423971848,
+        "head_branch": "work/tile-release-107",
+        "head_sha": "49eef75a61fdf7b4acaa345ba97e5fd7f88d7b81"
+      }
+    }
+  },
+  "deployed": false,
+  "approved_angler_art_changed": false,
+  "source_commit": "49eef75a61fdf7b4acaa345ba97e5fd7f88d7b81",
+  "frames": [
+    {
+      "path": "head-screens-after/r1_h480_t0_fight.png",
+      "bytes": 776820,
+      "sha256": "ab6b4bd608d13faf88116e0e9d1b7f5f3510f7e37e116d50b966ed6e66db26c2"
+    },
+    {
+      "path": "head-screens-after/r1_h480_t0_idle.png",
+      "bytes": 790952,
+      "sha256": "3302b539295c3db0ae0c80af87ff01edfe32562ce53df0b38c6d03c5e22a8288"
+    },
+    {
+      "path": "head-screens-after/r1_h480_t12_fight.png",
+      "bytes": 792395,
+      "sha256": "b4466e953aa212cd5d46790359c8a4e695d5417f4be5d5b58d1dfc43a1215468"
+    },
+    {
+      "path": "head-screens-after/r1_h480_t12_idle.png",
+      "bytes": 809653,
+      "sha256": "c021574bd3e0be469a83471f72b0f6161e104cdca16fec64076820d97b5e92a7"
+    },
+    {
+      "path": "head-screens-after/r1_h540_t0_fight.png",
+      "bytes": 884768,
+      "sha256": "46ffce825b68834f37a62ae566724b7536acb7f30e4aa1c61d1b0f19b9f019ce"
+    },
+    {
+      "path": "head-screens-after/r1_h540_t0_idle.png",
+      "bytes": 900735,
+      "sha256": "fbc8caae03fe743f8477dfe1bbbec6d0ccd3c01d2badc131fe7170513b85637f"
+    },
+    {
+      "path": "head-screens-after/r1_h540_t12_fight.png",
+      "bytes": 903139,
+      "sha256": "e8629bff3d620fca9bbf1bccdf9794a6ba77224bcf6239aafe90f3b40a70e1e5"
+    },
+    {
+      "path": "head-screens-after/r1_h540_t12_idle.png",
+      "bytes": 922669,
+      "sha256": "8cfcbfaf1412184e3042b5c842441d0c3288dd0959f2fdb3203b170979fb89a6"
+    },
+    {
+      "path": "head-screens-after/r1_h660_t0_fight.png",
+      "bytes": 1067244,
+      "sha256": "16b0109e32909976ad3df988a3906abe9790305019ff5f1279186d4d15446ee7"
+    },
+    {
+      "path": "head-screens-after/r1_h660_t0_idle.png",
+      "bytes": 1086022,
+      "sha256": "6484e51e9bd571a089ab06174c7b4a9e85ca091ac0a1717bea05e33682859d7c"
+    },
+    {
+      "path": "head-screens-after/r1_h660_t12_fight.png",
+      "bytes": 1102829,
+      "sha256": "59ece450f5bae710d4ae4804312bf942e81967cd1bc5dfb742da93598923c07a"
+    },
+    {
+      "path": "head-screens-after/r1_h660_t12_idle.png",
+      "bytes": 1122763,
+      "sha256": "dc0e20d361e2132e714b37d0e407491b52bf4b11dfef053cef38db207226198b"
+    },
+    {
+      "path": "head-screens-after/r1_helmet_cast.png",
+      "bytes": 910404,
+      "sha256": "d341bfe9458804120c073e3ba86fe2518c9dc5ecc6e5cae51a47155bcc589fd7"
+    },
+    {
+      "path": "head-screens-after/r1_helmet_fight.png",
+      "bytes": 884885,
+      "sha256": "d727780cfec6858e8c4b8176fe77cd1fe6dbcf17b9006603d2fe7aee3efe3e9e"
+    },
+    {
+      "path": "head-screens-after/r2_h480_t0_fight.png",
+      "bytes": 936684,
+      "sha256": "2dfd8535ce2470277a4a9e27fc8f5203c8b5b75d0fc86131d4fc8bdad84524ce"
+    },
+    {
+      "path": "head-screens-after/r2_h480_t0_idle.png",
+      "bytes": 960646,
+      "sha256": "198933a4c930d4281d333784f5bd9b76aaf32ff1c6aeeda2ed180fe7374cda62"
+    },
+    {
+      "path": "head-screens-after/r2_h480_t12_fight.png",
+      "bytes": 1054612,
+      "sha256": "f31a7f45f33738a73f88b989b452c5abada84bcdc7e370ba5546bdddd8708403"
+    },
+    {
+      "path": "head-screens-after/r2_h480_t12_idle.png",
+      "bytes": 1083330,
+      "sha256": "666def230e052430a12afeef14afed0ad0405ac06b58ff7ade200ea24cb5fa44"
+    },
+    {
+      "path": "head-screens-after/r2_h540_t0_fight.png",
+      "bytes": 1079795,
+      "sha256": "60c6d9359a421fb230150dbe0645199ffdd2805659a78096c18c103d64334ab6"
+    },
+    {
+      "path": "head-screens-after/r2_h540_t0_idle.png",
+      "bytes": 1104570,
+      "sha256": "c8925bddae883a8c7813535d1d0aaf075a4a5373d0baf6c5403b6eb1cacb60a2"
+    },
+    {
+      "path": "head-screens-after/r2_h540_t12_fight.png",
+      "bytes": 1220574,
+      "sha256": "7415ec16a2c54f213d7143f16f13d2c028d7b0eab74f175ebca6fc2ef95bf5ff"
+    },
+    {
+      "path": "head-screens-after/r2_h540_t12_idle.png",
+      "bytes": 1252825,
+      "sha256": "e6d371cbdb146528d638ce9037e109ae10518f8209775cd81254c8f98ab2d26c"
+    },
+    {
+      "path": "head-screens-after/r2_h660_t0_fight.png",
+      "bytes": 1326988,
+      "sha256": "43eec7443ba0067db63986fa5f90fea3401b418f39b37aa06d852840e306143d"
+    },
+    {
+      "path": "head-screens-after/r2_h660_t0_idle.png",
+      "bytes": 1346612,
+      "sha256": "5261d819335f431941c240d9fa38db30981a6437a4f60d8e08f43460fc06b857"
+    },
+    {
+      "path": "head-screens-after/r2_h660_t12_fight.png",
+      "bytes": 1533982,
+      "sha256": "3543588a8155e3b14e2fc9f0756cff0619553f9d86f9ecbc1ed7f2a4c5c3256f"
+    },
+    {
+      "path": "head-screens-after/r2_h660_t12_idle.png",
+      "bytes": 1557746,
+      "sha256": "296ed5c3ded6350a563ca347d59366f1537737ef1e9e101b91ce08c02b380b06"
+    },
+    {
+      "path": "head-screens-after/r2_helmet_cast.png",
+      "bytes": 1108560,
+      "sha256": "b991a35c2efec4bbfa838d6eab92a9b5094e0e0179cd718f3d8a360ab7dc6c97"
+    },
+    {
+      "path": "head-screens-after/r2_helmet_fight.png",
+      "bytes": 1080195,
+      "sha256": "768abd3bb3c9b3e01677159b5398746fef82d2a6cf8239d1986aa02129dc20c2"
+    }
+  ],
+  "public_release": "v1.11",
+  "release_authorized": false,
+  "release_ready": false,
+  "publication_note": "검증용 기존1.11 설정 후보이며 공개용 신규 버전 아님. 추후 승인 시 버전 변경 및 최종 소스 검증 필요."
+}
