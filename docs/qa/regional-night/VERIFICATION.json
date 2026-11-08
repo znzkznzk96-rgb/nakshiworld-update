@@ -40,7 +40,10 @@
   "published": false,
   "public_release": "v1.11",
   "full_ci": {
-    "status": "pending"
+    "run": 42443864008,
+    "status": "in_progress"
   },
-  "comparison": "comparison.webp"
+  "comparison": "comparison.webp",
+  "source_commit": "d831857a8035ae58fc37f221738e9a3c5de34aaa",
+  "day_equivalence_height": 540
 }
