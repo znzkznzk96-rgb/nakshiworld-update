@@ -102,8 +102,14 @@
   "public_release": "v1.11",
   "full_ci": {
     "run": 42480777927,
-    "status": "in_progress"
+    "status": "success",
+    "unique_verify_results": 88,
+    "artifact": 13617795891,
+    "candidate_artifact": 13617416626,
+    "candidate_publication_authorized": false,
+    "packed_verified": true
   },
   "image": "comparison.webp",
-  "source_commit": "4ce49e960cb0d327f68cd40b0242c25b7a17d5e2"
+  "source_commit": "4ce49e960cb0d327f68cd40b0242c25b7a17d5e2",
+  "closeup": "closeup.webp"
 }
