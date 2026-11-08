@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "release113_published_verified",
+  "status": "region4_gameplay_research_proposed",
   "release_baseline": "v1.13",
   "target_release": "v1.13",
   "deployed": true,
   "phone_verified": false,
-  "handoff": "docs/releases/113/HANDOFF.md",
-  "current_task": "v1.13공개·운영검증완료",
-  "next_step": "휴대폰게임내업데이트후실제적용확인;주인전시분리/해금비인상보류·새변경별도승인",
+  "handoff": "docs/design/region4-6-gameplay-research-20261109/HANDOFF.md",
+  "current_task": "4~6지역낚시변화비교·후보제안",
+  "next_step": "사용자후보검토;구체기획/시안구현미승인·공개v1.13유지",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -654,5 +654,15 @@
     "gateway_verification_run": 42530134538,
     "gateway_verification_status": "success",
     "published": "docs/releases/113/PUBLISHED.json"
+  },
+  "region4_gameplay_research": {
+    "status": "proposed_not_approved",
+    "report": "docs/design/region4-6-gameplay-research-20261109/REPORT.md",
+    "sources": "docs/design/region4-6-gameplay-research-20261109/SOURCES.md",
+    "compared_games": 6,
+    "retention_effect_measured": false,
+    "game_changed": false,
+    "paid_art_generated": false,
+    "deployed": false
   }
 }
