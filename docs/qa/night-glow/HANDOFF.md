@@ -4,3 +4,5 @@
 - 관련5검사 통과. 해질녘/새벽1분간격 연속성·입력통과·씬전환/해제·RNG 확인. 3높이×3시간×2지역18실화면 통과. 정오540높이 전후두지역 전체pixel변경0.
 - [비교](comparison.webp), [검증](VERIFICATION.json), [정오동일성](DAY_EQUIVALENCE.json).
 - 다음은 최종소스 자동전체검사 확인. 공개v1.11 유지, 새배포 미승인. 기존밤톤·원본PNG/세이브/밸런스 보존, 신규과금0.
+
+최종소스 `4bdf9b4dea9188426d45a922c45720bbaca17b30`, 자동전체검사 [42445928608](https://github.com/znzkznzk96-rgb/nakshiworld-update/actions/runs/42445928608) 진행중. jobs.steps가 비어 있어도 대기로 단정하지 않고 실행완료와 전체로그로 판정한다. CI후보는 기존1.11설정의 검사산출물이며 공개하지 않는다.
