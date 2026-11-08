@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "release113_full_ci_running",
+  "status": "release113_verified_ready_to_publish",
   "release_baseline": "v1.12",
   "target_release": "v1.13",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/releases/113/HANDOFF.md",
-  "current_task": "v1.13최종전체검증진행",
-  "next_step": "CI42529115176결과확인→성공후동일후보공개→운영검증",
+  "current_task": "v1.13전체88/실화면/PCK검증통과·공개준비",
+  "next_step": "PR51반영후동일후보공개→운영다운로드검증",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -628,13 +628,18 @@
     "verification": "docs/analysis/owner-income-raised-fee-20261109/VERIFICATION.json"
   },
   "release113": {
-    "status": "full_ci_running",
+    "status": "full_verified",
     "deployed": false,
     "phone_verified": false,
     "release_authorized": true,
     "preflight": "docs/releases/113/PREFLIGHT.json",
     "source_commit": "f6166542f618b878264aa99c2a9630a76763a9bb",
     "ci_run": 42529115176,
-    "ci_status": "in_progress"
+    "ci_status": "success",
+    "unique_verify_results": 88,
+    "candidate_artifact": 13637076247,
+    "input_fingerprint": "b0f1b1ab8db47906612d459b1b4301293af411989f9dc4c2062ed4b6102ff64e",
+    "pr": 51,
+    "verification": "docs/releases/113/VERIFICATION.json"
   }
 }
