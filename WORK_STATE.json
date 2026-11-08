@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "three_region_fish_prices_full_verified_not_deployed",
+  "status": "owner_rewards_reconsideration_after_user_feedback",
   "release_baseline": "v1.11",
   "target_release": "v1.11",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/three-region-prices/HANDOFF.md",
-  "current_task": "저수지·계곡·타일60종가격재조정완료·전체검증통과·미배포",
-  "next_step": "사용자결과검토; 공개배포는별도지시후신규버전/최종소스검증",
+  "current_task": "계곡·타일주인보상저평가피드백·판매보상과수족관수익분리안비교",
+  "next_step": "주인조건/판매보상근거와후보별연동/분리수익효과제시; 미확정수족관변경·배포금지",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -466,5 +466,12 @@
     "ci_status": "success",
     "unique_verify_results": 88,
     "verification_artifact": 13626995881
+  },
+  "owner_reward_review": {
+    "status": "under_analysis",
+    "current_valley_owner": 16000,
+    "current_tile_owner": 20000,
+    "reason": "user finds rewards insufficient for gated hardest catches",
+    "game_changed": false
   }
 }
