@@ -1,11 +1,11 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "release112_authorized_preparing",
+  "status": "release112_final_source_verification_pending",
   "release_baseline": "v1.11",
   "target_release": "v1.12",
   "deployed": true,
   "phone_verified": false,
-  "handoff": "docs/qa/owner-aquarium-cap/HANDOFF.md",
+  "handoff": "docs/releases/112/HANDOFF.md",
   "current_task": "승인변경묶음v1.12배포",
   "next_step": "버전/우편준비→최종전체CI→동일후보공개→운영다운로드검증",
   "deferred_work_branch": "work/skills-105",
