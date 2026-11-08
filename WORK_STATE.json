@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "v111_verified_candidate_ready",
+  "status": "v111_existing_draft_publication_resumed",
   "release_baseline": "v1.10",
   "target_release": "v1.11",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/releases/111/HANDOFF.md",
   "current_task": "승인 수정묶음 v1.11 검증·공개·운영다운로드",
-  "next_step": "검증후보 그대로 main 공개 후 운영다운로드와 전체소스 검증",
+  "next_step": "게시42436616470 attempt2 결과와 운영검증 확인",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -50,8 +50,8 @@
   "release_preflight": "docs/releases/109/PREFLIGHT.json",
   "release_source_commit": "f2eba5ef5a829ea1f20205412a4998a3e6944d0a",
   "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v1.10",
-  "release_build_run": 42424163257,
-  "release_build_status": "success",
+  "release_build_run": 42436616470,
+  "release_build_status": "attempt2_in_progress",
   "public_verification_run": 42424518551,
   "public_verification_status": "success",
   "public_patch": {
@@ -296,6 +296,9 @@
     "deployed": false,
     "phone_verified": false,
     "release_authorized": true,
-    "candidate_artifact": 13600105454
+    "candidate_artifact": 13600105454,
+    "draft_id": 437974282,
+    "publication_run": 42436616470,
+    "publication_status": "resumed_existing_draft"
   }
 }
