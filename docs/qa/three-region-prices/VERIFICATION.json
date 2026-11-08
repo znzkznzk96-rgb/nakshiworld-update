@@ -1,0 +1,31 @@
+{
+  "status": "related_passed_full_ci_running",
+  "local_suites": [
+    "regional",
+    "tile107",
+    "economy_balance",
+    "regional_bundle_rewards",
+    "bundles_buyback",
+    "odds_rewards",
+    "audio_save",
+    "valley_gift108"
+  ],
+  "price_contract_checks": 3600,
+  "stored_price_preserved": [
+    "bag",
+    "aquarium_income",
+    "sale",
+    "buyback",
+    "reload"
+  ],
+  "new_catch_uses_new_price": true,
+  "offline_cap_hours": 3,
+  "save_schema_changed": false,
+  "art_changed": false,
+  "deployed": false,
+  "release_ready": false,
+  "source_commit": "6b22974fb502bec3774bc6be7333a2ce68ea0916",
+  "ci_run": 42503357139,
+  "simulation_replay": "standalone exact match",
+  "baseline_price_parity_draws": 180092
+}

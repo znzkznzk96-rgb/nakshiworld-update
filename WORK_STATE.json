@@ -1,6 +1,6 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "three_region_prices_implemented_related_checks_full_ci_pending",
+  "status": "three_region_prices_full_ci_running",
   "release_baseline": "v1.11",
   "target_release": "v1.11",
   "deployed": true,
@@ -399,7 +399,7 @@
     "game_changed": false
   },
   "tile_price_proposal": {
-    "status": "requires_recalibration_after_offline_cap_3h",
+    "status": "superseded_by_implemented_three_region_rebalance",
     "recommended": "weekly_final",
     "report": "docs/analysis/tile-weekly-five-owners-20261109/REPORT.md",
     "price_table": "docs/analysis/tile-weekly-five-owners-20261109/PRICE_TABLE.md",
@@ -428,7 +428,7 @@
       "boat_expansions": 2
     },
     "deployment_authorized": false,
-    "analysis": "docs/qa/offline-three-hours/PACING_3H.json",
+    "analysis": "docs/qa/three-region-prices/DESIGN.md",
     "offline_income_cap_hours": 3,
     "previous_analysis": "docs/analysis/tile-weekly-five-owners-20261109/REPORT.md"
   },
@@ -446,7 +446,7 @@
     "verification_artifact": 13626040474
   },
   "three_region_price_rebalance": {
-    "status": "implemented",
+    "status": "local_verified_full_ci_running",
     "offline_income_hours": 3,
     "regions": [
       0,
@@ -460,6 +460,8 @@
     "deployed": false,
     "price_table": "docs/qa/three-region-prices/PRICE_TABLE.md",
     "simulation": "docs/qa/three-region-prices/SIMULATION.json",
-    "verification": "docs/qa/three-region-prices/VERIFICATION.json"
+    "verification": "docs/qa/three-region-prices/VERIFICATION.json",
+    "source_commit": "6b22974fb502bec3774bc6be7333a2ce68ea0916",
+    "ci_run": 42503357139
   }
 }
