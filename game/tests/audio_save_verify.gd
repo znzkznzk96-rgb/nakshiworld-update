@@ -24,6 +24,18 @@ func run() -> void:
 	check(settled-int(saved.gold)==45,"one offline hour pays 75 percent of former 60")
 	check(m.gold==settled,"offline reward cannot repeat on reload")
 	check(is_equal_approx(m.aqua_rate(),0.75),"base aquarium rate reduced by 25 percent")
+	# Isolated save timestamps exercise the actual offline settlement path.
+	for hours in [0.0,2.0,3.0,4.0,8.0,12.0,-1.0]:
+		saved.gold=10000;saved.boat_lv=0;saved.aqua=[{"price":300.0},null,null]
+		saved.pond_base=40.0;saved.pond_cap_lv=5;saved.pond_regen_lv=0;saved.pond_stock=0.0
+		saved.time=Time.get_unix_time_from_system()-hours*3600.0
+		store.write("user://save.json",saved);m._load_game()
+		var expected_income:int=int(clampf(hours,0,3)*45)
+		check(m.gold==10000+expected_income,"offline income capped3h at %s hours"%hours)
+		check(absf(m.pond_stock-minf(140.0,maxf(0,hours)*30.0))<.1,"pond recovery remains8h independent of income cap at %s"%hours)
+		var paid_once:int=m.gold;m._load_game()
+		check(m.gold==paid_once,"repeat reload never duplicates capped income at %s"%hours)
+	m.gold=settled
 	m.boat_lv=5
 	check(is_equal_approx(m.V.multiplier(m),5.25) and is_equal_approx(m.aqua_rate(),3.9375),"maximum visitor multiplier remains unchanged")
 	m.boat_lv=0

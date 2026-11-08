@@ -220,7 +220,7 @@ func draw(v, m, r: Rect2, y: float) -> void:
 		m._text("%d→%d · %d비늘"%[m.aqua_capacity(),m.AQUA_CAP[m.aqua_lv+1],m.AQUA_COST[m.aqua_lv]],Vector2(195,expand.position.y+29),7,Color("f0c46e") if m.gold>=m.AQUA_COST[m.aqua_lv] else Color("e89c85"),true,114)
 		v.rects.rows.append([expand,"aexpand"])
 	else: m._text("최대 크기 · %d마리"%m.aqua_capacity(),Vector2(195,expand.position.y+29),7,Color("a4bdba"),true,110)
-	m._text(v.aqua_notice if v.aqua_notice!="" else "쉬는 동안에도 최대 8시간 수입",Vector2(135,r.end.y-13),9,Color("b3cccb"),true,232)
+	m._text(v.aqua_notice if v.aqua_notice!="" else "쉬는 동안에도 최대 %d시간 수입" % m.AQUARIUM_OFFLINE_HOURS,Vector2(135,r.end.y-13),9,Color("b3cccb"),true,232)
 
 func _manage(v, m, r: Rect2, y: float) -> void:
 	_button(v,m,Rect2(24,y+3,107,26),"보관통 · 넣기","alist_bag")

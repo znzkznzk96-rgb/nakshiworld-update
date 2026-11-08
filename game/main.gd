@@ -121,6 +121,7 @@ var bait: = 0
 var expedition = preload("res://addons/expedition/view.gd").new()
 var souls: = 0
 var testing_grants: Array = []
+const AQUARIUM_OFFLINE_HOURS := 3
 const AQUA_CAP: = [3, 6, 10, 15, 20]
 const AQUA_COST: = [300, 900, 2400, 6000]
 var aqua_lv: = 0
@@ -2715,7 +2716,8 @@ func _load_game() -> void :
 	_migrate_fish_records()
 	var away: = clampf(Time.get_unix_time_from_system() - float(d.get("time", 0)), 0, 8 * 3600)
 	pond_stock = minf(pond_max(), pond_stock + pond_recovery() * away / 3600.0)
-	var earn: = int(aqua_rate() * away / 60.0)
+	var income_away:float=minf(away,AQUARIUM_OFFLINE_HOURS*3600.0)
+	var earn: = int(aqua_rate() * income_away / 60.0)
 	if earn > 0 and d.has("time"):
 		gold += earn;tip_txt = "쉬는 동안 수족관에서 %d 비늘을 벌었어요!" % earn;tip_t = 5.0
 	_save_game()

@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "aquarium_offline_three_hours_implementation",
+  "status": "offline_three_hours_local_verified_full_ci_pending",
   "release_baseline": "v1.11",
   "target_release": "v1.11",
   "deployed": true,
   "phone_verified": false,
-  "handoff": "docs/qa/headlamp-local-light/HANDOFF.md",
+  "handoff": "docs/qa/offline-three-hours/HANDOFF.md",
   "current_task": "수족관오프라인수익상한3시간·UI/저장검증·주간수익재분석",
-  "next_step": "수족관정산만3시간으로분리·경계/중복정산검사·전체회귀·3시간기준주간가격분석",
+  "next_step": "동일소스전체검사·원격기록; 가격은3시간재분석결과검토후별도확정",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -434,7 +434,8 @@
     "approved_hours": 3,
     "previous_hours": 8,
     "pond_recovery_hours": 8,
-    "status": "decision_saved",
-    "deployed": false
+    "status": "implemented_local_verified",
+    "deployed": false,
+    "verification": "docs/qa/offline-three-hours/VERIFICATION.json"
   }
 }
