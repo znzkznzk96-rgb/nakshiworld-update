@@ -1,4 +1,7 @@
 extends SceneTree
+var failures:Array=[]
+func check(ok:bool,label:String):
+ if not ok:failures.append(label)
 func _initialize():call_deferred("run")
 func run():
  var out:String=OS.get_cmdline_user_args()[0];DirAccess.make_dir_recursive_absolute(out)
@@ -11,5 +14,13 @@ func run():
   m.S.beh="swim";m.S.dist=35;m.S.fx=155;m.S.fy=m.WATER+95;m.S.dispY=m.S.fy;m.S.F=0.3;m._last_draw_t=-1;m.anim_t=0;m.clock=0
   m.queue_redraw();await process_frame;await process_frame;await RenderingServer.frame_post_draw
   root.get_texture().get_image().save_png(out.path_join("fight_%d.png"%sp))
+  var expected:float=m._fight_body_length(sp,1.0,0)
+  check(is_equal_approx(m.aura.L,expected),"actual fight body")
+  check(is_equal_approx(m.S.lastF.body_length,expected),"landing snapshot")
+  check(m.S.mouth.distance_to(m.fish_mouth)<0.001,"same frame mouth")
+  m.S.phase="catch";m.S.t=0.2;m.S.netEnd=1.15;m.S.ok=true;m.S.newRec=false
+  m.queue_redraw();await process_frame;await process_frame;await RenderingServer.frame_post_draw
+  check(is_equal_approx(m.aura.L,expected),"actual landing body unchanged")
+  root.get_texture().get_image().save_png(out.path_join("landing_%d.png"%sp))
  m.audio_feedback.dispose();app.queue_free();await process_frame
- print("FIGHT_BODY_NATIVE_VERIFY failures=[]");quit()
+ print("FIGHT_BODY_NATIVE_VERIFY failures=",failures);quit(0 if failures.is_empty() else 1)

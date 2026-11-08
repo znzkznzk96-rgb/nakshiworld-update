@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "hooked_fight_body_size_correction_in_progress",
+  "status": "hooked_fight_body_size_corrected_related_verified",
   "release_baseline": "v1.10",
   "target_release": "v1.10",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/fight-body-size/HANDOFF.md",
   "current_task": "사진의 줄에 걸린 파이팅 본체 크기 차등 수정",
-  "next_step": "실화면 전후 비교 검수 및 관련검사·원격저장 완료 후 보고",
+  "next_step": "최종소스 자동 전체검사 결과 확인 후 사용자에게 보고",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -262,5 +262,11 @@
     "published": true,
     "rebuild_on_publish": false
   },
-  "release_resume_run": 42424430555
+  "release_resume_run": 42424430555,
+  "fight_body_size": {
+    "verification": "docs/qa/fight-body-size/VERIFICATION.json",
+    "deployed": false,
+    "release_authorized": false,
+    "native_fight_landing_pass": true
+  }
 }

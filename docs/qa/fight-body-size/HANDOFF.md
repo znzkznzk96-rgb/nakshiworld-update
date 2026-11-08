@@ -4,3 +4,5 @@ User means actual hooked fish during fighting, not bite preview. Baseline public
 
 ## 2026-11-08 resumed implementation
 Explicit fight-body length connected to real/clone fish, mouth geometry, tension HUD and landing snapshot. Line now uses current-frame mouth. Full v1.10 source CRC/SHA verified before overlay. Related fight_body_size/fish_anchor_size/fish_presentation passed on Godot4.4.1 with isolated saves. Native after screenshots passed; baseline comparison in progress. No publication.
+
+Actual landing implementation is addons/reservoir/angler_scene.gd; connected same explicit length and tail-drop origin. Native fight→landing assertions now pass. Comparison: [before/after](comparison.webp). Full QA details: [VERIFICATION.json](VERIFICATION.json). Latest public release remains v1.10.
