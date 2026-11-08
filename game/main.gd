@@ -1192,6 +1192,7 @@ func show_result(ok: bool) -> void :
 
 
 func _unhandled_input(e: InputEvent) -> void :
+	if capture_robot.input_event(self,e): return
 	if bait_picker.input_event(self,e): return
 	if not title_open and expedition.input_event(self,e): return
 	if personal_dex.input_event(self,e): return
@@ -2280,6 +2281,17 @@ func _text(s: String, pos: Vector2, size: int, col: Color, center: = false, maxw
 	var al: = HORIZONTAL_ALIGNMENT_CENTER if center else HORIZONTAL_ALIGNMENT_LEFT
 	var x: = roundf(pos.x - lim / 2) if center else roundf(pos.x)
 	var y: = roundf(pos.y)
+	# Shared button/card padding uses actual font ascent/descent, not a fixed baseline.
+	for ci in range(ui_commands.size()-1,maxi(-1,ui_commands.size()-32),-1):
+		var command:Array=ui_commands[ci]
+		if command[0]!="style" or command.size()<4 or not command[3]: continue
+		var box:Rect2=command[2]
+		if not box.has_point(pos) or box.size.y<18: continue
+		var pad:float=5.0
+		var low:float=box.position.y+pad+f.get_ascent(px)*sc
+		var high:float=box.end.y-pad-f.get_descent(px)*sc
+		if low<=high: y=roundf(clampf(y,low,high))
+		break
 	if shadow or col.get_luminance() > 0.55:
 		var oc: = Color(0.12, 0.07, 0.04, col.a * 0.9)
 		for d in [Vector2(-1, 0), Vector2(1, 0), Vector2(0, -1), Vector2(0, 1)]:
@@ -2501,6 +2513,7 @@ func _outline_text(s: String, pos: Vector2, col: Color, oc: Color, sc: float) ->
 	var w: float = f.get_string_size(s, HORIZONTAL_ALIGNMENT_LEFT, -1, 16).x * sc
 	var x: = roundf(pos.x - w / 2)
 	var y: = roundf(pos.y)
+
 	for d in [Vector2(-1, 0), Vector2(1, 0), Vector2(0, -1), Vector2(0, 1)]:
 		text_items.append([f, Vector2(x, y) + d * 0.4, s, HORIZONTAL_ALIGNMENT_LEFT, -1, 16, oc, sc])
 	text_items.append([f, Vector2(x, y), s, HORIZONTAL_ALIGNMENT_LEFT, -1, 16, col, sc])
@@ -3066,7 +3079,7 @@ func _ui_texture_rect(t: Texture2D, r: Rect2, tile: bool = false, c: Color = Col
 	else: ui_commands.append(["texture", t, r, tile, c, transpose])
 func _ui_texture_rect_region(t: Texture2D, r: Rect2, region: Rect2, c: Color = Color.WHITE, transpose: bool = false, clip_uv: bool = true) -> void :
 	ui_commands.append(["region", t, r, region, c, transpose])
-func _ui_style_box(style: StyleBox, r: Rect2) -> void : ui_commands.append(["style", style.duplicate(), r])
+func _ui_style_box(style: StyleBox, r: Rect2) -> void : ui_commands.append(["style", style.duplicate(), r, style==sb_btn or style==sb_chip or (style is StyleBoxTexture and style!=sb_panel and style!=hud_reference_style and r.size.y<=180)])
 func _ui_rect(r: Rect2, c: Color, filled: bool = true, width: float = -1.0, antialiased: bool = false) -> void : ui_commands.append(["rect", r, c, filled, width])
 func _ui_circle(p: Vector2, r: float, c: Color, filled: bool = true, width: float = -1.0, antialiased: bool = false) -> void : ui_commands.append(["circle", p, r, c, filled, width])
 func _ui_line(a: Vector2, b: Vector2, c: Color, width: float = -1.0, antialiased: bool = false) -> void : ui_commands.append(["line", a, b, c, width])

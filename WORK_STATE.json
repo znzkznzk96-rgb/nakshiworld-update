@@ -1,6 +1,6 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "robot_inventory_ui_spacing_merge_requirements_implementation",
+  "status": "robot_details_related_verified_ci_pending",
   "release_baseline": "v1.12",
   "target_release": "v1.12",
   "deployed": true,

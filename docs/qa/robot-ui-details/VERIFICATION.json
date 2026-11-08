@@ -1,0 +1,22 @@
+{
+  "status": "related_verified_ci_pending",
+  "local_suites": [
+    "capture_robot",
+    "robot_ui_revision",
+    "management101",
+    "formation_compare",
+    "selected_ui",
+    "approved_ui",
+    "pouch_inventory"
+  ],
+  "native_heights": [
+    480,
+    540,
+    660
+  ],
+  "native_frames": 12,
+  "legacy_robot_tile_species_restore_fixed": true,
+  "save_schema_changed": false,
+  "deployed": false,
+  "phone_verified": false
+}

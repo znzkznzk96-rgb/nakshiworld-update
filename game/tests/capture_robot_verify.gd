@@ -43,6 +43,27 @@ func run():
   m.V.rects.rows=[];b.draw_shop(m,Rect2(8,70,254,h-80),120)
   for row in m.V.rects.rows: check(row[0].end.y<h,"shop fits viewport")
  m.S={"phase":"fight"};m.scene="fish";b.draw_surface(m);check(b.button.size==Vector2.ZERO,"hidden during fight")
+ # Stored catch list: every item remains available and scrolling is read-only.
+ b.opened=true;b.capacity=4;b.fish=[]
+ for i in 60:
+  var f:Dictionary=job.duplicate();f.sp=i;f.star=i%4;f.grade=i%4;f.len=23.5;f.w=.01;b.fish.append(f)
+ var stored:Array=b.fish.duplicate(true)
+ check(b.valid_fish(b.fish[58]),"tile species accepted by restore validation")
+ b.restore(b.serialize());check(b.fish==stored,"all60 stored species survive restore")
+ b.opened=true
+ for height in [480,540,660]:
+  m.text_items=[];b.list_scroll=0;b.draw_panel(m,height)
+  check(b.list_view.size.y>=34 and b.rects.close.end.y<height,"list and close fit short viewport")
+  check(m.text_items.any(func(t):return t[2]==m.FISH_NAME[0]),"first stored species label visible")
+  var wheel:=InputEventMouseButton.new();wheel.position=b.list_view.get_center()+Vector2(m.ox,0);wheel.button_index=MOUSE_BUTTON_WHEEL_DOWN;wheel.pressed=true
+  check(b.input_event(m,wheel) and b.list_scroll>0,"wheel scrolls stored catches")
+  b.list_scroll=b.list_max;m.text_items=[];b.draw_panel(m,height)
+  check(m.text_items.any(func(t):return t[2]==m.FISH_NAME[59]),"last stored catch reachable")
+  var touch:=InputEventScreenTouch.new();touch.index=0;touch.position=b.list_view.get_center()+Vector2(m.ox,0);touch.pressed=true;b.input_event(m,touch)
+  var drag:=InputEventScreenDrag.new();drag.index=0;drag.position=touch.position+Vector2(0,50);drag.relative=Vector2(0,50);b.input_event(m,drag)
+  touch.position=drag.position;touch.pressed=false;b.input_event(m,touch)
+  check(b.list_scroll<b.list_max and b.fish==stored,"touch drag scrolls without transferring catches")
+ b.fish=[];b.draw_panel(m,480);check(b.list_scroll==0,"empty list resets stale scroll")
  m.audio_feedback.dispose();m.queue_free();await process_frame
  print("CAPTURE_ROBOT_VERIFY failures=",errors)
  quit(0 if errors.is_empty() else 1)

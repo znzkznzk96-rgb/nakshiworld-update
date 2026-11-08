@@ -47,5 +47,16 @@ func run():
  for key in v.management.SKILLS:
   var icon=load('res://art/ui/soldier_skills/'+key+'.png')
   check(icon is Texture2D and icon.get_size()==Vector2(64,64),'skill icon loads: '+key)
+ # Exact shortage information without spending or changing inventory.
+ v.selected=[d.soldiers[0].uid,d.soldiers[1].uid];d.soldiers[0].level=3;d.soldiers[1].level=3
+ d.souls=[0,0,0,0,0];m.gold=0;v.opened="merge_confirm"
+ for height in [480,540,660]:
+  m.text_items=[];m.ui_commands=[];v.draw(m,height)
+  check(m.text_items.any(func(t):return "필요" in str(t[2]) and "보유" in str(t[2]) and "부족" in str(t[2])),"merge shows need owned and exact shortage")
+  check(m.text_items.any(func(t):return t[2]=="재료 부족"),"unaffordable merge button explains disabled state")
+ check(d.souls==[0,0,0,0,0] and m.gold==0,"rendering shortages never spends resources")
+ m.text_items=[];m.ui_commands=[];var box:=Rect2(20,200,180,40)
+ m._ui_style_box(m.sb_chip,box);m._text("하단 여백",Vector2(30,239),9,Color("493421"),false,150)
+ check(m.text_items[-1][1].y<=234,"shared card text keeps bottom padding")
  m.audio_feedback.dispose();m.queue_free();await process_frame
  print('MANAGEMENT101_VERIFY failures=',failures);quit(0 if failures.is_empty() else 1)
