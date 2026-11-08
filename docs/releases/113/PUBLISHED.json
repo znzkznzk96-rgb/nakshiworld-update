@@ -1,0 +1,61 @@
+{
+  "version": {
+    "code": 113,
+    "name": "1.13"
+  },
+  "source_commit": "f6166542f618b878264aa99c2a9630a76763a9bb",
+  "assets": {
+    "version.json": {
+      "size": 199,
+      "sha256": "9344084a564c499b6d22364b9d7edb213f9ec6441a8fb6c24239b7cb0d995154",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.13/version.json"
+    },
+    "patch.pck": {
+      "size": 59250992,
+      "sha256": "7e472d35dd1ac08009cff05e767d22497831208e6ff978ea15cc540f8c92ced1",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.13/patch.pck"
+    },
+    "game-source.zip": {
+      "size": 63421429,
+      "sha256": "91c315697486a1d288405e323336e02b53be4ed3273830f2f0c32aac7d3f4ac7",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.13/game-source.zip"
+    }
+  },
+  "phone_verified": false,
+  "source_overlay_files_verified": 619,
+  "zip_crc_verified": true,
+  "public_assets_verified": true,
+  "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v1.13",
+  "release_id": 438562998,
+  "gateway": {
+    "verified": true,
+    "run": 42530134538,
+    "manifest": {
+      "code": 113,
+      "name": "1.13",
+      "source_commit": "f6166542f618b878264aa99c2a9630a76763a9bb",
+      "size": 59250992,
+      "sha256": "7e472d35dd1ac08009cff05e767d22497831208e6ff978ea15cc540f8c92ced1"
+    },
+    "actual_apk_addresses_downloaded": true
+  },
+  "publication": {
+    "run": 42529982880,
+    "attempt": 2,
+    "status": "success",
+    "draft_reused": 438562998,
+    "rebuild": false,
+    "candidate_artifact": 13637076247,
+    "input_fingerprint": "b0f1b1ab8db47906612d459b1b4301293af411989f9dc4c2062ed4b6102ff64e"
+  },
+  "full_verification": {
+    "run": 42529115176,
+    "status": "success",
+    "unique_verify_results": 88,
+    "native_and_pck": "passed"
+  },
+  "public_version": "v1.13",
+  "recorded_date": "2026-11-09",
+  "existing_balance_unchanged": true,
+  "existing_saves_preserved": true
+}
