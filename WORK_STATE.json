@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "v111_final_source_prepared",
+  "status": "v111_final_verification_running",
   "release_baseline": "v1.10",
   "target_release": "v1.11",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/releases/111/HANDOFF.md",
   "current_task": "승인 수정묶음 v1.11 검증·공개·운영다운로드",
-  "next_step": "최종소스 verify-work 전체검사·실화면·PCK/전체소스 후보 생성 후 동일파일 공개",
+  "next_step": "CI42435987555 성공 후 동일후보 main 공개 및 운영다운로드 검증",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -48,7 +48,7 @@
     "scope": "현재 파이팅 본체/번들보상/타일선택그림 수정묶음 v1.11"
   },
   "release_preflight": "docs/releases/109/PREFLIGHT.json",
-  "release_source_commit": "12dfd5d1b96aa2ecfee558d491991d123950700a",
+  "release_source_commit": "f2eba5ef5a829ea1f20205412a4998a3e6944d0a",
   "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v1.10",
   "release_build_run": 42424163257,
   "release_build_status": "success",
@@ -284,5 +284,13 @@
     "ci_status": "success",
     "verification_artifact": 13599202521,
     "release_ready": false
+  },
+  "release111": {
+    "source_commit": "f2eba5ef5a829ea1f20205412a4998a3e6944d0a",
+    "verification_run": 42435987555,
+    "verification_status": "in_progress",
+    "deployed": false,
+    "phone_verified": false,
+    "release_authorized": true
   }
 }

@@ -7,3 +7,5 @@
 - 다음: 최종소스 전체검사→동일후보 공개→공개3파일/전체소스/운영다운로드검증. 아직 공개v1.10, 휴대폰 별도.
 
 관련: [본체](../../qa/fight-body-size/HANDOFF.md), [번들·선택그림](../../qa/bundle-next-unlock/HANDOFF.md).
+
+최종소스 `f2eba5ef5a829ea1f20205412a4998a3e6944d0a`, 전체검사 [42435987555](https://github.com/znzkznzk96-rgb/nakshiworld-update/actions/runs/42435987555) 진행 중. 실패 시 해당 단계 원인 확인 후 이어받기.
