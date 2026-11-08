@@ -29,6 +29,13 @@
   "full_ci": {
     "run": 42432192399,
     "source_commit": "466cb3c89301d4f952a03e96c6ccead1392b0aa5",
-    "status": "in_progress"
+    "status": "success",
+    "artifact": 13597648289,
+    "results": {
+      "unique_passed": 82,
+      "new_test_passed": true
+    },
+    "candidate_artifact": 13598580693,
+    "candidate_publication_authorized": false
   }
 }

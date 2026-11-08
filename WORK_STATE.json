@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "hooked_fight_body_size_corrected_related_verified",
+  "status": "hooked_fight_body_size_verified_not_deployed",
   "release_baseline": "v1.10",
   "target_release": "v1.10",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/fight-body-size/HANDOFF.md",
   "current_task": "사진의 줄에 걸린 파이팅 본체 크기 차등 수정",
-  "next_step": "최종소스 자동 전체검사 결과 확인 후 사용자에게 보고",
+  "next_step": "사용자가 파이팅 본체 크기 전후 비교 검토; 새 버전·배포는 별도 지시 후 진행",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -269,7 +269,10 @@
     "release_authorized": false,
     "native_fight_landing_pass": true,
     "ci_run": 42432192399,
-    "ci_status": "in_progress",
-    "source_commit": "466cb3c89301d4f952a03e96c6ccead1392b0aa5"
+    "ci_status": "success",
+    "source_commit": "466cb3c89301d4f952a03e96c6ccead1392b0aa5",
+    "ci_artifact": 13597648289,
+    "release_ready": false,
+    "note": "최종소스 전체 회귀·공통실화면·PCK검증 성공. 신규 공개버전 미지정/새배포 미승인. CI후보는 검사산출물이며 공개v1.10 대체하지 않음."
   }
 }
