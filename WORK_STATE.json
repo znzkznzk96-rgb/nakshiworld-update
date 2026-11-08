@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "night_play_full_verification_running",
+  "status": "night_play_full_verified_not_deployed",
   "release_baseline": "v1.11",
   "target_release": "v1.11",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/night-play/HANDOFF.md",
   "current_task": "계곡/타일 랜턴·수중야광·파이팅 가독성 조합",
-  "next_step": "전체검사42478875199 결과 확인",
+  "next_step": "랜턴·수중야광·파이팅 가시성 시안 사용자 검토; 새공개배포는 별도 지시 후 진행",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -331,7 +331,7 @@
     "release_ready": false
   },
   "night_play": {
-    "status": "related_native_verified",
+    "status": "full_verified",
     "deployed": false,
     "release_authorized": false,
     "verification": "docs/qa/night-play/VERIFICATION.json",
@@ -339,6 +339,9 @@
     "day_pixels_changed": 0,
     "source_commit": "c438ba57a260058fe47f7665ef4db6e4c33e5d17",
     "ci_run": 42478875199,
-    "ci_status": "in_progress"
+    "ci_status": "success",
+    "unique_verify_results": 88,
+    "verification_artifact": 13615954579,
+    "release_ready": false
   }
 }

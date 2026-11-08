@@ -82,7 +82,12 @@
   "public_release": "v1.11",
   "full_ci": {
     "run": 42478875199,
-    "status": "in_progress"
+    "status": "success",
+    "unique_verify_results": 88,
+    "artifact": 13615954579,
+    "candidate_artifact": 13617155380,
+    "candidate_publication_authorized": false,
+    "packed_verified": true
   },
   "comparison": "comparison.webp",
   "source_commit": "c438ba57a260058fe47f7665ef4db6e4c33e5d17"
