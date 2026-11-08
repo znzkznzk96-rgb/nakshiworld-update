@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "night_glow_full_verified_not_deployed",
+  "status": "night_play_visibility_approved",
   "release_baseline": "v1.11",
   "target_release": "v1.11",
   "deployed": true,
   "phone_verified": false,
-  "handoff": "docs/qa/night-glow/HANDOFF.md",
-  "current_task": "계곡/타일 밤 주변 잔광 레이어 추가",
-  "next_step": "야간 주변잔광 시안 사용자 검토; 새 수정/공개배포는 별도 지시 후 진행",
+  "handoff": "docs/qa/night-play/HANDOFF.md",
+  "current_task": "계곡/타일 랜턴·수중야광·파이팅 가독성 조합",
+  "next_step": "결정 원격확인 후 랜턴/수중입자·최저가독성 구현",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -329,5 +329,10 @@
     "unique_verify_results": 86,
     "verification_artifact": 13603906178,
     "release_ready": false
+  },
+  "night_play": {
+    "status": "approved",
+    "deployed": false,
+    "release_authorized": false
   }
 }
