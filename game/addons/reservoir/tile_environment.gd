@@ -13,6 +13,7 @@ var map_rect := Rect2()
 var light:Node2D
 var surface_water:Node2D
 var scenery:Node2D
+var night_glow:Node2D
 func setup(m) -> void:
  root=Node2D.new();root.name="TileSeaBackground";root.z_index=-20
  root.texture_filter=CanvasItem.TEXTURE_FILTER_NEAREST
@@ -30,6 +31,8 @@ func setup(m) -> void:
  surface_water=load("res://addons/reservoir/tile_surface_water.gd").new()
  plate.add_child(surface_water)
  scenery=load("res://addons/reservoir/tile_scenery.gd").new();scenery.name="TileScenery";plate.add_child(scenery)
+ night_glow=load("res://addons/reservoir/regional_night_glow.gd").new()
+ night_glow.profile=1;night_glow.source_size=SOURCE;plate.add_child(night_glow)
  root.hide()
 func layout(m) -> void:
  var view: Vector2=m.get_viewport_rect().size
@@ -38,6 +41,7 @@ func layout(m) -> void:
  plate.position=map_rect.position;plate.scale=Vector2.ONE*scale
 func update_atmosphere(night:float)->void:
  plate.material.set_shader_parameter("night_strength",night)
+ night_glow.set_strength(night)
  var tint:=Color.WHITE.lerp(Color(0.76,0.61,0.94),night)
  scenery.modulate=tint
  for i in surface_water.layers.size():

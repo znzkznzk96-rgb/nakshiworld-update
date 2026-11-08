@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "night_glow_approved_before_implementation",
+  "status": "night_glow_related_native_verified",
   "release_baseline": "v1.11",
   "target_release": "v1.11",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/night-glow/HANDOFF.md",
   "current_task": "계곡/타일 밤 주변 잔광 레이어 추가",
-  "next_step": "승인결정 저장 후 별도잔광 구현·시간연속성/실화면 확인",
+  "next_step": "최종 잔광소스 자동전체검사 결과 확인",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -317,8 +317,11 @@
     "release_ready": false
   },
   "night_glow": {
-    "status": "approved",
+    "status": "related_native_verified",
     "deployed": false,
-    "release_authorized": false
+    "release_authorized": false,
+    "verification": "docs/qa/night-glow/VERIFICATION.json",
+    "native_frames": 18,
+    "day_pixels_changed": 0
   }
 }

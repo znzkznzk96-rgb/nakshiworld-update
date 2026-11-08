@@ -18,7 +18,7 @@ func run():
 	m.title_open=false;m.lesson_open=false;m.trans={};m.TUT.done=true;m.tip_t=0;m.S={"phase":"idle"}
 	var tile=m.environment.tile
 	check(tile.native and tile.root.get_viewport()==root,"native plate bypasses actor viewport")
-	check(tile.root.get_child_count()==1 and tile.plate.get_child_count()==3,"one approved plate with light, surface and scenery")
+	check(tile.root.get_child_count()==1 and tile.plate.get_child_count()==4,"one approved plate with sunlight, surface, scenery and night glow")
 	tile.scenery.animated=false;tile.scenery.elapsed=3;tile.scenery.queue_redraw()
 	for h in [480,540,660]:
 		root.content_scale_size=Vector2i(270,h);root.size=Vector2i(810,h*3)

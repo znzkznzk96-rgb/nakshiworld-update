@@ -7,6 +7,7 @@ var elapsed := 0.0
 var map_rect := Rect2()
 var native := false
 var native_canvas: CanvasLayer
+var night_glow:Node2D
 func setup(m) -> void:
 	root = Node2D.new();root.name = "ValleyLayers";root.z_index = -20
 	root.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
@@ -36,6 +37,8 @@ func setup(m) -> void:
 	var life := Node2D.new()
 	life.set_script(load("res://addons/reservoir/valley_life.gd"));life.valley=self
 	root.add_child(life);layers.life=life
+	night_glow=load("res://addons/reservoir/regional_night_glow.gd").new()
+	night_glow.profile=0;night_glow.source_size=Vector2(1080,2640);plate.add_child(night_glow)
 	root.hide()
 func layout(m) -> void:
 	var view: Vector2 = m.get_viewport_rect().size
@@ -51,6 +54,7 @@ func update(dt: float) -> void:
 		if kind != "plate": layers[kind].queue_redraw()
 func update_atmosphere(night:float) -> void:
 	plate.material.set_shader_parameter("night_strength",night)
+	night_glow.set_strength(night)
 	var tint:=Color.WHITE.lerp(Color(0.42,0.59,0.88),night)
 	for kind in ["reverse_waterfall","surface_reflection","life"]:
 		layers[kind].modulate=tint

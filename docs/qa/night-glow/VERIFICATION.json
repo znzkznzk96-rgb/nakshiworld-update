@@ -1,0 +1,58 @@
+{
+  "date": "2026-11-08",
+  "decision_commit": "8427ccf68cd130b0573325684cd34b4ca2ef031f",
+  "related_suites": {
+    "night_glow": "passed",
+    "regional_night": "passed",
+    "shared_vertical_light": "passed",
+    "tile_surface_water": "passed",
+    "tile_scenery": "passed"
+  },
+  "day_equivalence": {
+    "1": {
+      "day_unchanged": true,
+      "changed_pixels": 0
+    },
+    "2": {
+      "day_unchanged": true,
+      "changed_pixels": 0
+    }
+  },
+  "day_equivalence_height": 540,
+  "native": {
+    "regions": [
+      1,
+      2
+    ],
+    "hours": [
+      12,
+      18.5,
+      0
+    ],
+    "heights": [
+      480,
+      540,
+      660
+    ],
+    "frames": 18,
+    "passed": true
+  },
+  "time_transition": {
+    "evening": [
+      17,
+      20
+    ],
+    "dawn": [
+      5,
+      8
+    ],
+    "sampling": "every minute, monotonic, per-step strength delta below0.009"
+  },
+  "new_paid_generations": 0,
+  "published": false,
+  "public_release": "v1.11",
+  "full_ci": {
+    "status": "pending"
+  },
+  "comparison": "comparison.webp"
+}
