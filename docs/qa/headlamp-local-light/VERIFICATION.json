@@ -1,0 +1,194 @@
+{
+  "source_commit": "fce81ddb912403d93e5cdc26aabf6f1046f1fc66",
+  "local_related_suites": [
+    "night_play",
+    "night_glow",
+    "regional_night",
+    "fish_anchor_size",
+    "fight_body_size",
+    "angler_scene"
+  ],
+  "local_result": "passed",
+  "native_standard_frames": 24,
+  "native_additional_motion_poses": 16,
+  "native_additional_motion_frames": 4,
+  "native_light_off_frames": 2,
+  "pixel_comparison": {
+    "r1_changed_bounds": [
+      141,
+      585,
+      390,
+      819
+    ],
+    "r1_far_water_unchanged": true,
+    "r1_day_idle_unchanged": true,
+    "r1_day_fight_unchanged": true,
+    "r2_changed_bounds": [
+      129,
+      480,
+      378,
+      714
+    ],
+    "r2_far_water_unchanged": true,
+    "r2_day_idle_unchanged": true,
+    "r2_day_fight_unchanged": true
+  },
+  "full_ci": {
+    "run": 42484826948,
+    "status": "in_progress"
+  },
+  "deployed": false,
+  "release_ready": false,
+  "frames": [
+    {
+      "name": "r1_h480_t0_fight.png",
+      "bytes": 759726,
+      "sha256": "b907140cdd54daf749b64aaec16918b6bd3c1f7c4a17f43d0ffb7cde3a5f56c0"
+    },
+    {
+      "name": "r1_h480_t0_idle.png",
+      "bytes": 774337,
+      "sha256": "9d97ff84e132cd8f3953c91639ad0ce601b244d9cffb7ea84661e117e786c7a2"
+    },
+    {
+      "name": "r1_h480_t12_fight.png",
+      "bytes": 792395,
+      "sha256": "b4466e953aa212cd5d46790359c8a4e695d5417f4be5d5b58d1dfc43a1215468"
+    },
+    {
+      "name": "r1_h480_t12_idle.png",
+      "bytes": 809653,
+      "sha256": "c021574bd3e0be469a83471f72b0f6161e104cdca16fec64076820d97b5e92a7"
+    },
+    {
+      "name": "r1_h540_t0_fight.png",
+      "bytes": 868302,
+      "sha256": "aa4472f693cc93616bc75591dd613f09286dd5fc8b25707f2d655e77f374853e"
+    },
+    {
+      "name": "r1_h540_t0_idle.png",
+      "bytes": 884229,
+      "sha256": "0cde9f5bc48727f88c5162234c566473c48fd80eb6f1104773306fa104d01617"
+    },
+    {
+      "name": "r1_h540_t12_fight.png",
+      "bytes": 903139,
+      "sha256": "e8629bff3d620fca9bbf1bccdf9794a6ba77224bcf6239aafe90f3b40a70e1e5"
+    },
+    {
+      "name": "r1_h540_t12_idle.png",
+      "bytes": 922669,
+      "sha256": "8cfcbfaf1412184e3042b5c842441d0c3288dd0959f2fdb3203b170979fb89a6"
+    },
+    {
+      "name": "r1_h660_t0_fight.png",
+      "bytes": 1050729,
+      "sha256": "b5e84b77c572c7dfb1eb345ca9db2dcd35f9e4b9b15996fba086498e69066514"
+    },
+    {
+      "name": "r1_h660_t0_idle.png",
+      "bytes": 1069251,
+      "sha256": "b8c4c048399372a737c3e0373db07b7536664e2f7525e2634070633ac542a0d2"
+    },
+    {
+      "name": "r1_h660_t12_fight.png",
+      "bytes": 1102829,
+      "sha256": "59ece450f5bae710d4ae4804312bf942e81967cd1bc5dfb742da93598923c07a"
+    },
+    {
+      "name": "r1_h660_t12_idle.png",
+      "bytes": 1122763,
+      "sha256": "dc0e20d361e2132e714b37d0e407491b52bf4b11dfef053cef38db207226198b"
+    },
+    {
+      "name": "r1_helmet_cast.png",
+      "bytes": 893281,
+      "sha256": "d67f29626f87fbc56f58cdf31239c92bad73bbe20840b4be21bf536d02890389"
+    },
+    {
+      "name": "r1_helmet_fight.png",
+      "bytes": 868340,
+      "sha256": "81c0a79875f3861e4e7a9ca77218fc46b85ac08fb8349d9c2bb23e27f750df0b"
+    },
+    {
+      "name": "r1_helmet_light_off.png",
+      "bytes": 883432,
+      "sha256": "394bc761b4ae52f0112a59e09a12933b4a5b5db1ed54bac46583a03c5e8d8e7f"
+    },
+    {
+      "name": "r2_h480_t0_fight.png",
+      "bytes": 934140,
+      "sha256": "5a9f4180174b959de665564a72d84f777cb7a458623d676d6ee8c1df6e4c4d0d"
+    },
+    {
+      "name": "r2_h480_t0_idle.png",
+      "bytes": 958228,
+      "sha256": "023f6d79b936664dd6829715d34edb013fcbbcc0569a031ff16141334c169831"
+    },
+    {
+      "name": "r2_h480_t12_fight.png",
+      "bytes": 1054612,
+      "sha256": "f31a7f45f33738a73f88b989b452c5abada84bcdc7e370ba5546bdddd8708403"
+    },
+    {
+      "name": "r2_h480_t12_idle.png",
+      "bytes": 1083330,
+      "sha256": "666def230e052430a12afeef14afed0ad0405ac06b58ff7ade200ea24cb5fa44"
+    },
+    {
+      "name": "r2_h540_t0_fight.png",
+      "bytes": 1077368,
+      "sha256": "5adea7ee424841ba6cbc30623d0eae1185bd6cc54bad3d5272933fa5a5a0c6f2"
+    },
+    {
+      "name": "r2_h540_t0_idle.png",
+      "bytes": 1102019,
+      "sha256": "133563304b83c8611bdd6c6f8918a88772e74647a506ca560f30f6d3ad2b6fd0"
+    },
+    {
+      "name": "r2_h540_t12_fight.png",
+      "bytes": 1220574,
+      "sha256": "7415ec16a2c54f213d7143f16f13d2c028d7b0eab74f175ebca6fc2ef95bf5ff"
+    },
+    {
+      "name": "r2_h540_t12_idle.png",
+      "bytes": 1252825,
+      "sha256": "e6d371cbdb146528d638ce9037e109ae10518f8209775cd81254c8f98ab2d26c"
+    },
+    {
+      "name": "r2_h660_t0_fight.png",
+      "bytes": 1325298,
+      "sha256": "e943b664e751a8592dcbb69c02853d55021c4451f6bd28ce178b143c547e1ee0"
+    },
+    {
+      "name": "r2_h660_t0_idle.png",
+      "bytes": 1344447,
+      "sha256": "f606228146506e5c5b696e5b1dfe538423295c20d3b0711c85556c3198e262b3"
+    },
+    {
+      "name": "r2_h660_t12_fight.png",
+      "bytes": 1533982,
+      "sha256": "3543588a8155e3b14e2fc9f0756cff0619553f9d86f9ecbc1ed7f2a4c5c3256f"
+    },
+    {
+      "name": "r2_h660_t12_idle.png",
+      "bytes": 1557746,
+      "sha256": "296ed5c3ded6350a563ca347d59366f1537737ef1e9e101b91ce08c02b380b06"
+    },
+    {
+      "name": "r2_helmet_cast.png",
+      "bytes": 1106182,
+      "sha256": "115088a449d41e6453b760a7eb0cd17fcedeb4eb52841df01d8d33537319ee57"
+    },
+    {
+      "name": "r2_helmet_fight.png",
+      "bytes": 1077807,
+      "sha256": "cbcffafb2d5ba38f77b1ca12d3566945c02d491be20354cfdd2af10a43473cf9"
+    },
+    {
+      "name": "r2_helmet_light_off.png",
+      "bytes": 1101484,
+      "sha256": "120e1933da6e2214c615378cf54e17bc2ff019f8ec7c3f3f21ade75b8386b4d2"
+    }
+  ]
+}

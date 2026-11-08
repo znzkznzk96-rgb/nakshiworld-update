@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "headlamp_local_light_implemented_ci_pending",
+  "status": "headlamp_local_light_local_verified_full_ci_running",
   "release_baseline": "v1.11",
   "target_release": "v1.11",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/headlamp-local-light/HANDOFF.md",
   "current_task": "캐릭터 전체 밝기 상향을 되돌리고 실제 헤드랜턴 국소 빛 레이어 구현",
-  "next_step": "국소 빛 레이어 실제 ON/OFF 비교·전체 CI 결과 확인",
+  "next_step": "전체 CI 42484826948 결과·로그 확인 및 최종 기록",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -374,10 +374,13 @@
     "verification_artifact": 13618740687
   },
   "headlamp_local_light": {
-    "status": "implemented",
+    "status": "local_verified",
     "deployed": false,
     "release_authorized": false,
     "verification": "docs/qa/headlamp-local-light/VERIFICATION.json",
-    "release_ready": false
+    "release_ready": false,
+    "source_commit": "fce81ddb912403d93e5cdc26aabf6f1046f1fc66",
+    "ci_run": 42484826948,
+    "ci_status": "in_progress"
   }
 }
