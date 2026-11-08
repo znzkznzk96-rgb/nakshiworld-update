@@ -1,0 +1,29 @@
+{
+  "status": "related_passed_full_ci_running",
+  "local_related_suites": [
+    "audio_save",
+    "aquarium_b",
+    "guide",
+    "economy_balance"
+  ],
+  "save_boundaries_hours": [
+    0,
+    2,
+    3,
+    4,
+    8,
+    12,
+    -1
+  ],
+  "income_cap_hours": 3,
+  "pond_offline_recovery_hours": 8,
+  "duplicate_reload_tested": true,
+  "time_income_rate_unchanged": true,
+  "approved_art_changed": false,
+  "save_schema_changed": false,
+  "fish_prices_changed": false,
+  "deployed": false,
+  "release_ready": false,
+  "source_commit": "2605f84eb6aa0dadd5a66c80df0c67af86c64d7f",
+  "ci_run": 42500929931
+}

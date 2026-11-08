@@ -1,6 +1,6 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "offline_three_hours_local_verified_full_ci_pending",
+  "status": "offline_three_hours_full_ci_running",
   "release_baseline": "v1.11",
   "target_release": "v1.11",
   "deployed": true,
@@ -434,8 +434,10 @@
     "approved_hours": 3,
     "previous_hours": 8,
     "pond_recovery_hours": 8,
-    "status": "implemented_local_verified",
+    "status": "full_ci_running",
     "deployed": false,
-    "verification": "docs/qa/offline-three-hours/VERIFICATION.json"
+    "verification": "docs/qa/offline-three-hours/VERIFICATION.json",
+    "source_commit": "2605f84eb6aa0dadd5a66c80df0c67af86c64d7f",
+    "ci_run": 42500929931
   }
 }
