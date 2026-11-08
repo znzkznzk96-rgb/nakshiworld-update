@@ -267,6 +267,9 @@
     "verification": "docs/qa/fight-body-size/VERIFICATION.json",
     "deployed": false,
     "release_authorized": false,
-    "native_fight_landing_pass": true
+    "native_fight_landing_pass": true,
+    "ci_run": 42432192399,
+    "ci_status": "in_progress",
+    "source_commit": "466cb3c89301d4f952a03e96c6ccead1392b0aa5"
   }
 }

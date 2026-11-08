@@ -26,5 +26,9 @@
   "comparison": "comparison.webp",
   "public_release": "v1.10",
   "new_patch_published": false,
-  "full_ci": "pending final source checkpoint"
+  "full_ci": {
+    "run": 42432192399,
+    "source_commit": "466cb3c89301d4f952a03e96c6ccead1392b0aa5",
+    "status": "in_progress"
+  }
 }
