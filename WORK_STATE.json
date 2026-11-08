@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "owner_sale_prices_implemented_ci_pending",
+  "status": "owner_sale_prices_full_verified_not_deployed",
   "release_baseline": "v1.11",
   "target_release": "v1.11",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/owner-sale-500000/HANDOFF.md",
   "current_task": "주인판매가저수지8000·계곡40000·타일500000적용",
-  "next_step": "전체CI 완료 확인·원격 검증기록 저장; 배포금지",
+  "next_step": "현재 변경 검증완료·배포보류. 추가 밸런스 결정 또는 새 배포 승인 대기.",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -468,7 +468,7 @@
     "verification_artifact": 13626995881
   },
   "owner_reward_review": {
-    "status": "implemented_ci_pending",
+    "status": "implemented_full_verified",
     "approved_sale_prices": [
       8000,
       40000,
@@ -480,7 +480,9 @@
     "deployed": false,
     "source_commit": "ff92b0dee342c9e012bf6008cc3e82aec0dd5d0b",
     "ci_run": 42507823870,
-    "ci_status": "in_progress",
-    "verification": "docs/qa/owner-sale-500000/VERIFICATION.json"
+    "ci_status": "success",
+    "verification": "docs/qa/owner-sale-500000/VERIFICATION.json",
+    "unique_verify_results": 88,
+    "verification_artifact": 13628401994
   }
 }

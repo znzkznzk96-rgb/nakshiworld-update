@@ -4,10 +4,10 @@
 
 기존 가방/수족관/재구매 개체의 저장 가격 보존. 새 포획부터 새 가격 적용. 수족관은 기존 저장 판매가 연동을 유지하며 수입 분리는 미승인/미구현. 오프라인3시간 유지.
 
-REGIONAL_VERIFY 통과:3600 가격조합, 신규50만 포획, 기존13비늘 개체와 재구매/수족관 보존. 전체CI 대기.
+REGIONAL_VERIFY 통과:3600 가격조합, 신규50만 포획, 기존13비늘 개체와 재구매/수족관 보존. 전체CI 42507823870 성공:88개 고유VERIFY·오류0·native/PCK 통과.
 
 가격표: PRICE_TABLES.json. 재현 결과: RESULTS.json, evaluate.py. 기존 180092개 실제 Godot 추첨 기록을 재평가. 타일15조건(5seed×3미끼), 하루3h낚시/다음접속3h오프라인, 초기구형주인5·수족관6칸/배2강·연성3·초기현금0·고가주인교체 정책. approved500/linked: 목표4635000비늘 도달 중앙3일(2~3일), 실제낚시 중앙6.016h. 기존 일주일 결과는 새 주인가격에 적용 불가. 판매정책 최적화/다중접속/미니게임 실수 등에 따라 달라지며 필수번들 완료나 준비중 균열 입장 보장은 아님. separate_income 결과는 미적용 비교안.
 
-공개v1.11 유지, 배포/휴대폰 적용 안함. 다음: 전체CI 결과를 VERIFICATION.json에 저장. 새 공개배포 승인 없음.
+공개v1.11 유지, 배포/휴대폰 적용 안함. 다음: 새 요청 대기. 상세검증 VERIFICATION.json. 새 공개배포 승인 없음.
 
-구현 ff92b0dee342c9e012bf6008cc3e82aec0dd5d0b, 전체CI https://github.com/znzkznzk96-rgb/nakshiworld-update/actions/runs/42507823870 진행 중. 관련4검사 통과.
+구현 소스: ff92b0dee342c9e012bf6008cc3e82aec0dd5d0b. 전체CI: https://github.com/znzkznzk96-rgb/nakshiworld-update/actions/runs/42507823870 .
