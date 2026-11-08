@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "night_update_saved_deployment_on_hold",
+  "status": "weekly_five_owner_price_proposal_ready_not_applied",
   "release_baseline": "v1.11",
   "target_release": "v1.11",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/headlamp-local-light/HANDOFF.md",
-  "current_task": "주인5마리·적정업그레이드·하루3시간×약7일 목표 재시뮬레이션",
-  "next_step": "수족관6칸·배2회확장을 명시 가정으로 삼고 주인구성·배단계 민감도 비교 후 가격안 제시",
+  "current_task": "주인5마리·하루3시간·약7일 후보 분석 완료·주인18000안 제시",
+  "next_step": "수족관6칸·배2회·주인교체운영 가정과 새20종가격표 사용자 검토; 미확정가격 적용금지·배포금지",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -399,16 +399,21 @@
     "game_changed": false
   },
   "tile_price_proposal": {
-    "status": "rejected_too_fast",
-    "report": "docs/analysis/tile-price-proposals-20261108/REPORT.md",
-    "price_table": "docs/analysis/tile-price-proposals-20261108/PRICE_TABLE.md",
-    "results": "docs/analysis/tile-price-proposals-20261108/RESULTS.json",
-    "recommended": "rounded",
-    "draws": 180000,
-    "seeds": 5,
-    "game_changed": false,
-    "rejection_date": "2026-11-09",
-    "reason": "5~10시간 진행은 너무 빠르다는 사용자 피드백"
+    "status": "proposed_not_approved",
+    "recommended": "weekly_final",
+    "report": "docs/analysis/tile-weekly-five-owners-20261109/REPORT.md",
+    "price_table": "docs/analysis/tile-weekly-five-owners-20261109/PRICE_TABLE.md",
+    "results": "docs/analysis/tile-weekly-five-owners-20261109/RESULTS.json",
+    "reference_aquarium_slots": 6,
+    "reference_boat_expansions": 2,
+    "owner_count": 5,
+    "median_day": 7,
+    "observed_days": [
+      7,
+      8
+    ],
+    "draws": 60013,
+    "game_changed": false
   },
   "tile_pacing_target": {
     "date": "2026-11-09",
@@ -422,6 +427,7 @@
       "aquarium_slots": 6,
       "boat_expansions": 2
     },
-    "deployment_authorized": false
+    "deployment_authorized": false,
+    "analysis": "docs/analysis/tile-weekly-five-owners-20261109/REPORT.md"
   }
 }
