@@ -642,7 +642,9 @@
     "pr": 51,
     "verification": "docs/releases/113/VERIFICATION.json",
     "publication_run": 42529982880,
-    "publication_status": "in_progress",
-    "merge_commit": "7bd3091250cf9cb0d264611f57c074a7e7fb4789"
+    "publication_status": "resuming_attempt2_same_draft",
+    "merge_commit": "7bd3091250cf9cb0d264611f57c074a7e7fb4789",
+    "draft_id": 438562998,
+    "publication_first_failure": "created draft list visibility delay; existing draft/source verified"
   }
 }
