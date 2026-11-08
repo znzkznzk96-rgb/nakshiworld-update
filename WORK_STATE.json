@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "lantern_flame_fix_approved",
+  "status": "lantern_flame_fix_related_native_verified",
   "release_baseline": "v1.11",
   "target_release": "v1.11",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/lantern-flame-fix/HANDOFF.md",
   "current_task": "랜턴 불꽃중심 조명 교정·밤 전체 가독성 밝기 상향",
-  "next_step": "결정 원격확인 후 좁은 코어/후광 및 야간톤 수정",
+  "next_step": "최종 불꽃중심/밝기수정 소스 전체검사 확인",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -345,8 +345,11 @@
     "release_ready": false
   },
   "lantern_flame_fix": {
-    "status": "approved",
+    "status": "related_native_verified",
     "deployed": false,
-    "release_authorized": false
+    "release_authorized": false,
+    "verification": "docs/qa/lantern-flame-fix/VERIFICATION.json",
+    "native_frames": 24,
+    "day_pixels_changed": 0
   }
 }
