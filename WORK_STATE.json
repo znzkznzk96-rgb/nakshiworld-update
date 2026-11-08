@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "three_region_fish_prices_rebalance_in_progress",
+  "status": "three_region_prices_basis_saved_implementation_next",
   "release_baseline": "v1.11",
   "target_release": "v1.11",
   "deployed": true,
   "phone_verified": false,
-  "handoff": "docs/qa/offline-three-hours/HANDOFF.md",
-  "current_task": "오프라인3시간기준저수지·계곡·타일60종판매가재산정·적용",
-  "next_step": "3지역추첨/주간수입비교·가격표산정checkpoint후구현·세이브/관련/전체검증",
+  "handoff": "docs/qa/three-region-prices/HANDOFF.md",
+  "current_task": "3지역60종새가격표산정완료·구현준비",
+  "next_step": "공유가격원본적용·신규포획/기존저장개체검사·관련검사·전체CI",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -446,7 +446,7 @@
     "verification_artifact": 13626040474
   },
   "three_region_price_rebalance": {
-    "status": "scope_authorized_prices_under_analysis",
+    "status": "priced_basis_ready",
     "offline_income_hours": 3,
     "regions": [
       0,
@@ -457,6 +457,8 @@
     "target_days_approx": 7,
     "reference_owner_count": 5,
     "preserve_stored_specimen_prices": true,
-    "deployed": false
+    "deployed": false,
+    "price_table": "docs/qa/three-region-prices/PRICE_TABLE.md",
+    "simulation": "docs/qa/three-region-prices/SIMULATION.json"
   }
 }
