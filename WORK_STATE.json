@@ -6,8 +6,8 @@
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/headlamp-local-light/HANDOFF.md",
-  "current_task": "하루6시간×3~4일 목표로 타일 가격 재시뮬레이션",
-  "next_step": "일별6시간플레이+오프라인8시간정산·기존수족관자산 영향을 비교하고18~24시간 목표 적합안 제시",
+  "current_task": "하루6시간×3~4일 목표 확정·오프라인/기존수족관 포함 일별 분석 완료",
+  "next_step": "현행/소폭상향과 기존수족관 승계의 진행차이 검토; 최종가격·수족관 변경 미확정·배포금지",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -422,6 +422,7 @@
       24
     ],
     "status": "target_confirmed_prices_pending",
-    "deployment_authorized": false
+    "deployment_authorized": false,
+    "analysis": "docs/analysis/tile-pacing-6h-20261109/REPORT.md"
   }
 }
