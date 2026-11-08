@@ -41,7 +41,12 @@
   "public_release": "v1.11",
   "full_ci": {
     "run": 42443864008,
-    "status": "in_progress"
+    "status": "success",
+    "artifact": 13601969338,
+    "unique_verify_results": 85,
+    "candidate_artifact": 13603145571,
+    "candidate_publication_authorized": false,
+    "note": "Job steps metadata was empty while the real workflow was running. Completed full logs prove regional/native/global/PCK success. Local fallback was initiated before completion was visible, then aborted when remote success was confirmed; no extra local build retained."
   },
   "comparison": "comparison.webp",
   "source_commit": "d831857a8035ae58fc37f221738e9a3c5de34aaa",
