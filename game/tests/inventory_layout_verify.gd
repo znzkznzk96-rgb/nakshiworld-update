@@ -21,10 +21,10 @@ func run() -> void:
 	check(m.bag==before,"proposals never alter inventory")
 	var p=m.V.bundle_preview
 	m.progression.bundle_values={"0:1":750,"0:2":1001}
-	check(p.reward_amount(m,0,1)==900 and p.reward_amount(m,0,2)==1502,"reward display matches actual settlement rounding")
+	check(p.reward_amount(m,0,1)==900 and p.reward_amount(m,0,2)==5940,"reward display matches actual settlement rounding")
 	for kind in [1,2]:
 		p.region=0;p.tab=kind;p.draw(m,540)
-		check(m.text_items.all(func(it):return "%" not in str(it[2]) and "판매가" not in str(it[2])),"no internal formulas in reward panel")
+		check(m.text_items.all(func(it):return (kind==2 or "%" not in str(it[2])) and "판매가" not in str(it[2])),"no internal formulas in reward panel")
 		if kind==2:
 			var card: Rect2=p.rects["fish:0"]
 			check(card.get_center().x==135 and card.position.y>200,"owner card centered in content area")

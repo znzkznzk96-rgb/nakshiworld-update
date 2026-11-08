@@ -2,7 +2,7 @@
 import argparse, hashlib, json, os, pathlib, subprocess, time, zipfile
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 INPUTS = ['game', 'automation', '.github/workflows/verify-work.yml', '.github/workflows/release-patch.yml']
-TOOLS = {'godot':'4.4.1.stable', 'baseline':'v1.09', 'baseline_sha256':'2814eacc410710ccf71514a655c3955b4210efe64512f35daf3eb2602c6b5b1f'}
+TOOLS = {'godot':'4.4.1.stable', 'baseline':'v1.10', 'baseline_sha256':'f54abc1ba4529a9a3f9f1fe1dca2a6a4c249d12e3f598be70b1de98092d850a2'}
 def git(*args):
     return subprocess.check_output(['git', *args], cwd=ROOT).decode().strip()
 def fingerprint():
@@ -66,26 +66,34 @@ def publish(out):
         found=(temp,c);break
     assert found,'No successful candidate with exact source/settings/tool fingerprint; verification/build must finish first'
     temp,c=found;tag='v'+c['version']['name']
-    existing=subprocess.run(['gh','release','view',tag,'--json','isDraft,targetCommitish'],capture_output=True,text=True)
+    # Draft tag endpoints can return404. Resolve the existing release by ID.
+    matches=[r for r in json.loads(subprocess.check_output(['gh','api',f'repos/{repo}/releases?per_page=100'])) if r['tag_name']==tag]
+    assert len(matches)<=1,'Ambiguous release tag'
     notes=json.loads((ROOT/'automation/release-history.json').read_text())[0];assert notes['id']==c['version']['name']
     notes_path=out/'release-notes.md';notes_path.write_text('\n'.join('- '+s for s in notes['body'])+'\n')
-    if existing.returncode==0:
-        info=json.loads(existing.stdout)
-        if not info['isDraft']:
-            public=json.loads(subprocess.check_output(['gh','api',f'repos/{repo}/releases/tags/{tag}']))
-            assert public['target_commitish']==c['source_commit'],'Already published from a different source'
+    if matches:
+        public=matches[0]
+        assert public['target_commitish']==c['source_commit'],'Unrelated release source: inspect before continuing'
+        if not public['draft']:
             for name,m in c['files'].items():
                 asset=next(a for a in public['assets'] if a['name']==name)
                 assert asset['size']==m['size'] and asset['digest']=='sha256:'+m['sha256']
             save(out/'PUBLISH_RESULT.json',{'tag':tag,'candidate_run':c['run_id'],'source_commit':c['source_commit'],'already_published':True,'rebuild':False});return
-        assert info['targetCommitish']==c['source_commit'],'Unrelated draft: inspect before continuing'
-    else: subprocess.run(['gh','release','create',tag,'--target',c['source_commit'],'--draft','--title','낚시월드 '+tag,'--notes-file',str(notes_path)],check=True,timeout=60)
+    else:
+        subprocess.run(['gh','release','create',tag,'--target',c['source_commit'],'--draft','--title','낚시월드 '+tag,'--notes-file',str(notes_path)],check=True,timeout=60)
+        matches=[r for r in json.loads(subprocess.check_output(['gh','api',f'repos/{repo}/releases?per_page=100'])) if r['tag_name']==tag]
+        assert len(matches)==1,'Created draft not found'
+        public=matches[0]
+        assert public['draft'] and public['target_commitish']==c['source_commit'],'Unexpected created release'
+    release_id=public['id']
     subprocess.run(['gh','release','upload',tag,*[str(temp/n) for n in c['files']],'--clobber'],check=True,timeout=180)
     # A failed upload leaves a draft. Repeating publish resumes upload without rebuilding.
-    assets=json.loads(subprocess.check_output(['gh','api',f'repos/{repo}/releases/tags/{tag}']))['assets']
+    assets=json.loads(subprocess.check_output(['gh','api',f'repos/{repo}/releases/{release_id}']))['assets']
     for name,m in c['files'].items():
         a=next(a for a in assets if a['name']==name);assert a['size']==m['size'] and a['digest']=='sha256:'+m['sha256']
-    subprocess.run(['gh','release','edit',tag,'--draft=false','--latest'],check=True,timeout=60)
+    subprocess.run(['gh','api','--method','PATCH',f'repos/{repo}/releases/{release_id}','--input','-'],input=json.dumps({'draft':False,'make_latest':'true'}).encode(),check=True,timeout=60,stdout=subprocess.DEVNULL)
+    published=json.loads(subprocess.check_output(['gh','api',f'repos/{repo}/releases/{release_id}']))
+    assert not published['draft'] and published['tag_name']==tag
     save(out/'PUBLISH_RESULT.json',{'tag':tag,'candidate_run':c['run_id'],'source_commit':c['source_commit'],'publish_seconds':round(time.monotonic()-start,3),'rebuild':False})
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('action',choices=['seal','publish']);p.add_argument('--project',type=pathlib.Path);p.add_argument('--out',type=pathlib.Path,required=True);a=p.parse_args()

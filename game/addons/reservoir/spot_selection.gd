@@ -16,7 +16,6 @@ var notice: = ""
 var notice_until: = 0.0
 func setup() -> void :
 	for n in ART: images.append(load("res://art/refresh53/%s.png" % ("reservoir_clean" if n == "reservoir" else n)))
-	images[2]=load(preload("res://addons/reservoir/tile_environment.gd").PLATE_PATH)
 	chains = load("res://art/refresh53/chains.png")
 func enter() -> void : pointer = false;dragging = false;shift = 0;scroll = index;notice = ""
 func process(dt: float) -> void :

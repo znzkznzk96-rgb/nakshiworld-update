@@ -189,11 +189,11 @@ func landing(m,t: float,rod_tip: Vector2) -> void:
 	var geometry: Dictionary=landing_pose(elapsed,float(m.S.netEnd),rod_tip,m.WATER)
 	var lf: Dictionary=m.S.get("lastF",{})
 	var scale: float=float(lf.get("scale",.65))
+	var length: float=float(lf.get("body_length",m._fish_display_length(m.S.star,scale,false,m.S.sp)))
 	var pose: Dictionary=m.pose_for("swim",m.S.star,0).duplicate()
 	pose.tilt=geometry.angle;pose.amp=.023;pose.curl=0;pose.tailAmp=.8
-	m._shadow_fish(geometry.mouth,m.S.star,m.S.grade,t,"hanging",false,scale,pose,elapsed*TAU*1.8,m.S.sp,1.0,1.0)
+	m._shadow_fish(geometry.mouth,m.S.star,m.S.grade,t,"hanging",false,scale,pose,elapsed*TAU*1.8,m.S.sp,1.0,1.0,length)
 	m._line(rod_tip,m.fish_mouth,Color(1,1,1,.8))
-	var length: float=m._fish_display_length(m.S.star,scale,false,m.S.sp)
 	# Detached drops use the tail's earlier emission position plus gravity.
 	for i in 7:
 		var age: float=fposmod(elapsed+i*.097,.68)

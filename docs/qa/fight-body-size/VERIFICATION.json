@@ -1,0 +1,41 @@
+{
+  "date": "2026-11-08",
+  "baseline": "v1.10",
+  "baseline_source_sha256": "f54abc1ba4529a9a3f9f1fe1dca2a6a4c249d12e3f598be70b1de98092d850a2",
+  "godot": "4.4.1.stable.official.49a5bc7b6",
+  "related_checks": [
+    "fight_body_size",
+    "fish_anchor_size",
+    "fish_presentation",
+    "angler_scene"
+  ],
+  "native": {
+    "renderer": "OpenGL llvmpipe",
+    "size": [
+      810,
+      1620
+    ],
+    "species": [
+      42,
+      49,
+      59
+    ],
+    "fight_and_landing": "passed",
+    "same_frame_mouth": "passed"
+  },
+  "comparison": "comparison.webp",
+  "public_release": "v1.10",
+  "new_patch_published": false,
+  "full_ci": {
+    "run": 42432192399,
+    "source_commit": "466cb3c89301d4f952a03e96c6ccead1392b0aa5",
+    "status": "success",
+    "artifact": 13597648289,
+    "results": {
+      "unique_passed": 82,
+      "new_test_passed": true
+    },
+    "candidate_artifact": 13598580693,
+    "candidate_publication_authorized": false
+  }
+}
