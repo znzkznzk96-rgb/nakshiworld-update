@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "owner_only_income_separation_fixed_unlock_analysis",
+  "status": "owner_only_fixed_fee_simulation_verified_not_applied",
   "release_baseline": "v1.12",
   "target_release": "v1.12",
   "deployed": true,
   "phone_verified": false,
-  "handoff": "docs/analysis/owner-income-unlock-20261109/HANDOFF.md",
-  "current_task": "주인만 전시수입 분리·해금비4635000 고정 비교",
-  "next_step": "현행해금비 고정·주인기준값별 재분석; 구체값/이행정책 미정·구현배포 없음",
+  "handoff": "docs/analysis/owner-income-fixed-fee-20261109/HANDOFF.md",
+  "current_task": "주인 전시수입분리·현행해금비 고정 시뮬 완료",
+  "next_step": "타일주인 전시기준6만 추천 검토; 해금비4635000 유지로 약7일 목표는 미충족; 구현배포 없음",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -591,9 +591,12 @@
       500000
     ],
     "unlock_fee": 4635000,
-    "income_bases": "pending_simulation",
+    "income_bases": "recommended_8000_40000_60000_not_approved",
     "ordinary_income": "unchanged_sale_linked",
     "implemented": false,
-    "deployed": false
+    "deployed": false,
+    "status": "simulation_completed_not_implemented",
+    "report": "docs/analysis/owner-income-fixed-fee-20261109/REPORT.md",
+    "verification": "docs/analysis/owner-income-fixed-fee-20261109/VERIFICATION.json"
   }
 }

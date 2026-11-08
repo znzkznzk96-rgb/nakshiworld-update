@@ -1,0 +1,25 @@
+{
+  "status": "analysis_verified_not_implemented",
+  "source_commit": "fe95f5593f6ba2a133caf81cee69bd70bf00cf15",
+  "baseline_head": "f14b9ae69743dda5cafa887bad1125ef34caf483",
+  "game_diff_since_trace_source": false,
+  "trace_hashes": {
+    "joint-owner-ledger.json": "540762c512fa9adb8351dbe601d8b19fe816ea6e0dd76d03db6217b7951447ac",
+    "joint-owner-max-ledger.json": "c1fe88fd56c0e0155b8645349405487af3432b676483e31199fafba776f70f93"
+  },
+  "trace_draws_reused": 1085597,
+  "new_godot_draws": 0,
+  "primary_paths": 30480,
+  "all_offline_sensitivity_paths": 91440,
+  "price_parity_samples": 1085597,
+  "price_mismatches": 0,
+  "prior_three_policy_parity_groups": 32,
+  "independent_sale_only_paths": 240,
+  "cash_conservation_and_owner_uniqueness_asserted": true,
+  "calculation_precision": "Godot left-to-right multiplication order; positive round floor(x+.5)",
+  "intermediate_paths_sha256": "94dd66b0bd43a3377dc520844bc33fc84eeea6143bcd49b2643fb12af3f55176",
+  "intermediate_reproducible": true,
+  "game_changed": false,
+  "deployed": false,
+  "public_release": "v1.12"
+}
