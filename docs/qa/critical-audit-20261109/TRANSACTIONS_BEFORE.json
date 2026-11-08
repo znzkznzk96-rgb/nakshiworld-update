@@ -1,0 +1,22 @@
+[
+  {
+    "case": "buyback_real_write_failure",
+    "memory_unchanged": false,
+    "reported_result": true
+  },
+  {
+    "case": "sell_all_real_write_failure",
+    "memory_unchanged": false,
+    "reported_result": null
+  },
+  {
+    "case": "aqua_expand_real_write_failure",
+    "memory_unchanged": false,
+    "reported_result": true
+  },
+  {
+    "case": "merge_real_write_failure",
+    "memory_unchanged": false,
+    "reported_result": null
+  }
+]

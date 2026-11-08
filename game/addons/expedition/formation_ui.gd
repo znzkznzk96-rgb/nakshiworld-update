@@ -24,7 +24,7 @@ func draw(owner,m,y:float,bottom:float)->void:
   var u:Dictionary=data.unit(data.team[slot]) if slot<data.team.size() else {}
   var spec:Dictionary=data.catalog.soldiers[int(u.id)] if not u.is_empty() else {}
   var r:=Rect2(18+visual*80,y,74,92 if compact else 111)
-  m._ui_style_box(m.sb_chip,r)
+  v.card(m,r)
   m._ui_rect(Rect2(r.position+Vector2(5,5),Vector2(64,14)),Color("e1e7d8"))
   label(m,["앞","중간","뒤"][slot],r.position+Vector2(37,15),9,green,true,64)
   if not u.is_empty():
@@ -59,7 +59,7 @@ func draw(owner,m,y:float,bottom:float)->void:
   var u:Dictionary=units[i];var spec:Dictionary=data.catalog.soldiers[int(u.id)]
   var r:=Rect2(18+(i%2)*119,y+floori(i/2.0)*70-roundf(v.formation_scroll),115,66)
   if r.position.y<y or r.end.y>v.formation_viewport.end.y:continue
-  m._ui_style_box(m.sb_chip,r)
+  v.card(m,r)
   sprite(m,int(u.id),Rect2(r.position+Vector2(70,3),Vector2(34,32)),int(u.star))
   stars(m,u,r.position+Vector2(7,17))
   label(m,"강화 +%d"%u.get("level",0),r.position+Vector2(7,30),8)

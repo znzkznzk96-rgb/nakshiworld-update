@@ -1,0 +1,77 @@
+{
+  "status": "full_verified",
+  "baseline_reused": {
+    "source": "8ddaf799becc8779edbab1a3912cbf9ed9de9ac8",
+    "run": 42517742751,
+    "passed_suites": 88
+  },
+  "source_commit": "5af8315a183170336e52b32d28570eca1b8171f7",
+  "ci_run": 42520510386,
+  "ci_status": "success",
+  "related_suites": [
+    "equipment",
+    "bundles_buyback",
+    "aquarium_b",
+    "audio_save",
+    "management101",
+    "valley093",
+    "shop",
+    "odds_rewards"
+  ],
+  "real_io_failure_trials": 1100,
+  "battle_trials": 3000,
+  "battle_ticks": 69510,
+  "battle_state_roundtrips": 372,
+  "economy_conditions": 270,
+  "economy_actual_godot_draws": 180092,
+  "remote_code_files_equal": 10,
+  "deployed": false,
+  "phone_verified": false,
+  "prior_ci_run": 42520058429,
+  "prior_ci_failure": "preview-mode purchase test expected success despite writes disabled; fixture corrected",
+  "additional_local_passed": 27,
+  "unique_verify_results": 88,
+  "errors": [],
+  "native_and_pck": "passed",
+  "release_ready": false,
+  "artifacts": [
+    {
+      "id": 13633471908,
+      "name": "work-verification",
+      "size_in_bytes": 132973355,
+      "url": "https://api.github.com/repos/znzkznzk96-rgb/nakshiworld-update/actions/artifacts/13633471908",
+      "archive_download_url": "https://api.github.com/repos/znzkznzk96-rgb/nakshiworld-update/actions/artifacts/13633471908/zip",
+      "expired": false,
+      "created_at": "2026-11-08T20:38:37Z",
+      "expires_at": "2027-02-06T20:31:01Z",
+      "updated_at": "2026-11-08T20:38:37Z",
+      "digest": "sha256:5b792929560b488c1e91b78c843a9728085cf6708979ec7a1586edf28d8127b2",
+      "workflow_run": {
+        "id": 42520510386,
+        "repository_id": 1423971848,
+        "head_repository_id": 1423971848,
+        "head_branch": "work/tile-release-107",
+        "head_sha": "5af8315a183170336e52b32d28570eca1b8171f7"
+      }
+    },
+    {
+      "id": 13633283188,
+      "name": "release-candidate-be8c5aca4c72e835e9498d7c45ca46049b563f39ec3ff2afc54290095b82b796",
+      "size_in_bytes": 117445909,
+      "url": "https://api.github.com/repos/znzkznzk96-rgb/nakshiworld-update/actions/artifacts/13633283188",
+      "archive_download_url": "https://api.github.com/repos/znzkznzk96-rgb/nakshiworld-update/actions/artifacts/13633283188/zip",
+      "expired": false,
+      "created_at": "2026-11-08T20:38:31Z",
+      "expires_at": "2026-12-08T20:38:27Z",
+      "updated_at": "2026-11-08T20:38:31Z",
+      "digest": "sha256:01be2b84e0ce97a562113a17313d09d6581c2918f90358a98a33ca56a8ad2e64",
+      "workflow_run": {
+        "id": 42520510386,
+        "repository_id": 1423971848,
+        "head_repository_id": 1423971848,
+        "head_branch": "work/tile-release-107",
+        "head_sha": "5af8315a183170336e52b32d28570eca1b8171f7"
+      }
+    }
+  ]
+}

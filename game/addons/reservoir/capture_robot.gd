@@ -29,6 +29,13 @@ var escrow := 0.0
 var progress := 0.0
 var job: Dictionary = {}
 var fish: Array = []
+var list_scroll:=0.0
+var list_view:=Rect2()
+var list_max:=0.0
+var pointer:=-1
+var drag_start:=Vector2.ZERO
+var dragging:=false
+var last_touch:=-1000
 var opened := false
 var button := Rect2()
 var rects := {}
@@ -39,7 +46,7 @@ var notice := ""
 func serialize() -> Dictionary:
 	return {"owned":owned,"enabled":enabled,"speed":speed,"capacity":capacity,"precision":precision,"escrow":escrow,"progress":progress,"job":job.duplicate(true),"fish":fish.duplicate(true)}
 func valid_fish(f: Variant) -> bool:
-	return f is Dictionary and int(f.get("sp",-1)) in range(40) and int(f.get("star",-1)) in range(4) and int(f.get("grade",-1)) in range(4) and is_finite(float(f.get("w",0))) and float(f.get("w",0))>0
+	return f is Dictionary and int(f.get("sp",-1)) in range(60) and int(f.get("star",-1)) in range(4) and int(f.get("grade",-1)) in range(4) and is_finite(float(f.get("w",0))) and float(f.get("w",0))>0
 func restore(d: Dictionary) -> void:
 	owned=bool(d.get("owned",false));enabled=owned and bool(d.get("enabled",false))
 	speed=clampi(int(d.get("speed",0)),0,RATES.size()-1);capacity=clampi(int(d.get("capacity",0)),0,CAPS.size()-1);precision=clampi(int(d.get("precision",0)),0,3)
@@ -285,7 +292,8 @@ func draw_surface(m) -> void:
 		button=Rect2()
 func draw_panel(m,h: float) -> void:
 	if not opened: return
-	rects={};var r:=Rect2(16,maxf(80,(h-250)/2),238,250)
+	rects={};var panel_h:float=minf(410,h-140)
+	rects={};var r:=Rect2(16,maxf(70,(h-panel_h)/2),238,panel_h)
 	# Text is rendered after all UI surfaces: discard occluded lower-layer labels.
 	var behind:Array=[]
 	for item in m.text_items:
@@ -294,12 +302,53 @@ func draw_panel(m,h: float) -> void:
 	m.text_items=behind
 	m._ui_rect(Rect2(0,0,270,h),Color(0,0,0,.65));m._ui_style_box(m.sb_panel,r)
 	m._text("포획 로봇",r.position+Vector2(119,26),14,Color("493421"),true)
-	draw_robot(m,Rect2(r.position+Vector2(71,37),Vector2(96,48)))
-	m._text("%d마리/h · 보관 %d/%d"%[RATES[speed],fish.size(),CAPS[capacity]],r.position+Vector2(119,108),11,Color("493421"),true,216)
-	row(m,Rect2(r.position+Vector2(15,124),Vector2(98,30)),"작동 ON" if enabled else "작동 OFF","toggle")
-	row(m,Rect2(r.position+Vector2(125,124),Vector2(98,30)),"모두 받기","collect")
-	m._text(notice if notice!="" else "접속 중 작동 · 강화는 대장간에서",r.position+Vector2(119,177),9,Color("68533d"),true,210)
-	row(m,Rect2(r.position+Vector2(15,198),Vector2(208,30)),"닫기","close")
+	draw_robot(m,Rect2(r.position+Vector2(87,31),Vector2(64,32)))
+	m._text("%d마리/h · 보관 %d/%d"%[RATES[speed],fish.size(),CAPS[capacity]],r.position+Vector2(119,79),10,Color("493421"),true,216)
+	row(m,Rect2(r.position+Vector2(15,90),Vector2(98,28)),"작동 ON" if enabled else "작동 OFF","toggle")
+	row(m,Rect2(r.position+Vector2(125,90),Vector2(98,28)),"모두 받기","collect")
+	list_view=Rect2(r.position+Vector2(14,127),Vector2(210,r.size.y-204))
+	var rows:int=maxi(1,floori(list_view.size.y/34.0))
+	list_max=maxf(0,(fish.size()-rows)*34.0);list_scroll=clampf(list_scroll,0,list_max)
+	m._ui_rect(list_view,Color("e0e8d5"))
+	var first:int=floori(list_scroll/34.0)
+	if fish.is_empty(): m._text("보관 중인 물고기가 없어요",list_view.get_center()+Vector2(0,3),9,Color("493421"),true,196)
+	for i in rows:
+		var index:int=first+i
+		if index>=fish.size():break
+		var f:Dictionary=fish[index];var sp:int=int(f.sp)
+		var rr:=Rect2(list_view.position+Vector2(2,i*34),Vector2(204,32))
+		m._ui_texture_rect(m.fish_tex[sp],Rect2(rr.position+Vector2(3,3),Vector2(29,25)))
+		m._text(m.FISH_NAME[sp],rr.position+Vector2(36,13),9,Color("382619"),false,162)
+		m._text("★%d단계 · %s · %.1fcm"%[int(f.star)+1,m.GRADE_N[int(f.grade)],float(f.len)],rr.position+Vector2(36,27),8,Color("4e6558"),false,164)
+	if list_max>0:
+		var thumb:float=maxf(12,list_view.size.y*rows/maxi(1,fish.size()))
+		m._ui_rect(Rect2(list_view.end.x-3,list_view.position.y+list_scroll/list_max*(list_view.size.y-thumb),2,thumb),Color("397d78"))
+	m._text(notice if notice!="" else "휠 / 위아래로 밀어 보관 내역 보기",Vector2(135,r.end.y-58),8,Color("68533d"),true,210)
+	row(m,Rect2(r.position+Vector2(15,r.size.y-42),Vector2(208,28)),"닫기","close")
+
+func input_event(m,e:InputEvent) -> bool:
+	if (e is InputEventMouseButton or e is InputEventMouseMotion) and e.device==-1 and Time.get_ticks_msec()-last_touch<500:return true
+	if not opened: return false
+	if e is InputEventMouseButton:
+		if e.device==-1 and Time.get_ticks_msec()-last_touch<500:return true
+		var pos:Vector2=e.position-Vector2(m.ox,0)
+		if e.pressed and list_view.has_point(pos) and e.button_index in [MOUSE_BUTTON_WHEEL_UP,MOUSE_BUTTON_WHEEL_DOWN]:
+			list_scroll=clampf(list_scroll+(34 if e.button_index==MOUSE_BUTTON_WHEEL_DOWN else -34),0,list_max);return true
+		if e.button_index==MOUSE_BUTTON_LEFT and e.pressed:press(m,pos)
+		return true
+	if e is InputEventScreenTouch:
+		last_touch=Time.get_ticks_msec()
+		if e.pressed:pointer=e.index;drag_start=e.position;dragging=false
+		elif pointer==e.index:
+			pointer=-1
+			if not dragging and not e.canceled:press(m,e.position-Vector2(m.ox,0))
+		return true
+	if e is InputEventScreenDrag and pointer==e.index:
+		last_touch=Time.get_ticks_msec();dragging=dragging or e.position.distance_to(drag_start)>5
+		if dragging and list_view.has_point(drag_start-Vector2(m.ox,0)):list_scroll=clampf(list_scroll-e.relative.y,0,list_max)
+		return true
+	return true
+
 func press(m,pos: Vector2) -> bool:
 	if opened:
 		for key in rects:

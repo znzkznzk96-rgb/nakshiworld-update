@@ -626,6 +626,13 @@ func _act(m, a: String) -> void :
 	if m.equipment.act(m, a): return
 	if enhancement.act(self, m, a): return
 	if aquarium.act(self, m, a): return
+	# Common purchase/sale transaction. Nested equipment changes do not save separately.
+	var before:Dictionary={}
+	for field in ["gold","souls","bait","boat_lv","pond_cap_lv","pond_regen_lv","rod_lv","rod_owned","bag_lv","parts_owned","bag"]:
+		var value=m.get(field);before[field]=value.duplicate(true) if value is Array or value is Dictionary else value
+	var old_equipment:Dictionary=m.equipment.serialize().duplicate(true)
+	var old_region:Dictionary=m.region_shop.serialize().duplicate(true)
+	var old_buyback:Dictionary=m.buyback.serialize()
 	var k = a.split(":")
 	var n = int(k[1]) if k.size() > 1 else 0
 	match k[0]:
@@ -652,7 +659,7 @@ func _act(m, a: String) -> void :
 			var slot: int=int(k[2]);var key: String=m.region_shop.part_key(n,slot)
 			m.gold-=int(q.price);m.parts_owned.append(key)
 			if key not in m.equipment.unlocked_parts: m.equipment.unlocked_parts.append(key)
-			m.equipment.equip(m,"part:"+key,true);m.play("catch")
+			m.equipment.equip(m,"part:"+key,true,false);m.play("catch")
 		"bait":
 			var q: Dictionary=commerce.quote(self,m,a)
 			if q.is_empty() or m.gold<q.price: return
@@ -681,7 +688,7 @@ func _act(m, a: String) -> void :
 			m.gold -= ROD_COST[n];m.equipment.rods.append(n);m.equipment.rod_equipped = true;m.rod_lv = n;m.rod_owned = maxi(m.rod_owned, n);m.play("catch");m.show_toast(ROD_NAME[n] + " 구매 완료!")
 		"forgetab": forge_tab = k[1]
 		"equip":
-			m.equipment.equip(m, "rod:%d" % n, true)
+			m.equipment.equip(m, "rod:%d" % n, true,false)
 		"part":
 			var q: Dictionary = commerce.quote(self, m, a)
 			if q.is_empty() or m.gold < q.price: return
@@ -702,10 +709,13 @@ func _act(m, a: String) -> void :
 		"sell":
 			var f: Dictionary = m.bag[n]
 			m.buyback.remember(f);m.gold += int(f.price);m.bag.remove_at(n);commerce.report(m,"판매 완료 · +%d 비늘"%int(f.price),int(f.price));m.play("catch")
-		"sellall": m.sell_all()
+		"sellall": m.sell_all();return
 		"clean":
 			var f: Dictionary = m.bag[n]
 			m.souls += soul_of(f);m.bag.remove_at(n);m.show_toast("혼 +%d" % soul_of(f), Color("9fd8ff"));m.play("splash_s", -6.0)
+	if not m._save_game():
+		for field in before:m.set(field,before[field])
+		m.equipment.restore(m,old_equipment);m.region_shop.restore(old_region);m.buyback.restore(old_buyback)
+		commerce.report(m,"저장하지 못했어요. 거래가 취소됐어요.");m.show_toast(commerce.notice,Color("ffdc96"));return
 	m.buzz(30)
-	m._save_game()
 

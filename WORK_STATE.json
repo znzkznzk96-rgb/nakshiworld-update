@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "release112_published_verified",
+  "status": "release113_verified_ready_to_publish",
   "release_baseline": "v1.12",
-  "target_release": "v1.12",
+  "target_release": "v1.13",
   "deployed": true,
   "phone_verified": false,
-  "handoff": "docs/releases/112/HANDOFF.md",
-  "current_task": "v1.12공개/운영검증완료",
-  "next_step": "휴대폰 게임내 업데이트 후 실제 적용 확인; 새 변경은 별도 승인",
+  "handoff": "docs/releases/113/HANDOFF.md",
+  "current_task": "v1.13전체88/실화면/PCK검증통과·공개준비",
+  "next_step": "PR51반영후동일후보공개→운영다운로드검증",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -118,7 +118,7 @@
     "production_balance_changed": false,
     "phone_tested": false
   },
-  "release_authorized": false,
+  "release_authorized": true,
   "balance110": {
     "applied": true,
     "deployed": true,
@@ -387,11 +387,10 @@
   },
   "latest_release_instruction": {
     "date": "2026-11-09",
-    "request": "업데이트및 배포가자 ㅇㅇ",
+    "request": "일단그럼 기존로 두고 업데이트 및 배포하자 ㅇㅇ",
     "authorized": true,
-    "scope": "밤조명/헬멧랜턴·3지역가격·오프라인3h·주인종별1마리",
-    "publication_started": true,
-    "fulfilled": true
+    "scope": "기존밸런스유지·UI/로봇목록/거래안전",
+    "fulfilled": false
   },
   "economy_analysis": {
     "report": "docs/analysis/tile-income-20261108/REPORT.md",
@@ -519,5 +518,128 @@
     "draft_id": 438457348,
     "gateway_verification_run": 42513581900,
     "gateway_verification_status": "success"
+  },
+  "ui_contrast": {
+    "status": "implemented_full_verified",
+    "scope": "exploration/alchemy buttons and soldier cards",
+    "window_background": "unchanged",
+    "deployed": false,
+    "verification": "docs/qa/expedition-ui-contrast/VERIFICATION.json",
+    "source_commit": "639f6c458335eb3c3f447b074cfb91bda10026fe",
+    "ci_run": 42515709162,
+    "ci_status": "success",
+    "palette_confirmed": true,
+    "unique_verify_results": 88
+  },
+  "robot_ui_details": {
+    "status": "implemented_full_verified",
+    "source_commit": "8ddaf799becc8779edbab1a3912cbf9ed9de9ac8",
+    "ci_run": 42517742751,
+    "ci_status": "success",
+    "verification": "docs/qa/robot-ui-details/VERIFICATION.json",
+    "deployed": false,
+    "unique_verify_results": 88
+  },
+  "audit": {
+    "status": "completed_fixes_full_verified",
+    "source_commit": "5af8315a183170336e52b32d28570eca1b8171f7",
+    "ci_run": 42520510386,
+    "ci_status": "success",
+    "transaction_failure_trials": 1100,
+    "battle_trials": 3000,
+    "economy_conditions": 270,
+    "report": "docs/qa/critical-audit-20261109/REPORT.md",
+    "deployed": false,
+    "prior_ci_run": 42520058429,
+    "prior_ci_failure": "economy_balance preview save disabled; fixture corrected",
+    "additional_local_passed": 27,
+    "unique_verify_results": 88,
+    "verification": "docs/qa/critical-audit-20261109/VERIFICATION.json",
+    "balance_changed": false
+  },
+  "joint_balance_proposal": {
+    "status": "superseded_unlock_increase_not_adopted",
+    "owner_sale_bases": [
+      8000,
+      40000,
+      500000
+    ],
+    "owner_aquarium_income_bases": [
+      8000,
+      16000,
+      60000
+    ],
+    "next_unlock_fee": 25000000,
+    "reference_median_day": 7,
+    "reference_tank_slots": 20,
+    "reference_boat_level": 5,
+    "actual_draws": 1085597,
+    "economic_paths": 12960,
+    "threshold_evaluations": 466560,
+    "report": "docs/analysis/owner-income-unlock-20261109/REPORT.md",
+    "verification": "docs/analysis/owner-income-unlock-20261109/VERIFICATION.json",
+    "game_changed": false,
+    "deployed": false
+  },
+  "owner_income_direction": {
+    "date": "2026-11-09",
+    "owner_only": true,
+    "sale_bases": [
+      8000,
+      40000,
+      500000
+    ],
+    "unlock_fee": 4635000,
+    "income_bases": "recommended_8000_40000_60000_not_approved",
+    "ordinary_income": "unchanged_sale_linked",
+    "implemented": false,
+    "deployed": false,
+    "status": "deferred_keep_existing_sale_linked",
+    "report": "docs/analysis/owner-income-fixed-fee-20261109/REPORT.md",
+    "verification": "docs/analysis/owner-income-fixed-fee-20261109/VERIFICATION.json"
+  },
+  "raised_fee_analysis": {
+    "authorized": true,
+    "implemented": false,
+    "deployed": false,
+    "sale_bases": [
+      8000,
+      40000,
+      500000
+    ],
+    "other_owner_income_bases": [
+      8000,
+      40000
+    ],
+    "tile_income_candidates": [
+      20000,
+      40000,
+      60000
+    ],
+    "unlock_fee": "pending_simulation",
+    "status": "deferred_not_adopted",
+    "recommended_income_bases": [
+      8000,
+      40000,
+      20000
+    ],
+    "recommended_unlock_fee": 21000000,
+    "report": "docs/analysis/owner-income-raised-fee-20261109/REPORT.md",
+    "verification": "docs/analysis/owner-income-raised-fee-20261109/VERIFICATION.json"
+  },
+  "release113": {
+    "status": "full_verified",
+    "deployed": false,
+    "phone_verified": false,
+    "release_authorized": true,
+    "preflight": "docs/releases/113/PREFLIGHT.json",
+    "source_commit": "f6166542f618b878264aa99c2a9630a76763a9bb",
+    "ci_run": 42529115176,
+    "ci_status": "success",
+    "unique_verify_results": 88,
+    "candidate_artifact": 13637076247,
+    "input_fingerprint": "b0f1b1ab8db47906612d459b1b4301293af411989f9dc4c2062ed4b6102ff64e",
+    "pr": 51,
+    "verification": "docs/releases/113/VERIFICATION.json"
   }
 }

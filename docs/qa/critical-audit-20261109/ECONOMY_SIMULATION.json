@@ -1,0 +1,4264 @@
+{
+  "summary": [
+    {
+      "region": 0,
+      "initial": "legacy_owners",
+      "policy": "sell_all_new",
+      "completed": 15,
+      "n": 15,
+      "median_day": 1,
+      "min_day": 1,
+      "max_day": 1,
+      "median_active_hours": 0.7990952853957808
+    },
+    {
+      "region": 0,
+      "initial": "legacy_owners",
+      "policy": "replace_owner",
+      "completed": 15,
+      "n": 15,
+      "median_day": 1,
+      "min_day": 1,
+      "max_day": 1,
+      "median_active_hours": 0.7990952853957808
+    },
+    {
+      "region": 0,
+      "initial": "current_owners",
+      "policy": "sell_all_new",
+      "completed": 15,
+      "n": 15,
+      "median_day": 1,
+      "min_day": 1,
+      "max_day": 1,
+      "median_active_hours": 0.7990952853957808
+    },
+    {
+      "region": 0,
+      "initial": "current_owners",
+      "policy": "replace_owner",
+      "completed": 15,
+      "n": 15,
+      "median_day": 1,
+      "min_day": 1,
+      "max_day": 1,
+      "median_active_hours": 0.7990952853957808
+    },
+    {
+      "region": 0,
+      "initial": "no_owners",
+      "policy": "sell_all_new",
+      "completed": 15,
+      "n": 15,
+      "median_day": 1,
+      "min_day": 1,
+      "max_day": 1,
+      "median_active_hours": 0.8350127288077388
+    },
+    {
+      "region": 0,
+      "initial": "no_owners",
+      "policy": "replace_owner",
+      "completed": 15,
+      "n": 15,
+      "median_day": 1,
+      "min_day": 1,
+      "max_day": 1,
+      "median_active_hours": 0.8350127288077388
+    },
+    {
+      "region": 1,
+      "initial": "legacy_owners",
+      "policy": "sell_all_new",
+      "completed": 15,
+      "n": 15,
+      "median_day": 1,
+      "min_day": 1,
+      "max_day": 2,
+      "median_active_hours": 2.7507524475684777
+    },
+    {
+      "region": 1,
+      "initial": "legacy_owners",
+      "policy": "replace_owner",
+      "completed": 15,
+      "n": 15,
+      "median_day": 1,
+      "min_day": 1,
+      "max_day": 2,
+      "median_active_hours": 2.971830513662887
+    },
+    {
+      "region": 1,
+      "initial": "current_owners",
+      "policy": "sell_all_new",
+      "completed": 15,
+      "n": 15,
+      "median_day": 1,
+      "min_day": 1,
+      "max_day": 1,
+      "median_active_hours": 2.3346064335400327
+    },
+    {
+      "region": 1,
+      "initial": "current_owners",
+      "policy": "replace_owner",
+      "completed": 15,
+      "n": 15,
+      "median_day": 1,
+      "min_day": 1,
+      "max_day": 1,
+      "median_active_hours": 2.400419026811382
+    },
+    {
+      "region": 1,
+      "initial": "no_owners",
+      "policy": "sell_all_new",
+      "completed": 15,
+      "n": 15,
+      "median_day": 1,
+      "min_day": 1,
+      "max_day": 2,
+      "median_active_hours": 2.849455814844432
+    },
+    {
+      "region": 1,
+      "initial": "no_owners",
+      "policy": "replace_owner",
+      "completed": 15,
+      "n": 15,
+      "median_day": 2,
+      "min_day": 1,
+      "max_day": 2,
+      "median_active_hours": 3.0046893770734444
+    },
+    {
+      "region": 2,
+      "initial": "legacy_owners",
+      "policy": "sell_all_new",
+      "completed": 15,
+      "n": 15,
+      "median_day": 3,
+      "min_day": 2,
+      "max_day": 3,
+      "median_active_hours": 6.886811343926318
+    },
+    {
+      "region": 2,
+      "initial": "legacy_owners",
+      "policy": "replace_owner",
+      "completed": 15,
+      "n": 15,
+      "median_day": 3,
+      "min_day": 2,
+      "max_day": 3,
+      "median_active_hours": 6.007484872452614
+    },
+    {
+      "region": 2,
+      "initial": "current_owners",
+      "policy": "sell_all_new",
+      "completed": 15,
+      "n": 15,
+      "median_day": 2,
+      "min_day": 2,
+      "max_day": 2,
+      "median_active_hours": 5.070571618262154
+    },
+    {
+      "region": 2,
+      "initial": "current_owners",
+      "policy": "replace_owner",
+      "completed": 15,
+      "n": 15,
+      "median_day": 2,
+      "min_day": 2,
+      "max_day": 2,
+      "median_active_hours": 5.021552490532854
+    },
+    {
+      "region": 2,
+      "initial": "no_owners",
+      "policy": "sell_all_new",
+      "completed": 15,
+      "n": 15,
+      "median_day": 3,
+      "min_day": 2,
+      "max_day": 3,
+      "median_active_hours": 6.886811343926318
+    },
+    {
+      "region": 2,
+      "initial": "no_owners",
+      "policy": "replace_owner",
+      "completed": 15,
+      "n": 15,
+      "median_day": 3,
+      "min_day": 2,
+      "max_day": 3,
+      "median_active_hours": 6.007484872452614
+    }
+  ],
+  "cases": [
+    {
+      "region": 0,
+      "initial": "legacy_owners",
+      "policy": "sell_all_new",
+      "trial": 0,
+      "bait": 0,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.5769023815652253,
+        "cash": 19800.909234333154
+      },
+      "owners_caught": 0,
+      "passive": 3354.909234333155,
+      "sale": 16766.0
+    },
+    {
+      "region": 0,
+      "initial": "legacy_owners",
+      "policy": "replace_owner",
+      "trial": 0,
+      "bait": 0,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.5769023815652253,
+        "cash": 19800.909234333154
+      },
+      "owners_caught": 0,
+      "passive": 3354.909234333155,
+      "sale": 16766.0
+    },
+    {
+      "region": 0,
+      "initial": "current_owners",
+      "policy": "sell_all_new",
+      "trial": 0,
+      "bait": 0,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.5769023815652253,
+        "cash": 19800.909234333154
+      },
+      "owners_caught": 0,
+      "passive": 3354.909234333155,
+      "sale": 16766.0
+    },
+    {
+      "region": 0,
+      "initial": "current_owners",
+      "policy": "replace_owner",
+      "trial": 0,
+      "bait": 0,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.5769023815652253,
+        "cash": 19800.909234333154
+      },
+      "owners_caught": 0,
+      "passive": 3354.909234333155,
+      "sale": 16766.0
+    },
+    {
+      "region": 0,
+      "initial": "no_owners",
+      "policy": "sell_all_new",
+      "trial": 0,
+      "bait": 0,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.6879124869799774,
+        "cash": 19836.359085039145
+      },
+      "owners_caught": 0,
+      "passive": 2619.359085039144,
+      "sale": 17587.0
+    },
+    {
+      "region": 0,
+      "initial": "no_owners",
+      "policy": "replace_owner",
+      "trial": 0,
+      "bait": 0,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.6879124869799774,
+        "cash": 19836.359085039145
+      },
+      "owners_caught": 0,
+      "passive": 2619.359085039144,
+      "sale": 17587.0
+    },
+    {
+      "region": 0,
+      "initial": "legacy_owners",
+      "policy": "sell_all_new",
+      "trial": 0,
+      "bait": 1,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.8606333664656383,
+        "cash": 23849.914038830946
+      },
+      "owners_caught": 0,
+      "passive": 5004.914038830943,
+      "sale": 14255.0
+    },
+    {
+      "region": 0,
+      "initial": "legacy_owners",
+      "policy": "replace_owner",
+      "trial": 0,
+      "bait": 1,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.8606333664656383,
+        "cash": 23849.914038830946
+      },
+      "owners_caught": 0,
+      "passive": 5004.914038830943,
+      "sale": 14255.0
+    },
+    {
+      "region": 0,
+      "initial": "current_owners",
+      "policy": "sell_all_new",
+      "trial": 0,
+      "bait": 1,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.8606333664656383,
+        "cash": 23849.914038830946
+      },
+      "owners_caught": 0,
+      "passive": 5004.914038830943,
+      "sale": 14255.0
+    },
+    {
+      "region": 0,
+      "initial": "current_owners",
+      "policy": "replace_owner",
+      "trial": 0,
+      "bait": 1,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.8606333664656383,
+        "cash": 23849.914038830946
+      },
+      "owners_caught": 0,
+      "passive": 5004.914038830943,
+      "sale": 14255.0
+    },
+    {
+      "region": 0,
+      "initial": "no_owners",
+      "policy": "sell_all_new",
+      "trial": 0,
+      "bait": 1,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.8606333664656383,
+        "cash": 22122.02704923455
+      },
+      "owners_caught": 0,
+      "passive": 3277.0270492345453,
+      "sale": 14255.0
+    },
+    {
+      "region": 0,
+      "initial": "no_owners",
+      "policy": "replace_owner",
+      "trial": 0,
+      "bait": 1,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.8606333664656383,
+        "cash": 22122.02704923455
+      },
+      "owners_caught": 0,
+      "passive": 3277.0270492345453,
+      "sale": 14255.0
+    },
+    {
+      "region": 0,
+      "initial": "legacy_owners",
+      "policy": "sell_all_new",
+      "trial": 0,
+      "bait": 2,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.8657694168572954,
+        "cash": 20204.782147262427
+      },
+      "owners_caught": 0,
+      "passive": 5034.782147262425,
+      "sale": 11030.0
+    },
+    {
+      "region": 0,
+      "initial": "legacy_owners",
+      "policy": "replace_owner",
+      "trial": 0,
+      "bait": 2,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.8657694168572954,
+        "cash": 20204.782147262427
+      },
+      "owners_caught": 0,
+      "passive": 5034.782147262425,
+      "sale": 11030.0
+    },
+    {
+      "region": 0,
+      "initial": "current_owners",
+      "policy": "sell_all_new",
+      "trial": 0,
+      "bait": 2,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.8657694168572954,
+        "cash": 20204.782147262427
+      },
+      "owners_caught": 0,
+      "passive": 5034.782147262425,
+      "sale": 11030.0
+    },
+    {
+      "region": 0,
+      "initial": "current_owners",
+      "policy": "replace_owner",
+      "trial": 0,
+      "bait": 2,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.8657694168572954,
+        "cash": 20204.782147262427
+      },
+      "owners_caught": 0,
+      "passive": 5034.782147262425,
+      "sale": 11030.0
+    },
+    {
+      "region": 0,
+      "initial": "no_owners",
+      "policy": "sell_all_new",
+      "trial": 0,
+      "bait": 2,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.964601546768046,
+        "cash": 21021.9058896168
+      },
+      "owners_caught": 0,
+      "passive": 3672.905889616792,
+      "sale": 13389.0
+    },
+    {
+      "region": 0,
+      "initial": "no_owners",
+      "policy": "replace_owner",
+      "trial": 0,
+      "bait": 2,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.964601546768046,
+        "cash": 21021.9058896168
+      },
+      "owners_caught": 0,
+      "passive": 3672.905889616792,
+      "sale": 13389.0
+    },
+    {
+      "region": 0,
+      "initial": "legacy_owners",
+      "policy": "sell_all_new",
+      "trial": 1,
+      "bait": 0,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.7789085488815364,
+        "cash": 20168.652791957244
+      },
+      "owners_caught": 0,
+      "passive": 4529.6527919572445,
+      "sale": 16054.0
+    },
+    {
+      "region": 0,
+      "initial": "legacy_owners",
+      "policy": "replace_owner",
+      "trial": 1,
+      "bait": 0,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.7789085488815364,
+        "cash": 20168.652791957244
+      },
+      "owners_caught": 0,
+      "passive": 4529.6527919572445,
+      "sale": 16054.0
+    },
+    {
+      "region": 0,
+      "initial": "current_owners",
+      "policy": "sell_all_new",
+      "trial": 1,
+      "bait": 0,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.7789085488815364,
+        "cash": 20168.652791957244
+      },
+      "owners_caught": 0,
+      "passive": 4529.6527919572445,
+      "sale": 16054.0
+    },
+    {
+      "region": 0,
+      "initial": "current_owners",
+      "policy": "replace_owner",
+      "trial": 1,
+      "bait": 0,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.7789085488815364,
+        "cash": 20168.652791957244
+      },
+      "owners_caught": 0,
+      "passive": 4529.6527919572445,
+      "sale": 16054.0
+    },
+    {
+      "region": 0,
+      "initial": "no_owners",
+      "policy": "sell_all_new",
+      "trial": 1,
+      "bait": 0,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.8300741575242745,
+        "cash": 25439.66698441935
+      },
+      "owners_caught": 0,
+      "passive": 3160.666984419354,
+      "sale": 16779.0
+    },
+    {
+      "region": 0,
+      "initial": "no_owners",
+      "policy": "replace_owner",
+      "trial": 1,
+      "bait": 0,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.8300741575242745,
+        "cash": 25439.66698441935
+      },
+      "owners_caught": 0,
+      "passive": 3160.666984419354,
+      "sale": 16779.0
+    },
+    {
+      "region": 0,
+      "initial": "legacy_owners",
+      "policy": "sell_all_new",
+      "trial": 1,
+      "bait": 1,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.7465223103284808,
+        "cash": 22475.314358525633
+      },
+      "owners_caught": 0,
+      "passive": 4341.3143585256275,
+      "sale": 19334.0
+    },
+    {
+      "region": 0,
+      "initial": "legacy_owners",
+      "policy": "replace_owner",
+      "trial": 1,
+      "bait": 1,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.7465223103284808,
+        "cash": 22475.314358525633
+      },
+      "owners_caught": 0,
+      "passive": 4341.3143585256275,
+      "sale": 19334.0
+    },
+    {
+      "region": 0,
+      "initial": "current_owners",
+      "policy": "sell_all_new",
+      "trial": 1,
+      "bait": 1,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.7465223103284808,
+        "cash": 22475.314358525633
+      },
+      "owners_caught": 0,
+      "passive": 4341.3143585256275,
+      "sale": 19334.0
+    },
+    {
+      "region": 0,
+      "initial": "current_owners",
+      "policy": "replace_owner",
+      "trial": 1,
+      "bait": 1,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.7465223103284808,
+        "cash": 22475.314358525633
+      },
+      "owners_caught": 0,
+      "passive": 4341.3143585256275,
+      "sale": 19334.0
+    },
+    {
+      "region": 0,
+      "initial": "no_owners",
+      "policy": "sell_all_new",
+      "trial": 1,
+      "bait": 1,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.7465223103284808,
+        "cash": 20976.527258558443
+      },
+      "owners_caught": 0,
+      "passive": 2842.527258558446,
+      "sale": 19334.0
+    },
+    {
+      "region": 0,
+      "initial": "no_owners",
+      "policy": "replace_owner",
+      "trial": 1,
+      "bait": 1,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.7465223103284808,
+        "cash": 20976.527258558443
+      },
+      "owners_caught": 0,
+      "passive": 2842.527258558446,
+      "sale": 19334.0
+    },
+    {
+      "region": 0,
+      "initial": "legacy_owners",
+      "policy": "sell_all_new",
+      "trial": 1,
+      "bait": 2,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.5868234597410714,
+        "cash": 24018.604119724994
+      },
+      "owners_caught": 0,
+      "passive": 3412.6041197249992,
+      "sale": 15966.0
+    },
+    {
+      "region": 0,
+      "initial": "legacy_owners",
+      "policy": "replace_owner",
+      "trial": 1,
+      "bait": 2,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.5868234597410714,
+        "cash": 24018.604119724994
+      },
+      "owners_caught": 0,
+      "passive": 3412.6041197249992,
+      "sale": 15966.0
+    },
+    {
+      "region": 0,
+      "initial": "current_owners",
+      "policy": "sell_all_new",
+      "trial": 1,
+      "bait": 2,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.5868234597410714,
+        "cash": 24018.604119724994
+      },
+      "owners_caught": 0,
+      "passive": 3412.6041197249992,
+      "sale": 15966.0
+    },
+    {
+      "region": 0,
+      "initial": "current_owners",
+      "policy": "replace_owner",
+      "trial": 1,
+      "bait": 2,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.5868234597410714,
+        "cash": 24018.604119724994
+      },
+      "owners_caught": 0,
+      "passive": 3412.6041197249992,
+      "sale": 15966.0
+    },
+    {
+      "region": 0,
+      "initial": "no_owners",
+      "policy": "sell_all_new",
+      "trial": 1,
+      "bait": 2,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.5868234597410714,
+        "cash": 22840.443173629465
+      },
+      "owners_caught": 0,
+      "passive": 2234.4431736294637,
+      "sale": 15966.0
+    },
+    {
+      "region": 0,
+      "initial": "no_owners",
+      "policy": "replace_owner",
+      "trial": 1,
+      "bait": 2,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.5868234597410714,
+        "cash": 22840.443173629465
+      },
+      "owners_caught": 0,
+      "passive": 2234.4431736294637,
+      "sale": 15966.0
+    },
+    {
+      "region": 0,
+      "initial": "legacy_owners",
+      "policy": "sell_all_new",
+      "trial": 2,
+      "bait": 0,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.7990952853957808,
+        "cash": 22142.046428917
+      },
+      "owners_caught": 0,
+      "passive": 4647.046428917,
+      "sale": 11975.0
+    },
+    {
+      "region": 0,
+      "initial": "legacy_owners",
+      "policy": "replace_owner",
+      "trial": 2,
+      "bait": 0,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.7990952853957808,
+        "cash": 22142.046428917
+      },
+      "owners_caught": 0,
+      "passive": 4647.046428917,
+      "sale": 11975.0
+    },
+    {
+      "region": 0,
+      "initial": "current_owners",
+      "policy": "sell_all_new",
+      "trial": 2,
+      "bait": 0,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.7990952853957808,
+        "cash": 22142.046428917
+      },
+      "owners_caught": 0,
+      "passive": 4647.046428917,
+      "sale": 11975.0
+    },
+    {
+      "region": 0,
+      "initial": "current_owners",
+      "policy": "replace_owner",
+      "trial": 2,
+      "bait": 0,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.7990952853957808,
+        "cash": 22142.046428917
+      },
+      "owners_caught": 0,
+      "passive": 4647.046428917,
+      "sale": 11975.0
+    },
+    {
+      "region": 0,
+      "initial": "no_owners",
+      "policy": "sell_all_new",
+      "trial": 2,
+      "bait": 0,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.7990952853957808,
+        "cash": 20537.7089713147
+      },
+      "owners_caught": 0,
+      "passive": 3042.7089713147034,
+      "sale": 11975.0
+    },
+    {
+      "region": 0,
+      "initial": "no_owners",
+      "policy": "replace_owner",
+      "trial": 2,
+      "bait": 0,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.7990952853957808,
+        "cash": 20537.7089713147
+      },
+      "owners_caught": 0,
+      "passive": 3042.7089713147034,
+      "sale": 11975.0
+    },
+    {
+      "region": 0,
+      "initial": "legacy_owners",
+      "policy": "sell_all_new",
+      "trial": 2,
+      "bait": 1,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.6801640432760379,
+        "cash": 21910.415513205273
+      },
+      "owners_caught": 0,
+      "passive": 3955.4155132052674,
+      "sale": 19050.0
+    },
+    {
+      "region": 0,
+      "initial": "legacy_owners",
+      "policy": "replace_owner",
+      "trial": 2,
+      "bait": 1,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.6801640432760379,
+        "cash": 21910.415513205273
+      },
+      "owners_caught": 0,
+      "passive": 3955.4155132052674,
+      "sale": 19050.0
+    },
+    {
+      "region": 0,
+      "initial": "current_owners",
+      "policy": "sell_all_new",
+      "trial": 2,
+      "bait": 1,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.6801640432760379,
+        "cash": 21910.415513205273
+      },
+      "owners_caught": 0,
+      "passive": 3955.4155132052674,
+      "sale": 19050.0
+    },
+    {
+      "region": 0,
+      "initial": "current_owners",
+      "policy": "replace_owner",
+      "trial": 2,
+      "bait": 1,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.6801640432760379,
+        "cash": 21910.415513205273
+      },
+      "owners_caught": 0,
+      "passive": 3955.4155132052674,
+      "sale": 19050.0
+    },
+    {
+      "region": 0,
+      "initial": "no_owners",
+      "policy": "sell_all_new",
+      "trial": 2,
+      "bait": 1,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.6801640432760379,
+        "cash": 20544.855395551065
+      },
+      "owners_caught": 0,
+      "passive": 2589.8553955510683,
+      "sale": 19050.0
+    },
+    {
+      "region": 0,
+      "initial": "no_owners",
+      "policy": "replace_owner",
+      "trial": 2,
+      "bait": 1,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.6801640432760379,
+        "cash": 20544.855395551065
+      },
+      "owners_caught": 0,
+      "passive": 2589.8553955510683,
+      "sale": 19050.0
+    },
+    {
+      "region": 0,
+      "initial": "legacy_owners",
+      "policy": "sell_all_new",
+      "trial": 2,
+      "bait": 2,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.7637904617428243,
+        "cash": 20295.735300596727
+      },
+      "owners_caught": 0,
+      "passive": 4441.7353005967325,
+      "sale": 11534.0
+    },
+    {
+      "region": 0,
+      "initial": "legacy_owners",
+      "policy": "replace_owner",
+      "trial": 2,
+      "bait": 2,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.7637904617428243,
+        "cash": 20295.735300596727
+      },
+      "owners_caught": 0,
+      "passive": 4441.7353005967325,
+      "sale": 11534.0
+    },
+    {
+      "region": 0,
+      "initial": "current_owners",
+      "policy": "sell_all_new",
+      "trial": 2,
+      "bait": 2,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.7637904617428243,
+        "cash": 20295.735300596727
+      },
+      "owners_caught": 0,
+      "passive": 4441.7353005967325,
+      "sale": 11534.0
+    },
+    {
+      "region": 0,
+      "initial": "current_owners",
+      "policy": "replace_owner",
+      "trial": 2,
+      "bait": 2,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.7637904617428243,
+        "cash": 20295.735300596727
+      },
+      "owners_caught": 0,
+      "passive": 4441.7353005967325,
+      "sale": 11534.0
+    },
+    {
+      "region": 0,
+      "initial": "no_owners",
+      "policy": "sell_all_new",
+      "trial": 2,
+      "bait": 2,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.8441195590739422,
+        "cash": 20378.14755185847
+      },
+      "owners_caught": 0,
+      "passive": 3214.1475518584707,
+      "sale": 12984.0
+    },
+    {
+      "region": 0,
+      "initial": "no_owners",
+      "policy": "replace_owner",
+      "trial": 2,
+      "bait": 2,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.8441195590739422,
+        "cash": 20378.14755185847
+      },
+      "owners_caught": 0,
+      "passive": 3214.1475518584707,
+      "sale": 12984.0
+    },
+    {
+      "region": 0,
+      "initial": "legacy_owners",
+      "policy": "sell_all_new",
+      "trial": 3,
+      "bait": 0,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.9364077651324467,
+        "cash": 21258.571311077914
+      },
+      "owners_caught": 0,
+      "passive": 5445.571311077922,
+      "sale": 10358.0
+    },
+    {
+      "region": 0,
+      "initial": "legacy_owners",
+      "policy": "replace_owner",
+      "trial": 3,
+      "bait": 0,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.9364077651324467,
+        "cash": 21258.571311077914
+      },
+      "owners_caught": 0,
+      "passive": 5445.571311077922,
+      "sale": 10358.0
+    },
+    {
+      "region": 0,
+      "initial": "current_owners",
+      "policy": "sell_all_new",
+      "trial": 3,
+      "bait": 0,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.9364077651324467,
+        "cash": 21258.571311077914
+      },
+      "owners_caught": 0,
+      "passive": 5445.571311077922,
+      "sale": 10358.0
+    },
+    {
+      "region": 0,
+      "initial": "current_owners",
+      "policy": "replace_owner",
+      "trial": 3,
+      "bait": 0,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.9364077651324467,
+        "cash": 21258.571311077914
+      },
+      "owners_caught": 0,
+      "passive": 5445.571311077922,
+      "sale": 10358.0
+    },
+    {
+      "region": 0,
+      "initial": "no_owners",
+      "policy": "sell_all_new",
+      "trial": 3,
+      "bait": 0,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.9907698641531952,
+        "cash": 19818.546790429467
+      },
+      "owners_caught": 0,
+      "passive": 3772.5467904294724,
+      "sale": 10616.0
+    },
+    {
+      "region": 0,
+      "initial": "no_owners",
+      "policy": "replace_owner",
+      "trial": 3,
+      "bait": 0,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.9907698641531952,
+        "cash": 19818.546790429467
+      },
+      "owners_caught": 0,
+      "passive": 3772.5467904294724,
+      "sale": 10616.0
+    },
+    {
+      "region": 0,
+      "initial": "legacy_owners",
+      "policy": "sell_all_new",
+      "trial": 3,
+      "bait": 1,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.8247679474635493,
+        "cash": 21227.342832941875
+      },
+      "owners_caught": 0,
+      "passive": 4796.342832941871,
+      "sale": 11796.0
+    },
+    {
+      "region": 0,
+      "initial": "legacy_owners",
+      "policy": "replace_owner",
+      "trial": 3,
+      "bait": 1,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.8247679474635493,
+        "cash": 21227.342832941875
+      },
+      "owners_caught": 0,
+      "passive": 4796.342832941871,
+      "sale": 11796.0
+    },
+    {
+      "region": 0,
+      "initial": "current_owners",
+      "policy": "sell_all_new",
+      "trial": 3,
+      "bait": 1,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.8247679474635493,
+        "cash": 21227.342832941875
+      },
+      "owners_caught": 0,
+      "passive": 4796.342832941871,
+      "sale": 11796.0
+    },
+    {
+      "region": 0,
+      "initial": "current_owners",
+      "policy": "replace_owner",
+      "trial": 3,
+      "bait": 1,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.8247679474635493,
+        "cash": 21227.342832941875
+      },
+      "owners_caught": 0,
+      "passive": 4796.342832941871,
+      "sale": 11796.0
+    },
+    {
+      "region": 0,
+      "initial": "no_owners",
+      "policy": "sell_all_new",
+      "trial": 3,
+      "bait": 1,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.8350127288077388,
+        "cash": 20023.47154430639
+      },
+      "owners_caught": 0,
+      "passive": 3179.471544306389,
+      "sale": 12224.0
+    },
+    {
+      "region": 0,
+      "initial": "no_owners",
+      "policy": "replace_owner",
+      "trial": 3,
+      "bait": 1,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.8350127288077388,
+        "cash": 20023.47154430639
+      },
+      "owners_caught": 0,
+      "passive": 3179.471544306389,
+      "sale": 12224.0
+    },
+    {
+      "region": 0,
+      "initial": "legacy_owners",
+      "policy": "sell_all_new",
+      "trial": 3,
+      "bait": 2,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.6135841265556674,
+        "cash": 24922.227689816034
+      },
+      "owners_caught": 0,
+      "passive": 3568.2276898160367,
+      "sale": 16754.0
+    },
+    {
+      "region": 0,
+      "initial": "legacy_owners",
+      "policy": "replace_owner",
+      "trial": 3,
+      "bait": 2,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.6135841265556674,
+        "cash": 24922.227689816034
+      },
+      "owners_caught": 0,
+      "passive": 3568.2276898160367,
+      "sale": 16754.0
+    },
+    {
+      "region": 0,
+      "initial": "current_owners",
+      "policy": "sell_all_new",
+      "trial": 3,
+      "bait": 2,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.6135841265556674,
+        "cash": 24922.227689816034
+      },
+      "owners_caught": 0,
+      "passive": 3568.2276898160367,
+      "sale": 16754.0
+    },
+    {
+      "region": 0,
+      "initial": "current_owners",
+      "policy": "replace_owner",
+      "trial": 3,
+      "bait": 2,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.6135841265556674,
+        "cash": 24922.227689816034
+      },
+      "owners_caught": 0,
+      "passive": 3568.2276898160367,
+      "sale": 16754.0
+    },
+    {
+      "region": 0,
+      "initial": "no_owners",
+      "policy": "sell_all_new",
+      "trial": 3,
+      "bait": 2,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.6135841265556674,
+        "cash": 23690.339558808126
+      },
+      "owners_caught": 0,
+      "passive": 2336.3395588081175,
+      "sale": 16754.0
+    },
+    {
+      "region": 0,
+      "initial": "no_owners",
+      "policy": "replace_owner",
+      "trial": 3,
+      "bait": 2,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.6135841265556674,
+        "cash": 23690.339558808126
+      },
+      "owners_caught": 0,
+      "passive": 2336.3395588081175,
+      "sale": 16754.0
+    },
+    {
+      "region": 0,
+      "initial": "legacy_owners",
+      "policy": "sell_all_new",
+      "trial": 4,
+      "bait": 0,
+      "goal": {
+        "day": 1,
+        "active_hours": 1.0842108039567209,
+        "cash": 19974.10282916371
+      },
+      "owners_caught": 0,
+      "passive": 6305.102829163699,
+      "sale": 14224.0
+    },
+    {
+      "region": 0,
+      "initial": "legacy_owners",
+      "policy": "replace_owner",
+      "trial": 4,
+      "bait": 0,
+      "goal": {
+        "day": 1,
+        "active_hours": 1.0842108039567209,
+        "cash": 19974.10282916371
+      },
+      "owners_caught": 0,
+      "passive": 6305.102829163699,
+      "sale": 14224.0
+    },
+    {
+      "region": 0,
+      "initial": "current_owners",
+      "policy": "sell_all_new",
+      "trial": 4,
+      "bait": 0,
+      "goal": {
+        "day": 1,
+        "active_hours": 1.0842108039567209,
+        "cash": 19974.10282916371
+      },
+      "owners_caught": 0,
+      "passive": 6305.102829163699,
+      "sale": 14224.0
+    },
+    {
+      "region": 0,
+      "initial": "current_owners",
+      "policy": "replace_owner",
+      "trial": 4,
+      "bait": 0,
+      "goal": {
+        "day": 1,
+        "active_hours": 1.0842108039567209,
+        "cash": 19974.10282916371
+      },
+      "owners_caught": 0,
+      "passive": 6305.102829163699,
+      "sale": 14224.0
+    },
+    {
+      "region": 0,
+      "initial": "no_owners",
+      "policy": "sell_all_new",
+      "trial": 4,
+      "bait": 0,
+      "goal": {
+        "day": 1,
+        "active_hours": 1.1623573319872773,
+        "cash": 24891.89907179771
+      },
+      "owners_caught": 0,
+      "passive": 4425.899071797711,
+      "sale": 15116.0
+    },
+    {
+      "region": 0,
+      "initial": "no_owners",
+      "policy": "replace_owner",
+      "trial": 4,
+      "bait": 0,
+      "goal": {
+        "day": 1,
+        "active_hours": 1.1623573319872773,
+        "cash": 24891.89907179771
+      },
+      "owners_caught": 0,
+      "passive": 4425.899071797711,
+      "sale": 15116.0
+    },
+    {
+      "region": 0,
+      "initial": "legacy_owners",
+      "policy": "sell_all_new",
+      "trial": 4,
+      "bait": 1,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.8667642823929338,
+        "cash": 19876.56767299275
+      },
+      "owners_caught": 0,
+      "passive": 5040.567672992755,
+      "sale": 10246.0
+    },
+    {
+      "region": 0,
+      "initial": "legacy_owners",
+      "policy": "replace_owner",
+      "trial": 4,
+      "bait": 1,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.8667642823929338,
+        "cash": 19876.56767299275
+      },
+      "owners_caught": 0,
+      "passive": 5040.567672992755,
+      "sale": 10246.0
+    },
+    {
+      "region": 0,
+      "initial": "current_owners",
+      "policy": "sell_all_new",
+      "trial": 4,
+      "bait": 1,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.8667642823929338,
+        "cash": 19876.56767299275
+      },
+      "owners_caught": 0,
+      "passive": 5040.567672992755,
+      "sale": 10246.0
+    },
+    {
+      "region": 0,
+      "initial": "current_owners",
+      "policy": "replace_owner",
+      "trial": 4,
+      "bait": 1,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.8667642823929338,
+        "cash": 19876.56767299275
+      },
+      "owners_caught": 0,
+      "passive": 5040.567672992755,
+      "sale": 10246.0
+    },
+    {
+      "region": 0,
+      "initial": "no_owners",
+      "policy": "sell_all_new",
+      "trial": 4,
+      "bait": 1,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.9539751162610859,
+        "cash": 20245.443711917207
+      },
+      "owners_caught": 0,
+      "passive": 3632.4437119172117,
+      "sale": 12143.0
+    },
+    {
+      "region": 0,
+      "initial": "no_owners",
+      "policy": "replace_owner",
+      "trial": 4,
+      "bait": 1,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.9539751162610859,
+        "cash": 20245.443711917207
+      },
+      "owners_caught": 0,
+      "passive": 3632.4437119172117,
+      "sale": 12143.0
+    },
+    {
+      "region": 0,
+      "initial": "legacy_owners",
+      "policy": "sell_all_new",
+      "trial": 4,
+      "bait": 2,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.841932036573047,
+        "cash": 21420.158612686337
+      },
+      "owners_caught": 0,
+      "passive": 4896.158612686334,
+      "sale": 12344.0
+    },
+    {
+      "region": 0,
+      "initial": "legacy_owners",
+      "policy": "replace_owner",
+      "trial": 4,
+      "bait": 2,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.841932036573047,
+        "cash": 21420.158612686337
+      },
+      "owners_caught": 0,
+      "passive": 4896.158612686334,
+      "sale": 12344.0
+    },
+    {
+      "region": 0,
+      "initial": "current_owners",
+      "policy": "sell_all_new",
+      "trial": 4,
+      "bait": 2,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.841932036573047,
+        "cash": 21420.158612686337
+      },
+      "owners_caught": 0,
+      "passive": 4896.158612686334,
+      "sale": 12344.0
+    },
+    {
+      "region": 0,
+      "initial": "current_owners",
+      "policy": "replace_owner",
+      "trial": 4,
+      "bait": 2,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.841932036573047,
+        "cash": 21420.158612686337
+      },
+      "owners_caught": 0,
+      "passive": 4896.158612686334,
+      "sale": 12344.0
+    },
+    {
+      "region": 0,
+      "initial": "no_owners",
+      "policy": "sell_all_new",
+      "trial": 4,
+      "bait": 2,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.864937027634596,
+        "cash": 19800.4140667625
+      },
+      "owners_caught": 0,
+      "passive": 3293.4140667625,
+      "sale": 12367.0
+    },
+    {
+      "region": 0,
+      "initial": "no_owners",
+      "policy": "replace_owner",
+      "trial": 4,
+      "bait": 2,
+      "goal": {
+        "day": 1,
+        "active_hours": 0.864937027634596,
+        "cash": 19800.4140667625
+      },
+      "owners_caught": 0,
+      "passive": 3293.4140667625,
+      "sale": 12367.0
+    },
+    {
+      "region": 1,
+      "initial": "legacy_owners",
+      "policy": "sell_all_new",
+      "trial": 0,
+      "bait": 0,
+      "goal": {
+        "day": 1,
+        "active_hours": 2.579554501652105,
+        "cash": 312003.5383324924
+      },
+      "owners_caught": 1,
+      "passive": 37971.53833249239,
+      "sale": 150467.0
+    },
+    {
+      "region": 1,
+      "initial": "legacy_owners",
+      "policy": "replace_owner",
+      "trial": 0,
+      "bait": 0,
+      "goal": {
+        "day": 2,
+        "active_hours": 3.006098392193822,
+        "cash": 395052.98347327823
+      },
+      "owners_caught": 1,
+      "passive": 150837.98347327803,
+      "sale": 104045.0
+    },
+    {
+      "region": 1,
+      "initial": "current_owners",
+      "policy": "sell_all_new",
+      "trial": 0,
+      "bait": 0,
+      "goal": {
+        "day": 1,
+        "active_hours": 2.28218107466315,
+        "cash": 312047.7853666946
+      },
+      "owners_caught": 1,
+      "passive": 53501.785366694465,
+      "sale": 134846.0
+    },
+    {
+      "region": 1,
+      "initial": "current_owners",
+      "policy": "replace_owner",
+      "trial": 0,
+      "bait": 0,
+      "goal": {
+        "day": 1,
+        "active_hours": 2.545353602373172,
+        "cash": 312319.35392604506
+      },
+      "owners_caught": 1,
+      "passive": 62010.35392604489,
+      "sale": 84729.0
+    },
+    {
+      "region": 1,
+      "initial": "no_owners",
+      "policy": "sell_all_new",
+      "trial": 0,
+      "bait": 0,
+      "goal": {
+        "day": 1,
+        "active_hours": 2.8136059616482054,
+        "cash": 312509.53266474325
+      },
+      "owners_caught": 1,
+      "passive": 28122.532664743336,
+      "sale": 160927.0
+    },
+    {
+      "region": 1,
+      "initial": "no_owners",
+      "policy": "replace_owner",
+      "trial": 0,
+      "bait": 0,
+      "goal": {
+        "day": 2,
+        "active_hours": 3.006098392193822,
+        "cash": 369987.4335677426
+      },
+      "owners_caught": 1,
+      "passive": 136797.43356774258,
+      "sale": 104045.0
+    },
+    {
+      "region": 1,
+      "initial": "legacy_owners",
+      "policy": "sell_all_new",
+      "trial": 0,
+      "bait": 1,
+      "goal": {
+        "day": 1,
+        "active_hours": 2.7965636227318775,
+        "cash": 313156.9543273098
+      },
+      "owners_caught": 1,
+      "passive": 41165.95432730989,
+      "sale": 151181.0
+    },
+    {
+      "region": 1,
+      "initial": "legacy_owners",
+      "policy": "replace_owner",
+      "trial": 0,
+      "bait": 1,
+      "goal": {
+        "day": 2,
+        "active_hours": 3.00951213027454,
+        "cash": 377848.6842167794
+      },
+      "owners_caught": 1,
+      "passive": 124981.68421677931,
+      "sale": 115542.0
+    },
+    {
+      "region": 1,
+      "initial": "current_owners",
+      "policy": "sell_all_new",
+      "trial": 0,
+      "bait": 1,
+      "goal": {
+        "day": 1,
+        "active_hours": 2.4064047033479206,
+        "cash": 312230.9933387747
+      },
+      "owners_caught": 1,
+      "passive": 56413.993338774635,
+      "sale": 134467.0
+    },
+    {
+      "region": 1,
+      "initial": "current_owners",
+      "policy": "replace_owner",
+      "trial": 0,
+      "bait": 1,
+      "goal": {
+        "day": 1,
+        "active_hours": 2.427433820069841,
+        "cash": 312302.144036116
+      },
+      "owners_caught": 1,
+      "passive": 57109.144036116195,
+      "sale": 91873.0
+    },
+    {
+      "region": 1,
+      "initial": "no_owners",
+      "policy": "sell_all_new",
+      "trial": 0,
+      "bait": 1,
+      "goal": {
+        "day": 2,
+        "active_hours": 3.00951213027454,
+        "cash": 339903.65249442647
+      },
+      "owners_caught": 1,
+      "passive": 60065.65249442676,
+      "sale": 159313.0
+    },
+    {
+      "region": 1,
+      "initial": "no_owners",
+      "policy": "replace_owner",
+      "trial": 0,
+      "bait": 1,
+      "goal": {
+        "day": 2,
+        "active_hours": 3.00951213027454,
+        "cash": 353357.65424115385
+      },
+      "owners_caught": 1,
+      "passive": 111515.65424115388,
+      "sale": 115542.0
+    },
+    {
+      "region": 1,
+      "initial": "legacy_owners",
+      "policy": "sell_all_new",
+      "trial": 0,
+      "bait": 2,
+      "goal": {
+        "day": 2,
+        "active_hours": 3.001083120668235,
+        "cash": 333034.5206676057
+      },
+      "owners_caught": 1,
+      "passive": 88336.52066760574,
+      "sale": 156778.0
+    },
+    {
+      "region": 1,
+      "initial": "legacy_owners",
+      "policy": "replace_owner",
+      "trial": 0,
+      "bait": 2,
+      "goal": {
+        "day": 2,
+        "active_hours": 3.001083120668235,
+        "cash": 342880.79187911423
+      },
+      "owners_caught": 1,
+      "passive": 123021.79187911423,
+      "sale": 115139.0
+    },
+    {
+      "region": 1,
+      "initial": "current_owners",
+      "policy": "sell_all_new",
+      "trial": 0,
+      "bait": 2,
+      "goal": {
+        "day": 1,
+        "active_hours": 2.9342144065067357,
+        "cash": 312112.5783125391
+      },
+      "owners_caught": 1,
+      "passive": 68787.57831253919,
+      "sale": 155285.0
+    },
+    {
+      "region": 1,
+      "initial": "current_owners",
+      "policy": "replace_owner",
+      "trial": 0,
+      "bait": 2,
+      "goal": {
+        "day": 1,
+        "active_hours": 2.9342144065067357,
+        "cash": 312112.5783125391
+      },
+      "owners_caught": 1,
+      "passive": 68787.57831253919,
+      "sale": 155285.0
+    },
+    {
+      "region": 1,
+      "initial": "no_owners",
+      "policy": "sell_all_new",
+      "trial": 0,
+      "bait": 2,
+      "goal": {
+        "day": 2,
+        "active_hours": 3.034709119700271,
+        "cash": 378668.5012493119
+      },
+      "owners_caught": 2,
+      "passive": 60317.50124931181,
+      "sale": 230511.0
+    },
+    {
+      "region": 1,
+      "initial": "no_owners",
+      "policy": "replace_owner",
+      "trial": 0,
+      "bait": 2,
+      "goal": {
+        "day": 2,
+        "active_hours": 3.001083120668235,
+        "cash": 318896.13997826946
+      },
+      "owners_caught": 1,
+      "passive": 110062.13997826938,
+      "sale": 115139.0
+    },
+    {
+      "region": 1,
+      "initial": "legacy_owners",
+      "policy": "sell_all_new",
+      "trial": 1,
+      "bait": 0,
+      "goal": {
+        "day": 1,
+        "active_hours": 2.8105027322165075,
+        "cash": 312226.1406995215
+      },
+      "owners_caught": 1,
+      "passive": 41371.14069952159,
+      "sale": 147400.0
+    },
+    {
+      "region": 1,
+      "initial": "legacy_owners",
+      "policy": "replace_owner",
+      "trial": 1,
+      "bait": 0,
+      "goal": {
+        "day": 1,
+        "active_hours": 2.878861625576596,
+        "cash": 312207.0615524434
+      },
+      "owners_caught": 1,
+      "passive": 43409.0615524435,
+      "sale": 128573.0
+    },
+    {
+      "region": 1,
+      "initial": "current_owners",
+      "policy": "sell_all_new",
+      "trial": 1,
+      "bait": 0,
+      "goal": {
+        "day": 1,
+        "active_hours": 2.390341156379022,
+        "cash": 312086.4112823816
+      },
+      "owners_caught": 1,
+      "passive": 56037.411282381625,
+      "sale": 132404.0
+    },
+    {
+      "region": 1,
+      "initial": "current_owners",
+      "policy": "replace_owner",
+      "trial": 1,
+      "bait": 0,
+      "goal": {
+        "day": 1,
+        "active_hours": 2.390341156379022,
+        "cash": 312086.4112823816
+      },
+      "owners_caught": 1,
+      "passive": 56037.411282381625,
+      "sale": 132404.0
+    },
+    {
+      "region": 1,
+      "initial": "no_owners",
+      "policy": "sell_all_new",
+      "trial": 1,
+      "bait": 0,
+      "goal": {
+        "day": 2,
+        "active_hours": 3.0072944942184425,
+        "cash": 336513.48679557786
+      },
+      "owners_caught": 1,
+      "passive": 60043.48679557757,
+      "sale": 153105.0
+    },
+    {
+      "region": 1,
+      "initial": "no_owners",
+      "policy": "replace_owner",
+      "trial": 1,
+      "bait": 0,
+      "goal": {
+        "day": 2,
+        "active_hours": 3.0072944942184425,
+        "cash": 341735.6649777513
+      },
+      "owners_caught": 1,
+      "passive": 80136.66497775109,
+      "sale": 132459.0
+    },
+    {
+      "region": 1,
+      "initial": "legacy_owners",
+      "policy": "sell_all_new",
+      "trial": 1,
+      "bait": 1,
+      "goal": {
+        "day": 1,
+        "active_hours": 2.18241525572306,
+        "cash": 314531.5722594848
+      },
+      "owners_caught": 1,
+      "passive": 32125.57225948488,
+      "sale": 160756.0
+    },
+    {
+      "region": 1,
+      "initial": "legacy_owners",
+      "policy": "replace_owner",
+      "trial": 1,
+      "bait": 1,
+      "goal": {
+        "day": 1,
+        "active_hours": 2.7681123986076406,
+        "cash": 312277.9880868753
+      },
+      "owners_caught": 1,
+      "passive": 49136.98808687519,
+      "sale": 125501.0
+    },
+    {
+      "region": 1,
+      "initial": "current_owners",
+      "policy": "sell_all_new",
+      "trial": 1,
+      "bait": 1,
+      "goal": {
+        "day": 1,
+        "active_hours": 2.18241525572306,
+        "cash": 333568.9484132538
+      },
+      "owners_caught": 1,
+      "passive": 51162.94841325375,
+      "sale": 160756.0
+    },
+    {
+      "region": 1,
+      "initial": "current_owners",
+      "policy": "replace_owner",
+      "trial": 1,
+      "bait": 1,
+      "goal": {
+        "day": 1,
+        "active_hours": 2.18241525572306,
+        "cash": 317386.9484132538
+      },
+      "owners_caught": 1,
+      "passive": 51162.94841325375,
+      "sale": 102574.0
+    },
+    {
+      "region": 1,
+      "initial": "no_owners",
+      "policy": "sell_all_new",
+      "trial": 1,
+      "bait": 1,
+      "goal": {
+        "day": 1,
+        "active_hours": 2.353803119178008,
+        "cash": 312007.71483063
+      },
+      "owners_caught": 1,
+      "passive": 23526.714830630175,
+      "sale": 167071.0
+    },
+    {
+      "region": 1,
+      "initial": "no_owners",
+      "policy": "replace_owner",
+      "trial": 1,
+      "bait": 1,
+      "goal": {
+        "day": 2,
+        "active_hours": 3.0052463332464376,
+        "cash": 391125.8986680893
+      },
+      "owners_caught": 1,
+      "passive": 129372.89866808947,
+      "sale": 135468.0
+    },
+    {
+      "region": 1,
+      "initial": "legacy_owners",
+      "policy": "sell_all_new",
+      "trial": 1,
+      "bait": 2,
+      "goal": {
+        "day": 1,
+        "active_hours": 2.7507524475684777,
+        "cash": 313423.60501906334
+      },
+      "owners_caught": 1,
+      "passive": 40491.60501906327,
+      "sale": 153352.0
+    },
+    {
+      "region": 1,
+      "initial": "legacy_owners",
+      "policy": "replace_owner",
+      "trial": 1,
+      "bait": 2,
+      "goal": {
+        "day": 1,
+        "active_hours": 2.849455814844432,
+        "cash": 343062.0285243348
+      },
+      "owners_caught": 2,
+      "passive": 55809.028524334484,
+      "sale": 151053.0
+    },
+    {
+      "region": 1,
+      "initial": "current_owners",
+      "policy": "sell_all_new",
+      "trial": 1,
+      "bait": 2,
+      "goal": {
+        "day": 1,
+        "active_hours": 2.3346064335400327,
+        "cash": 312257.807169365
+      },
+      "owners_caught": 1,
+      "passive": 54730.807169364925,
+      "sale": 137187.0
+    },
+    {
+      "region": 1,
+      "initial": "current_owners",
+      "policy": "replace_owner",
+      "trial": 1,
+      "bait": 2,
+      "goal": {
+        "day": 1,
+        "active_hours": 2.540557186879404,
+        "cash": 312121.314349112
+      },
+      "owners_caught": 1,
+      "passive": 63141.314349112086,
+      "sale": 87020.0
+    },
+    {
+      "region": 1,
+      "initial": "no_owners",
+      "policy": "sell_all_new",
+      "trial": 1,
+      "bait": 2,
+      "goal": {
+        "day": 1,
+        "active_hours": 2.849455814844432,
+        "cash": 356052.8588416424
+      },
+      "owners_caught": 2,
+      "passive": 28480.858841642195,
+      "sale": 208172.0
+    },
+    {
+      "region": 1,
+      "initial": "no_owners",
+      "policy": "replace_owner",
+      "trial": 1,
+      "bait": 2,
+      "goal": {
+        "day": 1,
+        "active_hours": 2.849455814844432,
+        "cash": 322364.51557232905
+      },
+      "owners_caught": 2,
+      "passive": 46136.515572329205,
+      "sale": 151053.0
+    },
+    {
+      "region": 1,
+      "initial": "legacy_owners",
+      "policy": "sell_all_new",
+      "trial": 2,
+      "bait": 0,
+      "goal": {
+        "day": 1,
+        "active_hours": 2.8288124317475574,
+        "cash": 312580.66299771477
+      },
+      "owners_caught": 1,
+      "passive": 41640.66299771473,
+      "sale": 147490.0
+    },
+    {
+      "region": 1,
+      "initial": "legacy_owners",
+      "policy": "replace_owner",
+      "trial": 2,
+      "bait": 0,
+      "goal": {
+        "day": 1,
+        "active_hours": 2.9929669174481273,
+        "cash": 312070.91983707296
+      },
+      "owners_caught": 1,
+      "passive": 46591.919837072826,
+      "sale": 125304.0
+    },
+    {
+      "region": 1,
+      "initial": "current_owners",
+      "policy": "sell_all_new",
+      "trial": 2,
+      "bait": 0,
+      "goal": {
+        "day": 1,
+        "active_hours": 2.400419026811382,
+        "cash": 313699.6695122002
+      },
+      "owners_caught": 1,
+      "passive": 56273.66951220027,
+      "sale": 133781.0
+    },
+    {
+      "region": 1,
+      "initial": "current_owners",
+      "policy": "replace_owner",
+      "trial": 2,
+      "bait": 0,
+      "goal": {
+        "day": 1,
+        "active_hours": 2.400419026811382,
+        "cash": 313699.6695122002
+      },
+      "owners_caught": 1,
+      "passive": 56273.66951220027,
+      "sale": 133781.0
+    },
+    {
+      "region": 1,
+      "initial": "no_owners",
+      "policy": "sell_all_new",
+      "trial": 2,
+      "bait": 0,
+      "goal": {
+        "day": 2,
+        "active_hours": 3.0046893770734444,
+        "cash": 334740.44814872916
+      },
+      "owners_caught": 1,
+      "passive": 60017.4481487293,
+      "sale": 151353.0
+    },
+    {
+      "region": 1,
+      "initial": "no_owners",
+      "policy": "replace_owner",
+      "trial": 2,
+      "bait": 0,
+      "goal": {
+        "day": 2,
+        "active_hours": 3.0046893770734444,
+        "cash": 341181.2602450623
+      },
+      "owners_caught": 1,
+      "passive": 86655.26024506224,
+      "sale": 125381.0
+    },
+    {
+      "region": 1,
+      "initial": "legacy_owners",
+      "policy": "sell_all_new",
+      "trial": 2,
+      "bait": 1,
+      "goal": {
+        "day": 1,
+        "active_hours": 2.238080376460104,
+        "cash": 312045.9735415651
+      },
+      "owners_caught": 1,
+      "passive": 32944.9735415651,
+      "sale": 157541.0
+    },
+    {
+      "region": 1,
+      "initial": "legacy_owners",
+      "policy": "replace_owner",
+      "trial": 2,
+      "bait": 1,
+      "goal": {
+        "day": 1,
+        "active_hours": 2.9190776203193587,
+        "cash": 313758.99049500754
+      },
+      "owners_caught": 1,
+      "passive": 57843.99049500772,
+      "sale": 118500.0
+    },
+    {
+      "region": 1,
+      "initial": "current_owners",
+      "policy": "sell_all_new",
+      "trial": 2,
+      "bait": 1,
+      "goal": {
+        "day": 1,
+        "active_hours": 2.0855454180044233,
+        "cash": 323650.00272727496
+      },
+      "owners_caught": 1,
+      "passive": 48892.002727274856,
+      "sale": 152988.0
+    },
+    {
+      "region": 1,
+      "initial": "current_owners",
+      "policy": "replace_owner",
+      "trial": 2,
+      "bait": 1,
+      "goal": {
+        "day": 1,
+        "active_hours": 2.3219067914226006,
+        "cash": 312530.2199425026
+      },
+      "owners_caught": 1,
+      "passive": 56589.219942502445,
+      "sale": 92501.0
+    },
+    {
+      "region": 1,
+      "initial": "no_owners",
+      "policy": "sell_all_new",
+      "trial": 2,
+      "bait": 1,
+      "goal": {
+        "day": 1,
+        "active_hours": 2.377016286386402,
+        "cash": 312847.73490094853
+      },
+      "owners_caught": 1,
+      "passive": 23758.734900948682,
+      "sale": 167724.0
+    },
+    {
+      "region": 1,
+      "initial": "no_owners",
+      "policy": "replace_owner",
+      "trial": 2,
+      "bait": 1,
+      "goal": {
+        "day": 2,
+        "active_hours": 3.0050490602079507,
+        "cash": 393871.9774929942
+      },
+      "owners_caught": 1,
+      "passive": 144923.9774929942,
+      "sale": 122678.0
+    },
+    {
+      "region": 1,
+      "initial": "legacy_owners",
+      "policy": "sell_all_new",
+      "trial": 2,
+      "bait": 2,
+      "goal": {
+        "day": 1,
+        "active_hours": 2.8554004758331915,
+        "cash": 314629.04411974066
+      },
+      "owners_caught": 1,
+      "passive": 42032.044119740676,
+      "sale": 153217.0
+    },
+    {
+      "region": 1,
+      "initial": "legacy_owners",
+      "policy": "replace_owner",
+      "trial": 2,
+      "bait": 2,
+      "goal": {
+        "day": 2,
+        "active_hours": 3.0067296383667825,
+        "cash": 379874.270598194
+      },
+      "owners_caught": 1,
+      "passive": 126356.2705981941,
+      "sale": 117618.0
+    },
+    {
+      "region": 1,
+      "initial": "current_owners",
+      "policy": "sell_all_new",
+      "trial": 2,
+      "bait": 2,
+      "goal": {
+        "day": 1,
+        "active_hours": 2.4939941306605884,
+        "cash": 312283.37586503447
+      },
+      "owners_caught": 1,
+      "passive": 58467.375865034446,
+      "sale": 133776.0
+    },
+    {
+      "region": 1,
+      "initial": "current_owners",
+      "policy": "replace_owner",
+      "trial": 2,
+      "bait": 2,
+      "goal": {
+        "day": 1,
+        "active_hours": 2.5047473662667215,
+        "cash": 312045.74562778015
+      },
+      "owners_caught": 1,
+      "passive": 59096.74562777986,
+      "sale": 90929.0
+    },
+    {
+      "region": 1,
+      "initial": "no_owners",
+      "policy": "sell_all_new",
+      "trial": 2,
+      "bait": 2,
+      "goal": {
+        "day": 2,
+        "active_hours": 3.0067296383667825,
+        "cash": 340926.840952714
+      },
+      "owners_caught": 1,
+      "passive": 60037.8409527141,
+      "sale": 161789.0
+    },
+    {
+      "region": 1,
+      "initial": "no_owners",
+      "policy": "replace_owner",
+      "trial": 2,
+      "bait": 2,
+      "goal": {
+        "day": 2,
+        "active_hours": 3.0067296383667825,
+        "cash": 355748.14778376673
+      },
+      "owners_caught": 1,
+      "passive": 113255.14778376694,
+      "sale": 117618.0
+    },
+    {
+      "region": 1,
+      "initial": "legacy_owners",
+      "policy": "sell_all_new",
+      "trial": 3,
+      "bait": 0,
+      "goal": {
+        "day": 1,
+        "active_hours": 2.851987843974681,
+        "cash": 312255.80952250795
+      },
+      "owners_caught": 1,
+      "passive": 41981.80952250803,
+      "sale": 146834.0
+    },
+    {
+      "region": 1,
+      "initial": "legacy_owners",
+      "policy": "replace_owner",
+      "trial": 3,
+      "bait": 0,
+      "goal": {
+        "day": 2,
+        "active_hours": 3.0041658631387635,
+        "cash": 367245.4368190589
+      },
+      "owners_caught": 1,
+      "passive": 111669.43681905897,
+      "sale": 115406.0
+    },
+    {
+      "region": 1,
+      "initial": "current_owners",
+      "policy": "sell_all_new",
+      "trial": 3,
+      "bait": 0,
+      "goal": {
+        "day": 1,
+        "active_hours": 2.4269813790769725,
+        "cash": 317033.377887765
+      },
+      "owners_caught": 1,
+      "passive": 56896.377887765084,
+      "sale": 136502.0
+    },
+    {
+      "region": 1,
+      "initial": "current_owners",
+      "policy": "replace_owner",
+      "trial": 3,
+      "bait": 0,
+      "goal": {
+        "day": 1,
+        "active_hours": 2.4269813790769725,
+        "cash": 317033.377887765
+      },
+      "owners_caught": 1,
+      "passive": 56896.377887765084,
+      "sale": 136502.0
+    },
+    {
+      "region": 1,
+      "initial": "no_owners",
+      "policy": "sell_all_new",
+      "trial": 3,
+      "bait": 0,
+      "goal": {
+        "day": 2,
+        "active_hours": 3.0041658631387635,
+        "cash": 334395.21552627644
+      },
+      "owners_caught": 1,
+      "passive": 60012.215526276384,
+      "sale": 151013.0
+    },
+    {
+      "region": 1,
+      "initial": "no_owners",
+      "policy": "replace_owner",
+      "trial": 3,
+      "bait": 0,
+      "goal": {
+        "day": 2,
+        "active_hours": 3.0041658631387635,
+        "cash": 341502.48890153697
+      },
+      "owners_caught": 1,
+      "passive": 96951.48890153726,
+      "sale": 115406.0
+    },
+    {
+      "region": 1,
+      "initial": "legacy_owners",
+      "policy": "sell_all_new",
+      "trial": 3,
+      "bait": 1,
+      "goal": {
+        "day": 1,
+        "active_hours": 2.229216665531726,
+        "cash": 312207.49801213975
+      },
+      "owners_caught": 1,
+      "passive": 32814.49801213958,
+      "sale": 157818.0
+    },
+    {
+      "region": 1,
+      "initial": "legacy_owners",
+      "policy": "replace_owner",
+      "trial": 3,
+      "bait": 1,
+      "goal": {
+        "day": 1,
+        "active_hours": 2.501711237786583,
+        "cash": 312290.1023811317
+      },
+      "owners_caught": 1,
+      "passive": 39814.10238113175,
+      "sale": 134476.0
+    },
+    {
+      "region": 1,
+      "initial": "current_owners",
+      "policy": "sell_all_new",
+      "trial": 3,
+      "bait": 1,
+      "goal": {
+        "day": 1,
+        "active_hours": 2.0745553522261555,
+        "cash": 317006.3596563709
+      },
+      "owners_caught": 1,
+      "passive": 48634.359656371045,
+      "sale": 146587.0
+    },
+    {
+      "region": 1,
+      "initial": "current_owners",
+      "policy": "replace_owner",
+      "trial": 3,
+      "bait": 1,
+      "goal": {
+        "day": 1,
+        "active_hours": 2.0745553522261555,
+        "cash": 317006.3596563709
+      },
+      "owners_caught": 1,
+      "passive": 48634.359656371045,
+      "sale": 146587.0
+    },
+    {
+      "region": 1,
+      "initial": "no_owners",
+      "policy": "sell_all_new",
+      "trial": 3,
+      "bait": 1,
+      "goal": {
+        "day": 1,
+        "active_hours": 2.415355214793126,
+        "cash": 312186.93986324477
+      },
+      "owners_caught": 1,
+      "passive": 24141.939863244752,
+      "sale": 166725.0
+    },
+    {
+      "region": 1,
+      "initial": "no_owners",
+      "policy": "replace_owner",
+      "trial": 3,
+      "bait": 1,
+      "goal": {
+        "day": 1,
+        "active_hours": 2.870073118696055,
+        "cash": 312105.43801162386
+      },
+      "owners_caught": 1,
+      "passive": 37288.43801162385,
+      "sale": 148352.0
+    },
+    {
+      "region": 1,
+      "initial": "legacy_owners",
+      "policy": "sell_all_new",
+      "trial": 3,
+      "bait": 2,
+      "goal": {
+        "day": 1,
+        "active_hours": 1.9491446831032189,
+        "cash": 319628.78457079537
+      },
+      "owners_caught": 1,
+      "passive": 28691.784570795382,
+      "sale": 169937.0
+    },
+    {
+      "region": 1,
+      "initial": "legacy_owners",
+      "policy": "replace_owner",
+      "trial": 3,
+      "bait": 2,
+      "goal": {
+        "day": 1,
+        "active_hours": 2.793897896069588,
+        "cash": 312463.2316043174
+      },
+      "owners_caught": 1,
+      "passive": 65944.23160431732,
+      "sale": 110259.0
+    },
+    {
+      "region": 1,
+      "initial": "current_owners",
+      "policy": "sell_all_new",
+      "trial": 3,
+      "bait": 2,
+      "goal": {
+        "day": 1,
+        "active_hours": 1.9491446831032189,
+        "cash": 336631.3235757111
+      },
+      "owners_caught": 1,
+      "passive": 45694.32357571115,
+      "sale": 169937.0
+    },
+    {
+      "region": 1,
+      "initial": "current_owners",
+      "policy": "replace_owner",
+      "trial": 3,
+      "bait": 2,
+      "goal": {
+        "day": 1,
+        "active_hours": 2.3895318809343467,
+        "cash": 312012.7892331746
+      },
+      "owners_caught": 1,
+      "passive": 65114.78923317455,
+      "sale": 84698.0
+    },
+    {
+      "region": 1,
+      "initial": "no_owners",
+      "policy": "sell_all_new",
+      "trial": 3,
+      "bait": 2,
+      "goal": {
+        "day": 1,
+        "active_hours": 2.0152279827946797,
+        "cash": 312108.59123187565
+      },
+      "owners_caught": 1,
+      "passive": 20142.59123187568,
+      "sale": 171086.0
+    },
+    {
+      "region": 1,
+      "initial": "no_owners",
+      "policy": "replace_owner",
+      "trial": 3,
+      "bait": 2,
+      "goal": {
+        "day": 1,
+        "active_hours": 2.9871150834864633,
+        "cash": 368382.97761374654
+      },
+      "owners_caught": 2,
+      "passive": 64311.97761374646,
+      "sale": 179196.0
+    },
+    {
+      "region": 1,
+      "initial": "legacy_owners",
+      "policy": "sell_all_new",
+      "trial": 4,
+      "bait": 0,
+      "goal": {
+        "day": 1,
+        "active_hours": 2.442480754143887,
+        "cash": 312481.7864088355
+      },
+      "owners_caught": 1,
+      "passive": 35953.78640883533,
+      "sale": 152908.0
+    },
+    {
+      "region": 1,
+      "initial": "legacy_owners",
+      "policy": "replace_owner",
+      "trial": 4,
+      "bait": 0,
+      "goal": {
+        "day": 1,
+        "active_hours": 2.971830513662887,
+        "cash": 312476.1661863526
+      },
+      "owners_caught": 1,
+      "passive": 57400.16618635273,
+      "sale": 114896.0
+    },
+    {
+      "region": 1,
+      "initial": "current_owners",
+      "policy": "sell_all_new",
+      "trial": 4,
+      "bait": 0,
+      "goal": {
+        "day": 1,
+        "active_hours": 2.116715299315819,
+        "cash": 313190.72664674907
+      },
+      "owners_caught": 1,
+      "passive": 49622.72664674898,
+      "sale": 139798.0
+    },
+    {
+      "region": 1,
+      "initial": "current_owners",
+      "policy": "replace_owner",
+      "trial": 4,
+      "bait": 0,
+      "goal": {
+        "day": 1,
+        "active_hours": 2.398758616107875,
+        "cash": 312119.0502568237
+      },
+      "owners_caught": 1,
+      "passive": 58278.050256823844,
+      "sale": 88201.0
+    },
+    {
+      "region": 1,
+      "initial": "no_owners",
+      "policy": "sell_all_new",
+      "trial": 4,
+      "bait": 0,
+      "goal": {
+        "day": 1,
+        "active_hours": 2.7208302741523798,
+        "cash": 314018.2218267444
+      },
+      "owners_caught": 1,
+      "passive": 27195.221826744193,
+      "sale": 163328.0
+    },
+    {
+      "region": 1,
+      "initial": "no_owners",
+      "policy": "replace_owner",
+      "trial": 4,
+      "bait": 0,
+      "goal": {
+        "day": 2,
+        "active_hours": 3.00389932494547,
+        "cash": 381400.66843375925
+      },
+      "owners_caught": 1,
+      "passive": 136913.66843375913,
+      "sale": 115347.0
+    },
+    {
+      "region": 1,
+      "initial": "legacy_owners",
+      "policy": "sell_all_new",
+      "trial": 4,
+      "bait": 1,
+      "goal": {
+        "day": 1,
+        "active_hours": 2.272501725416055,
+        "cash": 312820.6624176869
+      },
+      "owners_caught": 1,
+      "passive": 33451.662417686886,
+      "sale": 157869.0
+    },
+    {
+      "region": 1,
+      "initial": "legacy_owners",
+      "policy": "replace_owner",
+      "trial": 4,
+      "bait": 1,
+      "goal": {
+        "day": 1,
+        "active_hours": 2.76109387172653,
+        "cash": 312432.1866518803
+      },
+      "owners_caught": 1,
+      "passive": 48686.18665188046,
+      "sale": 126106.0
+    },
+    {
+      "region": 1,
+      "initial": "current_owners",
+      "policy": "sell_all_new",
+      "trial": 4,
+      "bait": 1,
+      "goal": {
+        "day": 1,
+        "active_hours": 2.087601487872355,
+        "cash": 323322.203726746
+      },
+      "owners_caught": 1,
+      "passive": 48940.20372674603,
+      "sale": 152627.0
+    },
+    {
+      "region": 1,
+      "initial": "current_owners",
+      "policy": "replace_owner",
+      "trial": 4,
+      "bait": 1,
+      "goal": {
+        "day": 1,
+        "active_hours": 2.087601487872355,
+        "cash": 314025.203726746
+      },
+      "owners_caught": 1,
+      "passive": 48940.20372674603,
+      "sale": 101330.0
+    },
+    {
+      "region": 1,
+      "initial": "no_owners",
+      "policy": "sell_all_new",
+      "trial": 4,
+      "bait": 1,
+      "goal": {
+        "day": 1,
+        "active_hours": 2.570663934550181,
+        "cash": 312339.28038427804
+      },
+      "owners_caught": 1,
+      "passive": 25694.280384278005,
+      "sale": 165550.0
+    },
+    {
+      "region": 1,
+      "initial": "no_owners",
+      "policy": "replace_owner",
+      "trial": 4,
+      "bait": 1,
+      "goal": {
+        "day": 2,
+        "active_hours": 3.001091345365781,
+        "cash": 387854.9069620106
+      },
+      "owners_caught": 1,
+      "passive": 121648.90696201049,
+      "sale": 139921.0
+    },
+    {
+      "region": 1,
+      "initial": "legacy_owners",
+      "policy": "sell_all_new",
+      "trial": 4,
+      "bait": 2,
+      "goal": {
+        "day": 1,
+        "active_hours": 2.959858394274161,
+        "cash": 312748.68476725306
+      },
+      "owners_caught": 1,
+      "passive": 43569.684767253,
+      "sale": 150019.0
+    },
+    {
+      "region": 1,
+      "initial": "legacy_owners",
+      "policy": "replace_owner",
+      "trial": 4,
+      "bait": 2,
+      "goal": {
+        "day": 1,
+        "active_hours": 2.9937406228727688,
+        "cash": 312296.6908153865
+      },
+      "owners_caught": 1,
+      "passive": 44923.690815386464,
+      "sale": 131473.0
+    },
+    {
+      "region": 1,
+      "initial": "current_owners",
+      "policy": "sell_all_new",
+      "trial": 4,
+      "bait": 2,
+      "goal": {
+        "day": 1,
+        "active_hours": 2.770346051886177,
+        "cash": 315466.9683567664
+      },
+      "owners_caught": 1,
+      "passive": 64945.96835676626,
+      "sale": 131001.0
+    },
+    {
+      "region": 1,
+      "initial": "current_owners",
+      "policy": "replace_owner",
+      "trial": 4,
+      "bait": 2,
+      "goal": {
+        "day": 1,
+        "active_hours": 2.770346051886177,
+        "cash": 315466.9683567664
+      },
+      "owners_caught": 1,
+      "passive": 64945.96835676626,
+      "sale": 131001.0
+    },
+    {
+      "region": 1,
+      "initial": "no_owners",
+      "policy": "sell_all_new",
+      "trial": 4,
+      "bait": 2,
+      "goal": {
+        "day": 2,
+        "active_hours": 3.004855482911684,
+        "cash": 329705.10840852605
+      },
+      "owners_caught": 1,
+      "passive": 60019.10840852592,
+      "sale": 150606.0
+    },
+    {
+      "region": 1,
+      "initial": "no_owners",
+      "policy": "replace_owner",
+      "trial": 4,
+      "bait": 2,
+      "goal": {
+        "day": 2,
+        "active_hours": 3.004855482911684,
+        "cash": 335392.6614674694
+      },
+      "owners_caught": 1,
+      "passive": 78938.6614674697,
+      "sale": 131599.0
+    },
+    {
+      "region": 2,
+      "initial": "legacy_owners",
+      "policy": "sell_all_new",
+      "trial": 0,
+      "bait": 0,
+      "goal": {
+        "day": 3,
+        "active_hours": 7.53490409624852,
+        "cash": 4641206.886435263
+      },
+      "owners_caught": 6,
+      "passive": 398706.88643525937,
+      "sale": 4121300.0
+    },
+    {
+      "region": 2,
+      "initial": "legacy_owners",
+      "policy": "replace_owner",
+      "trial": 0,
+      "bait": 0,
+      "goal": {
+        "day": 3,
+        "active_hours": 6.012294851889279,
+        "cash": 4874759.938754269
+      },
+      "owners_caught": 4,
+      "passive": 2712624.9387542685,
+      "sale": 1363888.0
+    },
+    {
+      "region": 2,
+      "initial": "current_owners",
+      "policy": "sell_all_new",
+      "trial": 0,
+      "bait": 0,
+      "goal": {
+        "day": 2,
+        "active_hours": 5.424646233853538,
+        "cash": 4776067.506337771
+      },
+      "owners_caught": 4,
+      "passive": 1938413.5063377703,
+      "sale": 2746639.0
+    },
+    {
+      "region": 2,
+      "initial": "current_owners",
+      "policy": "replace_owner",
+      "trial": 0,
+      "bait": 0,
+      "goal": {
+        "day": 2,
+        "active_hours": 5.424646233853538,
+        "cash": 4832751.175668051
+      },
+      "owners_caught": 4,
+      "passive": 2177831.1756680473,
+      "sale": 1304403.0
+    },
+    {
+      "region": 2,
+      "initial": "no_owners",
+      "policy": "sell_all_new",
+      "trial": 0,
+      "bait": 0,
+      "goal": {
+        "day": 3,
+        "active_hours": 7.53490409624852,
+        "cash": 4646594.357873576
+      },
+      "owners_caught": 6,
+      "passive": 404094.35787357396,
+      "sale": 4121300.0
+    },
+    {
+      "region": 2,
+      "initial": "no_owners",
+      "policy": "replace_owner",
+      "trial": 0,
+      "bait": 0,
+      "goal": {
+        "day": 3,
+        "active_hours": 6.012294851889279,
+        "cash": 4893503.698409591
+      },
+      "owners_caught": 4,
+      "passive": 2737118.698409591,
+      "sale": 1363888.0
+    },
+    {
+      "region": 2,
+      "initial": "legacy_owners",
+      "policy": "sell_all_new",
+      "trial": 0,
+      "bait": 1,
+      "goal": {
+        "day": 3,
+        "active_hours": 6.11851184679754,
+        "cash": 4642571.239363927
+      },
+      "owners_caught": 4,
+      "passive": 356983.23936393217,
+      "sale": 4169548.0
+    },
+    {
+      "region": 2,
+      "initial": "legacy_owners",
+      "policy": "replace_owner",
+      "trial": 0,
+      "bait": 1,
+      "goal": {
+        "day": 2,
+        "active_hours": 5.263128551077286,
+        "cash": 4739840.032280358
+      },
+      "owners_caught": 4,
+      "passive": 1899306.0322803608,
+      "sale": 1194943.0
+    },
+    {
+      "region": 2,
+      "initial": "current_owners",
+      "policy": "sell_all_new",
+      "trial": 0,
+      "bait": 1,
+      "goal": {
+        "day": 2,
+        "active_hours": 4.115241206962078,
+        "cash": 5075227.5181695875
+      },
+      "owners_caught": 3,
+      "passive": 1637134.5181695856,
+      "sale": 3319263.0
+    },
+    {
+      "region": 2,
+      "initial": "current_owners",
+      "policy": "replace_owner",
+      "trial": 0,
+      "bait": 1,
+      "goal": {
+        "day": 2,
+        "active_hours": 4.431890657737624,
+        "cash": 4636981.286899944
+      },
+      "owners_caught": 3,
+      "passive": 1946734.2868999424,
+      "sale": 491516.0
+    },
+    {
+      "region": 2,
+      "initial": "no_owners",
+      "policy": "sell_all_new",
+      "trial": 0,
+      "bait": 1,
+      "goal": {
+        "day": 3,
+        "active_hours": 6.109795395428146,
+        "cash": 4636425.641373117
+      },
+      "owners_caught": 4,
+      "passive": 361546.6413731192,
+      "sale": 4158824.0
+    },
+    {
+      "region": 2,
+      "initial": "no_owners",
+      "policy": "replace_owner",
+      "trial": 0,
+      "bait": 1,
+      "goal": {
+        "day": 2,
+        "active_hours": 5.263128551077286,
+        "cash": 4749824.2813905515
+      },
+      "owners_caught": 4,
+      "passive": 1915040.2813905517,
+      "sale": 1194943.0
+    },
+    {
+      "region": 2,
+      "initial": "legacy_owners",
+      "policy": "sell_all_new",
+      "trial": 0,
+      "bait": 2,
+      "goal": {
+        "day": 3,
+        "active_hours": 6.198973932722112,
+        "cash": 4636115.466733532
+      },
+      "owners_caught": 5,
+      "passive": 359353.4667335333,
+      "sale": 4195062.0
+    },
+    {
+      "region": 2,
+      "initial": "legacy_owners",
+      "policy": "replace_owner",
+      "trial": 0,
+      "bait": 2,
+      "goal": {
+        "day": 2,
+        "active_hours": 5.510982582807795,
+        "cash": 4640570.708304726
+      },
+      "owners_caught": 4,
+      "passive": 1948122.708304725,
+      "sale": 1866845.0
+    },
+    {
+      "region": 2,
+      "initial": "current_owners",
+      "policy": "sell_all_new",
+      "trial": 0,
+      "bait": 2,
+      "goal": {
+        "day": 2,
+        "active_hours": 4.290493092788633,
+        "cash": 4719608.954961133
+      },
+      "owners_caught": 3,
+      "passive": 1677457.9549611323,
+      "sale": 2956851.0
+    },
+    {
+      "region": 2,
+      "initial": "current_owners",
+      "policy": "replace_owner",
+      "trial": 0,
+      "bait": 2,
+      "goal": {
+        "day": 2,
+        "active_hours": 4.407938505708062,
+        "cash": 4638868.902395381
+      },
+      "owners_caught": 3,
+      "passive": 2073233.90239538,
+      "sale": 1186012.0
+    },
+    {
+      "region": 2,
+      "initial": "no_owners",
+      "policy": "sell_all_new",
+      "trial": 0,
+      "bait": 2,
+      "goal": {
+        "day": 3,
+        "active_hours": 6.198973932722112,
+        "cash": 4640971.135202907
+      },
+      "owners_caught": 5,
+      "passive": 364209.1352029049,
+      "sale": 4195062.0
+    },
+    {
+      "region": 2,
+      "initial": "no_owners",
+      "policy": "replace_owner",
+      "trial": 0,
+      "bait": 2,
+      "goal": {
+        "day": 2,
+        "active_hours": 5.488619224811996,
+        "cash": 4639358.972563046
+      },
+      "owners_caught": 4,
+      "passive": 1954654.972563041,
+      "sale": 1864811.0
+    },
+    {
+      "region": 2,
+      "initial": "legacy_owners",
+      "policy": "sell_all_new",
+      "trial": 1,
+      "bait": 0,
+      "goal": {
+        "day": 3,
+        "active_hours": 7.418118778805836,
+        "cash": 4995033.660487974
+      },
+      "owners_caught": 6,
+      "passive": 395266.6604879764,
+      "sale": 4478537.0
+    },
+    {
+      "region": 2,
+      "initial": "legacy_owners",
+      "policy": "replace_owner",
+      "trial": 1,
+      "bait": 0,
+      "goal": {
+        "day": 3,
+        "active_hours": 6.015677172995936,
+        "cash": 5563212.651759103
+      },
+      "owners_caught": 4,
+      "passive": 3086805.6517591057,
+      "sale": 1655052.0
+    },
+    {
+      "region": 2,
+      "initial": "current_owners",
+      "policy": "sell_all_new",
+      "trial": 1,
+      "bait": 0,
+      "goal": {
+        "day": 2,
+        "active_hours": 5.069674877000923,
+        "cash": 4635181.692949333
+      },
+      "owners_caught": 3,
+      "passive": 1856738.6929493297,
+      "sale": 2656078.0
+    },
+    {
+      "region": 2,
+      "initial": "current_owners",
+      "policy": "replace_owner",
+      "trial": 1,
+      "bait": 0,
+      "goal": {
+        "day": 2,
+        "active_hours": 5.267207078440518,
+        "cash": 4637633.576814752
+      },
+      "owners_caught": 3,
+      "passive": 2234018.576814755,
+      "sale": 1029915.0
+    },
+    {
+      "region": 2,
+      "initial": "no_owners",
+      "policy": "sell_all_new",
+      "trial": 1,
+      "bait": 0,
+      "goal": {
+        "day": 3,
+        "active_hours": 7.418118778805836,
+        "cash": 5000374.642386466
+      },
+      "owners_caught": 6,
+      "passive": 400607.6423864624,
+      "sale": 4478537.0
+    },
+    {
+      "region": 2,
+      "initial": "no_owners",
+      "policy": "replace_owner",
+      "trial": 1,
+      "bait": 0,
+      "goal": {
+        "day": 3,
+        "active_hours": 6.015677172995936,
+        "cash": 5582030.636511804
+      },
+      "owners_caught": 4,
+      "passive": 3111373.6365118073,
+      "sale": 1655052.0
+    },
+    {
+      "region": 2,
+      "initial": "legacy_owners",
+      "policy": "sell_all_new",
+      "trial": 1,
+      "bait": 1,
+      "goal": {
+        "day": 3,
+        "active_hours": 6.886811343926318,
+        "cash": 5428970.569550503
+      },
+      "owners_caught": 5,
+      "passive": 379615.5695505064,
+      "sale": 4934515.0
+    },
+    {
+      "region": 2,
+      "initial": "legacy_owners",
+      "policy": "replace_owner",
+      "trial": 1,
+      "bait": 1,
+      "goal": {
+        "day": 2,
+        "active_hours": 5.871558336601433,
+        "cash": 4874542.136754036
+      },
+      "owners_caught": 4,
+      "passive": 1903637.13675404,
+      "sale": 1471989.0
+    },
+    {
+      "region": 2,
+      "initial": "current_owners",
+      "policy": "sell_all_new",
+      "trial": 1,
+      "bait": 1,
+      "goal": {
+        "day": 2,
+        "active_hours": 4.7398134406388674,
+        "cash": 5063114.382535921
+      },
+      "owners_caught": 3,
+      "passive": 1780841.38253592,
+      "sale": 3164313.0
+    },
+    {
+      "region": 2,
+      "initial": "current_owners",
+      "policy": "replace_owner",
+      "trial": 1,
+      "bait": 1,
+      "goal": {
+        "day": 2,
+        "active_hours": 4.872801181217537,
+        "cash": 4637247.6161496425
+      },
+      "owners_caught": 3,
+      "passive": 1943660.6161496437,
+      "sale": 641291.0
+    },
+    {
+      "region": 2,
+      "initial": "no_owners",
+      "policy": "sell_all_new",
+      "trial": 1,
+      "bait": 1,
+      "goal": {
+        "day": 3,
+        "active_hours": 6.886811343926318,
+        "cash": 5434100.050220105
+      },
+      "owners_caught": 5,
+      "passive": 384745.0502201082,
+      "sale": 4934515.0
+    },
+    {
+      "region": 2,
+      "initial": "no_owners",
+      "policy": "replace_owner",
+      "trial": 1,
+      "bait": 1,
+      "goal": {
+        "day": 2,
+        "active_hours": 5.871558336601433,
+        "cash": 4885900.591189144
+      },
+      "owners_caught": 4,
+      "passive": 1920745.5911891465,
+      "sale": 1471989.0
+    },
+    {
+      "region": 2,
+      "initial": "legacy_owners",
+      "policy": "sell_all_new",
+      "trial": 1,
+      "bait": 2,
+      "goal": {
+        "day": 3,
+        "active_hours": 6.127742584943037,
+        "cash": 4639254.155607996
+      },
+      "owners_caught": 5,
+      "passive": 357255.1556079951,
+      "sale": 4168939.0
+    },
+    {
+      "region": 2,
+      "initial": "legacy_owners",
+      "policy": "replace_owner",
+      "trial": 1,
+      "bait": 2,
+      "goal": {
+        "day": 2,
+        "active_hours": 5.346108635389325,
+        "cash": 4639225.348432852
+      },
+      "owners_caught": 4,
+      "passive": 1943431.3484328506,
+      "sale": 1000117.0
+    },
+    {
+      "region": 2,
+      "initial": "current_owners",
+      "policy": "sell_all_new",
+      "trial": 1,
+      "bait": 2,
+      "goal": {
+        "day": 2,
+        "active_hours": 5.140269942341924,
+        "cash": 5474499.802925844
+      },
+      "owners_caught": 4,
+      "passive": 1872981.802925849,
+      "sale": 3517778.0
+    },
+    {
+      "region": 2,
+      "initial": "current_owners",
+      "policy": "replace_owner",
+      "trial": 1,
+      "bait": 2,
+      "goal": {
+        "day": 2,
+        "active_hours": 5.021552490532854,
+        "cash": 4636886.3517655665
+      },
+      "owners_caught": 3,
+      "passive": 2267603.351765565,
+      "sale": 969111.0
+    },
+    {
+      "region": 2,
+      "initial": "no_owners",
+      "policy": "sell_all_new",
+      "trial": 1,
+      "bait": 2,
+      "goal": {
+        "day": 3,
+        "active_hours": 6.127742584943037,
+        "cash": 4644081.468521616
+      },
+      "owners_caught": 5,
+      "passive": 362082.46852161654,
+      "sale": 4168939.0
+    },
+    {
+      "region": 2,
+      "initial": "no_owners",
+      "policy": "replace_owner",
+      "trial": 1,
+      "bait": 2,
+      "goal": {
+        "day": 2,
+        "active_hours": 5.323836402498508,
+        "cash": 4638305.302171555
+      },
+      "owners_caught": 4,
+      "passive": 1951810.3021715546,
+      "sale": 996528.0
+    },
+    {
+      "region": 2,
+      "initial": "legacy_owners",
+      "policy": "sell_all_new",
+      "trial": 2,
+      "bait": 0,
+      "goal": {
+        "day": 3,
+        "active_hours": 8.586007081363135,
+        "cash": 4635283.954754465
+      },
+      "owners_caught": 6,
+      "passive": 429669.9547544624,
+      "sale": 4084904.0
+    },
+    {
+      "region": 2,
+      "initial": "legacy_owners",
+      "policy": "replace_owner",
+      "trial": 2,
+      "bait": 0,
+      "goal": {
+        "day": 3,
+        "active_hours": 7.0439421861661655,
+        "cash": 5166244.725429642
+      },
+      "owners_caught": 5,
+      "passive": 2402473.7254296425,
+      "sale": 2060818.0
+    },
+    {
+      "region": 2,
+      "initial": "current_owners",
+      "policy": "sell_all_new",
+      "trial": 2,
+      "bait": 0,
+      "goal": {
+        "day": 2,
+        "active_hours": 5.8235919230236375,
+        "cash": 4635827.306196317
+      },
+      "owners_caught": 4,
+      "passive": 2030206.3061963192,
+      "sale": 2483596.0
+    },
+    {
+      "region": 2,
+      "initial": "current_owners",
+      "policy": "replace_owner",
+      "trial": 2,
+      "bait": 0,
+      "goal": {
+        "day": 2,
+        "active_hours": 5.8235919230236375,
+        "cash": 4635827.306196317
+      },
+      "owners_caught": 4,
+      "passive": 2030206.3061963192,
+      "sale": 2483596.0
+    },
+    {
+      "region": 2,
+      "initial": "no_owners",
+      "policy": "sell_all_new",
+      "trial": 2,
+      "bait": 0,
+      "goal": {
+        "day": 3,
+        "active_hours": 8.552008894831152,
+        "cash": 4636670.804023566
+      },
+      "owners_caught": 6,
+      "passive": 434460.804023565,
+      "sale": 4081485.0
+    },
+    {
+      "region": 2,
+      "initial": "no_owners",
+      "policy": "replace_owner",
+      "trial": 2,
+      "bait": 0,
+      "goal": {
+        "day": 3,
+        "active_hours": 7.0439421861661655,
+        "cash": 5187357.723661431
+      },
+      "owners_caught": 5,
+      "passive": 2429336.723661429,
+      "sale": 2060818.0
+    },
+    {
+      "region": 2,
+      "initial": "legacy_owners",
+      "policy": "sell_all_new",
+      "trial": 2,
+      "bait": 1,
+      "goal": {
+        "day": 3,
+        "active_hours": 6.627136595564901,
+        "cash": 4997113.150713199
+      },
+      "owners_caught": 5,
+      "passive": 371966.1507131984,
+      "sale": 4541132.0
+    },
+    {
+      "region": 2,
+      "initial": "legacy_owners",
+      "policy": "replace_owner",
+      "trial": 2,
+      "bait": 1,
+      "goal": {
+        "day": 3,
+        "active_hours": 6.016803060496883,
+        "cash": 5717589.014984718
+      },
+      "owners_caught": 4,
+      "passive": 2952573.0149847176,
+      "sale": 1502413.0
+    },
+    {
+      "region": 2,
+      "initial": "current_owners",
+      "policy": "sell_all_new",
+      "trial": 2,
+      "bait": 1,
+      "goal": {
+        "day": 2,
+        "active_hours": 4.7129744707868,
+        "cash": 4636808.04525338
+      },
+      "owners_caught": 3,
+      "passive": 1774666.0452533797,
+      "sale": 2775352.0
+    },
+    {
+      "region": 2,
+      "initial": "current_owners",
+      "policy": "replace_owner",
+      "trial": 2,
+      "bait": 1,
+      "goal": {
+        "day": 2,
+        "active_hours": 5.552905594724725,
+        "cash": 4637987.238322638
+      },
+      "owners_caught": 3,
+      "passive": 2184987.238322636,
+      "sale": 1146372.0
+    },
+    {
+      "region": 2,
+      "initial": "no_owners",
+      "policy": "sell_all_new",
+      "trial": 2,
+      "bait": 1,
+      "goal": {
+        "day": 3,
+        "active_hours": 6.627136595564901,
+        "cash": 5002139.260857972
+      },
+      "owners_caught": 5,
+      "passive": 376992.2608579713,
+      "sale": 4541132.0
+    },
+    {
+      "region": 2,
+      "initial": "no_owners",
+      "policy": "replace_owner",
+      "trial": 2,
+      "bait": 1,
+      "goal": {
+        "day": 3,
+        "active_hours": 6.016803060496883,
+        "cash": 5736261.684216782
+      },
+      "owners_caught": 4,
+      "passive": 2976995.6842167834,
+      "sale": 1502413.0
+    },
+    {
+      "region": 2,
+      "initial": "legacy_owners",
+      "policy": "sell_all_new",
+      "trial": 2,
+      "bait": 2,
+      "goal": {
+        "day": 3,
+        "active_hours": 7.383757953758106,
+        "cash": 5218083.469876276
+      },
+      "owners_caught": 6,
+      "passive": 394254.4698762824,
+      "sale": 4713169.0
+    },
+    {
+      "region": 2,
+      "initial": "legacy_owners",
+      "policy": "replace_owner",
+      "trial": 2,
+      "bait": 2,
+      "goal": {
+        "day": 2,
+        "active_hours": 5.960399124848659,
+        "cash": 4636627.957361387
+      },
+      "owners_caught": 4,
+      "passive": 1992589.9573613815,
+      "sale": 1137570.0
+    },
+    {
+      "region": 2,
+      "initial": "current_owners",
+      "policy": "sell_all_new",
+      "trial": 2,
+      "bait": 2,
+      "goal": {
+        "day": 2,
+        "active_hours": 5.395187410254834,
+        "cash": 5330322.370937212
+      },
+      "owners_caught": 4,
+      "passive": 1931635.3709372138,
+      "sale": 3284167.0
+    },
+    {
+      "region": 2,
+      "initial": "current_owners",
+      "policy": "replace_owner",
+      "trial": 2,
+      "bait": 2,
+      "goal": {
+        "day": 2,
+        "active_hours": 5.309572564960568,
+        "cash": 4637863.57076903
+      },
+      "owners_caught": 3,
+      "passive": 2239867.5707690287,
+      "sale": 1080996.0
+    },
+    {
+      "region": 2,
+      "initial": "no_owners",
+      "policy": "sell_all_new",
+      "trial": 2,
+      "bait": 2,
+      "goal": {
+        "day": 3,
+        "active_hours": 7.383757953758106,
+        "cash": 5223410.773523261
+      },
+      "owners_caught": 6,
+      "passive": 399581.77352325886,
+      "sale": 4713169.0
+    },
+    {
+      "region": 2,
+      "initial": "no_owners",
+      "policy": "replace_owner",
+      "trial": 2,
+      "bait": 2,
+      "goal": {
+        "day": 2,
+        "active_hours": 5.926999423813712,
+        "cash": 4635694.351962298
+      },
+      "owners_caught": 4,
+      "passive": 1999859.3519623019,
+      "sale": 1135057.0
+    },
+    {
+      "region": 2,
+      "initial": "legacy_owners",
+      "policy": "sell_all_new",
+      "trial": 3,
+      "bait": 0,
+      "goal": {
+        "day": 3,
+        "active_hours": 7.529136157059942,
+        "cash": 4882749.976257389
+      },
+      "owners_caught": 6,
+      "passive": 398536.9762573926,
+      "sale": 4363023.0
+    },
+    {
+      "region": 2,
+      "initial": "legacy_owners",
+      "policy": "replace_owner",
+      "trial": 3,
+      "bait": 0,
+      "goal": {
+        "day": 3,
+        "active_hours": 6.015816316334959,
+        "cash": 5314777.8515492175
+      },
+      "owners_caught": 4,
+      "passive": 3024001.851549222,
+      "sale": 2145841.0
+    },
+    {
+      "region": 2,
+      "initial": "current_owners",
+      "policy": "sell_all_new",
+      "trial": 3,
+      "bait": 0,
+      "goal": {
+        "day": 2,
+        "active_hours": 5.4505324754817535,
+        "cash": 4971150.631849023
+      },
+      "owners_caught": 4,
+      "passive": 1944369.631849018,
+      "sale": 2904586.0
+    },
+    {
+      "region": 2,
+      "initial": "current_owners",
+      "policy": "replace_owner",
+      "trial": 3,
+      "bait": 0,
+      "goal": {
+        "day": 2,
+        "active_hours": 4.8129113051439925,
+        "cash": 4636439.738214886
+      },
+      "owners_caught": 3,
+      "passive": 2251372.7382148877,
+      "sale": 1687582.0
+    },
+    {
+      "region": 2,
+      "initial": "no_owners",
+      "policy": "sell_all_new",
+      "trial": 3,
+      "bait": 0,
+      "goal": {
+        "day": 3,
+        "active_hours": 7.529136157059942,
+        "cash": 4888135.151612221
+      },
+      "owners_caught": 6,
+      "passive": 403922.15161222196,
+      "sale": 4363023.0
+    },
+    {
+      "region": 2,
+      "initial": "no_owners",
+      "policy": "replace_owner",
+      "trial": 3,
+      "bait": 0,
+      "goal": {
+        "day": 3,
+        "active_hours": 6.015816316334959,
+        "cash": 5333365.10183605
+      },
+      "owners_caught": 4,
+      "passive": 3048339.10183605,
+      "sale": 2145841.0
+    },
+    {
+      "region": 2,
+      "initial": "legacy_owners",
+      "policy": "sell_all_new",
+      "trial": 3,
+      "bait": 1,
+      "goal": {
+        "day": 2,
+        "active_hours": 5.271752389889483,
+        "cash": 5125029.659823704
+      },
+      "owners_caught": 4,
+      "passive": 243666.65982370585,
+      "sale": 4795338.0
+    },
+    {
+      "region": 2,
+      "initial": "legacy_owners",
+      "policy": "replace_owner",
+      "trial": 3,
+      "bait": 1,
+      "goal": {
+        "day": 2,
+        "active_hours": 4.186669936006394,
+        "cash": 5004481.426786151
+      },
+      "owners_caught": 3,
+      "passive": 2454614.426786151,
+      "sale": 1128660.0
+    },
+    {
+      "region": 2,
+      "initial": "current_owners",
+      "policy": "sell_all_new",
+      "trial": 3,
+      "bait": 1,
+      "goal": {
+        "day": 2,
+        "active_hours": 4.186669936006394,
+        "cash": 5644544.444545043
+      },
+      "owners_caught": 3,
+      "passive": 1653569.44454504,
+      "sale": 3903450.0
+    },
+    {
+      "region": 2,
+      "initial": "current_owners",
+      "policy": "replace_owner",
+      "trial": 3,
+      "bait": 1,
+      "goal": {
+        "day": 2,
+        "active_hours": 4.0321674621373225,
+        "cash": 4637477.904879164
+      },
+      "owners_caught": 2,
+      "passive": 2860100.904879163,
+      "sale": 1114642.0
+    },
+    {
+      "region": 2,
+      "initial": "no_owners",
+      "policy": "sell_all_new",
+      "trial": 3,
+      "bait": 1,
+      "goal": {
+        "day": 2,
+        "active_hours": 5.271752389889483,
+        "cash": 5128322.2227942925
+      },
+      "owners_caught": 4,
+      "passive": 246959.2227942968,
+      "sale": 4795338.0
+    },
+    {
+      "region": 2,
+      "initial": "no_owners",
+      "policy": "replace_owner",
+      "trial": 3,
+      "bait": 1,
+      "goal": {
+        "day": 2,
+        "active_hours": 4.186669936006394,
+        "cash": 5011607.362492051
+      },
+      "owners_caught": 3,
+      "passive": 2467490.362492053,
+      "sale": 1128660.0
+    },
+    {
+      "region": 2,
+      "initial": "legacy_owners",
+      "policy": "sell_all_new",
+      "trial": 3,
+      "bait": 2,
+      "goal": {
+        "day": 3,
+        "active_hours": 6.403080836973435,
+        "cash": 4636105.985116848
+      },
+      "owners_caught": 5,
+      "passive": 365365.98511684395,
+      "sale": 4158340.0
+    },
+    {
+      "region": 2,
+      "initial": "legacy_owners",
+      "policy": "replace_owner",
+      "trial": 3,
+      "bait": 2,
+      "goal": {
+        "day": 3,
+        "active_hours": 6.007484872452614,
+        "cash": 4790294.628144447
+      },
+      "owners_caught": 4,
+      "passive": 2411787.6281444426,
+      "sale": 1368531.0
+    },
+    {
+      "region": 2,
+      "initial": "current_owners",
+      "policy": "sell_all_new",
+      "trial": 3,
+      "bait": 2,
+      "goal": {
+        "day": 2,
+        "active_hours": 5.2653431007613625,
+        "cash": 5067133.693526336
+      },
+      "owners_caught": 4,
+      "passive": 1901759.6935263313,
+      "sale": 3050694.0
+    },
+    {
+      "region": 2,
+      "initial": "current_owners",
+      "policy": "replace_owner",
+      "trial": 3,
+      "bait": 2,
+      "goal": {
+        "day": 2,
+        "active_hours": 5.2653431007613625,
+        "cash": 4859759.37565395
+      },
+      "owners_caught": 4,
+      "passive": 2002730.3756539472,
+      "sale": 2167349.0
+    },
+    {
+      "region": 2,
+      "initial": "no_owners",
+      "policy": "sell_all_new",
+      "trial": 3,
+      "bait": 2,
+      "goal": {
+        "day": 3,
+        "active_hours": 6.367737595783827,
+        "cash": 4635622.704181816
+      },
+      "owners_caught": 5,
+      "passive": 369247.7041818154,
+      "sale": 4153895.0
+    },
+    {
+      "region": 2,
+      "initial": "no_owners",
+      "policy": "replace_owner",
+      "trial": 3,
+      "bait": 2,
+      "goal": {
+        "day": 3,
+        "active_hours": 6.007484872452614,
+        "cash": 4808599.669939427
+      },
+      "owners_caught": 4,
+      "passive": 2435842.6699394267,
+      "sale": 1368531.0
+    },
+    {
+      "region": 2,
+      "initial": "legacy_owners",
+      "policy": "sell_all_new",
+      "trial": 4,
+      "bait": 0,
+      "goal": {
+        "day": 3,
+        "active_hours": 6.58038044048764,
+        "cash": 5280637.822283442
+      },
+      "owners_caught": 5,
+      "passive": 370588.8222834418,
+      "sale": 4788434.0
+    },
+    {
+      "region": 2,
+      "initial": "legacy_owners",
+      "policy": "replace_owner",
+      "trial": 4,
+      "bait": 0,
+      "goal": {
+        "day": 2,
+        "active_hours": 5.119444718549735,
+        "cash": 4638121.738629322
+      },
+      "owners_caught": 3,
+      "passive": 2664158.73862932,
+      "sale": 876571.0
+    },
+    {
+      "region": 2,
+      "initial": "current_owners",
+      "policy": "sell_all_new",
+      "trial": 4,
+      "bait": 0,
+      "goal": {
+        "day": 2,
+        "active_hours": 3.603402358608505,
+        "cash": 4636735.304996295
+      },
+      "owners_caught": 2,
+      "passive": 1519366.304996296,
+      "sale": 2994334.0
+    },
+    {
+      "region": 2,
+      "initial": "current_owners",
+      "policy": "replace_owner",
+      "trial": 4,
+      "bait": 0,
+      "goal": {
+        "day": 2,
+        "active_hours": 4.151051642777699,
+        "cash": 4986372.60930589
+      },
+      "owners_caught": 3,
+      "passive": 2552772.6093058926,
+      "sale": 783763.0
+    },
+    {
+      "region": 2,
+      "initial": "no_owners",
+      "policy": "sell_all_new",
+      "trial": 4,
+      "bait": 0,
+      "goal": {
+        "day": 3,
+        "active_hours": 6.58038044048764,
+        "cash": 5285645.319881859
+      },
+      "owners_caught": 5,
+      "passive": 375596.31988186686,
+      "sale": 4788434.0
+    },
+    {
+      "region": 2,
+      "initial": "no_owners",
+      "policy": "replace_owner",
+      "trial": 4,
+      "bait": 0,
+      "goal": {
+        "day": 2,
+        "active_hours": 5.108977594375659,
+        "cash": 4640534.344461126
+      },
+      "owners_caught": 3,
+      "passive": 2672991.3444611337,
+      "sale": 875896.0
+    },
+    {
+      "region": 2,
+      "initial": "legacy_owners",
+      "policy": "sell_all_new",
+      "trial": 4,
+      "bait": 1,
+      "goal": {
+        "day": 3,
+        "active_hours": 8.068510518003789,
+        "cash": 5142050.70022074
+      },
+      "owners_caught": 6,
+      "passive": 414425.70022073475,
+      "sale": 4645620.0
+    },
+    {
+      "region": 2,
+      "initial": "legacy_owners",
+      "policy": "replace_owner",
+      "trial": 4,
+      "bait": 1,
+      "goal": {
+        "day": 3,
+        "active_hours": 6.013421261801531,
+        "cash": 5300788.38708005
+      },
+      "owners_caught": 4,
+      "passive": 3152769.3870800543,
+      "sale": 2040014.0
+    },
+    {
+      "region": 2,
+      "initial": "current_owners",
+      "policy": "sell_all_new",
+      "trial": 4,
+      "bait": 1,
+      "goal": {
+        "day": 2,
+        "active_hours": 5.978482085038496,
+        "cash": 5017533.745281757
+      },
+      "owners_caught": 4,
+      "passive": 2065844.74528176,
+      "sale": 2866639.0
+    },
+    {
+      "region": 2,
+      "initial": "current_owners",
+      "policy": "replace_owner",
+      "trial": 4,
+      "bait": 1,
+      "goal": {
+        "day": 2,
+        "active_hours": 5.261891396099986,
+        "cash": 4637613.831747546
+      },
+      "owners_caught": 3,
+      "passive": 2453352.831747546,
+      "sale": 1523221.0
+    },
+    {
+      "region": 2,
+      "initial": "no_owners",
+      "policy": "sell_all_new",
+      "trial": 4,
+      "bait": 1,
+      "goal": {
+        "day": 3,
+        "active_hours": 8.068510518003789,
+        "cash": 5147650.588061559
+      },
+      "owners_caught": 6,
+      "passive": 420025.5880615554,
+      "sale": 4645620.0
+    },
+    {
+      "region": 2,
+      "initial": "no_owners",
+      "policy": "replace_owner",
+      "trial": 4,
+      "bait": 1,
+      "goal": {
+        "day": 3,
+        "active_hours": 6.013421261801531,
+        "cash": 5319782.415819455
+      },
+      "owners_caught": 4,
+      "passive": 3177513.4158194573,
+      "sale": 2040014.0
+    },
+    {
+      "region": 2,
+      "initial": "legacy_owners",
+      "policy": "sell_all_new",
+      "trial": 4,
+      "bait": 2,
+      "goal": {
+        "day": 3,
+        "active_hours": 7.093977551099155,
+        "cash": 5125748.207937957
+      },
+      "owners_caught": 6,
+      "passive": 385718.2079379551,
+      "sale": 4628850.0
+    },
+    {
+      "region": 2,
+      "initial": "legacy_owners",
+      "policy": "replace_owner",
+      "trial": 4,
+      "bait": 2,
+      "goal": {
+        "day": 3,
+        "active_hours": 6.017978619264362,
+        "cash": 4666480.684328619
+      },
+      "owners_caught": 4,
+      "passive": 2384662.684328615,
+      "sale": 2176638.0
+    },
+    {
+      "region": 2,
+      "initial": "current_owners",
+      "policy": "sell_all_new",
+      "trial": 4,
+      "bait": 2,
+      "goal": {
+        "day": 2,
+        "active_hours": 5.070571618262154,
+        "cash": 4636392.022766531
+      },
+      "owners_caught": 4,
+      "passive": 1856945.0227665282,
+      "sale": 2695547.0
+    },
+    {
+      "region": 2,
+      "initial": "current_owners",
+      "policy": "replace_owner",
+      "trial": 4,
+      "bait": 2,
+      "goal": {
+        "day": 2,
+        "active_hours": 4.957151098902182,
+        "cash": 4635712.081384809
+      },
+      "owners_caught": 4,
+      "passive": 1897135.0813848078,
+      "sale": 2079477.0
+    },
+    {
+      "region": 2,
+      "initial": "no_owners",
+      "policy": "sell_all_new",
+      "trial": 4,
+      "bait": 2,
+      "goal": {
+        "day": 3,
+        "active_hours": 7.093977551099155,
+        "cash": 5130960.156693871
+      },
+      "owners_caught": 6,
+      "passive": 390930.1566938738,
+      "sale": 4628850.0
+    },
+    {
+      "region": 2,
+      "initial": "no_owners",
+      "policy": "replace_owner",
+      "trial": 4,
+      "bait": 2,
+      "goal": {
+        "day": 3,
+        "active_hours": 6.017978619264362,
+        "cash": 4685507.473632
+      },
+      "owners_caught": 4,
+      "passive": 2409439.473632001,
+      "sale": 2176638.0
+    }
+  ],
+  "actual_godot_draws": 180092,
+  "ledger_sha256": "cc317be5dfb75ab483b08be03e64a00835fc98375fc40e1d8c37fdda111c737a",
+  "limitations": [
+    "trace replay, catch outcomes fixed; prices/one-per-owner-species updated",
+    "3h/day online, once/day login then3h offline credit, 5slots/boat2 assumed already paid",
+    "zero cash; equipment acquisition/mandatory license completion not simulated",
+    "reservoir variable side bundle reward omitted",
+    "no offline robot catches; no expedition grants or travel/bag/menu time",
+    "goal is money threshold only; region3 remains preparation"
+  ]
+}

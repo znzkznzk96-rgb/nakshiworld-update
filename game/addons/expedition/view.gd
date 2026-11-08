@@ -106,10 +106,19 @@ func panel(m,r: Rect2) -> void:
 	m._ui_style_box(m.hud_reference_style,r)
 	m._ui_rect(r.grow(-5),Color("f6e6c1"))
 
+func card(m,r:Rect2) -> void:
+	m._ui_style_box(m.sb_chip,r)
+	m._ui_rect(r.grow(-4),Color("b4d3c8"))
+	m._ui_rect(Rect2(r.position+Vector2(6,5),Vector2(r.size.x-12,2)),Color("d5e8d9"))
+	m._ui_rect(Rect2(r.position+Vector2(6,r.size.y-7),Vector2(r.size.x-12,2)),Color("86b3a9"))
+
 func button(m,key: String,r: Rect2,label: String,enabled: bool=true) -> void:
 	m._ui_style_box(m.sb_btn,r)
-	if not enabled: m._ui_rect(r.grow(-3),Color(0.2,0.15,0.1,0.28))
-	m._text(label,r.get_center()+Vector2(0,3),9,Color("382619") if enabled else Color("796b58"),true,r.size.x-8)
+	var selected:bool=(key.begins_with("manage_filter:") or key.begins_with("role_filter:")) and key.get_slice(":",1)==role_filter
+	selected=selected or (key.begins_with("tab:") and int(key.get_slice(":",1))==tab) or (key.begins_with("explore_tab:") and int(key.get_slice(":",1))==explore_tab)
+	m._ui_rect(r.grow(-4),Color("397d78") if selected else (Color("17565d") if enabled else Color("64736e")))
+	m._ui_rect(Rect2(r.position+Vector2(6,5),Vector2(r.size.x-12,2)),Color("82c7b9") if enabled else Color("89968d"))
+	m._text(label,r.get_center()+Vector2(0,3),9,Color("fff4d6") if enabled else Color("e0dfcc"),true,r.size.x-8)
 	rects[key]=r
 
 func fighter_star(f: Dictionary) -> int:
@@ -663,31 +672,57 @@ func press(m,pos: Vector2) -> void:
 			opened="merge_confirm";notice="";return
 	elif key=="merge_cancel": opened="alchemy"
 	elif key=="merge_confirm":
-		if selected.size()==2:
-			var q: Dictionary=data.begin_merge(int(selected[0]),int(selected[1]),m.gold)
-			if q.is_empty(): notice="어혼·비늘 부족 또는 잠금 병사예요"
-			else: m.gold-=int(q.gold);selected=[];opened="alchemy"
-	elif key.begins_with("inherit:"): data.finish_merge(int(key.split(":")[1]))
+		if selected.size()!=2:return
+		var before:Dictionary=data.serialize().duplicate(true);var old_gold:int=m.gold
+		var old_selected:Array=selected.duplicate();var rng_state:int=data.rng.state
+		var q:Dictionary=data.begin_merge(int(selected[0]),int(selected[1]),m.gold)
+		if q.is_empty():notice="어혼·비늘 부족 또는 잠금 병사예요"
+		else:
+			m.gold-=int(q.gold)
+			if not m._save_game():
+				data.restore(before);data.rng.state=rng_state;m.gold=old_gold;selected=old_selected;notice="저장하지 못했어요. 재료는 그대로예요."
+			else:selected=[];opened="alchemy"
+		if notice!="":m.show_toast(notice,Color("ffdc96"))
+		return
+	elif key.begins_with("inherit:"):
+		var before:Dictionary=data.serialize().duplicate(true)
+		if data.finish_merge(int(key.split(":")[1])) and not m._save_game():
+			data.restore(before);m.show_toast("저장하지 못했어요. 계승을 다시 선택해 주세요",Color("ffdc96"))
+		return
 	elif key=="pending_done": data.pending={};opened="alchemy";tab=2;page=maxi(0,ceili(data.soldiers.size()/4.0)-1)
 	if notice!="": m.show_toast(notice,Color("ffdc96"))
 	m._save_game()
 
 func draw_confirmation(m,y: float,bottom: float) -> void:
 	var q: Dictionary=data.merge_cost(int(selected[0]),int(selected[1]))
-	m._text("두 병사가 소모됩니다",Vector2(135,y+15),13,Color("9b4329"),true,230)
+	var compact:bool=bottom-y<340
+	m._text("두 병사가 소모됩니다",Vector2(135,y+15),12,Color("9b4329"),true,230)
 	for i in 2:
-		var u: Dictionary=data.unit(int(selected[i]));sprite(m,int(u.id),Rect2(41+i*108,y+24,80,65),0,1.0,int(u.star))
-		m._text(data.catalog.soldiers[int(u.id)].name,Vector2(81+i*108,y+105),9,Color("382619"),true,104)
-	m._text("가능한 결과 · 각 동일 확률",Vector2(135,y+133),10,Color("382619"),true,230)
-	for i in q.candidates.size():
-		var id: int=int(q.candidates[i]);m._text(data.catalog.soldiers[id].name,Vector2(135,y+154+i*17),9,Color("6c553b"),true,230)
-	var cost: String=""
+		var u:Dictionary=data.unit(int(selected[i]))
+		sprite(m,int(u.id),Rect2(48+i*108,y+23,66,40 if compact else 61),0,1.0,int(u.star))
+		m._text(data.catalog.soldiers[int(u.id)].name,Vector2(81+i*108,y+(78 if compact else 103)),9,Color("382619"),true,104)
+	m._text("가능한 결과 · 각 동일 확률",Vector2(135,y+(99 if compact else 126)),9,Color("382619"),true,230)
+	var names:PackedStringArray=[]
+	for id in q.candidates:names.append(data.catalog.soldiers[int(id)].name)
+	var result_lines:PackedStringArray=m._ui_wrap(" / ".join(names),8,226,2).split("\n")
+	for i in result_lines.size():m._text(result_lines[i],Vector2(135,y+(113 if compact else 143)+i*12),8,Color("6c553b"),true,228)
+	if int(q.star)==3:m._text("3성 · 레어75% / 유니크20% / 전설5%",Vector2(135,y+(139 if compact else 174)),7,Color("6c553b"),true,228)
+	var lines:Array=[];var affordable:bool=m.gold>=int(q.gold)
 	for i in 5:
-		if int(q.souls[i])>0: cost+="%s %d "%[data.ELEMENTS[i],q.souls[i]]
-	m._text("어혼 "+cost+"· %d비늘"%q.gold,Vector2(135,bottom-100),9,Color("6c553b"),true,230)
-	if int(q.star)==3: m._text("3성: 레어75% / 유니크20% / 전설5%",Vector2(135,bottom-81),8,Color("6c553b"),true,230)
+		var need:int=int(q.souls[i]);var have:int=int(data.souls[i])
+		if need<=0:continue
+		var missing:int=maxi(0,need-have);affordable=affordable and missing==0
+		lines.append(["%s 어혼  필요 %d · 보유 %d%s"%[data.ELEMENTS[i],need,have," · 부족 %d"%missing if missing>0 else " · 충족"],missing>0])
+	var gold_missing:int=maxi(0,int(q.gold)-m.gold)
+	lines.append(["비늘  필요 %d · 보유 %d%s"%[q.gold,m.gold," · 부족 %d"%gold_missing if gold_missing>0 else " · 충족"],gold_missing>0])
+	var cost_y:float=bottom-86-lines.size()*17
+	for i in lines.size():m._text(lines[i][0],Vector2(135,cost_y+i*17),9,Color("a04332") if lines[i][1] else Color("39715c"),true,228)
+	var reason:String="재료가 부족해요" if not affordable else "재료가 준비됐어요"
+	if data.active():affordable=false;reason="탐험 중에는 합성할 수 없어요"
+	elif data.unit(int(selected[0])).get("locked",false) or data.unit(int(selected[1])).get("locked",false):affordable=false;reason="재료 병사의 잠금을 해제해 주세요"
+	m._text(reason,Vector2(135,bottom-76),8,Color("a04332") if not affordable else Color("39715c"),true,230)
 	button(m,"merge_cancel",Rect2(20,bottom-60,109,29),"돌아가기")
-	button(m,"merge_confirm",Rect2(139,bottom-60,109,29),"소모하고 합성")
+	button(m,"merge_confirm",Rect2(139,bottom-60,109,29),"소모하고 합성" if affordable else "재료 부족",affordable)
 
 func lock_icon(m,key: String,r: Rect2,locked: bool) -> void:
 	var c: Vector2=r.position+Vector2(6,5)

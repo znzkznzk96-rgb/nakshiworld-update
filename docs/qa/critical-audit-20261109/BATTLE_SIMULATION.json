@@ -1,0 +1,493 @@
+{
+  "failures": [],
+  "limitations": "actual tick logic; phases advanced directly without waiting real animation time; random teams, not exhaustive balance recommendation",
+  "max_ticks": 208,
+  "roundtrip_checks": 372,
+  "seed": 20261109,
+  "total_ticks": 69510,
+  "trials": 3000,
+  "wins": 2562,
+  "groups": [
+    {
+      "round": 1,
+      "star": 1,
+      "level": 0,
+      "trials": 50,
+      "wins": 50,
+      "max_ticks": 33
+    },
+    {
+      "round": 2,
+      "star": 2,
+      "level": 1,
+      "trials": 50,
+      "wins": 50,
+      "max_ticks": 19
+    },
+    {
+      "round": 3,
+      "star": 3,
+      "level": 2,
+      "trials": 50,
+      "wins": 50,
+      "max_ticks": 24
+    },
+    {
+      "round": 4,
+      "star": 1,
+      "level": 3,
+      "trials": 50,
+      "wins": 50,
+      "max_ticks": 39
+    },
+    {
+      "round": 5,
+      "star": 2,
+      "level": 0,
+      "trials": 50,
+      "wins": 50,
+      "max_ticks": 42
+    },
+    {
+      "round": 6,
+      "star": 3,
+      "level": 1,
+      "trials": 50,
+      "wins": 50,
+      "max_ticks": 25
+    },
+    {
+      "round": 7,
+      "star": 1,
+      "level": 2,
+      "trials": 50,
+      "wins": 23,
+      "max_ticks": 139
+    },
+    {
+      "round": 8,
+      "star": 2,
+      "level": 3,
+      "trials": 50,
+      "wins": 50,
+      "max_ticks": 33
+    },
+    {
+      "round": 9,
+      "star": 3,
+      "level": 0,
+      "trials": 50,
+      "wins": 50,
+      "max_ticks": 42
+    },
+    {
+      "round": 10,
+      "star": 1,
+      "level": 1,
+      "trials": 50,
+      "wins": 0,
+      "max_ticks": 194
+    },
+    {
+      "round": 1,
+      "star": 2,
+      "level": 2,
+      "trials": 50,
+      "wins": 50,
+      "max_ticks": 16
+    },
+    {
+      "round": 2,
+      "star": 3,
+      "level": 3,
+      "trials": 50,
+      "wins": 50,
+      "max_ticks": 10
+    },
+    {
+      "round": 3,
+      "star": 1,
+      "level": 0,
+      "trials": 50,
+      "wins": 38,
+      "max_ticks": 84
+    },
+    {
+      "round": 4,
+      "star": 2,
+      "level": 1,
+      "trials": 50,
+      "wins": 50,
+      "max_ticks": 23
+    },
+    {
+      "round": 5,
+      "star": 3,
+      "level": 2,
+      "trials": 50,
+      "wins": 50,
+      "max_ticks": 33
+    },
+    {
+      "round": 6,
+      "star": 1,
+      "level": 3,
+      "trials": 50,
+      "wins": 47,
+      "max_ticks": 54
+    },
+    {
+      "round": 7,
+      "star": 2,
+      "level": 0,
+      "trials": 50,
+      "wins": 50,
+      "max_ticks": 112
+    },
+    {
+      "round": 8,
+      "star": 3,
+      "level": 1,
+      "trials": 50,
+      "wins": 50,
+      "max_ticks": 23
+    },
+    {
+      "round": 9,
+      "star": 1,
+      "level": 2,
+      "trials": 50,
+      "wins": 6,
+      "max_ticks": 55
+    },
+    {
+      "round": 10,
+      "star": 2,
+      "level": 3,
+      "trials": 50,
+      "wins": 50,
+      "max_ticks": 123
+    },
+    {
+      "round": 1,
+      "star": 3,
+      "level": 0,
+      "trials": 50,
+      "wins": 50,
+      "max_ticks": 14
+    },
+    {
+      "round": 2,
+      "star": 1,
+      "level": 1,
+      "trials": 50,
+      "wins": 50,
+      "max_ticks": 32
+    },
+    {
+      "round": 3,
+      "star": 2,
+      "level": 2,
+      "trials": 50,
+      "wins": 50,
+      "max_ticks": 31
+    },
+    {
+      "round": 4,
+      "star": 3,
+      "level": 3,
+      "trials": 50,
+      "wins": 50,
+      "max_ticks": 14
+    },
+    {
+      "round": 5,
+      "star": 1,
+      "level": 0,
+      "trials": 50,
+      "wins": 11,
+      "max_ticks": 90
+    },
+    {
+      "round": 6,
+      "star": 2,
+      "level": 1,
+      "trials": 50,
+      "wins": 50,
+      "max_ticks": 37
+    },
+    {
+      "round": 7,
+      "star": 3,
+      "level": 2,
+      "trials": 50,
+      "wins": 50,
+      "max_ticks": 57
+    },
+    {
+      "round": 8,
+      "star": 1,
+      "level": 3,
+      "trials": 50,
+      "wins": 27,
+      "max_ticks": 63
+    },
+    {
+      "round": 9,
+      "star": 2,
+      "level": 0,
+      "trials": 50,
+      "wins": 48,
+      "max_ticks": 88
+    },
+    {
+      "round": 10,
+      "star": 3,
+      "level": 1,
+      "trials": 50,
+      "wins": 50,
+      "max_ticks": 65
+    },
+    {
+      "round": 1,
+      "star": 1,
+      "level": 2,
+      "trials": 50,
+      "wins": 50,
+      "max_ticks": 28
+    },
+    {
+      "round": 2,
+      "star": 2,
+      "level": 3,
+      "trials": 50,
+      "wins": 50,
+      "max_ticks": 18
+    },
+    {
+      "round": 3,
+      "star": 3,
+      "level": 0,
+      "trials": 50,
+      "wins": 50,
+      "max_ticks": 28
+    },
+    {
+      "round": 4,
+      "star": 1,
+      "level": 1,
+      "trials": 50,
+      "wins": 41,
+      "max_ticks": 56
+    },
+    {
+      "round": 5,
+      "star": 2,
+      "level": 2,
+      "trials": 50,
+      "wins": 50,
+      "max_ticks": 56
+    },
+    {
+      "round": 6,
+      "star": 3,
+      "level": 3,
+      "trials": 50,
+      "wins": 50,
+      "max_ticks": 21
+    },
+    {
+      "round": 7,
+      "star": 1,
+      "level": 0,
+      "trials": 50,
+      "wins": 0,
+      "max_ticks": 150
+    },
+    {
+      "round": 8,
+      "star": 2,
+      "level": 1,
+      "trials": 50,
+      "wins": 50,
+      "max_ticks": 34
+    },
+    {
+      "round": 9,
+      "star": 3,
+      "level": 2,
+      "trials": 50,
+      "wins": 50,
+      "max_ticks": 30
+    },
+    {
+      "round": 10,
+      "star": 1,
+      "level": 3,
+      "trials": 50,
+      "wins": 11,
+      "max_ticks": 208
+    },
+    {
+      "round": 1,
+      "star": 2,
+      "level": 0,
+      "trials": 50,
+      "wins": 50,
+      "max_ticks": 20
+    },
+    {
+      "round": 2,
+      "star": 3,
+      "level": 1,
+      "trials": 50,
+      "wins": 50,
+      "max_ticks": 14
+    },
+    {
+      "round": 3,
+      "star": 1,
+      "level": 2,
+      "trials": 50,
+      "wins": 50,
+      "max_ticks": 56
+    },
+    {
+      "round": 4,
+      "star": 2,
+      "level": 3,
+      "trials": 50,
+      "wins": 50,
+      "max_ticks": 23
+    },
+    {
+      "round": 5,
+      "star": 3,
+      "level": 0,
+      "trials": 50,
+      "wins": 50,
+      "max_ticks": 43
+    },
+    {
+      "round": 6,
+      "star": 1,
+      "level": 1,
+      "trials": 50,
+      "wins": 18,
+      "max_ticks": 71
+    },
+    {
+      "round": 7,
+      "star": 2,
+      "level": 2,
+      "trials": 50,
+      "wins": 50,
+      "max_ticks": 93
+    },
+    {
+      "round": 8,
+      "star": 3,
+      "level": 3,
+      "trials": 50,
+      "wins": 50,
+      "max_ticks": 25
+    },
+    {
+      "round": 9,
+      "star": 1,
+      "level": 0,
+      "trials": 50,
+      "wins": 0,
+      "max_ticks": 41
+    },
+    {
+      "round": 10,
+      "star": 2,
+      "level": 1,
+      "trials": 50,
+      "wins": 49,
+      "max_ticks": 147
+    },
+    {
+      "round": 1,
+      "star": 3,
+      "level": 2,
+      "trials": 50,
+      "wins": 50,
+      "max_ticks": 11
+    },
+    {
+      "round": 2,
+      "star": 1,
+      "level": 3,
+      "trials": 50,
+      "wins": 50,
+      "max_ticks": 28
+    },
+    {
+      "round": 3,
+      "star": 2,
+      "level": 0,
+      "trials": 50,
+      "wins": 50,
+      "max_ticks": 38
+    },
+    {
+      "round": 4,
+      "star": 3,
+      "level": 1,
+      "trials": 50,
+      "wins": 50,
+      "max_ticks": 18
+    },
+    {
+      "round": 5,
+      "star": 1,
+      "level": 2,
+      "trials": 50,
+      "wins": 33,
+      "max_ticks": 106
+    },
+    {
+      "round": 6,
+      "star": 2,
+      "level": 3,
+      "trials": 50,
+      "wins": 50,
+      "max_ticks": 26
+    },
+    {
+      "round": 7,
+      "star": 3,
+      "level": 0,
+      "trials": 50,
+      "wins": 50,
+      "max_ticks": 86
+    },
+    {
+      "round": 8,
+      "star": 1,
+      "level": 1,
+      "trials": 50,
+      "wins": 10,
+      "max_ticks": 46
+    },
+    {
+      "round": 9,
+      "star": 2,
+      "level": 2,
+      "trials": 50,
+      "wins": 50,
+      "max_ticks": 49
+    },
+    {
+      "round": 10,
+      "star": 3,
+      "level": 3,
+      "trials": 50,
+      "wins": 50,
+      "max_ticks": 56
+    }
+  ],
+  "raw_result_sha256": "9f89dc2c165f12af3ec2128df85a9270558deed05e094e40d24b8abef7987067"
+}

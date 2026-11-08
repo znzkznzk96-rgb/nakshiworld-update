@@ -61,6 +61,10 @@ func run() -> void:
 	m.scene="village";m.SET.music=0.0;m.SET.sfx=0.0;af.update_village(m,1.0)
 	check(not af.village_music.playing and not af.village_fx.playing and not af.village_horn.playing,"village sound respects mute")
 	check(af.streams.click!=af.streams.water,"UI and water use different streams")
+	var critical_cases:Array=load("res://tests/critical_transaction_cases.gd").new().run_with(m)
+	for result in critical_cases:
+		check(result.memory_unchanged and result.disk_unchanged,"real write failure rolls back "+result.case)
+		if result.reported_result is bool:check(not result.reported_result,"failed transaction reports failure "+result.case)
 	# Test deletion allowlist in isolated XDG_DATA_HOME, never user's files.
 	for name in ["settings.json","patch_ver.txt","reset.pending","rec.json","tut.json"]:
 		var f=FileAccess.open("user://"+name,FileAccess.WRITE);f.store_string("sentinel");f.close()

@@ -49,7 +49,7 @@ func grid(m,y:float,bottom:float):
  if v.tab==1:
   text(m,'같은 별 · +3 병사 2마리',Vector2(135,y+8),9,true)
   for i in 2:
-   var r:=Rect2(48+i*83,y+15,49,47);m._ui_style_box(m.sb_chip,r)
+   var r:=Rect2(48+i*83,y+15,49,47);v.card(m,r)
    if i<v.selected.size():
     var u:Dictionary=d.unit(v.selected[i]);v.sprite(m,u.id,r.grow(-6),0,1.0,int(u.star));select(m,r,str(i+1))
    else:text(m,'재료 선택',r.get_center()+Vector2(0,3),7,true,46)
@@ -71,7 +71,7 @@ func grid(m,y:float,bottom:float):
   if first+i>=units.size():break
   var u:Dictionary=units[first+i];var spec:Dictionary=d.catalog.soldiers[int(u.id)]
   var r:=Rect2(18+(i%3)*79,y+floori(i/3.0)*68,76,64)
-  m._ui_style_box(m.sb_chip,r)
+  v.card(m,r)
   v.sprite(m,int(u.id),Rect2(r.position+Vector2(22,3),Vector2(32,28)),0,1.0,int(u.star))
   text(m,m._ui_wrap(spec.name,7,68,1),r.position+Vector2(38,42),7,true,69)
   text(m,'★'.repeat(int(u.star))+' +%d'%u.level,r.position+Vector2(38,55),8,true,69)
@@ -158,20 +158,20 @@ func merge_list(m,y:float,bottom:float):
  text(m,'합성할 병사 2마리를 선택하세요',Vector2(135,y+8),10,true)
  text(m,'같은 별 · +3 병사 2마리',Vector2(135,y+23),8,true)
  for i in 2:
-  var r:=Rect2(47+i*101,y+29,75,53)
-  m._ui_style_box(m.sb_chip,r)
+  var r:=Rect2(47+i*101,y+29,75,62)
+  v.card(m,r)
   if i<v.selected.size():
    var u:Dictionary=d.unit(v.selected[i]);v.sprite(m,u.id,Rect2(r.position+Vector2(20,1),Vector2(34,28)),0,1.0,int(u.star))
    text(m,'★'.repeat(int(u.star))+' +%d'%u.level,r.position+Vector2(37,38),8,true,68)
    select(m,r,str(i+1))
   else:text(m,'+ 선택',r.position+Vector2(37,31),12,true,68)
-  text(m,'재료 %d'%(i+1),r.position+Vector2(37,49),7,true,68)
+  text(m,'재료 %d'%(i+1),r.position+Vector2(37,54),7,true,68)
  text(m,'+',Vector2(135,y+63),16,true,20)
- text(m,'선택 %d / 2'%v.selected.size(),Vector2(135,y+96),9,true)
- y+=105
+ text(m,'선택 %d / 2'%v.selected.size(),Vector2(135,y+105),9,true)
+ y+=114
  text(m,'보유 병사',Vector2(22,y+9),10)
  y+=16
- var pitch:float=58
+ var pitch:float=64
  var rows:int=maxi(1,int((bottom-y-59)/pitch))
  v.roster_viewport=Rect2(18,y,234,rows*pitch)
  v.roster_max_scroll=maxf(0,d.soldiers.size()*pitch-rows*pitch)
@@ -180,13 +180,13 @@ func merge_list(m,y:float,bottom:float):
  for i in rows:
   if first+i>=d.soldiers.size():break
   var u:Dictionary=d.soldiers[first+i];var spec:Dictionary=d.catalog.soldiers[int(u.id)];var st:Dictionary=d.stats(u)
-  var r:=Rect2(18,y+i*pitch,234,55)
-  m._ui_style_box(m.sb_chip,r)
+  var r:=Rect2(18,y+i*pitch,234,61)
+  v.card(m,r)
   v.sprite(m,u.id,Rect2(r.position+Vector2(6,13),Vector2(40,37)),0,1.0,int(u.star))
   text(m,spec.name,r.position+Vector2(52,15),10,false,172)
   text(m,'★'.repeat(int(u.star))+'  +%d'%u.level,r.position+Vector2(52,29),8,false,110)
   text(m,'체%d  공%d  방%d'%[st.hp,st.atk,st.def],r.position+Vector2(52,39),8,false,172)
-  text(m,m._ui_wrap(skill_description(u),7,172,1),r.position+Vector2(52,49),7,false,172)
+  text(m,m._ui_wrap(skill_description(u),7,172,1),r.position+Vector2(52,51),7,false,172)
   if bool(u.locked):
    v.lock_icon(m,'lock_status:%d'%u.uid,Rect2(r.end.x-25,r.position.y+18,20,22),true)
   elif int(u.uid) in d.team:text(m,'출전',r.position+Vector2(199,28),7,true,40,Color('39715c'))

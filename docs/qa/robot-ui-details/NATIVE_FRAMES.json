@@ -1,0 +1,98 @@
+[
+  {
+    "name": "merge_list_480.png",
+    "size": [
+      810,
+      1440
+    ],
+    "sha256": "2fd3dde2c086f1bfd509c7d0447954487bb28a73d6402424563053dea27d7633"
+  },
+  {
+    "name": "merge_list_540.png",
+    "size": [
+      810,
+      1620
+    ],
+    "sha256": "786ddcdbb6f6460a3852829bd96f19078a08d66ba26ecb597505106cd4b36d48"
+  },
+  {
+    "name": "merge_list_660.png",
+    "size": [
+      810,
+      1980
+    ],
+    "sha256": "0be28ca905cfffdc9c234cc0e663814396392deba01af5246ad357a49e9afcdf"
+  },
+  {
+    "name": "merge_shortage_480.png",
+    "size": [
+      810,
+      1440
+    ],
+    "sha256": "999816146eda1f11d881374f527495459d50c5480d8180d48db6908129af8f61"
+  },
+  {
+    "name": "merge_shortage_540.png",
+    "size": [
+      810,
+      1620
+    ],
+    "sha256": "a61c2719bd9ea984961241dc23e3e02dc7b6fe5e4a949806f63f63307959821f"
+  },
+  {
+    "name": "merge_shortage_660.png",
+    "size": [
+      810,
+      1980
+    ],
+    "sha256": "fed2ac37475a8ea3147e6cf431f1fa1cd525dc079ed6feaa716e03abc7d89752"
+  },
+  {
+    "name": "robot_bottom_480.png",
+    "size": [
+      810,
+      1440
+    ],
+    "sha256": "ede06b36465ba96b61cd4438a0779073b11d6ab224de827e2800a7b0eed60a64"
+  },
+  {
+    "name": "robot_bottom_540.png",
+    "size": [
+      810,
+      1620
+    ],
+    "sha256": "cba8359759c862e9f343aabe1700f0ea56ccad535f9aee1f91c7d859e779b409"
+  },
+  {
+    "name": "robot_bottom_660.png",
+    "size": [
+      810,
+      1980
+    ],
+    "sha256": "e0fec4a141af4a7abc8b888de8e21ad3dacb167040232e461cea1cf48a905208"
+  },
+  {
+    "name": "robot_list_480.png",
+    "size": [
+      810,
+      1440
+    ],
+    "sha256": "6087357a698d43c19fa1335970ff2f07ff51157fc8da294ea9435f2042e799eb"
+  },
+  {
+    "name": "robot_list_540.png",
+    "size": [
+      810,
+      1620
+    ],
+    "sha256": "3829b1d3695c0ada047b4e675a4af7f7fce1cd5d43aff3bf917392731de86984"
+  },
+  {
+    "name": "robot_list_660.png",
+    "size": [
+      810,
+      1980
+    ],
+    "sha256": "1eadff77635cf0e774587e3a3a30a99a042b7f78249a391538aaae6180ca37d7"
+  }
+]
