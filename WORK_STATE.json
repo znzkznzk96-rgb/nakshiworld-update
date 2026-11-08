@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "offline_three_hours_full_verified_not_deployed",
+  "status": "three_region_fish_prices_rebalance_in_progress",
   "release_baseline": "v1.11",
   "target_release": "v1.11",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/offline-three-hours/HANDOFF.md",
-  "current_task": "수족관오프라인수익상한3시간·UI/저장검증·주간수익재분석",
-  "next_step": "3시간오프라인정산조건으로약일주일목표가격안확정검토; 새배포는별도지시후신규버전으로진행",
+  "current_task": "오프라인3시간기준저수지·계곡·타일60종판매가재산정·적용",
+  "next_step": "3지역추첨/주간수입비교·가격표산정checkpoint후구현·세이브/관련/전체검증",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -444,5 +444,19 @@
     "ci_status": "success",
     "unique_verify_results": 88,
     "verification_artifact": 13626040474
+  },
+  "three_region_price_rebalance": {
+    "status": "scope_authorized_prices_under_analysis",
+    "offline_income_hours": 3,
+    "regions": [
+      0,
+      1,
+      2
+    ],
+    "target_day_hours": 3,
+    "target_days_approx": 7,
+    "reference_owner_count": 5,
+    "preserve_stored_specimen_prices": true,
+    "deployed": false
   }
 }
