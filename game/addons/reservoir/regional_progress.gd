@@ -78,7 +78,9 @@ const SPOT_PRICES = preload("res://addons/reservoir/spot_selection.gd")
 
 func reward_gold(area: int, kind: int, donated_value: int=0) -> int:
 	if area < 0 or area > 2 or kind not in [1,2]: return 0
-	if area == 0: return roundi(donated_value*(1.2 if kind==1 else 1.5))
+	if area == 0:
+		return roundi(donated_value*1.2) if kind==1 else roundi(SPOT_PRICES.PRICES[1]*0.3)
+	if area == 1: return roundi(SPOT_PRICES.PRICES[2]*(0.1 if kind==1 else 0.3))
 	return roundi(SPOT_PRICES.PRICES[area]*(0.1 if kind==1 else 0.3))
 var extra_donations: Dictionary = {}
 var bundle_values: Dictionary = {}

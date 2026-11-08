@@ -29,7 +29,7 @@ func run():
 		check(m.SURF<m.WATER and m.uw_bot>m.WATER,"usable underwater area %d"%h)
 		await capture(out.path_join("tile_%d.png"%h))
 		m._switch_scene("spots");m.spots.index=2;m.spots.scroll=2;m.spots.shift=0;m.queue_redraw()
-		check(m.spots.images[2].get_size()==tile.SOURCE,"selection uses approved original at %d"%h)
+		check(m.spots.images[2].resource_path=="res://art/refresh53/tile_sea.png","selection uses restored legacy picture at %d"%h)
 		await capture(out.path_join("selection_%d.png"%h))
 		m._switch_scene("village");check(not tile.root.visible,"village hides native plate")
 		m.V.open_shop(m,"museum");m.V.bundle_preview.region=2

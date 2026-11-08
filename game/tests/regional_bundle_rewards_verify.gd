@@ -12,9 +12,9 @@ func run() -> void:
    p.restore({});m.gold=0;m.souls=0;m.pearl=0
    var key=p.bundle_key(area,kind)
    p.extra_completed[key]=true;p.bundle_values[key]=1001
-   var expected: int=([1201,1980,31200][area] if kind==1 else [1502,5940,93600][area])
+   var expected: int=([1201,31200,31200][area] if kind==1 else [5940,93600,93600][area])
    check(ui.reward_amount(m,area,kind)==expected and ui.reward_preview_amount(m,area,kind)==expected,"display exact amount")
-   if area>0:
+   if area>0 or kind==2:
     p.bundle_values[key]=999999
     check(ui.reward_preview_amount(m,area,kind)==expected,"unlock cost reward independent of donation value")
    m.development_preview=true
@@ -27,6 +27,6 @@ func run() -> void:
    ui.region=area;ui.tab=kind;ui.draw(m,540)
    if kind==2: check(m.text_items.any(func(it):return ("진주 %d개"%[2,4,6][area]) in str(it[2])),"regional pearl caption")
  check(ui.MUSEUM_TILE.resource_path=="res://art/refresh53/tile_sea.png","museum original thumbnail")
- check(m.spots.images[2].resource_path=="res://art/bg/tile_sea_approved_20261107.png","fishing approved background preserved")
+ check(m.spots.images[2].resource_path=="res://art/refresh53/tile_sea.png","selection legacy thumbnail restored")
  m.audio_feedback.dispose();m.queue_free();await process_frame
  print("REGIONAL_BUNDLE_REWARDS_VERIFY failures=",failures);quit(0 if failures.is_empty() else 1)

@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "bundle_next_unlock_correction_approved",
+  "status": "bundle_next_unlock_related_verified",
   "release_baseline": "v1.10",
   "target_release": "v1.10",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/bundle-next-unlock/HANDOFF.md",
   "current_task": "계곡 보상 다음지역 기준 정정·저수지 주인5940·타일 선택그림 복원",
-  "next_step": "승인결정 원격검증 후 코드·관련검사·실화면 작업",
+  "next_step": "최종소스 자동 전체검사 및 전후 화면 증거 저장",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -276,8 +276,11 @@
     "note": "최종소스 전체 회귀·공통실화면·PCK검증 성공. 신규 공개버전 미지정/새배포 미승인. CI후보는 검사산출물이며 공개v1.10 대체하지 않음."
   },
   "bundle_next_unlock": {
-    "status": "approved_before_implementation",
+    "status": "implemented_related_verified",
     "deployed": false,
-    "release_authorized": false
+    "release_authorized": false,
+    "related_suites": 7,
+    "native_pass": true,
+    "decision_commit": "5137ca41804abb2c7697f374b68e11116232c48d"
   }
 }
