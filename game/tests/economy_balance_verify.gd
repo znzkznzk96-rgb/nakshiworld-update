@@ -8,6 +8,8 @@ func run() -> void:
 	var shop=m.region_shop;var commerce=m.V.commerce
 	shop.restore({"stocks":[0,7,9,11,13,15],"selected_bait":1});m.bait=4
 	check(shop.stocks==[0,7,9,11,13,15] and m.bait==4,"existing stock preserved")
+	# Purchases require a real isolated save; preview mode intentionally rejects writes.
+	m.development_preview=false
 	for b in 3:
 		var expected: int=[5,15,20][b]
 		check(shop.bait_description(m,b).begins_with(str(expected)+"비늘"),"visible price matches purchase %d"%b)
@@ -23,6 +25,7 @@ func run() -> void:
 	check(preload("res://addons/reservoir/spot_selection.gd").PRICES==[0,19800,312000,4635000,30150000,127350000],"approved tiered unlock fees")
 	check(m.progression.available_regions==[0,1,2],"only approved reservoir and valley are available")
 	check(shop.BAIT_MULT==[1.0,1.0,1.5,1.8,2.1,2.5] and shop.BAIT_PRICES.slice(3)==[1200,3000,6000],"effects and future bait prices preserved")
+	m.development_preview=true
 	var summary: Array=[]
 	shop.unlocked=[0,1];shop.selected_bait=0;m.bait=100000
 	for area in 2:
