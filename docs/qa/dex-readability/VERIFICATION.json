@@ -59,7 +59,11 @@
     }
   },
   "root_cause": "shared single-line button padding collapsed the two valley text baselines; region1 now opts out locally and reserves explicit font-sized lines",
-  "full_ci": "pending",
+  "full_ci": {
+    "run": 42718606566,
+    "source_commit": "b37a66e386686a510e10cbf59091e80e9d4a9cc0",
+    "status": "in_progress"
+  },
   "deployed": false,
   "public_release": "v1.18",
   "release_authorized": false

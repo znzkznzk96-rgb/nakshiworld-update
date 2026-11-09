@@ -941,6 +941,9 @@
       3
     ],
     "deployed": false,
-    "release_authorized": false
+    "release_authorized": false,
+    "ci_run": 42718606566,
+    "ci_status": "in_progress",
+    "source_commit": "b37a66e386686a510e10cbf59091e80e9d4a9cc0"
   }
 }
