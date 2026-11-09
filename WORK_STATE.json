@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "fight_telegraph_implementation",
+  "status": "fight_telegraph_full_verification",
   "release_baseline": "v1.14",
   "target_release": "v1.15",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/fight-telegraph/HANDOFF.md",
   "current_task": "12종 파이팅 몸짓 도트도형·실시간 게이지·재감기 피드백 적용",
-  "next_step": "전조/반복몸짓/속임·연속 처리 구현·관련검사·화면검수",
+  "next_step": "전체CI·실제12종3단계보드/폰화면 검수 후 작업브랜치에 결과 저장; 공개v1.14 유지",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -739,6 +739,9 @@
     "procedural_godot": true,
     "spike_warning_seconds": 0.35,
     "deployed": false,
-    "release_authorized": false
+    "release_authorized": false,
+    "implemented": true,
+    "related_verified": true,
+    "verification": "docs/qa/fight-telegraph/VERIFICATION.json"
   }
 }

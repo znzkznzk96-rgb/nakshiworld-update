@@ -1,0 +1,49 @@
+{
+  "baseline": "v1.14",
+  "baseline_source_zip_sha256": "afdb3753d30454c560a6a4272dbe7b7d61e434e0451e1b500389747e85c14d10",
+  "godot": "4.4.1.stable",
+  "candidate_version": "1.15",
+  "local_passed": [
+    "fight_telegraph",
+    "action_readability",
+    "fishing_difficulty",
+    "fight_body_size",
+    "fish_presentation",
+    "fish_anchor_size",
+    "audio_save",
+    "release_candidate 7 unit tests",
+    "final import",
+    "JSON/YAML/diff checks"
+  ],
+  "coverage": [
+    "four warning shapes and exact bt progress",
+    "warning disappearance on action execution",
+    "fake cancel/chain/fake rest",
+    "spike warning delay and overlap suppression",
+    "clone real-index independence",
+    "sulk/circle/thrash actual phase thresholds",
+    "fresh vs held/duplicate timing inputs",
+    "existing landing and skim rewards",
+    "all icon masks empty/half/full differences",
+    "15px bounds",
+    "no renderer RNG/text/game-state side effects"
+  ],
+  "palette": {
+    "release": "FF716A",
+    "reel": "CDFF54",
+    "observe": "DE9AFF"
+  },
+  "icon_bounds": [
+    15,
+    15
+  ],
+  "spike_warning_fight_seconds": 0.35,
+  "spike_note": "impact/duration/probability coefficient retained; added warning delay and competing-warning suppression may change realized event counts",
+  "ordinary_feedback_adds_reward": false,
+  "existing_landing_skim_windows": "unchanged",
+  "paid_generations": 0,
+  "full_ci": "pending",
+  "public_deployed": false,
+  "public_version": "v1.14",
+  "phone_verified": false
+}
