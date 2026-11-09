@@ -42,7 +42,7 @@
   "ordinary_feedback_adds_reward": false,
   "existing_landing_skim_windows": "unchanged",
   "paid_generations": 0,
-  "full_ci": "in_progress",
+  "full_ci": "success",
   "public_deployed": false,
   "public_version": "v1.14",
   "phone_verified": false,
@@ -60,5 +60,28 @@
   "layout_correction": "Anchor above actual smoothed tension HUD and above clone group, with horizontal edge fallback; preview restores background; headless 9 position/length overlap cases passed",
   "feedback_stream_seconds": 0.38,
   "feedback_pitch": 1.3,
-  "feedback_playback_seconds_approx": 0.292
+  "feedback_playback_seconds_approx": 0.292,
+  "unique_verify_passed": 92,
+  "native_preview_passed": true,
+  "packed_runtime_passed": true,
+  "candidate_artifact": 13653836902,
+  "candidate_fingerprint": "62f6b949a560986908115629d08c837c7d6f40cff5ce2e9ed2477e9492246175",
+  "candidate_zip_sha256": "1aa7e39b54d67da6515cda7cb55e834aaba25038750e89d41e11c318d861f131",
+  "evidence_artifact": 13653582614,
+  "evidence_zip_sha256": "a956bae2088e50f5bcdbc4c53b08424bb3459b0281dfbe7f1c915b344a6c75cd",
+  "evidence_zip_crc_verified": true,
+  "screens_png_decoded": 6,
+  "manual_review": {
+    "normal_fishing_background": true,
+    "12_actions_3_states": true,
+    "phone_screens": 5,
+    "icon_tension_overlap_fixed": true,
+    "clone_group_mark": true,
+    "existing_art_unchanged": true
+  },
+  "screenshots": "SCREENS.json",
+  "production_hashes": {
+    "game/main.gd": "78b331c0439004ba92c9d8f895517bffee2d16a1966f11d68246a25cb6f7378e",
+    "game/addons/reservoir/fight_telegraph.gd": "22af87fe7cf9e85ec2590e24ce86f8c2afd607e3bf28f80c78d6014c1808186d"
+  }
 }
