@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "bite_preview_size_implemented_related_verified",
+  "status": "fight_telegraph_implementation",
   "release_baseline": "v1.14",
-  "target_release": "v1.14",
+  "target_release": "v1.15",
   "deployed": true,
   "phone_verified": false,
-  "handoff": "docs/qa/bite-preview-size/HANDOFF.md",
-  "current_task": "훅 전 찌 접근 물고기 크기 비슷하게 보정",
-  "next_step": "전체CI42562848881 상태 확인; 공개v1.14 유지·이번 크기 보정 배포는 별도 승인",
+  "handoff": "docs/qa/fight-telegraph/HANDOFF.md",
+  "current_task": "12종 파이팅 몸짓 도트도형·실시간 게이지·재감기 피드백 적용",
+  "next_step": "전조/반복몸짓/속임·연속 처리 구현·관련검사·화면검수",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -725,6 +725,20 @@
     "verification": "docs/qa/bite-preview-size/VERIFICATION.json",
     "source_commit": "bcbaaec065c5af68ffe45a13075230a01f2749ce",
     "ci_run": 42562848881,
-    "ci_status": "pending"
+    "ci_status": "success"
+  },
+  "fight_telegraph": {
+    "approved": true,
+    "palette": [
+      "FF716A",
+      "CDFF54",
+      "DE9AFF"
+    ],
+    "icon_size_approx": 15,
+    "text": false,
+    "procedural_godot": true,
+    "spike_warning_seconds": 0.35,
+    "deployed": false,
+    "release_authorized": false
   }
 }
