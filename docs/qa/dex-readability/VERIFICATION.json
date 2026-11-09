@@ -62,7 +62,46 @@
   "full_ci": {
     "run": 42718606566,
     "source_commit": "b37a66e386686a510e10cbf59091e80e9d4a9cc0",
-    "status": "in_progress"
+    "status": "success",
+    "coverage": "full regression, native/shared screens including dex readability, packed art/tile verification",
+    "artifacts": [
+      {
+        "id": 13719820857,
+        "name": "owner-gauge-first-preview",
+        "size": 15389815,
+        "digest": "sha256:2ab721dfca855b2bda0d85d660a37bdfabfeaa6a1b992462816a4b494b1d6f14"
+      },
+      {
+        "id": 13719446824,
+        "name": "village-reward-first-preview",
+        "size": 5109840,
+        "digest": "sha256:bbe30f28ef08cd4d852923619ada8d697a1a313b98b2bf985e76f51a3f81cc94"
+      },
+      {
+        "id": 13719074402,
+        "name": "work-verification",
+        "size": 176479605,
+        "digest": "sha256:d17fddc2f0ce525ba988d20da62b0133e4775dd852cf1423541bdc2edec87eee"
+      },
+      {
+        "id": 13718919657,
+        "name": "release-candidate-bcb4572a589a9ccf4b87e1f8ab3b764816150b1e4895541fb52a410a3d8e6e05",
+        "size": 117631829,
+        "digest": "sha256:afe0c12113cdc598689cad6f3aabc65e99e4e45225bf75059d2cf8e915947fab"
+      },
+      {
+        "id": 13718219464,
+        "name": "soldier-skills-first-preview",
+        "size": 2205420,
+        "digest": "sha256:37bbd0fa9390eb6b35b6230a0f41710449c8903ec8e40934e123fc6c5bbb2c40"
+      },
+      {
+        "id": 13718013863,
+        "name": "updater-first-preview",
+        "size": 983303,
+        "digest": "sha256:db87bf9a7a4f296af8d8ab4079db2d30847314141b5fbbf91d1bbbfaba79ab09"
+      }
+    ]
   },
   "deployed": false,
   "public_release": "v1.18",

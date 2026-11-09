@@ -3,4 +3,4 @@
 
 병사는역할필터+★1/2/3보기,성급별기존스프라이트·실전스킬명/설명·기본능력치연결. 상세에서도성급전환가능. 종별제작기록과성급별보기를구분,보유/발견/세이브/전투/경제변경없음.
 
-관련5검사통과,3폰높이135상세의실제스킬/수치·역할/성급조합/스크롤/미발견보호확인. 최종21실화면디코드·육안검수통과. [화면](dex-preview.webp)·[검증](VERIFICATION.json)·[승인](HANDOFF-approved.md). 전체CI[42718606566](https://github.com/znzkznzk96-rgb/nakshiworld-update/actions/runs/42718606566) 진행 중·완료후갱신. 소스b37a66e386686a510e10cbf59091e80e9d4a9cc0. 공개v1.18유지·미배포·새배포미승인.
+관련5검사통과,3폰높이135상세의실제스킬/수치·역할/성급조합/스크롤/미발견보호확인. 최종21실화면디코드·육안검수통과. [화면](dex-preview.webp)·[검증](VERIFICATION.json)·[승인](HANDOFF-approved.md). 전체CI[42718606566](https://github.com/znzkznzk96-rgb/nakshiworld-update/actions/runs/42718606566) 전체회귀·공통/도감실화면·PCK검증 성공. 다음 사용자 검토/새 작업 지시 대기. 소스b37a66e386686a510e10cbf59091e80e9d4a9cc0. 공개v1.18유지·미배포·새배포미승인.

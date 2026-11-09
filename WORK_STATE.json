@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "dex_readability_related_verified",
+  "status": "dex_readability_full_verified",
   "release_baseline": "v1.18",
   "target_release": "v1.18",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/dex-readability/HANDOFF.md",
-  "current_task": "도감 글자밀림·목록 가독성·병사 성급 보기 개선",
-  "next_step": "최종 전체CI 확인 후 원격기록. 공개v1.18 유지·새배포 미승인.",
+  "current_task": "도감 가독성·병사 성급별 보기 수정·전체검증 완료",
+  "next_step": "사용자 새 작업/배포 지시 대기. 게이지·마을알림·번들·도감 수정 미배포, 공개v1.18 유지.",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -943,7 +943,8 @@
     "deployed": false,
     "release_authorized": false,
     "ci_run": 42718606566,
-    "ci_status": "in_progress",
-    "source_commit": "b37a66e386686a510e10cbf59091e80e9d4a9cc0"
+    "ci_status": "success",
+    "source_commit": "b37a66e386686a510e10cbf59091e80e9d4a9cc0",
+    "candidate_artifact": 13718919657
   }
 }
