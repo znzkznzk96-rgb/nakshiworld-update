@@ -42,12 +42,12 @@
   "ordinary_feedback_adds_reward": false,
   "existing_landing_skim_windows": "unchanged",
   "paid_generations": 0,
-  "full_ci": "replacement_pending",
+  "full_ci": "in_progress",
   "public_deployed": false,
   "public_version": "v1.14",
   "phone_verified": false,
-  "source_commit": "798ce63997e710621ad8befad00931a0d407c254",
-  "full_ci_run": 42570727005,
+  "source_commit": "2ff57dd839ef97802268e8c7eecc455039429c25",
+  "full_ci_run": 42571831399,
   "initial_full_ci": {
     "run": 42570727005,
     "status": "success",
@@ -57,5 +57,8 @@
     "evidence_zip_sha256": "1d34e2f191f3f0a92b768788a0c685033b2d1e15c16eb005630ac799101f8874",
     "manual_review": "not accepted: icon/tension overlap and preview background visibility setup"
   },
-  "layout_correction": "Anchor above actual smoothed tension HUD and above clone group, with horizontal edge fallback; preview restores background; headless 9 position/length overlap cases passed"
+  "layout_correction": "Anchor above actual smoothed tension HUD and above clone group, with horizontal edge fallback; preview restores background; headless 9 position/length overlap cases passed",
+  "feedback_stream_seconds": 0.38,
+  "feedback_pitch": 1.3,
+  "feedback_playback_seconds_approx": 0.292
 }
