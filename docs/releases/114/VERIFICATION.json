@@ -49,5 +49,12 @@
     "region unlock fees",
     "owner sale prices",
     "aquarium price-link formula"
-  ]
+  ],
+  "second_run": {
+    "id": 42544628020,
+    "artifact": 13643181138,
+    "gameplay_regressions": "all passed",
+    "failure": "supplemental independent-resume fixture assumed no elapsed offline earnings",
+    "fix": "expected balance includes actual capped offline earnings; delayed10-minute independent resume passes"
+  }
 }

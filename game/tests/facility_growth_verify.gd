@@ -13,7 +13,12 @@ func run()->void:
 	var m=load("res://main.gd").new();m.SET.sfx=0;m.SET.music=0;root.add_child(m);await process_frame;m.set_process(false)
 	m.development_preview=false;m.TUT.done=true;m.title_open=false;m.lesson_open=false;m.scene="village";m.S={"phase":"idle"}
 	if "resume" in OS.get_cmdline_user_args():
-		check(m.gold==123456 and m.aqua_lv==6 and m.boat_lv==6 and m.pond_cap_lv==6 and m.pond_regen_lv==6,"independent restart keeps regional levels and cash")
+		var prior:Dictionary=Store.read("user://save.json.bak")
+		var away:float=clampf(Time.get_unix_time_from_system()-float(prior.get("time",0)),0,10800)
+		var expected:int=int(prior.get("gold",0))+int(m.aqua_rate()*away/60.0)
+		check(abs(m.gold-expected)<=1 and m.gold>=123456,"independent restart settles actual offline income once")
+		check(m.aqua_lv==6 and m.boat_lv==6 and m.pond_cap_lv==6 and m.pond_regen_lv==6,"independent restart keeps regional levels")
+		var settled:int=m.gold;m._load_game();check(m.gold==settled,"restart does not pay income twice")
 		check(m.pond_overflow==17 and m.pond_stock==130 and m.testing_grants==["0.78","1.08","unrelated"],"independent restart keeps reserve and gift IDs")
 		check(m.aqua[0].stamp=="keep-7" and m.bag[0].stamp=="keep-9","independent restart keeps exact specimens")
 		print("FACILITY_GROWTH_RESUME_VERIFY failures=",failures)
