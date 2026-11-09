@@ -21,10 +21,11 @@ const KEEPER: = {"up": "k_up", "bait": "k_bait", "aqua": "k_aqua", "museum": "k_
 const PARTS: = [["float", "찌", "★2 입질 해금", 660], ["hook", "바늘", "★3 입질 해금", 1320], ["line", "줄", "★4 입질 해금", 2376], ["reel", "릴", "모든 ★ · 주인 자격", 3960]]
 const SOUL_STAR: = [1, 2, 4, 8, 20]
 const SOUL_GRADE: = [1, 2, 4, 8, 16]
-const UPGRADE_COST: = [160, 420, 1000, 2400, 6000]
+const FACILITIES = preload("res://addons/reservoir/facility_growth.gd")
+const UPGRADE_COST = FACILITIES.BOAT_COST
 const FORGE_COST: = [120, 360, 900, 2100, 4800]
-const POND_CAP_COST: = [300, 800, 1800, 4200, 9000]
-const POND_REGEN_COST: = [250, 700, 1600, 3800, 8000]
+const POND_CAP_COST = FACILITIES.CAP_COST
+const POND_REGEN_COST = FACILITIES.REGEN_COST
 const ROD_NAME: = ["대나무 낚싯대", "카본 낚싯대", "원투 낚싯대", "선상 낚싯대", "심해 낚싯대", "은하 낚싯대"]
 const ROD_COST: = [0, 8000, 140000, 2800000, 18000000, 76000000]
 var museum_region := 0
@@ -112,8 +113,8 @@ func setup() -> void :
 	sb_plaque.texture_margin_top = 12;sb_plaque.texture_margin_bottom = 6
 
 func capacity(m) -> int: return passengers(m)
-func passengers(m) -> int: return 4 + 2 * m.boat_lv
-func interval(m) -> float: return 60.0 - 4.0 * m.boat_lv
+func passengers(m) -> int: return FACILITIES.PASSENGERS[clampi(m.boat_lv,0,12)]
+func interval(m) -> float: return float(FACILITIES.INTERVAL[clampi(m.boat_lv,0,12)])
 func multiplier(m) -> float: return float(mini(capacity(m), passengers(m))) / 4.0 * 60.0 / interval(m)
 func enter(m) -> void :
 	enter_t = m.ui_clock;shop = "";pick_slot = -1;pointer = false;velocity = 0;fingers.clear();pinching = false
@@ -273,7 +274,7 @@ func draw(m, h: float) -> void :
 	m.draw_texture(art.bridge, (o + Vector2(220, -6)).round())
 	var ferry_x: = lerpf(-110, 95, clampf(ferry_clock / 6.0, 0, 1))
 	if ferry_clock > 15: ferry_x = 95 - (ferry_clock - 15) * 24
-	_sprite(m, "boat", o + Vector2(ferry_x, 78 + roundf(sin(t * 1.8) * 1.2)), 122 + m.boat_lv * 4)
+	_sprite(m, "boat", o + Vector2(ferry_x, 78 + roundf(sin(t * 1.8) * 1.2)), 122 + mini(m.boat_lv,6) * 20.0 / 6.0)
 	for i in 3:
 		var radius: float = 9 + fposmod(t * 6 + i * 9, 24)
 		m.draw_arc(o + Vector2(ferry_x, 78), radius, 0, PI, 12, Color(0.72, 0.93, 0.89, 0.18), 1)
@@ -307,7 +308,7 @@ func draw(m, h: float) -> void :
 			_sprite(m, "lamp", o + Vector2(x, 48))
 	for x in [695.0, 1355.0]:
 		if _visible(x, 50): _sprite(m, "bench", o + Vector2(x, 52))
-	for n in m.pond_cap_lv:
+	for n in mini(m.pond_cap_lv,6):
 		var x: float = 400 + n * 245
 		if _visible(x, 35): _sprite(m, "hedge", o + Vector2(x, 64), 38)
 
@@ -556,31 +557,30 @@ func soul_of(f: Dictionary) -> int:
 
 func _draw_growth(m, r: Rect2, y: float, harbor: bool) -> void :
 	var lv: int = m.boat_lv
-	m._text("배 Lv.%d" % (lv + 1), Vector2(135, y + 8), 14, Color("382619"), true)
+	m._text("배 강화 %d / 12" % lv, Vector2(135, y + 8), 14, Color("382619"), true)
 	y += 30
 	m._text("한 번에 %d명 · %.0f초마다 입항" % [passengers(m), interval(m)], Vector2(135, y), 10, Color("382619"), true, 224)
 	m._text("수족관 수익 배수 ×%.2f" % multiplier(m), Vector2(135, y + 40), 11, Color("376556"), true)
 	y += 53
-	if lv < 5:
-		var desc: = "승선 +2명 · 간격 -4초"
-		_row(m, r, y, tool_icons.boat, "배 확장", desc, "", UPGRADE_COST[lv], m.gold >= UPGRADE_COST[lv], "boat")
-	else: _row(m, r, y, null, "최종 단계", "최고 레벨입니다", "완료", 0, false, "")
+	if FACILITIES.unlocked(m,"boat"):
+		var desc: String="%d명 → %d명 · %d초 → %d초"%[passengers(m),FACILITIES.PASSENGERS[lv+1],roundi(interval(m)),FACILITIES.INTERVAL[lv+1]]
+		_row(m,r,y,tool_icons.boat,"배 확장",desc,"",UPGRADE_COST[lv],m.gold>=UPGRADE_COST[lv],"boat")
+	else: _row(m,r,y,null,"배 확장",FACILITIES.lock_label(m,"boat"),"잠김" if lv<12 else "완료",0,false,"")
 	m._text("배가 커질수록 더 많은 손님이 방문해요.", Vector2(135, y + 62), 9, Color("6a4a2a"), true, 224)
 	m._text("수족관 수익과 마을 방문객에 반영돼요.", Vector2(135, y + 80), 9, Color("6a4a2a"), true, 224)
 
 func _draw_hall(m, r, y: float) -> void :
 	m._text("어장 최대량  %d마리" % roundi(m.pond_max()), Vector2(135, y + 8), 12, Color("382619"), true)
-	m._text("현재 어장  %d마리" % roundi(m.pond_stock), Vector2(135, y + 26), 10, Color("376556"), true)
+	m._text(("현재 %d마리 · 잔여 %d마리"%[roundi(m.pond_stock),roundi(m.pond_overflow)] if m.pond_overflow>0 else "현재 어장  %d마리"%roundi(m.pond_stock)), Vector2(135, y + 26), 10, Color("376556"), true)
 	y += 36
-	if m.pond_cap_lv < 5:
-		_row(m, r, y, m.fish_s2[0], "어장 규모 확장", "%d → %d마리" % [roundi(m.pond_max()), roundi(m.pond_max() + 20)], "", POND_CAP_COST[m.pond_cap_lv], m.gold >= POND_CAP_COST[m.pond_cap_lv], "pondcap")
-	else:
-		_row(m, r, y, m.fish_s2[0], "어장 규모 확장", "최대 단계입니다", "완료", 0, false, "")
-	y += 43
-	if m.pond_regen_lv < 5:
-		_row(m, r, y, tool_icons.scale, "회복 시설 개선", "시간당 %d → %d마리" % [roundi(m.pond_recovery()), roundi(m.pond_recovery() + 10)], "", POND_REGEN_COST[m.pond_regen_lv], m.gold >= POND_REGEN_COST[m.pond_regen_lv], "pondregen")
-	else:
-		_row(m, r, y, tool_icons.scale, "회복 시설 개선", "최대 단계입니다", "완료", 0, false, "")
+	if FACILITIES.unlocked(m,"pondcap"):
+		var next_max: float=m.pond_base+FACILITIES.STOCK_ADD[m.pond_cap_lv+1]
+		_row(m,r,y,m.fish_s2[0],"어장 규모 %d / 12"%m.pond_cap_lv,"%d → %d마리"%[roundi(m.pond_max()),roundi(next_max)],"",POND_CAP_COST[m.pond_cap_lv],m.gold>=POND_CAP_COST[m.pond_cap_lv],"pondcap")
+	else: _row(m,r,y,m.fish_s2[0],"어장 규모 %d / 12"%m.pond_cap_lv,FACILITIES.lock_label(m,"pondcap"),"잠김" if m.pond_cap_lv<12 else "완료",0,false,"")
+	y+=43
+	if FACILITIES.unlocked(m,"pondregen"):
+		_row(m,r,y,tool_icons.scale,"회복 시설 %d / 12"%m.pond_regen_lv,"시간당 %d → %d마리"%[roundi(m.pond_recovery()),FACILITIES.RECOVERY[m.pond_regen_lv+1]],"",POND_REGEN_COST[m.pond_regen_lv],m.gold>=POND_REGEN_COST[m.pond_regen_lv],"pondregen")
+	else: _row(m,r,y,tool_icons.scale,"회복 시설 %d / 12"%m.pond_regen_lv,FACILITIES.lock_label(m,"pondregen"),"잠김" if m.pond_regen_lv<12 else "완료",0,false,"")
 	m._text("낚시할 때마다 1마리 감소 · 쉬는 동안 회복", Vector2(135, y + 54), 9, Color("6a4a2a"), true, 224)
 	m._text("어장이 줄면 높은 등급 물고기가 드물어져요.", Vector2(135, y + 71), 9, Color("6a4a2a"), true, 224)
 
@@ -626,6 +626,10 @@ func _act(m, a: String) -> void :
 	if m.equipment.act(m, a): return
 	if enhancement.act(self, m, a): return
 	if aquarium.act(self, m, a): return
+	if a in ["boat","pondcap","pondregen"]:
+		if FACILITIES.purchase(m,a): m.play("catch");m.show_toast("시설 강화 완료!")
+		else: m.show_toast("지역 해금·비늘·저장 상태를 확인해 주세요.")
+		return
 	# Common purchase/sale transaction. Nested equipment changes do not save separately.
 	var before:Dictionary={}
 	for field in ["gold","souls","bait","boat_lv","pond_cap_lv","pond_regen_lv","rod_lv","rod_owned","bag_lv","parts_owned","bag"]:
@@ -669,20 +673,6 @@ func _act(m, a: String) -> void :
 			m.region_shop.selected_bait=n;m.play("ui")
 		"species": m.inventory.open_species(n);return
 		"open": open_shop(m, k[1]);return
-		"boat":
-			var lv: int = m.boat_lv
-			if lv >= 5 or m.gold < UPGRADE_COST[lv]: return
-			m.gold -= UPGRADE_COST[lv]
-			m.boat_lv += 1
-			m.play("catch");m.show_toast("배 확장 완료!")
-		"pondcap":
-			if m.pond_cap_lv >= 5 or m.gold < POND_CAP_COST[m.pond_cap_lv]: return
-			m.gold -= POND_CAP_COST[m.pond_cap_lv];m.pond_cap_lv += 1
-			m.play("catch");m.show_toast("어장 최대량이 늘었어요!")
-		"pondregen":
-			if m.pond_regen_lv >= 5 or m.gold < POND_REGEN_COST[m.pond_regen_lv]: return
-			m.gold -= POND_REGEN_COST[m.pond_regen_lv];m.pond_regen_lv += 1
-			m.play("catch");m.show_toast("어장 회복 시설 개선!")
 		"rod":
 			if n < 0 or n > m.rod_owned + 1 or n >= ROD_NAME.size() or n in m.equipment.rods or m.gold < ROD_COST[n]: return
 			m.gold -= ROD_COST[n];m.equipment.rods.append(n);m.equipment.rod_equipped = true;m.rod_lv = n;m.rod_owned = maxi(m.rod_owned, n);m.play("catch");m.show_toast(ROD_NAME[n] + " 구매 완료!")

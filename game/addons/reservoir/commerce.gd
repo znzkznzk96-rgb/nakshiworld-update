@@ -74,16 +74,16 @@ func quote(v, m, a: String) -> Dictionary:
 			if n < 0 or n > m.rod_owned + 1 or n >= v.ROD_NAME.size() or n in m.equipment.rods: return {}
 			q.title = v.ROD_NAME[n];q.price = v.ROD_COST[n];q.icon = v.rods[n];q.target = n
 		"boat":
-			if m.boat_lv >= 5: return {}
-			q.title = "배 확장 Lv.%d" % (m.boat_lv + 2);q.price = v.UPGRADE_COST[m.boat_lv];q.icon = v.tool_icons.boat;q.target = m.boat_lv + 1
+			if not m.FACILITIES.unlocked(m,"boat"): return {}
+			q.title = "배 확장 Lv.%d" % (m.boat_lv + 1);q.price = v.UPGRADE_COST[m.boat_lv];q.icon = v.tool_icons.boat;q.target = m.boat_lv + 1
 		"pondcap":
-			if m.pond_cap_lv >= 5: return {}
+			if not m.FACILITIES.unlocked(m,"pondcap"): return {}
 			q.title = "어장 규모 확장";q.price = v.POND_CAP_COST[m.pond_cap_lv];q.icon = m.V.art.stock;q.target = m.pond_cap_lv + 1
 		"pondregen":
-			if m.pond_regen_lv >= 5: return {}
+			if not m.FACILITIES.unlocked(m,"pondregen"): return {}
 			q.title = "어장 회복 시설";q.price = v.POND_REGEN_COST[m.pond_regen_lv];q.icon = m.V.art.stock;q.target = m.pond_regen_lv + 1
 		"aexpand":
-			if m.aqua_lv >= 4: return {}
+			if not m.FACILITIES.unlocked(m,"aexpand"): return {}
 			q.title = "수족관 %d마리 확장" % m.AQUA_CAP[m.aqua_lv + 1];q.price = m.AQUA_COST[m.aqua_lv];q.icon = v.tool_icons.bucket;q.target = m.aqua_lv + 1
 		"forge_ticket":
 			q.title = "하락 보호권 1장";q.price = 1;q.currency = "pearl";q.icon = m.icons.pearl_s;q.target = m.protection_tickets + 1

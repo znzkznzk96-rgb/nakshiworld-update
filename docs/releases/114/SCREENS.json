@@ -1,0 +1,127 @@
+{
+  "run": 42545236211,
+  "artifact": 13643496660,
+  "reviewed": true,
+  "screens": [
+    {
+      "path": "facilities/aqua_lv0_h480.png",
+      "size": 136407,
+      "sha256": "fd01a7cc8a77f24f0ddfdaf766b8374c2a79cbc7694704c9f5f2cd90ce99400d"
+    },
+    {
+      "path": "facilities/aqua_lv0_h660.png",
+      "size": 145915,
+      "sha256": "66024a287c9abc1963076753cce0f291cd44cc1ac8b040bc83bf244f8e289b7e"
+    },
+    {
+      "path": "facilities/aqua_lv2_h480.png",
+      "size": 136383,
+      "sha256": "5e01c58e17a3344bfe6457f923e1801605c2b82ebeac535c072216eb3b719e99"
+    },
+    {
+      "path": "facilities/aqua_lv2_h660.png",
+      "size": 145901,
+      "sha256": "675deec0ea5723c0f675f917343015d0ad6d973d38bf5368f4837acd75c1c052"
+    },
+    {
+      "path": "facilities/aqua_lv5_h480.png",
+      "size": 136491,
+      "sha256": "3369dac0eab458b4bfc5b99360ba5c7e4a0fba249c2c108f15a9f911e2bc4f2b"
+    },
+    {
+      "path": "facilities/aqua_lv5_h660.png",
+      "size": 146023,
+      "sha256": "d9e12d7dd085fa144eaf47d392693043d21436675aa2b0c17b49c79eaef5e0eb"
+    },
+    {
+      "path": "facilities/aqua_lv6_h480.png",
+      "size": 136659,
+      "sha256": "22bdc1de0a6c6026beedea9af1b6567ab7ff70cf2f76adf7ee504cb3f1b2f7e0"
+    },
+    {
+      "path": "facilities/aqua_lv6_h660.png",
+      "size": 146221,
+      "sha256": "216b22a5ce19ce7f187e38d00f10d5229cd546a011e762d832ac818d14cbe625"
+    },
+    {
+      "path": "facilities/hall_lv0_h480.png",
+      "size": 42203,
+      "sha256": "886bcf68deaa8cb806a9579cd8c83274423005f58c2c36cf4f05f3512ab75115"
+    },
+    {
+      "path": "facilities/hall_lv0_h660.png",
+      "size": 53026,
+      "sha256": "8caa89fdfc38a9467e3564a7f9aeddcfc36783fefb9fe2d9e881eec9bc9c527d"
+    },
+    {
+      "path": "facilities/hall_lv2_h480.png",
+      "size": 38677,
+      "sha256": "d4ab048b3e07ce7a269242511f78d1de22c6fbbfeb4cff7660ed90dd95a27118"
+    },
+    {
+      "path": "facilities/hall_lv2_h660.png",
+      "size": 49588,
+      "sha256": "71c2fa746ccee415a704716db9ff54fddcd779ae8614daa1d58eddbf415e496e"
+    },
+    {
+      "path": "facilities/hall_lv5_h480.png",
+      "size": 42384,
+      "sha256": "a2f18b438e58da0fd3e68c3fe7d598c4331413e1cf9cacfee8526e6e3b75a8f4"
+    },
+    {
+      "path": "facilities/hall_lv5_h660.png",
+      "size": 53190,
+      "sha256": "9d8d24e301c3b7fd000de7953cf5ad8a22e93869f688c9baa6155864541d9f2e"
+    },
+    {
+      "path": "facilities/hall_lv6_h480.png",
+      "size": 39050,
+      "sha256": "9ed6fdb33aa007b93d49472b4e1d47f472f513c8957121259f5792bd29d3851e"
+    },
+    {
+      "path": "facilities/hall_lv6_h660.png",
+      "size": 49942,
+      "sha256": "237b0659eddb7364e5c0bbc25b091e45c1aecdf602f9a3da24c66f6ac57c587f"
+    },
+    {
+      "path": "facilities/harbor_lv0_h480.png",
+      "size": 36799,
+      "sha256": "8940aa74049dd2f406988ac093079b98c363a0587cad2556a8282fb4f74b77dd"
+    },
+    {
+      "path": "facilities/harbor_lv0_h660.png",
+      "size": 47691,
+      "sha256": "217ea7847cca71c7ee9ed51d12d1058ec28c8d2d998857283d797b3fb06f282b"
+    },
+    {
+      "path": "facilities/harbor_lv2_h480.png",
+      "size": 33448,
+      "sha256": "3f9994a8c3500b37de6bf47571ee327912a5132c44aaddf7bcb7cb83a4514952"
+    },
+    {
+      "path": "facilities/harbor_lv2_h660.png",
+      "size": 44163,
+      "sha256": "da734da9821c70ee301eb36a2eb3ca3fb6ffb3c3339762b2580ce51df1dc30a1"
+    },
+    {
+      "path": "facilities/harbor_lv5_h480.png",
+      "size": 36962,
+      "sha256": "7f51b32c87dacdfafe616a4597262d423091215d86c652b7e8b01a93cbcb50f8"
+    },
+    {
+      "path": "facilities/harbor_lv5_h660.png",
+      "size": 47845,
+      "sha256": "08d9aa5e83ef8e7e5e65e28adb59afde32609c6e1988fec7d7b66ceae0ed2fda"
+    },
+    {
+      "path": "facilities/harbor_lv6_h480.png",
+      "size": 33674,
+      "sha256": "c3b20aec69130344e13f68c9bb30ebabbbc9a0a2b47b27f4f100d6a695180ac9"
+    },
+    {
+      "path": "facilities/harbor_lv6_h660.png",
+      "size": 44404,
+      "sha256": "0866d761f380706661c6db5dba1dcd748cf33b852fd342ec72182a91c3e8f6ac"
+    }
+  ]
+}

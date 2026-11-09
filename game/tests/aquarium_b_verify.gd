@@ -11,7 +11,7 @@ func run() -> void:
 	var v=m.V;var a=v.aquarium
 	for h in [480,660]:
 		for count in [0,4,20]:
-			m.aqua_lv=4;m.aqua=[]
+			m.aqua_lv=6;m.aqua=[]
 			for i in 20: m.aqua.append(fish(i) if i<count else null)
 			var before: Array=m.aqua.duplicate(true);var rate: float=m.aqua_rate()
 			for t in [0,17,72]:
@@ -28,14 +28,14 @@ func run() -> void:
 	m.ui_commands=[];a.effects_enabled=true;v.draw_shop(m,660)
 	check(m.ui_commands.size()>plain+50,"plants light and bubbles are separate draw layers")
 	check(a.icon_cache.has("manage") and a.icon_cache.has("expand"),"both PixelLab button icons load")
-	m.aqua_lv=2;m.aqua=[]
+	m.region_shop.unlocked=[0,1,2];m.aqua_lv=4;m.aqua=[]
 	for i in 10:m.aqua.append(fish(i) if i<4 else null)
 	m.gold=0;v.draw_shop(m,660)
 	var expand: Array=v.rects.rows.filter(func(row):return row[1]=="aexpand")[0]
-	m.press(expand[0].get_center());v.commerce.confirm(v,m);check(m.aqua_lv==2 and m.gold==0,"unaffordable expansion keeps level and money")
-	v.commerce.pending={};m.gold=10000;m.development_preview=false;v.draw_shop(m,660);m.press(expand[0].get_center());check(not v.commerce.pending.is_empty(),"expansion opens purchase confirmation");v.commerce.confirm(v,m)
-	check(m.aqua_lv==3 and m.gold==7600 and m.aqua_count()==4,"expansion uses existing cost and keeps fish")
-	m._load_game();check(m.aqua_lv==3 and m.aqua_count()==4,"expansion and specimens persist")
+	m.press(expand[0].get_center());v.commerce.confirm(v,m);check(m.aqua_lv==4 and m.gold==0,"unaffordable expansion keeps level and money")
+	v.commerce.pending={};m.gold=500000;m.development_preview=false;v.draw_shop(m,660);m.press(expand[0].get_center());check(not v.commerce.pending.is_empty(),"expansion opens purchase confirmation");v.commerce.confirm(v,m)
+	check(m.aqua_lv==5 and m.gold==100000 and m.aqua_count()==4,"expansion uses regional cost and keeps fish")
+	m._load_game();check(m.aqua_lv==5 and m.aqua_count()==4,"expansion and specimens persist")
 	m.development_preview=true;v.draw_shop(m,660)
 	var hit: Array=a.fish_rects[0];a.act(v,m,"afish:%d"%hit[1]);m.text_items=[];v.draw_shop(m,660)
 	check(m.text_items.any(func(it):return m.FISH_NAME[int(m.aqua[hit[1]].sp)] in str(it[2])),"selected specimen name visible")

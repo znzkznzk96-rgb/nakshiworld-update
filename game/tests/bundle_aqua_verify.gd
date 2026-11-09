@@ -90,7 +90,7 @@ func run() -> void:
 	check(m.aqua_count()==1 and m.bag.size()==19 and v.aqua_manage and v.shop=="aqua","native tap inserts once and leaves UI open")
 	m._load_game();check(m.aqua_count()==1 and m.bag.size()==19,"aquarium transfer persists")
 	# Owner cap is by stable species, independent of grade/size/stored price.
-	m.development_preview=false;m.boat_lv=0;m.aqua_lv=1;m.aqua=[fish(19),null,null,null,null,null]
+	m.development_preview=false;m.boat_lv=0;m.aqua_lv=2;m.aqua=[fish(19),null,null,null,null,null]
 	m.bag=[fish(19,4),fish(39),fish(59),fish(1),fish(1)]
 	var before_bag:Array=m.bag.duplicate(true)
 	a.act(v,m,"put:0")

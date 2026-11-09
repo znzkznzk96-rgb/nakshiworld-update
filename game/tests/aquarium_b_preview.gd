@@ -11,7 +11,7 @@ func run() -> void:
 	var txt:=Node2D.new();txt.set_script(load("res://text_layer.gd"));ui.add_child(txt)
 	var m=load("res://main.gd").new();m.text_layer=txt;m.development_preview=true;m.SET.sfx=0;m.SET.music=0;root.add_child(m);await process_frame
 	m.development_preview=true;m.set_process(false);m.title_open=false;m.lesson_open=false;m.tip_t=0;m.guide.opened=false;m.mailbox.opened=false;m.trans={};m.TUT.done=true;m.scene="village";m.S={"phase":"idle"};m.V.enter(m)
-	m.gold=957200;m.pearl=2;m.aqua_lv=2;m.aqua=[]
+	m.gold=957200;m.pearl=2;m.aqua_lv=4;m.aqua=[]
 	for i in 10: m.aqua.append({"sp":0 if i%2==0 else 1,"grade":0,"len":23.5,"w":.01,"price":100} if i<4 else null)
 	m.V.open_shop(m,"aqua")
 	for height in [480,660]:
