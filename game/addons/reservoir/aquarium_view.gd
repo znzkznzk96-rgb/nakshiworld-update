@@ -88,7 +88,7 @@ func input_event(v, m, e: InputEvent) -> bool:
 func _button(v, m, r: Rect2, label: String, action: String, enabled: bool = true) -> void :
 	m._ui_style_box(m.sb_btn, r)
 	m._text(label, r.position + Vector2(r.size.x / 2, 18), 10, Color("513b29") if enabled else Color("817767"), true, r.size.x - 6)
-	if enabled or (action == "aexpand" and m.aqua_lv < 4): v.rects.rows.append([r, action])
+	if enabled or (action == "aexpand" and m.FACILITIES.unlocked(m,"aexpand")): v.rects.rows.append([r, action])
 func _fish(m, f: Dictionary, box: Rect2, flip: bool = false) -> void :
 	var sp = int(f.sp)
 	var tx: Texture2D = m.fish_tex[sp]
@@ -216,10 +216,10 @@ func draw(v, m, r: Rect2, y: float) -> void:
 	v.rects.rows.append([manage,"amanage"])
 	_icon(m,"expand",Rect2(expand.position+Vector2(4,5),Vector2(19,19)))
 	m._text("수족관 확장",Vector2(201,expand.position.y+14),9,Color("fff0d1"),true,91)
-	if m.aqua_lv<4:
+	if m.FACILITIES.unlocked(m,"aexpand"):
 		m._text("%d→%d · %d비늘"%[m.aqua_capacity(),m.AQUA_CAP[m.aqua_lv+1],m.AQUA_COST[m.aqua_lv]],Vector2(195,expand.position.y+29),7,Color("f0c46e") if m.gold>=m.AQUA_COST[m.aqua_lv] else Color("e89c85"),true,114)
 		v.rects.rows.append([expand,"aexpand"])
-	else: m._text("최대 크기 · %d마리"%m.aqua_capacity(),Vector2(195,expand.position.y+29),7,Color("a4bdba"),true,110)
+	else: m._text(m.FACILITIES.lock_label(m,"aexpand"),Vector2(195,expand.position.y+29),7,Color("a4bdba"),true,110)
 	m._text(v.aqua_notice if v.aqua_notice!="" else "쉬는 동안에도 최대 %d시간 수입" % m.AQUARIUM_OFFLINE_HOURS,Vector2(135,r.end.y-13),9,Color("b3cccb"),true,232)
 
 func _manage(v, m, r: Rect2, y: float) -> void:

@@ -11,7 +11,7 @@ func run() -> void:
 	var txt:=Node2D.new();txt.set_script(load("res://text_layer.gd"));ui.add_child(txt)
 	var m=load("res://main.gd").new();m.text_layer=txt;m.development_preview=true;m.SET.sfx=0;m.SET.music=0;root.add_child(m);await process_frame
 	m.development_preview=true;m.set_process(false);m.title_open=false;m.lesson_open=false;m.tip_t=0;m.guide.opened=false;m.mailbox.opened=false;m.trans={};m.TUT.done=true;m.scene="village";m.S={"phase":"idle"};m.V.enter(m)
-	m.gold=957184;m.pearl=2;m.V.camera_x=889;m.aqua_lv=2
+	m.gold=957184;m.pearl=2;m.V.camera_x=889;m.aqua_lv=4
 	m.aqua[0]={"sp":1,"grade":3,"w":1.0,"len":20.0}
 	for height in [480,660]:
 		root.content_scale_size=Vector2i(270,height);root.size=Vector2i(540,height*2);await process_frame

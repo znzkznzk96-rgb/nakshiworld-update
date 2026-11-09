@@ -121,8 +121,9 @@ var expedition = preload("res://addons/expedition/view.gd").new()
 var souls: = 0
 var testing_grants: Array = []
 const AQUARIUM_OFFLINE_HOURS := 3
-const AQUA_CAP: = [3, 6, 10, 15, 20]
-const AQUA_COST: = [300, 900, 2400, 6000]
+const FACILITIES = preload("res://addons/reservoir/facility_growth.gd")
+const AQUA_CAP = FACILITIES.AQUA_CAP
+const AQUA_COST = FACILITIES.AQUA_COST
 var aqua_lv: = 0
 var aqua: = [null, null, null]
 var aqua_acc: = 0.0
@@ -140,9 +141,10 @@ var forge_pending: = {}
 var forge_seen: = false
 var pond_cap_lv: = 0
 var pond_regen_lv: = 0
-var pond_base := 40.0
+var pond_base := 30.0
+var pond_overflow := 0.0
 var capture_robot = preload("res://addons/reservoir/capture_robot.gd").new()
-var pond_stock: = 40.0
+var pond_stock: = 30.0
 var DEX: = {}
 var environment = preload("res://addons/reservoir/environment.gd").new()
 var bg_node: Sprite2D
@@ -1293,6 +1295,7 @@ func _process(dt: float) -> void :
 	if not settings_open and not market_open and not title_open: environment.update(dt)
 	tip_t = maxf(0.0, tip_t - dt)
 	bag_disp = move_toward(bag_disp, bag_weight(), dt * maxf(0.5, bag_cap()) * 1.2)
+	FACILITIES.refill_reserve(self)
 	pond_stock = minf(pond_max(), pond_stock + pond_recovery() * dt / 3600.0)
 	capture_robot.update(self,dt)
 	if scene != "village": aqua_acc += aqua_rate() / 60.0 * dt
@@ -2610,8 +2613,8 @@ func _draw_weight(y: float) -> void :
 			_ui_rect(Rect2(x + 36, y + 24, w - 42, 5), Color("27342f"))
 			_ui_rect(Rect2(x + 37, y + 25, (w - 44) * stock_ratio, 3), Color("68c5d3") if stock_ratio > 0.25 else Color("e3a64d"))
 
-func pond_max() -> float: return pond_base + pond_cap_lv * 20.0
-func pond_recovery() -> float: return 30.0 + pond_regen_lv * 10.0
+func pond_max() -> float: return pond_base + FACILITIES.STOCK_ADD[clampi(pond_cap_lv,0,12)]
+func pond_recovery() -> float: return float(FACILITIES.RECOVERY[clampi(pond_regen_lv,0,12)])
 
 
 const MENU: = [["village", "마을"], ["bag", "가방"], ["book", "도감"], ["explore", "탐험"], ["alchemy", "연성"], ["gear", "설정"]]
@@ -2672,7 +2675,7 @@ func _save_game() -> bool:
 	if resetting or development_preview: return false
 	var ok: bool = preload("res://addons/reservoir/save_store.gd").write("user://save.json", {"testing_grants":testing_grants.duplicate(),"buyback":buyback.serialize(),"regional_progress":progression.serialize(),"active_region":active_region,"region_shop": region_shop.serialize(), "equipment": equipment.serialize(), "mail_read": mailbox.read_ids, "mail_deleted": mailbox.deleted_ids, "v": SAVE_VER, "gold": gold, "pearl": pearl, "bag": bag_items(), "bag_lv": bag_lv, "parts": parts_owned, "tips": tips_seen,
 		"town_zoom": V.zoom, "boat_lv": boat_lv, "town_lv": town_lv, "forge_lv": forge_lv, "rod_lv": rod_lv, "rod_owned": rod_owned, "rod_enh": rod_enh, "protection_tickets": protection_tickets, "forge_pending": forge_pending, "forge_seen": forge_seen, 
-		"capture_robot":capture_robot.serialize(),"pond_base":pond_base,"pond_cap_lv": pond_cap_lv, "pond_regen_lv": pond_regen_lv, "pond_stock": pond_stock,
+		"capture_robot":capture_robot.serialize(),"facility_rev":FACILITIES.REV,"pond_overflow":pond_overflow,"pond_base":pond_base,"pond_cap_lv": pond_cap_lv, "pond_regen_lv": pond_regen_lv, "pond_stock": pond_stock,
 		"expedition": expedition.data.serialize(), "bait": bait, "souls": souls, "aqua_lv": aqua_lv, "aqua": aqua, "dex": DEX, "personal_dex": personal_dex.serialize(), "catch_counts": catch_counts, "catch_legacy": catch_legacy, "world_time": environment.day_seconds, "time": Time.get_unix_time_from_system()})
 	if not ok and not save_warning:
 		save_warning=true;tip_txt="저장 실패 · 저장 공간을 확인해 주세요";tip_t=8.0
@@ -2717,6 +2720,7 @@ func aqua_rate() -> float:
 func _load_game() -> void :
 	var d: Dictionary = preload("res://addons/reservoir/save_store.gd").read("user://save.json")
 	if d.is_empty(): return
+	d=FACILITIES.migrate(d)
 	testing_grants=[]
 	if d.get("testing_grants",[]) is Array:
 		for id in d.get("testing_grants",[]):
@@ -2733,7 +2737,7 @@ func _load_game() -> void :
 	bag = d.get("bag", []);parts_owned = d.get("parts", []);tips_seen = d.get("tips", [])
 	bait = int(d.get("bait", 0));souls = int(d.get("souls", 0))
 	V.zoom = clampf(float(d.get("town_zoom", 1.0)), 0.65, 1.6)
-	boat_lv = clampi(int(d.get("boat_lv", 0)), 0, 5);town_lv = clampi(int(d.get("town_lv", 0)), 0, 5)
+	boat_lv = clampi(int(d.get("boat_lv", 0)), 0, 12);town_lv = clampi(int(d.get("town_lv", 0)), 0, 5)
 	rod_lv = clampi(int(d.get("rod_lv", 0)), 0, 5)
 	rod_owned = clampi(int(d.get("rod_owned", rod_lv)), rod_lv, 5)
 	rod_enh = [0, 0, 0, 0, 0, 0]
@@ -2745,22 +2749,26 @@ func _load_game() -> void :
 	forge_seen = bool(d.get("forge_seen", false))
 	equipment.restore(self, d.get("equipment", {}))
 	capture_robot.restore(d.get("capture_robot",{}))
-	pond_base=40.0 if d.has("pond_base") and float(d.pond_base)<=40 else 80.0
-	pond_cap_lv = clampi(int(d.get("pond_cap_lv", 0)), 0, 5);pond_regen_lv = clampi(int(d.get("pond_regen_lv", 0)), 0, 5)
-	pond_stock = clampf(float(d.get("pond_stock", 80.0)), 0.0, pond_max())
+	pond_base=FACILITIES.BASE_STOCK
+	pond_overflow=maxf(0,float(d.get("pond_overflow",0)))
+	pond_cap_lv = clampi(int(d.get("pond_cap_lv", 0)), 0, 12);pond_regen_lv = clampi(int(d.get("pond_regen_lv", 0)), 0, 12)
+	pond_stock = clampf(float(d.get("pond_stock", 30.0)), 0.0, pond_max())
 	personal_dex.restore(d.get("personal_dex",{}))
 	DEX = {}
 	var dx: Dictionary = d.get("dex", {})
 	for k in dx: DEX[k] = (dx[k] as Array).map( func(g): return int(g))
 	var aq: Array = d.get("aqua", [null, null, null])
-	aqua_lv = clampi(int(d.get("aqua_lv", 0)), 0, 4)
-	while aqua_lv < 4 and AQUA_CAP[aqua_lv] < mini(aq.size(), 20): aqua_lv += 1
+	aqua_lv = clampi(int(d.get("aqua_lv", 0)), 0, 12)
+	while aqua_lv < 12 and AQUA_CAP[aqua_lv] < mini(aq.size(), 32): aqua_lv += 1
 	aqua.resize(aqua_capacity())
 	for i in aqua.size(): aqua[i] = aq[i] if i < aq.size() else null
+	for i in range(aqua.size(),aq.size()):
+		if aq[i]!=null: bag.append(aq[i])
 	var returned_owners:int=_aqua_restore_owner_limit()
 	_load_catch_counts(d)
 	_migrate_fish_records()
 	var away: = clampf(Time.get_unix_time_from_system() - float(d.get("time", 0)), 0, 8 * 3600)
+	FACILITIES.refill_reserve(self)
 	pond_stock = minf(pond_max(), pond_stock + pond_recovery() * away / 3600.0)
 	var income_away:float=minf(away,AQUARIUM_OFFLINE_HOURS*3600.0)
 	var earn: = int(aqua_rate() * income_away / 60.0)
@@ -3069,14 +3077,7 @@ func aqua_count() -> int:
 		if f != null: count += 1
 	return count
 func aqua_expand() -> bool:
-	if aqua_lv >= 4 or gold < AQUA_COST[aqua_lv]: return false
-	var old_gold:int=gold;var old_level:int=aqua_lv;var old_aqua:Array=aqua.duplicate(true)
-	gold -= AQUA_COST[aqua_lv]
-	aqua_lv += 1
-	aqua.resize(aqua_capacity())
-	if not _save_game():
-		gold=old_gold;aqua_lv=old_level;aqua=old_aqua;return false
-	return true
+	return FACILITIES.purchase(self,"aexpand")
 func _ui_texture(t: Texture2D, p: Vector2, c: Color = Color.WHITE) -> void :
 	_ui_texture_rect(t, Rect2(p, t.get_size()), false, c)
 func _ui_texture_rect(t: Texture2D, r: Rect2, tile: bool = false, c: Color = Color.WHITE, transpose: bool = false) -> void :
