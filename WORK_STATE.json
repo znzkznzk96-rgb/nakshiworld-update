@@ -7,7 +7,7 @@
   "phone_verified": false,
   "handoff": "docs/qa/bite-preview-size/HANDOFF.md",
   "current_task": "훅 전 찌 접근 물고기 크기 비슷하게 보정",
-  "next_step": "작업 브랜치 전체CI 상태 확인; 새 배포 승인 전 공개v1.14 유지",
+  "next_step": "전체CI42562848881 상태 확인; 공개v1.14 유지·이번 크기 보정 배포는 별도 승인",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -722,6 +722,9 @@
     "release_authorized": false,
     "implemented": true,
     "related_verified": true,
-    "verification": "docs/qa/bite-preview-size/VERIFICATION.json"
+    "verification": "docs/qa/bite-preview-size/VERIFICATION.json",
+    "source_commit": "bcbaaec065c5af68ffe45a13075230a01f2749ce",
+    "ci_run": 42562848881,
+    "ci_status": "pending"
   }
 }

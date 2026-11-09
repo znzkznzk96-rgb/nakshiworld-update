@@ -33,5 +33,7 @@
   "local_status": "passed",
   "test_probe_correction": "Capture explicit body_length at real renderer entry; translucent previews intentionally do not update fighting aura.L",
   "initial_ci_run": 42562681353,
-  "full_ci_status": "replacement_pending"
+  "full_ci_status": "pending",
+  "full_ci_run": 42562848881,
+  "source_commit": "bcbaaec065c5af68ffe45a13075230a01f2749ce"
 }
