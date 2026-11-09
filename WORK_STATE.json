@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "v116_verified_publication_pending",
+  "status": "v116_published_gateway_verification_pending",
   "release_baseline": "v1.15",
   "target_release": "v1.16",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/body-book-telegraph/HANDOFF.md",
   "current_task": "몸짓도감12종 전조/재감기 시연 연동 및 역돌진 불필요 링 수정",
-  "next_step": "PR54 병합→동일 봉인후보 공개→3파일/운영다운로드 확인",
+  "next_step": "운영PCK502 원본응답 확인; gateway attempt3 결과 및 공개3파일 실제다운로드 검증",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -173,7 +173,7 @@
     "ledger": "analysis/tile-layer-art-v1/PLANT_LEDGER.json",
     "quality": "analysis/tile-layer-art-v1/PLANT_QA.json"
   },
-  "public_release": "v1.15",
+  "public_release": "v1.16",
   "shared_vertical_light": {
     "applied": true,
     "regions": [
@@ -265,7 +265,7 @@
     "source_commit": "601d97555620f2208dddf82b28e9c429c801865f",
     "run": 42581154603,
     "ready": true,
-    "published": false,
+    "published": true,
     "release_authorized": true,
     "verification": "docs/qa/body-book-telegraph/VERIFICATION.json",
     "rebuild": false
@@ -799,6 +799,8 @@
     "ci_attempt": 2,
     "retry_reason": "Godot binary download HTTP504 before tests; baseline source hash passed",
     "verified": true,
-    "ci_status": "success"
+    "ci_status": "success",
+    "deployed": true,
+    "gateway_run": 42582668334
   }
 }
