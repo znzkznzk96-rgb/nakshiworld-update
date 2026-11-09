@@ -1,0 +1,66 @@
+{
+  "date": "2026-11-10",
+  "godot": "4.4.1.stable.official.49a5bc7b6",
+  "related_suites": [
+    "dex_readability",
+    "personal_dex",
+    "soldier_dex",
+    "codex089",
+    "tier_skills"
+  ],
+  "related_result": "pass",
+  "readability_checks": {
+    "heights": [
+      480,
+      540,
+      660
+    ],
+    "actual_font_bounds_for_six_region_labels": "pass",
+    "valley_lines_preserve_full_name_and_do_not_intersect": true,
+    "star_views": [
+      1,
+      2,
+      3
+    ],
+    "star_role_controls_coexist": true,
+    "details_checked": 135,
+    "actual_tier_skills_and_catalog_stats": "pass",
+    "last_soldier_scroll": "pass",
+    "unknown_details_hidden": "pass",
+    "serialized_discoveries_and_units_unchanged": true
+  },
+  "native": {
+    "screens": 21,
+    "png_decode": "pass",
+    "visual_review": "pass",
+    "preview": "dex-preview.webp",
+    "sha256": {
+      "fish_0_540.png": "f5b2d7974eb9a5f7b27f1101d44f5e4caba224ebec424c03e3b0e21d39e46c09",
+      "fish_1_660.png": "9f1866f70c072e8c1b21d894446710b10e3a260a3274f2f4b135c43ace10bf29",
+      "fish_0_660.png": "1cd887706d94a8a76b9a6239fa4f3755f1dcbf6fa869bd569beb400394828a39",
+      "soldier_1_480.png": "8708e356f407f2c0423fde27e98e0c17fdb8ab202bdd0531fd73f2a7361babae",
+      "soldier_2_540.png": "eea02551269417f43b653600a5c4a4a3d561092a6271fc2abbe9b278008f56da",
+      "fish_2_540.png": "34a65c29815325481da10ae6667b405bb95eb8fa8fd65cf66f4b35012b183f08",
+      "soldier_2_660.png": "5cc26333d3130a77d753f9c98e84006d9cea00e5a718774528e7391a550b55b9",
+      "detail_3_480.png": "6d7bea9af5a6958c5a2297e34b0b57680a4b60654b9bae7838b8f258d6ed722b",
+      "soldier_3_480.png": "40e492feb00c7fff7c5bd832538a95ab5596bfa09ba1e8785e1b72854fc528fb",
+      "detail_3_660.png": "82e714e2597a1e90a7e288fd4ed00888f4ae33eb2f10b5b2728167a10b674354",
+      "soldier_3_660.png": "bef87ffda3d9021e9683257f7f2b4192a59004b9703c95c9cc8aa2fae9eff8f4",
+      "soldier_1_540.png": "cda1a9d2b39d4453e16260a3cefc54d4fdadc5696a26d2d2f2a5dec4f56a9a15",
+      "fish_1_540.png": "b99a63979427bab7977a623c3352a7e97d4606a6779457f7db36fc5cbda84d8b",
+      "fish_2_480.png": "414c797252ba2086795d55008892a1f78f20faa0b8bf1a83265af3083f69b5d5",
+      "fish_0_480.png": "703bb5eeeae4f8704c441418df1945d597c3ffaa4a02470aec14f90b990a6bbe",
+      "detail_3_540.png": "e67211dbc07734aa1546557734f824d87b81cb7dc97e22362e2b415550598a9d",
+      "soldier_3_540.png": "56938a40f51ea600c1dfa76df9335970e523b209ee32d5f03b4d32c30f6941a1",
+      "soldier_1_660.png": "ba38739e8ba3eec239bff74cd3356e06647d311c8ff8a024fc5f05ae52159ace",
+      "fish_2_660.png": "a4c85185a57d56521508e124d040ebdac95805aa7538371c887f73f3c77a34e3",
+      "soldier_2_480.png": "b7b6cb40f9253b680a409a9d61bc99cd9f20b0d9eb7b5cbee563e90c5d7f068c",
+      "fish_1_480.png": "8b90866b1f6b6e008719895b3813b4e02805a7aeb2ab0f018e2e7bf289f75908"
+    }
+  },
+  "root_cause": "shared single-line button padding collapsed the two valley text baselines; region1 now opts out locally and reserves explicit font-sized lines",
+  "full_ci": "pending",
+  "deployed": false,
+  "public_release": "v1.18",
+  "release_authorized": false
+}
