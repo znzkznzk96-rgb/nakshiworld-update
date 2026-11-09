@@ -1,10 +1,10 @@
 {
-  "date": "2026-11-10",
+  "date": "2026-11-09",
   "source_release": "v1.18",
   "source_commit": "e169343fe196a2087e4099f552dfe399981c7b4f",
   "implementation_commit": "20d9ca23f8f7ec58e4e7560aafac321eed848384",
   "ci_run": 42640701607,
-  "ci_status": "in_progress",
+  "ci_status": "success",
   "native_preview_artifact": 13685077489,
   "native_preview_sha256": "57593121e394115a8def0402b63f65e40745b13cf7b208720b439a7ead282fa2",
   "native_review": {
@@ -31,7 +31,9 @@
       "received": 248351,
       "reused": 2716,
       "sha256": "exact"
-    }
+    },
+    "gauge_samples": 52,
+    "gauge_bounds": "pass"
   },
   "apk": {
     "name": "NAKSHIWORLD_1.18_LOADER_FIX.apk",
@@ -49,8 +51,37 @@
     "unchanged_native_dex_resources": 7,
     "bootstrap_test": "pass",
     "phone_install_verified": false,
-    "library_file_id": "libfile_fde3_f-db955c6ddb88819198f46f089460a38c_d66dafb33acc81918ce203aeb3fcd18e"
+    "library_file_id": "libfile_fde3_f-db955c6ddb88819198f46f089460a38c_d66dafb33acc81918ce203aeb3fcd18e",
+    "delivered": true
   },
   "public_game_patch": "v1.18 unchanged",
-  "new_public_game_release_authorized": false
+  "new_public_game_release_authorized": false,
+  "unique_verify_results": 98,
+  "ci_artifacts": [
+    {
+      "id": 13685348293,
+      "name": "release-candidate-6d74465cb6b8e066f4ae2d98c8e25b6a9cb80b600c58c887545d5cd5e8246d7b",
+      "sha256": "b6b1b87c19bd976a4900c6b53ba45ca7c11d48c0e64098f1558e1d7d41ad1e2a"
+    },
+    {
+      "id": 13685218435,
+      "name": "work-verification",
+      "sha256": "e4ce92f258957986d4cabc5598c94a0200fd10e2129451a059296355e74ab910"
+    },
+    {
+      "id": 13685077489,
+      "name": "updater-first-preview",
+      "sha256": "57593121e394115a8def0402b63f65e40745b13cf7b208720b439a7ead282fa2"
+    },
+    {
+      "id": 13684687495,
+      "name": "soldier-skills-first-preview",
+      "sha256": "e370299745034047a1f90422e3763eb669e4b41bc1f41fd5b0f6fbfdacbfc047"
+    }
+  ],
+  "first_ci_failure": {
+    "run": 42640268541,
+    "reason": "live gateway probe used default Python User-Agent, HTTP403; installed Godot UA passes, no production failure",
+    "corrected_run": 42640701607
+  }
 }
