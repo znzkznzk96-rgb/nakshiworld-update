@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "v116_published_verified",
+  "status": "updater_redesign_implementation",
   "release_baseline": "v1.15",
   "target_release": "v1.16",
   "deployed": true,
   "phone_verified": false,
-  "handoff": "docs/releases/116/HANDOFF.md",
+  "handoff": "docs/qa/updater-redesign/HANDOFF.md",
   "current_task": "몸짓도감12종 전조/재감기 시연 연동 및 역돌진 불필요 링 수정",
-  "next_step": "휴대폰v1.16 적용/체감 확인 대기; 새게임변경 및 새패치 배포미승인",
+  "next_step": "업데이트 로더 디자인/추격애니메이션/실제용량표시 구현 및 검증",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -811,5 +811,11 @@
     "release_id": 438861058,
     "gateway_run": 42582668334,
     "phone_verified": false
+  },
+  "updater_redesign": {
+    "approved": true,
+    "release_authorized": false,
+    "apk_required": true,
+    "implemented": false
   }
 }
