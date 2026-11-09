@@ -1595,10 +1595,14 @@ func _fish_texture_u(sp: int, along_body: float) -> float:
 	return x/float(fish_tex[sp].get_width())
 
 
+const BITE_PREVIEW_LENGTH := [28.0,30.0,32.0,34.0]
+func _bite_preview_length(size_class: int) -> float:
+	return BITE_PREVIEW_LENGTH[clampi(size_class,0,3)]
+
 func _draw_bite_shadow(t: float, lx: float, dip: float) -> void :
 	var z: int = S.size
 	var scale: float = [0.55, 0.8, 1.15, 1.6][z]
-	var L: float = _fish_display_length(S.star, scale, true, int(S.sp))
+	var L: float = _bite_preview_length(z) # Bobber preview is readable regardless of species length.
 	var biting: bool = S.phase != "wait" or clock >= S.biteAt
 	if not biting:
 		var c: Array = _bite_circle(clock)
@@ -1612,7 +1616,7 @@ func _draw_bite_shadow(t: float, lx: float, dip: float) -> void :
 				face = 1.0 if p.x < lx else -1.0
 				var bite_c: = Vector2(lx - 0.45 * L * face, WATER + dip + 6)
 				p = p.lerp(bite_c, b)
-		_shadow_fish(p, S.star, 0, t, "swim", false, scale, {}, t / 1000.0 * TAU * 1.2, S.sp, face, 0.42 + 0.4 * c[2])
+		_shadow_fish(p, S.star, 0, t, "swim", false, scale, {}, t / 1000.0 * TAU * 1.2, S.sp, face, 0.42 + 0.4 * c[2], L)
 		return
 
 	var c0: Array = _bite_circle(S.biteAt)
@@ -1624,7 +1628,7 @@ func _draw_bite_shadow(t: float, lx: float, dip: float) -> void :
 	var tilt: = -1.1 * e
 	var shake: = Vector2(sin(t / 35.0), cos(t / 50.0)) * (1.0 + 0.5 * z) if e >= 1.0 else Vector2.ZERO
 	var pose: = {"freq": 3.0, "amp": 0.08, "curl": 0.0, "tilt": tilt, "stretch": 1.0, "tailAmp": 1.4}
-	_shadow_fish(p2 + shake, S.star, 0, t, "swim", false, scale, pose, t / 1000.0 * TAU * 3.0, S.sp, face2, 0.8)
+	_shadow_fish(p2 + shake, S.star, 0, t, "swim", false, scale, pose, t / 1000.0 * TAU * 3.0, S.sp, face2, 0.8, L)
 
 func _draw_hookbar() -> void :
 	var x0: = 25.0

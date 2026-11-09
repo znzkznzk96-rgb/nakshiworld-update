@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "bite_preview_size_adjustment",
+  "status": "bite_preview_size_implemented_related_verified",
   "release_baseline": "v1.14",
   "target_release": "v1.14",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/bite-preview-size/HANDOFF.md",
   "current_task": "훅 전 찌 접근 물고기 크기 비슷하게 보정",
-  "next_step": "입질 그림28~34px 보정·관련 표시/파이팅 회귀검사 후 작업브랜치 저장",
+  "next_step": "작업 브랜치 전체CI 상태 확인; 새 배포 승인 전 공개v1.14 유지",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -719,6 +719,9 @@
     ],
     "scope": "wait/hook bobber fish only",
     "deployed": false,
-    "release_authorized": false
+    "release_authorized": false,
+    "implemented": true,
+    "related_verified": true,
+    "verification": "docs/qa/bite-preview-size/VERIFICATION.json"
   }
 }
