@@ -44,7 +44,11 @@
     "no automatic retroactive difference",
     "village notice and owner gauge fixes"
   ],
-  "full_ci": "pending",
+  "full_ci": {
+    "run": 42715271254,
+    "source_commit": "58f9f202f64a6e4bcfaf2524310aebd2e8c66c89",
+    "status": "in_progress"
+  },
   "deployed": false,
   "release_authorized": false,
   "public_release": "v1.18"

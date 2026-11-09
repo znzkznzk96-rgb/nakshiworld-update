@@ -920,6 +920,9 @@
     "native_screens": 6,
     "verification": "docs/qa/tile-bundle-next-unlock/VERIFICATION.json",
     "deployed": false,
-    "release_authorized": false
+    "release_authorized": false,
+    "ci_run": 42715271254,
+    "ci_status": "in_progress",
+    "source_commit": "58f9f202f64a6e4bcfaf2524310aebd2e8c66c89"
   }
 }
