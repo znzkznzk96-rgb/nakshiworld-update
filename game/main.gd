@@ -4,6 +4,7 @@ extends Node2D
 
 
 var fight_telegraph = preload("res://addons/reservoir/fight_telegraph.gd").new()
+var lesson_telegraph = preload("res://addons/reservoir/fight_telegraph.gd").new()
 
 const VW: = 270
 const TOP: = 22
@@ -687,11 +688,11 @@ func _next_behavior_pick(g: int, c: float, r: float, x: float, pRun: float, pJum
 const LESSON: = {
 	"swim": {"t": "헤엄", "hand": ["hold", "꾹 누르기"], "text": "꼬리를 천천히 흔들 땐 그냥 감으면 돼요.", "anim": [["swim", 1.2]]}, 
 	"tell": {"t": "웅크림 → 돌진", "hand": ["rel", "손 떼기"], "text": "몸을 C자로 말면 곧 돌진해요. 웅크리는 순간 미리 손을 떼요.", "anim": [["swim", 0.5], ["tell", 0.9], ["run", 1.1], ["rest", 0.5]]}, 
-	"rest": {"t": "축 늘어짐", "hand": ["hold", "꾹 누르기"], "text": "지쳐서 축 늘어지면 기회! 이때 꾹 감아요.", "anim": [["rest", 1.4]]}, 
+	"rest": {"t": "축 늘어짐", "hand": ["hold", "꾹 누르기"], "text": "지쳐서 라임 원이 뜨면 기회! 새로 누르면 흰빛과 소리가 나고, 계속 감으면 돼요.", "anim": [["rest", 1.4]]},
 	"jump": {"t": "솟구침 → 점프", "hand": ["rel", "손 떼기 → 떨어질 때 탭"], "text": "머리를 들고 솟구치면 곧 점프해요. 손을 떼고, 물에 떨어지는 순간 탭!", "anim": [["rise", 0.8], ["jump", 0.9], ["land", 0.4], ["rest", 0.6]]}, 
-	"spike": {"t": "급당김", "hand": ["rel", "잠깐 손 떼기"], "text": "예고 없이 머리를 홱 흔들어요. 잠깐 손을 뗐다가 다시 감아요.", "anim": [["swim", 0.7], ["spike", 0.5]]}, 
+	"spike": {"t": "급당김", "hand": ["rel", "잠깐 손 떼기"], "text": "코랄 번개가 차오르면 급당김이 와요. 손을 뗐다가 멈추면 다시 감아요.", "anim": [["swim", 0.7], ["spike_warn", 0.35], ["spike", 0.25], ["rest", 0.5]]},
 	"charge": {"t": "몸 돌림 → 역돌진", "hand": ["hold", "꾹 누르기"], "text": "나를 향해 몸을 돌리면 내 쪽으로 돌진해요. 줄이 느슨해지니까 손을 떼지 말고 꾹 감아요.", "anim": [["turn", 0.7], ["charge", 1.0]], "face": -1}, 
-	"dive": {"t": "머리 숙임 → 잠수", "hand": ["rel", "짧게 손 떼기"], "text": "머리를 숙이고 꼬리를 치켜들면 곧 아래로 파고들어요. 손을 떼되, 너무 오래 떼면 거리를 잃어요.", "anim": [["nose", 0.7], ["dive", 1.0]]}, 
+	"dive": {"t": "머리 숙임 → 잠수", "hand": ["rel", "짧게 손 떼기"], "text": "머리를 숙이고 꼬리를 치켜들면 곧 아래로 파고들어요. 손을 떼되, 너무 오래 떼면 거리를 잃어요.", "anim": [["nose", 0.7], ["dive", 1.0], ["rest", 0.5]]},
 	"clone": {"t": "분신", "hand": ["look", "줄 따라 보기"], "text": "그림자가 셋으로 갈라져요. 줄이 이어진 놈의 몸짓만 보고 판단해요.", "anim": [["clone", 2.0]]}, 
 	"sulk": {"t": "버티기", "hand": ["pump", "짧게 감았다 떼기"], "text": "바닥에 딱 붙어 버텨요. 계속 감으면 텐션만 올라요. 톡톡 짧게 감았다 떼기를 반복해요.", "anim": [["sulk", 2.0]]}, 
 	"circle": {"t": "맴돌기", "hand": ["hold", "다가올 때만 감기"], "text": "원을 그리며 돌아요. 나한테 다가올 때 감고, 멀어질 땐 손을 떼요.", "anim": [["circle", 2.4]]}, 
@@ -943,7 +944,7 @@ func skip_tut() -> void :
 	close_card(true)
 
 func open_card(key: String, after: String) -> void :
-	lesson_open = true;lesson_key = key;lesson_after = after;holding = false;lesson_clock = ui_clock
+	lesson_open = true;lesson_key = key;lesson_after = after;holding = false;lesson_clock = ui_clock;lesson_telegraph.reset_demo()
 
 func close_card(skip_after: = false) -> void :
 	if not lesson_open: return
@@ -987,14 +988,15 @@ func lesson_frame(key: String, elapsed: float) -> Dictionary:
 	if key == "jump": cue = "착수! 지금 탭" if beh == "land" else ("다시 감기" if beh == "rest" else "공중에서는 손 떼기" if beh == "jump" else "전조 · 미리 손 떼기")
 	elif key == "tell": cue = "웅크림 · 지금 손 떼기" if beh == "tell" else ("돌진 중 · 손 떼기" if beh == "run" else "꾹 눌러 감기")
 	elif key == "skim": cue = "멈춤! 지금 감기" if beh == "rest" else "물보라 동안 손 떼기"
-	elif key == "spike": cue = "급당김! 잠깐 떼기" if beh == "spike" else "꾹 눌러 감기"
+	elif key == "spike": cue = "번개 전조 · 미리 떼기" if beh=="spike_warn" else ("급당김! 잠깐 떼기" if beh == "spike" else "꾹 눌러 감기")
 	elif key == "circle": cue = "다가오는 중 · 감기" if sin(k * TAU) > 0 else "멀어지는 중 · 떼기"
 	elif key == "thrash": cue = "크게 비틀 때 · 떼기" if sin(remaining / 2.0 * 9.0) > 0.4 else "사이사이 · 감기"
 	elif key == "dive": cue = "머리 숙임 · 미리 떼기" if beh == "nose" else "잠수 중 · 손 떼기"
 	elif key == "charge": cue = "몸 돌림 · 계속 감기" if beh == "turn" else "다가오는 중 · 꾹 감기"
-	return {"beh": beh, "k": k, "cue": cue, "motion_time": k * float(sequence[index][1])}
+	return {"beh": beh, "k": k, "cue": cue, "motion_time": k * float(sequence[index][1]),"step_duration":lesson_step_duration(key,sequence[index]),"step_elapsed":remaining,"index":index,"loop":floori(elapsed/total)}
 
 func _draw_lesson_card(t: float) -> void :
+	var saved_mouth:Vector2=fish_mouth
 	ui_demo = true
 	var L: Dictionary = LESSON[lesson_key]
 	var h: = get_viewport_rect().size.y
@@ -1011,6 +1013,8 @@ func _draw_lesson_card(t: float) -> void :
 	var k: float = frame.k
 	t = frame.motion_time * 1000.0
 	var demo_sp: int = int(S.get("sp", 1))
+	var demo_used:Rect2i=fish_used[demo_sp]
+	var demo_length:float=minf(_fish_display_length(0,2.2,false,demo_sp),minf(64,24.0*demo_used.size.x/maxf(1,demo_used.size.y)))
 	var x: = bx + 90.0
 	var y: = by + 50.0
 	if beh == "rise": y = by + 62 - 30 * k * k
@@ -1037,11 +1041,13 @@ func _draw_lesson_card(t: float) -> void :
 		_line(Vector2(bx + 176, by + 1), Vector2(bx + 90 + 42 * sp, by + 54 - 12 * sp), Color(1, 1, 1, 0.8))
 		for j in 3:
 			var p: = Vector2(bx + 90 + (pos[j][0] - bx - 90) * sp, by + 54 + (pos[j][1] - by - 54) * sp)
-			_shadow_fish(p, 0, 0, t + j * 137, "run" if j == 2 else "rest", false, 2.0, {}, t / 1000.0 * TAU * 2, demo_sp, -1.0, 1.0)
+			_shadow_fish(p, 0, 0, t + j * 137, "run" if j == 2 else "rest", false, 2.0, {}, t / 1000.0 * TAU * 2, demo_sp, -1.0, 1.0,demo_length)
 	else:
-		_shadow_fish(Vector2(x, y), 0, 0, t, "swim" if beh == "spike" else ("rest" if beh == "land" else beh), beh == "spike", 2.2, {}, t / 1000.0 * TAU * (3.0 if beh == "run" else 1.2), demo_sp, face, 1.0)
+		_shadow_fish(Vector2(x, y), 0, 0, t, "swim" if beh in ["spike","spike_warn"] else ("rest" if beh == "land" else beh), beh == "spike", 2.2, {}, t / 1000.0 * TAU * (3.0 if beh == "run" else 1.2), demo_sp, face, 1.0,demo_length)
+	lesson_telegraph.draw_lesson(self,lesson_key,frame,Vector2(bx+82,by+4),fish_mouth)
+	fish_mouth=saved_mouth
 	_text(L.t, Vector2(VW / 2.0, 280), 12, Color("382619"), true, 200)
-	var hc: = Color("7cc96a") if L.hand[0] == "hold" else (Color("ff9a3c") if L.hand[0] == "rel" else (Color("ffd24a") if L.hand[0] == "pump" else Color("7fb6ff")))
+	var hc:Color=lesson_telegraph.demo_last.cue.get("color",lesson_telegraph.CORAL if beh in ["run","dive","jump","spike"] else (lesson_telegraph.VIOLET if beh=="clone" else lesson_telegraph.LIME))
 	var hw: = ceilf(_text_w(frame.cue, 9)) + 24
 	sb_chip.modulate_color = hc.lerp(Color.WHITE, 0.35)
 	_ui_style_box(sb_chip, Rect2(VW / 2.0 - hw / 2, 288, hw, 25))

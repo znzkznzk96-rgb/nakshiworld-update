@@ -1,0 +1,139 @@
+{
+  "baseline": "v1.15",
+  "baseline_source_zip_sha256": "561dfb3a469fb0d2a4b712d7a17f4a770bd7ddabbc040bb3df3e0cdcbb20fc25",
+  "godot": "4.4.1.stable",
+  "local_passed": [
+    "body_book_telegraph",
+    "fight_telegraph",
+    "guide",
+    "action_readability",
+    "fishing_difficulty",
+    "audio_save",
+    "release_candidate 7 tests",
+    "import"
+  ],
+  "ring_cause": "turn->charge included in generic .25s resume signal",
+  "fix": "never open/return resume ring during charge; continuous reeling unchanged",
+  "book_rendering": "private LessonModel + private telegraph instance uses same sample()/paint() as gameplay",
+  "checks": [
+    "all12 lesson cards and phase progress",
+    "spike warning description/animation",
+    "ring->success flash for rest/tell/dive/spike/jump/skim",
+    "real charge has no circle during first .2s held or released",
+    "real release->rest ring retained",
+    "book leaves live S/hold/mouth/rewards/telegraph windows/RNG unchanged"
+  ],
+  "full_ci": "success",
+  "public_deployed": false,
+  "release_authorized": true,
+  "public_version": "v1.15",
+  "candidate_version": "1.16",
+  "source_commit": "0a68e53e19a17fee62dda202eb8e8f4a9ed35ba2",
+  "full_ci_run": 42578350443,
+  "superseded_run": {
+    "id": 42578183302,
+    "status": "cancelled after deterministic fixture correction before full verification"
+  },
+  "unique_verify_markers": 92,
+  "native_preview": "BODY_BOOK_TELEGRAPH_PREVIEW failures=[]; 72 render contexts",
+  "evidence_artifact": {
+    "id": 13656721076,
+    "sha256": "d0408a658caeb2778e82f820d9c7752c562fe99e0c03743dffdcb9a426cc4876",
+    "zip_crc": "pass"
+  },
+  "screens": {
+    "charge-h480.png": {
+      "size": [
+        540,
+        960
+      ],
+      "sha256": "22cca9c1e8c72eb9f1e2e4471bf67e7c67f74d27d8cc910851a9e19aa478264e"
+    },
+    "book-board-h660.png": {
+      "size": [
+        1080,
+        2256
+      ],
+      "sha256": "340a9f21c2486d75d6a01ea2d471006876cbb680efd1620fb2c9832461852ae8"
+    },
+    "clone-h480.png": {
+      "size": [
+        540,
+        960
+      ],
+      "sha256": "cb6953cc883824cc358a0c7aeff88b31f7b6e4c9462eeead68ecc203e75b829b"
+    },
+    "tell-h480.png": {
+      "size": [
+        540,
+        960
+      ],
+      "sha256": "c5f4cf3c6bd80ff565584e2531679f1d4ee18a932d9d2b76714ad270d3649ee3"
+    },
+    "spike-h660.png": {
+      "size": [
+        540,
+        1320
+      ],
+      "sha256": "ebb2d8989132d5680a2964c2486d9e6bdf31d551155702bb55aea932b8359f1f"
+    },
+    "tell-h660.png": {
+      "size": [
+        540,
+        1320
+      ],
+      "sha256": "2b5de370020e6ab1b90afd542ff4ada7c5fe79567d88e8ef9863d65bdf8cad06"
+    },
+    "clone-h660.png": {
+      "size": [
+        540,
+        1320
+      ],
+      "sha256": "82acb67e3f59a4ee1f8b4cb77ebf688216e962061b67eae94bfcff48ce9c7699"
+    },
+    "spike-h480.png": {
+      "size": [
+        540,
+        960
+      ],
+      "sha256": "d137692edf0cd19a6fe2a200db8d4c2eb45cd8b73cb0356c3fa55427758501b1"
+    },
+    "book-board-h480.png": {
+      "size": [
+        1080,
+        2256
+      ],
+      "sha256": "9954501c5dc99738d1450af7e780371516db0ee60ea563fbb67535e2f6fe62e1"
+    },
+    "charge-h660.png": {
+      "size": [
+        540,
+        1320
+      ],
+      "sha256": "0410810a7c2b564867b61dcd14565dd84393b47f1de3d773cbcaccf6eb8a9a90"
+    }
+  },
+  "manual_review": [
+    "both all12 boards: phase cues visible, charge execution no ring",
+    "charge h480 and spike h660: preview/text fit"
+  ],
+  "candidate_artifact": 13657457850,
+  "candidate_fingerprint": "bafb97b1e4eef9f148486580a3e0308a4fcbc8e98a63eeb52fc3e75cde9c532c",
+  "success_burst": {
+    "duration": 0.3,
+    "shared_gameplay_book_renderer": true,
+    "timing_rewards_unchanged": true,
+    "source_commit": "601d97555620f2208dddf82b28e9c429c801865f",
+    "ci_run": 42581154603,
+    "attempt": 2,
+    "conclusion": "success",
+    "unique_verify_markers": 92,
+    "evidence_artifact": 13658130416,
+    "evidence_sha256": "422d573b3d96e7e885821a9e46763ae6b047a20edb09ed906eef5a4a3e06b533",
+    "native_success_phases_and_phone": "manually reviewed; compact and no fish/tension occlusion",
+    "screens": {
+      "success-phone.png": "4cb0d81bf1e00a3497fbfa818b11d5dec13c60f5321fa417328e54d7b6767df5",
+      "success-phases.png": "beed9915b28671d458e551cb1973f1768d798fa0932678f6c2839a8bdbdf98de"
+    }
+  }
+}

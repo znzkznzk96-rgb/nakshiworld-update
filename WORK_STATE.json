@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "telegraph115_published_verified",
+  "status": "v116_verified_publication_pending",
   "release_baseline": "v1.15",
-  "target_release": "v1.15",
+  "target_release": "v1.16",
   "deployed": true,
   "phone_verified": false,
-  "handoff": "docs/releases/115/HANDOFF.md",
-  "current_task": "v1.15 입질크기·몸짓 도트 전조 공개·운영 검증 완료",
-  "next_step": "게임 내 업데이트 후 휴대폰 적용·전조/재감기 타이밍 체감 확인",
+  "handoff": "docs/qa/body-book-telegraph/HANDOFF.md",
+  "current_task": "몸짓도감12종 전조/재감기 시연 연동 및 역돌진 불필요 링 수정",
+  "next_step": "PR54 병합→동일 봉인후보 공개→3파일/운영다운로드 확인",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -120,7 +120,7 @@
     "production_balance_changed": false,
     "phone_tested": false
   },
-  "release_authorized": false,
+  "release_authorized": true,
   "balance110": {
     "applied": true,
     "deployed": true,
@@ -257,17 +257,17 @@
   },
   "release_candidate": {
     "version": {
-      "code": 115,
-      "name": "1.15"
+      "code": 116,
+      "name": "1.16"
     },
-    "artifact_id": 13653836902,
-    "input_fingerprint": "62f6b949a560986908115629d08c837c7d6f40cff5ce2e9ed2477e9492246175",
-    "source_commit": "2ff57dd839ef97802268e8c7eecc455039429c25",
-    "run": 42571831399,
+    "artifact_id": 13657457850,
+    "input_fingerprint": "bafb97b1e4eef9f148486580a3e0308a4fcbc8e98a63eeb52fc3e75cde9c532c",
+    "source_commit": "601d97555620f2208dddf82b28e9c429c801865f",
+    "run": 42581154603,
     "ready": true,
-    "published": true,
-    "release_authorized": false,
-    "verification": "docs/qa/fight-telegraph/VERIFICATION.json",
+    "published": false,
+    "release_authorized": true,
+    "verification": "docs/qa/body-book-telegraph/VERIFICATION.json",
     "rebuild": false
   },
   "release_resume_run": 42424430555,
@@ -774,5 +774,31 @@
     "deployed": true,
     "phone_verified": false,
     "release_authorized": false
+  },
+  "body_book_telegraph": {
+    "approved": true,
+    "deployed": false,
+    "release_authorized": false,
+    "charge_ring_cause": "turn->charge opened generic .25s resume ring",
+    "user_play_feedback": "v1.15 fighting cues feel much better; reported charge ring",
+    "implemented": true,
+    "related_verified": true,
+    "verification": "docs/qa/body-book-telegraph/VERIFICATION.json",
+    "source_commit": "0a68e53e19a17fee62dda202eb8e8f4a9ed35ba2",
+    "ci_run": 42578350443,
+    "ci_status": "success",
+    "verified": true
+  },
+  "success_flash": {
+    "approved": true,
+    "release_authorized": true,
+    "duration": 0.3,
+    "next": "publish PR54 candidate without rebuild",
+    "implemented": true,
+    "ci_run": 42581154603,
+    "ci_attempt": 2,
+    "retry_reason": "Godot binary download HTTP504 before tests; baseline source hash passed",
+    "verified": true,
+    "ci_status": "success"
   }
 }

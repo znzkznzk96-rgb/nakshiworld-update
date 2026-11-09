@@ -8,6 +8,7 @@ const EMPTY := Color("29303d")
 const SIZE := 13
 const SPIKE_WARNING := 0.35
 const PERFECT_WINDOW := 0.25
+const SUCCESS_FLASH_DURATION := 0.30
 const WARNINGS := {"tell":"right","turn":"left","nose":"down","rise":"up"}
 var behavior := ""
 var duration := 1.0
@@ -40,19 +41,20 @@ func note_behavior(m) -> void:
 	behavior=next;duration=maxf(0.001,float(m.S.get("bt",1)));started=m.clock
 	if old=="tell" and next=="swim": cancel_until=m.clock+0.12
 	# A chained warning never opens a misleading reeling ring.
-	if next in ["swim","rest","charge"] and old not in ["","swim","rest","charge"]:
+	if next in ["swim","rest"] and old not in ["","swim","rest","charge"]:
 		reel_until=m.clock+PERFECT_WINDOW;reel_used=false
+	if next=="charge": reel_until=-1;reel_used=true
 	previous_reel=can_reel(m)
 
 func observe(m) -> void:
 	note_behavior(m)
 	var now: bool=can_reel(m)
-	if now and not previous_reel:
+	if now and not previous_reel and str(m.S.get("beh",""))!="charge":
 		reel_until=m.clock+PERFECT_WINDOW;reel_used=false
 	previous_reel=now
 
 func ring(m) -> Dictionary:
-	if not can_reel(m): return {}
+	if not can_reel(m) or str(m.S.get("beh",""))=="charge": return {}
 	if float(m.S.get("landUntil",0))>0 and m.clock<=float(m.S.landUntil) and not bool(m.S.get("jumpUsed",false)):
 		return {"until":float(m.S.landUntil),"length":0.5,"kind":"landing"}
 	if float(m.S.get("skimEnd",0))>0 and m.clock<=float(m.S.skimEnd) and not bool(m.S.get("skimUsed",false)):
@@ -65,7 +67,7 @@ func on_press(m, fresh: bool) -> bool:
 	var window: Dictionary=ring(m)
 	if window.is_empty() or reel_used and flash_until>=m.clock: return false
 	# Landing/skim retain their existing reward windows; this adds no new reward.
-	reel_used=true;reel_until=-1;flash_until=m.clock+0.16;success_count+=1
+	reel_used=true;reel_until=-1;flash_until=m.clock+SUCCESS_FLASH_DURATION;success_count+=1
 	m.audio_feedback.sound(m,"record",-19.0,1.3)
 	return true
 
@@ -194,7 +196,76 @@ func draw(m, center: Vector2, body_length: float, group: bool=false) -> void:
 				elif data.shape=="up": pt=center+Vector2(-4+i*4,-8-(1-progress)*7)
 				m._fish_effect_rect(Rect2(pt.round(),Vector2.ONE),Color(data.color,0.7))
 	if flash_until>m.clock:
-		var point:Vector2=m.fish_mouth.round()
-		var alpha:float=clampf((flash_until-m.clock)/0.16,0,1)
-		m._fish_effect_rect(Rect2(point-Vector2(4,0),Vector2(9,1)),Color(1,1,1,alpha))
-		m._fish_effect_rect(Rect2(point-Vector2(0,4),Vector2(1,9)),Color(1,1,1,alpha))
+		draw_success(m,m.fish_mouth,1.0-(flash_until-m.clock)/SUCCESS_FLASH_DURATION,false)
+
+# Encyclopedia uses a private model but the exact same sample()/paint() as play.
+class LessonModel extends RefCounted:
+	var S:Dictionary={}
+	var clock:float=0
+var demo_event := ""
+var demo_last:Dictionary={}
+func reset_demo() -> void:
+	reset();demo_event="";demo_last={}
+
+func lesson_descriptor(key:String, frame:Dictionary) -> Dictionary:
+	var model:=LessonModel.new()
+	var b:String=frame.beh
+	var k:float=frame.k
+	model.S={"phase":"fight","beh":"rest" if b=="land" else ("swim" if b=="spike_warn" else b),"bt":1.0-k,"spike":0.25 if b=="spike" else 0.0,"spikeWarn":SPIKE_WARNING*(1.0-k) if b=="spike_warn" else 0.0,"F":0.0,"holdT":0.6*k,"circA":k*TAU,"thT":float(frame.motion_time),"cloneT":minf(.31,k*1.2),"jumpUsed":false,"skimUsed":false}
+	duration=1;reel_until=-1;reel_used=true;cancel_until=-1
+	var opportunity:bool=false
+	if b=="land":
+		model.clock=k*.5;model.S.landUntil=.5;opportunity=true
+	elif key=="skim" and b=="rest":
+		model.clock=k*.4;model.S.skimEnd=.4;opportunity=true
+	elif b=="rest" and key in ["rest","tell","dive","spike"]:
+		model.clock=k*PERFECT_WINDOW;reel_until=PERFECT_WINDOW;reel_used=false;opportunity=true
+	var data:Dictionary=sample(model)
+	var offset:float=float(frame.step_duration)*.65
+	var age:float=float(frame.step_elapsed)-offset
+	var success:bool=opportunity and age>=0
+	var flash:float=clampf(1.0-age/.32,0,1) if success else 0.0
+	if success:data={}
+	return {"cue":data,"flash":flash,"success":success,"event":"%s:%d:%d"%[key,int(frame.loop),int(frame.index)],"behavior":b}
+
+func draw_lesson(m,key:String,frame:Dictionary,origin:Vector2,mouth:Vector2) -> void:
+	demo_last=lesson_descriptor(key,frame)
+	icon_bounds=Rect2(origin-Vector2.ONE,Vector2(15,15)) if not demo_last.cue.is_empty() else Rect2()
+	paint(m,demo_last.cue,origin)
+	if float(demo_last.flash)>0:
+		draw_success(m,mouth,1.0-float(demo_last.flash),true)
+		if demo_event!=str(demo_last.event):
+			demo_event=demo_last.event;m.audio_feedback.sound(m,"record",-19.0,1.3)
+
+# One deterministic pixel renderer shared by play and encyclopedia. No RNG or state writes.
+func success_pixels(progress:float) -> Array:
+	var t:float=clampf(progress,0,1)
+	var pixels:Array=[]
+	if t>=1:return pixels
+	var fade:float=1.0-t
+	var white:Color=Color(1,1,1,fade)
+	var lime:Color=Color(LIME,fade*0.85)
+	# A sharp star first, then a broken expanding diamond and six short sparks.
+	if t<0.55:
+		var arm:int=3 if t<0.25 else 2
+		pixels.append([Rect2(-arm,0,arm*2+1,1),white])
+		pixels.append([Rect2(0,-arm,1,arm*2+1),white])
+		pixels.append([Rect2(-1,-1,3,3),Color("f5ffd5")*Color(1,1,1,fade)])
+	var radius:int=4+int(t*6)
+	for side in 4:
+		for step in radius:
+			if t>0.55 and step%3==1:continue
+			var point:Vector2=Vector2(step,-radius+step).rotated(side*PI/2).round()
+			pixels.append([Rect2(point,Vector2.ONE),Color(0.9,1,0.94,fade*0.75)])
+	for i in 6:
+		var direction:Vector2=Vector2.from_angle(-PI/2+i*TAU/6)
+		var point:Vector2=(direction*(5+t*7)).round()
+		pixels.append([Rect2(point,Vector2.ONE),lime if i%2==0 else white])
+		if t<0.5:pixels.append([Rect2(point-direction.round(),Vector2.ONE),white])
+	return pixels
+
+func draw_success(m,mouth:Vector2,progress:float,lesson:bool) -> void:
+	for pixel in success_pixels(progress):
+		var rect:Rect2=pixel[0];rect.position+=mouth.round()
+		if lesson:m._ui_rect(rect,pixel[1])
+		else:m._fish_effect_rect(rect,pixel[1])
