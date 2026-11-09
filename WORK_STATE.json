@@ -260,16 +260,14 @@
       "code": 117,
       "name": "1.17"
     },
-    "artifact_id": 13658214709,
-    "input_fingerprint": "6ecbaa85f7f5e62b72bcf1f6075815fda7e428d6d4a1eb531fc7227c20c47dca",
-    "source_commit": "dd41bdf69fde9c7876877860b508e8e7d06bf7cf",
-    "run": 42585007838,
-    "ready": false,
+    "artifact_id": 13676398457,
+    "input_fingerprint": "e3230263fe52564e179aa24c7247652c0f6b6e58db33fe66bb156677e864edcb",
+    "source_commit": "31e8924487b91bc1f6f5d3fb4c56b8d30807efc1",
+    "run": 42621403752,
+    "ready": true,
     "published": false,
-    "release_authorized": false,
-    "verification": "docs/qa/updater-redesign/VERIFICATION.json",
-    "apk_required_for_loader": true,
-    "note": "PCK alone cannot replace pre-patch APK bootstrap; no new APK built"
+    "release_authorized": true,
+    "verification": "docs/qa/updater-redesign/MOTION_VERIFICATION.json"
   },
   "release_resume_run": 42424430555,
   "fight_body_size": {
@@ -844,6 +842,7 @@
     "motion_ci_run": 42621403752,
     "motion_source": "31e8924487b91bc1f6f5d3fb4c56b8d30807efc1",
     "motion_related_verified": true,
-    "motion_verification": "docs/qa/updater-redesign/MOTION_VERIFICATION.json"
+    "motion_verification": "docs/qa/updater-redesign/MOTION_VERIFICATION.json",
+    "apk_bootstrap_version": 117
   }
 }
