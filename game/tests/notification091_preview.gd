@@ -24,4 +24,6 @@ func run():
    m.V.zoom=zoom;m.V.camera_x=0;m.V.clamp_camera(m)
    m.show_toast("260 비늘 · 어혼 주머니 2개 획득",Color("ffdc96"));m.toast_t=1
    await capture(m,out,"reward_h%d_zoom%d"%[h,int(zoom*100)])
+   if m.V.map_origin(m,h).y-122*zoom<=m.top_y+146:
+    assert(not m.text_items.any(func(item):return item[2]=="여객 선착장"),"hidden harbor plaque must also hide its text")
  m.audio_feedback.dispose();m.queue_free();await process_frame;quit()

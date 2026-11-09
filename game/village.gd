@@ -327,7 +327,7 @@ func draw(m, h: float) -> void :
 		var c: Vector2 = o + Vector2(95, -122)
 		if o.y + (c.y - o.y) * zoom > m.top_y + 146:
 			m.draw_style_box(m.hud_reference_style, Rect2(c.x - 46, c.y - 10, 92, 23))
-		m._text("여객 선착장", c + Vector2(0, 3), 10, Color("fff0d1"), true)
+			m._text("여객 선착장", c + Vector2(0, 3), 10, Color("fff0d1"), true)
 	m.draw_set_transform(Vector2.ZERO)
 	for i in range(world_text_start, m.text_items.size()):
 		m.text_items[i][1] = zoom_anchor + (m.text_items[i][1] - zoom_anchor) * zoom
