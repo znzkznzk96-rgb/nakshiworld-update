@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "dex_labels_related_verified",
+  "status": "hall_forge119_approved",
   "release_baseline": "v1.18",
-  "target_release": "v1.18",
+  "target_release": "v1.19",
   "deployed": true,
   "phone_verified": false,
-  "handoff": "docs/qa/dex-readability/LABEL_HANDOFF.md",
-  "current_task": "도감 버튼 한 줄·N/R/E/L/M 등급 표기 정정",
-  "next_step": "표기 정정 관련검사/실화면 완료. 자동CI결과확인·새작업지시대기. 공개v1.18유지·미배포.",
+  "handoff": "docs/qa/hall-forge119/HANDOFF.md",
+  "current_task": "승인 회관·대장간 UI 구현 및 v1.19 공개배포",
+  "next_step": "네이티브 구현·관련검사·실화면→119전체CI→동일후보공개/운영검증",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -120,7 +120,7 @@
     "production_balance_changed": false,
     "phone_tested": false
   },
-  "release_authorized": false,
+  "release_authorized": true,
   "balance110": {
     "applied": true,
     "deployed": true,
@@ -393,11 +393,11 @@
     "verification_artifact": 13618959416
   },
   "latest_release_instruction": {
-    "date": "2026-11-09",
-    "request": "업데이트하고 배포 ㄱㄱ",
+    "date": "2026-11-10",
+    "request": "마을회관은 처음시안 대장간은 두번째 업데이트 및 배포",
     "authorized": true,
-    "scope": "검증된 v1.18 병사 스킬 표시 공개",
-    "fulfilled": true
+    "fulfilled": false,
+    "scope": "hall/forge + approved pending gauge/notice/bundle/dex"
   },
   "economy_analysis": {
     "report": "docs/analysis/tile-income-20261108/REPORT.md",

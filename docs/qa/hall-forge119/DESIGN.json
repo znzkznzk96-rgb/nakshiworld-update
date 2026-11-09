@@ -1,0 +1,24 @@
+{
+  "date": "2026-11-10",
+  "authorized": true,
+  "hall": "first original concept",
+  "forge": "second detail-refined pixel concept",
+  "references": [
+    {
+      "file": "exec-2daec3fd-b937-4507-9513-0ca3015efb3e.png",
+      "sha256": "da806800042c3d25dde90a4478c95e831e93ca9ea76ef1da0137b9cad3901393"
+    },
+    {
+      "file": "exec-a26c72d6-d32e-4701-82e1-d1a65218ca0c.png",
+      "sha256": "96951f78079c4bf9f9abb835864d8549a14f1a17595de9d905add0788571d76f"
+    }
+  ],
+  "implementation": "native pixel UI, reusable game frames/icons and procedural shading; generated text/stat pixels are not game data",
+  "preserve": [
+    "all prices/effects/purchase gating",
+    "save data and transactions",
+    "all prior approved work"
+  ],
+  "release_scope": "v1.19 hall/forge UI + village notice + owner gauges + tile bundle rewards + fish/soldier dex labels/star views",
+  "deployment_authorized": true
+}
