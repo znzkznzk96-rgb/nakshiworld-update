@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "fight_telegraph_verified_not_deployed",
+  "status": "telegraph115_publication_authorized",
   "release_baseline": "v1.14",
   "target_release": "v1.15",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/fight-telegraph/HANDOFF.md",
   "current_task": "12종 파이팅 도트 전조·재감기 피드백 v1.15 전체검증 완료",
-  "next_step": "사용자 확인/배포 요청 대기; 승인 시 성공 후보13653836902를 재빌드 없이 공개하고 운영검증",
+  "next_step": "성공 후보13653836902 동일입력 PR/merge 후 공개·운영검증",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -120,7 +120,7 @@
     "production_balance_changed": false,
     "phone_tested": false
   },
-  "release_authorized": false,
+  "release_authorized": true,
   "balance110": {
     "applied": true,
     "deployed": true,
@@ -267,7 +267,7 @@
     "run": 42571831399,
     "ready": true,
     "published": false,
-    "release_authorized": false,
+    "release_authorized": true,
     "verification": "docs/qa/fight-telegraph/VERIFICATION.json"
   },
   "release_resume_run": 42424430555,
@@ -395,10 +395,10 @@
   },
   "latest_release_instruction": {
     "date": "2026-11-09",
-    "request": "업데이투하고 배포가자 ㅇㅇ",
+    "request": "업데이트밑 배포 ㄱㄱ",
     "authorized": true,
-    "scope": "승인 시설 조정안 적용·v1.14 공개",
-    "fulfilled": true
+    "scope": "검증된 v1.15 입질크기/도트전조/재감기 피드백 공개",
+    "fulfilled": false
   },
   "economy_analysis": {
     "report": "docs/analysis/tile-income-20261108/REPORT.md",
@@ -746,7 +746,7 @@
     "procedural_godot": true,
     "spike_warning_seconds": 0.35,
     "deployed": false,
-    "release_authorized": false,
+    "release_authorized": true,
     "implemented": true,
     "related_verified": true,
     "verification": "docs/qa/fight-telegraph/VERIFICATION.json",
