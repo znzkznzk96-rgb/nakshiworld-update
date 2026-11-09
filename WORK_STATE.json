@@ -1,17 +1,17 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "v118_publication_authorized",
-  "release_baseline": "v1.15",
+  "status": "v118_published_verified",
+  "release_baseline": "v1.18",
   "target_release": "v1.18",
   "deployed": true,
   "phone_verified": false,
-  "handoff": "docs/qa/soldier-skill-cues/HANDOFF.md",
+  "handoff": "docs/releases/118/HANDOFF.md",
   "current_task": "병사 스킬 발동 아이콘·짧은빛·스킬 피해 구분",
-  "next_step": "검증 후보13683190102를 main 병합 후 동일파일 공개·운영 검증",
+  "next_step": "사용자 휴대폰에서 재실행 후 v1.18 적용 확인. 새 작업 지시 대기.",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
-  "verification": "docs/releases/115/PUBLISHED.json",
+  "verification": "docs/releases/118/PUBLISHED.json",
   "baseline_phone_verified": false,
   "environment_recovery": "docs/CODEX_NETWORK_RECOVERY.md",
   "background_verified_branch": "work/tile-png-stage2-20261107",
@@ -120,7 +120,7 @@
     "production_balance_changed": false,
     "phone_tested": false
   },
-  "release_authorized": true,
+  "release_authorized": false,
   "balance110": {
     "applied": true,
     "deployed": true,
@@ -173,7 +173,7 @@
     "ledger": "analysis/tile-layer-art-v1/PLANT_LEDGER.json",
     "quality": "analysis/tile-layer-art-v1/PLANT_QA.json"
   },
-  "public_release": "v1.17",
+  "public_release": "v1.18",
   "shared_vertical_light": {
     "applied": true,
     "regions": [
@@ -265,8 +265,8 @@
     "source_commit": "e169343fe196a2087e4099f552dfe399981c7b4f",
     "run": 42634195315,
     "ready": true,
-    "published": false,
-    "release_authorized": true,
+    "published": true,
+    "release_authorized": false,
     "verification": "docs/qa/soldier-skill-cues/VERIFICATION.json"
   },
   "release_resume_run": 42424430555,
@@ -397,7 +397,7 @@
     "request": "업데이트하고 배포 ㄱㄱ",
     "authorized": true,
     "scope": "검증된 v1.18 병사 스킬 표시 공개",
-    "fulfilled": false
+    "fulfilled": true
   },
   "economy_analysis": {
     "report": "docs/analysis/tile-income-20261108/REPORT.md",
@@ -859,7 +859,7 @@
   },
   "soldier_skill_cues": {
     "approved": true,
-    "release_authorized": true,
+    "release_authorized": false,
     "timing_damage_unchanged": true,
     "implemented": true,
     "parity_cases": 45,
@@ -870,6 +870,15 @@
     "native_verified": true,
     "verification": "docs/qa/soldier-skill-cues/VERIFICATION.json",
     "unique_verify_results": 95,
-    "deployed": false
+    "deployed": true
+  },
+  "publication_v118": {
+    "source_commit": "e169343fe196a2087e4099f552dfe399981c7b4f",
+    "release_id": 439242280,
+    "publication_run": 42636290138,
+    "publication_attempt": 2,
+    "gateway_run": 42636515700,
+    "verification": "docs/releases/118/PUBLISHED.json",
+    "phone_verified": false
   }
 }
