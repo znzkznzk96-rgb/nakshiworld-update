@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "owner_gauge_alignment_related_native_verified",
+  "status": "owner_gauge_alignment_full_verified",
   "release_baseline": "v1.18",
   "target_release": "v1.18",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/owner-gauge-alignment/HANDOFF.md",
-  "current_task": "전체 6지역 주인게이지 내부 정렬·투명 빈틈 수정",
-  "next_step": "최종 checkpoint 전체CI 확인. 공개v1.18 유지, 새배포 미승인.",
+  "current_task": "전체 6지역 주인게이지 정렬 수정·전체검증 완료",
+  "next_step": "사용자 화면 검토/새 작업 지시 대기. 공개v1.18 유지·이번 수정 미배포·새배포 미승인.",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -911,6 +911,8 @@
     "deployed": false,
     "release_authorized": false,
     "ci_run": 42710779190,
-    "ci_status": "in_progress"
+    "ci_status": "success",
+    "source_commit": "6902a57879f3202cb0f31e20d31bc69db64505cf",
+    "candidate_artifact": 13716870696
   }
 }

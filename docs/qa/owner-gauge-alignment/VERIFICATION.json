@@ -60,9 +60,49 @@
   "full_ci": {
     "run": 42710779190,
     "source_commit": "6902a57879f3202cb0f31e20d31bc69db64505cf",
-    "status": "in_progress"
+    "status": "success",
+    "coverage": "full regression, shared/native screens, packed art/tile checks",
+    "artifacts": [
+      {
+        "id": 13716870696,
+        "name": "release-candidate-d470abba8bc2b03b695261f239db50e82a74d4b3fa886bd17fde955f9ffc5a2a",
+        "size": 117629247,
+        "digest": "sha256:9658b18d739936371edd0d7219cc60d0588c98bdab8e49222f272a6e598d835a"
+      },
+      {
+        "id": 13716731070,
+        "name": "work-verification",
+        "size": 173921386,
+        "digest": "sha256:96984501a1ba52e87be6a8d1138dca2cc1f06d90cf9c17e2d2c53e298d2a6299"
+      },
+      {
+        "id": 13716505265,
+        "name": "owner-gauge-first-preview",
+        "size": 15390047,
+        "digest": "sha256:c2da6eda5c64d993931d822859f15fecc9bf1601bfb85e097100b4140a09e773"
+      },
+      {
+        "id": 13716156345,
+        "name": "village-reward-first-preview",
+        "size": 5109840,
+        "digest": "sha256:60f57c067a5b1b5b2ea26b728ccfe213ffea49658fc7e2e68d566ea91c1a4076"
+      },
+      {
+        "id": 13715228046,
+        "name": "updater-first-preview",
+        "size": 983303,
+        "digest": "sha256:fcad8c6ad297a31177aeea77c060f83aa5904c724700d341428095411142924e"
+      },
+      {
+        "id": 13715033408,
+        "name": "soldier-skills-first-preview",
+        "size": 2183442,
+        "digest": "sha256:ca9a3d736275d37597c2bb0e59d286118dcbd82164bd4f6d3df3c75056ea79e1"
+      }
+    ]
   },
   "deployed": false,
   "public_release": "v1.18",
-  "phone_verified": false
+  "phone_verified": false,
+  "approved_frame_pngs": "all six byte-identical to public v1.18"
 }
