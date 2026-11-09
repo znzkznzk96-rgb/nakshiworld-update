@@ -174,7 +174,14 @@ func draw(m, center: Vector2, body_length: float, group: bool=false) -> void:
 	var data: Dictionary=sample(m)
 	var half_height: float=4 if group else float(m.aura.get("hw",4))
 	var head_x: float=center.x if group else float(m.fish_mouth.x)
-	var anchor:=Vector2(clampf(head_x-6,3,m.VW-16),clampf(center.y-half_height-22,m.top_y+72-m.oy,m.uw_bot-20)).round()
+	var hud:Vector2=m.S.get("tensionHud",m._tension_anchor(center,m._fight_fish_scale(float(m.S.get("lf",1))),body_length))
+	var desired_y:float=minf(center.y-half_height-22,hud.y-18)
+	if group:desired_y=minf(desired_y,center.y-36*clampf(float(m.S.get("cloneT",0))/.3,0,1)-half_height-22)
+	var anchor:=Vector2(clampf(head_x-6,3,m.VW-16),clampf(desired_y,m.top_y+72-m.oy,m.uw_bot-20)).round()
+	var hud_rect:=Rect2(hud,Vector2(44,8)).grow(2)
+	if hud_rect.intersects(Rect2(anchor-Vector2.ONE,Vector2(15,15))):
+		anchor.x=hud_rect.end.x+2 if hud_rect.end.x+17<m.VW else hud_rect.position.x-17
+		anchor.x=clampf(anchor.x,2,m.VW-16)
 	if not data.is_empty():
 		icon_bounds=Rect2(anchor-Vector2.ONE,Vector2(15,15));paint(m,data,anchor)
 		if data.shape in ["right","left","up","down","bolt"]:

@@ -74,6 +74,10 @@ func run()->void:
  check(is_equal_approx(randf(),expected) and m.S==untouched and m.text_items==texts,"render has no RNG, simulation or text side effects")
  m.fish_mouth=Vector2(268,290);m.aura={"hw":5};m.pixels=[];f.draw(m,Vector2(260,290),60)
  check(f.icon_bounds.end.x<=270 and f.icon_bounds.position.x>=0,"icon clamps to phone edge")
+ for pos in [Vector2(20,150),Vector2(135,350),Vector2(260,400)]:
+  for length in [30,80,156]:
+   m.fish_mouth=pos+Vector2(10,0);m.S.tensionHud=m._tension_anchor(pos,2.2,length);m.pixels=[];f.draw(m,pos,length)
+   check(not f.icon_bounds.intersects(Rect2(m.S.tensionHud,Vector2(44,8))),"icons never cover tension meter at edges/large-fish heights")
  m.S.phase="idle";check(f.sample(m).is_empty(),"cue hidden outside fights")
  print("FIGHT_TELEGRAPH_VERIFY failures=",failures)
  m.audio_feedback.dispose();m.queue_free();await process_frame;quit(0 if failures.is_empty() else 1)

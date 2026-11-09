@@ -6,9 +6,9 @@ func run()->void:
  root.content_scale_size=Vector2i(270,540);root.content_scale_mode=Window.CONTENT_SCALE_MODE_CANVAS_ITEMS;root.size=Vector2i(540,1080)
  var ui:=CanvasLayer.new();ui.layer=10;root.add_child(ui)
  var text:=Node2D.new();text.set_script(load("res://text_layer.gd"));ui.add_child(text)
- var m=load("res://main.gd").new();m.text_layer=text;m.SET.sfx=0;m.SET.music=0;root.add_child(m);await process_frame
+ var m=load("res://main.gd").new();m.text_layer=text;m.title_open=false;m.SET.sfx=0;m.SET.music=0;root.add_child(m);await process_frame
  m.development_preview=true;m.set_process(false);m.title_open=false;m.lesson_open=false;m.tip_t=0;m.guide.opened=false;m.mailbox.opened=false;m.trans={};m.TUT.done=true;m.TUT.seen=m.BOOK_KEYS.duplicate();m.scene="fish";m.reveal_pending=false;m.reveal_t=0;m.judge_t=0
- m._layout();m.environment.set_hour(12);m.environment.update(0)
+ m.bg_node.visible=true;m.environment.show_scene(true);m._layout();m.environment.set_hour(12);m.environment.update(0)
  var board:=Image.create(1080,2640,false,Image.FORMAT_RGBA8);board.fill(Color("132535"))
  var actions:Array=["swim","tell","rest","rise","spike","turn","nose","clone","sulk","circle","thrash","skim"]
  var row:int=0
@@ -38,7 +38,10 @@ func run()->void:
    var x:int=clampi(roundi((at.x-90+m.ox)*2),0,image.get_width()-360)
    var y:int=clampi(roundi((at.y-65+m.oy)*2),0,image.get_height()-220)
    board.blit_rect(image,Rect2i(x,y,360,220),Vector2i(col*360,row*220))
-   if not f.icon_bounds.size.is_zero_approx() and (f.icon_bounds.size.x>15 or f.icon_bounds.size.y>15):failures.append("icon too large "+action)
+   if not f.icon_bounds.size.is_zero_approx():
+    if f.icon_bounds.size.x>15 or f.icon_bounds.size.y>15:failures.append("icon too large "+action)
+    var hud:Vector2=m.S.get("tensionHud",Vector2(-100,-100))
+    if f.icon_bounds.intersects(Rect2(hud,Vector2(44,8))):failures.append("icon overlaps tension bar "+action)
    if col==1 and action in ["tell","circle","sulk","clone"]:image.save_png(out.path_join(action+"-phone.png"))
   row+=1
  board.save_png(out.path_join("telegraph-board.png"))
