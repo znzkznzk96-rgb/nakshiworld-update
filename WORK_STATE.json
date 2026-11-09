@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "facility_growth_verified_publication_pending",
+  "status": "facility_growth_publication_running",
   "release_baseline": "v1.13",
   "target_release": "v1.14",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/analysis/facility-growth-20261109/HANDOFF.md",
   "current_task": "수족관/여객선/어장규모/회복시설 지역2회성장재설계",
-  "next_step": "PR52 merge 후 동일 검증 후보 v1.14 공개·운영 다운로드 확인",
+  "next_step": "게시42546219232 확인 후 공개파일·운영 다운로드 검증",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -690,6 +690,8 @@
     "source_commit": "84aa4ab434189ff9cbda560630f0c8f63cdf596e",
     "pull_request": 52,
     "verification_status": "success_91_checks_24_screens",
-    "verification": "docs/releases/114/VERIFICATION.json"
+    "verification": "docs/releases/114/VERIFICATION.json",
+    "publication_run": 42546219232,
+    "merge_commit": "1f1281d9d45e0a586a3516df85888e1b1cb2dc81"
   }
 }
