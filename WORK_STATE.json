@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "v117_published_apk_delivered_verified",
+  "status": "soldier_skill_cues_implementation",
   "release_baseline": "v1.15",
   "target_release": "v1.17",
   "deployed": true,
   "phone_verified": false,
-  "handoff": "docs/releases/117/HANDOFF.md",
+  "handoff": "docs/qa/soldier-skill-cues/HANDOFF.md",
   "current_task": "몸짓도감12종 전조/재감기 시연 연동 및 역돌진 불필요 링 수정",
-  "next_step": "새APK 덮어설치 후 휴대폰 시작화면/세이브 확인 대기; 새패치배포미승인",
+  "next_step": "기존전투 시전/타격/피해숫자경로 확인→표시만 연동→관련검사/실화면",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -856,5 +856,10 @@
     "verification": "docs/releases/117/PUBLISHED.json",
     "apk_name": "NAKSHIWORLD_1.17.apk",
     "phone_verified": false
+  },
+  "soldier_skill_cues": {
+    "approved": true,
+    "release_authorized": false,
+    "timing_damage_unchanged": true
   }
 }
