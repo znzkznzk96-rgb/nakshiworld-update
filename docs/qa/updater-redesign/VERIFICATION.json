@@ -1,0 +1,111 @@
+{
+  "baseline": "v1.16",
+  "baseline_source_sha256": "c500f3ca542766816a4dd1d527980f12c18d95bb36ca92f054c7e706a7450e70",
+  "source_commit": "dd41bdf69fde9c7876877860b508e8e7d06bf7cf",
+  "ci_run": 42585007838,
+  "conclusion": "success",
+  "unique_verify_markers": 93,
+  "native_preview": "UPDATER_PREVIEW failures=[]",
+  "evidence_artifact": 13658662862,
+  "evidence_zip_sha256": "4208bebfe3bd83b7a727b8c6c35d2c85a1cdd07924c5d1e713427eccc0236b8a",
+  "png_decoded": 22,
+  "phone_heights": [
+    480,
+    660,
+    740
+  ],
+  "chase_sampled_frames": 16,
+  "manual_review": [
+    "checking h660",
+    "download h480 and h740",
+    "orbit phases0/4/8/12: distinct closed path and leading fish"
+  ],
+  "checks": [
+    "manifest size overrides misleading HTTP header",
+    "different actual file sizes show decimal MB",
+    "checking never shows percentage",
+    "unknown total stays indeterminate",
+    "invalid header/hash preserves previous patch",
+    "valid update records version",
+    "same approved cat/fish resources; no paid generation"
+  ],
+  "screens": {
+    "checking-h480.png": {
+      "sha256": "70afada3918d69ef25aef0269b37616bbd7ffcd31cfff131ef65b0af50786329"
+    },
+    "chase-12.png": {
+      "sha256": "7acb2a2d7ce4ca57637ee10a1d299094caaf4697345863f06d12e1a24884c8bd"
+    },
+    "chase-11.png": {
+      "sha256": "11c3c2f3d92d4ba46d0f1c0d906629db9d6806f4f35c0e24269dcc1c35d0455c"
+    },
+    "chase-15.png": {
+      "sha256": "8afbab35e21b73b32ffed83f2a1947e53f2ff54db70aa6419926a873efc1386f"
+    },
+    "chase-08.png": {
+      "sha256": "7d55393a644cbba647fc8f9fd8d505afb5b4a5b540537a161a18043816586690"
+    },
+    "chase-06.png": {
+      "sha256": "084a0d49c88393ce3466aa9fe8ea8d01c15241e8813cf575bf7db1c5989f6e6b"
+    },
+    "download-h740.png": {
+      "sha256": "7aac89825f0df807d441c732a02fd1718bf79b7b39155ddbd44fece745db6d39"
+    },
+    "download-h480.png": {
+      "sha256": "2408701bbabe8fe31771f1e584a603ce008f7c5e8cdd69573af7455fe855960e"
+    },
+    "chase-00.png": {
+      "sha256": "05cc05a833343381e17d17f963ed44615a40cdd2f3a98482c74eabf4537921ec"
+    },
+    "chase-13.png": {
+      "sha256": "51a316a20d1f90c6045d844fc5b25d65f8b0f358874b8346bcaf056a994d4b27"
+    },
+    "chase-10.png": {
+      "sha256": "cb0498ec26ad82f6ba379d55a20baafa57da8a15eb89d864a6ed2c2b1f32b530"
+    },
+    "chase-07.png": {
+      "sha256": "607f902cd3feb59df3119662d7040a27090c3713dcaca2da34a9047fe985bdb9"
+    },
+    "chase-14.png": {
+      "sha256": "f9585c4681d08229e7f85420c8ca90418a81abc0a6bdb5b05cae2aa16c982a19"
+    },
+    "chase-03.png": {
+      "sha256": "b0b773bac3b3db5c23b694c7d507ad2ceb6c5b172c58e636214a750864b1f678"
+    },
+    "chase-01.png": {
+      "sha256": "900998c08e56fb8a3645cbe69d6b0b5376ebaa9e4d60855b50042b755fd3f29e"
+    },
+    "chase-04.png": {
+      "sha256": "c62a1b84c16495ce3826f0f68ebbddbc5702bbc5e27b8fe357f430eec986191f"
+    },
+    "download-h660.png": {
+      "sha256": "362a49a657c7d4166ee91af0eb01e04c356d216959de1af7d31f8aa7d1fdbb8b"
+    },
+    "checking-h740.png": {
+      "sha256": "2ea92808d7663cff3333b9992612077939d2a3e33606ebc22703f8e3353f1385"
+    },
+    "checking-h660.png": {
+      "sha256": "0daa178fa7b6378570d6f72f36202e3188daa09e883c50d456843166b1a7e1e4"
+    },
+    "chase-02.png": {
+      "sha256": "c55fb9fe2d991a71d2843627def8202ba2cf1cd1d4a29af0755aff38331793a6"
+    },
+    "chase-05.png": {
+      "sha256": "66657257dcb2013cf224587a3f66a7bb878548c8e30266b192dfb08dfece375e"
+    },
+    "chase-09.png": {
+      "sha256": "d2509ba2d089f2f3464ee4177297096328edd0f787ff404b672ab6f001d0dadf"
+    }
+  },
+  "candidate": {
+    "version": "1.17",
+    "artifact": 13658214709,
+    "fingerprint": "6ecbaa85f7f5e62b72bcf1f6075815fda7e428d6d4a1eb531fc7227c20c47dca"
+  },
+  "public_release": "v1.16",
+  "public_deployed": false,
+  "release_authorized": false,
+  "new_apk_required_for_existing_install_loader": true,
+  "apk_built": false,
+  "phone_verified": false
+}

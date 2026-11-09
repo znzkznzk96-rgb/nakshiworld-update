@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "updater_redesign_verification",
+  "status": "updater_redesign_verified_not_deployed",
   "release_baseline": "v1.15",
   "target_release": "v1.17",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/updater-redesign/HANDOFF.md",
   "current_task": "몸짓도감12종 전조/재감기 시연 연동 및 역돌진 불필요 링 수정",
-  "next_step": "CI42585007838 및 updater 실제480/660/740화면·16프레임 검수",
+  "next_step": "새 로더 적용에는 동일서명 APK 업데이트 필요; 새배포 승인 대기,공개v1.16유지",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -257,18 +257,19 @@
   },
   "release_candidate": {
     "version": {
-      "code": 116,
-      "name": "1.16"
+      "code": 117,
+      "name": "1.17"
     },
-    "artifact_id": 13657457850,
-    "input_fingerprint": "bafb97b1e4eef9f148486580a3e0308a4fcbc8e98a63eeb52fc3e75cde9c532c",
-    "source_commit": "601d97555620f2208dddf82b28e9c429c801865f",
-    "run": 42581154603,
-    "ready": false,
-    "published": true,
+    "artifact_id": 13658214709,
+    "input_fingerprint": "6ecbaa85f7f5e62b72bcf1f6075815fda7e428d6d4a1eb531fc7227c20c47dca",
+    "source_commit": "dd41bdf69fde9c7876877860b508e8e7d06bf7cf",
+    "run": 42585007838,
+    "ready": true,
+    "published": false,
     "release_authorized": false,
-    "verification": "docs/qa/body-book-telegraph/VERIFICATION.json",
-    "rebuild": false
+    "verification": "docs/qa/updater-redesign/VERIFICATION.json",
+    "apk_required_for_loader": true,
+    "note": "PCK alone cannot replace pre-patch APK bootstrap; no new APK built"
   },
   "release_resume_run": 42424430555,
   "fight_body_size": {
@@ -819,6 +820,11 @@
     "implemented": true,
     "related_verified": true,
     "source_commit": "dd41bdf69fde9c7876877860b508e8e7d06bf7cf",
-    "ci_run": 42585007838
+    "ci_run": 42585007838,
+    "verified": true,
+    "verification": "docs/qa/updater-redesign/VERIFICATION.json",
+    "ci_status": "success",
+    "apk_built": false,
+    "phone_verified": false
   }
 }
