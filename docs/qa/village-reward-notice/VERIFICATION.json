@@ -1,0 +1,68 @@
+{
+  "date": "2026-11-10",
+  "source_commit": "77fc1ff5f13c8ba334b2160bbaa392268cf53894",
+  "scope": "village non-action toast presentation and harbor sign visibility",
+  "changed": [
+    "game/main.gd",
+    "game/village.gd"
+  ],
+  "related": {
+    "village_reward_notice": "pass",
+    "sign_cases": 315,
+    "heights": [
+      480,
+      660,
+      740
+    ],
+    "zooms": [
+      0.65,
+      1,
+      1.6
+    ],
+    "camera_positions": [
+      0,
+      434,
+      795,
+      1024,
+      1495
+    ],
+    "notification091": "pass",
+    "reward_save_duration": "unchanged"
+  },
+  "native": {
+    "artifact_id": 13712140881,
+    "archive_sha256": "4e0832b4b65b0f1f9151103ac66062dbe545da1df200015c58f64004dbdf95ae",
+    "zip_crc": "pass",
+    "png_decode": 17,
+    "reward_screens": 9,
+    "hidden_harbor_text_assertion": "pass",
+    "visual_review": "pass",
+    "png_sha256": {
+      "purchase_660.png": "893f19f126ec27d47941c8ab6896a69b264f0fc720a7c89258e2a68942ad30a0",
+      "reward_h660_zoom160.png": "d38b01c0b0fe9407fb263a681b1d1a8c58ad0b931d196585b13309791ea3e458",
+      "reward_h660_zoom65.png": "2b57736c93b21083b4184596bfe531f7cd7d57d21747dfe40f08a721741c3cde",
+      "reward_h740_zoom100.png": "6d1ba329ac38c53d3c3174a1a79e2aadcbc718d70729a114eec398c2ed6e6b19",
+      "reward_h740_zoom160.png": "74c8fbcde59e4876744cc73fd4ccb624c452eb1a53c0111244de7460892df1da",
+      "purchase_480.png": "db92125dc9b72e72e84ea0f5b745614cb9009528f93a6dbda56279e585cc61ae",
+      "reward_h480_zoom160.png": "e529ca4dd682e65bd71d32d8b9fa6288cbe1c053b2bc71c7a224f9675acc458a",
+      "owner_complete_660.png": "a299f7cce8326b3c91b287a11b7dfa8a2c5d3177c6aa7fe8b6068cc50bc726a8",
+      "reward_h740_zoom65.png": "b0d7527a481e4778a40c6549b7596ccd3afd78ae7a4460c4793388757102d124",
+      "closed_sale_660.png": "55395d9616e6c146d44e5d74a542f6877ba6ea3d025f75474339b9552ddd4f78",
+      "reward_h480_zoom100.png": "120479d16fb6f460a5394cba8572e15a3a188c0741d8281d4301dd5f12192873",
+      "reward_h660_zoom100.png": "71b7dc3eb58dfc0c24c6c1ba32ba244c3e1f796814673637de373331b5d94d4d",
+      "reward_h480_zoom65.png": "b27cb9545cc84e1a8dbff6eea7b421e7ba17b2258b492eb05f2f4488d7038803",
+      "owner_complete_480.png": "0feabad8146aee06919845c4eba1ce4e16ddec737793dc8bd4750facf521e202",
+      "no_owner_complete_480.png": "b5e90afbc296900051be00c40cbbd4e331699dcfded7359703936ad4daf28d20",
+      "no_owner_complete_660.png": "fca0df50cc3c1675927d96ec5f9e5040fc6794537719597c478b39759788072a",
+      "closed_sale_480.png": "46dd7d09dd5257bd00625aa867d039df308fa614fdbee43b26887394b600c069"
+    }
+  },
+  "full_ci": {
+    "run": 42701570797,
+    "status": "in_progress"
+  },
+  "public_release": "v1.18",
+  "deployed": false,
+  "release_authorized": false,
+  "phone_verified": false
+}

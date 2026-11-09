@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "village_reward_notice_fix_approved",
+  "status": "village_reward_notice_related_native_verified",
   "release_baseline": "v1.18",
   "target_release": "v1.18",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/village-reward-notice/HANDOFF.md",
   "current_task": "탐험 보상 알림과 마을 간판 겹침 수정",
-  "next_step": "마을 알림 고정영역 구현·높이/확대/이동별 겹침 검사·실화면 확인",
+  "next_step": "CI42701570797 전체회귀 결과 확인. 마을 보상 알림 수정은 관련검사/실화면 검수 완료·원격저장, 공개v1.18 유지·새배포 미승인.",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -891,5 +891,16 @@
     "apk_shared": true,
     "library_file_id": "libfile_fde3_f-db955c6ddb88819198f46f089460a38c_d66dafb33acc81918ce203aeb3fcd18e",
     "public_game_release": "v1.18 unchanged"
+  },
+  "village_reward_notice": {
+    "source_commit": "77fc1ff5f13c8ba334b2160bbaa392268cf53894",
+    "related_verified": true,
+    "sign_overlap_cases": 315,
+    "native_verified": true,
+    "ci_run": 42701570797,
+    "ci_status": "in_progress",
+    "verification": "docs/qa/village-reward-notice/VERIFICATION.json",
+    "deployed": false,
+    "release_authorized": false
   }
 }
