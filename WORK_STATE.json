@@ -1,6 +1,6 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "body_book_telegraph_verified_not_deployed",
+  "status": "success_flash_implementation",
   "release_baseline": "v1.15",
   "target_release": "v1.16",
   "deployed": true,
@@ -120,7 +120,7 @@
     "production_balance_changed": false,
     "phone_tested": false
   },
-  "release_authorized": false,
+  "release_authorized": true,
   "balance110": {
     "applied": true,
     "deployed": true,
@@ -264,9 +264,9 @@
     "input_fingerprint": "820dcf83e5e4f28051503dfa60091593a279e9b69b779358ae81aa7de6f0da90",
     "source_commit": "0a68e53e19a17fee62dda202eb8e8f4a9ed35ba2",
     "run": 42578350443,
-    "ready": true,
+    "ready": false,
     "published": false,
-    "release_authorized": false,
+    "release_authorized": true,
     "verification": "docs/qa/body-book-telegraph/VERIFICATION.json",
     "rebuild": false
   },
@@ -788,5 +788,11 @@
     "ci_run": 42578350443,
     "ci_status": "success",
     "verified": true
+  },
+  "success_flash": {
+    "approved": true,
+    "release_authorized": true,
+    "duration": 0.3,
+    "next": "implement shared gameplay/book effect then full CI and publish v1.16"
   }
 }

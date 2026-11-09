@@ -4,3 +4,6 @@
 소스 `0a68e53e19a17fee62dda202eb8e8f4a9ed35ba2`. [전체CI](https://github.com/znzkznzk96-rgb/nakshiworld-update/actions/runs/42578350443) 성공: 고유VERIFY92종·native·PCK. 도감72렌더/PNG10개 디코드, 두12종보드와 대표480/660폰화면 직접검수. [증거·해시](VERIFICATION.json). [이전기록](../../historical/body-book-telegraph/HANDOFF-before-verified.md).
 
 공개v1.15 유지. v1.16 봉인후보13655489844 준비, 새 공개배포 미승인. 다음: 사용자 배포 요청 시 동일입력 후보를 재사용하고 공개파일/운영다운로드 검증. 휴대폰 새패치 적용 미확인.
+
+## 사용자 후속승인
+성공빛 강화시안(별빛→파동/라임파편→잔광) 약0.3초 적용·도감공유 후 v1.16 배포 승인. 이전후보는코드변경으로재사용금지. 다음:공유효과 구현→관련검사→새전체CI/화면/PCK후보→공개/운영검증.
