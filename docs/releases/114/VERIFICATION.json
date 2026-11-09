@@ -3,7 +3,7 @@
     "code": 114,
     "name": "1.14"
   },
-  "source_commit": "07ec0e3bf3582a9ff090aea18a9a97173975703e",
+  "source_commit": "84aa4ab434189ff9cbda560630f0c8f63cdf596e",
   "baseline": {
     "version": "v1.13",
     "size": 63421429,
@@ -31,7 +31,7 @@
     "cause": "guide section_specs omitted newly appended explanations",
     "fixed_commit": "07ec0e3bf3582a9ff090aea18a9a97173975703e"
   },
-  "full_verification_run": 42544628020,
+  "full_verification_run": 42545236211,
   "full_verification_status": "in_progress",
   "phone_verified": false,
   "public_deployed": false,

@@ -686,8 +686,8 @@
     "upgrades_per_region_total": 8,
     "analysis": "docs/analysis/facility-growth-20261109/REPORT.md",
     "implemented": true,
-    "verification_run": 42544628020,
-    "source_commit": "07ec0e3bf3582a9ff090aea18a9a97173975703e",
+    "verification_run": 42545236211,
+    "source_commit": "84aa4ab434189ff9cbda560630f0c8f63cdf596e",
     "pull_request": 52
   }
 }
