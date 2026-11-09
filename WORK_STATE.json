@@ -952,6 +952,9 @@
     "related_verified": true,
     "native_screens": 21,
     "deployed": false,
-    "release_authorized": false
+    "release_authorized": false,
+    "source_commit": "d15ee83518c4f3dfff2886ccba91f4eec5899bfd",
+    "ci_run": 42720881406,
+    "ci_status": "in_progress"
   }
 }

@@ -51,7 +51,11 @@
   },
   "previous_full_ci": 42718606566,
   "previous_full_ci_scope": "prior source before these two display changes; not rerun locally",
-  "full_ci": "automatic run pending source checkpoint",
+  "full_ci": {
+    "run": 42720881406,
+    "source_commit": "d15ee83518c4f3dfff2886ccba91f4eec5899bfd",
+    "status": "in_progress"
+  },
   "deployed": false,
   "release_authorized": false,
   "public_release": "v1.18"
