@@ -1,0 +1,87 @@
+{
+  "baseline": "v1.14",
+  "baseline_source_zip_sha256": "afdb3753d30454c560a6a4272dbe7b7d61e434e0451e1b500389747e85c14d10",
+  "godot": "4.4.1.stable",
+  "candidate_version": "1.15",
+  "local_passed": [
+    "fight_telegraph",
+    "action_readability",
+    "fishing_difficulty",
+    "fight_body_size",
+    "fish_presentation",
+    "fish_anchor_size",
+    "audio_save",
+    "release_candidate 7 unit tests",
+    "final import",
+    "JSON/YAML/diff checks"
+  ],
+  "coverage": [
+    "four warning shapes and exact bt progress",
+    "warning disappearance on action execution",
+    "fake cancel/chain/fake rest",
+    "spike warning delay and overlap suppression",
+    "clone real-index independence",
+    "sulk/circle/thrash actual phase thresholds",
+    "fresh vs held/duplicate timing inputs",
+    "existing landing and skim rewards",
+    "all icon masks empty/half/full differences",
+    "15px bounds",
+    "no renderer RNG/text/game-state side effects"
+  ],
+  "palette": {
+    "release": "FF716A",
+    "reel": "CDFF54",
+    "observe": "DE9AFF"
+  },
+  "icon_bounds": [
+    15,
+    15
+  ],
+  "spike_warning_fight_seconds": 0.35,
+  "spike_note": "impact/duration/probability coefficient retained; added warning delay and competing-warning suppression may change realized event counts",
+  "ordinary_feedback_adds_reward": false,
+  "existing_landing_skim_windows": "unchanged",
+  "paid_generations": 0,
+  "full_ci": "success",
+  "public_deployed": false,
+  "public_version": "v1.14",
+  "phone_verified": false,
+  "source_commit": "2ff57dd839ef97802268e8c7eecc455039429c25",
+  "full_ci_run": 42571831399,
+  "initial_full_ci": {
+    "run": 42570727005,
+    "status": "success",
+    "unique_verify": 92,
+    "candidate_artifact": 13653491943,
+    "evidence_artifact": 13652988801,
+    "evidence_zip_sha256": "1d34e2f191f3f0a92b768788a0c685033b2d1e15c16eb005630ac799101f8874",
+    "manual_review": "not accepted: icon/tension overlap and preview background visibility setup"
+  },
+  "layout_correction": "Anchor above actual smoothed tension HUD and above clone group, with horizontal edge fallback; preview restores background; headless 9 position/length overlap cases passed",
+  "feedback_stream_seconds": 0.38,
+  "feedback_pitch": 1.3,
+  "feedback_playback_seconds_approx": 0.292,
+  "unique_verify_passed": 92,
+  "native_preview_passed": true,
+  "packed_runtime_passed": true,
+  "candidate_artifact": 13653836902,
+  "candidate_fingerprint": "62f6b949a560986908115629d08c837c7d6f40cff5ce2e9ed2477e9492246175",
+  "candidate_zip_sha256": "1aa7e39b54d67da6515cda7cb55e834aaba25038750e89d41e11c318d861f131",
+  "evidence_artifact": 13653582614,
+  "evidence_zip_sha256": "a956bae2088e50f5bcdbc4c53b08424bb3459b0281dfbe7f1c915b344a6c75cd",
+  "evidence_zip_crc_verified": true,
+  "screens_png_decoded": 6,
+  "manual_review": {
+    "normal_fishing_background": true,
+    "12_actions_3_states": true,
+    "phone_screens": 5,
+    "icon_tension_overlap_fixed": true,
+    "clone_group_mark": true,
+    "existing_art_unchanged": true
+  },
+  "screenshots": "SCREENS.json",
+  "production_hashes": {
+    "game/main.gd": "78b331c0439004ba92c9d8f895517bffee2d16a1966f11d68246a25cb6f7378e",
+    "game/addons/reservoir/fight_telegraph.gd": "22af87fe7cf9e85ec2590e24ce86f8c2afd607e3bf28f80c78d6014c1808186d"
+  }
+}

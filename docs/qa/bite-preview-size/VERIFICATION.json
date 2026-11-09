@@ -1,0 +1,39 @@
+{
+  "date": "2026-11-09",
+  "baseline": "v1.14",
+  "baseline_source_zip_sha256": "afdb3753d30454c560a6a4272dbe7b7d61e434e0451e1b500389747e85c14d10",
+  "godot": "4.4.1.stable",
+  "logical_body_lengths": [
+    28,
+    30,
+    32,
+    34
+  ],
+  "coverage": {
+    "species": 60,
+    "size_classes": 4,
+    "phases": [
+      "approach",
+      "contact",
+      "hook"
+    ],
+    "actual_renderer_conditions": 720
+  },
+  "scope": "explicit length override passed only by _draw_bite_shadow; generic species/fighting sizing unchanged",
+  "production_script_sha256": "20f92599e827e6b6e8651ce24d7f8ece9a13c35be013e7e284d1b5c60afd6448",
+  "local_checks": [
+    "import",
+    "fish_presentation",
+    "fight_body_size",
+    "fish_anchor_size"
+  ],
+  "public_deployed": false,
+  "release_authorized": false,
+  "public_version_unchanged": "v1.14",
+  "local_status": "passed",
+  "test_probe_correction": "Capture explicit body_length at real renderer entry; translucent previews intentionally do not update fighting aura.L",
+  "initial_ci_run": 42562681353,
+  "full_ci_status": "pending",
+  "full_ci_run": 42562848881,
+  "source_commit": "bcbaaec065c5af68ffe45a13075230a01f2749ce"
+}

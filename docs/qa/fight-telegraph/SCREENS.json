@@ -1,0 +1,37 @@
+{
+  "run": 42571831399,
+  "artifact": 13653582614,
+  "reviewed": true,
+  "screens": [
+    {
+      "path": "telegraph/bobber-small-phone.png",
+      "size": 703462,
+      "sha256": "ecdeb08721e12d7b968e4aba953896a5cadb4631b39488e56c553567f0754459"
+    },
+    {
+      "path": "telegraph/circle-phone.png",
+      "size": 693138,
+      "sha256": "06bcb06d35e8bf47cfa827d8f4a76bccac6f8e32a3ff396e73cdfaa1c70be227"
+    },
+    {
+      "path": "telegraph/clone-phone.png",
+      "size": 701722,
+      "sha256": "fbbebff1d615968da609a4f2878614961722a57a6b232104594349fcdc973186"
+    },
+    {
+      "path": "telegraph/sulk-phone.png",
+      "size": 694552,
+      "sha256": "d620a73fe2e3f90ec78ff75ccdd734293f30435eee519e9ccb727a0c6b933461"
+    },
+    {
+      "path": "telegraph/telegraph-board.png",
+      "size": 1148298,
+      "sha256": "795de6b3e4746cb7f270136918415b713d9c95c7cee51ac441ebbe3137327a17"
+    },
+    {
+      "path": "telegraph/tell-phone.png",
+      "size": 694797,
+      "sha256": "4f9763eeb2ca9518c00a07729eebc5e9d546fb278650b0c9d11aeaab66c41138"
+    }
+  ]
+}

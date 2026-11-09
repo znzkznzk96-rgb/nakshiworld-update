@@ -3,6 +3,8 @@ extends Node2D
 
 
 
+var fight_telegraph = preload("res://addons/reservoir/fight_telegraph.gd").new()
+
 const VW: = 270
 const TOP: = 22
 var SURF: = 217
@@ -548,9 +550,10 @@ func hook_tap() -> void :
 	visibility_flash = 0.9 if S.judge != "MISS" else 0.0
 
 func start_fight() -> void :
+	fight_telegraph.reset()
 	if not S.has("encounter_at"): S.encounter_at = clock
 	S.merge({"phase": "fight", "dist": 0.0, "tension": 30.0, "slack": 0.0, "beh": "swim", "bt": 1.0, "jumpT": 0.0, 
-		"jumpUsed": false, "landUntil": 0.0, "fx": 230.0, "fy": WATER + 200.0, "spike": 0.0, "noise": 1.0, 
+		"jumpUsed": false, "landUntil": 0.0, "fx": 230.0, "fy": WATER + 200.0, "spike": 0.0, "spikeWarn":0.0, "noise": 1.0,
 		"chain": false, "fakeRest": false, "fakeTell": false, "pose": {}, "swimPh": 0.0, "dartV": 0.0, "dartX": 0.0, 
 		"dartUntil": 0.0, "dartDir": 1, "dartSp": 1.0, "faceS": 1.0, "dispY": -1.0, "diveOff": 0.0, "diveDX": 0.0, 
 		"chargeX": 0.0, "cloneT": 0.0, "cloneSub": "run", "cloneSw": 0.0, "cloneReal": 1, "diveDir": 1}, true)
@@ -611,6 +614,7 @@ func next_behavior() -> void :
 	S.runStreak = streak + 1 if S.beh == "tell" else 0
 	if S.beh != "swim": S.lastBeh = S.beh
 	FISHING_DIFFICULTY.warning_floor(self)
+	fight_telegraph.note_behavior(self)
 
 # Early waters teach a small, species-stable vocabulary; grade changes force, not moves.
 func early_action_pool(region: int, species: int, star: int) -> Array:
@@ -1055,6 +1059,7 @@ func shock_amount(k: float) -> float:
 	return k * (20 + 8 * S.star + 4 * S.grade) * S.tensionMul * (1.0 - 0.1 * S.line) * S.locMul
 
 func update_fight(dt: float) -> void :
+	fight_telegraph.note_behavior(self)
 	if S.tut:
 		if not tut_update(dt): return
 	else: S.bt -= dt
@@ -1081,16 +1086,22 @@ func update_fight(dt: float) -> void :
 			next_behavior()
 		if S.lesson != "" and S.lesson == {"jump": "jump", "dive": "dive", "charge": "charge", "clone": "clone", "sulk": "sulk", "circle": "circle", "thrash": "thrash", "skim": "skim"}.get(ended, "?"): lesson_end()
 		elif S.lesson == "" and LESSON_OF.has(S.beh) and not (LESSON_OF[S.beh] in TUT.seen): S.lesson = LESSON_OF[S.beh]
+	fight_telegraph.note_behavior(self)
 	if S.beh == "clone":
 		S.cloneT += dt;S.cloneSw -= dt
 		if S.cloneSw <= 0: S.cloneSub = "rest" if S.cloneSub == "run" else "run";S.cloneSw = randf_range(0.6, 0.9)
 	var c: float = S.chaos
 	S.noise = max(0.7, min(1 + 0.6 * c, S.noise + randf_range(-1, 1) * c * 3 * dt))
-	if S.spike > 0:
+	if str(S.beh) in ["tell","rise","jump","nose","dive","turn","charge","clone"] and float(S.get("spikeWarn",0))>0: S.spikeWarn=0.0
+	if float(S.get("spikeWarn",0))>0:
+		S.spikeWarn=maxf(0,float(S.spikeWarn)-dt)
+		if S.spikeWarn<=0:
+			S.spike=0.25;buzz([40 + int(60 * S.grade / 4.0)])
+	elif S.spike > 0:
 		S.spike -= dt
 		if S.spike <= 0 and S.lesson == "spike": lesson_end()
-	elif active_region > 1 and c > 0 and not S.tut and S.lesson == "" and not (S.beh in ["rest", "rise", "jump", "nose", "dive", "turn", "charge", "clone"]) and randf() < c * 0.35 * dt:
-		S.spike = 0.25;buzz([40 + int(60 * S.grade / 4.0)])
+	elif active_region > 1 and c > 0 and not S.tut and S.lesson == "" and not (S.beh in ["rest", "tell", "rise", "jump", "nose", "dive", "turn", "charge", "clone"]) and randf() < c * 0.35 * dt:
+		S.spikeWarn=fight_telegraph.SPIKE_WARNING
 		if not ("spike" in TUT.seen): S.lesson = "spike"
 	var bmt: = {"swim": 1.0, "tell": 1.0, "run": 2.2, "rest": 0.35, "rise": 1.0, "jump": 0.0, "nose": 1.0, "dive": 2.0, "turn": 1.0, "charge": 0.3, 
 		"sulk": 3.0, "circle": 1.0, "thrash": 1.0, "skim": 2.4}
@@ -1122,6 +1133,7 @@ func update_fight(dt: float) -> void :
 		S.slack += dt * (2.5 if S.beh == "charge" else (0.5 if S.beh == "skim" else 1.0))
 	if S.get("skimEnd", 0.0) > 0 and clock <= S.skimEnd and holding and not S.get("skimUsed", true):
 		S.skimUsed = true;S.dist += 8*float(S.get("progress_bonus_factor",1.0));show_toast("물보라 멈춤 챔질! +8", Color("fff0b0"), true);buzz([40, 30, 80])
+	fight_telegraph.observe(self)
 	S.tension = max(0.0, S.tension);S.dist = clamp(S.dist, 0.0, 100.0)
 	if S.tut:
 		S.tension = minf(S.tension, 95.0);S.dist = minf(S.dist, 90.0)
@@ -1253,6 +1265,7 @@ func press(pos: = Vector2.ZERO) -> void :
 		if S.get("tut", false) and SKIP_RECT.has_point(pos): skip_tut()
 		else: close_card()
 		return
+	var fresh_press:bool=not holding
 	holding = true
 	match S.phase:
 		"idle", "result":
@@ -1273,6 +1286,7 @@ func press(pos: = Vector2.ZERO) -> void :
 			holding = false
 			if S.t >= S.netEnd + 2.6 - CATCH_MEASURE_SAVED: show_result(true)
 		"fight":
+			fight_telegraph.on_press(self,fresh_press)
 			if S.landUntil > 0 and clock <= S.landUntil and not S.jumpUsed:
 				S.jumpUsed = true;S.dist = min(100.0, S.dist + 12*float(S.get("progress_bonus_factor",1.0)));show_toast("착수 챔질! +12", Color("fff0b0"), true);buzz([40, 30, 80]);play("land")
 
@@ -1595,10 +1609,14 @@ func _fish_texture_u(sp: int, along_body: float) -> float:
 	return x/float(fish_tex[sp].get_width())
 
 
+const BITE_PREVIEW_LENGTH := [28.0,30.0,32.0,34.0]
+func _bite_preview_length(size_class: int) -> float:
+	return BITE_PREVIEW_LENGTH[clampi(size_class,0,3)]
+
 func _draw_bite_shadow(t: float, lx: float, dip: float) -> void :
 	var z: int = S.size
 	var scale: float = [0.55, 0.8, 1.15, 1.6][z]
-	var L: float = _fish_display_length(S.star, scale, true, int(S.sp))
+	var L: float = _bite_preview_length(z) # Bobber preview is readable regardless of species length.
 	var biting: bool = S.phase != "wait" or clock >= S.biteAt
 	if not biting:
 		var c: Array = _bite_circle(clock)
@@ -1612,7 +1630,7 @@ func _draw_bite_shadow(t: float, lx: float, dip: float) -> void :
 				face = 1.0 if p.x < lx else -1.0
 				var bite_c: = Vector2(lx - 0.45 * L * face, WATER + dip + 6)
 				p = p.lerp(bite_c, b)
-		_shadow_fish(p, S.star, 0, t, "swim", false, scale, {}, t / 1000.0 * TAU * 1.2, S.sp, face, 0.42 + 0.4 * c[2])
+		_shadow_fish(p, S.star, 0, t, "swim", false, scale, {}, t / 1000.0 * TAU * 1.2, S.sp, face, 0.42 + 0.4 * c[2], L)
 		return
 
 	var c0: Array = _bite_circle(S.biteAt)
@@ -1624,7 +1642,7 @@ func _draw_bite_shadow(t: float, lx: float, dip: float) -> void :
 	var tilt: = -1.1 * e
 	var shake: = Vector2(sin(t / 35.0), cos(t / 50.0)) * (1.0 + 0.5 * z) if e >= 1.0 else Vector2.ZERO
 	var pose: = {"freq": 3.0, "amp": 0.08, "curl": 0.0, "tilt": tilt, "stretch": 1.0, "tailAmp": 1.4}
-	_shadow_fish(p2 + shake, S.star, 0, t, "swim", false, scale, pose, t / 1000.0 * TAU * 3.0, S.sp, face2, 0.8)
+	_shadow_fish(p2 + shake, S.star, 0, t, "swim", false, scale, pose, t / 1000.0 * TAU * 3.0, S.sp, face2, 0.8, L)
 
 func _draw_hookbar() -> void :
 	var x0: = 25.0
@@ -1781,6 +1799,8 @@ func _draw_fight(t: float, tip: Vector2) -> void :
 	_line(line_tip, fish_mouth, line_col, sag)
 	S.lastF = {"p": Vector2(dx, dy) + shake, "scale": scale, "body_length": body_length, "face": fs, "pose": S.pose.duplicate(), "phase": S.swimPh}
 	_draw_fish_tension(Vector2(dx, dy), scale, dtd, body_length)
+	var cue_center:Vector2=Vector2(dx-CX[S.cloneReal]*spread,dy-CY[S.cloneReal]*spread) if cl else Vector2(dx,dy)
+	fight_telegraph.draw(self,cue_center,body_length,cl)
 	if S.beh == "jump": _ripple(S.fx, 14, 0.6)
 	if S.landUntil > 0 and clock <= S.landUntil and not S.jumpUsed:
 		var k2: float = 1 - (S.landUntil - clock) / 0.5
@@ -3175,7 +3195,7 @@ const LESSON_EXTRA := {
  "tell": "몸짓 전의 작은 변화를 보세요. 다음 움직임을 예고해요.",
  "rest": "쉬는 동안이 기회예요. 누르고 감아 거리를 줄여요.",
  "jump": "수면으로 오르면 손을 떼세요. 착수 순간의 탭을 노려요.",
- "spike": "느낌표 순간에 장력이 튀어요. 손을 떼 줄을 풀어 주세요.",
+ "spike": "코랄 번개가 차오르면 급당김이 와요. 손을 떼 줄을 풀어 주세요.",
  "dive": "머리를 숙이면 잠수 예고예요. 장력이 높으면 즉시 풀어요.",
  "charge": "나를 향해 돌진하면 줄이 느슨해져요. 꾹 눌러 감아 주세요.",
  "clone": "여럿처럼 보여도 낚싯줄이 이어진 물고기가 진짜예요.",

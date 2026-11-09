@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "facility_growth_published_verified",
+  "status": "telegraph115_publication_authorized",
   "release_baseline": "v1.14",
-  "target_release": "v1.14",
+  "target_release": "v1.15",
   "deployed": true,
   "phone_verified": false,
-  "handoff": "docs/releases/114/HANDOFF.md",
-  "current_task": "4시설 지역별 성장 조정 v1.14 공개·운영 검증 완료",
-  "next_step": "게임 내 업데이트 후 휴대폰 시설 단계·어장 잔여량·지역별 구매 제한과 수입 체감 확인; 파이팅 변경은 보류",
+  "handoff": "docs/qa/fight-telegraph/HANDOFF.md",
+  "current_task": "12종 파이팅 도트 전조·재감기 피드백 v1.15 전체검증 완료",
+  "next_step": "성공 후보13653836902 동일입력 PR/merge 후 공개·운영검증",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -120,7 +120,7 @@
     "production_balance_changed": false,
     "phone_tested": false
   },
-  "release_authorized": false,
+  "release_authorized": true,
   "balance110": {
     "applied": true,
     "deployed": true,
@@ -257,13 +257,18 @@
     "facility_screens": 24
   },
   "release_candidate": {
-    "artifact_id": 13643875288,
-    "input_fingerprint": "622353ad32c9b1a7e6567fc8f022d33a493930dc3416a9f7a00e6de4e440b3be",
-    "source_commit": "84aa4ab434189ff9cbda560630f0c8f63cdf596e",
-    "run": 42545236211,
+    "version": {
+      "code": 115,
+      "name": "1.15"
+    },
+    "artifact_id": 13653836902,
+    "input_fingerprint": "62f6b949a560986908115629d08c837c7d6f40cff5ce2e9ed2477e9492246175",
+    "source_commit": "2ff57dd839ef97802268e8c7eecc455039429c25",
+    "run": 42571831399,
     "ready": true,
-    "published": true,
-    "rebuild": false
+    "published": false,
+    "release_authorized": true,
+    "verification": "docs/qa/fight-telegraph/VERIFICATION.json"
   },
   "release_resume_run": 42424430555,
   "fight_body_size": {
@@ -390,10 +395,10 @@
   },
   "latest_release_instruction": {
     "date": "2026-11-09",
-    "request": "업데이투하고 배포가자 ㅇㅇ",
+    "request": "업데이트밑 배포 ㄱㄱ",
     "authorized": true,
-    "scope": "승인 시설 조정안 적용·v1.14 공개",
-    "fulfilled": true
+    "scope": "검증된 v1.15 입질크기/도트전조/재감기 피드백 공개",
+    "fulfilled": false
   },
   "economy_analysis": {
     "report": "docs/analysis/tile-income-20261108/REPORT.md",
@@ -710,5 +715,49 @@
     "phone_verified": false,
     "release_authorized": false,
     "verification": "docs/releases/114/PUBLISHED.json"
-  }
+  },
+  "bite_preview_size": {
+    "requested": true,
+    "logical_length_range": [
+      28,
+      34
+    ],
+    "scope": "wait/hook bobber fish only",
+    "deployed": false,
+    "release_authorized": false,
+    "implemented": true,
+    "related_verified": true,
+    "verification": "docs/qa/bite-preview-size/VERIFICATION.json",
+    "source_commit": "bcbaaec065c5af68ffe45a13075230a01f2749ce",
+    "ci_run": 42562848881,
+    "ci_status": "success",
+    "full_ci_run": 42571831399,
+    "full_ci_status": "success"
+  },
+  "fight_telegraph": {
+    "approved": true,
+    "palette": [
+      "FF716A",
+      "CDFF54",
+      "DE9AFF"
+    ],
+    "icon_size_approx": 15,
+    "text": false,
+    "procedural_godot": true,
+    "spike_warning_seconds": 0.35,
+    "deployed": false,
+    "release_authorized": true,
+    "implemented": true,
+    "related_verified": true,
+    "verification": "docs/qa/fight-telegraph/VERIFICATION.json",
+    "source_commit": "2ff57dd839ef97802268e8c7eecc455039429c25",
+    "ci_run": 42571831399,
+    "ci_status": "success",
+    "status": "full_verified_not_deployed",
+    "unique_verify_passed": 92,
+    "screens": 6,
+    "candidate_artifact": 13653836902,
+    "phone_verified": false
+  },
+  "target_preflight": "docs/qa/fight-telegraph/VERIFICATION.json"
 }
