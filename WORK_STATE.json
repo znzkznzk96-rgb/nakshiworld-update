@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "updater_pixellab_cat_and_logo_motion",
+  "status": "updater_cat_logo_motion_preview_pending",
   "release_baseline": "v1.15",
   "target_release": "v1.17",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/updater-redesign/HANDOFF.md",
   "current_task": "몸짓도감12종 전조/재감기 시연 연동 및 역돌진 불필요 링 수정",
-  "next_step": "PixelLab既存job GET조회만 진행; 추가POST금지",
+  "next_step": "실제 updater 미리보기로 큰흰고양이/주황물고기 원형추격·로고흔들림 검수",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -837,6 +837,9 @@
     "pixellab_cat_approved": true,
     "logo_sway_approved": true,
     "pixellab_job": "da882c8e-1db6-43b4-a402-825d50a9767a",
-    "pixellab_job_status": "processing"
+    "pixellab_job_status": "completed",
+    "pixellab_actual_generations": 1,
+    "motion_implemented": true,
+    "motion_verified": false
   }
 }

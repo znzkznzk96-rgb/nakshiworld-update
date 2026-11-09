@@ -1,0 +1,17 @@
+{
+  "first_frame": {
+    "reference_file": "first-frame.png",
+    "sha256": "58151b24da02e4fb5cee54c965686bd3597dacf5aa64969aa75043c021df794f",
+    "encoding": "base64 PNG omitted from record"
+  },
+  "last_frame": {
+    "reference_file": "first-frame.png",
+    "sha256": "58151b24da02e4fb5cee54c965686bd3597dacf5aa64969aa75043c021df794f",
+    "encoding": "base64 PNG omitted from record"
+  },
+  "action": "Seamless looping joyful four-legged cat running in place toward the right, chasing a fish. One full energetic gallop cycle: front paws reach forward and tuck under, hind legs kick back then gather, small springy body bounce, raised curved tail gently follows through. Keep the same white cat, smiling face, pink ears and cheeks, navy pixel outline, side view and fixed canvas position. No turning, no translation, no fish or splashes in the frames, no extra limbs. Return naturally to the exact initial running pose.",
+  "frame_count": 8,
+  "seed": 2026110901,
+  "no_background": true,
+  "enhance_prompt": false
+}

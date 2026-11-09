@@ -8,6 +8,7 @@ const PATCH_VER := "user://patch_ver.txt"
 var update_art: Texture2D
 var chase_frames:Array[Texture2D]=[]
 var chase_fish:Texture2D
+var updater_logo:Texture2D
 var animation_time:=0.0
 var update_phase:="checking"
 var received_bytes:=0
@@ -28,8 +29,9 @@ func _ready() -> void:
 	font = load("res://font/neodgm.ttf")
 	update_art = load("res://art/ui/update_cat_blue.png")
 	texture_filter=CanvasItem.TEXTURE_FILTER_NEAREST
-	for i in 16:chase_frames.append(load("res://art/char/anim/cat/cat_%02d.png"%i))
-	chase_fish=load("res://art/fish/l0_00.png")
+	for i in 9:chase_frames.append(load("res://art/ui/updater/cat_run_%02d.png"%i))
+	chase_fish=load("res://art/ui/updater/fish.png")
+	updater_logo=load("res://art/ui/updater/logo.png")
 	if preview_only:
 		status="업데이트 확인 중…"
 		return
@@ -130,7 +132,18 @@ func _label(text:String,y:float,font_size:int,color:Color) -> void:
 
 func chase_positions(t:float,center:Vector2) -> Array[Vector2]:
 	var angle:float=t*1.55
-	return [center+Vector2(cos(angle)*43,sin(angle)*31),center+Vector2(cos(angle+.95)*43,sin(angle+.95)*31)]
+	return [center+Vector2(cos(angle)*62,sin(angle)*46),center+Vector2(cos(angle+2.0)*62,sin(angle+2.0)*46)]
+
+func logo_motion(t:float) -> Vector2:
+	var phase:float=t*TAU/3.6
+	return Vector2(sin(phase)*deg_to_rad(1.5),cos(phase)*1.2)
+
+func _draw_logo(height:float) -> void:
+	var motion:Vector2=logo_motion(animation_time)
+	var pivot:Vector2=Vector2(135,height*.20+motion.y)
+	draw_set_transform(loader_draw_offset+pivot*loader_draw_scale,motion.x,Vector2.ONE*loader_draw_scale)
+	draw_texture_rect(updater_logo,Rect2(-110,-37,220,74),false)
+	draw_set_transform(loader_draw_offset,0,Vector2.ONE*loader_draw_scale)
 
 func _chase_sprite(texture:Texture2D,position:Vector2,length:float,flip:bool,tilt:float) -> void:
 	var h:float=length*texture.get_height()/texture.get_width()
@@ -167,22 +180,18 @@ func _draw() -> void:
 	for i in 24:
 		var x:float=fposmod(i*47+animation_time*(2 if i%2 else -2),290)-10
 		draw_rect(Rect2(roundf(x),horizon+12+(i*23)%int(height*.57),7+i%4*4,1),Color("b9ffff",.3 if i%3 else .65))
-	# Chunky cream outline, kept on the same crisp pixel grid as the UI.
-	for offset_title in [Vector2(-2,-2),Vector2(2,-2),Vector2(-2,2),Vector2(2,2)]:
-		var title:String="낚시월드";var title_width:float=font.get_string_size(title,HORIZONTAL_ALIGNMENT_LEFT,-1,32).x
-		draw_string(font,Vector2(roundf((270-title_width)*.5),roundf(height*.20))+offset_title,title,HORIZONTAL_ALIGNMENT_LEFT,-1,32,Color("fff0ab"))
-	_label("낚시월드",height*.20,32,Color("111c52"))
+	_draw_logo(height)
 	var center:Vector2=Vector2(135,height*.47)
 	for i in 48:
 		var angle:float=i*TAU/48
-		var p:Vector2=(center+Vector2(cos(angle)*43,sin(angle)*31)).round()
+		var p:Vector2=(center+Vector2(cos(angle)*62,sin(angle)*46)).round()
 		draw_rect(Rect2(p,Vector2(1,1)),Color("e5ffff",.35))
 	var positions:Array[Vector2]=chase_positions(animation_time,center)
 	for i in 5:
 		var angle:float=animation_time*1.55-.15-i*.12
-		draw_rect(Rect2((center+Vector2(cos(angle)*43,sin(angle)*31)+Vector2(0,10)).round(),Vector2(2,1)),Color("ffffff",.8-i*.12))
-	if chase_fish:_chase_sprite(chase_fish,positions[1],22,sin(animation_time*1.55+.95)>0,0)
-	if not chase_frames.is_empty():_chase_sprite(chase_frames[int(animation_time*9)%16],positions[0]+Vector2(0,-absf(sin(animation_time*9))*3),31,sin(animation_time*1.55)>0,sin(animation_time*9)*.055)
+		draw_rect(Rect2((center+Vector2(cos(angle)*62,sin(angle)*46)+Vector2(0,10)).round(),Vector2(2,1)),Color("ffffff",.8-i*.12))
+	if chase_fish:_chase_sprite(chase_fish,positions[1],46,sin(animation_time*1.55+2.0)>0,0)
+	if not chase_frames.is_empty():_chase_sprite(chase_frames[int(animation_time*10)%chase_frames.size()],positions[0],96,sin(animation_time*1.55)>0,0)
 	var panel:Rect2=Rect2(21,height*.66,228,101)
 	_pixel_panel(panel)
 	_label(status,panel.position.y+23,11,Color("111c52"))

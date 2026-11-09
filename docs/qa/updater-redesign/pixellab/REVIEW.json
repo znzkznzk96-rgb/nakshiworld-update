@@ -1,0 +1,83 @@
+{
+  "endpoint": "animate-with-text-v3",
+  "frame_count": 8,
+  "seed": 2026110901,
+  "reference_sha256": "58151b24da02e4fb5cee54c965686bd3597dacf5aa64969aa75043c021df794f",
+  "reference_size": [
+    96,
+    64
+  ],
+  "last_frame_same_as_first": true,
+  "no_background": true,
+  "enhance_prompt": false,
+  "pre_generations": 1124.6,
+  "paid_posts": 1,
+  "job": "da882c8e-1db6-43b4-a402-825d50a9767a",
+  "status": "completed",
+  "returned_images": 9,
+  "used_images": 9,
+  "post_generations": 1123.6,
+  "actual_generation_delta": 1.0,
+  "billing_usage": {
+    "type": "generations",
+    "generations": 1.0
+  },
+  "checks": {
+    "shape": "pass",
+    "white_pink_navy_colors": "pass",
+    "face_identity": "pass",
+    "legs_tail_motion": "pass",
+    "transparent_background": "pass",
+    "all_frames_uncropped": "pass"
+  },
+  "files": {
+    "cat_run_01.png": {
+      "sha256": "be6bf0e3ff3f10236ccd8c7d65c682d28dc6f91a2ff35839ee792ff0653c4b41",
+      "size": 2832
+    },
+    "cat_run_07.png": {
+      "sha256": "c19b52ab8ff0d1d367206a936c8df6c3b3f5f400d38b72ac272af6c04bd2d4b7",
+      "size": 2884
+    },
+    "cat_run_03.png": {
+      "sha256": "0b70d88f3b34e0686dd0669e4de95fb81540e11b53c0420b025b07a292dc9cc6",
+      "size": 2608
+    },
+    "cat_run_08.png": {
+      "sha256": "63244e01a1124e2f3cc721ae8cff1cbe318265ded628939c9647ffcac3fb2abe",
+      "size": 2949
+    },
+    "cat_run_02.png": {
+      "sha256": "93077ce6fa46e643cb34084c2cf9aaa5ac0e9596b14c5ffe17a6f90b69cd1b43",
+      "size": 2642
+    },
+    "cat-review.png": {
+      "sha256": "bebe3de5244a6c606dfed0f6ab40528ab2c6278338863b7a941089b4d2cadc4b",
+      "size": 28581
+    },
+    "fish.png": {
+      "sha256": "d0c396b79421ff1ad3eac3d0306bc0f0170f4c6b23a8911c7509e5e6ef18cc6b",
+      "size": 4762
+    },
+    "cat_run_04.png": {
+      "sha256": "7d3e9adb8c32609114675bc2095e2c79b9302ae8e78c4c774c7d9cc00457c763",
+      "size": 2418
+    },
+    "cat_run_05.png": {
+      "sha256": "92d8fb84379163264d62b21ad818fe887200b30f171605a5af78cebc0201597a",
+      "size": 2466
+    },
+    "cat_run_00.png": {
+      "sha256": "c1f2abf459396b939dea3860318394db69032a85fd0179d59dbe8d4b08d8db01",
+      "size": 6724
+    },
+    "cat_run_06.png": {
+      "sha256": "c70591c2933c98c005286372e09066dae80dd24220a1dd9cf394c58a97b2fe27",
+      "size": 2536
+    },
+    "logo.png": {
+      "sha256": "93cd6dd6555b7a93bd2bfa3de2b5ce82210b8bf061231ad04a53202a30220057",
+      "size": 22263
+    }
+  }
+}

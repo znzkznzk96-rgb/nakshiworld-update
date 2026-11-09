@@ -19,6 +19,12 @@ func run()->void:
  var points:Array[Vector2]=m.chase_positions(0,Vector2.ZERO);var later:Array[Vector2]=m.chase_positions(1,Vector2.ZERO);var cycle:Array[Vector2]=m.chase_positions(TAU/1.55,Vector2.ZERO)
  check(points!=later and points[0].distance_to(cycle[0])<.001,"cat follows closed orbit")
  check(points[0].distance_to(points[1])>20,"fish leads cat without overlap")
+ for i in 40:
+  var time:float=i*.1;var motion:Vector2=m.logo_motion(time)
+  check(absf(motion.x)<=deg_to_rad(1.5)+.00001 and absf(motion.y)<=1.201,"logo motion remains small and readable")
+  var pair:Array[Vector2]=m.chase_positions(time,Vector2.ZERO)
+  check(pair[0].distance_to(pair[1])>70,"large cat and fish retain gap through orbit")
+ check(m.logo_motion(0)!=m.logo_motion(.9),"logo sways over time")
  var original:=PackedByteArray([71,68,80,67,1]);var f:=FileAccess.open(m.PATCH,FileAccess.WRITE);f.store_buffer(original);f=null
  var bad:=PackedByteArray([0,1,2,3,4]);f=FileAccess.open(m.PATCH+".new",FileAccess.WRITE);f.store_buffer(bad);f=null;m.expected_size=bad.size();m.expected_hash=FileAccess.get_sha256(m.PATCH+".new");m._on_patch(0,200,PackedStringArray(),PackedByteArray(),116,"1.16")
  check(FileAccess.get_file_as_bytes(m.PATCH)==original and not FileAccess.file_exists(m.PATCH+".new"),"invalid header preserves installed patch")
