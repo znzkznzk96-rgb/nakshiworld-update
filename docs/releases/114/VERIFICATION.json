@@ -158,5 +158,13 @@
   "manual_facility_screens_reviewed": 24,
   "facility_screens_png_decode_passed": 24,
   "evidence_artifact_zip_sha256": "3c8d49eaf4c612f07ad47c82f5feb8b24aa8300b9971dd34727c07ec907921f7",
-  "screenshots": "SCREENS.json"
+  "screenshots": "SCREENS.json",
+  "publication": {
+    "run": 42546219232,
+    "first_attempt": "Created draft not found after draft creation; list visibility delay",
+    "draft_release_id": 438655525,
+    "draft_source_verified": "84aa4ab434189ff9cbda560630f0c8f63cdf596e",
+    "draft_assets_before_resume": 0,
+    "resume": "same draft, candidate and source; no rebuild"
+  }
 }

@@ -20,3 +20,5 @@ CI 42544628020 기존 게임회귀 전부 통과, 마지막 시설 resume fixtur
 최종 CI42545236211 성공·고유91검사/native/PCK 통과. 시설24 PNG 원본 디코드·양높이 전수화면 검수 통과. 상세 docs/releases/114/VERIFICATION.json 및 SCREENS.json. 후보13643875288/fingerprint622353ad32c9b1a7e6567fc8f022d33a493930dc3416a9f7a00e6de4e440b3be. 다음:PR52 merge로 동일후보 공개·실제3파일/운영 다운로드 검증(미공개 상태).
 
 PR52 merge1f1281d9d45e0a586a3516df85888e1b1cb2dc81. 공개 workflow42546219232 실행 중. 재빌드 없이 성공후보13643875288 재사용. 다음:게시 결과/공개 Release3파일/운영검증 workflow 확인 후 결과기록.
+
+게시42546219232 attempt1: 초안 생성 직후 목록 반영지연 Created draft not found. 실제 초안438655525·소스84aa4ab...·자산0 확인. 실패원인 확인 후 동일초안/검증후보로 실패게시만 재개(재빌드/재검사 없음).
