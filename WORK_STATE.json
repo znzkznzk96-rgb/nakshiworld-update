@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "soldier_skill_cues_native_verified_full_ci_running",
+  "status": "soldier_skill_cues_verified_not_deployed",
   "release_baseline": "v1.15",
   "target_release": "v1.18",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/soldier-skill-cues/HANDOFF.md",
   "current_task": "병사 스킬 발동 아이콘·짧은빛·스킬 피해 구분",
-  "next_step": "CI42634195315 전체검사 결과 확인·기록. 공개v1.17 유지, 새배포 미승인.",
+  "next_step": "병사 스킬 표시 구현·전체검증 완료. 사용자 배포 지시 전 공개v1.17 유지.",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -257,17 +257,17 @@
   },
   "release_candidate": {
     "version": {
-      "code": 117,
-      "name": "1.17"
+      "code": 118,
+      "name": "1.18"
     },
-    "artifact_id": 13676398457,
-    "input_fingerprint": "e3230263fe52564e179aa24c7247652c0f6b6e58db33fe66bb156677e864edcb",
-    "source_commit": "31e8924487b91bc1f6f5d3fb4c56b8d30807efc1",
-    "run": 42621403752,
-    "ready": false,
-    "published": true,
+    "artifact_id": 13683190102,
+    "input_fingerprint": "4da6afe9ab92036323ba328c88bee73d088495ab30eb740d8245c6e54c4e3702",
+    "source_commit": "e169343fe196a2087e4099f552dfe399981c7b4f",
+    "run": 42634195315,
+    "ready": true,
+    "published": false,
     "release_authorized": false,
-    "verification": "docs/qa/updater-redesign/MOTION_VERIFICATION.json"
+    "verification": "docs/qa/soldier-skill-cues/VERIFICATION.json"
   },
   "release_resume_run": 42424430555,
   "fight_body_size": {
@@ -865,9 +865,11 @@
     "parity_cases": 45,
     "source_commit": "e169343fe196a2087e4099f552dfe399981c7b4f",
     "ci_run": 42634195315,
-    "ci_status": "in_progress",
+    "ci_status": "success",
     "native_screens": 12,
     "native_verified": true,
-    "verification": "docs/qa/soldier-skill-cues/VERIFICATION.json"
+    "verification": "docs/qa/soldier-skill-cues/VERIFICATION.json",
+    "unique_verify_results": 95,
+    "deployed": false
   }
 }

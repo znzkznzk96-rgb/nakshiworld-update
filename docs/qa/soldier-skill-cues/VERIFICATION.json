@@ -33,5 +33,14 @@
     ],
     "visual_review": "pass"
   },
-  "full_ci": "in_progress"
+  "full_ci": {
+    "run": 42634195315,
+    "status": "success",
+    "unique_verify_results": 95,
+    "packed_checks": "pass",
+    "evidence_artifact": 13682284485,
+    "candidate_artifact": 13683190102,
+    "candidate_archive_sha256": "761d7906367bf6370d301c10a1bfe5f02b6ec8dab0db897f29a2c18af9257f26",
+    "input_fingerprint": "4da6afe9ab92036323ba328c88bee73d088495ab30eb740d8245c6e54c4e3702"
+  }
 }
