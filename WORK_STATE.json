@@ -1,17 +1,17 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "telegraph115_publication_running",
-  "release_baseline": "v1.14",
+  "status": "telegraph115_published_verified",
+  "release_baseline": "v1.15",
   "target_release": "v1.15",
   "deployed": true,
   "phone_verified": false,
-  "handoff": "docs/qa/fight-telegraph/HANDOFF.md",
-  "current_task": "12종 파이팅 도트 전조·재감기 피드백 v1.15 전체검증 완료",
-  "next_step": "게시42575643580 확인 후 공개3파일·운영 다운로드 검증",
+  "handoff": "docs/releases/115/HANDOFF.md",
+  "current_task": "v1.15 입질크기·몸짓 도트 전조 공개·운영 검증 완료",
+  "next_step": "게임 내 업데이트 후 휴대폰 적용·전조/재감기 타이밍 체감 확인",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
-  "verification": "docs/releases/114/PUBLISHED.json",
+  "verification": "docs/releases/115/PUBLISHED.json",
   "baseline_phone_verified": false,
   "environment_recovery": "docs/CODEX_NETWORK_RECOVERY.md",
   "background_verified_branch": "work/tile-png-stage2-20261107",
@@ -23,10 +23,10 @@
   "screen_evidence_commit": "04fa33a116915c0b7a7ca86ee235a24a4cf4d4d2",
   "screen_verification_run": 42315352676,
   "full_source_verified": {
-    "release": "v1.14",
-    "size": 63428446,
-    "sha256": "afdb3753d30454c560a6a4272dbe7b7d61e434e0451e1b500389747e85c14d10",
-    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.14/game-source.zip"
+    "release": "v1.15",
+    "size": 63439304,
+    "sha256": "561dfb3a469fb0d2a4b712d7a17f4a770bd7ddabbc040bb3df3e0cdcbb20fc25",
+    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.15/game-source.zip"
   },
   "fish_verification_run": 42317071546,
   "automatic_full_regression_run": 42317071379,
@@ -35,33 +35,33 @@
   "bundle_verification_run": 42319985467,
   "bundle_evidence_commit": "dd8297cc9de9a5423091b61e06f166ee22023de4",
   "headless_regression_coverage": {
-    "passed": 91,
-    "total": 91,
-    "run": 42545236211,
-    "scope": "unique VERIFY results including native and packed checks; facility24screens separately reviewed",
+    "passed": 92,
+    "total": 92,
+    "run": 42571831399,
+    "scope": "unique VERIFY including native and packed checks",
     "all_executed_in_release_run": true
   },
   "standard_full_workflow_success": true,
   "remaining_global_render_checks": false,
   "release_authorization": {
     "date": "2026-11-09",
-    "user_request": "업데이투하고 배포가자 ㅇㅇ",
-    "scope": "시설4종 지역별2단계 성장·초기30·기존구매/재고보존 v1.14",
+    "user_request": "업데이트밑 배포 ㄱㄱ",
+    "scope": "v1.15 입질크기/도트전조/재감기피드백",
     "fulfilled": true
   },
-  "release_preflight": "docs/releases/114/VERIFICATION.json",
-  "release_source_commit": "84aa4ab434189ff9cbda560630f0c8f63cdf596e",
-  "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v1.14",
-  "release_build_run": 42546219232,
+  "release_preflight": "docs/qa/fight-telegraph/VERIFICATION.json",
+  "release_source_commit": "2ff57dd839ef97802268e8c7eecc455039429c25",
+  "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v1.15",
+  "release_build_run": 42575643580,
   "release_build_status": "success_attempt2_same_draft_no_rebuild",
-  "public_verification_run": 42546422630,
+  "public_verification_run": 42575834459,
   "public_verification_status": "success",
   "public_patch": {
-    "size": 59268048,
-    "sha256": "293676016a2eb18ec44fe9aec9d7fa4ee3dbaf18ee586d732fe3f16514a923bb",
-    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.14/patch.pck"
+    "size": 59305600,
+    "sha256": "f2b54d77d661e60210887947702219995b925f76cc334d355a19190c16b08ad5",
+    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.15/patch.pck"
   },
-  "standard_full_workflow_note": "v1.14 CI42545236211 고유91/native/PCK·시설24화면 검증, 동일후보13643875288 재빌드 없이 게시42546219232 attempt2·운영42546422630 성공",
+  "standard_full_workflow_note": "v1.15 성공CI42571831399 고유92/native/PCK·실화면 후보13653836902 재검사/재빌드 없이 게시42575643580 attempt2, 운영42575834459 성공",
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md#2026-11-07--소규모-작업-효율채팅-중단-대비",
   "approved_followup": "우편 단일원본·공통지급·검사통합 구현/검증 완료. 공개v1.08 유지, 새 배포 미승인.",
   "session_continuity": {
@@ -94,7 +94,7 @@
     "headless_passed": 73,
     "headless_total": 73
   },
-  "release_verification_run": 42545236211,
+  "release_verification_run": 42571831399,
   "prior_build_issue": {
     "run": 42384973558,
     "cause": "packed mail check hardcoded1.08; prepublication assertion",
@@ -120,7 +120,7 @@
     "production_balance_changed": false,
     "phone_tested": false
   },
-  "release_authorized": true,
+  "release_authorized": false,
   "balance110": {
     "applied": true,
     "deployed": true,
@@ -173,7 +173,7 @@
     "ledger": "analysis/tile-layer-art-v1/PLANT_LEDGER.json",
     "quality": "analysis/tile-layer-art-v1/PLANT_QA.json"
   },
-  "public_release": "v1.14",
+  "public_release": "v1.15",
   "shared_vertical_light": {
     "applied": true,
     "regions": [
@@ -250,11 +250,10 @@
     "release_authorized": false
   },
   "full_release_ci": {
-    "run": 42545236211,
+    "run": 42571831399,
     "status": "success",
-    "source_commit": "84aa4ab434189ff9cbda560630f0c8f63cdf596e",
-    "unique_verification_results": 91,
-    "facility_screens": 24
+    "source_commit": "2ff57dd839ef97802268e8c7eecc455039429c25",
+    "unique_verification_results": 92
   },
   "release_candidate": {
     "version": {
@@ -266,9 +265,10 @@
     "source_commit": "2ff57dd839ef97802268e8c7eecc455039429c25",
     "run": 42571831399,
     "ready": true,
-    "published": false,
-    "release_authorized": true,
-    "verification": "docs/qa/fight-telegraph/VERIFICATION.json"
+    "published": true,
+    "release_authorized": false,
+    "verification": "docs/qa/fight-telegraph/VERIFICATION.json",
+    "rebuild": false
   },
   "release_resume_run": 42424430555,
   "fight_body_size": {
@@ -398,7 +398,7 @@
     "request": "업데이트밑 배포 ㄱㄱ",
     "authorized": true,
     "scope": "검증된 v1.15 입질크기/도트전조/재감기 피드백 공개",
-    "fulfilled": false
+    "fulfilled": true
   },
   "economy_analysis": {
     "report": "docs/analysis/tile-income-20261108/REPORT.md",
@@ -723,7 +723,7 @@
       34
     ],
     "scope": "wait/hook bobber fish only",
-    "deployed": false,
+    "deployed": true,
     "release_authorized": false,
     "implemented": true,
     "related_verified": true,
@@ -745,20 +745,34 @@
     "text": false,
     "procedural_godot": true,
     "spike_warning_seconds": 0.35,
-    "deployed": false,
-    "release_authorized": true,
+    "deployed": true,
+    "release_authorized": false,
     "implemented": true,
     "related_verified": true,
     "verification": "docs/qa/fight-telegraph/VERIFICATION.json",
     "source_commit": "2ff57dd839ef97802268e8c7eecc455039429c25",
     "ci_run": 42571831399,
     "ci_status": "success",
-    "status": "full_verified_not_deployed",
+    "status": "published_verified",
     "unique_verify_passed": 92,
     "screens": 6,
     "candidate_artifact": 13653836902,
     "phone_verified": false,
-    "publication_run": 42575643580
+    "publication_run": 42575643580,
+    "public_verification_run": 42575834459
   },
-  "target_preflight": "docs/qa/fight-telegraph/VERIFICATION.json"
+  "target_preflight": "docs/qa/fight-telegraph/VERIFICATION.json",
+  "release115": {
+    "status": "published_verified",
+    "source_commit": "2ff57dd839ef97802268e8c7eecc455039429c25",
+    "ci_run": 42571831399,
+    "candidate_artifact": 13653836902,
+    "publication_run": 42575643580,
+    "publication_attempt": 2,
+    "gateway_run": 42575834459,
+    "verification": "docs/releases/115/PUBLISHED.json",
+    "deployed": true,
+    "phone_verified": false,
+    "release_authorized": false
+  }
 }

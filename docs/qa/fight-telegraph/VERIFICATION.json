@@ -43,8 +43,8 @@
   "existing_landing_skim_windows": "unchanged",
   "paid_generations": 0,
   "full_ci": "success",
-  "public_deployed": false,
-  "public_version": "v1.14",
+  "public_deployed": true,
+  "public_version": "v1.15",
   "phone_verified": false,
   "source_commit": "2ff57dd839ef97802268e8c7eecc455039429c25",
   "full_ci_run": 42571831399,
@@ -83,5 +83,11 @@
   "production_hashes": {
     "game/main.gd": "78b331c0439004ba92c9d8f895517bffee2d16a1966f11d68246a25cb6f7378e",
     "game/addons/reservoir/fight_telegraph.gd": "22af87fe7cf9e85ec2590e24ce86f8c2afd607e3bf28f80c78d6014c1808186d"
-  }
+  },
+  "published": "../../releases/115/PUBLISHED.json",
+  "publication_run": 42575643580,
+  "publication_attempt": 2,
+  "gateway_run": 42575834459,
+  "publication_rebuild": false,
+  "publication_resume": "draft438815446 listing delay; same source/candidate/draft resumed"
 }
