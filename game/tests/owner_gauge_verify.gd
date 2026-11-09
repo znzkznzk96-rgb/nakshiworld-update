@@ -54,15 +54,23 @@ func run() -> void:
 	m.active_region=0;m.scene="village";check(not m.owner_ui.visible(m),"gauge hidden away from fishing")
 	m.scene="fish";m.TUT.done=false;check(not m.owner_ui.visible(m),"tutorial remains free of owner gauge")
 	var ui=m.owner_ui
-	ui.load_frames();check(ui.frames.size()==6,"all six region frames load")
+	ui.load_frames();check(ui.frames.size()==6 and ui.display_backings.size()==6,"all six region frames and internal backings load")
+	for area in 4:
+		var original: Image=ui.frames[area].get_image()
+		var backing: Image=ui.display_backings[area].atlas.get_image()
+		for point in [Vector2i(120,12),Vector2i(120,31)]:
+			check(backing.get_pixelv(point).a==1.0,"transparent window receives opaque backing %d"%area)
+		check(backing.get_pixel(0,0).a==0,"backing does not cover external transparent space")
 	for area in 6:
 		check(ui.frames[area].get_size()==Vector2(256,48),"native pixel frame size %d"%area)
-		for value in [0,73,100]:
+		for value in [0,5,50,73,100]:
 			m.text_items=[];m.ui_commands=[];ui.draw_frame(m,area,value,Vector2(7,75))
 			check(ui.bounds.encloses(ui.label_bounds) and ui.bounds.encloses(ui.track_bounds),"label and trough stay inside frame %d"%area)
 			check(ui.fill_bounds.size.x==floorf((ui.track_bounds.size.x-2)*value/100.0),"dynamic fill reflects exact percentage %d/%d"%[area,value])
 			check(ui.fill_bounds.end.x<=ui.track_bounds.end.x-1,"fill never crosses reviewed trough %d"%area)
 			if area<2:check(ui.bounds.encloses(ui.image_bounds),"approved owner sprite stays inside frame %d"%area)
+			var percent_item: Array=m.text_items.filter(func(it):return str(it[2])=="%d%%"%value)[0]
+			check(percent_item[1].x+m._text_w("%d%%"%value,9)<=ui.label_bounds.end.x-3.9,"percentage keeps right inset")
 			check(m.text_items.any(func(it):return str(it[2])=="%d%%"%value),"percentage text rendered independently %d/%d"%[area,value])
 			var owners: Array=m.CATALOG.by_star(area,4)
 			var label: String=m.FISH_NAME[int(owners[0])] if not owners.is_empty() else "주인의 기척"

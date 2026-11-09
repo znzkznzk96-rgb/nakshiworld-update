@@ -9,11 +9,12 @@ func run() -> void:
 	var ui:=CanvasLayer.new();ui.layer=10;root.add_child(ui)
 	var txt:=Node2D.new();txt.set_script(load("res://text_layer.gd"));ui.add_child(txt)
 	var m=load("res://main.gd").new();m.text_layer=txt;m.SET.sfx=0;m.SET.music=0;m.title_open=false;root.add_child(m);await process_frame
-	m.development_preview=true;m.set_process(false);m.title_open=false;m.TUT.done=true;m.lesson_open=false;m.tip_t=0;m.guide.opened=false;m.mailbox.opened=false;m.trans={};m.scene="fish";m.bait=100;m.gold=12345;m.pearl=2;m.region_shop.unlocked=[0,1]
-	for area in 2:
+	m.development_preview=true;m.set_process(false);m.title_open=false;m.TUT.done=true;m.lesson_open=false;m.tip_t=0;m.guide.opened=false;m.mailbox.opened=false;m.trans={};m.scene="fish";m.bait=100;m.gold=12345;m.pearl=2;m.region_shop.unlocked=[0,1,2]
+	for area in 3:
 		m.active_region=area;m._layout();m.environment.show_scene(true)
-		m.equipment.active_parts=["float","hook","line","reel"] if area==0 else ["r1_float","r1_hook","r1_line","r1_reel"]
-		for progress in [0,73,100]:
+		m.equipment.active_parts=[]
+		for slot in 4:m.equipment.active_parts.append(m.region_shop.part_key(area,slot))
+		for progress in [0,5,50,73,100]:
 			m.progression.owner_gauge[area]=progress;m.S={"phase":"idle"}
 			await capture(m,out,"owner_%d_%d"%[area,progress])
 		m.start_wait();m.S.grade=0;m.start_hook();m.S.pos=m.S.zc+0.1;m.hook_tap();m.S.t=1.0
@@ -24,7 +25,7 @@ func run() -> void:
 	m.S={"phase":"idle"};await capture(m,out,"owner_short")
 	m.equipment.active_parts=[];await capture(m,out,"owner_missing_parts")
 	m.hide();root.content_scale_size=Vector2i(270,540);root.size=Vector2i(540,1080);await process_frame
-	for value in [0,73,100]:
+	for value in [0,5,50,73,100]:
 		m.text_items=[];m.ui_commands=[]
 		m._ui_rect(Rect2(0,0,270,540),Color("101b29"))
 		for area in 6:
