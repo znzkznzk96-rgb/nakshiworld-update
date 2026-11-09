@@ -1,5 +1,9 @@
 extends SceneTree
 class FishProbe extends "res://main.gd":
+ var preview_length:float=-1.0
+ func _shadow_fish(c:Vector2,star:int,grade:int,t:float,beh:String,spike:bool,scale:float,pose:Dictionary,phase:float,sp:int,face:float,alpha:float,body_length:float=-1.0)->void:
+  preview_length=body_length
+  super._shadow_fish(c,star,grade,t,beh,spike,scale,pose,phase,sp,face,alpha,body_length)
  func _fish_effect_rect(_r:Rect2,_c:Color)->void:pass
  func _fish_effect_circle(_p:Vector2,_r:float,_c:Color)->void:pass
 var failures: Array=[]
@@ -23,8 +27,8 @@ func run():
     m.clock=9.0 if timing=="approach" else 10.05
     m.S={"phase":"hook" if timing=="hook" else "wait","sp":sp,"star":int(sp%5),"size":z,"biteAt":10.0,"fakes":[]}
     m.ui_commands=[];m._draw_bite_shadow(10000,150,0)
-    check(is_equal_approx(m.aura.L,float([28,30,32,34][z])),"actual bobber renderer gets normalized body length")
-    check(m.aura.L>=28 and m.aura.L<=34,"all species readable and similarly sized before fight")
+    check(is_equal_approx(m.preview_length,float([28,30,32,34][z])),"actual bobber renderer gets normalized body length")
+    check(m.preview_length>=28 and m.preview_length<=34,"all species readable and similarly sized before fight")
  check(m._bite_preview_length(-1)==28 and m._bite_preview_length(9)==34,"preview class safely bounded")
  m.audio_feedback.dispose();m.queue_free();await process_frame
  print("FISH_PRESENTATION_VERIFY failures=",failures);quit(0 if failures.is_empty() else 1)

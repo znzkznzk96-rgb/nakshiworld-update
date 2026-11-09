@@ -29,5 +29,9 @@
   ],
   "public_deployed": false,
   "release_authorized": false,
-  "public_version_unchanged": "v1.14"
+  "public_version_unchanged": "v1.14",
+  "local_status": "passed",
+  "test_probe_correction": "Capture explicit body_length at real renderer entry; translucent previews intentionally do not update fighting aura.L",
+  "initial_ci_run": 42562681353,
+  "full_ci_status": "replacement_pending"
 }
