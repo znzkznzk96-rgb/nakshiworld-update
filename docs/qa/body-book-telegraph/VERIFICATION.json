@@ -23,9 +23,15 @@
     "real release->rest ring retained",
     "book leaves live S/hold/mouth/rewards/telegraph windows/RNG unchanged"
   ],
-  "full_ci": "pending",
+  "full_ci": "in_progress",
   "public_deployed": false,
   "release_authorized": false,
   "public_version": "v1.15",
-  "candidate_version": "1.16"
+  "candidate_version": "1.16",
+  "source_commit": "0a68e53e19a17fee62dda202eb8e8f4a9ed35ba2",
+  "full_ci_run": 42578350443,
+  "superseded_run": {
+    "id": 42578183302,
+    "status": "cancelled after deterministic fixture correction before full verification"
+  }
 }

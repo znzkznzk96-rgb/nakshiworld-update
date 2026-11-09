@@ -7,7 +7,7 @@
   "phone_verified": false,
   "handoff": "docs/qa/body-book-telegraph/HANDOFF.md",
   "current_task": "몸짓도감12종 전조/재감기 시연 연동 및 역돌진 불필요 링 수정",
-  "next_step": "전체CI 및 두높이 도감12종 화면검수 후 work에 결과저장; 공개v1.15 유지",
+  "next_step": "CI42578350443 및 두높이 도감 실화면 확인; 공개v1.15 유지",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -784,6 +784,9 @@
     "user_play_feedback": "v1.15 fighting cues feel much better; reported charge ring",
     "implemented": true,
     "related_verified": true,
-    "verification": "docs/qa/body-book-telegraph/VERIFICATION.json"
+    "verification": "docs/qa/body-book-telegraph/VERIFICATION.json",
+    "source_commit": "0a68e53e19a17fee62dda202eb8e8f4a9ed35ba2",
+    "ci_run": 42578350443,
+    "ci_status": "in_progress"
   }
 }
