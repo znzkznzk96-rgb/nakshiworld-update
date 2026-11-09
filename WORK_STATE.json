@@ -7,7 +7,7 @@
   "phone_verified": false,
   "handoff": "docs/qa/body-book-telegraph/HANDOFF.md",
   "current_task": "몸짓도감12종 전조/재감기 시연 연동 및 역돌진 불필요 링 수정",
-  "next_step": "CI42578350443 및 두높이 도감 실화면 확인; 공개v1.15 유지",
+  "next_step": "전체CI42581154603 attempt2 확인→성공효과 실제화면 검수→동일후보v1.16공개",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -794,6 +794,9 @@
     "release_authorized": true,
     "duration": 0.3,
     "next": "full CI, exact gameplay success-phases preview, publish",
-    "implemented": true
+    "implemented": true,
+    "ci_run": 42581154603,
+    "ci_attempt": 2,
+    "retry_reason": "Godot binary download HTTP504 before tests; baseline source hash passed"
   }
 }
