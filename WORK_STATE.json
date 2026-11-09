@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "updater_reference_composition_selected",
+  "status": "updater_pixellab_cat_and_logo_motion",
   "release_baseline": "v1.15",
   "target_release": "v1.17",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/updater-redesign/HANDOFF.md",
   "current_task": "몸짓도감12종 전조/재감기 시연 연동 및 역돌진 불필요 링 수정",
-  "next_step": "첨부 원안의 로고/큰 흰고양이·주황물고기/굵은패널 비율로 정적시안 먼저 확인",
+  "next_step": "PixelLab 기존설정복원·잔액/요청스키마확인→흰고양이첫1장검수→달리기모션/로고흔들림",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -833,6 +833,8 @@
     "bright_verification": "docs/qa/updater-redesign/BRIGHT_VERIFICATION.json",
     "reference": "1000102442.png",
     "reference_composition_approved": true,
-    "current_code_visual_final_approved": false
+    "current_code_visual_final_approved": false,
+    "pixellab_cat_approved": true,
+    "logo_sway_approved": true
   }
 }
