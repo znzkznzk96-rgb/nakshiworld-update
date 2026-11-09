@@ -49,7 +49,7 @@ func run()->void:
  prepare(m,"thrash")
  for a in [0.0,.1,.3,.5,.8]:
   m.S.thT=a;check(f.can_reel(m)==(sin(a*(9+4*m.S.F))<=.4),"thrash follows actual strong/weak threshold")
- prepare(m,"run");m.S.bt=0;m.next_behavior();m.S.beh="rest";f.note_behavior(m)
+ prepare(m,"run");m.S.beh="rest";f.note_behavior(m)
  var cash:int=m.gold;var distance:float=m.S.dist;var count:int=f.success_count
  check(not f.on_press(m,false),"already held input never gets timing success")
  check(f.on_press(m,true) and f.success_count==count+1,"fresh timely press succeeds once")
