@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "soldier_skill_cues_verified_not_deployed",
+  "status": "v118_publication_authorized",
   "release_baseline": "v1.15",
   "target_release": "v1.18",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/soldier-skill-cues/HANDOFF.md",
   "current_task": "병사 스킬 발동 아이콘·짧은빛·스킬 피해 구분",
-  "next_step": "병사 스킬 표시 구현·전체검증 완료. 사용자 배포 지시 전 공개v1.17 유지.",
+  "next_step": "검증 후보13683190102를 main 병합 후 동일파일 공개·운영 검증",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -120,7 +120,7 @@
     "production_balance_changed": false,
     "phone_tested": false
   },
-  "release_authorized": false,
+  "release_authorized": true,
   "balance110": {
     "applied": true,
     "deployed": true,
@@ -266,7 +266,7 @@
     "run": 42634195315,
     "ready": true,
     "published": false,
-    "release_authorized": false,
+    "release_authorized": true,
     "verification": "docs/qa/soldier-skill-cues/VERIFICATION.json"
   },
   "release_resume_run": 42424430555,
@@ -394,10 +394,10 @@
   },
   "latest_release_instruction": {
     "date": "2026-11-09",
-    "request": "업데이트밑 배포 ㄱㄱ",
+    "request": "업데이트하고 배포 ㄱㄱ",
     "authorized": true,
-    "scope": "검증된 v1.15 입질크기/도트전조/재감기 피드백 공개",
-    "fulfilled": true
+    "scope": "검증된 v1.18 병사 스킬 표시 공개",
+    "fulfilled": false
   },
   "economy_analysis": {
     "report": "docs/analysis/tile-income-20261108/REPORT.md",
@@ -859,7 +859,7 @@
   },
   "soldier_skill_cues": {
     "approved": true,
-    "release_authorized": false,
+    "release_authorized": true,
     "timing_damage_unchanged": true,
     "implemented": true,
     "parity_cases": 45,
