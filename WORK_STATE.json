@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "telegraph115_publication_authorized",
+  "status": "telegraph115_publication_running",
   "release_baseline": "v1.14",
   "target_release": "v1.15",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/fight-telegraph/HANDOFF.md",
   "current_task": "12종 파이팅 도트 전조·재감기 피드백 v1.15 전체검증 완료",
-  "next_step": "성공 후보13653836902 동일입력 PR/merge 후 공개·운영검증",
+  "next_step": "게시42575643580 확인 후 공개3파일·운영 다운로드 검증",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -757,7 +757,8 @@
     "unique_verify_passed": 92,
     "screens": 6,
     "candidate_artifact": 13653836902,
-    "phone_verified": false
+    "phone_verified": false,
+    "publication_run": 42575643580
   },
   "target_preflight": "docs/qa/fight-telegraph/VERIFICATION.json"
 }
