@@ -37,6 +37,25 @@ jobs:
           XDG_DATA_HOME="$RUNNER_TEMP/isolated-updater" "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --headless --path "$RUNNER_TEMP/project" --script tests/updater_verify.gd > evidence/updater.log 2>&1
           grep -F 'UPDATER_VERIFY failures=[]' evidence/updater.log
           if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/updater.log; then exit 1; fi
+          curl -fL https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.18/patch.pck -o "$RUNNER_TEMP/patch118.pck"
+          echo "cf592988a1e8f372cc37d6ef3a4fe3041b6e92a07b40fce509baeb8a3dcfb2a3  $RUNNER_TEMP/patch118.pck" | sha256sum -c -
+          curl -fL https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.17/patch.pck -o "$RUNNER_TEMP/patch117.pck"
+          echo "e9a75c55db6b5df873595892b6ab8ccadbab0351277d4027eba2074c561c71b6  $RUNNER_TEMP/patch117.pck" | sha256sum -c -
+          python3 - <<'PY'
+          import urllib.request
+          url='https://nakshiworld-update-kr.znzkznzk96.workers.dev/patch.pck?v=118'
+          with urllib.request.urlopen(urllib.request.Request(url,headers={'Range':'bytes=0-99','Accept-Encoding':'identity'}),timeout=60) as r:
+              data=r.read()
+              assert r.status==206 and len(data)==100 and r.headers.get('Content-Range')=='bytes 0-99/59403488'
+              print('LIVE_INCREMENTAL_RANGE_VERIFY failures=[]')
+          PY
+          XDG_DATA_HOME="$RUNNER_TEMP/isolated-incremental" "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --headless --path "$RUNNER_TEMP/project" --script tests/incremental_verify.gd -- "$RUNNER_TEMP/patch118.pck" > evidence/incremental.log 2>&1
+          grep -F 'INCREMENTAL_VERIFY failures=[]' evidence/incremental.log
+          python3 docs/qa/updater-incremental/range_server.py "$RUNNER_TEMP/patch118.pck" &
+          RANGE_PID=$!
+          trap 'kill "$RANGE_PID" || true' EXIT
+          XDG_DATA_HOME="$RUNNER_TEMP/isolated-incremental-network" "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --headless --path "$RUNNER_TEMP/project" --script tests/incremental_network_verify.gd -- http://127.0.0.1:18765/patch "$RUNNER_TEMP/patch117.pck" > evidence/incremental-network.log 2>&1
+          grep -F 'INCREMENTAL_NETWORK_VERIFY failures=[]' evidence/incremental-network.log
           XDG_DATA_HOME="$RUNNER_TEMP/isolated-updater-preview" timeout 90 xvfb-run -a "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/updater_preview.gd -- "$GITHUB_WORKSPACE/evidence/updater" > evidence/updater-preview.log 2>&1
           grep -F 'UPDATER_PREVIEW failures=[]' evidence/updater-preview.log
           if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/updater-preview.log; then exit 1; fi
