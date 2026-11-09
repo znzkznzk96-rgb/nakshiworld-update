@@ -1,0 +1,97 @@
+{
+  "cases": 270,
+  "draws": 108506,
+  "failures": [],
+  "regions": [
+    {
+      "region": 0,
+      "median_hours": 3.90263888888889,
+      "p10_hours": 3.22833333333333,
+      "p90_hours": 4.52583333333333,
+      "min_hours": 3.0,
+      "max_hours": 5.15361111111111,
+      "within_3_5": 88,
+      "cases": 90,
+      "costs": [
+        [
+          7500,
+          22500
+        ],
+        [
+          6000,
+          18000
+        ],
+        [
+          4000,
+          12000
+        ],
+        [
+          7500,
+          22500
+        ]
+      ]
+    },
+    {
+      "region": 1,
+      "median_hours": 4.048194444444445,
+      "p10_hours": 3.30388888888889,
+      "p90_hours": 4.63,
+      "min_hours": 3.03416666666667,
+      "max_hours": 5.42222222222222,
+      "within_3_5": 86,
+      "cases": 90,
+      "costs": [
+        [
+          40000,
+          110000
+        ],
+        [
+          30000,
+          90000
+        ],
+        [
+          20000,
+          60000
+        ],
+        [
+          40000,
+          110000
+        ]
+      ]
+    },
+    {
+      "region": 2,
+      "median_hours": 4.21861111111111,
+      "p10_hours": 3.29527777777778,
+      "p90_hours": 5.06055555555556,
+      "min_hours": 3.0,
+      "max_hours": 6.0,
+      "within_3_5": 80,
+      "cases": 90,
+      "costs": [
+        [
+          400000,
+          1200000
+        ],
+        [
+          300000,
+          1000000
+        ],
+        [
+          250000,
+          750000
+        ],
+        [
+          400000,
+          1200000
+        ]
+      ]
+    }
+  ],
+  "raw_sha256": {
+    "facility-resource-traces.json": "b71caf6a57afad990a2e4536ba580295b189e472c5ec2d756aa18b4efce12c43",
+    "facility-starter-traces.json": "a85bc975ea13c1c67d2dfafb8e1ae06e5d365753a459ea874155ef5b557cf005",
+    "facility-investment-traces.json": "cfd1e7220a298a0d7a195db7739e85287f3954e3c36aebde91602146ba0bf534",
+    "facility-selected-traces.json": "40437aec108c121626e0d19d850aca190b96bb6fce5bc3013587c194466bc81e"
+  }
+}

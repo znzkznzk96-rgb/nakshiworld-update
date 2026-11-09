@@ -7,7 +7,7 @@
   "phone_verified": false,
   "handoff": "docs/analysis/facility-growth-20261109/HANDOFF.md",
   "current_task": "수족관/여객선/어장규모/회복시설 지역2회성장재설계",
-  "next_step": "시설4종각2회/지역실플레이3~5h를목표로가격·성능·이행안산정",
+  "next_step": "시설 분석 REPORT 후보 검토 후 시설12단계/지역잠금/세이브보존 구현·검증",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -675,7 +675,7 @@
     ],
     "upgrades_per_region_approx": 2,
     "target_regions": 6,
-    "specific_values": "pending_simulation",
+    "specific_values": "simulation_candidate_REPORT_not_implemented",
     "initial_stock": "current_new40_legacy80_to_review",
     "deployed": false,
     "release_authorized": false,
@@ -683,6 +683,7 @@
       3,
       5
     ],
-    "upgrades_per_region_total": 8
+    "upgrades_per_region_total": 8,
+    "analysis": "docs/analysis/facility-growth-20261109/REPORT.md"
   }
 }
