@@ -10,12 +10,13 @@ func run():
  var saved:Dictionary=data.serialize().duplicate(true)
  d.open(m)
  for height in [480,540,660]:
-  d.category="fish";d.selected=-1;d.draw(m,height)
-  check(d.rects.region_labels.size()==7,"six full names, valley split into two lines")
+  d.category="fish";d.region=0;d.selected=-1;m.DEX[m.fish_key(0)]=[0,1,2,3,4];d.draw(m,height)
+  for mark in ["N","R","E","L","M"]:check(m.text_items.any(func(t):return t[2]==mark),"Latin collection grade "+mark)
+  check(d.rects.region_labels.size()==6,"all six region buttons use one line")
   for entry in d.rects.region_labels:
    check(d.rects.regions[int(entry[0])].grow(-2).encloses(entry[2]),"region text fully inside button %s/%d"%[entry[1],height])
   var valley:Array=d.rects.region_labels.filter(func(e):return e[0]==1)
-  check(valley[0][1]+" "+valley[1][1]==d.REGIONS[1] and not valley[0][2].intersects(valley[1][2]),"valley lines preserve name and never overlap")
+  check(valley.size()==1 and valley[0][1]=="거꾸로 폭포","single-line abbreviated valley button")
   d.press(m,d.rects.categories[1].get_center());d.draw(m,height)
   check(d.rects.stars.size()==3 and d.rects.filters.size()==4,"star and role controls coexist")
   for star in [1,2,3]:

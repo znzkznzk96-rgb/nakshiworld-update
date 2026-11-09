@@ -153,12 +153,11 @@ func draw_collection(m,r: Rect2) -> void:
 		for area in 6:
 			var b:=Rect2(21+(area%2)*116,y+floori(area/2.0)*33,111,31)
 			m._ui_style_box(m.sb_btn,b)
-			if area==1:m.ui_commands[-1][3]=false # Two explicit baselines; shared single-line padding would collapse them.
 			if area==region:m._ui_rect(b.grow(-4),Color("08646b"))
 			icon(m,"region%d"%area,Rect2(b.position+Vector2(4,4),Vector2(29,19)))
-			var labels: Array=["거꾸로 폭포","계곡"] if area==1 else [REGIONS[area]]
+			var labels: Array=["거꾸로 폭포"] if area==1 else [REGIONS[area]]
 			for line in labels.size():
-				var at: Vector2=b.position+Vector2(36,(12+line*12) if labels.size()>1 else 19)
+				var at: Vector2=b.position+Vector2(36,19)
 				m._text(labels[line],at,9,Color("fff0d1") if area==region else INK,false,70)
 				var it: Array=m.text_items[-1]
 				var font: Font=it[0];var px: int=it[5];var scale: float=it[7]
@@ -226,7 +225,7 @@ func grade_mark(m,r: Rect2,acquired: bool,grade: int) -> void:
 	var fill: Color=m.GRADE_C[grade] if acquired else Color("e6dcc5")
 	m._ui_rect(r,fill.darkened(.4) if acquired else Color("b8a582"))
 	m._ui_rect(r.grow(-1),fill)
-	m._text(["노","레","에","전","신"][grade],r.get_center()+Vector2(0,3),7,Color("fff7df") if acquired and grade in [0,1,2] else INK if acquired else Color("897859"),true,12)
+	m._text(["N","R","E","L","M"][grade],r.get_center()+Vector2(0,3),7,Color("fff7df") if acquired and grade in [0,1,2] else INK if acquired else Color("897859"),true,12)
 func chevron(m,p: Vector2) -> void:
 	for i in 4:
 		m._ui_rect(Rect2(p+Vector2(i,i),Vector2(2,2)),INK)

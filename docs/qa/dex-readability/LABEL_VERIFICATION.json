@@ -1,0 +1,58 @@
+{
+  "date": "2026-11-10",
+  "scope": "two display labels only; no record/model/battle changes",
+  "region_button": "거꾸로 폭포",
+  "grade_marks": [
+    "N",
+    "R",
+    "E",
+    "L",
+    "M"
+  ],
+  "grade_names": [
+    "노멀",
+    "레어",
+    "에픽",
+    "전설",
+    "신화"
+  ],
+  "related": "DEX_READABILITY_VERIFY failures=[]",
+  "heights": [
+    480,
+    540,
+    660
+  ],
+  "native_screens": 21,
+  "png_decode": "pass",
+  "visual_review": "pass",
+  "preview": "labels-preview.webp",
+  "png_sha256": {
+    "fish_0_540.png": "2b05cf494ab5246bd3ea59b8cb62cb0c0bfd7f7a5806d68015ab992ee9ba29c6",
+    "fish_1_660.png": "efe961aa4bd5ef166b4ddf1f659ce58e262ede3a3c491e4771d023ea94112889",
+    "fish_0_660.png": "d1f2ae9217988c8937b3ab779bbccb486952d25508592187144c4f513b706753",
+    "soldier_1_480.png": "8708e356f407f2c0423fde27e98e0c17fdb8ab202bdd0531fd73f2a7361babae",
+    "soldier_2_540.png": "eea02551269417f43b653600a5c4a4a3d561092a6271fc2abbe9b278008f56da",
+    "fish_2_540.png": "f9e92efa446617da646afbdf2e4a4b161f364eb0a42783f65e5f237b48285aee",
+    "soldier_2_660.png": "5cc26333d3130a77d753f9c98e84006d9cea00e5a718774528e7391a550b55b9",
+    "detail_3_480.png": "6d7bea9af5a6958c5a2297e34b0b57680a4b60654b9bae7838b8f258d6ed722b",
+    "soldier_3_480.png": "40e492feb00c7fff7c5bd832538a95ab5596bfa09ba1e8785e1b72854fc528fb",
+    "detail_3_660.png": "82e714e2597a1e90a7e288fd4ed00888f4ae33eb2f10b5b2728167a10b674354",
+    "soldier_3_660.png": "bef87ffda3d9021e9683257f7f2b4192a59004b9703c95c9cc8aa2fae9eff8f4",
+    "soldier_1_540.png": "cda1a9d2b39d4453e16260a3cefc54d4fdadc5696a26d2d2f2a5dec4f56a9a15",
+    "fish_1_540.png": "955ee1f4b62877a07fb4a2e050911077ee1969e5faf812a55a9629ed36e1218e",
+    "fish_2_480.png": "122d9652710b7dcf1db6702b9d9d0c03b44bb6263c48d2ff22b79ecb19fa3ec7",
+    "fish_0_480.png": "a3813b0e21c814665a35b4de8677ea55c9a9eb8b18b72d85a90775ca2f4829d9",
+    "detail_3_540.png": "e67211dbc07734aa1546557734f824d87b81cb7dc97e22362e2b415550598a9d",
+    "soldier_3_540.png": "56938a40f51ea600c1dfa76df9335970e523b209ee32d5f03b4d32c30f6941a1",
+    "soldier_1_660.png": "ba38739e8ba3eec239bff74cd3356e06647d311c8ff8a024fc5f05ae52159ace",
+    "fish_2_660.png": "e9f430a064ce1a0522c493e97876afc691f1d5fe4a819849ab04243a605cfd31",
+    "soldier_2_480.png": "b7b6cb40f9253b680a409a9d61bc99cd9f20b0d9eb7b5cbee563e90c5d7f068c",
+    "fish_1_480.png": "50379b812bdef9552d528099c30011093007b6aff2ae271a68b9351e8e6b2c9c"
+  },
+  "previous_full_ci": 42718606566,
+  "previous_full_ci_scope": "prior source before these two display changes; not rerun locally",
+  "full_ci": "automatic run pending source checkpoint",
+  "deployed": false,
+  "release_authorized": false,
+  "public_release": "v1.18"
+}
