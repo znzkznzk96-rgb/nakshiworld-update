@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "v117_published_apk_delivered_verified",
+  "status": "v118_publication_authorized",
   "release_baseline": "v1.15",
-  "target_release": "v1.17",
+  "target_release": "v1.18",
   "deployed": true,
   "phone_verified": false,
-  "handoff": "docs/releases/117/HANDOFF.md",
-  "current_task": "몸짓도감12종 전조/재감기 시연 연동 및 역돌진 불필요 링 수정",
-  "next_step": "새APK 덮어설치 후 휴대폰 시작화면/세이브 확인 대기; 새패치배포미승인",
+  "handoff": "docs/qa/soldier-skill-cues/HANDOFF.md",
+  "current_task": "병사 스킬 발동 아이콘·짧은빛·스킬 피해 구분",
+  "next_step": "검증 후보13683190102를 main 병합 후 동일파일 공개·운영 검증",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -120,7 +120,7 @@
     "production_balance_changed": false,
     "phone_tested": false
   },
-  "release_authorized": false,
+  "release_authorized": true,
   "balance110": {
     "applied": true,
     "deployed": true,
@@ -257,17 +257,17 @@
   },
   "release_candidate": {
     "version": {
-      "code": 117,
-      "name": "1.17"
+      "code": 118,
+      "name": "1.18"
     },
-    "artifact_id": 13676398457,
-    "input_fingerprint": "e3230263fe52564e179aa24c7247652c0f6b6e58db33fe66bb156677e864edcb",
-    "source_commit": "31e8924487b91bc1f6f5d3fb4c56b8d30807efc1",
-    "run": 42621403752,
-    "ready": false,
-    "published": true,
-    "release_authorized": false,
-    "verification": "docs/qa/updater-redesign/MOTION_VERIFICATION.json"
+    "artifact_id": 13683190102,
+    "input_fingerprint": "4da6afe9ab92036323ba328c88bee73d088495ab30eb740d8245c6e54c4e3702",
+    "source_commit": "e169343fe196a2087e4099f552dfe399981c7b4f",
+    "run": 42634195315,
+    "ready": true,
+    "published": false,
+    "release_authorized": true,
+    "verification": "docs/qa/soldier-skill-cues/VERIFICATION.json"
   },
   "release_resume_run": 42424430555,
   "fight_body_size": {
@@ -394,10 +394,10 @@
   },
   "latest_release_instruction": {
     "date": "2026-11-09",
-    "request": "업데이트밑 배포 ㄱㄱ",
+    "request": "업데이트하고 배포 ㄱㄱ",
     "authorized": true,
-    "scope": "검증된 v1.15 입질크기/도트전조/재감기 피드백 공개",
-    "fulfilled": true
+    "scope": "검증된 v1.18 병사 스킬 표시 공개",
+    "fulfilled": false
   },
   "economy_analysis": {
     "report": "docs/analysis/tile-income-20261108/REPORT.md",
@@ -856,5 +856,20 @@
     "verification": "docs/releases/117/PUBLISHED.json",
     "apk_name": "NAKSHIWORLD_1.17.apk",
     "phone_verified": false
+  },
+  "soldier_skill_cues": {
+    "approved": true,
+    "release_authorized": true,
+    "timing_damage_unchanged": true,
+    "implemented": true,
+    "parity_cases": 45,
+    "source_commit": "e169343fe196a2087e4099f552dfe399981c7b4f",
+    "ci_run": 42634195315,
+    "ci_status": "success",
+    "native_screens": 12,
+    "native_verified": true,
+    "verification": "docs/qa/soldier-skill-cues/VERIFICATION.json",
+    "unique_verify_results": 95,
+    "deployed": false
   }
 }

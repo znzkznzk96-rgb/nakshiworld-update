@@ -1,0 +1,46 @@
+{
+  "date": "2026-11-09",
+  "source_commit": "e169343fe196a2087e4099f552dfe399981c7b4f",
+  "baseline": "v1.17",
+  "public_release": "v1.17",
+  "deployed": false,
+  "release_authorized": false,
+  "local": {
+    "parity_cases": 45,
+    "parity": "exact_after_removing_presentation_metadata",
+    "tier_skill_checks": 454,
+    "cues": "pass",
+    "combat_feedback": "pass"
+  },
+  "native": {
+    "run": 42634195315,
+    "artifact": 13682098450,
+    "sha256": "56cfee44f6549393a389d8b9438b67164ba36c754315171616411a0717f18080",
+    "zip_crc": "pass",
+    "png_decode": 12,
+    "heights": [
+      480,
+      660
+    ],
+    "scenarios": [
+      "prepare",
+      "cast",
+      "support"
+    ],
+    "surfaces": [
+      "detail",
+      "village_strip"
+    ],
+    "visual_review": "pass"
+  },
+  "full_ci": {
+    "run": 42634195315,
+    "status": "success",
+    "unique_verify_results": 95,
+    "packed_checks": "pass",
+    "evidence_artifact": 13682284485,
+    "candidate_artifact": 13683190102,
+    "candidate_archive_sha256": "761d7906367bf6370d301c10a1bfe5f02b6ec8dab0db897f29a2c18af9257f26",
+    "input_fingerprint": "4da6afe9ab92036323ba328c88bee73d088495ab30eb740d8245c6e54c4e3702"
+  }
+}

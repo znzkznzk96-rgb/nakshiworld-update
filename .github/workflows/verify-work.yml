@@ -14,13 +14,13 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
-      - name: Restore verified v1.16 source and overlay
+      - name: Restore verified v1.17 source and overlay
         shell: bash
         run: |
           set -euo pipefail
           echo "VERIFICATION_STARTED=$(date +%s)" >> "$GITHUB_ENV"
-          curl -fL --retry 2 https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.16/game-source.zip -o "$RUNNER_TEMP/source.zip"
-          echo "c500f3ca542766816a4dd1d527980f12c18d95bb36ca92f054c7e706a7450e70  $RUNNER_TEMP/source.zip" | sha256sum -c -
+          curl -fL --retry 2 https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.17/game-source.zip -o "$RUNNER_TEMP/source.zip"
+          echo "f3c18b4d69fe884bedba8e751167788edddada9b0b8a0bacd7207ed4c1b9fef9  $RUNNER_TEMP/source.zip" | sha256sum -c -
           python3 automation/restore_source.py "$RUNNER_TEMP/source.zip" "$RUNNER_TEMP/project"
           curl -fL --retry 2 https://github.com/godotengine/godot/releases/download/4.4.1-stable/Godot_v4.4.1-stable_linux.x86_64.zip -o "$RUNNER_TEMP/godot.zip"
           unzip -q "$RUNNER_TEMP/godot.zip" -d "$RUNNER_TEMP/godot"
@@ -47,6 +47,26 @@ jobs:
             evidence/updater/
             evidence/updater.log
             evidence/updater-preview.log
+      - name: Verify and preview per-soldier skill feedback first
+        shell: bash
+        run: |
+          set -euo pipefail
+          GODOT="$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
+          XDG_DATA_HOME="$RUNNER_TEMP/isolated-skill-cues" "$GODOT" --headless --path "$RUNNER_TEMP/project" --script tests/soldier_skill_cues_verify.gd > evidence/soldier-skill-cues.log 2>&1
+          grep -F 'SOLDIER_SKILL_CUES_VERIFY failures=[]' evidence/soldier-skill-cues.log
+          XDG_DATA_HOME="$RUNNER_TEMP/isolated-skill-parity" "$GODOT" --headless --path "$RUNNER_TEMP/project" --script tests/soldier_skill_cues_parity.gd -- "$RUNNER_TEMP/project/tests/soldier_skill_cues_baseline.json" verify > evidence/soldier-skill-parity.log 2>&1
+          grep -F 'SOLDIER_SKILL_PARITY_VERIFY failures=[]' evidence/soldier-skill-parity.log
+          XDG_DATA_HOME="$RUNNER_TEMP/isolated-skill-preview" timeout 90 xvfb-run -a "$GODOT" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/soldier_skill_cues_preview.gd -- "$GITHUB_WORKSPACE/evidence/soldier-skills" > evidence/soldier-skill-preview.log 2>&1
+          grep -F 'SOLDIER_SKILL_CUES_PREVIEW failures=[]' evidence/soldier-skill-preview.log
+          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/soldier-skill-cues.log evidence/soldier-skill-parity.log evidence/soldier-skill-preview.log; then exit 1; fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: soldier-skills-first-preview
+          path: |
+            evidence/soldier-skills/
+            evidence/soldier-skill-cues.log
+            evidence/soldier-skill-parity.log
+            evidence/soldier-skill-preview.log
       - name: Import and full regression checks
         shell: bash
         run: |
