@@ -66,6 +66,21 @@ jobs:
             evidence/updater/
             evidence/updater.log
             evidence/updater-preview.log
+      - name: Verify and render village reward notice before full checks
+        shell: bash
+        run: |
+          set -euo pipefail
+          GODOT="$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
+          XDG_DATA_HOME="$RUNNER_TEMP/isolated-village-reward" "$GODOT" --headless --path "$RUNNER_TEMP/project" --script tests/village_reward_notice_verify.gd > evidence/village-reward.log 2>&1
+          grep -F 'VILLAGE_REWARD_NOTICE_VERIFY failures=[]' evidence/village-reward.log
+          XDG_DATA_HOME="$RUNNER_TEMP/isolated-village-reward-preview" timeout 90 xvfb-run -a "$GODOT" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/notification091_preview.gd -- "$GITHUB_WORKSPACE/evidence/village-reward" > evidence/village-reward-preview.log 2>&1
+          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/village-reward*.log; then exit 1; fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: village-reward-first-preview
+          path: |
+            evidence/village-reward/
+            evidence/village-reward*.log
       - name: Verify and preview per-soldier skill feedback first
         shell: bash
         run: |

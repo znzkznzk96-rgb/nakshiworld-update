@@ -2435,6 +2435,9 @@ func _draw_ui(t: float, h: float) -> void :
 	encounter.draw(self)
 	_draw_notes()
 
+func _village_toast_rect() -> Rect2:
+	return Rect2(12, get_viewport_rect().size.y - bot_pad - 158, 246, 38)
+
 func _draw_notes() -> void :
 
 	if S.phase in ["fail", "result"]: return
@@ -2447,7 +2450,13 @@ func _draw_notes() -> void :
 	if judge_t > 0 and not lesson_open:
 		_judge_text(judge_txt, Vector2(VW / 2.0, WATER - 40 + oy), judge_col)
 	if toast_t > 0 and not lesson_open and S.phase != "catch":
-		if toast_action:
+		if scene == "village" and V.shop == "" and not toast_action:
+			var notice_rect: Rect2 = _village_toast_rect()
+			var body: String = _ui_wrap(toast_txt, 11, 226, 2)
+			var line_count: int = body.split("\n").size()
+			_ui_style_box(sb_chip, notice_rect)
+			_text(body, Vector2(135, notice_rect.position.y + (24 if line_count == 1 else 15)), 11, Color(toast_col, minf(1.0, toast_t * 2)), true, 226)
+		elif toast_action:
 			# Text only: quick upward entrance, readable hold, then rise/fade.
 			# Keep font scale fixed so pixel letters do not shimmer.
 			var elapsed: float = 1.2 - toast_t

@@ -17,4 +17,11 @@ func run():
   m.V.commerce.notice="";m.scene="fish";m.active_region=0;m._layout();m.environment.show_scene(true);m.equipment.active_parts=["float","hook","line","reel"];m.progression.owner_gauge[0]=9;m.S={"phase":"idle"}
   m.expedition.data.battle={"status":"win","round":1,"progress":100};m.expedition.result_notice=6;await capture(m,out,"owner_complete_%d"%h)
   m.equipment.active_parts=[];await capture(m,out,"no_owner_complete_%d"%h)
+ for h in [480,660,740]:
+  root.content_scale_size=Vector2i(270,h);root.size=Vector2i(540,h*2);await process_frame
+  m.scene="village";m.S={"phase":"idle"};m.V.shop="";m.expedition.opened="";m.expedition.data.battle={};m.tip_t=0;m.environment.show_scene(false);m._layout()
+  for zoom in [.65,1.0,1.6]:
+   m.V.zoom=zoom;m.V.camera_x=0;m.V.clamp_camera(m)
+   m.show_toast("260 비늘 · 어혼 주머니 2개 획득",Color("ffdc96"));m.toast_t=1
+   await capture(m,out,"reward_h%d_zoom%d"%[h,int(zoom*100)])
  m.audio_feedback.dispose();m.queue_free();await process_frame;quit()
