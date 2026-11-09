@@ -7,7 +7,7 @@
   "phone_verified": false,
   "handoff": "docs/qa/fight-telegraph/HANDOFF.md",
   "current_task": "12종 파이팅 몸짓 도트도형·실시간 게이지·재감기 피드백 적용",
-  "next_step": "전체CI·실제12종3단계보드/폰화면 검수 후 작업브랜치에 결과 저장; 공개v1.14 유지",
+  "next_step": "CI42570727005 전체검사/실제폰화면 확인, 결과만work/* 저장; 공개v1.14 유지",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -261,9 +261,10 @@
     "input_fingerprint": "622353ad32c9b1a7e6567fc8f022d33a493930dc3416a9f7a00e6de4e440b3be",
     "source_commit": "84aa4ab434189ff9cbda560630f0c8f63cdf596e",
     "run": 42545236211,
-    "ready": true,
+    "ready": false,
     "published": true,
-    "rebuild": false
+    "rebuild": false,
+    "note": "published v1.14 candidate is historical; v1.15 candidate pending CI42570727005"
   },
   "release_resume_run": 42424430555,
   "fight_body_size": {
@@ -742,6 +743,9 @@
     "release_authorized": false,
     "implemented": true,
     "related_verified": true,
-    "verification": "docs/qa/fight-telegraph/VERIFICATION.json"
+    "verification": "docs/qa/fight-telegraph/VERIFICATION.json",
+    "source_commit": "798ce63997e710621ad8befad00931a0d407c254",
+    "ci_run": 42570727005,
+    "ci_status": "in_progress"
   }
 }

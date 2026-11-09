@@ -42,8 +42,10 @@
   "ordinary_feedback_adds_reward": false,
   "existing_landing_skim_windows": "unchanged",
   "paid_generations": 0,
-  "full_ci": "pending",
+  "full_ci": "in_progress",
   "public_deployed": false,
   "public_version": "v1.14",
-  "phone_verified": false
+  "phone_verified": false,
+  "source_commit": "798ce63997e710621ad8befad00931a0d407c254",
+  "full_ci_run": 42570727005
 }
