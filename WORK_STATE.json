@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "updater_cat_logo_motion_preview_pending",
+  "status": "updater_cat_logo_related_verified_full_ci_pending",
   "release_baseline": "v1.15",
   "target_release": "v1.17",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/updater-redesign/HANDOFF.md",
   "current_task": "몸짓도감12종 전조/재감기 시연 연동 및 역돌진 불필요 링 수정",
-  "next_step": "CI42621403752 updater-first-preview로 실제추격/로고 검수",
+  "next_step": "전체CI42621403752 결과 확인; 로더는새APK필요·배포미승인",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -842,6 +842,8 @@
     "motion_implemented": true,
     "motion_verified": false,
     "motion_ci_run": 42621403752,
-    "motion_source": "31e8924487b91bc1f6f5d3fb4c56b8d30807efc1"
+    "motion_source": "31e8924487b91bc1f6f5d3fb4c56b8d30807efc1",
+    "motion_related_verified": true,
+    "motion_verification": "docs/qa/updater-redesign/MOTION_VERIFICATION.json"
   }
 }

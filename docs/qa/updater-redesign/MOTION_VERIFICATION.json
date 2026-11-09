@@ -1,0 +1,41 @@
+{
+  "source_commit": "31e8924487b91bc1f6f5d3fb4c56b8d30807efc1",
+  "ci_run": 42621403752,
+  "related_verify": "UPDATER_VERIFY failures=[]",
+  "native_preview": "UPDATER_PREVIEW failures=[]",
+  "evidence_artifact": 13675573709,
+  "evidence_sha256": "5a1c31fd33750d157156a96e88d856cae1542b23c277e8577b9c14edcce7affa",
+  "png_decoded": 22,
+  "manual_review": [
+    "download h480",
+    "checking h660",
+    "download h740"
+  ],
+  "logo": {
+    "asset": "game/art/ui/updater/logo.png",
+    "period_seconds": 3.6,
+    "angle_degrees": 1.5,
+    "bob_pixels": 1.2
+  },
+  "cat": {
+    "pixellab_review": "pixellab/REVIEW.json",
+    "returned_frames": 9,
+    "logical_width": 96,
+    "fps": 10
+  },
+  "fish": {
+    "asset": "game/art/ui/updater/fish.png",
+    "logical_width": 46
+  },
+  "orbit": {
+    "radius_x": 62,
+    "radius_y": 46,
+    "phase_gap_radians": 2,
+    "minimum_center_distance": 77.4
+  },
+  "full_ci": "in_progress",
+  "public_version": "v1.16",
+  "new_apk_built": false,
+  "deployed": false,
+  "release_authorized": false
+}
