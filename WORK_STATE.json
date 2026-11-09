@@ -1,6 +1,6 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "success_flash_implementation",
+  "status": "success_flash_full_verification",
   "release_baseline": "v1.15",
   "target_release": "v1.16",
   "deployed": true,
@@ -793,6 +793,7 @@
     "approved": true,
     "release_authorized": true,
     "duration": 0.3,
-    "next": "implement shared gameplay/book effect then full CI and publish v1.16"
+    "next": "full CI, exact gameplay success-phases preview, publish",
+    "implemented": true
   }
 }

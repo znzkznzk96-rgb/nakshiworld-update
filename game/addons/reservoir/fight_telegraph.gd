@@ -8,6 +8,7 @@ const EMPTY := Color("29303d")
 const SIZE := 13
 const SPIKE_WARNING := 0.35
 const PERFECT_WINDOW := 0.25
+const SUCCESS_FLASH_DURATION := 0.30
 const WARNINGS := {"tell":"right","turn":"left","nose":"down","rise":"up"}
 var behavior := ""
 var duration := 1.0
@@ -66,7 +67,7 @@ func on_press(m, fresh: bool) -> bool:
 	var window: Dictionary=ring(m)
 	if window.is_empty() or reel_used and flash_until>=m.clock: return false
 	# Landing/skim retain their existing reward windows; this adds no new reward.
-	reel_used=true;reel_until=-1;flash_until=m.clock+0.16;success_count+=1
+	reel_used=true;reel_until=-1;flash_until=m.clock+SUCCESS_FLASH_DURATION;success_count+=1
 	m.audio_feedback.sound(m,"record",-19.0,1.3)
 	return true
 
@@ -195,10 +196,7 @@ func draw(m, center: Vector2, body_length: float, group: bool=false) -> void:
 				elif data.shape=="up": pt=center+Vector2(-4+i*4,-8-(1-progress)*7)
 				m._fish_effect_rect(Rect2(pt.round(),Vector2.ONE),Color(data.color,0.7))
 	if flash_until>m.clock:
-		var point:Vector2=m.fish_mouth.round()
-		var alpha:float=clampf((flash_until-m.clock)/0.16,0,1)
-		m._fish_effect_rect(Rect2(point-Vector2(4,0),Vector2(9,1)),Color(1,1,1,alpha))
-		m._fish_effect_rect(Rect2(point-Vector2(0,4),Vector2(1,9)),Color(1,1,1,alpha))
+		draw_success(m,m.fish_mouth,1.0-(flash_until-m.clock)/SUCCESS_FLASH_DURATION,false)
 
 # Encyclopedia uses a private model but the exact same sample()/paint() as play.
 class LessonModel extends RefCounted:
@@ -235,8 +233,39 @@ func draw_lesson(m,key:String,frame:Dictionary,origin:Vector2,mouth:Vector2) -> 
 	icon_bounds=Rect2(origin-Vector2.ONE,Vector2(15,15)) if not demo_last.cue.is_empty() else Rect2()
 	paint(m,demo_last.cue,origin)
 	if float(demo_last.flash)>0:
-		var a:float=demo_last.flash
-		m._ui_rect(Rect2(mouth.round()-Vector2(4,0),Vector2(9,1)),Color(1,1,1,a))
-		m._ui_rect(Rect2(mouth.round()-Vector2(0,4),Vector2(1,9)),Color(1,1,1,a))
+		draw_success(m,mouth,1.0-float(demo_last.flash),true)
 		if demo_event!=str(demo_last.event):
 			demo_event=demo_last.event;m.audio_feedback.sound(m,"record",-19.0,1.3)
+
+# One deterministic pixel renderer shared by play and encyclopedia. No RNG or state writes.
+func success_pixels(progress:float) -> Array:
+	var t:float=clampf(progress,0,1)
+	var pixels:Array=[]
+	if t>=1:return pixels
+	var fade:float=1.0-t
+	var white:Color=Color(1,1,1,fade)
+	var lime:Color=Color(LIME,fade*0.85)
+	# A sharp star first, then a broken expanding diamond and six short sparks.
+	if t<0.55:
+		var arm:int=3 if t<0.25 else 2
+		pixels.append([Rect2(-arm,0,arm*2+1,1),white])
+		pixels.append([Rect2(0,-arm,1,arm*2+1),white])
+		pixels.append([Rect2(-1,-1,3,3),Color("f5ffd5")*Color(1,1,1,fade)])
+	var radius:int=4+int(t*6)
+	for side in 4:
+		for step in radius:
+			if t>0.55 and step%3==1:continue
+			var point:Vector2=Vector2(step,-radius+step).rotated(side*PI/2).round()
+			pixels.append([Rect2(point,Vector2.ONE),Color(0.9,1,0.94,fade*0.75)])
+	for i in 6:
+		var direction:Vector2=Vector2.from_angle(-PI/2+i*TAU/6)
+		var point:Vector2=(direction*(5+t*7)).round()
+		pixels.append([Rect2(point,Vector2.ONE),lime if i%2==0 else white])
+		if t<0.5:pixels.append([Rect2(point-direction.round(),Vector2.ONE),white])
+	return pixels
+
+func draw_success(m,mouth:Vector2,progress:float,lesson:bool) -> void:
+	for pixel in success_pixels(progress):
+		var rect:Rect2=pixel[0];rect.position+=mouth.round()
+		if lesson:m._ui_rect(rect,pixel[1])
+		else:m._fish_effect_rect(rect,pixel[1])

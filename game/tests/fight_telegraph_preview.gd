@@ -30,7 +30,7 @@ func run()->void:
      m.S.bt=0;m.update_fight(.001);m.S.tension=35;m.S.dist=35
     if action=="spike":m.S.spikeWarn=0;m.S.spike=.25
     if action=="clone":m.S.cloneT=.31
-    if action=="rest":f.flash_until=m.clock+.16;f.reel_used=true;f.reel_until=-1
+    if action=="rest":f.flash_until=m.clock+f.SUCCESS_FLASH_DURATION;f.reel_used=true;f.reel_until=-1
     if action=="skim":m.S.beh="rest";m.S.skimEnd=m.clock+.4;m.S.skimUsed=false;f.note_behavior(m)
    m._last_draw_t=-1;m.queue_redraw();await process_frame;await process_frame;await RenderingServer.frame_post_draw
    var image:Image=root.get_texture().get_image()
@@ -45,6 +45,17 @@ func run()->void:
    if col==1 and action in ["tell","circle","sulk","clone"]:image.save_png(out.path_join(action+"-phone.png"))
   row+=1
  board.save_png(out.path_join("telegraph-board.png"))
+ # Exact gameplay renderer: three success-burst phases plus actual phone view.
+ var burst_board:=Image.create(1080,220,false,Image.FORMAT_RGBA8);burst_board.fill(Color("132535"))
+ m.start_wait();m.S.sp=6;m.S.len=m.FISH_LEN[6];m.start_fight();m.S.tut=false;m.S.lesson="";m.S.beh="rest";m.S.bt=1;m.S.fx=170;m.S.fy=m.WATER+90;m.S.dispY=m.S.fy;m.S.pose={};m.S.spike=0;m.S.spikeWarn=0;m.S.dist=35;m.S.tension=35;m.toast_t=0;m.reveal_t=0;m.reveal_pending=false
+ for col in 3:
+  var f=m.fight_telegraph;f.reel_used=true;f.reel_until=-1;f.flash_until=m.clock+f.SUCCESS_FLASH_DURATION*(1.0-[.05,.4,.75][col])
+  m._last_draw_t=-1;m.queue_redraw();await process_frame;await process_frame;await RenderingServer.frame_post_draw
+  var image:Image=root.get_texture().get_image();var at:Vector2=m.S.lastF.p
+  var x:int=clampi(roundi((at.x-90+m.ox)*2),0,image.get_width()-360);var y:int=clampi(roundi((at.y-65+m.oy)*2),0,image.get_height()-220)
+  burst_board.blit_rect(image,Rect2i(x,y,360,220),Vector2i(col*360,0))
+  if col==0:image.save_png(out.path_join("success-phone.png"))
+ burst_board.save_png(out.path_join("success-phases.png"))
  # A full-size small-fish wait frame verifies the previously approved bobber change.
  m.start_wait();m.S.sp=0;m.S.size=0;m.S.biteAt=15;m.S.realUntil=16;m.S.fakes=[];m.clock=15.05;m.S.phase="wait";m.queue_redraw();await process_frame;await process_frame;await RenderingServer.frame_post_draw
  root.get_texture().get_image().save_png(out.path_join("bobber-small-phone.png"))

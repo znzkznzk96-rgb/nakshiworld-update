@@ -78,6 +78,13 @@ func run()->void:
   for length in [30,80,156]:
    m.fish_mouth=pos+Vector2(10,0);m.S.tensionHud=m._tension_anchor(pos,2.2,length);m.pixels=[];f.draw(m,pos,length)
    check(not f.icon_bounds.intersects(Rect2(m.S.tensionHud,Vector2(44,8))),"icons never cover tension meter at edges/large-fish heights")
+ for progress in [0.0,.25,.6,.95]:
+  var ps:Array=f.success_pixels(progress)
+  check(not ps.is_empty(),"success burst visible across full .30s")
+  for px in ps:check(Rect2(-13,-13,27,27).encloses(px[0]),"success burst remains compact")
+ check(f.success_pixels(1.0).is_empty(),"success burst fully disappears")
+ prepare(m,"run");m.S.beh="rest";f.note_behavior(m);f.on_press(m,true)
+ check(is_equal_approx(f.flash_until-m.clock,.30),"success flash lasts .30 without extending timing window")
  m.S.phase="idle";check(f.sample(m).is_empty(),"cue hidden outside fights")
  print("FIGHT_TELEGRAPH_VERIFY failures=",failures)
  m.audio_feedback.dispose();m.queue_free();await process_frame;quit(0 if failures.is_empty() else 1)
