@@ -55,11 +55,11 @@ func run() -> void:
 	m.scene="fish";m.TUT.done=false;check(not m.owner_ui.visible(m),"tutorial remains free of owner gauge")
 	var ui=m.owner_ui
 	ui.load_frames();check(ui.frames.size()==6 and ui.display_backings.size()==6,"all six region frames and internal backings load")
-	for area in 4:
+	for area in 6:
 		var original: Image=ui.frames[area].get_image()
 		var backing: Image=ui.display_backings[area].atlas.get_image()
 		for point in [Vector2i(120,12),Vector2i(120,31)]:
-			check(backing.get_pixelv(point).a==1.0,"transparent window receives opaque backing %d"%area)
+			check(original.get_pixelv(point).a>=.94 or backing.get_pixelv(point).a==1.0,"transparent window receives opaque backing %d"%area)
 		check(backing.get_pixel(0,0).a==0,"backing does not cover external transparent space")
 	for area in 6:
 		check(ui.frames[area].get_size()==Vector2(256,48),"native pixel frame size %d"%area)

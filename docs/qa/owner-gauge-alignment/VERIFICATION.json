@@ -1,0 +1,64 @@
+{
+  "date": "2026-11-10",
+  "implementation_commit": "10bfe7654c7d60409bce2817c3e7f0006b141450",
+  "baseline": {
+    "release": "v1.18",
+    "source_sha256": "f2d3ed49118c24163135fb6836d1e5c3ec42daa3acaca95a4f62ab1d6c3dcb3b"
+  },
+  "godot": "4.4.1.stable.official.49a5bc7b6",
+  "related": "OWNER_GAUGE_VERIFY failures=[]",
+  "native": {
+    "screens": 28,
+    "six_region_values": [
+      0,
+      5,
+      50,
+      73,
+      100
+    ],
+    "required_region_value_cases": 24,
+    "png_decode": "pass",
+    "visual_review": "pass",
+    "preview": "six-regions.webp",
+    "sha256": {
+      "owner_2_50.png": "e726f4f859403baebaffa81019c5598bc4b715638235e79a2a8eadeb96e3dc71",
+      "owner_2_0.png": "a4251b5467e644d336456473e784a0341bfee8d1c502e11c7665be4fb7f1eb70",
+      "owner_2_73.png": "14c474132c4cf3b6a2d86047ba5b14908b6746fc98ca4ecbbac2ee1b1b465461",
+      "owner_0_fight.png": "29e3c0c27a1e894abffa5956b060f732b85ca21178c75bdb085059a1bfc3399b",
+      "owner_2_fight.png": "f6ff37e419e1ccf3d209722180f7a044c633b2d1e6b551a4a24929e47553277b",
+      "owner_2_100.png": "32195fb9463f2a83266acaa6178b260df127dd279646cd7070e203702850cd86",
+      "owner_six_5.png": "8be383a3c77a2f8accb0590cfc4e63aff71177afce80523dc46bc22eab75e0f8",
+      "owner_1_100.png": "c9bdd6bd49b292cd4d1b48f0c60acebd811b2f87269971e89608664dff00cc8b",
+      "owner_six_73.png": "afb6e28e503f5715c452f7d20a2f7edd560c5af4aafce22f22394975ec8a5700",
+      "owner_1_73.png": "5fdd58d9acc73e5273c9c55ffa3f2300249520c93e122802f696e07a4fa0cb6f",
+      "owner_six_0.png": "0b5da31d5a0a00223ac9118cb4ce01a9ed826ce3a5daab2c28039116f797d535",
+      "owner_0_100.png": "2215fb65035b0c7f2b2605a2c340f60d244477dfe1d4482f847a735b3b2964b2",
+      "owner_missing_parts.png": "044b386e46a80deb99c3895958fff09df81b0ab2a2fecd313024f7df50b85be2",
+      "owner_1_5.png": "50e4c5d922bd18c0a840b1c88420c2fc2ced6448fe52b7ec312454180a1f9fa0",
+      "owner_0_73.png": "9519fefae5b39fa3552c62d4128be7437240f71c8575bd884ea66eae63ac82ac",
+      "owner_0_0.png": "2f94da3034bc0910ab6c951ca5c9445f0c4f041168c2c75f9e8b0e352d1026e7",
+      "owner_six_100.png": "6f4981f5ce3273785ddcf9497e8468547b4b07a9b675263b587de181a95e01ac",
+      "owner_1_warning.png": "fd90caab676d829d535314a346d11ac7e1ddf2051bb732ee2b2a13dc87abe796",
+      "owner_0_50.png": "bf0afb15bc5ad2cbb8cde099587d4f7485548d5b18a2639b1fb57609dbee0eee",
+      "owner_six_50.png": "c481cac029b50ef418541934c5dc82970af81c9e5c7bb3a243e1eff81a9cff6d",
+      "owner_1_50.png": "cc1bcbcac538dd3fa1c1af17b7cd540dd7677c3681e022471a24fbc0f703a6af",
+      "owner_0_warning.png": "d59b30af233f90839929d9f9a4c1a80002ed86ce075348dd999a4f9cca827044",
+      "owner_1_fight.png": "c69d2c37f8a4cbfe083d6b8f59fb2ef89ea2273e2d4f8ba2a110931a8936ea4b",
+      "owner_0_5.png": "a8f87897a37f50937982db7025c5d2eb060cea1bf48d5fd150c0520a4b5b920e",
+      "owner_2_warning.png": "ab4ac7eca9fd85c6a56188842ff7c38ce05c7ca3308e376ffe2e4c0937d48f3e",
+      "owner_2_5.png": "d45091ceae287de4d9166070b3680143e2f14a271e73fe859b8bb1d1499b4fce",
+      "owner_short.png": "9bd00b34d33423e2e0a99ede5302c0f0f3223c8af1727d072560434597aa3619",
+      "owner_1_0.png": "5e3daa09774c5d70f17af225326c7d00b9d3650104697b5f8e27374dc7bf1e0d"
+    }
+  },
+  "ci_prior": {
+    "run": 42704950597,
+    "result": "failure",
+    "step": "Verify all six owner gauge layouts before full checks",
+    "correction": "Create preview output directory before save; assert save_png return code"
+  },
+  "full_ci": "pending checkpoint",
+  "deployed": false,
+  "public_release": "v1.18",
+  "phone_verified": false
+}

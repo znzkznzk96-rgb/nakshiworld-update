@@ -2,9 +2,11 @@ extends SceneTree
 func _initialize() -> void:call_deferred("run")
 func capture(m,out: String,name: String) -> void:
 	m.queue_redraw();await process_frame;await process_frame;await RenderingServer.frame_post_draw
-	root.get_texture().get_image().save_png(out.path_join(name+".png"))
+	var error:=root.get_texture().get_image().save_png(out.path_join(name+".png"))
+	assert(error==OK,"Failed to save owner gauge preview: "+name)
 func run() -> void:
 	var out: String=OS.get_cmdline_user_args()[0]
+	assert(DirAccess.make_dir_recursive_absolute(out)==OK,"Cannot create owner preview directory")
 	root.content_scale_size=Vector2i(270,540);root.content_scale_mode=Window.CONTENT_SCALE_MODE_CANVAS_ITEMS;root.size=Vector2i(540,1080)
 	var ui:=CanvasLayer.new();ui.layer=10;root.add_child(ui)
 	var txt:=Node2D.new();txt.set_script(load("res://text_layer.gd"));ui.add_child(txt)

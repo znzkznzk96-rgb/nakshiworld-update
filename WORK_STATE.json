@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "owner_gauge_alignment_approved",
+  "status": "owner_gauge_alignment_related_native_verified",
   "release_baseline": "v1.18",
   "target_release": "v1.18",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/owner-gauge-alignment/HANDOFF.md",
   "current_task": "전체 6지역 주인게이지 내부 정렬·투명 빈틈 수정",
-  "next_step": "크롭 변환과 지역별 안쪽 영역·백플레이트 수정,6종 0/5/50/100% 실화면 검수",
+  "next_step": "최종 checkpoint 전체CI 확인. 공개v1.18 유지, 새배포 미승인.",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -898,8 +898,16 @@
     "sign_overlap_cases": 315,
     "native_verified": true,
     "ci_run": 42701570797,
-    "ci_status": "in_progress",
+    "ci_status": "success",
     "verification": "docs/qa/village-reward-notice/VERIFICATION.json",
+    "deployed": false,
+    "release_authorized": false
+  },
+  "owner_gauge_alignment": {
+    "implementation_commit": "10bfe7654c7d60409bce2817c3e7f0006b141450",
+    "related_verified": true,
+    "native_screens": 28,
+    "verification": "docs/qa/owner-gauge-alignment/VERIFICATION.json",
     "deployed": false,
     "release_authorized": false
   }
