@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "tile_bundle_next_unlock_related_verified",
+  "status": "tile_bundle_next_unlock_full_verified",
   "release_baseline": "v1.18",
   "target_release": "v1.18",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/tile-bundle-next-unlock/HANDOFF.md",
-  "current_task": "타일바다 서브/주인 번들 다음지역 해금비 기준 정정",
-  "next_step": "전체CI 결과 확인·원격기록. 공개v1.18 유지·새배포 미승인.",
+  "current_task": "타일바다 서브/주인 번들 정정·전체검증 완료",
+  "next_step": "사용자 새 작업/배포 지시 대기. 주인게이지·마을알림·번들 수정은 미배포, 공개v1.18 유지.",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -922,7 +922,8 @@
     "deployed": false,
     "release_authorized": false,
     "ci_run": 42715271254,
-    "ci_status": "in_progress",
-    "source_commit": "58f9f202f64a6e4bcfaf2524310aebd2e8c66c89"
+    "ci_status": "success",
+    "source_commit": "58f9f202f64a6e4bcfaf2524310aebd2e8c66c89",
+    "candidate_artifact": 13719080097
   }
 }

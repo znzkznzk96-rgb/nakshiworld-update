@@ -1,4 +1,4 @@
 # 타일바다 번들 보상 정정 — 관련검사·실화면 통과
 2026-11-10. 타일이자기지역312000을참조해계곡과같던오류수정. 계곡/타일모두다음지역가격원본을사용해타일463500/1390500비늘,안내도다음해금비10%/30%로통일. 계곡31200/93600유지. 혼50/진주6·기증/수령ID·저장원복유지,차액자동소급없음.
 
-관련7검사·실제6화면검수통과. [화면](tile-rewards.webp)·[검증](VERIFICATION.json)·[승인](HANDOFF-approved.md). 전체CI[42715271254](https://github.com/znzkznzk96-rgb/nakshiworld-update/actions/runs/42715271254) 진행중·완료후갱신. 구현58f9f202f64a6e4bcfaf2524310aebd2e8c66c89. 공개v1.18유지·미배포·새배포미승인. 주인게이지/마을알림수정도작업브랜치에포함.
+관련7검사·실제6화면검수통과. [화면](tile-rewards.webp)·[검증](VERIFICATION.json)·[승인](HANDOFF-approved.md). 전체CI[42715271254](https://github.com/znzkznzk96-rgb/nakshiworld-update/actions/runs/42715271254) 전체회귀·공통실화면·PCK검증 성공. 다음 사용자 검토/새작업 지시 대기. 구현58f9f202f64a6e4bcfaf2524310aebd2e8c66c89. 공개v1.18유지·미배포·새배포미승인. 주인게이지/마을알림수정도작업브랜치에포함.
