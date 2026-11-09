@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "success_flash_full_verification",
+  "status": "v116_verified_publication_pending",
   "release_baseline": "v1.15",
   "target_release": "v1.16",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/body-book-telegraph/HANDOFF.md",
   "current_task": "몸짓도감12종 전조/재감기 시연 연동 및 역돌진 불필요 링 수정",
-  "next_step": "전체CI42581154603 attempt2 확인→성공효과 실제화면 검수→동일후보v1.16공개",
+  "next_step": "PR54 병합→동일 봉인후보 공개→3파일/운영다운로드 확인",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -260,11 +260,11 @@
       "code": 116,
       "name": "1.16"
     },
-    "artifact_id": 13655489844,
-    "input_fingerprint": "820dcf83e5e4f28051503dfa60091593a279e9b69b779358ae81aa7de6f0da90",
-    "source_commit": "0a68e53e19a17fee62dda202eb8e8f4a9ed35ba2",
-    "run": 42578350443,
-    "ready": false,
+    "artifact_id": 13657457850,
+    "input_fingerprint": "bafb97b1e4eef9f148486580a3e0308a4fcbc8e98a63eeb52fc3e75cde9c532c",
+    "source_commit": "601d97555620f2208dddf82b28e9c429c801865f",
+    "run": 42581154603,
+    "ready": true,
     "published": false,
     "release_authorized": true,
     "verification": "docs/qa/body-book-telegraph/VERIFICATION.json",
@@ -793,10 +793,12 @@
     "approved": true,
     "release_authorized": true,
     "duration": 0.3,
-    "next": "full CI, exact gameplay success-phases preview, publish",
+    "next": "publish PR54 candidate without rebuild",
     "implemented": true,
     "ci_run": 42581154603,
     "ci_attempt": 2,
-    "retry_reason": "Godot binary download HTTP504 before tests; baseline source hash passed"
+    "retry_reason": "Godot binary download HTTP504 before tests; baseline source hash passed",
+    "verified": true,
+    "ci_status": "success"
   }
 }

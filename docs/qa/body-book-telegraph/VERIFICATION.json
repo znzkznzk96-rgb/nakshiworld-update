@@ -25,7 +25,7 @@
   ],
   "full_ci": "success",
   "public_deployed": false,
-  "release_authorized": false,
+  "release_authorized": true,
   "public_version": "v1.15",
   "candidate_version": "1.16",
   "source_commit": "0a68e53e19a17fee62dda202eb8e8f4a9ed35ba2",
@@ -117,6 +117,23 @@
     "both all12 boards: phase cues visible, charge execution no ring",
     "charge h480 and spike h660: preview/text fit"
   ],
-  "candidate_artifact": 13655489844,
-  "candidate_fingerprint": "820dcf83e5e4f28051503dfa60091593a279e9b69b779358ae81aa7de6f0da90"
+  "candidate_artifact": 13657457850,
+  "candidate_fingerprint": "bafb97b1e4eef9f148486580a3e0308a4fcbc8e98a63eeb52fc3e75cde9c532c",
+  "success_burst": {
+    "duration": 0.3,
+    "shared_gameplay_book_renderer": true,
+    "timing_rewards_unchanged": true,
+    "source_commit": "601d97555620f2208dddf82b28e9c429c801865f",
+    "ci_run": 42581154603,
+    "attempt": 2,
+    "conclusion": "success",
+    "unique_verify_markers": 92,
+    "evidence_artifact": 13658130416,
+    "evidence_sha256": "422d573b3d96e7e885821a9e46763ae6b047a20edb09ed906eef5a4a3e06b533",
+    "native_success_phases_and_phone": "manually reviewed; compact and no fish/tension occlusion",
+    "screens": {
+      "success-phone.png": "4cb0d81bf1e00a3497fbfa818b11d5dec13c60f5321fa417328e54d7b6767df5",
+      "success-phases.png": "beed9915b28671d458e551cb1973f1768d798fa0932678f6c2839a8bdbdf98de"
+    }
+  }
 }
