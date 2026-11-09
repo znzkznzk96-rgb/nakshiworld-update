@@ -34,7 +34,7 @@
   "full_verification_run": 42545236211,
   "full_verification_status": "success",
   "phone_verified": false,
-  "public_deployed": false,
+  "public_deployed": true,
   "protected_data": [
     "stored fish prices and specimen fields",
     "currencies",
@@ -165,6 +165,12 @@
     "draft_release_id": 438655525,
     "draft_source_verified": "84aa4ab434189ff9cbda560630f0c8f63cdf596e",
     "draft_assets_before_resume": 0,
-    "resume": "same draft, candidate and source; no rebuild"
-  }
+    "resume": "same draft, candidate and source; no rebuild",
+    "status": "success",
+    "attempt": 2,
+    "candidate_rebuilt": false,
+    "gateway_run": 42546422630,
+    "gateway_status": "success"
+  },
+  "published": "PUBLISHED.json"
 }

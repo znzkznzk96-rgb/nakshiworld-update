@@ -1,0 +1,46 @@
+{
+  "version": {
+    "code": 114,
+    "name": "1.14"
+  },
+  "source_commit": "84aa4ab434189ff9cbda560630f0c8f63cdf596e",
+  "assets": {
+    "version.json": {
+      "size": 199,
+      "sha256": "046097736722bd306ea1c0bea4ab8904d579ba596850a94b523ccf9423d8d5a6",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.14/version.json"
+    },
+    "patch.pck": {
+      "size": 59268048,
+      "sha256": "293676016a2eb18ec44fe9aec9d7fa4ee3dbaf18ee586d732fe3f16514a923bb",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.14/patch.pck"
+    },
+    "game-source.zip": {
+      "size": 63428446,
+      "sha256": "afdb3753d30454c560a6a4272dbe7b7d61e434e0451e1b500389747e85c14d10",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.14/game-source.zip"
+    }
+  },
+  "phone_verified": false,
+  "source_overlay_files_verified": 622,
+  "zip_crc_verified": true,
+  "public_assets_verified": true,
+  "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v1.14",
+  "release_id": 438655525,
+  "publication_run": 42546219232,
+  "publication_attempt": 2,
+  "candidate_run": 42545236211,
+  "candidate_artifact": 13643875288,
+  "rebuild": false,
+  "gateway": {
+    "verified": true,
+    "run": 42546422630,
+    "manifest": {
+      "code": 114,
+      "name": "1.14",
+      "source_commit": "84aa4ab434189ff9cbda560630f0c8f63cdf596e",
+      "size": 59268048,
+      "sha256": "293676016a2eb18ec44fe9aec9d7fa4ee3dbaf18ee586d732fe3f16514a923bb"
+    }
+  }
+}

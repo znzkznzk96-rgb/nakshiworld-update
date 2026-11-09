@@ -1,5 +1,5 @@
 # 현재 인수인계
 
-[WORK_STATE.json](WORK_STATE.json)이 가리키는 활성 브랜치와 [상세 HANDOFF](docs/releases/valley-gift-108/HANDOFF.md)를 따른다. 현재 v1.08 계곡 일회성 선물 공개·운영 다운로드 검증 완료, 휴대폰 수령 확인은 별도다.
+[WORK_STATE.json](WORK_STATE.json)의 활성 브랜치와 `handoff`가 지정한 상세 문서를 따른다. 최신 결정은 [GAME_BIBLE](docs/GAME_BIBLE.md), 변경 결과는 [CHANGELOG](CHANGELOG.md)에 기록한다. 배포·운영 검증과 휴대폰 실제 적용은 구분한다.
 
-[v1.07 기록](docs/releases/tile-107/HANDOFF.md)과 [이전 루트 원문](docs/historical/2026-11-07-gift108-before-publish/ROOT_HANDOFF.md)은 보존했다. 이 문서 갱신은 새 배포를 수행하지 않는다.
+[이전 루트 원문](docs/historical/2026-11-09-facility114/ROOT_HANDOFF-before-published.md)을 보존했다.

@@ -1,17 +1,17 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "facility_growth_publication_running",
-  "release_baseline": "v1.13",
+  "status": "facility_growth_published_verified",
+  "release_baseline": "v1.14",
   "target_release": "v1.14",
   "deployed": true,
   "phone_verified": false,
-  "handoff": "docs/analysis/facility-growth-20261109/HANDOFF.md",
-  "current_task": "수족관/여객선/어장규모/회복시설 지역2회성장재설계",
-  "next_step": "게시42546219232 확인 후 공개파일·운영 다운로드 검증",
+  "handoff": "docs/releases/114/HANDOFF.md",
+  "current_task": "4시설 지역별 성장 조정 v1.14 공개·운영 검증 완료",
+  "next_step": "게임 내 업데이트 후 휴대폰 시설 단계·어장 잔여량·지역별 구매 제한과 수입 체감 확인; 파이팅 변경은 보류",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
-  "verification": "docs/releases/113/PUBLISHED.json",
+  "verification": "docs/releases/114/PUBLISHED.json",
   "baseline_phone_verified": false,
   "environment_recovery": "docs/CODEX_NETWORK_RECOVERY.md",
   "background_verified_branch": "work/tile-png-stage2-20261107",
@@ -23,10 +23,10 @@
   "screen_evidence_commit": "04fa33a116915c0b7a7ca86ee235a24a4cf4d4d2",
   "screen_verification_run": 42315352676,
   "full_source_verified": {
-    "release": "v1.13",
-    "size": 63421429,
-    "sha256": "91c315697486a1d288405e323336e02b53be4ed3273830f2f0c32aac7d3f4ac7",
-    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.13/game-source.zip"
+    "release": "v1.14",
+    "size": 63428446,
+    "sha256": "afdb3753d30454c560a6a4272dbe7b7d61e434e0451e1b500389747e85c14d10",
+    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.14/game-source.zip"
   },
   "fish_verification_run": 42317071546,
   "automatic_full_regression_run": 42317071379,
@@ -35,33 +35,33 @@
   "bundle_verification_run": 42319985467,
   "bundle_evidence_commit": "dd8297cc9de9a5423091b61e06f166ee22023de4",
   "headless_regression_coverage": {
-    "passed": 88,
-    "total": 88,
-    "run": 42529115176,
-    "scope": "unique VERIFY results including native and packed checks",
+    "passed": 91,
+    "total": 91,
+    "run": 42545236211,
+    "scope": "unique VERIFY results including native and packed checks; facility24screens separately reviewed",
     "all_executed_in_release_run": true
   },
   "standard_full_workflow_success": true,
   "remaining_global_render_checks": false,
   "release_authorization": {
     "date": "2026-11-09",
-    "user_request": "일단그럼 기존로 두고 업데이트 및 배포하자 ㅇㅇ",
-    "scope": "기존밸런스유지·UI/로봇목록/거래안전 v1.13",
+    "user_request": "업데이투하고 배포가자 ㅇㅇ",
+    "scope": "시설4종 지역별2단계 성장·초기30·기존구매/재고보존 v1.14",
     "fulfilled": true
   },
-  "release_preflight": "docs/releases/109/PREFLIGHT.json",
-  "release_source_commit": "f6166542f618b878264aa99c2a9630a76763a9bb",
-  "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v1.13",
-  "release_build_run": 42529982880,
-  "release_build_status": "success",
-  "public_verification_run": 42530134538,
+  "release_preflight": "docs/releases/114/VERIFICATION.json",
+  "release_source_commit": "84aa4ab434189ff9cbda560630f0c8f63cdf596e",
+  "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v1.14",
+  "release_build_run": 42546219232,
+  "release_build_status": "success_attempt2_same_draft_no_rebuild",
+  "public_verification_run": 42546422630,
   "public_verification_status": "success",
   "public_patch": {
-    "size": 59250992,
-    "sha256": "7e472d35dd1ac08009cff05e767d22497831208e6ff978ea15cc540f8c92ced1",
-    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.13/patch.pck"
+    "size": 59268048,
+    "sha256": "293676016a2eb18ec44fe9aec9d7fa4ee3dbaf18ee586d732fe3f16514a923bb",
+    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.14/patch.pck"
   },
-  "standard_full_workflow_note": "v1.13 CI42529115176 고유88/native/PCK검증후동일후보13637076247공개,게시42529982880 attempt2·운영42530134538성공;재빌드없음",
+  "standard_full_workflow_note": "v1.14 CI42545236211 고유91/native/PCK·시설24화면 검증, 동일후보13643875288 재빌드 없이 게시42546219232 attempt2·운영42546422630 성공",
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md#2026-11-07--소규모-작업-효율채팅-중단-대비",
   "approved_followup": "우편 단일원본·공통지급·검사통합 구현/검증 완료. 공개v1.08 유지, 새 배포 미승인.",
   "session_continuity": {
@@ -94,7 +94,7 @@
     "headless_passed": 73,
     "headless_total": 73
   },
-  "release_verification_run": 42529115176,
+  "release_verification_run": 42545236211,
   "prior_build_issue": {
     "run": 42384973558,
     "cause": "packed mail check hardcoded1.08; prepublication assertion",
@@ -173,7 +173,7 @@
     "ledger": "analysis/tile-layer-art-v1/PLANT_LEDGER.json",
     "quality": "analysis/tile-layer-art-v1/PLANT_QA.json"
   },
-  "public_release": "v1.13",
+  "public_release": "v1.14",
   "shared_vertical_light": {
     "applied": true,
     "regions": [
@@ -250,19 +250,20 @@
     "release_authorized": false
   },
   "full_release_ci": {
-    "run": 42423468177,
+    "run": 42545236211,
     "status": "success",
-    "source_commit": "12dfd5d1b96aa2ecfee558d491991d123950700a",
-    "headless_suites": 78
+    "source_commit": "84aa4ab434189ff9cbda560630f0c8f63cdf596e",
+    "unique_verification_results": 91,
+    "facility_screens": 24
   },
   "release_candidate": {
-    "artifact_id": 13637076247,
-    "input_fingerprint": "b0f1b1ab8db47906612d459b1b4301293af411989f9dc4c2062ed4b6102ff64e",
-    "source_commit": "f6166542f618b878264aa99c2a9630a76763a9bb",
-    "run": 42529115176,
+    "artifact_id": 13643875288,
+    "input_fingerprint": "622353ad32c9b1a7e6567fc8f022d33a493930dc3416a9f7a00e6de4e440b3be",
+    "source_commit": "84aa4ab434189ff9cbda560630f0c8f63cdf596e",
+    "run": 42545236211,
     "ready": true,
     "published": true,
-    "rebuild_on_publish": false
+    "rebuild": false
   },
   "release_resume_run": 42424430555,
   "fight_body_size": {
@@ -389,9 +390,9 @@
   },
   "latest_release_instruction": {
     "date": "2026-11-09",
-    "request": "일단그럼 기존로 두고 업데이트 및 배포하자 ㅇㅇ",
+    "request": "업데이투하고 배포가자 ㅇㅇ",
     "authorized": true,
-    "scope": "기존밸런스유지·UI/로봇목록/거래안전",
+    "scope": "승인 시설 조정안 적용·v1.14 공개",
     "fulfilled": true
   },
   "economy_analysis": {
@@ -675,10 +676,10 @@
     ],
     "upgrades_per_region_approx": 2,
     "target_regions": 6,
-    "specific_values": "approved_REPORT_20261109",
-    "initial_stock": "current_new40_legacy80_to_review",
-    "deployed": false,
-    "release_authorized": true,
+    "specific_values": "approved_REPORT_implemented_v114",
+    "initial_stock": 30,
+    "deployed": true,
+    "release_authorized": false,
     "target_active_hours_per_region": [
       3,
       5
@@ -692,6 +693,22 @@
     "verification_status": "success_91_checks_24_screens",
     "verification": "docs/releases/114/VERIFICATION.json",
     "publication_run": 42546219232,
-    "merge_commit": "1f1281d9d45e0a586a3516df85888e1b1cb2dc81"
+    "merge_commit": "1f1281d9d45e0a586a3516df85888e1b1cb2dc81",
+    "status": "published_verified",
+    "publication_attempt": 2,
+    "public_verification_run": 42546422630,
+    "phone_verified": false
+  },
+  "release114": {
+    "status": "published_verified",
+    "source_commit": "84aa4ab434189ff9cbda560630f0c8f63cdf596e",
+    "ci_run": 42545236211,
+    "candidate_artifact": 13643875288,
+    "publication_run": 42546219232,
+    "gateway_run": 42546422630,
+    "deployed": true,
+    "phone_verified": false,
+    "release_authorized": false,
+    "verification": "docs/releases/114/PUBLISHED.json"
   }
 }
