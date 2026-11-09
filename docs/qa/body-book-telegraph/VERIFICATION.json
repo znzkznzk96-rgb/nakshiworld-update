@@ -23,7 +23,7 @@
     "real release->rest ring retained",
     "book leaves live S/hold/mouth/rewards/telegraph windows/RNG unchanged"
   ],
-  "full_ci": "in_progress",
+  "full_ci": "success",
   "public_deployed": false,
   "release_authorized": false,
   "public_version": "v1.15",
@@ -33,5 +33,90 @@
   "superseded_run": {
     "id": 42578183302,
     "status": "cancelled after deterministic fixture correction before full verification"
-  }
+  },
+  "unique_verify_markers": 92,
+  "native_preview": "BODY_BOOK_TELEGRAPH_PREVIEW failures=[]; 72 render contexts",
+  "evidence_artifact": {
+    "id": 13656721076,
+    "sha256": "d0408a658caeb2778e82f820d9c7752c562fe99e0c03743dffdcb9a426cc4876",
+    "zip_crc": "pass"
+  },
+  "screens": {
+    "charge-h480.png": {
+      "size": [
+        540,
+        960
+      ],
+      "sha256": "22cca9c1e8c72eb9f1e2e4471bf67e7c67f74d27d8cc910851a9e19aa478264e"
+    },
+    "book-board-h660.png": {
+      "size": [
+        1080,
+        2256
+      ],
+      "sha256": "340a9f21c2486d75d6a01ea2d471006876cbb680efd1620fb2c9832461852ae8"
+    },
+    "clone-h480.png": {
+      "size": [
+        540,
+        960
+      ],
+      "sha256": "cb6953cc883824cc358a0c7aeff88b31f7b6e4c9462eeead68ecc203e75b829b"
+    },
+    "tell-h480.png": {
+      "size": [
+        540,
+        960
+      ],
+      "sha256": "c5f4cf3c6bd80ff565584e2531679f1d4ee18a932d9d2b76714ad270d3649ee3"
+    },
+    "spike-h660.png": {
+      "size": [
+        540,
+        1320
+      ],
+      "sha256": "ebb2d8989132d5680a2964c2486d9e6bdf31d551155702bb55aea932b8359f1f"
+    },
+    "tell-h660.png": {
+      "size": [
+        540,
+        1320
+      ],
+      "sha256": "2b5de370020e6ab1b90afd542ff4ada7c5fe79567d88e8ef9863d65bdf8cad06"
+    },
+    "clone-h660.png": {
+      "size": [
+        540,
+        1320
+      ],
+      "sha256": "82acb67e3f59a4ee1f8b4cb77ebf688216e962061b67eae94bfcff48ce9c7699"
+    },
+    "spike-h480.png": {
+      "size": [
+        540,
+        960
+      ],
+      "sha256": "d137692edf0cd19a6fe2a200db8d4c2eb45cd8b73cb0356c3fa55427758501b1"
+    },
+    "book-board-h480.png": {
+      "size": [
+        1080,
+        2256
+      ],
+      "sha256": "9954501c5dc99738d1450af7e780371516db0ee60ea563fbb67535e2f6fe62e1"
+    },
+    "charge-h660.png": {
+      "size": [
+        540,
+        1320
+      ],
+      "sha256": "0410810a7c2b564867b61dcd14565dd84393b47f1de3d773cbcaccf6eb8a9a90"
+    }
+  },
+  "manual_review": [
+    "both all12 boards: phase cues visible, charge execution no ring",
+    "charge h480 and spike h660: preview/text fit"
+  ],
+  "candidate_artifact": 13655489844,
+  "candidate_fingerprint": "820dcf83e5e4f28051503dfa60091593a279e9b69b779358ae81aa7de6f0da90"
 }

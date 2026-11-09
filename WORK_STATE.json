@@ -1,6 +1,6 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "body_book_telegraph_full_verification",
+  "status": "body_book_telegraph_verified_not_deployed",
   "release_baseline": "v1.15",
   "target_release": "v1.16",
   "deployed": true,
@@ -257,19 +257,18 @@
   },
   "release_candidate": {
     "version": {
-      "code": 115,
-      "name": "1.15"
+      "code": 116,
+      "name": "1.16"
     },
-    "artifact_id": 13653836902,
-    "input_fingerprint": "62f6b949a560986908115629d08c837c7d6f40cff5ce2e9ed2477e9492246175",
-    "source_commit": "2ff57dd839ef97802268e8c7eecc455039429c25",
-    "run": 42571831399,
-    "ready": false,
-    "published": true,
+    "artifact_id": 13655489844,
+    "input_fingerprint": "820dcf83e5e4f28051503dfa60091593a279e9b69b779358ae81aa7de6f0da90",
+    "source_commit": "0a68e53e19a17fee62dda202eb8e8f4a9ed35ba2",
+    "run": 42578350443,
+    "ready": true,
+    "published": false,
     "release_authorized": false,
-    "verification": "docs/qa/fight-telegraph/VERIFICATION.json",
-    "rebuild": false,
-    "note": "published v1.15 candidate historical; v1.16 verification pending"
+    "verification": "docs/qa/body-book-telegraph/VERIFICATION.json",
+    "rebuild": false
   },
   "release_resume_run": 42424430555,
   "fight_body_size": {
@@ -787,6 +786,7 @@
     "verification": "docs/qa/body-book-telegraph/VERIFICATION.json",
     "source_commit": "0a68e53e19a17fee62dda202eb8e8f4a9ed35ba2",
     "ci_run": 42578350443,
-    "ci_status": "in_progress"
+    "ci_status": "success",
+    "verified": true
   }
 }
