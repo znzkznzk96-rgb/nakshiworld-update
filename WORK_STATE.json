@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "telegraph115_published_verified",
+  "status": "body_book_telegraph_sync",
   "release_baseline": "v1.15",
-  "target_release": "v1.15",
+  "target_release": "v1.16",
   "deployed": true,
   "phone_verified": false,
-  "handoff": "docs/releases/115/HANDOFF.md",
-  "current_task": "v1.15 입질크기·몸짓 도트 전조 공개·운영 검증 완료",
-  "next_step": "게임 내 업데이트 후 휴대폰 적용·전조/재감기 타이밍 체감 확인",
+  "handoff": "docs/qa/body-book-telegraph/HANDOFF.md",
+  "current_task": "몸짓도감12종 전조/재감기 시연 연동 및 역돌진 불필요 링 수정",
+  "next_step": "같은 렌더러의 별도 시연 상태 연결·관련 검사·실제도감 화면 검수",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -774,5 +774,12 @@
     "deployed": true,
     "phone_verified": false,
     "release_authorized": false
+  },
+  "body_book_telegraph": {
+    "approved": true,
+    "deployed": false,
+    "release_authorized": false,
+    "charge_ring_cause": "turn->charge opened generic .25s resume ring",
+    "user_play_feedback": "v1.15 fighting cues feel much better; reported charge ring"
   }
 }
