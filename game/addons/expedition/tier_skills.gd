@@ -17,7 +17,7 @@ static func living(m)->Array:
 static func init_encounter(m)->void:
 	m.battle.skill_time=0.0;m.battle.skill_accumulator=0.0;m.battle.normal_time=0.0
 	m.battle.enemy_ready=m.TICK;m.battle.enemy_delay=0.0
-	m.battle.skill_effects=[];m.battle.skill_casts=[];m.battle.stun_left=0.0;m.battle.stun_immune_until=0.0
+	m.battle.skill_effects=[];m.battle.skill_casts=[];m.battle.skill_popups=[];m.battle.stun_left=0.0;m.battle.stun_immune_until=0.0
 	for f in m.battle.fighters:
 		f.shield=0;f.skill_ready=0.0 if int(f.id) in [2,3,8,14] else 3.0
 		if int(f.id) in [6,7,12]:f.skill_ready=0.0
@@ -91,7 +91,13 @@ static func hit(m,f:Dictionary,power:float,ignore:float=0,raw:bool=false)->void:
 	var actual:int=mini(int(e.hp),amount-blocked);e.hp-=actual;f.skill_damage+=actual
 	if not m.battle.has("fx"):m.battle.fx={}
 	if not m.battle.fx.has("attacks"):m.battle.fx.attacks=[]
-	m.battle.fx.attacks.append({"source":int(f.uid),"role":str(m.catalog.soldiers[int(f.id)].role),"amount":actual})
+	m.battle.fx.attacks.append({"source":int(f.uid),"role":str(m.catalog.soldiers[int(f.id)].role),"amount":actual,"skill_id":int(f.id),"skill_star":int(f.star),"skill_at":float(m.battle.skill_time)})
+	# Bounded presentation events survive the normal-attack fx dictionary refresh.
+	var popups:Array=m.battle.get("skill_popups",[])
+	popups=popups.filter(func(v):return float(v.skill_at)>=float(m.battle.skill_time)-.8)
+	popups.append(m.battle.fx.attacks[-1].duplicate(true))
+	if popups.size()>48:popups.pop_front()
+	m.battle.skill_popups=popups
 	m.battle.fx.outgoing=actual;m.battle.fx.age=0.0
 
 static func enemy_stat(m,key:String)->float:

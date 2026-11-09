@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "soldier_skill_cues_implementation",
+  "status": "soldier_skill_cues_preview_pending",
   "release_baseline": "v1.15",
-  "target_release": "v1.17",
+  "target_release": "v1.18",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/soldier-skill-cues/HANDOFF.md",
   "current_task": "몸짓도감12종 전조/재감기 시연 연동 및 역돌진 불필요 링 수정",
-  "next_step": "기존전투 시전/타격/피해숫자경로 확인→표시만 연동→관련검사/실화면",
+  "next_step": "병사스킬 선행실화면 검수/전체CI; 공개v1.17유지",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -860,6 +860,8 @@
   "soldier_skill_cues": {
     "approved": true,
     "release_authorized": false,
-    "timing_damage_unchanged": true
+    "timing_damage_unchanged": true,
+    "implemented": true,
+    "parity_cases": 45
   }
 }
