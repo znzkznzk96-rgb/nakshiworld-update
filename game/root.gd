@@ -6,6 +6,15 @@ const UPDATE_BASE := "https://nakshiworld-update-kr.znzkznzk96.workers.dev/"
 const PATCH := "user://patch.pck"
 const PATCH_VER := "user://patch_ver.txt"
 var update_art: Texture2D
+var chase_frames:Array[Texture2D]=[]
+var chase_fish:Texture2D
+var animation_time:=0.0
+var update_phase:="checking"
+var received_bytes:=0
+var total_bytes:=-1
+var preview_only:=false
+var loader_draw_scale:=1.0
+var loader_draw_offset:=Vector2.ZERO
 var box: SubViewportContainer
 var http: HTTPRequest
 var status := ""
@@ -18,6 +27,12 @@ var started := false
 func _ready() -> void:
 	font = load("res://font/neodgm.ttf")
 	update_art = load("res://art/ui/update_cat_blue.png")
+	texture_filter=CanvasItem.TEXTURE_FILTER_NEAREST
+	for i in 16:chase_frames.append(load("res://art/char/anim/cat/cat_%02d.png"%i))
+	chase_fish=load("res://art/fish/l0_00.png")
+	if preview_only:
+		status="업데이트 확인 중…"
+		return
 	if "--shot" in OS.get_cmdline_user_args():
 		_start()
 		return
@@ -56,6 +71,7 @@ func _on_version(result: int, code: int, _h: PackedStringArray, body: PackedByte
 	if expected_hash.length() != 64 or expected_size <= 0:
 		_start()
 		return
+	update_phase="download";progress=-1;received_bytes=0
 	status = "새 버전 %s 받는 중…" % d.get("name", "")
 	http.timeout = 180.0
 	http.download_file = PATCH + ".new"
@@ -64,6 +80,7 @@ func _on_version(result: int, code: int, _h: PackedStringArray, body: PackedByte
 		_start()
 
 func _on_patch(result: int, code: int, _h: PackedStringArray, _b: PackedByteArray, ver: int, vname: String) -> void:
+	update_phase="verifying";status="받은 파일 확인 중…";queue_redraw()
 	var candidate := PATCH + ".new"
 	var valid := result == HTTPRequest.RESULT_SUCCESS and code == 200 and FileAccess.file_exists(candidate)
 	if valid:
@@ -84,32 +101,93 @@ func _on_patch(result: int, code: int, _h: PackedStringArray, _b: PackedByteArra
 		DirAccess.remove_absolute(candidate)
 	_start()
 
-func _process(_dt: float) -> void:
-	if http and http.get_body_size() > 0:
-		progress = float(http.get_downloaded_bytes()) / http.get_body_size()
-	if status != "":
-		queue_redraw()
+func transfer_snapshot(received:int,declared_size:int,header_size:int=-1) -> Dictionary:
+	var total:int=declared_size if declared_size>0 else header_size
+	var count:int=maxi(0,received)
+	return {"received":count,"total":total,"progress":clampf(float(count)/total,0,1) if total>0 else -1.0}
+
+func transfer_detail() -> String:
+	if update_phase=="checking":return "새로운 소식을 확인하고 있어요"
+	if update_phase=="verifying":return "파일 크기와 안전성을 확인하고 있어요"
+	var total:int=expected_size if expected_size>0 else total_bytes
+	if total<=0:return "%.1f MB 받음 · 전체 크기 확인 중"%(received_bytes/1000000.0)
+	return "%d%%   %.1f / %.1f MB"%[int(clampf(progress,0,1)*100),received_bytes/1000000.0,total/1000000.0]
+
+func _process(dt: float) -> void:
+	animation_time+=minf(dt,.1)
+	if update_phase=="download" and http:
+		var data:Dictionary=transfer_snapshot(http.get_downloaded_bytes(),expected_size,http.get_body_size())
+		received_bytes=data.received;total_bytes=data.total;progress=data.progress
+	if status != "":queue_redraw()
+
+func _pixel_panel(rect:Rect2) -> void:
+	draw_rect(rect,Color("061c2b"));draw_rect(rect.grow(-1),Color("3d7a83"));draw_rect(rect.grow(-3),Color("102e3d"))
+	for point in [rect.position,Vector2(rect.end.x-3,rect.position.y),Vector2(rect.position.x,rect.end.y-3),rect.end-Vector2(3,3)]:draw_rect(Rect2(point,Vector2(3,3)),Color("dfc886"))
+
+func _label(text:String,y:float,font_size:int,color:Color) -> void:
+	var width:float=font.get_string_size(text,HORIZONTAL_ALIGNMENT_LEFT,-1,font_size).x
+	draw_string(font,Vector2(roundf((270-width)*.5),roundf(y)),text,HORIZONTAL_ALIGNMENT_LEFT,-1,font_size,color)
+
+func chase_positions(t:float,center:Vector2) -> Array[Vector2]:
+	var angle:float=t*1.55
+	return [center+Vector2(cos(angle)*43,sin(angle)*31),center+Vector2(cos(angle+.95)*43,sin(angle+.95)*31)]
+
+func _chase_sprite(texture:Texture2D,position:Vector2,length:float,flip:bool,tilt:float) -> void:
+	var h:float=length*texture.get_height()/texture.get_width()
+	draw_set_transform(loader_draw_offset+position.round()*loader_draw_scale,tilt,Vector2.ONE*loader_draw_scale)
+	draw_texture_rect(texture,Rect2(Vector2(length*.5 if flip else -length*.5,-h*.5),Vector2(-length if flip else length,h)),false)
+	draw_set_transform(loader_draw_offset,0,Vector2.ONE*loader_draw_scale)
 
 func _draw() -> void:
-	if status == "": return
-	var size: Vector2=get_viewport_rect().size
-	var art: Texture2D=update_art
-	var w: float=minf(size.x, size.y*0.70)
-	var left: float=(size.x-w)/2.0
-	var ink: Color=Color("073b36")
-	draw_rect(Rect2(Vector2.ZERO,size),Color("9bd5fb"))
-	# Approved art is sampled directly; progress and status are real runtime values.
-	draw_texture_rect_region(art,Rect2(left,size.y*.10,w,size.y*.46),Rect2(0,150,941,840))
-	var bar: Rect2=Rect2(left+w*.22,size.y*.615,w*.56,12)
-	draw_rect(bar,ink);draw_rect(bar.grow(-2),Color("c8e8f8"))
-	if progress>=0:
-		draw_rect(Rect2(bar.position+Vector2(2,2),Vector2((bar.size.x-4)*clampf(progress,0,1),8)),Color("ffda62"))
+	if status=="" or font==null:return
+	var size:Vector2=get_viewport_rect().size
+	var scale:float=minf(size.x/270.0,size.y/400.0)
+	var height:float=size.y/scale
+	var offset:Vector2=Vector2((size.x-270*scale)*.5,0)
+	loader_draw_scale=scale;loader_draw_offset=offset
+	draw_rect(Rect2(Vector2.ZERO,size),Color("081b2c"))
+	draw_set_transform(offset,0,Vector2.ONE*scale)
+	# Quiet layered pixel water, with no stretched bitmap or random frame noise.
+	for band in 12:draw_rect(Rect2(0,height*.34+band*height*.055,270,height*.055+1),Color("103446").lerp(Color("071c2e"),band/12.0))
+	for i in 22:
+		var x:int=(i*67+19)%270;var y:float=28+(i*37)%int(height*.28)
+		draw_rect(Rect2(x,y,1 if i%3 else 2,1),Color("a6d0cf",.25+.2*sin(animation_time*.7+i)))
+	var horizon:float=height*.37
+	for i in 18:
+		var tall:int=8+(i*17)%21
+		draw_rect(Rect2(i*16,horizon-tall,17,tall+6),Color("163b4a"))
+	draw_rect(Rect2(0,horizon+5,270,1),Color("4d9697",.55))
+	for i in 16:
+		var x:float=fposmod(i*47+animation_time*(1 if i%2 else -1),290)-10
+		draw_rect(Rect2(roundf(x),horizon+18+(i*23)%int(height*.5),8+i%4*3,1),Color("6bb4b5",.10))
+	draw_rect(Rect2(219,42,14,14),Color("d4e5c2"));draw_rect(Rect2(216,39,12,12),Color("081b2c"))
+	_label("작은 물결, 새로운 이야기",height*.19,10,Color("8fc5c5"))
+	_label("낚시월드",height*.19+38,29,Color("061723"))
+	_label("낚시월드",height*.19+36,29,Color("f4e8c3"))
+	var center:Vector2=Vector2(135,height*.47)
+	for i in 48:
+		var angle:float=i*TAU/48
+		var p:Vector2=(center+Vector2(cos(angle)*43,sin(angle)*31)).round()
+		draw_rect(Rect2(p,Vector2(1,1)),Color("78bab7",.25))
+	var positions:Array[Vector2]=chase_positions(animation_time,center)
+	for i in 5:
+		var angle:float=animation_time*1.55-.15-i*.12
+		draw_rect(Rect2((center+Vector2(cos(angle)*43,sin(angle)*31)+Vector2(0,10)).round(),Vector2(2,1)),Color("8fd6c2",.4-i*.06))
+	if chase_fish:_chase_sprite(chase_fish,positions[1],22,sin(animation_time*1.55+.95)>0,0)
+	if not chase_frames.is_empty():_chase_sprite(chase_frames[int(animation_time*9)%16],positions[0]+Vector2(0,-absf(sin(animation_time*9))*3),31,sin(animation_time*1.55)>0,sin(animation_time*9)*.055)
+	var panel:Rect2=Rect2(21,height*.66,228,101)
+	_pixel_panel(panel)
+	_label(status,panel.position.y+23,11,Color("f2e7ca"))
+	var bar:Rect2=Rect2(35,panel.position.y+37,200,10)
+	draw_rect(bar,Color("061b27"));draw_rect(bar.grow(-1),Color("2d5261"))
+	if update_phase=="download" and progress>=0:draw_rect(Rect2(bar.position+Vector2.ONE,Vector2(198*clampf(progress,0,1),8)),Color("b8e9b0"))
 	else:
-		var x: float=(sin(Time.get_ticks_msec()/600.0)+1)*.5*(bar.size.x-24)
-		draw_rect(Rect2(bar.position+Vector2(2+x,2),Vector2(20,8)),Color("ffda62"))
-	draw_string(font,Vector2(left,size.y*.69),status,HORIZONTAL_ALIGNMENT_CENTER,w,11,ink)
-	var detail: String="잠시만 기다려 주세요" if progress<0 else "%d%% · %.1f / %.1f MB"%[int(progress*100),http.get_downloaded_bytes()/1048576.0,http.get_body_size()/1048576.0]
-	draw_string(font,Vector2(left,size.y*.735),detail,HORIZONTAL_ALIGNMENT_CENTER,w,9,ink)
+		var x:float=fposmod(animation_time*36,222)-24
+		var begin:float=maxf(0,x);var finish:float=minf(198,x+24)
+		if finish>begin:draw_rect(Rect2(bar.position+Vector2(1+begin,1),Vector2(finish-begin,8)),Color("b8e9b0"))
+	_label(transfer_detail(),panel.position.y+66,9,Color("b6d8d7"))
+	_label("잠시만 기다려 주세요",panel.position.y+85,8,Color("71999f"))
+	draw_set_transform(Vector2.ZERO)
 
 func _start() -> void:
 	if started:

@@ -1,8 +1,8 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "updater_redesign_implementation",
+  "status": "updater_redesign_verification",
   "release_baseline": "v1.15",
-  "target_release": "v1.16",
+  "target_release": "v1.17",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/updater-redesign/HANDOFF.md",
@@ -816,6 +816,7 @@
     "approved": true,
     "release_authorized": false,
     "apk_required": true,
-    "implemented": false
+    "implemented": true,
+    "related_verified": true
   }
 }
