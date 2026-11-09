@@ -2455,7 +2455,7 @@ func _draw_notes() -> void :
 			var body: String = _ui_wrap(toast_txt, 11, 226, 2)
 			var line_count: int = body.split("\n").size()
 			_ui_style_box(sb_chip, notice_rect)
-			_text(body, Vector2(135, notice_rect.position.y + (24 if line_count == 1 else 15)), 11, Color(toast_col, minf(1.0, toast_t * 2)), true, 226)
+			_text(body, Vector2(135, notice_rect.position.y + (24 if line_count == 1 else 15)), 11, Color(Color("513b29"), minf(1.0, toast_t * 2)), true, 226)
 		elif toast_action:
 			# Text only: quick upward entrance, readable hold, then rise/fade.
 			# Keep font scale fixed so pixel letters do not shimmer.
