@@ -121,8 +121,8 @@ func _process(dt: float) -> void:
 	if status != "":queue_redraw()
 
 func _pixel_panel(rect:Rect2) -> void:
-	draw_rect(rect,Color("061c2b"));draw_rect(rect.grow(-1),Color("3d7a83"));draw_rect(rect.grow(-3),Color("102e3d"))
-	for point in [rect.position,Vector2(rect.end.x-3,rect.position.y),Vector2(rect.position.x,rect.end.y-3),rect.end-Vector2(3,3)]:draw_rect(Rect2(point,Vector2(3,3)),Color("dfc886"))
+	draw_rect(rect,Color("111c52"));draw_rect(rect.grow(-3),Color("fff5cc"))
+	for point in [rect.position+Vector2(2,2),Vector2(rect.end.x-5,rect.position.y+2),Vector2(rect.position.x+2,rect.end.y-5),rect.end-Vector2(5,5)]:draw_rect(Rect2(point,Vector2(3,3)),Color("ffda24"))
 
 func _label(text:String,y:float,font_size:int,color:Color) -> void:
 	var width:float=font.get_string_size(text,HORIZONTAL_ALIGNMENT_LEFT,-1,font_size).x
@@ -145,48 +145,56 @@ func _draw() -> void:
 	var height:float=size.y/scale
 	var offset:Vector2=Vector2((size.x-270*scale)*.5,0)
 	loader_draw_scale=scale;loader_draw_offset=offset
-	draw_rect(Rect2(Vector2.ZERO,size),Color("081b2c"))
+	draw_rect(Rect2(Vector2.ZERO,size),Color("078bfa"))
 	draw_set_transform(offset,0,Vector2.ONE*scale)
-	# Quiet layered pixel water, with no stretched bitmap or random frame noise.
-	for band in 12:draw_rect(Rect2(0,height*.34+band*height*.055,270,height*.055+1),Color("103446").lerp(Color("071c2e"),band/12.0))
-	for i in 22:
-		var x:int=(i*67+19)%270;var y:float=28+(i*37)%int(height*.28)
-		draw_rect(Rect2(x,y,1 if i%3 else 2,1),Color("a6d0cf",.25+.2*sin(animation_time*.7+i)))
-	var horizon:float=height*.37
-	for i in 18:
-		var tall:int=8+(i*17)%21
-		draw_rect(Rect2(i*16,horizon-tall,17,tall+6),Color("163b4a"))
-	draw_rect(Rect2(0,horizon+5,270,1),Color("4d9697",.55))
-	for i in 16:
-		var x:float=fposmod(i*47+animation_time*(1 if i%2 else -1),290)-10
-		draw_rect(Rect2(roundf(x),horizon+18+(i*23)%int(height*.5),8+i%4*3,1),Color("6bb4b5",.10))
-	draw_rect(Rect2(219,42,14,14),Color("d4e5c2"));draw_rect(Rect2(216,39,12,12),Color("081b2c"))
-	_label("작은 물결, 새로운 이야기",height*.19,10,Color("8fc5c5"))
-	_label("낚시월드",height*.19+38,29,Color("061723"))
-	_label("낚시월드",height*.19+36,29,Color("f4e8c3"))
+	# Bright pixel sky, green islands and saturated turquoise water.
+	var horizon:float=height*.36
+	draw_rect(Rect2(0,horizon,270,height-horizon),Color("08bed0"))
+	for band in 5:draw_rect(Rect2(0,horizon+band*(height-horizon)/5,270,(height-horizon)/5+1),[Color("12ccda"),Color("0dc5d6"),Color("08bed0"),Color("08b6cb"),Color("0bafc7")][band])
+	for cloud in [[Vector2(24,height*.075),1.0],[Vector2(202,height*.10),.65],[Vector2(226,height*.27),.60]]:
+		var p:Vector2=cloud[0];var k:float=cloud[1]
+		for piece in [Rect2(-14,0,48,7),Rect2(-5,-7,32,9),Rect2(4,-13,15,9)]:
+			draw_rect(Rect2((p+piece.position*k).round(),(piece.size*k).round()),Color("ffffff"))
+		draw_rect(Rect2((p+Vector2(-10,5)*k).round(),Vector2(41,3)*k),Color("a9e9fa"))
+	for side in 2:
+		for i in 7:
+			var x:float=i*9 if side==0 else 270-i*9-9
+			var tall:int=8+int(sin(i*.65+.2)*15)
+			draw_rect(Rect2(x,horizon-tall,10,tall),Color("087f72"))
+			draw_rect(Rect2(x,horizon-tall,6,4),Color("7be44b"))
+	draw_rect(Rect2(0,horizon-1,56,2),Color("ffe6a2"));draw_rect(Rect2(222,horizon-1,48,2),Color("ffe6a2"))
+	draw_rect(Rect2(0,horizon,270,1),Color("a0f7e6"))
+	for i in 24:
+		var x:float=fposmod(i*47+animation_time*(2 if i%2 else -2),290)-10
+		draw_rect(Rect2(roundf(x),horizon+12+(i*23)%int(height*.57),7+i%4*4,1),Color("b9ffff",.3 if i%3 else .65))
+	# Chunky cream outline, kept on the same crisp pixel grid as the UI.
+	for offset_title in [Vector2(-2,-2),Vector2(2,-2),Vector2(-2,2),Vector2(2,2)]:
+		var title:String="낚시월드";var title_width:float=font.get_string_size(title,HORIZONTAL_ALIGNMENT_LEFT,-1,32).x
+		draw_string(font,Vector2(roundf((270-title_width)*.5),roundf(height*.20))+offset_title,title,HORIZONTAL_ALIGNMENT_LEFT,-1,32,Color("fff0ab"))
+	_label("낚시월드",height*.20,32,Color("111c52"))
 	var center:Vector2=Vector2(135,height*.47)
 	for i in 48:
 		var angle:float=i*TAU/48
 		var p:Vector2=(center+Vector2(cos(angle)*43,sin(angle)*31)).round()
-		draw_rect(Rect2(p,Vector2(1,1)),Color("78bab7",.25))
+		draw_rect(Rect2(p,Vector2(1,1)),Color("e5ffff",.35))
 	var positions:Array[Vector2]=chase_positions(animation_time,center)
 	for i in 5:
 		var angle:float=animation_time*1.55-.15-i*.12
-		draw_rect(Rect2((center+Vector2(cos(angle)*43,sin(angle)*31)+Vector2(0,10)).round(),Vector2(2,1)),Color("8fd6c2",.4-i*.06))
+		draw_rect(Rect2((center+Vector2(cos(angle)*43,sin(angle)*31)+Vector2(0,10)).round(),Vector2(2,1)),Color("ffffff",.8-i*.12))
 	if chase_fish:_chase_sprite(chase_fish,positions[1],22,sin(animation_time*1.55+.95)>0,0)
 	if not chase_frames.is_empty():_chase_sprite(chase_frames[int(animation_time*9)%16],positions[0]+Vector2(0,-absf(sin(animation_time*9))*3),31,sin(animation_time*1.55)>0,sin(animation_time*9)*.055)
 	var panel:Rect2=Rect2(21,height*.66,228,101)
 	_pixel_panel(panel)
-	_label(status,panel.position.y+23,11,Color("f2e7ca"))
+	_label(status,panel.position.y+23,11,Color("111c52"))
 	var bar:Rect2=Rect2(35,panel.position.y+37,200,10)
-	draw_rect(bar,Color("061b27"));draw_rect(bar.grow(-1),Color("2d5261"))
-	if update_phase=="download" and progress>=0:draw_rect(Rect2(bar.position+Vector2.ONE,Vector2(198*clampf(progress,0,1),8)),Color("b8e9b0"))
+	draw_rect(bar,Color("111c52"));draw_rect(bar.grow(-1),Color("15275b"))
+	if update_phase=="download" and progress>=0:draw_rect(Rect2(bar.position+Vector2.ONE,Vector2(198*clampf(progress,0,1),8)),Color("ffda24"))
 	else:
 		var x:float=fposmod(animation_time*36,222)-24
 		var begin:float=maxf(0,x);var finish:float=minf(198,x+24)
-		if finish>begin:draw_rect(Rect2(bar.position+Vector2(1+begin,1),Vector2(finish-begin,8)),Color("b8e9b0"))
-	_label(transfer_detail(),panel.position.y+66,9,Color("b6d8d7"))
-	_label("잠시만 기다려 주세요",panel.position.y+85,8,Color("71999f"))
+		if finish>begin:draw_rect(Rect2(bar.position+Vector2(1+begin,1),Vector2(finish-begin,8)),Color("ffda24"))
+	_label(transfer_detail(),panel.position.y+66,9,Color("223b66"))
+	_label("잠시만 기다려 주세요",panel.position.y+85,8,Color("426581"))
 	draw_set_transform(Vector2.ZERO)
 
 func _start() -> void:

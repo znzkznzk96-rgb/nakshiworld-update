@@ -25,19 +25,39 @@ jobs:
           curl -fL --retry 2 https://github.com/godotengine/godot/releases/download/4.4.1-stable/Godot_v4.4.1-stable_linux.x86_64.zip -o "$RUNNER_TEMP/godot.zip"
           unzip -q "$RUNNER_TEMP/godot.zip" -d "$RUNNER_TEMP/godot"
           chmod +x "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
+      - name: Render updater checking download and circular chase
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p evidence
+          sudo apt-get update -qq
+          sudo apt-get install -y xvfb libgl1-mesa-dri > /dev/null
+          "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --headless --editor --path "$RUNNER_TEMP/project" --import > evidence/import.log 2>&1
+          if grep -E 'SCRIPT ERROR:|Parse Error:|Failed to load script' evidence/import.log; then exit 1; fi
+          XDG_DATA_HOME="$RUNNER_TEMP/isolated-updater" "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --headless --path "$RUNNER_TEMP/project" --script tests/updater_verify.gd > evidence/updater.log 2>&1
+          grep -F 'UPDATER_VERIFY failures=[]' evidence/updater.log
+          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/updater.log; then exit 1; fi
+          XDG_DATA_HOME="$RUNNER_TEMP/isolated-updater-preview" timeout 90 xvfb-run -a "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/updater_preview.gd -- "$GITHUB_WORKSPACE/evidence/updater" > evidence/updater-preview.log 2>&1
+          grep -F 'UPDATER_PREVIEW failures=[]' evidence/updater-preview.log
+          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/updater-preview.log; then exit 1; fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: updater-first-preview
+          path: |
+            evidence/updater/
+            evidence/updater.log
+            evidence/updater-preview.log
       - name: Import and full regression checks
         shell: bash
         run: |
           set -euo pipefail
           mkdir -p evidence
           GODOT="$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
-          "$GODOT" --headless --editor --path "$RUNNER_TEMP/project" --import > evidence/import.log 2>&1
-          if grep -E 'SCRIPT ERROR:|Parse Error:|Failed to load script' evidence/import.log; then exit 1; fi
           "$GODOT" --headless --path "$RUNNER_TEMP/project" --script tests/bake_expedition_assets.gd > evidence/bake.log 2>&1
           grep -F 'EXPEDITION_BAKE files=130' evidence/bake.log
           "$GODOT" --headless --editor --path "$RUNNER_TEMP/project" --import > evidence/prepared-import.log 2>&1
           if grep -E 'SCRIPT ERROR:|Parse Error:|Failed to load script' evidence/prepared-import.log; then exit 1; fi
-          for suite in updater body_book_telegraph fight_telegraph facility_growth night_play night_glow regional_night fight_body_size fishing_difficulty fish_presentation fish_anchor_size regional_bundle_rewards mail_gifts valley_gift108 arrival_gift testing_gift reader tile107 tier_skills training_costs tier3_motion tier2_motion management101 formation_compare forge_layout robot_ui_revision capture_robot balance096 guide_ac valley094 valley093 bait092 notification091 ui090 codex089 aquarium_b ui_guide pouch_inventory expedition_result support_utility combat_feedback bag_event_order bag_formation selected_ui bag_interaction startup_assets soul_pouch expedition_hard_balance expedition_label bundle_aqua expedition080 expedition079 soldier_dex approved_ui expedition_motion expedition expedition_save expedition_balance action_readability economy_balance rod_aura atmosphere_encounter angler_scene market_reader odds_rewards reservoir_layers owner_gauge bag_list bundles_buyback equipment visual guide shop audio_save bundle_preview rewards fish_surface regional inventory_layout personal_dex bait_roles measurement_speed village_entry_audio shared_vertical_light tile_surface_water tile_scenery; do
+          for suite in body_book_telegraph fight_telegraph facility_growth night_play night_glow regional_night fight_body_size fishing_difficulty fish_presentation fish_anchor_size regional_bundle_rewards mail_gifts valley_gift108 arrival_gift testing_gift reader tile107 tier_skills training_costs tier3_motion tier2_motion management101 formation_compare forge_layout robot_ui_revision capture_robot balance096 guide_ac valley094 valley093 bait092 notification091 ui090 codex089 aquarium_b ui_guide pouch_inventory expedition_result support_utility combat_feedback bag_event_order bag_formation selected_ui bag_interaction startup_assets soul_pouch expedition_hard_balance expedition_label bundle_aqua expedition080 expedition079 soldier_dex approved_ui expedition_motion expedition expedition_save expedition_balance action_readability economy_balance rod_aura atmosphere_encounter angler_scene market_reader odds_rewards reservoir_layers owner_gauge bag_list bundles_buyback equipment visual guide shop audio_save bundle_preview rewards fish_surface regional inventory_layout personal_dex bait_roles measurement_speed village_entry_audio shared_vertical_light tile_surface_water tile_scenery; do
             XDG_DATA_HOME="$RUNNER_TEMP/isolated-$suite" timeout 90 "$GODOT" --headless --path "$RUNNER_TEMP/project" --script "tests/${suite}_verify.gd" > "evidence/$suite.log" 2>&1 || { cat "evidence/$suite.log"; exit 1; }
             cat "evidence/$suite.log"
             grep -F 'VERIFY failures=[]' "evidence/$suite.log"
@@ -176,13 +196,6 @@ jobs:
             grep -F 'MAIL_GIFTS_PREVIEW failures=[]' "evidence/mail-$h.log"
             if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' "evidence/mail-$h.log"; then exit 1; fi
           done
-      - name: Render updater checking download and circular chase
-        shell: bash
-        run: |
-          set -euo pipefail
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-updater-preview" timeout 90 xvfb-run -a "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/updater_preview.gd -- "$GITHUB_WORKSPACE/evidence/updater" > evidence/updater-preview.log 2>&1
-          grep -F 'UPDATER_PREVIEW failures=[]' evidence/updater-preview.log
-          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/updater-preview.log; then exit 1; fi
       - name: Render body encyclopedia telegraphs at two phone heights
         shell: bash
         run: |
