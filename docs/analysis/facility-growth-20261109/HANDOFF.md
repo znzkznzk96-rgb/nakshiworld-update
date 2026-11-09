@@ -16,3 +16,5 @@ CI 42544325877: GUIDE_AC 기존 section_specs 범위가 새 설명을 포함하�
 CI 42544628020 기존 게임회귀 전부 통과, 마지막 시설 resume fixture가 검사사이 정상 누적 수입을 0으로 가정하여 실패. 예상금액에 실제 경과시간·3h상한 반영. 생산코드 변경 없음. 별도10분 경과fixture 실제 재접속 검사 통과 후 최종 CI 진행.
 
 현재 후보 소스84aa4ab434189ff9cbda560630f0c8f63cdf596e·최종 CI42545236211. 재접속 예상수입 보정 및 실제10분경과 fixture 통과. CI게임코드 수정은 도움말 범위 수정 이후 없음. 다음: native/시설24화면/후보 압축본 검사→PR52 준비전환/merge→공개검증.
+
+최종 CI42545236211 성공·고유91검사/native/PCK 통과. 시설24 PNG 원본 디코드·양높이 전수화면 검수 통과. 상세 docs/releases/114/VERIFICATION.json 및 SCREENS.json. 후보13643875288/fingerprint622353ad32c9b1a7e6567fc8f022d33a493930dc3416a9f7a00e6de4e440b3be. 다음:PR52 merge로 동일후보 공개·실제3파일/운영 다운로드 검증(미공개 상태).
