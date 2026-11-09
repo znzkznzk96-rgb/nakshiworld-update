@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "soldier_skill_cues_preview_pending",
+  "status": "soldier_skill_cues_native_verified_full_ci_running",
   "release_baseline": "v1.15",
   "target_release": "v1.18",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/soldier-skill-cues/HANDOFF.md",
-  "current_task": "몸짓도감12종 전조/재감기 시연 연동 및 역돌진 불필요 링 수정",
-  "next_step": "병사스킬 선행실화면 검수/전체CI; 공개v1.17유지",
+  "current_task": "병사 스킬 발동 아이콘·짧은빛·스킬 피해 구분",
+  "next_step": "CI42634195315 전체검사 결과 확인·기록. 공개v1.17 유지, 새배포 미승인.",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -862,6 +862,12 @@
     "release_authorized": false,
     "timing_damage_unchanged": true,
     "implemented": true,
-    "parity_cases": 45
+    "parity_cases": 45,
+    "source_commit": "e169343fe196a2087e4099f552dfe399981c7b4f",
+    "ci_run": 42634195315,
+    "ci_status": "in_progress",
+    "native_screens": 12,
+    "native_verified": true,
+    "verification": "docs/qa/soldier-skill-cues/VERIFICATION.json"
   }
 }
