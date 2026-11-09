@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "updater_incremental_approved",
+  "status": "updater_apk_built_native_verified_full_ci_running",
   "release_baseline": "v1.18",
   "target_release": "v1.18",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/updater-incremental/HANDOFF.md",
   "current_task": "로더 고양이 중앙 경계·변경 데이터 다운로드 수정 및 APK 전달",
-  "next_step": "PCK 인덱스/Range 기반 동일 파일 재사용·실제 전송량 게이지 구현, 검증 후 동일서명 APK 공유",
+  "next_step": "CI42640701607 전체회귀 완료 확인 후 준비된 동일서명 APK 전달",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -879,6 +879,13 @@
     "publication_attempt": 2,
     "gateway_run": 42636515700,
     "verification": "docs/releases/118/PUBLISHED.json",
+    "phone_verified": false
+  },
+  "updater_incremental": {
+    "verification": "docs/qa/updater-incremental/VERIFICATION.json",
+    "ci_run": 42640701607,
+    "ci_status": "in_progress",
+    "apk_built": true,
     "phone_verified": false
   }
 }
