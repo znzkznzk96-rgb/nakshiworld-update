@@ -14,25 +14,45 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
-      - name: Restore verified v1.15 source and overlay
+      - name: Restore verified v1.16 source and overlay
         shell: bash
         run: |
           set -euo pipefail
           echo "VERIFICATION_STARTED=$(date +%s)" >> "$GITHUB_ENV"
-          curl -fL --retry 2 https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.15/game-source.zip -o "$RUNNER_TEMP/source.zip"
-          echo "561dfb3a469fb0d2a4b712d7a17f4a770bd7ddabbc040bb3df3e0cdcbb20fc25  $RUNNER_TEMP/source.zip" | sha256sum -c -
+          curl -fL --retry 2 https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.16/game-source.zip -o "$RUNNER_TEMP/source.zip"
+          echo "c500f3ca542766816a4dd1d527980f12c18d95bb36ca92f054c7e706a7450e70  $RUNNER_TEMP/source.zip" | sha256sum -c -
           python3 automation/restore_source.py "$RUNNER_TEMP/source.zip" "$RUNNER_TEMP/project"
           curl -fL --retry 2 https://github.com/godotengine/godot/releases/download/4.4.1-stable/Godot_v4.4.1-stable_linux.x86_64.zip -o "$RUNNER_TEMP/godot.zip"
           unzip -q "$RUNNER_TEMP/godot.zip" -d "$RUNNER_TEMP/godot"
           chmod +x "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
+      - name: Render updater checking download and circular chase
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p evidence
+          sudo apt-get update -qq
+          sudo apt-get install -y xvfb libgl1-mesa-dri > /dev/null
+          "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --headless --editor --path "$RUNNER_TEMP/project" --import > evidence/import.log 2>&1
+          if grep -E 'SCRIPT ERROR:|Parse Error:|Failed to load script' evidence/import.log; then exit 1; fi
+          XDG_DATA_HOME="$RUNNER_TEMP/isolated-updater" "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --headless --path "$RUNNER_TEMP/project" --script tests/updater_verify.gd > evidence/updater.log 2>&1
+          grep -F 'UPDATER_VERIFY failures=[]' evidence/updater.log
+          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/updater.log; then exit 1; fi
+          XDG_DATA_HOME="$RUNNER_TEMP/isolated-updater-preview" timeout 90 xvfb-run -a "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/updater_preview.gd -- "$GITHUB_WORKSPACE/evidence/updater" > evidence/updater-preview.log 2>&1
+          grep -F 'UPDATER_PREVIEW failures=[]' evidence/updater-preview.log
+          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/updater-preview.log; then exit 1; fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: updater-first-preview
+          path: |
+            evidence/updater/
+            evidence/updater.log
+            evidence/updater-preview.log
       - name: Import and full regression checks
         shell: bash
         run: |
           set -euo pipefail
           mkdir -p evidence
           GODOT="$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
-          "$GODOT" --headless --editor --path "$RUNNER_TEMP/project" --import > evidence/import.log 2>&1
-          if grep -E 'SCRIPT ERROR:|Parse Error:|Failed to load script' evidence/import.log; then exit 1; fi
           "$GODOT" --headless --path "$RUNNER_TEMP/project" --script tests/bake_expedition_assets.gd > evidence/bake.log 2>&1
           grep -F 'EXPEDITION_BAKE files=130' evidence/bake.log
           "$GODOT" --headless --editor --path "$RUNNER_TEMP/project" --import > evidence/prepared-import.log 2>&1

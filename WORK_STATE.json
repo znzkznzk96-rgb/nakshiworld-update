@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "v116_published_verified",
+  "status": "v117_publication_and_apk_preparation",
   "release_baseline": "v1.15",
-  "target_release": "v1.16",
+  "target_release": "v1.17",
   "deployed": true,
   "phone_verified": false,
-  "handoff": "docs/releases/116/HANDOFF.md",
+  "handoff": "docs/qa/updater-redesign/HANDOFF.md",
   "current_task": "몸짓도감12종 전조/재감기 시연 연동 및 역돌진 불필요 링 수정",
-  "next_step": "휴대폰v1.16 적용/체감 확인 대기; 새게임변경 및 새패치 배포미승인",
+  "next_step": "검증동일PCK공개·기존서명APK준비·운영다운로드확인",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -120,7 +120,7 @@
     "production_balance_changed": false,
     "phone_tested": false
   },
-  "release_authorized": false,
+  "release_authorized": true,
   "balance110": {
     "applied": true,
     "deployed": true,
@@ -257,18 +257,17 @@
   },
   "release_candidate": {
     "version": {
-      "code": 116,
-      "name": "1.16"
+      "code": 117,
+      "name": "1.17"
     },
-    "artifact_id": 13657457850,
-    "input_fingerprint": "bafb97b1e4eef9f148486580a3e0308a4fcbc8e98a63eeb52fc3e75cde9c532c",
-    "source_commit": "601d97555620f2208dddf82b28e9c429c801865f",
-    "run": 42581154603,
-    "ready": false,
-    "published": true,
-    "release_authorized": false,
-    "verification": "docs/qa/body-book-telegraph/VERIFICATION.json",
-    "rebuild": false
+    "artifact_id": 13676398457,
+    "input_fingerprint": "e3230263fe52564e179aa24c7247652c0f6b6e58db33fe66bb156677e864edcb",
+    "source_commit": "31e8924487b91bc1f6f5d3fb4c56b8d30807efc1",
+    "run": 42621403752,
+    "ready": true,
+    "published": false,
+    "release_authorized": true,
+    "verification": "docs/qa/updater-redesign/MOTION_VERIFICATION.json"
   },
   "release_resume_run": 42424430555,
   "fight_body_size": {
@@ -811,5 +810,39 @@
     "release_id": 438861058,
     "gateway_run": 42582668334,
     "phone_verified": false
+  },
+  "updater_redesign": {
+    "approved": true,
+    "release_authorized": true,
+    "apk_required": true,
+    "implemented": true,
+    "related_verified": true,
+    "source_commit": "dd41bdf69fde9c7876877860b508e8e7d06bf7cf",
+    "ci_run": 42585007838,
+    "verified": false,
+    "verification": "docs/qa/updater-redesign/VERIFICATION.json",
+    "ci_status": "success",
+    "apk_built": false,
+    "phone_verified": false,
+    "bright_design_approved": true,
+    "bright_ci_run": 42608462830,
+    "bright_source": "a1e8ec90a4836736cad55fe2a45cc6a889bf84a9",
+    "bright_related_verified": true,
+    "bright_verification": "docs/qa/updater-redesign/BRIGHT_VERIFICATION.json",
+    "reference": "1000102442.png",
+    "reference_composition_approved": true,
+    "current_code_visual_final_approved": true,
+    "pixellab_cat_approved": true,
+    "logo_sway_approved": true,
+    "pixellab_job": "da882c8e-1db6-43b4-a402-825d50a9767a",
+    "pixellab_job_status": "completed",
+    "pixellab_actual_generations": 1,
+    "motion_implemented": true,
+    "motion_verified": true,
+    "motion_ci_run": 42621403752,
+    "motion_source": "31e8924487b91bc1f6f5d3fb4c56b8d30807efc1",
+    "motion_related_verified": true,
+    "motion_verification": "docs/qa/updater-redesign/MOTION_VERIFICATION.json",
+    "apk_bootstrap_version": 117
   }
 }
