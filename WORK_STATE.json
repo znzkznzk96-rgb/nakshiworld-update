@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "body_book_telegraph_sync",
+  "status": "body_book_telegraph_full_verification",
   "release_baseline": "v1.15",
   "target_release": "v1.16",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/body-book-telegraph/HANDOFF.md",
   "current_task": "몸짓도감12종 전조/재감기 시연 연동 및 역돌진 불필요 링 수정",
-  "next_step": "같은 렌더러의 별도 시연 상태 연결·관련 검사·실제도감 화면 검수",
+  "next_step": "전체CI 및 두높이 도감12종 화면검수 후 work에 결과저장; 공개v1.15 유지",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -264,11 +264,12 @@
     "input_fingerprint": "62f6b949a560986908115629d08c837c7d6f40cff5ce2e9ed2477e9492246175",
     "source_commit": "2ff57dd839ef97802268e8c7eecc455039429c25",
     "run": 42571831399,
-    "ready": true,
+    "ready": false,
     "published": true,
     "release_authorized": false,
     "verification": "docs/qa/fight-telegraph/VERIFICATION.json",
-    "rebuild": false
+    "rebuild": false,
+    "note": "published v1.15 candidate historical; v1.16 verification pending"
   },
   "release_resume_run": 42424430555,
   "fight_body_size": {
@@ -780,6 +781,9 @@
     "deployed": false,
     "release_authorized": false,
     "charge_ring_cause": "turn->charge opened generic .25s resume ring",
-    "user_play_feedback": "v1.15 fighting cues feel much better; reported charge ring"
+    "user_play_feedback": "v1.15 fighting cues feel much better; reported charge ring",
+    "implemented": true,
+    "related_verified": true,
+    "verification": "docs/qa/body-book-telegraph/VERIFICATION.json"
   }
 }

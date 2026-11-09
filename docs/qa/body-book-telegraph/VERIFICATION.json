@@ -1,0 +1,31 @@
+{
+  "baseline": "v1.15",
+  "baseline_source_zip_sha256": "561dfb3a469fb0d2a4b712d7a17f4a770bd7ddabbc040bb3df3e0cdcbb20fc25",
+  "godot": "4.4.1.stable",
+  "local_passed": [
+    "body_book_telegraph",
+    "fight_telegraph",
+    "guide",
+    "action_readability",
+    "fishing_difficulty",
+    "audio_save",
+    "release_candidate 7 tests",
+    "import"
+  ],
+  "ring_cause": "turn->charge included in generic .25s resume signal",
+  "fix": "never open/return resume ring during charge; continuous reeling unchanged",
+  "book_rendering": "private LessonModel + private telegraph instance uses same sample()/paint() as gameplay",
+  "checks": [
+    "all12 lesson cards and phase progress",
+    "spike warning description/animation",
+    "ring->success flash for rest/tell/dive/spike/jump/skim",
+    "real charge has no circle during first .2s held or released",
+    "real release->rest ring retained",
+    "book leaves live S/hold/mouth/rewards/telegraph windows/RNG unchanged"
+  ],
+  "full_ci": "pending",
+  "public_deployed": false,
+  "release_authorized": false,
+  "public_version": "v1.15",
+  "candidate_version": "1.16"
+}

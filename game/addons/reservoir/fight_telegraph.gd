@@ -40,19 +40,20 @@ func note_behavior(m) -> void:
 	behavior=next;duration=maxf(0.001,float(m.S.get("bt",1)));started=m.clock
 	if old=="tell" and next=="swim": cancel_until=m.clock+0.12
 	# A chained warning never opens a misleading reeling ring.
-	if next in ["swim","rest","charge"] and old not in ["","swim","rest","charge"]:
+	if next in ["swim","rest"] and old not in ["","swim","rest","charge"]:
 		reel_until=m.clock+PERFECT_WINDOW;reel_used=false
+	if next=="charge": reel_until=-1;reel_used=true
 	previous_reel=can_reel(m)
 
 func observe(m) -> void:
 	note_behavior(m)
 	var now: bool=can_reel(m)
-	if now and not previous_reel:
+	if now and not previous_reel and str(m.S.get("beh",""))!="charge":
 		reel_until=m.clock+PERFECT_WINDOW;reel_used=false
 	previous_reel=now
 
 func ring(m) -> Dictionary:
-	if not can_reel(m): return {}
+	if not can_reel(m) or str(m.S.get("beh",""))=="charge": return {}
 	if float(m.S.get("landUntil",0))>0 and m.clock<=float(m.S.landUntil) and not bool(m.S.get("jumpUsed",false)):
 		return {"until":float(m.S.landUntil),"length":0.5,"kind":"landing"}
 	if float(m.S.get("skimEnd",0))>0 and m.clock<=float(m.S.skimEnd) and not bool(m.S.get("skimUsed",false)):
@@ -198,3 +199,44 @@ func draw(m, center: Vector2, body_length: float, group: bool=false) -> void:
 		var alpha:float=clampf((flash_until-m.clock)/0.16,0,1)
 		m._fish_effect_rect(Rect2(point-Vector2(4,0),Vector2(9,1)),Color(1,1,1,alpha))
 		m._fish_effect_rect(Rect2(point-Vector2(0,4),Vector2(1,9)),Color(1,1,1,alpha))
+
+# Encyclopedia uses a private model but the exact same sample()/paint() as play.
+class LessonModel extends RefCounted:
+	var S:Dictionary={}
+	var clock:float=0
+var demo_event := ""
+var demo_last:Dictionary={}
+func reset_demo() -> void:
+	reset();demo_event="";demo_last={}
+
+func lesson_descriptor(key:String, frame:Dictionary) -> Dictionary:
+	var model:=LessonModel.new()
+	var b:String=frame.beh
+	var k:float=frame.k
+	model.S={"phase":"fight","beh":"rest" if b=="land" else ("swim" if b=="spike_warn" else b),"bt":1.0-k,"spike":0.25 if b=="spike" else 0.0,"spikeWarn":SPIKE_WARNING*(1.0-k) if b=="spike_warn" else 0.0,"F":0.0,"holdT":0.6*k,"circA":k*TAU,"thT":float(frame.motion_time),"cloneT":minf(.31,k*1.2),"jumpUsed":false,"skimUsed":false}
+	duration=1;reel_until=-1;reel_used=true;cancel_until=-1
+	var opportunity:bool=false
+	if b=="land":
+		model.clock=k*.5;model.S.landUntil=.5;opportunity=true
+	elif key=="skim" and b=="rest":
+		model.clock=k*.4;model.S.skimEnd=.4;opportunity=true
+	elif b=="rest" and key in ["rest","tell","dive","spike"]:
+		model.clock=k*PERFECT_WINDOW;reel_until=PERFECT_WINDOW;reel_used=false;opportunity=true
+	var data:Dictionary=sample(model)
+	var offset:float=float(frame.step_duration)*.65
+	var age:float=float(frame.step_elapsed)-offset
+	var success:bool=opportunity and age>=0
+	var flash:float=clampf(1.0-age/.32,0,1) if success else 0.0
+	if success:data={}
+	return {"cue":data,"flash":flash,"success":success,"event":"%s:%d:%d"%[key,int(frame.loop),int(frame.index)],"behavior":b}
+
+func draw_lesson(m,key:String,frame:Dictionary,origin:Vector2,mouth:Vector2) -> void:
+	demo_last=lesson_descriptor(key,frame)
+	icon_bounds=Rect2(origin-Vector2.ONE,Vector2(15,15)) if not demo_last.cue.is_empty() else Rect2()
+	paint(m,demo_last.cue,origin)
+	if float(demo_last.flash)>0:
+		var a:float=demo_last.flash
+		m._ui_rect(Rect2(mouth.round()-Vector2(4,0),Vector2(9,1)),Color(1,1,1,a))
+		m._ui_rect(Rect2(mouth.round()-Vector2(0,4),Vector2(1,9)),Color(1,1,1,a))
+		if demo_event!=str(demo_last.event):
+			demo_event=demo_last.event;m.audio_feedback.sound(m,"record",-19.0,1.3)
