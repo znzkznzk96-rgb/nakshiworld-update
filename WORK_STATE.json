@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "facility_growth_published_verified",
+  "status": "bite_preview_size_adjustment",
   "release_baseline": "v1.14",
   "target_release": "v1.14",
   "deployed": true,
   "phone_verified": false,
-  "handoff": "docs/releases/114/HANDOFF.md",
-  "current_task": "4시설 지역별 성장 조정 v1.14 공개·운영 검증 완료",
-  "next_step": "게임 내 업데이트 후 휴대폰 시설 단계·어장 잔여량·지역별 구매 제한과 수입 체감 확인; 파이팅 변경은 보류",
+  "handoff": "docs/qa/bite-preview-size/HANDOFF.md",
+  "current_task": "훅 전 찌 접근 물고기 크기 비슷하게 보정",
+  "next_step": "입질 그림28~34px 보정·관련 표시/파이팅 회귀검사 후 작업브랜치 저장",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -710,5 +710,15 @@
     "phone_verified": false,
     "release_authorized": false,
     "verification": "docs/releases/114/PUBLISHED.json"
+  },
+  "bite_preview_size": {
+    "requested": true,
+    "logical_length_range": [
+      28,
+      34
+    ],
+    "scope": "wait/hook bobber fish only",
+    "deployed": false,
+    "release_authorized": false
   }
 }
