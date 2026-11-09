@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "updater_bright_preview_pending",
+  "status": "updater_bright_related_verified_full_ci_pending",
   "release_baseline": "v1.15",
   "target_release": "v1.17",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/updater-redesign/HANDOFF.md",
   "current_task": "몸짓도감12종 전조/재감기 시연 연동 및 역돌진 불필요 링 수정",
-  "next_step": "CI42608462830의 updater-first-preview 확인",
+  "next_step": "전체CI42608462830 결과 확인; 공개v1.16유지,새APK/배포미승인",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -828,6 +828,8 @@
     "phone_verified": false,
     "bright_design_approved": true,
     "bright_ci_run": 42608462830,
-    "bright_source": "a1e8ec90a4836736cad55fe2a45cc6a889bf84a9"
+    "bright_source": "a1e8ec90a4836736cad55fe2a45cc6a889bf84a9",
+    "bright_related_verified": true,
+    "bright_verification": "docs/qa/updater-redesign/BRIGHT_VERIFICATION.json"
   }
 }

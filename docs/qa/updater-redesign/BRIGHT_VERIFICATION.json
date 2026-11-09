@@ -1,0 +1,27 @@
+{
+  "source_commit": "a1e8ec90a4836736cad55fe2a45cc6a889bf84a9",
+  "ci_run": 42608462830,
+  "related_verify": "UPDATER_VERIFY failures=[]",
+  "native_preview": "UPDATER_PREVIEW failures=[]",
+  "artifact": 13669855273,
+  "artifact_sha256": "6ffd742c60564fee896fc4805d4d5237315d68f3c4ae7e139622dcb2457315a4",
+  "png_count": 22,
+  "png_decode": "pass",
+  "zip_crc": "pass",
+  "phone_heights": [
+    480,
+    660,
+    740
+  ],
+  "manual_review": [
+    "download h480",
+    "checking h660",
+    "download h740"
+  ],
+  "full_ci": "in_progress",
+  "public_release": "v1.16",
+  "deployed": false,
+  "apk_built": false,
+  "release_authorized": false,
+  "note": "Existing approved cat/fish sprites retained; generated mockup is color/layout direction, not an exact character replacement."
+}
