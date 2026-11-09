@@ -1,0 +1,17 @@
+{
+  "version": "1.17",
+  "version_code": 117,
+  "package": "com.sangjun.dotfishing",
+  "size": 83124743,
+  "sha256": "1ab7c5527e5fd90b9577283914048dadf3259c6867ac56eeedfbc2799afdda46",
+  "signer_sha256": "5939b25954f72e4aaf2703d5f5f3bf99e400b6ee9891c66af8e4ff2773feb763",
+  "matches_provided_original_signer": true,
+  "signature_v1_v2_v3": true,
+  "zipalign_16kb": true,
+  "zip_crc": true,
+  "unchanged_native_files": 2,
+  "classes_and_resources_unchanged": true,
+  "approved_icon_resources": 24,
+  "bootstrap_test": "APK_BOOTSTRAP117_VERIFY failures=[]",
+  "phone_install_verified": false
+}

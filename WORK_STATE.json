@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "v117_publication_and_apk_preparation",
+  "status": "v117_published_apk_delivered_verified",
   "release_baseline": "v1.15",
   "target_release": "v1.17",
   "deployed": true,
   "phone_verified": false,
-  "handoff": "docs/qa/updater-redesign/HANDOFF.md",
+  "handoff": "docs/releases/117/HANDOFF.md",
   "current_task": "몸짓도감12종 전조/재감기 시연 연동 및 역돌진 불필요 링 수정",
-  "next_step": "검증동일PCK공개·기존서명APK준비·운영다운로드확인",
+  "next_step": "새APK 덮어설치 후 휴대폰 시작화면/세이브 확인 대기; 새패치배포미승인",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -120,7 +120,7 @@
     "production_balance_changed": false,
     "phone_tested": false
   },
-  "release_authorized": true,
+  "release_authorized": false,
   "balance110": {
     "applied": true,
     "deployed": true,
@@ -173,7 +173,7 @@
     "ledger": "analysis/tile-layer-art-v1/PLANT_LEDGER.json",
     "quality": "analysis/tile-layer-art-v1/PLANT_QA.json"
   },
-  "public_release": "v1.16",
+  "public_release": "v1.17",
   "shared_vertical_light": {
     "applied": true,
     "regions": [
@@ -264,9 +264,9 @@
     "input_fingerprint": "e3230263fe52564e179aa24c7247652c0f6b6e58db33fe66bb156677e864edcb",
     "source_commit": "31e8924487b91bc1f6f5d3fb4c56b8d30807efc1",
     "run": 42621403752,
-    "ready": true,
-    "published": false,
-    "release_authorized": true,
+    "ready": false,
+    "published": true,
+    "release_authorized": false,
     "verification": "docs/qa/updater-redesign/MOTION_VERIFICATION.json"
   },
   "release_resume_run": 42424430555,
@@ -813,16 +813,16 @@
   },
   "updater_redesign": {
     "approved": true,
-    "release_authorized": true,
+    "release_authorized": false,
     "apk_required": true,
     "implemented": true,
     "related_verified": true,
     "source_commit": "dd41bdf69fde9c7876877860b508e8e7d06bf7cf",
     "ci_run": 42585007838,
-    "verified": false,
+    "verified": true,
     "verification": "docs/qa/updater-redesign/VERIFICATION.json",
     "ci_status": "success",
-    "apk_built": false,
+    "apk_built": true,
     "phone_verified": false,
     "bright_design_approved": true,
     "bright_ci_run": 42608462830,
@@ -843,6 +843,18 @@
     "motion_source": "31e8924487b91bc1f6f5d3fb4c56b8d30807efc1",
     "motion_related_verified": true,
     "motion_verification": "docs/qa/updater-redesign/MOTION_VERIFICATION.json",
-    "apk_bootstrap_version": 117
+    "apk_bootstrap_version": 117,
+    "deployed": true,
+    "full_ci_status": "success",
+    "apk_verification": "docs/releases/117/APK_VERIFICATION.json"
+  },
+  "publication_v117": {
+    "source_commit": "31e8924487b91bc1f6f5d3fb4c56b8d30807efc1",
+    "release_id": 439182325,
+    "publication_run": 42627907414,
+    "gateway_run": 42628222139,
+    "verification": "docs/releases/117/PUBLISHED.json",
+    "apk_name": "NAKSHIWORLD_1.17.apk",
+    "phone_verified": false
   }
 }

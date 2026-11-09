@@ -1,0 +1,40 @@
+{
+  "version": {
+    "code": 117,
+    "name": "1.17"
+  },
+  "source_commit": "31e8924487b91bc1f6f5d3fb4c56b8d30807efc1",
+  "assets": {
+    "version.json": {
+      "size": 199,
+      "sha256": "251d7ec55f0ff92a752897d93adddc9cde14d04e37bd281279000fbf49addf94",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.17/version.json"
+    },
+    "patch.pck": {
+      "size": 59381504,
+      "sha256": "e9a75c55db6b5df873595892b6ab8ccadbab0351277d4027eba2074c561c71b6",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.17/patch.pck"
+    },
+    "game-source.zip": {
+      "size": 63512039,
+      "sha256": "f3c18b4d69fe884bedba8e751167788edddada9b0b8a0bacd7207ed4c1b9fef9",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.17/game-source.zip"
+    }
+  },
+  "phone_verified": false,
+  "source_overlay_files_verified": 641,
+  "zip_crc_verified": true,
+  "public_assets_verified": true,
+  "gateway": {
+    "verified": true,
+    "run": 42628222139,
+    "attempt": 1
+  },
+  "release_id": 439182325,
+  "publication_run": 42627907414,
+  "publication_attempt": 2,
+  "candidate_run": 42621403752,
+  "candidate_artifact": 13676398457,
+  "rebuild": false,
+  "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v1.17"
+}

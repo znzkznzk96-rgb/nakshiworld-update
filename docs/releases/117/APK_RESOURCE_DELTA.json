@@ -1,0 +1,12 @@
+{
+  "sealed_source": "31e8924487b91bc1f6f5d3fb4c56b8d30807efc1",
+  "sealed_pck_sha256": "e9a75c55db6b5df873595892b6ab8ccadbab0351277d4027eba2074c561c71b6",
+  "apk_only_changes": {
+    "added": "apk_bootstrap117.gd",
+    "remapped": "root.gd.remap",
+    "BUILD_CODE": 117,
+    "BUILD_NAME": "1.17"
+  },
+  "bootstrap_sha256": "a96656b9f3a35b4fa9f5feec1aca91bfa67870c0faf55aea89e3fbe07b1e7cef",
+  "resource_count": 2716
+}
