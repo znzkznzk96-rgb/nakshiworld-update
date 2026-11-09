@@ -57,7 +57,11 @@
     "step": "Verify all six owner gauge layouts before full checks",
     "correction": "Create preview output directory before save; assert save_png return code"
   },
-  "full_ci": "pending checkpoint",
+  "full_ci": {
+    "run": 42710779190,
+    "source_commit": "6902a57879f3202cb0f31e20d31bc69db64505cf",
+    "status": "in_progress"
+  },
   "deployed": false,
   "public_release": "v1.18",
   "phone_verified": false

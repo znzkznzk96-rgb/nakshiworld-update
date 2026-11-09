@@ -909,6 +909,8 @@
     "native_screens": 28,
     "verification": "docs/qa/owner-gauge-alignment/VERIFICATION.json",
     "deployed": false,
-    "release_authorized": false
+    "release_authorized": false,
+    "ci_run": 42710779190,
+    "ci_status": "in_progress"
   }
 }
