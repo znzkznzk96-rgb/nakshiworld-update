@@ -7,7 +7,7 @@
   "phone_verified": false,
   "handoff": "docs/qa/updater-redesign/HANDOFF.md",
   "current_task": "몸짓도감12종 전조/재감기 시연 연동 및 역돌진 불필요 링 수정",
-  "next_step": "선행 updater-first-preview 실제화면 확인; 전체CI는 별도 상태 기록",
+  "next_step": "CI42608462830의 updater-first-preview 확인",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -826,6 +826,8 @@
     "ci_status": "success",
     "apk_built": false,
     "phone_verified": false,
-    "bright_design_approved": true
+    "bright_design_approved": true,
+    "bright_ci_run": 42608462830,
+    "bright_source": "a1e8ec90a4836736cad55fe2a45cc6a889bf84a9"
   }
 }
