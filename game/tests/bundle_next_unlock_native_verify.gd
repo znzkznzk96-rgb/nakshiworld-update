@@ -15,7 +15,7 @@ func run():
  m.title_open=false;m.lesson_open=false;m.trans={};m.TUT.done=true;m.tip_t=0;m.toast_t=0;m.judge_t=0;m.S={"phase":"idle"}
  m.progression.restore({});m.region_shop.unlocked=[0,1,2];m.progression.bundle_values={"0:2":17600}
  m._switch_scene("village");m.V.open_shop(m,"museum")
- var cases=[[0,2,"reservoir_owner",5940],[1,1,"valley_sub",31200],[1,2,"valley_owner",93600]]
+ var cases=[[0,2,"reservoir_owner",5940],[1,1,"valley_sub",31200],[1,2,"valley_owner",93600],[2,1,"tile_sub",463500],[2,2,"tile_owner",1390500]]
  for item in cases:
   m.V.bundle_preview.region=item[0];m.V.bundle_preview.tab=item[1];m.queue_redraw()
   await capture(out.path_join(item[2]+".png"))

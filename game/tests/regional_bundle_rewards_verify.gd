@@ -10,9 +10,11 @@ func run() -> void:
  for area in 3:
   for kind in [1,2]:
    p.restore({});m.gold=0;m.souls=0;m.pearl=0
+   ui.region=area;ui.tab=kind;m.text_items=[];ui.draw(m,540)
+   if area>0:check(m.text_items.any(func(it):return "다음 해금비의" in str(it[2])),"next unlock cost caption")
    var key=p.bundle_key(area,kind)
    p.extra_completed[key]=true;p.bundle_values[key]=1001
-   var expected: int=([1201,31200,31200][area] if kind==1 else [5940,93600,93600][area])
+   var expected: int=([1201,31200,463500][area] if kind==1 else [5940,93600,1390500][area])
    check(ui.reward_amount(m,area,kind)==expected and ui.reward_preview_amount(m,area,kind)==expected,"display exact amount")
    if area>0 or kind==2:
     p.bundle_values[key]=999999

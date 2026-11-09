@@ -1,0 +1,51 @@
+{
+  "date": "2026-11-10",
+  "baseline": "v1.18 full source + work overlay",
+  "godot": "4.4.1.stable.official.49a5bc7b6",
+  "reward_gold": {
+    "reservoir_owner": 5940,
+    "valley_sub": 31200,
+    "valley_owner": 93600,
+    "tile_sub": 463500,
+    "tile_owner": 1390500
+  },
+  "tile_basis": {
+    "next_unlock_cost": 4635000,
+    "sub_ratio": 0.1,
+    "owner_ratio": 0.3
+  },
+  "related_suites": {
+    "regional_bundle_rewards": "pass",
+    "bundles_buyback": "pass",
+    "tile107": "pass",
+    "odds_rewards": "pass",
+    "bundle_preview": "pass",
+    "rewards": "pass",
+    "regional": "pass"
+  },
+  "native": {
+    "result": "BUNDLE_NEXT_UNLOCK_NATIVE_VERIFY failures=[]",
+    "screens": 6,
+    "png_sha256": {
+      "reservoir_owner.png": "72b9f1d0309babc92db1830f63eb768579c7bb1754d05fb14cbced898ea7098c",
+      "tile_owner.png": "4c86290ba8a876264ed65398c9062f52d5e461d9e7297f60f9249c664fc352a1",
+      "selection.png": "35a92a63308de94bb3761651301ce2d6e42c44d0ba08da55c3b5f9da668ae318",
+      "tile_sub.png": "856798a8c7e8525b053c4c9f3874ced3fce8be05aecef5eec4418fd0c2dbd42c",
+      "valley_owner.png": "09dabcefb8a6b91718e43f7e4e03ff294e5b5de7b5a09c0b37ae10e9bfdd05ff",
+      "valley_sub.png": "f3c6d72b5d55667ea9ad45d7c60541fe2345023f6abd18914e98eff3829d5252"
+    },
+    "preview": "tile-rewards.webp"
+  },
+  "preserved": [
+    "donation species and consumption",
+    "claimed receipt IDs",
+    "save-failure rollback",
+    "souls 50 / pearls 6",
+    "no automatic retroactive difference",
+    "village notice and owner gauge fixes"
+  ],
+  "full_ci": "pending",
+  "deployed": false,
+  "release_authorized": false,
+  "public_release": "v1.18"
+}
