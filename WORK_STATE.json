@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "updater_redesign_verified_not_deployed",
+  "status": "updater_bright_redesign_implementation",
   "release_baseline": "v1.15",
   "target_release": "v1.17",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/updater-redesign/HANDOFF.md",
   "current_task": "몸짓도감12종 전조/재감기 시연 연동 및 역돌진 불필요 링 수정",
-  "next_step": "새 로더 적용에는 동일서명 APK 업데이트 필요; 새배포 승인 대기,공개v1.16유지",
+  "next_step": "밝은 시안 색감/패널 적용 후 실화면 우선 확인; 공개v1.16유지",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -821,10 +821,11 @@
     "related_verified": true,
     "source_commit": "dd41bdf69fde9c7876877860b508e8e7d06bf7cf",
     "ci_run": 42585007838,
-    "verified": true,
+    "verified": false,
     "verification": "docs/qa/updater-redesign/VERIFICATION.json",
     "ci_status": "success",
     "apk_built": false,
-    "phone_verified": false
+    "phone_verified": false,
+    "bright_design_approved": true
   }
 }
