@@ -10,3 +10,5 @@
 구현 checkpoint: 시설 단일원본 facility_growth.gd·구매/표시/이행/우편 연결. 시설 신규검사 및 독립 재접속 통과, aquarium_b/audio_save/bundle_aqua/guide/ui_guide/shop 관련6검사 통과. 초기 검사실패는 JSON 숫자형 깊은 비교와 미저장 fixture의 백업 비교 오류였고 fixture 정규화/구매전 저장으로 수정; 생산 이행손실 없음 확인. 남은 일: CI 전체검사·24화면 검수·후보 검증·공개 및 운영 검증.
 
 원격 구현 b52fa9143f4f1582323e12662b300b8eb667497e. 전체 CI 42544325877 실행 중(verify-work, 배포 없음). 후보 도구7검사·diff 공백 검사 통과. 기준 전체소스/후보 fingerprint 도구메타를 실제 최신v1.13으로 고정.
+
+CI 42544325877: GUIDE_AC 기존 section_specs 범위가 새 설명을 포함하지 않아 실패. 누락범위 수정 07ec0e3bf3582a9ff090aea18a9a97173975703e, 로컬 GUIDE_AC 75문서 통과. 새 전체 CI 42544628020 진행. PR52(draft)는 승인된 v1.14 배포용이며 검수 후 준비상태로 전환.
