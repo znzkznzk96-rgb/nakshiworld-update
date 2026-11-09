@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "v116_published_gateway_verification_pending",
+  "status": "v116_published_verified",
   "release_baseline": "v1.15",
   "target_release": "v1.16",
   "deployed": true,
   "phone_verified": false,
-  "handoff": "docs/qa/body-book-telegraph/HANDOFF.md",
+  "handoff": "docs/releases/116/HANDOFF.md",
   "current_task": "몸짓도감12종 전조/재감기 시연 연동 및 역돌진 불필요 링 수정",
-  "next_step": "운영PCK502 원본응답 확인; gateway attempt3 결과 및 공개3파일 실제다운로드 검증",
+  "next_step": "휴대폰v1.16 적용/체감 확인 대기; 새게임변경 및 새패치 배포미승인",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -120,7 +120,7 @@
     "production_balance_changed": false,
     "phone_tested": false
   },
-  "release_authorized": true,
+  "release_authorized": false,
   "balance110": {
     "applied": true,
     "deployed": true,
@@ -264,9 +264,9 @@
     "input_fingerprint": "bafb97b1e4eef9f148486580a3e0308a4fcbc8e98a63eeb52fc3e75cde9c532c",
     "source_commit": "601d97555620f2208dddf82b28e9c429c801865f",
     "run": 42581154603,
-    "ready": true,
+    "ready": false,
     "published": true,
-    "release_authorized": true,
+    "release_authorized": false,
     "verification": "docs/qa/body-book-telegraph/VERIFICATION.json",
     "rebuild": false
   },
@@ -777,7 +777,7 @@
   },
   "body_book_telegraph": {
     "approved": true,
-    "deployed": false,
+    "deployed": true,
     "release_authorized": false,
     "charge_ring_cause": "turn->charge opened generic .25s resume ring",
     "user_play_feedback": "v1.15 fighting cues feel much better; reported charge ring",
@@ -787,13 +787,14 @@
     "source_commit": "0a68e53e19a17fee62dda202eb8e8f4a9ed35ba2",
     "ci_run": 42578350443,
     "ci_status": "success",
-    "verified": true
+    "verified": true,
+    "public_release": "v1.16"
   },
   "success_flash": {
     "approved": true,
-    "release_authorized": true,
+    "release_authorized": false,
     "duration": 0.3,
-    "next": "publish PR54 candidate without rebuild",
+    "next": "phone feedback",
     "implemented": true,
     "ci_run": 42581154603,
     "ci_attempt": 2,
@@ -801,6 +802,14 @@
     "verified": true,
     "ci_status": "success",
     "deployed": true,
-    "gateway_run": 42582668334
+    "gateway_run": 42582668334,
+    "gateway_verified": true
+  },
+  "publication_v116": {
+    "verification": "docs/releases/116/PUBLISHED.json",
+    "source_commit": "601d97555620f2208dddf82b28e9c429c801865f",
+    "release_id": 438861058,
+    "gateway_run": 42582668334,
+    "phone_verified": false
   }
 }

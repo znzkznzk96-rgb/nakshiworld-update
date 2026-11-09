@@ -24,9 +24,9 @@
     "book leaves live S/hold/mouth/rewards/telegraph windows/RNG unchanged"
   ],
   "full_ci": "success",
-  "public_deployed": false,
-  "release_authorized": true,
-  "public_version": "v1.15",
+  "public_deployed": true,
+  "release_authorized": false,
+  "public_version": "v1.16",
   "candidate_version": "1.16",
   "source_commit": "0a68e53e19a17fee62dda202eb8e8f4a9ed35ba2",
   "full_ci_run": 42578350443,
@@ -135,5 +135,6 @@
       "success-phone.png": "4cb0d81bf1e00a3497fbfa818b11d5dec13c60f5321fa417328e54d7b6767df5",
       "success-phases.png": "beed9915b28671d458e551cb1973f1768d798fa0932678f6c2839a8bdbdf98de"
     }
-  }
+  },
+  "publication": "../../releases/116/PUBLISHED.json"
 }
