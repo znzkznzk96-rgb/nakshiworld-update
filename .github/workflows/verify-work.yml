@@ -44,7 +44,7 @@ jobs:
           python3 - <<'PY'
           import urllib.request
           url='https://nakshiworld-update-kr.znzkznzk96.workers.dev/patch.pck?v=118'
-          with urllib.request.urlopen(urllib.request.Request(url,headers={'Range':'bytes=0-99','Accept-Encoding':'identity'}),timeout=60) as r:
+          with urllib.request.urlopen(urllib.request.Request(url,headers={'Range':'bytes=0-99','Accept-Encoding':'identity','User-Agent':'GodotEngine/4.4.1.stable.official (Linux)'}),timeout=60) as r:
               data=r.read()
               assert r.status==206 and len(data)==100 and r.headers.get('Content-Range')=='bytes 0-99/59403488'
               print('LIVE_INCREMENTAL_RANGE_VERIFY failures=[]')
