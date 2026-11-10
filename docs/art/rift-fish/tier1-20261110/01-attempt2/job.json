@@ -1,0 +1,25 @@
+{
+  "usage": {
+    "type": "usd",
+    "usd": 0.0
+  },
+  "id": "57b15d88-baa7-4798-9295-da1b2cfd55a8",
+  "status": "failed",
+  "created_at": "2026-11-10T12:50:31.837398+00:00",
+  "last_response": {
+    "code": 5000,
+    "type": "message_progress",
+    "error": "Generation failed: [502] Inference stream ended without producing a result. Please try again.",
+    "model": "pro_flash",
+    "width": 96,
+    "action": "Generating image",
+    "height": 64,
+    "prompt": "Exactly ONE Pacific saury fish sprite FACING RIGHT: small pointed head and eye at RIGHT, long very thin straight torpedo body, tail at LEFT. Make this clearly a slender saury, about 5 times as long as its body depth. The rear branches into TWO DISTINCT SHORT TAIL STALKS arranged vertically, each with its own COMPLETE FORKED tail fin, like two tails stacked at left. The two forked tails must be visibly separated by transparent space, not a normal single V-shaped tail. Rich saturated deep cobalt-blue back, clear turquoise side stripe, bright SILVER-WHITE belly, blue fins with pale icy highlights. Match the supplied actual game fish ONLY for crisp square pixel clusters, selective dark outline, compact 3-4 shade ramps, clean eye and rich shading. Keep fins small except the two tail fins; no wings, whiskers, tentacles, flames, text, background or extra fish. Centered 96x64 transparent sprite with at least 6 pixels margin. Do not copy the reference fish anatomy. Exactly one result.",
+    "status": "failed",
+    "image_id": "11b0424f-ef94-5497-a436-071f33309fd1",
+    "job_kind": "creator-image",
+    "progress": 0.05,
+    "limit_type": null,
+    "generation_started_at": "2026-11-10T12:50:31.865531+00:00"
+  }
+}

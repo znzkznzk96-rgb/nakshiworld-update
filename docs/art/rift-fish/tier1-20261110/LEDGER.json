@@ -25,15 +25,23 @@
       "id": "01",
       "name": "두꼬리꽁치",
       "attempt": 2,
-      "status": "submitted",
+      "status": "server_failure_no_image",
       "model": "create-image-pro-flash",
       "seed": 2026111101,
       "request_sha256": "fd4c832502718c8ef8642ff62420bd8863125d2bda727564b17b6d5e7d0c9856",
       "submitted_at_unix": 1794315025.8330414,
       "http_status": 202,
-      "job_id": "57b15d88-baa7-4798-9295-da1b2cfd55a8"
+      "job_id": "57b15d88-baa7-4798-9295-da1b2cfd55a8",
+      "actual_generation_delta": 0.0,
+      "upstream_error_code": 502
     }
   ],
   "generation_requests": 2,
-  "status": "one_active"
+  "status": "stopped_first_species_failed_and_request_limit_reached",
+  "accepted_outputs": 0,
+  "rejected_outputs": 1,
+  "server_failure_without_image": 1,
+  "actual_generations_charged": 1.0,
+  "unstarted_species": 7,
+  "no_additional_paid_calls": true
 }

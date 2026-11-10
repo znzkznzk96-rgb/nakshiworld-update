@@ -1,6 +1,6 @@
 {
   "date": "2026-11-10",
-  "status": "approved_generation_scope",
+  "status": "stopped",
   "species": [
     {
       "id": "01",
@@ -21,8 +21,8 @@
       "seed": 2026111001,
       "style_strength": 35,
       "max_attempts": 2,
-      "attempts_used": 0,
-      "status": "planned"
+      "attempts_used": 2,
+      "status": "stopped_no_accepted_output"
     },
     {
       "id": "02",

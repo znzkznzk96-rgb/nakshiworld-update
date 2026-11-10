@@ -1,0 +1,12 @@
+{
+  "status": "server_failure_no_image",
+  "http_submission": 202,
+  "job_status": "failed",
+  "job_id": "57b15d88-baa7-4798-9295-da1b2cfd55a8",
+  "upstream_error_code": 502,
+  "error": "Inference stream ended without producing a result",
+  "balance_before": 1122.6,
+  "balance_after": 1122.6,
+  "actual_generation_delta": 0.0,
+  "next_action": "stopped: two requests per species limit reached; first-species quality gate has not passed; no other paid calls"
+}
