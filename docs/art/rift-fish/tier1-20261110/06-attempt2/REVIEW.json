@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "note": "선명청록/라임/주황팔레트·밝음/중간/어두움체적명암·작은scalecluster·뾰족입/이마1가시·우향/투명여백통과. 사용자최종외형승인대기.",
+  "reviewed_at_native_and_nearest6x": true,
+  "compared_with_actual_reservoir_original": true,
+  "size": [
+    96,
+    64
+  ],
+  "bbox": [
+    14,
+    6,
+    81,
+    54
+  ],
+  "mode": "RGBA",
+  "sha256": "49bc3d38623b565a722512401299746cff7fd4ff4012118ebadb7a90ac9eaca9",
+  "reference_sha256": "bce75f4ed6675688253882dbd32d8e826e28c04c3b975c9cd9813b941d64a36a",
+  "shape": "passed",
+  "color": "passed",
+  "shading_pixel_clusters": "passed",
+  "outline": "passed",
+  "species_feature": "passed",
+  "alpha_margin": "passed",
+  "actual_generation_delta": 1.0,
+  "game_applied": false,
+  "user_final_approval": "pending"
+}

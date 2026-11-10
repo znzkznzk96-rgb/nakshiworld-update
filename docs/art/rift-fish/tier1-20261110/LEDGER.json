@@ -160,14 +160,32 @@
         "generations": 1.0
       },
       "result_sha256": "38e201b4b4e33be3124938baf58d076e394e93cedebc1eb4f8ca27d920c01897"
+    },
+    {
+      "id": "06",
+      "name": "쥐포쥐치",
+      "attempt": 2,
+      "status": "passed",
+      "model": "edit-image-pixen",
+      "seed": 2026111306,
+      "request_sha256": "cf0ff2d5a0c652fab66cdb395e20a7cc40314b88e305d3f39fba15189fa7d56c",
+      "submitted_at_unix": 1794316996.5424814,
+      "http_status": 202,
+      "job_id": "3233b997-d9e0-45ca-a7bb-d9cbceb4dd82",
+      "actual_generation_delta": 1.0,
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "result_sha256": "49bc3d38623b565a722512401299746cff7fd4ff4012118ebadb7a90ac9eaca9"
     }
   ],
-  "generation_requests": 9,
+  "generation_requests": 10,
   "status": "continuing_remaining_species_saury_held",
-  "accepted_outputs": 3,
+  "accepted_outputs": 4,
   "rejected_outputs": 5,
   "server_failure_without_image": 1,
-  "actual_generations_charged": 8.0,
+  "actual_generations_charged": 9.0,
   "unstarted_species": 7,
   "no_additional_paid_calls": false,
   "failed_species_policy": "hold individual, continue independent species"
