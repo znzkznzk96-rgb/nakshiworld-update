@@ -1,0 +1,19 @@
+{
+  "id": "11",
+  "stage": "base",
+  "attempt": 1,
+  "status": "rejected",
+  "note": "갈치의 뾰족 후미와 균열색은 유지됐지만 몸 전체 바깥에 승인 원본에 없는 두꺼운 흰 테두리가 추가돼 스티커처럼 보임. 원본의 어두운 선택 윤곽과 은빛 내부 하이라이트를 유지하도록 공유 추가1회 수정.",
+  "reviewed_native_and_nearest": true,
+  "approved_source_compared": true,
+  "observed_direction": "west",
+  "shape": "passed",
+  "color": "passed",
+  "native_detail": "failed",
+  "species_features": "passed",
+  "motion": "not_applicable",
+  "alpha_margin": "passed",
+  "native_width_at_least_fight_max": "passed",
+  "actual_generation_delta": 1.0,
+  "game_applied": false
+}

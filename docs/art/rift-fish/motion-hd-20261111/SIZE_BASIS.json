@@ -1,0 +1,20 @@
+{
+  "date": "2026-11-11",
+  "main_source_git_blob": "9694f70633b32aaf2a90837c910ea8edf0e90fca",
+  "catalog_source_git_blob": "e6b6d191ed529f97a3791ba2303e570e7bff7d25",
+  "current_catalog_entries": 60,
+  "region4_species_sizes_configured": false,
+  "logical_view_width": 270,
+  "fight_length_cap_logical": 156,
+  "functions": [
+    "func _fish_display_length(star: int, scale: float, preview: bool, sp: int = -1) -> float:\n\tif sp >= 0 and sp < FISH_LEN.size():\n\t\t# Species mean sets body length; caller scale retains individual length factor.\n\t\tvar base: float=clampf((6.0+3.0*sqrt(float(FISH_LEN[sp])))*scale,12.0 if preview else 18.0,80.0 if preview else 120.0)\n\t\treturn base if preview else minf(156.0,base*(1.0+0.35*smoothstep(50.0,180.0,float(FISH_LEN[sp]))))\n\treturn maxf(20.0 if preview else 30.0, (16.0 + star * 4.0) * scale)\n",
+    "func _fight_fish_scale(length_factor: float) -> float:\n\treturn 2.2 * (0.8 + 0.4 * (length_factor - 0.75))\n",
+    "func _fight_body_length(sp: int, length_factor: float, star: int = 0) -> float:\n\tvar base: float = _fish_display_length(star, _fight_fish_scale(length_factor), false, sp)\n\tif sp < 0 or sp >= FISH_LEN.size(): return base\n\tvar actual_cm: float = float(FISH_LEN[sp]) * length_factor\n\treturn minf(156.0, base + minf(72.0, maxf(0.0, actual_cm - 20.0) * 0.8))\n\nconst SCOOP_T: = 1.15"
+  ],
+  "native_width_target": 200,
+  "canvas_width": 232,
+  "canvas_height": "species aspect ratio, 84..256",
+  "native_detail_regenerated": true,
+  "display_size_or_balance_changed": false,
+  "physical_display_scaling": "Phone viewport enlargement still follows game canvas scaling; the no-upscale checks here compare source pixels against logical body-length coordinates, not a promise of one source pixel per physical display pixel."
+}
