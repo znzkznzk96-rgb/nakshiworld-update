@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "shop_signs_verified",
+  "status": "updater_smoothness_in_progress",
   "release_baseline": "v1.19",
   "target_release": "v1.19",
   "deployed": false,
   "phone_verified": false,
-  "handoff": "docs/qa/shop-signs/HANDOFF.md",
-  "current_task": "장비 카드 글씨 밀림 수정·모든 상점 상단 간판 통일",
-  "next_step": "현재 수정본 완료; 새 공개배포 지시 시 버전 확정 후 배포 절차 진행",
+  "handoff": "docs/qa/updater-smoothness/HANDOFF.md",
+  "current_task": "업데이트 시작·검증·게임 전환 끊김 완화",
+  "next_step": "최소 표시시간·협력식 파일처리/해시·단계전환 구현검증",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -1021,5 +1021,12 @@
     "verification": "docs/qa/shop-signs/VERIFICATION.json",
     "unique_verify_results": 102,
     "candidate_artifact": 13727461234
+  },
+  "updater_smoothness": {
+    "approved": true,
+    "minimum_display_seconds": 2,
+    "apk_required": true,
+    "deployed": false,
+    "release_authorized": false
   }
 }
