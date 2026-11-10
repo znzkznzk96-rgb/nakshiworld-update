@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "close_back_verified_waiting_release",
+  "status": "release121_authorized",
   "release_baseline": "v1.20",
-  "target_release": "v1.20",
+  "target_release": "v1.21",
   "deployed": false,
   "phone_verified": false,
-  "handoff": "docs/qa/android-back/HANDOFF.md",
-  "current_task": "닫기 버튼 통일·좁은 팝업 정리·뒤로가기 닫기",
-  "next_step": "사용자 실화면 검토·새 공개배포 승인 시 버전/후보 확정. 휴대폰 물리 뒤로가기 실기기 확인은 별도.",
+  "handoff": "docs/releases/121/HANDOFF.md",
+  "current_task": "v1.21 닫기·뒤로가기 수정본 공개",
+  "next_step": "버전/우편 확정→최종후보 전체검사1회→동일후보공개·운영검증",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -118,7 +118,7 @@
     "production_balance_changed": false,
     "phone_tested": false
   },
-  "release_authorized": false,
+  "release_authorized": true,
   "balance110": {
     "applied": true,
     "deployed": true,
