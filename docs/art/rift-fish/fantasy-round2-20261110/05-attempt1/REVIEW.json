@@ -1,0 +1,28 @@
+{
+  "status": "rejected",
+  "note": "붉은 맨틀과 청록 균열은 선명하지만 좌측이 갈라진 물고기 꼬리처럼 보이고 맨틀 원뿔 구조가 없어 오징어 필수 실루엣 불충족",
+  "reviewed_at_native_and_nearest6x": true,
+  "compared_with_actual_reservoir_original": true,
+  "size": [
+    96,
+    64
+  ],
+  "bbox": [
+    12,
+    13,
+    90,
+    57
+  ],
+  "mode": "RGBA",
+  "sha256": "8d59a5a90a79890715d1ecc2f6c3232b331a17fce02acc18208c4dd97450f5ae",
+  "reference_sha256": "e454a6f227a1c2005f0844bb375b9bb6b2790e9043049451f214dd74e4eb03d2",
+  "shape": "rejected",
+  "color": "passed",
+  "shading_pixel_clusters": "passed",
+  "outline": "passed",
+  "species_feature": "rejected",
+  "alpha_margin": "passed",
+  "actual_generation_delta": 1.0,
+  "game_applied": false,
+  "user_final_approval": "pending"
+}

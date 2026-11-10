@@ -1,0 +1,20 @@
+{
+  "id": "05",
+  "name": "균열장막 오징어",
+  "original_species": "오징어",
+  "tier": 1,
+  "mode": "create",
+  "model": "create-image-pixen",
+  "reference_path": "game/art/fish/l0_09.png",
+  "reference_sha256": "e454a6f227a1c2005f0844bb375b9bb6b2790e9043049451f214dd74e4eb03d2",
+  "reference_role": "visual inspection comparison only; create-image-pixen does NOT accept a style image, so no reference image is transmitted",
+  "motion_design": "맨틀 수축·확장 후 추진, 촉수 늦게 따라오는 물결·균열빛 맥동",
+  "colors": "coral-red mantle, maroon shadows, violet/cyan rift seams",
+  "seed": 2026111505,
+  "max_requests_this_round": 2,
+  "prior_requests": 2,
+  "status": "planned",
+  "requests_this_round": 0,
+  "actual_motion_generated": false,
+  "game_applied": false
+}

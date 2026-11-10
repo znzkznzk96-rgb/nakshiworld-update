@@ -38,9 +38,38 @@
         "generations": 1.0
       },
       "result_sha256": "c101fa2cf92ba62596d2641048cea7800e6bf1b3c7f350dee039e9588f3002e5"
+    },
+    {
+      "id": "05",
+      "name": "균열장막 오징어",
+      "attempt": 1,
+      "status": "rejected",
+      "model": "create-image-pixen",
+      "seed": 2026111405,
+      "request_sha256": "a05fc0db8b3748cd5da3f8b1671859c0428b9db9b2bf2549797438f9299a50c9",
+      "submitted_at_unix": 1794319086.4711838,
+      "prior_round_requests": 2,
+      "http_status": 200,
+      "actual_generation_delta": 1.0,
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "result_sha256": "8d59a5a90a79890715d1ecc2f6c3232b331a17fce02acc18208c4dd97450f5ae"
+    },
+    {
+      "id": "05",
+      "name": "균열장막 오징어",
+      "attempt": 2,
+      "status": "submission_pending",
+      "model": "create-image-pixen",
+      "seed": 2026111505,
+      "request_sha256": "863c2c374ea21130381d30d8a415bd31964bfea0ce621aaef51069670a818159",
+      "submitted_at_unix": 1794319177.7300284,
+      "prior_round_requests": 2
     }
   ],
-  "status": "fantasy_nonboss_round2_in_progress",
+  "status": "one_active",
   "max_per_species_this_round": 2,
   "protected_existing_six": [
     {
@@ -116,8 +145,8 @@
       "status": "internal_quality_pass_user_review_pending"
     }
   ],
-  "generation_requests": 2,
+  "generation_requests": 4,
   "accepted_outputs": 1,
-  "rejected_outputs": 1,
-  "actual_generations_charged": 2.0
+  "rejected_outputs": 2,
+  "actual_generations_charged": 3.0
 }
