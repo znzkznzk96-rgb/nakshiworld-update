@@ -1,6 +1,6 @@
 {
   "date": "2026-11-10",
-  "source_commit": "f55bdf0447192e39c3c4156b1c33dc9524c5908b",
+  "source_commit": "53c71ed780598de7946a83db8fa25a04bd790ada",
   "engine": "4.4.1-stable",
   "local": {
     "android_back_cases": 34,
@@ -14,13 +14,17 @@
       660
     ],
     "native_screens": 18,
-    "preview": "pass"
+    "preview": "pass",
+    "shop_signs": "pass"
   },
   "ci": {
-    "run_id": 42746868704,
-    "status": "in_progress"
+    "run_id": 42747178629,
+    "status": "in_progress",
+    "superseded_run": 42746868704,
+    "superseded_failure": "shop_signs expected 9 header slices; shared close art adds 9. Updated test and local pass."
   },
   "deployed": false,
   "phone_verified": false,
-  "paid_art_requests": 0
+  "paid_art_requests": 0,
+  "preview": "native.webp"
 }
