@@ -1,17 +1,17 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "v120_published_verified_apk_delivered",
+  "status": "release121_publishing",
   "release_baseline": "v1.20",
-  "target_release": "v1.20",
-  "deployed": true,
+  "target_release": "v1.21",
+  "deployed": false,
   "phone_verified": false,
-  "handoff": "docs/releases/120/HANDOFF.md",
-  "current_task": "v1.20 전체 수정본 공개·서명 APK 전달 완료",
-  "next_step": "기존앱삭제없이 v1.20 APK 덮어설치후 휴대폰 실제 적용확인",
+  "handoff": "docs/releases/121/HANDOFF.md",
+  "current_task": "v1.21 닫기·뒤로가기 수정본 공개",
+  "next_step": "PR59동일후보공개→공개3파일/운영다운로드검증",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
-  "verification": "docs/releases/120/PUBLISHED.json",
+  "verification": "docs/releases/121/PREFLIGHT.json",
   "baseline_phone_verified": false,
   "environment_recovery": "docs/CODEX_NETWORK_RECOVERY.md",
   "background_verified_branch": "work/tile-png-stage2-20261107",
@@ -118,7 +118,7 @@
     "production_balance_changed": false,
     "phone_tested": false
   },
-  "release_authorized": false,
+  "release_authorized": true,
   "balance110": {
     "applied": true,
     "deployed": true,
@@ -1064,5 +1064,21 @@
     "verification": "docs/releases/120/PUBLISHED.json",
     "apk_verification": "docs/releases/120/APK_VERIFICATION.json",
     "phone_verified": false
+  },
+  "android_back": {
+    "approved": true,
+    "deployed": false,
+    "release_authorized": false,
+    "implemented": true,
+    "local_cases": 34,
+    "source_commit": "53c71ed780598de7946a83db8fa25a04bd790ada",
+    "full_ci": 42747178629
+  },
+  "close_ui": {
+    "approved": true,
+    "art_generations": 0,
+    "deployed": false,
+    "implemented": true,
+    "native_screens": 18
   }
 }

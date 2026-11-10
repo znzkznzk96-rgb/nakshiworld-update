@@ -12,7 +12,7 @@ func run():
    var header_parts:int=0
    for cmd in m.ui_commands:
     if cmd[0]=="region" and cmd[1].resource_path=="res://art/shop_repair/header.png":header_parts+=1
-   check(header_parts==9,"shared header %s %d"%[shop,h])
+   check(header_parts==18,"shared header %s %d"%[shop,h])
    check(Rect2(0,0,270,h).encloses(v.bundle_preview.rects.close) if shop=="museum" else v.rects.panel.encloses(v.rects.close),"close remains in panel %s %d"%[shop,h])
   v.open_shop(m,"forge")
   for selected in [0,3,5]:

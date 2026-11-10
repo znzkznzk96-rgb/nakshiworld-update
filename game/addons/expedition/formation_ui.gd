@@ -81,10 +81,9 @@ func comparison(m,cards:bool):
  v.management.dim(m,Rect2(12,roundf((m.get_viewport_rect().size.y-326)/2),246,326))
  var dy:float=roundf((m.get_viewport_rect().size.y-326)/2)-282
  var r:=Rect2(12,282+dy,246,326)
- modal_rects={"cancel":Rect2(229,287+dy,22,22)}
+ modal_rects={}
  m._ui_style_box(m.sb_chip,r)
  label(m,"병사 배치",Vector2(25,302+dy),12)
- label(m,"×",Vector2(242,302+dy),12,muted,true,18)
  for i in 3:
   var tr:=Rect2(23+i*76,311+dy,72,25)
   m._ui_style_box(m.sb_btn,tr)
@@ -124,6 +123,7 @@ func comparison(m,cards:bool):
  for i in 2:
   var br:=Rect2(23+i*114,562+dy,110,29)
   modal_rects["confirm" if i==1 else "cancel_button"]=br
+  if i==0:modal_rects["cancel"]=br
   m._ui_style_box(m.sb_btn,br)
   label(m,["취소",["앞","중간","뒤"][v.formation_target]+("자리 교체" if not old.is_empty() else "에 배치")][i],br.get_center()+Vector2(0,4),10,green if i==1 else muted,true,102)
 

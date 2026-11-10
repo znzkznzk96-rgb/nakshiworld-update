@@ -1,0 +1,83 @@
+{
+  "date": "2026-11-10",
+  "source_commit": "53c71ed780598de7946a83db8fa25a04bd790ada",
+  "engine": "4.4.1-stable",
+  "local": {
+    "android_back_cases": 34,
+    "close_controls": "pass",
+    "dex_readability": "pass",
+    "forge_layout": "pass",
+    "formation_compare": "pass",
+    "native_heights": [
+      480,
+      540,
+      660
+    ],
+    "native_screens": 18,
+    "preview": "pass",
+    "shop_signs": "pass"
+  },
+  "ci": {
+    "run_id": 42747178629,
+    "status": "success",
+    "superseded_run": 42746868704,
+    "superseded_failure": "shop_signs expected 9 header slices; shared close art adds 9. Updated test and local pass.",
+    "regression": "passed",
+    "conclusion": "success",
+    "unique_verify_markers": 105,
+    "native_and_package": "passed",
+    "job_id": 129601953776,
+    "candidate_artifact": 13731687886,
+    "candidate_fingerprint": "74ed1f7c4d1c2665090995abb06ab3af2885eac3ea8c228f67855c83eec6a840"
+  },
+  "deployed": false,
+  "phone_verified": false,
+  "paid_art_requests": 0,
+  "preview": "native.webp",
+  "files": {
+    "game/main.gd": {
+      "size": 162210,
+      "sha256": "b909613a06173a564c268eb7ecb09f196f13bd9e86634ad5c7262b499f4e5f29"
+    },
+    "game/addons/reservoir/back_navigation.gd": {
+      "size": 3567,
+      "sha256": "c68fe86a1de4e1f494c3edee806415f75fe5a0e165f3c38a366353b6202ee777"
+    },
+    "game/addons/reservoir/close_control.gd": {
+      "size": 1284,
+      "sha256": "b59191010d005a8d4ce067ef71fcda1cf01bd03042f42e5c049b2faa1fa3f635"
+    },
+    "game/addons/reservoir/personal_dex.gd": {
+      "size": 21433,
+      "sha256": "3a120a529db95a71a879652f85ab78f71da7f220f3513f89648c2c1353517eea"
+    },
+    "game/addons/expedition/view.gd": {
+      "size": 59970,
+      "sha256": "d04de81e91376e40c251283b6b99967686f2ae50fa2e0b6082db3445b82fcb90"
+    },
+    "game/addons/expedition/formation_ui.gd": {
+      "size": 8911,
+      "sha256": "366750bfd51029d8e1ed00ccf34a97079641299aeafd7790667be4fb7e3e585f"
+    },
+    "game/tests/android_back_verify.gd": {
+      "size": 6104,
+      "sha256": "cab69d59f45993672e2c6edec6666afc979c376f872680201184d9145ab8de71"
+    },
+    "game/tests/close_controls_verify.gd": {
+      "size": 1591,
+      "sha256": "14e3281aefd9a2b8cc4ab34766997cf493b23e49258ee4476ab42b9242883b11"
+    },
+    "game/tests/close_controls_preview.gd": {
+      "size": 2210,
+      "sha256": "a5e522c12c7ead4cd5eaec999a24a1352a9536d0ce4dd57976029d5d9eeb484f"
+    },
+    "game/tests/shop_signs_verify.gd": {
+      "size": 2121,
+      "sha256": "4c35775d5240f332847d2ea8d4a9f0b763c17646989ec578ad3c5e53b2604e92"
+    },
+    ".github/workflows/verify-work.yml": {
+      "size": 32407,
+      "sha256": "65fd7b71fd56129a5666affa573041beb4d5929815172cbd66540efe4ca4fdfc"
+    }
+  }
+}

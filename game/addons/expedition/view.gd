@@ -114,6 +114,9 @@ func card(m,r:Rect2) -> void:
 	m._ui_rect(Rect2(r.position+Vector2(6,r.size.y-7),Vector2(r.size.x-12,2)),Color("86b3a9"))
 
 func button(m,key: String,r: Rect2,label: String,enabled: bool=true) -> void:
+	if key=="close":
+		var close:=Rect2(r.position,Vector2(22,23))
+		preload("res://addons/reservoir/close_control.gd").draw(m,close);rects[key]=close.grow(3);return
 	m._ui_style_box(m.sb_btn,r)
 	var selected:bool=(key.begins_with("manage_filter:") or key.begins_with("role_filter:")) and key.get_slice(":",1)==role_filter
 	selected=selected or (key.begins_with("tab:") and int(key.get_slice(":",1))==tab) or (key.begins_with("explore_tab:") and int(key.get_slice(":",1))==explore_tab)
@@ -353,7 +356,7 @@ func draw(m,h: float) -> void:
 	else:
 		button(m,"go_explore",Rect2(112,y+8,44,20),"탐험")
 		button(m,"roster",Rect2(158,y+8,70,20),"병사 관리")
-	button(m,"close",Rect2(233,y+8,22,20),"×")
+	button(m,"close",Rect2(233,y+6,22,23),"×")
 	if effect_kind!="": draw_upgrade_effect(m,y+37,bottom);return
 	if not data.pending.is_empty(): draw_pending(m,y+37,bottom);return
 	if opened=="management": management.detail(m)
@@ -422,7 +425,7 @@ func draw_roster(m,y: float,bottom: float) -> void:
 	m.text_items=m.text_items.filter(func(it): return it[1].y<y)
 	panel(m,Rect2(11,y,248,bottom-y-4));rects={}
 	m._text("%s 병사 선택"%["앞","중간","뒤"][choosing_slot],Vector2(118,y+19),12,Color("382619"),true,188)
-	button(m,"roster_close",Rect2(229,y+4,23,23),"×")
+	button(m,"roster_close",Rect2(102,y+237,100,23),"닫기")
 	var total: int=maxi(1,ceili(data.soldiers.size()/4.0));page=clampi(page,0,total-1)
 	for i in 4:
 		var n: int=page*4+i
@@ -435,7 +438,7 @@ func draw_roster(m,y: float,bottom: float) -> void:
 		m._text("★".repeat(int(u.star))+rarity_label(u)+(" · 편성 중" if int(u.uid) in data.team else ""),r.position+Vector2(49,40),7,Color("96703b"),false,177)
 		rects["unit:%d"%int(u.uid)]=r
 	button(m,"prev",Rect2(18,y+237,35,23),"‹");button(m,"next",Rect2(217,y+237,35,23),"›")
-	m._text("%d / %d"%[page+1,total],Vector2(135,y+253),9,Color("6c553b"),true,140)
+	m._text("%d / %d"%[page+1,total],Vector2(75,y+253),9,Color("6c553b"),true,45)
 	button(m,"remove_slot",Rect2(36,bottom-42,198,27),"이 편성 칸 비우기")
 	if data.soldiers.is_empty(): m._text("연성에서 병사를 먼저 만들어 주세요",Vector2(135,y+112),10,Color("6c553b"),true,223)
 
