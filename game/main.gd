@@ -250,7 +250,12 @@ func _notification(what: int) -> void :
 		vib_queue.clear();Input.vibrate_handheld(0)
 	if what == NOTIFICATION_APPLICATION_RESUMED: audio_feedback.suspended=false
 
+var cooperative_boot:=false
+var boot_ready:=false
+
 func _ready() -> void :
+	if cooperative_boot:
+		set_process(false);set_process_input(false);set_process_unhandled_input(false)
 	headlamp_light=preload("res://addons/reservoir/headlamp_light.gd").new()
 	add_child(headlamp_light)
 	development_preview = "--valley-preview" in OS.get_cmdline_user_args()
@@ -283,6 +288,7 @@ func _ready() -> void :
 	bg.material = mat
 	add_child(bg)
 	for i in FISH_NAME.size():
+		if cooperative_boot and i%4==0:await get_tree().process_frame
 		var t: Texture2D = load("res://art/fish/l%d_%02d.png" % [i / 20, i % 20])
 		fish_tex.append(t)
 		var img: = t.get_image()
@@ -300,6 +306,7 @@ func _ready() -> void :
 			var third := img.duplicate();third.resize(img.get_width()/3,img.get_height()/3,Image.INTERPOLATE_NEAREST)
 			fish_s2.append(ImageTexture.create_from_image(half));fish_s3.append(ImageTexture.create_from_image(third))
 	for n in ["idle", "reel", "cast", "net", "trophy", "miss", "cat"]:
+		if cooperative_boot:await get_tree().process_frame
 		var arr: = []
 		for k in 16:
 			arr.append(load("res://art/char/anim/%s/%s_%02d.png" % [n, n, k]))
@@ -319,8 +326,11 @@ func _ready() -> void :
 	_load_game()
 	tex_sign = load("res://art/ui/title_sign.png")
 	V.setup()
+	if cooperative_boot:await get_tree().process_frame
 	expedition.setup()
+	if cooperative_boot:await get_tree().process_frame
 	spots.setup()
+	if cooperative_boot:await get_tree().process_frame
 	icons.m_fishing = load("res://art/refresh53/fishing_icon.png")
 	var show_title: bool = title_open
 	V.enhancement.restore(self)
@@ -332,6 +342,7 @@ func _ready() -> void :
 	for n in ["village", "bag", "book", "gear"]: icons["m_" + n] = load("res://art/icons/m_%s.png" % n)
 	icons["scale"] = load("res://art/icons/scale.png")
 	environment.setup(self)
+	if cooperative_boot:await get_tree().process_frame
 	bag_disp = bag_weight()
 	for n in ["gear_s", "knob", "toggle_on", "toggle_off", "close"]:
 		icons[n] = load("res://art/icons/%s.png" % n)
@@ -344,12 +355,17 @@ func _ready() -> void :
 		bot_pad = maxf(get_window().size.y - sa.end.y, 0.0) / k
 	_layout()
 	audio_feedback.setup(self)
+	if cooperative_boot:await get_tree().process_frame
 	title_screen.setup(self)
+	if cooperative_boot:await get_tree().process_frame
 	if title_open: bg_node.hide();environment.show_scene(false)
 	get_viewport().size_changed.connect(_layout)
 	for i in 4:
 		var sp: int = BY_STAR[0][randi() % 8]
 		ambient.append({"x": randf_range(110, 260), "y": randf_range(WATER + 40, uw_bot - 30), "v": randf_range(6, 14) * (1 if randf() < 0.5 else -1), "sp": sp})
+	boot_ready=true
+	if cooperative_boot:
+		set_process(true);set_process_input(true);set_process_unhandled_input(true)
 	if "--shot" in OS.get_cmdline_user_args():
 		_shot_mode()
 
@@ -1381,6 +1397,7 @@ func _process(dt: float) -> void :
 
 
 func _draw() -> void :
+	if cooperative_boot and not boot_ready:return
 	guide.sync_layer()
 	var t: = clock * 1000.0
 	var h: = get_viewport_rect().size.y

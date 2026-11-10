@@ -18,7 +18,7 @@ func run()->void:
   check(pts[0].x-40>=40 and pts[0].x+40<=230,"cat frame stays central, both flips")
   check(pts[1].x-23>=40 and pts[1].x+23<=230,"fish stays central")
  var original:=PackedByteArray([71,68,80,67,1]);var p:=FileAccess.open(m.PATCH,FileAccess.WRITE);p.store_buffer(original);p=null
- p=FileAccess.open(m.PATCH+".new",FileAccess.WRITE);p.store_buffer(original);p=null;m.expected_size=original.size();m.expected_hash="0".repeat(64);m._on_patch(0,200,PackedStringArray(),PackedByteArray(),119,"1.19")
+ p=FileAccess.open(m.PATCH+".new",FileAccess.WRITE);p.store_buffer(original);p=null;m.expected_size=original.size();m.expected_hash="0".repeat(64);await m._on_patch(0,200,PackedStringArray(),PackedByteArray(),119,"1.19")
  check(FileAccess.get_file_as_bytes(m.PATCH)==original,"hash rejection preserves previous patch")
  m.queue_free();await process_frame
  print("INCREMENTAL_VERIFY failures=",failures," entries=",list.size());quit(0 if failures.is_empty() else 1)

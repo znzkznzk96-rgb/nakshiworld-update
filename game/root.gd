@@ -27,8 +27,12 @@ var started := false
 var incremental:RefCounted
 var pending_code:=0
 var pending_name:=""
+const MINIMUM_SPLASH_SECONDS:=2.0
+var splash_started_msec:=Time.get_ticks_msec()
+var boot_timings:Dictionary={}
 
 func _ready() -> void:
+	splash_started_msec=Time.get_ticks_msec()
 	font = load("res://font/neodgm.ttf")
 	update_art = load("res://art/ui/update_cat_blue.png")
 	texture_filter=CanvasItem.TEXTURE_FILTER_NEAREST
@@ -69,6 +73,8 @@ func _on_version(result: int, code: int, _h: PackedStringArray, body: PackedByte
 	http.request_completed.disconnect(_on_version)
 	var d = JSON.parse_string(body.get_string_from_utf8()) if result == HTTPRequest.RESULT_SUCCESS and code == 200 else null
 	if not (d is Dictionary) or int(d.get("code", 0)) <= _local_code():
+		update_phase="ready"
+		status="최신 버전입니다 · 곧 시작합니다" if d is Dictionary else "기존 버전으로 시작합니다"
 		_start()
 		return
 	expected_hash = str(d.get("sha256", "")).to_lower()
@@ -80,9 +86,9 @@ func _on_version(result: int, code: int, _h: PackedStringArray, body: PackedByte
 	status="변경된 파일 확인 중…"
 	incremental=load("res://incremental_update.gd").new()
 	var installed:String=PATCH if _local_code()>BUILD_CODE else ""
-	var valid:bool=await incremental.download(self,UPDATE_BASE+"patch.pck?v="+str(int(d.code)),expected_size,expected_hash,PATCH+".new",installed)
+	var valid:bool=await incremental.download(self,UPDATE_BASE+"patch.pck?v="+str(int(d.code)),expected_size,expected_hash,PATCH+".new",installed,false)
 	if valid:
-		_on_patch(HTTPRequest.RESULT_SUCCESS,200,PackedStringArray(),PackedByteArray(),int(d.code),str(d.get("name","")))
+		await _on_patch(HTTPRequest.RESULT_SUCCESS,200,PackedStringArray(),PackedByteArray(),int(d.code),str(d.get("name","")))
 	else:
 		if FileAccess.file_exists(PATCH+".new"):DirAccess.remove_absolute(PATCH+".new")
 		status="업데이트를 받지 못했어요 · 기존 버전으로 시작합니다"
@@ -97,7 +103,9 @@ func _on_patch(result: int, code: int, _h: PackedStringArray, _b: PackedByteArra
 		valid = f != null and f.get_length() == expected_size
 		f = null
 	if valid:
-		valid = FileAccess.get_sha256(candidate) == expected_hash
+		var before:=Time.get_ticks_msec()
+		valid = await preload("res://incremental_update.gd").digest_file(self,candidate) == expected_hash
+		boot_timings["sha256_ms"]=Time.get_ticks_msec()-before
 	if valid:
 		var header := FileAccess.open(candidate, FileAccess.READ)
 		valid = header != null and header.get_buffer(4) == PackedByteArray([71, 68, 80, 67])
@@ -129,13 +137,15 @@ func transfer_snapshot(received:int,declared_size:int,header_size:int=-1) -> Dic
 func transfer_detail() -> String:
 	if update_phase=="checking":return "새로운 소식을 확인하고 있어요"
 	if update_phase=="planning":return "기기에 있는 파일은 다시 받지 않아요"
-	if update_phase=="verifying":return "파일 크기와 안전성을 확인하고 있어요"
+	if update_phase=="verifying":return "다운로드 완료 · 파일 안전성을 확인하고 있어요"
+	if update_phase=="ready":return "잠시 후 낚시월드로 이동해요"
+	if update_phase=="loading":return "게임 화면과 장비를 준비하고 있어요"
 	var total:int=total_bytes if incremental!=null else (expected_size if expected_size>0 else total_bytes)
 	if total<=0:return "%.1f MB 받음 · 전체 크기 확인 중"%(received_bytes/1000000.0)
 	return "%d%%   %.1f / %.1f MB"%[int(clampf(progress,0,1)*100),received_bytes/1000000.0,total/1000000.0]
 
 func _process(dt: float) -> void:
-	animation_time+=minf(dt,.1)
+	animation_time+=maxf(dt,0.0)
 	if incremental!=null and update_phase in ["planning","download"]:
 		var data:Dictionary=incremental.snapshot()
 		received_bytes=data.received;total_bytes=data.total;progress=data.progress
@@ -232,8 +242,12 @@ func _start() -> void:
 	if started:
 		return
 	started = true
-	status = ""
+	if update_phase!="ready":
+		update_phase="loading";status="게임 준비 중…"
 	queue_redraw()
+	await get_tree().process_frame
+	await get_tree().process_frame
+	var mount_tick:=Time.get_ticks_msec()
 	if FileAccess.file_exists(PATCH) and _local_code() > BUILD_CODE:
 		if not ProjectSettings.load_resource_pack(PATCH, true):
 			get_tree().root.set_meta("ver", BUILD_NAME)
@@ -241,7 +255,19 @@ func _start() -> void:
 			get_tree().root.set_meta("ver", _local_name())
 	else:
 		get_tree().root.set_meta("ver", BUILD_NAME)
+	boot_timings["mount_ms"]=Time.get_ticks_msec()-mount_tick
+	var load_tick:=Time.get_ticks_msec()
+	var script:Script
+	var requested:int=ResourceLoader.load_threaded_request("res://main.gd","Script",true)
+	if requested==OK:
+		while ResourceLoader.load_threaded_get_status("res://main.gd")==ResourceLoader.THREAD_LOAD_IN_PROGRESS:
+			await get_tree().process_frame
+		if ResourceLoader.load_threaded_get_status("res://main.gd")==ResourceLoader.THREAD_LOAD_LOADED:
+			script=ResourceLoader.load_threaded_get("res://main.gd")
+	if script==null:script=load("res://main.gd")
+	boot_timings["script_ms"]=Time.get_ticks_msec()-load_tick
 	box = SubViewportContainer.new()
+	box.modulate.a=0
 	box.stretch = true
 	box.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	var sv := SubViewport.new()
@@ -250,13 +276,27 @@ func _start() -> void:
 	add_child(box)
 	var txt := Node2D.new()
 	txt.set_script(load("res://text_layer.gd"))
+	txt.modulate.a=0
 	add_child(txt)
 	_fit()
 	get_viewport().size_changed.connect(_fit)
 	var m := Node2D.new()
-	m.set_script(load("res://main.gd"))
+	m.set_script(script)
 	m.text_layer = txt
+	m.cooperative_boot=true
+	var init_tick:=Time.get_ticks_msec()
 	sv.add_child(m)
+	while not m.boot_ready:await get_tree().process_frame
+	boot_timings["game_ready_ms"]=Time.get_ticks_msec()-init_tick
+	await get_tree().process_frame
+	var remaining:float=MINIMUM_SPLASH_SECONDS-float(Time.get_ticks_msec()-splash_started_msec)/1000.0
+	if remaining>0:await get_tree().create_timer(remaining).timeout
+	var reveal:=create_tween().set_parallel(true)
+	reveal.tween_property(box,"modulate:a",1.0,.3)
+	reveal.tween_property(txt,"modulate:a",1.0,.3)
+	reveal.tween_property(self,"self_modulate:a",0.0,.3)
+	await reveal.finished
+	status="";queue_redraw()
 
 func _fit() -> void:
 	box.size = get_viewport_rect().size
