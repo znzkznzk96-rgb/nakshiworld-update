@@ -1,11 +1,7 @@
 {
   "date": "2026-11-11",
-  "motion_passed": 17,
-  "held": [
-    "14",
-    "17",
-    "18"
-  ],
+  "motion_passed": 20,
+  "held": [],
   "species": [
     {
       "id": "01",
@@ -123,10 +119,21 @@
       "id": "14",
       "name": "거울날개 날치",
       "native_source": "docs/art/rift-fish/motion-hd-20261111/14/base-1/original.png",
-      "status": "held",
-      "motion_source": null,
-      "asset_commit": "4f7b98ef6b5a597baabc875fa215c5799a93d02c",
-      "review": "docs/art/rift-fish/motion-final3-20261111/14/REVIEW.json"
+      "status": "internal_pass_user_review_pending",
+      "motion_source": "docs/art/rift-fish/motion-controlled-20261111/14/frames-original.zip",
+      "asset_commit": "57048470481c75cd7f112115d7040be9829f1ad5",
+      "review": "docs/art/rift-fish/motion-controlled-20261111/RIG_REPORT.json",
+      "previous_review": "docs/art/rift-fish/motion-final3-20261111/14/REVIEW.json",
+      "motion_method": "approved_original_texture_controlled_rig",
+      "motion_frame_count": 16,
+      "output_canvas": [
+        296,
+        284
+      ],
+      "source_offset": [
+        32,
+        40
+      ]
     },
     {
       "id": "15",
@@ -149,21 +156,43 @@
       "id": "17",
       "name": "뇌광 삼치",
       "native_source": "docs/art/rift-fish/motion-hd-20261111/17/base-1/original.png",
-      "status": "held",
-      "motion_source": null,
-      "asset_commit": "294c6e03359b922a5f7f763fd5cd8f7ab7207f73",
+      "status": "internal_pass_user_review_pending",
+      "motion_source": "docs/art/rift-fish/motion-controlled-20261111/17/frames-original.zip",
+      "asset_commit": "57048470481c75cd7f112115d7040be9829f1ad5",
       "previous_motion_source": "docs/art/rift-fish/motion-hd-20261111/17/motion-1/frames-original.zip",
-      "review": "docs/art/rift-fish/motion-final3-20261111/17/REVIEW.json"
+      "review": "docs/art/rift-fish/motion-controlled-20261111/RIG_REPORT.json",
+      "previous_review": "docs/art/rift-fish/motion-final3-20261111/17/REVIEW.json",
+      "motion_method": "approved_original_texture_controlled_rig",
+      "motion_frame_count": 16,
+      "output_canvas": [
+        296,
+        216
+      ],
+      "source_offset": [
+        32,
+        40
+      ]
     },
     {
       "id": "18",
       "name": "차원창 청새치",
       "native_source": "docs/art/rift-fish/motion-hd-20261111/18/base-1/original.png",
-      "status": "held",
-      "motion_source": null,
-      "asset_commit": "294c6e03359b922a5f7f763fd5cd8f7ab7207f73",
+      "status": "internal_pass_user_review_pending",
+      "motion_source": "docs/art/rift-fish/motion-controlled-20261111/18/frames-original.zip",
+      "asset_commit": "57048470481c75cd7f112115d7040be9829f1ad5",
       "previous_motion_source": "docs/art/rift-fish/motion-hd-20261111/18/motion-1/frames-original.zip",
-      "review": "docs/art/rift-fish/motion-final3-20261111/18/REVIEW.json"
+      "review": "docs/art/rift-fish/motion-controlled-20261111/RIG_REPORT.json",
+      "previous_review": "docs/art/rift-fish/motion-final3-20261111/18/REVIEW.json",
+      "motion_method": "approved_original_texture_controlled_rig",
+      "motion_frame_count": 16,
+      "output_canvas": [
+        296,
+        236
+      ],
+      "source_offset": [
+        32,
+        40
+      ]
     },
     {
       "id": "19",
@@ -185,6 +214,6 @@
   "art_user_review": "pending",
   "game_applied": false,
   "deployed": false,
-  "status": "internal_motion_ready_17_user_review_pending",
-  "selection_policy": "dynamic11 nine passed supersede earlier structurally passed clips; IDs14/17/18 held. Old motion sources retained only as history."
+  "status": "internal_motion_ready_20_user_review_pending",
+  "selection_policy": "17 existing selected clips retained;14/17/18 use approved-original texture rig, not rejected generative outputs. User final visual approval pending."
 }

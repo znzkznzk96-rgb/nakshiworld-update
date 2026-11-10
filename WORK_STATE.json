@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "rift_final3_complete_all_held",
+  "status": "rift_controlled_motion_20_prepared_review_pending",
   "release_baseline": "v1.25",
   "target_release": "v1.25",
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/art/rift-fish/HANDOFF.md",
-  "current_task": "3종 원화기반 제어모션 제작",
-  "next_step": "유료0·승인원화텍스처 직접제어 모션 제작→원본/정수확대/실표시 검수",
+  "current_task": "남은3종 원화제어모션 제작·원격검증 완료",
+  "next_step": "3종제어모션 사용자시각검토후 배경작업으로전환.게임적용/배포별도.",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -1383,7 +1383,7 @@
     "verification": "docs/art/rift-fish/motion-dynamic11-20261111/COMPLETION.json"
   },
   "rift_final3": {
-    "status": "complete_all_three_held",
+    "status": "historical_failed_generation_superseded_by_controlled_candidates",
     "ids": [
       "14",
       "17",
@@ -1404,13 +1404,18 @@
     "verification": "docs/art/rift-fish/motion-final3-20261111/REMOTE_VERIFICATION.json"
   },
   "rift_controlled_motion": {
-    "status": "in_progress",
+    "status": "internal_pass_user_review_pending",
     "ids": [
       "14",
       "17",
       "18"
     ],
     "paid_requests": 0,
+    "frame_count": 16,
+    "ready_total": 20,
+    "verification": "docs/art/rift-fish/motion-controlled-20261111/REMOTE_VERIFICATION.json",
+    "preview": "docs/art/rift-fish/motion-controlled-20261111/preview.gif",
+    "generator": "Godot4.6.3_offline_asset_preparation_only",
     "game_applied": false,
     "deployed": false
   }
