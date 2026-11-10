@@ -1,0 +1,20 @@
+{
+  "id": "01",
+  "name": "쌍혜성 두꼬리꽁치",
+  "original_species": "두꼬리꽁치",
+  "tier": 1,
+  "mode": "edit",
+  "model": "edit-image-pixen",
+  "reference_path": "game/art/fish/l0_07.png",
+  "reference_sha256": "a09e70c432b23d10502eb18efa02d14bfbbd4ce4c5a15634b7f5c161a3ac47db",
+  "reference_role": "actual approved original transmitted unchanged as edit source",
+  "motion_design": "두꼬리 각각 상하로 번갈아 부채질·꼬리끝 짧은 잔광, 몸은 가늘게 파동",
+  "colors": "cobalt/silver, turquoise upper-tail tip, violet lower-tail tip",
+  "seed": 2026111401,
+  "max_requests_this_round": 2,
+  "prior_requests": 2,
+  "status": "planned",
+  "requests_this_round": 0,
+  "actual_motion_generated": false,
+  "game_applied": false
+}

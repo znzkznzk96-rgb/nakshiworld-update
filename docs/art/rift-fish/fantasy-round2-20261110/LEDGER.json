@@ -1,0 +1,81 @@
+{
+  "date": "2026-11-10",
+  "batch": "fantasy-nonboss-round2",
+  "entries": [],
+  "status": "prepared_no_paid_requests",
+  "max_per_species_this_round": 2,
+  "protected_existing_six": [
+    {
+      "id": "02",
+      "name": "균열정어리",
+      "attempt": 1,
+      "directory": "02-attempt1",
+      "sha256": "0fdcf1ad1b2818ca10802365c6ca1285922deeb0b6e13e56bd1c82b60b9216ea",
+      "size": [
+        96,
+        64
+      ],
+      "status": "internal_quality_pass_user_review_pending"
+    },
+    {
+      "id": "03",
+      "name": "네날개날치",
+      "attempt": 1,
+      "directory": "03-attempt1",
+      "sha256": "bb5da274a05ace32781a119f4341250b23f79bfe4d7cb6b08761eb9646e2fddd",
+      "size": [
+        96,
+        64
+      ],
+      "status": "internal_quality_pass_user_review_pending"
+    },
+    {
+      "id": "04",
+      "name": "가시등전어",
+      "attempt": 2,
+      "directory": "04-attempt2",
+      "sha256": "cca9e6f8bcefe5caf69d5c912e118bda26d88ed4f40d5cb5d401234db4793e3f",
+      "size": [
+        96,
+        64
+      ],
+      "status": "internal_quality_pass_user_review_pending"
+    },
+    {
+      "id": "06",
+      "name": "쥐포쥐치",
+      "attempt": 2,
+      "directory": "06-attempt2",
+      "sha256": "49bc3d38623b565a722512401299746cff7fd4ff4012118ebadb7a90ac9eaca9",
+      "size": [
+        96,
+        64
+      ],
+      "status": "internal_quality_pass_user_review_pending"
+    },
+    {
+      "id": "07",
+      "name": "금간정어리",
+      "attempt": 1,
+      "directory": "07-attempt1",
+      "sha256": "73e180f43b932d7bf5feb720c84aca00599907f665d757cd1842e7d4569e68fa",
+      "size": [
+        96,
+        64
+      ],
+      "status": "internal_quality_pass_user_review_pending"
+    },
+    {
+      "id": "08",
+      "name": "빛멸치",
+      "attempt": 1,
+      "directory": "08-attempt1",
+      "sha256": "04190e7b52eb9f691e77502ee390c3c6efb5fac7b9cbca7b40706512d9f31b1f",
+      "size": [
+        96,
+        64
+      ],
+      "status": "internal_quality_pass_user_review_pending"
+    }
+  ]
+}

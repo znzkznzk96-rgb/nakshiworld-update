@@ -1,0 +1,13 @@
+{
+  "description": "ONE unmistakable fantasy SQUID swimming RIGHT, NOT a fish hybrid. A smooth tapered cone-shaped coral-red mantle ends in one CLOSED sharp POINT at LEFT, with two little triangular mantle fins near the point. At RIGHT: head, one golden visible eye, eight curled arms and two long feeding tentacles. NO forked fish tail, fish scales, fish dorsal or belly fins. Three clean violet-cyan glowing rift seams run along the mantle, as if a magical veil is splitting. Two broad arm tips shaped like torn ribbons. Entire squid with all arms visible. Cozy existing 16-bit fishing RPG sprite style. Crisp native 96x64 pixel clusters, clean selective dark outline, rich controlled 3-to-4-tone ramps per material, distinct highlights/midtones/shadows. Vivid species colors, no washed-out gray or yellow haze, no soft gradients, heavy dithering or blur. Entire single creature centered with transparent margins, head at RIGHT. Animation-ready neutral swimming pose, separate readable fin/tentacle shapes. No text, frames, scenery or external particle trails.",
+  "image_size": {
+    "width": 96,
+    "height": 64
+  },
+  "no_background": true,
+  "direction": "east",
+  "outline": "selective outline",
+  "detail": "highly detailed",
+  "seed": 2026111405,
+  "enhance_prompt": false
+}

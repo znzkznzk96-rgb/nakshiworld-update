@@ -1,0 +1,13 @@
+{
+  "description": "ONE fantasy BLUE MARLIN swimming RIGHT, long sleek muscular cobalt-blue and silver body, unmistakably LONG STRAIGHT SPEAR BILL projecting forward from upper jaw at RIGHT. A huge high sail-like dorsal fin looks like a torn violet cape with three clean cyan rift stripes, no letters. The bill is a bright cyan-lavender crystal spear. Strong narrow tail stalk, sharp crescent tail at LEFT. Every fin, bill tip and tail fully within transparent margins. No floating weapon: spear is part of the marlin jaw. Cozy existing 16-bit fishing RPG sprite style. Crisp native 96x64 pixel clusters, clean selective dark outline, rich controlled 3-to-4-tone ramps per material, distinct highlights/midtones/shadows. Vivid species colors, no washed-out gray or yellow haze, no soft gradients, heavy dithering or blur. Entire single creature centered with transparent margins, head at RIGHT. Animation-ready neutral swimming pose, separate readable fin/tentacle shapes. No text, frames, scenery or external particle trails.",
+  "image_size": {
+    "width": 96,
+    "height": 64
+  },
+  "no_background": true,
+  "direction": "east",
+  "outline": "selective outline",
+  "detail": "highly detailed",
+  "seed": 2026111418,
+  "enhance_prompt": false
+}
