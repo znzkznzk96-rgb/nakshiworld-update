@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "v120_published_verified_apk_delivered",
+  "status": "android_back_navigation_in_progress",
   "release_baseline": "v1.20",
   "target_release": "v1.20",
-  "deployed": true,
+  "deployed": false,
   "phone_verified": false,
-  "handoff": "docs/releases/120/HANDOFF.md",
-  "current_task": "v1.20 전체 수정본 공개·서명 APK 전달 완료",
-  "next_step": "기존앱삭제없이 v1.20 APK 덮어설치후 휴대폰 실제 적용확인",
+  "handoff": "docs/qa/android-back/HANDOFF.md",
+  "current_task": "안드로이드 뒤로가기로 최상단 창 한 단계 닫기",
+  "next_step": "공통 뒤로가기 우선순위·Android 이벤트·취소안전성 구현검증",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -1064,5 +1064,10 @@
     "verification": "docs/releases/120/PUBLISHED.json",
     "apk_verification": "docs/releases/120/APK_VERIFICATION.json",
     "phone_verified": false
+  },
+  "android_back": {
+    "approved": true,
+    "deployed": false,
+    "release_authorized": false
   }
 }
