@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "hall_forge_art_ready_for_visual_review",
+  "status": "shop_signs_and_equipment_padding_in_progress",
   "release_baseline": "v1.19",
   "target_release": "v1.19",
   "deployed": true,
   "phone_verified": false,
-  "handoff": "docs/qa/hall-forge-art/HANDOFF.md",
-  "current_task": "회관·대장간 실제 아트 제작 및 전시영역 축소",
-  "next_step": "사용자 실제 적용화면 검토; 공개배포 별도 승인 대기",
+  "handoff": "docs/qa/shop-signs/HANDOFF.md",
+  "current_task": "장비 카드 글씨 밀림 수정·모든 상점 상단 간판 통일",
+  "next_step": "공유 목재간판·카드좌우배치 구현 후 관련/화면검사",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -1002,5 +1002,11 @@
     "verification": "docs/qa/hall-forge-art/VERIFICATION.json",
     "visual_approval": "pending_user_review",
     "deployed": false
+  },
+  "shop_signs": {
+    "approved": true,
+    "paid_generations": 0,
+    "deployed": false,
+    "release_authorized": false
   }
 }
