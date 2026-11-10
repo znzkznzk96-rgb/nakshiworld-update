@@ -124,14 +124,32 @@
         "generations": 1.0
       },
       "result_sha256": "cf058b2f7cb6512aab90f23533432274bc03eb5f749aabdeb9e0149adf27429b"
+    },
+    {
+      "id": "05",
+      "name": "오징어",
+      "attempt": 2,
+      "status": "rejected",
+      "model": "edit-image-pixen",
+      "seed": 2026111305,
+      "request_sha256": "5c50883ce40e9e0cfd2f74fb1d8d942f0a418437772d221e2097873f59b21ead",
+      "submitted_at_unix": 1794316688.9048088,
+      "http_status": 202,
+      "job_id": "4940f6ad-d694-446e-b262-e635a473a5aa",
+      "actual_generation_delta": 1.0,
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "result_sha256": "a155b5288422a130da537ab572a3ffb100fad925a56c5a3bee117f8d0cc38137"
     }
   ],
-  "generation_requests": 7,
+  "generation_requests": 8,
   "status": "continuing_remaining_species_saury_held",
   "accepted_outputs": 3,
-  "rejected_outputs": 3,
+  "rejected_outputs": 4,
   "server_failure_without_image": 1,
-  "actual_generations_charged": 6.0,
+  "actual_generations_charged": 7.0,
   "unstarted_species": 7,
   "no_additional_paid_calls": false,
   "failed_species_policy": "hold individual, continue independent species"
