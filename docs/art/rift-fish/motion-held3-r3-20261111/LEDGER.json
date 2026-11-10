@@ -11,6 +11,17 @@
       "http_status": 200,
       "job_id": "588959a5-d1cc-42ac-9fc9-8d1382e1bf6d",
       "actual_generations": 1
+    },
+    {
+      "id": "14",
+      "status": "rejected",
+      "seed": 2026114114,
+      "request_sha256": "50038dc22876b837902935b3fe8a3c9e426ee24f8e5ee2a6bb45339d4f78dd0a",
+      "model": "animate-pixminimax",
+      "submitted_unix": 1794343682.9348664,
+      "http_status": 200,
+      "job_id": "6adf7247-4dbb-4dec-ac1b-40652507af6e",
+      "actual_generations": 2
     }
   ],
   "request_limit": 3,

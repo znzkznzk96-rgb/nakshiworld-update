@@ -1,0 +1,22 @@
+{
+  "description": "Gentle swimming in place. The existing forked tail slowly bends and returns. The two large wing fins flex only slightly at their tips, then return to the starting pose. Keep the head, body and wing color patterns steady. Left-facing throughout; fixed camera, position and scale. Preserve the exact original silhouette. Clean isolated sprite with fully transparent empty space between and around all fins.",
+  "frame_count": 16,
+  "seed": 2026114114,
+  "no_background": true,
+  "drift_threshold": 0,
+  "enhance_prompt": false,
+  "direction": "west",
+  "view": "side",
+  "subject_description": "a silver-blue fish with two broad cyan-lavender wing fins",
+  "initial_pose": "horizontal side-on swimming, head left and tail right, whole sprite inside transparent margins",
+  "first_frame": {
+    "sha256": "2cfd473386916759061a23396d7edd1d7b88aec6d0e4ab5d2b5d22f6f730e039",
+    "source": "docs/art/rift-fish/motion-hd-20261111/14/base-1/original.png",
+    "role": "passed HD original, exact bytes preserved"
+  },
+  "last_frame": {
+    "sha256": "2cfd473386916759061a23396d7edd1d7b88aec6d0e4ab5d2b5d22f6f730e039",
+    "source": "docs/art/rift-fish/motion-hd-20261111/14/base-1/original.png",
+    "role": "passed HD original, exact bytes preserved"
+  }
+}
