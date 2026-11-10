@@ -1,7 +1,27 @@
 {
   "date": "2026-11-10",
   "batch": "left-facing-final-four",
-  "entries": [],
-  "status": "prepared_no_paid_requests",
-  "max_per_species_this_round": 2
+  "entries": [
+    {
+      "id": "11",
+      "name": "균열칼날 갈치",
+      "attempt": 1,
+      "status": "passed",
+      "model": "edit-image-pixen",
+      "seed": 2026111611,
+      "request_sha256": "3164924814ad63628609aebbd774673777143d28ef6290c4e258cf241faaa6b3",
+      "submitted_at_unix": 1794321496.0794837,
+      "prior_round_requests": 4,
+      "http_status": 202,
+      "job_id": "0cdaf8fb-c150-4207-aab6-16356a037576",
+      "actual_generation_delta": 1.0,
+      "result_sha256": "099fb8ad44c0b464a0790f9d110a794ef4cebeb7091af3fcf62383f0df427ade"
+    }
+  ],
+  "status": "left_final_four_in_progress",
+  "max_per_species_this_round": 2,
+  "generation_requests": 1,
+  "accepted_outputs": 1,
+  "rejected_outputs": 0,
+  "actual_generations_charged": 1.0
 }

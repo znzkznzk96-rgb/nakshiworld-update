@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "note": "좌향·길게 휘어진 은빛 몸과 우측 뾰족 꼬리 확인. 갈라진 꼬리가 없어 이전 실패 개선. 깊은 남청색 그림자와 진한 보라·청록 균열 3띠, 등 칼날이 작은 원본에서도 구분됨. native/nearest6x·투명 여백 정상, 판타지 갈치 시안 사용자 검토 대기.",
+  "reviewed_at_native_and_nearest6x": true,
+  "compared_with_actual_reservoir_original": true,
+  "size": [
+    96,
+    64
+  ],
+  "bbox": [
+    3,
+    18,
+    93,
+    43
+  ],
+  "mode": "RGBA",
+  "sha256": "099fb8ad44c0b464a0790f9d110a794ef4cebeb7091af3fcf62383f0df427ade",
+  "reference_sha256": "88b6cc3159bd52e84420bf60209cf405fdc4badf022014de0f4a7554c64adbc7",
+  "shape": "passed",
+  "color": "passed",
+  "shading_pixel_clusters": "passed",
+  "outline": "passed",
+  "species_feature": "passed",
+  "alpha_margin": "passed",
+  "actual_generation_delta": 1.0,
+  "game_applied": false,
+  "user_final_approval": "pending"
+}
