@@ -76,6 +76,8 @@
     "preflight": "docs/releases/119/PREFLIGHT.json"
   },
   "deployment_authorized": true,
-  "deployed": false,
-  "phone_verified": false
+  "deployed": true,
+  "phone_verified": false,
+  "release_authorized": false,
+  "publication": "docs/releases/119/PUBLISHED.json"
 }

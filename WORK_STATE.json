@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "v119_verified_publication_pending",
-  "release_baseline": "v1.18",
+  "status": "v119_published_verified",
+  "release_baseline": "v1.19",
   "target_release": "v1.19",
-  "deployed": false,
+  "deployed": true,
   "phone_verified": false,
-  "handoff": "docs/qa/hall-forge119/HANDOFF.md",
-  "current_task": "승인 회관·대장간 UI 구현 및 v1.19 공개배포",
-  "next_step": "PR57 병합→검증된 동일119후보 공개→공개파일/운영다운로드 검증",
+  "handoff": "docs/releases/119/HANDOFF.md",
+  "current_task": "v1.19 회관·대장간 및 승인 후속 수정 공개 완료",
+  "next_step": "휴대폰 재실행 후 v1.19 적용 확인·새 작업 지시 대기",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -23,10 +23,10 @@
   "screen_evidence_commit": "04fa33a116915c0b7a7ca86ee235a24a4cf4d4d2",
   "screen_verification_run": 42315352676,
   "full_source_verified": {
-    "release": "v1.18",
-    "size": 63521377,
-    "sha256": "f2d3ed49118c24163135fb6836d1e5c3ec42daa3acaca95a4f62ab1d6c3dcb3b",
-    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.18/game-source.zip"
+    "release": "v1.19",
+    "size": 63538227,
+    "sha256": "6f91003b977d62ded9527a1324a82b0266e377d2e9131a881d4d82911efec60d",
+    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.19/game-source.zip"
   },
   "fish_verification_run": 42317071546,
   "automatic_full_regression_run": 42317071379,
@@ -35,11 +35,9 @@
   "bundle_verification_run": 42319985467,
   "bundle_evidence_commit": "dd8297cc9de9a5423091b61e06f166ee22023de4",
   "headless_regression_coverage": {
-    "passed": 92,
-    "total": 92,
-    "run": 42571831399,
-    "scope": "unique VERIFY including native and packed checks",
-    "all_executed_in_release_run": true
+    "run": 42725519072,
+    "status": "passed",
+    "scope": "full verification-work workflow, native and packed checks"
   },
   "standard_full_workflow_success": true,
   "remaining_global_render_checks": false,
@@ -50,18 +48,18 @@
     "fulfilled": true
   },
   "release_preflight": "docs/qa/fight-telegraph/VERIFICATION.json",
-  "release_source_commit": "2ff57dd839ef97802268e8c7eecc455039429c25",
-  "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v1.15",
-  "release_build_run": 42575643580,
-  "release_build_status": "success_attempt2_same_draft_no_rebuild",
-  "public_verification_run": 42575834459,
+  "release_source_commit": "bd59d36974d16e50874111da629d32010d177c40",
+  "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v1.19",
+  "release_build_run": 42727188852,
+  "release_build_status": "success_attempt2_same_candidate_no_rebuild",
+  "public_verification_run": 42727377472,
   "public_verification_status": "success",
   "public_patch": {
-    "size": 59305600,
-    "sha256": "f2b54d77d661e60210887947702219995b925f76cc334d355a19190c16b08ad5",
-    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.15/patch.pck"
+    "size": 59460208,
+    "sha256": "0fdb01015cea7a06780056953dd7e856fc0a80819384264184d75261d115598b",
+    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.19/patch.pck"
   },
-  "standard_full_workflow_note": "v1.15 성공CI42571831399 고유92/native/PCK·실화면 후보13653836902 재검사/재빌드 없이 게시42575643580 attempt2, 운영42575834459 성공",
+  "standard_full_workflow_note": "v1.19 전체CI/native/PCK 성공후보를 재빌드없이 공개, 공개3파일·소스655파일·운영다운로드 검증 성공",
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md#2026-11-07--소규모-작업-효율채팅-중단-대비",
   "approved_followup": "우편 단일원본·공통지급·검사통합 구현/검증 완료. 공개v1.08 유지, 새 배포 미승인.",
   "session_continuity": {
@@ -120,7 +118,7 @@
     "production_balance_changed": false,
     "phone_tested": false
   },
-  "release_authorized": true,
+  "release_authorized": false,
   "balance110": {
     "applied": true,
     "deployed": true,
@@ -173,7 +171,7 @@
     "ledger": "analysis/tile-layer-art-v1/PLANT_LEDGER.json",
     "quality": "analysis/tile-layer-art-v1/PLANT_QA.json"
   },
-  "public_release": "v1.18",
+  "public_release": "v1.19",
   "shared_vertical_light": {
     "applied": true,
     "regions": [
@@ -250,10 +248,9 @@
     "release_authorized": false
   },
   "full_release_ci": {
-    "run": 42571831399,
+    "run": 42725519072,
     "status": "success",
-    "source_commit": "2ff57dd839ef97802268e8c7eecc455039429c25",
-    "unique_verification_results": 92
+    "source_commit": "bd59d36974d16e50874111da629d32010d177c40"
   },
   "release_candidate": {
     "version": {
@@ -261,8 +258,8 @@
       "name": "1.19"
     },
     "ready": true,
-    "published": false,
-    "release_authorized": true,
+    "published": true,
+    "release_authorized": false,
     "verification": "docs/qa/hall-forge119/VERIFICATION.json",
     "run": 42725519072,
     "source_commit": "bd59d36974d16e50874111da629d32010d177c40",
@@ -396,7 +393,7 @@
     "date": "2026-11-10",
     "request": "마을회관은 처음시안 대장간은 두번째 업데이트 및 배포",
     "authorized": true,
-    "fulfilled": false,
+    "fulfilled": true,
     "scope": "hall/forge + approved pending gauge/notice/bundle/dex"
   },
   "economy_analysis": {
@@ -900,31 +897,34 @@
     "ci_run": 42701570797,
     "ci_status": "success",
     "verification": "docs/qa/village-reward-notice/VERIFICATION.json",
-    "deployed": false,
-    "release_authorized": false
+    "deployed": true,
+    "release_authorized": false,
+    "published_release": "v1.19"
   },
   "owner_gauge_alignment": {
     "implementation_commit": "10bfe7654c7d60409bce2817c3e7f0006b141450",
     "related_verified": true,
     "native_screens": 28,
     "verification": "docs/qa/owner-gauge-alignment/VERIFICATION.json",
-    "deployed": false,
+    "deployed": true,
     "release_authorized": false,
     "ci_run": 42710779190,
     "ci_status": "success",
     "source_commit": "6902a57879f3202cb0f31e20d31bc69db64505cf",
-    "candidate_artifact": 13716870696
+    "candidate_artifact": 13716870696,
+    "published_release": "v1.19"
   },
   "tile_bundle_next_unlock": {
     "related_suites": 7,
     "native_screens": 6,
     "verification": "docs/qa/tile-bundle-next-unlock/VERIFICATION.json",
-    "deployed": false,
+    "deployed": true,
     "release_authorized": false,
     "ci_run": 42715271254,
     "ci_status": "success",
     "source_commit": "58f9f202f64a6e4bcfaf2524310aebd2e8c66c89",
-    "candidate_artifact": 13719080097
+    "candidate_artifact": 13719080097,
+    "published_release": "v1.19"
   },
   "dex_readability": {
     "verification": "docs/qa/dex-readability/VERIFICATION.json",
@@ -940,32 +940,35 @@
       2,
       3
     ],
-    "deployed": false,
+    "deployed": true,
     "release_authorized": false,
     "ci_run": 42718606566,
     "ci_status": "success",
     "source_commit": "b37a66e386686a510e10cbf59091e80e9d4a9cc0",
-    "candidate_artifact": 13718919657
+    "candidate_artifact": 13718919657,
+    "published_release": "v1.19"
   },
   "dex_label_correction": {
     "verification": "docs/qa/dex-readability/LABEL_VERIFICATION.json",
     "related_verified": true,
     "native_screens": 21,
-    "deployed": false,
+    "deployed": true,
     "release_authorized": false,
-    "source_commit": "d15ee83518c4f3dfff2886ccba91f4eec5899bfd",
-    "ci_run": 42720881406,
-    "ci_status": "prior_network_fixture_startup_failure_fixed_pending119_full"
+    "source_commit": "bd59d36974d16e50874111da629d32010d177c40",
+    "ci_run": 42725519072,
+    "ci_status": "success",
+    "published_release": "v1.19"
   },
   "hall_forge119": {
     "related_suites": 6,
     "native_screens": 15,
     "verification": "docs/qa/hall-forge119/VERIFICATION.json",
-    "deployed": false,
-    "release_authorized": true,
+    "deployed": true,
+    "release_authorized": false,
     "ci_run": 42725519072,
     "ci_status": "success",
-    "source_commit": "bd59d36974d16e50874111da629d32010d177c40"
+    "source_commit": "bd59d36974d16e50874111da629d32010d177c40",
+    "published_release": "v1.19"
   },
   "release119": {
     "source_commit": "bd59d36974d16e50874111da629d32010d177c40",
@@ -973,8 +976,17 @@
     "ci_status": "success",
     "pr": 57,
     "preflight": "docs/releases/119/PREFLIGHT.json",
-    "deployed": false,
+    "deployed": true,
     "phone_verified": false,
-    "release_authorized": true
+    "release_authorized": false,
+    "merge_commit": "1e207b8afdc5227ceabdae995935688d6990d59f",
+    "publication_run": 42727188852,
+    "publication_attempt": 2,
+    "draft_id": 439797504,
+    "publication_first_failure": "created draft listing delay; same draft/source verified, no rebuild",
+    "status": "published_verified",
+    "publication_status": "success_attempt2",
+    "gateway_run": 42727377472,
+    "verification": "docs/releases/119/PUBLISHED.json"
   }
 }
