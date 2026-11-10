@@ -16,7 +16,7 @@ func run():
  check(Engine.get_process_frames()-frames>=15,"64MiB hash spans at least15 completed frames with4MiB maximum batches")
  check(m.animation_time>before,"animation advances during verification")
  check(await preload("res://incremental_update.gd").digest_file(m,"user://absent.bin")=="","unreadable candidate rejected")
- for phase in ["ready","verifying","loading"]:
+ for phase in ["ready","assembling","verifying","loading"]:
   m.update_phase=phase;m.progress=.98;m.received_bytes=980;m.total_bytes=1000
   check(not "%" in m.transfer_detail(),"no frozen percentage during "+phase)
  m.update_phase="download";m.expected_size=1000;m.progress=.98

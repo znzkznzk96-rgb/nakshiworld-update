@@ -139,6 +139,7 @@ func transfer_detail() -> String:
 	if update_phase=="planning":return "기기에 있는 파일은 다시 받지 않아요"
 	if update_phase=="verifying":return "다운로드 완료 · 파일 안전성을 확인하고 있어요"
 	if update_phase=="ready":return "잠시 후 낚시월드로 이동해요"
+	if update_phase=="assembling":return "다운로드 완료 · 기존 데이터와 합치고 있어요"
 	if update_phase=="loading":return "게임 화면과 장비를 준비하고 있어요"
 	var total:int=total_bytes if incremental!=null else (expected_size if expected_size>0 else total_bytes)
 	if total<=0:return "%.1f MB 받음 · 전체 크기 확인 중"%(received_bytes/1000000.0)
@@ -146,10 +147,12 @@ func transfer_detail() -> String:
 
 func _process(dt: float) -> void:
 	animation_time+=maxf(dt,0.0)
-	if incremental!=null and update_phase in ["planning","download"]:
+	if incremental!=null and update_phase in ["planning","download","assembling"]:
 		var data:Dictionary=incremental.snapshot()
 		received_bytes=data.received;total_bytes=data.total;progress=data.progress
-		if total_bytes>0:
+		if incremental.stage=="assembling":
+			update_phase="assembling";status="게임 데이터 정리 중…"
+		elif total_bytes>0:
 			update_phase="download";status="바뀐 데이터 받는 중…"
 
 	if status != "":queue_redraw()

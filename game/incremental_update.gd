@@ -2,6 +2,7 @@ extends RefCounted
 # Reconstruct the exact published PCK using verified local resources plus byte ranges.
 var received:=0
 var planned:=-1
+var stage:="planning"
 var request:HTTPRequest
 var index_bytes:=PackedByteArray()
 var entries:Array=[]
@@ -119,12 +120,13 @@ func download(owner:Node,url:String,total:int,expected_sha:String,target:String,
  if entries.is_empty():return finish(false)
  var old:Dictionary=local_index(installed);var cache:Dictionary={}
  work_tick=Time.get_ticks_usec()
- planned=received
+ var plan_total:int=received
  for e in entries:
   await cooperate(owner)
   var b:=local_bytes(e,installed,old)
   if (e.size==0 or not b.is_empty()):cache[e.path]=true;reused+=1
-  else:planned+=int(e.size)
+  else:plan_total+=int(e.size)
+ planned=plan_total;stage="download"
  var out:=FileAccess.open(target,FileAccess.WRITE)
  if out==null:return finish(false)
  out.store_buffer(index_bytes)
@@ -138,6 +140,7 @@ func download(owner:Node,url:String,total:int,expected_sha:String,target:String,
   if b.size()!=e.size or md5(b)!=e.md5:out=null;return finish(false)
   out.store_buffer(b)
   if out.get_error()!=OK:out=null;return finish(false)
+  if received>=planned:stage="assembling"
  if out.get_position()>total:out=null;return finish(false)
  out.store_buffer(zeros(total-out.get_position()));out.flush();out=null
  if not verify_at_end:return finish(true)
