@@ -1,0 +1,246 @@
+{
+  "date": "2026-11-10",
+  "accepted_previews": [
+    {
+      "id": "01",
+      "name": "쌍혜성 두꼬리꽁치",
+      "tier": 1,
+      "attempt": 2,
+      "directory": "01-attempt2",
+      "sha256": "c101fa2cf92ba62596d2641048cea7800e6bf1b3c7f350dee039e9588f3002e5",
+      "motion_design": "두꼬리 각각 상하로 번갈아 부채질·꼬리끝 짧은 잔광, 몸은 가늘게 파동",
+      "size": [
+        96,
+        64
+      ],
+      "status": "internal_pass_user_approval_pending"
+    },
+    {
+      "id": "05",
+      "name": "균열장막 오징어",
+      "tier": 1,
+      "attempt": 2,
+      "directory": "05-attempt2",
+      "sha256": "ee248c3a3d789b33242f20efe822dd94840f7217bc4e6fb921ce6b42ffd81889",
+      "motion_design": "맨틀 수축·확장 후 추진, 촉수 늦게 따라오는 물결·균열빛 맥동",
+      "size": [
+        96,
+        64
+      ],
+      "status": "internal_pass_user_approval_pending"
+    },
+    {
+      "id": "09",
+      "name": "균열갑주 방어",
+      "tier": 2,
+      "attempt": 1,
+      "directory": "09-attempt1",
+      "sha256": "5f7b7e1af3bf27e27d339c3195dd16c6ab3fcabfc7a056e967dab1ecea94a86b",
+      "motion_design": "몸통 좌우 스윙·갑주판 약한 벌어짐, 등 결정이 순차적으로 빛남",
+      "size": [
+        96,
+        64
+      ],
+      "status": "internal_pass_user_approval_pending"
+    },
+    {
+      "id": "10",
+      "name": "유영리본 삼치",
+      "tier": 2,
+      "attempt": 1,
+      "directory": "10-attempt1",
+      "sha256": "d3d1248d103a3156c4fe4aebe9a430301071db8337fcc7feabc72e47e510be4c",
+      "motion_design": "몸통보다 늦게 따라오는 리본 S자 물결, 급가속 때 리본을 뒤로 펴기",
+      "size": [
+        96,
+        64
+      ],
+      "status": "internal_pass_user_approval_pending"
+    },
+    {
+      "id": "13",
+      "name": "틈새결정 복어",
+      "tier": 2,
+      "attempt": 1,
+      "directory": "13-attempt1",
+      "sha256": "0552465627aae2e7b25cffe078b1ffd41c9ceb11c60e984a1e285e13ae01baa7",
+      "motion_design": "복부 팽창·수축, 균열선 폭이 벌어지는 듯 밝기 변화·결정 흔들림",
+      "size": [
+        96,
+        64
+      ],
+      "status": "internal_pass_user_approval_pending"
+    },
+    {
+      "id": "14",
+      "name": "거울날개 날치",
+      "tier": 2,
+      "attempt": 1,
+      "directory": "14-attempt1",
+      "sha256": "a1b1454e9dcb7382b3507333a64a3dcc113f4faca60b70b87f5610c47efaa45f",
+      "motion_design": "큰 거울날개 한 쌍 상하 펄럭임·각도에 따라 반사 띠가 미끄러짐",
+      "size": [
+        96,
+        64
+      ],
+      "status": "internal_pass_user_approval_pending"
+    },
+    {
+      "id": "15",
+      "name": "차원결정 참치",
+      "tier": 3,
+      "attempt": 2,
+      "directory": "15-attempt2",
+      "sha256": "180887aa8637707756354c0cc4deef1d7e8a8fe87e4f81a0d1785bdb2425262f",
+      "motion_design": "강한 꼬리 스냅·갑주 프리즘의 시차 반짝임, 가속 때 몸통 살짝 압축",
+      "size": [
+        96,
+        64
+      ],
+      "status": "internal_pass_user_approval_pending"
+    },
+    {
+      "id": "17",
+      "name": "뇌광 삼치",
+      "tier": 3,
+      "attempt": 1,
+      "directory": "17-attempt1",
+      "sha256": "a539214aa0edbda35a7f6af430791b8d73f65e2b28682403e3ccb2916d3d2da3",
+      "motion_design": "짧고 빠른 꼬리 스냅·등 번개 지느러미 경직/해제, 문양이 짧게 번쩍임",
+      "size": [
+        96,
+        64
+      ],
+      "status": "internal_pass_user_approval_pending"
+    },
+    {
+      "id": "18",
+      "name": "차원창 청새치",
+      "tier": 4,
+      "attempt": 1,
+      "directory": "18-attempt1",
+      "sha256": "099f415642c2fdbdc91c85d01c62185df062f9cd74fc0d73ee3b992d734b089e",
+      "motion_design": "주둥이 창을 앞세운 돌진·망토 등지느러미 후행 물결·창 끝 짧은 잔광",
+      "size": [
+        96,
+        64
+      ],
+      "status": "internal_pass_user_approval_pending"
+    },
+    {
+      "id": "19",
+      "name": "균열유리 상어",
+      "tier": 4,
+      "attempt": 1,
+      "directory": "19-attempt1",
+      "sha256": "591066cc8cbf0616ac4327c593287c4d0c339f743e92374b10dae86a9c0cd6f8",
+      "motion_design": "긴 꼬리 좌우 S파동·몸 기울기에 따라 유리 하이라이트 이동·내부 굴절띠 시차",
+      "size": [
+        96,
+        64
+      ],
+      "status": "internal_pass_user_approval_pending"
+    }
+  ],
+  "held": [
+    {
+      "id": "11",
+      "name": "균열칼날 갈치",
+      "requests": 2,
+      "reason": "이번 회차 2회 내 외형/품질 미통과, 개별 보류"
+    },
+    {
+      "id": "12",
+      "name": "균열꽃 광어",
+      "requests": 2,
+      "reason": "이번 회차 2회 내 외형/품질 미통과, 개별 보류"
+    },
+    {
+      "id": "16",
+      "name": "월식 개복치",
+      "requests": 2,
+      "reason": "이번 회차 2회 내 외형/품질 미통과, 개별 보류"
+    }
+  ],
+  "protected_existing_six": [
+    {
+      "id": "02",
+      "name": "균열정어리",
+      "attempt": 1,
+      "directory": "02-attempt1",
+      "sha256": "0fdcf1ad1b2818ca10802365c6ca1285922deeb0b6e13e56bd1c82b60b9216ea",
+      "size": [
+        96,
+        64
+      ],
+      "status": "internal_quality_pass_user_review_pending"
+    },
+    {
+      "id": "03",
+      "name": "네날개날치",
+      "attempt": 1,
+      "directory": "03-attempt1",
+      "sha256": "bb5da274a05ace32781a119f4341250b23f79bfe4d7cb6b08761eb9646e2fddd",
+      "size": [
+        96,
+        64
+      ],
+      "status": "internal_quality_pass_user_review_pending"
+    },
+    {
+      "id": "04",
+      "name": "가시등전어",
+      "attempt": 2,
+      "directory": "04-attempt2",
+      "sha256": "cca9e6f8bcefe5caf69d5c912e118bda26d88ed4f40d5cb5d401234db4793e3f",
+      "size": [
+        96,
+        64
+      ],
+      "status": "internal_quality_pass_user_review_pending"
+    },
+    {
+      "id": "06",
+      "name": "쥐포쥐치",
+      "attempt": 2,
+      "directory": "06-attempt2",
+      "sha256": "49bc3d38623b565a722512401299746cff7fd4ff4012118ebadb7a90ac9eaca9",
+      "size": [
+        96,
+        64
+      ],
+      "status": "internal_quality_pass_user_review_pending"
+    },
+    {
+      "id": "07",
+      "name": "금간정어리",
+      "attempt": 1,
+      "directory": "07-attempt1",
+      "sha256": "73e180f43b932d7bf5feb720c84aca00599907f665d757cd1842e7d4569e68fa",
+      "size": [
+        96,
+        64
+      ],
+      "status": "internal_quality_pass_user_review_pending"
+    },
+    {
+      "id": "08",
+      "name": "빛멸치",
+      "attempt": 1,
+      "directory": "08-attempt1",
+      "sha256": "04190e7b52eb9f691e77502ee390c3c6efb5fac7b9cbca7b40706512d9f31b1f",
+      "size": [
+        96,
+        64
+      ],
+      "status": "internal_quality_pass_user_review_pending"
+    }
+  ],
+  "boss_excluded": "폭풍다랑어",
+  "requests": 19,
+  "actual_generations_charged": 19.0,
+  "actual_animation_generated": false,
+  "game_applied": false,
+  "deployed": false,
+  "user_final_approval": "pending"
+}

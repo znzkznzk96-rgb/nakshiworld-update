@@ -1,17 +1,17 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "rift_fantasy_nonboss_round2_in_progress",
+  "status": "rift_fantasy_nonboss_round2_complete_user_review_pending",
   "release_baseline": "v1.25",
   "target_release": "v1.25",
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/art/rift-fish/HANDOFF.md",
-  "current_task": "기존6종보존·보류2종/미제작11종 판타지원화·모션설계13종",
-  "next_step": "광어12번 생성 진행 중. 01/05/09/10 후보확보,11 갈치2회실패보류. 기존6종보존·주인제외·종당2회/동시1개 유지.",
+  "current_task": "균열해역 판타지 신규10종 시안 검토·갈치/광어/개복치 보류",
+  "next_step": "신규10종 외형·색감 사용자 검토 대기. 기존6종보존·주인제외. 추가유료생성/실제모션/게임적용/새배포는 후속지시 기준.",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
-  "verification": "docs/art/rift-fish/tier1-20261110/REMOTE_VERIFICATION.json",
+  "verification": "docs/art/rift-fish/fantasy-round2-20261110/REMOTE_VERIFICATION.json",
   "baseline_phone_verified": false,
   "environment_recovery": "docs/CODEX_NETWORK_RECOVERY.md",
   "background_verified_branch": "work/tile-png-stage2-20261107",
@@ -1176,18 +1176,20 @@
     "deployed": false
   },
   "rift_fantasy_round2": {
-    "status": "in_progress",
-    "candidate_species": [
-      "01",
-      "05",
-      "09",
-      "10"
-    ],
+    "status": "complete_user_review_pending",
+    "candidate_count": 10,
     "held_species": [
-      "11"
+      "갈치",
+      "광어",
+      "개복치"
     ],
-    "manifest": "docs/art/rift-fish/fantasy-round2-20261110/SPEC.json",
+    "requests": 19,
+    "actual_generations_charged": 19,
+    "protected_existing_six": true,
+    "boss_excluded": true,
+    "manifest": "docs/art/rift-fish/fantasy-round2-20261110/MANIFEST.json",
     "ledger": "docs/art/rift-fish/fantasy-round2-20261110/LEDGER.json",
+    "verification": "docs/art/rift-fish/fantasy-round2-20261110/REMOTE_VERIFICATION.json",
     "actual_animation_generated": false,
     "game_applied": false,
     "deployed": false
