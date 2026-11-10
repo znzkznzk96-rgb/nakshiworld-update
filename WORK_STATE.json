@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "soldier_size_full_ci",
+  "status": "soldier_size_verified_waiting_release",
   "release_baseline": "v1.21",
   "target_release": "v1.22",
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/qa/soldier-size/HANDOFF.md",
   "current_task": "성급별 전투 크기·체력바 옆 스킬 표시",
-  "next_step": "최종CI42763368422 결과확인·기록마감. 새공개배포별도승인.",
+  "next_step": "새 공개배포 요청 시 v1.22 검증동일후보공개. 휴대폰실화면확인별도.",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -1087,5 +1087,13 @@
     "published": "docs/releases/121/PUBLISHED.json",
     "deployed": true,
     "phone_verified": false
+  },
+  "soldier_size": {
+    "approved": true,
+    "implemented": true,
+    "verified": true,
+    "source_commit": "b14f8935f0941b58c085bcc98f3435cc31a3e778",
+    "ci": 42763368422,
+    "deployed": false
   }
 }
