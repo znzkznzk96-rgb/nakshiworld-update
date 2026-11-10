@@ -1,6 +1,6 @@
 {
   "date": "2026-11-10",
-  "status": "stopped",
+  "status": "continuing_remaining_seven",
   "species": [
     {
       "id": "01",
@@ -22,7 +22,7 @@
       "style_strength": 35,
       "max_attempts": 2,
       "attempts_used": 2,
-      "status": "stopped_no_accepted_output"
+      "status": "held"
     },
     {
       "id": "02",
@@ -31,20 +31,21 @@
       "tier": 1,
       "shape": "A small plump sardine with a round snout, one normal visible eye and forked tail. Intense cobalt-blue upper body and silver belly. Exactly ONE THICK jagged lightning-shaped CYAN rift crack across the side, crisp bright cyan-white center surrounded by deep navy edges. A solid intact fish, not severed, no extra eyes.",
       "colors": "cobalt / silver / bright cyan",
-      "reference": "game/art/fish/l0_07.png",
-      "reference_sha256": "a09e70c432b23d10502eb18efa02d14bfbbd4ce4c5a15634b7f5c161a3ac47db",
-      "reference_role": "style only; no init_image or provisional art",
+      "reference": "game/art/fish/l0_00.png",
+      "reference_sha256": "35d557efb6ae37167aa577f0f0e8e0ff7a4aa7e580b34f529e359ddba8496ac0",
+      "reference_role": "approved actual game original, edited directly to preserve native pixel style; no provisional or rejected image",
       "reference_reason": "silver-blue reservoir fish; preserve cool color rather than gold reference",
-      "model": "create-image-bitforge",
+      "model": "edit-image-pixen",
       "size": [
         96,
         64
       ],
-      "seed": 2026111002,
+      "seed": 2026111202,
       "style_strength": 35,
       "max_attempts": 2,
       "attempts_used": 0,
-      "status": "planned"
+      "status": "planned",
+      "request_cost_documented_generations": 1
     },
     {
       "id": "03",
@@ -55,18 +56,19 @@
       "colors": "royal blue / turquoise / silver",
       "reference": "game/art/fish/l0_07.png",
       "reference_sha256": "a09e70c432b23d10502eb18efa02d14bfbbd4ce4c5a15634b7f5c161a3ac47db",
-      "reference_role": "style only; no init_image or provisional art",
+      "reference_role": "approved actual game original, edited directly to preserve native pixel style; no provisional or rejected image",
       "reference_reason": "slender blue silver original with crisp ray shapes",
-      "model": "create-image-bitforge",
+      "model": "edit-image-pixen",
       "size": [
         96,
         64
       ],
-      "seed": 2026111003,
+      "seed": 2026111203,
       "style_strength": 35,
       "max_attempts": 2,
       "attempts_used": 0,
-      "status": "planned"
+      "status": "planned",
+      "request_cost_documented_generations": 1
     },
     {
       "id": "04",
@@ -77,18 +79,19 @@
       "colors": "emerald teal / silver / orange-red",
       "reference": "game/art/fish/l0_04.png",
       "reference_sha256": "bce75f4ed6675688253882dbd32d8e826e28c04c3b975c9cd9813b941d64a36a",
-      "reference_role": "style only; no init_image or provisional art",
+      "reference_role": "approved actual game original, edited directly to preserve native pixel style; no provisional or rejected image",
       "reference_reason": "deep-bodied striped green reservoir fish for green shadows and scales",
-      "model": "create-image-bitforge",
+      "model": "edit-image-pixen",
       "size": [
         96,
         64
       ],
-      "seed": 2026111004,
+      "seed": 2026111204,
       "style_strength": 35,
       "max_attempts": 2,
       "attempts_used": 0,
-      "status": "planned"
+      "status": "planned",
+      "request_cost_documented_generations": 1
     },
     {
       "id": "05",
@@ -99,18 +102,19 @@
       "colors": "coral red-orange / cream / maroon",
       "reference": "game/art/fish/l0_09.png",
       "reference_sha256": "e454a6f227a1c2005f0844bb375b9bb6b2790e9043049451f214dd74e4eb03d2",
-      "reference_role": "style only; no init_image or provisional art",
+      "reference_role": "approved actual game original, edited directly to preserve native pixel style; no provisional or rejected image",
       "reference_reason": "dark warm-brown aquatic original for coherent outline and compact highlights; text specifies red squid not catfish",
-      "model": "create-image-bitforge",
+      "model": "edit-image-pixen",
       "size": [
         96,
         64
       ],
-      "seed": 2026111005,
+      "seed": 2026111205,
       "style_strength": 35,
       "max_attempts": 2,
       "attempts_used": 0,
-      "status": "planned"
+      "status": "planned",
+      "request_cost_documented_generations": 1
     },
     {
       "id": "06",
@@ -121,18 +125,19 @@
       "colors": "turquoise / lime / orange",
       "reference": "game/art/fish/l0_04.png",
       "reference_sha256": "bce75f4ed6675688253882dbd32d8e826e28c04c3b975c9cd9813b941d64a36a",
-      "reference_role": "style only; no init_image or provisional art",
+      "reference_role": "approved actual game original, edited directly to preserve native pixel style; no provisional or rejected image",
       "reference_reason": "flat green-bodied reservoir original for clean clusters and orange accents",
-      "model": "create-image-bitforge",
+      "model": "edit-image-pixen",
       "size": [
         96,
         64
       ],
-      "seed": 2026111006,
+      "seed": 2026111206,
       "style_strength": 35,
       "max_attempts": 2,
       "attempts_used": 0,
-      "status": "planned"
+      "status": "planned",
+      "request_cost_documented_generations": 1
     },
     {
       "id": "07",
@@ -143,18 +148,19 @@
       "colors": "indigo / silver / golden-yellow cracks",
       "reference": "game/art/fish/l0_07.png",
       "reference_sha256": "a09e70c432b23d10502eb18efa02d14bfbbd4ce4c5a15634b7f5c161a3ac47db",
-      "reference_role": "style only; no init_image or provisional art",
+      "reference_role": "approved actual game original, edited directly to preserve native pixel style; no provisional or rejected image",
       "reference_reason": "cool slender silver original avoids global gold cast; warm fissures only specified in text",
-      "model": "create-image-bitforge",
+      "model": "edit-image-pixen",
       "size": [
         96,
         64
       ],
-      "seed": 2026111007,
+      "seed": 2026111207,
       "style_strength": 35,
       "max_attempts": 2,
       "attempts_used": 0,
-      "status": "planned"
+      "status": "planned",
+      "request_cost_documented_generations": 1
     },
     {
       "id": "08",
@@ -163,27 +169,29 @@
       "tier": 1,
       "shape": "ONE tiny slender anchovy individual, transparent-looking pale icy-blue silver body drawn with solid crisp clusters, dark cobalt dorsal line, disproportionately bright turquoise glowing belly stripe and clear bright eye, narrow little forked tail. Small bioluminescent anchovy from a rift sea, no surrounding aura cloud, no school, no multiple fish.",
       "colors": "icy silver-blue / cobalt / turquoise light",
-      "reference": "game/art/fish/l0_18.png",
-      "reference_sha256": "a87f59d881fbd6fe0027a8c9008e95a9849eeb6552d55ba5b1dee634dc690787",
-      "reference_role": "style only; no init_image or provisional art",
+      "reference": "game/art/fish/l0_07.png",
+      "reference_sha256": "a09e70c432b23d10502eb18efa02d14bfbbd4ce4c5a15634b7f5c161a3ac47db",
+      "reference_role": "approved actual game original, edited directly to preserve native pixel style; no provisional or rejected image",
       "reference_reason": "pale blue-white reservoir original for bright clean blue highlights; one individual reusable for a school",
-      "model": "create-image-bitforge",
+      "model": "edit-image-pixen",
       "size": [
         96,
         64
       ],
-      "seed": 2026111008,
+      "seed": 2026111208,
       "style_strength": 35,
       "max_attempts": 2,
       "attempts_used": 0,
-      "status": "planned"
+      "status": "planned",
+      "request_cost_documented_generations": 1
     }
   ],
   "limits": {
     "paid_concurrency": 1,
     "max_attempts_per_species": 2,
     "default_attempts": 1,
-    "automatic_post_retry": false
+    "automatic_post_retry": false,
+    "failed_species_policy": "hold only failed species; inspect and continue independent species per latest user"
   },
   "roster_note": "original eight slots retained; proposed merge was not approved; cyan rift sardine and gold-cracked sardine distinct; no new species invented",
   "style_note": "actual reservoir originals only, vivid species-specific colors, no provisional init image; style transfer may affect shape, so first species is a mandatory gate",

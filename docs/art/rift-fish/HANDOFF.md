@@ -13,3 +13,6 @@
 두꼬리꽁치1차(create-image-bitforge)96x64 PNG정상이나체형/두꼬리/우향/선명색·도트불합격. 거절본은참조·적용금지,원격디코드/크기/SHA검증완료. 실제1회분차감.
 2차(create-image-pro-flash)단일POST202/jobID보존후기존jobGET조회: failed,upstream502 ‘Inference stream ended without producing a result’. 이미지0·실제차감0(1122.6유지). 총요청2·반환이미지1(거절)·채택0·실제차감1회분. 종당2POST상한도달·첫1종게이트미통과이므로다른7종미착수/추가POST없음.
 [명세](tier1-20261110/SPEC.json)·[차감/요청원장](tier1-20261110/LEDGER.json)·[1차검수](tier1-20261110/01-attempt1/REVIEW.json)·[2차실패](tier1-20261110/01-attempt2/REVIEW.json). 다음: 사용자후속지시대기. 게임적용/배포0·공개v1.25유지.
+
+## 최신 사용자 정정 — 나머지7종 계속
+두꼬리꽁치만보류. 실패어종만보류하고독립어종은계속하도록사용자명시정정. 종당최대2회/동시1개/매회검수유지. 7종은실제저수지원본PNG를원본크기그대로edit-image-pixen으로변형하여스타일유지·단일출력(문서상1회분),임시/거절본입력없음. 실제요청/META/SPEC원격보존후균열정어리부터순차진행. 게임미적용·미배포.
