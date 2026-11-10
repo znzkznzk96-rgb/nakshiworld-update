@@ -1,0 +1,19 @@
+{
+  "id": "02",
+  "stage": "base",
+  "attempt": 1,
+  "status": "passed",
+  "note": "청록 균열 띠·남청 등·은빛 배·지느러미/눈/꼬리 구조와 좌향 유지. native202px 본체에서 선명한 다단 명암과 세부 픽셀 확인, 여백 정상.",
+  "reviewed_native_and_nearest": true,
+  "approved_source_compared": true,
+  "observed_direction": "west",
+  "shape": "passed",
+  "color": "passed",
+  "native_detail": "passed",
+  "species_features": "passed",
+  "motion": "not_applicable",
+  "alpha_margin": "passed",
+  "native_width_at_least_fight_max": "passed",
+  "actual_generation_delta": 1.0,
+  "game_applied": false
+}

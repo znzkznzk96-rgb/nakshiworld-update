@@ -1262,7 +1262,7 @@
     "completed_ids": [
       "01"
     ],
-    "paid_requests": 3,
-    "actual_generations_charged": 2
+    "paid_requests": 4,
+    "actual_generations_charged": 3
   }
 }

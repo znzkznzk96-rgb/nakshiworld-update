@@ -52,9 +52,35 @@
       "output_count": 17,
       "billing_source": "completed_job.billing_usage",
       "postcompletion_balance_query": "TUNNEL403; no paid retry"
+    },
+    {
+      "id": "02",
+      "name": "균열정어리",
+      "stage": "base",
+      "attempt": 1,
+      "model": "edit-image-pixen",
+      "seed": 2026112002,
+      "native_canvas": [
+        232,
+        132
+      ],
+      "input_sha256": "a6d807ecba14ee498641e8da297c31e4a3a74dbdba7432ddecb6ebf6ee7b1ffe",
+      "input_role": "user-approved fish, transparent margins cropped/padded only",
+      "request_sha256": "5be19287c333ca94e2a2eaa810fae89a837c1d28336609bded7503116d6bee7a",
+      "additional_request_used": 0,
+      "expected_output_count": 1,
+      "quoted_generations": 1,
+      "game_applied": false,
+      "status": "passed",
+      "submitted_unix": 1794326504.0183985,
+      "http_status": 202,
+      "job_id": "be2dc7a0-5901-49d2-8432-c880b61b0088",
+      "billing_source": "completed_job.billing_usage",
+      "actual_generation_delta": 1.0,
+      "output_count": 1
     }
   ],
   "status": "reviewed",
   "additional_requests_used": {},
-  "actual_generations_charged": 2.0
+  "actual_generations_charged": 3.0
 }
