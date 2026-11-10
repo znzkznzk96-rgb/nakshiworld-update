@@ -36,5 +36,31 @@
     "status": "in_progress"
   },
   "deployed": false,
-  "phone_verified": false
+  "phone_verified": false,
+  "native": {
+    "status": "passed",
+    "heights": [
+      480,
+      540,
+      660
+    ],
+    "offsets": [
+      1,
+      33,
+      47,
+      69,
+      70,
+      71
+    ],
+    "screens": 30,
+    "partial_scroll_screens": 18,
+    "edge_band_comparisons": 36,
+    "edge_band_pixels": 8,
+    "edge_bleed": "none",
+    "artifact": 13749872405,
+    "visual_review": [
+      "formation_h660_scroll33.png",
+      "formation_h480_scroll1.png"
+    ]
+  }
 }
