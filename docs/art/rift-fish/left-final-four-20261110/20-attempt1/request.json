@@ -9,5 +9,6 @@
   "outline": "selective outline",
   "detail": "highly detailed",
   "seed": 2026111620,
-  "enhance_prompt": false
+  "enhance_prompt": false,
+  "view": "side"
 }
