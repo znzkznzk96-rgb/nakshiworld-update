@@ -1,0 +1,38 @@
+{
+  "entries": [
+    {
+      "id": "02",
+      "attempt": 1,
+      "status": "rejected",
+      "model": "animate-pixminimax",
+      "seed": 2026115102,
+      "input_sha256": "7db650a1e42b245a87896ba5e4812411af51fdda6a001fa74e0c0e73e01672e3",
+      "request_sha256": "781b40a3277dcf38b6859ea774ecc3a70f5d8af6ac1f069e25ab65d221cf67ae",
+      "native_canvas": [
+        232,
+        132
+      ],
+      "submitted_unix": 1794346480.4479249,
+      "http_status": 200,
+      "job_id": "745029b8-bbc0-428f-8881-918be0c9e089",
+      "actual_generations": 1
+    },
+    {
+      "id": "02",
+      "attempt": 2,
+      "status": "submitted",
+      "model": "animate-pixminimax",
+      "seed": 2026115202,
+      "input_sha256": "7db650a1e42b245a87896ba5e4812411af51fdda6a001fa74e0c0e73e01672e3",
+      "request_sha256": "b7f1ac55ea3f20abde03d5324200e0e0713ea49f0fe4154c489f436b119e46cf",
+      "native_canvas": [
+        232,
+        132
+      ],
+      "submitted_unix": 1794346663.9306962,
+      "http_status": 200,
+      "job_id": "4fe51a6c-b547-4667-8bb2-043d7c1a8431"
+    }
+  ],
+  "status": "planned"
+}

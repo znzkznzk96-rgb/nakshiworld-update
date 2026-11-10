@@ -1,0 +1,28 @@
+{
+  "id": "02",
+  "attempt": 1,
+  "status": "rejected",
+  "note": "움직임은 이전보다 뚜렷하게 커졌으나 꼬리 강한 왕복 중 5/13번 등에서 몸 뒤로 숨듯 축약되어 꼬리 가독성 저하·최소폭146px. 2D 측면 위아래 굴곡으로 수정, 꼬리 전체 보이도록 추가1회.",
+  "native_and_nearest_reviewed": true,
+  "approved_native_compared": true,
+  "before_after_motion_compared": true,
+  "direction": "west",
+  "identity_color_alpha_reviewed": true,
+  "motion_range": {
+    "id": "02",
+    "attempt": 1,
+    "old": {
+      "silhouette_change_max": 0.075,
+      "min_content_width": 197,
+      "unclipped": true
+    },
+    "new": {
+      "silhouette_change_max": 0.28,
+      "min_content_width": 146,
+      "unclipped": true
+    }
+  },
+  "safe_native_fight_width": false,
+  "actual_generations": 1,
+  "game_applied": false
+}

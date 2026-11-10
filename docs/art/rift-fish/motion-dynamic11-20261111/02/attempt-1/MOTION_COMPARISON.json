@@ -1,0 +1,14 @@
+{
+  "id": "02",
+  "attempt": 1,
+  "old": {
+    "silhouette_change_max": 0.075,
+    "min_content_width": 197,
+    "unclipped": true
+  },
+  "new": {
+    "silhouette_change_max": 0.28,
+    "min_content_width": 146,
+    "unclipped": true
+  }
+}
