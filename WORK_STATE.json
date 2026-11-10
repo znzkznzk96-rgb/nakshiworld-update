@@ -7,7 +7,7 @@
   "phone_verified": false,
   "handoff": "docs/qa/updater-smoothness/HANDOFF.md",
   "current_task": "업데이트 시작·검증·게임 전환 끊김 완화",
-  "next_step": "전체CI 42738513194 결과 확인",
+  "next_step": "전체CI 42739210902 결과 확인",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -1030,8 +1030,8 @@
     "release_authorized": false,
     "implemented": true,
     "related_verified": true,
-    "source_commit": "11af2dc568080e4b3b6a201040496a87fc4dec40",
-    "ci_run": 42738513194,
+    "source_commit": "f3d0642536ad356a022d8208b9f1fbf736cf0ed8",
+    "ci_run": 42739210902,
     "ci_status": "in_progress",
     "verification": "docs/qa/updater-smoothness/VERIFICATION.json"
   }
