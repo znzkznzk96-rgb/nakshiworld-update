@@ -1,0 +1,19 @@
+{
+  "id": "10",
+  "name": "유영리본 삼치",
+  "stage": "motion",
+  "attempt": 1,
+  "model": "animate-pixminimax",
+  "seed": 2026113010,
+  "native_canvas": [
+    232,
+    188
+  ],
+  "input_sha256": "094dda4f6cbb9c5be416f43b01a72f1ebe281a10279dd167bf137d546469b21d",
+  "input_role": "internally passed native HD original derived from the user-approved fish",
+  "request_sha256": "5d8b3d8e84fc61064473786c7b9a660222eeb71af21e8b4ea686c90dd6478240",
+  "additional_request_used": 0,
+  "expected_output_count": 17,
+  "quoted_generations": 2,
+  "game_applied": false
+}
