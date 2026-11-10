@@ -1,0 +1,17 @@
+{
+  "description": "Powerful fast swimming IN PLACE. First the rear half of the body coils UP into a deep curve, lifting the whole crescent tail, then whips DOWN into the opposite deep curve. Repeat broad alternating tail beats. The rear half bends like a flexible swimming eel; the front half, head and bill remain steady facing left. The tail moves at least a quarter of the body height above and below its starting position. The sail follows the body, it is not the main action. Flat 2D side view, no turn toward camera. Preserve anatomy, clean pixels and original colors. Fixed canvas, scale and camera. Whole fish stays within transparent margins. No particles, streaks, detached pixels or new parts.",
+  "frame_count": 16,
+  "seed": 2026116118,
+  "no_background": true,
+  "drift_threshold": 0,
+  "enhance_prompt": false,
+  "direction": "west",
+  "view": "side",
+  "subject_description": "blue silver marlin with crystal bill and violet sail",
+  "initial_pose": "horizontal side view, head left, tail right, whole fish visible",
+  "input_sha256": "c4d16ee1ffb85704ac50eaeb830d6e386eddddaf1382b5e5eb26104cccac05a7",
+  "canvas": [
+    232,
+    156
+  ]
+}
