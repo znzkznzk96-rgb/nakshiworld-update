@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "rift_motion_pilot_prepared",
+  "status": "rift_motion_pilot_active",
   "release_baseline": "v1.25",
   "target_release": "v1.25",
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/art/rift-fish/HANDOFF.md",
   "current_task": "승인20종 실제모션·두꼬리꽁치16프레임 파일럿",
-  "next_step": "파일럿단일POST→기존job조회→실제차감/16frame외형·색·루프검수. 비용계획과결과보고,나머지대량예약없음.",
+  "next_step": "PixelLab既存job d35e605f-b18a-40a9-843d-a3f00b5e63b5 GET조회→완료시원본17장/생성16frame/차감·색·형태검수. 추가POST아직금지.",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -1221,15 +1221,16 @@
     "deployed": false
   },
   "rift_motion": {
-    "status": "pilot_prepared",
+    "status": "pilot_active",
     "all20_user_approved": true,
     "approved_list": "docs/art/rift-fish/motion-20261111/APPROVED_FISH.json",
     "cost_plan": "docs/art/rift-fish/motion-20261111/COST_QUOTE.json",
     "ledger": "docs/art/rift-fish/motion-20261111/LEDGER.json",
     "frame_count": 16,
     "initial_pilot_requests": 1,
-    "paid_requests": 0,
+    "paid_requests": 1,
     "game_applied": false,
-    "deployed": false
+    "deployed": false,
+    "job_id": "d35e605f-b18a-40a9-843d-a3f00b5e63b5"
   }
 }
