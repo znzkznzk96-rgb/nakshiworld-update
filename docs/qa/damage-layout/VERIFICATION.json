@@ -1,0 +1,51 @@
+{
+  "date": "2026-11-10",
+  "source_commit": "e99eabdc11ebca7307e0d35a3a43fbe14f20d64e",
+  "baseline": {
+    "release": "v1.23",
+    "source_zip_sha256": "54957ff46de2b573c3b44fc594cb71f929a4edee1ee4e6a782656c950e884632"
+  },
+  "local": {
+    "godot": "4.4.1.stable.official.49a5bc7b6",
+    "soldier_skill_cues": "passed",
+    "combat_feedback": "passed",
+    "combat_parity": "45 cases passed",
+    "layout_heights": [
+      48,
+      60,
+      78,
+      120
+    ],
+    "max_labels": 3,
+    "mixed_and_three_skills": "no overlap and enclosed",
+    "state_and_rng": "unchanged"
+  },
+  "ci": {
+    "run": 42782916111,
+    "status": "success",
+    "native": "passed",
+    "packed": "passed"
+  },
+  "deployed": false,
+  "phone_verified": false,
+  "native": {
+    "heights": [
+      480,
+      540,
+      660
+    ],
+    "scenarios": [
+      "prepare",
+      "cast",
+      "support",
+      "mixed"
+    ],
+    "views": [
+      "detail",
+      "strip"
+    ],
+    "frames": 24,
+    "mixed_frames_reviewed": 6,
+    "artifact": 13747046903
+  }
+}

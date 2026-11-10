@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "release123_published",
+  "status": "release124_verified_publishing",
   "release_baseline": "v1.23",
-  "target_release": "v1.23",
-  "deployed": true,
+  "target_release": "v1.24",
+  "deployed": false,
   "phone_verified": false,
-  "handoff": "docs/releases/123/HANDOFF.md",
-  "current_task": "v1.23 2성 본체·업데이트 글꼴 수정 공개 완료",
-  "next_step": "기존앱 재실행·게임업데이트 후 휴대폰 확인. 새수정/배포는별도요청.",
+  "handoff": "docs/releases/124/HANDOFF.md",
+  "current_task": "평타·스킬 데미지 겹침 수정 및 승인 배포",
+  "next_step": "검증된 동일후보 main 공개 후 운영다운로드/공개3파일 검증",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -43,9 +43,9 @@
   "remaining_global_render_checks": false,
   "release_authorization": {
     "date": "2026-11-10",
-    "user_request": "업데이투및 배포해줘 apk는 새로 받아야하나?",
-    "scope": "v1.23 2성 본체 재보정·글꼴 공유 수정",
-    "fulfilled": true
+    "scope": "v1.24 평타·스킬 분리·연타누적·최대3개·창내부 제한",
+    "user_request": "그렇게 수정해주고 업데이트및 배포해줘",
+    "fulfilled": false
   },
   "release_preflight": "docs/qa/soldier-size/VERIFICATION.json",
   "release_source_commit": "77c1eb4787f6c41b7d3f6257c8a87a9209fe17ea",
@@ -248,18 +248,18 @@
     "release_authorized": false
   },
   "full_release_ci": {
-    "run": 42775202696,
+    "run": 42782916111,
     "status": "success",
-    "source_commit": "77c1eb4787f6c41b7d3f6257c8a87a9209fe17ea"
+    "source_commit": "e99eabdc11ebca7307e0d35a3a43fbe14f20d64e"
   },
   "release_candidate": {
     "version": {
-      "code": 123,
-      "name": "1.23"
+      "code": 124,
+      "name": "1.24"
     },
-    "source_commit": "77c1eb4787f6c41b7d3f6257c8a87a9209fe17ea",
-    "artifact": 13743369539,
-    "input_fingerprint": "4392514b8e37934226a134bfd15542c2140891369e2a9667a8a9e5deb7ea4f04",
+    "source_commit": "e99eabdc11ebca7307e0d35a3a43fbe14f20d64e",
+    "artifact": 13747183988,
+    "input_fingerprint": "88a651dbf887d222864138484d0af76b1f507e34423fb38d3a543e4b65f895cd",
     "verified": true
   },
   "release_resume_run": 42424430555,
