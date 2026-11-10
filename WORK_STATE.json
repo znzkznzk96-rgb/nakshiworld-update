@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "updater_smoothness_in_progress",
+  "status": "updater_smoothness_implemented_ci_running",
   "release_baseline": "v1.19",
   "target_release": "v1.19",
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/qa/updater-smoothness/HANDOFF.md",
   "current_task": "업데이트 시작·검증·게임 전환 끊김 완화",
-  "next_step": "최소 표시시간·협력식 파일처리/해시·단계전환 구현검증",
+  "next_step": "전체CI 42738513194 결과 확인",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -1027,6 +1027,12 @@
     "minimum_display_seconds": 2,
     "apk_required": true,
     "deployed": false,
-    "release_authorized": false
+    "release_authorized": false,
+    "implemented": true,
+    "related_verified": true,
+    "source_commit": "11af2dc568080e4b3b6a201040496a87fc4dec40",
+    "ci_run": 42738513194,
+    "ci_status": "in_progress",
+    "verification": "docs/qa/updater-smoothness/VERIFICATION.json"
   }
 }

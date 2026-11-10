@@ -1,0 +1,40 @@
+{
+  "date": "2026-11-10",
+  "source_commit": "11af2dc568080e4b3b6a201040496a87fc4dec40",
+  "ci_run": 42738513194,
+  "ci_status": "in_progress",
+  "minimum_splash_seconds": 2,
+  "transition_seconds": 0.3,
+  "hash_chunk_bytes": 524288,
+  "hash_frame_budget_usec": 3000,
+  "hash_max_batch_bytes": 4194304,
+  "production_full_sha_passes": 1,
+  "no_update_native_elapsed_ms": 2457,
+  "native_ms": {
+    "mount": 0,
+    "script": 708,
+    "cooperative_game_ready": 1393
+  },
+  "timing_scope": "Linux4.4.1 native isolated test, not phone; phase waits overlap initialization",
+  "related_passed": [
+    "updater_verify",
+    "updater_smoothness_verify",
+    "updater_smoothness_preview"
+  ],
+  "integrity": "size+SHA256+GDPC header and rollback unchanged; deferred helper hash consumed by final root check",
+  "planning_total": "unknown until full local reuse scan",
+  "phases": [
+    "checking",
+    "planning",
+    "download",
+    "assembling",
+    "verifying",
+    "ready",
+    "loading"
+  ],
+  "art_unchanged": true,
+  "apk_required": true,
+  "apk_built": false,
+  "public_deployed": false,
+  "phone_verified": false
+}
