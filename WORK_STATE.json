@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "hall_forge119_visual_rejected",
+  "status": "hall_forge_art_repair_authorized",
   "release_baseline": "v1.19",
   "target_release": "v1.19",
   "deployed": true,
   "phone_verified": false,
-  "handoff": "docs/qa/hall-forge119/REJECTION_HANDOFF.md",
-  "current_task": "회관·대장간 승인 시안 불일치 정정",
-  "next_step": "기존 선택 시안 기준 실제 아트 제작 준비와 Godot 비교; 단순 도형 대체 및 32px 확대 재사용 금지",
+  "handoff": "docs/qa/hall-forge-art/HANDOFF.md",
+  "current_task": "회관·대장간 실제 아트 제작 및 전시영역 축소",
+  "next_step": "총3회 이내 한 장씩 실제 아트 제작·검수 후 UI 적용",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -990,5 +990,11 @@
     "publication_status": "success_attempt2",
     "gateway_run": 42727377472,
     "verification": "docs/releases/119/PUBLISHED.json"
+  },
+  "hall_forge_art": {
+    "max_generation_requests": 3,
+    "used": 0,
+    "public_deployment_authorized": false,
+    "forge_hero": "compact horizontal display"
   }
 }
