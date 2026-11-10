@@ -12,7 +12,7 @@ func corners(m,r:Rect2):
   m._ui_rect(Rect2(p,Vector2(6,1)),Color("64836a"))
   m._ui_rect(Rect2(p+Vector2(0 if p.x==r.position.x else 5,0),Vector2(1,6)),Color("64836a"))
 func rod(v,m,i:int,box:Rect2):
- var t:Texture2D=v.rods[i]
+ var t:Texture2D=load("res://art/shop_repair/rod_%d.png"%i)
  var sz:=t.get_size()*minf(box.size.x/t.get_width(),box.size.y/t.get_height())
  m._ui_texture_rect(t,Rect2((box.get_center()-sz/2).round(),sz.round()))
 func button(m,r:Rect2,s:String):
@@ -25,25 +25,15 @@ func draw_rods(v,m,r:Rect2,y:float):
  var current:bool=selected==m.rod_lv and m.equipment.rod_equipped
  var locked:bool=not owned and selected>m.rod_owned+1
  var available:float=r.end.y-12-y
- var cell_h:float=47 if available<340 else 58
+ var cell_h:float=minf(64,floorf((available-(58 if available<340 else 72)-(42 if available<340 else 50)-80)/2))
  var grid_h:float=14+cell_h*2+4
  var comparison_h:float=42 if available<340 else 50
- var hero_h:float=maxf(52,available-grid_h-comparison_h-57)
+ var hero_h:float=58 if available<340 else 72
  var hero:=Rect2(x,y,w,hero_h+comparison_h+5)
  skin.frame(m,hero,Color("07515b"),false,true)
- for i in 9:
-  var yy:float=y+7+i*maxf(4,(hero_h-12)/9)
-  m._ui_rect(Rect2(x+5+fmod(i*13,35.0),yy,w-20-i%3*12,2),Color("0a5961"))
  label(m,"사용 중인 장비" if current else "보유 장비" if owned else "잠긴 장비" if locked else "다음 장비",Vector2(x+9,y+16),9,Color("efd18b"),false,119)
  label(m,v.ROD_NAME[selected],Vector2(x+9,y+36),12,Color("fff0d1"),false,124)
- var stand:=Rect2(x+86,y+hero_h-10,80,6)
- m._ui_rect(stand,Color("26313a"));m._ui_rect(Rect2(stand.position,Vector2(80,2)),Color("a4a8a1"))
- var rod_box:=Rect2(x+88,y+5,136,hero_h-17)
- var tex:Texture2D=v.rods[selected]
- var used:Rect2=Rect2(tex.get_image().get_used_rect())
- var scale:float=maxf(1,floorf(minf(rod_box.size.x/used.size.x,rod_box.size.y/used.size.y)))
- var size:Vector2=used.size*scale
- m._ui_texture_rect_region(tex,Rect2(Vector2(roundf(rod_box.get_center().x-size.x/2),y+hero_h-12-size.y),size),used,Color(1.45,1.45,1.45))
+ rod(v,m,selected,Rect2(x+137,y+7,76,hero_h-12))
  var current_power:float=m.FISHING_DIFFICULTY.base_reel_power(m.rod_lv,m.active_region)
  var selected_power:float=m.FISHING_DIFFICULTY.base_reel_power(selected,m.active_region)
  var cy:float=y+hero_h
@@ -65,10 +55,11 @@ func draw_rods(v,m,r:Rect2,y:float):
   skin.frame(m,cr,Color("dfd1b7") if is_locked else Color("fff0d1"),false,i==selected)
   if i==selected:
    m._ui_rect(Rect2(cr.position+Vector2(3,3),Vector2(cr.size.x-6,1)),Color("e7b950"))
-  rod(v,m,i,Rect2(cr.position+Vector2(17,3),Vector2(38,cell_h-28)))
-  label(m,["대나무","카본","원투","선상","심해","은하"][i],cr.position+Vector2(36,cell_h-18),9,Color("493421"),true,64)
+  var compact:bool=cell_h<56
+  rod(v,m,i,Rect2(cr.position+Vector2(4,5) if compact else cr.position+Vector2(17,3),Vector2(31,cell_h-12) if compact else Vector2(38,cell_h-28)))
+  label(m,["대나무","카본","원투","선상","심해","은하"][i],cr.position+Vector2(51,cell_h/2-2) if compact else cr.position+Vector2(36,cell_h-18),8 if compact else 9,Color("493421"),true,36 if compact else 64)
   var status:String="사용 중" if i==m.rod_lv and m.equipment.rod_equipped else "보유" if i in m.equipment.rods else "잠김" if is_locked else "선택" if i==selected else "구매 가능"
-  label(m,status,cr.position+Vector2(36,cell_h-6),8,Color("08646b") if not is_locked else Color("8a7962"),true,64)
+  label(m,status,cr.position+Vector2(51,cell_h/2+10) if compact else cr.position+Vector2(36,cell_h-6),7 if compact else 8,Color("08646b") if not is_locked else Color("8a7962"),true,36 if compact else 64)
   v.rects.rows.append([cr,"rodselect:%d"%i])
  y+=cell_h*2+5
  m._ui_texture_rect(m.icons.scale,Rect2(x,y+1,13,15))

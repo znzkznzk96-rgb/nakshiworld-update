@@ -1,0 +1,120 @@
+{
+  "requests_used": 3,
+  "max_requests": 3,
+  "generator": "image_gen",
+  "production_assets": [
+    {
+      "path": "game/art/shop_repair/panel.png",
+      "size": [
+        256,
+        117
+      ],
+      "sha256": "34be05b397ba71bd5a829928d589a5f2ff1a80f30811518bc96886382454c7c3"
+    },
+    {
+      "path": "game/art/shop_repair/header.png",
+      "size": [
+        256,
+        78
+      ],
+      "sha256": "c1eb31d22a7057b7e4d50a920727e55abd76f9830c6d932d36d67dac824f1a2c"
+    },
+    {
+      "path": "game/art/shop_repair/teal.png",
+      "size": [
+        256,
+        96
+      ],
+      "sha256": "c6d716dba299ecf524a403f11c224c4a2b6f390f687355611ecb62166d7b673d"
+    },
+    {
+      "path": "game/art/shop_repair/card.png",
+      "size": [
+        256,
+        92
+      ],
+      "sha256": "06a57568d619a897faae239113ddc2e2c0a9cb1371d3d3a175f53ff438d70365"
+    },
+    {
+      "path": "game/art/shop_repair/button.png",
+      "size": [
+        256,
+        89
+      ],
+      "sha256": "63108d137e10ab6b1fe96c8b09edcc6fc14027e7be98e5ac8157cc74777b9e2d"
+    },
+    {
+      "path": "game/art/shop_repair/equipment.png",
+      "size": [
+        137,
+        128
+      ],
+      "sha256": "6ebff857cb03fc7acdaef16780fedff0bc7408ecd6af9ab7cb45754a6c5d78e6"
+    },
+    {
+      "path": "game/art/shop_repair/pond.png",
+      "size": [
+        64,
+        59
+      ],
+      "sha256": "735a09ca5f24e3de637f805bb54cef5e2b62e0e076751c02795dab04288574ba"
+    },
+    {
+      "path": "game/art/shop_repair/pump.png",
+      "size": [
+        61,
+        64
+      ],
+      "sha256": "a9a4249ce6ad6d727457947ae1fb22c93969f942da11b8570ee2667ef041ab62"
+    },
+    {
+      "path": "game/art/shop_repair/rod_0.png",
+      "size": [
+        96,
+        96
+      ],
+      "sha256": "6a262bbfa9b9546d7495204fc2fc7f2b1f12ddc15f4b2bed161c9108a645e29b"
+    },
+    {
+      "path": "game/art/shop_repair/rod_1.png",
+      "size": [
+        96,
+        96
+      ],
+      "sha256": "4707d14b2448482281bd1c49c9732bc5dc37dbafa2f146a6d9baced7cd26b638"
+    },
+    {
+      "path": "game/art/shop_repair/rod_2.png",
+      "size": [
+        96,
+        96
+      ],
+      "sha256": "6a5589f92631466721f1135135968393276e40de1074e1dd244abffda8de86dc"
+    },
+    {
+      "path": "game/art/shop_repair/rod_3.png",
+      "size": [
+        95,
+        96
+      ],
+      "sha256": "1212ff784fbb04135a99d05fde17762826e7eb20867fdd33c9aca948aaa8a17a"
+    },
+    {
+      "path": "game/art/shop_repair/rod_4.png",
+      "size": [
+        95,
+        96
+      ],
+      "sha256": "20af58f16ce85debef7ac6a89b32131aa2976e4f115e8249a7d14565553ac393"
+    },
+    {
+      "path": "game/art/shop_repair/rod_5.png",
+      "size": [
+        95,
+        96
+      ],
+      "sha256": "4d010c4b58b8695dbff01bff58c7af08654db62c43dca8e1ee662457142555dc"
+    }
+  ],
+  "note": "Atlas slicing and nearest resize only; original generated images preserved. Visual similarity is pending actual native review."
+}

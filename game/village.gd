@@ -405,7 +405,7 @@ func draw_shop(m, h: float) -> void :
 	var panel_y: = maxf(top + (6.0 if robot_shop or compact_forge else 32.0), roundf(h * 0.5) - (240 if robot_shop else 190))
 	var r = Rect2(8, panel_y, 254, minf(500.0 if robot_shop else (440.0 if shop=="museum" else 380.0), h - panel_y - (12 if robot_shop or compact_forge else 44)))
 	if restyled:
-		var desired:float=430 if shop=="hall" else 540
+		var desired:float=430 if shop=="hall" else 460
 		var height:float=minf(desired,h-top-12)
 		r=Rect2(8,maxf(top,roundf((h-height)/2)),254,height)
 	commerce.feedback_rect=Rect2(r.position+Vector2(9,46),Vector2(r.size.x-18,18))
@@ -413,7 +413,8 @@ func draw_shop(m, h: float) -> void :
 	if restyled:
 		active_style.panel=m.sb_panel;active_style.card=m.sb_btn;active_style.ink=Color("382619")
 		var teal:=StyleBoxFlat.new();teal.bg_color=Color("08646b");teal.border_color=Color("69492f");teal.set_border_width_all(2);teal.anti_aliasing=false;active_style.header=teal
-	m._ui_style_box(active_style.panel, r)
+	if restyled:preload("res://addons/reservoir/shop_restyle.gd").panel(m,r)
+	else:m._ui_style_box(active_style.panel, r)
 	var header: = Rect2(r.position + Vector2(5, 5), Vector2(r.size.x - 10, 39))
 	if restyled:preload("res://addons/reservoir/shop_restyle.gd").header(m,header)
 	else:m._ui_style_box(active_style.header, header)
