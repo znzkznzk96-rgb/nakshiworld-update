@@ -209,11 +209,30 @@
       "id": "14",
       "name": "거울날개 날치",
       "attempt": 1,
-      "status": "submission_pending",
+      "status": "passed",
       "model": "edit-image-pixen",
       "seed": 2026111414,
       "request_sha256": "38d80629ff3f02c01790afb22a2e4e88430fb46b101824dbd09e94cfc4ab9a01",
       "submitted_at_unix": 1794319905.4873366,
+      "prior_round_requests": 0,
+      "http_status": 202,
+      "job_id": "339dc6be-00bc-474b-940e-00dd6bdc4c1a",
+      "actual_generation_delta": 1.0,
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "result_sha256": "a1b1454e9dcb7382b3507333a64a3dcc113f4faca60b70b87f5610c47efaa45f"
+    },
+    {
+      "id": "15",
+      "name": "차원결정 참치",
+      "attempt": 1,
+      "status": "submission_pending",
+      "model": "edit-image-pixen",
+      "seed": 2026111415,
+      "request_sha256": "8863ebda09049ef17dd2fe42e4b415a4bcbf5ee5dc250e682b981b08c19b990f",
+      "submitted_at_unix": 1794319979.9948194,
       "prior_round_requests": 0
     }
   ],
@@ -293,8 +312,8 @@
       "status": "internal_quality_pass_user_review_pending"
     }
   ],
-  "generation_requests": 12,
-  "accepted_outputs": 5,
+  "generation_requests": 13,
+  "accepted_outputs": 6,
   "rejected_outputs": 6,
-  "actual_generations_charged": 11.0
+  "actual_generations_charged": 12.0
 }

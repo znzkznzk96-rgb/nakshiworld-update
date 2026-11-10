@@ -238,10 +238,11 @@
       "seed": 2026111414,
       "max_requests_this_round": 2,
       "prior_requests": 0,
-      "status": "planned",
+      "status": "passed",
       "requests_this_round": 0,
       "actual_motion_generated": false,
-      "game_applied": false
+      "game_applied": false,
+      "attempts_used": 1
     },
     {
       "id": "15",
