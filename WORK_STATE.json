@@ -1250,7 +1250,8 @@
     "total_species": 20,
     "completed": 12,
     "held": [
-      "07"
+      "07",
+      "14"
     ],
     "fight_max_logical_length": 156,
     "source_canvas_width": 232,
@@ -1275,7 +1276,7 @@
       "12",
       "13"
     ],
-    "paid_requests": 34,
-    "actual_generations_charged": 38
+    "paid_requests": 35,
+    "actual_generations_charged": 40
   }
 }

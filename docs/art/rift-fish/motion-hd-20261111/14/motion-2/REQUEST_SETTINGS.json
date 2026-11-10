@@ -1,0 +1,16 @@
+{
+  "first_frame": {
+    "encoded_image_omitted": true,
+    "sha256": "2cfd473386916759061a23396d7edd1d7b88aec6d0e4ab5d2b5d22f6f730e039",
+    "input_role": "internally passed native HD original derived from the user-approved fish"
+  },
+  "description": "Only the existing forked tail and small lower fins paddle very subtly. Keep the TWO cyan-lavender wings, all pale facet colors and reflection patterns completely STATIC. The head and body stay still. The space around and between the wings remains fully transparent with NO grey patches, shadows, motion trails, ghost silhouettes, glow, particles or added shapes. Preserve exact anatomy and colors, LEFT-facing, fixed position, scale and camera, gentle seamless loop.",
+  "frame_count": 16,
+  "seed": 2026113114,
+  "no_background": true,
+  "enhance_prompt": false,
+  "direction": "west",
+  "view": "side",
+  "subject_description": "blue-silver flying fish with two cyan-lavender mirror wings",
+  "initial_pose": "neutral horizontal swimming pose; head LEFT, tail or mantle RIGHT; whole creature visible inside transparent margins"
+}
