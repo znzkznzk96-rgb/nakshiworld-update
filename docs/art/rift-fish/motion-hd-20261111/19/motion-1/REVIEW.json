@@ -1,0 +1,19 @@
+{
+  "id": "19",
+  "stage": "motion",
+  "attempt": 1,
+  "status": "passed",
+  "note": "상어 체형·청록 유리 면·보라 내부 균열을 유지하며 꼬리 파동과 몸 안 반사만 발생. 외부 잔상·파편과 잘림 없음.",
+  "reviewed_native_and_nearest": true,
+  "approved_source_compared": true,
+  "observed_direction": "west",
+  "shape": "passed",
+  "color": "passed",
+  "native_detail": "passed",
+  "species_features": "passed",
+  "motion": "passed",
+  "alpha_margin": "passed",
+  "native_width_at_least_fight_max": "passed",
+  "actual_generation_delta": 1.0,
+  "game_applied": false
+}
