@@ -98,15 +98,23 @@
       "id": "10",
       "name": "유영리본 삼치",
       "attempt": 1,
-      "status": "submission_pending",
+      "status": "passed",
       "model": "edit-image-pixen",
       "seed": 2026111410,
       "request_sha256": "0c275355b733c4c8f01442fa9382c5cd092d1a68b8710c8ac3e9682eaaa73ffa",
       "submitted_at_unix": 1794319355.9619591,
-      "prior_round_requests": 0
+      "prior_round_requests": 0,
+      "http_status": 202,
+      "job_id": "0e3b27e6-8057-4bc2-9e3b-3bb0de894485",
+      "actual_generation_delta": 1.0,
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "result_sha256": "d3d1248d103a3156c4fe4aebe9a430301071db8337fcc7feabc72e47e510be4c"
     }
   ],
-  "status": "one_active",
+  "status": "fantasy_nonboss_round2_in_progress",
   "max_per_species_this_round": 2,
   "protected_existing_six": [
     {
@@ -183,7 +191,7 @@
     }
   ],
   "generation_requests": 6,
-  "accepted_outputs": 3,
+  "accepted_outputs": 4,
   "rejected_outputs": 2,
-  "actual_generations_charged": 5.0
+  "actual_generations_charged": 6.0
 }
