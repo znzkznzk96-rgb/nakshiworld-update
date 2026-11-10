@@ -1,0 +1,42 @@
+{
+  "date": "2026-11-10",
+  "source_commit": "52f3a49474f912e731ae38a4a96541c38a95f884",
+  "ci_status": "in_progress",
+  "related_passed": [
+    "shop_signs",
+    "hall_forge119",
+    "forge_layout",
+    "facility_growth",
+    "aquarium_b",
+    "bundle_preview"
+  ],
+  "native_screens": 24,
+  "heights": [
+    480,
+    540,
+    660
+  ],
+  "shops": [
+    "up",
+    "work",
+    "harbor",
+    "museum",
+    "bait",
+    "hall",
+    "forge",
+    "aqua"
+  ],
+  "glyph_verification": "actual Font ascent/descent and string width inside card inset8; three selections with owned/equipped/purchasable/locked states",
+  "paid_generations": 0,
+  "prices_save_rules": "unchanged",
+  "public_deployed": false,
+  "public_release": "v1.19 unchanged",
+  "prior_ci_failure": {
+    "run": 42731674575,
+    "reason": "hardcoded operational Range version118 rejected409 after latest119; live manifest code/size now checked"
+  },
+  "ci_previous": 42734642252,
+  "ci_previous_status": "failed_manifest_request_user_agent_403_corrected",
+  "operational_range": "live v119, HTTP206 100bytes verified with app headers",
+  "ci_run": 42734942363
+}

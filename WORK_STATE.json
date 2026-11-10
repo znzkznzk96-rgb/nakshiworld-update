@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "shop_signs_implemented_ci_pending",
+  "status": "shop_signs_related_verified_full_ci_running",
   "release_baseline": "v1.19",
   "target_release": "v1.19",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/shop-signs/HANDOFF.md",
   "current_task": "장비 카드 글씨 밀림 수정·모든 상점 상단 간판 통일",
-  "next_step": "전체CI 결과 확인·화면/기록 저장",
+  "next_step": "전체CI42734942363 완료 확인",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -1006,8 +1006,18 @@
   "shop_signs": {
     "approved": true,
     "paid_generations": 0,
+    "related_suites": 6,
+    "native_screens": 24,
+    "heights": [
+      480,
+      540,
+      660
+    ],
+    "source_commit": "52f3a49474f912e731ae38a4a96541c38a95f884",
+    "ci_run": 42734942363,
+    "ci_status": "in_progress",
     "deployed": false,
     "release_authorized": false,
-    "related_passed": true
+    "verification": "docs/qa/shop-signs/VERIFICATION.json"
   }
 }
