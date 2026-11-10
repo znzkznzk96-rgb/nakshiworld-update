@@ -20,8 +20,20 @@
       },
       "actual_generation_delta": 1.0,
       "result_sha256": "2bb1174d22ef82b26b8acda3bb0f6b15debc34f80e7ae85702eff8b3ffb8868f"
+    },
+    {
+      "id": "01",
+      "name": "두꼬리꽁치",
+      "attempt": 2,
+      "status": "submitted",
+      "model": "create-image-pro-flash",
+      "seed": 2026111101,
+      "request_sha256": "fd4c832502718c8ef8642ff62420bd8863125d2bda727564b17b6d5e7d0c9856",
+      "submitted_at_unix": 1794315025.8330414,
+      "http_status": 202,
+      "job_id": "57b15d88-baa7-4798-9295-da1b2cfd55a8"
     }
   ],
-  "generation_requests": 1,
-  "status": "quality_gate_failed_no_other_species_started"
+  "generation_requests": 2,
+  "status": "one_active"
 }
