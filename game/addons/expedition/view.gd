@@ -11,6 +11,7 @@ var pair: Array = [0,0]
 var pair_slot: int = 0
 var rects: Dictionary = {}
 var textures: Dictionary = {}
+var base_idle_bounds: Dictionary = {}
 var tier2: Dictionary = {}
 var tier3: Dictionary = {}
 var drag_slot: int = -1
@@ -72,7 +73,10 @@ func setup() -> void:
 		if ResourceLoader.exists(path): textures["room%d"%i]=load(path)
 	for kind in ["alchemy","soldier"]: textures["fx_"+kind]=load("res://art/effects/upgrade/%s.png"%kind)
 	for role in ROLES: textures["role_"+role]=load("res://art/ui/roles/%s.png"%role)
-	for u in data.catalog.soldiers: textures[u.id]=load("res://art/expedition/%s.png"%u.id)
+	for u in data.catalog.soldiers:
+		textures[u.id]=load("res://art/expedition/%s.png"%u.id)
+		var image:Image=textures[u.id].get_image()
+		base_idle_bounds[u.id]=image.get_region(Rect2i(0,0,int(u.frame_size[0]),int(u.frame_size[1]))).get_used_rect()
 	for i in range(1,19):
 		textures[str(i)]=[]
 		for j in 7: textures[str(i)].append(preload("res://addons/expedition/opaque_body.gd").prepare(load("res://art/expedition/normal%02d_%d.png"%[i,j]),128))
@@ -153,18 +157,39 @@ func sprite(m,id: int,box: Rect2,frame: int=0,alpha: float=1.0,star: int=1,motio
 	var g: Dictionary=sprite_geometry(id,box,frame,star,motion)
 	m._ui_texture_rect_region(textures[g.texture],g.rect,g.region,Color(1,1,1,alpha))
 
-func battle_sprite(m,id:int,box:Rect2,frame:int,alpha:float,star:int) -> void:
-	if star not in [2,3]:
-		sprite(m,id,box,frame,alpha,star,true);return
+func battle_sprite_geometry(id:int,box:Rect2,frame:int,star:int)->Dictionary:
 	var spec:Dictionary=data.catalog.soldiers[id]
-	var art:Dictionary=(tier3 if star==3 else tier2)[spec.id]
-	var b:Array=art.motion_bounds;var idle:Array=art.idle_bounds
-	# Effect width must not shrink the body. Anchor to the idle character, not canvas center.
-	var scale:float=minf(box.size.y/(float(b[3])-float(b[1])),box.size.x/128.0)
-	var anchor_x:float=(float(idle[0])+float(idle[2]))/2.0
-	var size:=Vector2(float(b[2])-float(b[0]),float(b[3])-float(b[1]))
-	var pos:=Vector2(box.get_center().x+(float(b[0])-anchor_x)*scale,box.end.y-size.y*scale)
-	m._ui_texture_rect_region(textures[spec.id+"_tier%d"%star],Rect2(pos.round(),(size*scale).round()),Rect2(frame%int(art.frames)*int(art.size[0])+int(b[0]),int(b[1]),size.x,size.y),Color(1,1,1,alpha))
+	var idle:Rect2;var region:Rect2;var key:String=spec.id
+	if star in [2,3]:
+		var art:Dictionary=(tier3 if star==3 else tier2)[spec.id]
+		var i:Array=art.idle_bounds;var b:Array=art.motion_bounds
+		idle=Rect2(i[0],i[1],i[2]-i[0],i[3]-i[1])
+		region=Rect2(b[0],b[1],b[2]-b[0],b[3]-b[1]);key+="_tier%d"%star
+	else:
+		idle=Rect2(base_idle_bounds[spec.id]);region=Rect2(Vector2.ZERO,Vector2(spec.frame_size[0],spec.frame_size[1]))
+	# Size the visible idle character, not its empty canvas or attack-effect envelope.
+	var scale:float=box.size.y/maxf(idle.size.x,idle.size.y)
+	var origin:=Vector2(box.get_center().x-idle.get_center().x*scale,box.end.y-idle.end.y*scale)
+	var drawn:=Rect2((origin+region.position*scale).round(),(region.size*scale).round())
+	var body:=Rect2(origin+idle.position*scale,idle.size*scale)
+	var width:int=int((tier3 if star==3 else tier2)[spec.id].size[0]) if star in [2,3] else int(spec.frame_size[0])
+	region.position.x+=(frame%frame_count(id,star))*width
+	return {"texture":key,"rect":drawn,"region":region,"body":body}
+
+func battle_sprite(m,id:int,box:Rect2,frame:int,alpha:float,star:int,clip:Rect2=Rect2()) -> void:
+	var g:Dictionary=battle_sprite_geometry(id,box,frame,star)
+	var target:Rect2=g.rect;var source:Rect2=g.region
+	if clip.has_area():
+		var visible:Rect2=target.intersection(clip)
+		if not visible.has_area():return
+		var ratio:Vector2=source.size/target.size
+		source=Rect2(source.position+(visible.position-target.position)*ratio,visible.size*ratio);target=visible
+	m._ui_texture_rect_region(textures[g.texture],target,source,Color(1,1,1,alpha))
+
+func battle_lane(r:Rect2,index:int,star:int)->Dictionary:
+	var center:float=r.position.x+24+(2-index)*44
+	var major:float=minf(42,r.size.y-23)/1.5*[1.0,1.25,1.5][clampi(star,1,3)-1]
+	return {"center":center,"major":major,"hp":Rect2(center-18,r.position.y+7,24,4),"skill":Rect2(center+9,r.position.y+4,10,10)}
 
 func atlas(texture: Texture2D,region: Rect2) -> AtlasTexture:
 	var a=AtlasTexture.new();a.atlas=texture;a.region=region;return a
@@ -212,7 +237,7 @@ func strip_label() -> String:
 	return "%s · %s"%[stage_name(int(data.battle.round)),encounter_name()]
 
 func draw_strip(m) -> void:
-	var r: Rect2=Rect2(8,m.top_y+69,254,72)
+	var r: Rect2=Rect2(8,m.top_y+69,254,83)
 	m._ui_style_box(m.hud_reference_style,r)
 	var b: Dictionary=data.battle
 	var index: int=(int(b.round)-1) if not b.is_empty() else selected_round-1
@@ -271,20 +296,14 @@ func battle_art(m,r: Rect2) -> void:
 		if phase=="fight" and int(f.hp)>0: frame=mini(count-1,int(t/1.5*count))
 		for event in fx.get("support",[]):
 			if int(event.source)==int(f.get("uid",-1)) and age<.6: frame=mini(count-1,int(age/.6*count))
-		var x: float=r.position.x+8+(2-i)*34+float(effect.x)
+		var lane:Dictionary=battle_lane(r,i,star)
+		var center:float=float(lane.center)+float(effect.x)
+		var x:float=center-20
 		if phase=="fight": x+=sin(clampf(t/1.1,0,1)*PI)*(27 if int(f.uid)==front_uid else 3)
 		if phase=="approach": x-=8*(1-minf(1,float(b.phase_time)/4.0))
-		var fh: float=minf(43,maxf(18,r.size.y-25)) if data.TIER_SKILLS.enabled(data) else minf(43,r.size.y*.70)
+		var fh:float=lane.major
 		if phase=="approach": effect.y+=sin(float(b.phase_time)*12+i)*1.5
-		battle_sprite(m,int(f.id),Rect2(x,ground-fh+float(effect.y),48*fh/40,fh),frame,float(effect.alpha),star)
-		var hp: float=float(f.hp)
-		if age<.38 and int(fx.get("hit_uid",-1))==int(f.uid): hp=float(fx.get("front_hp_before",hp))
-		# Stable lanes keep all three bars apart during attack lunges.
-		var hp_x: float=r.position.x+12+(2-i)*34
-		health_bar(m,Rect2(hp_x,ground-fh-4,31,4),hp,float(f.max_hp),float(fx.get("front_hp_before",hp)) if age<.8 and int(fx.get("hit_uid",-1))==int(f.uid) else hp,Color("74cc6a"))
-		var skill_size:float=12 if r.size.y<65 else 16
-		var skill_center:Vector2=Vector2(x+24*fh/40,maxf(r.position.y+skill_size*.5+4,ground-fh-skill_size*.5-7))
-		skill_feedback.draw_caster(m,data,f,skill_center,skill_size,skill_feedback.cue(data,f))
+		battle_sprite(m,int(f.id),Rect2(x+20-fh/2,ground-fh+float(effect.y),fh,fh),frame,float(effect.alpha),star,r)
 		if int(fx.get("hit_uid",-1))==int(f.uid) and age>=.38 and age<1.08:
 			floating_value(m,Vector2(x+20,ground-fh+10),"-%d"%int(fx.get("incoming",0)),Color("ff706b"),age-.38)
 			if int(fx.get("blocked",0))>0: floating_value(m,Vector2(x+20,ground-fh+21),"◇%d"%int(fx.blocked),Color("96dcfa"),age-.38)
@@ -332,6 +351,14 @@ func battle_art(m,r: Rect2) -> void:
 	elif age<.7 and fx.has("outgoing"):
 		# Existing in-progress saves may only have the old aggregate event.
 		floating_value(m,Vector2(enemy_x+display/2,r.position.y+20),"-%d"%int(fx.outgoing),Color("ff706b"),age)
+	# Fixed per-soldier lanes stay readable while sprites lunge or large effects play.
+	for i in b.fighters.size():
+		var f:Dictionary=b.fighters[i];var lane:Dictionary=battle_lane(r,i,fighter_star(f))
+		var hp:float=float(f.hp)
+		if age<.38 and int(fx.get("hit_uid",-1))==int(f.uid):hp=float(fx.get("front_hp_before",hp))
+		health_bar(m,lane.hp,hp,float(f.max_hp),float(fx.get("front_hp_before",hp)) if age<.8 and int(fx.get("hit_uid",-1))==int(f.uid) else hp,Color("74cc6a"))
+		skill_feedback.draw_caster(m,data,f,lane.skill.get_center(),10,skill_feedback.cue(data,f))
+
 
 
 func TICK_LENGTH() -> float: return 1.5
