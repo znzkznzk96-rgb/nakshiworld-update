@@ -71,7 +71,7 @@
     {
       "id": "06",
       "attempt": 1,
-      "status": "submitted",
+      "status": "passed",
       "model": "animate-pixminimax",
       "seed": 2026115106,
       "input_sha256": "3d4e59f4509f46e096e713b97152f275c5f898ecabfd0162838aedd078843f2a",
@@ -82,7 +82,24 @@
       ],
       "submitted_unix": 1794347166.703105,
       "http_status": 200,
-      "job_id": "35fa642d-b065-420a-9a99-c27db2886e24"
+      "job_id": "35fa642d-b065-420a-9a99-c27db2886e24",
+      "actual_generations": 2
+    },
+    {
+      "id": "07",
+      "attempt": 1,
+      "status": "submitted",
+      "model": "animate-pixminimax",
+      "seed": 2026115107,
+      "input_sha256": "cbe71580e04c18a6a8aa2fb0c6bb77fb589bf30f23454c69e19336876079b3bf",
+      "request_sha256": "83bf802a20732e3be64bf299b81cf5d363a4c1eb15adde09fae9aed99f175e12",
+      "native_canvas": [
+        232,
+        128
+      ],
+      "submitted_unix": 1794347301.8447928,
+      "http_status": 200,
+      "job_id": "2b1c044a-2f15-4727-9f71-6b04ec99932b"
     }
   ],
   "status": "planned"

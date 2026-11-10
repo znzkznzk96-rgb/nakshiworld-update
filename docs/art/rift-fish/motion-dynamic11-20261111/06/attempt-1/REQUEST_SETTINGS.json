@@ -1,0 +1,22 @@
+{
+  "description": "Lively triggerfish swimming: broad top and bottom fin strokes push in alternating phases, the orange tail fans open and sweeps firmly to either side. The rear body flexes with each strong tail beat while the round main body rocks with the effort. Show clear fin extension and folding. Seamless energetic swim IN PLACE. Fixed camera and scale; head LEFT throughout. Preserve identity, anatomy, fin count and rich original colors. All parts stay inside the canvas with clear margins. No external particles, glow, trails, new parts or background. Animate in a FLAT 2D SIDE PROFILE: bend the tail UP and DOWN on screen, never toward the camera. Keep the whole tail and fins visible at both extremes, with no foreshortening or disappearing parts.",
+  "frame_count": 16,
+  "seed": 2026115106,
+  "no_background": true,
+  "drift_threshold": 0,
+  "enhance_prompt": false,
+  "direction": "west",
+  "view": "side",
+  "subject_description": "cyan-green round triggerfish with an orange tail",
+  "initial_pose": "horizontal side-view swim pose, head left and tail or mantle right, whole creature visible inside transparent margins",
+  "first_frame": {
+    "sha256": "3d4e59f4509f46e096e713b97152f275c5f898ecabfd0162838aedd078843f2a",
+    "source": "docs/art/rift-fish/motion-hd-20261111/06/base-2/original.png",
+    "role": "passed original HD art exact bytes"
+  },
+  "last_frame": {
+    "sha256": "3d4e59f4509f46e096e713b97152f275c5f898ecabfd0162838aedd078843f2a",
+    "source": "docs/art/rift-fish/motion-hd-20261111/06/base-2/original.png",
+    "role": "passed original HD art exact bytes"
+  }
+}

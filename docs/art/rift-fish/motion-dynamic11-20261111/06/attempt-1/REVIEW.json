@@ -1,0 +1,36 @@
+{
+  "id": "06",
+  "attempt": 1,
+  "status": "passed",
+  "note": "주황 꼬리의 넓은 왕복과 몸통 기울임·가슴지느러미 벌림이 이전보다 명확. 청록/초록 원반체형·등가시와 좌향 보존. 자연스러운 꼬리 가장자리 포즈를 고정영역 축소로 표시, 새 부위·외부파편·잘림 없음.",
+  "native_and_nearest_reviewed": true,
+  "approved_native_compared": true,
+  "before_after_motion_compared": true,
+  "direction": "west",
+  "identity_color_alpha_reviewed": true,
+  "motion_range": {
+    "id": "06",
+    "attempt": 1,
+    "old": {
+      "silhouette_change_max": 0.058,
+      "min_content_width": 189,
+      "unclipped": true
+    },
+    "new": {
+      "silhouette_change_max": 0.19,
+      "min_content_width": 154,
+      "unclipped": true
+    },
+    "native_reference_content_width": 195,
+    "fixed_common_bbox": [
+      16,
+      17,
+      212,
+      159
+    ],
+    "scale_policy": "fixed reference length/common bbox and anchor; never fit each pose to target width; natural tail edge-on narrowing allowed without enlargement"
+  },
+  "safe_native_fight_width": true,
+  "actual_generations": 2,
+  "game_applied": false
+}

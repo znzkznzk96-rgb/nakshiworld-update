@@ -25,5 +25,14 @@
     "sha256": "15b54f24b4f30280168904392664ae76b88716860708f681140f20344fa270f9",
     "frames": 17,
     "decode_hash_canvas_match": true
+  },
+  {
+    "id": "05",
+    "attempt": 1,
+    "commit": "c5a139dc8065ea190e9dc6ae384596ccbd66f469",
+    "bytes": 129499,
+    "sha256": "50ffbfb428aad10a752530ed0b0d295c5d0471253eb70d58bfd1f6cf0648292a",
+    "frames": 17,
+    "decode_hash_canvas_match": true
   }
 ]
