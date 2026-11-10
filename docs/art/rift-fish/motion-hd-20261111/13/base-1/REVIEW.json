@@ -1,0 +1,19 @@
+{
+  "id": "13",
+  "stage": "base",
+  "attempt": 1,
+  "status": "rejected",
+  "note": "승인 원본과 같은 크기로 대조했을 때 기존 큰 결정 가시 외에 작은 청록 조각/점이 여러 개 새로 추가됨. 본체색/균열/해상도는 유지됐으나 추가 부품 조건 위반으로 공유 추가1회 수정.",
+  "reviewed_native_and_nearest": true,
+  "approved_source_compared": true,
+  "observed_direction": "west",
+  "shape": "passed",
+  "color": "passed",
+  "native_detail": "passed",
+  "species_features": "failed",
+  "motion": "not_applicable",
+  "alpha_margin": "passed",
+  "native_width_at_least_fight_max": "passed",
+  "actual_generation_delta": 1.0,
+  "game_applied": false
+}
