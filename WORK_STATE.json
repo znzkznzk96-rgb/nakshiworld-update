@@ -1,17 +1,17 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "rift_left_final_four_prepared",
+  "status": "rift_left_four_complete_two_candidates_two_holds",
   "release_baseline": "v1.25",
   "target_release": "v1.25",
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/art/rift-fish/HANDOFF.md",
-  "current_task": "기존16좌향정규화·보류3종/폭풍다랑어 진한색 시안제작",
-  "next_step": "갈치부터단일생성/검수,종당최대2회·실패종만보류. 기존16좌향파생본과전체결과저장.",
+  "current_task": "좌향18종·광어/개복치 보류후보 검토",
+  "next_step": "사용자 신규갈치/폭풍다랑어·보류광어/개복치 시안검토 대기. 기존16외형유지/좌향반전완료. 추가생성·실제모션·게임적용·배포는후속지시기준.",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
-  "verification": "docs/art/rift-fish/fantasy-round2-20261110/REMOTE_VERIFICATION.json",
+  "verification": "docs/art/rift-fish/left-final-four-20261110/REMOTE_VERIFICATION.json",
   "baseline_phone_verified": false,
   "environment_recovery": "docs/CODEX_NETWORK_RECOVERY.md",
   "background_verified_branch": "work/tile-png-stage2-20261107",
@@ -1195,12 +1195,27 @@
     "deployed": false
   },
   "rift_final_four": {
-    "status": "prepared",
-    "manifest": "docs/art/rift-fish/left-final-four-20261110/SPEC.json",
+    "status": "complete_user_review_pending",
+    "manifest": "docs/art/rift-fish/left-final-four-20261110/MANIFEST.json",
     "ledger": "docs/art/rift-fish/left-final-four-20261110/LEDGER.json",
-    "new_species": 4,
-    "existing_preserved": 16,
+    "verification": "docs/art/rift-fish/left-final-four-20261110/REMOTE_VERIFICATION.json",
+    "new_candidates": [
+      "균열칼날 갈치",
+      "폭풍다랑어"
+    ],
+    "held_candidates": [
+      "균열꽃 광어",
+      "월식 개복치"
+    ],
+    "canonical_left_facing": 18,
+    "existing_preserved_and_reflected": 16,
+    "existing_shape_approval": true,
+    "requests": 6,
+    "actual_generations_charged": 6,
     "direction": "west",
+    "raw_output_remote_hash_pass": 6,
+    "canonical_remote_hash_pass": 18,
+    "private_response_records_excluded": true,
     "actual_animation_generated": false,
     "game_applied": false,
     "deployed": false
