@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "note": "우향 정어리 체형·코발트/은색 명암·굵은 청록 지그재그 균열·native96x64 도트/투명여백 통과. 균열 밝은 면은 넓은 표현이며 최종 사용자 시안 승인 대기.",
+  "reviewed_at_native_and_nearest6x": true,
+  "compared_with_actual_reservoir_original": true,
+  "size": [
+    96,
+    64
+  ],
+  "bbox": [
+    7,
+    13,
+    87,
+    52
+  ],
+  "mode": "RGBA",
+  "sha256": "0fdcf1ad1b2818ca10802365c6ca1285922deeb0b6e13e56bd1c82b60b9216ea",
+  "reference_sha256": "35d557efb6ae37167aa577f0f0e8e0ff7a4aa7e580b34f529e359ddba8496ac0",
+  "shape": "passed",
+  "color": "passed",
+  "shading_pixel_clusters": "passed",
+  "outline": "passed",
+  "species_feature": "passed",
+  "alpha_margin": "passed",
+  "actual_generation_delta": 1.0,
+  "game_applied": false,
+  "user_final_approval": "pending"
+}
