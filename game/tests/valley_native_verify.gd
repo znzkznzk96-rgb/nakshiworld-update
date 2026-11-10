@@ -20,7 +20,7 @@ func run():
 	root.size=Vector2i(1080,2640)
 	var app=load("res://tests/valley_native_root.gd").new()
 	root.add_child(app)
-	app._start()
+	await app._start()
 	var sv: SubViewport=app.box.get_child(0)
 	var m=sv.get_child(0)
 	m.development_preview=true;m.SET.sfx=0;m.SET.music=0

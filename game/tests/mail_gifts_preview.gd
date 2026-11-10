@@ -8,7 +8,7 @@ func run():
 	DirAccess.make_dir_recursive_absolute(out)
 	root.content_scale_mode=Window.CONTENT_SCALE_MODE_CANVAS_ITEMS
 	root.content_scale_size=Vector2i(270,h);root.size=Vector2i(810,h*3)
-	var app=load("res://tests/valley_native_root.gd").new();root.add_child(app);app._start()
+	var app=load("res://tests/valley_native_root.gd").new();root.add_child(app);await app._start()
 	var m=app.box.get_child(0).get_child(0)
 	m.SET.sfx=0;m.SET.music=0;m.set_process(false);m.title_open=false;m.TUT.done=true;m.lesson_open=false;m.trans={};m.S={"phase":"idle"}
 	for version in ["0.78","0.93","1.08"]:

@@ -4,7 +4,7 @@ func check(ok:bool,label:String):
  if not ok:failures.append(label)
 func _initialize():call_deferred("run")
 func run():
- var app=load("res://tests/valley_native_root.gd").new();root.add_child(app);app._start()
+ var app=load("res://tests/valley_native_root.gd").new();root.add_child(app);await app._start()
  var m=app.box.get_child(0).get_child(0);m.SET.music=0;m.SET.sfx=0;m.set_process(false);m.title_open=false
  var e=m.environment;var wave=e.tile.surface_water
  check(wave.get_parent()==e.tile.plate,"source plate parent")
