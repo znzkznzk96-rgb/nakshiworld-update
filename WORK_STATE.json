@@ -1359,12 +1359,14 @@
     ],
     "spec": "docs/art/rift-fish/motion-dynamic11-20261111/SPEC.json",
     "ledger": "docs/art/rift-fish/motion-dynamic11-20261111/LEDGER.json",
-    "completed": 0,
-    "requests": 2,
+    "completed": 1,
+    "requests": 3,
     "game_applied": false,
     "deployed": false,
-    "passed": [],
+    "passed": [
+      "02"
+    ],
     "held": [],
-    "actual_generations_charged": 1
+    "actual_generations_charged": 2
   }
 }

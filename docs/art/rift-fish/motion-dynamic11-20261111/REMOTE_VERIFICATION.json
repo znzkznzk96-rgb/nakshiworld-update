@@ -1,0 +1,11 @@
+[
+  {
+    "id": "02",
+    "attempt": 1,
+    "commit": "57a85b5d8143ceec823a02f5459b3a64f165e930",
+    "bytes": 146682,
+    "sha256": "cddc0b8dff53d7dc79d40cef098133e6178730daa3edd159b4037ffb623b75c2",
+    "frames": 17,
+    "decode_hash_canvas_match": true
+  }
+]
