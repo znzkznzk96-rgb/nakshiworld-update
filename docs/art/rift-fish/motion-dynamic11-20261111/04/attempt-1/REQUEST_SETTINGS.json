@@ -1,0 +1,22 @@
+{
+  "description": "Energetic paddling swim: broad alternating tail beats bend the rear body; both pectoral fins visibly fan open, sweep back and recover. The attached spiky dorsal fin leans and springs back with the body wave. Show clear extension and contraction of the fins in every cycle. Seamless energetic swim IN PLACE. Fixed camera and scale; head LEFT throughout. Preserve identity, anatomy, fin count and rich original colors. All parts stay inside the canvas with clear margins. No external particles, glow, trails, new parts or background. Animate in a FLAT 2D SIDE PROFILE: bend the tail UP and DOWN on screen, never toward the camera. Keep the whole tail and fins visible at both extremes, with no foreshortening or disappearing parts.",
+  "frame_count": 16,
+  "seed": 2026115104,
+  "no_background": true,
+  "drift_threshold": 0,
+  "enhance_prompt": false,
+  "direction": "west",
+  "view": "side",
+  "subject_description": "green striped fish with attached dorsal spikes",
+  "initial_pose": "horizontal side-view swim pose, head left and tail or mantle right, whole creature visible inside transparent margins",
+  "first_frame": {
+    "sha256": "adc1ff4a621523b624b0006145ec18612cdd7ecfff441e46a6fe899cc83b651a",
+    "source": "docs/art/rift-fish/motion-hd-20261111/04/base-1/original.png",
+    "role": "passed original HD art exact bytes"
+  },
+  "last_frame": {
+    "sha256": "adc1ff4a621523b624b0006145ec18612cdd7ecfff441e46a6fe899cc83b651a",
+    "source": "docs/art/rift-fish/motion-hd-20261111/04/base-1/original.png",
+    "role": "passed original HD art exact bytes"
+  }
+}
