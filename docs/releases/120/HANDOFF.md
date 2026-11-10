@@ -7,3 +7,8 @@
 
 ## 공개 준비 완료
 최종CI 42741245973 성공,후보 13728879330 원본다운로드/CRC·3파일크기/SHA·전체소스ZIP CRC 직접확인. 소스 9304d087887211a2641d21471221f7c1a48aae1d·입력fingerprint cc904537238d079a0d2a923718438f520f72dc55fcc5b85de6b6a611de45f1dc 일치. [후보](PREFLIGHT.json). 공개시재빌드없이동일후보사용,APK도동일PCK자원을포함해제작중. 공개/운영검증은아직미완료.
+
+## 게시·APK checkpoint
+PR58은기존문서3개충돌을 main119기록7파일과work04동일성확인후해결(검증입력fingerprint불변),main 8a54f5283592cfbe78864e0d7a416bf19c8310c7 병합. 게시 42743120559 첫시도는초안목록지연‘Created draft not found’;기존초안 439877286·소스일치·자산0 확인후동일실패job만재개,재빌드0. 공개/운영확인아직진행.
+
+서명APK83,419,014bytes 제작/검증/전달완료. [APK검증](APK_VERIFICATION.json). 원본서명일치·v1/v2/v3·ZIP/manifest120·2네이티브/DEX/resources보존·승인아이콘24개·실제APK포함자원부트테스트2281ms 성공. Library파일 libfile_fde3_f-b46bac2b21788191977d7fc137279d39_d66dafb33acc81918ce203aeb3fcd18e. 기존앱삭제없이덮어설치,휴대폰실제설치/적용미확인.

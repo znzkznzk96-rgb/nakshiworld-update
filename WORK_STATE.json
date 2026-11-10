@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "v120_verified_publication_ready",
+  "status": "v120_publication_resuming_apk_delivered",
   "release_baseline": "v1.19",
   "target_release": "v1.20",
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/releases/120/HANDOFF.md",
   "current_task": "v1.20 상점아트·간판·글씨·시작화면 개선 배포 및 APK 전달",
-  "next_step": "검증후보 그대로main병합/공개·APK검사전달",
+  "next_step": "동일초안 게시완료·운영3파일확인",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -1047,6 +1047,14 @@
     "ci_run": 42741245973,
     "ci_status": "success",
     "candidate_artifact": 13728879330,
-    "preflight": "docs/releases/120/PREFLIGHT.json"
+    "preflight": "docs/releases/120/PREFLIGHT.json",
+    "pr": 58,
+    "merge_commit": "8a54f5283592cfbe78864e0d7a416bf19c8310c7",
+    "publication_run": 42743120559,
+    "publication_attempt": 2,
+    "draft_id": 439877286,
+    "apk_built": true,
+    "apk_delivered": true,
+    "apk_library_file_id": "libfile_fde3_f-b46bac2b21788191977d7fc137279d39_d66dafb33acc81918ce203aeb3fcd18e"
   }
 }
