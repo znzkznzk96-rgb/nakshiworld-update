@@ -1,0 +1,54 @@
+{
+  "version": {
+    "code": 121,
+    "name": "1.21"
+  },
+  "source_commit": "2aa40bdaefbb4dd674baaf39d15b730dc12493a4",
+  "assets": {
+    "version.json": {
+      "size": 199,
+      "sha256": "3dad9504d8ba3734e80c330c9ee7d8ee18bb717e79d660ebe0bf626894b07123",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.21/version.json"
+    },
+    "patch.pck": {
+      "size": 59759808,
+      "sha256": "055bfb7296a07877759084fa8f6fc1cd166d43c6474eb9b4bcd373ae03ef0b4d",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.21/patch.pck"
+    },
+    "game-source.zip": {
+      "size": 63878132,
+      "sha256": "ba55397f45e5787665034857a543cfd8132f2b1318c431a32c6287c6a8684115",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.21/game-source.zip"
+    }
+  },
+  "phone_verified": false,
+  "source_overlay_files_verified": 678,
+  "zip_crc_verified": true,
+  "public_assets_verified": true,
+  "date": "2026-11-10",
+  "verification_run": 42759712975,
+  "publish_run": 42761001128,
+  "publish_attempt": 2,
+  "gateway_run": 42761140287,
+  "main_merge": "ac9386f89348476674338e93c069d2912e217108",
+  "candidate_artifact": 13738070834,
+  "fingerprint": "5dc78c10fa2ca6d046ecdb0857b05dd08c894fb177698dcbf4b6cd9156d09ad6",
+  "rebuild": false,
+  "gateway_range": {
+    "manifest": {
+      "code": 121,
+      "name": "1.21",
+      "source_commit": "2aa40bdaefbb4dd674baaf39d15b730dc12493a4",
+      "size": 59759808,
+      "sha256": "055bfb7296a07877759084fa8f6fc1cd166d43c6474eb9b4bcd373ae03ef0b4d"
+    },
+    "source": "github-releases",
+    "range_status": 206,
+    "range_bytes": 100,
+    "content_range": "bytes 0-99/59759808"
+  },
+  "publication_recovery": {
+    "draft_id": 439972900,
+    "first_attempt": "Created draft not found; draft existence/source verified before resuming same draft"
+  }
+}
