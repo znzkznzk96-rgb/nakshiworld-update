@@ -1,0 +1,40 @@
+{
+  "version": {
+    "code": 123,
+    "name": "1.23"
+  },
+  "source_commit": "77c1eb4787f6c41b7d3f6257c8a87a9209fe17ea",
+  "assets": {
+    "version.json": {
+      "size": 199,
+      "sha256": "0cf69432be2d5adc27e84c3e9beaac666f5e833d6eb3c497faaaf1b6ad9f8ccf",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.23/version.json"
+    },
+    "patch.pck": {
+      "size": 59766016,
+      "sha256": "88df2268d5c393cf12b11b4f64f11e3231a64cff67c99d8dde7982d7c9911940",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.23/patch.pck"
+    },
+    "game-source.zip": {
+      "size": 63885923,
+      "sha256": "54957ff46de2b573c3b44fc594cb71f929a4edee1ee4e6a782656c950e884632",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.23/game-source.zip"
+    }
+  },
+  "phone_verified": false,
+  "source_overlay_files_verified": 682,
+  "zip_crc_verified": true,
+  "public_assets_verified": true,
+  "date": "2026-11-10",
+  "verification_run": 42775202696,
+  "publish_run": 42780288901,
+  "publish_attempt": 2,
+  "gateway_run": 42780468605,
+  "main_merge": "f47903073de1bc7af725044765bfae4032f1361b",
+  "pull_request": 61,
+  "candidate_artifact": 13743369539,
+  "input_fingerprint": "4392514b8e37934226a134bfd15542c2140891369e2a9667a8a9e5deb7ea4f04",
+  "rebuild": false,
+  "apk_required": false,
+  "draft_id": 440088537
+}
