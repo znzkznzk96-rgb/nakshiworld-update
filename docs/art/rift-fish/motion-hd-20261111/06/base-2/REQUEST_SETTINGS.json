@@ -1,0 +1,12 @@
+{
+  "image": {
+    "encoded_image_omitted": true,
+    "sha256": "70a6a38d8ec7ebe8c25e6942b1f28473d395870f75e60cdb8483fae9766ebb13",
+    "input_role": "user-approved fish, transparent margins cropped/padded only"
+  },
+  "description": "Match the input fish EXACTLY in shape, anatomy, tails, fins, markings, direction and colors. Only redraw its native pixel detail at the larger target size. No redesign or extra parts. Keep bright/mid/dark color ramps and crisp small pixel clusters, not blurred or enlarged square blocks. Keep the whole fish LEFT-facing and centered with transparent margins, approximately 200 pixels wide. Preserve each approved distinctive feature.",
+  "width": 232,
+  "height": 176,
+  "no_background": true,
+  "seed": 2026112106
+}
