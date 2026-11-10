@@ -6,8 +6,8 @@
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/art/rift-fish/HANDOFF.md",
-  "current_task": "남은3종 추가모션 생성·검수 종료,3종보류",
-  "next_step": "3종실패결과검토·다른모션제작방식결정.추가유료호출중단.통과17종/보류14·17·18,게임미적용·공개v1.25유지.",
+  "current_task": "3종 원화기반 제어모션 제작",
+  "next_step": "유료0·승인원화텍스처 직접제어 모션 제작→원본/정수확대/실표시 검수",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -1402,5 +1402,16 @@
     ],
     "ledger": "docs/art/rift-fish/motion-final3-20261111/LEDGER.json",
     "verification": "docs/art/rift-fish/motion-final3-20261111/REMOTE_VERIFICATION.json"
+  },
+  "rift_controlled_motion": {
+    "status": "in_progress",
+    "ids": [
+      "14",
+      "17",
+      "18"
+    ],
+    "paid_requests": 0,
+    "game_applied": false,
+    "deployed": false
   }
 }
