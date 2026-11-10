@@ -1,0 +1,30 @@
+{
+  "status": "passed",
+  "note": "좌향의 굵은 다랑어 몸·큰 진홍 폭풍 돛·남청색 그림자·청록 번개 균열과 꼬리 하이라이트·보라 리본 지느러미가 선명함. 결정 참치와 구별되고 native/nearest6x에서 핵심 특징 식별, 투명 여백 정상. 주인 최종 시안 검토 대기.",
+  "reviewed_at_native_and_nearest6x": true,
+  "compared_with_actual_reservoir_original": true,
+  "size": [
+    96,
+    64
+  ],
+  "bbox": [
+    5,
+    2,
+    92,
+    61
+  ],
+  "mode": "RGBA",
+  "sha256": "1019133e06aa37328907d7f7952ea325c7b9b1b14472fbc04f19dddb7eed7c46",
+  "reference_sha256": "23ffc7ec47e2154a2ccc6f2d070d63f7c9441c1d60a7a4fa9b164760f68cf5e4",
+  "shape": "passed",
+  "color": "passed",
+  "shading_pixel_clusters": "passed",
+  "outline": "passed",
+  "species_feature": "passed",
+  "alpha_margin": "passed",
+  "actual_generation_delta": 1.0,
+  "game_applied": false,
+  "user_final_approval": "pending",
+  "observed_direction": "west",
+  "direction_check": "passed"
+}
