@@ -1,0 +1,192 @@
+{
+  "date": "2026-11-10",
+  "status": "approved_generation_scope",
+  "species": [
+    {
+      "id": "01",
+      "name": "두꼬리꽁치",
+      "english": "two-tail saury",
+      "tier": 1,
+      "shape": "A very slender long needle-shaped Pacific saury, pointed small snout, tiny fins, vivid cobalt-blue back, bright silver-white belly, teal stripe. At the rear the body clearly branches into TWO SEPARATE COMPLETE forked tail fins, one above the other, each joined to its own short tail stalk. Exactly two distinct tail fins, not one normal forked tail. The double tail mutation is the focal feature.",
+      "colors": "cobalt blue / silver-white / teal",
+      "reference": "game/art/fish/l0_07.png",
+      "reference_sha256": "a09e70c432b23d10502eb18efa02d14bfbbd4ce4c5a15634b7f5c161a3ac47db",
+      "reference_role": "style only; no init_image or provisional art",
+      "reference_reason": "slender silver-blue reservoir fish for matching scale clusters and blue-white contrast",
+      "model": "create-image-bitforge",
+      "size": [
+        96,
+        64
+      ],
+      "seed": 2026111001,
+      "style_strength": 35,
+      "max_attempts": 2,
+      "attempts_used": 0,
+      "status": "planned"
+    },
+    {
+      "id": "02",
+      "name": "균열정어리",
+      "english": "rift sardine",
+      "tier": 1,
+      "shape": "A small plump sardine with a round snout, one normal visible eye and forked tail. Intense cobalt-blue upper body and silver belly. Exactly ONE THICK jagged lightning-shaped CYAN rift crack across the side, crisp bright cyan-white center surrounded by deep navy edges. A solid intact fish, not severed, no extra eyes.",
+      "colors": "cobalt / silver / bright cyan",
+      "reference": "game/art/fish/l0_07.png",
+      "reference_sha256": "a09e70c432b23d10502eb18efa02d14bfbbd4ce4c5a15634b7f5c161a3ac47db",
+      "reference_role": "style only; no init_image or provisional art",
+      "reference_reason": "silver-blue reservoir fish; preserve cool color rather than gold reference",
+      "model": "create-image-bitforge",
+      "size": [
+        96,
+        64
+      ],
+      "seed": 2026111002,
+      "style_strength": 35,
+      "max_attempts": 2,
+      "attempts_used": 0,
+      "status": "planned"
+    },
+    {
+      "id": "03",
+      "name": "네날개날치",
+      "english": "four-wing flying fish",
+      "tier": 1,
+      "shape": "A sleek bright blue and silver flying fish with FOUR clearly separate long wing-like pectoral fins: two broad upper wings and two lower wings, all visible in a slightly spread side profile. Fin membranes vivid turquoise with pale silver-blue rays. One fish facing right, elongated body and forked tail.",
+      "colors": "royal blue / turquoise / silver",
+      "reference": "game/art/fish/l0_07.png",
+      "reference_sha256": "a09e70c432b23d10502eb18efa02d14bfbbd4ce4c5a15634b7f5c161a3ac47db",
+      "reference_role": "style only; no init_image or provisional art",
+      "reference_reason": "slender blue silver original with crisp ray shapes",
+      "model": "create-image-bitforge",
+      "size": [
+        96,
+        64
+      ],
+      "seed": 2026111003,
+      "style_strength": 35,
+      "max_attempts": 2,
+      "attempts_used": 0,
+      "status": "planned"
+    },
+    {
+      "id": "04",
+      "name": "가시등전어",
+      "english": "spine-back gizzard shad",
+      "tier": 1,
+      "shape": "A deep-bodied laterally compressed gizzard shad, curved silver belly, intense emerald-teal back, orange-red tail. A row of FIVE THICK clearly defined triangular dark-tipped turquoise spikes growing from the dorsal ridge. Round readable fish silhouette, prominent big scales, normal single visible eye.",
+      "colors": "emerald teal / silver / orange-red",
+      "reference": "game/art/fish/l0_04.png",
+      "reference_sha256": "bce75f4ed6675688253882dbd32d8e826e28c04c3b975c9cd9813b941d64a36a",
+      "reference_role": "style only; no init_image or provisional art",
+      "reference_reason": "deep-bodied striped green reservoir fish for green shadows and scales",
+      "model": "create-image-bitforge",
+      "size": [
+        96,
+        64
+      ],
+      "seed": 2026111004,
+      "style_strength": 35,
+      "max_attempts": 2,
+      "attempts_used": 0,
+      "status": "planned"
+    },
+    {
+      "id": "05",
+      "name": "오징어",
+      "english": "squid",
+      "tier": 1,
+      "shape": "One cute but detailed vivid red-orange squid, long tapered pointed mantle on the LEFT, a pair of triangular fins at mantle rear, head and prominent eye near the RIGHT, eight short arms and two long feeding tentacles extending to the RIGHT, clear silver-white suction cup highlights, dark maroon shadows. Horizontal side-view squid swimming right, recognizable squid anatomy, no fish tail, no legs.",
+      "colors": "coral red-orange / cream / maroon",
+      "reference": "game/art/fish/l0_09.png",
+      "reference_sha256": "e454a6f227a1c2005f0844bb375b9bb6b2790e9043049451f214dd74e4eb03d2",
+      "reference_role": "style only; no init_image or provisional art",
+      "reference_reason": "dark warm-brown aquatic original for coherent outline and compact highlights; text specifies red squid not catfish",
+      "model": "create-image-bitforge",
+      "size": [
+        96,
+        64
+      ],
+      "seed": 2026111005,
+      "style_strength": 35,
+      "max_attempts": 2,
+      "attempts_used": 0,
+      "status": "planned"
+    },
+    {
+      "id": "06",
+      "name": "쥐포쥐치",
+      "english": "filefish",
+      "tier": 1,
+      "shape": "A single bright turquoise and lime filefish, laterally compressed diamond-shaped body, narrow pointed snout facing RIGHT, small eye, one prominent stiff dorsal spine above the head, fan-shaped orange tail at LEFT. Clear small dark teal mottled spots and large flat readable color clusters, no paper props.",
+      "colors": "turquoise / lime / orange",
+      "reference": "game/art/fish/l0_04.png",
+      "reference_sha256": "bce75f4ed6675688253882dbd32d8e826e28c04c3b975c9cd9813b941d64a36a",
+      "reference_role": "style only; no init_image or provisional art",
+      "reference_reason": "flat green-bodied reservoir original for clean clusters and orange accents",
+      "model": "create-image-bitforge",
+      "size": [
+        96,
+        64
+      ],
+      "seed": 2026111006,
+      "style_strength": 35,
+      "max_attempts": 2,
+      "attempts_used": 0,
+      "status": "planned"
+    },
+    {
+      "id": "07",
+      "name": "금간정어리",
+      "english": "gold-cracked sardine",
+      "tier": 1,
+      "shape": "A narrow streamlined silver sardine with vivid indigo back and violet fins. A FEW connected gold-yellow fissures running LENGTHWISE along the flank like cracked porcelain, one main gold seam with two short branches. Warm golden fissures only, the fish remains blue and silver, no gold full-body coloring, no cyan lightning rift, no extra eyes.",
+      "colors": "indigo / silver / golden-yellow cracks",
+      "reference": "game/art/fish/l0_07.png",
+      "reference_sha256": "a09e70c432b23d10502eb18efa02d14bfbbd4ce4c5a15634b7f5c161a3ac47db",
+      "reference_role": "style only; no init_image or provisional art",
+      "reference_reason": "cool slender silver original avoids global gold cast; warm fissures only specified in text",
+      "model": "create-image-bitforge",
+      "size": [
+        96,
+        64
+      ],
+      "seed": 2026111007,
+      "style_strength": 35,
+      "max_attempts": 2,
+      "attempts_used": 0,
+      "status": "planned"
+    },
+    {
+      "id": "08",
+      "name": "빛멸치",
+      "english": "rift-light anchovy",
+      "tier": 1,
+      "shape": "ONE tiny slender anchovy individual, transparent-looking pale icy-blue silver body drawn with solid crisp clusters, dark cobalt dorsal line, disproportionately bright turquoise glowing belly stripe and clear bright eye, narrow little forked tail. Small bioluminescent anchovy from a rift sea, no surrounding aura cloud, no school, no multiple fish.",
+      "colors": "icy silver-blue / cobalt / turquoise light",
+      "reference": "game/art/fish/l0_18.png",
+      "reference_sha256": "a87f59d881fbd6fe0027a8c9008e95a9849eeb6552d55ba5b1dee634dc690787",
+      "reference_role": "style only; no init_image or provisional art",
+      "reference_reason": "pale blue-white reservoir original for bright clean blue highlights; one individual reusable for a school",
+      "model": "create-image-bitforge",
+      "size": [
+        96,
+        64
+      ],
+      "seed": 2026111008,
+      "style_strength": 35,
+      "max_attempts": 2,
+      "attempts_used": 0,
+      "status": "planned"
+    }
+  ],
+  "limits": {
+    "paid_concurrency": 1,
+    "max_attempts_per_species": 2,
+    "default_attempts": 1,
+    "automatic_post_retry": false
+  },
+  "roster_note": "original eight slots retained; proposed merge was not approved; cyan rift sardine and gold-cracked sardine distinct; no new species invented",
+  "style_note": "actual reservoir originals only, vivid species-specific colors, no provisional init image; style transfer may affect shape, so first species is a mandatory gate",
+  "game_applied": false,
+  "deployed": false
+}
