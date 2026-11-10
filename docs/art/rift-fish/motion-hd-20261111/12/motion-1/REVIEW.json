@@ -1,0 +1,19 @@
+{
+  "id": "12",
+  "stage": "motion",
+  "attempt": 1,
+  "status": "passed",
+  "note": "승인된 보라 몸·금빛 눈·균열 무늬·가시형 테두리 보존. 16프레임에서 테두리 지느러미의 파동과 꼬리 부채질이 보이고 몸이 다른 형태로 뒤집히지 않음. native폭·색·좌향·여백 정상.",
+  "reviewed_native_and_nearest": true,
+  "approved_source_compared": true,
+  "observed_direction": "west",
+  "shape": "passed",
+  "color": "passed",
+  "native_detail": "passed",
+  "species_features": "passed",
+  "motion": "passed",
+  "alpha_margin": "passed",
+  "native_width_at_least_fight_max": "passed",
+  "actual_generation_delta": 1.0,
+  "game_applied": false
+}
