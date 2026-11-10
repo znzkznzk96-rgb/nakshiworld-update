@@ -1,0 +1,13 @@
+{
+  "description": "ONE fantasy CUTLASSFISH / ribbonfish swimming RIGHT, incredibly LONG NARROW SILVER RIBBON body making a gentle S curve horizontally. Body width only 5-7 pixels except small angular pointed head at RIGHT. Length-to-thickness ratio at least TEN to ONE. At LEFT the ribbon narrows to ONE long needle-like pointed tail, NO forked tail and no tail fin. Thin continuous dorsal ridge made of tiny violet crystal triangles. Bright silver body with indigo lower edge and THREE cyan-violet angular crack bands. Body is connected and flexible, like a living curved silver sword blade. Closed small toothy mouth, one normal yellow eye. Crisp native 96x64 pixel art, controlled rich 3-tone shading, selective dark outline, entire fish inside transparent margins, no scenery, text or particles.",
+  "image_size": {
+    "width": 96,
+    "height": 64
+  },
+  "no_background": true,
+  "direction": "east",
+  "outline": "selective outline",
+  "detail": "highly detailed",
+  "seed": 2026111511,
+  "enhance_prompt": false
+}

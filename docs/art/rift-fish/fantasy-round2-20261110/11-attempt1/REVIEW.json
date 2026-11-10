@@ -1,0 +1,28 @@
+{
+  "status": "rejected",
+  "note": "청록 균열색은 선명하나 갈치가 일반 방추형 물고기로 바뀌고 갈라진 꼬리가 생겨 긴 띠형·뾰족 꼬리 필수 특징 불충족",
+  "reviewed_at_native_and_nearest6x": true,
+  "compared_with_actual_reservoir_original": true,
+  "size": [
+    96,
+    64
+  ],
+  "bbox": [
+    2,
+    17,
+    95,
+    46
+  ],
+  "mode": "RGBA",
+  "sha256": "b297644989f0673647bc79fbba4f40ea42986abec11fe77aa835896ea67cde62",
+  "reference_sha256": "d8bba111880b8c83651020c11f17ae75f158105de6e2a778d8b3e50e8397ea92",
+  "shape": "rejected",
+  "color": "passed",
+  "shading_pixel_clusters": "passed",
+  "outline": "passed",
+  "species_feature": "rejected",
+  "alpha_margin": "passed",
+  "actual_generation_delta": 1.0,
+  "game_applied": false,
+  "user_final_approval": "pending"
+}

@@ -112,9 +112,39 @@
         "generations": 1.0
       },
       "result_sha256": "d3d1248d103a3156c4fe4aebe9a430301071db8337fcc7feabc72e47e510be4c"
+    },
+    {
+      "id": "11",
+      "name": "균열칼날 갈치",
+      "attempt": 1,
+      "status": "rejected",
+      "model": "edit-image-pixen",
+      "seed": 2026111411,
+      "request_sha256": "725c6150cb3a4b25ec1213befa1d62a99fc10470dc6478cfd71fd0c110eb031d",
+      "submitted_at_unix": 1794319453.9669044,
+      "prior_round_requests": 0,
+      "http_status": 202,
+      "job_id": "568fe519-b61f-449f-9c84-4101f32c5da4",
+      "actual_generation_delta": 1.0,
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "result_sha256": "b297644989f0673647bc79fbba4f40ea42986abec11fe77aa835896ea67cde62"
+    },
+    {
+      "id": "11",
+      "name": "균열칼날 갈치",
+      "attempt": 2,
+      "status": "submission_pending",
+      "model": "create-image-pixen",
+      "seed": 2026111511,
+      "request_sha256": "f5478ebd272d2b00e6d01a68c783c66a915f55f501bc57497bd8f067cb9ad95e",
+      "submitted_at_unix": 1794319526.8355467,
+      "prior_round_requests": 0
     }
   ],
-  "status": "fantasy_nonboss_round2_in_progress",
+  "status": "one_active",
   "max_per_species_this_round": 2,
   "protected_existing_six": [
     {
@@ -190,8 +220,8 @@
       "status": "internal_quality_pass_user_review_pending"
     }
   ],
-  "generation_requests": 6,
+  "generation_requests": 8,
   "accepted_outputs": 4,
-  "rejected_outputs": 2,
-  "actual_generations_charged": 6.0
+  "rejected_outputs": 3,
+  "actual_generations_charged": 7.0
 }
