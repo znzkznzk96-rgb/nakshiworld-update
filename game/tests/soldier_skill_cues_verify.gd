@@ -77,6 +77,14 @@ func _init()->void:
 		for i in labels.size():
 			check(room.encloses(labels[i].rect),"label fully inside room")
 			for j in range(i):check(not labels[i].rect.intersects(labels[j].rect),"damage label rectangles do not overlap")
+	m.battle.fx.attacks=[]
+	for height in [48,60,78]:
+		var room:=Rect2(10,30,246,height);var labels:Array=c.damage_layout(m,room,190)
+		check(labels.size()==3,"three simultaneous skill sources remain visible")
+		for i in labels.size():
+			check(room.encloses(labels[i].rect),"three skill labels inside room")
+			for j in range(i):check(not labels[i].rect.intersects(labels[j].rect),"three skill labels separated")
+	m.battle.fx.attacks=saved.battle.fx.attacks.duplicate(true)
 	check(m.serialize()==saved and m.rng.state==saved_rng,"layout leaves combat and RNG untouched")
 	m.battle.skill_time=4.1;m.battle.fx.age=1.1
 	check(c.damage_layout(m,Rect2(0,0,246,60),180).is_empty(),"expired labels free all slots")

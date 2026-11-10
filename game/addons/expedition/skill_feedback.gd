@@ -106,10 +106,13 @@ func damage_layout(model,room:Rect2,enemy_center:float)->Array:
 	var used:Array=[];var rows:Dictionary={false:0,true:0}
 	for item in selected:
 		var width:float=56 if item.skill else 44
-		var x:float=minf(enemy_center-34,room.end.x-104) if item.skill else room.end.x-width-3
+		var x:float=minf(enemy_center-34,room.end.x-118) if item.skill else room.end.x-width-3
 		x=clampf(x,room.position.x+3,room.end.x-width-3)
 		var row:int=rows[item.skill];rows[item.skill]+=1
-		var rect:Rect2=Rect2(x,room.position.y+1+row*16,width,14)
+		var top:float=11 if item.skill or not skills.is_empty() else 1
+		if item.skill and row==2:
+			x=room.end.x-width-3;row=0
+		var rect:Rect2=Rect2(x,room.position.y+top+row*16,width,14)
 		# Include the complete upward drift and outline in the reserved rectangle.
 		rect.position.y=clampf(rect.position.y,room.position.y+1,room.end.y-15)
 		for other in used:
