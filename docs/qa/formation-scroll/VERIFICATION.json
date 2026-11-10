@@ -1,0 +1,40 @@
+{
+  "date": "2026-11-10",
+  "source_commit": "9fd38f869fb94d49c00a48198185b318a3944048",
+  "baseline": {
+    "release": "v1.24",
+    "source_zip_sha256": "0de6ee09981bf7fd201867ac9efd261e130813a50882cba0a2eae1da23f45ed6"
+  },
+  "local": {
+    "godot": "4.4.1.stable.official",
+    "bag_formation": "passed",
+    "formation_compare": "passed",
+    "selected_ui": "passed",
+    "heights": [
+      480,
+      540,
+      660
+    ],
+    "offsets": [
+      0,
+      1,
+      12,
+      33,
+      47,
+      65,
+      69,
+      70,
+      71,
+      139
+    ],
+    "clip_group": "Control.clip_contents shared frames/sprites/text",
+    "hit_regions": "visible intersection only",
+    "drag_filter_formation": "preserved"
+  },
+  "ci": {
+    "run": 42786187300,
+    "status": "in_progress"
+  },
+  "deployed": false,
+  "phone_verified": false
+}

@@ -1,17 +1,17 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "formation_scroll_approved",
+  "status": "formation_scroll_related_verified_ci_running",
   "release_baseline": "v1.24",
   "target_release": "v1.24",
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/qa/formation-scroll/HANDOFF.md",
   "current_task": "병사배치 목록 경계 카드 부드러운 스크롤 수정",
-  "next_step": "카드/텍스트/이미지 동일viewport클리핑·부분카드 클릭영역 검증",
+  "next_step": "전체CI42786187300·부분스크롤24실화면/경계픽셀검수. 공개v1.24유지·새배포미승인.",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
-  "verification": "docs/releases/124/PUBLISHED.json",
+  "verification": "docs/qa/formation-scroll/VERIFICATION.json",
   "baseline_phone_verified": false,
   "environment_recovery": "docs/CODEX_NETWORK_RECOVERY.md",
   "background_verified_branch": "work/tile-png-stage2-20261107",
@@ -1128,5 +1128,12 @@
     "phone_verified": false,
     "handoff": "docs/releases/124/HANDOFF.md",
     "published": "docs/releases/124/PUBLISHED.json"
+  },
+  "formation_scroll": {
+    "implemented": true,
+    "related_verified": true,
+    "source_commit": "9fd38f869fb94d49c00a48198185b318a3944048",
+    "ci": 42786187300,
+    "deployed": false
   }
 }
