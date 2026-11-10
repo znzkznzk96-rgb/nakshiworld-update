@@ -1,0 +1,19 @@
+{
+  "id": "20",
+  "stage": "base",
+  "attempt": 1,
+  "status": "passed",
+  "note": "주인 승인 체형·진한 남청색·붉은 돛과 지느러미·청록 번개 피부·보라 리본 유지. 좌향, 여백과 세부 명암 정상.",
+  "reviewed_native_and_nearest": true,
+  "approved_source_compared": true,
+  "observed_direction": "west",
+  "shape": "passed",
+  "color": "passed",
+  "native_detail": "passed",
+  "species_features": "passed",
+  "motion": "not_applicable",
+  "alpha_margin": "passed",
+  "native_width_at_least_fight_max": "passed",
+  "actual_generation_delta": 1.0,
+  "game_applied": false
+}
