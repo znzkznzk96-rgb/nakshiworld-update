@@ -1,0 +1,74 @@
+{
+  "date": "2026-11-11",
+  "files": [
+    {
+      "path": "01/base-1/original.png",
+      "size": 5146,
+      "sha256": "4f35c8b471cb006d3d56b026db1777decd6fb8e491613d319658b20528128747",
+      "canvas": [
+        232,
+        132
+      ],
+      "commit": "a5ee84482bf0820f8f07e0ef43b76741b381adb9",
+      "raw_frames_decoded": 0
+    },
+    {
+      "path": "01/motion-1/frames-original.zip",
+      "size": 199944,
+      "sha256": "1cf1daab9c6dff964780784f652e531d3aacab5c23105df58ae45a4287203d3a",
+      "canvas": [
+        232,
+        132
+      ],
+      "commit": "a5ee84482bf0820f8f07e0ef43b76741b381adb9",
+      "raw_frames_decoded": 17
+    },
+    {
+      "path": "02/base-1/original.png",
+      "size": 8994,
+      "sha256": "7db650a1e42b245a87896ba5e4812411af51fdda6a001fa74e0c0e73e01672e3",
+      "canvas": [
+        232,
+        132
+      ],
+      "commit": "a5ee84482bf0820f8f07e0ef43b76741b381adb9",
+      "raw_frames_decoded": 0
+    },
+    {
+      "path": "02/motion-1/frames-original.zip",
+      "size": 225335,
+      "sha256": "477421f8ef4ca53fb3d1612ad3011a372d1af3292d7e8de72dff0caaad8b244b",
+      "canvas": [
+        232,
+        132
+      ],
+      "commit": "a5ee84482bf0820f8f07e0ef43b76741b381adb9",
+      "raw_frames_decoded": 17
+    },
+    {
+      "path": "03/base-1/original.png",
+      "size": 10220,
+      "sha256": "fca402a8bc48b42aa2cab2f5481e88bfde718030b4cf13d5d5548b90a28d461a",
+      "canvas": [
+        232,
+        216
+      ],
+      "commit": "a5ee84482bf0820f8f07e0ef43b76741b381adb9",
+      "raw_frames_decoded": 0
+    },
+    {
+      "path": "03/motion-1/frames-original.zip",
+      "size": 271281,
+      "sha256": "68f3b75485b31de95af765e968b3944572a17f7d69e2cab039e1b81141aa4922",
+      "canvas": [
+        232,
+        216
+      ],
+      "commit": "a5ee84482bf0820f8f07e0ef43b76741b381adb9",
+      "raw_frames_decoded": 17
+    }
+  ],
+  "game_applied": false,
+  "deployed": false,
+  "all_checked_bytes_decode_size_sha_match": true
+}

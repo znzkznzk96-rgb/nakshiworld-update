@@ -1,0 +1,19 @@
+{
+  "id": "04",
+  "stage": "motion",
+  "attempt": 1,
+  "status": "passed",
+  "note": "16프레임에서 등 가시·초록 줄무늬·황금 눈과 지느러미 구조 보존. 꼬리/가슴지느러미의 작은 유영과 등끝의 미세 움직임 확인, 좌향·native폭·색·여백 정상.",
+  "reviewed_native_and_nearest": true,
+  "approved_source_compared": true,
+  "observed_direction": "west",
+  "shape": "passed",
+  "color": "passed",
+  "native_detail": "passed",
+  "species_features": "passed",
+  "motion": "passed",
+  "alpha_margin": "passed",
+  "native_width_at_least_fight_max": "passed",
+  "actual_generation_delta": 2.0,
+  "game_applied": false
+}

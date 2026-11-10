@@ -1,0 +1,16 @@
+{
+  "first_frame": {
+    "encoded_image_omitted": true,
+    "sha256": "adc1ff4a621523b624b0006145ec18612cdd7ecfff441e46a6fe899cc83b651a",
+    "input_role": "internally passed native HD original derived from the user-approved fish"
+  },
+  "description": "Small tail strokes, gentle pectoral paddles; the pointed dorsal fin tips flex slightly in a travelling wave. Spikes stay attached and retain their count. Seamless gentle swimming loop IN PLACE, head LEFT throughout. Fixed camera, sprite position and scale. Preserve exact original identity, colors, markings and fin/tail count. No turning, new parts, particles, scenery, cropping or camera motion.",
+  "frame_count": 16,
+  "seed": 2026113004,
+  "no_background": true,
+  "enhance_prompt": false,
+  "direction": "west",
+  "view": "side",
+  "subject_description": "green striped gizzard shad with a spiky dorsal crest",
+  "initial_pose": "neutral horizontal swimming pose; head LEFT, tail or mantle RIGHT; whole creature visible inside transparent margins"
+}

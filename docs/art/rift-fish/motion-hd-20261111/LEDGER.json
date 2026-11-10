@@ -182,9 +182,35 @@
       "billing_source": "completed_job.billing_usage",
       "actual_generation_delta": 1.0,
       "output_count": 1
+    },
+    {
+      "id": "04",
+      "name": "가시등전어",
+      "stage": "motion",
+      "attempt": 1,
+      "model": "animate-pixminimax",
+      "seed": 2026113004,
+      "native_canvas": [
+        232,
+        184
+      ],
+      "input_sha256": "adc1ff4a621523b624b0006145ec18612cdd7ecfff441e46a6fe899cc83b651a",
+      "input_role": "internally passed native HD original derived from the user-approved fish",
+      "request_sha256": "d05c1395c7b9dfb6822da421771ea77026d10f91d4e5256529981bb752078f73",
+      "additional_request_used": 0,
+      "expected_output_count": 17,
+      "quoted_generations": 2,
+      "game_applied": false,
+      "status": "passed",
+      "submitted_unix": 1794327107.4343917,
+      "http_status": 200,
+      "job_id": "0a33b9be-5bf2-4fdd-a31d-d76c3ddef075",
+      "billing_source": "completed_job.billing_usage",
+      "actual_generation_delta": 2.0,
+      "output_count": 17
     }
   ],
   "status": "reviewed",
   "additional_requests_used": {},
-  "actual_generations_charged": 8.0
+  "actual_generations_charged": 10.0
 }
