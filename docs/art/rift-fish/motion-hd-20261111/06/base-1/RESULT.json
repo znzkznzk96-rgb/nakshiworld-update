@@ -1,0 +1,13 @@
+{
+  "id": "06",
+  "stage": "base",
+  "attempt": 1,
+  "frames": [],
+  "actual_generation_delta": 0.0,
+  "expected_canvas": [
+    232,
+    176
+  ],
+  "job_id": null,
+  "game_applied": false
+}
