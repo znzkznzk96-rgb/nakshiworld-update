@@ -1,0 +1,19 @@
+{
+  "id": "07",
+  "stage": "base",
+  "attempt": 1,
+  "status": "passed",
+  "note": "금빛 길이/세로 균열선·은청색 몸·보라 지느러미와 꼬리 보존. native193px 본체와 세부 명암·좌향·여백 정상, 청록 균열정어리와 구분 유지.",
+  "reviewed_native_and_nearest": true,
+  "approved_source_compared": true,
+  "observed_direction": "west",
+  "shape": "passed",
+  "color": "passed",
+  "native_detail": "passed",
+  "species_features": "passed",
+  "motion": "not_applicable",
+  "alpha_margin": "passed",
+  "native_width_at_least_fight_max": "passed",
+  "actual_generation_delta": 1.0,
+  "game_applied": false
+}
