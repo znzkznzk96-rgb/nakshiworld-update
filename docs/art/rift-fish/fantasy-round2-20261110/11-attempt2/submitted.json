@@ -1,0 +1,16 @@
+{
+  "http_status": 200,
+  "response": {
+    "usage": {
+      "type": "generations",
+      "generations": 1.0
+    },
+    "image": {
+      "type": "base64",
+      "base64": "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",
+      "format": "png"
+    },
+    "enhanced_prompt": null,
+    "enhance_usage": null
+  }
+}
