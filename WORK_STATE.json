@@ -1,17 +1,17 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "rift_hd_motion_all20_in_progress",
+  "status": "rift_hd_motion_all20_complete_user_review_pending",
   "release_baseline": "v1.25",
   "target_release": "v1.25",
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/art/rift-fish/HANDOFF.md",
-  "current_task": "균열20종 파이팅상한대비 HD원화·16프레임 모션 전체",
-  "next_step": "01부터native원화단일POST→외형/고유색/native폭검수→모션단일POST→16frame검수. 단계공유추가1회후불량종보류,20종모두순차진행.",
+  "current_task": "균열20종 HD모션 제작·검수 완료",
+  "next_step": "17종 모션 사용자 검토. 금간정어리/거울날개 날치/폭풍다랑어는 공유추가1회 후 보류, 추가 유료생성 금지. 게임 적용은 별도 지시 후 지역4 크기명세·고정앵커·LOD 연결 및 실제화면 검증.",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
-  "verification": "docs/art/rift-fish/motion-20261111/REMOTE_VERIFICATION.json",
+  "verification": "docs/art/rift-fish/motion-hd-20261111/DELIVERY_VERIFICATION.json",
   "baseline_phone_verified": false,
   "environment_recovery": "docs/CODEX_NETWORK_RECOVERY.md",
   "background_verified_branch": "work/tile-png-stage2-20261107",
@@ -1244,7 +1244,7 @@
     "verification": "docs/art/rift-fish/motion-20261111/REMOTE_VERIFICATION.json"
   },
   "rift_hd_motion": {
-    "status": "in_progress",
+    "status": "complete_user_review_pending",
     "spec": "docs/art/rift-fish/motion-hd-20261111/SPEC.json",
     "ledger": "docs/art/rift-fish/motion-hd-20261111/LEDGER.json",
     "total_species": 20,
@@ -1283,6 +1283,11 @@
       "19"
     ],
     "paid_requests": 47,
-    "actual_generations_charged": 56
+    "actual_generations_charged": 56,
+    "processed": 20,
+    "manifest": "docs/art/rift-fish/motion-hd-20261111/MANIFEST.json",
+    "verification": "docs/art/rift-fish/motion-hd-20261111/DELIVERY_VERIFICATION.json",
+    "remote_verification": "docs/art/rift-fish/motion-hd-20261111/REMOTE_VERIFICATION.json",
+    "native_min_content_width": 171
   }
 }

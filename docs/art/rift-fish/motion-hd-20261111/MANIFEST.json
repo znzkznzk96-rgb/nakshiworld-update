@@ -1,0 +1,1241 @@
+{
+  "date": "2026-11-11",
+  "passed": [
+    {
+      "id": "01",
+      "name": "쌍혜성 두꼬리꽁치",
+      "native_canvas": [
+        232,
+        132
+      ],
+      "native_content_min_width": 202,
+      "union_bbox": [
+        13,
+        13,
+        218,
+        124
+      ],
+      "frame_count": 16,
+      "fps": 10,
+      "direction": "west",
+      "fixed_canvas_all_frames": true,
+      "original_frame_preserved": true,
+      "motion_source": "01/motion-1",
+      "native_source": "01/base-1/original.png",
+      "lods": [
+        {
+          "name": "native",
+          "atlas": "01/native-atlas.png",
+          "frame_size": [
+            232,
+            132
+          ],
+          "columns": 4,
+          "rows": 4,
+          "frames": 16,
+          "max_safe_logical_draw_length": 202,
+          "never_upscale": true,
+          "sha256": "c5968e7a456210b859751fbb25cc8d056debb1303ac13dbe622865d6c710317d"
+        },
+        {
+          "name": "lod128",
+          "atlas": "01/lod128-atlas.png",
+          "frame_size": [
+            128,
+            73
+          ],
+          "columns": 4,
+          "rows": 4,
+          "frames": 16,
+          "max_safe_logical_draw_length": 111,
+          "never_upscale": true,
+          "sha256": "8daf6cdcb85d14ebc4db91c8ab790ae4556898c5af764b468b889a1471daaaa9"
+        },
+        {
+          "name": "lod96",
+          "atlas": "01/lod96-atlas.png",
+          "frame_size": [
+            96,
+            55
+          ],
+          "columns": 4,
+          "rows": 4,
+          "frames": 16,
+          "max_safe_logical_draw_length": 83,
+          "never_upscale": true,
+          "sha256": "4e9eda51e6d2b981a357087ec993e757095d5f66c601a11bb919e804235a3900"
+        }
+      ],
+      "paid_requests": 2,
+      "shared_extra_used": 0,
+      "actual_generations_charged": 2,
+      "motion_design": "두꼬리 각각 상하로 번갈아 부채질·꼬리끝 짧은 잔광, 몸은 가늘게 파동",
+      "game_applied": false
+    },
+    {
+      "id": "02",
+      "name": "균열정어리",
+      "native_canvas": [
+        232,
+        132
+      ],
+      "native_content_min_width": 197,
+      "union_bbox": [
+        13,
+        15,
+        218,
+        114
+      ],
+      "frame_count": 16,
+      "fps": 10,
+      "direction": "west",
+      "fixed_canvas_all_frames": true,
+      "original_frame_preserved": true,
+      "motion_source": "02/motion-1",
+      "native_source": "02/base-1/original.png",
+      "lods": [
+        {
+          "name": "native",
+          "atlas": "02/native-atlas.png",
+          "frame_size": [
+            232,
+            132
+          ],
+          "columns": 4,
+          "rows": 4,
+          "frames": 16,
+          "max_safe_logical_draw_length": 197,
+          "never_upscale": true,
+          "sha256": "05e2bc968e591e2e6593d1b50fd083f1b4ca7ec8c0d1da0502e1d6e7af937cb6"
+        },
+        {
+          "name": "lod128",
+          "atlas": "02/lod128-atlas.png",
+          "frame_size": [
+            128,
+            73
+          ],
+          "columns": 4,
+          "rows": 4,
+          "frames": 16,
+          "max_safe_logical_draw_length": 108,
+          "never_upscale": true,
+          "sha256": "e8ce8471614d9d31ed21b4f243e38b8dbaa696d39a8d1e00ee7fefe09f93620e"
+        },
+        {
+          "name": "lod96",
+          "atlas": "02/lod96-atlas.png",
+          "frame_size": [
+            96,
+            55
+          ],
+          "columns": 4,
+          "rows": 4,
+          "frames": 16,
+          "max_safe_logical_draw_length": 81,
+          "never_upscale": true,
+          "sha256": "6c826ecc6d5544e9734811a8f05848c0fd074a9b55643d71dbf8d774b5b149c1"
+        }
+      ],
+      "paid_requests": 2,
+      "shared_extra_used": 0,
+      "actual_generations_charged": 2,
+      "motion_design": "기존 명세 유지",
+      "game_applied": false
+    },
+    {
+      "id": "03",
+      "name": "네날개날치",
+      "native_canvas": [
+        232,
+        216
+      ],
+      "native_content_min_width": 193,
+      "union_bbox": [
+        18,
+        21,
+        211,
+        192
+      ],
+      "frame_count": 16,
+      "fps": 10,
+      "direction": "west",
+      "fixed_canvas_all_frames": true,
+      "original_frame_preserved": true,
+      "motion_source": "03/motion-1",
+      "native_source": "03/base-1/original.png",
+      "lods": [
+        {
+          "name": "native",
+          "atlas": "03/native-atlas.png",
+          "frame_size": [
+            232,
+            216
+          ],
+          "columns": 4,
+          "rows": 4,
+          "frames": 16,
+          "max_safe_logical_draw_length": 193,
+          "never_upscale": true,
+          "sha256": "8f0291866689ea2c7e9f3531fa767cb1e80c912353d96897a05614dddd599f4f"
+        },
+        {
+          "name": "lod128",
+          "atlas": "03/lod128-atlas.png",
+          "frame_size": [
+            128,
+            119
+          ],
+          "columns": 4,
+          "rows": 4,
+          "frames": 16,
+          "max_safe_logical_draw_length": 106,
+          "never_upscale": true,
+          "sha256": "f5edcba3520a937bdf8d064eb019d2b13cfc74b4d3967f7f8f67a9f98351e0cc"
+        },
+        {
+          "name": "lod96",
+          "atlas": "03/lod96-atlas.png",
+          "frame_size": [
+            96,
+            89
+          ],
+          "columns": 4,
+          "rows": 4,
+          "frames": 16,
+          "max_safe_logical_draw_length": 80,
+          "never_upscale": true,
+          "sha256": "027dd36440b0d47bb1dba6ccf6705016d2dd38e7633f4486cf86b2a7b7304c8f"
+        }
+      ],
+      "paid_requests": 2,
+      "shared_extra_used": 0,
+      "actual_generations_charged": 3,
+      "motion_design": "기존 명세 유지",
+      "game_applied": false
+    },
+    {
+      "id": "04",
+      "name": "가시등전어",
+      "native_canvas": [
+        232,
+        184
+      ],
+      "native_content_min_width": 183,
+      "union_bbox": [
+        20,
+        20,
+        211,
+        163
+      ],
+      "frame_count": 16,
+      "fps": 10,
+      "direction": "west",
+      "fixed_canvas_all_frames": true,
+      "original_frame_preserved": true,
+      "motion_source": "04/motion-1",
+      "native_source": "04/base-1/original.png",
+      "lods": [
+        {
+          "name": "native",
+          "atlas": "04/native-atlas.png",
+          "frame_size": [
+            232,
+            184
+          ],
+          "columns": 4,
+          "rows": 4,
+          "frames": 16,
+          "max_safe_logical_draw_length": 183,
+          "never_upscale": true,
+          "sha256": "aeb392854f12cef028ccc535990ca90992ba6ee802832c8f96dbe8c35f86dcc5"
+        },
+        {
+          "name": "lod128",
+          "atlas": "04/lod128-atlas.png",
+          "frame_size": [
+            128,
+            102
+          ],
+          "columns": 4,
+          "rows": 4,
+          "frames": 16,
+          "max_safe_logical_draw_length": 101,
+          "never_upscale": true,
+          "sha256": "f9ed547b9b30e44425ac43989081d48429b35d4baf69fc4993f8c336a065bbbb"
+        },
+        {
+          "name": "lod96",
+          "atlas": "04/lod96-atlas.png",
+          "frame_size": [
+            96,
+            76
+          ],
+          "columns": 4,
+          "rows": 4,
+          "frames": 16,
+          "max_safe_logical_draw_length": 75,
+          "never_upscale": true,
+          "sha256": "5d06202046b66ffc8c421a67bc591860e5eecf5077afdd7753c92b1377b4e6fe"
+        }
+      ],
+      "paid_requests": 2,
+      "shared_extra_used": 0,
+      "actual_generations_charged": 3,
+      "motion_design": "기존 명세 유지",
+      "game_applied": false
+    },
+    {
+      "id": "05",
+      "name": "균열장막 오징어",
+      "native_canvas": [
+        232,
+        104
+      ],
+      "native_content_min_width": 201,
+      "union_bbox": [
+        15,
+        14,
+        217,
+        90
+      ],
+      "frame_count": 16,
+      "fps": 10,
+      "direction": "west",
+      "fixed_canvas_all_frames": true,
+      "original_frame_preserved": true,
+      "motion_source": "05/motion-1",
+      "native_source": "05/base-2/original.png",
+      "lods": [
+        {
+          "name": "native",
+          "atlas": "05/native-atlas.png",
+          "frame_size": [
+            232,
+            104
+          ],
+          "columns": 4,
+          "rows": 4,
+          "frames": 16,
+          "max_safe_logical_draw_length": 201,
+          "never_upscale": true,
+          "sha256": "f0273b26d82f3b0abdc5a6a4e14792ac362cb20a62f514f06ff36617b5b5f623"
+        },
+        {
+          "name": "lod128",
+          "atlas": "05/lod128-atlas.png",
+          "frame_size": [
+            128,
+            57
+          ],
+          "columns": 4,
+          "rows": 4,
+          "frames": 16,
+          "max_safe_logical_draw_length": 111,
+          "never_upscale": true,
+          "sha256": "fcbbd0fd07ec78f7c51240cb531ddbc84c901c8e498b687a3440001ca59f370e"
+        },
+        {
+          "name": "lod96",
+          "atlas": "05/lod96-atlas.png",
+          "frame_size": [
+            96,
+            43
+          ],
+          "columns": 4,
+          "rows": 4,
+          "frames": 16,
+          "max_safe_logical_draw_length": 81,
+          "never_upscale": true,
+          "sha256": "6ccc71b0c0e474341e9380540f5e20bf55e80724dd8cb927a4103f5af54ec31c"
+        }
+      ],
+      "paid_requests": 3,
+      "shared_extra_used": 1,
+      "actual_generations_charged": 3,
+      "motion_design": "맨틀 수축·확장 후 추진, 촉수 늦게 따라오는 물결·균열빛 맥동",
+      "game_applied": false
+    },
+    {
+      "id": "06",
+      "name": "쥐포쥐치",
+      "native_canvas": [
+        232,
+        176
+      ],
+      "native_content_min_width": 189,
+      "union_bbox": [
+        17,
+        16,
+        215,
+        159
+      ],
+      "frame_count": 16,
+      "fps": 10,
+      "direction": "west",
+      "fixed_canvas_all_frames": true,
+      "original_frame_preserved": true,
+      "motion_source": "06/motion-1",
+      "native_source": "06/base-2/original.png",
+      "lods": [
+        {
+          "name": "native",
+          "atlas": "06/native-atlas.png",
+          "frame_size": [
+            232,
+            176
+          ],
+          "columns": 4,
+          "rows": 4,
+          "frames": 16,
+          "max_safe_logical_draw_length": 189,
+          "never_upscale": true,
+          "sha256": "bd8b96e3ab678ff53483a7d3c2fba8a4a77135d81cde504d4c0e3ce6dc3fd651"
+        },
+        {
+          "name": "lod128",
+          "atlas": "06/lod128-atlas.png",
+          "frame_size": [
+            128,
+            97
+          ],
+          "columns": 4,
+          "rows": 4,
+          "frames": 16,
+          "max_safe_logical_draw_length": 105,
+          "never_upscale": true,
+          "sha256": "98512a34be4ae4a9c15474754521f16431519751ae5cfe2d9f8f3ed43e0144e0"
+        },
+        {
+          "name": "lod96",
+          "atlas": "06/lod96-atlas.png",
+          "frame_size": [
+            96,
+            73
+          ],
+          "columns": 4,
+          "rows": 4,
+          "frames": 16,
+          "max_safe_logical_draw_length": 78,
+          "never_upscale": true,
+          "sha256": "a2e1deab5f84b4f9e11c1f46fe62fc20b516032ec73f8f5865f03226eb7f6052"
+        }
+      ],
+      "paid_requests": 3,
+      "shared_extra_used": 1,
+      "actual_generations_charged": 3,
+      "motion_design": "기존 명세 유지",
+      "game_applied": false
+    },
+    {
+      "id": "08",
+      "name": "빛멸치",
+      "native_canvas": [
+        232,
+        84
+      ],
+      "native_content_min_width": 171,
+      "union_bbox": [
+        21,
+        18,
+        211,
+        66
+      ],
+      "frame_count": 16,
+      "fps": 10,
+      "direction": "west",
+      "fixed_canvas_all_frames": true,
+      "original_frame_preserved": true,
+      "motion_source": "08/motion-1",
+      "native_source": "08/base-1/original.png",
+      "lods": [
+        {
+          "name": "native",
+          "atlas": "08/native-atlas.png",
+          "frame_size": [
+            232,
+            84
+          ],
+          "columns": 4,
+          "rows": 4,
+          "frames": 16,
+          "max_safe_logical_draw_length": 171,
+          "never_upscale": true,
+          "sha256": "820261e088cbb03e19be9e8e1bbc41bbd24cbcd108ce9dd18721d02c1d98f652"
+        },
+        {
+          "name": "lod128",
+          "atlas": "08/lod128-atlas.png",
+          "frame_size": [
+            128,
+            46
+          ],
+          "columns": 4,
+          "rows": 4,
+          "frames": 16,
+          "max_safe_logical_draw_length": 94,
+          "never_upscale": true,
+          "sha256": "17c068d8bc70dcfee20ce15ae0da12d8cbc4fe91ff9db54f2d6fb14108a19fec"
+        },
+        {
+          "name": "lod96",
+          "atlas": "08/lod96-atlas.png",
+          "frame_size": [
+            96,
+            35
+          ],
+          "columns": 4,
+          "rows": 4,
+          "frames": 16,
+          "max_safe_logical_draw_length": 70,
+          "never_upscale": true,
+          "sha256": "8d296c72589dd12d8121d626ec6745ca7e12e878e23da774441007e00223e0f4"
+        }
+      ],
+      "paid_requests": 2,
+      "shared_extra_used": 0,
+      "actual_generations_charged": 2,
+      "motion_design": "기존 명세 유지",
+      "game_applied": false
+    },
+    {
+      "id": "09",
+      "name": "균열갑주 방어",
+      "native_canvas": [
+        232,
+        152
+      ],
+      "native_content_min_width": 189,
+      "union_bbox": [
+        14,
+        18,
+        219,
+        132
+      ],
+      "frame_count": 16,
+      "fps": 10,
+      "direction": "west",
+      "fixed_canvas_all_frames": true,
+      "original_frame_preserved": true,
+      "motion_source": "09/motion-1",
+      "native_source": "09/base-1/original.png",
+      "lods": [
+        {
+          "name": "native",
+          "atlas": "09/native-atlas.png",
+          "frame_size": [
+            232,
+            152
+          ],
+          "columns": 4,
+          "rows": 4,
+          "frames": 16,
+          "max_safe_logical_draw_length": 189,
+          "never_upscale": true,
+          "sha256": "092b7bd3a284e4b2e192be2806fd35fc50e2ede37e36e29ab431cb28319905fe"
+        },
+        {
+          "name": "lod128",
+          "atlas": "09/lod128-atlas.png",
+          "frame_size": [
+            128,
+            84
+          ],
+          "columns": 4,
+          "rows": 4,
+          "frames": 16,
+          "max_safe_logical_draw_length": 104,
+          "never_upscale": true,
+          "sha256": "1380948cdbd039d420934e10f29dc4e36c06b23affec887871a3266d9c747663"
+        },
+        {
+          "name": "lod96",
+          "atlas": "09/lod96-atlas.png",
+          "frame_size": [
+            96,
+            63
+          ],
+          "columns": 4,
+          "rows": 4,
+          "frames": 16,
+          "max_safe_logical_draw_length": 78,
+          "never_upscale": true,
+          "sha256": "a6430f5fd09c8f8272b7bc61809107eb08ae864bb418f08dd22a692736022e38"
+        }
+      ],
+      "paid_requests": 2,
+      "shared_extra_used": 0,
+      "actual_generations_charged": 2,
+      "motion_design": "몸통 좌우 스윙·갑주판 약한 벌어짐, 등 결정이 순차적으로 빛남",
+      "game_applied": false
+    },
+    {
+      "id": "10",
+      "name": "유영리본 삼치",
+      "native_canvas": [
+        232,
+        188
+      ],
+      "native_content_min_width": 190,
+      "union_bbox": [
+        17,
+        18,
+        216,
+        172
+      ],
+      "frame_count": 16,
+      "fps": 10,
+      "direction": "west",
+      "fixed_canvas_all_frames": true,
+      "original_frame_preserved": true,
+      "motion_source": "10/motion-1",
+      "native_source": "10/base-1/original.png",
+      "lods": [
+        {
+          "name": "native",
+          "atlas": "10/native-atlas.png",
+          "frame_size": [
+            232,
+            188
+          ],
+          "columns": 4,
+          "rows": 4,
+          "frames": 16,
+          "max_safe_logical_draw_length": 190,
+          "never_upscale": true,
+          "sha256": "d6662fbcac750463c58fd5d7d7a5c24c53f496cc54c5b3f287c809059873fc1d"
+        },
+        {
+          "name": "lod128",
+          "atlas": "10/lod128-atlas.png",
+          "frame_size": [
+            128,
+            104
+          ],
+          "columns": 4,
+          "rows": 4,
+          "frames": 16,
+          "max_safe_logical_draw_length": 105,
+          "never_upscale": true,
+          "sha256": "7c109244d20bcbc7ac97ec9a39024fe5b9a6b13edc8b048e18a6cc02397ef551"
+        },
+        {
+          "name": "lod96",
+          "atlas": "10/lod96-atlas.png",
+          "frame_size": [
+            96,
+            78
+          ],
+          "columns": 4,
+          "rows": 4,
+          "frames": 16,
+          "max_safe_logical_draw_length": 79,
+          "never_upscale": true,
+          "sha256": "aaf6d8bd0095e122759636fcae70a776a105a86c899ba84b8ab44026986d8b49"
+        }
+      ],
+      "paid_requests": 2,
+      "shared_extra_used": 0,
+      "actual_generations_charged": 3,
+      "motion_design": "몸통보다 늦게 따라오는 리본 S자 물결, 급가속 때 리본을 뒤로 펴기",
+      "game_applied": false
+    },
+    {
+      "id": "11",
+      "name": "균열칼날 갈치",
+      "native_canvas": [
+        232,
+        88
+      ],
+      "native_content_min_width": 200,
+      "union_bbox": [
+        16,
+        15,
+        216,
+        73
+      ],
+      "frame_count": 16,
+      "fps": 10,
+      "direction": "west",
+      "fixed_canvas_all_frames": true,
+      "original_frame_preserved": true,
+      "motion_source": "11/motion-1",
+      "native_source": "11/base-2/original.png",
+      "lods": [
+        {
+          "name": "native",
+          "atlas": "11/native-atlas.png",
+          "frame_size": [
+            232,
+            88
+          ],
+          "columns": 4,
+          "rows": 4,
+          "frames": 16,
+          "max_safe_logical_draw_length": 200,
+          "never_upscale": true,
+          "sha256": "28cde2d5a991d79fa7594c7ca1c13c542d45e9ab7a56b3eafe9acc352c6b8ba3"
+        },
+        {
+          "name": "lod128",
+          "atlas": "11/lod128-atlas.png",
+          "frame_size": [
+            128,
+            49
+          ],
+          "columns": 4,
+          "rows": 4,
+          "frames": 16,
+          "max_safe_logical_draw_length": 110,
+          "never_upscale": true,
+          "sha256": "58a5b8f5fca5d1105a0547717e7481046ef820083eeb8951c695916a417dabaf"
+        },
+        {
+          "name": "lod96",
+          "atlas": "11/lod96-atlas.png",
+          "frame_size": [
+            96,
+            36
+          ],
+          "columns": 4,
+          "rows": 4,
+          "frames": 16,
+          "max_safe_logical_draw_length": 82,
+          "never_upscale": true,
+          "sha256": "263e8ab6d84758819b720e1f59963db73e175eca8c7378458d8c13b5e23e7e0a"
+        }
+      ],
+      "paid_requests": 3,
+      "shared_extra_used": 1,
+      "actual_generations_charged": 3,
+      "motion_design": "긴 몸 S파동·등 칼날 순차 기울임·균열 띠 순차 발광",
+      "game_applied": false
+    },
+    {
+      "id": "12",
+      "name": "균열꽃 광어",
+      "native_canvas": [
+        232,
+        156
+      ],
+      "native_content_min_width": 198,
+      "union_bbox": [
+        16,
+        16,
+        218,
+        142
+      ],
+      "frame_count": 16,
+      "fps": 10,
+      "direction": "west",
+      "fixed_canvas_all_frames": true,
+      "original_frame_preserved": true,
+      "motion_source": "12/motion-1",
+      "native_source": "12/base-1/original.png",
+      "lods": [
+        {
+          "name": "native",
+          "atlas": "12/native-atlas.png",
+          "frame_size": [
+            232,
+            156
+          ],
+          "columns": 4,
+          "rows": 4,
+          "frames": 16,
+          "max_safe_logical_draw_length": 198,
+          "never_upscale": true,
+          "sha256": "85770e3457be7f7c012a670d69d30ca109f6ad28b92fc8fb74cd661ecd544892"
+        },
+        {
+          "name": "lod128",
+          "atlas": "12/lod128-atlas.png",
+          "frame_size": [
+            128,
+            86
+          ],
+          "columns": 4,
+          "rows": 4,
+          "frames": 16,
+          "max_safe_logical_draw_length": 109,
+          "never_upscale": true,
+          "sha256": "7c96d33ff3b90d41923dfbb51b5d12f23ce078c480d2eb0c4e189d7981fb99ef"
+        },
+        {
+          "name": "lod96",
+          "atlas": "12/lod96-atlas.png",
+          "frame_size": [
+            96,
+            65
+          ],
+          "columns": 4,
+          "rows": 4,
+          "frames": 16,
+          "max_safe_logical_draw_length": 82,
+          "never_upscale": true,
+          "sha256": "91046838da55cfaab219b799401bb2f05787d83d3180e3fc6c83bfd8c6a0dd51"
+        }
+      ],
+      "paid_requests": 2,
+      "shared_extra_used": 0,
+      "actual_generations_charged": 2,
+      "motion_design": "납작한 몸 들썩임·꽃잎형 테두리 지느러미 순차 파동",
+      "game_applied": false
+    },
+    {
+      "id": "13",
+      "name": "틈새결정 복어",
+      "native_canvas": [
+        232,
+        212
+      ],
+      "native_content_min_width": 178,
+      "union_bbox": [
+        25,
+        21,
+        208,
+        194
+      ],
+      "frame_count": 16,
+      "fps": 10,
+      "direction": "west",
+      "fixed_canvas_all_frames": true,
+      "original_frame_preserved": true,
+      "motion_source": "13/motion-1",
+      "native_source": "13/base-2/original.png",
+      "lods": [
+        {
+          "name": "native",
+          "atlas": "13/native-atlas.png",
+          "frame_size": [
+            232,
+            212
+          ],
+          "columns": 4,
+          "rows": 4,
+          "frames": 16,
+          "max_safe_logical_draw_length": 178,
+          "never_upscale": true,
+          "sha256": "30a3844f71f93717c3e6b0a68ced9ae3e4af8971b691cfaa66366c565dcf3785"
+        },
+        {
+          "name": "lod128",
+          "atlas": "13/lod128-atlas.png",
+          "frame_size": [
+            128,
+            117
+          ],
+          "columns": 4,
+          "rows": 4,
+          "frames": 16,
+          "max_safe_logical_draw_length": 98,
+          "never_upscale": true,
+          "sha256": "7ab77aff8a440bc875cd527a72ad58dbf42ffc9ea29de2a754f8cd2c1cb96a1b"
+        },
+        {
+          "name": "lod96",
+          "atlas": "13/lod96-atlas.png",
+          "frame_size": [
+            96,
+            88
+          ],
+          "columns": 4,
+          "rows": 4,
+          "frames": 16,
+          "max_safe_logical_draw_length": 74,
+          "never_upscale": true,
+          "sha256": "15bb18f931c4c88eb5d78401118f524a4f2176750aaaac32b1457c2db91d790f"
+        }
+      ],
+      "paid_requests": 3,
+      "shared_extra_used": 1,
+      "actual_generations_charged": 4,
+      "motion_design": "복부 팽창·수축, 균열선 폭이 벌어지는 듯 밝기 변화·결정 흔들림",
+      "game_applied": false
+    },
+    {
+      "id": "15",
+      "name": "차원결정 참치",
+      "native_canvas": [
+        232,
+        148
+      ],
+      "native_content_min_width": 180,
+      "union_bbox": [
+        16,
+        16,
+        216,
+        132
+      ],
+      "frame_count": 16,
+      "fps": 10,
+      "direction": "west",
+      "fixed_canvas_all_frames": true,
+      "original_frame_preserved": true,
+      "motion_source": "15/motion-1",
+      "native_source": "15/base-1/original.png",
+      "lods": [
+        {
+          "name": "native",
+          "atlas": "15/native-atlas.png",
+          "frame_size": [
+            232,
+            148
+          ],
+          "columns": 4,
+          "rows": 4,
+          "frames": 16,
+          "max_safe_logical_draw_length": 180,
+          "never_upscale": true,
+          "sha256": "926a9661745158642afabeddefd451e25e18114fc19ccd88542a659b2d663417"
+        },
+        {
+          "name": "lod128",
+          "atlas": "15/lod128-atlas.png",
+          "frame_size": [
+            128,
+            82
+          ],
+          "columns": 4,
+          "rows": 4,
+          "frames": 16,
+          "max_safe_logical_draw_length": 99,
+          "never_upscale": true,
+          "sha256": "d4220d2ffed937bca1e7698ce036c94749106bea48a3244616a91c226a6efa57"
+        },
+        {
+          "name": "lod96",
+          "atlas": "15/lod96-atlas.png",
+          "frame_size": [
+            96,
+            61
+          ],
+          "columns": 4,
+          "rows": 4,
+          "frames": 16,
+          "max_safe_logical_draw_length": 74,
+          "never_upscale": true,
+          "sha256": "1bf5a2dabde4b23022281e296c5e467547ade057f8e2aa67af63ae2a64d6caa9"
+        }
+      ],
+      "paid_requests": 2,
+      "shared_extra_used": 0,
+      "actual_generations_charged": 2,
+      "motion_design": "강한 꼬리 스냅·갑주 프리즘의 시차 반짝임, 가속 때 몸통 살짝 압축",
+      "game_applied": false
+    },
+    {
+      "id": "16",
+      "name": "월식 개복치",
+      "native_canvas": [
+        232,
+        256
+      ],
+      "native_content_min_width": 176,
+      "union_bbox": [
+        23,
+        22,
+        210,
+        234
+      ],
+      "frame_count": 16,
+      "fps": 10,
+      "direction": "west",
+      "fixed_canvas_all_frames": true,
+      "original_frame_preserved": true,
+      "motion_source": "16/motion-1",
+      "native_source": "16/base-1/original.png",
+      "lods": [
+        {
+          "name": "native",
+          "atlas": "16/native-atlas.png",
+          "frame_size": [
+            232,
+            256
+          ],
+          "columns": 4,
+          "rows": 4,
+          "frames": 16,
+          "max_safe_logical_draw_length": 176,
+          "never_upscale": true,
+          "sha256": "cc9ce01cea34faa0316123dadcc0787f95e27ec9c85e05f1a080d5190c3bc659"
+        },
+        {
+          "name": "lod128",
+          "atlas": "16/lod128-atlas.png",
+          "frame_size": [
+            128,
+            141
+          ],
+          "columns": 4,
+          "rows": 4,
+          "frames": 16,
+          "max_safe_logical_draw_length": 97,
+          "never_upscale": true,
+          "sha256": "983fbf3b312982d2679766b9ec4c08867799a4d47645c011aac2d1bf2eedc323"
+        },
+        {
+          "name": "lod96",
+          "atlas": "16/lod96-atlas.png",
+          "frame_size": [
+            96,
+            106
+          ],
+          "columns": 4,
+          "rows": 4,
+          "frames": 16,
+          "max_safe_logical_draw_length": 73,
+          "never_upscale": true,
+          "sha256": "cab0f72f252da4d1d02dc00dc99e3d1495b6c640f846404f4824f20dd9818ae9"
+        }
+      ],
+      "paid_requests": 2,
+      "shared_extra_used": 0,
+      "actual_generations_charged": 3,
+      "motion_design": "느린 원반 기울임·상하 지느러미 교차 노젓기·초승달 밝기 호흡",
+      "game_applied": false
+    },
+    {
+      "id": "17",
+      "name": "뇌광 삼치",
+      "native_canvas": [
+        232,
+        136
+      ],
+      "native_content_min_width": 188,
+      "union_bbox": [
+        15,
+        17,
+        217,
+        117
+      ],
+      "frame_count": 16,
+      "fps": 10,
+      "direction": "west",
+      "fixed_canvas_all_frames": true,
+      "original_frame_preserved": true,
+      "motion_source": "17/motion-1",
+      "native_source": "17/base-1/original.png",
+      "lods": [
+        {
+          "name": "native",
+          "atlas": "17/native-atlas.png",
+          "frame_size": [
+            232,
+            136
+          ],
+          "columns": 4,
+          "rows": 4,
+          "frames": 16,
+          "max_safe_logical_draw_length": 188,
+          "never_upscale": true,
+          "sha256": "43f2030de5a9820acd4bf24c3fae0c519f236e331429e6646190267bf8477141"
+        },
+        {
+          "name": "lod128",
+          "atlas": "17/lod128-atlas.png",
+          "frame_size": [
+            128,
+            75
+          ],
+          "columns": 4,
+          "rows": 4,
+          "frames": 16,
+          "max_safe_logical_draw_length": 104,
+          "never_upscale": true,
+          "sha256": "944ed298689d812402cc733f35a677c297a63d7eeefbab2cfe4b316291a91cd4"
+        },
+        {
+          "name": "lod96",
+          "atlas": "17/lod96-atlas.png",
+          "frame_size": [
+            96,
+            56
+          ],
+          "columns": 4,
+          "rows": 4,
+          "frames": 16,
+          "max_safe_logical_draw_length": 78,
+          "never_upscale": true,
+          "sha256": "960fa80c529add95a22ac715eec86d19bccbb6cd9aca660a1a6af7bfba6cd86c"
+        }
+      ],
+      "paid_requests": 2,
+      "shared_extra_used": 0,
+      "actual_generations_charged": 2,
+      "motion_design": "짧고 빠른 꼬리 스냅·등 번개 지느러미 경직/해제, 문양이 짧게 번쩍임",
+      "game_applied": false
+    },
+    {
+      "id": "18",
+      "name": "차원창 청새치",
+      "native_canvas": [
+        232,
+        156
+      ],
+      "native_content_min_width": 189,
+      "union_bbox": [
+        13,
+        14,
+        221,
+        144
+      ],
+      "frame_count": 16,
+      "fps": 10,
+      "direction": "west",
+      "fixed_canvas_all_frames": true,
+      "original_frame_preserved": true,
+      "motion_source": "18/motion-1",
+      "native_source": "18/base-1/original.png",
+      "lods": [
+        {
+          "name": "native",
+          "atlas": "18/native-atlas.png",
+          "frame_size": [
+            232,
+            156
+          ],
+          "columns": 4,
+          "rows": 4,
+          "frames": 16,
+          "max_safe_logical_draw_length": 189,
+          "never_upscale": true,
+          "sha256": "5ba7ea000e96d801aa92bc5d3601793933dfa6da4f6625ef951730ba5a3edceb"
+        },
+        {
+          "name": "lod128",
+          "atlas": "18/lod128-atlas.png",
+          "frame_size": [
+            128,
+            86
+          ],
+          "columns": 4,
+          "rows": 4,
+          "frames": 16,
+          "max_safe_logical_draw_length": 104,
+          "never_upscale": true,
+          "sha256": "25625d33414f9d178965502a4f41a8145f4812d607400d3d44f642ac14f1ebc4"
+        },
+        {
+          "name": "lod96",
+          "atlas": "18/lod96-atlas.png",
+          "frame_size": [
+            96,
+            65
+          ],
+          "columns": 4,
+          "rows": 4,
+          "frames": 16,
+          "max_safe_logical_draw_length": 79,
+          "never_upscale": true,
+          "sha256": "f3ec5ea155650b8968a3448b49abb0784b5b7d90cb6aefba4c3934949fce147d"
+        }
+      ],
+      "paid_requests": 2,
+      "shared_extra_used": 0,
+      "actual_generations_charged": 2,
+      "motion_design": "주둥이 창을 앞세운 돌진·망토 등지느러미 후행 물결·창 끝 짧은 잔광",
+      "game_applied": false
+    },
+    {
+      "id": "19",
+      "name": "균열유리 상어",
+      "native_canvas": [
+        232,
+        140
+      ],
+      "native_content_min_width": 182,
+      "union_bbox": [
+        12,
+        16,
+        220,
+        124
+      ],
+      "frame_count": 16,
+      "fps": 10,
+      "direction": "west",
+      "fixed_canvas_all_frames": true,
+      "original_frame_preserved": true,
+      "motion_source": "19/motion-1",
+      "native_source": "19/base-1/original.png",
+      "lods": [
+        {
+          "name": "native",
+          "atlas": "19/native-atlas.png",
+          "frame_size": [
+            232,
+            140
+          ],
+          "columns": 4,
+          "rows": 4,
+          "frames": 16,
+          "max_safe_logical_draw_length": 182,
+          "never_upscale": true,
+          "sha256": "e660aa0c65a3a3e6a8b97d29fee07516d0c993af40ebcc4af6fcac79339a2a34"
+        },
+        {
+          "name": "lod128",
+          "atlas": "19/lod128-atlas.png",
+          "frame_size": [
+            128,
+            77
+          ],
+          "columns": 4,
+          "rows": 4,
+          "frames": 16,
+          "max_safe_logical_draw_length": 100,
+          "never_upscale": true,
+          "sha256": "0a44b9ca75381962ad9f682a8e8b4e5c4ee4aa45f48324f08c667ca9aa911790"
+        },
+        {
+          "name": "lod96",
+          "atlas": "19/lod96-atlas.png",
+          "frame_size": [
+            96,
+            58
+          ],
+          "columns": 4,
+          "rows": 4,
+          "frames": 16,
+          "max_safe_logical_draw_length": 75,
+          "never_upscale": true,
+          "sha256": "70956a52b02f7d7c514b1c4ec1bce60d7e3e0d54b021a2a5477dbb85fc886071"
+        }
+      ],
+      "paid_requests": 2,
+      "shared_extra_used": 0,
+      "actual_generations_charged": 2,
+      "motion_design": "긴 꼬리 좌우 S파동·몸 기울기에 따라 유리 하이라이트 이동·내부 굴절띠 시차",
+      "game_applied": false
+    }
+  ],
+  "held": [
+    {
+      "id": "07",
+      "name": "금간정어리",
+      "status": "held_after_shared_revision",
+      "requests": 3
+    },
+    {
+      "id": "14",
+      "name": "거울날개 날치",
+      "status": "held_after_shared_revision",
+      "requests": 3
+    },
+    {
+      "id": "20",
+      "name": "폭풍다랑어",
+      "status": "held_after_shared_revision",
+      "requests": 3
+    }
+  ],
+  "all_species_processed": true,
+  "paid_requests": 47,
+  "actual_generations_charged": 56,
+  "native_art_redrawn_not_nearest_upscaled": true,
+  "fight_max_logical_length": 156,
+  "region4_species_sizes_not_invented": true,
+  "shared_extra_limit_per_species": 1,
+  "game_applied": false,
+  "deployed": false
+}
