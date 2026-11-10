@@ -1,17 +1,17 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "updater_smoothness_implemented_ci_running",
+  "status": "updater_smoothness_verified_apk_pending",
   "release_baseline": "v1.19",
   "target_release": "v1.19",
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/qa/updater-smoothness/HANDOFF.md",
   "current_task": "업데이트 시작·검증·게임 전환 끊김 완화",
-  "next_step": "전체CI 42739210902 결과 확인",
+  "next_step": "새 APK 제작·전달과 휴대폰 적용 검증 필요; 공개배포는 별도",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
-  "verification": "docs/qa/shop-signs/VERIFICATION.json",
+  "verification": "docs/qa/updater-smoothness/VERIFICATION.json",
   "baseline_phone_verified": false,
   "environment_recovery": "docs/CODEX_NETWORK_RECOVERY.md",
   "background_verified_branch": "work/tile-png-stage2-20261107",
@@ -1032,7 +1032,9 @@
     "related_verified": true,
     "source_commit": "f3d0642536ad356a022d8208b9f1fbf736cf0ed8",
     "ci_run": 42739210902,
-    "ci_status": "in_progress",
-    "verification": "docs/qa/updater-smoothness/VERIFICATION.json"
+    "ci_status": "success",
+    "verification": "docs/qa/updater-smoothness/VERIFICATION.json",
+    "unique_verify_results": 103,
+    "apk_built": false
   }
 }
