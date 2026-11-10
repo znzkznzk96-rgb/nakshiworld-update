@@ -1,0 +1,16 @@
+{
+  "first_frame": {
+    "encoded_image_omitted": true,
+    "sha256": "fe72e2aa479a6b18d4e0907c7df0da249c306a87f51407d939df5b7f3148a764",
+    "input_role": "internally passed native HD original derived from the user-approved fish"
+  },
+  "description": "Short fast low-amplitude tail flicks; dorsal fin stiffens and relaxes slightly and the zigzag skin marking flashes very subtly. Keep all lightning as a skin pattern, with no external bolts. Seamless gentle swimming loop IN PLACE, head LEFT throughout. Fixed camera, sprite position and scale. Preserve exact original identity, colors, markings and fin/tail count. No turning, new parts, particles, scenery, cropping or camera motion.",
+  "frame_count": 16,
+  "seed": 2026113017,
+  "no_background": true,
+  "enhance_prompt": false,
+  "direction": "west",
+  "view": "side",
+  "subject_description": "yellow mackerel with cobalt zigzag lightning markings",
+  "initial_pose": "neutral horizontal swimming pose; head LEFT, tail or mantle RIGHT; whole creature visible inside transparent margins"
+}
