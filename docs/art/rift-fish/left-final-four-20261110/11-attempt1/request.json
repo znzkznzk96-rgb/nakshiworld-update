@@ -1,0 +1,14 @@
+{
+  "image": {
+    "type": "repository_original_reference",
+    "path": "game/art/fish/l0_16.png",
+    "sha256": "88b6cc3159bd52e84420bf60209cf405fdc4badf022014de0f4a7554c64adbc7",
+    "base64_omitted_from_public_record": true
+  },
+  "description": "Preserve this EXACT long slender EEL silhouette facing LEFT. Recolor as a silver CUTLASS ribbon: bright silver spine, deep cobalt underside, 3 jagged violet-cyan rift bands. Keep its continuous narrow S-curved body and extremely thin pointed tail at RIGHT. NO forked tail, NO normal fish tail fin. Tiny violet crystal teeth along dorsal ridge. Keep the head LEFT, crisp rich pixel shading, transparent margins.",
+  "width": 96,
+  "height": 64,
+  "no_background": true,
+  "seed": 2026111611,
+  "actual_request_sha256": "3164924814ad63628609aebbd774673777143d28ef6290c4e258cf241faaa6b3"
+}

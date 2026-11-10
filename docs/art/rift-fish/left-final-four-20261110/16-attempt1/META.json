@@ -1,0 +1,22 @@
+{
+  "id": "16",
+  "tier": 3,
+  "name": "월식 개복치",
+  "mode": "create",
+  "model": "create-image-pixen",
+  "reference_path": "game/art/fish/l0_18.png",
+  "reference_original_sha256": "a87f59d881fbd6fe0027a8c9008e95a9849eeb6552d55ba5b1dee634dc690787",
+  "reference_sha256": "a87f59d881fbd6fe0027a8c9008e95a9849eeb6552d55ba5b1dee634dc690787",
+  "reference_role": "actual reservoir original, visually compared only; create API accepts no style image",
+  "reference_reason": "silver blue compact detailed pixel shading",
+  "colors": "ultraviolet/indigo body / gold crescent / icy cyan edge / saturated violet fins",
+  "forbidden_colors": "washed-out gray/brown/yellow haze; one-tone flat shading",
+  "motion_design": "느린 원반 기울임·상하 지느러미 교차 노젓기·초승달 밝기 호흡",
+  "direction": "west",
+  "max_requests_this_round": 2,
+  "prior_requests": 4,
+  "seed": 2026111616,
+  "status": "planned",
+  "actual_motion_generated": false,
+  "game_applied": false
+}

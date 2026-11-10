@@ -1,0 +1,22 @@
+{
+  "id": "11",
+  "tier": 2,
+  "name": "균열칼날 갈치",
+  "mode": "edit",
+  "model": "edit-image-pixen",
+  "reference_path": "game/art/fish/l0_16.png",
+  "reference_original_sha256": "9606de74e2cf28f22f6cf8e37ffd83b111bb1cbecd909ab6d21b82584b14448a",
+  "reference_sha256": "88b6cc3159bd52e84420bf60209cf405fdc4badf022014de0f4a7554c64adbc7",
+  "reference_role": "actual approved reservoir eel mirrored pixel-for-pixel to LEFT, transmitted as edit source; original SHA kept separately",
+  "reference_reason": "long eel silhouette with pointed tail",
+  "colors": "silver highlight / deep cobalt underside / saturated violet-cyan rift bands",
+  "forbidden_colors": "washed-out gray/brown/yellow haze; one-tone flat shading",
+  "motion_design": "긴 몸 S파동·등 칼날 순차 기울임·균열 띠 순차 발광",
+  "direction": "west",
+  "max_requests_this_round": 2,
+  "prior_requests": 4,
+  "seed": 2026111611,
+  "status": "planned",
+  "actual_motion_generated": false,
+  "game_applied": false
+}

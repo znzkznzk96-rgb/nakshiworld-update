@@ -1,0 +1,13 @@
+{
+  "description": "An anatomically recognizable MOLA MOLA OCEAN SUNFISH facing LEFT. A SHORT nearly CIRCULAR DISK BODY, tiny beak and small eye on LEFT edge. Rear RIGHT edge ends directly in a blunt vertical scalloped CLAVUS attached to the disk: NO tail stalk, NO separate tail, NO forked tail. Tall dorsal fin and matching anal fin like two oars. Deep vivid ULTRAVIOLET disk, saturated indigo shadows, bright gold CRESCENT on flank like an eclipse, icy cyan rim and violet fins. Compact whole animal with large transparent margins, top and bottom fin tips at least 6 pixels away from canvas edges. Crisp native 96x64 pixel art in existing cozy 16-bit fishing RPG style. Rich controlled 3-to-4-tone ramps, bright highlights, strongly saturated midtones and deep chromatic shadows. No dull gray-brown wash, haze, blur, heavy dithering, text, scenery or external particle clouds. Head LEFT. Whole creature centered inside transparent margins.",
+  "image_size": {
+    "width": 96,
+    "height": 64
+  },
+  "no_background": true,
+  "direction": "west",
+  "outline": "selective outline",
+  "detail": "highly detailed",
+  "seed": 2026111616,
+  "enhance_prompt": false
+}
