@@ -1,17 +1,17 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "v120_publication_resuming_apk_delivered",
-  "release_baseline": "v1.19",
+  "status": "v120_published_verified_apk_delivered",
+  "release_baseline": "v1.20",
   "target_release": "v1.20",
-  "deployed": false,
+  "deployed": true,
   "phone_verified": false,
   "handoff": "docs/releases/120/HANDOFF.md",
-  "current_task": "v1.20 상점아트·간판·글씨·시작화면 개선 배포 및 APK 전달",
-  "next_step": "동일초안 게시완료·운영3파일확인",
+  "current_task": "v1.20 전체 수정본 공개·서명 APK 전달 완료",
+  "next_step": "기존앱삭제없이 v1.20 APK 덮어설치후 휴대폰 실제 적용확인",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
-  "verification": "docs/qa/updater-smoothness/VERIFICATION.json",
+  "verification": "docs/releases/120/PUBLISHED.json",
   "baseline_phone_verified": false,
   "environment_recovery": "docs/CODEX_NETWORK_RECOVERY.md",
   "background_verified_branch": "work/tile-png-stage2-20261107",
@@ -23,10 +23,10 @@
   "screen_evidence_commit": "04fa33a116915c0b7a7ca86ee235a24a4cf4d4d2",
   "screen_verification_run": 42315352676,
   "full_source_verified": {
-    "release": "v1.19",
-    "size": 63538227,
-    "sha256": "6f91003b977d62ded9527a1324a82b0266e377d2e9131a881d4d82911efec60d",
-    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.19/game-source.zip"
+    "release": "v1.20",
+    "size": 63870316,
+    "sha256": "eab237222cbf0eed3f508595398bfe00b86befa98ef0bb66b1577e9512aaa970",
+    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.20/game-source.zip"
   },
   "fish_verification_run": 42317071546,
   "automatic_full_regression_run": 42317071379,
@@ -48,16 +48,16 @@
     "fulfilled": true
   },
   "release_preflight": "docs/qa/fight-telegraph/VERIFICATION.json",
-  "release_source_commit": "bd59d36974d16e50874111da629d32010d177c40",
-  "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v1.19",
-  "release_build_run": 42727188852,
+  "release_source_commit": "9304d087887211a2641d21471221f7c1a48aae1d",
+  "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v1.20",
+  "release_build_run": 42743120559,
   "release_build_status": "success_attempt2_same_candidate_no_rebuild",
-  "public_verification_run": 42727377472,
+  "public_verification_run": 42743324019,
   "public_verification_status": "success",
   "public_patch": {
-    "size": 59460208,
-    "sha256": "0fdb01015cea7a06780056953dd7e856fc0a80819384264184d75261d115598b",
-    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.19/patch.pck"
+    "size": 59736720,
+    "sha256": "8fe6971f0c0fb86e87bdf058433e48caf6cfbc6e86fb3446cc7883db521a93f3",
+    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.20/patch.pck"
   },
   "standard_full_workflow_note": "v1.19 전체CI/native/PCK 성공후보를 재빌드없이 공개, 공개3파일·소스655파일·운영다운로드 검증 성공",
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md#2026-11-07--소규모-작업-효율채팅-중단-대비",
@@ -118,7 +118,7 @@
     "production_balance_changed": false,
     "phone_tested": false
   },
-  "release_authorized": true,
+  "release_authorized": false,
   "balance110": {
     "applied": true,
     "deployed": true,
@@ -171,7 +171,7 @@
     "ledger": "analysis/tile-layer-art-v1/PLANT_LEDGER.json",
     "quality": "analysis/tile-layer-art-v1/PLANT_QA.json"
   },
-  "public_release": "v1.19",
+  "public_release": "v1.20",
   "shared_vertical_light": {
     "applied": true,
     "regions": [
@@ -248,23 +248,19 @@
     "release_authorized": false
   },
   "full_release_ci": {
-    "run": 42725519072,
+    "run": 42741245973,
     "status": "success",
-    "source_commit": "bd59d36974d16e50874111da629d32010d177c40"
+    "source_commit": "9304d087887211a2641d21471221f7c1a48aae1d"
   },
   "release_candidate": {
     "version": {
-      "code": 119,
-      "name": "1.19"
+      "code": 120,
+      "name": "1.20"
     },
-    "ready": true,
-    "published": true,
-    "release_authorized": false,
-    "verification": "docs/qa/hall-forge119/VERIFICATION.json",
-    "run": 42725519072,
-    "source_commit": "bd59d36974d16e50874111da629d32010d177c40",
-    "artifact_id": 13723036610,
-    "input_fingerprint": "8c40f113e15a71916da4eaab07d2d57b4f5ef1e041ecc83122ab360b00b6b6d9"
+    "source_commit": "9304d087887211a2641d21471221f7c1a48aae1d",
+    "artifact": 13728879330,
+    "input_fingerprint": "cc904537238d079a0d2a923718438f520f72dc55fcc5b85de6b6a611de45f1dc",
+    "verified": true
   },
   "release_resume_run": 42424430555,
   "fight_body_size": {
@@ -390,11 +386,9 @@
     "verification_artifact": 13618959416
   },
   "latest_release_instruction": {
-    "date": "2026-11-10",
-    "request": "마을회관은 처음시안 대장간은 두번째 업데이트 및 배포",
-    "authorized": true,
-    "fulfilled": true,
-    "scope": "hall/forge + approved pending gauge/notice/bundle/dex"
+    "user_request": "업데이트 및 배포 해줘 ㅇㅇ apk도 주구",
+    "scope": "v1.20 전체 미배포 수정본과 서명APK",
+    "fulfilled": true
   },
   "economy_analysis": {
     "report": "docs/analysis/tile-income-20261108/REPORT.md",
@@ -1001,7 +995,10 @@
     "native_screens": 15,
     "verification": "docs/qa/hall-forge-art/VERIFICATION.json",
     "visual_approval": "pending_user_review",
-    "deployed": false
+    "deployed": true,
+    "release_authorized": false,
+    "published_release": "v1.20",
+    "phone_verified": false
   },
   "shop_signs": {
     "approved": true,
@@ -1016,17 +1013,19 @@
     "source_commit": "efaf6a9368caae919658f2d2941360495da8bbf6",
     "ci_run": 42735572301,
     "ci_status": "success",
-    "deployed": false,
+    "deployed": true,
     "release_authorized": false,
     "verification": "docs/qa/shop-signs/VERIFICATION.json",
     "unique_verify_results": 102,
-    "candidate_artifact": 13727461234
+    "candidate_artifact": 13727461234,
+    "published_release": "v1.20",
+    "phone_verified": false
   },
   "updater_smoothness": {
     "approved": true,
     "minimum_display_seconds": 2,
     "apk_required": true,
-    "deployed": false,
+    "deployed": true,
     "release_authorized": false,
     "implemented": true,
     "related_verified": true,
@@ -1035,14 +1034,17 @@
     "ci_status": "success",
     "verification": "docs/qa/updater-smoothness/VERIFICATION.json",
     "unique_verify_results": 103,
-    "apk_built": false
+    "apk_built": true,
+    "published_release": "v1.20",
+    "phone_verified": false,
+    "apk_delivered": true
   },
   "release120": {
-    "authorized": true,
+    "authorized": false,
     "user_request": "업데이트 및 배포 해줘 ㅇㅇ apk도 주구",
     "scope": "회관/대장간 실제아트,장비카드여백,8상점간판,업데이트부트끊김완화",
     "apk_requested": true,
-    "deployed": false,
+    "deployed": true,
     "source_commit": "9304d087887211a2641d21471221f7c1a48aae1d",
     "ci_run": 42741245973,
     "ci_status": "success",
@@ -1055,6 +1057,12 @@
     "draft_id": 439877286,
     "apk_built": true,
     "apk_delivered": true,
-    "apk_library_file_id": "libfile_fde3_f-b46bac2b21788191977d7fc137279d39_d66dafb33acc81918ce203aeb3fcd18e"
+    "apk_library_file_id": "libfile_fde3_f-b46bac2b21788191977d7fc137279d39_d66dafb33acc81918ce203aeb3fcd18e",
+    "status": "published_verified_apk_delivered",
+    "publication_status": "success_attempt2",
+    "gateway_run": 42743324019,
+    "verification": "docs/releases/120/PUBLISHED.json",
+    "apk_verification": "docs/releases/120/APK_VERIFICATION.json",
+    "phone_verified": false
   }
 }

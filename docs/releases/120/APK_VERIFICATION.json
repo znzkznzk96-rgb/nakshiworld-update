@@ -7,7 +7,7 @@
   "signer_sha256": "5939b25954f72e4aaf2703d5f5f3bf99e400b6ee9891c66af8e4ff2773feb763",
   "signature_v1_v2_v3": true,
   "native_libraries_preserved_compressed": true,
-  "stored_native_16kb_alignment": true,
+  "stored_native_16kb_alignment": "not applicable: both preserved native libraries are compressed; installer extracts them",
   "native_delivery": "unchanged compressed libraries extracted by Android installer",
   "stored_entries_4byte_alignment": true,
   "zip_crc": true,
@@ -21,5 +21,6 @@
   "bootstrap_elapsed_ms": 2281,
   "apk_assets_match_candidate_pack": true,
   "library_file_id": "libfile_fde3_f-b46bac2b21788191977d7fc137279d39_d66dafb33acc81918ce203aeb3fcd18e",
-  "delivered": true
+  "delivered": true,
+  "stored_native_count": 0
 }
