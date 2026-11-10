@@ -1,0 +1,22 @@
+{
+  "description": "A long slim anchovy swims with a pronounced VERTICAL ripple along its spine, like a ribbon undulating UP and DOWN in a flat 2D side view. Keep the torso LONG and SLENDER in every frame, and keep the head-to-tail horizontal distance nearly unchanged, at least 175 pixels. No shortening, squashing, rotating toward the camera or foreshortening. The forked tail sweeps clearly upward then downward; small fins spread widely and row. Strong push and flexible follow-through, not a stiff idle. Head LEFT, fixed camera and scale, swimming in place. Preserve exact silver-cyan markings and anatomy. Whole fish inside transparent margins, no particles, glow or trails.",
+  "frame_count": 16,
+  "seed": 2026115208,
+  "no_background": true,
+  "drift_threshold": 0,
+  "enhance_prompt": false,
+  "direction": "west",
+  "view": "side",
+  "subject_description": "slim silver-cyan anchovy",
+  "initial_pose": "horizontal side-view swim pose, head left and tail or mantle right, whole creature visible inside transparent margins",
+  "first_frame": {
+    "sha256": "d57e3569ffc01053e2a03aa7bd992506190de23ed729f3c4d27c21a4ac87b47e",
+    "source": "docs/art/rift-fish/motion-hd-20261111/08/base-1/original.png",
+    "role": "passed HD original, not rejected result"
+  },
+  "last_frame": {
+    "sha256": "d57e3569ffc01053e2a03aa7bd992506190de23ed729f3c4d27c21a4ac87b47e",
+    "source": "docs/art/rift-fish/motion-hd-20261111/08/base-1/original.png",
+    "role": "passed HD original, not rejected result"
+  }
+}
