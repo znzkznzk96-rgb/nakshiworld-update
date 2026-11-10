@@ -263,7 +263,9 @@
     "ready": false,
     "published": false,
     "release_authorized": true,
-    "verification": "docs/qa/hall-forge119/VERIFICATION.json"
+    "verification": "docs/qa/hall-forge119/VERIFICATION.json",
+    "run": 42725519072,
+    "source_commit": "bd59d36974d16e50874111da629d32010d177c40"
   },
   "release_resume_run": 42424430555,
   "fight_body_size": {
@@ -958,6 +960,9 @@
     "native_screens": 15,
     "verification": "docs/qa/hall-forge119/VERIFICATION.json",
     "deployed": false,
-    "release_authorized": true
+    "release_authorized": true,
+    "ci_run": 42725519072,
+    "ci_status": "in_progress",
+    "source_commit": "bd59d36974d16e50874111da629d32010d177c40"
   }
 }

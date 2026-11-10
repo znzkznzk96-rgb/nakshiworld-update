@@ -68,7 +68,11 @@
     "save data and gift receipts",
     "all prior gauge/notice/bundle/dex changes"
   ],
-  "full_ci": "pending final source checkpoint",
+  "full_ci": {
+    "run": 42725519072,
+    "source_commit": "bd59d36974d16e50874111da629d32010d177c40",
+    "status": "in_progress"
+  },
   "deployment_authorized": true,
   "deployed": false,
   "phone_verified": false
