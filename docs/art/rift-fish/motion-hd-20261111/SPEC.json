@@ -105,8 +105,9 @@
       "baseline_paid_requests": 2,
       "shared_additional_request_limit": 1,
       "quality_policy": "one additional request total across base and motion stages; second quality failure holds this species and proceeds next",
-      "status": "planned",
-      "motion_quoted_generations": 2
+      "status": "native_passed_motion_pending",
+      "motion_quoted_generations": 2,
+      "native_selected": "03/base-1/original.png"
     },
     {
       "id": "04",

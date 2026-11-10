@@ -1,0 +1,19 @@
+{
+  "id": "03",
+  "name": "네날개날치",
+  "stage": "base",
+  "attempt": 1,
+  "model": "edit-image-pixen",
+  "seed": 2026112003,
+  "native_canvas": [
+    232,
+    216
+  ],
+  "input_sha256": "7aea60d956dfb5c47f041bc372610612b53b71555409f02dae4559385a16f9e0",
+  "input_role": "user-approved fish, transparent margins cropped/padded only",
+  "request_sha256": "8c07dc1f58058afe03544d39869c44a6f50db54d4a749d11c8b59d95828a4859",
+  "additional_request_used": 0,
+  "expected_output_count": 1,
+  "quoted_generations": 1,
+  "game_applied": false
+}
