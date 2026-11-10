@@ -1,17 +1,17 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "release124_verified_publishing",
-  "release_baseline": "v1.23",
+  "status": "release124_published",
+  "release_baseline": "v1.24",
   "target_release": "v1.24",
-  "deployed": false,
+  "deployed": true,
   "phone_verified": false,
   "handoff": "docs/releases/124/HANDOFF.md",
-  "current_task": "평타·스킬 데미지 겹침 수정 및 승인 배포",
-  "next_step": "검증된 동일후보 main 공개 후 운영다운로드/공개3파일 검증",
+  "current_task": "v1.24 탐험 피해 숫자 겹침 개선 공개 완료",
+  "next_step": "기존앱 재실행·게임업데이트 후 휴대폰 평타/스킬 동시표시 확인. 새수정/배포 별도요청.",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
-  "verification": "docs/releases/123/PUBLISHED.json",
+  "verification": "docs/releases/124/PUBLISHED.json",
   "baseline_phone_verified": false,
   "environment_recovery": "docs/CODEX_NETWORK_RECOVERY.md",
   "background_verified_branch": "work/tile-png-stage2-20261107",
@@ -23,10 +23,10 @@
   "screen_evidence_commit": "04fa33a116915c0b7a7ca86ee235a24a4cf4d4d2",
   "screen_verification_run": 42315352676,
   "full_source_verified": {
-    "release": "v1.23",
-    "size": 63885923,
-    "sha256": "54957ff46de2b573c3b44fc594cb71f929a4edee1ee4e6a782656c950e884632",
-    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.23/game-source.zip"
+    "release": "v1.24",
+    "size": 63887195,
+    "sha256": "0de6ee09981bf7fd201867ac9efd261e130813a50882cba0a2eae1da23f45ed6",
+    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.24/game-source.zip"
   },
   "fish_verification_run": 42317071546,
   "automatic_full_regression_run": 42317071379,
@@ -45,19 +45,19 @@
     "date": "2026-11-10",
     "scope": "v1.24 평타·스킬 분리·연타누적·최대3개·창내부 제한",
     "user_request": "그렇게 수정해주고 업데이트및 배포해줘",
-    "fulfilled": false
+    "fulfilled": true
   },
   "release_preflight": "docs/qa/soldier-size/VERIFICATION.json",
-  "release_source_commit": "77c1eb4787f6c41b7d3f6257c8a87a9209fe17ea",
-  "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v1.23",
-  "release_build_run": 42780288901,
+  "release_source_commit": "e99eabdc11ebca7307e0d35a3a43fbe14f20d64e",
+  "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v1.24",
+  "release_build_run": 42784553548,
   "release_build_status": "success_attempt2_same_candidate_no_rebuild",
-  "public_verification_run": 42780468605,
+  "public_verification_run": 42784722467,
   "public_verification_status": "success",
   "public_patch": {
-    "size": 59766016,
-    "sha256": "88df2268d5c393cf12b11b4f64f11e3231a64cff67c99d8dde7982d7c9911940",
-    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.23/patch.pck"
+    "size": 59772080,
+    "sha256": "e7d06ff50d9b261db4d453e543fbbdd26588a1019b639c3f4e75eee75e1db5c9",
+    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.24/patch.pck"
   },
   "standard_full_workflow_note": "v1.19 전체CI/native/PCK 성공후보를 재빌드없이 공개, 공개3파일·소스655파일·운영다운로드 검증 성공",
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md#2026-11-07--소규모-작업-효율채팅-중단-대비",
@@ -92,7 +92,7 @@
     "headless_passed": 73,
     "headless_total": 73
   },
-  "release_verification_run": 42780468605,
+  "release_verification_run": 42784722467,
   "prior_build_issue": {
     "run": 42384973558,
     "cause": "packed mail check hardcoded1.08; prepublication assertion",
@@ -171,7 +171,7 @@
     "ledger": "analysis/tile-layer-art-v1/PLANT_LEDGER.json",
     "quality": "analysis/tile-layer-art-v1/PLANT_QA.json"
   },
-  "public_release": "v1.23",
+  "public_release": "v1.24",
   "shared_vertical_light": {
     "applied": true,
     "regions": [
@@ -1122,5 +1122,11 @@
     "phone_verified": false,
     "handoff": "docs/releases/123/HANDOFF.md",
     "published": "docs/releases/123/PUBLISHED.json"
+  },
+  "release124": {
+    "deployed": true,
+    "phone_verified": false,
+    "handoff": "docs/releases/124/HANDOFF.md",
+    "published": "docs/releases/124/PUBLISHED.json"
   }
 }

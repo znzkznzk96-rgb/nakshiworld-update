@@ -26,7 +26,7 @@
     "native": "passed",
     "packed": "passed"
   },
-  "deployed": false,
+  "deployed": true,
   "phone_verified": false,
   "native": {
     "heights": [
@@ -47,5 +47,6 @@
     "frames": 24,
     "mixed_frames_reviewed": 6,
     "artifact": 13747046903
-  }
+  },
+  "publication": "docs/releases/124/PUBLISHED.json"
 }
