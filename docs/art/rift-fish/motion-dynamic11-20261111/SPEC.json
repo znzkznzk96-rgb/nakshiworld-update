@@ -179,5 +179,6 @@
   "preserve_other_species": true,
   "held14_excluded": true,
   "game_applied": false,
-  "deployed": false
+  "deployed": false,
+  "render_scale_policy": "Preserve fixed native canvas and a common bbox/anchor for all frames. Scale against native reference length, not each pose bbox. Reference visible width >=156 ensures no source upscale; natural tail edge-on pose width may be smaller."
 }
