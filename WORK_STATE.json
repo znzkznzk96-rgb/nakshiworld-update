@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "rift_motion_19_passed_mirrorwing_held",
+  "status": "rift_motion_strength_audit_complete",
   "release_baseline": "v1.25",
   "target_release": "v1.25",
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/art/rift-fish/HANDOFF.md",
-  "current_task": "균열 보류3종 모션 재제작 결과 저장완료",
-  "next_step": "19종 모션 사용자 검토. 거울날개 날치14는 회색잔상 반복으로 보류; 다음 수정은 추가유료요청 전 접근법 재검토. 게임적용/배포 별도 지시.",
+  "current_task": "균열 모션 역동성19종 재검토",
+  "next_step": "역동성 재제작 검토: 약함6종(02/04/06/07/12/16),보강5종(05/08/09/17/18). 이번질문만으로유료재생성/게임적용/배포미착수. 거울날치14보류유지.",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -1311,5 +1311,35 @@
     "verification": "docs/art/rift-fish/motion-held3-r3-20261111/REMOTE_VERIFICATION.json",
     "game_applied": false,
     "deployed": false
+  },
+  "rift_motion_strength_audit": {
+    "report": "docs/art/rift-fish/MOTION_STRENGTH_AUDIT_20261111.json",
+    "weak": [
+      "02",
+      "04",
+      "06",
+      "07",
+      "12",
+      "16"
+    ],
+    "improve": [
+      "05",
+      "08",
+      "09",
+      "17",
+      "18"
+    ],
+    "current_relative_readable": [
+      "01",
+      "03",
+      "10",
+      "11",
+      "13",
+      "15",
+      "19",
+      "20"
+    ],
+    "paid_requests": 0,
+    "structural_pass_is_not_gameplay_motion_approval": true
   }
 }

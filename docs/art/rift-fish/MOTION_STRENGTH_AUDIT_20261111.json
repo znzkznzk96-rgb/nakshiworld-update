@@ -1,0 +1,94 @@
+{
+  "date": "2026-11-11",
+  "source_commit": "8f2909c303a1d38760626a0b5eb2d49a52132630",
+  "scope": "current selected19 animations; held14 excluded",
+  "user_feedback": "정어리 지느러미 동작이 소심함, 게임 환경에서는 역동성이 중요, 폭풍다랑어 기준으로 다른 약한 종 확인",
+  "method": "native frames 1/4/8/12/16 side by side, full16 alpha/silhouette change auxiliary measurement; visual judgement not a calibrated objective score, phone implementation not yet tested",
+  "weak": [
+    {
+      "id": "02",
+      "name": "균열정어리"
+    },
+    {
+      "id": "04",
+      "name": "가시등전어"
+    },
+    {
+      "id": "06",
+      "name": "쥐포쥐치"
+    },
+    {
+      "id": "07",
+      "name": "금간정어리"
+    },
+    {
+      "id": "12",
+      "name": "균열꽃 광어"
+    },
+    {
+      "id": "16",
+      "name": "월식 개복치"
+    }
+  ],
+  "improve": [
+    {
+      "id": "05",
+      "name": "균열장막 오징어"
+    },
+    {
+      "id": "08",
+      "name": "빛멸치"
+    },
+    {
+      "id": "09",
+      "name": "균열갑주 방어"
+    },
+    {
+      "id": "17",
+      "name": "뇌광 삼치"
+    },
+    {
+      "id": "18",
+      "name": "차원창 청새치"
+    }
+  ],
+  "current_relative_readable": [
+    {
+      "id": "01",
+      "name": "쌍혜성 두꼬리꽁치"
+    },
+    {
+      "id": "03",
+      "name": "네날개날치"
+    },
+    {
+      "id": "10",
+      "name": "유영리본 삼치"
+    },
+    {
+      "id": "11",
+      "name": "균열칼날 갈치"
+    },
+    {
+      "id": "13",
+      "name": "틈새결정 복어"
+    },
+    {
+      "id": "15",
+      "name": "차원결정 참치"
+    },
+    {
+      "id": "19",
+      "name": "균열유리 상어"
+    },
+    {
+      "id": "20",
+      "name": "폭풍다랑어"
+    }
+  ],
+  "reason": "Prior structural/color/alpha pass did not establish strong gameplay motion. Small fin/tail bends and brightness-only effects are insufficient for the user's new/current visual criterion.",
+  "recommended_direction": "Increase visible body flex and fin/tail angular range with species-specific follow-through and recovery. Do not only speed up playback. Preserve identity, canvas and readable direction; particle removal must not force near-static motion.",
+  "paid_generation_requests": 0,
+  "game_applied": false,
+  "deployed": false
+}
