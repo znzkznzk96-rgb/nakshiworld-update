@@ -31,7 +31,7 @@ func draw(m,h: float) -> void:
 	var r:=Rect2(7,m.top_y+floorf((available-panel_height)/2.0),256,panel_height)
 	m._ui_style_box(m.sb_panel,r)
 	var head:=Rect2(12,r.position.y+5,246,32)
-	m._ui_style_box(m.hud_reference_style,head)
+	preload("res://addons/reservoir/shop_restyle.gd").header(m,head)
 	m._text("어류 박물관",head.get_center()+Vector2(-8,5),14,Color("fff0d1"),true,190)
 	m._ui_texture(m.icons.close,Vector2(head.end.x-27,head.position.y+5));rects.close=Rect2(head.end.x-31,head.position.y,31,32)
 	var y: float=head.end.y+7

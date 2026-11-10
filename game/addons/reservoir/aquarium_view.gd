@@ -123,7 +123,7 @@ func draw_room(v,m,h: float) -> void:
 	v.active_style={"panel":m.sb_btn,"header":m.hud_reference_style,"card":m.sb_btn,"ink":Color("fff0d1"),"icon":"soul"}
 	_dark_panel(m,r,Color("132c37"))
 	var header:=Rect2(r.position+Vector2(4,4),Vector2(246,30))
-	_dark_panel(m,header)
+	preload("res://addons/reservoir/shop_restyle.gd").header(m,header)
 	m._ui_texture_rect(v.tool_icons.soul,Rect2(header.position+Vector2(8,4),Vector2(22,22)))
 	m._text("수족관",Vector2(135,header.position.y+21),14,Color("fff0d1"),true,170)
 	var close:=Rect2(header.end.x-29,header.position.y+4,22,23)

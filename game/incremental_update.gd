@@ -2,11 +2,34 @@ extends RefCounted
 # Reconstruct the exact published PCK using verified local resources plus byte ranges.
 var received:=0
 var planned:=-1
+var stage:="planning"
 var request:HTTPRequest
 var index_bytes:=PackedByteArray()
 var entries:Array=[]
 var reused:=0
 var error:=""
+var work_tick:=0
+var yielded_frames:=0
+
+func cooperate(owner:Node)->void:
+ if Time.get_ticks_usec()-work_tick>=3000:
+  await owner.get_tree().process_frame
+  yielded_frames+=1;work_tick=Time.get_ticks_usec()
+
+static func digest_file(owner:Node,path:String)->String:
+ var f:=FileAccess.open(path,FileAccess.READ)
+ if f==null:return ""
+ var hash:=HashingContext.new();hash.start(HashingContext.HASH_SHA256)
+ var tick:=Time.get_ticks_usec();var chunks:=0
+ while f.get_position()<f.get_length():
+  var chunk:=f.get_buffer(524288)
+  if chunk.is_empty():return ""
+  hash.update(chunk)
+  chunks+=1
+  if chunks>=8 or Time.get_ticks_usec()-tick>=3000:
+   await owner.get_tree().process_frame
+   tick=Time.get_ticks_usec();chunks=0
+ return hash.finish().hex_encode()
 
 func parse_index(data:PackedByteArray,total:int)->Array:
  if data.size()<100 or data.slice(0,4)!=PackedByteArray([71,68,80,67]):return []
@@ -85,7 +108,7 @@ func snapshot()->Dictionary:
  var count:int=received+in_flight
  return {"received":count,"total":planned,"progress":clampf(float(count)/planned,0,1) if planned>0 else -1.0}
 
-func download(owner:Node,url:String,total:int,expected_sha:String,target:String,installed:String="")->bool:
+func download(owner:Node,url:String,total:int,expected_sha:String,target:String,installed:String="",verify_at_end:bool=true)->bool:
  request=HTTPRequest.new();request.timeout=90;owner.add_child(request)
  var header:=await fetch_range(url,0,100,total)
  if header.size()!=100 or header.slice(0,4)!=PackedByteArray([71,68,80,67]):return finish(false)
@@ -96,15 +119,19 @@ func download(owner:Node,url:String,total:int,expected_sha:String,target:String,
  index_bytes=header+rest;entries=parse_index(index_bytes,total)
  if entries.is_empty():return finish(false)
  var old:Dictionary=local_index(installed);var cache:Dictionary={}
- planned=received
+ work_tick=Time.get_ticks_usec()
+ var plan_total:int=received
  for e in entries:
+  await cooperate(owner)
   var b:=local_bytes(e,installed,old)
   if (e.size==0 or not b.is_empty()):cache[e.path]=true;reused+=1
-  else:planned+=int(e.size)
+  else:plan_total+=int(e.size)
+ planned=plan_total;stage="download"
  var out:=FileAccess.open(target,FileAccess.WRITE)
  if out==null:return finish(false)
  out.store_buffer(index_bytes)
  for e in entries:
+  await cooperate(owner)
   if out.get_position()>int(e.start):out=null;return finish(false)
   if out.get_position()<int(e.start):out.store_buffer(zeros(int(e.start)-out.get_position()))
   var b:PackedByteArray
@@ -113,9 +140,11 @@ func download(owner:Node,url:String,total:int,expected_sha:String,target:String,
   if b.size()!=e.size or md5(b)!=e.md5:out=null;return finish(false)
   out.store_buffer(b)
   if out.get_error()!=OK:out=null;return finish(false)
+  if received>=planned:stage="assembling"
  if out.get_position()>total:out=null;return finish(false)
  out.store_buffer(zeros(total-out.get_position()));out.flush();out=null
- return finish(FileAccess.get_sha256(target)==expected_sha)
+ if not verify_at_end:return finish(true)
+ return finish(await digest_file(owner,target)==expected_sha)
 
 func zeros(count:int)->PackedByteArray:
  var data:=PackedByteArray();data.resize(count);data.fill(0);return data

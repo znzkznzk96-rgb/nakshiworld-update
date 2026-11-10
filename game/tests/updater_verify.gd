@@ -26,10 +26,10 @@ func run()->void:
   check(pair[0].distance_to(pair[1])>58,"large cat and fish retain gap through orbit")
  check(m.logo_motion(0)!=m.logo_motion(.9),"logo sways over time")
  var original:=PackedByteArray([71,68,80,67,1]);var f:=FileAccess.open(m.PATCH,FileAccess.WRITE);f.store_buffer(original);f=null
- var bad:=PackedByteArray([0,1,2,3,4]);f=FileAccess.open(m.PATCH+".new",FileAccess.WRITE);f.store_buffer(bad);f=null;m.expected_size=bad.size();m.expected_hash=FileAccess.get_sha256(m.PATCH+".new");m._on_patch(0,200,PackedStringArray(),PackedByteArray(),116,"1.16")
+ var bad:=PackedByteArray([0,1,2,3,4]);f=FileAccess.open(m.PATCH+".new",FileAccess.WRITE);f.store_buffer(bad);f=null;m.expected_size=bad.size();m.expected_hash=FileAccess.get_sha256(m.PATCH+".new");await m._on_patch(0,200,PackedStringArray(),PackedByteArray(),116,"1.16")
  check(FileAccess.get_file_as_bytes(m.PATCH)==original and not FileAccess.file_exists(m.PATCH+".new"),"invalid header preserves installed patch")
- f=FileAccess.open(m.PATCH+".new",FileAccess.WRITE);f.store_buffer(original);f=null;m.expected_size=original.size();m.expected_hash="0".repeat(64);m._on_patch(0,200,PackedStringArray(),PackedByteArray(),116,"1.16")
+ f=FileAccess.open(m.PATCH+".new",FileAccess.WRITE);f.store_buffer(original);f=null;m.expected_size=original.size();m.expected_hash="0".repeat(64);await m._on_patch(0,200,PackedStringArray(),PackedByteArray(),116,"1.16")
  check(FileAccess.get_file_as_bytes(m.PATCH)==original,"hash failure preserves installed patch")
- f=FileAccess.open(m.PATCH+".new",FileAccess.WRITE);f.store_buffer(original);f=null;m.expected_hash=FileAccess.get_sha256(m.PATCH+".new");m._on_patch(0,200,PackedStringArray(),PackedByteArray(),116,"1.16")
+ f=FileAccess.open(m.PATCH+".new",FileAccess.WRITE);f.store_buffer(original);f=null;m.expected_hash=FileAccess.get_sha256(m.PATCH+".new");await m._on_patch(0,200,PackedStringArray(),PackedByteArray(),116,"1.16")
  check(FileAccess.get_file_as_string(m.PATCH_VER)=="116|1.16","valid patch records actual installed version")
  print("UPDATER_VERIFY failures=",failures);m.queue_free();await process_frame;quit(0 if failures.is_empty() else 1)

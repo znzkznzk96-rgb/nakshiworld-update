@@ -1,17 +1,17 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "v119_published_verified",
+  "status": "v120_verified_publication_ready",
   "release_baseline": "v1.19",
-  "target_release": "v1.19",
-  "deployed": true,
+  "target_release": "v1.20",
+  "deployed": false,
   "phone_verified": false,
-  "handoff": "docs/releases/119/HANDOFF.md",
-  "current_task": "v1.19 회관·대장간 및 승인 후속 수정 공개 완료",
-  "next_step": "휴대폰 재실행 후 v1.19 적용 확인·새 작업 지시 대기",
+  "handoff": "docs/releases/120/HANDOFF.md",
+  "current_task": "v1.20 상점아트·간판·글씨·시작화면 개선 배포 및 APK 전달",
+  "next_step": "검증후보 그대로main병합/공개·APK검사전달",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
-  "verification": "docs/releases/118/PUBLISHED.json",
+  "verification": "docs/qa/updater-smoothness/VERIFICATION.json",
   "baseline_phone_verified": false,
   "environment_recovery": "docs/CODEX_NETWORK_RECOVERY.md",
   "background_verified_branch": "work/tile-png-stage2-20261107",
@@ -118,7 +118,7 @@
     "production_balance_changed": false,
     "phone_tested": false
   },
-  "release_authorized": false,
+  "release_authorized": true,
   "balance110": {
     "applied": true,
     "deployed": true,
@@ -968,7 +968,9 @@
     "ci_run": 42725519072,
     "ci_status": "success",
     "source_commit": "bd59d36974d16e50874111da629d32010d177c40",
-    "published_release": "v1.19"
+    "published_release": "v1.19",
+    "visual_acceptance": "user_rejected",
+    "rejection_handoff": "docs/qa/hall-forge119/REJECTION_HANDOFF.md"
   },
   "release119": {
     "source_commit": "bd59d36974d16e50874111da629d32010d177c40",
@@ -988,5 +990,63 @@
     "publication_status": "success_attempt2",
     "gateway_run": 42727377472,
     "verification": "docs/releases/119/PUBLISHED.json"
+  },
+  "hall_forge_art": {
+    "max_generation_requests": 3,
+    "used": 3,
+    "public_deployment_authorized": false,
+    "forge_hero": "compact horizontal display",
+    "implemented": true,
+    "related_suites": 3,
+    "native_screens": 15,
+    "verification": "docs/qa/hall-forge-art/VERIFICATION.json",
+    "visual_approval": "pending_user_review",
+    "deployed": false
+  },
+  "shop_signs": {
+    "approved": true,
+    "paid_generations": 0,
+    "related_suites": 7,
+    "native_screens": 24,
+    "heights": [
+      480,
+      540,
+      660
+    ],
+    "source_commit": "efaf6a9368caae919658f2d2941360495da8bbf6",
+    "ci_run": 42735572301,
+    "ci_status": "success",
+    "deployed": false,
+    "release_authorized": false,
+    "verification": "docs/qa/shop-signs/VERIFICATION.json",
+    "unique_verify_results": 102,
+    "candidate_artifact": 13727461234
+  },
+  "updater_smoothness": {
+    "approved": true,
+    "minimum_display_seconds": 2,
+    "apk_required": true,
+    "deployed": false,
+    "release_authorized": false,
+    "implemented": true,
+    "related_verified": true,
+    "source_commit": "f3d0642536ad356a022d8208b9f1fbf736cf0ed8",
+    "ci_run": 42739210902,
+    "ci_status": "success",
+    "verification": "docs/qa/updater-smoothness/VERIFICATION.json",
+    "unique_verify_results": 103,
+    "apk_built": false
+  },
+  "release120": {
+    "authorized": true,
+    "user_request": "업데이트 및 배포 해줘 ㅇㅇ apk도 주구",
+    "scope": "회관/대장간 실제아트,장비카드여백,8상점간판,업데이트부트끊김완화",
+    "apk_requested": true,
+    "deployed": false,
+    "source_commit": "9304d087887211a2641d21471221f7c1a48aae1d",
+    "ci_run": 42741245973,
+    "ci_status": "success",
+    "candidate_artifact": 13728879330,
+    "preflight": "docs/releases/120/PREFLIGHT.json"
   }
 }

@@ -1,0 +1,56 @@
+{
+  "date": "2026-11-10",
+  "generation_requests": 3,
+  "generation_limit": 3,
+  "tool": "image_gen",
+  "pixel_lab_used": false,
+  "generated_atlases": [
+    {
+      "file": "exec-09022eda-2cc7-4357-b781-80a05cc0d168.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "sha256": "cc1f98666d280ce8820213bc7ce6d0fc57f60a93daa8599895cfdce1ea80553b"
+    },
+    {
+      "file": "exec-ece34d11-1214-40ea-9a23-9b5da254700d.png",
+      "size": [
+        1774,
+        887
+      ],
+      "sha256": "4a243e86e553513a796a96c2bed6e264bef956079eb5accd46c5d65f93180090"
+    },
+    {
+      "file": "exec-2f4b49ef-08cc-4b60-87ef-a1ef584a43d9.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "sha256": "ee64d21f2b67dd3ed71a44bf0a62f75feb89060a99cad655565635c1a14a7512"
+    }
+  ],
+  "related_tests": [
+    "hall_forge119",
+    "forge_layout",
+    "facility_growth"
+  ],
+  "related_status": "passed",
+  "native_screens": 15,
+  "native_heights": [
+    480,
+    540,
+    660
+  ],
+  "native_action_bounds": "passed",
+  "visual_approval": "pending_user_review",
+  "deployment": "not_deployed",
+  "public_release": "v1.19 unchanged",
+  "save_economy": "unchanged",
+  "forge_panel_max_height": 460,
+  "forge_hero_image_height": [
+    46,
+    60
+  ],
+  "note": "Production textures replace procedural icons/frame and original32x32 enlarged shop rods. Original fishing rods outside forge unchanged. Alpha and decode validated for all14 assets. No quality retries or fourth request."
+}
