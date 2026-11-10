@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "hall_forge119_related_native_verified",
+  "status": "v119_verified_publication_pending",
   "release_baseline": "v1.18",
   "target_release": "v1.19",
-  "deployed": true,
+  "deployed": false,
   "phone_verified": false,
   "handoff": "docs/qa/hall-forge119/HANDOFF.md",
   "current_task": "승인 회관·대장간 UI 구현 및 v1.19 공개배포",
-  "next_step": "최종v1.19 전체CI→동일후보 공개→운영검증 및 원격 기록",
+  "next_step": "PR57 병합→검증된 동일119후보 공개→공개파일/운영다운로드 검증",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -260,12 +260,14 @@
       "code": 119,
       "name": "1.19"
     },
-    "ready": false,
+    "ready": true,
     "published": false,
     "release_authorized": true,
     "verification": "docs/qa/hall-forge119/VERIFICATION.json",
     "run": 42725519072,
-    "source_commit": "bd59d36974d16e50874111da629d32010d177c40"
+    "source_commit": "bd59d36974d16e50874111da629d32010d177c40",
+    "artifact_id": 13723036610,
+    "input_fingerprint": "8c40f113e15a71916da4eaab07d2d57b4f5ef1e041ecc83122ab360b00b6b6d9"
   },
   "release_resume_run": 42424430555,
   "fight_body_size": {
@@ -962,7 +964,17 @@
     "deployed": false,
     "release_authorized": true,
     "ci_run": 42725519072,
-    "ci_status": "in_progress",
+    "ci_status": "success",
     "source_commit": "bd59d36974d16e50874111da629d32010d177c40"
+  },
+  "release119": {
+    "source_commit": "bd59d36974d16e50874111da629d32010d177c40",
+    "ci_run": 42725519072,
+    "ci_status": "success",
+    "pr": 57,
+    "preflight": "docs/releases/119/PREFLIGHT.json",
+    "deployed": false,
+    "phone_verified": false,
+    "release_authorized": true
   }
 }

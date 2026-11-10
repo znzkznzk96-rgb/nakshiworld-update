@@ -71,7 +71,9 @@
   "full_ci": {
     "run": 42725519072,
     "source_commit": "bd59d36974d16e50874111da629d32010d177c40",
-    "status": "in_progress"
+    "status": "success",
+    "coverage": "full regression/shared native screens/packed art and tile checks",
+    "preflight": "docs/releases/119/PREFLIGHT.json"
   },
   "deployment_authorized": true,
   "deployed": false,
