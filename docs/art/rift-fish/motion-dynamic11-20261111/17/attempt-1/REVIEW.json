@@ -1,0 +1,36 @@
+{
+  "id": "17",
+  "attempt": 1,
+  "status": "rejected",
+  "note": "큰 꼬리와 앞지느러미 동작은 생겼으나 여러 프레임 등위/배아래에 고립된 흰점이 떠 있고 몸통도 과하게 단축되는 자세가 있음. 외부파편 제거와 긴 삼치 체형유지 조건으로 추가1회.",
+  "native_and_nearest_reviewed": true,
+  "approved_native_compared": true,
+  "before_after_motion_compared": true,
+  "direction": "west",
+  "identity_color_alpha_reviewed": true,
+  "motion_range": {
+    "id": "17",
+    "attempt": 1,
+    "old": {
+      "silhouette_change_max": 0.123,
+      "min_content_width": 188,
+      "unclipped": true
+    },
+    "new": {
+      "silhouette_change_max": 0.251,
+      "min_content_width": 133,
+      "unclipped": true
+    },
+    "native_reference_content_width": 202,
+    "fixed_common_bbox": [
+      14,
+      8,
+      217,
+      132
+    ],
+    "scale_policy": "fixed reference length/common bbox and anchor; never fit each pose to target width; natural tail edge-on narrowing allowed without enlargement"
+  },
+  "safe_native_fight_width": true,
+  "actual_generations": 1,
+  "game_applied": false
+}
