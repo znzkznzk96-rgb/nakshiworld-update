@@ -404,6 +404,7 @@ func draw_shop(m, h: float) -> void :
 	var compact_forge: bool=shop=="forge" and h<560
 	var panel_y: = maxf(top + (6.0 if robot_shop or compact_forge else 32.0), roundf(h * 0.5) - (240 if robot_shop else 190))
 	var r = Rect2(8, panel_y, 254, minf(500.0 if robot_shop else (440.0 if shop=="museum" else 380.0), h - panel_y - (12 if robot_shop or compact_forge else 44)))
+	if shop=="up" and h<560:r=Rect2(8,top,254,h-top-12)
 	if restyled:
 		var desired:float=430 if shop=="hall" else 460
 		var height:float=minf(desired,h-top-12)
@@ -416,8 +417,7 @@ func draw_shop(m, h: float) -> void :
 	if restyled:preload("res://addons/reservoir/shop_restyle.gd").panel(m,r)
 	else:m._ui_style_box(active_style.panel, r)
 	var header: = Rect2(r.position + Vector2(5, 5), Vector2(r.size.x - 10, 39))
-	if restyled:preload("res://addons/reservoir/shop_restyle.gd").header(m,header)
-	else:m._ui_style_box(active_style.header, header)
+	preload("res://addons/reservoir/shop_restyle.gd").header(m,header)
 	var badge: Texture2D = tool_icons[active_style.icon]
 	m._ui_texture(badge, header.position + Vector2(7, 7))
 	var title: String = ""

@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "shop_signs_and_equipment_padding_in_progress",
+  "status": "shop_signs_implemented_ci_pending",
   "release_baseline": "v1.19",
   "target_release": "v1.19",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/shop-signs/HANDOFF.md",
   "current_task": "장비 카드 글씨 밀림 수정·모든 상점 상단 간판 통일",
-  "next_step": "공유 목재간판·카드좌우배치 구현 후 관련/화면검사",
+  "next_step": "전체CI 결과 확인·화면/기록 저장",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -1007,6 +1007,7 @@
     "approved": true,
     "paid_generations": 0,
     "deployed": false,
-    "release_authorized": false
+    "release_authorized": false,
+    "related_passed": true
   }
 }
