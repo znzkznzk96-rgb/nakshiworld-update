@@ -1,17 +1,17 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "shop_signs_related_verified_full_ci_running",
+  "status": "shop_signs_verified",
   "release_baseline": "v1.19",
   "target_release": "v1.19",
-  "deployed": true,
+  "deployed": false,
   "phone_verified": false,
   "handoff": "docs/qa/shop-signs/HANDOFF.md",
   "current_task": "장비 카드 글씨 밀림 수정·모든 상점 상단 간판 통일",
-  "next_step": "전체CI 42735572301 완료 확인",
+  "next_step": "현재 수정본 완료; 새 공개배포 지시 시 버전 확정 후 배포 절차 진행",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
-  "verification": "docs/releases/118/PUBLISHED.json",
+  "verification": "docs/qa/shop-signs/VERIFICATION.json",
   "baseline_phone_verified": false,
   "environment_recovery": "docs/CODEX_NETWORK_RECOVERY.md",
   "background_verified_branch": "work/tile-png-stage2-20261107",
@@ -1015,9 +1015,11 @@
     ],
     "source_commit": "efaf6a9368caae919658f2d2941360495da8bbf6",
     "ci_run": 42735572301,
-    "ci_status": "in_progress",
+    "ci_status": "success",
     "deployed": false,
     "release_authorized": false,
-    "verification": "docs/qa/shop-signs/VERIFICATION.json"
+    "verification": "docs/qa/shop-signs/VERIFICATION.json",
+    "unique_verify_results": 102,
+    "candidate_artifact": 13727461234
   }
 }

@@ -11,3 +11,6 @@
 
 ## 전체검사 중 회귀 수정
 전체CI42734942363에서 notification091의 ‘feedback avoids village expedition strip’ 실패를 확인했다. 작은낚시상점 창을 기존간판여유범위내18px 내려 구매피드백과 탐험스트립의 절대좌표 중첩 제거. 별도 notification091 및 shop_signs 재검사 통과, 새소스 efaf6a9368caae919658f2d2941360495da8bbf6 전체CI 42735572301 진행. 재검사 사유는 실제실패/소스수정이며 이전통과를전체완료로표시하지않음.
+
+## 최종 완료
+소스 efaf6a9368caae919658f2d2941360495da8bbf6 전체CI [42735572301](https://github.com/znzkznzk96-rgb/nakshiworld-update/actions/runs/42735572301) 성공. 고유VERIFY102항목·전체native·24상점화면·PCK/전체소스 검증후보 생성 통과. 앞선 실패와 수정 경위는 위에 보존. [검증](VERIFICATION.json)·[실제화면](native.webp). 내부후보는 기존119 작업빌드이며 새공개배포용버전으로 간주하지 않는다. 공개v1.19는 이전배포소스 그대로, 이번수정본은 work/* 저장·검증 완료/미배포. 이후새배포지시시 새버전준비와 해당최종소스의필수검사·동일후보배포 진행. 추가유료생성0·기능/가격/세이브불변.
