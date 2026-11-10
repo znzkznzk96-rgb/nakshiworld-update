@@ -1,0 +1,22 @@
+{
+  "description": "Bold alternating rowing: the long upper fin swings backward through a broad arc while the lower fin sweeps forward, then they reverse with strong flexible follow-through at the tips. The small tail fans and beats in rhythm; the round disk rocks visibly with the effort. Preserve the central round body and crescent marking. Seamless energetic swim IN PLACE. Fixed camera and scale; head LEFT throughout. Preserve identity, anatomy, fin count and rich original colors. All parts stay inside the canvas with clear margins. No external particles, glow, trails, new parts or background. Animate in a FLAT 2D SIDE PROFILE: bend the tail UP and DOWN on screen, never toward the camera. Keep the whole tail and fins visible at both extremes, with no foreshortening or disappearing parts.",
+  "frame_count": 16,
+  "seed": 2026115116,
+  "no_background": true,
+  "drift_threshold": 0,
+  "enhance_prompt": false,
+  "direction": "west",
+  "view": "side",
+  "subject_description": "round violet fish with a gold crescent and long upper and lower fins",
+  "initial_pose": "horizontal side-view swim pose, head left and tail or mantle right, whole creature visible inside transparent margins",
+  "first_frame": {
+    "sha256": "fdd58ac208bc5b858316ffad510f8eb0225cf312c418e22f21eee856ab1d031f",
+    "source": "docs/art/rift-fish/motion-hd-20261111/16/base-1/original.png",
+    "role": "passed original HD art exact bytes"
+  },
+  "last_frame": {
+    "sha256": "fdd58ac208bc5b858316ffad510f8eb0225cf312c418e22f21eee856ab1d031f",
+    "source": "docs/art/rift-fish/motion-hd-20261111/16/base-1/original.png",
+    "role": "passed original HD art exact bytes"
+  }
+}
