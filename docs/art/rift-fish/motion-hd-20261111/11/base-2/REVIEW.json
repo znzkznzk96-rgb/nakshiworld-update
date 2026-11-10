@@ -1,0 +1,19 @@
+{
+  "id": "11",
+  "stage": "base",
+  "attempt": 2,
+  "status": "passed",
+  "note": "수정본에서 바깥 흰 테두리 제거, 승인 원본의 어두운 윤곽·내부 은빛 하이라이트·청록/보라 균열·단일 뾰족 후미 유지. native200px 본체와 좌향/알파 여백 정상. 추가1회 사용완료.",
+  "reviewed_native_and_nearest": true,
+  "approved_source_compared": true,
+  "observed_direction": "west",
+  "shape": "passed",
+  "color": "passed",
+  "native_detail": "passed",
+  "species_features": "passed",
+  "motion": "not_applicable",
+  "alpha_margin": "passed",
+  "native_width_at_least_fight_max": "passed",
+  "actual_generation_delta": 1.0,
+  "game_applied": false
+}
