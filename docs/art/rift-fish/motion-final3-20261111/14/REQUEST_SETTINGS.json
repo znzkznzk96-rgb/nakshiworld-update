@@ -1,0 +1,17 @@
+{
+  "description": "The two long pectoral fins flap through large alternating open and folded positions, like strong rowing strokes. Each solid fin bends at its base and stays attached. The body and tail flex with the fin beat. Clear transparent open space always separates the two fins. Only the existing solid fish and fins move. No membranes connecting the fins, no gray wedges, no translucent sheets, no trails or detached shapes. Energetic looping swim IN PLACE. Fixed camera, fixed scale, flat 2D SIDE profile, head left throughout. Preserve exact anatomy, rich original palette and clean pixel art. Keep all fins and tail inside clear transparent margins.",
+  "frame_count": 16,
+  "seed": 2026116114,
+  "no_background": true,
+  "drift_threshold": 0,
+  "enhance_prompt": false,
+  "direction": "west",
+  "view": "side",
+  "subject_description": "silver flying fish with two solid cyan violet mirror fins",
+  "initial_pose": "horizontal side view, head left, tail right, whole fish visible",
+  "input_sha256": "2cfd473386916759061a23396d7edd1d7b88aec6d0e4ab5d2b5d22f6f730e039",
+  "canvas": [
+    232,
+    204
+  ]
+}
