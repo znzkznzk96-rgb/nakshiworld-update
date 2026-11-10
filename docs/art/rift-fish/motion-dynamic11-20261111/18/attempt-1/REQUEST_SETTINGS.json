@@ -1,0 +1,22 @@
+{
+  "description": "Forceful marlin swim: the long crystal bill and head remain rigidly attached and point left while a large S-wave travels through the rear body into broad crescent-tail strokes. The tall cape-like sail bends backward in a clear travelling wave then springs open; long lower fins stream with delayed follow-through. Seamless energetic swim IN PLACE. Fixed camera and scale; head LEFT throughout. Preserve identity, anatomy, fin count and rich original colors. All parts stay inside the canvas with clear margins. No external particles, glow, trails, new parts or background. Animate in a FLAT 2D SIDE PROFILE: bend the tail UP and DOWN on screen, never toward the camera. Keep the whole tail and fins visible at both extremes, with no foreshortening or disappearing parts.",
+  "frame_count": 16,
+  "seed": 2026115118,
+  "no_background": true,
+  "drift_threshold": 0,
+  "enhance_prompt": false,
+  "direction": "west",
+  "view": "side",
+  "subject_description": "blue-silver marlin with long crystal bill and violet sail fin",
+  "initial_pose": "horizontal side-view swim pose, head left and tail or mantle right, whole creature visible inside transparent margins",
+  "first_frame": {
+    "sha256": "c4d16ee1ffb85704ac50eaeb830d6e386eddddaf1382b5e5eb26104cccac05a7",
+    "source": "docs/art/rift-fish/motion-hd-20261111/18/base-1/original.png",
+    "role": "passed original HD art exact bytes"
+  },
+  "last_frame": {
+    "sha256": "c4d16ee1ffb85704ac50eaeb830d6e386eddddaf1382b5e5eb26104cccac05a7",
+    "source": "docs/art/rift-fish/motion-hd-20261111/18/base-1/original.png",
+    "role": "passed original HD art exact bytes"
+  }
+}
