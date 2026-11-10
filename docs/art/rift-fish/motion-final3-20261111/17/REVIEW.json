@@ -1,0 +1,10 @@
+{
+  "id": "17",
+  "status": "rejected",
+  "reason": "Detached cyan and yellow particles recur outside the body across frames; motion also lacks broad tail beats. No additional retry.",
+  "native_review": true,
+  "nearest2_review": true,
+  "fixed_reference_156_review": true,
+  "actual_generations": 1,
+  "game_applied": false
+}
