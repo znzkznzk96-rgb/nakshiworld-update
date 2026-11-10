@@ -1251,7 +1251,8 @@
     "completed": 17,
     "held": [
       "07",
-      "14"
+      "14",
+      "20"
     ],
     "fight_max_logical_length": 156,
     "source_canvas_width": 232,
@@ -1282,6 +1283,6 @@
       "19"
     ],
     "paid_requests": 47,
-    "actual_generations_charged": 54
+    "actual_generations_charged": 56
   }
 }

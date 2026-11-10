@@ -1217,13 +1217,16 @@
       "expected_output_count": 17,
       "quoted_generations": 2,
       "game_applied": false,
-      "status": "submitted",
+      "status": "rejected",
       "submitted_unix": 1794332786.2634537,
       "http_status": 200,
-      "job_id": "4f5dc78b-76dd-4361-9503-26e49bb4665a"
+      "job_id": "4f5dc78b-76dd-4361-9503-26e49bb4665a",
+      "billing_source": "completed_job.billing_usage",
+      "actual_generation_delta": 2.0,
+      "output_count": 17
     }
   ],
-  "status": "one_active",
+  "status": "reviewed",
   "additional_requests_used": {
     "05": 1,
     "06": 1,
@@ -1233,5 +1236,5 @@
     "14": 1,
     "20": 1
   },
-  "actual_generations_charged": 54.0
+  "actual_generations_charged": 56.0
 }
