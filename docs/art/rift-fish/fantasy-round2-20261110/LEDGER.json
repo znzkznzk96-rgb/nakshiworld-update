@@ -190,14 +190,31 @@
       "id": "13",
       "name": "틈새결정 복어",
       "attempt": 1,
-      "status": "submitted",
+      "status": "passed",
       "model": "edit-image-pixen",
       "seed": 2026111413,
       "request_sha256": "3de563611b9fe1443473dbebeaadc6b85a30be9907cc10f50cb7512e123d57a5",
       "submitted_at_unix": 1794319829.8598616,
       "prior_round_requests": 0,
       "http_status": 202,
-      "job_id": "3bc4aeb3-d590-4617-8474-88854af95034"
+      "job_id": "3bc4aeb3-d590-4617-8474-88854af95034",
+      "actual_generation_delta": 1.0,
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "result_sha256": "0552465627aae2e7b25cffe078b1ffd41c9ceb11c60e984a1e285e13ae01baa7"
+    },
+    {
+      "id": "14",
+      "name": "거울날개 날치",
+      "attempt": 1,
+      "status": "submission_pending",
+      "model": "edit-image-pixen",
+      "seed": 2026111414,
+      "request_sha256": "38d80629ff3f02c01790afb22a2e4e88430fb46b101824dbd09e94cfc4ab9a01",
+      "submitted_at_unix": 1794319905.4873366,
+      "prior_round_requests": 0
     }
   ],
   "status": "one_active",
@@ -276,8 +293,8 @@
       "status": "internal_quality_pass_user_review_pending"
     }
   ],
-  "generation_requests": 11,
-  "accepted_outputs": 4,
+  "generation_requests": 12,
+  "accepted_outputs": 5,
   "rejected_outputs": 6,
-  "actual_generations_charged": 10.0
+  "actual_generations_charged": 11.0
 }
