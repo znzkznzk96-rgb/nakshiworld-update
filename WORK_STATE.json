@@ -1,17 +1,17 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "release125_verified_publishing",
-  "release_baseline": "v1.24",
+  "status": "release125_published",
+  "release_baseline": "v1.25",
   "target_release": "v1.25",
-  "deployed": false,
+  "deployed": true,
   "phone_verified": false,
   "handoff": "docs/releases/125/HANDOFF.md",
-  "current_task": "v1.25 병사배치 연속 스크롤 공개 준비",
-  "next_step": "동일성공후보 공개→운영다운로드/3파일/전체소스 검증",
+  "current_task": "v1.25 병사배치 연속 스크롤 공개 완료",
+  "next_step": "기존앱 재실행·게임업데이트 후 병사목록 연속 스크롤 휴대폰 확인. 새수정/배포 별도요청.",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
-  "verification": "docs/qa/formation-scroll/VERIFICATION.json",
+  "verification": "docs/releases/125/PUBLISHED.json",
   "baseline_phone_verified": false,
   "environment_recovery": "docs/CODEX_NETWORK_RECOVERY.md",
   "background_verified_branch": "work/tile-png-stage2-20261107",
@@ -23,10 +23,10 @@
   "screen_evidence_commit": "04fa33a116915c0b7a7ca86ee235a24a4cf4d4d2",
   "screen_verification_run": 42315352676,
   "full_source_verified": {
-    "release": "v1.24",
-    "size": 63887195,
-    "sha256": "0de6ee09981bf7fd201867ac9efd261e130813a50882cba0a2eae1da23f45ed6",
-    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.24/game-source.zip"
+    "release": "v1.25",
+    "size": 63888719,
+    "sha256": "96a1b1ce885ad159f1e30af0c1bf080be1f7b7d88a1dbdcd6804dd3425e0b1b0",
+    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.25/game-source.zip"
   },
   "fish_verification_run": 42317071546,
   "automatic_full_regression_run": 42317071379,
@@ -45,21 +45,21 @@
     "date": "2026-11-10",
     "user_request": "아 업데이트 후 배포해줘 ㅇㅇ",
     "scope": "v1.25 병사배치 부분카드 연속 스크롤",
-    "fulfilled": false
+    "fulfilled": true
   },
   "release_preflight": "docs/qa/soldier-size/VERIFICATION.json",
-  "release_source_commit": "e99eabdc11ebca7307e0d35a3a43fbe14f20d64e",
-  "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v1.24",
-  "release_build_run": 42784553548,
+  "release_source_commit": "d1303a61a9d1f073901201481e67329edb49ec06",
+  "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v1.25",
+  "release_build_run": 42792331426,
   "release_build_status": "success_attempt2_same_candidate_no_rebuild",
-  "public_verification_run": 42784722467,
+  "public_verification_run": 42792493512,
   "public_verification_status": "success",
   "public_patch": {
-    "size": 59772080,
-    "sha256": "e7d06ff50d9b261db4d453e543fbbdd26588a1019b639c3f4e75eee75e1db5c9",
-    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.24/patch.pck"
+    "size": 59777184,
+    "sha256": "230284ee352a6dfde295b7681968361867bcccdea9bcd3f2152597473aafb2da",
+    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.25/patch.pck"
   },
-  "standard_full_workflow_note": "v1.19 전체CI/native/PCK 성공후보를 재빌드없이 공개, 공개3파일·소스655파일·운영다운로드 검증 성공",
+  "standard_full_workflow_note": "v1.25 전체CI/native/PCK 성공 동일후보 공개·공개3파일/전체소스683파일/운영다운로드검증완료",
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md#2026-11-07--소규모-작업-효율채팅-중단-대비",
   "approved_followup": "우편 단일원본·공통지급·검사통합 구현/검증 완료. 공개v1.08 유지, 새 배포 미승인.",
   "session_continuity": {
@@ -92,7 +92,7 @@
     "headless_passed": 73,
     "headless_total": 73
   },
-  "release_verification_run": 42784722467,
+  "release_verification_run": 42792493512,
   "prior_build_issue": {
     "run": 42384973558,
     "cause": "packed mail check hardcoded1.08; prepublication assertion",
@@ -118,7 +118,7 @@
     "production_balance_changed": false,
     "phone_tested": false
   },
-  "release_authorized": true,
+  "release_authorized": false,
   "balance110": {
     "applied": true,
     "deployed": true,
@@ -171,7 +171,7 @@
     "ledger": "analysis/tile-layer-art-v1/PLANT_LEDGER.json",
     "quality": "analysis/tile-layer-art-v1/PLANT_QA.json"
   },
-  "public_release": "v1.24",
+  "public_release": "v1.25",
   "shared_vertical_light": {
     "applied": true,
     "regions": [
@@ -1134,20 +1134,27 @@
     "related_verified": true,
     "source_commit": "9fd38f869fb94d49c00a48198185b318a3944048",
     "ci": 42786187300,
-    "deployed": false,
+    "deployed": true,
     "ci_status": "success",
     "native_screens": 30,
     "edge_band_comparisons": 36
   },
   "verification_candidate": {
-    "artifact": 13749084884,
-    "input_fingerprint": "b886c55dc6b33c4243bc9aae13db3361166e75baf74776f6a59b3bf443df0396",
-    "source_commit": "9fd38f869fb94d49c00a48198185b318a3944048",
     "version": {
-      "code": 124,
-      "name": "1.24"
+      "code": 125,
+      "name": "1.25"
     },
-    "publication_ready": false,
-    "note": "검사용후보. 공개v1.24와다른소스이며새공개버전/배포미승인."
+    "source_commit": "d1303a61a9d1f073901201481e67329edb49ec06",
+    "artifact": 13753065145,
+    "input_fingerprint": "09c93e0736cebc65e881d2270796320f470d17f605004d739b4c58d7322fe053",
+    "verified": true,
+    "publication_ready": true,
+    "published_release": "v1.25"
+  },
+  "release125": {
+    "deployed": true,
+    "phone_verified": false,
+    "handoff": "docs/releases/125/HANDOFF.md",
+    "published": "docs/releases/125/PUBLISHED.json"
   }
 }
