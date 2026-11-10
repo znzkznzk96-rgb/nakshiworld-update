@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "v119_published_verified",
+  "status": "hall_forge119_visual_rejected",
   "release_baseline": "v1.19",
   "target_release": "v1.19",
   "deployed": true,
   "phone_verified": false,
-  "handoff": "docs/releases/119/HANDOFF.md",
-  "current_task": "v1.19 회관·대장간 및 승인 후속 수정 공개 완료",
-  "next_step": "휴대폰 재실행 후 v1.19 적용 확인·새 작업 지시 대기",
+  "handoff": "docs/qa/hall-forge119/REJECTION_HANDOFF.md",
+  "current_task": "회관·대장간 승인 시안 불일치 정정",
+  "next_step": "기존 선택 시안 기준 실제 아트 제작 준비와 Godot 비교; 단순 도형 대체 및 32px 확대 재사용 금지",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -968,7 +968,9 @@
     "ci_run": 42725519072,
     "ci_status": "success",
     "source_commit": "bd59d36974d16e50874111da629d32010d177c40",
-    "published_release": "v1.19"
+    "published_release": "v1.19",
+    "visual_acceptance": "user_rejected",
+    "rejection_handoff": "docs/qa/hall-forge119/REJECTION_HANDOFF.md"
   },
   "release119": {
     "source_commit": "bd59d36974d16e50874111da629d32010d177c40",
