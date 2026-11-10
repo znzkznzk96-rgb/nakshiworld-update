@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "v119_verified_publication_pending",
+  "status": "v119_publication_resumed_same_draft",
   "release_baseline": "v1.18",
   "target_release": "v1.19",
   "deployed": false,
   "phone_verified": false,
-  "handoff": "docs/qa/hall-forge119/HANDOFF.md",
+  "handoff": "docs/releases/119/HANDOFF.md",
   "current_task": "승인 회관·대장간 UI 구현 및 v1.19 공개배포",
-  "next_step": "PR57 병합→검증된 동일119후보 공개→공개파일/운영다운로드 검증",
+  "next_step": "공개재개42727188852 attempt2→공개3파일/운영다운로드 검증",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -975,6 +975,11 @@
     "preflight": "docs/releases/119/PREFLIGHT.json",
     "deployed": false,
     "phone_verified": false,
-    "release_authorized": true
+    "release_authorized": true,
+    "merge_commit": "1e207b8afdc5227ceabdae995935688d6990d59f",
+    "publication_run": 42727188852,
+    "publication_attempt": 2,
+    "draft_id": 439797504,
+    "publication_first_failure": "created draft listing delay; same draft/source verified, no rebuild"
   }
 }
