@@ -112,11 +112,11 @@
       "seed": 2026111405,
       "max_requests_this_round": 2,
       "prior_requests": 2,
-      "status": "rejected",
+      "status": "passed",
       "requests_this_round": 0,
       "actual_motion_generated": false,
       "game_applied": false,
-      "attempts_used": 1
+      "attempts_used": 2
     },
     {
       "id": "09",
