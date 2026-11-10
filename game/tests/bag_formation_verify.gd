@@ -27,7 +27,7 @@ func run() -> void:
  for role in v.ROLES:check(v.textures["role_"+role]!=null and v.textures["role_"+role].get_size()==Vector2(32,32),"PixelLab role texture "+role)
  for i in 25: d.add_unit([5,14,6][i%3],1,[0,0,0])
  d.team=[1,2,3];v.open(m,"explore");v.explore_tab=1
- for height in [480,660]:
+ for height in [480,540,660]:
   v.rects={};v.formation_scroll=0;v.role_filter="all";v.draw_formation(m,139,height-8)
   check(v.rects["slot:2"].position.x<v.rects["slot:1"].position.x and v.rects["slot:1"].position.x<v.rects["slot:0"].position.x,"rear middle front order")
   check(d.team==[1,2,3],"display preserves combat order")
@@ -42,6 +42,28 @@ func run() -> void:
   v.rects={};v.draw_formation(m,139,height-8)
   for key in v.rects:
    if key.begins_with("formation_unit:"):check(d.catalog.soldiers[int(d.unit(int(key.split(":")[1])).id)].role=="defense","filter correct")
+ # Every intermediate pixel keeps intersecting cards and clips hit regions.
+ for height in [480,540,660]:
+  for offset in [0,1,12,33,47,65,69,70,71,139]:
+   m.ui_commands=[];m.text_items=[];v.rects={};v.role_filter="all";v.formation_scroll=offset
+   v.draw_formation(m,139,height-8)
+   var area:Rect2=v.formation_viewport
+   var groups:Array=m.ui_commands.filter(func(c):return c[0]=="clip_group")
+   check(groups.size()==1,"one shared card clipping group")
+   check(groups[0][1]==area and not groups[0][2].is_empty() and not groups[0][3].is_empty(),"frame sprite and text clipped together")
+   for i in d.soldiers.size():
+    var raw:=Rect2(18+(i%2)*119,area.position.y+floori(i/2.0)*70-roundf(v.formation_scroll),115,66)
+    var key:String="formation_unit:%d"%int(d.soldiers[i].uid)
+    var visible:Rect2=raw.intersection(area)
+    check(v.rects.has(key)==visible.has_area(),"partial cards stay present at pixel %d"%offset)
+    if visible.has_area():check(v.rects[key]==visible and area.encloses(v.rects[key]),"only visible area is clickable")
+ var txt=load("res://text_layer.gd").new();root.add_child(txt)
+ txt.commands=m.ui_commands
+ check(txt.clipped_layers.size()==1 and txt.clipped_layers[0].clip_contents,"actual canvas clips children")
+ check(txt.clipped_layers[0].mouse_filter==Control.MOUSE_FILTER_IGNORE,"clip layer never intercepts touch")
+ txt.commands=[]
+ check(not txt.clipped_layers[0].visible,"closing list hides old clipped content")
+ txt.queue_free()
  # Direct card removal, overlap priority, touch/drag and running lock.
  for slot in [0,1,2]:
   d.team=[1,2,3];d.battle={};v.role_filter="all";v.rects={};v.draw_formation(m,139,472)
