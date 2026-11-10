@@ -1061,10 +1061,36 @@
       "expected_output_count": 1,
       "quoted_generations": 1,
       "game_applied": false,
-      "status": "submitted",
+      "status": "passed",
       "submitted_unix": 1794332110.085464,
       "http_status": 202,
-      "job_id": "424190ac-895a-4f12-8f9c-556a4e9c7da9"
+      "job_id": "424190ac-895a-4f12-8f9c-556a4e9c7da9",
+      "billing_source": "completed_job.billing_usage",
+      "actual_generation_delta": 1.0,
+      "output_count": 1
+    },
+    {
+      "id": "18",
+      "name": "차원창 청새치",
+      "stage": "motion",
+      "attempt": 1,
+      "model": "animate-pixminimax",
+      "seed": 2026113018,
+      "native_canvas": [
+        232,
+        156
+      ],
+      "input_sha256": "c4d16ee1ffb85704ac50eaeb830d6e386eddddaf1382b5e5eb26104cccac05a7",
+      "input_role": "internally passed native HD original derived from the user-approved fish",
+      "request_sha256": "8fc60a7b8e25b580cf5070bff41c345b993ced01f4eb4c4a21387d0d3c5cfcd2",
+      "additional_request_used": 0,
+      "expected_output_count": 17,
+      "quoted_generations": 1,
+      "game_applied": false,
+      "status": "submitted",
+      "submitted_unix": 1794332213.0014606,
+      "http_status": 200,
+      "job_id": "56308db1-a4fd-4b36-ba18-dc3e8501d971"
     }
   ],
   "status": "one_active",
@@ -1076,5 +1102,5 @@
     "13": 1,
     "14": 1
   },
-  "actual_generations_charged": 47.0
+  "actual_generations_charged": 48.0
 }
