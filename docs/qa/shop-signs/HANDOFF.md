@@ -8,3 +8,6 @@
 장비카드 좌우배치, 상태‘사용중/구매’로 표시해 실제폰트 폭/상하경계8px 검사 통과. 최소높이에서는 전시높이44·비교높이38로 카드여백확보. 전체8상점(별도 박물관/수족관 포함) 상단목재간판 적용. 낚시상점480높이 보관통 버튼범위도 수정. 선택/구매/가격/세이브불변. 신규 shop_signs + 기존hall_forge119/forge_layout/facility_growth/aquarium_b/bundle_preview 총6검사 통과, 3높이24네이티브화면/버튼범위검사 통과.
 
 [실제화면](native.webp)·[검증](VERIFICATION.json). 소스 52f3a49474f912e731ae38a4a96541c38a95f884 전체CI 42734942363 진행중. 이전CI42734642252는 manifest Python UA403으로 정지, 앱UA를 적용했고 실제 운영manifest/Range206·100bytes를 로컬에서 확인. 전체CI결과와 공개배포는 아직별도. 운영v1.19 유지, 새공개배포미승인.
+
+## 전체검사 중 회귀 수정
+전체CI42734942363에서 notification091의 ‘feedback avoids village expedition strip’ 실패를 확인했다. 작은낚시상점 창을 기존간판여유범위내18px 내려 구매피드백과 탐험스트립의 절대좌표 중첩 제거. 별도 notification091 및 shop_signs 재검사 통과, 새소스 efaf6a9368caae919658f2d2941360495da8bbf6 전체CI 42735572301 진행. 재검사 사유는 실제실패/소스수정이며 이전통과를전체완료로표시하지않음.

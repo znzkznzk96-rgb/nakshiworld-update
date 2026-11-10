@@ -1,6 +1,6 @@
 {
   "date": "2026-11-10",
-  "source_commit": "52f3a49474f912e731ae38a4a96541c38a95f884",
+  "source_commit": "efaf6a9368caae919658f2d2941360495da8bbf6",
   "ci_status": "in_progress",
   "related_passed": [
     "shop_signs",
@@ -8,7 +8,8 @@
     "forge_layout",
     "facility_growth",
     "aquarium_b",
-    "bundle_preview"
+    "bundle_preview",
+    "notification091"
   ],
   "native_screens": 24,
   "heights": [
@@ -38,5 +39,9 @@
   "ci_previous": 42734642252,
   "ci_previous_status": "failed_manifest_request_user_agent_403_corrected",
   "operational_range": "live v119, HTTP206 100bytes verified with app headers",
-  "ci_run": 42734942363
+  "ci_run": 42735572301,
+  "ci_regression_failure": {
+    "run": 42734942363,
+    "reason": "compact shop feedback overlapped expedition strip; panel lowered18px; related and glyph tests passed"
+  }
 }
