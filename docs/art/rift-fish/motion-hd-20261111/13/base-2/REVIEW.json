@@ -1,0 +1,19 @@
+{
+  "id": "13",
+  "stage": "base",
+  "attempt": 2,
+  "status": "passed",
+  "note": "수정본은 새 작은 조각 없이 승인 원본의 큰 결정 가시 배치·둥근 사파이어 몸·자홍 균열·금빛 눈과 부리 유지. native178px 본체로156 상한보다 넓고 알파 여백/명암 정상. 공유 추가1회 사용완료.",
+  "reviewed_native_and_nearest": true,
+  "approved_source_compared": true,
+  "observed_direction": "west",
+  "shape": "passed",
+  "color": "passed",
+  "native_detail": "passed",
+  "species_features": "passed",
+  "motion": "not_applicable",
+  "alpha_margin": "passed",
+  "native_width_at_least_fight_max": "passed",
+  "actual_generation_delta": 1.0,
+  "game_applied": false
+}
