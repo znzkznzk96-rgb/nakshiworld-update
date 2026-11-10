@@ -55,10 +55,13 @@ func draw(owner,m,y:float,bottom:float)->void:
  v.formation_viewport=Rect2(18,y,234,maxf(64,bottom-y-20))
  v.formation_max_scroll=maxf(0,ceilf(units.size()/2.0)*70-v.formation_viewport.size.y)
  v.formation_scroll=clampf(v.formation_scroll,0,v.formation_max_scroll)
+ var first_command:int=m.ui_commands.size()
+ var first_text:int=m.text_items.size()
  for i in units.size():
   var u:Dictionary=units[i];var spec:Dictionary=data.catalog.soldiers[int(u.id)]
   var r:=Rect2(18+(i%2)*119,y+floori(i/2.0)*70-roundf(v.formation_scroll),115,66)
-  if r.position.y<y or r.end.y>v.formation_viewport.end.y:continue
+  var visible:Rect2=r.intersection(v.formation_viewport)
+  if not visible.has_area():continue
   v.card(m,r)
   sprite(m,int(u.id),Rect2(r.position+Vector2(70,3),Vector2(34,32)),int(u.star))
   stars(m,u,r.position+Vector2(7,17))
@@ -66,7 +69,12 @@ func draw(owner,m,y:float,bottom:float)->void:
   label(m,spec.name,r.position+Vector2(8,44),8,Color("493421"),false,99)
   label(m,v.ROLES[spec.role],r.position+Vector2(8,58),8,green)
   label(m,"편성 중" if int(u.uid) in data.team else "눌러 배치",r.position+Vector2(76,58),8,Color("75614d"),true,65)
-  v.rects["formation_unit:%d"%u.uid]=r
+  v.rects["formation_unit:%d"%u.uid]=visible
+ # Keep all card layers in one clipped canvas, including text and texture frames.
+ var card_commands:Array=m.ui_commands.slice(first_command)
+ var card_text:Array=m.text_items.slice(first_text)
+ m.ui_commands.resize(first_command);m.text_items.resize(first_text)
+ m.ui_commands.append(["clip_group",v.formation_viewport,card_commands,card_text])
  if v.formation_max_scroll>0:
   m._ui_rect(Rect2(254,y,2,v.formation_viewport.size.y),Color("d3c39e"))
   var thumb:float=maxf(15,v.formation_viewport.size.y*v.formation_viewport.size.y/(ceilf(units.size()/2.0)*70))

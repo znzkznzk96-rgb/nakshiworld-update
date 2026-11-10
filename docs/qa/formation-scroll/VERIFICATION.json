@@ -1,0 +1,71 @@
+{
+  "date": "2026-11-10",
+  "source_commit": "9fd38f869fb94d49c00a48198185b318a3944048",
+  "baseline": {
+    "release": "v1.24",
+    "source_zip_sha256": "0de6ee09981bf7fd201867ac9efd261e130813a50882cba0a2eae1da23f45ed6"
+  },
+  "local": {
+    "godot": "4.4.1.stable.official",
+    "bag_formation": "passed",
+    "formation_compare": "passed",
+    "selected_ui": "passed",
+    "heights": [
+      480,
+      540,
+      660
+    ],
+    "offsets": [
+      0,
+      1,
+      12,
+      33,
+      47,
+      65,
+      69,
+      70,
+      71,
+      139
+    ],
+    "clip_group": "Control.clip_contents shared frames/sprites/text",
+    "hit_regions": "visible intersection only",
+    "drag_filter_formation": "preserved"
+  },
+  "ci": {
+    "run": 42786187300,
+    "status": "success",
+    "full_regression": "passed",
+    "common_native": "passed",
+    "packed": "passed",
+    "artifact": 13749084884,
+    "input_fingerprint": "b886c55dc6b33c4243bc9aae13db3361166e75baf74776f6a59b3bf443df0396"
+  },
+  "deployed": false,
+  "phone_verified": false,
+  "native": {
+    "status": "passed",
+    "heights": [
+      480,
+      540,
+      660
+    ],
+    "offsets": [
+      1,
+      33,
+      47,
+      69,
+      70,
+      71
+    ],
+    "screens": 30,
+    "partial_scroll_screens": 18,
+    "edge_band_comparisons": 36,
+    "edge_band_pixels": 8,
+    "edge_bleed": "none",
+    "artifact": 13749872405,
+    "visual_review": [
+      "formation_h660_scroll33.png",
+      "formation_h480_scroll1.png"
+    ]
+  }
+}

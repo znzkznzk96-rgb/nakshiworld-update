@@ -1,17 +1,17 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "release124_published",
+  "status": "release125_verified_publishing",
   "release_baseline": "v1.24",
-  "target_release": "v1.24",
-  "deployed": true,
+  "target_release": "v1.25",
+  "deployed": false,
   "phone_verified": false,
-  "handoff": "docs/releases/124/HANDOFF.md",
-  "current_task": "v1.24 탐험 피해 숫자 겹침 개선 공개 완료",
-  "next_step": "기존앱 재실행·게임업데이트 후 휴대폰 평타/스킬 동시표시 확인. 새수정/배포 별도요청.",
+  "handoff": "docs/releases/125/HANDOFF.md",
+  "current_task": "v1.25 병사배치 연속 스크롤 공개 준비",
+  "next_step": "동일성공후보 공개→운영다운로드/3파일/전체소스 검증",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
-  "verification": "docs/releases/124/PUBLISHED.json",
+  "verification": "docs/qa/formation-scroll/VERIFICATION.json",
   "baseline_phone_verified": false,
   "environment_recovery": "docs/CODEX_NETWORK_RECOVERY.md",
   "background_verified_branch": "work/tile-png-stage2-20261107",
@@ -43,9 +43,9 @@
   "remaining_global_render_checks": false,
   "release_authorization": {
     "date": "2026-11-10",
-    "scope": "v1.24 평타·스킬 분리·연타누적·최대3개·창내부 제한",
-    "user_request": "그렇게 수정해주고 업데이트및 배포해줘",
-    "fulfilled": true
+    "user_request": "아 업데이트 후 배포해줘 ㅇㅇ",
+    "scope": "v1.25 병사배치 부분카드 연속 스크롤",
+    "fulfilled": false
   },
   "release_preflight": "docs/qa/soldier-size/VERIFICATION.json",
   "release_source_commit": "e99eabdc11ebca7307e0d35a3a43fbe14f20d64e",
@@ -118,7 +118,7 @@
     "production_balance_changed": false,
     "phone_tested": false
   },
-  "release_authorized": false,
+  "release_authorized": true,
   "balance110": {
     "applied": true,
     "deployed": true,
@@ -248,18 +248,18 @@
     "release_authorized": false
   },
   "full_release_ci": {
-    "run": 42782916111,
+    "run": 42790651193,
     "status": "success",
-    "source_commit": "e99eabdc11ebca7307e0d35a3a43fbe14f20d64e"
+    "source_commit": "d1303a61a9d1f073901201481e67329edb49ec06"
   },
   "release_candidate": {
     "version": {
-      "code": 124,
-      "name": "1.24"
+      "code": 125,
+      "name": "1.25"
     },
-    "source_commit": "e99eabdc11ebca7307e0d35a3a43fbe14f20d64e",
-    "artifact": 13747183988,
-    "input_fingerprint": "88a651dbf887d222864138484d0af76b1f507e34423fb38d3a543e4b65f895cd",
+    "source_commit": "d1303a61a9d1f073901201481e67329edb49ec06",
+    "artifact": 13753065145,
+    "input_fingerprint": "09c93e0736cebc65e881d2270796320f470d17f605004d739b4c58d7322fe053",
     "verified": true
   },
   "release_resume_run": 42424430555,
@@ -1128,5 +1128,26 @@
     "phone_verified": false,
     "handoff": "docs/releases/124/HANDOFF.md",
     "published": "docs/releases/124/PUBLISHED.json"
+  },
+  "formation_scroll": {
+    "implemented": true,
+    "related_verified": true,
+    "source_commit": "9fd38f869fb94d49c00a48198185b318a3944048",
+    "ci": 42786187300,
+    "deployed": false,
+    "ci_status": "success",
+    "native_screens": 30,
+    "edge_band_comparisons": 36
+  },
+  "verification_candidate": {
+    "artifact": 13749084884,
+    "input_fingerprint": "b886c55dc6b33c4243bc9aae13db3361166e75baf74776f6a59b3bf443df0396",
+    "source_commit": "9fd38f869fb94d49c00a48198185b318a3944048",
+    "version": {
+      "code": 124,
+      "name": "1.24"
+    },
+    "publication_ready": false,
+    "note": "검사용후보. 공개v1.24와다른소스이며새공개버전/배포미승인."
   }
 }
