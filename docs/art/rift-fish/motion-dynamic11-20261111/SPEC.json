@@ -76,10 +76,11 @@
       "input_sha256": "cbe71580e04c18a6a8aa2fb0c6bb77fb589bf30f23454c69e19336876079b3bf",
       "native_source": "docs/art/rift-fish/motion-hd-20261111/07/base-1/original.png",
       "quoted_generations_per_clip": 1,
-      "status": "planned",
+      "status": "passed",
       "motion_action": "Strong rhythmic swimming: the purple tail makes broad alternating strokes, the rear silver body visibly bends in a travelling S-wave, and the purple pectoral fins spread then sweep back in a powerful rowing cycle. The gold lines simply move with the skin, with no light effects. Clear anticipation, push and recovery.",
       "request_limit": 2,
-      "seed": 2026115107
+      "seed": 2026115107,
+      "selected_attempt": 1
     },
     {
       "id": "08",

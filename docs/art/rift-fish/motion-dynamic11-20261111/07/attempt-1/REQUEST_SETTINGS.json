@@ -1,0 +1,22 @@
+{
+  "description": "Strong rhythmic swimming: the purple tail makes broad alternating strokes, the rear silver body visibly bends in a travelling S-wave, and the purple pectoral fins spread then sweep back in a powerful rowing cycle. The gold lines simply move with the skin, with no light effects. Clear anticipation, push and recovery. Seamless energetic swim IN PLACE. Fixed camera and scale; head LEFT throughout. Preserve identity, anatomy, fin count and rich original colors. All parts stay inside the canvas with clear margins. No external particles, glow, trails, new parts or background. Animate in a FLAT 2D SIDE PROFILE: bend the tail UP and DOWN on screen, never toward the camera. Keep the whole tail and fins visible at both extremes, with no foreshortening or disappearing parts.",
+  "frame_count": 16,
+  "seed": 2026115107,
+  "no_background": true,
+  "drift_threshold": 0,
+  "enhance_prompt": false,
+  "direction": "west",
+  "view": "side",
+  "subject_description": "silver-blue sardine with purple fins and gold lines painted on the skin",
+  "initial_pose": "horizontal side-view swim pose, head left and tail or mantle right, whole creature visible inside transparent margins",
+  "first_frame": {
+    "sha256": "cbe71580e04c18a6a8aa2fb0c6bb77fb589bf30f23454c69e19336876079b3bf",
+    "source": "docs/art/rift-fish/motion-hd-20261111/07/base-1/original.png",
+    "role": "passed original HD art exact bytes"
+  },
+  "last_frame": {
+    "sha256": "cbe71580e04c18a6a8aa2fb0c6bb77fb589bf30f23454c69e19336876079b3bf",
+    "source": "docs/art/rift-fish/motion-hd-20261111/07/base-1/original.png",
+    "role": "passed original HD art exact bytes"
+  }
+}
