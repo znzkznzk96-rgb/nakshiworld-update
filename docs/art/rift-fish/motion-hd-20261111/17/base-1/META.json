@@ -1,0 +1,19 @@
+{
+  "id": "17",
+  "name": "뇌광 삼치",
+  "stage": "base",
+  "attempt": 1,
+  "model": "edit-image-pixen",
+  "seed": 2026112017,
+  "native_canvas": [
+    232,
+    136
+  ],
+  "input_sha256": "ec735fbacbd75d1042ced572aa6f19012f9810535d98a9aabc65e217d7c16098",
+  "input_role": "user-approved fish, transparent margins cropped/padded only",
+  "request_sha256": "f9e400a5a0e67d1984bf0812e8e58e8de91063d03170bfe52e27ce97398b7690",
+  "additional_request_used": 0,
+  "expected_output_count": 1,
+  "quoted_generations": 1,
+  "game_applied": false
+}

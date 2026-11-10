@@ -1,0 +1,29 @@
+{
+  "id": "17",
+  "stage": "base",
+  "attempt": 1,
+  "frames": [
+    {
+      "path": "original.png",
+      "sha256": "fe72e2aa479a6b18d4e0907c7df0da249c306a87f51407d939df5b7f3148a764",
+      "size": [
+        232,
+        136
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        15,
+        17,
+        217,
+        117
+      ]
+    }
+  ],
+  "actual_generation_delta": 1.0,
+  "expected_canvas": [
+    232,
+    136
+  ],
+  "job_id": "26e6f901-fb1a-48e2-aa50-71d9148b7e10",
+  "game_applied": false
+}

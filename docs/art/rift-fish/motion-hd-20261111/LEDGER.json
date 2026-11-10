@@ -1009,10 +1009,36 @@
       "expected_output_count": 1,
       "quoted_generations": 1,
       "game_applied": false,
-      "status": "submitted",
+      "status": "passed",
       "submitted_unix": 1794331925.008923,
       "http_status": 202,
-      "job_id": "26e6f901-fb1a-48e2-aa50-71d9148b7e10"
+      "job_id": "26e6f901-fb1a-48e2-aa50-71d9148b7e10",
+      "billing_source": "completed_job.billing_usage",
+      "actual_generation_delta": 1.0,
+      "output_count": 1
+    },
+    {
+      "id": "17",
+      "name": "뇌광 삼치",
+      "stage": "motion",
+      "attempt": 1,
+      "model": "animate-pixminimax",
+      "seed": 2026113017,
+      "native_canvas": [
+        232,
+        136
+      ],
+      "input_sha256": "fe72e2aa479a6b18d4e0907c7df0da249c306a87f51407d939df5b7f3148a764",
+      "input_role": "internally passed native HD original derived from the user-approved fish",
+      "request_sha256": "518f9c72fcb193f645aa6d4c2d2962e1174e1d68c2b306073ced2b8439e9d14d",
+      "additional_request_used": 0,
+      "expected_output_count": 17,
+      "quoted_generations": 1,
+      "game_applied": false,
+      "status": "submitted",
+      "submitted_unix": 1794331996.9098158,
+      "http_status": 200,
+      "job_id": "2295bfae-69ff-48b8-b748-52e82a385549"
     }
   ],
   "status": "one_active",
@@ -1024,5 +1050,5 @@
     "13": 1,
     "14": 1
   },
-  "actual_generations_charged": 45.0
+  "actual_generations_charged": 46.0
 }

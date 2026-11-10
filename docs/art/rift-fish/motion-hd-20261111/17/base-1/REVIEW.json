@@ -1,0 +1,19 @@
+{
+  "id": "17",
+  "stage": "base",
+  "attempt": 1,
+  "status": "passed",
+  "note": "노랑 등·코발트 지그재그·청록 지느러미와 삼치 체형 유지. 좌향과 진한 대비, 여백 정상.",
+  "reviewed_native_and_nearest": true,
+  "approved_source_compared": true,
+  "observed_direction": "west",
+  "shape": "passed",
+  "color": "passed",
+  "native_detail": "passed",
+  "species_features": "passed",
+  "motion": "not_applicable",
+  "alpha_margin": "passed",
+  "native_width_at_least_fight_max": "passed",
+  "actual_generation_delta": 1.0,
+  "game_applied": false
+}
