@@ -1,0 +1,19 @@
+{
+  "id": "18",
+  "stage": "motion",
+  "attempt": 1,
+  "status": "passed",
+  "note": "창 주둥이 고정·보라 돛의 작은 후행 파동과 꼬리 유영 유지. 전16프레임 좌향·여백 정상, 새 부위나 외부 파편 없음.",
+  "reviewed_native_and_nearest": true,
+  "approved_source_compared": true,
+  "observed_direction": "west",
+  "shape": "passed",
+  "color": "passed",
+  "native_detail": "passed",
+  "species_features": "passed",
+  "motion": "passed",
+  "alpha_margin": "passed",
+  "native_width_at_least_fight_max": "passed",
+  "actual_generation_delta": 1.0,
+  "game_applied": false
+}
