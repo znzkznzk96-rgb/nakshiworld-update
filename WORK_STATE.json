@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "rift_dynamic11_complete_review_pending",
+  "status": "rift_final3_complete_all_held",
   "release_baseline": "v1.25",
   "target_release": "v1.25",
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/art/rift-fish/HANDOFF.md",
-  "current_task": "남은3종 모션 추가제작",
-  "next_step": "14→17→18 순차1회씩 생성·검수.추가재시도는별도승인.",
+  "current_task": "남은3종 추가모션 생성·검수 종료,3종보류",
+  "next_step": "3종실패결과검토·다른모션제작방식결정.추가유료호출중단.통과17종/보류14·17·18,게임미적용·공개v1.25유지.",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -1383,15 +1383,24 @@
     "verification": "docs/art/rift-fish/motion-dynamic11-20261111/COMPLETION.json"
   },
   "rift_final3": {
-    "status": "authorized",
+    "status": "complete_all_three_held",
     "ids": [
       "14",
       "17",
       "18"
     ],
     "request_limit_per_species": 1,
-    "paid_requests": 0,
+    "paid_requests": 3,
     "game_applied": false,
-    "deployed": false
+    "deployed": false,
+    "actual_generations_charged": 4,
+    "passed": [],
+    "held": [
+      "14",
+      "17",
+      "18"
+    ],
+    "ledger": "docs/art/rift-fish/motion-final3-20261111/LEDGER.json",
+    "verification": "docs/art/rift-fish/motion-final3-20261111/REMOTE_VERIFICATION.json"
   }
 }

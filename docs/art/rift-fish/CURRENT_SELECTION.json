@@ -1,8 +1,10 @@
 {
   "date": "2026-11-11",
-  "motion_passed": 19,
+  "motion_passed": 17,
   "held": [
-    "14"
+    "14",
+    "17",
+    "18"
   ],
   "species": [
     {
@@ -18,8 +20,9 @@
       "name": "균열정어리",
       "native_source": "docs/art/rift-fish/motion-hd-20261111/02/base-1/original.png",
       "status": "passed",
-      "motion_source": "docs/art/rift-fish/motion-hd-20261111/02/motion-1/frames-original.zip",
-      "asset_commit": "294c6e03359b922a5f7f763fd5cd8f7ab7207f73"
+      "motion_source": "docs/art/rift-fish/motion-dynamic11-20261111/02/attempt-2/frames-original.zip",
+      "asset_commit": "11e8fe782d03440eb1251eed3d057189af28fb07",
+      "previous_motion_source": "docs/art/rift-fish/motion-hd-20261111/02/motion-1/frames-original.zip"
     },
     {
       "id": "03",
@@ -34,48 +37,54 @@
       "name": "가시등전어",
       "native_source": "docs/art/rift-fish/motion-hd-20261111/04/base-1/original.png",
       "status": "passed",
-      "motion_source": "docs/art/rift-fish/motion-hd-20261111/04/motion-1/frames-original.zip",
-      "asset_commit": "294c6e03359b922a5f7f763fd5cd8f7ab7207f73"
+      "motion_source": "docs/art/rift-fish/motion-dynamic11-20261111/04/attempt-1/frames-original.zip",
+      "asset_commit": "11e8fe782d03440eb1251eed3d057189af28fb07",
+      "previous_motion_source": "docs/art/rift-fish/motion-hd-20261111/04/motion-1/frames-original.zip"
     },
     {
       "id": "05",
       "name": "균열장막 오징어",
       "native_source": "docs/art/rift-fish/motion-hd-20261111/05/base-2/original.png",
       "status": "passed",
-      "motion_source": "docs/art/rift-fish/motion-hd-20261111/05/motion-1/frames-original.zip",
-      "asset_commit": "294c6e03359b922a5f7f763fd5cd8f7ab7207f73"
+      "motion_source": "docs/art/rift-fish/motion-dynamic11-20261111/05/attempt-1/frames-original.zip",
+      "asset_commit": "11e8fe782d03440eb1251eed3d057189af28fb07",
+      "previous_motion_source": "docs/art/rift-fish/motion-hd-20261111/05/motion-1/frames-original.zip"
     },
     {
       "id": "06",
       "name": "쥐포쥐치",
       "native_source": "docs/art/rift-fish/motion-hd-20261111/06/base-2/original.png",
       "status": "passed",
-      "motion_source": "docs/art/rift-fish/motion-hd-20261111/06/motion-1/frames-original.zip",
-      "asset_commit": "294c6e03359b922a5f7f763fd5cd8f7ab7207f73"
+      "motion_source": "docs/art/rift-fish/motion-dynamic11-20261111/06/attempt-1/frames-original.zip",
+      "asset_commit": "11e8fe782d03440eb1251eed3d057189af28fb07",
+      "previous_motion_source": "docs/art/rift-fish/motion-hd-20261111/06/motion-1/frames-original.zip"
     },
     {
       "id": "07",
       "name": "금간정어리",
       "native_source": "docs/art/rift-fish/motion-hd-20261111/07/base-1/original.png",
       "status": "passed",
-      "motion_source": "docs/art/rift-fish/motion-held3-r3-20261111/07/frames-original.zip",
-      "asset_commit": "4f7b98ef6b5a597baabc875fa215c5799a93d02c"
+      "motion_source": "docs/art/rift-fish/motion-dynamic11-20261111/07/attempt-1/frames-original.zip",
+      "asset_commit": "11e8fe782d03440eb1251eed3d057189af28fb07",
+      "previous_motion_source": "docs/art/rift-fish/motion-held3-r3-20261111/07/frames-original.zip"
     },
     {
       "id": "08",
       "name": "빛멸치",
       "native_source": "docs/art/rift-fish/motion-hd-20261111/08/base-1/original.png",
       "status": "passed",
-      "motion_source": "docs/art/rift-fish/motion-hd-20261111/08/motion-1/frames-original.zip",
-      "asset_commit": "294c6e03359b922a5f7f763fd5cd8f7ab7207f73"
+      "motion_source": "docs/art/rift-fish/motion-dynamic11-20261111/08/attempt-2/frames-original.zip",
+      "asset_commit": "11e8fe782d03440eb1251eed3d057189af28fb07",
+      "previous_motion_source": "docs/art/rift-fish/motion-hd-20261111/08/motion-1/frames-original.zip"
     },
     {
       "id": "09",
       "name": "균열갑주 방어",
       "native_source": "docs/art/rift-fish/motion-hd-20261111/09/base-1/original.png",
       "status": "passed",
-      "motion_source": "docs/art/rift-fish/motion-hd-20261111/09/motion-1/frames-original.zip",
-      "asset_commit": "294c6e03359b922a5f7f763fd5cd8f7ab7207f73"
+      "motion_source": "docs/art/rift-fish/motion-dynamic11-20261111/09/attempt-1/frames-original.zip",
+      "asset_commit": "11e8fe782d03440eb1251eed3d057189af28fb07",
+      "previous_motion_source": "docs/art/rift-fish/motion-hd-20261111/09/motion-1/frames-original.zip"
     },
     {
       "id": "10",
@@ -98,8 +107,9 @@
       "name": "균열꽃 광어",
       "native_source": "docs/art/rift-fish/motion-hd-20261111/12/base-1/original.png",
       "status": "passed",
-      "motion_source": "docs/art/rift-fish/motion-hd-20261111/12/motion-1/frames-original.zip",
-      "asset_commit": "294c6e03359b922a5f7f763fd5cd8f7ab7207f73"
+      "motion_source": "docs/art/rift-fish/motion-dynamic11-20261111/12/attempt-1/frames-original.zip",
+      "asset_commit": "11e8fe782d03440eb1251eed3d057189af28fb07",
+      "previous_motion_source": "docs/art/rift-fish/motion-hd-20261111/12/motion-1/frames-original.zip"
     },
     {
       "id": "13",
@@ -115,7 +125,8 @@
       "native_source": "docs/art/rift-fish/motion-hd-20261111/14/base-1/original.png",
       "status": "held",
       "motion_source": null,
-      "asset_commit": "4f7b98ef6b5a597baabc875fa215c5799a93d02c"
+      "asset_commit": "4f7b98ef6b5a597baabc875fa215c5799a93d02c",
+      "review": "docs/art/rift-fish/motion-final3-20261111/14/REVIEW.json"
     },
     {
       "id": "15",
@@ -130,24 +141,29 @@
       "name": "월식 개복치",
       "native_source": "docs/art/rift-fish/motion-hd-20261111/16/base-1/original.png",
       "status": "passed",
-      "motion_source": "docs/art/rift-fish/motion-hd-20261111/16/motion-1/frames-original.zip",
-      "asset_commit": "294c6e03359b922a5f7f763fd5cd8f7ab7207f73"
+      "motion_source": "docs/art/rift-fish/motion-dynamic11-20261111/16/attempt-1/frames-original.zip",
+      "asset_commit": "11e8fe782d03440eb1251eed3d057189af28fb07",
+      "previous_motion_source": "docs/art/rift-fish/motion-hd-20261111/16/motion-1/frames-original.zip"
     },
     {
       "id": "17",
       "name": "뇌광 삼치",
       "native_source": "docs/art/rift-fish/motion-hd-20261111/17/base-1/original.png",
-      "status": "passed",
-      "motion_source": "docs/art/rift-fish/motion-hd-20261111/17/motion-1/frames-original.zip",
-      "asset_commit": "294c6e03359b922a5f7f763fd5cd8f7ab7207f73"
+      "status": "held",
+      "motion_source": null,
+      "asset_commit": "294c6e03359b922a5f7f763fd5cd8f7ab7207f73",
+      "previous_motion_source": "docs/art/rift-fish/motion-hd-20261111/17/motion-1/frames-original.zip",
+      "review": "docs/art/rift-fish/motion-final3-20261111/17/REVIEW.json"
     },
     {
       "id": "18",
       "name": "차원창 청새치",
       "native_source": "docs/art/rift-fish/motion-hd-20261111/18/base-1/original.png",
-      "status": "passed",
-      "motion_source": "docs/art/rift-fish/motion-hd-20261111/18/motion-1/frames-original.zip",
-      "asset_commit": "294c6e03359b922a5f7f763fd5cd8f7ab7207f73"
+      "status": "held",
+      "motion_source": null,
+      "asset_commit": "294c6e03359b922a5f7f763fd5cd8f7ab7207f73",
+      "previous_motion_source": "docs/art/rift-fish/motion-hd-20261111/18/motion-1/frames-original.zip",
+      "review": "docs/art/rift-fish/motion-final3-20261111/18/REVIEW.json"
     },
     {
       "id": "19",
@@ -168,5 +184,7 @@
   ],
   "art_user_review": "pending",
   "game_applied": false,
-  "deployed": false
+  "deployed": false,
+  "status": "internal_motion_ready_17_user_review_pending",
+  "selection_policy": "dynamic11 nine passed supersede earlier structurally passed clips; IDs14/17/18 held. Old motion sources retained only as history."
 }

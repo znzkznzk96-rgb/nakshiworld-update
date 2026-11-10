@@ -1,0 +1,172 @@
+{
+  "date": "2026-11-11",
+  "motion_passed": 19,
+  "held": [
+    "14"
+  ],
+  "species": [
+    {
+      "id": "01",
+      "name": "쌍혜성 두꼬리꽁치",
+      "native_source": "docs/art/rift-fish/motion-hd-20261111/01/base-1/original.png",
+      "status": "passed",
+      "motion_source": "docs/art/rift-fish/motion-hd-20261111/01/motion-1/frames-original.zip",
+      "asset_commit": "294c6e03359b922a5f7f763fd5cd8f7ab7207f73"
+    },
+    {
+      "id": "02",
+      "name": "균열정어리",
+      "native_source": "docs/art/rift-fish/motion-hd-20261111/02/base-1/original.png",
+      "status": "passed",
+      "motion_source": "docs/art/rift-fish/motion-hd-20261111/02/motion-1/frames-original.zip",
+      "asset_commit": "294c6e03359b922a5f7f763fd5cd8f7ab7207f73"
+    },
+    {
+      "id": "03",
+      "name": "네날개날치",
+      "native_source": "docs/art/rift-fish/motion-hd-20261111/03/base-1/original.png",
+      "status": "passed",
+      "motion_source": "docs/art/rift-fish/motion-hd-20261111/03/motion-1/frames-original.zip",
+      "asset_commit": "294c6e03359b922a5f7f763fd5cd8f7ab7207f73"
+    },
+    {
+      "id": "04",
+      "name": "가시등전어",
+      "native_source": "docs/art/rift-fish/motion-hd-20261111/04/base-1/original.png",
+      "status": "passed",
+      "motion_source": "docs/art/rift-fish/motion-hd-20261111/04/motion-1/frames-original.zip",
+      "asset_commit": "294c6e03359b922a5f7f763fd5cd8f7ab7207f73"
+    },
+    {
+      "id": "05",
+      "name": "균열장막 오징어",
+      "native_source": "docs/art/rift-fish/motion-hd-20261111/05/base-2/original.png",
+      "status": "passed",
+      "motion_source": "docs/art/rift-fish/motion-hd-20261111/05/motion-1/frames-original.zip",
+      "asset_commit": "294c6e03359b922a5f7f763fd5cd8f7ab7207f73"
+    },
+    {
+      "id": "06",
+      "name": "쥐포쥐치",
+      "native_source": "docs/art/rift-fish/motion-hd-20261111/06/base-2/original.png",
+      "status": "passed",
+      "motion_source": "docs/art/rift-fish/motion-hd-20261111/06/motion-1/frames-original.zip",
+      "asset_commit": "294c6e03359b922a5f7f763fd5cd8f7ab7207f73"
+    },
+    {
+      "id": "07",
+      "name": "금간정어리",
+      "native_source": "docs/art/rift-fish/motion-hd-20261111/07/base-1/original.png",
+      "status": "passed",
+      "motion_source": "docs/art/rift-fish/motion-held3-r3-20261111/07/frames-original.zip",
+      "asset_commit": "4f7b98ef6b5a597baabc875fa215c5799a93d02c"
+    },
+    {
+      "id": "08",
+      "name": "빛멸치",
+      "native_source": "docs/art/rift-fish/motion-hd-20261111/08/base-1/original.png",
+      "status": "passed",
+      "motion_source": "docs/art/rift-fish/motion-hd-20261111/08/motion-1/frames-original.zip",
+      "asset_commit": "294c6e03359b922a5f7f763fd5cd8f7ab7207f73"
+    },
+    {
+      "id": "09",
+      "name": "균열갑주 방어",
+      "native_source": "docs/art/rift-fish/motion-hd-20261111/09/base-1/original.png",
+      "status": "passed",
+      "motion_source": "docs/art/rift-fish/motion-hd-20261111/09/motion-1/frames-original.zip",
+      "asset_commit": "294c6e03359b922a5f7f763fd5cd8f7ab7207f73"
+    },
+    {
+      "id": "10",
+      "name": "유영리본 삼치",
+      "native_source": "docs/art/rift-fish/motion-hd-20261111/10/base-1/original.png",
+      "status": "passed",
+      "motion_source": "docs/art/rift-fish/motion-hd-20261111/10/motion-1/frames-original.zip",
+      "asset_commit": "294c6e03359b922a5f7f763fd5cd8f7ab7207f73"
+    },
+    {
+      "id": "11",
+      "name": "균열칼날 갈치",
+      "native_source": "docs/art/rift-fish/motion-hd-20261111/11/base-2/original.png",
+      "status": "passed",
+      "motion_source": "docs/art/rift-fish/motion-hd-20261111/11/motion-1/frames-original.zip",
+      "asset_commit": "294c6e03359b922a5f7f763fd5cd8f7ab7207f73"
+    },
+    {
+      "id": "12",
+      "name": "균열꽃 광어",
+      "native_source": "docs/art/rift-fish/motion-hd-20261111/12/base-1/original.png",
+      "status": "passed",
+      "motion_source": "docs/art/rift-fish/motion-hd-20261111/12/motion-1/frames-original.zip",
+      "asset_commit": "294c6e03359b922a5f7f763fd5cd8f7ab7207f73"
+    },
+    {
+      "id": "13",
+      "name": "틈새결정 복어",
+      "native_source": "docs/art/rift-fish/motion-hd-20261111/13/base-2/original.png",
+      "status": "passed",
+      "motion_source": "docs/art/rift-fish/motion-hd-20261111/13/motion-1/frames-original.zip",
+      "asset_commit": "294c6e03359b922a5f7f763fd5cd8f7ab7207f73"
+    },
+    {
+      "id": "14",
+      "name": "거울날개 날치",
+      "native_source": "docs/art/rift-fish/motion-hd-20261111/14/base-1/original.png",
+      "status": "held",
+      "motion_source": null,
+      "asset_commit": "4f7b98ef6b5a597baabc875fa215c5799a93d02c"
+    },
+    {
+      "id": "15",
+      "name": "차원결정 참치",
+      "native_source": "docs/art/rift-fish/motion-hd-20261111/15/base-1/original.png",
+      "status": "passed",
+      "motion_source": "docs/art/rift-fish/motion-hd-20261111/15/motion-1/frames-original.zip",
+      "asset_commit": "294c6e03359b922a5f7f763fd5cd8f7ab7207f73"
+    },
+    {
+      "id": "16",
+      "name": "월식 개복치",
+      "native_source": "docs/art/rift-fish/motion-hd-20261111/16/base-1/original.png",
+      "status": "passed",
+      "motion_source": "docs/art/rift-fish/motion-hd-20261111/16/motion-1/frames-original.zip",
+      "asset_commit": "294c6e03359b922a5f7f763fd5cd8f7ab7207f73"
+    },
+    {
+      "id": "17",
+      "name": "뇌광 삼치",
+      "native_source": "docs/art/rift-fish/motion-hd-20261111/17/base-1/original.png",
+      "status": "passed",
+      "motion_source": "docs/art/rift-fish/motion-hd-20261111/17/motion-1/frames-original.zip",
+      "asset_commit": "294c6e03359b922a5f7f763fd5cd8f7ab7207f73"
+    },
+    {
+      "id": "18",
+      "name": "차원창 청새치",
+      "native_source": "docs/art/rift-fish/motion-hd-20261111/18/base-1/original.png",
+      "status": "passed",
+      "motion_source": "docs/art/rift-fish/motion-hd-20261111/18/motion-1/frames-original.zip",
+      "asset_commit": "294c6e03359b922a5f7f763fd5cd8f7ab7207f73"
+    },
+    {
+      "id": "19",
+      "name": "균열유리 상어",
+      "native_source": "docs/art/rift-fish/motion-hd-20261111/19/base-1/original.png",
+      "status": "passed",
+      "motion_source": "docs/art/rift-fish/motion-hd-20261111/19/motion-1/frames-original.zip",
+      "asset_commit": "294c6e03359b922a5f7f763fd5cd8f7ab7207f73"
+    },
+    {
+      "id": "20",
+      "name": "폭풍다랑어",
+      "native_source": "docs/art/rift-fish/motion-hd-20261111/20/base-1/original.png",
+      "status": "passed",
+      "motion_source": "docs/art/rift-fish/motion-held3-r3-20261111/20/frames-original.zip",
+      "asset_commit": "4f7b98ef6b5a597baabc875fa215c5799a93d02c"
+    }
+  ],
+  "art_user_review": "pending",
+  "game_applied": false,
+  "deployed": false
+}
