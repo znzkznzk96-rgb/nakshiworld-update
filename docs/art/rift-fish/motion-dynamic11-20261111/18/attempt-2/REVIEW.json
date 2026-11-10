@@ -1,0 +1,26 @@
+{
+  "date": "2026-11-11",
+  "id": "18",
+  "name": "차원창 청새치",
+  "attempt": 2,
+  "status": "rejected",
+  "job_id": "d728eb3a-5db0-427e-bca2-aea616f0c070",
+  "actual_generations": 1,
+  "frame_count": 16,
+  "returned_frames": 17,
+  "canvas": [
+    232,
+    156
+  ],
+  "input_frame0_sha256": "c4d16ee1ffb85704ac50eaeb830d6e386eddddaf1382b5e5eb26104cccac05a7",
+  "original_zip_sha256": "b700a555e379dbc8f678bffb3baf015d6caf8f730c76be71083791c884842f64",
+  "checks": {
+    "decode": "pass_17_png",
+    "fixed_canvas": "pass",
+    "input_hash": "pass",
+    "direction": "pass_west",
+    "motion": "fail"
+  },
+  "reason": "Tall sail visibly folds and opens, but rear body and crescent tail remain too static for the approved forceful S-wave and broad tail strokes. No third request authorized.",
+  "game_applied": false
+}

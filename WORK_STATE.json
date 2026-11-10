@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "rift_dynamic11_regeneration_in_progress",
+  "status": "rift_dynamic11_complete_review_pending",
   "release_baseline": "v1.25",
   "target_release": "v1.25",
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/art/rift-fish/HANDOFF.md",
   "current_task": "역동성 보강11종 모션 재제작",
-  "next_step": "02부터종별역동모션단일POST→native/정수확대·실표시축소비교검수. 불량시추가1회후그종보류·다음진행,11종전부처리.",
+  "next_step": "역동성 보강9종 사용자검토.17뇌광삼치·18차원창청새치 각2회불합격보류,14거울날치 기존보류.추가유료생성/게임적용/배포는별도지시.",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -1343,7 +1343,7 @@
     "structural_pass_is_not_gameplay_motion_approval": true
   },
   "rift_dynamic11": {
-    "status": "in_progress",
+    "status": "complete_9_passed_2_held",
     "ids": [
       "02",
       "04",
@@ -1360,7 +1360,7 @@
     "spec": "docs/art/rift-fish/motion-dynamic11-20261111/SPEC.json",
     "ledger": "docs/art/rift-fish/motion-dynamic11-20261111/LEDGER.json",
     "completed": 9,
-    "requests": 15,
+    "requests": 16,
     "game_applied": false,
     "deployed": false,
     "passed": [
@@ -1375,8 +1375,11 @@
       "16"
     ],
     "held": [
-      "17"
+      "17",
+      "18"
     ],
-    "actual_generations_charged": 17
+    "actual_generations_charged": 18,
+    "processed": 11,
+    "verification": "docs/art/rift-fish/motion-dynamic11-20261111/COMPLETION.json"
   }
 }

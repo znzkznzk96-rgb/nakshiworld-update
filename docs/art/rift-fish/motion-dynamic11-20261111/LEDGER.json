@@ -241,7 +241,7 @@
     {
       "id": "18",
       "attempt": 2,
-      "status": "submitted",
+      "status": "rejected",
       "model": "animate-pixminimax",
       "seed": 2026115218,
       "input_sha256": "c4d16ee1ffb85704ac50eaeb830d6e386eddddaf1382b5e5eb26104cccac05a7",
@@ -252,8 +252,10 @@
       ],
       "submitted_unix": 1794348975.392314,
       "http_status": 200,
-      "job_id": "d728eb3a-5db0-427e-bca2-aea616f0c070"
+      "job_id": "d728eb3a-5db0-427e-bca2-aea616f0c070",
+      "actual_generations": 1,
+      "review": "docs/art/rift-fish/motion-dynamic11-20261111/18/attempt-2/REVIEW.json"
     }
   ],
-  "status": "planned"
+  "status": "complete_9_passed_2_held"
 }
