@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "damage_layout_approved",
+  "status": "damage_layout_related_verified_ci_running",
   "release_baseline": "v1.23",
   "target_release": "v1.24",
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/qa/damage-layout/HANDOFF.md",
   "current_task": "평타·스킬 데미지 겹침 수정 및 승인 배포",
-  "next_step": "표시 전용 배치 수정·관련/전체/화면 검증 후 동일후보 공개",
+  "next_step": "전체 CI42782916111·3폰높이 mixed 화면검수→동일성공후보 v1.24 공개",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -248,9 +248,9 @@
     "release_authorized": false
   },
   "full_release_ci": {
-    "run": 42775202696,
-    "status": "success",
-    "source_commit": "77c1eb4787f6c41b7d3f6257c8a87a9209fe17ea"
+    "run": 42782916111,
+    "status": "in_progress",
+    "source_commit": "e99eabdc11ebca7307e0d35a3a43fbe14f20d64e"
   },
   "release_candidate": {
     "version": {
