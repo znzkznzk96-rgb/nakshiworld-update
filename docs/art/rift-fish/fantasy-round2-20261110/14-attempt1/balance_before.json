@@ -1,13 +1,13 @@
 {
-  "credits": {
-    "type": "usd",
-    "usd": 0.0
-  },
-  "subscription": {
-    "type": "generations",
-    "status": "active",
-    "plan": "Tier 2: Pixel Artisan",
-    "generations": 1101.6,
-    "total": 3935.0
-  }
+  "id": "14",
+  "attempt": 1,
+  "model": "edit-image-pixen",
+  "seed": 2026111414,
+  "request_sha256": "38d80629ff3f02c01790afb22a2e4e88430fb46b101824dbd09e94cfc4ab9a01",
+  "job_id": "339dc6be-00bc-474b-940e-00dd6bdc4c1a",
+  "http_status": 202,
+  "status": "passed",
+  "result_sha256": "a1b1454e9dcb7382b3507333a64a3dcc113f4faca60b70b87f5610c47efaa45f",
+  "actual_generation_delta": 1.0,
+  "private_response_fields_omitted": true
 }

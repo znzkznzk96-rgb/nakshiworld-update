@@ -1,42 +1,13 @@
 {
-  "usage": {
-    "type": "generations",
-    "generations": 1.0
-  },
-  "id": "3bc4aeb3-d590-4617-8474-88854af95034",
-  "status": "completed",
-  "created_at": "2026-11-10T14:10:35.671368+00:00",
-  "last_response": {
-    "seed": 2026111413,
-    "type": "message_done",
-    "image": {
-      "type": "base64",
-      "width": 96,
-      "base64": "[omitted encoded image; original.png preserves exact bytes]",
-      "height": 64
-    },
-    "usage": {
-      "seconds": 20.327786207199097
-    },
-    "progress": 0.6833333333333333,
-    "billing_usage": {
-      "usd": 0.0,
-      "type": "generations",
-      "generations": 1
-    },
-    "generation_id": "66731ffc-b9ee-45bf-9c30-b69a4fef1192",
-    "queue_position": 0,
-    "billing_charged": true,
-    "generation_mode": "edit_image_pixen",
-    "quantized_image": {
-      "type": "base64",
-      "width": 96,
-      "base64": "[omitted encoded image; original.png preserves exact bytes]",
-      "height": 64
-    },
-    "generation_started_at": "2026-11-10T14:10:51.608173+00:00",
-    "estimated_wait_seconds": 0,
-    "original_image_n_colors": 1189,
-    "quantized_image_n_colors": 41
-  }
+  "id": "13",
+  "attempt": 1,
+  "model": "edit-image-pixen",
+  "seed": 2026111413,
+  "request_sha256": "3de563611b9fe1443473dbebeaadc6b85a30be9907cc10f50cb7512e123d57a5",
+  "job_id": "3bc4aeb3-d590-4617-8474-88854af95034",
+  "http_status": 202,
+  "status": "passed",
+  "result_sha256": "0552465627aae2e7b25cffe078b1ffd41c9ceb11c60e984a1e285e13ae01baa7",
+  "actual_generation_delta": 1.0,
+  "private_response_fields_omitted": true
 }

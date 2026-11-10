@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "note": "전기빛 노랑·코발트 번개무늬·청록 지느러미가 원본에서 선명함. 등지느러미는 번개형보다 일반 삼각형에 가까워 명세와 차이를 기록하고 사용자 검토용 후보로만 보존. 추가 재생성 없음.",
+  "reviewed_at_native_and_nearest6x": true,
+  "compared_with_actual_reservoir_original": true,
+  "size": [
+    96,
+    64
+  ],
+  "bbox": [
+    7,
+    10,
+    87,
+    51
+  ],
+  "mode": "RGBA",
+  "sha256": "a539214aa0edbda35a7f6af430791b8d73f65e2b28682403e3ccb2916d3d2da3",
+  "reference_sha256": "35d557efb6ae37167aa577f0f0e8e0ff7a4aa7e580b34f529e359ddba8496ac0",
+  "shape": "passed",
+  "color": "passed",
+  "shading_pixel_clusters": "passed",
+  "outline": "passed",
+  "species_feature": "passed",
+  "alpha_margin": "passed",
+  "actual_generation_delta": 1.0,
+  "game_applied": false,
+  "user_final_approval": "pending"
+}

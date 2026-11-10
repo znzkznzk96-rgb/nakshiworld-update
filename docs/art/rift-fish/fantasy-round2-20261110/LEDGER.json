@@ -15,10 +15,6 @@
       "http_status": 202,
       "job_id": "fc294592-d741-48c3-b5d6-232fa2c025a8",
       "actual_generation_delta": 1.0,
-      "usage": {
-        "type": "generations",
-        "generations": 1.0
-      },
       "result_sha256": "2062da2f06ab89d7a775cd87115723b4bf6a2aade2fbc7118bd3f87626281c43"
     },
     {
@@ -33,10 +29,6 @@
       "prior_round_requests": 2,
       "http_status": 200,
       "actual_generation_delta": 1.0,
-      "usage": {
-        "type": "generations",
-        "generations": 1.0
-      },
       "result_sha256": "c101fa2cf92ba62596d2641048cea7800e6bf1b3c7f350dee039e9588f3002e5"
     },
     {
@@ -51,10 +43,6 @@
       "prior_round_requests": 2,
       "http_status": 200,
       "actual_generation_delta": 1.0,
-      "usage": {
-        "type": "generations",
-        "generations": 1.0
-      },
       "result_sha256": "8d59a5a90a79890715d1ecc2f6c3232b331a17fce02acc18208c4dd97450f5ae"
     },
     {
@@ -69,10 +57,6 @@
       "prior_round_requests": 2,
       "http_status": 200,
       "actual_generation_delta": 1.0,
-      "usage": {
-        "type": "generations",
-        "generations": 1.0
-      },
       "result_sha256": "ee248c3a3d789b33242f20efe822dd94840f7217bc4e6fb921ce6b42ffd81889"
     },
     {
@@ -88,10 +72,6 @@
       "http_status": 202,
       "job_id": "cd1ebcf6-28b7-454e-9a61-7fc4f809160e",
       "actual_generation_delta": 1.0,
-      "usage": {
-        "type": "generations",
-        "generations": 1.0
-      },
       "result_sha256": "5f7b7e1af3bf27e27d339c3195dd16c6ab3fcabfc7a056e967dab1ecea94a86b"
     },
     {
@@ -107,10 +87,6 @@
       "http_status": 202,
       "job_id": "0e3b27e6-8057-4bc2-9e3b-3bb0de894485",
       "actual_generation_delta": 1.0,
-      "usage": {
-        "type": "generations",
-        "generations": 1.0
-      },
       "result_sha256": "d3d1248d103a3156c4fe4aebe9a430301071db8337fcc7feabc72e47e510be4c"
     },
     {
@@ -126,10 +102,6 @@
       "http_status": 202,
       "job_id": "568fe519-b61f-449f-9c84-4101f32c5da4",
       "actual_generation_delta": 1.0,
-      "usage": {
-        "type": "generations",
-        "generations": 1.0
-      },
       "result_sha256": "b297644989f0673647bc79fbba4f40ea42986abec11fe77aa835896ea67cde62"
     },
     {
@@ -144,10 +116,6 @@
       "prior_round_requests": 0,
       "http_status": 200,
       "actual_generation_delta": 1.0,
-      "usage": {
-        "type": "generations",
-        "generations": 1.0
-      },
       "result_sha256": "635f349c870335fc2bcac502335d8906e6144cfb16355ee2d0aa4184767a7d59"
     },
     {
@@ -162,10 +130,6 @@
       "prior_round_requests": 0,
       "http_status": 200,
       "actual_generation_delta": 1.0,
-      "usage": {
-        "type": "generations",
-        "generations": 1.0
-      },
       "result_sha256": "e1271858720be724acbb7a0ad6d4e87baff5f5d46bdca52f33332793865f2959"
     },
     {
@@ -180,10 +144,6 @@
       "prior_round_requests": 0,
       "http_status": 200,
       "actual_generation_delta": 1.0,
-      "usage": {
-        "type": "generations",
-        "generations": 1.0
-      },
       "result_sha256": "1ae94d6c8f7419023cafcf687b95fd1f4d63bf415ad4860ab0f0e19594753582"
     },
     {
@@ -199,10 +159,6 @@
       "http_status": 202,
       "job_id": "3bc4aeb3-d590-4617-8474-88854af95034",
       "actual_generation_delta": 1.0,
-      "usage": {
-        "type": "generations",
-        "generations": 1.0
-      },
       "result_sha256": "0552465627aae2e7b25cffe078b1ffd41c9ceb11c60e984a1e285e13ae01baa7"
     },
     {
@@ -218,10 +174,6 @@
       "http_status": 202,
       "job_id": "339dc6be-00bc-474b-940e-00dd6bdc4c1a",
       "actual_generation_delta": 1.0,
-      "usage": {
-        "type": "generations",
-        "generations": 1.0
-      },
       "result_sha256": "a1b1454e9dcb7382b3507333a64a3dcc113f4faca60b70b87f5610c47efaa45f"
     },
     {
@@ -237,10 +189,6 @@
       "http_status": 202,
       "job_id": "2b36c3fb-ebac-4d94-822f-403b0d709c75",
       "actual_generation_delta": 1.0,
-      "usage": {
-        "type": "generations",
-        "generations": 1.0
-      },
       "result_sha256": "c786e842fb44308cbfe7625759c0afd02169d52f7ea9452ee7c3c84df7aa49fe"
     },
     {
@@ -256,10 +204,6 @@
       "http_status": 202,
       "job_id": "1016e602-e247-4bbf-a048-1b19a40b92f9",
       "actual_generation_delta": 1.0,
-      "usage": {
-        "type": "generations",
-        "generations": 1.0
-      },
       "result_sha256": "180887aa8637707756354c0cc4deef1d7e8a8fe87e4f81a0d1785bdb2425262f"
     },
     {
@@ -274,21 +218,46 @@
       "prior_round_requests": 0,
       "http_status": 200,
       "actual_generation_delta": 1.0,
-      "usage": {
-        "type": "generations",
-        "generations": 1.0
-      },
       "result_sha256": "3b25bc82ec3922c322af5c75bef419c799ddd96f5b52c4bd358aa4fe49536375"
     },
     {
       "id": "16",
       "name": "월식 개복치",
       "attempt": 2,
-      "status": "submission_pending",
+      "status": "rejected",
       "model": "create-image-pixen",
       "seed": 2026111516,
       "request_sha256": "48de547a3ccaf8a81b3650e23de418f9a43733c36090a51a79098c1e9b367de1",
       "submitted_at_unix": 1794320253.5513966,
+      "prior_round_requests": 0,
+      "http_status": 200,
+      "actual_generation_delta": 1.0,
+      "result_sha256": "acd282eed081b31a6fe2e2c05eb8919ce0576f0cf30792a51b6cf44e574f23b6"
+    },
+    {
+      "id": "17",
+      "name": "뇌광 삼치",
+      "attempt": 1,
+      "status": "passed",
+      "model": "edit-image-pixen",
+      "seed": 2026111417,
+      "request_sha256": "be3aeb6b05eb62a248cc65bd0244be849bd18915b277533b24088bd12b10323e",
+      "submitted_at_unix": 1794320341.3685594,
+      "prior_round_requests": 0,
+      "http_status": 202,
+      "job_id": "b02b846e-7792-4006-a999-3eb0f6bf6d45",
+      "actual_generation_delta": 1.0,
+      "result_sha256": "a539214aa0edbda35a7f6af430791b8d73f65e2b28682403e3ccb2916d3d2da3"
+    },
+    {
+      "id": "18",
+      "name": "차원창 청새치",
+      "attempt": 1,
+      "status": "submission_pending",
+      "model": "create-image-pixen",
+      "seed": 2026111418,
+      "request_sha256": "0c0dfc07aa1c98193315ac9c76f88734578558a246262e6bf287f7a7c3644786",
+      "submitted_at_unix": 1794320437.5959017,
       "prior_round_requests": 0
     }
   ],
@@ -368,8 +337,8 @@
       "status": "internal_quality_pass_user_review_pending"
     }
   ],
-  "generation_requests": 16,
-  "accepted_outputs": 7,
-  "rejected_outputs": 8,
-  "actual_generations_charged": 15.0
+  "generation_requests": 18,
+  "accepted_outputs": 8,
+  "rejected_outputs": 9,
+  "actual_generations_charged": 17.0
 }
