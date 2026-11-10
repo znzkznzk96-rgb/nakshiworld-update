@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "updater_font_related_verified_ci_running",
+  "status": "release123_authorized_verified",
   "release_baseline": "v1.22",
   "target_release": "v1.23",
   "deployed": false,
   "phone_verified": false,
-  "handoff": "docs/qa/updater-font/HANDOFF.md",
-  "current_task": "업데이트→게임준비 전환 폰트 찌그러짐 수정",
-  "next_step": "전체자동CI42775202696 결과확인. 새배포요청시동일성공후보공개.",
+  "handoff": "docs/releases/123/HANDOFF.md",
+  "current_task": "v1.23 동일 검증후보 공개",
+  "next_step": "main 병합 후 동일후보 공개·운영 검증",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -43,9 +43,9 @@
   "remaining_global_render_checks": false,
   "release_authorization": {
     "date": "2026-11-10",
-    "user_request": "배포가자 ㅇㅇ",
-    "scope": "v1.22 성급별크기/스킬표시/전투창",
-    "fulfilled": true
+    "user_request": "업데이투및 배포해줘 apk는 새로 받아야하나?",
+    "scope": "v1.23 2성 본체 재보정·글꼴 공유 수정",
+    "fulfilled": false
   },
   "release_preflight": "docs/qa/soldier-size/VERIFICATION.json",
   "release_source_commit": "b14f8935f0941b58c085bcc98f3435cc31a3e778",
@@ -118,7 +118,7 @@
     "production_balance_changed": false,
     "phone_tested": false
   },
-  "release_authorized": false,
+  "release_authorized": true,
   "balance110": {
     "applied": true,
     "deployed": true,
@@ -248,18 +248,18 @@
     "release_authorized": false
   },
   "full_release_ci": {
-    "run": 42763368422,
+    "run": 42775202696,
     "status": "success",
-    "source_commit": "b14f8935f0941b58c085bcc98f3435cc31a3e778"
+    "source_commit": "77c1eb4787f6c41b7d3f6257c8a87a9209fe17ea"
   },
   "release_candidate": {
     "version": {
-      "code": 122,
-      "name": "1.22"
+      "code": 123,
+      "name": "1.23"
     },
-    "source_commit": "b14f8935f0941b58c085bcc98f3435cc31a3e778",
-    "artifact": 13738329660,
-    "input_fingerprint": "84ea3dcd357400bc4775335e768e89d967433890779d5f74346e80354f10c164",
+    "source_commit": "77c1eb4787f6c41b7d3f6257c8a87a9209fe17ea",
+    "artifact": 13743369539,
+    "input_fingerprint": "4392514b8e37934226a134bfd15542c2140891369e2a9667a8a9e5deb7ea4f04",
     "verified": true
   },
   "release_resume_run": 42424430555,
