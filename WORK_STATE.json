@@ -1,17 +1,17 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "rift_motion_held3_retry_in_progress",
+  "status": "rift_motion_19_passed_mirrorwing_held",
   "release_baseline": "v1.25",
   "target_release": "v1.25",
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/art/rift-fish/HANDOFF.md",
-  "current_task": "균열 보류3종 모션 재제작",
-  "next_step": "검증HD원화로07→14→20종당모션1요청·검수,실패종만보류. 기존17종 보호·게임미적용.",
+  "current_task": "균열 보류3종 모션 재제작 결과 저장완료",
+  "next_step": "19종 모션 사용자 검토. 거울날개 날치14는 회색잔상 반복으로 보류; 다음 수정은 추가유료요청 전 접근법 재검토. 게임적용/배포 별도 지시.",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
-  "verification": "docs/art/rift-fish/motion-hd-20261111/DELIVERY_VERIFICATION.json",
+  "verification": "docs/art/rift-fish/motion-held3-r3-20261111/DELIVERY_VERIFICATION.json",
   "baseline_phone_verified": false,
   "environment_recovery": "docs/CODEX_NETWORK_RECOVERY.md",
   "background_verified_branch": "work/tile-png-stage2-20261107",
@@ -1244,15 +1244,13 @@
     "verification": "docs/art/rift-fish/motion-20261111/REMOTE_VERIFICATION.json"
   },
   "rift_hd_motion": {
-    "status": "complete_user_review_pending",
+    "status": "19_passed_1_held",
     "spec": "docs/art/rift-fish/motion-hd-20261111/SPEC.json",
     "ledger": "docs/art/rift-fish/motion-hd-20261111/LEDGER.json",
     "total_species": 20,
-    "completed": 17,
+    "completed": 19,
     "held": [
-      "07",
-      "14",
-      "20"
+      "14"
     ],
     "fight_max_logical_length": 156,
     "source_canvas_width": 232,
@@ -1270,6 +1268,7 @@
       "04",
       "05",
       "06",
+      "07",
       "08",
       "09",
       "10",
@@ -1280,14 +1279,37 @@
       "16",
       "17",
       "18",
-      "19"
+      "19",
+      "20"
     ],
-    "paid_requests": 47,
-    "actual_generations_charged": 56,
+    "paid_requests": 50,
+    "actual_generations_charged": 61,
     "processed": 20,
-    "manifest": "docs/art/rift-fish/motion-hd-20261111/MANIFEST.json",
-    "verification": "docs/art/rift-fish/motion-hd-20261111/DELIVERY_VERIFICATION.json",
-    "remote_verification": "docs/art/rift-fish/motion-hd-20261111/REMOTE_VERIFICATION.json",
-    "native_min_content_width": 171
+    "manifest": "docs/art/rift-fish/CURRENT_SELECTION.json",
+    "verification": "docs/art/rift-fish/motion-held3-r3-20261111/DELIVERY_VERIFICATION.json",
+    "remote_verification": "docs/art/rift-fish/motion-held3-r3-20261111/REMOTE_VERIFICATION.json",
+    "native_min_content_width": 171,
+    "selection": "docs/art/rift-fish/CURRENT_SELECTION.json",
+    "ledgers": [
+      "docs/art/rift-fish/motion-hd-20261111/LEDGER.json",
+      "docs/art/rift-fish/motion-held3-r3-20261111/LEDGER.json"
+    ],
+    "prior_batch_manifest": "docs/art/rift-fish/motion-hd-20261111/MANIFEST.json"
+  },
+  "rift_motion_followup_r3": {
+    "status": "complete_2_passed_1_held",
+    "passed": [
+      "07",
+      "20"
+    ],
+    "held": [
+      "14"
+    ],
+    "paid_requests": 3,
+    "actual_generations_charged": 5,
+    "manifest": "docs/art/rift-fish/motion-held3-r3-20261111/MANIFEST.json",
+    "verification": "docs/art/rift-fish/motion-held3-r3-20261111/REMOTE_VERIFICATION.json",
+    "game_applied": false,
+    "deployed": false
   }
 }

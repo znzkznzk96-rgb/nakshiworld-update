@@ -1,3 +1,6 @@
+## 2026-11-11 — 보류3종 모션 재개: 2종 해결·1종 보류
+금간정어리/폭풍다랑어의외부파편을해결해전체모션19종통과. 거울날치는회색잔상재발로보류. 이번3요청·실제5회분,원화/기존17종유지·16프레임원본및LOD/원격검증통과. 게임미적용/새배포없음. [현재선택](docs/art/rift-fish/CURRENT_SELECTION.json)·[검증](docs/art/rift-fish/motion-held3-r3-20261111/DELIVERY_VERIFICATION.json).
+
 ## 2026-11-11 — 균열해역 HD 모션20종 전체 제작·검수
 사용자 크기요구에 따라 native232폭 원화와16프레임유영을 종별순차제작. 내부통과17종·금간정어리/거울날개날치/폭풍다랑어3종은공유추가1회후재불량으로보류. 요청47회·실제56회분차감. 통과프레임본체폭171~202px로파이팅상한156논리픽셀대비확인,원본/LOD/atlas/ZIP및원격해시검증통과. 게임미적용·새배포없음. [결과](docs/art/rift-fish/HANDOFF.md)·[검증](docs/art/rift-fish/motion-hd-20261111/DELIVERY_VERIFICATION.json).
 
