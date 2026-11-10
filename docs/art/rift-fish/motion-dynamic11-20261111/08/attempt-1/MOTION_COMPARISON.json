@@ -1,0 +1,22 @@
+{
+  "id": "08",
+  "attempt": 1,
+  "old": {
+    "silhouette_change_max": 0.193,
+    "min_content_width": 171,
+    "unclipped": true
+  },
+  "new": {
+    "silhouette_change_max": 0.331,
+    "min_content_width": 117,
+    "unclipped": true
+  },
+  "native_reference_content_width": 190,
+  "fixed_common_bbox": [
+    19,
+    17,
+    211,
+    67
+  ],
+  "scale_policy": "fixed reference length/common bbox and anchor; never fit each pose to target width; natural tail edge-on narrowing allowed without enlargement"
+}
