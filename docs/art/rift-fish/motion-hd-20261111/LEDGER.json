@@ -1191,10 +1191,36 @@
       "expected_output_count": 17,
       "quoted_generations": 2,
       "game_applied": false,
-      "status": "submitted",
+      "status": "rejected",
       "submitted_unix": 1794332657.256942,
       "http_status": 200,
-      "job_id": "72479a80-0e3a-4d9b-9961-a5819357cae3"
+      "job_id": "72479a80-0e3a-4d9b-9961-a5819357cae3",
+      "billing_source": "completed_job.billing_usage",
+      "actual_generation_delta": 2.0,
+      "output_count": 17
+    },
+    {
+      "id": "20",
+      "name": "폭풍다랑어",
+      "stage": "motion",
+      "attempt": 2,
+      "model": "animate-pixminimax",
+      "seed": 2026113120,
+      "native_canvas": [
+        232,
+        168
+      ],
+      "input_sha256": "6bf0743312f5e32b29d627434354af7d273d8e38541603e6092f26f5b1e8c834",
+      "input_role": "internally passed native HD original derived from the user-approved fish",
+      "request_sha256": "bb5db756d8a714aea5e1d6913591c440a671a393bbe86c48597ce7b0cebc11c9",
+      "additional_request_used": 1,
+      "expected_output_count": 17,
+      "quoted_generations": 2,
+      "game_applied": false,
+      "status": "submitted",
+      "submitted_unix": 1794332786.2634537,
+      "http_status": 200,
+      "job_id": "4f5dc78b-76dd-4361-9503-26e49bb4665a"
     }
   ],
   "status": "one_active",
@@ -1204,7 +1230,8 @@
     "07": 1,
     "11": 1,
     "13": 1,
-    "14": 1
+    "14": 1,
+    "20": 1
   },
-  "actual_generations_charged": 52.0
+  "actual_generations_charged": 54.0
 }

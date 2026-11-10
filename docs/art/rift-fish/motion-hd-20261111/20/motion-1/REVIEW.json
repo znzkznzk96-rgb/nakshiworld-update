@@ -1,0 +1,19 @@
+{
+  "id": "20",
+  "stage": "motion",
+  "attempt": 1,
+  "status": "rejected",
+  "note": "몸 밖 청록 점과 전기 파편이 여러 프레임에서 방출되어 피부 번개 한정 조건 미충족. 원화는 유지하고 모션 수정1회 사용.",
+  "reviewed_native_and_nearest": true,
+  "approved_source_compared": true,
+  "observed_direction": "west",
+  "shape": "passed",
+  "color": "passed",
+  "native_detail": "failed",
+  "species_features": "passed",
+  "motion": "failed",
+  "alpha_margin": "passed",
+  "native_width_at_least_fight_max": "passed",
+  "actual_generation_delta": 2.0,
+  "game_applied": false
+}

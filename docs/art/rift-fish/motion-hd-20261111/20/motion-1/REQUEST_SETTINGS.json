@@ -1,0 +1,16 @@
+{
+  "first_frame": {
+    "encoded_image_omitted": true,
+    "sha256": "6bf0743312f5e32b29d627434354af7d273d8e38541603e6092f26f5b1e8c834",
+    "input_role": "internally passed native HD original derived from the user-approved fish"
+  },
+  "description": "Powerful slow tail strokes, the crimson storm sail billows with controlled follow-through, two attached violet ribbon fins trail in small waves; cyan lightning skin seams pulse subtly. Keep the strong tuna body and all parts unchanged. Lightning stays strictly on the skin, with no emitted bolts or particles. Seamless gentle swimming loop IN PLACE, head LEFT throughout. Fixed camera, sprite position and scale. Preserve exact original identity, colors, markings and fin/tail count. No turning, new parts, particles, scenery, cropping or camera motion.",
+  "frame_count": 16,
+  "seed": 2026113020,
+  "no_background": true,
+  "enhance_prompt": false,
+  "direction": "west",
+  "view": "side",
+  "subject_description": "midnight-cobalt storm tuna with crimson sail and cyan lightning seams",
+  "initial_pose": "neutral horizontal swimming pose; head LEFT, tail or mantle RIGHT; whole creature visible inside transparent margins"
+}
