@@ -1,0 +1,19 @@
+{
+  "id": "12",
+  "name": "균열꽃 광어",
+  "stage": "base",
+  "attempt": 1,
+  "model": "edit-image-pixen",
+  "seed": 2026112012,
+  "native_canvas": [
+    232,
+    156
+  ],
+  "input_sha256": "69526aa3c70ebf32fd667750958a1d43a4a62a61d56a763796069700f65ffc6e",
+  "input_role": "user-approved fish, transparent margins cropped/padded only",
+  "request_sha256": "aefcb858e79115a24601ec4a45bf8354e142872395f3fa977a2b8f83a8231827",
+  "additional_request_used": 0,
+  "expected_output_count": 1,
+  "quoted_generations": 1,
+  "game_applied": false
+}
