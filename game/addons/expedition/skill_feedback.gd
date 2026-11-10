@@ -83,3 +83,37 @@ func skill_events(events:Array)->Array:
 		if indices.has(key):result[indices[key]].amount+=int(event.amount)
 		else:indices[key]=result.size();result.append(event.duplicate(true))
 	return result
+
+# Pure screen layout: expired labels cannot reserve slots or move active ones.
+func damage_layout(model,room:Rect2,enemy_center:float)->Array:
+	var normal:Array=[];var skills:Array=[]
+	var b:Dictionary=model.battle
+	for event in damage_events(b):
+		var slot:int=-1
+		for i in b.fighters.size():
+			if int(b.fighters[i].uid)==int(event.source):slot=i;break
+		if slot<0 or int(event.amount)<=0:continue
+		var skill:bool=event.has("skill_at")
+		var age:float=maxf(0,clock(model)-float(event.skill_at)-.1) if skill else float(b.get("fx",{}).get("age",99))-slot*.10
+		if age<0 or age>.75:continue
+		var item:Dictionary={"event":event,"age":age,"skill":skill}
+		if skill:skills.append(item)
+		else:normal.append(item)
+	skills.sort_custom(func(a,b):return a.age<b.age)
+	normal.sort_custom(func(a,b):return a.age<b.age)
+	var selected:Array=skills.slice(0,2 if not normal.is_empty() else 3)
+	selected.append_array(normal.slice(0,3-selected.size()))
+	var used:Array=[];var rows:Dictionary={false:0,true:0}
+	for item in selected:
+		var width:float=56 if item.skill else 44
+		var x:float=minf(enemy_center-34,room.end.x-104) if item.skill else room.end.x-width-3
+		x=clampf(x,room.position.x+3,room.end.x-width-3)
+		var row:int=rows[item.skill];rows[item.skill]+=1
+		var rect:Rect2=Rect2(x,room.position.y+1+row*16,width,14)
+		# Include the complete upward drift and outline in the reserved rectangle.
+		rect.position.y=clampf(rect.position.y,room.position.y+1,room.end.y-15)
+		for other in used:
+			if rect.grow(1).intersects(other):rect.position.y=other.end.y+2
+		rect.position.y=minf(rect.position.y,room.end.y-15)
+		item["rect"]=rect;used.append(rect);item["at"]=rect.position+Vector2(34 if item.skill else 25,11)
+	return selected

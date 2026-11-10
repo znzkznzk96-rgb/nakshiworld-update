@@ -340,14 +340,9 @@ func battle_art(m,r: Rect2) -> void:
 	if phase!="approach" and int(b.enemy.hp)>0:
 		health_bar(m,Rect2(enemy_x+display/2-18,r.position.y+3,36,4),float(b.enemy.hp),float(b.enemy.max_hp),float(fx.get("enemy_hp_before",b.enemy.hp)) if age<.8 else float(b.enemy.hp),Color("df665a"))
 	if fx.has("attacks") or not b.get("skill_popups",[]).is_empty():
-		for event in skill_feedback.damage_events(b):
-			var slot: int=-1
-			for i in b.fighters.size():
-				if int(b.fighters[i].uid)==int(event.source): slot=i;break
-			if slot<0: continue
-			var role: String=str(event.role)
-			var event_age:float=maxf(0,skill_feedback.clock(data)-float(event.skill_at)-.1) if event.has("skill_at") else age-slot*.10
-			damage_value(m,Vector2(r.end.x-32,r.position.y+(22 if r.size.y>=65 else 19)+slot*(17 if r.size.y>=65 else 13)),int(event.amount),role,event_age,event if event.has("skill_at") else {})
+		for item in skill_feedback.damage_layout(data,r,enemy_x+display/2):
+			var event:Dictionary=item.event
+			damage_value(m,item.at,int(event.amount),str(event.role),float(item.age),event if item.skill else {})
 		if int(fx.get("poison_damage",0))>0:
 			floating_value(m,Vector2(enemy_x+display/2-20,ground-2),"독 -%d"%int(fx.poison_damage),Color("ff706b"),age-.18)
 	elif age<.7 and fx.has("outgoing"):
@@ -964,19 +959,19 @@ func draw_upgrade_effect(m,y: float,bottom: float) -> void:
 # Role icon + damage only. No invented position/role labels.
 func damage_value(m,at: Vector2,amount: int,role: String,age: float,skill_event:Dictionary={}) -> void:
 	if amount<=0 or age<0 or age>.75: return
-	var color: Color=Color("ff706b")
+	var color: Color=Color("fff0ca")
 	color.a=1-smoothstep(.48,.75,age)
-	var pos: Vector2=(at-Vector2(0,age*8)).round()
+	var pos: Vector2=(at-Vector2(0,age*3)).round()
 	if skill_event.is_empty():
-		m._ui_texture_rect(textures["role_"+role],Rect2(pos+Vector2(-27,-9),Vector2(11,11)),false,Color(1,1,1,color.a))
+		m._ui_texture_rect(textures["role_"+role],Rect2(pos+Vector2(-24,-8),Vector2(8,8)),false,Color(1,1,1,color.a))
 	else:
 		var accent:Color=skill_feedback.color_for(data,int(skill_event.skill_id))
 		skill_feedback.badge(m,int(skill_event.skill_id),int(skill_event.skill_star),Rect2(pos+Vector2(-29,-10),Vector2(12,12)),accent,color.a)
 	var value: String=str(amount)
 	var stroke:Color=Color(.12,.09,.08,color.a) if skill_event.is_empty() else Color(skill_feedback.color_for(data,int(skill_event.skill_id)),color.a)
-	for offset in [Vector2(-1,0),Vector2(1,0),Vector2(0,-1),Vector2(0,1)]: m._text(value,pos+offset,10,stroke,true,40)
-	if not skill_event.is_empty():color=Color(1,1,.94,color.a)
-	m._text(value,pos,10,color,true,40)
+	for offset in [Vector2(-1,0),Vector2(1,0),Vector2(0,-1),Vector2(0,1)]: m._text(value,pos+offset,10 if not skill_event.is_empty() else 8,stroke,true,40 if not skill_event.is_empty() else 32)
+	if not skill_event.is_empty():color=Color(1,.86,.36,color.a)
+	m._text(value,pos,10 if not skill_event.is_empty() else 8,color,true,40 if not skill_event.is_empty() else 32)
 
 func result_copy() -> Dictionary:
 	var b: Dictionary=data.battle

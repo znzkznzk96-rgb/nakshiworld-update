@@ -47,7 +47,7 @@ func run():
 	for role in ["attack","defense","support"]:
 		var probe=Probe.new();v.damage_value(probe,Vector2.ZERO,20,role,.1)
 		check(probe.strokes==0,"no decorative slash strokes")
-		check(probe.colors.back()==Color("ff706b"),"all role damage red")
+		check(probe.colors.back()==Color("fff0ca"),"normal damage cream")
 	v.data.battle.ticks=2;v.data.battle.fighters[0].hp=10;v.data.tick()
 	check(v.data.battle.fx.attacks.size()==2,"support turn excludes support attack")
 	print("COMBAT_FEEDBACK_VERIFY failures=",failures);quit(0 if failures.is_empty() else 1)

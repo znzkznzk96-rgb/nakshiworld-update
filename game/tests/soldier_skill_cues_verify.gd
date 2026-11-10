@@ -61,6 +61,25 @@ func _init()->void:
 	check(skill_probe.labels.has("321") and normal_probe.labels.has("123"),"skill and normal numeric damage stay visible")
 	check(skill_probe.colors[0]!=normal_probe.colors[0],"skill border has source element color")
 	check(skill_probe.textures[0][0]!=normal_probe.textures[0][0],"skill icon differs from normal role icon")
+	# Mixed simultaneous normal / skill hits, expired entries, all supported room heights.
+	m.battle.skill_time=3.2;m.battle.skill_accumulator=0;m.battle.fx.age=.25
+	m.battle.skill_popups=[];m.battle.fx.attacks=[]
+	for i in 3:
+		var f:Dictionary=m.battle.fighters[i]
+		m.battle.fx.attacks.append({"source":f.uid,"amount":123456,"role":"attack"})
+		m.battle.skill_popups.append({"source":f.uid,"amount":321,"role":"attack","skill_at":3.0,"skill_id":f.id,"skill_star":3})
+	var saved:Dictionary=m.serialize().duplicate(true);var saved_rng:int=m.rng.state
+	for height in [48,60,78,120]:
+		var room:=Rect2(10,30,246,height)
+		var labels:Array=c.damage_layout(m,room,190)
+		check(labels.size()==3,"mixed hits capped at three")
+		check(labels.any(func(v):return not v.skill) and labels.any(func(v):return v.skill),"normal and skill both get space")
+		for i in labels.size():
+			check(room.encloses(labels[i].rect),"label fully inside room")
+			for j in range(i):check(not labels[i].rect.intersects(labels[j].rect),"damage label rectangles do not overlap")
+	check(m.serialize()==saved and m.rng.state==saved_rng,"layout leaves combat and RNG untouched")
+	m.battle.skill_time=4.1;m.battle.fx.age=1.1
+	check(c.damage_layout(m,Rect2(0,0,246,60),180).is_empty(),"expired labels free all slots")
 	for star in [1,2,3]:
 		for id in 15:check(c.texture(id,star)!=null,"all 45 existing skill icons resolve")
 	print("SOLDIER_SKILL_CUES_VERIFY failures=",failures);quit(0 if failures.is_empty() else 1)

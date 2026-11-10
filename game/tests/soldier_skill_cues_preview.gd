@@ -14,6 +14,8 @@ func configure(m,ids:Array,mode:String)->void:
 		d.battle.skill_time=3
 		for f in d.battle.fighters:d.TIER_SKILLS.cast(d,f);f.skill_ready=99
 		d.battle.skill_time=3.13;d.battle.fx.age=.13
+	if mode=="mixed":
+		for f in d.battle.fighters:d.battle.fx.attacks.append({"source":f.uid,"amount":123,"role":"attack"})
 	for f in d.battle.fighters:
 		if v.skill_feedback.cue(d,f).is_empty():failures.append("missing caster cue "+str(f.id))
 func run()->void:
@@ -23,9 +25,9 @@ func run()->void:
 	var txt:=Node2D.new();txt.set_script(load("res://text_layer.gd"));ui.add_child(txt)
 	var m=load("res://main.gd").new();m.text_layer=txt;m.development_preview=true;m.SET.sfx=0;m.SET.music=0;root.add_child(m);await process_frame;m.set_process(false)
 	m.title_open=false;m.lesson_open=false;m.tip_t=0;m.guide.opened=false;m.mailbox.opened=false;m.trans={};m.TUT.done=true;m.scene="village";m.S={"phase":"idle"};m.V.enter(m)
-	for height in [480,660]:
+	for height in [480,540,660]:
 		root.content_scale_size=Vector2i(270,height);root.size=Vector2i(540,height*2);await process_frame;m._layout()
-		for mode in ["prepare","cast","support"]:
+		for mode in ["prepare","cast","support","mixed"]:
 			configure(m,[3,7,12] if mode=="support" else [0,1,5],mode)
 			m.expedition.open(m,"explore");m.expedition.explore_tab=0
 			await capture(m,out.path_join("%s-detail-h%d.png"%[mode,height]))
