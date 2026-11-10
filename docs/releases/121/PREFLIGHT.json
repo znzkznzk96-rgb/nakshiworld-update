@@ -6,11 +6,15 @@
   },
   "source_commit": "2aa40bdaefbb4dd674baaf39d15b730dc12493a4",
   "verification_run": 42759712975,
-  "status": "in_progress",
+  "status": "success",
   "pull_request": 59,
   "publication_authorized": true,
   "deployed": false,
   "phone_verified": false,
   "unchanged_inputs_after_source": true,
-  "baseline_history_reconciled": "main and work v1.20 baseline tree both 1b7735294af92969e4af542221f4f4fee371d2f1"
+  "baseline_history_reconciled": "main and work v1.20 baseline tree both 1b7735294af92969e4af542221f4f4fee371d2f1",
+  "unique_verify_markers": 105,
+  "native_and_pck": "passed",
+  "candidate_artifact": 13738070834,
+  "fingerprint": "5dc78c10fa2ca6d046ecdb0857b05dd08c894fb177698dcbf4b6cd9156d09ad6"
 }
