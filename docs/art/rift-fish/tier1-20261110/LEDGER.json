@@ -88,14 +88,32 @@
         "generations": 1.0
       },
       "result_sha256": "13e18fda654e6f97b04806d2d6d4f382308db78bf507e02f59130fef463aa378"
+    },
+    {
+      "id": "04",
+      "name": "가시등전어",
+      "attempt": 2,
+      "status": "passed",
+      "model": "edit-image-pixen",
+      "seed": 2026111304,
+      "request_sha256": "cfdb15080418c02bfa8c05b6eb7f23d280cb58f31577131ab1557cb1322540a2",
+      "submitted_at_unix": 1794316312.4479935,
+      "http_status": 202,
+      "job_id": "7d0af23a-c4a2-4b96-983b-b2fb09fabaed",
+      "actual_generation_delta": 1.0,
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "result_sha256": "cca9e6f8bcefe5caf69d5c912e118bda26d88ed4f40d5cb5d401234db4793e3f"
     }
   ],
-  "generation_requests": 5,
+  "generation_requests": 6,
   "status": "continuing_remaining_species_saury_held",
-  "accepted_outputs": 2,
+  "accepted_outputs": 3,
   "rejected_outputs": 2,
   "server_failure_without_image": 1,
-  "actual_generations_charged": 4.0,
+  "actual_generations_charged": 5.0,
   "unstarted_species": 7,
   "no_additional_paid_calls": false,
   "failed_species_policy": "hold individual, continue independent species"
