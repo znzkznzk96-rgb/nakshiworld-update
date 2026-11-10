@@ -1,0 +1,28 @@
+{
+  "status": "rejected",
+  "note": "납작한 몸과 낮은 지느러미는 개선됐으나 좌우 캔버스 경계에 닿아 여백 불충분, 같은 면 두 눈도 뚜렷하지 않고 몸색이 회갈색 저채도로 바뀜. 2회 도달로 광어만 보류.",
+  "reviewed_at_native_and_nearest6x": true,
+  "compared_with_actual_reservoir_original": true,
+  "size": [
+    96,
+    64
+  ],
+  "bbox": [
+    0,
+    1,
+    96,
+    63
+  ],
+  "mode": "RGBA",
+  "sha256": "1ae94d6c8f7419023cafcf687b95fd1f4d63bf415ad4860ab0f0e19594753582",
+  "reference_sha256": "a87f59d881fbd6fe0027a8c9008e95a9849eeb6552d55ba5b1dee634dc690787",
+  "shape": "rejected",
+  "color": "rejected",
+  "shading_pixel_clusters": "passed",
+  "outline": "passed",
+  "species_feature": "rejected",
+  "alpha_margin": "rejected",
+  "actual_generation_delta": 1.0,
+  "game_applied": false,
+  "user_final_approval": "pending"
+}
