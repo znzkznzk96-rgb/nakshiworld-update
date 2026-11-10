@@ -33,7 +33,12 @@
   },
   "ci": {
     "run": 42786187300,
-    "status": "in_progress"
+    "status": "success",
+    "full_regression": "passed",
+    "common_native": "passed",
+    "packed": "passed",
+    "artifact": 13749084884,
+    "input_fingerprint": "b886c55dc6b33c4243bc9aae13db3361166e75baf74776f6a59b3bf443df0396"
   },
   "deployed": false,
   "phone_verified": false,

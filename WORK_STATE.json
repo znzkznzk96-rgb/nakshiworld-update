@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "formation_scroll_related_verified_ci_running",
+  "status": "formation_scroll_full_verified",
   "release_baseline": "v1.24",
   "target_release": "v1.24",
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/qa/formation-scroll/HANDOFF.md",
-  "current_task": "병사배치 목록 경계 카드 부드러운 스크롤 수정",
-  "next_step": "전체CI42786187300·부분스크롤24실화면/경계픽셀검수. 공개v1.24유지·새배포미승인.",
+  "current_task": "병사배치 보유목록 연속 스크롤 수정·전체검증 완료(미배포)",
+  "next_step": "사용자 실화면 검토. 새배포요청 시 신규버전/우편준비 후 최종동일후보공개. 공개v1.24유지.",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -248,9 +248,9 @@
     "release_authorized": false
   },
   "full_release_ci": {
-    "run": 42782916111,
+    "run": 42786187300,
     "status": "success",
-    "source_commit": "e99eabdc11ebca7307e0d35a3a43fbe14f20d64e"
+    "source_commit": "9fd38f869fb94d49c00a48198185b318a3944048"
   },
   "release_candidate": {
     "version": {
@@ -1134,6 +1134,20 @@
     "related_verified": true,
     "source_commit": "9fd38f869fb94d49c00a48198185b318a3944048",
     "ci": 42786187300,
-    "deployed": false
+    "deployed": false,
+    "ci_status": "success",
+    "native_screens": 30,
+    "edge_band_comparisons": 36
+  },
+  "verification_candidate": {
+    "artifact": 13749084884,
+    "input_fingerprint": "b886c55dc6b33c4243bc9aae13db3361166e75baf74776f6a59b3bf443df0396",
+    "source_commit": "9fd38f869fb94d49c00a48198185b318a3944048",
+    "version": {
+      "code": 124,
+      "name": "1.24"
+    },
+    "publication_ready": false,
+    "note": "검사용후보. 공개v1.24와다른소스이며새공개버전/배포미승인."
   }
 }
