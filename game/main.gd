@@ -254,6 +254,8 @@ var cooperative_boot:=false
 var boot_ready:=false
 
 func _ready() -> void :
+	get_tree().quit_on_go_back=false
+	get_tree().root.go_back_requested.connect(_handle_back_request)
 	if cooperative_boot:
 		set_process(false);set_process_input(false);set_process_unhandled_input(false)
 	headlamp_light=preload("res://addons/reservoir/headlamp_light.gd").new()
@@ -1227,7 +1229,17 @@ func show_result(ok: bool) -> void :
 	msg = "보관통에 넣거나 놓아줘요" if ok else "터치하면 다시 던지기"
 
 
+var last_back_frame:=-1
+func _handle_back_request() -> void:
+	var frame:int=Engine.get_process_frames()
+	if last_back_frame==frame:return
+	last_back_frame=frame
+	preload("res://addons/reservoir/back_navigation.gd").handle(self)
+
 func _unhandled_input(e: InputEvent) -> void :
+	if e is InputEventKey and e.keycode==KEY_ESCAPE:
+		if e.pressed and not e.echo:_handle_back_request()
+		get_viewport().set_input_as_handled();return
 	if capture_robot.input_event(self,e): return
 	if bait_picker.input_event(self,e): return
 	if not title_open and expedition.input_event(self,e): return
@@ -3131,6 +3143,8 @@ func aqua_count() -> int:
 func aqua_expand() -> bool:
 	return FACILITIES.purchase(self,"aexpand")
 func _ui_texture(t: Texture2D, p: Vector2, c: Color = Color.WHITE) -> void :
+	if icons.has("close") and t==icons.close:
+		preload("res://addons/reservoir/close_control.gd").draw(self,Rect2(p,Vector2(22,23)));return
 	_ui_texture_rect(t, Rect2(p, t.get_size()), false, c)
 func _ui_texture_rect(t: Texture2D, r: Rect2, tile: bool = false, c: Color = Color.WHITE, transpose: bool = false) -> void :
 	if t.has_meta("master"):

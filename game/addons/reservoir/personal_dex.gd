@@ -120,7 +120,7 @@ func draw(m,h: float) -> void:
 	m._ui_style_box(m.sb_panel,r)
 	preload("res://addons/reservoir/ui_theme.gd").title(m,r,"도감" if selected<0 else ("병사 상세" if soldier_mode() else "물고기 상세"))
 	var close:=Rect2(r.end.x-31,r.position.y+9,22,23)
-	m._ui_style_box(m.sb_btn,close);icon(m,"close",close.grow(-5))
+	preload("res://addons/reservoir/close_control.gd").draw(m,close)
 	rects={"close":close.grow(3),"regions":[],"categories":[],"fish":[],"tabs":[],"filters":[],"stars":[],"region_labels":[],"back":Rect2()}
 	list_view=Rect2()
 	if selected>=0:
