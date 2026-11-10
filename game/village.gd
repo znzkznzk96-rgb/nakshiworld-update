@@ -384,7 +384,7 @@ func open_shop(m, k: String) -> void :
 	bundle_preview.legacy_dex=false;bundle_preview.selected=-1;bundle_preview.reward_open=false;bundle_preview.bulk_open=false;bundle_preview.bulk_plan=[];bundle_preview.just_claimed=false
 	aquarium.reset()
 	market_list.reset()
-	shop = k;tab = "sell";forge_tab = "rods";rod_page = m.rod_lv;pick_slot = -1;m.play("ui", -8.0)
+	shop = k;tab = "sell";forge_tab = "rods";rod_page = mini(m.rod_owned+1,5) if k=="forge" else m.rod_lv;pick_slot = -1;m.play("ui", -8.0)
 
 
 func draw_shop(m, h: float) -> void :
@@ -399,15 +399,24 @@ func draw_shop(m, h: float) -> void :
 	if shop=="aqua":
 		aquarium.draw_room(self,m,h)
 		return
+	var restyled:bool=shop in ["hall","forge"]
 	var robot_shop: bool=shop=="forge" and forge_tab=="robot"
 	var compact_forge: bool=shop=="forge" and h<560
 	var panel_y: = maxf(top + (6.0 if robot_shop or compact_forge else 32.0), roundf(h * 0.5) - (240 if robot_shop else 190))
 	var r = Rect2(8, panel_y, 254, minf(500.0 if robot_shop else (440.0 if shop=="museum" else 380.0), h - panel_y - (12 if robot_shop or compact_forge else 44)))
+	if restyled:
+		var desired:float=430 if shop=="hall" else 540
+		var height:float=minf(desired,h-top-12)
+		r=Rect2(8,maxf(top,roundf((h-height)/2)),254,height)
 	commerce.feedback_rect=Rect2(r.position+Vector2(9,46),Vector2(r.size.x-18,18))
-	active_style = shop_styles[shop]
+	active_style = shop_styles[shop].duplicate()
+	if restyled:
+		active_style.panel=m.sb_panel;active_style.card=m.sb_btn;active_style.ink=Color("382619")
+		var teal:=StyleBoxFlat.new();teal.bg_color=Color("08646b");teal.border_color=Color("69492f");teal.set_border_width_all(2);teal.anti_aliasing=false;active_style.header=teal
 	m._ui_style_box(active_style.panel, r)
 	var header: = Rect2(r.position + Vector2(5, 5), Vector2(r.size.x - 10, 39))
-	m._ui_style_box(active_style.header, header)
+	if restyled:preload("res://addons/reservoir/shop_restyle.gd").header(m,header)
+	else:m._ui_style_box(active_style.header, header)
 	var badge: Texture2D = tool_icons[active_style.icon]
 	m._ui_texture(badge, header.position + Vector2(7, 7))
 	var title: String = ""
@@ -569,20 +578,8 @@ func _draw_growth(m, r: Rect2, y: float, harbor: bool) -> void :
 	m._text("배가 커질수록 더 많은 손님이 방문해요.", Vector2(135, y + 62), 9, Color("6a4a2a"), true, 224)
 	m._text("수족관 수익과 마을 방문객에 반영돼요.", Vector2(135, y + 80), 9, Color("6a4a2a"), true, 224)
 
-func _draw_hall(m, r, y: float) -> void :
-	m._text("어장 최대량  %d마리" % roundi(m.pond_max()), Vector2(135, y + 8), 12, Color("382619"), true)
-	m._text(("현재 %d마리 · 잔여 %d마리"%[roundi(m.pond_stock),roundi(m.pond_overflow)] if m.pond_overflow>0 else "현재 어장  %d마리"%roundi(m.pond_stock)), Vector2(135, y + 26), 10, Color("376556"), true)
-	y += 36
-	if FACILITIES.unlocked(m,"pondcap"):
-		var next_max: float=m.pond_base+FACILITIES.STOCK_ADD[m.pond_cap_lv+1]
-		_row(m,r,y,m.fish_s2[0],"어장 규모 %d / 12"%m.pond_cap_lv,"%d → %d마리"%[roundi(m.pond_max()),roundi(next_max)],"",POND_CAP_COST[m.pond_cap_lv],m.gold>=POND_CAP_COST[m.pond_cap_lv],"pondcap")
-	else: _row(m,r,y,m.fish_s2[0],"어장 규모 %d / 12"%m.pond_cap_lv,FACILITIES.lock_label(m,"pondcap"),"잠김" if m.pond_cap_lv<12 else "완료",0,false,"")
-	y+=43
-	if FACILITIES.unlocked(m,"pondregen"):
-		_row(m,r,y,tool_icons.scale,"회복 시설 %d / 12"%m.pond_regen_lv,"시간당 %d → %d마리"%[roundi(m.pond_recovery()),FACILITIES.RECOVERY[m.pond_regen_lv+1]],"",POND_REGEN_COST[m.pond_regen_lv],m.gold>=POND_REGEN_COST[m.pond_regen_lv],"pondregen")
-	else: _row(m,r,y,tool_icons.scale,"회복 시설 %d / 12"%m.pond_regen_lv,FACILITIES.lock_label(m,"pondregen"),"잠김" if m.pond_regen_lv<12 else "완료",0,false,"")
-	m._text("낚시할 때마다 1마리 감소 · 쉬는 동안 회복", Vector2(135, y + 54), 9, Color("6a4a2a"), true, 224)
-	m._text("어장이 줄면 높은 등급 물고기가 드물어져요.", Vector2(135, y + 71), 9, Color("6a4a2a"), true, 224)
+func _draw_hall(m,r,y:float)->void:
+	preload("res://addons/reservoir/shop_restyle.gd").hall(self,m,r,y)
 
 func _draw_forge(m, r: Rect2, y: float) -> void :
 	if enhancement.busy():
@@ -590,8 +587,7 @@ func _draw_forge(m, r: Rect2, y: float) -> void :
 	for i in 3:
 		var tr: Rect2 = Rect2(r.position.x + 14 + i * 75, y, 72, 25)
 		var selected: bool = (i == 0 and forge_tab == "rods") or (i == 1 and forge_tab == "upgrade") or (i == 2 and forge_tab == "robot")
-		m._ui_style_box(active_style.header if selected else active_style.card, tr)
-		m._text(["낚싯대", "강화", "포획 로봇"][i], tr.get_center() + Vector2(0, 4), 10, Color("fff0d1") if selected else active_style.ink, true, 66)
+		preload("res://addons/reservoir/shop_restyle.gd").button(m,tr,["낚싯대", "강화", "포획 로봇"][i],selected,true)
 		rects.rows.append([tr, "forgetab:" + ["rods", "upgrade", "robot"][i]])
 	y += 31
 	if forge_tab=="robot": m.capture_robot.draw_shop(m,r,y);return

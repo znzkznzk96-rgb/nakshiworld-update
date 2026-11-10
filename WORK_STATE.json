@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "hall_forge119_approved",
+  "status": "hall_forge119_related_native_verified",
   "release_baseline": "v1.18",
   "target_release": "v1.19",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/hall-forge119/HANDOFF.md",
   "current_task": "승인 회관·대장간 UI 구현 및 v1.19 공개배포",
-  "next_step": "네이티브 구현·관련검사·실화면→119전체CI→동일후보공개/운영검증",
+  "next_step": "최종v1.19 전체CI→동일후보 공개→운영검증 및 원격 기록",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -23,10 +23,10 @@
   "screen_evidence_commit": "04fa33a116915c0b7a7ca86ee235a24a4cf4d4d2",
   "screen_verification_run": 42315352676,
   "full_source_verified": {
-    "release": "v1.15",
-    "size": 63439304,
-    "sha256": "561dfb3a469fb0d2a4b712d7a17f4a770bd7ddabbc040bb3df3e0cdcbb20fc25",
-    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.15/game-source.zip"
+    "release": "v1.18",
+    "size": 63521377,
+    "sha256": "f2d3ed49118c24163135fb6836d1e5c3ec42daa3acaca95a4f62ab1d6c3dcb3b",
+    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.18/game-source.zip"
   },
   "fish_verification_run": 42317071546,
   "automatic_full_regression_run": 42317071379,
@@ -257,17 +257,13 @@
   },
   "release_candidate": {
     "version": {
-      "code": 118,
-      "name": "1.18"
+      "code": 119,
+      "name": "1.19"
     },
-    "artifact_id": 13683190102,
-    "input_fingerprint": "4da6afe9ab92036323ba328c88bee73d088495ab30eb740d8245c6e54c4e3702",
-    "source_commit": "e169343fe196a2087e4099f552dfe399981c7b4f",
-    "run": 42634195315,
-    "ready": true,
-    "published": true,
-    "release_authorized": false,
-    "verification": "docs/qa/soldier-skill-cues/VERIFICATION.json"
+    "ready": false,
+    "published": false,
+    "release_authorized": true,
+    "verification": "docs/qa/hall-forge119/VERIFICATION.json"
   },
   "release_resume_run": 42424430555,
   "fight_body_size": {
@@ -955,6 +951,13 @@
     "release_authorized": false,
     "source_commit": "d15ee83518c4f3dfff2886ccba91f4eec5899bfd",
     "ci_run": 42720881406,
-    "ci_status": "in_progress"
+    "ci_status": "prior_network_fixture_startup_failure_fixed_pending119_full"
+  },
+  "hall_forge119": {
+    "related_suites": 6,
+    "native_screens": 15,
+    "verification": "docs/qa/hall-forge119/VERIFICATION.json",
+    "deployed": false,
+    "release_authorized": true
   }
 }
