@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "note": "작고가는멸치체형·우향·은청색/코발트명암·선명청록발광줄무늬·불필요한긴지느러미/외부광무리없음·native/6배원본비교통과.",
+  "reviewed_at_native_and_nearest6x": true,
+  "compared_with_actual_reservoir_original": true,
+  "size": [
+    96,
+    64
+  ],
+  "bbox": [
+    15,
+    24,
+    77,
+    40
+  ],
+  "mode": "RGBA",
+  "sha256": "04190e7b52eb9f691e77502ee390c3c6efb5fac7b9cbca7b40706512d9f31b1f",
+  "reference_sha256": "a09e70c432b23d10502eb18efa02d14bfbbd4ce4c5a15634b7f5c161a3ac47db",
+  "shape": "passed",
+  "color": "passed",
+  "shading_pixel_clusters": "passed",
+  "outline": "passed",
+  "species_feature": "passed",
+  "alpha_margin": "passed",
+  "actual_generation_delta": 1.0,
+  "game_applied": false,
+  "user_final_approval": "pending"
+}

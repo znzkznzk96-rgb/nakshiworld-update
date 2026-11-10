@@ -196,14 +196,32 @@
         "generations": 1.0
       },
       "result_sha256": "73e180f43b932d7bf5feb720c84aca00599907f665d757cd1842e7d4569e68fa"
+    },
+    {
+      "id": "08",
+      "name": "빛멸치",
+      "attempt": 1,
+      "status": "passed",
+      "model": "edit-image-pixen",
+      "seed": 2026111208,
+      "request_sha256": "fd42f07e875e929a64d04dc719c54b136f41e52ff97cdac6fbf664a297723a53",
+      "submitted_at_unix": 1794317261.625464,
+      "http_status": 202,
+      "job_id": "c4cb3137-cbdc-449d-9936-0283a1eb4639",
+      "actual_generation_delta": 1.0,
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "result_sha256": "04190e7b52eb9f691e77502ee390c3c6efb5fac7b9cbca7b40706512d9f31b1f"
     }
   ],
-  "generation_requests": 11,
+  "generation_requests": 12,
   "status": "continuing_remaining_species_saury_held",
-  "accepted_outputs": 5,
+  "accepted_outputs": 6,
   "rejected_outputs": 5,
   "server_failure_without_image": 1,
-  "actual_generations_charged": 10.0,
+  "actual_generations_charged": 11.0,
   "unstarted_species": 7,
   "no_additional_paid_calls": false,
   "failed_species_policy": "hold individual, continue independent species"
