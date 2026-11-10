@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "updater_smoothness_verified_apk_pending",
+  "status": "v120_release_authorized",
   "release_baseline": "v1.19",
-  "target_release": "v1.19",
+  "target_release": "v1.20",
   "deployed": false,
   "phone_verified": false,
-  "handoff": "docs/qa/updater-smoothness/HANDOFF.md",
-  "current_task": "업데이트 시작·검증·게임 전환 끊김 완화",
-  "next_step": "새 APK 제작·전달과 휴대폰 적용 검증 필요; 공개배포는 별도",
+  "handoff": "docs/releases/120/HANDOFF.md",
+  "current_task": "v1.20 상점아트·간판·글씨·시작화면 개선 배포 및 APK 전달",
+  "next_step": "v1.20 버전정리·최종검사후동일후보공개와서명APK전달",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -118,7 +118,7 @@
     "production_balance_changed": false,
     "phone_tested": false
   },
-  "release_authorized": false,
+  "release_authorized": true,
   "balance110": {
     "applied": true,
     "deployed": true,
@@ -1036,5 +1036,12 @@
     "verification": "docs/qa/updater-smoothness/VERIFICATION.json",
     "unique_verify_results": 103,
     "apk_built": false
+  },
+  "release120": {
+    "authorized": true,
+    "user_request": "업데이트 및 배포 해줘 ㅇㅇ apk도 주구",
+    "scope": "회관/대장간 실제아트,장비카드여백,8상점간판,업데이트부트끊김완화",
+    "apk_requested": true,
+    "deployed": false
   }
 }
