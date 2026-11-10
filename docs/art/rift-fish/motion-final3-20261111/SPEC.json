@@ -1,0 +1,16 @@
+{
+  "date": "2026-11-11",
+  "ids": [
+    "14",
+    "17",
+    "18"
+  ],
+  "request_limit_per_species": 1,
+  "model": "animate-pixminimax",
+  "frame_count": 16,
+  "direction": "west",
+  "preserve_approved_original": true,
+  "concurrent_paid_requests": 1,
+  "game_applied": false,
+  "deployed": false
+}

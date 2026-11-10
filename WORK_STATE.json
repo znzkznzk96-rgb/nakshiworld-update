@@ -6,8 +6,8 @@
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/art/rift-fish/HANDOFF.md",
-  "current_task": "역동성 보강11종 모션 재제작",
-  "next_step": "역동성 보강9종 사용자검토.17뇌광삼치·18차원창청새치 각2회불합격보류,14거울날치 기존보류.추가유료생성/게임적용/배포는별도지시.",
+  "current_task": "남은3종 모션 추가제작",
+  "next_step": "14→17→18 순차1회씩 생성·검수.추가재시도는별도승인.",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -1381,5 +1381,17 @@
     "actual_generations_charged": 18,
     "processed": 11,
     "verification": "docs/art/rift-fish/motion-dynamic11-20261111/COMPLETION.json"
+  },
+  "rift_final3": {
+    "status": "authorized",
+    "ids": [
+      "14",
+      "17",
+      "18"
+    ],
+    "request_limit_per_species": 1,
+    "paid_requests": 0,
+    "game_applied": false,
+    "deployed": false
   }
 }
