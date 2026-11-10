@@ -1,0 +1,22 @@
+{
+  "description": "Forceful squid jet-swimming cycle in place: mantle visibly compresses then expands, arms spread wide then sweep together, and the long tentacles whip through broad delayed S-curves. Strong overlapping motion from mantle to arms and tentacle tips, with a readable recoil and recovery. Keep it a squid. Seamless energetic swim IN PLACE. Fixed camera and scale; head LEFT throughout. Preserve identity, anatomy, fin count and rich original colors. All parts stay inside the canvas with clear margins. No external particles, glow, trails, new parts or background. Animate in a FLAT 2D SIDE PROFILE: bend the tail UP and DOWN on screen, never toward the camera. Keep the whole tail and fins visible at both extremes, with no foreshortening or disappearing parts.",
+  "frame_count": 16,
+  "seed": 2026115105,
+  "no_background": true,
+  "drift_threshold": 0,
+  "enhance_prompt": false,
+  "direction": "west",
+  "view": "side",
+  "subject_description": "red squid with pointed mantle and curling arms",
+  "initial_pose": "horizontal side-view swim pose, head left and tail or mantle right, whole creature visible inside transparent margins",
+  "first_frame": {
+    "sha256": "d4b42e7841e2fe97c1fc85137179c2058e67dd370171b91b3182ee90761f64e4",
+    "source": "docs/art/rift-fish/motion-hd-20261111/05/base-2/original.png",
+    "role": "passed original HD art exact bytes"
+  },
+  "last_frame": {
+    "sha256": "d4b42e7841e2fe97c1fc85137179c2058e67dd370171b91b3182ee90761f64e4",
+    "source": "docs/art/rift-fish/motion-hd-20261111/05/base-2/original.png",
+    "role": "passed original HD art exact bytes"
+  }
+}
