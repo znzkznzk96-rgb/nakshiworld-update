@@ -1,0 +1,16 @@
+{
+  "id": "01",
+  "name": "쌍혜성 두꼬리꽁치",
+  "endpoint": "animate-pixminimax",
+  "frame_count": 16,
+  "input_sha256": "e91f17dea17f458fe87e461f46c91efc95aa9b6efaaaa3e49686c71805d20355",
+  "input_path": "approved/01.png",
+  "direction": "west",
+  "seed": 2026111801,
+  "request_cap_pilot": 1,
+  "planned_per_species_requests": "1 basic swimming clip; one optional quality revision proposed, not automatically queued",
+  "enhance_prompt": false,
+  "first_frame_user_approved": true,
+  "billing": "official validated quote: 96x64/16 frames = 1 generation; verify actual before/after pilot",
+  "status": "prepared_no_paid_request"
+}

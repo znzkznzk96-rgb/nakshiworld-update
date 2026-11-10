@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "rift_left_four_complete_two_candidates_two_holds",
+  "status": "rift_motion_pilot_prepared",
   "release_baseline": "v1.25",
   "target_release": "v1.25",
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/art/rift-fish/HANDOFF.md",
-  "current_task": "좌향18종·광어/개복치 보류후보 검토",
-  "next_step": "사용자 신규갈치/폭풍다랑어·보류광어/개복치 시안검토 대기. 기존16외형유지/좌향반전완료. 추가생성·실제모션·게임적용·배포는후속지시기준.",
+  "current_task": "승인20종 실제모션·두꼬리꽁치16프레임 파일럿",
+  "next_step": "파일럿단일POST→기존job조회→실제차감/16frame외형·색·루프검수. 비용계획과결과보고,나머지대량예약없음.",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -1217,6 +1217,18 @@
     "canonical_remote_hash_pass": 18,
     "private_response_records_excluded": true,
     "actual_animation_generated": false,
+    "game_applied": false,
+    "deployed": false
+  },
+  "rift_motion": {
+    "status": "pilot_prepared",
+    "all20_user_approved": true,
+    "approved_list": "docs/art/rift-fish/motion-20261111/APPROVED_FISH.json",
+    "cost_plan": "docs/art/rift-fish/motion-20261111/COST_QUOTE.json",
+    "ledger": "docs/art/rift-fish/motion-20261111/LEDGER.json",
+    "frame_count": 16,
+    "initial_pilot_requests": 1,
+    "paid_requests": 0,
     "game_applied": false,
     "deployed": false
   }
