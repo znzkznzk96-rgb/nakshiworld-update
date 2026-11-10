@@ -1,0 +1,19 @@
+{
+  "id": "16",
+  "stage": "motion",
+  "attempt": 1,
+  "status": "passed",
+  "note": "보라 원반과 금빛 초승달·작은 꼬리 유지, 상하 지느러미와 꼬리의 작은 유영. 외부 잔상·파편과 잘림 없음.",
+  "reviewed_native_and_nearest": true,
+  "approved_source_compared": true,
+  "observed_direction": "west",
+  "shape": "passed",
+  "color": "passed",
+  "native_detail": "passed",
+  "species_features": "passed",
+  "motion": "passed",
+  "alpha_margin": "passed",
+  "native_width_at_least_fight_max": "passed",
+  "actual_generation_delta": 2.0,
+  "game_applied": false
+}
