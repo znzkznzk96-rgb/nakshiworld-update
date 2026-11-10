@@ -827,8 +827,36 @@
       "expected_output_count": 1,
       "quoted_generations": 1,
       "game_applied": false,
-      "status": "submission_pending",
-      "submitted_unix": 1794330849.9258218
+      "status": "passed",
+      "submitted_unix": 1794330849.9258218,
+      "http_status": 202,
+      "job_id": "f638a232-28ea-4b5d-a083-a2add7f6ca12",
+      "billing_source": "completed_job.billing_usage",
+      "actual_generation_delta": 1.0,
+      "output_count": 1
+    },
+    {
+      "id": "14",
+      "name": "거울날개 날치",
+      "stage": "motion",
+      "attempt": 1,
+      "model": "animate-pixminimax",
+      "seed": 2026113014,
+      "native_canvas": [
+        232,
+        204
+      ],
+      "input_sha256": "2cfd473386916759061a23396d7edd1d7b88aec6d0e4ab5d2b5d22f6f730e039",
+      "input_role": "internally passed native HD original derived from the user-approved fish",
+      "request_sha256": "f19a16cba5b09073b6cdbadcaa2a1d72c2afbed330fab494d657a53fc0618f41",
+      "additional_request_used": 0,
+      "expected_output_count": 17,
+      "quoted_generations": 2,
+      "game_applied": false,
+      "status": "submitted",
+      "submitted_unix": 1794331091.9988158,
+      "http_status": 200,
+      "job_id": "26552225-def5-4974-897b-59fe7d6cdbac"
     }
   ],
   "status": "one_active",
@@ -839,5 +867,5 @@
     "11": 1,
     "13": 1
   },
-  "actual_generations_charged": 35.0
+  "actual_generations_charged": 36.0
 }

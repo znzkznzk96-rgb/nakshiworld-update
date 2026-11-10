@@ -1,0 +1,19 @@
+{
+  "id": "14",
+  "name": "거울날개 날치",
+  "stage": "base",
+  "attempt": 1,
+  "model": "edit-image-pixen",
+  "seed": 2026112014,
+  "native_canvas": [
+    232,
+    204
+  ],
+  "input_sha256": "f0191a35204a3df80243c8d513ff99bb23154ada5a05c75c7f0ac91e43873d05",
+  "input_role": "user-approved fish, transparent margins cropped/padded only",
+  "request_sha256": "3ba7281056966244b4fd03967a7505ade1dfa1903307c51b447fb417e2670d40",
+  "additional_request_used": 0,
+  "expected_output_count": 1,
+  "quoted_generations": 1,
+  "game_applied": false
+}

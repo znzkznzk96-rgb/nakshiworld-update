@@ -1,0 +1,19 @@
+{
+  "id": "14",
+  "stage": "base",
+  "attempt": 1,
+  "status": "passed",
+  "note": "좌측 방향과 거울 날개 두 장, 청록·보라 내부 반사와 은색 몸통 유지. 잘림과 외부 파편 없음.",
+  "reviewed_native_and_nearest": true,
+  "approved_source_compared": true,
+  "observed_direction": "west",
+  "shape": "passed",
+  "color": "passed",
+  "native_detail": "passed",
+  "species_features": "passed",
+  "motion": "not_applicable",
+  "alpha_margin": "passed",
+  "native_width_at_least_fight_max": "passed",
+  "actual_generation_delta": 1.0,
+  "game_applied": false
+}
