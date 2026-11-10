@@ -1,0 +1,16 @@
+{
+  "first_frame": {
+    "encoded_image_omitted": true,
+    "sha256": "d4b42e7841e2fe97c1fc85137179c2058e67dd370171b91b3182ee90761f64e4",
+    "input_role": "internally passed native HD original derived from the user-approved fish"
+  },
+  "description": "Squid mantle gently compresses and relaxes for propulsion while all arms and long feeding tentacles ripple with delayed follow-through. Keep the pointed mantle and no fish tail. Seamless gentle swimming loop IN PLACE, head LEFT throughout. Fixed camera, sprite position and scale. Preserve exact original identity, colors, markings and fin/tail count. No turning, new parts, particles, scenery, cropping or camera motion.",
+  "frame_count": 16,
+  "seed": 2026113005,
+  "no_background": true,
+  "enhance_prompt": false,
+  "direction": "west",
+  "view": "side",
+  "subject_description": "red pointed squid with cyan-violet rift seams and curling tentacles",
+  "initial_pose": "neutral horizontal swimming pose; head LEFT, tail or mantle RIGHT; whole creature visible inside transparent margins"
+}

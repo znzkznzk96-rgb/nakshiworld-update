@@ -1,0 +1,19 @@
+{
+  "id": "05",
+  "stage": "motion",
+  "attempt": 1,
+  "status": "passed",
+  "note": "좌향 오징어의 촉수 다발이 시차로 움직이고 맨틀이 미세하게 수축/확장. 단일 뾰족 후미·황금 눈·청록/보라 균열 유지, 물고기 꼬리 생성 없음. 16프레임 native폭/색/여백 정상.",
+  "reviewed_native_and_nearest": true,
+  "approved_source_compared": true,
+  "observed_direction": "west",
+  "shape": "passed",
+  "color": "passed",
+  "native_detail": "passed",
+  "species_features": "passed",
+  "motion": "passed",
+  "alpha_margin": "passed",
+  "native_width_at_least_fight_max": "passed",
+  "actual_generation_delta": 1.0,
+  "game_applied": false
+}

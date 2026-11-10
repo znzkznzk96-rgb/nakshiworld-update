@@ -66,6 +66,28 @@
       ],
       "commit": "a5ee84482bf0820f8f07e0ef43b76741b381adb9",
       "raw_frames_decoded": 17
+    },
+    {
+      "path": "04/base-1/original.png",
+      "size": 12118,
+      "sha256": "adc1ff4a621523b624b0006145ec18612cdd7ecfff441e46a6fe899cc83b651a",
+      "canvas": [
+        232,
+        184
+      ],
+      "commit": "a59c41ec80f2ea4773ae6b4bdf6699a95b651607",
+      "raw_frames_decoded": 0
+    },
+    {
+      "path": "04/motion-1/frames-original.zip",
+      "size": 379035,
+      "sha256": "4e34f1a65affdeb6d1a6f9e60cc57daa6bb7509b17b5794fadd3bdda936c2a94",
+      "canvas": [
+        232,
+        184
+      ],
+      "commit": "a59c41ec80f2ea4773ae6b4bdf6699a95b651607",
+      "raw_frames_decoded": 17
     }
   ],
   "game_applied": false,
