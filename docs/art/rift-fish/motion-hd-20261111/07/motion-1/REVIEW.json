@@ -1,0 +1,19 @@
+{
+  "id": "07",
+  "stage": "motion",
+  "attempt": 1,
+  "status": "rejected",
+  "note": "금빛 균열선은 유지됐지만 일부 프레임에서 몸 밖으로 떨어진 금빛 점/번쩍임이 생김. 외부 파티클 없는 루프 명세 미충족으로 추가1회는 균열 무늬를 고정하고 꼬리/지느러미만 움직이게 수정.",
+  "reviewed_native_and_nearest": true,
+  "approved_source_compared": true,
+  "observed_direction": "west",
+  "shape": "passed",
+  "color": "passed",
+  "native_detail": "passed",
+  "species_features": "passed",
+  "motion": "failed",
+  "alpha_margin": "passed",
+  "native_width_at_least_fight_max": "passed",
+  "actual_generation_delta": 1.0,
+  "game_applied": false
+}
