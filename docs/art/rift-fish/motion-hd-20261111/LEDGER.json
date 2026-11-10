@@ -567,8 +567,34 @@
       "expected_output_count": 1,
       "quoted_generations": 1,
       "game_applied": false,
+      "status": "passed",
+      "submitted_unix": 1794329033.445122,
+      "http_status": 202,
+      "job_id": "f8048bc9-e9e4-4f3f-a129-fd57d5d368b8",
+      "billing_source": "completed_job.billing_usage",
+      "actual_generation_delta": 1.0,
+      "output_count": 1
+    },
+    {
+      "id": "10",
+      "name": "유영리본 삼치",
+      "stage": "motion",
+      "attempt": 1,
+      "model": "animate-pixminimax",
+      "seed": 2026113010,
+      "native_canvas": [
+        232,
+        188
+      ],
+      "input_sha256": "094dda4f6cbb9c5be416f43b01a72f1ebe281a10279dd167bf137d546469b21d",
+      "input_role": "internally passed native HD original derived from the user-approved fish",
+      "request_sha256": "5d8b3d8e84fc61064473786c7b9a660222eeb71af21e8b4ea686c90dd6478240",
+      "additional_request_used": 0,
+      "expected_output_count": 17,
+      "quoted_generations": 2,
+      "game_applied": false,
       "status": "submission_pending",
-      "submitted_unix": 1794329033.445122
+      "submitted_unix": 1794329225.157027
     }
   ],
   "status": "one_active",
@@ -577,5 +603,5 @@
     "06": 1,
     "07": 1
   },
-  "actual_generations_charged": 23.0
+  "actual_generations_charged": 24.0
 }

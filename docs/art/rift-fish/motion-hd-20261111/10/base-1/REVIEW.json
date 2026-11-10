@@ -1,0 +1,19 @@
+{
+  "id": "10",
+  "stage": "base",
+  "attempt": 1,
+  "status": "passed",
+  "note": "위아래 자홍 리본 두 개의 연결·S자 말림과 은청색 삼치 몸/꼬리 유지. native195px 본체에서 비늘·리본 명암 선명, 좌향과 알파 여백 정상.",
+  "reviewed_native_and_nearest": true,
+  "approved_source_compared": true,
+  "observed_direction": "west",
+  "shape": "passed",
+  "color": "passed",
+  "native_detail": "passed",
+  "species_features": "passed",
+  "motion": "not_applicable",
+  "alpha_margin": "passed",
+  "native_width_at_least_fight_max": "passed",
+  "actual_generation_delta": 1.0,
+  "game_applied": false
+}

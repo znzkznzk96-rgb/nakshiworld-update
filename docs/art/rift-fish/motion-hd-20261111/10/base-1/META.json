@@ -1,0 +1,19 @@
+{
+  "id": "10",
+  "name": "유영리본 삼치",
+  "stage": "base",
+  "attempt": 1,
+  "model": "edit-image-pixen",
+  "seed": 2026112010,
+  "native_canvas": [
+    232,
+    188
+  ],
+  "input_sha256": "32b765fa661d819b8a6557e95d0dc99ded1a9a5247cbbda95cdc031e167222f6",
+  "input_role": "user-approved fish, transparent margins cropped/padded only",
+  "request_sha256": "60d767c1399a2111f9ddcba2abf5b51e082239d3d505f8e49b5c0b2d9e682eec",
+  "additional_request_used": 0,
+  "expected_output_count": 1,
+  "quoted_generations": 1,
+  "game_applied": false
+}
