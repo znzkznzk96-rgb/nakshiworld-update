@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "rift_motion_pilot_complete_budget_report",
+  "status": "rift_hd_motion_all20_prepared",
   "release_baseline": "v1.25",
   "target_release": "v1.25",
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/art/rift-fish/HANDOFF.md",
-  "current_task": "두꼬리꽁치16프레임 파일럿완료·20종모션비용계획",
-  "next_step": "시범/비용계획보고 후 남은19종을같은16프레임·좌향유영1클립기준으로순차제작. 기본1요청/품질수정1요청상한계획,매회검수·동시1개. 추가POST아직0.",
+  "current_task": "균열20종 파이팅상한대비 HD원화·16프레임 모션 전체",
+  "next_step": "01부터native원화단일POST→외형/고유색/native폭검수→모션단일POST→16frame검수. 단계공유추가1회후불량종보류,20종모두순차진행.",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -1242,5 +1242,22 @@
     "max_total_plan_generations_including_pilot": 40,
     "empirical_average_sample_size": 1,
     "verification": "docs/art/rift-fish/motion-20261111/REMOTE_VERIFICATION.json"
+  },
+  "rift_hd_motion": {
+    "status": "prepared",
+    "spec": "docs/art/rift-fish/motion-hd-20261111/SPEC.json",
+    "ledger": "docs/art/rift-fish/motion-hd-20261111/LEDGER.json",
+    "total_species": 20,
+    "completed": 0,
+    "held": [],
+    "fight_max_logical_length": 156,
+    "source_canvas_width": 232,
+    "frame_count": 16,
+    "baseline_quoted_generations": 48,
+    "max_quoted_generations": 76,
+    "shared_additional_requests_per_species": 1,
+    "concurrent_paid_requests": 1,
+    "game_applied": false,
+    "deployed": false
   }
 }
