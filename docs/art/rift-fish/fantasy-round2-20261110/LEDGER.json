@@ -228,11 +228,30 @@
       "id": "15",
       "name": "차원결정 참치",
       "attempt": 1,
-      "status": "submission_pending",
+      "status": "rejected",
       "model": "edit-image-pixen",
       "seed": 2026111415,
       "request_sha256": "8863ebda09049ef17dd2fe42e4b415a4bcbf5ee5dc250e682b981b08c19b990f",
       "submitted_at_unix": 1794319979.9948194,
+      "prior_round_requests": 0,
+      "http_status": 202,
+      "job_id": "2b36c3fb-ebac-4d94-822f-403b0d709c75",
+      "actual_generation_delta": 1.0,
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "result_sha256": "c786e842fb44308cbfe7625759c0afd02169d52f7ea9452ee7c3c84df7aa49fe"
+    },
+    {
+      "id": "15",
+      "name": "차원결정 참치",
+      "attempt": 2,
+      "status": "submission_pending",
+      "model": "edit-image-pixen",
+      "seed": 2026111515,
+      "request_sha256": "9dd5a7a639a24c64fd9cdbe88b63d0102811da460d849d9726e1036ccc1d89ad",
+      "submitted_at_unix": 1794320072.291012,
       "prior_round_requests": 0
     }
   ],
@@ -312,8 +331,8 @@
       "status": "internal_quality_pass_user_review_pending"
     }
   ],
-  "generation_requests": 13,
+  "generation_requests": 14,
   "accepted_outputs": 6,
-  "rejected_outputs": 6,
-  "actual_generations_charged": 12.0
+  "rejected_outputs": 7,
+  "actual_generations_charged": 13.0
 }
