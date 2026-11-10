@@ -6,7 +6,7 @@
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/qa/android-back/HANDOFF.md",
-  "current_task": "안드로이드 뒤로가기로 최상단 창 한 단계 닫기",
+  "current_task": "닫기 버튼 통일·좁은 팝업 정리·뒤로가기 닫기",
   "next_step": "공통 뒤로가기 우선순위·Android 이벤트·취소안전성 구현검증",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
@@ -1069,5 +1069,10 @@
     "approved": true,
     "deployed": false,
     "release_authorized": false
+  },
+  "close_ui": {
+    "approved": true,
+    "art_generations": 0,
+    "deployed": false
   }
 }
