@@ -1,0 +1,40 @@
+{
+  "date": "2026-11-10",
+  "source_commit": "b14f8935f0941b58c085bcc98f3435cc31a3e778",
+  "version_prepared": "1.22",
+  "public_version": "1.21",
+  "local": {
+    "soldier_size": "pass",
+    "tier2_motion": "pass",
+    "tier3_motion": "pass",
+    "soldier_skill_cues": "pass",
+    "formation_compare": "pass",
+    "village_reward_notice": "pass",
+    "expedition_result": "pass",
+    "expedition_motion": "pass",
+    "combat_feedback": "pass",
+    "native_screens": 24,
+    "heights": [
+      480,
+      540,
+      660
+    ],
+    "visible_idle_ratios": [
+      1,
+      1.25,
+      1.5
+    ],
+    "village_strip_height": [
+      72,
+      83
+    ]
+  },
+  "ci": {
+    "run": 42763368422,
+    "status": "in_progress",
+    "superseded_run": 42763143134
+  },
+  "deployed": false,
+  "phone_verified": false,
+  "paid_art_requests": 0
+}
