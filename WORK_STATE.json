@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "release125_final_ci_running",
+  "status": "release125_verified_publishing",
   "release_baseline": "v1.24",
   "target_release": "v1.25",
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/releases/125/HANDOFF.md",
   "current_task": "v1.25 병사배치 연속 스크롤 공개 준비",
-  "next_step": "최종CI42790651193 성공·동일후보 확인후 PR63 공개→운영검증",
+  "next_step": "동일성공후보 공개→운영다운로드/3파일/전체소스 검증",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -249,17 +249,17 @@
   },
   "full_release_ci": {
     "run": 42790651193,
-    "status": "in_progress",
+    "status": "success",
     "source_commit": "d1303a61a9d1f073901201481e67329edb49ec06"
   },
   "release_candidate": {
     "version": {
-      "code": 124,
-      "name": "1.24"
+      "code": 125,
+      "name": "1.25"
     },
-    "source_commit": "e99eabdc11ebca7307e0d35a3a43fbe14f20d64e",
-    "artifact": 13747183988,
-    "input_fingerprint": "88a651dbf887d222864138484d0af76b1f507e34423fb38d3a543e4b65f895cd",
+    "source_commit": "d1303a61a9d1f073901201481e67329edb49ec06",
+    "artifact": 13753065145,
+    "input_fingerprint": "09c93e0736cebc65e881d2270796320f470d17f605004d739b4c58d7322fe053",
     "verified": true
   },
   "release_resume_run": 42424430555,

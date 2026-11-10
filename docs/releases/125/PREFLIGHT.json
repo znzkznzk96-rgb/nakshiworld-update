@@ -1,0 +1,22 @@
+{
+  "date": "2026-11-10",
+  "source_commit": "d1303a61a9d1f073901201481e67329edb49ec06",
+  "ci": 42790651193,
+  "ci_status": "success",
+  "full_regression": "passed",
+  "native": "passed",
+  "packed": "passed",
+  "candidate": {
+    "version": {
+      "code": 125,
+      "name": "1.25"
+    },
+    "source_commit": "d1303a61a9d1f073901201481e67329edb49ec06",
+    "artifact": 13753065145,
+    "input_fingerprint": "09c93e0736cebc65e881d2270796320f470d17f605004d739b4c58d7322fe053",
+    "verified": true
+  },
+  "apk_required": false,
+  "deployed": false,
+  "phone_verified": false
+}
