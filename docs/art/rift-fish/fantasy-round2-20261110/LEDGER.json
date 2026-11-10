@@ -25,15 +25,22 @@
       "id": "01",
       "name": "쌍혜성 두꼬리꽁치",
       "attempt": 2,
-      "status": "submission_pending",
+      "status": "passed",
       "model": "create-image-pixen",
       "seed": 2026111501,
       "request_sha256": "da21f9ad30c204a764eb9e926381108964374d0e695613c24ec78f4e013ab35c",
       "submitted_at_unix": 1794318981.831125,
-      "prior_round_requests": 2
+      "prior_round_requests": 2,
+      "http_status": 200,
+      "actual_generation_delta": 1.0,
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "result_sha256": "c101fa2cf92ba62596d2641048cea7800e6bf1b3c7f350dee039e9588f3002e5"
     }
   ],
-  "status": "one_active",
+  "status": "fantasy_nonboss_round2_in_progress",
   "max_per_species_this_round": 2,
   "protected_existing_six": [
     {
@@ -110,7 +117,7 @@
     }
   ],
   "generation_requests": 2,
-  "accepted_outputs": 0,
+  "accepted_outputs": 1,
   "rejected_outputs": 1,
-  "actual_generations_charged": 1.0
+  "actual_generations_charged": 2.0
 }
