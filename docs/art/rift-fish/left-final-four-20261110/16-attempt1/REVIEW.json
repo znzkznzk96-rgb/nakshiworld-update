@@ -1,0 +1,29 @@
+{
+  "status": "rejected",
+  "note": "초승달과 청록 테두리는 보이나 개복치가 아닌 일반 물고기 체형·큰 갈라진 꼬리이며 몸색이 갈색에 가까움. 원형 몸과 진한 보라색 필수 특징 불충족.",
+  "reviewed_at_native_and_nearest6x": true,
+  "compared_with_actual_reservoir_original": true,
+  "size": [
+    96,
+    64
+  ],
+  "bbox": [
+    12,
+    4,
+    85,
+    60
+  ],
+  "mode": "RGBA",
+  "sha256": "558a5d755b34be83dcb410cb5f99cb0dd63b026972227d8d896b4147a2918fb6",
+  "reference_sha256": "a87f59d881fbd6fe0027a8c9008e95a9849eeb6552d55ba5b1dee634dc690787",
+  "shape": "rejected",
+  "color": "rejected",
+  "shading_pixel_clusters": "passed",
+  "outline": "passed",
+  "species_feature": "rejected",
+  "alpha_margin": "passed",
+  "actual_generation_delta": 1.0,
+  "game_applied": false,
+  "user_final_approval": "pending",
+  "observed_direction": "west"
+}

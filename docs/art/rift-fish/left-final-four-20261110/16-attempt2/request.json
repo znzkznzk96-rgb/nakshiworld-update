@@ -1,0 +1,14 @@
+{
+  "description": "A LIVING CIRCULAR MOON DISK sea creature resembling MOLA MOLA, facing LEFT. Its silhouette is a NEAR-PERFECT ROUND COIN, equally tall and wide. Tiny beak and one eye on LEFT rim. RIGHT rim is BLUNT, a vertically scalloped edge directly on the round disk. Absolutely NO projecting tail, NO tail stalk, NO fork shape. Only TWO long OAR FINS attach to TOP and BOTTOM of the round disk, plus one tiny cheek fin. Body is DEEP ELECTRIC VIOLET and INDIGO, with bright CYAN thin rim. A very THIN GOLD CRESCENT curves along front flank; gold is only a narrow marking, NOT body color. No brown, orange, beige or gray body. Entire compact creature centered with wide transparent margins around every fin. Native 96x64 crisp pixel art, rich 3-tone colored shading, selective dark outline, no text/scenery/halo.",
+  "image_size": {
+    "width": 96,
+    "height": 64
+  },
+  "no_background": true,
+  "direction": "west",
+  "outline": "selective outline",
+  "detail": "highly detailed",
+  "seed": 2026111716,
+  "enhance_prompt": false,
+  "view": "side"
+}

@@ -24,5 +24,7 @@
   "alpha_margin": "passed",
   "actual_generation_delta": 1.0,
   "game_applied": false,
-  "user_final_approval": "pending"
+  "user_final_approval": "pending",
+  "observed_direction": "west",
+  "direction_check": "passed"
 }
