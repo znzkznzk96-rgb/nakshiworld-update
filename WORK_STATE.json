@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "rift_controlled_motion_20_prepared_review_pending",
+  "status": "rift_motion20_user_approved",
   "release_baseline": "v1.25",
   "target_release": "v1.25",
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/art/rift-fish/HANDOFF.md",
-  "current_task": "남은3종 원화제어모션 제작·원격검증 완료",
-  "next_step": "3종제어모션 사용자시각검토후 배경작업으로전환.게임적용/배포별도.",
+  "current_task": "균열해역20종모션 최종승인·향후모션제작기준 확정",
+  "next_step": "배경 작업으로 전환.물고기모션은 docs/art/FISH_MOTION_STANDARD.md 고정기준을 적용,게임적용/배포 별도.",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -1404,7 +1404,7 @@
     "verification": "docs/art/rift-fish/motion-final3-20261111/REMOTE_VERIFICATION.json"
   },
   "rift_controlled_motion": {
-    "status": "internal_pass_user_review_pending",
+    "status": "user_approved",
     "ids": [
       "14",
       "17",
@@ -1417,6 +1417,14 @@
     "preview": "docs/art/rift-fish/motion-controlled-20261111/preview.gif",
     "generator": "Godot4.6.3_offline_asset_preparation_only",
     "game_applied": false,
-    "deployed": false
+    "deployed": false,
+    "user_visual_approved": true
+  },
+  "fish_motion_standard": {
+    "status": "confirmed",
+    "date": "2026-11-11",
+    "document": "docs/art/FISH_MOTION_STANDARD.md",
+    "approved_snapshot": "docs/art/rift-fish/APPROVED_MOTION_20_20261111.json",
+    "scope": "all_future_fish_all_regions"
   }
 }
