@@ -169,6 +169,8 @@ func battle_sprite_geometry(id:int,box:Rect2,frame:int,star:int)->Dictionary:
 		idle=Rect2(base_idle_bounds[spec.id]);region=Rect2(Vector2.ZERO,Vector2(spec.frame_size[0],spec.frame_size[1]))
 	# Size the visible idle character, not its empty canvas or attack-effect envelope.
 	var scale:float=box.size.y/maxf(idle.size.x,idle.size.y)
+	# Tier2 weapon reach is not body size; raise its standing height within one lane.
+	if star==2:scale=minf(box.size.y/idle.size.y,43.0/idle.size.x)
 	var origin:=Vector2(box.get_center().x-idle.get_center().x*scale,box.end.y-idle.end.y*scale)
 	var drawn:=Rect2((origin+region.position*scale).round(),(region.size*scale).round())
 	var body:=Rect2(origin+idle.position*scale,idle.size*scale)

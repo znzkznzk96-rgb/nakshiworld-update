@@ -26,7 +26,8 @@ func run():
      m.ui_commands=[];v.battle_sprite(m,id,box,frame,1,star,r)
      for command in m.ui_commands:
       if command[0]=="region":check(r.encloses(command[2]),"attack effects clipped to room")
-   check(absf(sizes[1]/sizes[0]-1.25)<.001 and absf(sizes[2]/sizes[0]-1.5)<.001,"visible tier ratios for every species")
+   check(absf(sizes[2]/sizes[0]-1.5)<.001,"unchanged first/third tier ratio")
+   check(sizes[1]>=sizes[0]*1.25 and sizes[1]<=43.001,"tier2 body raised without exceeding lane width")
   for i in 3:
    var lane:Dictionary=v.battle_lane(r,i,i+1)
    check(not lane.hp.intersects(lane.skill.grow(1)),"skill sits beside health")
@@ -34,6 +35,11 @@ func run():
    for j in 3:
     if i!=j:check(not lane.skill.grow(4).intersects(v.battle_lane(r,j,3).hp),"simultaneous skill never covers neighboring health")
   m.ui_commands=[];m.text_items=[];v.battle_art(m,r)
+ var hammer_lane:Dictionary=v.battle_lane(Rect2(0,0,246,59),0,2)
+ var hammer_box:=Rect2(hammer_lane.center-hammer_lane.major/2,57-hammer_lane.major,hammer_lane.major,hammer_lane.major)
+ var hammer:Dictionary=v.battle_sprite_geometry(10,hammer_box,0,2)
+ check(hammer.body.size.y>=27 and hammer.body.size.y<=28,"reported tier2 hammer body at least27px")
+ check(hammer.body.size.y/(30.0*81/127)>1.4,"hammer body more than40percent taller than v122")
  check(JSON.stringify(d.serialize())==before and d.rng.state==rng_state,"drawing preserves combat/save/RNG")
  print("SOLDIER_SIZE_VERIFY failures=",failures)
  m.audio_feedback.dispose();m.queue_free();await process_frame;quit(0 if failures.is_empty() else 1)

@@ -126,6 +126,9 @@ jobs:
           grep -F 'SOLDIER_SKILL_CUES_PREVIEW failures=[]' evidence/soldier-skill-preview.log
           XDG_DATA_HOME="$RUNNER_TEMP/isolated-soldier-size" timeout 90 xvfb-run -a "$GODOT" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/soldier_size_preview.gd -- "$GITHUB_WORKSPACE/evidence/soldier-size" > evidence/soldier-size-preview.log 2>&1
           grep -F 'SOLDIER_SIZE_PREVIEW failures=[]' evidence/soldier-size-preview.log
+          XDG_DATA_HOME="$RUNNER_TEMP/isolated-tier2-body" timeout 90 xvfb-run -a "$GODOT" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/tier2_body_preview.gd -- "$GITHUB_WORKSPACE/evidence/tier2-body" > evidence/tier2-body-preview.log 2>&1
+          grep -F 'TIER2_BODY_PREVIEW failures=[]' evidence/tier2-body-preview.log
+          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/tier2-body-preview.log; then exit 1; fi
           if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/soldier-size-preview.log; then exit 1; fi
           if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/soldier-skill-cues.log evidence/soldier-skill-parity.log evidence/soldier-skill-preview.log; then exit 1; fi
       - uses: actions/upload-artifact@v4
