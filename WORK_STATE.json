@@ -1,17 +1,17 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "rift_motion_pilot_active",
+  "status": "rift_motion_pilot_complete_budget_report",
   "release_baseline": "v1.25",
   "target_release": "v1.25",
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/art/rift-fish/HANDOFF.md",
-  "current_task": "승인20종 실제모션·두꼬리꽁치16프레임 파일럿",
-  "next_step": "PixelLab既存job d35e605f-b18a-40a9-843d-a3f00b5e63b5 GET조회→완료시원본17장/생성16frame/차감·색·형태검수. 추가POST아직금지.",
+  "current_task": "두꼬리꽁치16프레임 파일럿완료·20종모션비용계획",
+  "next_step": "시범/비용계획보고 후 남은19종을같은16프레임·좌향유영1클립기준으로순차제작. 기본1요청/품질수정1요청상한계획,매회검수·동시1개. 추가POST아직0.",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
-  "verification": "docs/art/rift-fish/left-final-four-20261110/REMOTE_VERIFICATION.json",
+  "verification": "docs/art/rift-fish/motion-20261111/REMOTE_VERIFICATION.json",
   "baseline_phone_verified": false,
   "environment_recovery": "docs/CODEX_NETWORK_RECOVERY.md",
   "background_verified_branch": "work/tile-png-stage2-20261107",
@@ -1221,7 +1221,7 @@
     "deployed": false
   },
   "rift_motion": {
-    "status": "pilot_active",
+    "status": "pilot_complete_budget_report",
     "all20_user_approved": true,
     "approved_list": "docs/art/rift-fish/motion-20261111/APPROVED_FISH.json",
     "cost_plan": "docs/art/rift-fish/motion-20261111/COST_QUOTE.json",
@@ -1231,6 +1231,16 @@
     "paid_requests": 1,
     "game_applied": false,
     "deployed": false,
-    "job_id": "d35e605f-b18a-40a9-843d-a3f00b5e63b5"
+    "job_id": "d35e605f-b18a-40a9-843d-a3f00b5e63b5",
+    "pilot_species": "쌍혜성 두꼬리꽁치",
+    "actual_generations_charged": 1,
+    "motion_frames": 16,
+    "returned_frames_including_input": 17,
+    "remaining_species": 19,
+    "quality": "internal_pilot_pass_user_review_pending",
+    "base_total_plan_generations_including_pilot": 20,
+    "max_total_plan_generations_including_pilot": 40,
+    "empirical_average_sample_size": 1,
+    "verification": "docs/art/rift-fish/motion-20261111/REMOTE_VERIFICATION.json"
   }
 }
