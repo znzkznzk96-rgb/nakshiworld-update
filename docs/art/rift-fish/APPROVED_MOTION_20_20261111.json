@@ -235,7 +235,7 @@
   "game_applied": false,
   "deployed": false,
   "status": "user_approved_20",
-  "selection_policy": "17 existing selected clips retained;14/17/18 use approved-original texture rig, not rejected generative outputs. User final visual approval pending.",
+  "selection_policy": "Final gallery all20 user-approved on 2026-11-11.17 existing selected clips retained;14/17/18 use approved-original texture rig. Rejected generative outputs remain excluded. Future motion standard: docs/art/FISH_MOTION_STANDARD.md.",
   "user_visual_approval": {
     "date": "2026-11-11",
     "scope": "all20 latest gallery motions including controlled14/17/18",
