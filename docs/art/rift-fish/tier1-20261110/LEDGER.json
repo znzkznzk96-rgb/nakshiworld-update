@@ -52,14 +52,32 @@
         "generations": 1.0
       },
       "result_sha256": "0fdcf1ad1b2818ca10802365c6ca1285922deeb0b6e13e56bd1c82b60b9216ea"
+    },
+    {
+      "id": "03",
+      "name": "네날개날치",
+      "attempt": 1,
+      "status": "passed",
+      "model": "edit-image-pixen",
+      "seed": 2026111203,
+      "request_sha256": "6b32f1ba5ad9b4050eb6b6e7789e54c3f0a99de91bcd4e7e254dfda7e3f0eb80",
+      "submitted_at_unix": 1794315939.622243,
+      "http_status": 202,
+      "job_id": "5aac3eca-1c0f-46f5-bfa7-738e6d51ad1e",
+      "actual_generation_delta": 1.0,
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "result_sha256": "bb5da274a05ace32781a119f4341250b23f79bfe4d7cb6b08761eb9646e2fddd"
     }
   ],
-  "generation_requests": 3,
+  "generation_requests": 4,
   "status": "continuing_remaining_species_saury_held",
-  "accepted_outputs": 1,
+  "accepted_outputs": 2,
   "rejected_outputs": 1,
   "server_failure_without_image": 1,
-  "actual_generations_charged": 2.0,
+  "actual_generations_charged": 3.0,
   "unstarted_species": 7,
   "no_additional_paid_calls": false,
   "failed_species_policy": "hold individual, continue independent species"

@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "note": "네개의독립된넓은날개·우향은청색몸·선명청록날개/흰명암·원본96x64및6배검수통과. 상하3~4px투명여백·전체지느러미보존.",
+  "reviewed_at_native_and_nearest6x": true,
+  "compared_with_actual_reservoir_original": true,
+  "size": [
+    96,
+    64
+  ],
+  "bbox": [
+    14,
+    3,
+    77,
+    60
+  ],
+  "mode": "RGBA",
+  "sha256": "bb5da274a05ace32781a119f4341250b23f79bfe4d7cb6b08761eb9646e2fddd",
+  "reference_sha256": "a09e70c432b23d10502eb18efa02d14bfbbd4ce4c5a15634b7f5c161a3ac47db",
+  "shape": "passed",
+  "color": "passed",
+  "shading_pixel_clusters": "passed",
+  "outline": "passed",
+  "species_feature": "passed",
+  "alpha_margin": "passed",
+  "actual_generation_delta": 1.0,
+  "game_applied": false,
+  "user_final_approval": "pending"
+}
