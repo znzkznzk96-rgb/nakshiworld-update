@@ -11,7 +11,7 @@ class Probe:
 	func _ui_line(_a,_b,_c,_d): strokes+=1
 	func _ui_arc(_a,_b,_c,_d,_e,_f,_g): pass
 	func _ui_rect(r,c):
-		if c==Color("33251e") and r.size==Vector2(31,4): bars+=1
+		if c==Color("33251e") and r.size==Vector2(24,4): bars+=1
 	func _text(s,_b,_c,_d,_e,_f): labels.append(s);colors.append(_d)
 func check(ok,label):
 	if not ok: failures.append(label)

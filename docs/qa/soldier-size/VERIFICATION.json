@@ -1,0 +1,87 @@
+{
+  "date": "2026-11-10",
+  "source_commit": "b14f8935f0941b58c085bcc98f3435cc31a3e778",
+  "version_prepared": "1.22",
+  "public_version": "1.21",
+  "local": {
+    "soldier_size": "pass",
+    "tier2_motion": "pass",
+    "tier3_motion": "pass",
+    "soldier_skill_cues": "pass",
+    "formation_compare": "pass",
+    "village_reward_notice": "pass",
+    "expedition_result": "pass",
+    "expedition_motion": "pass",
+    "combat_feedback": "pass",
+    "native_screens": 24,
+    "heights": [
+      480,
+      540,
+      660
+    ],
+    "visible_idle_ratios": [
+      1,
+      1.25,
+      1.5
+    ],
+    "village_strip_height": [
+      72,
+      83
+    ]
+  },
+  "ci": {
+    "run": 42763368422,
+    "status": "success",
+    "superseded_run": 42763143134,
+    "unique_verify_markers": 106,
+    "job_id": 129654112495,
+    "candidate_artifact": 13738329660,
+    "input_fingerprint": "84ea3dcd357400bc4775335e768e89d967433890779d5f74346e80354f10c164",
+    "native_and_pck": "passed"
+  },
+  "deployed": false,
+  "phone_verified": false,
+  "paid_art_requests": 0,
+  "files": {
+    "game/addons/expedition/view.gd": {
+      "size": 61194,
+      "sha256": "3b8d3f21178a79617ce18538af1beaff0840f8cb655fe1f9fd9014460121d96d"
+    },
+    "game/village.gd": {
+      "size": 35372,
+      "sha256": "6726974a94fdbc1d5eafc03bf773feaa8188b2c152c31aa3fef68a945a973278"
+    },
+    "game/tests/soldier_size_verify.gd": {
+      "size": 2416,
+      "sha256": "c0294946500fe61245f502235a3c06a3adf0261fd7cf3c729381e994615f289f"
+    },
+    "game/tests/soldier_size_preview.gd": {
+      "size": 2399,
+      "sha256": "cadf2e3e2cc8b8cff8da28cbf16a465612a18de6609c24e97e7644718ab06ea8"
+    },
+    "game/tests/combat_feedback_verify.gd": {
+      "size": 2888,
+      "sha256": "eff3df984071fe355b9fd8024cb37140dbc8ca2f477ba1c89746a55a5c34d217"
+    },
+    "automation/release.json": {
+      "size": 36,
+      "sha256": "c3a9d99897aec36399347355376cacc36bd65c877e3fd72cf40f24316b39cb42"
+    },
+    "automation/release-history.json": {
+      "size": 47890,
+      "sha256": "5603c3d610fde4efd2554daa52d430e26d41c57c69482d260c8433793e7b83e4"
+    },
+    "game/root.gd": {
+      "size": 14013,
+      "sha256": "d68998ee058f8c44c5663d2f98c949f225b5499ec6796decfbb8438c157d3c35"
+    },
+    "game/addons/reservoir/release_notes.gd": {
+      "size": 47998,
+      "sha256": "b23e2818dc46b475fd6416fbf1ecc0874acc23ed49c7ea9c0afd629f76099e86"
+    },
+    ".github/workflows/verify-work.yml": {
+      "size": 32924,
+      "sha256": "a852029f4129387b0d49c647a3e844f724e459922f8bd09f65627f1631e305b4"
+    }
+  }
+}

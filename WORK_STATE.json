@@ -1,17 +1,17 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "release121_published",
+  "status": "release122_authorized",
   "release_baseline": "v1.21",
-  "target_release": "v1.21",
-  "deployed": true,
+  "target_release": "v1.22",
+  "deployed": false,
   "phone_verified": false,
-  "handoff": "docs/releases/121/HANDOFF.md",
-  "current_task": "v1.21 닫기·뒤로가기 공개 완료",
-  "next_step": "휴대폰 v1.21 실제 X·뒤로가기 동작 확인. 새 수정/배포는 별도 요청.",
+  "handoff": "docs/releases/122/HANDOFF.md",
+  "current_task": "v1.22 병사 크기·스킬 배치 수정본 공개",
+  "next_step": "검증후보13738329660 동일파일공개→공개3파일/운영다운로드검증",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
-  "verification": "docs/releases/121/PUBLISHED.json",
+  "verification": "docs/qa/soldier-size/VERIFICATION.json",
   "baseline_phone_verified": false,
   "environment_recovery": "docs/CODEX_NETWORK_RECOVERY.md",
   "background_verified_branch": "work/tile-png-stage2-20261107",
@@ -118,7 +118,7 @@
     "production_balance_changed": false,
     "phone_tested": false
   },
-  "release_authorized": false,
+  "release_authorized": true,
   "balance110": {
     "applied": true,
     "deployed": true,
@@ -1087,5 +1087,13 @@
     "published": "docs/releases/121/PUBLISHED.json",
     "deployed": true,
     "phone_verified": false
+  },
+  "soldier_size": {
+    "approved": true,
+    "implemented": true,
+    "verified": true,
+    "source_commit": "b14f8935f0941b58c085bcc98f3435cc31a3e778",
+    "ci": 42763368422,
+    "deployed": false
   }
 }

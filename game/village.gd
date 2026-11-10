@@ -294,7 +294,7 @@ func draw(m, h: float) -> void :
 		_sprite(m, arts[i], o + Vector2(b[2].get_center().x, 0))
 		var c: Vector2 = o + b[3]
 		var w: float = maxf(54, m._text_w(b[0], 10) + 16)
-		if o.y + (c.y - o.y) * zoom > m.top_y + 146:
+		if o.y + (c.y - o.y) * zoom > m.top_y + 157:
 			m.draw_style_box(m.hud_reference_style, Rect2(c.x - w / 2, c.y - 10, w, 23))
 			m._text(b[0], c + Vector2(0, 3), 10, Color("fff0d1"), true, w - 8)
 
@@ -325,7 +325,7 @@ func draw(m, h: float) -> void :
 
 	if _visible(100, 120):
 		var c: Vector2 = o + Vector2(95, -122)
-		if o.y + (c.y - o.y) * zoom > m.top_y + 146:
+		if o.y + (c.y - o.y) * zoom > m.top_y + 157:
 			m.draw_style_box(m.hud_reference_style, Rect2(c.x - 46, c.y - 10, 92, 23))
 			m._text("여객 선착장", c + Vector2(0, 3), 10, Color("fff0d1"), true)
 	m.draw_set_transform(Vector2.ZERO)
