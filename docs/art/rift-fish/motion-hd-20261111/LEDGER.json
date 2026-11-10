@@ -905,10 +905,36 @@
       "expected_output_count": 1,
       "quoted_generations": 1,
       "game_applied": false,
-      "status": "submitted",
+      "status": "passed",
       "submitted_unix": 1794331461.3175094,
       "http_status": 202,
-      "job_id": "3ac3d2a2-9b7a-4d63-a198-582f77f51093"
+      "job_id": "3ac3d2a2-9b7a-4d63-a198-582f77f51093",
+      "billing_source": "completed_job.billing_usage",
+      "actual_generation_delta": 1.0,
+      "output_count": 1
+    },
+    {
+      "id": "15",
+      "name": "차원결정 참치",
+      "stage": "motion",
+      "attempt": 1,
+      "model": "animate-pixminimax",
+      "seed": 2026113015,
+      "native_canvas": [
+        232,
+        148
+      ],
+      "input_sha256": "994ec2012e093c67eb2ee0f32d1c7d27c6f7e7e94806fd8859a4dc8defa99880",
+      "input_role": "internally passed native HD original derived from the user-approved fish",
+      "request_sha256": "2f8c9f102e480f3115ad57e0a7109d19b4e4f793c822654959797c5ef3884289",
+      "additional_request_used": 0,
+      "expected_output_count": 17,
+      "quoted_generations": 1,
+      "game_applied": false,
+      "status": "submitted",
+      "submitted_unix": 1794331553.5036857,
+      "http_status": 200,
+      "job_id": "5c90df08-c313-4133-b9d4-bb38c1a08e38"
     }
   ],
   "status": "one_active",
@@ -920,5 +946,5 @@
     "13": 1,
     "14": 1
   },
-  "actual_generations_charged": 40.0
+  "actual_generations_charged": 41.0
 }
