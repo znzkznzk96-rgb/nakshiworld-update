@@ -1,6 +1,6 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "rift_hd_motion_all20_prepared",
+  "status": "rift_hd_motion_all20_in_progress",
   "release_baseline": "v1.25",
   "target_release": "v1.25",
   "deployed": false,
@@ -1244,7 +1244,7 @@
     "verification": "docs/art/rift-fish/motion-20261111/REMOTE_VERIFICATION.json"
   },
   "rift_hd_motion": {
-    "status": "prepared",
+    "status": "in_progress",
     "spec": "docs/art/rift-fish/motion-hd-20261111/SPEC.json",
     "ledger": "docs/art/rift-fish/motion-hd-20261111/LEDGER.json",
     "total_species": 20,
@@ -1258,6 +1258,9 @@
     "shared_additional_requests_per_species": 1,
     "concurrent_paid_requests": 1,
     "game_applied": false,
-    "deployed": false
+    "deployed": false,
+    "completed_ids": [],
+    "paid_requests": 2,
+    "actual_generations_charged": 1
   }
 }
