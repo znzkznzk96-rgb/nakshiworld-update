@@ -1,0 +1,19 @@
+{
+  "id": "06",
+  "stage": "motion",
+  "attempt": 1,
+  "status": "passed",
+  "note": "16프레임에서 납작한 몸·긴 등가시·청록 반점·주황 꼬리 유지. 가슴/배지느러미와 꼬리의 작은 주기 움직임, 좌향·고유색·native폭·알파 여백 정상.",
+  "reviewed_native_and_nearest": true,
+  "approved_source_compared": true,
+  "observed_direction": "west",
+  "shape": "passed",
+  "color": "passed",
+  "native_detail": "passed",
+  "species_features": "passed",
+  "motion": "passed",
+  "alpha_margin": "passed",
+  "native_width_at_least_fight_max": "passed",
+  "actual_generation_delta": 2.0,
+  "game_applied": false
+}

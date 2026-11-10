@@ -1248,7 +1248,7 @@
     "spec": "docs/art/rift-fish/motion-hd-20261111/SPEC.json",
     "ledger": "docs/art/rift-fish/motion-hd-20261111/LEDGER.json",
     "total_species": 20,
-    "completed": 5,
+    "completed": 6,
     "held": [],
     "fight_max_logical_length": 156,
     "source_canvas_width": 232,
@@ -1264,9 +1264,10 @@
       "02",
       "03",
       "04",
-      "05"
+      "05",
+      "06"
     ],
-    "paid_requests": 14,
-    "actual_generations_charged": 14
+    "paid_requests": 15,
+    "actual_generations_charged": 16
   }
 }
