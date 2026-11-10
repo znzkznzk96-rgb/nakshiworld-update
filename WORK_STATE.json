@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "formation_scroll_full_verified",
+  "status": "release125_authorized",
   "release_baseline": "v1.24",
-  "target_release": "v1.24",
+  "target_release": "v1.25",
   "deployed": false,
   "phone_verified": false,
-  "handoff": "docs/qa/formation-scroll/HANDOFF.md",
-  "current_task": "병사배치 보유목록 연속 스크롤 수정·전체검증 완료(미배포)",
-  "next_step": "사용자 실화면 검토. 새배포요청 시 신규버전/우편준비 후 최종동일후보공개. 공개v1.24유지.",
+  "handoff": "docs/releases/125/HANDOFF.md",
+  "current_task": "v1.25 병사배치 연속 스크롤 공개 준비",
+  "next_step": "1.25 버전/우편준비→최종전체CI→동일후보공개·운영검증",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -43,9 +43,9 @@
   "remaining_global_render_checks": false,
   "release_authorization": {
     "date": "2026-11-10",
-    "scope": "v1.24 평타·스킬 분리·연타누적·최대3개·창내부 제한",
-    "user_request": "그렇게 수정해주고 업데이트및 배포해줘",
-    "fulfilled": true
+    "user_request": "아 업데이트 후 배포해줘 ㅇㅇ",
+    "scope": "v1.25 병사배치 부분카드 연속 스크롤",
+    "fulfilled": false
   },
   "release_preflight": "docs/qa/soldier-size/VERIFICATION.json",
   "release_source_commit": "e99eabdc11ebca7307e0d35a3a43fbe14f20d64e",
@@ -118,7 +118,7 @@
     "production_balance_changed": false,
     "phone_tested": false
   },
-  "release_authorized": false,
+  "release_authorized": true,
   "balance110": {
     "applied": true,
     "deployed": true,
