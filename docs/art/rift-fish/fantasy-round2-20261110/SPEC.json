@@ -81,7 +81,7 @@
       "name": "쌍혜성 두꼬리꽁치",
       "original_species": "두꼬리꽁치",
       "tier": 1,
-      "mode": "edit",
+      "mode": "create",
       "model": "edit-image-pixen",
       "reference_path": "game/art/fish/l0_07.png",
       "reference_sha256": "a09e70c432b23d10502eb18efa02d14bfbbd4ce4c5a15634b7f5c161a3ac47db",
@@ -91,10 +91,11 @@
       "seed": 2026111401,
       "max_requests_this_round": 2,
       "prior_requests": 2,
-      "status": "planned",
+      "status": "rejected",
       "requests_this_round": 0,
       "actual_motion_generated": false,
-      "game_applied": false
+      "game_applied": false,
+      "attempts_used": 1
     },
     {
       "id": "05",

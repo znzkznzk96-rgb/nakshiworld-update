@@ -1,8 +1,39 @@
 {
   "date": "2026-11-10",
   "batch": "fantasy-nonboss-round2",
-  "entries": [],
-  "status": "prepared_no_paid_requests",
+  "entries": [
+    {
+      "id": "01",
+      "name": "쌍혜성 두꼬리꽁치",
+      "attempt": 1,
+      "status": "rejected",
+      "model": "edit-image-pixen",
+      "seed": 2026111401,
+      "request_sha256": "8cd74abe6123f049376642d5008c2f51056b469312317c4964e34780123f0c30",
+      "submitted_at_unix": 1794318665.9560096,
+      "prior_round_requests": 2,
+      "http_status": 202,
+      "job_id": "fc294592-d741-48c3-b5d6-232fa2c025a8",
+      "actual_generation_delta": 1.0,
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "result_sha256": "2062da2f06ab89d7a775cd87115723b4bf6a2aade2fbc7118bd3f87626281c43"
+    },
+    {
+      "id": "01",
+      "name": "쌍혜성 두꼬리꽁치",
+      "attempt": 2,
+      "status": "submission_pending",
+      "model": "create-image-pixen",
+      "seed": 2026111501,
+      "request_sha256": "da21f9ad30c204a764eb9e926381108964374d0e695613c24ec78f4e013ab35c",
+      "submitted_at_unix": 1794318981.831125,
+      "prior_round_requests": 2
+    }
+  ],
+  "status": "one_active",
   "max_per_species_this_round": 2,
   "protected_existing_six": [
     {
@@ -77,5 +108,9 @@
       ],
       "status": "internal_quality_pass_user_review_pending"
     }
-  ]
+  ],
+  "generation_requests": 2,
+  "accepted_outputs": 0,
+  "rejected_outputs": 1,
+  "actual_generations_charged": 1.0
 }

@@ -1,0 +1,8 @@
+{
+  "http_status": 202,
+  "response": {
+    "usage": null,
+    "background_job_id": "fc294592-d741-48c3-b5d6-232fa2c025a8",
+    "status": "processing"
+  }
+}
