@@ -1,17 +1,17 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "android_back_navigation_in_progress",
+  "status": "close_back_implemented_full_verification",
   "release_baseline": "v1.20",
   "target_release": "v1.20",
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/qa/android-back/HANDOFF.md",
   "current_task": "닫기 버튼 통일·좁은 팝업 정리·뒤로가기 닫기",
-  "next_step": "공통 뒤로가기 우선순위·Android 이벤트·취소안전성 구현검증",
+  "next_step": "전체CI 완료 확인 후 검증기록 마감. 공개배포 별도 승인 필요.",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
-  "verification": "docs/releases/120/PUBLISHED.json",
+  "verification": "docs/qa/android-back/VERIFICATION.json",
   "baseline_phone_verified": false,
   "environment_recovery": "docs/CODEX_NETWORK_RECOVERY.md",
   "background_verified_branch": "work/tile-png-stage2-20261107",
@@ -1068,11 +1068,16 @@
   "android_back": {
     "approved": true,
     "deployed": false,
-    "release_authorized": false
+    "release_authorized": false,
+    "implemented": true,
+    "local_cases": 34,
+    "source_commit": "f55bdf0447192e39c3c4156b1c33dc9524c5908b"
   },
   "close_ui": {
     "approved": true,
     "art_generations": 0,
-    "deployed": false
+    "deployed": false,
+    "implemented": true,
+    "native_screens": 18
   }
 }

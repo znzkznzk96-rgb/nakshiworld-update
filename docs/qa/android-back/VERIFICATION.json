@@ -1,0 +1,26 @@
+{
+  "date": "2026-11-10",
+  "source_commit": "f55bdf0447192e39c3c4156b1c33dc9524c5908b",
+  "engine": "4.4.1-stable",
+  "local": {
+    "android_back_cases": 34,
+    "close_controls": "pass",
+    "dex_readability": "pass",
+    "forge_layout": "pass",
+    "formation_compare": "pass",
+    "native_heights": [
+      480,
+      540,
+      660
+    ],
+    "native_screens": 18,
+    "preview": "pass"
+  },
+  "ci": {
+    "run_id": 42746868704,
+    "status": "in_progress"
+  },
+  "deployed": false,
+  "phone_verified": false,
+  "paid_art_requests": 0
+}
