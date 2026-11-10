@@ -1,0 +1,30 @@
+{
+  "status": "rejected",
+  "note": "원반형 몸과 진한 보라색·초승달은 개선됐으나 작은 갈라진 꼬리가 남아 뭉툭한 후미 명세와 차이. 미승인 외형변경으로 강제 채택하지 않고 개복치 보류 후보로 사용자에게 표시. 추가2회 한도 도달.",
+  "reviewed_at_native_and_nearest6x": true,
+  "compared_with_actual_reservoir_original": true,
+  "size": [
+    96,
+    64
+  ],
+  "bbox": [
+    25,
+    4,
+    75,
+    60
+  ],
+  "mode": "RGBA",
+  "sha256": "d6bd161be8644edf672c25dc914e3a455996fd16dad8a76384d7151c6f0efb96",
+  "reference_sha256": "a87f59d881fbd6fe0027a8c9008e95a9849eeb6552d55ba5b1dee634dc690787",
+  "shape": "rejected",
+  "color": "passed",
+  "shading_pixel_clusters": "passed",
+  "outline": "passed",
+  "species_feature": "rejected",
+  "alpha_margin": "passed",
+  "actual_generation_delta": 1.0,
+  "game_applied": false,
+  "user_final_approval": "pending",
+  "observed_direction": "west",
+  "candidate_note": "원반형 판타지 물고기로는 개선, 개복치 후미 변경은 사용자 판단 대기"
+}

@@ -58,12 +58,26 @@
       "http_status": 200,
       "actual_generation_delta": 1.0,
       "result_sha256": "558a5d755b34be83dcb410cb5f99cb0dd63b026972227d8d896b4147a2918fb6"
+    },
+    {
+      "id": "16",
+      "name": "월식 개복치",
+      "attempt": 2,
+      "status": "rejected",
+      "model": "create-image-pixen",
+      "seed": 2026111716,
+      "request_sha256": "a030f02a49099468e50c79909876d9bae7e947d066c411c92c4fb9e15d207cf6",
+      "submitted_at_unix": 1794321982.726559,
+      "prior_round_requests": 4,
+      "http_status": 200,
+      "actual_generation_delta": 1.0,
+      "result_sha256": "d6bd161be8644edf672c25dc914e3a455996fd16dad8a76384d7151c6f0efb96"
     }
   ],
   "status": "left_final_four_in_progress",
   "max_per_species_this_round": 2,
-  "generation_requests": 4,
+  "generation_requests": 5,
   "accepted_outputs": 1,
-  "rejected_outputs": 3,
-  "actual_generations_charged": 4.0
+  "rejected_outputs": 4,
+  "actual_generations_charged": 5.0
 }
