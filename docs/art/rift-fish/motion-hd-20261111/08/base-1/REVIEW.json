@@ -1,0 +1,19 @@
+{
+  "id": "08",
+  "stage": "base",
+  "attempt": 1,
+  "status": "passed",
+  "note": "작고 가느다란 멸치 체형·은빛 배·청록 발광 띠·눈과 꼬리 보존. native190px 본체에서 좌향·픽셀 명암·여백 정상, 작게 표시할 때도 발광 띠가 구분됨.",
+  "reviewed_native_and_nearest": true,
+  "approved_source_compared": true,
+  "observed_direction": "west",
+  "shape": "passed",
+  "color": "passed",
+  "native_detail": "passed",
+  "species_features": "passed",
+  "motion": "not_applicable",
+  "alpha_margin": "passed",
+  "native_width_at_least_fight_max": "passed",
+  "actual_generation_delta": 1.0,
+  "game_applied": false
+}

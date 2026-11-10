@@ -444,6 +444,32 @@
       "billing_source": "completed_job.billing_usage",
       "actual_generation_delta": 1.0,
       "output_count": 17
+    },
+    {
+      "id": "08",
+      "name": "빛멸치",
+      "stage": "base",
+      "attempt": 1,
+      "model": "edit-image-pixen",
+      "seed": 2026112008,
+      "native_canvas": [
+        232,
+        84
+      ],
+      "input_sha256": "452e0c7fcf9ca882d2f2682bbda2a1db35e2e0d47451c0b0eee95ee0db818f3c",
+      "input_role": "user-approved fish, transparent margins cropped/padded only",
+      "request_sha256": "ada2d7e8f0c48ecf5a77ba7b05700da6f8a4f5d8ed6adb2d9bebc046f3510a60",
+      "additional_request_used": 0,
+      "expected_output_count": 1,
+      "quoted_generations": 1,
+      "game_applied": false,
+      "status": "passed",
+      "submitted_unix": 1794328487.1854866,
+      "http_status": 202,
+      "job_id": "cbabb7b4-414c-46c1-bcff-a0481078623f",
+      "billing_source": "completed_job.billing_usage",
+      "actual_generation_delta": 1.0,
+      "output_count": 1
     }
   ],
   "status": "reviewed",
@@ -452,5 +478,5 @@
     "06": 1,
     "07": 1
   },
-  "actual_generations_charged": 19.0
+  "actual_generations_charged": 20.0
 }
