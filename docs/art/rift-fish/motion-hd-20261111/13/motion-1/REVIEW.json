@@ -1,0 +1,19 @@
+{
+  "id": "13",
+  "stage": "motion",
+  "attempt": 1,
+  "status": "passed",
+  "note": "16프레임에서 둥근 몸이 작게 팽창/수축하고 기존 큰 결정이 미세하게 움직이며 균열 밝기가 변함. 추가 작은 조각 없이 원화의 눈/부리/꼬리/결정 배치 유지. native폭·좌향·색·알파 여백 정상.",
+  "reviewed_native_and_nearest": true,
+  "approved_source_compared": true,
+  "observed_direction": "west",
+  "shape": "passed",
+  "color": "passed",
+  "native_detail": "passed",
+  "species_features": "passed",
+  "motion": "passed",
+  "alpha_margin": "passed",
+  "native_width_at_least_fight_max": "passed",
+  "actual_generation_delta": 2.0,
+  "game_applied": false
+}
