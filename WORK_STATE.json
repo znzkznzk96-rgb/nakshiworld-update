@@ -1,17 +1,17 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "rift_tier1_remaining_seven_in_progress",
+  "status": "rift_tier1_six_previews_two_held",
   "release_baseline": "v1.25",
   "target_release": "v1.25",
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/art/rift-fish/HANDOFF.md",
-  "current_task": "두꼬리꽁치보류·나머지1성7종순차제작",
-  "next_step": "종별최대2회/단일생성검수,실패종만보류·다른종계속",
+  "current_task": "균열해역1성8종 제작검토: 내부통과6·보류2",
+  "next_step": "6종시안사용자검토. 두꼬리꽁치/오징어각2회보류유지·추가호출/게임적용/배포없음.",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
-  "verification": "docs/releases/125/PUBLISHED.json",
+  "verification": "docs/art/rift-fish/tier1-20261110/REMOTE_VERIFICATION.json",
   "baseline_phone_verified": false,
   "environment_recovery": "docs/CODEX_NETWORK_RECOVERY.md",
   "background_verified_branch": "work/tile-png-stage2-20261107",
@@ -1158,12 +1158,21 @@
     "published": "docs/releases/125/PUBLISHED.json"
   },
   "rift_fish": {
-    "requests": 2,
-    "accepted": 0,
-    "rejected": 1,
-    "server_failure_without_image": 1,
-    "actual_generations_charged": 1,
-    "remaining_species_unstarted": 7,
-    "verification": "docs/art/rift-fish/tier1-20261110/LEDGER.json"
+    "requests": 12,
+    "accepted_previews": 6,
+    "rejected_outputs": 5,
+    "server_failure_no_image": 1,
+    "actual_generations_charged_total": 11,
+    "current_turn_generations_charged": 10,
+    "held_species": [
+      "두꼬리꽁치",
+      "오징어"
+    ],
+    "unstarted_species": 0,
+    "manifest": "docs/art/rift-fish/tier1-20261110/MANIFEST.json",
+    "ledger": "docs/art/rift-fish/tier1-20261110/LEDGER.json",
+    "user_final_approval": "pending",
+    "game_applied": false,
+    "deployed": false
   }
 }

@@ -1,6 +1,6 @@
 {
   "date": "2026-11-10",
-  "status": "continuing_remaining_seven",
+  "status": "six_internal_pass_two_held",
   "species": [
     {
       "id": "01",
@@ -22,7 +22,7 @@
       "style_strength": 35,
       "max_attempts": 2,
       "attempts_used": 2,
-      "status": "held"
+      "status": "held_after_two_requests"
     },
     {
       "id": "02",
@@ -43,9 +43,12 @@
       "seed": 2026111202,
       "style_strength": 35,
       "max_attempts": 2,
-      "attempts_used": 0,
-      "status": "planned",
-      "request_cost_documented_generations": 1
+      "attempts_used": 1,
+      "status": "internally_passed_user_review_pending",
+      "request_cost_documented_generations": 1,
+      "selected_attempt": 1,
+      "selected_path": "02-attempt1/original.png",
+      "result_sha256": "0fdcf1ad1b2818ca10802365c6ca1285922deeb0b6e13e56bd1c82b60b9216ea"
     },
     {
       "id": "03",
@@ -66,9 +69,12 @@
       "seed": 2026111203,
       "style_strength": 35,
       "max_attempts": 2,
-      "attempts_used": 0,
-      "status": "planned",
-      "request_cost_documented_generations": 1
+      "attempts_used": 1,
+      "status": "internally_passed_user_review_pending",
+      "request_cost_documented_generations": 1,
+      "selected_attempt": 1,
+      "selected_path": "03-attempt1/original.png",
+      "result_sha256": "bb5da274a05ace32781a119f4341250b23f79bfe4d7cb6b08761eb9646e2fddd"
     },
     {
       "id": "04",
@@ -89,9 +95,12 @@
       "seed": 2026111204,
       "style_strength": 35,
       "max_attempts": 2,
-      "attempts_used": 0,
-      "status": "planned",
-      "request_cost_documented_generations": 1
+      "attempts_used": 2,
+      "status": "internally_passed_user_review_pending",
+      "request_cost_documented_generations": 1,
+      "selected_attempt": 2,
+      "selected_path": "04-attempt2/original.png",
+      "result_sha256": "cca9e6f8bcefe5caf69d5c912e118bda26d88ed4f40d5cb5d401234db4793e3f"
     },
     {
       "id": "05",
@@ -112,8 +121,8 @@
       "seed": 2026111205,
       "style_strength": 35,
       "max_attempts": 2,
-      "attempts_used": 0,
-      "status": "planned",
+      "attempts_used": 2,
+      "status": "held_after_two_requests",
       "request_cost_documented_generations": 1
     },
     {
@@ -135,9 +144,12 @@
       "seed": 2026111206,
       "style_strength": 35,
       "max_attempts": 2,
-      "attempts_used": 0,
-      "status": "planned",
-      "request_cost_documented_generations": 1
+      "attempts_used": 2,
+      "status": "internally_passed_user_review_pending",
+      "request_cost_documented_generations": 1,
+      "selected_attempt": 2,
+      "selected_path": "06-attempt2/original.png",
+      "result_sha256": "49bc3d38623b565a722512401299746cff7fd4ff4012118ebadb7a90ac9eaca9"
     },
     {
       "id": "07",
@@ -158,9 +170,12 @@
       "seed": 2026111207,
       "style_strength": 35,
       "max_attempts": 2,
-      "attempts_used": 0,
-      "status": "planned",
-      "request_cost_documented_generations": 1
+      "attempts_used": 1,
+      "status": "internally_passed_user_review_pending",
+      "request_cost_documented_generations": 1,
+      "selected_attempt": 1,
+      "selected_path": "07-attempt1/original.png",
+      "result_sha256": "73e180f43b932d7bf5feb720c84aca00599907f665d757cd1842e7d4569e68fa"
     },
     {
       "id": "08",
@@ -181,9 +196,12 @@
       "seed": 2026111208,
       "style_strength": 35,
       "max_attempts": 2,
-      "attempts_used": 0,
-      "status": "planned",
-      "request_cost_documented_generations": 1
+      "attempts_used": 1,
+      "status": "internally_passed_user_review_pending",
+      "request_cost_documented_generations": 1,
+      "selected_attempt": 1,
+      "selected_path": "08-attempt1/original.png",
+      "result_sha256": "04190e7b52eb9f691e77502ee390c3c6efb5fac7b9cbca7b40706512d9f31b1f"
     }
   ],
   "limits": {

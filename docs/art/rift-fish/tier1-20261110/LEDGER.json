@@ -217,12 +217,27 @@
     }
   ],
   "generation_requests": 12,
-  "status": "continuing_remaining_species_saury_held",
+  "status": "completed_with_individual_holds",
   "accepted_outputs": 6,
   "rejected_outputs": 5,
   "server_failure_without_image": 1,
   "actual_generations_charged": 11.0,
-  "unstarted_species": 7,
-  "no_additional_paid_calls": false,
-  "failed_species_policy": "hold individual, continue independent species"
+  "unstarted_species": 0,
+  "no_additional_paid_calls": true,
+  "failed_species_policy": "hold individual, continue independent species",
+  "held_species": [
+    {
+      "id": "01",
+      "name": "두꼬리꽁치",
+      "attempts": 2,
+      "reason": "체형·특징 불합격/2회상한, 재호출 없음"
+    },
+    {
+      "id": "05",
+      "name": "오징어",
+      "attempts": 2,
+      "reason": "체형·특징 불합격/2회상한, 재호출 없음"
+    }
+  ],
+  "current_turn_generations_charged": 10.0
 }

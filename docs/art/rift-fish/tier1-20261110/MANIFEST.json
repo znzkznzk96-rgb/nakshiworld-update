@@ -1,0 +1,106 @@
+{
+  "date": "2026-11-10",
+  "accepted_previews": [
+    {
+      "id": "02",
+      "name": "균열정어리",
+      "attempt": 1,
+      "directory": "02-attempt1",
+      "sha256": "0fdcf1ad1b2818ca10802365c6ca1285922deeb0b6e13e56bd1c82b60b9216ea",
+      "size": [
+        96,
+        64
+      ],
+      "status": "internal_quality_pass_user_review_pending"
+    },
+    {
+      "id": "03",
+      "name": "네날개날치",
+      "attempt": 1,
+      "directory": "03-attempt1",
+      "sha256": "bb5da274a05ace32781a119f4341250b23f79bfe4d7cb6b08761eb9646e2fddd",
+      "size": [
+        96,
+        64
+      ],
+      "status": "internal_quality_pass_user_review_pending"
+    },
+    {
+      "id": "04",
+      "name": "가시등전어",
+      "attempt": 2,
+      "directory": "04-attempt2",
+      "sha256": "cca9e6f8bcefe5caf69d5c912e118bda26d88ed4f40d5cb5d401234db4793e3f",
+      "size": [
+        96,
+        64
+      ],
+      "status": "internal_quality_pass_user_review_pending"
+    },
+    {
+      "id": "06",
+      "name": "쥐포쥐치",
+      "attempt": 2,
+      "directory": "06-attempt2",
+      "sha256": "49bc3d38623b565a722512401299746cff7fd4ff4012118ebadb7a90ac9eaca9",
+      "size": [
+        96,
+        64
+      ],
+      "status": "internal_quality_pass_user_review_pending"
+    },
+    {
+      "id": "07",
+      "name": "금간정어리",
+      "attempt": 1,
+      "directory": "07-attempt1",
+      "sha256": "73e180f43b932d7bf5feb720c84aca00599907f665d757cd1842e7d4569e68fa",
+      "size": [
+        96,
+        64
+      ],
+      "status": "internal_quality_pass_user_review_pending"
+    },
+    {
+      "id": "08",
+      "name": "빛멸치",
+      "attempt": 1,
+      "directory": "08-attempt1",
+      "sha256": "04190e7b52eb9f691e77502ee390c3c6efb5fac7b9cbca7b40706512d9f31b1f",
+      "size": [
+        96,
+        64
+      ],
+      "status": "internal_quality_pass_user_review_pending"
+    }
+  ],
+  "held": [
+    {
+      "id": "01",
+      "name": "두꼬리꽁치",
+      "attempts": 2,
+      "reason": "체형·특징 불합격/2회상한, 재호출 없음"
+    },
+    {
+      "id": "05",
+      "name": "오징어",
+      "attempts": 2,
+      "reason": "체형·특징 불합격/2회상한, 재호출 없음"
+    }
+  ],
+  "all_per_species_request_counts": {
+    "두꼬리꽁치": 2,
+    "균열정어리": 1,
+    "네날개날치": 1,
+    "가시등전어": 2,
+    "오징어": 2,
+    "쥐포쥐치": 2,
+    "금간정어리": 1,
+    "빛멸치": 1
+  },
+  "actual_generations_charged_total": 11.0,
+  "actual_generations_charged_remaining_seven": 10.0,
+  "game_applied": false,
+  "user_final_approval": "pending",
+  "source": "PixelLab edit-image-pixen, actual approved reservoir references, no provisional or rejected input images"
+}
