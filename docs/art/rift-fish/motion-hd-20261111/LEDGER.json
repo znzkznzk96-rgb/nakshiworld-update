@@ -130,9 +130,35 @@
       "billing_source": "completed_job.billing_usage",
       "actual_generation_delta": 1.0,
       "output_count": 1
+    },
+    {
+      "id": "03",
+      "name": "네날개날치",
+      "stage": "motion",
+      "attempt": 1,
+      "model": "animate-pixminimax",
+      "seed": 2026113003,
+      "native_canvas": [
+        232,
+        216
+      ],
+      "input_sha256": "fca402a8bc48b42aa2cab2f5481e88bfde718030b4cf13d5d5548b90a28d461a",
+      "input_role": "internally passed native HD original derived from the user-approved fish",
+      "request_sha256": "2c6bc3b256b2af912e1603a8fb58105fa2268601e75b1385637237e1eddeead3",
+      "additional_request_used": 0,
+      "expected_output_count": 17,
+      "quoted_generations": 2,
+      "game_applied": false,
+      "status": "passed",
+      "submitted_unix": 1794326852.4071772,
+      "http_status": 200,
+      "job_id": "72c1051d-44d1-4a5c-9ef7-ab002bc283f9",
+      "billing_source": "completed_job.billing_usage",
+      "actual_generation_delta": 2.0,
+      "output_count": 17
     }
   ],
   "status": "reviewed",
   "additional_requests_used": {},
-  "actual_generations_charged": 5.0
+  "actual_generations_charged": 7.0
 }

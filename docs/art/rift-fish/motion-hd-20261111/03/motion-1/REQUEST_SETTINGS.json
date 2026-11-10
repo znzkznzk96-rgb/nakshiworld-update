@@ -1,0 +1,16 @@
+{
+  "first_frame": {
+    "encoded_image_omitted": true,
+    "sha256": "fca402a8bc48b42aa2cab2f5481e88bfde718030b4cf13d5d5548b90a28d461a",
+    "input_role": "internally passed native HD original derived from the user-approved fish"
+  },
+  "description": "The FOUR wing fins gently flap in paired rhythm, upper pair then lower pair, with a slight trailing flex. Keep exactly four wings and stable slender body. Seamless gentle swimming loop IN PLACE, head LEFT throughout. Fixed camera, sprite position and scale. Preserve exact original identity, colors, markings and fin/tail count. No turning, new parts, particles, scenery, cropping or camera motion.",
+  "frame_count": 16,
+  "seed": 2026113003,
+  "no_background": true,
+  "enhance_prompt": false,
+  "direction": "west",
+  "view": "side",
+  "subject_description": "blue-silver flying fish with four broad wings",
+  "initial_pose": "neutral horizontal swimming pose; head LEFT, tail or mantle RIGHT; whole creature visible inside transparent margins"
+}
