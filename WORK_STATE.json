@@ -1,17 +1,17 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "tier2_body_size_correction",
+  "status": "tier2_body_related_verified_ci_running",
   "release_baseline": "v1.22",
-  "target_release": "v1.22",
+  "target_release": "v1.23",
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/qa/tier2-body/HANDOFF.md",
   "current_task": "2성 망치병 기준 본체 크기 재보정",
-  "next_step": "2성높이기준/최대폭보정→사용자동일편성화면비교→관련검사/최종CI",
+  "next_step": "전체자동CI42770945121 결과확인. 새배포요청시성공동일후보만공개.",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
-  "verification": "docs/releases/122/PUBLISHED.json",
+  "verification": "docs/qa/tier2-body/VERIFICATION.json",
   "baseline_phone_verified": false,
   "environment_recovery": "docs/CODEX_NETWORK_RECOVERY.md",
   "background_verified_branch": "work/tile-png-stage2-20261107",
@@ -1101,5 +1101,12 @@
     "published": "docs/releases/122/PUBLISHED.json",
     "deployed": true,
     "phone_verified": false
+  },
+  "tier2_body": {
+    "implemented": true,
+    "related_verified": true,
+    "source_commit": "b963abe6e9beef72bac03f10b380a13d58fffdb7",
+    "ci": 42770945121,
+    "deployed": false
   }
 }
