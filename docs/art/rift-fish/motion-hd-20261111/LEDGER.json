@@ -515,8 +515,34 @@
       "expected_output_count": 1,
       "quoted_generations": 1,
       "game_applied": false,
+      "status": "passed",
+      "submitted_unix": 1794328742.3876276,
+      "http_status": 202,
+      "job_id": "286252c2-1086-40e9-838e-d0c59a3d36e8",
+      "billing_source": "completed_job.billing_usage",
+      "actual_generation_delta": 1.0,
+      "output_count": 1
+    },
+    {
+      "id": "09",
+      "name": "균열갑주 방어",
+      "stage": "motion",
+      "attempt": 1,
+      "model": "animate-pixminimax",
+      "seed": 2026113009,
+      "native_canvas": [
+        232,
+        152
+      ],
+      "input_sha256": "f01711be0bd858920cf6c4ad6a1b16db47b930d3f67e41da107cc1ed22247ea7",
+      "input_role": "internally passed native HD original derived from the user-approved fish",
+      "request_sha256": "6bded4cc5b1cb5a56beaea79569be047c8c0e18cc9ac92ba7f2f872efc92a733",
+      "additional_request_used": 0,
+      "expected_output_count": 17,
+      "quoted_generations": 1,
+      "game_applied": false,
       "status": "submission_pending",
-      "submitted_unix": 1794328742.3876276
+      "submitted_unix": 1794328892.4650056
     }
   ],
   "status": "one_active",
@@ -525,5 +551,5 @@
     "06": 1,
     "07": 1
   },
-  "actual_generations_charged": 21.0
+  "actual_generations_charged": 22.0
 }

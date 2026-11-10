@@ -1,0 +1,19 @@
+{
+  "id": "09",
+  "stage": "base",
+  "attempt": 1,
+  "status": "passed",
+  "note": "큰 청록 갑주3판·등 결정·금빛 연결선/꼬리·은청색 몸 구조 유지. native201px 본체와 결정 세부명암 선명, 좌향·여백 정상.",
+  "reviewed_native_and_nearest": true,
+  "approved_source_compared": true,
+  "observed_direction": "west",
+  "shape": "passed",
+  "color": "passed",
+  "native_detail": "passed",
+  "species_features": "passed",
+  "motion": "not_applicable",
+  "alpha_margin": "passed",
+  "native_width_at_least_fight_max": "passed",
+  "actual_generation_delta": 1.0,
+  "game_applied": false
+}
