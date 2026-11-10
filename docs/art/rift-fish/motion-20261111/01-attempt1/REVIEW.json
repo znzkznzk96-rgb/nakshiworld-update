@@ -1,0 +1,132 @@
+{
+  "status": "internal_pilot_pass_user_review_pending",
+  "frames_native_and_nearest_reviewed": 16,
+  "direction": "west",
+  "shape": "passed",
+  "two_distinct_tails": "passed",
+  "colors": "passed",
+  "pixel_style": "passed",
+  "alpha_and_margins": "passed",
+  "motion": "visible tail fin oscillation; body and head stable; cyan/violet tail phases readable",
+  "loop": "continuous playback preview prepared; final phone appearance not verified",
+  "frame_bbox": [
+    [
+      4,
+      9,
+      91,
+      54
+    ],
+    [
+      4,
+      9,
+      92,
+      54
+    ],
+    [
+      4,
+      10,
+      92,
+      53
+    ],
+    [
+      4,
+      12,
+      92,
+      52
+    ],
+    [
+      4,
+      14,
+      92,
+      51
+    ],
+    [
+      4,
+      15,
+      92,
+      49
+    ],
+    [
+      4,
+      14,
+      92,
+      50
+    ],
+    [
+      4,
+      12,
+      91,
+      52
+    ],
+    [
+      4,
+      10,
+      91,
+      53
+    ],
+    [
+      4,
+      9,
+      91,
+      54
+    ],
+    [
+      4,
+      9,
+      91,
+      54
+    ],
+    [
+      4,
+      10,
+      92,
+      53
+    ],
+    [
+      4,
+      12,
+      92,
+      52
+    ],
+    [
+      4,
+      14,
+      92,
+      51
+    ],
+    [
+      4,
+      15,
+      92,
+      49
+    ],
+    [
+      4,
+      14,
+      92,
+      50
+    ]
+  ],
+  "adjacent_pixel_changes": [
+    746,
+    617,
+    667,
+    560,
+    587,
+    621,
+    645,
+    679,
+    461,
+    740,
+    609,
+    673,
+    546,
+    573,
+    626,
+    919
+  ],
+  "first_frame_pixels_identical": true,
+  "actual_generation_delta": 1,
+  "game_applied": false,
+  "phone_verified": false
+}

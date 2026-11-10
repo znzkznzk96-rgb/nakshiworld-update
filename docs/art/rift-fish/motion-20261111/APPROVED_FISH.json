@@ -12,10 +12,12 @@
       "operation": "lossless_horizontal_reflection",
       "direction": "west",
       "motion_design": "두꼬리 각각 상하로 번갈아 부채질·꼬리끝 짧은 잔광, 몸은 가늘게 파동",
-      "user_shape_approval": "accepted_existing_preserved",
+      "user_shape_approval": "accepted_by_user_2026-11-11",
       "user_approval": "2026-11-11 다좋네",
       "approved_path": "approved/01.png",
-      "source_repository_path": "docs/art/rift-fish/left-final-four-20261110/left-facing/01-쌍혜성 두꼬리꽁치.png"
+      "source_repository_path": "docs/art/rift-fish/left-final-four-20261110/left-facing/01-쌍혜성 두꼬리꽁치.png",
+      "previous_user_shape_approval": "accepted_existing_preserved",
+      "color_approval": "accepted_current_preview_2026-11-11"
     },
     {
       "id": "02",
@@ -27,10 +29,12 @@
       "operation": "lossless_horizontal_reflection",
       "direction": "west",
       "motion_design": "기존 명세 유지",
-      "user_shape_approval": "accepted_existing_preserved",
+      "user_shape_approval": "accepted_by_user_2026-11-11",
       "user_approval": "2026-11-11 다좋네",
       "approved_path": "approved/02.png",
-      "source_repository_path": "docs/art/rift-fish/left-final-four-20261110/left-facing/02-균열정어리.png"
+      "source_repository_path": "docs/art/rift-fish/left-final-four-20261110/left-facing/02-균열정어리.png",
+      "previous_user_shape_approval": "accepted_existing_preserved",
+      "color_approval": "accepted_current_preview_2026-11-11"
     },
     {
       "id": "03",
@@ -42,10 +46,12 @@
       "operation": "lossless_horizontal_reflection",
       "direction": "west",
       "motion_design": "기존 명세 유지",
-      "user_shape_approval": "accepted_existing_preserved",
+      "user_shape_approval": "accepted_by_user_2026-11-11",
       "user_approval": "2026-11-11 다좋네",
       "approved_path": "approved/03.png",
-      "source_repository_path": "docs/art/rift-fish/left-final-four-20261110/left-facing/03-네날개날치.png"
+      "source_repository_path": "docs/art/rift-fish/left-final-four-20261110/left-facing/03-네날개날치.png",
+      "previous_user_shape_approval": "accepted_existing_preserved",
+      "color_approval": "accepted_current_preview_2026-11-11"
     },
     {
       "id": "04",
@@ -57,10 +63,12 @@
       "operation": "lossless_horizontal_reflection",
       "direction": "west",
       "motion_design": "기존 명세 유지",
-      "user_shape_approval": "accepted_existing_preserved",
+      "user_shape_approval": "accepted_by_user_2026-11-11",
       "user_approval": "2026-11-11 다좋네",
       "approved_path": "approved/04.png",
-      "source_repository_path": "docs/art/rift-fish/left-final-four-20261110/left-facing/04-가시등전어.png"
+      "source_repository_path": "docs/art/rift-fish/left-final-four-20261110/left-facing/04-가시등전어.png",
+      "previous_user_shape_approval": "accepted_existing_preserved",
+      "color_approval": "accepted_current_preview_2026-11-11"
     },
     {
       "id": "05",
@@ -72,10 +80,12 @@
       "operation": "lossless_horizontal_reflection",
       "direction": "west",
       "motion_design": "맨틀 수축·확장 후 추진, 촉수 늦게 따라오는 물결·균열빛 맥동",
-      "user_shape_approval": "accepted_existing_preserved",
+      "user_shape_approval": "accepted_by_user_2026-11-11",
       "user_approval": "2026-11-11 다좋네",
       "approved_path": "approved/05.png",
-      "source_repository_path": "docs/art/rift-fish/left-final-four-20261110/left-facing/05-균열장막 오징어.png"
+      "source_repository_path": "docs/art/rift-fish/left-final-four-20261110/left-facing/05-균열장막 오징어.png",
+      "previous_user_shape_approval": "accepted_existing_preserved",
+      "color_approval": "accepted_current_preview_2026-11-11"
     },
     {
       "id": "06",
@@ -87,10 +97,12 @@
       "operation": "lossless_horizontal_reflection",
       "direction": "west",
       "motion_design": "기존 명세 유지",
-      "user_shape_approval": "accepted_existing_preserved",
+      "user_shape_approval": "accepted_by_user_2026-11-11",
       "user_approval": "2026-11-11 다좋네",
       "approved_path": "approved/06.png",
-      "source_repository_path": "docs/art/rift-fish/left-final-four-20261110/left-facing/06-쥐포쥐치.png"
+      "source_repository_path": "docs/art/rift-fish/left-final-four-20261110/left-facing/06-쥐포쥐치.png",
+      "previous_user_shape_approval": "accepted_existing_preserved",
+      "color_approval": "accepted_current_preview_2026-11-11"
     },
     {
       "id": "07",
@@ -102,10 +114,12 @@
       "operation": "lossless_horizontal_reflection",
       "direction": "west",
       "motion_design": "기존 명세 유지",
-      "user_shape_approval": "accepted_existing_preserved",
+      "user_shape_approval": "accepted_by_user_2026-11-11",
       "user_approval": "2026-11-11 다좋네",
       "approved_path": "approved/07.png",
-      "source_repository_path": "docs/art/rift-fish/left-final-four-20261110/left-facing/07-금간정어리.png"
+      "source_repository_path": "docs/art/rift-fish/left-final-four-20261110/left-facing/07-금간정어리.png",
+      "previous_user_shape_approval": "accepted_existing_preserved",
+      "color_approval": "accepted_current_preview_2026-11-11"
     },
     {
       "id": "08",
@@ -117,10 +131,12 @@
       "operation": "lossless_horizontal_reflection",
       "direction": "west",
       "motion_design": "기존 명세 유지",
-      "user_shape_approval": "accepted_existing_preserved",
+      "user_shape_approval": "accepted_by_user_2026-11-11",
       "user_approval": "2026-11-11 다좋네",
       "approved_path": "approved/08.png",
-      "source_repository_path": "docs/art/rift-fish/left-final-four-20261110/left-facing/08-빛멸치.png"
+      "source_repository_path": "docs/art/rift-fish/left-final-four-20261110/left-facing/08-빛멸치.png",
+      "previous_user_shape_approval": "accepted_existing_preserved",
+      "color_approval": "accepted_current_preview_2026-11-11"
     },
     {
       "id": "09",
@@ -132,10 +148,12 @@
       "operation": "lossless_horizontal_reflection",
       "direction": "west",
       "motion_design": "몸통 좌우 스윙·갑주판 약한 벌어짐, 등 결정이 순차적으로 빛남",
-      "user_shape_approval": "accepted_existing_preserved",
+      "user_shape_approval": "accepted_by_user_2026-11-11",
       "user_approval": "2026-11-11 다좋네",
       "approved_path": "approved/09.png",
-      "source_repository_path": "docs/art/rift-fish/left-final-four-20261110/left-facing/09-균열갑주 방어.png"
+      "source_repository_path": "docs/art/rift-fish/left-final-four-20261110/left-facing/09-균열갑주 방어.png",
+      "previous_user_shape_approval": "accepted_existing_preserved",
+      "color_approval": "accepted_current_preview_2026-11-11"
     },
     {
       "id": "10",
@@ -147,10 +165,12 @@
       "operation": "lossless_horizontal_reflection",
       "direction": "west",
       "motion_design": "몸통보다 늦게 따라오는 리본 S자 물결, 급가속 때 리본을 뒤로 펴기",
-      "user_shape_approval": "accepted_existing_preserved",
+      "user_shape_approval": "accepted_by_user_2026-11-11",
       "user_approval": "2026-11-11 다좋네",
       "approved_path": "approved/10.png",
-      "source_repository_path": "docs/art/rift-fish/left-final-four-20261110/left-facing/10-유영리본 삼치.png"
+      "source_repository_path": "docs/art/rift-fish/left-final-four-20261110/left-facing/10-유영리본 삼치.png",
+      "previous_user_shape_approval": "accepted_existing_preserved",
+      "color_approval": "accepted_current_preview_2026-11-11"
     },
     {
       "id": "11",
@@ -166,10 +186,12 @@
       "direction": "west",
       "motion_design": "긴 몸 S파동·등 칼날 순차 기울임·균열 띠 순차 발광",
       "colors": "silver highlight / deep cobalt underside / saturated violet-cyan rift bands",
-      "user_shape_approval": "pending_new_preview",
+      "user_shape_approval": "accepted_by_user_2026-11-11",
       "user_approval": "2026-11-11 다좋네",
       "approved_path": "approved/11.png",
-      "source_repository_path": "docs/art/rift-fish/left-final-four-20261110/left-facing/11-균열칼날 갈치.png"
+      "source_repository_path": "docs/art/rift-fish/left-final-four-20261110/left-facing/11-균열칼날 갈치.png",
+      "previous_user_shape_approval": "pending_new_preview",
+      "color_approval": "accepted_current_preview_2026-11-11"
     },
     {
       "id": "12",
@@ -181,7 +203,9 @@
       "previous_internal_hold": "shape difference accepted by user on 2026-11-11; old review preserved",
       "user_approval": "2026-11-11 다좋네",
       "approved_path": "approved/12.png",
-      "source_repository_path": "docs/art/rift-fish/left-final-four-20261110/12-attempt2/original.png"
+      "source_repository_path": "docs/art/rift-fish/left-final-four-20261110/12-attempt2/original.png",
+      "user_shape_approval": "accepted_by_user_2026-11-11",
+      "color_approval": "accepted_current_preview_2026-11-11"
     },
     {
       "id": "13",
@@ -193,10 +217,12 @@
       "operation": "lossless_horizontal_reflection",
       "direction": "west",
       "motion_design": "복부 팽창·수축, 균열선 폭이 벌어지는 듯 밝기 변화·결정 흔들림",
-      "user_shape_approval": "accepted_existing_preserved",
+      "user_shape_approval": "accepted_by_user_2026-11-11",
       "user_approval": "2026-11-11 다좋네",
       "approved_path": "approved/13.png",
-      "source_repository_path": "docs/art/rift-fish/left-final-four-20261110/left-facing/13-틈새결정 복어.png"
+      "source_repository_path": "docs/art/rift-fish/left-final-four-20261110/left-facing/13-틈새결정 복어.png",
+      "previous_user_shape_approval": "accepted_existing_preserved",
+      "color_approval": "accepted_current_preview_2026-11-11"
     },
     {
       "id": "14",
@@ -208,10 +234,12 @@
       "operation": "lossless_horizontal_reflection",
       "direction": "west",
       "motion_design": "큰 거울날개 한 쌍 상하 펄럭임·각도에 따라 반사 띠가 미끄러짐",
-      "user_shape_approval": "accepted_existing_preserved",
+      "user_shape_approval": "accepted_by_user_2026-11-11",
       "user_approval": "2026-11-11 다좋네",
       "approved_path": "approved/14.png",
-      "source_repository_path": "docs/art/rift-fish/left-final-four-20261110/left-facing/14-거울날개 날치.png"
+      "source_repository_path": "docs/art/rift-fish/left-final-four-20261110/left-facing/14-거울날개 날치.png",
+      "previous_user_shape_approval": "accepted_existing_preserved",
+      "color_approval": "accepted_current_preview_2026-11-11"
     },
     {
       "id": "15",
@@ -223,10 +251,12 @@
       "operation": "lossless_horizontal_reflection",
       "direction": "west",
       "motion_design": "강한 꼬리 스냅·갑주 프리즘의 시차 반짝임, 가속 때 몸통 살짝 압축",
-      "user_shape_approval": "accepted_existing_preserved",
+      "user_shape_approval": "accepted_by_user_2026-11-11",
       "user_approval": "2026-11-11 다좋네",
       "approved_path": "approved/15.png",
-      "source_repository_path": "docs/art/rift-fish/left-final-four-20261110/left-facing/15-차원결정 참치.png"
+      "source_repository_path": "docs/art/rift-fish/left-final-four-20261110/left-facing/15-차원결정 참치.png",
+      "previous_user_shape_approval": "accepted_existing_preserved",
+      "color_approval": "accepted_current_preview_2026-11-11"
     },
     {
       "id": "16",
@@ -238,7 +268,9 @@
       "previous_internal_hold": "shape difference accepted by user on 2026-11-11; old review preserved",
       "user_approval": "2026-11-11 다좋네",
       "approved_path": "approved/16.png",
-      "source_repository_path": "docs/art/rift-fish/left-final-four-20261110/16-attempt2/original.png"
+      "source_repository_path": "docs/art/rift-fish/left-final-four-20261110/16-attempt2/original.png",
+      "user_shape_approval": "accepted_by_user_2026-11-11",
+      "color_approval": "accepted_current_preview_2026-11-11"
     },
     {
       "id": "17",
@@ -250,10 +282,12 @@
       "operation": "lossless_horizontal_reflection",
       "direction": "west",
       "motion_design": "짧고 빠른 꼬리 스냅·등 번개 지느러미 경직/해제, 문양이 짧게 번쩍임",
-      "user_shape_approval": "accepted_existing_preserved",
+      "user_shape_approval": "accepted_by_user_2026-11-11",
       "user_approval": "2026-11-11 다좋네",
       "approved_path": "approved/17.png",
-      "source_repository_path": "docs/art/rift-fish/left-final-four-20261110/left-facing/17-뇌광 삼치.png"
+      "source_repository_path": "docs/art/rift-fish/left-final-four-20261110/left-facing/17-뇌광 삼치.png",
+      "previous_user_shape_approval": "accepted_existing_preserved",
+      "color_approval": "accepted_current_preview_2026-11-11"
     },
     {
       "id": "18",
@@ -265,10 +299,12 @@
       "operation": "lossless_horizontal_reflection",
       "direction": "west",
       "motion_design": "주둥이 창을 앞세운 돌진·망토 등지느러미 후행 물결·창 끝 짧은 잔광",
-      "user_shape_approval": "accepted_existing_preserved",
+      "user_shape_approval": "accepted_by_user_2026-11-11",
       "user_approval": "2026-11-11 다좋네",
       "approved_path": "approved/18.png",
-      "source_repository_path": "docs/art/rift-fish/left-final-four-20261110/left-facing/18-차원창 청새치.png"
+      "source_repository_path": "docs/art/rift-fish/left-final-four-20261110/left-facing/18-차원창 청새치.png",
+      "previous_user_shape_approval": "accepted_existing_preserved",
+      "color_approval": "accepted_current_preview_2026-11-11"
     },
     {
       "id": "19",
@@ -280,10 +316,12 @@
       "operation": "lossless_horizontal_reflection",
       "direction": "west",
       "motion_design": "긴 꼬리 좌우 S파동·몸 기울기에 따라 유리 하이라이트 이동·내부 굴절띠 시차",
-      "user_shape_approval": "accepted_existing_preserved",
+      "user_shape_approval": "accepted_by_user_2026-11-11",
       "user_approval": "2026-11-11 다좋네",
       "approved_path": "approved/19.png",
-      "source_repository_path": "docs/art/rift-fish/left-final-four-20261110/left-facing/19-균열유리 상어.png"
+      "source_repository_path": "docs/art/rift-fish/left-final-four-20261110/left-facing/19-균열유리 상어.png",
+      "previous_user_shape_approval": "accepted_existing_preserved",
+      "color_approval": "accepted_current_preview_2026-11-11"
     },
     {
       "id": "20",
@@ -299,10 +337,12 @@
       "direction": "west",
       "motion_design": "강한 꼬리 스냅·폭풍 돛 후행 펄럭임·옆구리 번개 순차 점등·가속 때 리본 펴기",
       "colors": "midnight cobalt/indigo / crimson-violet sail / cyan lightning / silver belly / amber eye only",
-      "user_shape_approval": "pending_new_preview",
+      "user_shape_approval": "accepted_by_user_2026-11-11",
       "user_approval": "2026-11-11 다좋네",
       "approved_path": "approved/20.png",
-      "source_repository_path": "docs/art/rift-fish/left-final-four-20261110/left-facing/20-폭풍다랑어.png"
+      "source_repository_path": "docs/art/rift-fish/left-final-four-20261110/left-facing/20-폭풍다랑어.png",
+      "previous_user_shape_approval": "pending_new_preview",
+      "color_approval": "accepted_current_preview_2026-11-11"
     }
   ],
   "direction": "west",
