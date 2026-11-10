@@ -1,0 +1,19 @@
+{
+  "id": "09",
+  "stage": "motion",
+  "attempt": 1,
+  "status": "passed",
+  "note": "16프레임에서 갑주3판·등 결정·금빛 연결부가 몸에 붙어 유지되고 표면 명암만 미세하게 변함. 꼬리/지느러미 유영, 좌향·고유색·native폭·투명 여백 정상, 외부 떠다니는 결정/점 없음.",
+  "reviewed_native_and_nearest": true,
+  "approved_source_compared": true,
+  "observed_direction": "west",
+  "shape": "passed",
+  "color": "passed",
+  "native_detail": "passed",
+  "species_features": "passed",
+  "motion": "passed",
+  "alpha_margin": "passed",
+  "native_width_at_least_fight_max": "passed",
+  "actual_generation_delta": 1.0,
+  "game_applied": false
+}

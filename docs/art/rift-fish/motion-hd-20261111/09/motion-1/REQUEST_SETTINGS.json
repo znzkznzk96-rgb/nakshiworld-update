@@ -1,0 +1,16 @@
+{
+  "first_frame": {
+    "encoded_image_omitted": true,
+    "sha256": "f01711be0bd858920cf6c4ad6a1b16db47b930d3f67e41da107cc1ed22247ea7",
+    "input_role": "internally passed native HD original derived from the user-approved fish"
+  },
+  "description": "Strong slow tail swishes; the three large crystal armor plates rock a tiny amount with the body and show a tiny attached surface highlight shift with no sparkles. Armor and dorsal crystals stay attached and unchanged. Seamless gentle swimming loop IN PLACE, head LEFT throughout. Fixed camera, sprite position and scale. Preserve exact original identity, colors, markings and fin/tail count. No turning, new parts, particles, scenery, cropping or camera motion.",
+  "frame_count": 16,
+  "seed": 2026113009,
+  "no_background": true,
+  "enhance_prompt": false,
+  "direction": "west",
+  "view": "side",
+  "subject_description": "cobalt-silver amberjack with three turquoise crystal armor plates",
+  "initial_pose": "neutral horizontal swimming pose; head LEFT, tail or mantle RIGHT; whole creature visible inside transparent margins"
+}
