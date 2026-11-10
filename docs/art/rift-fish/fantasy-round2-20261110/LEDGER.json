@@ -261,9 +261,38 @@
         "generations": 1.0
       },
       "result_sha256": "180887aa8637707756354c0cc4deef1d7e8a8fe87e4f81a0d1785bdb2425262f"
+    },
+    {
+      "id": "16",
+      "name": "월식 개복치",
+      "attempt": 1,
+      "status": "rejected",
+      "model": "create-image-pixen",
+      "seed": 2026111416,
+      "request_sha256": "c6f7b596a42ea7ceefabc22cfa80bdb5bb29107e774f62383666494d5e0776f8",
+      "submitted_at_unix": 1794320175.4156775,
+      "prior_round_requests": 0,
+      "http_status": 200,
+      "actual_generation_delta": 1.0,
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "result_sha256": "3b25bc82ec3922c322af5c75bef419c799ddd96f5b52c4bd358aa4fe49536375"
+    },
+    {
+      "id": "16",
+      "name": "월식 개복치",
+      "attempt": 2,
+      "status": "submission_pending",
+      "model": "create-image-pixen",
+      "seed": 2026111516,
+      "request_sha256": "48de547a3ccaf8a81b3650e23de418f9a43733c36090a51a79098c1e9b367de1",
+      "submitted_at_unix": 1794320253.5513966,
+      "prior_round_requests": 0
     }
   ],
-  "status": "fantasy_nonboss_round2_in_progress",
+  "status": "one_active",
   "max_per_species_this_round": 2,
   "protected_existing_six": [
     {
@@ -339,8 +368,8 @@
       "status": "internal_quality_pass_user_review_pending"
     }
   ],
-  "generation_requests": 14,
+  "generation_requests": 16,
   "accepted_outputs": 7,
-  "rejected_outputs": 7,
-  "actual_generations_charged": 14.0
+  "rejected_outputs": 8,
+  "actual_generations_charged": 15.0
 }

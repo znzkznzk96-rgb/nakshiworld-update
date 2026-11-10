@@ -1,0 +1,28 @@
+{
+  "status": "rejected",
+  "note": "월식 무늬·보라 명암은 좋으나 원형 개복치가 아니라 긴 물고기 체형이고 일반 갈라진 꼬리가 생김. 개복치의 절단된 듯한 후미 필수 특징 불충족.",
+  "reviewed_at_native_and_nearest6x": true,
+  "compared_with_actual_reservoir_original": true,
+  "size": [
+    96,
+    64
+  ],
+  "bbox": [
+    6,
+    2,
+    87,
+    62
+  ],
+  "mode": "RGBA",
+  "sha256": "3b25bc82ec3922c322af5c75bef419c799ddd96f5b52c4bd358aa4fe49536375",
+  "reference_sha256": "a87f59d881fbd6fe0027a8c9008e95a9849eeb6552d55ba5b1dee634dc690787",
+  "shape": "rejected",
+  "color": "passed",
+  "shading_pixel_clusters": "passed",
+  "outline": "passed",
+  "species_feature": "rejected",
+  "alpha_margin": "passed",
+  "actual_generation_delta": 1.0,
+  "game_applied": false,
+  "user_final_approval": "pending"
+}

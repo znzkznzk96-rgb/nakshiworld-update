@@ -1,0 +1,13 @@
+{
+  "description": "ONE OCEAN SUNFISH MOLA facing RIGHT. Huge perfectly CIRCULAR DISK body like a round coin, extremely short horizontal length. Tiny mouth and little eye on RIGHT rim. The rear LEFT edge is a SHORT FLAT VERTICAL SCALLOPED EDGE directly on the circle: NO separate tail, NO tail stalk, NO forked tail, NO tail fin. Tall thin triangular dorsal fin at top and matching long anal fin at bottom. This must unmistakably be a MOLA SUNFISH with chopped-off rear. Deep midnight violet circular body, ONE large luminous GOLD CRESCENT surface marking on flank, pale icy-blue body rim and lavender fins. Fantasy eclipse fish. Crisp native 96x64 rich 3-tone pixel shading, selective dark outline, entire fish inside transparent margins, no text/scenery.",
+  "image_size": {
+    "width": 96,
+    "height": 64
+  },
+  "no_background": true,
+  "direction": "east",
+  "outline": "selective outline",
+  "detail": "highly detailed",
+  "seed": 2026111516,
+  "enhance_prompt": false
+}
