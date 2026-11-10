@@ -1,0 +1,54 @@
+{
+  "date": "2026-11-10",
+  "source_commit": "b963abe6e9beef72bac03f10b380a13d58fffdb7",
+  "public_version": "1.22",
+  "prepared_version": "1.23",
+  "carp_tier2": {
+    "old_height": 19.1338582677,
+    "new_height": 27.4251968504,
+    "increase_percent": 43.3333333333,
+    "maximum_width": 43
+  },
+  "local": {
+    "related_suites": [
+      "soldier_size",
+      "tier2_motion",
+      "tier3_motion",
+      "soldier_skill_cues",
+      "combat_feedback",
+      "expedition_motion"
+    ],
+    "status": "passed",
+    "native_screens": 24,
+    "native_heights": [
+      480,
+      540,
+      660
+    ],
+    "same_team_before_after": [
+      {
+        "id": "carp",
+        "star": 2
+      },
+      {
+        "id": "perch",
+        "star": 1
+      },
+      {
+        "id": "flying",
+        "star": 1
+      }
+    ]
+  },
+  "ci": {
+    "run": 42770945121,
+    "status": "success",
+    "full_verification_complete": true,
+    "native_and_pck": "passed",
+    "candidate_artifact": 13742048328,
+    "input_fingerprint": "602d645b145a8a4d0988c27ef71a4117651bcdc8d39a027574bb57918daa6e1d"
+  },
+  "deployed": false,
+  "phone_verified": false,
+  "paid_art_requests": 0
+}

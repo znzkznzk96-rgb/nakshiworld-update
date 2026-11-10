@@ -1,7 +1,7 @@
 extends Node2D
 
-const BUILD_CODE := 122
-const BUILD_NAME := "1.22"
+const BUILD_CODE := 123
+const BUILD_NAME := "1.23"
 const UPDATE_BASE := "https://nakshiworld-update-kr.znzkznzk96.workers.dev/"
 const PATCH := "user://patch.pck"
 const PATCH_VER := "user://patch_ver.txt"
@@ -33,7 +33,7 @@ var boot_timings:Dictionary={}
 
 func _ready() -> void:
 	splash_started_msec=Time.get_ticks_msec()
-	font = load("res://font/neodgm.ttf")
+	font = load("res://font/neodgm.ttf").duplicate(true)
 	update_art = load("res://art/ui/update_cat_blue.png")
 	texture_filter=CanvasItem.TEXTURE_FILTER_NEAREST
 	for i in 9:chase_frames.append(load("res://art/ui/updater/cat_run_%02d.png"%i))

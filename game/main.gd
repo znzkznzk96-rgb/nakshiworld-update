@@ -264,7 +264,7 @@ func _ready() -> void :
 	_cleanup_reset()
 	randomize()
 	_fx_init()
-	var neo: FontFile = load("res://font/neodgm.ttf")
+	var neo: FontFile = load("res://font/neodgm.ttf").duplicate(true)
 	neo.antialiasing = TextServer.FONT_ANTIALIASING_NONE
 	neo.hinting = TextServer.HINTING_NONE
 	neo.subpixel_positioning = TextServer.SUBPIXEL_POSITIONING_DISABLED
@@ -408,7 +408,7 @@ func _layout() -> void :
 	for r in fx_rid: RenderingServer.canvas_item_set_transform(r, Transform2D.IDENTITY)
 
 func _pixel_font(p: String) -> FontFile:
-	var fo: FontFile = load(p)
+	var fo: FontFile = load(p).duplicate(true)
 	fo.antialiasing = TextServer.FONT_ANTIALIASING_NONE
 	fo.hinting = TextServer.HINTING_NONE
 	fo.subpixel_positioning = TextServer.SUBPIXEL_POSITIONING_DISABLED
