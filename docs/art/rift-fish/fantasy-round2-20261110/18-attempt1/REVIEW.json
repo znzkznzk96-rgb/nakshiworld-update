@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "note": "긴 결정 창 주둥이가 턱과 연결되고 큰 보라 망토형 등지느러미·청록 균열띠·초승달 꼬리가 분명함. 네이티브 가독성·선명한 다단 명암·투명 여백 확인.",
+  "reviewed_at_native_and_nearest6x": true,
+  "compared_with_actual_reservoir_original": true,
+  "size": [
+    96,
+    64
+  ],
+  "bbox": [
+    2,
+    2,
+    94,
+    58
+  ],
+  "mode": "RGBA",
+  "sha256": "099f415642c2fdbdc91c85d01c62185df062f9cd74fc0d73ee3b992d734b089e",
+  "reference_sha256": "a09e70c432b23d10502eb18efa02d14bfbbd4ce4c5a15634b7f5c161a3ac47db",
+  "shape": "passed",
+  "color": "passed",
+  "shading_pixel_clusters": "passed",
+  "outline": "passed",
+  "species_feature": "passed",
+  "alpha_margin": "passed",
+  "actual_generation_delta": 1.0,
+  "game_applied": false,
+  "user_final_approval": "pending"
+}
