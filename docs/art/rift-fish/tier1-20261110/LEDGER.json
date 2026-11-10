@@ -178,14 +178,32 @@
         "generations": 1.0
       },
       "result_sha256": "49bc3d38623b565a722512401299746cff7fd4ff4012118ebadb7a90ac9eaca9"
+    },
+    {
+      "id": "07",
+      "name": "금간정어리",
+      "attempt": 1,
+      "status": "passed",
+      "model": "edit-image-pixen",
+      "seed": 2026111207,
+      "request_sha256": "048de9c82322d1a95b8508ff626e676c242dd34ae8dc8e5dd02c6b878d29f0a1",
+      "submitted_at_unix": 1794317141.0264487,
+      "http_status": 202,
+      "job_id": "f51e6daa-682b-494a-af83-04575a51587c",
+      "actual_generation_delta": 1.0,
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "result_sha256": "73e180f43b932d7bf5feb720c84aca00599907f665d757cd1842e7d4569e68fa"
     }
   ],
-  "generation_requests": 10,
+  "generation_requests": 11,
   "status": "continuing_remaining_species_saury_held",
-  "accepted_outputs": 4,
+  "accepted_outputs": 5,
   "rejected_outputs": 5,
   "server_failure_without_image": 1,
-  "actual_generations_charged": 9.0,
+  "actual_generations_charged": 10.0,
   "unstarted_species": 7,
   "no_additional_paid_calls": false,
   "failed_species_policy": "hold individual, continue independent species"
