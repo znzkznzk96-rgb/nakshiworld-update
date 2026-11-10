@@ -1,0 +1,94 @@
+{
+  "date": "2026-11-10",
+  "baseline": "v1.18 full source + work overlay",
+  "godot": "4.4.1.stable.official.49a5bc7b6",
+  "reward_gold": {
+    "reservoir_owner": 5940,
+    "valley_sub": 31200,
+    "valley_owner": 93600,
+    "tile_sub": 463500,
+    "tile_owner": 1390500
+  },
+  "tile_basis": {
+    "next_unlock_cost": 4635000,
+    "sub_ratio": 0.1,
+    "owner_ratio": 0.3
+  },
+  "related_suites": {
+    "regional_bundle_rewards": "pass",
+    "bundles_buyback": "pass",
+    "tile107": "pass",
+    "odds_rewards": "pass",
+    "bundle_preview": "pass",
+    "rewards": "pass",
+    "regional": "pass"
+  },
+  "native": {
+    "result": "BUNDLE_NEXT_UNLOCK_NATIVE_VERIFY failures=[]",
+    "screens": 6,
+    "png_sha256": {
+      "reservoir_owner.png": "72b9f1d0309babc92db1830f63eb768579c7bb1754d05fb14cbced898ea7098c",
+      "tile_owner.png": "4c86290ba8a876264ed65398c9062f52d5e461d9e7297f60f9249c664fc352a1",
+      "selection.png": "35a92a63308de94bb3761651301ce2d6e42c44d0ba08da55c3b5f9da668ae318",
+      "tile_sub.png": "856798a8c7e8525b053c4c9f3874ced3fce8be05aecef5eec4418fd0c2dbd42c",
+      "valley_owner.png": "09dabcefb8a6b91718e43f7e4e03ff294e5b5de7b5a09c0b37ae10e9bfdd05ff",
+      "valley_sub.png": "f3c6d72b5d55667ea9ad45d7c60541fe2345023f6abd18914e98eff3829d5252"
+    },
+    "preview": "tile-rewards.webp"
+  },
+  "preserved": [
+    "donation species and consumption",
+    "claimed receipt IDs",
+    "save-failure rollback",
+    "souls 50 / pearls 6",
+    "no automatic retroactive difference",
+    "village notice and owner gauge fixes"
+  ],
+  "full_ci": {
+    "run": 42715271254,
+    "source_commit": "58f9f202f64a6e4bcfaf2524310aebd2e8c66c89",
+    "status": "success",
+    "coverage": "full regression/shared native screens/packed art and tile checks",
+    "artifacts": [
+      {
+        "id": 13719080097,
+        "name": "release-candidate-3f35995ae7ab75c1383731b7de24fe36e1ef92e9b4264b5faaeb0c35393d0114",
+        "size": 117628892,
+        "digest": "sha256:65e1535a7b8be3d82d22d38fcfdfe95c50c16dbeafd4d30aea737532bae7eab1"
+      },
+      {
+        "id": 13718965228,
+        "name": "work-verification",
+        "size": 174275903,
+        "digest": "sha256:6677b703ada81c837b04cefe7e69870c1b6f66e6fc6c8d753f6b52d29c3d54c9"
+      },
+      {
+        "id": 13718335438,
+        "name": "village-reward-first-preview",
+        "size": 5109840,
+        "digest": "sha256:a0ec4e117d5158d1b1995c8a20013af89ddd2d3e67d35a1e9bcca3e7e3686b4e"
+      },
+      {
+        "id": 13718265598,
+        "name": "owner-gauge-first-preview",
+        "size": 15390873,
+        "digest": "sha256:126db14d943f19e8ae2bc180fed53f71e7a82759e0c1e5946ad04f2856520cb3"
+      },
+      {
+        "id": 13717851314,
+        "name": "updater-first-preview",
+        "size": 983303,
+        "digest": "sha256:e33619a3074b592bfbc7cc6a5c40326dad1974fffd6638add01c363ff3414da0"
+      },
+      {
+        "id": 13717657352,
+        "name": "soldier-skills-first-preview",
+        "size": 2205420,
+        "digest": "sha256:d2b44c861356628b99dc6bb6eff4a7bf383326bb19fa0a90baad759ac66c70ed"
+      }
+    ]
+  },
+  "deployed": false,
+  "release_authorized": false,
+  "public_release": "v1.18"
+}

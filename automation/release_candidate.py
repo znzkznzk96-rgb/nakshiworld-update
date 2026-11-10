@@ -2,7 +2,7 @@
 import argparse, hashlib, json, os, pathlib, subprocess, time, zipfile
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 INPUTS = ['game', 'automation', '.github/workflows/verify-work.yml', '.github/workflows/release-patch.yml']
-TOOLS = {'godot':'4.4.1.stable', 'baseline':'v1.17', 'baseline_sha256':'f3c18b4d69fe884bedba8e751167788edddada9b0b8a0bacd7207ed4c1b9fef9'}
+TOOLS = {'godot':'4.4.1.stable', 'baseline':'v1.18', 'baseline_sha256':'f2d3ed49118c24163135fb6836d1e5c3ec42daa3acaca95a4f62ab1d6c3dcb3b'}
 def git(*args):
     return subprocess.check_output(['git', *args], cwd=ROOT).decode().strip()
 def fingerprint():

@@ -1,0 +1,17 @@
+{
+  "source_release": "v1.18",
+  "source_pck_sha256": "cf592988a1e8f372cc37d6ef3a4fe3041b6e92a07b40fce509baeb8a3dcfb2a3",
+  "changed": [
+    "root.gd.remap",
+    "apk_bootstrap118_fix.gd",
+    "incremental_update.gd"
+  ],
+  "unchanged_resources": 2716,
+  "added": [
+    "incremental_update.gd",
+    "apk_bootstrap118_fix.gd"
+  ],
+  "deleted": [],
+  "apk_name": "NAKSHIWORLD_1.18_LOADER_FIX.apk",
+  "apk_sha256": "4c997e78c748f70d4266780c03924c716033e82f85e9222ee50d5f09af6f7dc6"
+}

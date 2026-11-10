@@ -1,0 +1,81 @@
+{
+  "date": "2026-11-10",
+  "target_release": "v1.19",
+  "baseline": {
+    "release": "v1.18",
+    "size": 63521377,
+    "sha256": "f2d3ed49118c24163135fb6836d1e5c3ec42daa3acaca95a4f62ab1d6c3dcb3b"
+  },
+  "godot": "4.4.1.stable.official.49a5bc7b6",
+  "related_suites": {
+    "hall_forge119": "pass",
+    "forge_layout": "pass",
+    "facility_growth": "pass",
+    "rewards": "pass",
+    "updater": "pass",
+    "mail_gifts": "pass"
+  },
+  "candidate_safety_tests": {
+    "passed": 7,
+    "total": 7
+  },
+  "native": {
+    "screens": 15,
+    "heights": [
+      480,
+      540,
+      660
+    ],
+    "scenes": [
+      "hall",
+      "forge_next",
+      "forge_owned",
+      "forge_upgrade",
+      "forge_robot"
+    ],
+    "png_decode": "pass",
+    "visual_review": "pass",
+    "button_bounds": "pass",
+    "sha256": {
+      "hall_480.png": "d4a1164eec4d5bf81e256e5d01c22d5087d978327608efd23dca70e874328cd9",
+      "forge_next_480.png": "51642cf47172e4584276d372252e6b132bec0871f2f23df58e89c79d26c280c4",
+      "hall_660.png": "3de99ab67c5ec8255ead96e3641343cdb0af70eb860221f4640c77892f557c5a",
+      "forge_owned_540.png": "1f6b584657a148605d5ebbfd232d53ff458e19c14a0b395df749c32f4e67a3ab",
+      "forge_upgrade_660.png": "5ef5474cc097d23b8bbce7a0f19806f4010587bbf6569d799a0a4ffe223d0c61",
+      "forge_robot_480.png": "004aeb718f758f34b1a0da7c0e238bd2cb7ffa6c228dc3ea62db6217f13aca6e",
+      "forge_upgrade_480.png": "7f2d81af8f75a931458c06e66aa7d462e959c2bbad7dcb2fd4de60d179888e67",
+      "hall_540.png": "bd103f0e9a4aa7ba4e65ed20dfda26ce951025f27fee89851530662238d97393",
+      "forge_upgrade_540.png": "ffb639354ab089a2a1cf053826c52dc143f56df6df49bc54bd2bb75cfafa9fdb",
+      "forge_owned_660.png": "d46e7cb00624b6d1f737dff622ddfb1e6a108398217b45754a8d567a29af12a0",
+      "forge_next_660.png": "d12553d270f307e5a912890b6f072597633613bc216099a4b5a5262d99b15faa",
+      "forge_owned_480.png": "5cc4356435baf9c2d01b453a8ef5823cac5e51b634c60e43977d1655af30a73a",
+      "forge_robot_660.png": "cf199d480809b255d0cd231510241d6bab43257b9280ff8224d6f67dbca7f605",
+      "forge_next_540.png": "a4b31c125725f2632101d4716b62fdaa4ae26a28627419a3807b357afafb5d85",
+      "forge_robot_540.png": "ae6f2940e2809adc7fcb289b2d267592bf5ab2af318931d2e5498e92f6d396c7"
+    },
+    "preview": "native.webp"
+  },
+  "prior_label_ci": {
+    "run": 42720881406,
+    "failure": "incremental network test server unavailable, HTTPRequest result2/code0/received0; server stats also unreachable",
+    "artifact": 13719469401,
+    "artifact_sha256": "3c68b348b3e5668d17002ee5038767229c05693a878e3cf1c8ab2e2b47c740e9",
+    "fix": "bounded /stats readiness probe before Godot; failure log printed"
+  },
+  "preserved": [
+    "prices and facility effects",
+    "purchase/upgrade gating and confirmations",
+    "save data and gift receipts",
+    "all prior gauge/notice/bundle/dex changes"
+  ],
+  "full_ci": {
+    "run": 42725519072,
+    "source_commit": "bd59d36974d16e50874111da629d32010d177c40",
+    "status": "success",
+    "coverage": "full regression/shared native screens/packed art and tile checks",
+    "preflight": "docs/releases/119/PREFLIGHT.json"
+  },
+  "deployment_authorized": true,
+  "deployed": false,
+  "phone_verified": false
+}

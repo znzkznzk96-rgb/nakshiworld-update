@@ -1,7 +1,7 @@
 extends Node2D
 
-const BUILD_CODE := 79
-const BUILD_NAME := "0.79"
+const BUILD_CODE := 119
+const BUILD_NAME := "1.19"
 const UPDATE_BASE := "https://nakshiworld-update-kr.znzkznzk96.workers.dev/"
 const PATCH := "user://patch.pck"
 const PATCH_VER := "user://patch_ver.txt"
@@ -24,6 +24,9 @@ var font: Font
 var expected_hash := ""
 var expected_size := 0
 var started := false
+var incremental:RefCounted
+var pending_code:=0
+var pending_name:=""
 
 func _ready() -> void:
 	font = load("res://font/neodgm.ttf")
@@ -73,12 +76,16 @@ func _on_version(result: int, code: int, _h: PackedStringArray, body: PackedByte
 	if expected_hash.length() != 64 or expected_size <= 0:
 		_start()
 		return
-	update_phase="download";progress=-1;received_bytes=0
-	status = "새 버전 %s 받는 중…" % d.get("name", "")
-	http.timeout = 180.0
-	http.download_file = PATCH + ".new"
-	http.request_completed.connect(_on_patch.bind(int(d.code), str(d.get("name", ""))))
-	if http.request(UPDATE_BASE + "patch.pck?v=" + str(d.code)) != OK:
+	update_phase="planning";progress=-1;received_bytes=0
+	status="변경된 파일 확인 중…"
+	incremental=load("res://incremental_update.gd").new()
+	var installed:String=PATCH if _local_code()>BUILD_CODE else ""
+	var valid:bool=await incremental.download(self,UPDATE_BASE+"patch.pck?v="+str(int(d.code)),expected_size,expected_hash,PATCH+".new",installed)
+	if valid:
+		_on_patch(HTTPRequest.RESULT_SUCCESS,200,PackedStringArray(),PackedByteArray(),int(d.code),str(d.get("name","")))
+	else:
+		if FileAccess.file_exists(PATCH+".new"):DirAccess.remove_absolute(PATCH+".new")
+		status="업데이트를 받지 못했어요 · 기존 버전으로 시작합니다"
 		_start()
 
 func _on_patch(result: int, code: int, _h: PackedStringArray, _b: PackedByteArray, ver: int, vname: String) -> void:
@@ -95,12 +102,23 @@ func _on_patch(result: int, code: int, _h: PackedStringArray, _b: PackedByteArra
 		var header := FileAccess.open(candidate, FileAccess.READ)
 		valid = header != null and header.get_buffer(4) == PackedByteArray([71, 68, 80, 67])
 		header = null
-	if valid and DirAccess.rename_absolute(candidate, PATCH) == OK:
-		var f := FileAccess.open(PATCH_VER, FileAccess.WRITE)
-		if f:
-			f.store_string("%d|%s" % [ver, vname])
-	elif FileAccess.file_exists(candidate):
-		DirAccess.remove_absolute(candidate)
+	if valid:
+		var vf:=FileAccess.open(PATCH_VER+".new",FileAccess.WRITE)
+		if vf:
+			vf.store_string("%d|%s"%[ver,vname]);vf.flush()
+			valid=vf.get_error()==OK;vf=null
+		else:valid=false
+	if valid:
+		var had_patch:bool=FileAccess.file_exists(PATCH)
+		if had_patch and DirAccess.rename_absolute(PATCH,PATCH+".bak")!=OK:valid=false
+		if valid:
+			if DirAccess.rename_absolute(candidate,PATCH)!=OK:valid=false
+			elif DirAccess.rename_absolute(PATCH_VER+".new",PATCH_VER)!=OK:
+				DirAccess.remove_absolute(PATCH);valid=false
+			if not valid and had_patch:DirAccess.rename_absolute(PATCH+".bak",PATCH)
+			elif valid and had_patch:DirAccess.remove_absolute(PATCH+".bak")
+	if not valid and FileAccess.file_exists(candidate):DirAccess.remove_absolute(candidate)
+
 	_start()
 
 func transfer_snapshot(received:int,declared_size:int,header_size:int=-1) -> Dictionary:
@@ -110,16 +128,20 @@ func transfer_snapshot(received:int,declared_size:int,header_size:int=-1) -> Dic
 
 func transfer_detail() -> String:
 	if update_phase=="checking":return "새로운 소식을 확인하고 있어요"
+	if update_phase=="planning":return "기기에 있는 파일은 다시 받지 않아요"
 	if update_phase=="verifying":return "파일 크기와 안전성을 확인하고 있어요"
-	var total:int=expected_size if expected_size>0 else total_bytes
+	var total:int=total_bytes if incremental!=null else (expected_size if expected_size>0 else total_bytes)
 	if total<=0:return "%.1f MB 받음 · 전체 크기 확인 중"%(received_bytes/1000000.0)
 	return "%d%%   %.1f / %.1f MB"%[int(clampf(progress,0,1)*100),received_bytes/1000000.0,total/1000000.0]
 
 func _process(dt: float) -> void:
 	animation_time+=minf(dt,.1)
-	if update_phase=="download" and http:
-		var data:Dictionary=transfer_snapshot(http.get_downloaded_bytes(),expected_size,http.get_body_size())
+	if incremental!=null and update_phase in ["planning","download"]:
+		var data:Dictionary=incremental.snapshot()
 		received_bytes=data.received;total_bytes=data.total;progress=data.progress
+		if total_bytes>0:
+			update_phase="download";status="바뀐 데이터 받는 중…"
+
 	if status != "":queue_redraw()
 
 func _pixel_panel(rect:Rect2) -> void:
@@ -132,7 +154,7 @@ func _label(text:String,y:float,font_size:int,color:Color) -> void:
 
 func chase_positions(t:float,center:Vector2) -> Array[Vector2]:
 	var angle:float=t*1.55
-	return [center+Vector2(cos(angle)*62,sin(angle)*46),center+Vector2(cos(angle+2.0)*62,sin(angle+2.0)*46)]
+	return [center+Vector2(cos(angle)*48,sin(angle)*36),center+Vector2(cos(angle+2.0)*48,sin(angle+2.0)*36)]
 
 func logo_motion(t:float) -> Vector2:
 	var phase:float=t*TAU/3.6
@@ -147,8 +169,8 @@ func _draw_logo(height:float) -> void:
 
 func _chase_sprite(texture:Texture2D,position:Vector2,length:float,flip:bool,tilt:float) -> void:
 	var h:float=length*texture.get_height()/texture.get_width()
-	draw_set_transform(loader_draw_offset+position.round()*loader_draw_scale,tilt,Vector2.ONE*loader_draw_scale)
-	draw_texture_rect(texture,Rect2(Vector2(length*.5 if flip else -length*.5,-h*.5),Vector2(-length if flip else length,h)),false)
+	draw_set_transform(loader_draw_offset+position.round()*loader_draw_scale,tilt,Vector2(-1 if flip else 1,1)*loader_draw_scale)
+	draw_texture_rect(texture,Rect2(Vector2(-length*.5,-h*.5),Vector2(length,h)),false)
 	draw_set_transform(loader_draw_offset,0,Vector2.ONE*loader_draw_scale)
 
 func _draw() -> void:
@@ -184,14 +206,14 @@ func _draw() -> void:
 	var center:Vector2=Vector2(135,height*.47)
 	for i in 48:
 		var angle:float=i*TAU/48
-		var p:Vector2=(center+Vector2(cos(angle)*62,sin(angle)*46)).round()
+		var p:Vector2=(center+Vector2(cos(angle)*48,sin(angle)*36)).round()
 		draw_rect(Rect2(p,Vector2(1,1)),Color("e5ffff",.35))
 	var positions:Array[Vector2]=chase_positions(animation_time,center)
 	for i in 5:
 		var angle:float=animation_time*1.55-.15-i*.12
-		draw_rect(Rect2((center+Vector2(cos(angle)*62,sin(angle)*46)+Vector2(0,10)).round(),Vector2(2,1)),Color("ffffff",.8-i*.12))
+		draw_rect(Rect2((center+Vector2(cos(angle)*48,sin(angle)*36)+Vector2(0,10)).round(),Vector2(2,1)),Color("ffffff",.8-i*.12))
 	if chase_fish:_chase_sprite(chase_fish,positions[1],46,sin(animation_time*1.55+2.0)>0,0)
-	if not chase_frames.is_empty():_chase_sprite(chase_frames[int(animation_time*10)%chase_frames.size()],positions[0],96,sin(animation_time*1.55)>0,0)
+	if not chase_frames.is_empty():_chase_sprite(chase_frames[int(animation_time*10)%chase_frames.size()],positions[0],80,sin(animation_time*1.55)>0,0)
 	var panel:Rect2=Rect2(21,height*.66,228,101)
 	_pixel_panel(panel)
 	_label(status,panel.position.y+23,11,Color("111c52"))

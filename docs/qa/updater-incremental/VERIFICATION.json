@@ -1,0 +1,87 @@
+{
+  "date": "2026-11-09",
+  "source_release": "v1.18",
+  "source_commit": "e169343fe196a2087e4099f552dfe399981c7b4f",
+  "implementation_commit": "20d9ca23f8f7ec58e4e7560aafac321eed848384",
+  "ci_run": 42640701607,
+  "ci_status": "success",
+  "native_preview_artifact": 13685077489,
+  "native_preview_sha256": "57593121e394115a8def0402b63f65e40745b13cf7b208720b439a7ead282fa2",
+  "native_review": {
+    "heights": [
+      480,
+      660,
+      740
+    ],
+    "orbit_frames": 16,
+    "central_bounds": "pass",
+    "positive_rect_flip": "pass"
+  },
+  "incremental": {
+    "from": "v1.17",
+    "to": "v1.18",
+    "full_pck_bytes": 59403488,
+    "received": 650541,
+    "planned": 650541,
+    "server_observed": 650541,
+    "reused_resources": 2711,
+    "requests": 8,
+    "reconstructed_sha256": "cf592988a1e8f372cc37d6ef3a4fe3041b6e92a07b40fce509baeb8a3dcfb2a3",
+    "apk_resource_reuse_test": {
+      "received": 248351,
+      "reused": 2716,
+      "sha256": "exact"
+    },
+    "gauge_samples": 52,
+    "gauge_bounds": "pass"
+  },
+  "apk": {
+    "name": "NAKSHIWORLD_1.18_LOADER_FIX.apk",
+    "code": 118,
+    "version": "1.18",
+    "package": "com.sangjun.dotfishing",
+    "size": 83133196,
+    "sha256": "4c997e78c748f70d4266780c03924c716033e82f85e9222ee50d5f09af6f7dc6",
+    "signer_sha256": "5939b25954f72e4aaf2703d5f5f3bf99e400b6ee9891c66af8e4ff2773feb763",
+    "same_signer_as_original": true,
+    "zip_crc": true,
+    "zipalign_16kb": true,
+    "signature_v1_v2_v3": true,
+    "approved_icons": 24,
+    "unchanged_native_dex_resources": 7,
+    "bootstrap_test": "pass",
+    "phone_install_verified": false,
+    "library_file_id": "libfile_fde3_f-db955c6ddb88819198f46f089460a38c_d66dafb33acc81918ce203aeb3fcd18e",
+    "delivered": true
+  },
+  "public_game_patch": "v1.18 unchanged",
+  "new_public_game_release_authorized": false,
+  "unique_verify_results": 98,
+  "ci_artifacts": [
+    {
+      "id": 13685348293,
+      "name": "release-candidate-6d74465cb6b8e066f4ae2d98c8e25b6a9cb80b600c58c887545d5cd5e8246d7b",
+      "sha256": "b6b1b87c19bd976a4900c6b53ba45ca7c11d48c0e64098f1558e1d7d41ad1e2a"
+    },
+    {
+      "id": 13685218435,
+      "name": "work-verification",
+      "sha256": "e4ce92f258957986d4cabc5598c94a0200fd10e2129451a059296355e74ab910"
+    },
+    {
+      "id": 13685077489,
+      "name": "updater-first-preview",
+      "sha256": "57593121e394115a8def0402b63f65e40745b13cf7b208720b439a7ead282fa2"
+    },
+    {
+      "id": 13684687495,
+      "name": "soldier-skills-first-preview",
+      "sha256": "e370299745034047a1f90422e3763eb669e4b41bc1f41fd5b0f6fbfdacbfc047"
+    }
+  ],
+  "first_ci_failure": {
+    "run": 42640268541,
+    "reason": "live gateway probe used default Python User-Agent, HTTP403; installed Godot UA passes, no production failure",
+    "corrected_run": 42640701607
+  }
+}

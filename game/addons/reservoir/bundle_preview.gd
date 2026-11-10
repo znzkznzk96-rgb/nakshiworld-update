@@ -92,7 +92,7 @@ func draw(m,h: float) -> void:
 		var caption: String="보상 준비 중"
 		if region<3: caption="%s 비늘 · 혼 %d개"%[_amount(reward_preview_amount(m,region,tab)),m.progression.SOUL_REWARD[region]] if tab==1 else "%s 비늘 · 진주 %d개"%[_amount(reward_preview_amount(m,region,tab)),m.progression.PEARL_REWARD[region]]
 		m._text(caption,reward.position+Vector2(39,16),10,Color("382619"),false,192)
-		m._text(("받은 보상" if m.progression.claimed(region,tab) else "받기 버튼으로 수령") if done else (("다음 해금비의 %d%% · 완료 후 수령"%(10 if tab==1 else 30)) if region==1 or (region==0 and tab==2) else ("해금비의 %d%% · 완료 후 수령"%(10 if tab==1 else 30)) if region==2 else "완료 예상 · 미기증은 노멀·평균 기준" if region==0 else "보상 준비 중"),reward.position+Vector2(39,30),9,Color("513b29"),false,192)
+		m._text(("받은 보상" if m.progression.claimed(region,tab) else "받기 버튼으로 수령") if done else (("다음 해금비의 %d%% · 완료 후 수령"%(10 if tab==1 else 30)) if region in [1,2] or (region==0 and tab==2) else "완료 예상 · 미기증은 노멀·평균 기준" if region==0 else "보상 준비 중"),reward.position+Vector2(39,30),9,Color("513b29"),false,192)
 	button(m,"register",("보상 확인" if m.progression.claimed(region,tab) else "보상 받기") if done else ("보유 물고기 기증" if not targets.is_empty() else "번들 준비 중"),Rect2(17,bottom-48,154,29),done)
 	button(m,"dex","도감",Rect2(177,bottom-48,76,29))
 	m._text("기증 %d / %d · 일괄 기증은 낮은 등급부터"%[total,targets.size()],Vector2(135,bottom-7),9,Color("68533d"),true,236)

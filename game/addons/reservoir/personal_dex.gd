@@ -2,8 +2,8 @@ extends RefCounted
 # Permanent personal best specimens, independent of inventory and museum donations.
 const CATALOG = preload("res://addons/reservoir/regional_catalog.gd")
 const TYPES := ["grade","length","weight"]
-const INK := Color("513b29")
-const MUTED := Color("7c6448")
+const INK := Color("382619")
+const MUTED := Color("68533d")
 var records: Dictionary = {}
 var opened := false
 var region := 0
@@ -17,6 +17,7 @@ var rects: Dictionary = {}
 var touch_time := -1000
 var scroll := 0.0
 var role_filter := "all"
+var soldier_star := 1
 var list_view := Rect2()
 var rows_total := 0
 var visible_rows := 0
@@ -72,7 +73,7 @@ func best(m, sp: int, kind: String) -> Dictionary:
 		if old>float(f.get("len",0)): return {"len":old,"legacy":true}
 	return f
 func open(m) -> void:
-	opened=true;region=clampi(m.active_region,0,5);category="fish";selected=-1;trophy=0;scroll=0;role_filter="all";cancel_pointer()
+	opened=true;region=clampi(m.active_region,0,5);category="fish";selected=-1;trophy=0;scroll=0;role_filter="all";soldier_star=1;cancel_pointer()
 	m.menu_open=false;m.holding=false
 func value(m, f: Dictionary, kind: String) -> String:
 	if f.is_empty(): return "기록 없음"
@@ -113,14 +114,14 @@ func draw(m,h: float) -> void:
 	if not opened:return
 	m.text_items=[];m.ui_commands=[]
 	m._ui_rect(Rect2(-m.ox,0,270+2*m.ox,h),Color(.04,.06,.1,.82))
-	var desired: float=500 if selected>=0 else (548 if soldier_mode() else 480)
+	var desired: float=500 if selected>=0 else (548 if soldier_mode() else 508)
 	var height: float=minf(desired,h-64)
 	var r:=Rect2(8,floorf((h-height)/2),254,height)
 	m._ui_style_box(m.sb_panel,r)
 	preload("res://addons/reservoir/ui_theme.gd").title(m,r,"도감" if selected<0 else ("병사 상세" if soldier_mode() else "물고기 상세"))
 	var close:=Rect2(r.end.x-31,r.position.y+9,22,23)
 	m._ui_style_box(m.sb_btn,close);icon(m,"close",close.grow(-5))
-	rects={"close":close.grow(3),"regions":[],"categories":[],"fish":[],"tabs":[],"filters":[],"back":Rect2()}
+	rects={"close":close.grow(3),"regions":[],"categories":[],"fish":[],"tabs":[],"filters":[],"stars":[],"region_labels":[],"back":Rect2()}
 	list_view=Rect2()
 	if selected>=0:
 		if soldier_mode():draw_soldier_detail(m,r)
@@ -139,21 +140,30 @@ func draw_collection(m,r: Rect2) -> void:
 		for id in m.expedition.data.catalog.soldiers.size():
 			if role_filter=="all" or (m.expedition.data.is_discovered(id) and m.expedition.data.catalog.soldiers[id].role==role_filter):ids.append(id)
 		ids.sort_custom(func(a,b):return int(m.expedition.data.is_discovered(a))>int(m.expedition.data.is_discovered(b)) if m.expedition.data.is_discovered(a)!=m.expedition.data.is_discovered(b) else a<b)
-		m._text("제작 %d / %d종"%[count,m.expedition.data.catalog.soldiers.size()],Vector2(24,y+12),10,INK,false,220);y+=23
+		m._text("제작 %d / %d종 · 성급별 보기"%[count,m.expedition.data.catalog.soldiers.size()],Vector2(24,y+12),9,INK,false,220);y+=23
 		for i in 4:
 			var b:=Rect2(21+i*58,y,54,24)
 			button(m,b,["전체","공격","방어","지원"][i],role_filter==["all","attack","defense","support"][i]);rects.filters.append(b)
-		y+=31;row_height=62
+		y+=29
+		m._text("성급",Vector2(24,y+16),9,MUTED,false,32)
+		draw_star_buttons(m,y)
+		y+=30;row_height=68
 	else:
 		icon(m,"rod",Rect2(23,y-3,15,15));m._text("낚시터",Vector2(42,y+10),10,INK,false,200);y+=17
 		for area in 6:
-			var b:=Rect2(21+(area%2)*116,y+(area/2)*29,111,27)
+			var b:=Rect2(21+(area%2)*116,y+floori(area/2.0)*33,111,31)
 			m._ui_style_box(m.sb_btn,b)
 			if area==region:m._ui_rect(b.grow(-4),Color("08646b"))
 			icon(m,"region%d"%area,Rect2(b.position+Vector2(4,4),Vector2(29,19)))
-			label_lines(m,REGIONS[area],b.position+Vector2(36,11 if area==1 else 17),71,8,2,Color("fff0d1") if area==region else INK)
+			var labels: Array=["거꾸로 폭포"] if area==1 else [REGIONS[area]]
+			for line in labels.size():
+				var at: Vector2=b.position+Vector2(36,19)
+				m._text(labels[line],at,9,Color("fff0d1") if area==region else INK,false,70)
+				var it: Array=m.text_items[-1]
+				var font: Font=it[0];var px: int=it[5];var scale: float=it[7]
+				rects.region_labels.append([area,labels[line],Rect2(it[1]-Vector2(0,font.get_ascent(px)*scale),Vector2(m._text_w(labels[line],9),font.get_height(px)*scale))])
 			rects.regions.append(b)
-		y+=91;ids=area_ids()
+		y+=103;ids=area_ids()
 		for sp in ids:
 			if not best(m,sp,"grade").is_empty() or not best(m,sp,"length").is_empty():count+=1
 		m._text("%s · 발견 %d / %d종"%[REGIONS[region],count,ids.size()] if not ids.is_empty() else REGIONS[region],Vector2(23,y+10),9,INK,false,224)
@@ -166,15 +176,13 @@ func draw_collection(m,r: Rect2) -> void:
 	for i in mini(visible_rows,maxi(0,ids.size()-start)):
 		var id: int=ids[start+i]
 		var cell:=Rect2(list_view.position+Vector2(0,i*row_height),Vector2(222,row_height-3))
-		if soldier_mode():
-			m._ui_rect(Rect2(cell.position+Vector2(0,cell.size.y),Vector2(cell.size.x,1)),Color("bda274"))
-		else:
-			m._ui_rect(cell,Color("c4aa7e"));m._ui_rect(cell.grow(-1),Color("faedcf"))
-			m._ui_rect(Rect2(cell.end.x-23,cell.position.y+5,1,cell.size.y-10),Color("dcc7a3"))
+		m._ui_rect(cell,Color("c4aa7e"));m._ui_rect(cell.grow(-1),Color("fff3d8") if i%2==0 else Color("f7e8c8"))
+		m._ui_rect(Rect2(cell.position+Vector2(3,3),Vector2(56,cell.size.y-6)),Color("e6dcc0"))
+		m._ui_rect(Rect2(cell.end.x-23,cell.position.y+5,1,cell.size.y-10),Color("cbb68e"))
 		var known: bool=m.expedition.data.is_discovered(id) if soldier_mode() else (not best(m,id,"grade").is_empty() or not best(m,id,"length").is_empty())
-		var picture:=Rect2(cell.position+Vector2(3,3),Vector2(58,53 if soldier_mode() else 33))
+		var picture:=Rect2(cell.position+Vector2(3,3),Vector2(58,57 if soldier_mode() else 35))
 		if known:
-			if soldier_mode():m.expedition.sprite(m,id,picture)
+			if soldier_mode():m.expedition.sprite(m,id,picture,0,1.0,soldier_star)
 			else:m._ui_fish(id,picture)
 			var name: String=m.expedition.data.catalog.soldiers[id].name if soldier_mode() else m.FISH_NAME[id]
 			m._text(name,cell.position+Vector2(64,14),10,INK,false,140)
@@ -183,12 +191,15 @@ func draw_collection(m,r: Rect2) -> void:
 				var role: String=spec.role
 				m._ui_rect(Rect2(cell.position+Vector2(64,19),Vector2(29,13)),Color(m.expedition.ROLE_COLORS[role]))
 				m._text(m.expedition.ROLES[role],cell.position+Vector2(78,29),8,Color("fff0d1"),true,26)
-				label_lines(m,spec.description,cell.position+Vector2(64,43),140,8,2,MUTED)
+				m._text("★%d"%soldier_star,cell.position+Vector2(99,29),9,INK,false,30)
+				var skill: Dictionary=m.expedition.data.TIER_SKILLS.info(id,soldier_star)
+				m._text(str(skill.name),cell.position+Vector2(130,29),8,Color("08646b"),false,70)
+				label_lines(m,str(skill.description),cell.position+Vector2(64,45),136,8,2,MUTED)
 			else:
-				m._text("수집 등급",cell.position+Vector2(64,31),8,MUTED,false,51)
 				var grades: Array=m.fish_grades(id)
+				m._text("수집 %d/5"%grades.size(),cell.position+Vector2(64,33),8,MUTED,false,49)
 				for g in 5:
-					grade_mark(m,Rect2(cell.position+Vector2(114+g*16,23),Vector2(13,9)),g in grades,g)
+					grade_mark(m,Rect2(cell.position+Vector2(114+g*16,23),Vector2(14,15)),g in grades,g)
 
 			chevron(m,cell.position+Vector2(207,cell.size.y/2-4))
 			rects.fish.append([cell,id])
@@ -205,14 +216,16 @@ func draw_collection(m,r: Rect2) -> void:
 		m._ui_rect(track,Color("d1bc91"))
 		var thumb: float=maxf(12,track.size.y*visible_rows/rows_total)
 		m._ui_rect(Rect2(track.position+Vector2(0,(track.size.y-thumb)*scroll/maximum()),Vector2(3,thumb)),Color("8d6037"))
-	m._text("병사를 누르면 특징과 어혼 조합" if soldier_mode() else "물고기를 누르면 상세 기록",Vector2(135,r.end.y-16),9,MUTED,true,230)
+	m._text("성급별 정보 · 병사를 누르면 상세" if soldier_mode() else "물고기를 누르면 상세 기록",Vector2(135,r.end.y-16),9,MUTED,true,230)
+func draw_star_buttons(m,y: float,compact: bool=false) -> void:
+	for i in 3:
+		var b:=Rect2((94+i*52) if compact else (60+i*60),y,48 if compact else 56,23)
+		button(m,b,"★%d"%(i+1),soldier_star==i+1);rects.stars.append(b)
 func grade_mark(m,r: Rect2,acquired: bool,grade: int) -> void:
-	var fill: Color=m.GRADE_C[grade] if acquired else Color("ede2c8")
-	var outline: Color=fill.darkened(.48) if acquired else Color("ad9b79")
-	var pts:=PackedVector2Array([Vector2(0,2),Vector2(3,3),Vector2(5,0),Vector2(10,0),Vector2(13,4),Vector2(10,8),Vector2(5,8),Vector2(3,5),Vector2(0,7)])
-	for i in pts.size(): pts[i]=r.position+pts[i]
-	m._ui_polygon(pts,PackedColorArray([outline]))
-	m._ui_rect(Rect2(r.position+Vector2(5,2),Vector2(5,4)),fill)
+	var fill: Color=m.GRADE_C[grade] if acquired else Color("e6dcc5")
+	m._ui_rect(r,fill.darkened(.4) if acquired else Color("b8a582"))
+	m._ui_rect(r.grow(-1),fill)
+	m._text(["N","R","E","L","M"][grade],r.get_center()+Vector2(0,3),7,Color("fff7df") if acquired and grade in [0,1,2] else INK if acquired else Color("897859"),true,12)
 func chevron(m,p: Vector2) -> void:
 	for i in 4:
 		m._ui_rect(Rect2(p+Vector2(i,i),Vector2(2,2)),INK)
@@ -281,34 +294,36 @@ func section(m,r: Rect2,title: String) -> void:
 	m._text(title,Vector2(r.get_center().x,r.position.y+19),11,Color("fff0d1"),true,r.size.x-18)
 func draw_soldier_detail(m,r: Rect2) -> void:
 	back_button(m,r)
+	draw_star_buttons(m,r.position.y+46,true)
 	var data=m.expedition.data
 	if not data.is_discovered(selected):selected=-1;return
 	var spec: Dictionary=data.catalog.soldiers[selected]
 	var y: float=r.position.y+75
 	var extra: float=maxf(0,r.size.y-416)
 	var hero_h: float=82+extra*.24
-	m.expedition.sprite(m,selected,Rect2(26,y+5,86,hero_h-8))
+	m.expedition.sprite(m,selected,Rect2(26,y+5,86,hero_h-8),0,1.0,soldier_star)
 	label_lines(m,spec.name,Vector2(121,y+24),119,14,2)
 	icon(m,"leaf" if spec.role=="support" else spec.role,Rect2(122,y+52,15,15))
 	m._text(m.expedition.ROLES[spec.role],Vector2(143,y+64),11,Color(m.expedition.ROLE_COLORS[spec.role]),false,91)
-	m._text("제작 완료",Vector2(123,y+74),10,MUTED,false,111)
+	m._text("★%d · 성급별 보기"%soldier_star,Vector2(123,y+74),9,MUTED,false,111)
 	y+=hero_h+6
-	var skill_h: float=65+extra*.22
-	section(m,Rect2(21,y,228,skill_h),SKILLS.get(str(spec.skill),"특수 능력"))
-	label_lines(m,spec.description,Vector2(33,y+40),204,10,2)
+	var skill_h: float=75+extra*.22
+	var skill: Dictionary=data.TIER_SKILLS.info(selected,soldier_star)
+	section(m,Rect2(21,y,228,skill_h),"%s · %d초"%[skill.name,skill.cd])
+	label_lines(m,str(skill.description),Vector2(33,y+39),204,9,3)
 	y+=skill_h+8
-	var combo_h: float=86+extra*.20
+	var combo_h: float=76+extra*.20
 	section(m,Rect2(21,y,228,combo_h),"어혼 조합")
 	for i in 2:
 		var el: int=int(spec.elements[i]);var x: float=34+i*58
 		icon(m,"soul%d"%el,Rect2(x,y+34,30,30))
-		m._text(data.ELEMENTS[el],Vector2(x+15,y+75),10,INK,true,42)
+		m._text(data.ELEMENTS[el],Vector2(x+15,y+68),10,INK,true,42)
 	icon(m,"plus",Rect2(73,y+43,12,12));icon(m,"right",Rect2(136,y+43,15,15))
-	m.expedition.sprite(m,selected,Rect2(167,y+30,48,48))
-	label_lines(m,spec.name,Vector2(164,y+72),74,9,2)
+	m.expedition.sprite(m,selected,Rect2(167,y+29,45,28),0,1.0,soldier_star)
+	label_lines(m,spec.name,Vector2(164,y+69),74,8,1)
 	y+=combo_h+8
-	var stats: Dictionary=spec.base
-	section(m,Rect2(21,y,228,62),"기본 능력치 · ★1 기준")
+	var stats: Dictionary=spec.stars[str(soldier_star)]
+	section(m,Rect2(21,y,228,62),"기본 능력치 · ★%d 기준"%soldier_star)
 	for i in 3:
 		var x: float=27+i*74
 		icon(m,["heart","attack","defense"][i],Rect2(x,y+33,16,16))
@@ -322,7 +337,9 @@ func hit_id(p: Vector2) -> int:
 func press(m,p: Vector2) -> void:
 	if rects.get("close",Rect2()).has_point(p):opened=false;cancel_pointer();return
 	for i in rects.get("categories",[]).size():
-		if rects.categories[i].has_point(p):category=["fish","soldier"][i];selected=-1;scroll=0;role_filter="all";cancel_pointer();return
+		if rects.categories[i].has_point(p):category=["fish","soldier"][i];selected=-1;scroll=0;role_filter="all";soldier_star=1;cancel_pointer();return
+	for i in rects.get("stars",[]).size():
+		if rects.stars[i].has_point(p):soldier_star=i+1;scroll=0;cancel_pointer();return
 	for i in rects.get("regions",[]).size():
 		if rects.regions[i].has_point(p):region=i;selected=-1;scroll=0;cancel_pointer();return
 	for i in rects.get("filters",[]).size():
