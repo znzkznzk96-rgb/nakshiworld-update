@@ -79,11 +79,30 @@
       "id": "09",
       "name": "균열갑주 방어",
       "attempt": 1,
-      "status": "submission_pending",
+      "status": "passed",
       "model": "edit-image-pixen",
       "seed": 2026111409,
       "request_sha256": "b500a2297c1032712e592d660e92a1f26dc11957c0e710d2d9668cdd434d53d8",
       "submitted_at_unix": 1794319264.0125492,
+      "prior_round_requests": 0,
+      "http_status": 202,
+      "job_id": "cd1ebcf6-28b7-454e-9a61-7fc4f809160e",
+      "actual_generation_delta": 1.0,
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "result_sha256": "5f7b7e1af3bf27e27d339c3195dd16c6ab3fcabfc7a056e967dab1ecea94a86b"
+    },
+    {
+      "id": "10",
+      "name": "유영리본 삼치",
+      "attempt": 1,
+      "status": "submission_pending",
+      "model": "edit-image-pixen",
+      "seed": 2026111410,
+      "request_sha256": "0c275355b733c4c8f01442fa9382c5cd092d1a68b8710c8ac3e9682eaaa73ffa",
+      "submitted_at_unix": 1794319355.9619591,
       "prior_round_requests": 0
     }
   ],
@@ -163,8 +182,8 @@
       "status": "internal_quality_pass_user_review_pending"
     }
   ],
-  "generation_requests": 5,
-  "accepted_outputs": 2,
+  "generation_requests": 6,
+  "accepted_outputs": 3,
   "rejected_outputs": 2,
-  "actual_generations_charged": 4.0
+  "actual_generations_charged": 5.0
 }
