@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "rift_motion_strength_audit_complete",
+  "status": "rift_dynamic11_regeneration_in_progress",
   "release_baseline": "v1.25",
   "target_release": "v1.25",
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/art/rift-fish/HANDOFF.md",
-  "current_task": "균열 모션 역동성19종 재검토",
-  "next_step": "역동성 재제작 검토: 약함6종(02/04/06/07/12/16),보강5종(05/08/09/17/18). 이번질문만으로유료재생성/게임적용/배포미착수. 거울날치14보류유지.",
+  "current_task": "역동성 보강11종 모션 재제작",
+  "next_step": "02부터종별역동모션단일POST→native/정수확대·실표시축소비교검수. 불량시추가1회후그종보류·다음진행,11종전부처리.",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -1341,5 +1341,27 @@
     ],
     "paid_requests": 0,
     "structural_pass_is_not_gameplay_motion_approval": true
+  },
+  "rift_dynamic11": {
+    "status": "in_progress",
+    "ids": [
+      "02",
+      "04",
+      "05",
+      "06",
+      "07",
+      "08",
+      "09",
+      "12",
+      "16",
+      "17",
+      "18"
+    ],
+    "spec": "docs/art/rift-fish/motion-dynamic11-20261111/SPEC.json",
+    "ledger": "docs/art/rift-fish/motion-dynamic11-20261111/LEDGER.json",
+    "completed": 0,
+    "requests": 0,
+    "game_applied": false,
+    "deployed": false
   }
 }

@@ -1,0 +1,183 @@
+{
+  "date": "2026-11-11",
+  "user_request": "11종 보강히사 다시 제작하자 바로진행해",
+  "species": [
+    {
+      "id": "02",
+      "name": "균열정어리",
+      "native_canvas": [
+        232,
+        132
+      ],
+      "input_sha256": "7db650a1e42b245a87896ba5e4812411af51fdda6a001fa74e0c0e73e01672e3",
+      "native_source": "docs/art/rift-fish/motion-hd-20261111/02/base-1/original.png",
+      "quoted_generations_per_clip": 1,
+      "status": "planned",
+      "motion_action": "Vigorous swimming: the rear half bends into a clear S-curve, the tail sweeps through a broad arc one way then snaps through the opposite arc. Pectoral fins open wide then push backward in time with each tail beat. Strong follow-through and a clear recovery, not near-static fluttering.",
+      "request_limit": 2,
+      "seed": 2026115102
+    },
+    {
+      "id": "04",
+      "name": "가시등전어",
+      "native_canvas": [
+        232,
+        184
+      ],
+      "input_sha256": "adc1ff4a621523b624b0006145ec18612cdd7ecfff441e46a6fe899cc83b651a",
+      "native_source": "docs/art/rift-fish/motion-hd-20261111/04/base-1/original.png",
+      "quoted_generations_per_clip": 2,
+      "status": "planned",
+      "motion_action": "Energetic paddling swim: broad alternating tail beats bend the rear body; both pectoral fins visibly fan open, sweep back and recover. The attached spiky dorsal fin leans and springs back with the body wave. Show clear extension and contraction of the fins in every cycle.",
+      "request_limit": 2,
+      "seed": 2026115104
+    },
+    {
+      "id": "05",
+      "name": "균열장막 오징어",
+      "native_canvas": [
+        232,
+        104
+      ],
+      "input_sha256": "d4b42e7841e2fe97c1fc85137179c2058e67dd370171b91b3182ee90761f64e4",
+      "native_source": "docs/art/rift-fish/motion-hd-20261111/05/base-2/original.png",
+      "quoted_generations_per_clip": 1,
+      "status": "planned",
+      "motion_action": "Forceful squid jet-swimming cycle in place: mantle visibly compresses then expands, arms spread wide then sweep together, and the long tentacles whip through broad delayed S-curves. Strong overlapping motion from mantle to arms and tentacle tips, with a readable recoil and recovery. Keep it a squid.",
+      "request_limit": 2,
+      "seed": 2026115105
+    },
+    {
+      "id": "06",
+      "name": "쥐포쥐치",
+      "native_canvas": [
+        232,
+        176
+      ],
+      "input_sha256": "3d4e59f4509f46e096e713b97152f275c5f898ecabfd0162838aedd078843f2a",
+      "native_source": "docs/art/rift-fish/motion-hd-20261111/06/base-2/original.png",
+      "quoted_generations_per_clip": 2,
+      "status": "planned",
+      "motion_action": "Lively triggerfish swimming: broad top and bottom fin strokes push in alternating phases, the orange tail fans open and sweeps firmly to either side. The rear body flexes with each strong tail beat while the round main body rocks with the effort. Show clear fin extension and folding.",
+      "request_limit": 2,
+      "seed": 2026115106
+    },
+    {
+      "id": "07",
+      "name": "금간정어리",
+      "native_canvas": [
+        232,
+        128
+      ],
+      "input_sha256": "cbe71580e04c18a6a8aa2fb0c6bb77fb589bf30f23454c69e19336876079b3bf",
+      "native_source": "docs/art/rift-fish/motion-hd-20261111/07/base-1/original.png",
+      "quoted_generations_per_clip": 1,
+      "status": "planned",
+      "motion_action": "Strong rhythmic swimming: the purple tail makes broad alternating strokes, the rear silver body visibly bends in a travelling S-wave, and the purple pectoral fins spread then sweep back in a powerful rowing cycle. The gold lines simply move with the skin, with no light effects. Clear anticipation, push and recovery.",
+      "request_limit": 2,
+      "seed": 2026115107
+    },
+    {
+      "id": "08",
+      "name": "빛멸치",
+      "native_canvas": [
+        232,
+        84
+      ],
+      "input_sha256": "d57e3569ffc01053e2a03aa7bd992506190de23ed729f3c4d27c21a4ac87b47e",
+      "native_source": "docs/art/rift-fish/motion-hd-20261111/08/base-1/original.png",
+      "quoted_generations_per_clip": 1,
+      "status": "planned",
+      "motion_action": "Fast darting swim in place: two pronounced tail snaps per cycle propagate a visible whip-like wave down the slim body. Fins flare at each reversal then fold on the push. Include a brief coiled anticipation and fully extended follow-through, so the action reads clearly at small game size.",
+      "request_limit": 2,
+      "seed": 2026115108
+    },
+    {
+      "id": "09",
+      "name": "균열갑주 방어",
+      "native_canvas": [
+        232,
+        152
+      ],
+      "input_sha256": "f01711be0bd858920cf6c4ad6a1b16db47b930d3f67e41da107cc1ed22247ea7",
+      "native_source": "docs/art/rift-fish/motion-hd-20261111/09/base-1/original.png",
+      "quoted_generations_per_clip": 1,
+      "status": "planned",
+      "motion_action": "Powerful heavy swimming: broad forceful tail strokes flex the rear half, with the three large armor plates staying rigidly attached to the torso. Pectoral fins open wide and row back; the armored shoulder tilts with each beat. Strong deliberate push, overshoot and recovery rather than a stiff idle.",
+      "request_limit": 2,
+      "seed": 2026115109
+    },
+    {
+      "id": "12",
+      "name": "균열꽃 광어",
+      "native_canvas": [
+        232,
+        156
+      ],
+      "input_sha256": "fd7523262fb2622e4729ee805a415699f68ffe36444fee5f8a5f2f02f2830daa",
+      "native_source": "docs/art/rift-fish/motion-hd-20261111/12/base-1/original.png",
+      "quoted_generations_per_clip": 1,
+      "status": "planned",
+      "motion_action": "Dynamic swimming: the purple tail fans fully open then sweeps strongly both ways, and a large travelling ripple runs around the spiky fin fringe from front to back. Pectoral fin opens and rows. The broad central body rocks with each stroke while retaining its approved shape.",
+      "request_limit": 2,
+      "seed": 2026115112
+    },
+    {
+      "id": "16",
+      "name": "월식 개복치",
+      "native_canvas": [
+        232,
+        256
+      ],
+      "input_sha256": "fdd58ac208bc5b858316ffad510f8eb0225cf312c418e22f21eee856ab1d031f",
+      "native_source": "docs/art/rift-fish/motion-hd-20261111/16/base-1/original.png",
+      "quoted_generations_per_clip": 2,
+      "status": "planned",
+      "motion_action": "Bold alternating rowing: the long upper fin swings backward through a broad arc while the lower fin sweeps forward, then they reverse with strong flexible follow-through at the tips. The small tail fans and beats in rhythm; the round disk rocks visibly with the effort. Preserve the central round body and crescent marking.",
+      "request_limit": 2,
+      "seed": 2026115116
+    },
+    {
+      "id": "17",
+      "name": "뇌광 삼치",
+      "native_canvas": [
+        232,
+        136
+      ],
+      "input_sha256": "fe72e2aa479a6b18d4e0907c7df0da249c306a87f51407d939df5b7f3148a764",
+      "native_source": "docs/art/rift-fish/motion-hd-20261111/17/base-1/original.png",
+      "quoted_generations_per_clip": 1,
+      "status": "planned",
+      "motion_action": "Explosive swimming loop: a visible S-bend coils the rear body before a sharp powerful tail snap, followed by an equally clear counterbeat. Pectoral fins flare wide at reversals then fold on the push; the dorsal fin flexes and springs back. Keep the zigzag as a painted skin pattern, without light effects.",
+      "request_limit": 2,
+      "seed": 2026115117
+    },
+    {
+      "id": "18",
+      "name": "차원창 청새치",
+      "native_canvas": [
+        232,
+        156
+      ],
+      "input_sha256": "c4d16ee1ffb85704ac50eaeb830d6e386eddddaf1382b5e5eb26104cccac05a7",
+      "native_source": "docs/art/rift-fish/motion-hd-20261111/18/base-1/original.png",
+      "quoted_generations_per_clip": 1,
+      "status": "planned",
+      "motion_action": "Forceful marlin swim: the long crystal bill and head remain rigidly attached and point left while a large S-wave travels through the rear body into broad crescent-tail strokes. The tall cape-like sail bends backward in a clear travelling wave then springs open; long lower fins stream with delayed follow-through.",
+      "request_limit": 2,
+      "seed": 2026115118
+    }
+  ],
+  "model": "animate-pixminimax",
+  "frame_count": 16,
+  "concurrent_paid_requests": 1,
+  "baseline_requests": 11,
+  "max_requests": 22,
+  "estimated_baseline_generations": 14,
+  "estimated_max_generations": 28,
+  "quality_policy": "first species then individual native/nearest and motion-range review; one extra on failure then hold only that species and continue; no automatic POST retry",
+  "preserve_other_species": true,
+  "held14_excluded": true,
+  "game_applied": false,
+  "deployed": false
+}
