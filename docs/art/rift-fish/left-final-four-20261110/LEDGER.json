@@ -16,12 +16,26 @@
       "job_id": "0cdaf8fb-c150-4207-aab6-16356a037576",
       "actual_generation_delta": 1.0,
       "result_sha256": "099fb8ad44c0b464a0790f9d110a794ef4cebeb7091af3fcf62383f0df427ade"
+    },
+    {
+      "id": "12",
+      "name": "균열꽃 광어",
+      "attempt": 1,
+      "status": "rejected",
+      "model": "create-image-pixen",
+      "seed": 2026111612,
+      "request_sha256": "f3c87a7afc6a72587db3717fa24e29f1fd31d39fddfe70e6992db91507e14f85",
+      "submitted_at_unix": 1794321602.0774632,
+      "prior_round_requests": 4,
+      "http_status": 200,
+      "actual_generation_delta": 1.0,
+      "result_sha256": "eb1bf1a154299717aa3c672552158abae1557e1f5ae2d274f956726bf7705b99"
     }
   ],
   "status": "left_final_four_in_progress",
   "max_per_species_this_round": 2,
-  "generation_requests": 1,
+  "generation_requests": 2,
   "accepted_outputs": 1,
-  "rejected_outputs": 0,
-  "actual_generations_charged": 1.0
+  "rejected_outputs": 1,
+  "actual_generations_charged": 2.0
 }

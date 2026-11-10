@@ -1,0 +1,29 @@
+{
+  "status": "rejected",
+  "note": "좌향과 균열은 보이나 몸색이 회갈색으로 탁하고 일반 옆모습 한 눈 물고기로 생성. 진한 보라색 납작한 광어·동일 면 두 눈 필수 특징 불충족.",
+  "reviewed_at_native_and_nearest6x": true,
+  "compared_with_actual_reservoir_original": true,
+  "size": [
+    96,
+    64
+  ],
+  "bbox": [
+    5,
+    3,
+    91,
+    62
+  ],
+  "mode": "RGBA",
+  "sha256": "eb1bf1a154299717aa3c672552158abae1557e1f5ae2d274f956726bf7705b99",
+  "reference_sha256": "a87f59d881fbd6fe0027a8c9008e95a9849eeb6552d55ba5b1dee634dc690787",
+  "shape": "rejected",
+  "color": "rejected",
+  "shading_pixel_clusters": "passed",
+  "outline": "passed",
+  "species_feature": "rejected",
+  "alpha_margin": "passed",
+  "actual_generation_delta": 1.0,
+  "game_applied": false,
+  "user_final_approval": "pending",
+  "observed_direction": "west"
+}

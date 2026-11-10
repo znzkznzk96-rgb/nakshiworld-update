@@ -353,9 +353,10 @@
       "max_requests_this_round": 2,
       "prior_requests": 4,
       "seed": 2026111612,
-      "status": "planned",
+      "status": "rejected",
       "actual_motion_generated": false,
-      "game_applied": false
+      "game_applied": false,
+      "attempts_used": 1
     },
     {
       "id": "16",
