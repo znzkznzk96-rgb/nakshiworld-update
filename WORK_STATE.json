@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "rift_fantasy_nonboss_round2_prepared",
+  "status": "rift_fantasy_nonboss_round2_in_progress",
   "release_baseline": "v1.25",
   "target_release": "v1.25",
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/art/rift-fish/HANDOFF.md",
   "current_task": "기존6종보존·보류2종/미제작11종 판타지원화·모션설계13종",
-  "next_step": "종별최대2회·동시1개로생성/검수,실패종만보류·독립다음종계속. 실제모션/게임적용/배포없음.",
+  "next_step": "광어12번 생성 진행 중. 01/05/09/10 후보확보,11 갈치2회실패보류. 기존6종보존·주인제외·종당2회/동시1개 유지.",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -1172,6 +1172,23 @@
     "manifest": "docs/art/rift-fish/tier1-20261110/MANIFEST.json",
     "ledger": "docs/art/rift-fish/tier1-20261110/LEDGER.json",
     "user_final_approval": "pending",
+    "game_applied": false,
+    "deployed": false
+  },
+  "rift_fantasy_round2": {
+    "status": "in_progress",
+    "candidate_species": [
+      "01",
+      "05",
+      "09",
+      "10"
+    ],
+    "held_species": [
+      "11"
+    ],
+    "manifest": "docs/art/rift-fish/fantasy-round2-20261110/SPEC.json",
+    "ledger": "docs/art/rift-fish/fantasy-round2-20261110/LEDGER.json",
+    "actual_animation_generated": false,
     "game_applied": false,
     "deployed": false
   }
