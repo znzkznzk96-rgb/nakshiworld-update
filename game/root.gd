@@ -33,7 +33,7 @@ var boot_timings:Dictionary={}
 
 func _ready() -> void:
 	splash_started_msec=Time.get_ticks_msec()
-	font = load("res://font/neodgm.ttf")
+	font = load("res://font/neodgm.ttf").duplicate(true)
 	update_art = load("res://art/ui/update_cat_blue.png")
 	texture_filter=CanvasItem.TEXTURE_FILTER_NEAREST
 	for i in 9:chase_frames.append(load("res://art/ui/updater/cat_run_%02d.png"%i))
