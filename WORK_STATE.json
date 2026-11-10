@@ -1,17 +1,17 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "release122_authorized",
-  "release_baseline": "v1.21",
+  "status": "release122_published",
+  "release_baseline": "v1.22",
   "target_release": "v1.22",
-  "deployed": false,
+  "deployed": true,
   "phone_verified": false,
   "handoff": "docs/releases/122/HANDOFF.md",
-  "current_task": "v1.22 병사 크기·스킬 배치 수정본 공개",
-  "next_step": "검증후보13738329660 동일파일공개→공개3파일/운영다운로드검증",
+  "current_task": "v1.22 성급별 크기·스킬배치 공개 완료",
+  "next_step": "휴대폰 v1.22 실제 성급별크기/스킬표시 확인. 새수정·배포는별도요청.",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
-  "verification": "docs/qa/soldier-size/VERIFICATION.json",
+  "verification": "docs/releases/122/PUBLISHED.json",
   "baseline_phone_verified": false,
   "environment_recovery": "docs/CODEX_NETWORK_RECOVERY.md",
   "background_verified_branch": "work/tile-png-stage2-20261107",
@@ -43,14 +43,14 @@
   "remaining_global_render_checks": false,
   "release_authorization": {
     "date": "2026-11-10",
-    "user_request": "업뎃및 배포좀",
-    "scope": "v1.21 닫기 버튼·좁은 팝업·Android 뒤로가기",
+    "user_request": "배포가자 ㅇㅇ",
+    "scope": "v1.22 성급별크기/스킬표시/전투창",
     "fulfilled": true
   },
-  "release_preflight": "docs/releases/121/PREFLIGHT.json",
-  "release_source_commit": "2aa40bdaefbb4dd674baaf39d15b730dc12493a4",
-  "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v1.21",
-  "release_build_run": 42761001128,
+  "release_preflight": "docs/qa/soldier-size/VERIFICATION.json",
+  "release_source_commit": "b14f8935f0941b58c085bcc98f3435cc31a3e778",
+  "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v1.22",
+  "release_build_run": 42765663195,
   "release_build_status": "success_attempt2_same_candidate_no_rebuild",
   "public_verification_run": 42743324019,
   "public_verification_status": "success",
@@ -92,7 +92,7 @@
     "headless_passed": 73,
     "headless_total": 73
   },
-  "release_verification_run": 42761140287,
+  "release_verification_run": 42765862177,
   "prior_build_issue": {
     "run": 42384973558,
     "cause": "packed mail check hardcoded1.08; prepublication assertion",
@@ -118,7 +118,7 @@
     "production_balance_changed": false,
     "phone_tested": false
   },
-  "release_authorized": true,
+  "release_authorized": false,
   "balance110": {
     "applied": true,
     "deployed": true,
@@ -171,7 +171,7 @@
     "ledger": "analysis/tile-layer-art-v1/PLANT_LEDGER.json",
     "quality": "analysis/tile-layer-art-v1/PLANT_QA.json"
   },
-  "public_release": "v1.21",
+  "public_release": "v1.22",
   "shared_vertical_light": {
     "applied": true,
     "regions": [
@@ -248,18 +248,18 @@
     "release_authorized": false
   },
   "full_release_ci": {
-    "run": 42759712975,
+    "run": 42763368422,
     "status": "success",
-    "source_commit": "2aa40bdaefbb4dd674baaf39d15b730dc12493a4"
+    "source_commit": "b14f8935f0941b58c085bcc98f3435cc31a3e778"
   },
   "release_candidate": {
     "version": {
-      "code": 121,
-      "name": "1.21"
+      "code": 122,
+      "name": "1.22"
     },
-    "source_commit": "2aa40bdaefbb4dd674baaf39d15b730dc12493a4",
-    "artifact": 13738070834,
-    "input_fingerprint": "5dc78c10fa2ca6d046ecdb0857b05dd08c894fb177698dcbf4b6cd9156d09ad6",
+    "source_commit": "b14f8935f0941b58c085bcc98f3435cc31a3e778",
+    "artifact": 13738329660,
+    "input_fingerprint": "84ea3dcd357400bc4775335e768e89d967433890779d5f74346e80354f10c164",
     "verified": true
   },
   "release_resume_run": 42424430555,
@@ -386,8 +386,8 @@
     "verification_artifact": 13618959416
   },
   "latest_release_instruction": {
-    "user_request": "업뎃및 배포좀",
-    "scope": "v1.21",
+    "user_request": "배포가자 ㅇㅇ",
+    "scope": "v1.22",
     "fulfilled": true
   },
   "economy_analysis": {
@@ -1094,6 +1094,12 @@
     "verified": true,
     "source_commit": "b14f8935f0941b58c085bcc98f3435cc31a3e778",
     "ci": 42763368422,
-    "deployed": false
+    "deployed": true
+  },
+  "release122": {
+    "handoff": "docs/releases/122/HANDOFF.md",
+    "published": "docs/releases/122/PUBLISHED.json",
+    "deployed": true,
+    "phone_verified": false
   }
 }
