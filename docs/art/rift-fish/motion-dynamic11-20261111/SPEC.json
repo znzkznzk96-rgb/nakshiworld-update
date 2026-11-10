@@ -124,10 +124,11 @@
       "input_sha256": "fd7523262fb2622e4729ee805a415699f68ffe36444fee5f8a5f2f02f2830daa",
       "native_source": "docs/art/rift-fish/motion-hd-20261111/12/base-1/original.png",
       "quoted_generations_per_clip": 1,
-      "status": "planned",
+      "status": "passed",
       "motion_action": "Dynamic swimming: the purple tail fans fully open then sweeps strongly both ways, and a large travelling ripple runs around the spiky fin fringe from front to back. Pectoral fin opens and rows. The broad central body rocks with each stroke while retaining its approved shape.",
       "request_limit": 2,
-      "seed": 2026115112
+      "seed": 2026115112,
+      "selected_attempt": 1
     },
     {
       "id": "16",

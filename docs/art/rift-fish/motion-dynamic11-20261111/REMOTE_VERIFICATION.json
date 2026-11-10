@@ -70,5 +70,14 @@
     "sha256": "58dfd922a9ace0960941c8d7fc2febca44e697bda694299dd039626b5b4f2467",
     "frames": 17,
     "decode_hash_canvas_match": true
+  },
+  {
+    "id": "09",
+    "attempt": 1,
+    "commit": "042e0ddd2254a22b2cb40a6a87730710a0a9be09",
+    "bytes": 155235,
+    "sha256": "13ef4c778d5b28238083e5239613684d1f81acdb9152b3472dc82328a3e7e099",
+    "frames": 17,
+    "decode_hash_canvas_match": true
   }
 ]

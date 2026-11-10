@@ -1,0 +1,22 @@
+{
+  "description": "Dynamic swimming: the purple tail fans fully open then sweeps strongly both ways, and a large travelling ripple runs around the spiky fin fringe from front to back. Pectoral fin opens and rows. The broad central body rocks with each stroke while retaining its approved shape. Seamless energetic swim IN PLACE. Fixed camera and scale; head LEFT throughout. Preserve identity, anatomy, fin count and rich original colors. All parts stay inside the canvas with clear margins. No external particles, glow, trails, new parts or background. Animate in a FLAT 2D SIDE PROFILE: bend the tail UP and DOWN on screen, never toward the camera. Keep the whole tail and fins visible at both extremes, with no foreshortening or disappearing parts.",
+  "frame_count": 16,
+  "seed": 2026115112,
+  "no_background": true,
+  "drift_threshold": 0,
+  "enhance_prompt": false,
+  "direction": "west",
+  "view": "side",
+  "subject_description": "broad purple fish with a spiky fin fringe",
+  "initial_pose": "horizontal side-view swim pose, head left and tail or mantle right, whole creature visible inside transparent margins",
+  "first_frame": {
+    "sha256": "fd7523262fb2622e4729ee805a415699f68ffe36444fee5f8a5f2f02f2830daa",
+    "source": "docs/art/rift-fish/motion-hd-20261111/12/base-1/original.png",
+    "role": "passed original HD art exact bytes"
+  },
+  "last_frame": {
+    "sha256": "fd7523262fb2622e4729ee805a415699f68ffe36444fee5f8a5f2f02f2830daa",
+    "source": "docs/art/rift-fish/motion-hd-20261111/12/base-1/original.png",
+    "role": "passed original HD art exact bytes"
+  }
+}
