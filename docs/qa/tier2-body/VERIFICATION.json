@@ -42,8 +42,11 @@
   },
   "ci": {
     "run": 42770945121,
-    "status": "in_progress",
-    "full_verification_complete": false
+    "status": "success",
+    "full_verification_complete": true,
+    "native_and_pck": "passed",
+    "candidate_artifact": 13742048328,
+    "input_fingerprint": "602d645b145a8a4d0988c27ef71a4117651bcdc8d39a027574bb57918daa6e1d"
   },
   "deployed": false,
   "phone_verified": false,

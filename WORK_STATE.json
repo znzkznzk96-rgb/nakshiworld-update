@@ -1,17 +1,17 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "updater_font_isolation_in_progress",
+  "status": "updater_font_related_verified_ci_running",
   "release_baseline": "v1.22",
   "target_release": "v1.23",
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/qa/updater-font/HANDOFF.md",
   "current_task": "업데이트→게임준비 전환 폰트 찌그러짐 수정",
-  "next_step": "로더/게임 FontFile 공유분리→기존APK호환/문자픽셀전후검사→관련검증/원격저장",
+  "next_step": "전체자동CI42775202696 결과확인. 새배포요청시동일성공후보공개.",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
-  "verification": "docs/qa/tier2-body/VERIFICATION.json",
+  "verification": "docs/qa/updater-font/VERIFICATION.json",
   "baseline_phone_verified": false,
   "environment_recovery": "docs/CODEX_NETWORK_RECOVERY.md",
   "background_verified_branch": "work/tile-png-stage2-20261107",
@@ -1107,6 +1107,13 @@
     "related_verified": true,
     "source_commit": "b963abe6e9beef72bac03f10b380a13d58fffdb7",
     "ci": 42770945121,
+    "deployed": false
+  },
+  "updater_font": {
+    "implemented": true,
+    "related_verified": true,
+    "source_commit": "77c1eb4787f6c41b7d3f6257c8a87a9209fe17ea",
+    "ci": 42775202696,
     "deployed": false
   }
 }

@@ -1,0 +1,74 @@
+{
+  "date": "2026-11-10",
+  "source_commit": "77c1eb4787f6c41b7d3f6257c8a87a9209fe17ea",
+  "public_version": "1.22",
+  "prepared_version": "1.23",
+  "cause": {
+    "shared_font_before_fix": true,
+    "loader_before": {
+      "antialiasing": 1,
+      "hinting": 1,
+      "oversampling": 0
+    },
+    "loader_after_game_before_fix": {
+      "antialiasing": 0,
+      "hinting": 0,
+      "oversampling": 1
+    }
+  },
+  "local": {
+    "updater_font": "passed",
+    "updater": "passed",
+    "updater_smoothness": "passed",
+    "soldier_size": "passed",
+    "native_raster_cases": 4,
+    "native_actual_boot": true,
+    "raster_inputs": [
+      "new_loader_font",
+      "legacy_APK_cached_font"
+    ],
+    "scales": [
+      2,
+      2.325925925925926
+    ],
+    "glyph_pixels_before_after": "identical",
+    "font_metrics_before_after": "identical",
+    "game_pixel_settings": "unchanged",
+    "baseline_regression_failed_guards": 5,
+    "final_native_errors": 0
+  },
+  "ci": {
+    "run": 42775202696,
+    "status": "in_progress",
+    "full_verification_complete": false
+  },
+  "files": {
+    "game/root.gd": {
+      "size": 14029,
+      "sha256": "634a2bd5e0655e93e7ef9fc46088f5ff9c7495997121e15f3b98857ba8156068"
+    },
+    "game/main.gd": {
+      "size": 162242,
+      "sha256": "a5b09ff0f7e4b77b4b7ba95c7c1bdd4499b6c94a8b3581243a7abe9e512b2bab"
+    },
+    "game/tests/updater_font_verify.gd": {
+      "size": 4598,
+      "sha256": "d9d1e04731d182e6390f2b71586c2b5550b698fb7bbad10ed1e1749debc985ff"
+    },
+    "game/addons/reservoir/release_notes.gd": {
+      "size": 48591,
+      "sha256": "c16612eae8a1a6959e66ff08d86a01050dff751d5912d4bee90b1e8e9adad193"
+    },
+    "automation/release-history.json": {
+      "size": 48483,
+      "sha256": "a6bb36af05b73ca086bce9b219c88da2122d7747699c7f4902272f974fc672c6"
+    },
+    ".github/workflows/verify-work.yml": {
+      "size": 33997,
+      "sha256": "78af5e40ee44f77bf6292f13365d746705da46bdb235047db32b60f628411f3d"
+    }
+  },
+  "deployed": false,
+  "phone_verified": false,
+  "paid_art_requests": 0
+}
