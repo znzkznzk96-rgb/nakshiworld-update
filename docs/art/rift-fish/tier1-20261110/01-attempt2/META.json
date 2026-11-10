@@ -1,0 +1,7 @@
+{
+  "model": "create-image-pro-flash",
+  "reason": "Bitforge failed anatomy/direction/style gate; switch to explicit style trait controls, same actual approved reference; rejected result not reused",
+  "seed": 2026111101,
+  "reference_sha256": "a09e70c432b23d10502eb18efa02d14bfbbd4ce4c5a15634b7f5c161a3ac47db",
+  "init_image": false
+}

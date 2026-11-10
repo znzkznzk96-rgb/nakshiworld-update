@@ -1,7 +1,27 @@
 {
   "date": "2026-11-10",
   "max_attempts_per_species": 2,
-  "entries": [],
-  "generation_requests": 0,
-  "status": "prepared_no_paid_post"
+  "entries": [
+    {
+      "id": "01",
+      "name": "두꼬리꽁치",
+      "attempt": 1,
+      "status": "rejected",
+      "model": "create-image-bitforge",
+      "seed": 2026111001,
+      "request_sha256": "2e94ae6e10e879f0dc5302fd10da6d52c57b42fae61d1990c4865f008eea6457",
+      "submitted_at_unix": 1794314842.2454617,
+      "http_status": 200,
+      "job_id": null,
+      "response_mode": "synchronous_single_image",
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "actual_generation_delta": 1.0,
+      "result_sha256": "2bb1174d22ef82b26b8acda3bb0f6b15debc34f80e7ae85702eff8b3ffb8868f"
+    }
+  ],
+  "generation_requests": 1,
+  "status": "quality_gate_failed_no_other_species_started"
 }
