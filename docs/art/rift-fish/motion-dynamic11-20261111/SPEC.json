@@ -108,10 +108,11 @@
       "input_sha256": "f01711be0bd858920cf6c4ad6a1b16db47b930d3f67e41da107cc1ed22247ea7",
       "native_source": "docs/art/rift-fish/motion-hd-20261111/09/base-1/original.png",
       "quoted_generations_per_clip": 1,
-      "status": "planned",
+      "status": "passed",
       "motion_action": "Powerful heavy swimming: broad forceful tail strokes flex the rear half, with the three large armor plates staying rigidly attached to the torso. Pectoral fins open wide and row back; the armored shoulder tilts with each beat. Strong deliberate push, overshoot and recovery rather than a stiff idle.",
       "request_limit": 2,
-      "seed": 2026115109
+      "seed": 2026115109,
+      "selected_attempt": 1
     },
     {
       "id": "12",

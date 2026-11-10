@@ -1,0 +1,22 @@
+{
+  "description": "Powerful heavy swimming: broad forceful tail strokes flex the rear half, with the three large armor plates staying rigidly attached to the torso. Pectoral fins open wide and row back; the armored shoulder tilts with each beat. Strong deliberate push, overshoot and recovery rather than a stiff idle. Seamless energetic swim IN PLACE. Fixed camera and scale; head LEFT throughout. Preserve identity, anatomy, fin count and rich original colors. All parts stay inside the canvas with clear margins. No external particles, glow, trails, new parts or background. Animate in a FLAT 2D SIDE PROFILE: bend the tail UP and DOWN on screen, never toward the camera. Keep the whole tail and fins visible at both extremes, with no foreshortening or disappearing parts.",
+  "frame_count": 16,
+  "seed": 2026115109,
+  "no_background": true,
+  "drift_threshold": 0,
+  "enhance_prompt": false,
+  "direction": "west",
+  "view": "side",
+  "subject_description": "cobalt-silver fish with three attached turquoise armor plates",
+  "initial_pose": "horizontal side-view swim pose, head left and tail or mantle right, whole creature visible inside transparent margins",
+  "first_frame": {
+    "sha256": "f01711be0bd858920cf6c4ad6a1b16db47b930d3f67e41da107cc1ed22247ea7",
+    "source": "docs/art/rift-fish/motion-hd-20261111/09/base-1/original.png",
+    "role": "passed original HD art exact bytes"
+  },
+  "last_frame": {
+    "sha256": "f01711be0bd858920cf6c4ad6a1b16db47b930d3f67e41da107cc1ed22247ea7",
+    "source": "docs/art/rift-fish/motion-hd-20261111/09/base-1/original.png",
+    "role": "passed original HD art exact bytes"
+  }
+}
