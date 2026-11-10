@@ -1,0 +1,18 @@
+{
+  "status": "ready",
+  "entries": [
+    {
+      "id": "07",
+      "status": "passed",
+      "seed": 2026114107,
+      "request_sha256": "df32cd2e5510e238a5a0ce344482b10717bbf93abbb0742bc44e933123273661",
+      "model": "animate-pixminimax",
+      "submitted_unix": 1794343561.6447265,
+      "http_status": 200,
+      "job_id": "588959a5-d1cc-42ac-9fc9-8d1382e1bf6d",
+      "actual_generations": 1
+    }
+  ],
+  "request_limit": 3,
+  "per_species_limit": 1
+}
