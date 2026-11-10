@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "damage_layout_related_verified_ci_running",
+  "status": "release124_verified_publishing",
   "release_baseline": "v1.23",
   "target_release": "v1.24",
   "deployed": false,
   "phone_verified": false,
-  "handoff": "docs/qa/damage-layout/HANDOFF.md",
+  "handoff": "docs/releases/124/HANDOFF.md",
   "current_task": "평타·스킬 데미지 겹침 수정 및 승인 배포",
-  "next_step": "전체 CI42782916111·3폰높이 mixed 화면검수→동일성공후보 v1.24 공개",
+  "next_step": "검증된 동일후보 main 공개 후 운영다운로드/공개3파일 검증",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -249,17 +249,17 @@
   },
   "full_release_ci": {
     "run": 42782916111,
-    "status": "in_progress",
+    "status": "success",
     "source_commit": "e99eabdc11ebca7307e0d35a3a43fbe14f20d64e"
   },
   "release_candidate": {
     "version": {
-      "code": 123,
-      "name": "1.23"
+      "code": 124,
+      "name": "1.24"
     },
-    "source_commit": "77c1eb4787f6c41b7d3f6257c8a87a9209fe17ea",
-    "artifact": 13743369539,
-    "input_fingerprint": "4392514b8e37934226a134bfd15542c2140891369e2a9667a8a9e5deb7ea4f04",
+    "source_commit": "e99eabdc11ebca7307e0d35a3a43fbe14f20d64e",
+    "artifact": 13747183988,
+    "input_fingerprint": "88a651dbf887d222864138484d0af76b1f507e34423fb38d3a543e4b65f895cd",
     "verified": true
   },
   "release_resume_run": 42424430555,

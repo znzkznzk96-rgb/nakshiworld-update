@@ -22,8 +22,30 @@
   },
   "ci": {
     "run": 42782916111,
-    "status": "in_progress"
+    "status": "success",
+    "native": "passed",
+    "packed": "passed"
   },
   "deployed": false,
-  "phone_verified": false
+  "phone_verified": false,
+  "native": {
+    "heights": [
+      480,
+      540,
+      660
+    ],
+    "scenarios": [
+      "prepare",
+      "cast",
+      "support",
+      "mixed"
+    ],
+    "views": [
+      "detail",
+      "strip"
+    ],
+    "frames": 24,
+    "mixed_frames_reviewed": 6,
+    "artifact": 13747046903
+  }
 }
