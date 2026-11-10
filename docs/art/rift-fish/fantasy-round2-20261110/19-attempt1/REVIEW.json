@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "note": "상어 실루엣·청록 유리면과 흰 굴절 하이라이트·보라 내부띠·자홍 등균열이 보임. 아가미선은 명세 5개보다 단순화되어 차이 기록, 최종 사용자 검토 후보로 보존. 네이티브/확대·명암·투명 여백 정상, 재생성 없음.",
+  "reviewed_at_native_and_nearest6x": true,
+  "compared_with_actual_reservoir_original": true,
+  "size": [
+    96,
+    64
+  ],
+  "bbox": [
+    4,
+    8,
+    92,
+    54
+  ],
+  "mode": "RGBA",
+  "sha256": "591066cc8cbf0616ac4327c593287c4d0c339f743e92374b10dae86a9c0cd6f8",
+  "reference_sha256": "a87f59d881fbd6fe0027a8c9008e95a9849eeb6552d55ba5b1dee634dc690787",
+  "shape": "passed",
+  "color": "passed",
+  "shading_pixel_clusters": "passed",
+  "outline": "passed",
+  "species_feature": "passed",
+  "alpha_margin": "passed",
+  "actual_generation_delta": 1.0,
+  "game_applied": false,
+  "user_final_approval": "pending"
+}

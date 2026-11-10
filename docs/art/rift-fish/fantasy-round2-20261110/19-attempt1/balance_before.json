@@ -4,6 +4,9 @@
   "model": "create-image-pixen",
   "seed": 2026111419,
   "request_sha256": "ecf78af2ac50cf2e464f51009e21a5c9d0d8128d6f996239a0a65c353bfcae08",
-  "status": "submission_pending",
+  "http_status": 200,
+  "status": "passed",
+  "result_sha256": "591066cc8cbf0616ac4327c593287c4d0c339f743e92374b10dae86a9c0cd6f8",
+  "actual_generation_delta": 1.0,
   "private_response_fields_omitted": true
 }
