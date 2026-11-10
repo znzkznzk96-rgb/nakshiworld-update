@@ -247,15 +247,23 @@
       "id": "15",
       "name": "차원결정 참치",
       "attempt": 2,
-      "status": "submission_pending",
+      "status": "passed",
       "model": "edit-image-pixen",
       "seed": 2026111515,
       "request_sha256": "9dd5a7a639a24c64fd9cdbe88b63d0102811da460d849d9726e1036ccc1d89ad",
       "submitted_at_unix": 1794320072.291012,
-      "prior_round_requests": 0
+      "prior_round_requests": 0,
+      "http_status": 202,
+      "job_id": "1016e602-e247-4bbf-a048-1b19a40b92f9",
+      "actual_generation_delta": 1.0,
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "result_sha256": "180887aa8637707756354c0cc4deef1d7e8a8fe87e4f81a0d1785bdb2425262f"
     }
   ],
-  "status": "one_active",
+  "status": "fantasy_nonboss_round2_in_progress",
   "max_per_species_this_round": 2,
   "protected_existing_six": [
     {
@@ -332,7 +340,7 @@
     }
   ],
   "generation_requests": 14,
-  "accepted_outputs": 6,
+  "accepted_outputs": 7,
   "rejected_outputs": 7,
-  "actual_generations_charged": 13.0
+  "actual_generations_charged": 14.0
 }
