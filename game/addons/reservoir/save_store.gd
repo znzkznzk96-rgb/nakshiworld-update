@@ -1,6 +1,10 @@
 extends RefCounted
 # Same-directory rename commits complete JSON. Backup is only for corrupted/missing primary.
 static func write(path: String, data: Dictionary) -> bool:
+	if data.has("region_shop"):
+		var previous := read(path)
+		data = data.duplicate()
+		recover_unlocks(data, previous)
 	var tmp:=path+".tmp"
 	var f:=FileAccess.open(tmp,FileAccess.WRITE)
 	if f==null: return false
@@ -22,10 +26,30 @@ static func read(path: String) -> Dictionary:
 		if data is Dictionary:
 			if candidate==path: primary=data
 			else: backup=data
-	if primary.is_empty(): return backup
+	if primary.is_empty():
+		primary = backup
+		backup = {}
+	recover_unlocks(primary, backup)
 	if not backup.is_empty() and (primary.has("regional_progress") or backup.has("regional_progress")):
 		primary["regional_progress"]=recover_bundles(primary.get("regional_progress",{}),backup.get("regional_progress",{}))
 	return primary
+# Purchased locations are permanent. A saved visit also proves the preceding route.
+static func recover_unlocks(current: Dictionary, previous: Dictionary) -> void:
+	if not current.has("region_shop") and not previous.has("region_shop"): return
+	var shop: Dictionary = current.get("region_shop", {}) if current.get("region_shop", {}) is Dictionary else {}
+	var highest := 0
+	for snapshot in [current, previous]:
+		var saved = snapshot.get("region_shop", {})
+		var evidence: Array = [snapshot.get("active_region", 0)]
+		if saved is Dictionary and saved.get("unlocked") is Array:
+			evidence.append_array(saved.unlocked)
+		for value in evidence:
+			if typeof(value) in [TYPE_INT, TYPE_FLOAT] and value == int(value) and value >= 0 and value < 6:
+				highest = maxi(highest, int(value))
+	shop = shop.duplicate()
+	shop["unlocked"] = range(highest + 1)
+	current["region_shop"] = shop
+
 static func recover_bundles(current: Dictionary, previous: Dictionary) -> Dictionary:
 	const Progress=preload("res://addons/reservoir/regional_progress.gd")
 	var now=Progress.new();now.restore(current)

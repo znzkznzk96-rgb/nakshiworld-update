@@ -16,10 +16,22 @@ func run():
  check(not m.region_shop.unlock(m,3) and m.gold==4635000,"tile main license required")
  p.main_completed[2]=true;check(not m.region_shop.unlock(m,3),"receive certificate first")
  check(p.claim_reward(m,2,0),"tile certificate claimed")
+ var path_unlock="user://unlock-fixture.json"
+ check(Store.write(path_unlock,{"region_shop":{"unlocked":[0,1,2]},"gold":100}),"write paid locations")
+ var damaged={"region_shop":{"unlocked":[0],"stocks":[7]},"gold":3}
+ DirAccess.copy_absolute(path_unlock,path_unlock+".bak")
+ var file=FileAccess.open(path_unlock,FileAccess.WRITE);file.store_string(JSON.stringify(damaged));file.close()
+ var restored=Store.read(path_unlock)
+ check(restored.region_shop.unlocked==[0,1,2] and restored.gold==3 and int(restored.region_shop.stocks[0])==7,"recover paid locations only from backup")
+ check(Store.write(path_unlock,damaged) and Store.read(path_unlock).region_shop.unlocked==[0,1,2],"preserve evidence through backup rotation")
+ var visit={"region_shop":{},"active_region":2};Store.recover_unlocks(visit,{})
+ check(visit.region_shop.unlocked==[0,1,2],"saved visit proves route")
+ m.region_shop.unlocked=[0];check(not m.region_shop.unlock(m,3) and m.region_shop.unlock_error.contains("해금 기록"),"previous location reason with exact fee")
+ m.region_shop.unlocked=[0,1,2]
  m.development_preview=true
  check(not m.region_shop.unlock(m,3) and m.gold==4635000 and not m.region_shop.is_unlocked(3),"failed write rolls purchase back")
  m.development_preview=false;m.gold=4634999
- check(not m.region_shop.unlock(m,3),"exact fee shortage blocked")
+ check(not m.region_shop.unlock(m,3),"exact fee shortage blocked");check(m.region_shop.unlock_error=="1비늘이 부족해요","exact shortage shown")
  m.gold=4635000;m.spots.index=3;m.spots.rects.enter=Rect2(20,200,200,30);m.spots.press(m,Vector2(100,215));m.trans={}
  check(m.active_region==3 and m.region_shop.is_unlocked(3) and m.gold==0,"actual spot button unlocks rift exact fee")
  m._switch_scene("fish");m.trans={};m._save_game();m.active_region=0;m._load_game()
