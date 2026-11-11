@@ -1,17 +1,17 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "aura_gpu_optimization_verification_pending",
+  "status": "aura_integrated_verified_not_deployed",
   "release_baseline": "v1.25",
   "target_release": "v1.25",
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/qa/fish-aura-integration/HANDOFF.md",
   "current_task": "선택오라4종 게임적용·전조주변국소투명도",
-  "next_step": "CI42950540479 전체회귀/PCK 완료 확인→완료기록",
+  "next_step": "선택4오라 적용/검증 완료. 사용자 다음 작업 지시 또는 별도 공개배포 승인 대기.",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
-  "verification": "docs/art/rift-fish/motion-held3-r3-20261111/DELIVERY_VERIFICATION.json",
+  "verification": "docs/qa/fish-aura-integration/VERIFICATION.json",
   "baseline_phone_verified": false,
   "environment_recovery": "docs/CODEX_NETWORK_RECOVERY.md",
   "background_verified_branch": "work/tile-png-stage2-20261107",
@@ -1456,7 +1456,7 @@
     "ledger": "docs/art/fish-aura-20261111/LEDGER.json"
   },
   "aura_procedural": {
-    "status": "game_integration_authorized",
+    "status": "user_approved_game_integrated_full_verified",
     "tiers": 4,
     "fish_shapes": 3,
     "frames_per_preview": 48,
@@ -1466,7 +1466,7 @@
     "verification": "docs/art/fish-aura-20261111/procedural-r7/VERIFICATION.json",
     "archive_title": "fish_aura_rich_high_tiers_r7.zip",
     "archive_sha256": "eea8db811ec03f5a95436177ef333c06bd3c7ea5346f672095b853da3d92136c",
-    "game_applied": false,
+    "game_applied": true,
     "deployed": false,
     "revision": 7,
     "emission_mechanisms": [
@@ -1488,11 +1488,13 @@
     "related_suites": 6,
     "source_commit": "0f6744d8499ad6fa26a47b6ed67b44c5be8cbaea",
     "ci_run": 42950540479,
-    "ci_status": "in_progress",
+    "ci_status": "success",
     "native_verified": true,
     "native_cases": 24,
     "native_renders": 48,
     "native_artifact": 13824029674,
-    "initial_full_ci_success": 42949406170
+    "initial_full_ci_success": 42949406170,
+    "verified": true,
+    "phone_verified": false
   }
 }
