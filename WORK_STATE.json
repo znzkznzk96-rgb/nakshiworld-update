@@ -1624,6 +1624,10 @@
   "rift_open_tears_underwater": {
     "authorized": true,
     "date": "2026-11-12",
-    "deployed": false
+    "deployed": false,
+    "source_commit": "fc7a470ee29306d193e6c553ca9c94b944128f98",
+    "ci_run": 43094529270,
+    "status": "implemented_local_verified_native_running",
+    "verification": "docs/qa/rift-bundles-layers/OPEN_TEARS_UNDERWATER_VERIFICATION.json"
   }
 }

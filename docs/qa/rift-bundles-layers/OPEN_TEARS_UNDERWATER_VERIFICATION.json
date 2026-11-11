@@ -1,6 +1,6 @@
 {
   "date": "2026-11-12",
-  "status": "local_related_passed_native_pending",
+  "status": "native_running",
   "prior_sky_lines_rejected": true,
   "sky_openings": 2,
   "interior": "dark space with cyan moving mist and separate luminous magenta/cyan torn rims",
@@ -29,5 +29,7 @@
   "gameplay_catalog_rng_save_unchanged": true,
   "base_plate_unchanged": true,
   "deployed": false,
-  "phone_verified": false
+  "phone_verified": false,
+  "source_commit": "fc7a470ee29306d193e6c553ca9c94b944128f98",
+  "ci_run": 43094529270
 }
