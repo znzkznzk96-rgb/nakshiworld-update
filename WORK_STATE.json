@@ -6,8 +6,8 @@
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/art/fish-aura-20261111/HANDOFF.md",
-  "current_task": "형태/리듬다른4등급 오라 재시안완료",
-  "next_step": "R2 4움직이는시안 사용자검토.기존R1미승인/등급차이부족으로대체후보.게임적용/배포별도.",
+  "current_task": "오라R3 레어강화·전설신화소폭강화",
+  "next_step": "레어빛조각/섬광증가·전설신화분출잔광보강·유니크R2동일유지·모션시안",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -1456,7 +1456,7 @@
     "ledger": "docs/art/fish-aura-20261111/LEDGER.json"
   },
   "aura_procedural": {
-    "status": "r2_user_review_pending",
+    "status": "r3_in_progress",
     "tiers": 4,
     "fish_shapes": 3,
     "frames_per_preview": 48,
