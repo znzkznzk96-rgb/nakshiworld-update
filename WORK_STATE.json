@@ -6,8 +6,8 @@
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/art/fish-aura-20261111/HANDOFF.md",
-  "current_task": "4등급 자체방출오라·3체형 모션시안 제작완료",
-  "next_step": "레어/유니크/전설/신화 4개움직이는시안 사용자검토.게임적용/배포미착수.",
+  "current_task": "오라등급별 형상/방출리듬 재설계",
+  "next_step": "빛조각/불꽃/주기분출/다중에너지파동4개 서로다른모션 제작·시안",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -1456,7 +1456,7 @@
     "ledger": "docs/art/fish-aura-20261111/LEDGER.json"
   },
   "aura_procedural": {
-    "status": "prototype_user_review_pending",
+    "status": "revision2_in_progress",
     "tiers": 4,
     "fish_shapes": 3,
     "frames_per_preview": 48,
