@@ -412,7 +412,7 @@ jobs:
           version=$(python3 -c 'import json;print(json.load(open("automation/release.json"))["name"])')
           timeout 90 "$GODOT" --headless --path "$RUNNER_TEMP/candidate-pack-check" --script "$GITHUB_WORKSPACE/automation/verify_packed_art.gd" -- "$GITHUB_WORKSPACE/candidate/patch.pck" "$version" > evidence/candidate-pack.log 2>&1
           grep -F 'PACKED_ANGLER_VERIFY failures=[]' evidence/candidate-pack.log
-          timeout 90 "$GODOT" --headless --path "$RUNNER_TEMP/candidate-pack-check" --script "$GITHUB_WORKSPACE/docs/qa/tile-release-stage5/packed_tile.gd" -- "$GITHUB_WORKSPACE/candidate/patch.pck" > evidence/candidate-tile.log 2>&1
+          timeout 90 "$GODOT" --headless --path "$RUNNER_TEMP/candidate-pack-check" --script "$GITHUB_WORKSPACE/automation/verify_packed_tile.gd" -- "$GITHUB_WORKSPACE/candidate/patch.pck" > evidence/candidate-tile.log 2>&1
           grep -F 'PACKED_TILE107_VERIFY failures=[]' evidence/candidate-tile.log
           timeout 90 "$GODOT" --headless --path "$RUNNER_TEMP/candidate-pack-check" --script "$GITHUB_WORKSPACE/automation/verify_packed_rift.gd" -- "$GITHUB_WORKSPACE/candidate/patch.pck" > evidence/candidate-rift.log 2>&1
           grep -F 'PACKED_RIFT_ART_VERIFY failures=[]' evidence/candidate-rift.log
