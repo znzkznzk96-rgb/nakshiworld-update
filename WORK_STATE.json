@@ -7,7 +7,7 @@
   "phone_verified": false,
   "handoff": "docs/art/rift-background-20261111/HANDOFF.md",
   "current_task": "균열해역 레이어용 기본 배경 제작",
-  "next_step": "배/구름/부유바위/포말/빛줄기를 제거한 기본판 검수",
+  "next_step": "레이어용 기본판 사용자검토→별도 배/구름/빛 레이어 제작",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -1499,7 +1499,7 @@
   },
   "rift_background": {
     "date": "2026-11-11",
-    "status": "clean_base_authorized",
+    "status": "clean_base_review_pending",
     "composition": "기존 세로형 낚시화면 구도 유지, 캐릭터는 왼쪽 배 갑판에서 오른쪽으로 낚시",
     "concept": "균열해역 기존확정 하늘의 빛나는 균열",
     "game_applied": false,
@@ -1532,6 +1532,6 @@
       "deck_y": 597,
       "water_y": 657
     },
-    "preview_library_file_id": "libfile_fde3_f-2faac35522408191b5b3ca84c6daba85_d66dafb33acc81918ce203aeb3fcd18e"
+    "preview_library_file_id": "libfile_fde3_f-e621e373aad08191a704522005c5af54_d66dafb33acc81918ce203aeb3fcd18e"
   }
 }
