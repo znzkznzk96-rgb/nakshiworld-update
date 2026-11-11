@@ -1,6 +1,6 @@
 {
   "date": "2026-11-12",
-  "status": "native_running",
+  "status": "refined_local_verified_native_pending",
   "prior_sky_lines_rejected": true,
   "sky_openings": 2,
   "interior": "dark space with cyan moving mist and separate luminous magenta/cyan torn rims",
@@ -16,7 +16,7 @@
     "motes",
     "purple_bubbles"
   ],
-  "decorative_fish": "reuse approved rift atlas species60/61/63 at9-13half-gridpx, no grades/capture/sonar",
+  "decorative_fish": "reuse approved rift atlas species60/61/63 at12-18half-gridpx, opacity.38-.48, no grades/capture/sonar",
   "bubble_count": 28,
   "protected_center_half_grid": [
     160,
@@ -30,6 +30,14 @@
   "base_plate_unchanged": true,
   "deployed": false,
   "phone_verified": false,
-  "source_commit": "fc7a470ee29306d193e6c553ca9c94b944128f98",
-  "ci_run": 43094529270
+  "source_commit": "8279994bb980f9745f3bd0c8d84a3361804c070b",
+  "ci_run": 43095181025,
+  "prior_native": {
+    "source": "fc7a470ee29306d193e6c553ca9c94b944128f98",
+    "run": 43094529270,
+    "artifact": 13889269468,
+    "native_passed": true,
+    "internal_review": "interior visible, refine overly smooth rim and very faint fish/bubbles"
+  },
+  "local_refined": "RIFT_BUNDLES_LAYERS_VERIFY failures=[]"
 }
