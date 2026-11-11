@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "rift_art_integrated_full_verified",
+  "status": "rift_bundles_layers_authorized",
   "release_baseline": "v1.25",
   "target_release": "v1.25",
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/qa/rift-art-integration/HANDOFF.md",
-  "current_task": "균열 기본배경·승인20종 게임아트 연결 검증 완료",
-  "next_step": "균열 배·승선/부유 및 구름/광원 레이어는 후속 작업. 실제 낚시 조건은 준비 중 유지; 새 공개배포 별도 승인.",
+  "current_task": "균열 번들·기존해금비 연동보상·선상레이어",
+  "next_step": "번들6/6/1·서브10%/주인30% 적용→배/캐릭터 공동부유·독립레이어",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -1555,5 +1555,31 @@
     "unique_success_labels": 132,
     "candidate_artifact": 13833422757,
     "release_authorized": false
+  },
+  "rift_bundles": {
+    "authorized": true,
+    "entry_fee": 4635000,
+    "next_fee": 30150000,
+    "main_count": 6,
+    "sub_count": 6,
+    "owner_count": 1,
+    "sub_gold": 3015000,
+    "owner_gold": 9045000,
+    "fish_sale_change": false,
+    "implemented": false
+  },
+  "rift_layers": {
+    "authorized": true,
+    "boat_actor_shared_bob": true,
+    "amplitude_logical": [
+      1,
+      2
+    ],
+    "period_seconds": [
+      3,
+      5
+    ],
+    "rotation": false,
+    "implemented": false
   }
 }
