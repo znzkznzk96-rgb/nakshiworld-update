@@ -9,6 +9,9 @@ plate_bytes=base64.b64decode(''.join(p.read_text() for p in sorted((repo/'docs/a
 assert hashlib.sha256(plate_bytes).hexdigest()=='c404675fa5342ae30c7353ca9b3d4030f20849055ebf792f1fe88ed5245767c3'
 plate=Image.open(io.BytesIO(plate_bytes));plate.load();assert plate.size==(1080,2640)
 (root/'base.png').write_bytes(plate_bytes)
+boat_base=Image.open(io.BytesIO(base64.b64decode((repo/'game/art/rift_layers/boat.png.b64.txt').read_text(),validate=True)))
+boat_base.load();assert boat_base.size==(180,225)
+boat_base.resize((360,450),Image.Resampling.NEAREST).save(root/'boat.png')
 entries=[]
 for item in selection['species']:
     assert item['motion_user_approved'] and item['status']=='user_approved'

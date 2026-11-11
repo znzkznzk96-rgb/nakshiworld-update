@@ -107,7 +107,7 @@ func scenery_tint() -> Color:
 	return tint.lerp(Color(1.02,0.72,0.64),dusk*0.25)
 
 func update(dt: float) -> void:
-	valley.update(dt);elapsed+=dt;day_seconds+=dt
+	valley.update(dt);rift.update(dt);elapsed+=dt;day_seconds+=dt
 	var h:float=hour()
 	valley.update_atmosphere(night_strength())
 	tile.update_atmosphere(night_strength())

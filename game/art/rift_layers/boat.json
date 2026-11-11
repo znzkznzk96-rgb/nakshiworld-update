@@ -1,0 +1,26 @@
+{
+  "base_size": [
+    180,
+    225
+  ],
+  "scale": 2,
+  "source_size": [
+    360,
+    450
+  ],
+  "deck_y": 306,
+  "lamp": [
+    125,
+    167
+  ],
+  "threshold_alpha": 200,
+  "base_sha256": "c90c5227e6eb4f644048b4763ef38bae50ae22d9a9fa6978fb75c6b91bc7f344",
+  "generated_source_size": [
+    1536,
+    1024
+  ],
+  "generated_sha256": "4516ca4ba7c803469cdd500e5306ed7008d13a51219f1c33a8c623a9def1cdde",
+  "origin": "built_in_image_edit_from_approved_composite",
+  "paid_requests": 1,
+  "gameplay_unchanged": true
+}

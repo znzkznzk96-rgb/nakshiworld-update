@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "rift_bundles_layers_authorized",
+  "status": "rift_bundles_layers_local_verified_ci_pending",
   "release_baseline": "v1.25",
   "target_release": "v1.25",
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/qa/rift-bundles-layers/HANDOFF.md",
   "current_task": "균열 번들·기존해금비 연동보상·선상레이어",
-  "next_step": "번들6/6/1·서브10%/주인30% 적용→배/캐릭터 공동부유·독립레이어",
+  "next_step": "전체CI·선상/번들3높이·8위상움직임 검수",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -1566,7 +1566,11 @@
     "sub_gold": 3015000,
     "owner_gold": 9045000,
     "fish_sale_change": false,
-    "implemented": false
+    "implemented": true,
+    "local_verified": true,
+    "sub_souls": 50,
+    "owner_pearls": 6,
+    "deployed": false
   },
   "rift_layers": {
     "authorized": true,
@@ -1580,6 +1584,12 @@
       5
     ],
     "rotation": false,
-    "implemented": false
+    "implemented": true,
+    "local_verified": true,
+    "bob_amplitude_logical": 1.5,
+    "bob_period_seconds": 4.2,
+    "native_verified": false,
+    "deployed": false,
+    "paid_image_requests": 1
   }
 }

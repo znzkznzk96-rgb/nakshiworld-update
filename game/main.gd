@@ -215,6 +215,7 @@ var creak_t: = 0.0
 var runbuzz_t: = 0.0
 var REC: = {}
 var rift_art = preload("res://addons/reservoir/rift_art.gd").new()
+var rift_actor_bob:=0.0
 var active_region := 0
 var development_preview := false
 var progression = preload("res://addons/reservoir/regional_progress.gd").new()
@@ -1448,7 +1449,13 @@ func _draw() -> void :
 	draw_set_transform(Vector2(0, oy))
 	var n0: = text_items.size()
 
+	var saved_oy:float=oy
+	rift_actor_bob=environment.rift.bob_offset() if active_region==3 else 0.0
+	oy+=rift_actor_bob
 	var tip: Vector2 = angler_scene.draw(self)
+	oy=saved_oy;tip.y+=rift_actor_bob
+	angler_scene.headlamp_world.y+=rift_actor_bob
+	draw_set_transform(Vector2(0,oy))
 	night_play.draw(self)
 	_draw_reaction(t)
 	var fr: int = anim_frame()

@@ -39,6 +39,13 @@ jobs:
           if grep -E 'SCRIPT ERROR:|Parse Error:|Failed to load script' evidence/rift-import.log; then exit 1; fi
           XDG_DATA_HOME="$RUNNER_TEMP/isolated-rift-art" "$GODOT" --headless --path "$RUNNER_TEMP/project" --script tests/rift_art_verify.gd > evidence/rift-art.log 2>&1
           grep -F 'RIFT_ART_VERIFY failures=[]' evidence/rift-art.log
+          XDG_DATA_HOME="$RUNNER_TEMP/isolated-rift-bundles" "$GODOT" --headless --path "$RUNNER_TEMP/project" --script tests/rift_bundles_layers_verify.gd > evidence/rift-bundles-layers.log 2>&1
+          grep -F 'RIFT_BUNDLES_LAYERS_VERIFY failures=[]' evidence/rift-bundles-layers.log
+          XDG_DATA_HOME="$RUNNER_TEMP/isolated-rift-bundles" "$GODOT" --headless --path "$RUNNER_TEMP/project" --script tests/rift_bundles_layers_verify.gd -- --reload > evidence/rift-bundle-reload.log 2>&1
+          grep -F 'RIFT_BUNDLE_RELOAD_VERIFY failures=[]' evidence/rift-bundle-reload.log
+          XDG_DATA_HOME="$RUNNER_TEMP/isolated-rift-layers-native" timeout 180 xvfb-run -a "$GODOT" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/rift_layers_preview.gd -- "$GITHUB_WORKSPACE/evidence/rift-layers" > evidence/rift-layers-native.log 2>&1
+          grep -F 'RIFT_LAYERS_PREVIEW failures=[]' evidence/rift-layers-native.log
+          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/rift-bundles-layers.log evidence/rift-layers-native.log; then exit 1; fi
           XDG_DATA_HOME="$RUNNER_TEMP/isolated-rift-native" timeout 120 xvfb-run -a "$GODOT" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/rift_art_preview.gd -- "$GITHUB_WORKSPACE/evidence/rift-art" > evidence/rift-native.log 2>&1
           grep -F 'RIFT_ART_PREVIEW failures=[]' evidence/rift-native.log
           if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/rift-art.log evidence/rift-native.log; then exit 1; fi
@@ -49,6 +56,9 @@ jobs:
             evidence/rift-art/
             evidence/rift-art.log
             evidence/rift-native.log
+            evidence/rift-layers/
+            evidence/rift-bundles-layers.log
+            evidence/rift-layers-native.log
       - name: Render updater checking download and circular chase
         shell: bash
         run: |
