@@ -5,7 +5,7 @@
   "target_release": "v1.25",
   "deployed": false,
   "phone_verified": false,
-  "handoff": "docs/qa/rift-art-integration/HANDOFF.md",
+  "handoff": "docs/qa/rift-bundles-layers/HANDOFF.md",
   "current_task": "균열 번들·기존해금비 연동보상·선상레이어",
   "next_step": "번들6/6/1·서브10%/주인30% 적용→배/캐릭터 공동부유·독립레이어",
   "deferred_work_branch": "work/skills-105",
