@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "rift_open_tears_underwater_implemented_related_verified_native_blocked",
+  "status": "release126_gift_preparation",
   "release_baseline": "v1.25",
-  "target_release": "v1.25",
+  "target_release": "v1.26",
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/qa/rift-bundles-layers/HANDOFF.md",
-  "current_task": "넓은 하늘균열·수중장식 구현/관련/PCK검사 완료, 최종native는 이전CI지연으로 대기",
-  "next_step": "권한있는 세션에서 지연중43094529270 실행취소/종료 후43095181025/43097074531 native artifact 검수·움직임표시·최종기록. 공개배포 별도.",
+  "current_task": "v1.26 배포·타일바다20종/4635000비늘 일회성 우편",
+  "next_step": "검사대기 해소→일회성우편/버전구성→격리 전체검사/실제화면→동일후보 공개·운영다운로드 확인",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -42,10 +42,10 @@
   "standard_full_workflow_success": true,
   "remaining_global_render_checks": false,
   "release_authorization": {
-    "date": "2026-11-10",
-    "user_request": "아 업데이트 후 배포해줘 ㅇㅇ",
-    "scope": "v1.25 병사배치 부분카드 연속 스크롤",
-    "fulfilled": true
+    "date": "2026-11-12",
+    "user_request": "업데이트및 배포가고일단 일회성으로 타일바다 모든 물고기 한개씩주고 그에맞는 균열해협 해금비도 같이 보내주셈",
+    "scope": "현재 승인 업데이트 및 타일바다20종 노멀각1+4635000비늘 일회성우편",
+    "fulfilled": false
   },
   "release_preflight": "docs/qa/soldier-size/VERIFICATION.json",
   "release_source_commit": "d1303a61a9d1f073901201481e67329edb49ec06",
@@ -118,7 +118,7 @@
     "production_balance_changed": false,
     "phone_tested": false
   },
-  "release_authorized": false,
+  "release_authorized": true,
   "balance110": {
     "applied": true,
     "deployed": true,
