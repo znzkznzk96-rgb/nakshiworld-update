@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "rift_open_tears_underwater_decor_in_progress",
+  "status": "rift_open_tears_underwater_implemented_related_verified_native_blocked",
   "release_baseline": "v1.25",
   "target_release": "v1.25",
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/qa/rift-bundles-layers/HANDOFF.md",
-  "current_task": "넓은 하늘 공간균열 복원·보라 공기방울/원경 장식 어군/수중 장식 레이어",
-  "next_step": "독립레이어 구현→관련검사→실제게임 렌더 시각검수",
+  "current_task": "넓은 하늘균열·수중장식 구현/관련/PCK검사 완료, 최종native는 이전CI지연으로 대기",
+  "next_step": "권한있는 세션에서 지연중43094529270 실행취소/종료 후43095181025/43097074531 native artifact 검수·움직임표시·최종기록. 공개배포 별도.",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -1619,7 +1619,8 @@
     "unique_success_labels": 135,
     "preview_library_file_id": "libfile_fde3_f-61c43caae8648191bb2a69d9394304aa_d66dafb33acc81918ce203aeb3fcd18e",
     "candidate_artifact": 13850873067,
-    "phone_verified": false
+    "phone_verified": false,
+    "user_visual_approval": "sky_thin_lines_rejected_2026-11-12"
   },
   "rift_open_tears_underwater": {
     "authorized": true,
@@ -1627,8 +1628,14 @@
     "deployed": false,
     "source_commit": "6e945b4db76984b8b0233952af7c44db57a08107",
     "ci_run": 43097074531,
-    "status": "final_implemented_related_verified_native_queued",
+    "status": "implemented_related_verified_native_blocked",
     "verification": "docs/qa/rift-bundles-layers/OPEN_TEARS_UNDERWATER_VERIFICATION.json",
-    "geometry_native_run": 43095181025
+    "geometry_native_run": 43095181025,
+    "blocking_run": 43094529270,
+    "blocking_job": 130779827660,
+    "blocker": "prior workflow stuck preserving logs; cancellation unavailable in connected API and browser signed out",
+    "native_final_verified": false,
+    "related_packed_verified": true,
+    "paid_generation_requests": 0
   }
 }

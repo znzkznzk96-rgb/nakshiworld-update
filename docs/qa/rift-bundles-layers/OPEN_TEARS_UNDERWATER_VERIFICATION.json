@@ -1,6 +1,6 @@
 {
   "date": "2026-11-12",
-  "status": "final_related_verified_native_queued",
+  "status": "implemented_related_verified_native_blocked",
   "prior_sky_lines_rejected": true,
   "sky_openings": 2,
   "interior": "dark space with cyan moving mist and separate luminous magenta/cyan torn rims",
@@ -76,5 +76,21 @@
   },
   "geometry_native_run": 43095181025,
   "geometry_source": "8279994bb980f9745f3bd0c8d84a3361804c070b",
-  "final_direction_fix": "signed sprite x-scale now follows actual cosine drift velocity; geometry/material/palette/assets unchanged"
+  "final_direction_fix": "signed sprite x-scale now follows actual cosine drift velocity; geometry/material/palette/assets unchanged",
+  "native_final_verified": false,
+  "blocker": {
+    "run": 43094529270,
+    "job": 130779827660,
+    "observed_utc": "2026-11-11T20:45:36.906902+00:00",
+    "candidate_upload_step": "cancelled",
+    "log_preservation_step": "in_progress",
+    "new_runs": [
+      43095181025,
+      43097074531
+    ],
+    "new_runs_status": "queued",
+    "connected_cancel_tool": "not_exposed",
+    "browser": "signed_out; no credentials requested",
+    "next_action": "owner cancel/terminate stale run, then inspect final native artifact"
+  }
 }
