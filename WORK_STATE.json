@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "rift_boat_background_concept_review",
+  "status": "rift_background_production_plate_r2",
   "release_baseline": "v1.25",
   "target_release": "v1.25",
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/art/rift-background-20261111/HANDOFF.md",
   "current_task": "균열해역 동일구도·선상낚시 배경 시안",
-  "next_step": "선상 배경 구도/분위기 사용자검토. 후보1190x1322는 기존세로비율 미달로 게임적용불가; 승인후 기존세로규격·배경/캐릭터분리 제작.",
+  "next_step": "승인타일배경 세로캔버스/좌표 참조로 캐릭터없는 균열선상 배경1장 제작→실제크기·좌표 검수",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -1499,11 +1499,23 @@
   },
   "rift_background": {
     "date": "2026-11-11",
-    "status": "concept_produced_layout_revision_required",
+    "status": "first_concept_rejected_production_only",
     "composition": "기존 세로형 낚시화면 구도 유지, 캐릭터는 왼쪽 배 갑판에서 오른쪽으로 낚시",
     "concept": "균열해역 기존확정 하늘의 빛나는 균열",
     "game_applied": false,
     "deployed": false,
-    "verification": "docs/art/rift-background-20261111/CONCEPT.json"
+    "verification": "docs/art/rift-background-20261111/CONCEPT.json",
+    "canvas_reference": {
+      "size": [
+        801,
+        1962
+      ],
+      "deck_y": 887,
+      "water_y": 977,
+      "preferred_output": [
+        1080,
+        2640
+      ]
+    }
   }
 }
