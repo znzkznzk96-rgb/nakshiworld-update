@@ -39,5 +39,38 @@
     "native_passed": true,
     "internal_review": "interior visible, refine overly smooth rim and very faint fish/bubbles"
   },
-  "local_refined": "RIFT_BUNDLES_LAYERS_VERIFY failures=[]"
+  "local_refined": "RIFT_BUNDLES_LAYERS_VERIFY failures=[]",
+  "related_packed": {
+    "status": "passed",
+    "godot": "4.4.1",
+    "sha256": "543efa0e6254af2687df6bd79caec6c97923ec1f55f6d9725a4b3367eb377aa3",
+    "bytes": 61895536,
+    "log": "PACKED_RIFT_ART_VERIFY failures=[] species=20",
+    "source": "8279994bb980f9745f3bd0c8d84a3361804c070b",
+    "public_release": false
+  },
+  "actual_polygon_triangulation": {
+    "godot": "4.4.1",
+    "status": "passed",
+    "polygons": [
+      {
+        "vertices": 238,
+        "triangles": 236,
+        "area_half_grid": 11847.5
+      },
+      {
+        "vertices": 226,
+        "triangles": 224,
+        "area_half_grid": 11537.5
+      }
+    ],
+    "method": "Geometry2D.triangulate_polygon(tear.outlines[i])",
+    "source": "8279994bb980f9745f3bd0c8d84a3361804c070b"
+  },
+  "native_wait_observation": "refined run43095181025 queued while previous43094529270 continued through tests and artifact upload; no cancellation API exposed",
+  "local_native_attempt": {
+    "xvfb_source": "official Debian trixie xvfb21.1.16-1.3+deb13u4 rootless extraction",
+    "result": "AF_UNIX socket creation EPERM; no sandbox bypass attempted",
+    "alternative": "remote native workflow"
+  }
 }
