@@ -388,7 +388,7 @@ func _layout() -> void :
 		SURF=roundi(rift_top+environment.rift.DECK_Y*rift_scale)
 		WATER=roundi(rift_top+environment.rift.WATER_Y*rift_scale)
 		uw_bot=minf(rift_top+environment.rift.SAND_Y*rift_scale,vs.y-bot_pad-137.0)
-		PY=SURF-57;CATY=SURF-32;PX=50;CATX=29
+		PY=SURF-57;CATY=SURF-32;PX=40;CATX=29
 		environment.layout(self)
 		return
 	if active_region == 2:

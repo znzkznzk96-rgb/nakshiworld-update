@@ -26,7 +26,7 @@ func setup(m)->void:
 		m.tree_exiting.connect(dispose,CONNECT_ONE_SHOT)
 	else:m.add_child(root)
 	plate=Sprite2D.new();plate.centered=false;plate.texture=load("res://art/rift/base.png");root.add_child(plate)
-	glow=Sprite2D.new();glow.centered=false;glow.texture=plate.texture
+	glow=Sprite2D.new();glow.centered=false;glow.texture=load("res://art/rift/glow_mask.png")
 	var material:=ShaderMaterial.new();material.shader=load("res://addons/reservoir/rift_glow.gdshader");glow.material=material;plate.add_child(glow)
 	for kind in ["clouds","rocks","surface"]:add_layer(kind)
 	boat=Sprite2D.new();boat.name="RiftBoat";boat.centered=false;boat.texture=load("res://art/rift/boat.png");plate.add_child(boat)

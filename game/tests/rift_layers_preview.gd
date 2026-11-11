@@ -19,6 +19,14 @@ func run():
 			m.clock=phase;m.environment.update(0);m.queue_redraw();await capture(out.path_join("boat-%d-%02d.png"%[h,roundi(phase*100)]));renders+=1
 			var e=m.environment.rift;var actual:float=(e.boat.position.y-(e.DECK_Y-306))*e.map_rect.size.x/e.SOURCE.x
 			if absf(actual-m.rift_actor_bob)>.001:failures.append("shared boat/actor bob")
+			for part in m.angler_scene.light_parts:
+				if part.texture!=m.angler_scene.textures.lower:continue
+				var image:Image=part.texture.get_image();var used:Rect2i=image.get_used_rect();var y:int=used.end.y-1
+				for x in range(used.position.x,used.end.x):
+					if image.get_pixel(x,y).a<.5:continue
+					var foot:Vector2=part.transform*Vector2(x+.5,y+.5)-Vector2(0,m.oy)
+					var deck_right:float=e.map_rect.position.x+360*e.map_rect.size.x/e.SOURCE.x
+					if foot.x>deck_right-1 or absf(foot.y-(m.SURF+m.rift_actor_bob))>3:failures.append("actual sole remains on deck")
 		m._switch_scene("village");m.V.open_shop(m,"museum");m.V.bundle_preview.region=3
 		for tab in 3:
 			m.V.bundle_preview.tab=tab;m.queue_redraw();await capture(out.path_join("bundle-%d-%d.png"%[h,tab]));renders+=1

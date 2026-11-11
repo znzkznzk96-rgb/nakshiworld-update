@@ -2,6 +2,7 @@ extends Node2D
 var environment:RefCounted
 var kind:=""
 var clouds:Array[Texture2D]=[]
+var rocks:Array[Texture2D]=[]
 func _draw()->void:
 	if environment==null:return
 	var t:float=environment.elapsed
@@ -12,14 +13,14 @@ func _draw()->void:
 			var w:float=[350,280,410,240][i]
 			var tex:Texture2D=clouds[i%3];var h:float=w*tex.get_height()/tex.get_width()
 			var x:float=fposmod(i*311+t*(3.0+i),1500)-400
-			draw_texture_rect(tex,Rect2(x,100+i*118,w,h),false,Color(.75,.43,.95,.48))
+			draw_texture_rect(tex,Rect2(x,560+i*96,w,h),false,Color(.75,.43,.95,.48))
 	elif kind=="rocks":
+		if rocks.is_empty():
+			for i in 3:rocks.append(load("res://art/rift/rock_%d.png"%i))
 		for i in 4:
-			var center:=Vector2([180,760,950,520][i],[210,190,420,600][i]+sin(t*.75+i)*9)
-			var points:=PackedVector2Array()
-			for v in [Vector2(-17,-24),Vector2(11,-30),Vector2(24,-2),Vector2(7,29),Vector2(-21,12)]:points.append(center+v*(1.0+i*.12))
-			draw_colored_polygon(points,Color("3c275f"));draw_polyline(PackedVector2Array([points[0],points[1],points[2]]),Color("9766b7"),2,false)
-			draw_polyline(PackedVector2Array([center+Vector2(6,-26),center+Vector2(-3,-1),center+Vector2(6,22)]),Color(.67,.32,1,.65),2,false)
+			var center:=Vector2([180,760,950,520][i],[680,870,570,780][i]+sin(t*.75+i)*9)
+			var size:Vector2=Vector2.ONE*128.0*[1.0,.65,.85,.55][i]
+			draw_texture_rect(rocks[i%3],Rect2(center-size/2,size),false)
 	elif kind=="surface":
 		for band in 6:
 			var pts:=PackedVector2Array()

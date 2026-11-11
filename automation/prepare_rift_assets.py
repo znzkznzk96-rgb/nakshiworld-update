@@ -1,6 +1,6 @@
 """Package only approved rift art; no gameplay/economy/catalog migration."""
 import base64, hashlib, io, json, pathlib, sys, zipfile
-from PIL import Image
+from PIL import Image, ImageFilter
 repo=pathlib.Path(__file__).resolve().parents[1]
 out=pathlib.Path(sys.argv[1])
 selection=json.loads((repo/'docs/art/rift-fish/APPROVED_MOTION_20_20261111.json').read_text())
@@ -9,9 +9,25 @@ plate_bytes=base64.b64decode(''.join(p.read_text() for p in sorted((repo/'docs/a
 assert hashlib.sha256(plate_bytes).hexdigest()=='c404675fa5342ae30c7353ca9b3d4030f20849055ebf792f1fe88ed5245767c3'
 plate=Image.open(io.BytesIO(plate_bytes));plate.load();assert plate.size==(1080,2640)
 (root/'base.png').write_bytes(plate_bytes)
+# Isolate thin approved sky cracks; a color-only mask also catches the dusk gradient.
+small=plate.convert('RGB').resize((540,1320),Image.Resampling.NEAREST)
+median=small.filter(ImageFilter.MedianFilter(9));src=small.load();mid=median.load()
+mask=Image.new('RGBA',(540,1320),(255,255,255,0));dst=mask.load();count=0
+for y in range(515):
+    for x in range(540):
+        c=src[x,y];m=mid[x,y]
+        if c[0]-m[0]>15 and c[2]-m[2]>12 and c[2]>c[0]:dst[x,y]=(255,255,255,255);count+=1
+assert 1000<count<15000
+assert max(sum(1 for x in range(540) if dst[x,y][3]) for y in range(515))<270
+mask.resize((1080,2640),Image.Resampling.NEAREST).save(root/'glow_mask.png')
+
 boat_base=Image.open(io.BytesIO(base64.b64decode((repo/'game/art/rift_layers/boat.png.b64.txt').read_text(),validate=True)))
 boat_base.load();assert boat_base.size==(180,225)
 boat_base.resize((360,450),Image.Resampling.NEAREST).save(root/'boat.png')
+for i in range(3):
+    rock=Image.open(io.BytesIO(base64.b64decode((repo/('game/art/rift_layers/rock_%d.png.b64.txt'%i)).read_text(),validate=True)))
+    rock.load();assert rock.size==(64,64)
+    rock.resize((128,128),Image.Resampling.NEAREST).save(root/('rock_%d.png'%i))
 entries=[]
 for item in selection['species']:
     assert item['motion_user_approved'] and item['status']=='user_approved'

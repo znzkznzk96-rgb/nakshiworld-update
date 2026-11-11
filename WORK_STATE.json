@@ -7,7 +7,7 @@
   "phone_verified": false,
   "handoff": "docs/qa/rift-bundles-layers/HANDOFF.md",
   "current_task": "균열 번들·기존해금비 연동보상·선상레이어",
-  "next_step": "전체CI·선상/번들3높이·8위상움직임 검수",
+  "next_step": "수정된 발 지지·얇은균열마스크·상세바위/구름위치 네이티브확인 및 전체CI",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -1590,6 +1590,6 @@
     "bob_period_seconds": 4.2,
     "native_verified": false,
     "deployed": false,
-    "paid_image_requests": 1
+    "paid_image_requests": 2
   }
 }

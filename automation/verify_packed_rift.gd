@@ -4,6 +4,8 @@ func _initialize()->void:
 	assert(FileAccess.file_exists("res://art/rift/catalog.json"),"approved metadata included in PCK")
 	var art=load("res://addons/reservoir/rift_art.gd").new();art.setup()
 	assert(art.catalog.size()==20)
+	for i in 3:assert(load("res://art/rift/rock_%d.png"%i).get_size()==Vector2(128,128),"floating rock exported")
+	assert(load("res://art/rift/glow_mask.png").get_size()==Vector2(1080,2640),"thin crack mask packed")
 	assert(load("res://art/rift/boat.png").get_size()==Vector2(360,450),"separate transparent boat packed")
 	var p=load("res://addons/reservoir/regional_progress.gd").new()
 	assert(p.bundle_targets(3,0).size()==6 and p.reward_gold(3,1)==3015000 and p.reward_gold(3,2)==9045000,"rift bundles and next-fee rewards packed")

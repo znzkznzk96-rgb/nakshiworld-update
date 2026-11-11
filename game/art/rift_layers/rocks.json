@@ -1,0 +1,26 @@
+{
+  "generated_size": [
+    2172,
+    724
+  ],
+  "generated_sha256": "34523439ee8c185d75be0410e7cf79a33f09690e458e978d1f5af2b3872bc4a3",
+  "base_canvas": [
+    64,
+    64
+  ],
+  "scale": 2,
+  "files": [
+    {
+      "path": "rock_0.png.b64.txt",
+      "sha256": "76f1fef221b78e9c4f155599391a8bb071028de22d4978e7d8531a10c335e439"
+    },
+    {
+      "path": "rock_1.png.b64.txt",
+      "sha256": "5af7e28125755bcd08d7d85c0b751fe886391afaaa8997f66c5758d72e534027"
+    },
+    {
+      "path": "rock_2.png.b64.txt",
+      "sha256": "434134360ceae72de4f28a47d82730bbbcd2cec5faab4fdd97ac04f91322b6af"
+    }
+  ]
+}
