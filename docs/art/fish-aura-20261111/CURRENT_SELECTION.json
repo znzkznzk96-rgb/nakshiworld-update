@@ -16,19 +16,21 @@
   },
   "legendary": {
     "revision": 5,
-    "status": "user_review_pending",
+    "status": "soft_emission_r6_redesign_requested",
     "gif_sha256": "293a7a1e4adf4a0d72b218d8933be15e8665befc39bcac29ecbfb36be8dbcee9",
     "spec": "docs/art/fish-aura-20261111/procedural-r5/SPEC.json",
     "previous_approved_revision": 2,
-    "mechanism": "solar flame eruption then embers"
+    "mechanism": "solar flame eruption then embers",
+    "rejected_revision": 5
   },
   "mythic": {
     "revision": 5,
-    "status": "user_review_pending",
+    "status": "soft_emission_r6_redesign_requested",
     "gif_sha256": "7a4e3781de8403fdcd9c9b0352be818a486292fda4cd954c11a3994cc560d3d2",
     "spec": "docs/art/fish-aura-20261111/procedural-r5/SPEC.json",
     "previous_approved_revision": 2,
-    "mechanism": "spatial tears open, discharge energy, close"
+    "mechanism": "spatial tears open, discharge energy, close",
+    "rejected_revision": 5
   },
   "game_applied": false,
   "deployed": false,
