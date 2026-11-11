@@ -1,0 +1,52 @@
+{
+  "body_envelope_transparent": true,
+  "engine": "4.6.3-stable (official)",
+  "fish": [
+    "01",
+    "13",
+    "20"
+  ],
+  "fixed_fish_scales": [
+    0.782178217821782,
+    0.707865168539326,
+    0.959183673469388
+  ],
+  "fps": 16,
+  "frames": 48,
+  "game_applied": false,
+  "no_closed_ring": true,
+  "paid_generations": 0,
+  "prototype": true,
+  "seconds": 3,
+  "tiers": [
+    "rare",
+    "unique",
+    "legendary",
+    "mythic"
+  ],
+  "revision": 2,
+  "emitter_counts": [
+    125,
+    52,
+    76,
+    66
+  ],
+  "mechanisms": [
+    "independent angular drifting motes",
+    "continuous broad curling flame tongues",
+    "synchronized gold eruption followed by embers",
+    "staggered branching energy jets followed by prismatic shards"
+  ],
+  "cycles_seconds": [
+    3,
+    1.5,
+    1,
+    1.5
+  ],
+  "status": "user_review_pending",
+  "archive": {
+    "title": "fish_aura_4tiers_motion_preview_r2.zip",
+    "sha256": "44dc56bbee7002b617c0da2406a364a73806113fac9604a8816c3a40490275be",
+    "library_file_id": "libfile_fde3_f-eb77967435d081918eb6e9662f782c56_d66dafb33acc81918ce203aeb3fcd18e"
+  }
+}
