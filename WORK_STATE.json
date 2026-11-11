@@ -7,7 +7,7 @@
   "phone_verified": false,
   "handoff": "docs/qa/fish-aura-integration/HANDOFF.md",
   "current_task": "선택오라4종 게임적용·전조주변국소투명도",
-  "next_step": "CI42950540479 GPU최종소스 실화면·전체회귀 확인→최종기록",
+  "next_step": "CI42950540479 전체회귀/PCK 완료 확인→완료기록",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -1489,10 +1489,10 @@
     "source_commit": "0f6744d8499ad6fa26a47b6ed67b44c5be8cbaea",
     "ci_run": 42950540479,
     "ci_status": "in_progress",
-    "native_verified": false,
+    "native_verified": true,
     "native_cases": 24,
     "native_renders": 48,
-    "native_artifact": 13824521957,
+    "native_artifact": 13824029674,
     "initial_full_ci_success": 42949406170
   }
 }

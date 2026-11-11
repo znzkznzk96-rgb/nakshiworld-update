@@ -13,7 +13,7 @@
   ],
   "ci_run": 42950540479,
   "ci_status": "in_progress",
-  "native_verified": false,
+  "native_verified": true,
   "native_cases": 24,
   "native_renders": 48,
   "native_heights": [
@@ -22,9 +22,9 @@
     660
   ],
   "max_live_emitters": 68,
-  "max_ui_commands": 180,
-  "native_artifact": 13824521957,
-  "screen_sha256": "3386788e373cbd9d74834cc7cf6719e7ca45d8d8bffc6376a5b33ea13b31c79e",
+  "max_ui_commands": 179,
+  "native_artifact": 13824029674,
+  "screen_sha256": "d612ec0461b81761c3bc8311893220d29fc8c334ab902d6d1a926688b6ac8015",
   "screen_library_file_id": "libfile_fde3_f-3981415377808191a50bbd4e67b0be51_d66dafb33acc81918ce203aeb3fcd18e",
   "visual_review": "cue and HUD visible; alpha localized, lower emission retained; large-body crop outside contact sheet covered by exact layout check",
   "deployed": false,
@@ -34,7 +34,7 @@
     "status": "success",
     "source_commit": "83069ac79975764457ee7a8378598e5ae1abc0c6"
   },
-  "final_gpu_native_verified": false,
+  "final_gpu_native_verified": true,
   "final_gpu_ci": "pending",
   "cpu_profile": {
     "environment": "local Linux Godot4.4.1 debug headless; mesh-generation only, not phone FPS",
@@ -43,5 +43,30 @@
     "mythic_after_mean_ms": 7.0103,
     "mythic_after_max_ms": 7.666
   },
-  "previous_native_source": "83069ac79975764457ee7a8378598e5ae1abc0c6"
+  "previous_native_source": "83069ac79975764457ee7a8378598e5ae1abc0c6",
+  "optimization_screen_equivalence": {
+    "tell_before": "pixel_identical",
+    "nose_before": "byte_identical_sha256",
+    "emission_count_preserved": true
+  },
+  "localized_pixel_changes": {
+    "tell": {
+      "bounds": [
+        284,
+        646,
+        378,
+        730
+      ],
+      "changed_pixels": 3820
+    },
+    "nose": {
+      "bounds": [
+        289,
+        629,
+        402,
+        730
+      ],
+      "changed_pixels": 4175
+    }
+  }
 }
