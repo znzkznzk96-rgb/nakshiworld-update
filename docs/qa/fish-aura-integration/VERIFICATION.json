@@ -28,5 +28,19 @@
   "screen_library_file_id": "libfile_fde3_f-3981415377808191a50bbd4e67b0be51_d66dafb33acc81918ce203aeb3fcd18e",
   "visual_review": "cue and HUD visible; alpha localized, lower emission retained; large-body crop outside contact sheet covered by exact layout check",
   "deployed": false,
-  "phone_verified": false
+  "phone_verified": false,
+  "initial_full_ci": {
+    "run": 42949406170,
+    "status": "success",
+    "source_commit": "83069ac79975764457ee7a8378598e5ae1abc0c6"
+  },
+  "final_gpu_native_verified": false,
+  "final_gpu_ci": "pending",
+  "cpu_profile": {
+    "environment": "local Linux Godot4.4.1 debug headless; mesh-generation only, not phone FPS",
+    "conditions": "156 logical length, 12 frames, same caller",
+    "mythic_before_mean_ms": 47.4643,
+    "mythic_after_mean_ms": 7.0103,
+    "mythic_after_max_ms": 7.666
+  }
 }

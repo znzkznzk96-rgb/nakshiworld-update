@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "aura_implemented_ci_running",
+  "status": "aura_gpu_optimization_verification_pending",
   "release_baseline": "v1.25",
   "target_release": "v1.25",
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/qa/fish-aura-integration/HANDOFF.md",
   "current_task": "선택오라4종 게임적용·전조주변국소투명도",
-  "next_step": "CI42949406170 전체회귀/PCK 완료확인→결과기록",
+  "next_step": "GPU국소알파 최종소스 CI 실화면·전체검사 확인",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -1492,6 +1492,7 @@
     "native_verified": true,
     "native_cases": 24,
     "native_renders": 48,
-    "native_artifact": 13824521957
+    "native_artifact": 13824521957,
+    "initial_full_ci_success": 42949406170
   }
 }

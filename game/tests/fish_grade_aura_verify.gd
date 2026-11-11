@@ -37,6 +37,12 @@ func run():
 				check(layout.bounds==m.fight_telegraph.icon_bounds,"mask and cue share current layout")
 				check(not normal.is_empty(),"all selected grades emit")
 				cases+=1
+	m.text_layer=Node2D.new();m.text_layer.set_script(load("res://text_layer.gd"));root.add_child(m.text_layer)
+	m.ui_commands=[];m._shadow_fish(Vector2(135,310),m.S.star,4,1830,"tell",false,2.2,{},1.2,19,1.0,1.0,156)
+	check(a.gpu_mask and is_instance_valid(a.surface) and a.surface.show_behind_parent,"GPU aura remains behind body and HUD")
+	check(a.surface.packet.size()==5 and not a.indices.is_empty(),"GPU mesh supplied")
+	a.begin_frame();check(a.surface.packet.is_empty() and not a.surface.visible,"no stale aura after scene or grade switch")
+	m.text_layer.queue_free()
 	a.masking_enabled=true;m.audio_feedback.dispose();m.queue_free();await process_frame
 	print("FISH_GRADE_AURA_VERIFY failures=",failures," cases=",cases)
 	quit(0 if failures.is_empty() else 1)

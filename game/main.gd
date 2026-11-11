@@ -1420,6 +1420,7 @@ func _draw() -> void :
 	ui_commands = []
 	aura = {}
 	aura_cue_context={}
+	fish_grade_aura.begin_frame()
 	if is_instance_valid(title_screen.root): title_screen.root.visible = title_open or title_screen.leaving
 	if title_open or title_screen.leaving:
 		title_screen.draw_ui(self, h);_fx_draw(t);_draw_trans(h)

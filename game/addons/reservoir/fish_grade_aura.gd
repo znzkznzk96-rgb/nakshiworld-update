@@ -13,6 +13,32 @@ var cue_strength=0.0
 var cue_rect=Rect2()
 var last_visual_clock=-1.0
 var region_weights:Array=[]
+var surface:Node2D
+var gpu_mask=false
+class AuraSurface extends Node2D:
+	var packet:Array=[]
+	func _draw():
+		if not packet.is_empty():RenderingServer.canvas_item_add_triangle_array(get_canvas_item(),packet[0],packet[1],packet[2],packet[3],PackedInt32Array(),PackedFloat32Array(),packet[4].get_rid())
+func begin_frame():
+	if is_instance_valid(surface):surface.packet=[];surface.hide();surface.queue_redraw()
+func _surface(m)->Node2D:
+	if is_instance_valid(surface):return surface
+	surface=AuraSurface.new();surface.name="FishAuraSurface";surface.show_behind_parent=true
+	var shader=Shader.new()
+	shader.code="""shader_type canvas_item;
+uniform vec4 cue_rect;
+uniform vec4 hud_rect;
+uniform float cue_strength=0.0;
+uniform float enabled=1.0;
+varying vec2 local_position;
+varying vec4 aura_ink;
+void vertex(){local_position=VERTEX;aura_ink=COLOR;}
+float attenuation(vec4 r){vec2 d=max(max(r.xy-local_position,vec2(0.0)),local_position-r.xy-r.zw);return mix(0.04,1.0,smoothstep(2.0,12.0,length(d)));}
+void fragment(){vec4 ink=texture(TEXTURE,UV)*aura_ink;float a=min(mix(1.0,attenuation(cue_rect),cue_strength),attenuation(hud_rect));COLOR=vec4(ink.rgb,ink.a*mix(1.0,a,enabled));}
+"""
+	var ink=ShaderMaterial.new();ink.shader=shader;surface.material=ink
+	m.text_layer.add_child(surface)
+	return surface
 
 static func mask_alpha(p:Vector2,regions:Array)->float:
 	var factor=1.0
@@ -46,10 +72,19 @@ static func hash01(k:int,salt:int)->float:
 func _sprite(m,p:Vector2,size:Vector2,col:Color,kind:int,regions:Array):
 	if col.a<=0.002:return
 	var rect=Rect2(p-size*0.5,size)
+	if gpu_mask:
+		var at=rect.position+Vector2(0,m.oy)
+		var first=points.size()
+		points.append_array(PackedVector2Array([at,at+Vector2(size.x,0),at+size,at+Vector2(0,size.y)]))
+		colors.append_array(PackedColorArray([col,col,col,col]))
+		var left=float(kind)/3.0;var right=float(kind+1)/3.0
+		uvs.append_array(PackedVector2Array([Vector2(left,0),Vector2(right,0),Vector2(right,1),Vector2(left,1)]))
+		indices.append_array(PackedInt32Array([first,first+1,first+2,first,first+2,first+3]))
+		return
 	var near=false
 	for r in regions:
 		if (r as Rect2).grow(FEATHER).intersects(rect):near=true
-	var steps=3 if near and masking_enabled else 1
+	var steps=3 if near and masking_enabled and not gpu_mask else 1
 	for y in steps:
 		for x in steps:
 			var a=Vector2(float(x)/steps,float(y)/steps)
@@ -59,7 +94,7 @@ func _sprite(m,p:Vector2,size:Vector2,col:Color,kind:int,regions:Array):
 			for uv in coords:
 				var at=rect.position+uv*size
 				var ink=col
-				if masking_enabled:
+				if near and masking_enabled and not gpu_mask:
 					var attenuation=1.0
 					for z in regions.size():attenuation=minf(attenuation,lerpf(1.0,mask_alpha(at,[regions[z]]),float(region_weights[z])))
 					ink.a*=attenuation
@@ -76,6 +111,7 @@ func _mote(m,p:Vector2,radius:float,col:Color,alpha:float,regions:Array):
 
 func queue(m,quads:Array,grade:int,t:float):
 	points.clear();uvs.clear();colors.clear();indices.clear();last_samples.clear()
+	gpu_mask=not m.ui_demo and is_instance_valid(m.text_layer)
 	if grade<=0 or quads.is_empty():return
 	var context:Dictionary=m.aura_cue_context
 	var regions:Array=[]
@@ -139,4 +175,18 @@ func queue(m,quads:Array,grade:int,t:float):
 					var p=base-dir*(trail*23+layer*4)*scale+across*(sin(u*4+phase-trail*2)*7+layer*2.8)*scale
 					var ink=Color.from_hsv(fposmod(k*0.145+trail*0.10+u*0.08,1),0.70,1).lerp(Color.WHITE,0.12)
 					_mote(m,p,(2.9-trail*0.9)*(1-u*0.25),ink,fade*(1.0 if layer==0 else 0.45 if layer==1 else 0.18)*(1-trail*0.35),regions)
-	if not indices.is_empty():m.ui_commands.append(["triangles",indices.duplicate(),points.duplicate(),colors.duplicate(),uvs.duplicate(),_atlas()])
+	if not indices.is_empty():
+		if gpu_mask:
+			var target=_surface(m)
+			target.packet=[indices.duplicate(),points.duplicate(),colors.duplicate(),uvs.duplicate(),_atlas()]
+			var material:ShaderMaterial=target.material
+			var offset=Vector2(0,m.oy)
+			var cue=Rect2(cue_rect.position+offset,cue_rect.size)
+			var hud=Rect2()
+			if not regions.is_empty():hud=regions[-1];hud.position+=offset
+			material.set_shader_parameter("cue_rect",Vector4(cue.position.x,cue.position.y,cue.size.x,cue.size.y))
+			material.set_shader_parameter("hud_rect",Vector4(hud.position.x,hud.position.y,hud.size.x,hud.size.y))
+			material.set_shader_parameter("cue_strength",cue_strength if not regions.is_empty() else 0.0)
+			material.set_shader_parameter("enabled",1.0 if masking_enabled and not regions.is_empty() else 0.0)
+			target.show();target.queue_redraw()
+		else:m.ui_commands.append(["triangles",indices.duplicate(),points.duplicate(),colors.duplicate(),uvs.duplicate(),_atlas()])
