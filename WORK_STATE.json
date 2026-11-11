@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "rift_scenery_concept_layers_full_verified",
+  "status": "rift_open_tears_underwater_decor_in_progress",
   "release_baseline": "v1.25",
   "target_release": "v1.25",
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/qa/rift-bundles-layers/HANDOFF.md",
-  "current_task": "균열 시안 기준 배경 레이어 보강·실제화면·전체검증 완료",
-  "next_step": "사용자 시각검토. 실제 균열낚시 개방 조건/어종수치 및 공개배포는 별도.",
+  "current_task": "넓은 하늘 공간균열 복원·보라 공기방울/원경 장식 어군/수중 장식 레이어",
+  "next_step": "독립레이어 구현→관련검사→실제게임 렌더 시각검수",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -1620,5 +1620,10 @@
     "preview_library_file_id": "libfile_fde3_f-61c43caae8648191bb2a69d9394304aa_d66dafb33acc81918ce203aeb3fcd18e",
     "candidate_artifact": 13850873067,
     "phone_verified": false
+  },
+  "rift_open_tears_underwater": {
+    "authorized": true,
+    "date": "2026-11-12",
+    "deployed": false
   }
 }
