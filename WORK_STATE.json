@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "rift_background_production_plate_r2",
+  "status": "rift_background_and_fish_integration_authorized",
   "release_baseline": "v1.25",
   "target_release": "v1.25",
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/art/rift-background-20261111/HANDOFF.md",
-  "current_task": "균열해역 레이어용 기본 배경 제작",
-  "next_step": "레이어용 기본판 사용자검토→별도 배/구름/빛 레이어 제작",
+  "current_task": "승인 기본배경·균열 물고기20종 게임연결",
+  "next_step": "전체소스복원·어종/아트연결확인→구현·관련/전체검사·화면확인",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -1294,7 +1294,8 @@
       "docs/art/rift-fish/motion-hd-20261111/LEDGER.json",
       "docs/art/rift-fish/motion-held3-r3-20261111/LEDGER.json"
     ],
-    "prior_batch_manifest": "docs/art/rift-fish/motion-hd-20261111/MANIFEST.json"
+    "prior_batch_manifest": "docs/art/rift-fish/motion-hd-20261111/MANIFEST.json",
+    "integration_authorized": true
   },
   "rift_motion_followup_r3": {
     "status": "complete_2_passed_1_held",
@@ -1418,7 +1419,8 @@
     "generator": "Godot4.6.3_offline_asset_preparation_only",
     "game_applied": false,
     "deployed": false,
-    "user_visual_approved": true
+    "user_visual_approved": true,
+    "integration_authorized": true
   },
   "fish_motion_standard": {
     "status": "confirmed",
@@ -1532,6 +1534,8 @@
       "deck_y": 597,
       "water_y": 657
     },
-    "preview_library_file_id": "libfile_fde3_f-e621e373aad08191a704522005c5af54_d66dafb33acc81918ce203aeb3fcd18e"
+    "preview_library_file_id": "libfile_fde3_f-e621e373aad08191a704522005c5af54_d66dafb33acc81918ce203aeb3fcd18e",
+    "user_visual_approved": true,
+    "integration_authorized": true
   }
 }
