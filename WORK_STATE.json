@@ -7,7 +7,7 @@
   "phone_verified": false,
   "handoff": "docs/qa/rift-bundles-layers/HANDOFF.md",
   "current_task": "균열 번들·기존해금비 연동보상·선상레이어",
-  "next_step": "최종 전체CI/PCK 검증 완료확인·기록",
+  "next_step": "최신 균열전용작은화면 여백 네이티브검수·최종 전체CI/PCK 완료확인",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -1570,7 +1570,8 @@
     "local_verified": true,
     "sub_souls": 50,
     "owner_pearls": 6,
-    "deployed": false
+    "deployed": false,
+    "compact_layout_fixed": true
   },
   "rift_layers": {
     "authorized": true,
@@ -1594,8 +1595,8 @@
     "native_renders": 26,
     "native_artifact": 13835336027,
     "preview_library_file_id": "libfile_fde3_f-6cca7ea487ac81918b373e7ee74b85d9_d66dafb33acc81918ce203aeb3fcd18e",
-    "source_commit": "c7873a8d2313ab66cf51b69518584ce4b0a81f6b",
-    "ci_run": 42975351860,
+    "source_commit": "d6c2c09856ffd4b986f685dd1c7e7f5e20819563",
+    "ci_run": 42976146895,
     "ci_status": "in_progress"
   }
 }
