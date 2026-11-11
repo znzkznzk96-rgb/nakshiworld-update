@@ -1,6 +1,6 @@
 {
   "date": "2026-11-11",
-  "status": "three_approved_unique_revision_pending",
+  "status": "legendary_mythic_redesign_pending",
   "rare": {
     "revision": 3,
     "status": "user_approved",
@@ -16,15 +16,17 @@
   },
   "legendary": {
     "revision": 2,
-    "status": "user_approved",
+    "status": "redesign_requested_r5",
     "gif_sha256": "860d0ed11ed419f55983b1eb424804928c7c4b4633854868bd4c08af825c74b6",
-    "spec": "docs/art/fish-aura-20261111/procedural-r2/SPEC.json"
+    "spec": "docs/art/fish-aura-20261111/procedural-r2/SPEC.json",
+    "previous_approved_revision": 2
   },
   "mythic": {
     "revision": 2,
-    "status": "user_approved",
+    "status": "redesign_requested_r5",
     "gif_sha256": "d769ebc625403a1d37f85a33b03fe6f9d23728e331c4d4d3b10187ae25c66f03",
-    "spec": "docs/art/fish-aura-20261111/procedural-r2/SPEC.json"
+    "spec": "docs/art/fish-aura-20261111/procedural-r2/SPEC.json",
+    "previous_approved_revision": 2
   },
   "game_applied": false,
   "deployed": false,
