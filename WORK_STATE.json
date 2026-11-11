@@ -1625,9 +1625,10 @@
     "authorized": true,
     "date": "2026-11-12",
     "deployed": false,
-    "source_commit": "8279994bb980f9745f3bd0c8d84a3361804c070b",
-    "ci_run": 43095181025,
-    "status": "refined_local_verified_native_pending",
-    "verification": "docs/qa/rift-bundles-layers/OPEN_TEARS_UNDERWATER_VERIFICATION.json"
+    "source_commit": "6e945b4db76984b8b0233952af7c44db57a08107",
+    "ci_run": 43097074531,
+    "status": "final_implemented_related_verified_native_queued",
+    "verification": "docs/qa/rift-bundles-layers/OPEN_TEARS_UNDERWATER_VERIFICATION.json",
+    "geometry_native_run": 43095181025
   }
 }

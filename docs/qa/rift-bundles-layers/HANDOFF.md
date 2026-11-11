@@ -1,7 +1,7 @@
 # 넓은 하늘 균열·수중 장식 — 구현/관련검증 완료·최종화면 대기
-2026-11-12. 현재 소스 `8279994bb980f9745f3bd0c8d84a3361804c070b`, work/tile-release-107.
+2026-11-12. 현재 소스 `6e945b4db76984b8b0233952af7c44db57a08107`, work/tile-release-107.
 사용자가 직전 가는 균열선은 시안의 핵심 균열이 아니라고 거절했고, 넓은 내부공간 복원·보라 기포/장식 어군 등 수중 레이어 추가를 승인했다.
-[현재 검증](OPEN_TEARS_UNDERWATER_VERIFICATION.json) · [진행 CI](https://github.com/znzkznzk96-rgb/nakshiworld-update/actions/runs/43095181025).
+[현재 검증](OPEN_TEARS_UNDERWATER_VERIFICATION.json) · [최종소스 CI](https://github.com/znzkznzk96-rgb/nakshiworld-update/actions/runs/43097074531).
 
 ## 구현
 - 큰 공간균열2개: 불규칙하게 찢어진 별도 가장자리·어두운 내부·움직이는 청록빛. 작은 화면의 상단UI 아래에도 주 균열 내부가 드러나도록 배치.
@@ -18,3 +18,5 @@ CI43095181025의 rift-art-first-preview artifact에서3높이/위상별 실제 �
 ## 보존과 배포 경계
 [이전 인수인계 원문](../../historical/2026-11-12-rift-open-tears/HANDOFF-before-open-tears.md.txt). 기존 번들 검증은[VERIFICATION](VERIFICATION.json), 이전 배경보강 기술검증은[SCENERY](SCENERY_VERIFICATION.json)에 보존(가는하늘선은최신사용자거절로대체).
 공개v1.25 유지. 실제 낚시는 기존3지역/60종, 균열 입장은 준비중. 미정 어종수치·개방/소나조건·새 공개배포/폰적용은 이번작업범위 아님.
+
+최종6e945b4는 어군 sprite좌우반전 방향만 교정.8279994의 균열면/재질/수중색/자산/배치 그대로이므로43095181025 native는 그 불변 시각구성 검수에 재사용할 수 있다. 최종source CI는43097074531. 새 PCK관련검사도 통과(별도local QA script가 포함된 검사전용 PCK, 배포용 아님).

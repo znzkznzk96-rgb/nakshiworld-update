@@ -1,6 +1,6 @@
 {
   "date": "2026-11-12",
-  "status": "refined_local_verified_native_pending",
+  "status": "final_related_verified_native_queued",
   "prior_sky_lines_rejected": true,
   "sky_openings": 2,
   "interior": "dark space with cyan moving mist and separate luminous magenta/cyan torn rims",
@@ -30,8 +30,8 @@
   "base_plate_unchanged": true,
   "deployed": false,
   "phone_verified": false,
-  "source_commit": "8279994bb980f9745f3bd0c8d84a3361804c070b",
-  "ci_run": 43095181025,
+  "source_commit": "6e945b4db76984b8b0233952af7c44db57a08107",
+  "ci_run": 43097074531,
   "prior_native": {
     "source": "fc7a470ee29306d193e6c553ca9c94b944128f98",
     "run": 43094529270,
@@ -43,11 +43,12 @@
   "related_packed": {
     "status": "passed",
     "godot": "4.4.1",
-    "sha256": "543efa0e6254af2687df6bd79caec6c97923ec1f55f6d9725a4b3367eb377aa3",
-    "bytes": 61895536,
+    "sha256": "b1caabce818b3676f8b16eeb5a76b9e10dcfd4322af5d0af700c46b1a435debe",
+    "bytes": 61895584,
     "log": "PACKED_RIFT_ART_VERIFY failures=[] species=20",
-    "source": "8279994bb980f9745f3bd0c8d84a3361804c070b",
-    "public_release": false
+    "source": "6e945b4db76984b8b0233952af7c44db57a08107",
+    "public_release": false,
+    "contains_extra_local_QA_script": true
   },
   "actual_polygon_triangulation": {
     "godot": "4.4.1",
@@ -72,5 +73,8 @@
     "xvfb_source": "official Debian trixie xvfb21.1.16-1.3+deb13u4 rootless extraction",
     "result": "AF_UNIX socket creation EPERM; no sandbox bypass attempted",
     "alternative": "remote native workflow"
-  }
+  },
+  "geometry_native_run": 43095181025,
+  "geometry_source": "8279994bb980f9745f3bd0c8d84a3361804c070b",
+  "final_direction_fix": "signed sprite x-scale now follows actual cosine drift velocity; geometry/material/palette/assets unchanged"
 }
