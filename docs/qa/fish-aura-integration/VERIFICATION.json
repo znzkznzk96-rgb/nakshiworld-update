@@ -13,7 +13,20 @@
   ],
   "ci_run": 42949406170,
   "ci_status": "in_progress",
-  "native_verified": false,
+  "native_verified": true,
+  "native_cases": 24,
+  "native_renders": 48,
+  "native_heights": [
+    480,
+    540,
+    660
+  ],
+  "max_live_emitters": 68,
+  "max_ui_commands": 180,
+  "native_artifact": 13824521957,
+  "screen_sha256": "3386788e373cbd9d74834cc7cf6719e7ca45d8d8bffc6376a5b33ea13b31c79e",
+  "screen_library_file_id": "libfile_fde3_f-3981415377808191a50bbd4e67b0be51_d66dafb33acc81918ce203aeb3fcd18e",
+  "visual_review": "cue and HUD visible; alpha localized, lower emission retained; large-body crop outside contact sheet covered by exact layout check",
   "deployed": false,
   "phone_verified": false
 }
