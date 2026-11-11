@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "legendary_mythic_rich_aura_r7_previews_ready",
+  "status": "aura_integration_cue_alpha_in_progress",
   "release_baseline": "v1.25",
   "target_release": "v1.25",
   "deployed": false,
   "phone_verified": false,
-  "handoff": "docs/art/fish-aura-20261111/HANDOFF.md",
-  "current_task": "고등급금빛광채/겹오색기운 R7대폭보강시안완료",
-  "next_step": "전설/신화R7시안 사용자검토·레어R3유니크R4보호·게임적용/배포별도.",
+  "handoff": "docs/qa/fish-aura-integration/HANDOFF.md",
+  "current_task": "선택오라4종 게임적용·전조주변국소투명도",
+  "next_step": "최신v125전체소스+overlay복원·4종오라/전조동일레이아웃연결·국소알파·실화면/관련검사",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -1456,7 +1456,7 @@
     "ledger": "docs/art/fish-aura-20261111/LEDGER.json"
   },
   "aura_procedural": {
-    "status": "legendary_mythic_r7_user_review_pending",
+    "status": "game_integration_authorized",
     "tiers": 4,
     "fish_shapes": 3,
     "frames_per_preview": 48,
@@ -1477,5 +1477,11 @@
     ],
     "unique_r2_identical": false
   },
-  "aura_selection": "docs/art/fish-aura-20261111/CURRENT_SELECTION.json"
+  "aura_selection": "docs/art/fish-aura-20261111/CURRENT_SELECTION.json",
+  "aura_cue_alpha": {
+    "authorized": true,
+    "spawn_rate_unchanged": true,
+    "behavior_unchanged": true,
+    "deployed": false
+  }
 }
