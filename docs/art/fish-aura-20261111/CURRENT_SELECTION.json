@@ -1,6 +1,6 @@
 {
   "date": "2026-11-11",
-  "status": "legendary_mythic_redesign_pending",
+  "status": "rare_approved_unique_r4_and_legendary_mythic_r5_review_pending",
   "rare": {
     "revision": 3,
     "status": "user_approved",
@@ -15,24 +15,26 @@
     "direction": "separate violet gem motes, slim short afterglows; no broad flames"
   },
   "legendary": {
-    "revision": 2,
-    "status": "redesign_requested_r5",
-    "gif_sha256": "860d0ed11ed419f55983b1eb424804928c7c4b4633854868bd4c08af825c74b6",
-    "spec": "docs/art/fish-aura-20261111/procedural-r2/SPEC.json",
-    "previous_approved_revision": 2
+    "revision": 5,
+    "status": "user_review_pending",
+    "gif_sha256": "293a7a1e4adf4a0d72b218d8933be15e8665befc39bcac29ecbfb36be8dbcee9",
+    "spec": "docs/art/fish-aura-20261111/procedural-r5/SPEC.json",
+    "previous_approved_revision": 2,
+    "mechanism": "solar flame eruption then embers"
   },
   "mythic": {
-    "revision": 2,
-    "status": "redesign_requested_r5",
-    "gif_sha256": "d769ebc625403a1d37f85a33b03fe6f9d23728e331c4d4d3b10187ae25c66f03",
-    "spec": "docs/art/fish-aura-20261111/procedural-r2/SPEC.json",
-    "previous_approved_revision": 2
+    "revision": 5,
+    "status": "user_review_pending",
+    "gif_sha256": "7a4e3781de8403fdcd9c9b0352be818a486292fda4cd954c11a3994cc560d3d2",
+    "spec": "docs/art/fish-aura-20261111/procedural-r5/SPEC.json",
+    "previous_approved_revision": 2,
+    "mechanism": "spatial tears open, discharge energy, close"
   },
   "game_applied": false,
   "deployed": false,
   "latest_preview_archive": {
-    "title": "fish_aura_selected_preview_r4.zip",
-    "sha256": "84a83e543b216a546f049c0e5d646390502eb23d861163540957c95884759903",
-    "library_file_id": "libfile_fde3_f-c734cf75a7d88191b4b264cd4003b6f6_d66dafb33acc81918ce203aeb3fcd18e"
+    "title": "fish_aura_solar_rift_preview_r5.zip",
+    "sha256": "0148812a05dabce986fcddec94e835641b8dfe34aca78b5145e211acb22ceaad",
+    "library_file_id": "libfile_fde3_f-e642f0956bd481918fdb1714522ae1dc_d66dafb33acc81918ce203aeb3fcd18e"
   }
 }
