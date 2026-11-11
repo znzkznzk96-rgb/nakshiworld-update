@@ -1,6 +1,6 @@
 {
   "date": "2026-11-12",
-  "status": "related_native_passed_full_ci_running",
+  "status": "related_native_reader_passed_full_ci_running",
   "release": "v1.26",
   "authorized": true,
   "gift": {
@@ -42,8 +42,8 @@
   "rift_gameplay_open": false,
   "deployed": false,
   "phone_verified": false,
-  "source_commit": "b656cdf9e06fbcfcb3d9063177a0cbe060fc0b61",
-  "ci_run": 43103653376,
+  "source_commit": "92582b96aee1eae64b78ecc4cf48ebcfc4371f05",
+  "ci_run": 43104553552,
   "pr": 64,
   "local_native": {
     "godot": "4.4.1",
@@ -69,5 +69,12 @@
     "bounded_uploads_minutes": 4,
     "cancelled_jobs_skip_log_upload": true,
     "compression_level": 0
-  }
+  },
+  "reader_regression": "READER_VERIFY failures=[] after preserving all section body lines",
+  "prior_ci": {
+    "run": 43103653376,
+    "failure": "READER_VERIFY all mail items retained",
+    "fix": "v1.26 second section body.slice(2) retains all remaining release lines; summary display/layout unchanged"
+  },
+  "visual_reuse_scope": "925 changes section backing content only; explicit summary display and full-text letter.body unchanged from locally verified b656 screenshots"
 }

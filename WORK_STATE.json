@@ -7,7 +7,7 @@
   "phone_verified": false,
   "handoff": "docs/qa/release126/HANDOFF.md",
   "current_task": "v1.26 일회성 타일바다20종/4635000비늘 우편·실제화면 통과, 전체CI 진행",
-  "next_step": "CI43103653376 전체/기존화면/PCK/후보 보존 성공→PR64 동일입력 병합→동일후보 공개·운영검증",
+  "next_step": "CI43104553552 전체/기존화면/PCK/후보 보존 성공→PR64 동일입력 병합→동일후보 공개·운영검증",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -1640,12 +1640,13 @@
     "native_source": "7f838ef2d261b9e040e3617b5a6f04b00749ee65"
   },
   "release126": {
-    "source_commit": "b656cdf9e06fbcfcb3d9063177a0cbe060fc0b61",
-    "ci_run": 43103653376,
+    "source_commit": "92582b96aee1eae64b78ecc4cf48ebcfc4371f05",
+    "ci_run": 43104553552,
     "pr": 64,
     "related_mail_verified": true,
     "independent_reload_verified": true,
     "native_verified": true,
-    "deployed": false
+    "deployed": false,
+    "reader_verified": true
   }
 }
