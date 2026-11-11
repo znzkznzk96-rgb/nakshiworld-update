@@ -6,8 +6,8 @@
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/art/fish-aura-20261111/HANDOFF.md",
-  "current_task": "픽셀랩레어오라첫시안불합격·후속생성중단",
-  "next_step": "레어원본사용자확인·분리입자방출구조재검토.후속유료생성중단·게임미적용.",
+  "current_task": "四등급 자체제작 방출형오라 움직이는시안",
+  "next_step": "레어/유니크/전설/신화 절차형시안 제작·꽁치/복어/다랑어 형태별비교",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -1454,5 +1454,12 @@
       "rare"
     ],
     "ledger": "docs/art/fish-aura-20261111/LEDGER.json"
+  },
+  "aura_procedural": {
+    "status": "authorized_prototype",
+    "tiers": 4,
+    "paid_requests": 0,
+    "game_applied": false,
+    "deployed": false
   }
 }
