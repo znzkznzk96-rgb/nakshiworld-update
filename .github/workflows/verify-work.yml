@@ -19,6 +19,8 @@ jobs:
         run: |
           set -euo pipefail
           echo "VERIFICATION_STARTED=$(date +%s)" >> "$GITHUB_ENV"
+          sudo apt-get update -qq
+          sudo apt-get install -y python3-pil > /dev/null
           curl -fL --retry 2 https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.25/game-source.zip -o "$RUNNER_TEMP/source.zip"
           echo "96a1b1ce885ad159f1e30af0c1bf080be1f7b7d88a1dbdcd6804dd3425e0b1b0  $RUNNER_TEMP/source.zip" | sha256sum -c -
           python3 automation/restore_source.py "$RUNNER_TEMP/source.zip" "$RUNNER_TEMP/project"
