@@ -23,7 +23,7 @@ func run() -> void:
 		check(commerce.confirm(m.V,m) and m.gold==0 and shop.stock(m,b)==before+1,"exact balance purchase %d"%b)
 	check(commerce.quote(m.V,m,"worm:10").price==50,"legacy worm quote aligned")
 	check(preload("res://addons/reservoir/spot_selection.gd").PRICES==[0,19800,312000,4635000,30150000,127350000],"approved tiered unlock fees")
-	check(m.progression.available_regions==[0,1,2],"only approved reservoir and valley are available")
+	check(m.progression.available_regions==[0,1,2,3],"only approved reservoir and valley are available")
 	check(shop.BAIT_MULT==[1.0,1.0,1.5,1.8,2.1,2.5] and shop.BAIT_PRICES.slice(3)==[1200,3000,6000],"effects and future bait prices preserved")
 	m.development_preview=true
 	var summary: Array=[]

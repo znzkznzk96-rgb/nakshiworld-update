@@ -17,6 +17,6 @@ func _initialize()->void:
 	for sp in range(60,80):
 		assert(art.texture(sp) is Texture2D)
 		assert(art.source_rect(sp,0).size.x>0)
-	assert(load("res://addons/reservoir/regional_catalog.gd").NAMES.size()==60,"no speculative gameplay")
+	assert(load("res://addons/reservoir/regional_catalog.gd").NAMES.size()==80,"rift playable catalog packed")
 	print("PACKED_RIFT_ART_VERIFY failures=[] species=20")
 	quit()

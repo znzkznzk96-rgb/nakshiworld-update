@@ -29,15 +29,15 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
-      - name: Restore verified v1.25 source and overlay
+      - name: Restore verified v1.26 source and overlay
         shell: bash
         run: |
           set -euo pipefail
           echo "VERIFICATION_STARTED=$(date +%s)" >> "$GITHUB_ENV"
           sudo apt-get update -qq
           sudo apt-get install -y python3-pil > /dev/null
-          curl -fL --retry 2 https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.25/game-source.zip -o "$RUNNER_TEMP/source.zip"
-          echo "96a1b1ce885ad159f1e30af0c1bf080be1f7b7d88a1dbdcd6804dd3425e0b1b0  $RUNNER_TEMP/source.zip" | sha256sum -c -
+          curl -fL --retry 2 https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.26/game-source.zip -o "$RUNNER_TEMP/source.zip"
+          echo "2198558a6f606bc13310e341f2a897cac2e1cd322695c0b51340c0f1f8b0bbbc  $RUNNER_TEMP/source.zip" | sha256sum -c -
           python3 automation/restore_source.py "$RUNNER_TEMP/source.zip" "$RUNNER_TEMP/project"
           curl -fL --retry 2 https://github.com/godotengine/godot/releases/download/4.4.1-stable/Godot_v4.4.1-stable_linux.x86_64.zip -o "$RUNNER_TEMP/godot.zip"
           unzip -q "$RUNNER_TEMP/godot.zip" -d "$RUNNER_TEMP/godot"
@@ -61,6 +61,9 @@ jobs:
           XDG_DATA_HOME="$RUNNER_TEMP/isolated-rift-layers-native" timeout 180 xvfb-run -a "$GODOT" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/rift_layers_preview.gd -- "$GITHUB_WORKSPACE/evidence/rift-layers" > evidence/rift-layers-native.log 2>&1
           grep -F 'RIFT_LAYERS_PREVIEW failures=[]' evidence/rift-layers-native.log
           if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/rift-bundles-layers.log evidence/rift-layers-native.log; then exit 1; fi
+          XDG_DATA_HOME="$RUNNER_TEMP/isolated-rift-unlock-native" timeout 180 xvfb-run -a "$GODOT" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/rift_unlock_preview.gd -- "$GITHUB_WORKSPACE/evidence/rift-art/unlock" > evidence/rift-unlock-native.log 2>&1
+          grep -F 'RIFT_UNLOCK_PREVIEW failures=[]' evidence/rift-unlock-native.log
+          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/rift-unlock-native.log; then exit 1; fi
           XDG_DATA_HOME="$RUNNER_TEMP/isolated-rift-native" timeout 120 xvfb-run -a "$GODOT" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/rift_art_preview.gd -- "$GITHUB_WORKSPACE/evidence/rift-art" > evidence/rift-native.log 2>&1
           grep -F 'RIFT_ART_PREVIEW failures=[]' evidence/rift-native.log
           if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/rift-art.log evidence/rift-native.log; then exit 1; fi
@@ -224,12 +227,14 @@ jobs:
           grep -F 'EXPEDITION_BAKE files=130' evidence/bake.log
           "$GODOT" --headless --editor --path "$RUNNER_TEMP/project" --import > evidence/prepared-import.log 2>&1
           if grep -E 'SCRIPT ERROR:|Parse Error:|Failed to load script' evidence/prepared-import.log; then exit 1; fi
-          for suite in fish_grade_aura updater_font soldier_size android_back close_controls updater_smoothness shop_signs hall_forge119 dex_readability body_book_telegraph fight_telegraph facility_growth night_play night_glow regional_night fight_body_size fishing_difficulty fish_presentation fish_anchor_size regional_bundle_rewards mail_gifts valley_gift108 arrival_gift testing_gift reader tile107 tier_skills training_costs tier3_motion tier2_motion management101 formation_compare forge_layout robot_ui_revision capture_robot balance096 guide_ac valley094 valley093 bait092 notification091 ui090 codex089 aquarium_b ui_guide pouch_inventory expedition_result support_utility combat_feedback bag_event_order bag_formation selected_ui bag_interaction startup_assets soul_pouch expedition_hard_balance expedition_label bundle_aqua expedition080 expedition079 soldier_dex approved_ui expedition_motion expedition expedition_save expedition_balance action_readability economy_balance rod_aura atmosphere_encounter angler_scene market_reader odds_rewards reservoir_layers owner_gauge bag_list bundles_buyback equipment visual guide shop audio_save bundle_preview rewards fish_surface regional inventory_layout personal_dex bait_roles measurement_speed village_entry_audio shared_vertical_light tile_surface_water tile_scenery; do
+          for suite in rift_unlock_recovery fish_grade_aura updater_font soldier_size android_back close_controls updater_smoothness shop_signs hall_forge119 dex_readability body_book_telegraph fight_telegraph facility_growth night_play night_glow regional_night fight_body_size fishing_difficulty fish_presentation fish_anchor_size regional_bundle_rewards mail_gifts valley_gift108 arrival_gift testing_gift reader tile107 tier_skills training_costs tier3_motion tier2_motion management101 formation_compare forge_layout robot_ui_revision capture_robot balance096 guide_ac valley094 valley093 bait092 notification091 ui090 codex089 aquarium_b ui_guide pouch_inventory expedition_result support_utility combat_feedback bag_event_order bag_formation selected_ui bag_interaction startup_assets soul_pouch expedition_hard_balance expedition_label bundle_aqua expedition080 expedition079 soldier_dex approved_ui expedition_motion expedition expedition_save expedition_balance action_readability economy_balance rod_aura atmosphere_encounter angler_scene market_reader odds_rewards reservoir_layers owner_gauge bag_list bundles_buyback equipment visual guide shop audio_save bundle_preview rewards fish_surface regional inventory_layout personal_dex bait_roles measurement_speed village_entry_audio shared_vertical_light tile_surface_water tile_scenery; do
             XDG_DATA_HOME="$RUNNER_TEMP/isolated-$suite" timeout 90 "$GODOT" --headless --path "$RUNNER_TEMP/project" --script "tests/${suite}_verify.gd" > "evidence/$suite.log" 2>&1 || { cat "evidence/$suite.log"; exit 1; }
             cat "evidence/$suite.log"
             grep -F 'VERIFY failures=[]' "evidence/$suite.log"
             if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' "evidence/$suite.log"; then exit 1; fi
           done
+          XDG_DATA_HOME="$RUNNER_TEMP/isolated-rift_unlock_recovery" timeout 90 "$GODOT" --headless --path "$RUNNER_TEMP/project" --script tests/rift_unlock_recovery_verify.gd -- --reload > evidence/rift-unlock-reload.log 2>&1
+          grep -F 'RIFT_UNLOCK_RELOAD_VERIFY failures=[]' evidence/rift-unlock-reload.log
           XDG_DATA_HOME="$RUNNER_TEMP/isolated-mail_gifts" timeout 90 "$GODOT" --headless --path "$RUNNER_TEMP/project" --script tests/mail_gifts_verify.gd -- resume > evidence/mail-gifts-resume.log 2>&1
           grep -F 'MAIL_GIFTS_VERIFY failures=[]' evidence/mail-gifts-resume.log
           if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/mail-gifts-resume.log; then exit 1; fi
