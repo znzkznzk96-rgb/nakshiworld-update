@@ -12,6 +12,7 @@ func run():
 	var m=app.box.get_child(0).get_child(0)
 	m.SET.sfx=0;m.SET.music=0;m.set_process(false);m.title_open=false;m.TUT.done=true;m.lesson_open=false;m.trans={};m.S={"phase":"idle"}
 	for version in ["0.78","0.93","1.08","1.26"]:
+		if args.size()>2 and version!=args[2]:continue
 		m.ui_clock=0;m.testing_grants=[];m.gold=123;m.bag=[]
 		m._switch_scene("village");m.V.shop=""
 		m.mailbox.opened=true;m.mailbox.detail=version;m.mailbox.topic=0;m.mailbox.full_text=false;m._layout()
