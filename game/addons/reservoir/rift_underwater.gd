@@ -46,7 +46,7 @@ func draw_schools(t:float)->void:
 			var p:=safe_position(origin+Vector2((i%5-2)*14,(i/5)*16+sin(i*2.8+t*.8)*4))
 			var sp:int=[60,61,63][school];var src:Rect2=art.source_rect(sp,t+i*.13)
 			var length:float=12+(i%3)*3;var size:Vector2=src.size*length/src.size.x
-			var direction:float=-1 if cos(t*.055+school)>0 else 1
+			var direction:float=1 if cos(t*.055+school)>0 else -1
 			draw_set_transform(p.round()*2,0,Vector2(-direction*2,2))
 			draw_texture_rect_region(art.texture(sp),Rect2(-size/2,size),src,Color(.90,.76,1,.48 if school==0 else .38))
 			draw_set_transform(Vector2.ZERO,0,Vector2.ONE*2)
