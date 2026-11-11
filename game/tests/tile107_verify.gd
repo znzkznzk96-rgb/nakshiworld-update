@@ -57,7 +57,7 @@ func run():
 	check(m.gold==1854000 and m.souls==50 and m.pearl==6,"tile next unlock cost4635000 times10% plus30%")
 	check(p.licensed(3),"tile main grants rift eligibility")
 	m.gold=99999999
-	check(not m.region_shop.unlock(m,3) and m.gold==99999999,"unfinished rift cannot charge")
+	check(m.region_shop.unlock(m,3) and m.gold==99999999-4635000,"approved rift exact fee after tile license")
 	m._save_game();p.restore({});m._load_game()
 	check(p.claimed(2,0) and p.claimed(2,1) and p.claimed(2,2),"reward receipt persists")
 	m.audio_feedback.dispose();m.queue_free();await process_frame

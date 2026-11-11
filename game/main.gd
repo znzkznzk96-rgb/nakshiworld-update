@@ -1875,6 +1875,11 @@ func _shadow_fish(c: Vector2, star: int, grade: int, t: float, beh: String, spik
 	var revealed: bool = alpha >= 1.0 or (S.phase == "pre" and S.get("judge", "MISS") != "MISS")
 	var L: float = body_length if body_length > 0.0 else _fish_display_length(star, scale, alpha < 1.0, sp)
 	if rift_art.has_species(sp):
+		if alpha>=1.0:
+			var points:Array=[]
+			for j in 13: points.append(c+Vector2((0.45-0.9*j/12.0)*L*face,0).rotated(float(pose.get("tilt",0.0))))
+			var source:Rect2=rift_art.source_rect(sp,t/1000.0)
+			aura={"L":L,"g":grade,"c":c,"pts":points,"face":face,"hw":source.size.y/source.size.x*L*.5}
 		var mouth:Vector2=rift_art.draw(self,sp,c,L,t/1000.0,face,revealed,alpha,grade,float(pose.get("tilt",0.0)))
 		if alpha>=1.0:fish_mouth=mouth
 		return
