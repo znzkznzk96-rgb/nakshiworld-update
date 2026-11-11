@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-11",
+  "source_commit": "83069ac79975764457ee7a8378598e5ae1abc0c6",
+  "godot": "4.4.1",
+  "local_cases": 60,
+  "related_suites": [
+    "fight_telegraph",
+    "body_book_telegraph",
+    "fish_presentation",
+    "fish_anchor_size",
+    "fight_body_size",
+    "fish_surface"
+  ],
+  "ci_run": 42949406170,
+  "ci_status": "in_progress",
+  "native_verified": false,
+  "deployed": false,
+  "phone_verified": false
+}
