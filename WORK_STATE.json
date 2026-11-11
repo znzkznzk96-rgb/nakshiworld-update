@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "aura_rare_first_prototype_rejected_stop",
+  "status": "aura_four_procedural_previews_ready",
   "release_baseline": "v1.25",
   "target_release": "v1.25",
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/art/fish-aura-20261111/HANDOFF.md",
-  "current_task": "四등급 자체제작 방출형오라 움직이는시안",
-  "next_step": "레어/유니크/전설/신화 절차형시안 제작·꽁치/복어/다랑어 형태별비교",
+  "current_task": "4등급 자체방출오라·3체형 모션시안 제작완료",
+  "next_step": "레어/유니크/전설/신화 4개움직이는시안 사용자검토.게임적용/배포미착수.",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -1456,9 +1456,16 @@
     "ledger": "docs/art/fish-aura-20261111/LEDGER.json"
   },
   "aura_procedural": {
-    "status": "authorized_prototype",
+    "status": "prototype_user_review_pending",
     "tiers": 4,
+    "fish_shapes": 3,
+    "frames_per_preview": 48,
+    "fps": 16,
     "paid_requests": 0,
+    "spec": "docs/art/fish-aura-20261111/procedural/SPEC.json",
+    "verification": "docs/art/fish-aura-20261111/procedural/VERIFICATION.json",
+    "archive_title": "fish_aura_4tiers_motion_preview.zip",
+    "archive_sha256": "ca92fa9da788b9bbde7d47a2861ca9e9fbce03e31550c1bc668fa5a1f1e1d74f",
     "game_applied": false,
     "deployed": false
   }
