@@ -1,0 +1,32 @@
+{
+  "revision": 6,
+  "gif_checks": [
+    {
+      "tier": 0,
+      "frames": 48,
+      "sha256": "e4e291030c0fbadb26974fe09c0aef90b071583fff102aa704ca7307a54c7168"
+    },
+    {
+      "tier": 1,
+      "frames": 48,
+      "sha256": "f7f9052b4fb6d3598e2672044b56f73f3594348b007b1c157a7e8b8d1af771b5"
+    },
+    {
+      "tier": 2,
+      "frames": 48,
+      "sha256": "e6ca9ac799cab2218151631ca4a7989eee27e7ca9de7825f531b23a933d4a465"
+    },
+    {
+      "tier": 3,
+      "frames": 48,
+      "sha256": "2fa529f80b454e4ada76370fc0314563ca757aef4ccede6ef52e53c034fc1601"
+    }
+  ],
+  "rare_unique_bytes_unchanged": true,
+  "rendered_new_frames": 96,
+  "visual_review": "soft gold wisps and thin iridescent echoes, no flames cracks rings, three fish shapes reviewed",
+  "paid_calls": 0,
+  "user_approved": false,
+  "game_integrated": false,
+  "generator": "Godot4.6.3 offline preview; production4.4.1 not integrated"
+}

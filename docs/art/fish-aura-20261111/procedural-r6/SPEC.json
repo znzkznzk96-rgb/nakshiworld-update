@@ -1,0 +1,58 @@
+{
+  "body_envelope_transparent": true,
+  "cycles_seconds": [
+    3,
+    3,
+    3,
+    3
+  ],
+  "engine": "4.6.3-stable (official)",
+  "fish": [
+    "01",
+    "13",
+    "20"
+  ],
+  "fixed_fish_scales": [
+    0.782178217821782,
+    0.707865168539326,
+    0.959183673469388
+  ],
+  "fps": 16,
+  "frames": 48,
+  "game_applied": false,
+  "mechanisms": [
+    "drifting blue motes",
+    "violet gems and short afterglow",
+    "soft golden wisps rise and scatter",
+    "thin iridescent curved threads with fading echoes"
+  ],
+  "no_closed_ring": true,
+  "paid_generations": 0,
+  "prototype": true,
+  "revision": 6,
+  "seconds": 3,
+  "tiers": [
+    "rare",
+    "unique",
+    "legendary",
+    "mythic"
+  ],
+  "rendered_tiers_this_round": [
+    "legendary",
+    "mythic"
+  ],
+  "selected_versions": {
+    "rare": "R3 approved unchanged",
+    "unique": "R4 unchanged pending",
+    "legendary": "R6 soft gold pending",
+    "mythic": "R6 thin iridescent drift pending"
+  },
+  "legendary_wisp_emitters": 100,
+  "mythic_thread_emitters": 86,
+  "status": "r6_user_review_pending",
+  "archive": {
+    "title": "fish_aura_soft_wisps_preview_r6.zip",
+    "sha256": "fab1d564c8904c3de75b4be7c457d0073625d2af9f50cfacf0ba6b25d9325346",
+    "library_file_id": "libfile_fde3_f-faefd7b580e481919be4d15c23ae0aec_d66dafb33acc81918ce203aeb3fcd18e"
+  }
+}
