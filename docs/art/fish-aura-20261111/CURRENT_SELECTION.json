@@ -1,6 +1,6 @@
 {
   "date": "2026-11-11",
-  "status": "rare_approved_unique_r4_and_soft_legendary_mythic_r6_review_pending",
+  "status": "rare_approved_unique_r4_and_rich_legendary_mythic_r7_review_pending",
   "rare": {
     "revision": 3,
     "status": "user_approved",
@@ -15,28 +15,36 @@
     "direction": "separate violet gem motes, slim short afterglows; no broad flames"
   },
   "legendary": {
-    "revision": 6,
+    "revision": 7,
     "status": "user_review_pending",
-    "gif_sha256": "e6ca9ac799cab2218151631ca4a7989eee27e7ca9de7825f531b23a933d4a465",
-    "spec": "docs/art/fish-aura-20261111/procedural-r6/SPEC.json",
+    "gif_sha256": "e83a6199e6d7995540446445053158851f71552e558a99a1ff01242b79ce82a5",
+    "spec": "docs/art/fish-aura-20261111/procedural-r7/SPEC.json",
     "previous_approved_revision": 2,
-    "mechanism": "soft golden wisps rise and scatter",
-    "rejected_revision": 5
+    "mechanism": "rich warm golden glow wisps with glints",
+    "rejected_revision": 5,
+    "rejected_revisions": [
+      5,
+      6
+    ]
   },
   "mythic": {
-    "revision": 6,
+    "revision": 7,
     "status": "user_review_pending",
-    "gif_sha256": "2fa529f80b454e4ada76370fc0314563ca757aef4ccede6ef52e53c034fc1601",
-    "spec": "docs/art/fish-aura-20261111/procedural-r6/SPEC.json",
+    "gif_sha256": "f307bccf3aa34f81908b02f5e0dbb8cdd3f668d9e0e91cd49e454ebb06c6b8cd",
+    "spec": "docs/art/fish-aura-20261111/procedural-r7/SPEC.json",
     "previous_approved_revision": 2,
-    "mechanism": "thin iridescent curved threads with fading echoes",
-    "rejected_revision": 5
+    "mechanism": "bright broad layered iridescent flowing echoes",
+    "rejected_revision": 5,
+    "rejected_revisions": [
+      5,
+      6
+    ]
   },
   "game_applied": false,
   "deployed": false,
   "latest_preview_archive": {
-    "title": "fish_aura_soft_wisps_preview_r6.zip",
-    "sha256": "fab1d564c8904c3de75b4be7c457d0073625d2af9f50cfacf0ba6b25d9325346",
-    "library_file_id": "libfile_fde3_f-faefd7b580e481919be4d15c23ae0aec_d66dafb33acc81918ce203aeb3fcd18e"
+    "title": "fish_aura_rich_high_tiers_r7.zip",
+    "sha256": "eea8db811ec03f5a95436177ef333c06bd3c7ea5346f672095b853da3d92136c",
+    "library_file_id": "libfile_fde3_f-c824d941d7808191becc35ce0d18bc01_d66dafb33acc81918ce203aeb3fcd18e"
   }
 }

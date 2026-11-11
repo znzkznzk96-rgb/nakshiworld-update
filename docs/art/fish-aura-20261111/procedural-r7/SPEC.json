@@ -1,0 +1,58 @@
+{
+  "body_envelope_transparent": true,
+  "cycles_seconds": [
+    3,
+    3,
+    3,
+    3
+  ],
+  "engine": "4.6.3-stable (official)",
+  "fish": [
+    "01",
+    "13",
+    "20"
+  ],
+  "fixed_fish_scales": [
+    0.782178217821782,
+    0.707865168539326,
+    0.959183673469388
+  ],
+  "fps": 16,
+  "frames": 48,
+  "game_applied": false,
+  "mechanisms": [
+    "drifting blue motes",
+    "violet gems and short afterglow",
+    "soft golden wisps rise and scatter",
+    "thin iridescent curved threads with fading echoes"
+  ],
+  "no_closed_ring": true,
+  "paid_generations": 0,
+  "prototype": true,
+  "revision": 7,
+  "seconds": 3,
+  "tiers": [
+    "rare",
+    "unique",
+    "legendary",
+    "mythic"
+  ],
+  "rendered_tiers_this_round": [
+    "legendary",
+    "mythic"
+  ],
+  "selected_versions": {
+    "rare": "R3 approved unchanged",
+    "unique": "R4 unchanged pending",
+    "legendary": "R7 rich gold pending",
+    "mythic": "R7 layered iridescent drift pending"
+  },
+  "legendary_wisp_emitters": 185,
+  "mythic_thread_emitters": 150,
+  "status": "r7_user_review_pending",
+  "archive": {
+    "title": "fish_aura_rich_high_tiers_r7.zip",
+    "sha256": "eea8db811ec03f5a95436177ef333c06bd3c7ea5346f672095b853da3d92136c",
+    "library_file_id": "libfile_fde3_f-c824d941d7808191becc35ce0d18bc01_d66dafb33acc81918ce203aeb3fcd18e"
+  }
+}

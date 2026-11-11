@@ -1,0 +1,42 @@
+{
+  "revision": 7,
+  "gif_checks": [
+    {
+      "tier": 0,
+      "frames": 48,
+      "sha256": "e4e291030c0fbadb26974fe09c0aef90b071583fff102aa704ca7307a54c7168"
+    },
+    {
+      "tier": 1,
+      "frames": 48,
+      "sha256": "f7f9052b4fb6d3598e2672044b56f73f3594348b007b1c157a7e8b8d1af771b5"
+    },
+    {
+      "tier": 2,
+      "frames": 48,
+      "sha256": "e83a6199e6d7995540446445053158851f71552e558a99a1ff01242b79ce82a5"
+    },
+    {
+      "tier": 3,
+      "frames": 48,
+      "sha256": "f307bccf3aa34f81908b02f5e0dbb8cdd3f668d9e0e91cd49e454ebb06c6b8cd"
+    }
+  ],
+  "rare_unique_bytes_unchanged": true,
+  "new_frames": 96,
+  "alpha_ge64_area_4frame_sample": {
+    "2": {
+      "6": 4664.75,
+      "7": 23734.5
+    },
+    "3": {
+      "6": 5673,
+      "7": 25126.5
+    }
+  },
+  "visual_review": "richer golden glow and layered iridescent strands, body clear; no fire/crack/ring shapes",
+  "paid_calls": 0,
+  "user_approved": false,
+  "game_integrated": false,
+  "generator": "Godot4.6.3 offline prototype only"
+}
