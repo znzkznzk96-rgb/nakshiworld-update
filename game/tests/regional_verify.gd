@@ -6,7 +6,7 @@ func _initialize() -> void: call_deferred("run")
 func run() -> void:
 	var m = load("res://main.gd").new()
 	m.SET.sfx=0;m.SET.music=0;m.title_open=false;root.add_child(m);await process_frame;m.set_process(false)
-	check(m.FISH_NAME.size()==60 and m.fish_tex.size()==60,"60 species textures load")
+	check(m.FISH_NAME.size()==80 and m.fish_tex.size()==80,"80 species textures load")
 	check(m.FISH_NAME[5]==m.FISH_NAME[20] and m.fish_key(5)!=m.fish_key(20),"same-name regional species have separate stable keys")
 	m.DEX={"버들치":[0,2]};m.REC={"버들치":17.2};m.catch_counts={"버들치":[4,0,2,0,0]};m.catch_legacy={"버들치":[2]}
 	m._migrate_fish_records()
@@ -90,7 +90,7 @@ func run() -> void:
 	check(m.progression.donate(m,0,2,0) and not m.progression.licensed(1),"completed main waits for receipt")
 	check(m.progression.claim_reward(m,0,0) and m.progression.licensed(1),"receive grants certificate and eligibility")
 	check(m.gold==before,"bundle completion does not pay region cost")
-	check(m.progression.available_regions==[0,1,2],"valley available without test override");m.gold=19799
+	check(m.progression.available_regions==[0,1,2,3],"valley available without test override");m.gold=19799
 	check(not m.region_shop.unlock(m,1) and m.gold==19799,"insufficient currency cannot unlock")
 	m.gold=20500;check(m.region_shop.unlock(m,1) and m.gold==700,"certificate then separate currency purchase")
 	check(m.region_shop.unlock(m,1) and m.gold==700,"repeat unlock does not charge twice")

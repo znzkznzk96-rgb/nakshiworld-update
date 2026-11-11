@@ -36,7 +36,7 @@ func run():
 	for kind in 3:
 		ui.region=3;ui.tab=kind;m.text_items=[];m.ui_commands=[];ui.draw(m,540)
 		check(not m.text_items.is_empty(),"bundle renderer and approved names")
-	check(p.available_regions==[0,1,2] and m.FISH_NAME.size()==60,"no speculative gameplay/catalog change")
+	check(p.available_regions==[0,1,2,3] and m.FISH_NAME.size()==80,"rift playable catalog added without later regions")
 	var e=m.environment.rift;var state:Dictionary=p.serialize().duplicate(true)
 	seed(451);var expected_rng:=randf();seed(451)
 	for i in 101:

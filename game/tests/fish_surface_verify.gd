@@ -14,9 +14,10 @@ func run() -> void:
 			for grade in [0,4]:
 				m.ui_demo=false;m.ui_commands=[]
 				m._shadow_fish(Vector2(150.3,310.7),0,grade,320,action,false,2.2,{},1.3,sp,1,1)
-				var body=m.ui_commands.filter(func(c): return c[0]=="polygon" and c[4]==m.fish_tex[sp])
-				check(body.size()==24,"full body on display surface")
-				check(m.ui_commands[-1][4]==m.fish_tex[sp],"body after halo")
+				var body_texture:Texture2D=m.rift_art.texture(sp) if m.rift_art.has_species(sp) else m.fish_tex[sp]
+				var body=m.ui_commands.filter(func(c): return c[0]=="polygon" and c[4]==body_texture and c[2][0]==Color.WHITE)
+				check(body.size()==(2 if m.rift_art.has_species(sp) else 24),"full body on display surface")
+				check(m.ui_commands[-1][4]==body_texture,"body after halo")
 				for command in body:
 					for point in command[1]: check(point.is_finite(),"finite geometry")
 				var mouth=m.fish_mouth
@@ -24,8 +25,8 @@ func run() -> void:
 				# Same input through lesson must keep the rigid head, only add world offset.
 				m.ui_demo=true;m.ui_commands=[]
 				m._shadow_fish(Vector2(150.3,310.7),0,grade,320,action,false,2.2,{},1.3,sp,1,1)
-				var demo=m.ui_commands.filter(func(c): return c[0]=="polygon" and c[4]==m.fish_tex[sp])
-				for i in 10:
+				var demo=m.ui_commands.filter(func(c): return c[0]=="polygon" and c[4]==body_texture and c[2][0]==Color.WHITE)
+				for i in mini(10,body.size()):
 					for j in 3: check(body[i][1][j].is_equal_approx(demo[i][1][j]+Vector2(0,41)),"head matches lesson and world offset")
 	m.ui_demo=false;m.S={"phase":"idle"};print("FISH_SURFACE_VERIFY failures=",failures)
 	m.queue_free();await process_frame;quit(0 if failures.is_empty() else 1)

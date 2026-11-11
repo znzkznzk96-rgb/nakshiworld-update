@@ -1,7 +1,7 @@
 extends RefCounted
 # Approved bundle and regional owner gauge rules. Reservoir and approved valley entry are available; rift and later regions stay disabled.
 const CATALOG = preload("res://addons/reservoir/regional_catalog.gd")
-var available_regions: Array = [0,1,2]
+var available_regions: Array = [0,1,2,3]
 var main_targets: Dictionary = {}
 var certificates: Array = [false,false,false,false,false,false]
 var main_completed: Array = [false,false,false,false,false,false]
@@ -22,6 +22,12 @@ func restore(data: Dictionary) -> void:
 	bundle_values=data.get("bundle_values",{}).duplicate(true)
 	extra_completed=data.get("extra_completed",{}).duplicate(true)
 	reward_claimed=data.get("reward_claimed",{}).duplicate(true)
+	# A saved receipt proves completion even if a legacy completion array is absent.
+	for area in 4:
+		for kind in 3:
+			if not claimed(area,kind): continue
+			if kind==0: main_completed[area]=true;certificates[area]=true
+			else: extra_completed[bundle_key(area,kind)]=true
 	# Old automatic payouts are marked paid only when their completion flag existed.
 	# A completed main bundle without its certificate is recoverable via Receive.
 	if not data.has("reward_claimed"):
@@ -101,6 +107,9 @@ func bundle_key(area: int, kind: int) -> String: return "%d:%d"%[area,kind]
 func bundle_counts(area: int, kind: int) -> Array:
 	var result: Array=donations.get(str(area),[]).duplicate() if kind==0 else extra_donations.get(bundle_key(area,kind),[]).duplicate()
 	while result.size()<bundle_targets(area,kind).size(): result.append(0)
+	if bundle_done(area,kind):
+		var targets:=bundle_targets(area,kind)
+		for i in targets.size(): result[i]=maxi(int(result[i]),int(targets[i].count))
 	return result
 func bundle_done(area: int, kind: int) -> bool:
 	if area<0 or area>3: return false
@@ -180,3 +189,12 @@ func claim_reward(m, area: int, kind: int) -> bool:
 	if m._save_game(): return true
 	restore(old);m.gold=gold;m.souls=souls;m.pearl=pearl
 	return false
+
+# A paid next-region unlock proves the preceding main license was already received.
+# It says nothing about the current-region sub/owner bundles.
+func recover_unlock_evidence(unlocked: Array) -> void:
+	for next_area in unlocked:
+		var previous:int=int(next_area)-1
+		if previous<0 or previous>3: continue
+		main_completed[previous]=true;certificates[previous]=true
+		reward_claimed[bundle_key(previous,0)]=true

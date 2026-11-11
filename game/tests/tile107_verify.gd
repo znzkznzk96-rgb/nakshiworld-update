@@ -25,7 +25,7 @@ func run():
 	check(m.region_shop.unlock(m,2) and m.gold==0,"repeat entry free")
 	check(m.environment.tile.root.visible and not m.environment.valley.root.visible and not m.bg_node.visible,"tile scene only")
 	check(m.environment.tile.plate.texture.get_size()==Vector2(801,1962),"native source unchanged")
-	check(m.fish_tex.size()==60 and m.CATALOG.by_star(2,4)==[59],"tile full catalog and owner")
+	check(m.fish_tex.size()==80 and m.CATALOG.by_star(2,4)==[59],"tile full catalog and owner")
 	for sp in range(40,60):
 		check(m.fish_tex[sp]!=null and m.fish_used[sp].size.x>0,"approved fish texture loaded")
 		check(m.species_max_cm(sp)==m.CATALOG.VALLEY_MAX[sp%20],"approved provisional length")
@@ -57,7 +57,7 @@ func run():
 	check(m.gold==1854000 and m.souls==50 and m.pearl==6,"tile next unlock cost4635000 times10% plus30%")
 	check(p.licensed(3),"tile main grants rift eligibility")
 	m.gold=99999999
-	check(not m.region_shop.unlock(m,3) and m.gold==99999999,"unfinished rift cannot charge")
+	check(m.region_shop.unlock(m,3) and m.gold==99999999-4635000,"approved rift exact fee after tile license")
 	m._save_game();p.restore({});m._load_game()
 	check(p.claimed(2,0) and p.claimed(2,1) and p.claimed(2,2),"reward receipt persists")
 	m.audio_feedback.dispose();m.queue_free();await process_frame

@@ -296,7 +296,10 @@ func _ready() -> void :
 	add_child(bg)
 	for i in FISH_NAME.size():
 		if cooperative_boot and i%4==0:await get_tree().process_frame
-		var t: Texture2D = load("res://art/fish/l%d_%02d.png" % [i / 20, i % 20])
+		var t: Texture2D
+		if rift_art.has_species(i):
+			t=ImageTexture.create_from_image(rift_art.texture(i).get_image().get_region(rift_art.source_rect(i,0)))
+		else: t=load("res://art/fish/l%d_%02d.png" % [i / 20, i % 20])
 		fish_tex.append(t)
 		var img: = t.get_image()
 		fish_used.append(img.get_used_rect())
@@ -1585,7 +1588,7 @@ func _line(a: Vector2, b: Vector2, col: Color, sag: = 0.0) -> void :
 	if ui_demo:
 		for i in range(1, pts.size()): _ui_line(pts[i - 1], pts[i], col, 1.0)
 	else:
-		if active_region in [1,2] and S.get("phase","") in ["fight","catch"]:
+		if active_region in [1,2,3] and S.get("phase","") in ["fight","catch"]:
 			var night:float=environment.night_strength()
 			if night>0:draw_polyline(pts,Color(.025,.035,.07,night*.72),2.5)
 		draw_polyline(pts, col, 1.0)
@@ -1872,6 +1875,11 @@ func _shadow_fish(c: Vector2, star: int, grade: int, t: float, beh: String, spik
 	var revealed: bool = alpha >= 1.0 or (S.phase == "pre" and S.get("judge", "MISS") != "MISS")
 	var L: float = body_length if body_length > 0.0 else _fish_display_length(star, scale, alpha < 1.0, sp)
 	if rift_art.has_species(sp):
+		if alpha>=1.0:
+			var points:Array=[]
+			for j in 13: points.append(c+Vector2((0.45-0.9*j/12.0)*L*face,0).rotated(float(pose.get("tilt",0.0))))
+			var source:Rect2=rift_art.source_rect(sp,t/1000.0)
+			aura={"L":L,"g":grade,"c":c,"pts":points,"face":face,"hw":source.size.y/source.size.x*L*.5}
 		var mouth:Vector2=rift_art.draw(self,sp,c,L,t/1000.0,face,revealed,alpha,grade,float(pose.get("tilt",0.0)))
 		if alpha>=1.0:fish_mouth=mouth
 		return
@@ -2256,6 +2264,7 @@ func _draw_landing(t: float, tip: Vector2) -> void :
 # Current playable reservoir. Locked future grounds have no invented limits.
 const RESERVOIR_MAX_CM := 150.0
 func species_max_cm(sp: int) -> float:
+	if sp >= 60 and sp < 80: return float(FISH_LEN[sp])*1.65
 	if sp >= 20 and sp < 60: return float(CATALOG.VALLEY_MAX[sp%20])
 	return minf(RESERVOIR_MAX_CM, FISH_LEN[clampi(sp, 0, FISH_LEN.size()-1)] * 1.65)
 func measurement_max_cm(sp: int) -> float:
@@ -2797,8 +2806,9 @@ func _load_game() -> void :
 	gold = int(d.get("gold", 0));pearl = int(d.get("pearl", 0));bag_lv = int(d.get("bag_lv", 0))
 	region_shop.restore(d.get("region_shop", {}))
 	progression.restore(d.get("regional_progress", {}))
+	progression.recover_unlock_evidence(region_shop.unlocked)
 	buyback.restore(d.get("buyback",{}))
-	active_region = clampi(int(d.get("active_region",0)),0,2)
+	active_region = clampi(int(d.get("active_region",0)),0,3)
 	if active_region not in progression.available_regions or not region_shop.is_unlocked(active_region): active_region = 0
 	bag = d.get("bag", []);parts_owned = d.get("parts", []);tips_seen = d.get("tips", [])
 	bait = int(d.get("bait", 0));souls = int(d.get("souls", 0))

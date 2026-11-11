@@ -1,17 +1,17 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "v126_published_verified",
+  "status": "v127_publication_authorized",
   "release_baseline": "v1.26",
-  "target_release": "v1.26",
-  "deployed": true,
+  "target_release": "v1.27",
+  "deployed": false,
   "phone_verified": false,
-  "handoff": "docs/qa/release126/HANDOFF.md",
-  "current_task": "v1.26 공개·운영다운로드 검증완료, 타일바다20종/4635000비늘 일회성우편 포함",
-  "next_step": "휴대폰 재실행·업데이트 후 v1.26우편 수령 확인. 균열 실제입장은 준비중; 다음 게임수정은 v1.26 전체소스 기준으로 복원하고 빌드기준 갱신.",
+  "handoff": "docs/qa/rift-unlock127/HANDOFF.md",
+  "current_task": "균열 실제해금·번들 증거복원 v1.27 동일후보 전체검증 완료",
+  "next_step": "PR65 동일입력 병합→성공후보13898112168 그대로 공개→운영다운로드 검증",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
-  "verification": "docs/qa/release126/VERIFICATION.json",
+  "verification": "docs/qa/rift-unlock127/VERIFICATION.json",
   "baseline_phone_verified": false,
   "environment_recovery": "docs/CODEX_NETWORK_RECOVERY.md",
   "background_verified_branch": "work/tile-png-stage2-20261107",
@@ -43,9 +43,10 @@
   "remaining_global_render_checks": false,
   "release_authorization": {
     "date": "2026-11-12",
-    "user_request": "업데이트및 배포가고일단 일회성으로 타일바다 모든 물고기 한개씩주고 그에맞는 균열해협 해금비도 같이 보내주셈",
-    "scope": "현재 승인 업데이트 및 타일바다20종 노멀각1+4635000비늘 일회성우편",
-    "fulfilled": true
+    "release": "v1.27",
+    "user_request": "배포해 ㄱㄱ",
+    "scope": "검증 완료 v1.27 균열 실제개방·번들 기록 보존 수정 후보 그대로 공개",
+    "fulfilled": false
   },
   "release_preflight": "docs/qa/soldier-size/VERIFICATION.json",
   "release_source_commit": "92582b96aee1eae64b78ecc4cf48ebcfc4371f05",
@@ -171,7 +172,7 @@
     "ledger": "analysis/tile-layer-art-v1/PLANT_LEDGER.json",
     "quality": "analysis/tile-layer-art-v1/PLANT_QA.json"
   },
-  "public_release": "v1.25",
+  "public_release": "v1.26",
   "shared_vertical_light": {
     "applied": true,
     "regions": [
@@ -1654,5 +1655,32 @@
     "publication_run": 43106961611,
     "public_verification_run": 43107761870,
     "phone_verified": false
+  },
+  "rift_unlock127": {
+    "implemented": true,
+    "deployed": false,
+    "phone_verified": false,
+    "entry_fee": 4635000,
+    "playable_regions": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "catalog_species": 80,
+    "initial_values_status": "implementation_candidate",
+    "phone_reset_cause_confirmed": false,
+    "source_commit": "73aa7cec8ddae15f3411b78461b1405d2b6a5372",
+    "local_suites_passed": 95,
+    "native_renders": 15,
+    "local_packed_verified": true,
+    "ci_run": 43113397494,
+    "ci_status": "success",
+    "unique_success_labels": 138,
+    "candidate_artifact": 13898112168,
+    "input_fingerprint": "b1562ac61b2c2423b68b5473111f0d21a0dc77e67b89e1635d9e54523c3600a7",
+    "candidate_ready": true,
+    "pr": 65,
+    "release_authorized": true
   }
 }

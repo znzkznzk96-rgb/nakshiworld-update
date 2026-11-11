@@ -1,0 +1,152 @@
+{
+  "status": "accepted_for_v127_publication",
+  "entry_fee": 4635000,
+  "following_entry_fee": 30150000,
+  "existing_regions_unchanged": true,
+  "fish": [
+    {
+      "id": 60,
+      "name": "쌍혜성 두꼬리꽁치",
+      "mean_cm": 30,
+      "max_cm": 49.5,
+      "normal_base_price": 3252
+    },
+    {
+      "id": 61,
+      "name": "균열정어리",
+      "mean_cm": 18,
+      "max_cm": 29.7,
+      "normal_base_price": 4553
+    },
+    {
+      "id": 62,
+      "name": "네날개날치",
+      "mean_cm": 32,
+      "max_cm": 52.8,
+      "normal_base_price": 5854
+    },
+    {
+      "id": 63,
+      "name": "가시등전어",
+      "mean_cm": 22,
+      "max_cm": 36.3,
+      "normal_base_price": 6505
+    },
+    {
+      "id": 64,
+      "name": "균열장막 오징어",
+      "mean_cm": 45,
+      "max_cm": 74.25,
+      "normal_base_price": 3903
+    },
+    {
+      "id": 65,
+      "name": "쥐포쥐치",
+      "mean_cm": 25,
+      "max_cm": 41.25,
+      "normal_base_price": 3903
+    },
+    {
+      "id": 66,
+      "name": "금간정어리",
+      "mean_cm": 20,
+      "max_cm": 33.0,
+      "normal_base_price": 6505
+    },
+    {
+      "id": 67,
+      "name": "빛멸치",
+      "mean_cm": 12,
+      "max_cm": 19.8,
+      "normal_base_price": 7155
+    },
+    {
+      "id": 68,
+      "name": "균열갑주 방어",
+      "mean_cm": 70,
+      "max_cm": 115.5,
+      "normal_base_price": 13010
+    },
+    {
+      "id": 69,
+      "name": "유영리본 삼치",
+      "mean_cm": 55,
+      "max_cm": 90.75,
+      "normal_base_price": 15612
+    },
+    {
+      "id": 70,
+      "name": "균열칼날 갈치",
+      "mean_cm": 80,
+      "max_cm": 132.0,
+      "normal_base_price": 18214
+    },
+    {
+      "id": 71,
+      "name": "균열꽃 광어",
+      "mean_cm": 60,
+      "max_cm": 99.0,
+      "normal_base_price": 23417
+    },
+    {
+      "id": 72,
+      "name": "틈새결정 복어",
+      "mean_cm": 65,
+      "max_cm": 107.25,
+      "normal_base_price": 15612
+    },
+    {
+      "id": 73,
+      "name": "거울날개 날치",
+      "mean_cm": 95,
+      "max_cm": 156.75,
+      "normal_base_price": 20816
+    },
+    {
+      "id": 74,
+      "name": "차원결정 참치",
+      "mean_cm": 130,
+      "max_cm": 214.5,
+      "normal_base_price": 35777
+    },
+    {
+      "id": 75,
+      "name": "월식 개복치",
+      "mean_cm": 150,
+      "max_cm": 247.5,
+      "normal_base_price": 42282
+    },
+    {
+      "id": 76,
+      "name": "뇌광 삼치",
+      "mean_cm": 180,
+      "max_cm": 297.0,
+      "normal_base_price": 48786
+    },
+    {
+      "id": 77,
+      "name": "차원창 청새치",
+      "mean_cm": 230,
+      "max_cm": 379.5,
+      "normal_base_price": 78058
+    },
+    {
+      "id": 78,
+      "name": "균열유리 상어",
+      "mean_cm": 220,
+      "max_cm": 363.0,
+      "normal_base_price": 97573
+    },
+    {
+      "id": 79,
+      "name": "폭풍다랑어",
+      "mean_cm": 400,
+      "max_cm": 660.0,
+      "normal_base_price": 3252427
+    }
+  ],
+  "resistance": 5.3,
+  "star_addition": 0.06,
+  "existing_rods_unchanged": true,
+  "approval": "2026-11-12 검증 후보 배포해 ㄱㄱ"
+}

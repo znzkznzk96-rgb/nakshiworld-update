@@ -46,7 +46,7 @@ var notice := ""
 func serialize() -> Dictionary:
 	return {"owned":owned,"enabled":enabled,"speed":speed,"capacity":capacity,"precision":precision,"escrow":escrow,"progress":progress,"job":job.duplicate(true),"fish":fish.duplicate(true)}
 func valid_fish(f: Variant) -> bool:
-	return f is Dictionary and int(f.get("sp",-1)) in range(60) and int(f.get("star",-1)) in range(4) and int(f.get("grade",-1)) in range(4) and is_finite(float(f.get("w",0))) and float(f.get("w",0))>0
+	return f is Dictionary and int(f.get("sp",-1)) in range(80) and int(f.get("star",-1)) in range(4) and int(f.get("grade",-1)) in range(4) and is_finite(float(f.get("w",0))) and float(f.get("w",0))>0
 func restore(d: Dictionary) -> void:
 	owned=bool(d.get("owned",false));enabled=owned and bool(d.get("enabled",false))
 	speed=clampi(int(d.get("speed",0)),0,RATES.size()-1);capacity=clampi(int(d.get("capacity",0)),0,CAPS.size()-1);precision=clampi(int(d.get("precision",0)),0,3)

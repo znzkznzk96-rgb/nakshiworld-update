@@ -13,8 +13,8 @@ func run() -> void:
  for i in 6:
   d.press(m,d.rects.regions[i].get_center());d.draw(m,480)
   check(d.region==i,"region navigation %d"%i)
-  check(d.rows_total==(20 if i<3 else 0),"only actual regional species %d"%i)
-  if i>=3:check(m.text_items.any(func(t):return t[2]=="물고기 도감 준비 중"),"unimplemented location honest empty state")
+  check(d.rows_total==(20 if i<4 else 0),"only actual regional species %d"%i)
+  if i>=4:check(m.text_items.any(func(t):return t[2]=="물고기 도감 준비 중"),"unimplemented location honest empty state")
  check(snapshot==d.serialize(),"category browsing leaves records untouched")
  d.press(m,d.rects.categories[1].get_center());m.expedition.data.restore({})
  for id in 15:m.expedition.data.discover(id)

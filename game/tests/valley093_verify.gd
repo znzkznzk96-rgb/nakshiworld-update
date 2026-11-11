@@ -6,7 +6,7 @@ func _initialize():call_deferred("run")
 func run():
  var m=load("res://main.gd").new();m.SET.sfx=0;m.SET.music=0;root.add_child(m);await process_frame;m.set_process(false)
  m.title_open=false;m.trans={};m.progression.restore({});m.region_shop.restore({});m.gold=10000
- check(m.progression.available_regions==[0,1,2],"only completed regions enabled")
+ check(m.progression.available_regions==[0,1,2,3],"only completed regions enabled")
  check(not m.region_shop.unlock(m,1) and m.gold==10000,"no certificate no charge")
  m.progression.restore({"main_completed":[true],"certificates":[true]})
  m.development_preview=true

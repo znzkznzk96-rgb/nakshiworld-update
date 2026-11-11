@@ -7,8 +7,8 @@ func run():
 	var m=load("res://main.gd").new();m.development_preview=true;m.SET.sfx=0;m.SET.music=0;root.add_child(m);await process_frame;m.set_process(false)
 	var art=m.rift_art;art.setup()
 	check(art.catalog.size()==20,"approved twenty species")
-	check(m.FISH_NAME.size()==60 and m.FISH_LEN.size()==60,"unassigned economy is not invented")
-	check(m.progression.available_regions==[0,1,2],"future region remains gated")
+	check(m.FISH_NAME.size()==80 and m.FISH_LEN.size()==80,"rift approved entry now has 80 catalog entries")
+	check(m.progression.available_regions==[0,1,2,3],"rift available; deep sea and space remain gated")
 	var old=m.S.duplicate(true);var frames:=0
 	for sp in range(60,80):
 		var e=art.entry(sp);var tex=art.texture(sp)
