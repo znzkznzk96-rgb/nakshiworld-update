@@ -11,7 +11,7 @@
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
-  "verification": "docs/qa/release126/VERIFICATION.json",
+  "verification": "docs/qa/rift-unlock127/VERIFICATION.json",
   "baseline_phone_verified": false,
   "environment_recovery": "docs/CODEX_NETWORK_RECOVERY.md",
   "background_verified_branch": "work/tile-png-stage2-20261107",
@@ -1668,6 +1668,12 @@
     ],
     "catalog_species": 80,
     "initial_values_status": "implementation_candidate",
-    "phone_reset_cause_confirmed": false
+    "phone_reset_cause_confirmed": false,
+    "source_commit": "73aa7cec8ddae15f3411b78461b1405d2b6a5372",
+    "local_suites_passed": 95,
+    "native_renders": 15,
+    "local_packed_verified": true,
+    "ci_run": 43113397494,
+    "ci_status": "in_progress"
   }
 }
