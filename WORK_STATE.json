@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "rift_motion20_user_approved",
+  "status": "aura_rare_first_prototype_rejected_stop",
   "release_baseline": "v1.25",
   "target_release": "v1.25",
   "deployed": false,
   "phone_verified": false,
-  "handoff": "docs/art/rift-fish/HANDOFF.md",
-  "current_task": "방출형 물고기등급오라 PixelLab시안",
-  "next_step": "레어1종생성검수→통과후유니크/전설/신화각1종.고리/보호막금지·방출/확산/소멸.",
+  "handoff": "docs/art/fish-aura-20261111/HANDOFF.md",
+  "current_task": "픽셀랩레어오라첫시안불합격·후속생성중단",
+  "next_step": "레어원본사용자확인·분리입자방출구조재검토.후속유료생성중단·게임미적용.",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -1428,7 +1428,7 @@
     "scope": "all_future_fish_all_regions"
   },
   "aura_preview": {
-    "status": "approved_prototype_only",
+    "status": "first_quality_gate_failed_stop",
     "tiers": [
       "rare",
       "unique",
@@ -1437,8 +1437,22 @@
     ],
     "request_limit_per_tier": 1,
     "concurrent_paid_requests": 1,
-    "paid_requests": 0,
+    "paid_requests": 1,
     "game_applied": false,
-    "deployed": false
+    "deployed": false,
+    "actual_generations_charged": 1,
+    "completed_tiers": [
+      "rare"
+    ],
+    "unstarted_tiers": [
+      "unique",
+      "legendary",
+      "mythic"
+    ],
+    "passed": [],
+    "rejected": [
+      "rare"
+    ],
+    "ledger": "docs/art/fish-aura-20261111/LEDGER.json"
   }
 }
