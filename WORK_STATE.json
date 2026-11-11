@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "release126_full_verification_running",
-  "release_baseline": "v1.25",
+  "status": "v126_published_verified",
+  "release_baseline": "v1.26",
   "target_release": "v1.26",
-  "deployed": false,
+  "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/release126/HANDOFF.md",
-  "current_task": "v1.26 일회성 타일바다20종/4635000비늘 우편·실제화면 통과, 전체CI 진행",
-  "next_step": "CI43104553552 전체/기존화면/PCK/후보 보존 성공→PR64 동일입력 병합→동일후보 공개·운영검증",
+  "current_task": "v1.26 공개·운영다운로드 검증완료, 타일바다20종/4635000비늘 일회성우편 포함",
+  "next_step": "휴대폰 재실행·업데이트 후 v1.26우편 수령 확인. 균열 실제입장은 준비중; 다음 게임수정은 v1.26 전체소스 기준으로 복원하고 빌드기준 갱신.",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -23,10 +23,10 @@
   "screen_evidence_commit": "04fa33a116915c0b7a7ca86ee235a24a4cf4d4d2",
   "screen_verification_run": 42315352676,
   "full_source_verified": {
-    "release": "v1.25",
-    "size": 63888719,
-    "sha256": "96a1b1ce885ad159f1e30af0c1bf080be1f7b7d88a1dbdcd6804dd3425e0b1b0",
-    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.25/game-source.zip"
+    "release": "v1.26",
+    "size": 67457866,
+    "sha256": "2198558a6f606bc13310e341f2a897cac2e1cd322695c0b51340c0f1f8b0bbbc",
+    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.26/game-source.zip"
   },
   "fish_verification_run": 42317071546,
   "automatic_full_regression_run": 42317071379,
@@ -35,9 +35,9 @@
   "bundle_verification_run": 42319985467,
   "bundle_evidence_commit": "dd8297cc9de9a5423091b61e06f166ee22023de4",
   "headless_regression_coverage": {
-    "run": 42725519072,
+    "run": 43104553552,
     "status": "passed",
-    "scope": "full verification-work workflow, native and packed checks"
+    "scope": "full verification-work workflow, native and packed checks;135 success labels"
   },
   "standard_full_workflow_success": true,
   "remaining_global_render_checks": false,
@@ -45,21 +45,21 @@
     "date": "2026-11-12",
     "user_request": "업데이트및 배포가고일단 일회성으로 타일바다 모든 물고기 한개씩주고 그에맞는 균열해협 해금비도 같이 보내주셈",
     "scope": "현재 승인 업데이트 및 타일바다20종 노멀각1+4635000비늘 일회성우편",
-    "fulfilled": false
+    "fulfilled": true
   },
   "release_preflight": "docs/qa/soldier-size/VERIFICATION.json",
-  "release_source_commit": "d1303a61a9d1f073901201481e67329edb49ec06",
-  "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v1.25",
-  "release_build_run": 42792331426,
+  "release_source_commit": "92582b96aee1eae64b78ecc4cf48ebcfc4371f05",
+  "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v1.26",
+  "release_build_run": 43106961611,
   "release_build_status": "success_attempt2_same_candidate_no_rebuild",
-  "public_verification_run": 42792493512,
+  "public_verification_run": 43107761870,
   "public_verification_status": "success",
   "public_patch": {
-    "size": 59777184,
-    "sha256": "230284ee352a6dfde295b7681968361867bcccdea9bcd3f2152597473aafb2da",
-    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.25/patch.pck"
+    "size": 61898272,
+    "sha256": "19268321c82a5f5eddae6e6a3e2779c9e21e40939fb917230e6fccfdd2b7a04d",
+    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.26/patch.pck"
   },
-  "standard_full_workflow_note": "v1.25 전체CI/native/PCK 성공 동일후보 공개·공개3파일/전체소스683파일/운영다운로드검증완료",
+  "standard_full_workflow_note": "v1.26 전체CI135성공라벨/native/PCK·동일후보 공개·운영다운로드 검증완료",
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md#2026-11-07--소규모-작업-효율채팅-중단-대비",
   "approved_followup": "우편 단일원본·공통지급·검사통합 구현/검증 완료. 공개v1.08 유지, 새 배포 미승인.",
   "session_continuity": {
@@ -92,7 +92,7 @@
     "headless_passed": 73,
     "headless_total": 73
   },
-  "release_verification_run": 42792493512,
+  "release_verification_run": 43107761870,
   "prior_build_issue": {
     "run": 42384973558,
     "cause": "packed mail check hardcoded1.08; prepublication assertion",
@@ -1258,7 +1258,7 @@
     "shared_additional_requests_per_species": 1,
     "concurrent_paid_requests": 1,
     "game_applied": true,
-    "deployed": false,
+    "deployed": true,
     "completed_ids": [
       "01",
       "02",
@@ -1418,7 +1418,7 @@
     "preview": "docs/art/rift-fish/motion-controlled-20261111/preview.gif",
     "generator": "Godot4.6.3_offline_asset_preparation_only",
     "game_applied": true,
-    "deployed": false,
+    "deployed": true,
     "user_visual_approved": true,
     "integration_authorized": true
   },
@@ -1469,7 +1469,7 @@
     "archive_title": "fish_aura_rich_high_tiers_r7.zip",
     "archive_sha256": "eea8db811ec03f5a95436177ef333c06bd3c7ea5346f672095b853da3d92136c",
     "game_applied": true,
-    "deployed": false,
+    "deployed": true,
     "revision": 7,
     "emission_mechanisms": [
       "independent angular drifting motes",
@@ -1484,7 +1484,7 @@
     "authorized": true,
     "spawn_rate_unchanged": true,
     "behavior_unchanged": true,
-    "deployed": false,
+    "deployed": true,
     "implemented": true,
     "local_cases": 60,
     "related_suites": 6,
@@ -1505,7 +1505,7 @@
     "composition": "기존 세로형 낚시화면 구도 유지, 캐릭터는 왼쪽 배 갑판에서 오른쪽으로 낚시",
     "concept": "균열해역 기존확정 하늘의 빛나는 균열",
     "game_applied": true,
-    "deployed": false,
+    "deployed": true,
     "verification": "docs/qa/rift-art-integration/VERIFICATION.json",
     "canvas_reference": {
       "size": [
@@ -1542,7 +1542,7 @@
     "art_ready": true,
     "gameplay_ready": false,
     "local_verified": true,
-    "deployed": false,
+    "deployed": true,
     "verification": "docs/qa/rift-art-integration/HANDOFF.md",
     "source_commit": "5cf118f654ec26118b0f4a17402934576bcb1131",
     "ci_run": 42970312624,
@@ -1570,7 +1570,7 @@
     "local_verified": true,
     "sub_souls": 50,
     "owner_pearls": 6,
-    "deployed": false,
+    "deployed": true,
     "compact_layout_fixed": true,
     "verified": true,
     "source_commit": "d6c2c09856ffd4b986f685dd1c7e7f5e20819563"
@@ -1592,7 +1592,7 @@
     "bob_amplitude_logical": 1.5,
     "bob_period_seconds": 4.2,
     "native_verified": true,
-    "deployed": false,
+    "deployed": true,
     "paid_image_requests": 3,
     "native_renders": 26,
     "native_artifact": 13851035478,
@@ -1625,7 +1625,7 @@
   "rift_open_tears_underwater": {
     "authorized": true,
     "date": "2026-11-12",
-    "deployed": false,
+    "deployed": true,
     "source_commit": "6e945b4db76984b8b0233952af7c44db57a08107",
     "ci_run": 43097074531,
     "status": "implemented_related_native_verified",
@@ -1646,7 +1646,13 @@
     "related_mail_verified": true,
     "independent_reload_verified": true,
     "native_verified": true,
-    "deployed": false,
-    "reader_verified": true
+    "deployed": true,
+    "reader_verified": true,
+    "ci_status": "success",
+    "unique_success_labels": 135,
+    "candidate_artifact": 13894711198,
+    "publication_run": 43106961611,
+    "public_verification_run": 43107761870,
+    "phone_verified": false
   }
 }

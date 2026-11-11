@@ -1,6 +1,6 @@
 {
   "date": "2026-11-12",
-  "status": "related_native_reader_passed_full_ci_running",
+  "status": "published_public_downloads_verified",
   "release": "v1.26",
   "authorized": true,
   "gift": {
@@ -40,7 +40,7 @@
     "release_candidate 7 tests passed"
   ],
   "rift_gameplay_open": false,
-  "deployed": false,
+  "deployed": true,
   "phone_verified": false,
   "source_commit": "92582b96aee1eae64b78ecc4cf48ebcfc4371f05",
   "ci_run": 43104553552,
@@ -76,5 +76,75 @@
     "failure": "READER_VERIFY all mail items retained",
     "fix": "v1.26 second section body.slice(2) retains all remaining release lines; summary display/layout unchanged"
   },
-  "visual_reuse_scope": "925 changes section backing content only; explicit summary display and full-text letter.body unchanged from locally verified b656 screenshots"
+  "visual_reuse_scope": "925 changes section backing content only; explicit summary display and full-text letter.body unchanged from locally verified b656 screenshots",
+  "ci_status": "success",
+  "unique_success_labels": 135,
+  "candidate_run": 43104553552,
+  "candidate_artifact": 13894711198,
+  "input_fingerprint": "83593e12bdfeb52549385c349ba0adcdb7ff2b3f803cd71148265c7dca40e19b",
+  "candidate_files": {
+    "patch.pck": {
+      "size": 61898272,
+      "sha256": "19268321c82a5f5eddae6e6a3e2779c9e21e40939fb917230e6fccfdd2b7a04d"
+    },
+    "game-source.zip": {
+      "size": 67457866,
+      "sha256": "2198558a6f606bc13310e341f2a897cac2e1cd322695c0b51340c0f1f8b0bbbc"
+    },
+    "version.json": {
+      "size": 199,
+      "sha256": "61141589016f25a176b86137ed7867885b73653f802d6c6e1ff9a4eac4d6284c"
+    }
+  },
+  "candidate_download_digest_verified": true,
+  "full_source_overlay_verified": true,
+  "full_source_entries": 3269,
+  "merge_commit": "ad4f159912dfe59641e4afc4da34e269b8a095b2",
+  "pr_merged": true,
+  "merge_inputs_identical": true,
+  "rebuild": false,
+  "publication_run": 43106961611,
+  "publication_job": 130815217754,
+  "publication_attempt": 2,
+  "publication_status": "success_same_candidate_no_rebuild",
+  "public_verification_run": 43107761870,
+  "public_verification_job": 130815463630,
+  "public_verification_status": "success",
+  "release_id": 442229296,
+  "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v1.26",
+  "independent_public_download": {
+    "release_id": 442229296,
+    "target_commitish": "92582b96aee1eae64b78ecc4cf48ebcfc4371f05",
+    "assets": [
+      {
+        "name": "game-source.zip",
+        "size": 67457866,
+        "sha256": "2198558a6f606bc13310e341f2a897cac2e1cd322695c0b51340c0f1f8b0bbbc"
+      },
+      {
+        "name": "patch.pck",
+        "size": 61898272,
+        "sha256": "19268321c82a5f5eddae6e6a3e2779c9e21e40939fb917230e6fccfdd2b7a04d"
+      },
+      {
+        "name": "version.json",
+        "size": 199,
+        "sha256": "61141589016f25a176b86137ed7867885b73653f802d6c6e1ff9a4eac4d6284c"
+      }
+    ],
+    "gateway": {
+      "code": 126,
+      "name": "1.26",
+      "source_commit": "92582b96aee1eae64b78ecc4cf48ebcfc4371f05",
+      "size": 61898272,
+      "sha256": "19268321c82a5f5eddae6e6a3e2779c9e21e40939fb917230e6fccfdd2b7a04d"
+    },
+    "gateway_full_download": true,
+    "range": {
+      "status": 206,
+      "content_range": "bytes 0-99/61898272",
+      "size": 100
+    },
+    "phone_verified": false
+  }
 }
