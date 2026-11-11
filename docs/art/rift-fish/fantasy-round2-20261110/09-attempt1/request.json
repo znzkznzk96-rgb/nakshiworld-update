@@ -1,0 +1,14 @@
+{
+  "image": {
+    "type": "repository_original_reference",
+    "path": "game/art/fish/l0_11.png",
+    "sha256": "14a24c3994fd7457c475ee9cd6f2ff9651c1a3ab11c4dd3ad1eece76c77e562a",
+    "base64_omitted_from_public_record": true
+  },
+  "description": "A muscular streamlined YELLOWTAIL AMBERJACK facing RIGHT, silver belly and cobalt back. Three large overlapping turquoise crystal ARMOR plates over shoulder and flank, bright gold seams between plates. A short dorsal crest shaped like three angular prism blades. Strong narrow tail stalk and forked tail with gold tips. Keep clear eye, closed mouth and source detailed fish pixel style. Crisp original pixel shading, vivid colors, clear margins.",
+  "width": 96,
+  "height": 64,
+  "no_background": true,
+  "seed": 2026111409,
+  "actual_request_sha256": "b500a2297c1032712e592d660e92a1f26dc11957c0e710d2d9668cdd434d53d8"
+}

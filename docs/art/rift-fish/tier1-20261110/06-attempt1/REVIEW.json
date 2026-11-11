@@ -1,0 +1,28 @@
+{
+  "status": "rejected",
+  "note": "청록/라임/주황고유색·점무늬·우향/여백은통과하나몸통이넓은청록단색면으로명암부족. 원본대비3단계체적명암·쥐치마름모체형을2차에서강조.",
+  "reviewed_at_native_and_nearest6x": true,
+  "compared_with_actual_reservoir_original": true,
+  "size": [
+    96,
+    64
+  ],
+  "bbox": [
+    15,
+    8,
+    80,
+    54
+  ],
+  "mode": "RGBA",
+  "sha256": "38e201b4b4e33be3124938baf58d076e394e93cedebc1eb4f8ca27d920c01897",
+  "reference_sha256": "bce75f4ed6675688253882dbd32d8e826e28c04c3b975c9cd9813b941d64a36a",
+  "shape": "partial_filefish_body_too_oval",
+  "color": "passed",
+  "shading_pixel_clusters": "failed_flat_cyan_body",
+  "outline": "passed",
+  "species_feature": "partial_spine_and_snout_visible",
+  "alpha_margin": "passed",
+  "actual_generation_delta": 1.0,
+  "game_applied": false,
+  "user_final_approval": "pending"
+}

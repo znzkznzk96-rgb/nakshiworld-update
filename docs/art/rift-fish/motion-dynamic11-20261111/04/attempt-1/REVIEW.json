@@ -1,0 +1,36 @@
+{
+  "id": "04",
+  "attempt": 1,
+  "status": "passed",
+  "note": "가슴지느러미가 벌어졌다 접히는 노젓기와 꼬리 왕복이 이전보다 크게 읽힘. 초록 줄무늬·등가시·좌향 유지, native/정수2x에서 외부파편·잘림 없음.",
+  "native_and_nearest_reviewed": true,
+  "approved_native_compared": true,
+  "before_after_motion_compared": true,
+  "direction": "west",
+  "identity_color_alpha_reviewed": true,
+  "motion_range": {
+    "id": "04",
+    "attempt": 1,
+    "old": {
+      "silhouette_change_max": 0.047,
+      "min_content_width": 183,
+      "unclipped": true
+    },
+    "new": {
+      "silhouette_change_max": 0.154,
+      "min_content_width": 168,
+      "unclipped": true
+    },
+    "native_reference_content_width": 189,
+    "fixed_common_bbox": [
+      19,
+      20,
+      209,
+      163
+    ],
+    "scale_policy": "fixed reference length/common bbox and anchor; never fit each pose to target width; natural tail edge-on narrowing allowed without enlargement"
+  },
+  "safe_native_fight_width": true,
+  "actual_generations": 2,
+  "game_applied": false
+}

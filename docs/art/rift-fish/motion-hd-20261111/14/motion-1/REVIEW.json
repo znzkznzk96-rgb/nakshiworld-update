@@ -1,0 +1,19 @@
+{
+  "id": "14",
+  "stage": "motion",
+  "attempt": 1,
+  "status": "rejected",
+  "note": "날개 뒤 회색 불투명 덩어리가 프레임마다 생기며 가장자리까지 침범. 거울 반사는 날개 내부에만 있어야 함.",
+  "reviewed_native_and_nearest": true,
+  "approved_source_compared": true,
+  "observed_direction": "west",
+  "shape": "passed",
+  "color": "passed",
+  "native_detail": "failed",
+  "species_features": "passed",
+  "motion": "failed",
+  "alpha_margin": "failed",
+  "native_width_at_least_fight_max": "passed",
+  "actual_generation_delta": 2.0,
+  "game_applied": false
+}

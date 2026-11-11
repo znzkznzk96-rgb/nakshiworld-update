@@ -1,0 +1,11 @@
+{
+  "id": "14",
+  "status": "rejected",
+  "reason": "Large opaque gray wedges recur around/between the moving fins, including canvas edge; not usable. Wing motion is stronger but alpha/background quality fails.",
+  "native_review": true,
+  "nearest2_review": true,
+  "fixed_reference_156_review": true,
+  "extra_retry": false,
+  "actual_generations": 2,
+  "game_applied": false
+}

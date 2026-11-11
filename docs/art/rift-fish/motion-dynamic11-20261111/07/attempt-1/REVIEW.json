@@ -1,0 +1,36 @@
+{
+  "id": "07",
+  "attempt": 1,
+  "status": "passed",
+  "note": "이전보다 보라 가슴지느러미가 크게 벌어지고 접히며 꼬리의 큰 왕복·후방몸통 굴곡이 보임. 금빛선은 몸에 붙어 유지되고 외부 금빛점 없음. 좌향·색·부위 유지, 고정영역축소 기준 여백 정상.",
+  "native_and_nearest_reviewed": true,
+  "approved_native_compared": true,
+  "before_after_motion_compared": true,
+  "direction": "west",
+  "identity_color_alpha_reviewed": true,
+  "motion_range": {
+    "id": "07",
+    "attempt": 1,
+    "old": {
+      "silhouette_change_max": 0.085,
+      "min_content_width": 185,
+      "unclipped": true
+    },
+    "new": {
+      "silhouette_change_max": 0.316,
+      "min_content_width": 149,
+      "unclipped": true
+    },
+    "native_reference_content_width": 193,
+    "fixed_common_bbox": [
+      17,
+      20,
+      215,
+      108
+    ],
+    "scale_policy": "fixed reference length/common bbox and anchor; never fit each pose to target width; natural tail edge-on narrowing allowed without enlargement"
+  },
+  "safe_native_fight_width": true,
+  "actual_generations": 1,
+  "game_applied": false
+}

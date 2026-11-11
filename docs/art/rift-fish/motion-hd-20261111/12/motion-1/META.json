@@ -1,0 +1,19 @@
+{
+  "id": "12",
+  "name": "균열꽃 광어",
+  "stage": "motion",
+  "attempt": 1,
+  "model": "animate-pixminimax",
+  "seed": 2026113012,
+  "native_canvas": [
+    232,
+    156
+  ],
+  "input_sha256": "fd7523262fb2622e4729ee805a415699f68ffe36444fee5f8a5f2f02f2830daa",
+  "input_role": "internally passed native HD original derived from the user-approved fish",
+  "request_sha256": "91339e61a32ab0b10249a1bd5806ea26bdf922bcd8b7857f2692d1a58e90ef64",
+  "additional_request_used": 0,
+  "expected_output_count": 17,
+  "quoted_generations": 1,
+  "game_applied": false
+}

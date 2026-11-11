@@ -1,0 +1,13 @@
+{
+  "description": "TOP-DOWN VIEW of ONE FLATFISH FLOUNDER, head LEFT. Broad paper-FLAT oval body with tiny mouth at LEFT and TWO small eyes close together on the SAME TOP SURFACE next to the mouth. Small fan tail RIGHT. Continuous LOW petal-like fin fringe all around the flat oval, NO tall dorsal spikes. Deep saturated royal PURPLE upper surface, indigo shadow rim, bright MAGENTA-WHITE jagged diagonal RIFT across its broad flat back, six violet petal fin lobes. This is a flat leaf-shaped flounder seen from ABOVE, not a normal upright side-view fish. Entire fin fringe inside 6-pixel transparent margins. Crisp native 96x64 pixel art in existing cozy 16-bit fishing RPG style. Rich controlled 3-to-4-tone ramps, bright highlights, strongly saturated midtones and deep chromatic shadows. No dull gray-brown wash, haze, blur, heavy dithering, text, scenery or external particle clouds. Head LEFT. Whole creature centered inside transparent margins.",
+  "image_size": {
+    "width": 96,
+    "height": 64
+  },
+  "no_background": true,
+  "direction": "west",
+  "outline": "selective outline",
+  "detail": "highly detailed",
+  "seed": 2026111612,
+  "enhance_prompt": false
+}

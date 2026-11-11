@@ -1,0 +1,14 @@
+{
+  "description": "ONE STORM TUNA BOSS facing LEFT. Broad powerful tuna torpedo body, small fierce bright amber eye, closed pointed snout LEFT, narrow tail stalk and mighty crescent tail RIGHT. Deep saturated MIDNIGHT COBALT body, bright silver underside. A huge tall CRIMSON-VIOLET SAIL DORSAL FIN cut into three sweeping storm blades, bold CYAN LIGHTNING CRACKS running from gills across flank to tail. Two thick curved violet storm-ribbon fins curl backward along body, connected to shoulders, no floating objects. Tail has bright cyan leading edge. No crystals or embedded rocks: this boss embodies a raging thunderstorm, not crystal armor. Entire single boss within generous transparent margins. Crisp native 96x64 pixel art in existing cozy 16-bit fishing RPG style. Rich controlled 3-to-4-tone ramps, bright highlights, strongly saturated midtones and deep chromatic shadows. No dull gray-brown wash, haze, blur, heavy dithering, text, scenery or external particle clouds. Head LEFT. Whole creature centered inside transparent margins.",
+  "image_size": {
+    "width": 96,
+    "height": 64
+  },
+  "no_background": true,
+  "direction": "west",
+  "outline": "selective outline",
+  "detail": "highly detailed",
+  "seed": 2026111620,
+  "enhance_prompt": false,
+  "view": "side"
+}

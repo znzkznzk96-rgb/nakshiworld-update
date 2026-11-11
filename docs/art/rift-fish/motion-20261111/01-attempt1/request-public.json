@@ -1,0 +1,16 @@
+{
+  "first_frame": {
+    "source_repository_path": "docs/art/rift-fish/left-final-four-20261110/left-facing/01-쌍혜성 두꼬리꽁치.png",
+    "sha256": "e91f17dea17f458fe87e461f46c91efc95aa9b6efaaaa3e49686c71805d20355",
+    "encoded_bytes_omitted": true
+  },
+  "description": "Swim gently in place, facing LEFT for the whole loop. The long thin body makes a subtle travelling S wave. The TWO separate tail stalks and their complete crescent tails flutter alternately with a small phase offset; upper cyan tail and lower violet tail stay clearly separated. Small fins paddle gently. Keep the head nearly still and every feature and color unchanged. Seamless calm 16-frame loop, stable sprite position and scale. No turning, no camera motion, no new objects, no particles, no stretching or extra tails.",
+  "frame_count": 16,
+  "seed": 2026111801,
+  "no_background": true,
+  "enhance_prompt": false,
+  "direction": "west",
+  "view": "side",
+  "subject_description": "a slender silver-blue fantasy saury with two separate crescent tails, upper cyan and lower violet",
+  "initial_pose": "horizontal neutral swimming pose, small pointed head at LEFT, two branching tails at RIGHT"
+}

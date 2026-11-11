@@ -1,0 +1,19 @@
+{
+  "id": "08",
+  "stage": "motion",
+  "attempt": 1,
+  "status": "passed",
+  "note": "16프레임의 작은 꼬리 왕복과 지느러미 움직임 확인. 가느다란 몸·은청색·청록 발광 띠·눈/입 구조 유지, native폭·좌향·알파 여백 정상.",
+  "reviewed_native_and_nearest": true,
+  "approved_source_compared": true,
+  "observed_direction": "west",
+  "shape": "passed",
+  "color": "passed",
+  "native_detail": "passed",
+  "species_features": "passed",
+  "motion": "passed",
+  "alpha_margin": "passed",
+  "native_width_at_least_fight_max": "passed",
+  "actual_generation_delta": 1.0,
+  "game_applied": false
+}

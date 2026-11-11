@@ -1,0 +1,28 @@
+{
+  "status": "rejected",
+  "note": "참치 체형과 은청색은 맞으나 프리즘이 작은 사각 점 3개로 축소되어 판타지 핵심인 큰 결정 비늘·결정 지느러미가 약함. 어종별 특징 가독성 보완 필요.",
+  "reviewed_at_native_and_nearest6x": true,
+  "compared_with_actual_reservoir_original": true,
+  "size": [
+    96,
+    64
+  ],
+  "bbox": [
+    5,
+    9,
+    90,
+    53
+  ],
+  "mode": "RGBA",
+  "sha256": "c786e842fb44308cbfe7625759c0afd02169d52f7ea9452ee7c3c84df7aa49fe",
+  "reference_sha256": "80c335634c9ce2125cedcb3fb84fc9b0235bd18896f9fe7dbdde243e0475d391",
+  "shape": "passed",
+  "color": "passed",
+  "shading_pixel_clusters": "passed",
+  "outline": "passed",
+  "species_feature": "rejected",
+  "alpha_margin": "passed",
+  "actual_generation_delta": 1.0,
+  "game_applied": false,
+  "user_final_approval": "pending"
+}

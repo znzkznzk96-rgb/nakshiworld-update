@@ -1,0 +1,17 @@
+{
+  "tier": "rare",
+  "model": "create-image-pixflux",
+  "seed": 2026117100,
+  "request_sha256": "1054ec1143dd4ee3d84428d661b585cdfeb7195a7f026070be04c3a928965bcd",
+  "result_sha256": "ba0f225a84fe967f370142c333d0e059c5d327358141fd879bec86e123fb8f9c",
+  "usage": {
+    "type": "generations",
+    "generations": 1
+  },
+  "size": [
+    192,
+    192
+  ],
+  "mode": "RGBA",
+  "game_applied": false
+}

@@ -1,0 +1,511 @@
+{
+  "decode_canvas_palette_hash": "passed",
+  "entries": [
+    {
+      "id": "14",
+      "input_sha256": "2cfd473386916759061a23396d7edd1d7b88aec6d0e4ab5d2b5d22f6f730e039",
+      "source_visible_palette_only": true,
+      "frames": [
+        {
+          "path": "frame-00.png",
+          "sha256": "79f2573b5cc27f92e129631d202f4dee47f2d9cff76c34b5668e899212427606",
+          "bbox": [
+            50,
+            55,
+            243,
+            219
+          ]
+        },
+        {
+          "path": "frame-01.png",
+          "sha256": "57a86eabf431112487ae4839b93b429cbdd84a50b1694d8ce16a7eac7f388016",
+          "bbox": [
+            50,
+            59,
+            243,
+            224
+          ]
+        },
+        {
+          "path": "frame-02.png",
+          "sha256": "5bc7ec184283eebea3799bb9458072d8e2b33b133bd34f50ed6fcf7307194ab0",
+          "bbox": [
+            50,
+            66,
+            243,
+            226
+          ]
+        },
+        {
+          "path": "frame-03.png",
+          "sha256": "40e3cc753a19b7d1292e7a6a25b580af0fc266c29da2ffaf4472bda2f89f263b",
+          "bbox": [
+            50,
+            74,
+            243,
+            225
+          ]
+        },
+        {
+          "path": "frame-04.png",
+          "sha256": "613ba8bfb3a49a60c69e62e08f237e2e70c2e611c72809d25bef0eae31c64b39",
+          "bbox": [
+            50,
+            83,
+            243,
+            221
+          ]
+        },
+        {
+          "path": "frame-05.png",
+          "sha256": "f6ae713bfb5a946d41076f6f40ed5c2331070bc83b55d1346e27f59dede74214",
+          "bbox": [
+            50,
+            91,
+            243,
+            215
+          ]
+        },
+        {
+          "path": "frame-06.png",
+          "sha256": "eff5fc427a77396d4796a35e568af850e5a20c1708e6818fc0f423f203d1e42b",
+          "bbox": [
+            50,
+            97,
+            243,
+            208
+          ]
+        },
+        {
+          "path": "frame-07.png",
+          "sha256": "6efffa8cd384ddccef3948f315a179d4693025abd26839dc6e02dd30fe57eaec",
+          "bbox": [
+            50,
+            100,
+            243,
+            200
+          ]
+        },
+        {
+          "path": "frame-08.png",
+          "sha256": "10b70d3da63f35c653e7c654a13b38adae3d6d187065ae6e9f0a26cd664bb96f",
+          "bbox": [
+            50,
+            96,
+            243,
+            196
+          ]
+        },
+        {
+          "path": "frame-09.png",
+          "sha256": "4ba9182d4852448def30cf8ff106c65e7f715eecfbf3cdeaa58385baa0e15965",
+          "bbox": [
+            50,
+            88,
+            243,
+            194
+          ]
+        },
+        {
+          "path": "frame-10.png",
+          "sha256": "bd7e3b6485111c64f7c6a23965e5baf5a97f4386855cda008a03ce4f9b8b9c2d",
+          "bbox": [
+            50,
+            78,
+            243,
+            195
+          ]
+        },
+        {
+          "path": "frame-11.png",
+          "sha256": "7cd017d7cc4526670911a2b596aa2610820b45d7e928476e94cde12624085fd5",
+          "bbox": [
+            50,
+            69,
+            243,
+            198
+          ]
+        },
+        {
+          "path": "frame-12.png",
+          "sha256": "9cc6cf5cfa30261b7eb9f5f369b087a2fa315c4144e6dd95dbe23450e9680b3e",
+          "bbox": [
+            50,
+            61,
+            243,
+            201
+          ]
+        },
+        {
+          "path": "frame-13.png",
+          "sha256": "0b22789036c7343e2f2e614f030b32a15059109037b1eb56ce259f8e95d6fa54",
+          "bbox": [
+            50,
+            55,
+            243,
+            206
+          ]
+        },
+        {
+          "path": "frame-14.png",
+          "sha256": "d40d9e182e6311d42bbb37a60e3f71920fea1e94cf6aabd91c6d5f4614a8c86c",
+          "bbox": [
+            50,
+            52,
+            243,
+            210
+          ]
+        },
+        {
+          "path": "frame-15.png",
+          "sha256": "0705ddaf3a999936ff38f290fc1c5f59e04cb612af125e1aca0afb442aacd6d1",
+          "bbox": [
+            50,
+            53,
+            243,
+            214
+          ]
+        }
+      ],
+      "zip_sha256": "7d3f9b2da8705453a9dde6b0db644fc8c005e1df52e37ab401579d086e0afb2f"
+    },
+    {
+      "id": "17",
+      "input_sha256": "fe72e2aa479a6b18d4e0907c7df0da249c306a87f51407d939df5b7f3148a764",
+      "source_visible_palette_only": true,
+      "frames": [
+        {
+          "path": "frame-00.png",
+          "sha256": "133a1c58a3580c6495e20a0fbc871df068178acfd4b2b9207a15eefc201f88b6",
+          "bbox": [
+            47,
+            54,
+            249,
+            154
+          ]
+        },
+        {
+          "path": "frame-01.png",
+          "sha256": "26f65719df33b320839f00416e3d00021b8d9d15299f1aba100859ebbe7dfd87",
+          "bbox": [
+            47,
+            54,
+            249,
+            154
+          ]
+        },
+        {
+          "path": "frame-02.png",
+          "sha256": "89c729c2fd0df51ba1545ff53d5948a55461dcbf71ceb77f313175d4106488ec",
+          "bbox": [
+            47,
+            55,
+            249,
+            159
+          ]
+        },
+        {
+          "path": "frame-03.png",
+          "sha256": "d3927c25a075e20421e953b01e0259535e8473a180a335971a1870e55dbf2251",
+          "bbox": [
+            47,
+            56,
+            249,
+            164
+          ]
+        },
+        {
+          "path": "frame-04.png",
+          "sha256": "fc9f54c908cf6e78d4a472653a168817803d5bcb404c068013dac6fcf4c7205b",
+          "bbox": [
+            47,
+            57,
+            249,
+            166
+          ]
+        },
+        {
+          "path": "frame-05.png",
+          "sha256": "3b1474ae8a15044c2843e46749b726e76f6c1c43e204076c926b2e78160139d3",
+          "bbox": [
+            47,
+            58,
+            249,
+            164
+          ]
+        },
+        {
+          "path": "frame-06.png",
+          "sha256": "9075dd63d8cf7cae8cb413881278f97767892dfd594f9d3f1ac29749db377e3e",
+          "bbox": [
+            47,
+            59,
+            249,
+            160
+          ]
+        },
+        {
+          "path": "frame-07.png",
+          "sha256": "aff141be74daff93637a2021aa70044be632e256410debe9f214e71898d5cbf3",
+          "bbox": [
+            47,
+            59,
+            249,
+            161
+          ]
+        },
+        {
+          "path": "frame-08.png",
+          "sha256": "da8434f20fa508e46816d354daa56d86401172f1373f7379e9e4287e86de8885",
+          "bbox": [
+            47,
+            59,
+            249,
+            161
+          ]
+        },
+        {
+          "path": "frame-09.png",
+          "sha256": "e217d8607ec9e6db9876f1aa11606e1080b99c9c176e76d086d26f9306c8196c",
+          "bbox": [
+            47,
+            59,
+            249,
+            160
+          ]
+        },
+        {
+          "path": "frame-10.png",
+          "sha256": "b3a0529e496b5d7d91e3c6068328d3a43e0be70177f6e7762e1d69b08453ed4c",
+          "bbox": [
+            47,
+            59,
+            249,
+            159
+          ]
+        },
+        {
+          "path": "frame-11.png",
+          "sha256": "99bf7561dd0b3f74dc63c0a42407c4604ea39f7e5349075c0faf466b5fd235ae",
+          "bbox": [
+            47,
+            58,
+            249,
+            158
+          ]
+        },
+        {
+          "path": "frame-12.png",
+          "sha256": "2e9fe5339c0db6f3d7fb7ec7aa66bc92f7dd23ee7ddd8a2b7df391de3f9bc211",
+          "bbox": [
+            47,
+            57,
+            249,
+            157
+          ]
+        },
+        {
+          "path": "frame-13.png",
+          "sha256": "c2a582f1b5deb2937fcd8fb0b97fc046186af58451fcfc10fcf2f835a7cb822f",
+          "bbox": [
+            47,
+            56,
+            249,
+            156
+          ]
+        },
+        {
+          "path": "frame-14.png",
+          "sha256": "325e999f01d2eb1b7224ee256bd947ae6518b18c9cb2e9a0220640adf4852e1d",
+          "bbox": [
+            47,
+            55,
+            249,
+            155
+          ]
+        },
+        {
+          "path": "frame-15.png",
+          "sha256": "a21bbb3c314618d5058a3fcfac33d7eaf7d3ee32c4a58b666d3487a01cb6b69c",
+          "bbox": [
+            47,
+            54,
+            249,
+            154
+          ]
+        }
+      ],
+      "zip_sha256": "2a97e4936a13b453244f7410baf4d68f9ca924a1d3eff6c648955e94e799bece"
+    },
+    {
+      "id": "18",
+      "input_sha256": "c4d16ee1ffb85704ac50eaeb830d6e386eddddaf1382b5e5eb26104cccac05a7",
+      "source_visible_palette_only": true,
+      "frames": [
+        {
+          "path": "frame-00.png",
+          "sha256": "0a306b158f3def11f71dd583d53001bbc14cd404878de524c07dc8b7025bec50",
+          "bbox": [
+            45,
+            52,
+            251,
+            177
+          ]
+        },
+        {
+          "path": "frame-01.png",
+          "sha256": "63b84233e6627cce3da4a2ef1153d66292319dbc2d866f22d30f5b1effabe539",
+          "bbox": [
+            45,
+            51,
+            251,
+            182
+          ]
+        },
+        {
+          "path": "frame-02.png",
+          "sha256": "467e94cc26757c21c06a158ae09e3f33fec64f19eea573fbcc37ed14725a8589",
+          "bbox": [
+            45,
+            52,
+            251,
+            191
+          ]
+        },
+        {
+          "path": "frame-03.png",
+          "sha256": "ad06449a31a3ef820e52918a55c009becc432598be8bd6f5be8dd7e7fa2b41fc",
+          "bbox": [
+            45,
+            53,
+            251,
+            197
+          ]
+        },
+        {
+          "path": "frame-04.png",
+          "sha256": "e060dc444ac871d6ab350e67c1660b438e7b39706719be7dc17437095e738ac3",
+          "bbox": [
+            45,
+            56,
+            251,
+            199
+          ]
+        },
+        {
+          "path": "frame-05.png",
+          "sha256": "b3ebfa91e0e2bf82fb04d5649ab5300b54ae750a470b020aab731cbda50f7283",
+          "bbox": [
+            45,
+            59,
+            251,
+            196
+          ]
+        },
+        {
+          "path": "frame-06.png",
+          "sha256": "089403d91517c3e930ea74ac8244a122c09e0271ed4926b9973dcf816c066e2a",
+          "bbox": [
+            45,
+            61,
+            251,
+            189
+          ]
+        },
+        {
+          "path": "frame-07.png",
+          "sha256": "36ac46e87d0758812953d1b1915e196610366fa2e568d83045f4a39455e49701",
+          "bbox": [
+            45,
+            64,
+            251,
+            182
+          ]
+        },
+        {
+          "path": "frame-08.png",
+          "sha256": "155c1ab48f47764a7d2c8ae428ff6ee57c28a17d0715a269ae3b6c9bb3de8fab",
+          "bbox": [
+            45,
+            65,
+            251,
+            181
+          ]
+        },
+        {
+          "path": "frame-09.png",
+          "sha256": "6877dcecaa57d8207bf5a832d8dcfba10f0d15b6dad8698be0d0e7714237f991",
+          "bbox": [
+            45,
+            66,
+            251,
+            180
+          ]
+        },
+        {
+          "path": "frame-10.png",
+          "sha256": "f45b8bdb1594829d5dd2908e6712693fdaeefcb530fdb5050a8260286b0412b3",
+          "bbox": [
+            45,
+            66,
+            251,
+            178
+          ]
+        },
+        {
+          "path": "frame-11.png",
+          "sha256": "6fdce824a8dcf12501708d0ea7a9714478ffd5ca3ee08e1af01186409e816446",
+          "bbox": [
+            45,
+            64,
+            251,
+            177
+          ]
+        },
+        {
+          "path": "frame-12.png",
+          "sha256": "57ed678e68be52d4e12c4b9f0ed3d953a321f00a0cfeedd35c5257e74dd80bdc",
+          "bbox": [
+            45,
+            62,
+            251,
+            176
+          ]
+        },
+        {
+          "path": "frame-13.png",
+          "sha256": "5528226dfc430db4d76f587dac5523c47e5bb09fac7fad0699934ec490d86ea4",
+          "bbox": [
+            45,
+            59,
+            251,
+            176
+          ]
+        },
+        {
+          "path": "frame-14.png",
+          "sha256": "fc075c44b83eb0775bd8efec5da1a30e0cdcba2bdb4bd474310494eb230a92c3",
+          "bbox": [
+            45,
+            56,
+            251,
+            176
+          ]
+        },
+        {
+          "path": "frame-15.png",
+          "sha256": "2ce0195c0eaf936017b60ba63147b603d93b79a3652bb438016456922a0d546b",
+          "bbox": [
+            45,
+            54,
+            251,
+            177
+          ]
+        }
+      ],
+      "zip_sha256": "eaa90a4c021968107375918f0c5c6c994ecd1b28900fb4ac1d73cafb5c950483"
+    }
+  ],
+  "paid_calls": 0,
+  "game_applied": false
+}

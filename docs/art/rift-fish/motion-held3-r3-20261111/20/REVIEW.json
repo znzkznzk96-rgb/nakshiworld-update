@@ -1,0 +1,11 @@
+{
+  "id": "20",
+  "status": "passed",
+  "note": "전16프레임에서 외부 전기 파편 방출이 사라지고 청록 무늬가 몸 안에 유지. 붉은 돛·보라 리본·좌향·진한 색 유지, 작은 꼬리 유영과 여백 정상. native 및 nearest2x 확인.",
+  "native_and_nearest_reviewed": true,
+  "direction": "west",
+  "native_min_content_width": 175,
+  "all_frames_unclipped": true,
+  "actual_generations": 2,
+  "game_applied": false
+}

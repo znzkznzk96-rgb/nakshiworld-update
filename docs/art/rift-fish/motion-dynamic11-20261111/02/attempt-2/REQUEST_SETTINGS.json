@@ -1,0 +1,22 @@
+{
+  "description": "Energetic 2D side-profile swim. A strong VERTICAL S-wave travels from the rear torso into the tail: the entire tail sweeps well UP above the body line, then well DOWN below it, with clear push, follow-through and recovery. Pectoral fins spread widely and row backward. Keep the tail visibly extended to the RIGHT of the body at all times, never turned edge-on or hidden behind the torso. Keep a horizontal spread of at least 170 pixels. Head LEFT, no 3D turn or foreshortening. Fixed camera, position and scale. Preserve original anatomy, rich colors and attached skin markings. All fins stay present and inside transparent margins. No particles, glow or trails.",
+  "frame_count": 16,
+  "seed": 2026115202,
+  "no_background": true,
+  "drift_threshold": 0,
+  "enhance_prompt": false,
+  "direction": "west",
+  "view": "side",
+  "subject_description": "blue-silver sardine with a cyan side marking",
+  "initial_pose": "horizontal side-view swim pose, head left and tail or mantle right, whole creature visible inside transparent margins",
+  "first_frame": {
+    "sha256": "7db650a1e42b245a87896ba5e4812411af51fdda6a001fa74e0c0e73e01672e3",
+    "source": "docs/art/rift-fish/motion-hd-20261111/02/base-1/original.png",
+    "role": "passed original HD art exact bytes"
+  },
+  "last_frame": {
+    "sha256": "7db650a1e42b245a87896ba5e4812411af51fdda6a001fa74e0c0e73e01672e3",
+    "source": "docs/art/rift-fish/motion-hd-20261111/02/base-1/original.png",
+    "role": "passed original HD art exact bytes"
+  }
+}

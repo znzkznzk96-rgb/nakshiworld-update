@@ -1,0 +1,19 @@
+{
+  "id": "18",
+  "stage": "base",
+  "attempt": 1,
+  "status": "passed",
+  "note": "길고 날카로운 결정 주둥이와 보라·청록 돛지느러미, 은청색 몸통과 긴 배지느러미를 좌향으로 유지. 여백 정상.",
+  "reviewed_native_and_nearest": true,
+  "approved_source_compared": true,
+  "observed_direction": "west",
+  "shape": "passed",
+  "color": "passed",
+  "native_detail": "passed",
+  "species_features": "passed",
+  "motion": "not_applicable",
+  "alpha_margin": "passed",
+  "native_width_at_least_fight_max": "passed",
+  "actual_generation_delta": 1.0,
+  "game_applied": false
+}

@@ -1,0 +1,13 @@
+{
+  "description": "ONE fantasy FLOUNDER facing RIGHT, broad very FLAT oval-diamond body seen from slightly above, both normal flounder eyes together on upper head side at RIGHT. Exactly two ordinary eyes, no extra third eye. Rich violet body with deep navy underside rim. ONE broad jagged DIAGONAL magenta-white rift crack crosses the flat body, body remains intact, not a portal hole. Fin fringe is divided into 6 broad petal-like lavender sections around body, a small tail at LEFT. Clearly a flatfish, not a round carp. Cozy existing 16-bit fishing RPG sprite style. Crisp native 96x64 pixel clusters, clean selective dark outline, rich controlled 3-to-4-tone ramps per material, distinct highlights/midtones/shadows. Vivid species colors, no washed-out gray or yellow haze, no soft gradients, heavy dithering or blur. Entire single creature centered with transparent margins, head at RIGHT. Animation-ready neutral swimming pose, separate readable fin/tentacle shapes. No text, frames, scenery or external particle trails.",
+  "image_size": {
+    "width": 96,
+    "height": 64
+  },
+  "no_background": true,
+  "direction": "east",
+  "outline": "selective outline",
+  "detail": "highly detailed",
+  "seed": 2026111412,
+  "enhance_prompt": false
+}

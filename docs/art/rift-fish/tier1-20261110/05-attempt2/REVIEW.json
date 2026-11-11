@@ -1,0 +1,28 @@
+{
+  "status": "rejected",
+  "note": "색/우향/투명여백은정상이나왼쪽이뾰족한닫힌원뿔맨틀이아닌갈라진물고기꼬리로남고등지느러미도남아오징어체형불합격. 요청2회상한으로이종만보류.",
+  "reviewed_at_native_and_nearest6x": true,
+  "compared_with_actual_reservoir_original": true,
+  "size": [
+    96,
+    64
+  ],
+  "bbox": [
+    4,
+    13,
+    92,
+    49
+  ],
+  "mode": "RGBA",
+  "sha256": "a155b5288422a130da537ab572a3ffb100fad925a56c5a3bee117f8d0cc38137",
+  "reference_sha256": "e454a6f227a1c2005f0844bb375b9bb6b2790e9043049451f214dd74e4eb03d2",
+  "shape": "failed_fish_forked_tail_remains",
+  "color": "passed",
+  "shading_pixel_clusters": "rejected",
+  "outline": "passed",
+  "species_feature": "failed_conical_squid_mantle",
+  "alpha_margin": "passed",
+  "actual_generation_delta": 1.0,
+  "game_applied": false,
+  "user_final_approval": "pending"
+}

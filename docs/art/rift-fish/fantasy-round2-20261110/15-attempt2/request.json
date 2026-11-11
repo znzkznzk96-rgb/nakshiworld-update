@@ -1,0 +1,14 @@
+{
+  "image": {
+    "type": "repository_original_reference",
+    "path": "game/art/fish/l0_12.png",
+    "sha256": "80c335634c9ce2125cedcb3fb84fc9b0235bd18896f9fe7dbdde243e0475d391",
+    "base64_omitted_from_public_record": true
+  },
+  "description": "A huge muscular cobalt-violet TUNA facing RIGHT, bright silver belly, narrow stalk and crescent tail. THREE LARGE TURQUOISE CRYSTAL PRISMS rise from shoulder/flank like embedded jagged gemstones, each taller than the eye and visibly faceted with bright white tips, teal midtones and dark blue bases. Bold MAGENTA RIFT SEAMS beneath crystals. Dorsal fin and tail tips are crystalline violet blades. Closed pointed mouth, clear eye, rich crisp original pixel shading.",
+  "width": 96,
+  "height": 64,
+  "no_background": true,
+  "seed": 2026111515,
+  "actual_request_sha256": "9dd5a7a639a24c64fd9cdbe88b63d0102811da460d849d9726e1036ccc1d89ad"
+}

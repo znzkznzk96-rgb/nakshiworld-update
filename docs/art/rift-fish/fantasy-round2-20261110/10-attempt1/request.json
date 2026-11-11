@@ -1,0 +1,14 @@
+{
+  "image": {
+    "type": "repository_original_reference",
+    "path": "game/art/fish/l0_07.png",
+    "sha256": "a09e70c432b23d10502eb18efa02d14bfbbd4ce4c5a15634b7f5c161a3ac47db",
+    "base64_omitted_from_public_record": true
+  },
+  "description": "A long slender Spanish mackerel facing RIGHT, vivid sapphire-blue back and silver belly, small forked tail. TWO broad magenta-violet RIBBON FINS extend from shoulders, sweep backward toward LEFT and curl in clear S curves, one above and one below the body. Each ribbon stays visibly 2-3 pixels thick, not hairlike lines. A few dark chevron markings on flank. Preserve source detailed fish pixel style. Crisp original pixel shading, vivid colors, clear margins.",
+  "width": 96,
+  "height": 64,
+  "no_background": true,
+  "seed": 2026111410,
+  "actual_request_sha256": "0c275355b733c4c8f01442fa9382c5cd092d1a68b8710c8ac3e9682eaaa73ffa"
+}

@@ -1,0 +1,29 @@
+{
+  "status": "rejected",
+  "note": "보라색과 명암은 개선됐지만 높은 등 가시가 남아 낮은 꽃잎 테두리·납작한 광어 윗면/같은 면 두 눈이 명확하지 않음. 모양 명세 미통과로 광어만 보류. 이번 추가2회 상한 준수, 다음 개복치 진행.",
+  "reviewed_at_native_and_nearest6x": true,
+  "compared_with_actual_reservoir_original": true,
+  "size": [
+    96,
+    64
+  ],
+  "bbox": [
+    4,
+    5,
+    93,
+    59
+  ],
+  "mode": "RGBA",
+  "sha256": "82e159c7b1704943af74cf39acf99ddb1dd31c0e04de8faf9d87754d40067873",
+  "reference_sha256": "a87f59d881fbd6fe0027a8c9008e95a9849eeb6552d55ba5b1dee634dc690787",
+  "shape": "rejected",
+  "color": "passed",
+  "shading_pixel_clusters": "passed",
+  "outline": "passed",
+  "species_feature": "rejected",
+  "alpha_margin": "passed",
+  "actual_generation_delta": 1.0,
+  "game_applied": false,
+  "user_final_approval": "pending",
+  "observed_direction": "west"
+}

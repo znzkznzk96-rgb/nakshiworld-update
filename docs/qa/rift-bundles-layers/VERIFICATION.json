@@ -1,0 +1,201 @@
+{
+  "date": "2026-11-11",
+  "engine": "Godot 4.4.1",
+  "source_commit": "d6c2c09856ffd4b986f685dd1c7e7f5e20819563",
+  "baseline": {
+    "release": "v1.25",
+    "sha256": "96a1b1ce885ad159f1e30af0c1bf080be1f7b7d88a1dbdcd6804dd3425e0b1b0"
+  },
+  "bundles": {
+    "main": [
+      60,
+      63,
+      68,
+      69,
+      74,
+      77
+    ],
+    "sub": [
+      61,
+      62,
+      64,
+      65,
+      70,
+      75
+    ],
+    "owner": [
+      79
+    ],
+    "minimum_grade": 0,
+    "count_per_species": 1,
+    "entry_fee": 4635000,
+    "next_fee": 30150000,
+    "sub_gold": 3015000,
+    "owner_gold": 9045000,
+    "sub_souls": 50,
+    "owner_pearls": 6,
+    "fish_sale_changed": false,
+    "existing_rewards_unchanged": true
+  },
+  "layers": {
+    "boat_base": [
+      180,
+      225
+    ],
+    "boat_output": [
+      360,
+      450
+    ],
+    "scale_filter": "nearest 2x",
+    "bob_amplitude_logical": 1.5,
+    "bob_period_seconds": 4.2,
+    "rotation": false,
+    "shared_offset": [
+      "boat",
+      "character",
+      "cat",
+      "chair",
+      "rod_tip",
+      "attached_lantern"
+    ],
+    "independent": [
+      "clouds",
+      "four_floating_rocks_from_three_sprites",
+      "thin_rift_glow",
+      "surface_water",
+      "foam",
+      "underwater_noise_light"
+    ],
+    "rift_mask": "thin local-contrast mask of approved plate; no broad dusk band",
+    "boat_waterline_tint": true
+  },
+  "asset_integrity": {
+    "approved_base_sha256": "c404675fa5342ae30c7353ca9b3d4030f20849055ebf792f1fe88ed5245767c3",
+    "base_unchanged": true,
+    "remote_inputs": {
+      "rock_0": {
+        "sha256": "76f1fef221b78e9c4f155599391a8bb071028de22d4978e7d8531a10c335e439",
+        "size": [
+          64,
+          64
+        ],
+        "decoded": true
+      },
+      "rock_1": {
+        "sha256": "5af7e28125755bcd08d7d85c0b751fe886391afaaa8997f66c5758d72e534027",
+        "size": [
+          64,
+          64
+        ],
+        "decoded": true
+      },
+      "rock_2": {
+        "sha256": "434134360ceae72de4f28a47d82730bbbcd2cec5faab4fdd97ac04f91322b6af",
+        "size": [
+          64,
+          64
+        ],
+        "decoded": true
+      },
+      "boat": {
+        "sha256": "c90c5227e6eb4f644048b4763ef38bae50ae22d9a9fa6978fb75c6b91bc7f344",
+        "size": [
+          180,
+          225
+        ],
+        "decoded": true
+      }
+    },
+    "all_remote_inputs_match": true
+  },
+  "image_generation": {
+    "builtin_requests": 2,
+    "boat_requests": 1,
+    "rock_sheet_requests": 1,
+    "pixellab_requests": 0,
+    "model": "not_exposed",
+    "seed": "not_exposed",
+    "actual_credit_charge": "not_exposed",
+    "alpha_cleanup": "threshold200 before nearest resize",
+    "user_visual_approval": "pending for new layer assets"
+  },
+  "tests": {
+    "related": "passed",
+    "actual_failed_save_rollback": "passed",
+    "independent_restart_duplicate_claim_guard": "passed",
+    "rng_state_preserved": "passed",
+    "native_renders": 26,
+    "native_heights": [
+      480,
+      540,
+      660
+    ],
+    "boat_phases_seconds": [
+      0,
+      1.05,
+      3.15
+    ],
+    "sole_pixels_inside_deck": "passed",
+    "shared_boat_actor_offset": "passed",
+    "compact_bundle_layout": "visually passed at480/540/660",
+    "full_ci": {
+      "run": 42976146895,
+      "job": 130375678347,
+      "status": "success",
+      "unique_success_labels": 135,
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/actions/runs/42976146895"
+    },
+    "packed": "PACKED_RIFT_ART_VERIFY failures=[] species=20; boat, mask, rock textures and bundle amounts included"
+  },
+  "artifacts": {
+    "native": {
+      "id": 13835511673,
+      "name": "rift-art-first-preview",
+      "size": 18532098,
+      "digest": "sha256:62ae61879cb00b8dcb17d95de843b725817e16506e12a00da29d59a7cbca05b5",
+      "expired": false
+    },
+    "candidate": {
+      "id": 13835384365,
+      "name": "release-candidate-9ab98a833e44565dc8216ad4d5352d16f464935bd92e5cc44cace9b8f32da5a6",
+      "size": 123383557,
+      "digest": "sha256:c5630797863da1c51da8624cc704f39f67c0ef2ccbc1033eb1b5e56c3e4eb644",
+      "expired": false
+    },
+    "logs": {
+      "id": 13835967544,
+      "name": "work-verification",
+      "size": 230783593,
+      "digest": "sha256:447fc12f542d444aea32317f6d9acadb1efdc2634b6591ea798a05945e851d6c",
+      "expired": false
+    }
+  },
+  "preview": {
+    "library_file_id": "libfile_fde3_f-6cca7ea487ac81918b373e7ee74b85d9_d66dafb33acc81918ce203aeb3fcd18e",
+    "sha256": "fbd3878bd7da72b94cde6919f550f99f318199e54e268796a93ab55e18e1841f",
+    "frames": 8,
+    "duration_ms": 525,
+    "source_artifact": 13835336027,
+    "boat_render_code_same_as_final": true
+  },
+  "iterations": {
+    "first_full_run": 42973964570,
+    "first_full_failure": "legacy test expected rift sub reward0; approved3015000 now asserted, later-region0 guard retained",
+    "first_native_revisions": "foot beyond bow / broad glow band / simple rocks corrected",
+    "compact_revision": "480px museum fish/name overlap corrected only for region3",
+    "local_type_inference": "explicit Vector2 fixed before final CI"
+  },
+  "gameplay_available_regions": [
+    0,
+    1,
+    2
+  ],
+  "gameplay_catalog_count": 60,
+  "rift_art_species": 20,
+  "gameplay_rift_open": false,
+  "release_authorized": false,
+  "deployed": false,
+  "phone_verified": false,
+  "candidate_publishable": false,
+  "publication_note": "Verification candidate retains1.25; new version and public release are not authorized by this task."
+}

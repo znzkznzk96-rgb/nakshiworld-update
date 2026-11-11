@@ -1,0 +1,13 @@
+{
+  "status": "rejected",
+  "reason": "Single connected starburst with densely opaque white center, instead of independent outward-scattering fragments and open transparent center. Static sample does not establish motion or fade.",
+  "decode": "passed",
+  "dimensions": [
+    192,
+    192
+  ],
+  "original_palette": "blue/cyan/white",
+  "actual_generations": 1,
+  "game_applied": false,
+  "subsequent_paid_calls": 0
+}

@@ -11,13 +11,14 @@ func run():
 	var app=load("res://tests/valley_native_root.gd").new();root.add_child(app);await app._start()
 	var m=app.box.get_child(0).get_child(0)
 	m.SET.sfx=0;m.SET.music=0;m.set_process(false);m.title_open=false;m.TUT.done=true;m.lesson_open=false;m.trans={};m.S={"phase":"idle"}
-	for version in ["0.78","0.93","1.08"]:
+	for version in ["0.78","0.93","1.08","1.26"]:
+		if args.size()>2 and version!=args[2]:continue
 		m.ui_clock=0;m.testing_grants=[];m.gold=123;m.bag=[]
 		m._switch_scene("village");m.V.shop=""
 		m.mailbox.opened=true;m.mailbox.detail=version;m.mailbox.topic=0;m.mailbox.full_text=false;m._layout()
 		await capture(m,out,version+"_"+str(h)+"_before")
 		m.mailbox.press(m,m.mailbox.rects.gift.get_center())
-		assert(m.gold==(100123 if version=="0.93" else 1000123) and m.bag.size()==20)
+		assert(m.gold==(100123 if version=="0.93" else (4635123 if version=="1.26" else 1000123)) and m.bag.size()==20)
 		await capture(m,out,version+"_"+str(h)+"_claimed")
 		m.mailbox.full_text=true;await capture(m,out,version+"_"+str(h)+"_detail")
 	m.audio_feedback.dispose();app.queue_free();await process_frame;await process_frame

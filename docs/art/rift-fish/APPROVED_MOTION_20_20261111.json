@@ -1,0 +1,245 @@
+{
+  "date": "2026-11-11",
+  "motion_passed": 20,
+  "held": [],
+  "species": [
+    {
+      "id": "01",
+      "name": "쌍혜성 두꼬리꽁치",
+      "native_source": "docs/art/rift-fish/motion-hd-20261111/01/base-1/original.png",
+      "status": "user_approved",
+      "motion_source": "docs/art/rift-fish/motion-hd-20261111/01/motion-1/frames-original.zip",
+      "asset_commit": "294c6e03359b922a5f7f763fd5cd8f7ab7207f73",
+      "motion_user_approved": true
+    },
+    {
+      "id": "02",
+      "name": "균열정어리",
+      "native_source": "docs/art/rift-fish/motion-hd-20261111/02/base-1/original.png",
+      "status": "user_approved",
+      "motion_source": "docs/art/rift-fish/motion-dynamic11-20261111/02/attempt-2/frames-original.zip",
+      "asset_commit": "11e8fe782d03440eb1251eed3d057189af28fb07",
+      "previous_motion_source": "docs/art/rift-fish/motion-hd-20261111/02/motion-1/frames-original.zip",
+      "motion_user_approved": true
+    },
+    {
+      "id": "03",
+      "name": "네날개날치",
+      "native_source": "docs/art/rift-fish/motion-hd-20261111/03/base-1/original.png",
+      "status": "user_approved",
+      "motion_source": "docs/art/rift-fish/motion-hd-20261111/03/motion-1/frames-original.zip",
+      "asset_commit": "294c6e03359b922a5f7f763fd5cd8f7ab7207f73",
+      "motion_user_approved": true
+    },
+    {
+      "id": "04",
+      "name": "가시등전어",
+      "native_source": "docs/art/rift-fish/motion-hd-20261111/04/base-1/original.png",
+      "status": "user_approved",
+      "motion_source": "docs/art/rift-fish/motion-dynamic11-20261111/04/attempt-1/frames-original.zip",
+      "asset_commit": "11e8fe782d03440eb1251eed3d057189af28fb07",
+      "previous_motion_source": "docs/art/rift-fish/motion-hd-20261111/04/motion-1/frames-original.zip",
+      "motion_user_approved": true
+    },
+    {
+      "id": "05",
+      "name": "균열장막 오징어",
+      "native_source": "docs/art/rift-fish/motion-hd-20261111/05/base-2/original.png",
+      "status": "user_approved",
+      "motion_source": "docs/art/rift-fish/motion-dynamic11-20261111/05/attempt-1/frames-original.zip",
+      "asset_commit": "11e8fe782d03440eb1251eed3d057189af28fb07",
+      "previous_motion_source": "docs/art/rift-fish/motion-hd-20261111/05/motion-1/frames-original.zip",
+      "motion_user_approved": true
+    },
+    {
+      "id": "06",
+      "name": "쥐포쥐치",
+      "native_source": "docs/art/rift-fish/motion-hd-20261111/06/base-2/original.png",
+      "status": "user_approved",
+      "motion_source": "docs/art/rift-fish/motion-dynamic11-20261111/06/attempt-1/frames-original.zip",
+      "asset_commit": "11e8fe782d03440eb1251eed3d057189af28fb07",
+      "previous_motion_source": "docs/art/rift-fish/motion-hd-20261111/06/motion-1/frames-original.zip",
+      "motion_user_approved": true
+    },
+    {
+      "id": "07",
+      "name": "금간정어리",
+      "native_source": "docs/art/rift-fish/motion-hd-20261111/07/base-1/original.png",
+      "status": "user_approved",
+      "motion_source": "docs/art/rift-fish/motion-dynamic11-20261111/07/attempt-1/frames-original.zip",
+      "asset_commit": "11e8fe782d03440eb1251eed3d057189af28fb07",
+      "previous_motion_source": "docs/art/rift-fish/motion-held3-r3-20261111/07/frames-original.zip",
+      "motion_user_approved": true
+    },
+    {
+      "id": "08",
+      "name": "빛멸치",
+      "native_source": "docs/art/rift-fish/motion-hd-20261111/08/base-1/original.png",
+      "status": "user_approved",
+      "motion_source": "docs/art/rift-fish/motion-dynamic11-20261111/08/attempt-2/frames-original.zip",
+      "asset_commit": "11e8fe782d03440eb1251eed3d057189af28fb07",
+      "previous_motion_source": "docs/art/rift-fish/motion-hd-20261111/08/motion-1/frames-original.zip",
+      "motion_user_approved": true
+    },
+    {
+      "id": "09",
+      "name": "균열갑주 방어",
+      "native_source": "docs/art/rift-fish/motion-hd-20261111/09/base-1/original.png",
+      "status": "user_approved",
+      "motion_source": "docs/art/rift-fish/motion-dynamic11-20261111/09/attempt-1/frames-original.zip",
+      "asset_commit": "11e8fe782d03440eb1251eed3d057189af28fb07",
+      "previous_motion_source": "docs/art/rift-fish/motion-hd-20261111/09/motion-1/frames-original.zip",
+      "motion_user_approved": true
+    },
+    {
+      "id": "10",
+      "name": "유영리본 삼치",
+      "native_source": "docs/art/rift-fish/motion-hd-20261111/10/base-1/original.png",
+      "status": "user_approved",
+      "motion_source": "docs/art/rift-fish/motion-hd-20261111/10/motion-1/frames-original.zip",
+      "asset_commit": "294c6e03359b922a5f7f763fd5cd8f7ab7207f73",
+      "motion_user_approved": true
+    },
+    {
+      "id": "11",
+      "name": "균열칼날 갈치",
+      "native_source": "docs/art/rift-fish/motion-hd-20261111/11/base-2/original.png",
+      "status": "user_approved",
+      "motion_source": "docs/art/rift-fish/motion-hd-20261111/11/motion-1/frames-original.zip",
+      "asset_commit": "294c6e03359b922a5f7f763fd5cd8f7ab7207f73",
+      "motion_user_approved": true
+    },
+    {
+      "id": "12",
+      "name": "균열꽃 광어",
+      "native_source": "docs/art/rift-fish/motion-hd-20261111/12/base-1/original.png",
+      "status": "user_approved",
+      "motion_source": "docs/art/rift-fish/motion-dynamic11-20261111/12/attempt-1/frames-original.zip",
+      "asset_commit": "11e8fe782d03440eb1251eed3d057189af28fb07",
+      "previous_motion_source": "docs/art/rift-fish/motion-hd-20261111/12/motion-1/frames-original.zip",
+      "motion_user_approved": true
+    },
+    {
+      "id": "13",
+      "name": "틈새결정 복어",
+      "native_source": "docs/art/rift-fish/motion-hd-20261111/13/base-2/original.png",
+      "status": "user_approved",
+      "motion_source": "docs/art/rift-fish/motion-hd-20261111/13/motion-1/frames-original.zip",
+      "asset_commit": "294c6e03359b922a5f7f763fd5cd8f7ab7207f73",
+      "motion_user_approved": true
+    },
+    {
+      "id": "14",
+      "name": "거울날개 날치",
+      "native_source": "docs/art/rift-fish/motion-hd-20261111/14/base-1/original.png",
+      "status": "user_approved",
+      "motion_source": "docs/art/rift-fish/motion-controlled-20261111/14/frames-original.zip",
+      "asset_commit": "57048470481c75cd7f112115d7040be9829f1ad5",
+      "review": "docs/art/rift-fish/motion-controlled-20261111/RIG_REPORT.json",
+      "previous_review": "docs/art/rift-fish/motion-final3-20261111/14/REVIEW.json",
+      "motion_method": "approved_original_texture_controlled_rig",
+      "motion_frame_count": 16,
+      "output_canvas": [
+        296,
+        284
+      ],
+      "source_offset": [
+        32,
+        40
+      ],
+      "motion_user_approved": true
+    },
+    {
+      "id": "15",
+      "name": "차원결정 참치",
+      "native_source": "docs/art/rift-fish/motion-hd-20261111/15/base-1/original.png",
+      "status": "user_approved",
+      "motion_source": "docs/art/rift-fish/motion-hd-20261111/15/motion-1/frames-original.zip",
+      "asset_commit": "294c6e03359b922a5f7f763fd5cd8f7ab7207f73",
+      "motion_user_approved": true
+    },
+    {
+      "id": "16",
+      "name": "월식 개복치",
+      "native_source": "docs/art/rift-fish/motion-hd-20261111/16/base-1/original.png",
+      "status": "user_approved",
+      "motion_source": "docs/art/rift-fish/motion-dynamic11-20261111/16/attempt-1/frames-original.zip",
+      "asset_commit": "11e8fe782d03440eb1251eed3d057189af28fb07",
+      "previous_motion_source": "docs/art/rift-fish/motion-hd-20261111/16/motion-1/frames-original.zip",
+      "motion_user_approved": true
+    },
+    {
+      "id": "17",
+      "name": "뇌광 삼치",
+      "native_source": "docs/art/rift-fish/motion-hd-20261111/17/base-1/original.png",
+      "status": "user_approved",
+      "motion_source": "docs/art/rift-fish/motion-controlled-20261111/17/frames-original.zip",
+      "asset_commit": "57048470481c75cd7f112115d7040be9829f1ad5",
+      "previous_motion_source": "docs/art/rift-fish/motion-hd-20261111/17/motion-1/frames-original.zip",
+      "review": "docs/art/rift-fish/motion-controlled-20261111/RIG_REPORT.json",
+      "previous_review": "docs/art/rift-fish/motion-final3-20261111/17/REVIEW.json",
+      "motion_method": "approved_original_texture_controlled_rig",
+      "motion_frame_count": 16,
+      "output_canvas": [
+        296,
+        216
+      ],
+      "source_offset": [
+        32,
+        40
+      ],
+      "motion_user_approved": true
+    },
+    {
+      "id": "18",
+      "name": "차원창 청새치",
+      "native_source": "docs/art/rift-fish/motion-hd-20261111/18/base-1/original.png",
+      "status": "user_approved",
+      "motion_source": "docs/art/rift-fish/motion-controlled-20261111/18/frames-original.zip",
+      "asset_commit": "57048470481c75cd7f112115d7040be9829f1ad5",
+      "previous_motion_source": "docs/art/rift-fish/motion-hd-20261111/18/motion-1/frames-original.zip",
+      "review": "docs/art/rift-fish/motion-controlled-20261111/RIG_REPORT.json",
+      "previous_review": "docs/art/rift-fish/motion-final3-20261111/18/REVIEW.json",
+      "motion_method": "approved_original_texture_controlled_rig",
+      "motion_frame_count": 16,
+      "output_canvas": [
+        296,
+        236
+      ],
+      "source_offset": [
+        32,
+        40
+      ],
+      "motion_user_approved": true
+    },
+    {
+      "id": "19",
+      "name": "균열유리 상어",
+      "native_source": "docs/art/rift-fish/motion-hd-20261111/19/base-1/original.png",
+      "status": "user_approved",
+      "motion_source": "docs/art/rift-fish/motion-hd-20261111/19/motion-1/frames-original.zip",
+      "asset_commit": "294c6e03359b922a5f7f763fd5cd8f7ab7207f73",
+      "motion_user_approved": true
+    },
+    {
+      "id": "20",
+      "name": "폭풍다랑어",
+      "native_source": "docs/art/rift-fish/motion-hd-20261111/20/base-1/original.png",
+      "status": "user_approved",
+      "motion_source": "docs/art/rift-fish/motion-held3-r3-20261111/20/frames-original.zip",
+      "asset_commit": "4f7b98ef6b5a597baabc875fa215c5799a93d02c",
+      "motion_user_approved": true
+    }
+  ],
+  "art_user_review": "pending",
+  "game_applied": false,
+  "deployed": false,
+  "status": "user_approved_20",
+  "selection_policy": "Final gallery all20 user-approved on 2026-11-11.17 existing selected clips retained;14/17/18 use approved-original texture rig. Rejected generative outputs remain excluded. Future motion standard: docs/art/FISH_MOTION_STANDARD.md.",
+  "user_visual_approval": {
+    "date": "2026-11-11",
+    "scope": "all20 latest gallery motions including controlled14/17/18",
+    "standard": "docs/art/FISH_MOTION_STANDARD.md",
+    "user_request": "모션 맘에든다 이 물고기 모션으로 느낌으로 앞으로 제작할 물고기들도 이렇게 하기로 고정하자 업데이트해주셈"
+  }
+}

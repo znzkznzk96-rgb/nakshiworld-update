@@ -1,0 +1,19 @@
+{
+  "id": "05",
+  "stage": "base",
+  "attempt": 1,
+  "status": "rejected",
+  "note": "승인 오징어의 좌측 촉수가 사라지고 일반 물고기 머리·지느러미·갈라진 꼬리로 변형됨. 고유색/해상도는 있으나 핵심 외형 불합격. 이 어종의 공유 추가1회를 원화 수정에 사용.",
+  "reviewed_native_and_nearest": true,
+  "approved_source_compared": true,
+  "observed_direction": "west",
+  "shape": "failed",
+  "color": "passed",
+  "native_detail": "passed",
+  "species_features": "failed",
+  "motion": "not_applicable",
+  "alpha_margin": "passed",
+  "native_width_at_least_fight_max": "passed",
+  "actual_generation_delta": 1.0,
+  "game_applied": false
+}

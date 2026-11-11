@@ -1,17 +1,17 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "release125_published",
+  "status": "release126_full_verification_running",
   "release_baseline": "v1.25",
-  "target_release": "v1.25",
-  "deployed": true,
+  "target_release": "v1.26",
+  "deployed": false,
   "phone_verified": false,
-  "handoff": "docs/releases/125/HANDOFF.md",
-  "current_task": "v1.25 병사배치 연속 스크롤 공개 완료",
-  "next_step": "기존앱 재실행·게임업데이트 후 병사목록 연속 스크롤 휴대폰 확인. 새수정/배포 별도요청.",
+  "handoff": "docs/qa/release126/HANDOFF.md",
+  "current_task": "v1.26 일회성 타일바다20종/4635000비늘 우편·실제화면 통과, 전체CI 진행",
+  "next_step": "CI43104553552 전체/기존화면/PCK/후보 보존 성공→PR64 동일입력 병합→동일후보 공개·운영검증",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
-  "verification": "docs/releases/125/PUBLISHED.json",
+  "verification": "docs/qa/release126/VERIFICATION.json",
   "baseline_phone_verified": false,
   "environment_recovery": "docs/CODEX_NETWORK_RECOVERY.md",
   "background_verified_branch": "work/tile-png-stage2-20261107",
@@ -42,10 +42,10 @@
   "standard_full_workflow_success": true,
   "remaining_global_render_checks": false,
   "release_authorization": {
-    "date": "2026-11-10",
-    "user_request": "아 업데이트 후 배포해줘 ㅇㅇ",
-    "scope": "v1.25 병사배치 부분카드 연속 스크롤",
-    "fulfilled": true
+    "date": "2026-11-12",
+    "user_request": "업데이트및 배포가고일단 일회성으로 타일바다 모든 물고기 한개씩주고 그에맞는 균열해협 해금비도 같이 보내주셈",
+    "scope": "현재 승인 업데이트 및 타일바다20종 노멀각1+4635000비늘 일회성우편",
+    "fulfilled": false
   },
   "release_preflight": "docs/qa/soldier-size/VERIFICATION.json",
   "release_source_commit": "d1303a61a9d1f073901201481e67329edb49ec06",
@@ -118,7 +118,7 @@
     "production_balance_changed": false,
     "phone_tested": false
   },
-  "release_authorized": false,
+  "release_authorized": true,
   "balance110": {
     "applied": true,
     "deployed": true,
@@ -1156,5 +1156,497 @@
     "phone_verified": false,
     "handoff": "docs/releases/125/HANDOFF.md",
     "published": "docs/releases/125/PUBLISHED.json"
+  },
+  "rift_fish": {
+    "requests": 12,
+    "accepted_previews": 6,
+    "rejected_outputs": 5,
+    "server_failure_no_image": 1,
+    "actual_generations_charged_total": 11,
+    "current_turn_generations_charged": 10,
+    "held_species": [
+      "두꼬리꽁치",
+      "오징어"
+    ],
+    "unstarted_species": 0,
+    "manifest": "docs/art/rift-fish/tier1-20261110/MANIFEST.json",
+    "ledger": "docs/art/rift-fish/tier1-20261110/LEDGER.json",
+    "user_final_approval": "pending",
+    "game_applied": false,
+    "deployed": false
+  },
+  "rift_fantasy_round2": {
+    "status": "complete_user_review_pending",
+    "candidate_count": 10,
+    "held_species": [
+      "갈치",
+      "광어",
+      "개복치"
+    ],
+    "requests": 19,
+    "actual_generations_charged": 19,
+    "protected_existing_six": true,
+    "boss_excluded": true,
+    "manifest": "docs/art/rift-fish/fantasy-round2-20261110/MANIFEST.json",
+    "ledger": "docs/art/rift-fish/fantasy-round2-20261110/LEDGER.json",
+    "verification": "docs/art/rift-fish/fantasy-round2-20261110/REMOTE_VERIFICATION.json",
+    "actual_animation_generated": false,
+    "game_applied": false,
+    "deployed": false
+  },
+  "rift_final_four": {
+    "status": "complete_user_review_pending",
+    "manifest": "docs/art/rift-fish/left-final-four-20261110/MANIFEST.json",
+    "ledger": "docs/art/rift-fish/left-final-four-20261110/LEDGER.json",
+    "verification": "docs/art/rift-fish/left-final-four-20261110/REMOTE_VERIFICATION.json",
+    "new_candidates": [
+      "균열칼날 갈치",
+      "폭풍다랑어"
+    ],
+    "held_candidates": [
+      "균열꽃 광어",
+      "월식 개복치"
+    ],
+    "canonical_left_facing": 18,
+    "existing_preserved_and_reflected": 16,
+    "existing_shape_approval": true,
+    "requests": 6,
+    "actual_generations_charged": 6,
+    "direction": "west",
+    "raw_output_remote_hash_pass": 6,
+    "canonical_remote_hash_pass": 18,
+    "private_response_records_excluded": true,
+    "actual_animation_generated": false,
+    "game_applied": false,
+    "deployed": false
+  },
+  "rift_motion": {
+    "status": "pilot_complete_budget_report",
+    "all20_user_approved": true,
+    "approved_list": "docs/art/rift-fish/motion-20261111/APPROVED_FISH.json",
+    "cost_plan": "docs/art/rift-fish/motion-20261111/COST_QUOTE.json",
+    "ledger": "docs/art/rift-fish/motion-20261111/LEDGER.json",
+    "frame_count": 16,
+    "initial_pilot_requests": 1,
+    "paid_requests": 1,
+    "game_applied": false,
+    "deployed": false,
+    "job_id": "d35e605f-b18a-40a9-843d-a3f00b5e63b5",
+    "pilot_species": "쌍혜성 두꼬리꽁치",
+    "actual_generations_charged": 1,
+    "motion_frames": 16,
+    "returned_frames_including_input": 17,
+    "remaining_species": 19,
+    "quality": "internal_pilot_pass_user_review_pending",
+    "base_total_plan_generations_including_pilot": 20,
+    "max_total_plan_generations_including_pilot": 40,
+    "empirical_average_sample_size": 1,
+    "verification": "docs/art/rift-fish/motion-20261111/REMOTE_VERIFICATION.json"
+  },
+  "rift_hd_motion": {
+    "status": "approved20_integrated_verified",
+    "spec": "docs/art/rift-fish/motion-hd-20261111/SPEC.json",
+    "ledger": "docs/art/rift-fish/motion-hd-20261111/LEDGER.json",
+    "total_species": 20,
+    "completed": 20,
+    "held": [],
+    "fight_max_logical_length": 156,
+    "source_canvas_width": 232,
+    "frame_count": 16,
+    "baseline_quoted_generations": 48,
+    "max_quoted_generations": 76,
+    "shared_additional_requests_per_species": 1,
+    "concurrent_paid_requests": 1,
+    "game_applied": true,
+    "deployed": false,
+    "completed_ids": [
+      "01",
+      "02",
+      "03",
+      "04",
+      "05",
+      "06",
+      "07",
+      "08",
+      "09",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16",
+      "17",
+      "18",
+      "19",
+      "20"
+    ],
+    "paid_requests": 50,
+    "actual_generations_charged": 61,
+    "processed": 20,
+    "manifest": "docs/art/rift-fish/CURRENT_SELECTION.json",
+    "verification": "docs/art/rift-fish/motion-held3-r3-20261111/DELIVERY_VERIFICATION.json",
+    "remote_verification": "docs/art/rift-fish/motion-held3-r3-20261111/REMOTE_VERIFICATION.json",
+    "native_min_content_width": 171,
+    "selection": "docs/art/rift-fish/CURRENT_SELECTION.json",
+    "ledgers": [
+      "docs/art/rift-fish/motion-hd-20261111/LEDGER.json",
+      "docs/art/rift-fish/motion-held3-r3-20261111/LEDGER.json"
+    ],
+    "prior_batch_manifest": "docs/art/rift-fish/motion-hd-20261111/MANIFEST.json",
+    "integration_authorized": true,
+    "approved_selection": "docs/art/rift-fish/APPROVED_MOTION_20_20261111.json"
+  },
+  "rift_motion_followup_r3": {
+    "status": "complete_2_passed_1_held",
+    "passed": [
+      "07",
+      "20"
+    ],
+    "held": [
+      "14"
+    ],
+    "paid_requests": 3,
+    "actual_generations_charged": 5,
+    "manifest": "docs/art/rift-fish/motion-held3-r3-20261111/MANIFEST.json",
+    "verification": "docs/art/rift-fish/motion-held3-r3-20261111/REMOTE_VERIFICATION.json",
+    "game_applied": false,
+    "deployed": false
+  },
+  "rift_motion_strength_audit": {
+    "report": "docs/art/rift-fish/MOTION_STRENGTH_AUDIT_20261111.json",
+    "weak": [
+      "02",
+      "04",
+      "06",
+      "07",
+      "12",
+      "16"
+    ],
+    "improve": [
+      "05",
+      "08",
+      "09",
+      "17",
+      "18"
+    ],
+    "current_relative_readable": [
+      "01",
+      "03",
+      "10",
+      "11",
+      "13",
+      "15",
+      "19",
+      "20"
+    ],
+    "paid_requests": 0,
+    "structural_pass_is_not_gameplay_motion_approval": true
+  },
+  "rift_dynamic11": {
+    "status": "complete_9_passed_2_held",
+    "ids": [
+      "02",
+      "04",
+      "05",
+      "06",
+      "07",
+      "08",
+      "09",
+      "12",
+      "16",
+      "17",
+      "18"
+    ],
+    "spec": "docs/art/rift-fish/motion-dynamic11-20261111/SPEC.json",
+    "ledger": "docs/art/rift-fish/motion-dynamic11-20261111/LEDGER.json",
+    "completed": 9,
+    "requests": 16,
+    "game_applied": false,
+    "deployed": false,
+    "passed": [
+      "02",
+      "04",
+      "05",
+      "06",
+      "07",
+      "08",
+      "09",
+      "12",
+      "16"
+    ],
+    "held": [
+      "17",
+      "18"
+    ],
+    "actual_generations_charged": 18,
+    "processed": 11,
+    "verification": "docs/art/rift-fish/motion-dynamic11-20261111/COMPLETION.json"
+  },
+  "rift_final3": {
+    "status": "historical_failed_generation_superseded_by_controlled_candidates",
+    "ids": [
+      "14",
+      "17",
+      "18"
+    ],
+    "request_limit_per_species": 1,
+    "paid_requests": 3,
+    "game_applied": false,
+    "deployed": false,
+    "actual_generations_charged": 4,
+    "passed": [],
+    "held": [
+      "14",
+      "17",
+      "18"
+    ],
+    "ledger": "docs/art/rift-fish/motion-final3-20261111/LEDGER.json",
+    "verification": "docs/art/rift-fish/motion-final3-20261111/REMOTE_VERIFICATION.json"
+  },
+  "rift_controlled_motion": {
+    "status": "user_approved",
+    "ids": [
+      "14",
+      "17",
+      "18"
+    ],
+    "paid_requests": 0,
+    "frame_count": 16,
+    "ready_total": 20,
+    "verification": "docs/art/rift-fish/motion-controlled-20261111/REMOTE_VERIFICATION.json",
+    "preview": "docs/art/rift-fish/motion-controlled-20261111/preview.gif",
+    "generator": "Godot4.6.3_offline_asset_preparation_only",
+    "game_applied": true,
+    "deployed": false,
+    "user_visual_approved": true,
+    "integration_authorized": true
+  },
+  "fish_motion_standard": {
+    "status": "confirmed",
+    "date": "2026-11-11",
+    "document": "docs/art/FISH_MOTION_STANDARD.md",
+    "approved_snapshot": "docs/art/rift-fish/APPROVED_MOTION_20_20261111.json",
+    "scope": "all_future_fish_all_regions"
+  },
+  "aura_preview": {
+    "status": "first_quality_gate_failed_stop",
+    "tiers": [
+      "rare",
+      "unique",
+      "legendary",
+      "mythic"
+    ],
+    "request_limit_per_tier": 1,
+    "concurrent_paid_requests": 1,
+    "paid_requests": 1,
+    "game_applied": false,
+    "deployed": false,
+    "actual_generations_charged": 1,
+    "completed_tiers": [
+      "rare"
+    ],
+    "unstarted_tiers": [
+      "unique",
+      "legendary",
+      "mythic"
+    ],
+    "passed": [],
+    "rejected": [
+      "rare"
+    ],
+    "ledger": "docs/art/fish-aura-20261111/LEDGER.json"
+  },
+  "aura_procedural": {
+    "status": "user_approved_game_integrated_full_verified",
+    "tiers": 4,
+    "fish_shapes": 3,
+    "frames_per_preview": 48,
+    "fps": 16,
+    "paid_requests": 0,
+    "spec": "docs/art/fish-aura-20261111/procedural-r7/SPEC.json",
+    "verification": "docs/art/fish-aura-20261111/procedural-r7/VERIFICATION.json",
+    "archive_title": "fish_aura_rich_high_tiers_r7.zip",
+    "archive_sha256": "eea8db811ec03f5a95436177ef333c06bd3c7ea5346f672095b853da3d92136c",
+    "game_applied": true,
+    "deployed": false,
+    "revision": 7,
+    "emission_mechanisms": [
+      "independent angular drifting motes",
+      "continuous broad curling flame tongues",
+      "synchronized gold eruption followed by embers",
+      "staggered branching energy jets followed by prismatic shards"
+    ],
+    "unique_r2_identical": false
+  },
+  "aura_selection": "docs/art/fish-aura-20261111/CURRENT_SELECTION.json",
+  "aura_cue_alpha": {
+    "authorized": true,
+    "spawn_rate_unchanged": true,
+    "behavior_unchanged": true,
+    "deployed": false,
+    "implemented": true,
+    "local_cases": 60,
+    "related_suites": 6,
+    "source_commit": "0f6744d8499ad6fa26a47b6ed67b44c5be8cbaea",
+    "ci_run": 42950540479,
+    "ci_status": "success",
+    "native_verified": true,
+    "native_cases": 24,
+    "native_renders": 48,
+    "native_artifact": 13824029674,
+    "initial_full_ci_success": 42949406170,
+    "verified": true,
+    "phone_verified": false
+  },
+  "rift_background": {
+    "date": "2026-11-11",
+    "status": "approved_clean_base_integrated_verified",
+    "composition": "기존 세로형 낚시화면 구도 유지, 캐릭터는 왼쪽 배 갑판에서 오른쪽으로 낚시",
+    "concept": "균열해역 기존확정 하늘의 빛나는 균열",
+    "game_applied": true,
+    "deployed": false,
+    "verification": "docs/qa/rift-art-integration/VERIFICATION.json",
+    "canvas_reference": {
+      "size": [
+        801,
+        1962
+      ],
+      "deck_y": 887,
+      "water_y": 977,
+      "preferred_output": [
+        1080,
+        2640
+      ]
+    },
+    "sea_palette": "purple_indigo",
+    "production": {
+      "base": [
+        540,
+        1320
+      ],
+      "output": [
+        1080,
+        2640
+      ],
+      "scale": 2,
+      "filter": "nearest",
+      "deck_y": 597,
+      "water_y": 657
+    },
+    "preview_library_file_id": "libfile_fde3_f-e621e373aad08191a704522005c5af54_d66dafb33acc81918ce203aeb3fcd18e",
+    "user_visual_approved": true,
+    "integration_authorized": true
+  },
+  "rift_art_integration": {
+    "art_ready": true,
+    "gameplay_ready": false,
+    "local_verified": true,
+    "deployed": false,
+    "verification": "docs/qa/rift-art-integration/HANDOFF.md",
+    "source_commit": "5cf118f654ec26118b0f4a17402934576bcb1131",
+    "ci_run": 42970312624,
+    "ci_status": "success",
+    "native_verified": true,
+    "native_artifact": 13833590505,
+    "native_renders": 7,
+    "preview_library_file_id": "libfile_fde3_f-4ef93baa73bc81919e5311f4ba281c26_d66dafb33acc81918ce203aeb3fcd18e",
+    "full_verified": true,
+    "unique_success_labels": 132,
+    "candidate_artifact": 13833422757,
+    "release_authorized": false
+  },
+  "rift_bundles": {
+    "authorized": true,
+    "entry_fee": 4635000,
+    "next_fee": 30150000,
+    "main_count": 6,
+    "sub_count": 6,
+    "owner_count": 1,
+    "sub_gold": 3015000,
+    "owner_gold": 9045000,
+    "fish_sale_change": false,
+    "implemented": true,
+    "local_verified": true,
+    "sub_souls": 50,
+    "owner_pearls": 6,
+    "deployed": false,
+    "compact_layout_fixed": true,
+    "verified": true,
+    "source_commit": "d6c2c09856ffd4b986f685dd1c7e7f5e20819563"
+  },
+  "rift_layers": {
+    "authorized": true,
+    "boat_actor_shared_bob": true,
+    "amplitude_logical": [
+      1,
+      2
+    ],
+    "period_seconds": [
+      3,
+      5
+    ],
+    "rotation": false,
+    "implemented": true,
+    "local_verified": true,
+    "bob_amplitude_logical": 1.5,
+    "bob_period_seconds": 4.2,
+    "native_verified": true,
+    "deployed": false,
+    "paid_image_requests": 3,
+    "native_renders": 26,
+    "native_artifact": 13851035478,
+    "preview_library_file_id": "libfile_fde3_f-6cca7ea487ac81918b373e7ee74b85d9_d66dafb33acc81918ce203aeb3fcd18e",
+    "source_commit": "7f372caf85990ce2c564499adf0cb45e61cb6398",
+    "ci_run": 43010202828,
+    "ci_status": "success",
+    "verified": true,
+    "unique_success_labels": 135,
+    "candidate_artifact": 13850873067,
+    "user_visual_approval": "pending",
+    "verification": "docs/qa/rift-bundles-layers/SCENERY_VERIFICATION.json"
+  },
+  "rift_scenery_refinement": {
+    "source_commit": "7f372caf85990ce2c564499adf0cb45e61cb6398",
+    "ci_run": 43010202828,
+    "status": "full_verified_pending_user_visual_approval",
+    "verification": "docs/qa/rift-bundles-layers/SCENERY_VERIFICATION.json",
+    "deployed": false,
+    "native_artifact": 13851035478,
+    "ci_status": "success",
+    "verified": true,
+    "native_renders": 26,
+    "unique_success_labels": 135,
+    "preview_library_file_id": "libfile_fde3_f-61c43caae8648191bb2a69d9394304aa_d66dafb33acc81918ce203aeb3fcd18e",
+    "candidate_artifact": 13850873067,
+    "phone_verified": false,
+    "user_visual_approval": "sky_thin_lines_rejected_2026-11-12"
+  },
+  "rift_open_tears_underwater": {
+    "authorized": true,
+    "date": "2026-11-12",
+    "deployed": false,
+    "source_commit": "6e945b4db76984b8b0233952af7c44db57a08107",
+    "ci_run": 43097074531,
+    "status": "implemented_related_native_verified",
+    "verification": "docs/qa/rift-bundles-layers/OPEN_TEARS_UNDERWATER_VERIFICATION.json",
+    "geometry_native_run": 43095181025,
+    "blocking_run": null,
+    "blocking_job": 130779827660,
+    "blocker": null,
+    "native_final_verified": true,
+    "related_packed_verified": true,
+    "paid_generation_requests": 0,
+    "native_source": "7f838ef2d261b9e040e3617b5a6f04b00749ee65"
+  },
+  "release126": {
+    "source_commit": "92582b96aee1eae64b78ecc4cf48ebcfc4371f05",
+    "ci_run": 43104553552,
+    "pr": 64,
+    "related_mail_verified": true,
+    "independent_reload_verified": true,
+    "native_verified": true,
+    "deployed": false,
+    "reader_verified": true
   }
 }

@@ -1,0 +1,10 @@
+{
+  "description": "Single standalone 16-bit pixel art game VFX aura sprite on transparent background. Side view flat 2D. A lavish scatter of blue pointed spark fragments and short outward shooting streaks. About 25 distinct sparks of varied sizes, strongest near the center and progressively smaller farther out. Palette: electric blue #4fa3ff with pale cyan and white-hot highlights. Origin is a small horizontal area in the center, for a fish to be placed in front later. Rays and fragments shoot AWAY from this center; outer fragments are spaced apart, thinner, shorter and fading away. Bright and flashy even for the lowest rarity. Asymmetric organic burst, open gaps between rays, empty transparent space between sparks. The center stays mostly clear and transparent so a separate fish remains readable. No enclosing contour, no circle, no ring, no oval, no shield, no bubble, no portal, no dome. No fish, no animal, no character, no ground, no backdrop, no text. Crisp pixel clusters with 3 to 4 tones per color, no muddy haze. Leave generous clear margins so every ray fits fully inside canvas. Exactly ONE effect sprite, not a sprite sheet.",
+  "image_size": {
+    "width": 192,
+    "height": 192
+  },
+  "no_background": true,
+  "seed": 2026117100,
+  "text_guidance_scale": 9
+}

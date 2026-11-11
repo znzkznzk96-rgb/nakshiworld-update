@@ -1,0 +1,19 @@
+{
+  "id": "15",
+  "stage": "motion",
+  "attempt": 1,
+  "status": "passed",
+  "note": "16프레임에서 참치 몸통과 결정3개 유지, 꼬리 유영과 결정 표면 명암 변화만 발생. 외부 파편·잘림 없음.",
+  "reviewed_native_and_nearest": true,
+  "approved_source_compared": true,
+  "observed_direction": "west",
+  "shape": "passed",
+  "color": "passed",
+  "native_detail": "passed",
+  "species_features": "passed",
+  "motion": "passed",
+  "alpha_margin": "passed",
+  "native_width_at_least_fight_max": "passed",
+  "actual_generation_delta": 1.0,
+  "game_applied": false
+}

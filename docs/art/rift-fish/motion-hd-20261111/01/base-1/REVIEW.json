@@ -1,0 +1,19 @@
+{
+  "id": "01",
+  "stage": "base",
+  "attempt": 1,
+  "status": "passed",
+  "note": "두 독립 꼬리와 청록/보라 고유색·가느다란 몸·좌향 유지. 원본보다 넓은 native202px 본체와 미세 꼬리 명암 확인, 단순 확대가 아닌 새 native 렌더. 파이팅 상한156보다 여유 있고 알파/여백 정상.",
+  "reviewed_native_and_nearest": true,
+  "approved_source_compared": true,
+  "observed_direction": "west",
+  "shape": "passed",
+  "color": "passed",
+  "native_detail": "passed",
+  "species_features": "passed",
+  "motion": "not_applicable",
+  "alpha_margin": "passed",
+  "native_width_at_least_fight_max": "passed",
+  "actual_generation_delta": 1.0,
+  "game_applied": false
+}

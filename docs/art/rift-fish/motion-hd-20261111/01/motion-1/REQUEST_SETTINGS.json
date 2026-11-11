@@ -1,0 +1,16 @@
+{
+  "first_frame": {
+    "encoded_image_omitted": true,
+    "sha256": "4f35c8b471cb006d3d56b026db1777decd6fb8e491613d319658b20528128747",
+    "input_role": "internally passed native HD original derived from the user-approved fish"
+  },
+  "description": "Two independent crescent tails flutter alternately, upper cyan and lower violet tail slightly out of phase. Very subtle travelling body wave; head stable. Seamless gentle swimming loop IN PLACE, head LEFT throughout. Fixed camera, sprite position and scale. Preserve exact original identity, colors, markings and fin/tail count. No turning, new parts, particles, scenery, cropping or camera motion.",
+  "frame_count": 16,
+  "seed": 2026113001,
+  "no_background": true,
+  "enhance_prompt": false,
+  "direction": "west",
+  "view": "side",
+  "subject_description": "slender silver-blue fish with two distinct branching crescent tails",
+  "initial_pose": "neutral horizontal swimming pose; head LEFT, tail or mantle RIGHT; whole creature visible inside transparent margins"
+}

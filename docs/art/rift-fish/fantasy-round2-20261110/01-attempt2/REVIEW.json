@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "note": "두 독립 꼬리자루와 청록·보라 초승달 꼬리 사이 투명 간격 확인. 가늘고 긴 꽁치 몸과 선명한 은청색 명암, 네이티브 및 정수 확대 확인. 기존 원본보다 큰 형태 변화는 외형 사용자 검토용 시안으로 유지.",
+  "reviewed_at_native_and_nearest6x": true,
+  "compared_with_actual_reservoir_original": true,
+  "size": [
+    96,
+    64
+  ],
+  "bbox": [
+    5,
+    10,
+    92,
+    53
+  ],
+  "mode": "RGBA",
+  "sha256": "c101fa2cf92ba62596d2641048cea7800e6bf1b3c7f350dee039e9588f3002e5",
+  "reference_sha256": "a09e70c432b23d10502eb18efa02d14bfbbd4ce4c5a15634b7f5c161a3ac47db",
+  "shape": "passed",
+  "color": "passed",
+  "shading_pixel_clusters": "passed",
+  "outline": "passed",
+  "species_feature": "passed",
+  "alpha_margin": "passed",
+  "actual_generation_delta": 1.0,
+  "game_applied": false,
+  "user_final_approval": "pending"
+}

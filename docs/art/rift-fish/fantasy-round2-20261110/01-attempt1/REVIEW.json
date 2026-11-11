@@ -1,0 +1,28 @@
+{
+  "status": "rejected",
+  "note": "은청색 명암은 유지했으나 독립 꼬리 두 개가 아니라 하나의 갈라진 꼬리로 나와 필수 외형 불충족",
+  "reviewed_at_native_and_nearest6x": true,
+  "compared_with_actual_reservoir_original": true,
+  "size": [
+    96,
+    64
+  ],
+  "bbox": [
+    14,
+    18,
+    77,
+    45
+  ],
+  "mode": "RGBA",
+  "sha256": "2062da2f06ab89d7a775cd87115723b4bf6a2aade2fbc7118bd3f87626281c43",
+  "reference_sha256": "a09e70c432b23d10502eb18efa02d14bfbbd4ce4c5a15634b7f5c161a3ac47db",
+  "shape": "rejected",
+  "color": "passed",
+  "shading_pixel_clusters": "passed",
+  "outline": "passed",
+  "species_feature": "rejected",
+  "alpha_margin": "passed",
+  "actual_generation_delta": 1.0,
+  "game_applied": false,
+  "user_final_approval": "pending"
+}

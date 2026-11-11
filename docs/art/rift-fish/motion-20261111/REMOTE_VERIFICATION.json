@@ -1,0 +1,23 @@
+{
+  "commit": "3fe5130dd386968188341a6072e694b44e737e20",
+  "artifacts": [
+    {
+      "path": "docs/art/rift-fish/motion-20261111/01-attempt1/frames-original.zip",
+      "sha256": "af410348eff423a2c47746f1ae28267985a88f6bc31ea2c47353720d087c81d7",
+      "size": 66528
+    },
+    {
+      "path": "docs/art/rift-fish/motion-20261111/01-attempt1/preview.gif",
+      "sha256": "183ea233fb9615fa183c337ac6dd884661eb24fc020b2b84e96e39e798be3580",
+      "size": 122079
+    }
+  ],
+  "all_remote_bytes_sha256_match": true,
+  "raw_frames_decoded": 17,
+  "motion_frames": 16,
+  "input_frame_included": true,
+  "input_pixels_identical_verified_locally": true,
+  "actual_generations_charged": 1,
+  "game_applied": false,
+  "deployed": false
+}

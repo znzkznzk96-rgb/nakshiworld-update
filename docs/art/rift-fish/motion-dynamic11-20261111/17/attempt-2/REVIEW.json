@@ -1,0 +1,36 @@
+{
+  "id": "17",
+  "attempt": 2,
+  "status": "rejected",
+  "note": "추가1회에서도 몸 밖 흰 점/파편이 다수 발생. 체형과 굴곡은 개선됐지만 외부파편 조건 재불량으로 이번 보강본은 보류. 세번째유료요청없음, 다음청새치진행.",
+  "native_and_nearest_reviewed": true,
+  "approved_native_compared": true,
+  "before_after_motion_compared": true,
+  "direction": "west",
+  "identity_color_alpha_reviewed": true,
+  "motion_range": {
+    "id": "17",
+    "attempt": 2,
+    "old": {
+      "silhouette_change_max": 0.123,
+      "min_content_width": 188,
+      "unclipped": true
+    },
+    "new": {
+      "silhouette_change_max": 0.197,
+      "min_content_width": 200,
+      "unclipped": true
+    },
+    "native_reference_content_width": 202,
+    "fixed_common_bbox": [
+      12,
+      15,
+      220,
+      119
+    ],
+    "scale_policy": "fixed reference length/common bbox and anchor; never fit each pose to target width; natural tail edge-on narrowing allowed without enlargement"
+  },
+  "safe_native_fight_width": true,
+  "actual_generations": 1,
+  "game_applied": false
+}

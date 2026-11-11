@@ -1,0 +1,19 @@
+{
+  "id": "04",
+  "stage": "base",
+  "attempt": 1,
+  "status": "passed",
+  "note": "승인된 초록 줄무늬·황금 눈·가시 등지느러미·은빛 배와 각 지느러미 형태 유지. native189px 본체에서 비늘/광택 세부묘사 선명, 좌향·알파 여백 정상.",
+  "reviewed_native_and_nearest": true,
+  "approved_source_compared": true,
+  "observed_direction": "west",
+  "shape": "passed",
+  "color": "passed",
+  "native_detail": "passed",
+  "species_features": "passed",
+  "motion": "not_applicable",
+  "alpha_margin": "passed",
+  "native_width_at_least_fight_max": "passed",
+  "actual_generation_delta": 1.0,
+  "game_applied": false
+}

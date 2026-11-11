@@ -1,0 +1,118 @@
+{
+  "date": "2026-11-11",
+  "source_commit": "0f6744d8499ad6fa26a47b6ed67b44c5be8cbaea",
+  "godot": "4.4.1",
+  "local_cases": 60,
+  "related_suites": [
+    "fight_telegraph",
+    "body_book_telegraph",
+    "fish_presentation",
+    "fish_anchor_size",
+    "fight_body_size",
+    "fish_surface"
+  ],
+  "ci_run": 42950540479,
+  "ci_status": "success",
+  "native_verified": true,
+  "native_cases": 24,
+  "native_renders": 48,
+  "native_heights": [
+    480,
+    540,
+    660
+  ],
+  "max_live_emitters": 68,
+  "max_ui_commands": 179,
+  "native_artifact": 13824029674,
+  "screen_sha256": "d612ec0461b81761c3bc8311893220d29fc8c334ab902d6d1a926688b6ac8015",
+  "screen_library_file_id": "libfile_fde3_f-3981415377808191a50bbd4e67b0be51_d66dafb33acc81918ce203aeb3fcd18e",
+  "visual_review": "cue and HUD visible; alpha localized, lower emission retained; large-body crop outside contact sheet covered by exact layout check",
+  "deployed": false,
+  "phone_verified": false,
+  "initial_full_ci": {
+    "run": 42949406170,
+    "status": "success",
+    "source_commit": "83069ac79975764457ee7a8378598e5ae1abc0c6"
+  },
+  "final_gpu_native_verified": true,
+  "final_gpu_ci": "success",
+  "cpu_profile": {
+    "environment": "local Linux Godot4.4.1 debug headless; mesh-generation only, not phone FPS",
+    "conditions": "156 logical length, 12 frames, same caller",
+    "mythic_before_mean_ms": 47.4643,
+    "mythic_after_mean_ms": 7.0103,
+    "mythic_after_max_ms": 7.666,
+    "reproduction": "profile.gd",
+    "log": "CPU_PROFILE.txt"
+  },
+  "previous_native_source": "83069ac79975764457ee7a8378598e5ae1abc0c6",
+  "optimization_screen_equivalence": {
+    "tell_before": "pixel_identical",
+    "nose_before": "byte_identical_sha256",
+    "emission_count_preserved": true
+  },
+  "localized_pixel_changes": {
+    "tell": {
+      "bounds": [
+        284,
+        646,
+        378,
+        730
+      ],
+      "changed_pixels": 3820
+    },
+    "nose": {
+      "bounds": [
+        289,
+        629,
+        402,
+        730
+      ],
+      "changed_pixels": 4175
+    }
+  },
+  "packed_checks": {
+    "angler": true,
+    "tile": true
+  },
+  "unique_success_verify_markers": 108,
+  "remote_source_contents_verified": true,
+  "artifacts": [
+    {
+      "id": 13825210923,
+      "name": "updater-first-preview",
+      "size": 983303,
+      "digest": "sha256:4dbcbd2c482674a40d06adaa39e36b33de7880d7d1b868cc5d1051a7698e1db3"
+    },
+    {
+      "id": 13824938264,
+      "name": "release-candidate-986da9a0ca151266222c26ffe1885c7d5c9436ea74e4a469856373332b4b0a22",
+      "size": 118278237,
+      "digest": "sha256:c2b49e0cb57e5fdf27ae3e99e62130ecfed46fdf36e626b6c8ccd68f96ba4b8c"
+    },
+    {
+      "id": 13824888520,
+      "name": "work-verification",
+      "size": 212039685,
+      "digest": "sha256:a5cd3deec5ccd5da70340cf408d49799c75ce2f366fe6e65f1cf804c1a375768"
+    },
+    {
+      "id": 13824074517,
+      "name": "village-reward-first-preview",
+      "size": 5075279,
+      "digest": "sha256:e3286c831d16bce95fae5f493b1bcf5708ce52e4a4db88fa18743d500b59c064"
+    },
+    {
+      "id": 13824059576,
+      "name": "owner-gauge-first-preview",
+      "size": 15391031,
+      "digest": "sha256:bb2a505fa8b318f9fe4a0a3cd58eb3d69f80d88eec96a7aa052991ccec021bee"
+    },
+    {
+      "id": 13824029674,
+      "name": "soldier-skills-first-preview",
+      "size": 13735564,
+      "digest": "sha256:fe9648484ac469e36e0caa2099c55d90e313ae3e33cd7a83e148171416c02c31"
+    }
+  ]
+}

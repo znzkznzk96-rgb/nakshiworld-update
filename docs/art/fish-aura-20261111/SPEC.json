@@ -1,0 +1,21 @@
+{
+  "date": "2026-11-11",
+  "scope": "four static PixelLab aura prototype assets",
+  "tiers": [
+    "rare",
+    "unique",
+    "legendary",
+    "mythic"
+  ],
+  "direction": "radiate outward, scatter, diminish and disappear; flashy even at rare",
+  "forbidden": [
+    "closed ring",
+    "shield",
+    "bubble",
+    "opaque fish-covering membrane"
+  ],
+  "request_limit_per_tier": 1,
+  "concurrent_paid_requests": 1,
+  "game_applied": false,
+  "deployed": false
+}

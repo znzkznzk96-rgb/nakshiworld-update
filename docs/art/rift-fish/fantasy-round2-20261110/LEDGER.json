@@ -1,0 +1,383 @@
+{
+  "date": "2026-11-10",
+  "batch": "fantasy-nonboss-round2",
+  "entries": [
+    {
+      "id": "01",
+      "name": "쌍혜성 두꼬리꽁치",
+      "attempt": 1,
+      "status": "rejected",
+      "model": "edit-image-pixen",
+      "seed": 2026111401,
+      "request_sha256": "8cd74abe6123f049376642d5008c2f51056b469312317c4964e34780123f0c30",
+      "submitted_at_unix": 1794318665.9560096,
+      "prior_round_requests": 2,
+      "http_status": 202,
+      "job_id": "fc294592-d741-48c3-b5d6-232fa2c025a8",
+      "actual_generation_delta": 1.0,
+      "result_sha256": "2062da2f06ab89d7a775cd87115723b4bf6a2aade2fbc7118bd3f87626281c43"
+    },
+    {
+      "id": "01",
+      "name": "쌍혜성 두꼬리꽁치",
+      "attempt": 2,
+      "status": "passed",
+      "model": "create-image-pixen",
+      "seed": 2026111501,
+      "request_sha256": "da21f9ad30c204a764eb9e926381108964374d0e695613c24ec78f4e013ab35c",
+      "submitted_at_unix": 1794318981.831125,
+      "prior_round_requests": 2,
+      "http_status": 200,
+      "actual_generation_delta": 1.0,
+      "result_sha256": "c101fa2cf92ba62596d2641048cea7800e6bf1b3c7f350dee039e9588f3002e5"
+    },
+    {
+      "id": "05",
+      "name": "균열장막 오징어",
+      "attempt": 1,
+      "status": "rejected",
+      "model": "create-image-pixen",
+      "seed": 2026111405,
+      "request_sha256": "a05fc0db8b3748cd5da3f8b1671859c0428b9db9b2bf2549797438f9299a50c9",
+      "submitted_at_unix": 1794319086.4711838,
+      "prior_round_requests": 2,
+      "http_status": 200,
+      "actual_generation_delta": 1.0,
+      "result_sha256": "8d59a5a90a79890715d1ecc2f6c3232b331a17fce02acc18208c4dd97450f5ae"
+    },
+    {
+      "id": "05",
+      "name": "균열장막 오징어",
+      "attempt": 2,
+      "status": "passed",
+      "model": "create-image-pixen",
+      "seed": 2026111505,
+      "request_sha256": "863c2c374ea21130381d30d8a415bd31964bfea0ce621aaef51069670a818159",
+      "submitted_at_unix": 1794319177.7300284,
+      "prior_round_requests": 2,
+      "http_status": 200,
+      "actual_generation_delta": 1.0,
+      "result_sha256": "ee248c3a3d789b33242f20efe822dd94840f7217bc4e6fb921ce6b42ffd81889"
+    },
+    {
+      "id": "09",
+      "name": "균열갑주 방어",
+      "attempt": 1,
+      "status": "passed",
+      "model": "edit-image-pixen",
+      "seed": 2026111409,
+      "request_sha256": "b500a2297c1032712e592d660e92a1f26dc11957c0e710d2d9668cdd434d53d8",
+      "submitted_at_unix": 1794319264.0125492,
+      "prior_round_requests": 0,
+      "http_status": 202,
+      "job_id": "cd1ebcf6-28b7-454e-9a61-7fc4f809160e",
+      "actual_generation_delta": 1.0,
+      "result_sha256": "5f7b7e1af3bf27e27d339c3195dd16c6ab3fcabfc7a056e967dab1ecea94a86b"
+    },
+    {
+      "id": "10",
+      "name": "유영리본 삼치",
+      "attempt": 1,
+      "status": "passed",
+      "model": "edit-image-pixen",
+      "seed": 2026111410,
+      "request_sha256": "0c275355b733c4c8f01442fa9382c5cd092d1a68b8710c8ac3e9682eaaa73ffa",
+      "submitted_at_unix": 1794319355.9619591,
+      "prior_round_requests": 0,
+      "http_status": 202,
+      "job_id": "0e3b27e6-8057-4bc2-9e3b-3bb0de894485",
+      "actual_generation_delta": 1.0,
+      "result_sha256": "d3d1248d103a3156c4fe4aebe9a430301071db8337fcc7feabc72e47e510be4c"
+    },
+    {
+      "id": "11",
+      "name": "균열칼날 갈치",
+      "attempt": 1,
+      "status": "rejected",
+      "model": "edit-image-pixen",
+      "seed": 2026111411,
+      "request_sha256": "725c6150cb3a4b25ec1213befa1d62a99fc10470dc6478cfd71fd0c110eb031d",
+      "submitted_at_unix": 1794319453.9669044,
+      "prior_round_requests": 0,
+      "http_status": 202,
+      "job_id": "568fe519-b61f-449f-9c84-4101f32c5da4",
+      "actual_generation_delta": 1.0,
+      "result_sha256": "b297644989f0673647bc79fbba4f40ea42986abec11fe77aa835896ea67cde62"
+    },
+    {
+      "id": "11",
+      "name": "균열칼날 갈치",
+      "attempt": 2,
+      "status": "rejected",
+      "model": "create-image-pixen",
+      "seed": 2026111511,
+      "request_sha256": "f5478ebd272d2b00e6d01a68c783c66a915f55f501bc57497bd8f067cb9ad95e",
+      "submitted_at_unix": 1794319526.8355467,
+      "prior_round_requests": 0,
+      "http_status": 200,
+      "actual_generation_delta": 1.0,
+      "result_sha256": "635f349c870335fc2bcac502335d8906e6144cfb16355ee2d0aa4184767a7d59"
+    },
+    {
+      "id": "12",
+      "name": "균열꽃 광어",
+      "attempt": 1,
+      "status": "rejected",
+      "model": "create-image-pixen",
+      "seed": 2026111412,
+      "request_sha256": "09f1c4c67aa472341a885883c42fd245e1f7cdf8a096c587c015ec325a2663a5",
+      "submitted_at_unix": 1794319635.2482002,
+      "prior_round_requests": 0,
+      "http_status": 200,
+      "actual_generation_delta": 1.0,
+      "result_sha256": "e1271858720be724acbb7a0ad6d4e87baff5f5d46bdca52f33332793865f2959"
+    },
+    {
+      "id": "12",
+      "name": "균열꽃 광어",
+      "attempt": 2,
+      "status": "rejected",
+      "model": "create-image-pixen",
+      "seed": 2026111512,
+      "request_sha256": "2dd7101a1fce468ec4ad5be6092f565eefd74b21c799353df70e741ecf69d5f7",
+      "submitted_at_unix": 1794319756.3771172,
+      "prior_round_requests": 0,
+      "http_status": 200,
+      "actual_generation_delta": 1.0,
+      "result_sha256": "1ae94d6c8f7419023cafcf687b95fd1f4d63bf415ad4860ab0f0e19594753582"
+    },
+    {
+      "id": "13",
+      "name": "틈새결정 복어",
+      "attempt": 1,
+      "status": "passed",
+      "model": "edit-image-pixen",
+      "seed": 2026111413,
+      "request_sha256": "3de563611b9fe1443473dbebeaadc6b85a30be9907cc10f50cb7512e123d57a5",
+      "submitted_at_unix": 1794319829.8598616,
+      "prior_round_requests": 0,
+      "http_status": 202,
+      "job_id": "3bc4aeb3-d590-4617-8474-88854af95034",
+      "actual_generation_delta": 1.0,
+      "result_sha256": "0552465627aae2e7b25cffe078b1ffd41c9ceb11c60e984a1e285e13ae01baa7"
+    },
+    {
+      "id": "14",
+      "name": "거울날개 날치",
+      "attempt": 1,
+      "status": "passed",
+      "model": "edit-image-pixen",
+      "seed": 2026111414,
+      "request_sha256": "38d80629ff3f02c01790afb22a2e4e88430fb46b101824dbd09e94cfc4ab9a01",
+      "submitted_at_unix": 1794319905.4873366,
+      "prior_round_requests": 0,
+      "http_status": 202,
+      "job_id": "339dc6be-00bc-474b-940e-00dd6bdc4c1a",
+      "actual_generation_delta": 1.0,
+      "result_sha256": "a1b1454e9dcb7382b3507333a64a3dcc113f4faca60b70b87f5610c47efaa45f"
+    },
+    {
+      "id": "15",
+      "name": "차원결정 참치",
+      "attempt": 1,
+      "status": "rejected",
+      "model": "edit-image-pixen",
+      "seed": 2026111415,
+      "request_sha256": "8863ebda09049ef17dd2fe42e4b415a4bcbf5ee5dc250e682b981b08c19b990f",
+      "submitted_at_unix": 1794319979.9948194,
+      "prior_round_requests": 0,
+      "http_status": 202,
+      "job_id": "2b36c3fb-ebac-4d94-822f-403b0d709c75",
+      "actual_generation_delta": 1.0,
+      "result_sha256": "c786e842fb44308cbfe7625759c0afd02169d52f7ea9452ee7c3c84df7aa49fe"
+    },
+    {
+      "id": "15",
+      "name": "차원결정 참치",
+      "attempt": 2,
+      "status": "passed",
+      "model": "edit-image-pixen",
+      "seed": 2026111515,
+      "request_sha256": "9dd5a7a639a24c64fd9cdbe88b63d0102811da460d849d9726e1036ccc1d89ad",
+      "submitted_at_unix": 1794320072.291012,
+      "prior_round_requests": 0,
+      "http_status": 202,
+      "job_id": "1016e602-e247-4bbf-a048-1b19a40b92f9",
+      "actual_generation_delta": 1.0,
+      "result_sha256": "180887aa8637707756354c0cc4deef1d7e8a8fe87e4f81a0d1785bdb2425262f"
+    },
+    {
+      "id": "16",
+      "name": "월식 개복치",
+      "attempt": 1,
+      "status": "rejected",
+      "model": "create-image-pixen",
+      "seed": 2026111416,
+      "request_sha256": "c6f7b596a42ea7ceefabc22cfa80bdb5bb29107e774f62383666494d5e0776f8",
+      "submitted_at_unix": 1794320175.4156775,
+      "prior_round_requests": 0,
+      "http_status": 200,
+      "actual_generation_delta": 1.0,
+      "result_sha256": "3b25bc82ec3922c322af5c75bef419c799ddd96f5b52c4bd358aa4fe49536375"
+    },
+    {
+      "id": "16",
+      "name": "월식 개복치",
+      "attempt": 2,
+      "status": "rejected",
+      "model": "create-image-pixen",
+      "seed": 2026111516,
+      "request_sha256": "48de547a3ccaf8a81b3650e23de418f9a43733c36090a51a79098c1e9b367de1",
+      "submitted_at_unix": 1794320253.5513966,
+      "prior_round_requests": 0,
+      "http_status": 200,
+      "actual_generation_delta": 1.0,
+      "result_sha256": "acd282eed081b31a6fe2e2c05eb8919ce0576f0cf30792a51b6cf44e574f23b6"
+    },
+    {
+      "id": "17",
+      "name": "뇌광 삼치",
+      "attempt": 1,
+      "status": "passed",
+      "model": "edit-image-pixen",
+      "seed": 2026111417,
+      "request_sha256": "be3aeb6b05eb62a248cc65bd0244be849bd18915b277533b24088bd12b10323e",
+      "submitted_at_unix": 1794320341.3685594,
+      "prior_round_requests": 0,
+      "http_status": 202,
+      "job_id": "b02b846e-7792-4006-a999-3eb0f6bf6d45",
+      "actual_generation_delta": 1.0,
+      "result_sha256": "a539214aa0edbda35a7f6af430791b8d73f65e2b28682403e3ccb2916d3d2da3"
+    },
+    {
+      "id": "18",
+      "name": "차원창 청새치",
+      "attempt": 1,
+      "status": "passed",
+      "model": "create-image-pixen",
+      "seed": 2026111418,
+      "request_sha256": "0c0dfc07aa1c98193315ac9c76f88734578558a246262e6bf287f7a7c3644786",
+      "submitted_at_unix": 1794320437.5959017,
+      "prior_round_requests": 0,
+      "http_status": 200,
+      "actual_generation_delta": 1.0,
+      "result_sha256": "099f415642c2fdbdc91c85d01c62185df062f9cd74fc0d73ee3b992d734b089e"
+    },
+    {
+      "id": "19",
+      "name": "균열유리 상어",
+      "attempt": 1,
+      "status": "passed",
+      "model": "create-image-pixen",
+      "seed": 2026111419,
+      "request_sha256": "ecf78af2ac50cf2e464f51009e21a5c9d0d8128d6f996239a0a65c353bfcae08",
+      "submitted_at_unix": 1794320551.7386096,
+      "prior_round_requests": 0,
+      "http_status": 200,
+      "actual_generation_delta": 1.0,
+      "result_sha256": "591066cc8cbf0616ac4327c593287c4d0c339f743e92374b10dae86a9c0cd6f8"
+    }
+  ],
+  "status": "complete_with_individual_holds",
+  "max_per_species_this_round": 2,
+  "protected_existing_six": [
+    {
+      "id": "02",
+      "name": "균열정어리",
+      "attempt": 1,
+      "directory": "02-attempt1",
+      "sha256": "0fdcf1ad1b2818ca10802365c6ca1285922deeb0b6e13e56bd1c82b60b9216ea",
+      "size": [
+        96,
+        64
+      ],
+      "status": "internal_quality_pass_user_review_pending"
+    },
+    {
+      "id": "03",
+      "name": "네날개날치",
+      "attempt": 1,
+      "directory": "03-attempt1",
+      "sha256": "bb5da274a05ace32781a119f4341250b23f79bfe4d7cb6b08761eb9646e2fddd",
+      "size": [
+        96,
+        64
+      ],
+      "status": "internal_quality_pass_user_review_pending"
+    },
+    {
+      "id": "04",
+      "name": "가시등전어",
+      "attempt": 2,
+      "directory": "04-attempt2",
+      "sha256": "cca9e6f8bcefe5caf69d5c912e118bda26d88ed4f40d5cb5d401234db4793e3f",
+      "size": [
+        96,
+        64
+      ],
+      "status": "internal_quality_pass_user_review_pending"
+    },
+    {
+      "id": "06",
+      "name": "쥐포쥐치",
+      "attempt": 2,
+      "directory": "06-attempt2",
+      "sha256": "49bc3d38623b565a722512401299746cff7fd4ff4012118ebadb7a90ac9eaca9",
+      "size": [
+        96,
+        64
+      ],
+      "status": "internal_quality_pass_user_review_pending"
+    },
+    {
+      "id": "07",
+      "name": "금간정어리",
+      "attempt": 1,
+      "directory": "07-attempt1",
+      "sha256": "73e180f43b932d7bf5feb720c84aca00599907f665d757cd1842e7d4569e68fa",
+      "size": [
+        96,
+        64
+      ],
+      "status": "internal_quality_pass_user_review_pending"
+    },
+    {
+      "id": "08",
+      "name": "빛멸치",
+      "attempt": 1,
+      "directory": "08-attempt1",
+      "sha256": "04190e7b52eb9f691e77502ee390c3c6efb5fac7b9cbca7b40706512d9f31b1f",
+      "size": [
+        96,
+        64
+      ],
+      "status": "internal_quality_pass_user_review_pending"
+    }
+  ],
+  "generation_requests": 19,
+  "accepted_outputs": 10,
+  "rejected_outputs": 9,
+  "actual_generations_charged": 19.0,
+  "held_species": [
+    {
+      "id": "11",
+      "name": "균열칼날 갈치",
+      "requests": 2,
+      "reason": "이번 회차 2회 내 외형/품질 미통과, 개별 보류"
+    },
+    {
+      "id": "12",
+      "name": "균열꽃 광어",
+      "requests": 2,
+      "reason": "이번 회차 2회 내 외형/품질 미통과, 개별 보류"
+    },
+    {
+      "id": "16",
+      "name": "월식 개복치",
+      "requests": 2,
+      "reason": "이번 회차 2회 내 외형/품질 미통과, 개별 보류"
+    }
+  ],
+  "unstarted_species": 0,
+  "no_additional_paid_calls": true
+}

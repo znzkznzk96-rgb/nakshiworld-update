@@ -1,0 +1,21 @@
+{
+  "entries": [
+    {
+      "tier": "rare",
+      "request_count": 1,
+      "actual_generations": 1,
+      "model": "create-image-pixflux",
+      "seed": 2026117100,
+      "status": "rejected",
+      "result_sha256": "ba0f225a84fe967f370142c333d0e059c5d327358141fd879bec86e123fb8f9c"
+    }
+  ],
+  "paid_requests": 1,
+  "total_generations": 1,
+  "unstarted": [
+    "unique",
+    "legendary",
+    "mythic"
+  ],
+  "automatic_retries": 0
+}

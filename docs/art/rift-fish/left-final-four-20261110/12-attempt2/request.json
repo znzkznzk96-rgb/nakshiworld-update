@@ -1,0 +1,14 @@
+{
+  "description": "An electric PURPLE fantasy FLATFISH / flounder viewed directly FROM ABOVE, swimming toward LEFT. The body is a flattened smooth OVAL LEAF with a pointed mouth at LEFT. TWO little golden EYES CLOSE TOGETHER on the same broad upper surface near LEFT mouth. Tiny broad fan tail RIGHT. LOW flowing VIOLET PETAL FIN FRINGE around oval, NO tall dorsal sail or spikes. Entire upper surface is RICH SATURATED ULTRAVIOLET with dark INDIGO shadows and bright LAVENDER edge highlights, absolutely NO brown, gray or beige skin. ONE huge jagged MAGENTA and WHITE DIAGONAL CRACK across flat back. Crisp 96x64 pixel sprite, rich 3-tone colored shading, black selective outline, transparent background and clear margins, no text or scenery.",
+  "image_size": {
+    "width": 96,
+    "height": 64
+  },
+  "no_background": true,
+  "direction": "west",
+  "outline": "selective outline",
+  "detail": "highly detailed",
+  "seed": 2026111712,
+  "enhance_prompt": false,
+  "view": "high top-down"
+}

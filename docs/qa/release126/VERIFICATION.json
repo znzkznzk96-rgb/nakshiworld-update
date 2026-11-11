@@ -1,0 +1,80 @@
+{
+  "date": "2026-11-12",
+  "status": "related_native_reader_passed_full_ci_running",
+  "release": "v1.26",
+  "authorized": true,
+  "gift": {
+    "id": "tile-once-20261112-126",
+    "species": [
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59
+    ],
+    "count_each": 1,
+    "grade": 0,
+    "gold": 4635000,
+    "once_per_save": true
+  },
+  "local": [
+    "MAIL_GIFTS_VERIFY failures=[]",
+    "MAIL_GIFTS_VERIFY failures=[] independent resume",
+    "STALE_WORK_RUN_SCOPE_VERIFY failures=[]",
+    "WORKFLOW_STRUCTURE_VERIFY failures=[]",
+    "release_candidate 7 tests passed"
+  ],
+  "rift_gameplay_open": false,
+  "deployed": false,
+  "phone_verified": false,
+  "source_commit": "92582b96aee1eae64b78ecc4cf48ebcfc4371f05",
+  "ci_run": 43104553552,
+  "pr": 64,
+  "local_native": {
+    "godot": "4.4.1",
+    "renderer": "Mesa llvmpipe OpenGL compatibility via private authenticated local TCP Xvfb in same exec namespace",
+    "rift_renders": 26,
+    "mail_renders": 36,
+    "refined_v126_mail_renders": 9,
+    "heights": [
+      480,
+      540,
+      660
+    ],
+    "failures": [],
+    "rift_source": "7f838ef2d261b9e040e3617b5a6f04b00749ee65",
+    "rift_reuse_scope": "final b656 changes only new mail summary/QA filter, rift geometry/material/decor logic unchanged"
+  },
+  "preview_library_file_id": "libfile_fde3_f-d266dfefee7481919d41f6d25817bdc6_d66dafb33acc81918ce203aeb3fcd18e",
+  "preview_sha256": "ae49e6ad8c55048e79eedb884b0de6940c57b88870c852346bca6192e0bc43a5",
+  "ci_cleanup": {
+    "initial_run": 43101966428,
+    "initial_failure": "queued runs reject /cancel; limited cleanup to in_progress force-cancel only",
+    "current_source": "b656cdf9e06fbcfcb3d9063177a0cbe060fc0b61",
+    "bounded_uploads_minutes": 4,
+    "cancelled_jobs_skip_log_upload": true,
+    "compression_level": 0
+  },
+  "reader_regression": "READER_VERIFY failures=[] after preserving all section body lines",
+  "prior_ci": {
+    "run": 43103653376,
+    "failure": "READER_VERIFY all mail items retained",
+    "fix": "v1.26 second section body.slice(2) retains all remaining release lines; summary display/layout unchanged"
+  },
+  "visual_reuse_scope": "925 changes section backing content only; explicit summary display and full-text letter.body unchanged from locally verified b656 screenshots"
+}

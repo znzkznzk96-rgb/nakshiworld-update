@@ -1,0 +1,11 @@
+{
+  "id": "07",
+  "status": "passed",
+  "note": "16프레임에서 금빛 선이 피부 안에 유지되고 외부 금빛 점이 사라짐. 보라 꼬리의 작은 유영·좌향·원화 색과 여백 유지, native 및 nearest2x 확인.",
+  "native_and_nearest_reviewed": true,
+  "direction": "west",
+  "native_min_content_width": 185,
+  "all_frames_unclipped": true,
+  "actual_generations": 1,
+  "game_applied": false
+}

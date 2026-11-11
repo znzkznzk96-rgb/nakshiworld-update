@@ -1,0 +1,36 @@
+{
+  "id": "18",
+  "attempt": 1,
+  "status": "rejected",
+  "note": "외형/색/여백은 정상이지만 보라 돛지느러미의 벌림/접힘 차이가 작고 이전모션대비 역동성 보강이 충분히 뚜렷하지 않음. 단순무결성통과로채택하지않고 돛큰접힘/펼침 중심으로추가1회.",
+  "native_and_nearest_reviewed": true,
+  "approved_native_compared": true,
+  "before_after_motion_compared": true,
+  "direction": "west",
+  "identity_color_alpha_reviewed": true,
+  "motion_range": {
+    "id": "18",
+    "attempt": 1,
+    "old": {
+      "silhouette_change_max": 0.24,
+      "min_content_width": 189,
+      "unclipped": true
+    },
+    "new": {
+      "silhouette_change_max": 0.27,
+      "min_content_width": 180,
+      "unclipped": true
+    },
+    "native_reference_content_width": 206,
+    "fixed_common_bbox": [
+      12,
+      14,
+      221,
+      143
+    ],
+    "scale_policy": "fixed reference length/common bbox and anchor; never fit each pose to target width; natural tail edge-on narrowing allowed without enlargement"
+  },
+  "safe_native_fight_width": true,
+  "actual_generations": 1,
+  "game_applied": false
+}

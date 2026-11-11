@@ -1,0 +1,14 @@
+{
+  "image": {
+    "type": "repository_original_reference",
+    "path": "game/art/fish/l0_13.png",
+    "sha256": "d8bba111880b8c83651020c11f17ae75f158105de6e2a778d8b3e50e8397ea92",
+    "base64_omitted_from_public_record": true
+  },
+  "description": "A very LONG thin ribbon-like CUTLASSFISH facing RIGHT, metallic silver body bending gently in an S curve, small sharp-toothed closed jaw. Continuous intact body with THREE bold cyan-violet angular rift bands across flank, not detached pieces. Dorsal ridge forms a row of tiny crystal-blade triangles. Long tapering pointed tail at LEFT, no forked fish tail. Bright silver highlights and deep indigo shadows. Crisp original pixel shading, vivid colors, clear margins.",
+  "width": 96,
+  "height": 64,
+  "no_background": true,
+  "seed": 2026111411,
+  "actual_request_sha256": "725c6150cb3a4b25ec1213befa1d62a99fc10470dc6478cfd71fd0c110eb031d"
+}

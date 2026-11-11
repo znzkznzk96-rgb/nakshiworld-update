@@ -1,0 +1,14 @@
+{
+  "image": {
+    "type": "repository_original_reference",
+    "path": "game/art/fish/l0_06.png",
+    "sha256": "851cf7593ea5dfff00ce67ce5b53c061ac8f9c509ec7e708eeb6343805c31a91",
+    "base64_omitted_from_public_record": true
+  },
+  "description": "A round inflated PUFFERFISH facing RIGHT, small beak mouth, normal bright eye. Deep sapphire body divided by thick glowing magenta RIFT SEAMS into broad armor-like patches; body stays a single round fish. Several large pale cyan CRYSTAL SPIKES around silhouette, not a blur halo. Tiny turquoise fins and small purple tail. Clear bright-mid-dark shading on curved body, crisp original pixel style. Crisp original pixel shading, vivid colors, clear margins.",
+  "width": 96,
+  "height": 64,
+  "no_background": true,
+  "seed": 2026111413,
+  "actual_request_sha256": "3de563611b9fe1443473dbebeaadc6b85a30be9907cc10f50cb7512e123d57a5"
+}

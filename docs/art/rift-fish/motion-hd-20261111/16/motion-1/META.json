@@ -1,0 +1,19 @@
+{
+  "id": "16",
+  "name": "월식 개복치",
+  "stage": "motion",
+  "attempt": 1,
+  "model": "animate-pixminimax",
+  "seed": 2026113016,
+  "native_canvas": [
+    232,
+    256
+  ],
+  "input_sha256": "fdd58ac208bc5b858316ffad510f8eb0225cf312c418e22f21eee856ab1d031f",
+  "input_role": "internally passed native HD original derived from the user-approved fish",
+  "request_sha256": "b8c7e2ad34c670082f72e1469fe4d6273945ed9cf0c44c9b113f833b326d384c",
+  "additional_request_used": 0,
+  "expected_output_count": 17,
+  "quoted_generations": 2,
+  "game_applied": false
+}

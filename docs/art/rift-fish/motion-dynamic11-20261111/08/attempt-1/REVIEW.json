@@ -1,0 +1,36 @@
+{
+  "id": "08",
+  "attempt": 1,
+  "status": "rejected",
+  "note": "동작은 커졌지만 일부 프레임에서 긴 멸치 몸이 지나치게 짧고 통통하게 축약됨(포즈최소폭117/원화190). 단순꼬리회전 범위를 넘어 원종의 길쭉한 체형 가독성이 떨어져 재시도.",
+  "native_and_nearest_reviewed": true,
+  "approved_native_compared": true,
+  "before_after_motion_compared": true,
+  "direction": "west",
+  "identity_color_alpha_reviewed": true,
+  "motion_range": {
+    "id": "08",
+    "attempt": 1,
+    "old": {
+      "silhouette_change_max": 0.193,
+      "min_content_width": 171,
+      "unclipped": true
+    },
+    "new": {
+      "silhouette_change_max": 0.331,
+      "min_content_width": 117,
+      "unclipped": true
+    },
+    "native_reference_content_width": 190,
+    "fixed_common_bbox": [
+      19,
+      17,
+      211,
+      67
+    ],
+    "scale_policy": "fixed reference length/common bbox and anchor; never fit each pose to target width; natural tail edge-on narrowing allowed without enlargement"
+  },
+  "safe_native_fight_width": true,
+  "actual_generations": 1,
+  "game_applied": false
+}

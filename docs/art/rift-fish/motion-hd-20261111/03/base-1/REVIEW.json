@@ -1,0 +1,19 @@
+{
+  "id": "03",
+  "stage": "base",
+  "attempt": 1,
+  "status": "passed",
+  "note": "네 개의 청록 날개와 은청색 몸·눈·꼬리 구분 유지. native193px 본체/171px 높이에서 지느러미 세부명암과 윤곽 선명, 여백과 크기 여유 정상.",
+  "reviewed_native_and_nearest": true,
+  "approved_source_compared": true,
+  "observed_direction": "west",
+  "shape": "passed",
+  "color": "passed",
+  "native_detail": "passed",
+  "species_features": "passed",
+  "motion": "not_applicable",
+  "alpha_margin": "passed",
+  "native_width_at_least_fight_max": "passed",
+  "actual_generation_delta": 1.0,
+  "game_applied": false
+}

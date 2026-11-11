@@ -1,0 +1,13 @@
+{
+  "description": "ONE fantasy saury facing RIGHT, very long thin cobalt-blue and silver body, small pointed normal fish head at RIGHT. At LEFT the rear body splits into TWO SEPARATE BRANCHING TAIL STALKS, upper and lower, separated by a large transparent gap. Each stalk ends in its OWN full crescent tail: upper cyan tail, lower violet tail. Exactly TWO COMPLETE tails, not one forked tail. Twin comet fish. Small ordinary fins, no wings. Vivid compact rich 3-tone pixel shading, clean selective outline, cozy 16-bit fishing RPG sprite, native 96x64 crisp pixels, entire creature centered with margins, transparent background, no text or scenery.",
+  "image_size": {
+    "width": 96,
+    "height": 64
+  },
+  "no_background": true,
+  "direction": "east",
+  "outline": "selective outline",
+  "detail": "highly detailed",
+  "seed": 2026111501,
+  "enhance_prompt": false
+}

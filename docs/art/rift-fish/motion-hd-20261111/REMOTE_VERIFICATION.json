@@ -1,0 +1,481 @@
+{
+  "date": "2026-11-11",
+  "files": [
+    {
+      "path": "01/base-1/original.png",
+      "size": 5146,
+      "sha256": "4f35c8b471cb006d3d56b026db1777decd6fb8e491613d319658b20528128747",
+      "canvas": [
+        232,
+        132
+      ],
+      "commit": "a5ee84482bf0820f8f07e0ef43b76741b381adb9",
+      "raw_frames_decoded": 0
+    },
+    {
+      "path": "01/motion-1/frames-original.zip",
+      "size": 199944,
+      "sha256": "1cf1daab9c6dff964780784f652e531d3aacab5c23105df58ae45a4287203d3a",
+      "canvas": [
+        232,
+        132
+      ],
+      "commit": "a5ee84482bf0820f8f07e0ef43b76741b381adb9",
+      "raw_frames_decoded": 17
+    },
+    {
+      "path": "02/base-1/original.png",
+      "size": 8994,
+      "sha256": "7db650a1e42b245a87896ba5e4812411af51fdda6a001fa74e0c0e73e01672e3",
+      "canvas": [
+        232,
+        132
+      ],
+      "commit": "a5ee84482bf0820f8f07e0ef43b76741b381adb9",
+      "raw_frames_decoded": 0
+    },
+    {
+      "path": "02/motion-1/frames-original.zip",
+      "size": 225335,
+      "sha256": "477421f8ef4ca53fb3d1612ad3011a372d1af3292d7e8de72dff0caaad8b244b",
+      "canvas": [
+        232,
+        132
+      ],
+      "commit": "a5ee84482bf0820f8f07e0ef43b76741b381adb9",
+      "raw_frames_decoded": 17
+    },
+    {
+      "path": "03/base-1/original.png",
+      "size": 10220,
+      "sha256": "fca402a8bc48b42aa2cab2f5481e88bfde718030b4cf13d5d5548b90a28d461a",
+      "canvas": [
+        232,
+        216
+      ],
+      "commit": "a5ee84482bf0820f8f07e0ef43b76741b381adb9",
+      "raw_frames_decoded": 0
+    },
+    {
+      "path": "03/motion-1/frames-original.zip",
+      "size": 271281,
+      "sha256": "68f3b75485b31de95af765e968b3944572a17f7d69e2cab039e1b81141aa4922",
+      "canvas": [
+        232,
+        216
+      ],
+      "commit": "a5ee84482bf0820f8f07e0ef43b76741b381adb9",
+      "raw_frames_decoded": 17
+    },
+    {
+      "path": "04/base-1/original.png",
+      "size": 12118,
+      "sha256": "adc1ff4a621523b624b0006145ec18612cdd7ecfff441e46a6fe899cc83b651a",
+      "canvas": [
+        232,
+        184
+      ],
+      "commit": "a59c41ec80f2ea4773ae6b4bdf6699a95b651607",
+      "raw_frames_decoded": 0
+    },
+    {
+      "path": "04/motion-1/frames-original.zip",
+      "size": 379035,
+      "sha256": "4e34f1a65affdeb6d1a6f9e60cc57daa6bb7509b17b5794fadd3bdda936c2a94",
+      "canvas": [
+        232,
+        184
+      ],
+      "commit": "a59c41ec80f2ea4773ae6b4bdf6699a95b651607",
+      "raw_frames_decoded": 17
+    },
+    {
+      "path": "05/base-2/original.png",
+      "size": 5526,
+      "sha256": "d4b42e7841e2fe97c1fc85137179c2058e67dd370171b91b3182ee90761f64e4",
+      "canvas": [
+        232,
+        104
+      ],
+      "commit": "42dfb17cb53a11a0553cb3856e63b795f5a375a3",
+      "raw_frames_decoded": 0
+    },
+    {
+      "path": "05/motion-1/frames-original.zip",
+      "size": 216636,
+      "sha256": "33fbf32763465f2b86617955f6d9f71e0c31e700c1f041480841332aa5824a4a",
+      "canvas": [
+        232,
+        104
+      ],
+      "commit": "42dfb17cb53a11a0553cb3856e63b795f5a375a3",
+      "raw_frames_decoded": 17
+    },
+    {
+      "path": "06/base-2/original.png",
+      "size": 5806,
+      "sha256": "3d4e59f4509f46e096e713b97152f275c5f898ecabfd0162838aedd078843f2a",
+      "canvas": [
+        232,
+        176
+      ],
+      "commit": "08de07a1af7f356da1e577a1d570edffe0e298c7",
+      "raw_frames_decoded": 0
+    },
+    {
+      "path": "06/motion-1/frames-original.zip",
+      "size": 201422,
+      "sha256": "33f9cd86d8256002be437dfec90b1eac4469842ea893360feed24be311b0d6c5",
+      "canvas": [
+        232,
+        176
+      ],
+      "commit": "08de07a1af7f356da1e577a1d570edffe0e298c7",
+      "raw_frames_decoded": 17
+    },
+    {
+      "path": "08/base-1/original.png",
+      "size": 2499,
+      "sha256": "d57e3569ffc01053e2a03aa7bd992506190de23ed729f3c4d27c21a4ac87b47e",
+      "canvas": [
+        232,
+        84
+      ],
+      "commit": "424ecc5b05455ffae8729b52654fe0e6b6042ad7",
+      "raw_frames_decoded": 0
+    },
+    {
+      "path": "08/motion-1/frames-original.zip",
+      "size": 92262,
+      "sha256": "ed2cc177b87ad8863e16fcb9ebbf8e0585f328cb3dc41e08dc7cf9e4ae3c1aae",
+      "canvas": [
+        232,
+        84
+      ],
+      "commit": "424ecc5b05455ffae8729b52654fe0e6b6042ad7",
+      "raw_frames_decoded": 17
+    },
+    {
+      "path": "07/base-1/original.png",
+      "size": 4479,
+      "sha256": "cbe71580e04c18a6a8aa2fb0c6bb77fb589bf30f23454c69e19336876079b3bf",
+      "canvas": [
+        232,
+        128
+      ],
+      "commit": "4a71e2d50ae6103f70d1547f3ec6f5736efa3f22",
+      "raw_frames_decoded": 0
+    },
+    {
+      "path": "07/motion-1/frames-original.zip",
+      "size": 169767,
+      "sha256": "c0f46412705d425fb8c55749419c87fee26331d28fb6facf12afe27583827d75",
+      "canvas": [
+        232,
+        128
+      ],
+      "commit": "4a71e2d50ae6103f70d1547f3ec6f5736efa3f22",
+      "raw_frames_decoded": 17
+    },
+    {
+      "path": "07/motion-2/frames-original.zip",
+      "size": 172151,
+      "sha256": "d7443e97a09fa455e8666031996c57bf345912fa8d2b389328352e14f52dee43",
+      "canvas": [
+        232,
+        128
+      ],
+      "commit": "4a71e2d50ae6103f70d1547f3ec6f5736efa3f22",
+      "raw_frames_decoded": 17
+    },
+    {
+      "path": "09/base-1/original.png",
+      "size": 8211,
+      "sha256": "f01711be0bd858920cf6c4ad6a1b16db47b930d3f67e41da107cc1ed22247ea7",
+      "canvas": [
+        232,
+        152
+      ],
+      "commit": "759206da51e6d941f807fc0e505e1b4793d16205",
+      "raw_frames_decoded": 0
+    },
+    {
+      "path": "09/motion-1/frames-original.zip",
+      "size": 254894,
+      "sha256": "6c6c88af9c81560ac708157caa5b2268b8b824e22d1917ea025c0868c90fc5a6",
+      "canvas": [
+        232,
+        152
+      ],
+      "commit": "759206da51e6d941f807fc0e505e1b4793d16205",
+      "raw_frames_decoded": 17
+    },
+    {
+      "path": "10/base-1/original.png",
+      "size": 7067,
+      "sha256": "094dda4f6cbb9c5be416f43b01a72f1ebe281a10279dd167bf137d546469b21d",
+      "canvas": [
+        232,
+        188
+      ],
+      "commit": "2726e59360a0d3e855356b6068c7ca7356adc35d",
+      "raw_frames_decoded": 0
+    },
+    {
+      "path": "10/motion-1/frames-original.zip",
+      "size": 227674,
+      "sha256": "61c33b0632b630d35a1e2b58eb9414986bef7ad20b36f983c99ac6ef99d6a9e1",
+      "canvas": [
+        232,
+        188
+      ],
+      "commit": "2726e59360a0d3e855356b6068c7ca7356adc35d",
+      "raw_frames_decoded": 17
+    },
+    {
+      "path": "11/base-2/original.png",
+      "size": 4549,
+      "sha256": "927aa826135737435f01e1a480fa3a7fefb83bdc3b22623501fb6b439e65dcd1",
+      "canvas": [
+        232,
+        88
+      ],
+      "commit": "3c76ae49ee731f0f9c3cc3f3b4278cfb436c6504",
+      "raw_frames_decoded": 0
+    },
+    {
+      "path": "11/motion-1/frames-original.zip",
+      "size": 192559,
+      "sha256": "b21254d99cd427d40f3288189563aadcfd88f7560c14103e6c52be291d8c22f1",
+      "canvas": [
+        232,
+        88
+      ],
+      "commit": "3c76ae49ee731f0f9c3cc3f3b4278cfb436c6504",
+      "raw_frames_decoded": 17
+    },
+    {
+      "path": "12/base-1/original.png",
+      "size": 15821,
+      "sha256": "fd7523262fb2622e4729ee805a415699f68ffe36444fee5f8a5f2f02f2830daa",
+      "canvas": [
+        232,
+        156
+      ],
+      "commit": "4d0f6fd2ec9828a36167f4cc154a6dddc594829a",
+      "raw_frames_decoded": 0
+    },
+    {
+      "path": "12/motion-1/frames-original.zip",
+      "size": 410328,
+      "sha256": "03c92e9ea231675fb6c62ae80544a3a76f3461a4e47c877ff5a1d8c646ac0c41",
+      "canvas": [
+        232,
+        156
+      ],
+      "commit": "4d0f6fd2ec9828a36167f4cc154a6dddc594829a",
+      "raw_frames_decoded": 17
+    },
+    {
+      "path": "13/base-2/original.png",
+      "size": 5535,
+      "sha256": "85c197bb5e585e790cb8a88270d0a5849cd8bfda9084bc8a31dfcdccf1dcf2e0",
+      "canvas": [
+        232,
+        212
+      ],
+      "commit": "11937a3674ac7d7465deac7673f64c1eb9afed1c",
+      "raw_frames_decoded": 0
+    },
+    {
+      "path": "13/motion-1/frames-original.zip",
+      "size": 137943,
+      "sha256": "85f5d10ba7caf809ee5e41ef4a283b30c9bb2552d8a2bc20f0fcc4980a1c03bc",
+      "canvas": [
+        232,
+        212
+      ],
+      "commit": "11937a3674ac7d7465deac7673f64c1eb9afed1c",
+      "raw_frames_decoded": 17
+    },
+    {
+      "path": "14/base-1/original.png",
+      "size": 6275,
+      "sha256": "2cfd473386916759061a23396d7edd1d7b88aec6d0e4ab5d2b5d22f6f730e039",
+      "canvas": [
+        232,
+        204
+      ],
+      "commit": "e2a985cdeea467ba9a4cc783757e5af244b88cda",
+      "raw_frames_decoded": 0
+    },
+    {
+      "path": "14/motion-1/frames-original.zip",
+      "size": 148994,
+      "sha256": "6fdd405432ebfed34fade9f1e642900d3a3ef95917d69c8bc6c0abe3cbb95da1",
+      "canvas": [
+        232,
+        204
+      ],
+      "commit": "e2a985cdeea467ba9a4cc783757e5af244b88cda",
+      "raw_frames_decoded": 17
+    },
+    {
+      "path": "14/motion-2/frames-original.zip",
+      "size": 130204,
+      "sha256": "6626790f01902f4bfaa8a2009df4eaa2236f01e6fa98beeca996d3df765c9bc8",
+      "canvas": [
+        232,
+        204
+      ],
+      "commit": "e2a985cdeea467ba9a4cc783757e5af244b88cda",
+      "raw_frames_decoded": 17
+    },
+    {
+      "path": "15/base-1/original.png",
+      "size": 8530,
+      "sha256": "994ec2012e093c67eb2ee0f32d1c7d27c6f7e7e94806fd8859a4dc8defa99880",
+      "canvas": [
+        232,
+        148
+      ],
+      "commit": "80875325827fba0573ce9671ec5df790a0051861",
+      "raw_frames_decoded": 0
+    },
+    {
+      "path": "15/motion-1/frames-original.zip",
+      "size": 150815,
+      "sha256": "00151dc6b322e436197b365f4f4420f43eea583e473d83946ea828df10b99fa1",
+      "canvas": [
+        232,
+        148
+      ],
+      "commit": "80875325827fba0573ce9671ec5df790a0051861",
+      "raw_frames_decoded": 17
+    },
+    {
+      "path": "16/base-1/original.png",
+      "size": 7529,
+      "sha256": "fdd58ac208bc5b858316ffad510f8eb0225cf312c418e22f21eee856ab1d031f",
+      "canvas": [
+        232,
+        256
+      ],
+      "commit": "d40bc100074b5df7e40b099068677743b2b8ef13",
+      "raw_frames_decoded": 0
+    },
+    {
+      "path": "16/motion-1/frames-original.zip",
+      "size": 127459,
+      "sha256": "7990ec282f2b8c0efa6c5e1e35ae8d7e717bdf5cafa3baa6e8b48d26f7553e37",
+      "canvas": [
+        232,
+        256
+      ],
+      "commit": "d40bc100074b5df7e40b099068677743b2b8ef13",
+      "raw_frames_decoded": 17
+    },
+    {
+      "path": "17/base-1/original.png",
+      "size": 8733,
+      "sha256": "fe72e2aa479a6b18d4e0907c7df0da249c306a87f51407d939df5b7f3148a764",
+      "canvas": [
+        232,
+        136
+      ],
+      "commit": "ee26991beef910800f79e08b8f8a1709858fe42b",
+      "raw_frames_decoded": 0
+    },
+    {
+      "path": "17/motion-1/frames-original.zip",
+      "size": 142135,
+      "sha256": "a7c6cf611ca9181bac6a328b971690a04e76928de4a6ed9b3241db78c573fc4e",
+      "canvas": [
+        232,
+        136
+      ],
+      "commit": "ee26991beef910800f79e08b8f8a1709858fe42b",
+      "raw_frames_decoded": 17
+    },
+    {
+      "path": "18/base-1/original.png",
+      "size": 8852,
+      "sha256": "c4d16ee1ffb85704ac50eaeb830d6e386eddddaf1382b5e5eb26104cccac05a7",
+      "canvas": [
+        232,
+        156
+      ],
+      "commit": "b27edc639fc13cd5d2fd7d430e0baf984ddd85aa",
+      "raw_frames_decoded": 0
+    },
+    {
+      "path": "18/motion-1/frames-original.zip",
+      "size": 153421,
+      "sha256": "b71e1cd1c30a29be8773b0ff8e0635f7868100a7ea458d9c8d594b674f522f8d",
+      "canvas": [
+        232,
+        156
+      ],
+      "commit": "b27edc639fc13cd5d2fd7d430e0baf984ddd85aa",
+      "raw_frames_decoded": 17
+    },
+    {
+      "path": "19/base-1/original.png",
+      "size": 5378,
+      "sha256": "7eba6e63f30d9b1d7e906c46d9cfafd2f5c5a048c9138d6214aef6325fc8ae89",
+      "canvas": [
+        232,
+        140
+      ],
+      "commit": "1ad7ef8d1b50d923ea05ca663833ad66c155812a",
+      "raw_frames_decoded": 0
+    },
+    {
+      "path": "19/motion-1/frames-original.zip",
+      "size": 127759,
+      "sha256": "d23d0206d48c99ff33d16b0fbd14387603d60fcddc670da29941f3621e515eab",
+      "canvas": [
+        232,
+        140
+      ],
+      "commit": "1ad7ef8d1b50d923ea05ca663833ad66c155812a",
+      "raw_frames_decoded": 17
+    },
+    {
+      "path": "20/base-1/original.png",
+      "size": 9410,
+      "sha256": "6bf0743312f5e32b29d627434354af7d273d8e38541603e6092f26f5b1e8c834",
+      "canvas": [
+        232,
+        168
+      ],
+      "commit": "e6059deee43d931e785a377d2f56978da9b6f51a",
+      "raw_frames_decoded": 0
+    },
+    {
+      "path": "20/motion-1/frames-original.zip",
+      "size": 203504,
+      "sha256": "1303494203ef6201ddb7ee480589946b36fb2064cca585904b90ebdf000817d0",
+      "canvas": [
+        232,
+        168
+      ],
+      "commit": "e6059deee43d931e785a377d2f56978da9b6f51a",
+      "raw_frames_decoded": 17
+    },
+    {
+      "path": "20/motion-2/frames-original.zip",
+      "size": 183641,
+      "sha256": "90ee4ba31dd42c49e4e60965f9f9c2b22683c491a4ac178756f14e65e7900f31",
+      "canvas": [
+        232,
+        168
+      ],
+      "commit": "e6059deee43d931e785a377d2f56978da9b6f51a",
+      "raw_frames_decoded": 17
+    }
+  ],
+  "game_applied": false,
+  "deployed": false,
+  "all_checked_bytes_decode_size_sha_match": true
+}

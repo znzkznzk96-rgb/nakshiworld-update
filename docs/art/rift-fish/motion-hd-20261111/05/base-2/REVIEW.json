@@ -1,0 +1,19 @@
+{
+  "id": "05",
+  "stage": "base",
+  "attempt": 2,
+  "status": "passed",
+  "note": "수정본은 승인 원본처럼 좌측 촉수 다발/황금 눈·우측 단일 뾰족 맨틀과 청록/보라 균열을 유지. 물고기 꼬리 제거, native202px 폭·선명한 적색 명암·투명 여백 정상. 공유 추가1회 사용완료.",
+  "reviewed_native_and_nearest": true,
+  "approved_source_compared": true,
+  "observed_direction": "west",
+  "shape": "passed",
+  "color": "passed",
+  "native_detail": "passed",
+  "species_features": "passed",
+  "motion": "not_applicable",
+  "alpha_margin": "passed",
+  "native_width_at_least_fight_max": "passed",
+  "actual_generation_delta": 1.0,
+  "game_applied": false
+}

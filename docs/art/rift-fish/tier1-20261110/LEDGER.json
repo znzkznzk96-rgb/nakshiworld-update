@@ -1,0 +1,243 @@
+{
+  "date": "2026-11-10",
+  "max_attempts_per_species": 2,
+  "entries": [
+    {
+      "id": "01",
+      "name": "두꼬리꽁치",
+      "attempt": 1,
+      "status": "rejected",
+      "model": "create-image-bitforge",
+      "seed": 2026111001,
+      "request_sha256": "2e94ae6e10e879f0dc5302fd10da6d52c57b42fae61d1990c4865f008eea6457",
+      "submitted_at_unix": 1794314842.2454617,
+      "http_status": 200,
+      "job_id": null,
+      "response_mode": "synchronous_single_image",
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "actual_generation_delta": 1.0,
+      "result_sha256": "2bb1174d22ef82b26b8acda3bb0f6b15debc34f80e7ae85702eff8b3ffb8868f"
+    },
+    {
+      "id": "01",
+      "name": "두꼬리꽁치",
+      "attempt": 2,
+      "status": "server_failure_no_image",
+      "model": "create-image-pro-flash",
+      "seed": 2026111101,
+      "request_sha256": "fd4c832502718c8ef8642ff62420bd8863125d2bda727564b17b6d5e7d0c9856",
+      "submitted_at_unix": 1794315025.8330414,
+      "http_status": 202,
+      "job_id": "57b15d88-baa7-4798-9295-da1b2cfd55a8",
+      "actual_generation_delta": 0.0,
+      "upstream_error_code": 502
+    },
+    {
+      "id": "02",
+      "name": "균열정어리",
+      "attempt": 1,
+      "status": "passed",
+      "model": "edit-image-pixen",
+      "seed": 2026111202,
+      "request_sha256": "6c05770457c5f6c0aa467ab49f4508d9a5aad4011cc3d49e6302aad4c6f93b82",
+      "submitted_at_unix": 1794315768.0391288,
+      "http_status": 202,
+      "job_id": "ce13b778-9928-4ddd-8c1e-88b1480fb9dd",
+      "actual_generation_delta": 1.0,
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "result_sha256": "0fdcf1ad1b2818ca10802365c6ca1285922deeb0b6e13e56bd1c82b60b9216ea"
+    },
+    {
+      "id": "03",
+      "name": "네날개날치",
+      "attempt": 1,
+      "status": "passed",
+      "model": "edit-image-pixen",
+      "seed": 2026111203,
+      "request_sha256": "6b32f1ba5ad9b4050eb6b6e7789e54c3f0a99de91bcd4e7e254dfda7e3f0eb80",
+      "submitted_at_unix": 1794315939.622243,
+      "http_status": 202,
+      "job_id": "5aac3eca-1c0f-46f5-bfa7-738e6d51ad1e",
+      "actual_generation_delta": 1.0,
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "result_sha256": "bb5da274a05ace32781a119f4341250b23f79bfe4d7cb6b08761eb9646e2fddd"
+    },
+    {
+      "id": "04",
+      "name": "가시등전어",
+      "attempt": 1,
+      "status": "rejected",
+      "model": "edit-image-pixen",
+      "seed": 2026111204,
+      "request_sha256": "ef7ffcebe7aed5ac4259bc3a7785a6324bd68bd4cbddc1e3f732abf7f47ed0f6",
+      "submitted_at_unix": 1794316100.7820048,
+      "http_status": 202,
+      "job_id": "ae025b7e-b17d-4473-a977-5be862fd5b25",
+      "actual_generation_delta": 1.0,
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "result_sha256": "13e18fda654e6f97b04806d2d6d4f382308db78bf507e02f59130fef463aa378"
+    },
+    {
+      "id": "04",
+      "name": "가시등전어",
+      "attempt": 2,
+      "status": "passed",
+      "model": "edit-image-pixen",
+      "seed": 2026111304,
+      "request_sha256": "cfdb15080418c02bfa8c05b6eb7f23d280cb58f31577131ab1557cb1322540a2",
+      "submitted_at_unix": 1794316312.4479935,
+      "http_status": 202,
+      "job_id": "7d0af23a-c4a2-4b96-983b-b2fb09fabaed",
+      "actual_generation_delta": 1.0,
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "result_sha256": "cca9e6f8bcefe5caf69d5c912e118bda26d88ed4f40d5cb5d401234db4793e3f"
+    },
+    {
+      "id": "05",
+      "name": "오징어",
+      "attempt": 1,
+      "status": "rejected",
+      "model": "edit-image-pixen",
+      "seed": 2026111205,
+      "request_sha256": "ea26cf6d79d2da3d605e5c40f33855b2c1b191739d15e8e8b639cf3dd62df211",
+      "submitted_at_unix": 1794316489.2899575,
+      "http_status": 202,
+      "job_id": "e9844b85-04c3-45d8-b9dd-5771b0867912",
+      "actual_generation_delta": 1.0,
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "result_sha256": "cf058b2f7cb6512aab90f23533432274bc03eb5f749aabdeb9e0149adf27429b"
+    },
+    {
+      "id": "05",
+      "name": "오징어",
+      "attempt": 2,
+      "status": "rejected",
+      "model": "edit-image-pixen",
+      "seed": 2026111305,
+      "request_sha256": "5c50883ce40e9e0cfd2f74fb1d8d942f0a418437772d221e2097873f59b21ead",
+      "submitted_at_unix": 1794316688.9048088,
+      "http_status": 202,
+      "job_id": "4940f6ad-d694-446e-b262-e635a473a5aa",
+      "actual_generation_delta": 1.0,
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "result_sha256": "a155b5288422a130da537ab572a3ffb100fad925a56c5a3bee117f8d0cc38137"
+    },
+    {
+      "id": "06",
+      "name": "쥐포쥐치",
+      "attempt": 1,
+      "status": "rejected",
+      "model": "edit-image-pixen",
+      "seed": 2026111206,
+      "request_sha256": "d89c7118dd1ef593e637d5df2a819cf46e2b52e8e929339935f65d6f5503dbdc",
+      "submitted_at_unix": 1794316815.366214,
+      "http_status": 202,
+      "job_id": "dd86e56e-aa15-47c7-aa16-abcc9fde42a4",
+      "actual_generation_delta": 1.0,
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "result_sha256": "38e201b4b4e33be3124938baf58d076e394e93cedebc1eb4f8ca27d920c01897"
+    },
+    {
+      "id": "06",
+      "name": "쥐포쥐치",
+      "attempt": 2,
+      "status": "passed",
+      "model": "edit-image-pixen",
+      "seed": 2026111306,
+      "request_sha256": "cf0ff2d5a0c652fab66cdb395e20a7cc40314b88e305d3f39fba15189fa7d56c",
+      "submitted_at_unix": 1794316996.5424814,
+      "http_status": 202,
+      "job_id": "3233b997-d9e0-45ca-a7bb-d9cbceb4dd82",
+      "actual_generation_delta": 1.0,
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "result_sha256": "49bc3d38623b565a722512401299746cff7fd4ff4012118ebadb7a90ac9eaca9"
+    },
+    {
+      "id": "07",
+      "name": "금간정어리",
+      "attempt": 1,
+      "status": "passed",
+      "model": "edit-image-pixen",
+      "seed": 2026111207,
+      "request_sha256": "048de9c82322d1a95b8508ff626e676c242dd34ae8dc8e5dd02c6b878d29f0a1",
+      "submitted_at_unix": 1794317141.0264487,
+      "http_status": 202,
+      "job_id": "f51e6daa-682b-494a-af83-04575a51587c",
+      "actual_generation_delta": 1.0,
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "result_sha256": "73e180f43b932d7bf5feb720c84aca00599907f665d757cd1842e7d4569e68fa"
+    },
+    {
+      "id": "08",
+      "name": "빛멸치",
+      "attempt": 1,
+      "status": "passed",
+      "model": "edit-image-pixen",
+      "seed": 2026111208,
+      "request_sha256": "fd42f07e875e929a64d04dc719c54b136f41e52ff97cdac6fbf664a297723a53",
+      "submitted_at_unix": 1794317261.625464,
+      "http_status": 202,
+      "job_id": "c4cb3137-cbdc-449d-9936-0283a1eb4639",
+      "actual_generation_delta": 1.0,
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "result_sha256": "04190e7b52eb9f691e77502ee390c3c6efb5fac7b9cbca7b40706512d9f31b1f"
+    }
+  ],
+  "generation_requests": 12,
+  "status": "completed_with_individual_holds",
+  "accepted_outputs": 6,
+  "rejected_outputs": 5,
+  "server_failure_without_image": 1,
+  "actual_generations_charged": 11.0,
+  "unstarted_species": 0,
+  "no_additional_paid_calls": true,
+  "failed_species_policy": "hold individual, continue independent species",
+  "held_species": [
+    {
+      "id": "01",
+      "name": "두꼬리꽁치",
+      "attempts": 2,
+      "reason": "체형·특징 불합격/2회상한, 재호출 없음"
+    },
+    {
+      "id": "05",
+      "name": "오징어",
+      "attempts": 2,
+      "reason": "체형·특징 불합격/2회상한, 재호출 없음"
+    }
+  ],
+  "current_turn_generations_charged": 10.0
+}

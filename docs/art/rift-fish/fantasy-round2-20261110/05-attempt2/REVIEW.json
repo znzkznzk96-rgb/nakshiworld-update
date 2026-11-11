@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "note": "좌측 단일 뾰족 원뿔 맨틀·우측 촉수 다발·황금 눈과 선명한 청록 균열 확인. 물고기 꼬리 제거. 네이티브 및 정수 확대 확인. 좌우 여백 1픽셀로 좁으나 잘림 없음, 모션 제작 시 별도 여유 캔버스 필요.",
+  "reviewed_at_native_and_nearest6x": true,
+  "compared_with_actual_reservoir_original": true,
+  "size": [
+    96,
+    64
+  ],
+  "bbox": [
+    1,
+    16,
+    95,
+    48
+  ],
+  "mode": "RGBA",
+  "sha256": "ee248c3a3d789b33242f20efe822dd94840f7217bc4e6fb921ce6b42ffd81889",
+  "reference_sha256": "e454a6f227a1c2005f0844bb375b9bb6b2790e9043049451f214dd74e4eb03d2",
+  "shape": "passed",
+  "color": "passed",
+  "shading_pixel_clusters": "passed",
+  "outline": "passed",
+  "species_feature": "passed",
+  "alpha_margin": "passed",
+  "actual_generation_delta": 1.0,
+  "game_applied": false,
+  "user_final_approval": "pending"
+}

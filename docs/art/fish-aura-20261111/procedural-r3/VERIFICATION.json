@@ -1,0 +1,129 @@
+{
+  "render_frames": 192,
+  "alpha_checks": [
+    {
+      "tier": 0,
+      "frame": "alpha-36.png",
+      "sha256": "b22bbfaaf9d43e3d17119104c4f5c17ac02abccb56140bef4e53df8623ceca5b",
+      "transparent_pixels": 265336
+    },
+    {
+      "tier": 0,
+      "frame": "alpha-00.png",
+      "sha256": "358c3b6c07b4d1a67d08be0d4c4a19af8c808998a7383253c991070d08440606",
+      "transparent_pixels": 264881
+    },
+    {
+      "tier": 0,
+      "frame": "alpha-24.png",
+      "sha256": "dd7c8f9533bb7edde8593221da35961360bf62db20e69fce67a5c8147e3417a0",
+      "transparent_pixels": 265431
+    },
+    {
+      "tier": 0,
+      "frame": "alpha-12.png",
+      "sha256": "ac7382726e7f775a5739dd19fea85292d6023fa76b9a4968fe766b210bb01f5c",
+      "transparent_pixels": 263816
+    },
+    {
+      "tier": 1,
+      "frame": "alpha-36.png",
+      "sha256": "7b2003b9af423f963b36f9d3a74482884ec2d3f8675da755b446736973ab274f",
+      "transparent_pixels": 246683
+    },
+    {
+      "tier": 1,
+      "frame": "alpha-00.png",
+      "sha256": "130b8b9d27e202214a04202ebb6fb00458054d637dff3349f8d4cadcf034fb0f",
+      "transparent_pixels": 246414
+    },
+    {
+      "tier": 1,
+      "frame": "alpha-24.png",
+      "sha256": "6facf2861d1d6935d21a0fadf8ab917f8242a5c3d5d07ec07ca4ee4ed4214d8c",
+      "transparent_pixels": 246473
+    },
+    {
+      "tier": 1,
+      "frame": "alpha-12.png",
+      "sha256": "373b05154884edd229f2c6da0a2d1d046fe0d0e58878c18f95d41793d190ac43",
+      "transparent_pixels": 246632
+    },
+    {
+      "tier": 2,
+      "frame": "alpha-36.png",
+      "sha256": "6f10e3cead16031d8dd7e18ee00804eb76ea633d384bba0dd0e808c1657dfbe5",
+      "transparent_pixels": 255315
+    },
+    {
+      "tier": 2,
+      "frame": "alpha-00.png",
+      "sha256": "afce94cfdbf8c57f64992c41f27b037de378641fe66417fa676c72e20277639a",
+      "transparent_pixels": 276480
+    },
+    {
+      "tier": 2,
+      "frame": "alpha-24.png",
+      "sha256": "95d77e4257fdd2c94bc67c943463852bfa92087681f8fec358c74de88197f810",
+      "transparent_pixels": 246701
+    },
+    {
+      "tier": 2,
+      "frame": "alpha-12.png",
+      "sha256": "21c1075cbb001cc1d206ceec7abe69d916d22b252c30bf9bc219fa6274d28ffa",
+      "transparent_pixels": 266936
+    },
+    {
+      "tier": 3,
+      "frame": "alpha-36.png",
+      "sha256": "fa4e8d595081304d84809b1fa225bcbc237eb432252a83f6447ea7ade109a3ad",
+      "transparent_pixels": 255638
+    },
+    {
+      "tier": 3,
+      "frame": "alpha-00.png",
+      "sha256": "ff240bd363450724a878ad92e2a073ded26677fc4b9f0eb3dfb4814ccfda0dfe",
+      "transparent_pixels": 275827
+    },
+    {
+      "tier": 3,
+      "frame": "alpha-24.png",
+      "sha256": "848ae09f74a1ea821913c762839a296c9e77df4ef7b13b4e6297ea5f1d76352e",
+      "transparent_pixels": 275827
+    },
+    {
+      "tier": 3,
+      "frame": "alpha-12.png",
+      "sha256": "ecbc04007f73b5b1474a1a54f0ec1fbc2b090c3cae9791a994f9a0b405a6e2b6",
+      "transparent_pixels": 255640
+    }
+  ],
+  "fish_texture_unchanged": true,
+  "paid_calls": 0,
+  "game_integration_tested": false,
+  "gif_checks": [
+    {
+      "tier": 0,
+      "frames": 48,
+      "sha256": "e4e291030c0fbadb26974fe09c0aef90b071583fff102aa704ca7307a54c7168"
+    },
+    {
+      "tier": 1,
+      "frames": 48,
+      "sha256": "eb5f2e01c29f28575fde8d817ee6556cab96e2bcbc35f4c44116a4256ebe4637"
+    },
+    {
+      "tier": 2,
+      "frames": 48,
+      "sha256": "5d5b1fe336de64f34981ba4fba646e5e28ad4089d19737e5f3982425aad9d0af"
+    },
+    {
+      "tier": 3,
+      "frames": 48,
+      "sha256": "b3c31e57e09678d0c66b9151e8bc83d06f4eed06afbffb4454aca645a89becd5"
+    }
+  ],
+  "unique_r2_48_frames_identical": true,
+  "user_approved": false,
+  "revision": 3
+}

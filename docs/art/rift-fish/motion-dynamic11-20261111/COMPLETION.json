@@ -1,0 +1,29 @@
+{
+  "date": "2026-11-11",
+  "status": "complete_9_passed_2_held",
+  "processed": 11,
+  "passed": [
+    "02",
+    "04",
+    "05",
+    "06",
+    "07",
+    "08",
+    "09",
+    "12",
+    "16"
+  ],
+  "held": [
+    "17",
+    "18"
+  ],
+  "requests": 16,
+  "actual_generations_charged": 18,
+  "resumed_existing_job": "d728eb3a-5db0-427e-bca2-aea616f0c070",
+  "new_paid_requests_this_session": 0,
+  "review18": "docs/art/rift-fish/motion-dynamic11-20261111/18/attempt-2/REVIEW.json",
+  "game_applied": false,
+  "deployed": false,
+  "public_release": "v1.25",
+  "prior_verification": "docs/art/rift-fish/motion-dynamic11-20261111/REMOTE_VERIFICATION.json"
+}

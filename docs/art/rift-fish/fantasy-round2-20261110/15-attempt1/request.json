@@ -1,0 +1,14 @@
+{
+  "image": {
+    "type": "repository_original_reference",
+    "path": "game/art/fish/l0_12.png",
+    "sha256": "80c335634c9ce2125cedcb3fb84fc9b0235bd18896f9fe7dbdde243e0475d391",
+    "base64_omitted_from_public_record": true
+  },
+  "description": "A thick muscular torpedo-shaped TUNA facing RIGHT, closed pointed mouth, small eye, narrow tail stalk and strong crescent tail. Deep cobalt-violet back, bright silver belly. THREE broad turquoise PRISM scales embedded in shoulder, angular luminous magenta seams between them. Dorsal fin and tail tips are sharp crystal facets. No floating rocks or separate creatures. Keep rich original fish pixel shading. Crisp original pixel shading, vivid colors, clear margins.",
+  "width": 96,
+  "height": 64,
+  "no_background": true,
+  "seed": 2026111415,
+  "actual_request_sha256": "8863ebda09049ef17dd2fe42e4b415a4bcbf5ee5dc250e682b981b08c19b990f"
+}

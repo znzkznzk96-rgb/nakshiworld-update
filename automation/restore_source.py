@@ -31,4 +31,5 @@ for source in (repo/"game").rglob("*"):
 assert (output/"project.godot").is_file() and (output/"root.tscn").is_file()
 import subprocess
 subprocess.run([sys.executable,str(repo/"automation/prepare_expedition_assets.py"),str(output)],check=True)
+subprocess.run([sys.executable,str(repo/"automation/prepare_rift_assets.py"),str(output)],check=True)
 print("FULL SOURCE RESTORE VERIFIED")

@@ -1,0 +1,19 @@
+{
+  "id": "16",
+  "stage": "base",
+  "attempt": 1,
+  "status": "passed",
+  "note": "승인된 보라 원반·금빛 초승달·청록 가장자리와 작은 갈래꼬리 유지. 좌향과 상하 지느러미·여백 정상.",
+  "reviewed_native_and_nearest": true,
+  "approved_source_compared": true,
+  "observed_direction": "west",
+  "shape": "passed",
+  "color": "passed",
+  "native_detail": "passed",
+  "species_features": "passed",
+  "motion": "not_applicable",
+  "alpha_margin": "passed",
+  "native_width_at_least_fight_max": "passed",
+  "actual_generation_delta": 1.0,
+  "game_applied": false
+}

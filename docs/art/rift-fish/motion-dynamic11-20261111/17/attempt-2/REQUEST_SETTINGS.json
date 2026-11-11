@@ -1,0 +1,22 @@
+{
+  "description": "Energetic 2D side-view swimming of a long streamlined fish. Keep the torso long at every phase, with a nearly constant horizontal head-to-tail span. A pronounced VERTICAL S-wave travels from the middle of the body into the cyan tail, which sweeps UP then DOWN on screen with clear follow-through. Cyan pectoral fins spread wide and row back. Do not rotate toward the camera, foreshorten or squash the torso. The blue zigzag is ordinary PAINT on the skin and simply bends with it, with NO light effects. Clean isolated sprite: no white dots, bubbles, sparks, flecks, dust, droplets, aura or trails outside the body. Head LEFT, fixed camera, position and scale, all fins attached and visible inside transparent margins. Seamless vigorous loop.",
+  "frame_count": 16,
+  "seed": 2026115217,
+  "no_background": true,
+  "drift_threshold": 0,
+  "enhance_prompt": false,
+  "direction": "west",
+  "view": "side",
+  "subject_description": "yellow-silver fish with cyan fins and a blue zigzag painted on the skin",
+  "initial_pose": "horizontal side-view swim pose, head left and tail or mantle right, whole creature visible inside transparent margins",
+  "first_frame": {
+    "sha256": "fe72e2aa479a6b18d4e0907c7df0da249c306a87f51407d939df5b7f3148a764",
+    "source": "docs/art/rift-fish/motion-hd-20261111/17/base-1/original.png",
+    "role": "passed HD original, not rejected result"
+  },
+  "last_frame": {
+    "sha256": "fe72e2aa479a6b18d4e0907c7df0da249c306a87f51407d939df5b7f3148a764",
+    "source": "docs/art/rift-fish/motion-hd-20261111/17/base-1/original.png",
+    "role": "passed HD original, not rejected result"
+  }
+}

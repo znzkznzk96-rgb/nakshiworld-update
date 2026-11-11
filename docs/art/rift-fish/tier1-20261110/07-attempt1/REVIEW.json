@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "note": "가늘은정어리/우향·은청색몸/보라지느러미·길이방향금빛주균열과짧은가지표현통과. 청록균열정어리와색/균열형태구분,원본도트/여백정상.",
+  "reviewed_at_native_and_nearest6x": true,
+  "compared_with_actual_reservoir_original": true,
+  "size": [
+    96,
+    64
+  ],
+  "bbox": [
+    14,
+    15,
+    77,
+    45
+  ],
+  "mode": "RGBA",
+  "sha256": "73e180f43b932d7bf5feb720c84aca00599907f665d757cd1842e7d4569e68fa",
+  "reference_sha256": "a09e70c432b23d10502eb18efa02d14bfbbd4ce4c5a15634b7f5c161a3ac47db",
+  "shape": "passed",
+  "color": "passed",
+  "shading_pixel_clusters": "passed",
+  "outline": "passed",
+  "species_feature": "passed",
+  "alpha_margin": "passed",
+  "actual_generation_delta": 1.0,
+  "game_applied": false,
+  "user_final_approval": "pending"
+}

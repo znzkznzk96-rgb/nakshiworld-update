@@ -1,0 +1,19 @@
+{
+  "id": "11",
+  "stage": "motion",
+  "attempt": 1,
+  "status": "passed",
+  "note": "긴 은빛 몸이 연결된 상태로 S자 파동이 뒤로 전달되고, 등 칼날과 청록/보라 균열 띠가 몸을 따라 움직임. 단일 뾰족 후미 유지, 흰 외곽테 재발 없음. 16프레임의 native폭/좌향/색/여백 정상.",
+  "reviewed_native_and_nearest": true,
+  "approved_source_compared": true,
+  "observed_direction": "west",
+  "shape": "passed",
+  "color": "passed",
+  "native_detail": "passed",
+  "species_features": "passed",
+  "motion": "passed",
+  "alpha_margin": "passed",
+  "native_width_at_least_fight_max": "passed",
+  "actual_generation_delta": 1.0,
+  "game_applied": false
+}

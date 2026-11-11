@@ -1,0 +1,14 @@
+{
+  "image": {
+    "type": "repository_original_reference",
+    "path": "game/art/fish/l0_07.png",
+    "sha256": "a09e70c432b23d10502eb18efa02d14bfbbd4ce4c5a15634b7f5c161a3ac47db",
+    "base64_omitted_from_public_record": true
+  },
+  "description": "A very THIN blue-silver saury facing RIGHT. Small pointed head, no long wing fins. Rear at LEFT splits into TWO distinct short tail STALKS, one above the other, each with its OWN complete crescent tail. Clear transparent gap between the TWO tails. Turquoise tips on upper tail, violet tips on lower tail like two comet blades. Preserve source detailed pixel style. Crisp original pixel shading, vivid colors, clear margins.",
+  "width": 96,
+  "height": 64,
+  "no_background": true,
+  "seed": 2026111401,
+  "actual_request_sha256": "8cd74abe6123f049376642d5008c2f51056b469312317c4964e34780123f0c30"
+}

@@ -1,0 +1,98 @@
+{
+  "source_commit": "5cf118f654ec26118b0f4a17402934576bcb1131",
+  "baseline": {
+    "tag": "v1.25",
+    "sha256": "96a1b1ce885ad159f1e30af0c1bf080be1f7b7d88a1dbdcd6804dd3425e0b1b0"
+  },
+  "approved_background_sha256": "c404675fa5342ae30c7353ca9b3d4030f20849055ebf792f1fe88ed5245767c3",
+  "species": 20,
+  "motion_frames": 320,
+  "local_import": "passed Godot4.4.1",
+  "local_renderer": "RIFT_ART_VERIFY failures=[] frames=320; two directions; RNG/state unchanged; three heights",
+  "local_packed": "PACKED_RIFT_ART_VERIFY failures=[] species=20",
+  "local_pck_sha256": "32f03e03cd0c7ff8ee110a6d3a7c7685cabacbfb1ff855c2db5bbcf13d7fb699",
+  "native": {
+    "run": 42970106086,
+    "artifact": 13832917641,
+    "renders": 7,
+    "visual_review": "passed",
+    "render_sources_unchanged_in_final_source": true
+  },
+  "full_ci": {
+    "run": 42970312624,
+    "status": "success",
+    "job": 130357056610,
+    "unique_success_labels": 132,
+    "source_commit": "5cf118f654ec26118b0f4a17402934576bcb1131",
+    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/actions/runs/42970312624"
+  },
+  "gameplay_catalog_count": 60,
+  "rift_art_catalog_count": 20,
+  "region3_unlocked": false,
+  "deployed": false,
+  "phone_verified": false,
+  "approved_source_identity": {
+    "matched": 20,
+    "mismatched": 0,
+    "method": "git blob identity at each approved asset_commit versus integration source"
+  },
+  "final_native_artifact": {
+    "id": 13833590505,
+    "name": "rift-art-first-preview",
+    "size_in_bytes": 5793047,
+    "url": "https://api.github.com/repos/znzkznzk96-rgb/nakshiworld-update/actions/artifacts/13833590505",
+    "archive_download_url": "https://api.github.com/repos/znzkznzk96-rgb/nakshiworld-update/actions/artifacts/13833590505/zip",
+    "expired": false,
+    "created_at": "2026-11-11T06:09:21Z",
+    "expires_at": "2027-02-09T06:08:17Z",
+    "updated_at": "2026-11-11T06:09:21Z",
+    "digest": "sha256:e6cf76bd54c177a82adf88dd15726899dc69981124fab995ef3cb5c5c4b0466d",
+    "workflow_run": {
+      "id": 42970312624,
+      "repository_id": 1423971848,
+      "head_repository_id": 1423971848,
+      "head_branch": "work/tile-release-107",
+      "head_sha": "5cf118f654ec26118b0f4a17402934576bcb1131"
+    }
+  },
+  "candidate_artifact": {
+    "id": 13833422757,
+    "name": "release-candidate-d1da623d8ad22b947f2e1c74d92c931906a2dad063f415f7351ae33e1ff9a68e",
+    "size_in_bytes": 123081473,
+    "url": "https://api.github.com/repos/znzkznzk96-rgb/nakshiworld-update/actions/artifacts/13833422757",
+    "archive_download_url": "https://api.github.com/repos/znzkznzk96-rgb/nakshiworld-update/actions/artifacts/13833422757/zip",
+    "expired": false,
+    "created_at": "2026-11-11T06:17:33Z",
+    "expires_at": "2026-12-11T06:17:29Z",
+    "updated_at": "2026-11-11T06:17:33Z",
+    "digest": "sha256:b7c94b2ffb4d12e34c550222062519362100190cba1cb9ee86c00dd4b6291620",
+    "workflow_run": {
+      "id": 42970312624,
+      "repository_id": 1423971848,
+      "head_repository_id": 1423971848,
+      "head_branch": "work/tile-release-107",
+      "head_sha": "5cf118f654ec26118b0f4a17402934576bcb1131"
+    }
+  },
+  "full_logs_artifact": {
+    "id": 13832429437,
+    "name": "work-verification",
+    "size_in_bytes": 217757361,
+    "url": "https://api.github.com/repos/znzkznzk96-rgb/nakshiworld-update/actions/artifacts/13832429437",
+    "archive_download_url": "https://api.github.com/repos/znzkznzk96-rgb/nakshiworld-update/actions/artifacts/13832429437/zip",
+    "expired": false,
+    "created_at": "2026-11-11T06:17:39Z",
+    "expires_at": "2027-02-09T06:08:17Z",
+    "updated_at": "2026-11-11T06:17:39Z",
+    "digest": "sha256:7257ce176777996cd86721361123c0f386e8e711d2975328bb4e6b75363ccd98",
+    "workflow_run": {
+      "id": 42970312624,
+      "repository_id": 1423971848,
+      "head_repository_id": 1423971848,
+      "head_branch": "work/tile-release-107",
+      "head_sha": "5cf118f654ec26118b0f4a17402934576bcb1131"
+    }
+  },
+  "screenshot_library_file_id": "libfile_fde3_f-4ef93baa73bc81919e5311f4ba281c26_d66dafb33acc81918ce203aeb3fcd18e",
+  "release_authorized": false
+}

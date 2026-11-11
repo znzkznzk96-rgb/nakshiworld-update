@@ -1,0 +1,269 @@
+{
+  "id": "18",
+  "stage": "motion",
+  "attempt": 1,
+  "frames": [
+    {
+      "path": "frames/00.png",
+      "sha256": "c4d16ee1ffb85704ac50eaeb830d6e386eddddaf1382b5e5eb26104cccac05a7",
+      "size": [
+        232,
+        156
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        13,
+        14,
+        219,
+        142
+      ]
+    },
+    {
+      "path": "frames/01.png",
+      "sha256": "2b12a7decfd150e2bd5252d7b03e72d75d40d1c3a518c23a68617fa38b7e1ff3",
+      "size": [
+        232,
+        156
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        13,
+        14,
+        216,
+        142
+      ]
+    },
+    {
+      "path": "frames/02.png",
+      "sha256": "fb1efc115aaa34c4bfb70a7e6e1008c49f82834440f2fc8a5dfc1f66dbd6cbcf",
+      "size": [
+        232,
+        156
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        13,
+        14,
+        211,
+        142
+      ]
+    },
+    {
+      "path": "frames/03.png",
+      "sha256": "4457922aa98e044841d15d2f2beeecbaa6530ffec1d6b5447bfbd99ca6cc91ac",
+      "size": [
+        232,
+        156
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        13,
+        14,
+        206,
+        143
+      ]
+    },
+    {
+      "path": "frames/04.png",
+      "sha256": "b918b5380f9b20a7e17f8120bdb09a5cb479bd5992d4f0e247594c9d58c8cd55",
+      "size": [
+        232,
+        156
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        13,
+        14,
+        202,
+        144
+      ]
+    },
+    {
+      "path": "frames/05.png",
+      "sha256": "833f6b56a9d0122ddf6b7737064485574449752cab40d115b1617002fb94b3a0",
+      "size": [
+        232,
+        156
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        13,
+        14,
+        203,
+        144
+      ]
+    },
+    {
+      "path": "frames/06.png",
+      "sha256": "b22066d5a8608bf67511f39aaba025a965fe40c02bccef71ea3aa31837409a9d",
+      "size": [
+        232,
+        156
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        13,
+        14,
+        206,
+        144
+      ]
+    },
+    {
+      "path": "frames/07.png",
+      "sha256": "4cd9eb6a41151d5c1a2155df20428256bdbdef1167f7a95eac9c7d5019514b73",
+      "size": [
+        232,
+        156
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        13,
+        14,
+        211,
+        144
+      ]
+    },
+    {
+      "path": "frames/08.png",
+      "sha256": "dafe5cb1ce6fc657051dc4af08a3c075c79785f1bc171a935e26d43538d922e2",
+      "size": [
+        232,
+        156
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        13,
+        14,
+        216,
+        143
+      ]
+    },
+    {
+      "path": "frames/09.png",
+      "sha256": "e06254c91e6deed4e75ce6e373408228dbe4e89a99e8d4eed6c261b00f5e0b8b",
+      "size": [
+        232,
+        156
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        13,
+        14,
+        219,
+        142
+      ]
+    },
+    {
+      "path": "frames/10.png",
+      "sha256": "a2013a833c18659acfaf04a4bc5ca3e8d53cca6365a193e1f844b0967b023938",
+      "size": [
+        232,
+        156
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        13,
+        14,
+        221,
+        142
+      ]
+    },
+    {
+      "path": "frames/11.png",
+      "sha256": "892c399c857de1ade6ab9686a892ce5e14da2cf5a4b03809b13260135854bb26",
+      "size": [
+        232,
+        156
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        13,
+        14,
+        219,
+        142
+      ]
+    },
+    {
+      "path": "frames/12.png",
+      "sha256": "8ee6075dcc4ee49f1a71cbe3a7e7f152068947f763a3ab834ba557216f760bac",
+      "size": [
+        232,
+        156
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        13,
+        14,
+        216,
+        142
+      ]
+    },
+    {
+      "path": "frames/13.png",
+      "sha256": "11e291c449d8228a6ee702d56503eaa5d274390c34ebb457e35d69196145cbe4",
+      "size": [
+        232,
+        156
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        13,
+        14,
+        211,
+        142
+      ]
+    },
+    {
+      "path": "frames/14.png",
+      "sha256": "e8edd31210071de13265ff039e93c6d645c7eb62e733093b7ae5d4ef692d6a0a",
+      "size": [
+        232,
+        156
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        13,
+        14,
+        206,
+        143
+      ]
+    },
+    {
+      "path": "frames/15.png",
+      "sha256": "c4fe22a1510c4892f90cbe9e39ec83994a20c717080890d7f7f0486c0c15fa0c",
+      "size": [
+        232,
+        156
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        13,
+        14,
+        202,
+        144
+      ]
+    },
+    {
+      "path": "frames/16.png",
+      "sha256": "6db580364355e5f878662720c4fadcabd443e25816e209ddc0a64637047057cb",
+      "size": [
+        232,
+        156
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        13,
+        14,
+        203,
+        144
+      ]
+    }
+  ],
+  "actual_generation_delta": 1.0,
+  "expected_canvas": [
+    232,
+    156
+  ],
+  "job_id": "56308db1-a4fd-4b36-ba18-dc3e8501d971",
+  "game_applied": false
+}

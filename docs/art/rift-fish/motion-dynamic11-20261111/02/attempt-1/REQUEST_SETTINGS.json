@@ -1,0 +1,22 @@
+{
+  "description": "Vigorous swimming: the rear half bends into a clear S-curve, the tail sweeps through a broad arc one way then snaps through the opposite arc. Pectoral fins open wide then push backward in time with each tail beat. Strong follow-through and a clear recovery, not near-static fluttering. Seamless energetic swim IN PLACE. Fixed camera and scale; head LEFT throughout. Preserve identity, anatomy, fin count and rich original colors. All parts stay inside the canvas with clear margins. No external particles, glow, trails, new parts or background.",
+  "frame_count": 16,
+  "seed": 2026115102,
+  "no_background": true,
+  "drift_threshold": 0,
+  "enhance_prompt": false,
+  "direction": "west",
+  "view": "side",
+  "subject_description": "blue-silver sardine with a cyan side marking",
+  "initial_pose": "horizontal side-view swim pose, head left and tail or mantle right, whole creature visible inside transparent margins",
+  "first_frame": {
+    "source": "docs/art/rift-fish/motion-hd-20261111/02/base-1/original.png",
+    "sha256": "7db650a1e42b245a87896ba5e4812411af51fdda6a001fa74e0c0e73e01672e3",
+    "role": "passed HD original exact bytes, not a rejected motion frame"
+  },
+  "last_frame": {
+    "source": "docs/art/rift-fish/motion-hd-20261111/02/base-1/original.png",
+    "sha256": "7db650a1e42b245a87896ba5e4812411af51fdda6a001fa74e0c0e73e01672e3",
+    "role": "passed HD original exact bytes, not a rejected motion frame"
+  }
+}

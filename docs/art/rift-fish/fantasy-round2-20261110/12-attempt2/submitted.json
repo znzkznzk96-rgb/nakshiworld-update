@@ -1,0 +1,12 @@
+{
+  "id": "12",
+  "attempt": 2,
+  "model": "create-image-pixen",
+  "seed": 2026111512,
+  "request_sha256": "2dd7101a1fce468ec4ad5be6092f565eefd74b21c799353df70e741ecf69d5f7",
+  "http_status": 200,
+  "status": "rejected",
+  "result_sha256": "1ae94d6c8f7419023cafcf687b95fd1f4d63bf415ad4860ab0f0e19594753582",
+  "actual_generation_delta": 1.0,
+  "private_response_fields_omitted": true
+}

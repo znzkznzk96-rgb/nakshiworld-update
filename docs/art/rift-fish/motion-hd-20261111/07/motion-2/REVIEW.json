@@ -1,0 +1,19 @@
+{
+  "id": "07",
+  "stage": "motion",
+  "attempt": 2,
+  "status": "rejected",
+  "note": "추가1회 결과에도 일부 프레임에서 몸 밖의 금빛 점이 남아 외부 파티클 금지 조건 미충족. 두 번째 모션까지 확인했으므로 07은 보류하고 추가 유료요청 없이 다음 종 진행. 원화/머리/고유색은 유지됨.",
+  "reviewed_native_and_nearest": true,
+  "approved_source_compared": true,
+  "observed_direction": "west",
+  "shape": "passed",
+  "color": "passed",
+  "native_detail": "passed",
+  "species_features": "passed",
+  "motion": "failed",
+  "alpha_margin": "passed",
+  "native_width_at_least_fight_max": "passed",
+  "actual_generation_delta": 1.0,
+  "game_applied": false
+}

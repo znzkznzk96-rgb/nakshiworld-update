@@ -1,0 +1,11 @@
+{
+  "id": "14",
+  "status": "rejected",
+  "note": "이번 회차도 날개 사이와 바깥에 회색 불투명 덩어리가 여러 프레임에 발생. 16번 프레임 정수3x에서 확인. 기존 원화는 정상, 생성 모션은 적용 불가로 보류.",
+  "native_and_nearest_reviewed": true,
+  "direction": "west",
+  "native_min_content_width": 193,
+  "all_frames_unclipped": false,
+  "actual_generations": 2,
+  "game_applied": false
+}

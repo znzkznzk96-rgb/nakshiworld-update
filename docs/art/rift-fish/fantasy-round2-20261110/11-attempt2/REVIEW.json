@@ -1,0 +1,28 @@
+{
+  "status": "rejected",
+  "note": "긴 은빛 띠 몸과 보라 명암은 개선됐으나 좌측에 명확한 갈라진 꼬리가 다시 생겨 갈치 필수 특징 미충족. 이번 회차 2회 도달로 갈치만 개별 보류, 다음 광어 진행.",
+  "reviewed_at_native_and_nearest6x": true,
+  "compared_with_actual_reservoir_original": true,
+  "size": [
+    96,
+    64
+  ],
+  "bbox": [
+    4,
+    21,
+    93,
+    42
+  ],
+  "mode": "RGBA",
+  "sha256": "635f349c870335fc2bcac502335d8906e6144cfb16355ee2d0aa4184767a7d59",
+  "reference_sha256": "d8bba111880b8c83651020c11f17ae75f158105de6e2a778d8b3e50e8397ea92",
+  "shape": "rejected",
+  "color": "passed",
+  "shading_pixel_clusters": "passed",
+  "outline": "passed",
+  "species_feature": "rejected",
+  "alpha_margin": "passed",
+  "actual_generation_delta": 1.0,
+  "game_applied": false,
+  "user_final_approval": "pending"
+}

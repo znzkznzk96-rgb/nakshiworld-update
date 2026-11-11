@@ -1,0 +1,19 @@
+{
+  "id": "15",
+  "name": "차원결정 참치",
+  "stage": "base",
+  "attempt": 1,
+  "model": "edit-image-pixen",
+  "seed": 2026112015,
+  "native_canvas": [
+    232,
+    148
+  ],
+  "input_sha256": "109169a346c8914a8bf24c7142188f79fec0363c1bcb300565495877e382793e",
+  "input_role": "user-approved fish, transparent margins cropped/padded only",
+  "request_sha256": "e9a3689ac2678cb37a664d646a1b221225ca1296cde0170208331d316bbc53e0",
+  "additional_request_used": 0,
+  "expected_output_count": 1,
+  "quoted_generations": 1,
+  "game_applied": false
+}

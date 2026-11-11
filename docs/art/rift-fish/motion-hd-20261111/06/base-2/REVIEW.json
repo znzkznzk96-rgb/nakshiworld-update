@@ -1,0 +1,19 @@
+{
+  "id": "06",
+  "stage": "base",
+  "attempt": 2,
+  "status": "passed",
+  "note": "납작한 쥐치 몸·긴 등가시·노랑 눈·주황 꼬리·청록 반점/명암을 승인 원본과 대조해 유지 확인. native195px 본체와 세부명암, 좌향·투명 여백 정상. 첫 요청은 입력제한 무차감 종료였고 추가요청 사용완료.",
+  "reviewed_native_and_nearest": true,
+  "approved_source_compared": true,
+  "observed_direction": "west",
+  "shape": "passed",
+  "color": "passed",
+  "native_detail": "passed",
+  "species_features": "passed",
+  "motion": "not_applicable",
+  "alpha_margin": "passed",
+  "native_width_at_least_fight_max": "passed",
+  "actual_generation_delta": 1.0,
+  "game_applied": false
+}

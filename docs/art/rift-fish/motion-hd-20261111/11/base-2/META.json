@@ -1,0 +1,19 @@
+{
+  "id": "11",
+  "name": "균열칼날 갈치",
+  "stage": "base",
+  "attempt": 2,
+  "model": "edit-image-pixen",
+  "seed": 2026112111,
+  "native_canvas": [
+    232,
+    88
+  ],
+  "input_sha256": "7a04b1a1a3c808ad7dbd494ff6da4e8dad3f57b0ecefbb6fecdfc214bfbc8f68",
+  "input_role": "user-approved fish, transparent margins cropped/padded only",
+  "request_sha256": "5c3c002876629670ab273c3cf52f17d0d07b37bb611f9535999d1f23cac6cbdb",
+  "additional_request_used": 1,
+  "expected_output_count": 1,
+  "quoted_generations": 1,
+  "game_applied": false
+}

@@ -1,0 +1,19 @@
+{
+  "id": "03",
+  "stage": "motion",
+  "attempt": 1,
+  "status": "passed",
+  "note": "16프레임에서 네 날개가 쌍별로 접혔다 펴지는 움직임 확인. 접힐 때 날개가 겹치지만 펼침 구간의 네 날개·꼬리·머리·은청색 몸 구조 유지. native해상도·색·좌향·투명 여백 정상.",
+  "reviewed_native_and_nearest": true,
+  "approved_source_compared": true,
+  "observed_direction": "west",
+  "shape": "passed",
+  "color": "passed",
+  "native_detail": "passed",
+  "species_features": "passed",
+  "motion": "passed",
+  "alpha_margin": "passed",
+  "native_width_at_least_fight_max": "passed",
+  "actual_generation_delta": 2.0,
+  "game_applied": false
+}

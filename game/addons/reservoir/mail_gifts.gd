@@ -4,7 +4,8 @@ const Catalog = preload("res://addons/reservoir/regional_catalog.gd")
 const DATA = {
 	"0.78": {"id":"testing-20261026-078","region":0,"grade":3,"gold":1000000,"souls":1000,"elements":50,"button":"테스트 선물 받기","claimed":"테스트 선물 수령 완료","toast":"테스트 선물을 받았어요!","save_error":false},
 	"0.93": {"id":"reservoir-legendary-20261029-093","region":0,"grade":3,"gold":100000,"souls":0,"elements":0,"button":"전설 20마리 + 10만 비늘 받기","claimed":"선물 수령 완료","toast":"전설 물고기 20마리 · 100,000비늘 수령","save_error":false},
-	"1.08": {"id":"valley-once-20261107-108","region":1,"grade":0,"gold":1000000,"souls":0,"elements":0,"button":"계곡 20종 + 100만 비늘 받기","claimed":"선물 수령 완료","toast":"계곡20종 · 1,000,000비늘 수령","save_error":true}
+	"1.08": {"id":"valley-once-20261107-108","region":1,"grade":0,"gold":1000000,"souls":0,"elements":0,"button":"계곡 20종 + 100만 비늘 받기","claimed":"선물 수령 완료","toast":"계곡20종 · 1,000,000비늘 수령","save_error":true},
+	"1.26": {"id":"tile-once-20261112-126","region":2,"grade":0,"gold":4635000,"souls":0,"elements":0,"button":"타일20종 + 4,635,000비늘 받기","claimed":"선물 수령 완료","toast":"타일바다20종 · 4,635,000비늘 수령","save_error":true}
 }
 static func info(letter_id: String) -> Dictionary:
 	return DATA.get(letter_id,{})

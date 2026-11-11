@@ -1,0 +1,12 @@
+{
+  "image": {
+    "encoded_image_omitted": true,
+    "sha256": "51800945616ed873b391c0f0a2e566c011c1902efbb760093ce898284920aec0",
+    "input_role": "user-approved fish, transparent margins cropped/padded only"
+  },
+  "description": "This is the EXACT approved SQUID, NOT a fish. LEFT side is a head with one golden eye and a bunch of curling arms and long feeding tentacles. RIGHT side is one coral-red conical mantle tapering to a SINGLE sharp point, NO tail fin or fork. Preserve every tentacle and cyan-violet seam from the image. Redraw at the larger native resolution with finer pixel detail, identical anatomy, colors and pose. Whole squid with transparent margins. NO fish head, scales, dorsal fin or fish tail.",
+  "width": 232,
+  "height": 104,
+  "no_background": true,
+  "seed": 2026112105
+}

@@ -171,12 +171,12 @@ func paint(m, data: Dictionary, origin: Vector2) -> void:
 		if shape=="clamp": pos.y+=roundf(float(data.progress)*2)*(1 if pos.y<6 else -1)
 		m._fish_effect_rect(Rect2(origin+pos,Vector2.ONE),c)
 
-func draw(m, center: Vector2, body_length: float, group: bool=false) -> void:
-	icon_bounds=Rect2()
+func layout(m, center: Vector2, body_length: float, group: bool=false, hud_override: Vector2=Vector2.INF) -> Dictionary:
 	var data: Dictionary=sample(m)
 	var half_height: float=4 if group else float(m.aura.get("hw",4))
 	var head_x: float=center.x if group else float(m.fish_mouth.x)
 	var hud:Vector2=m.S.get("tensionHud",m._tension_anchor(center,m._fight_fish_scale(float(m.S.get("lf",1))),body_length))
+	if hud_override!=Vector2.INF:hud=hud_override
 	var desired_y:float=minf(center.y-half_height-22,hud.y-18)
 	if group:desired_y=minf(desired_y,center.y-36*clampf(float(m.S.get("cloneT",0))/.3,0,1)-half_height-22)
 	var anchor:=Vector2(clampf(head_x-6,3,m.VW-16),clampf(desired_y,m.top_y+72-m.oy,m.uw_bot-20)).round()
@@ -184,6 +184,15 @@ func draw(m, center: Vector2, body_length: float, group: bool=false) -> void:
 	if hud_rect.intersects(Rect2(anchor-Vector2.ONE,Vector2(15,15))):
 		anchor.x=hud_rect.end.x+2 if hud_rect.end.x+17<m.VW else hud_rect.position.x-17
 		anchor.x=clampf(anchor.x,2,m.VW-16)
+	return {"data":data,"anchor":anchor,"bounds":Rect2(anchor-Vector2.ONE,Vector2(15,15)) if not data.is_empty() else Rect2(),"hud":hud_rect}
+
+func draw(m, center: Vector2, body_length: float, group: bool=false) -> void:
+	m.drawing_telegraph=true
+	icon_bounds=Rect2()
+	var geometry:Dictionary=layout(m,center,body_length,group)
+	var data:Dictionary=geometry.data
+	var anchor:Vector2=geometry.anchor
+
 	if not data.is_empty():
 		icon_bounds=Rect2(anchor-Vector2.ONE,Vector2(15,15));paint(m,data,anchor)
 		if data.shape in ["right","left","up","down","bolt"]:
@@ -197,6 +206,7 @@ func draw(m, center: Vector2, body_length: float, group: bool=false) -> void:
 				m._fish_effect_rect(Rect2(pt.round(),Vector2.ONE),Color(data.color,0.7))
 	if flash_until>m.clock:
 		draw_success(m,m.fish_mouth,1.0-(flash_until-m.clock)/SUCCESS_FLASH_DURATION,false)
+	m.drawing_telegraph=false
 
 # Encyclopedia uses a private model but the exact same sample()/paint() as play.
 class LessonModel extends RefCounted:

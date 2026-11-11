@@ -1,0 +1,84 @@
+{
+  "body_envelope_transparent": true,
+  "engine": "4.6.3-stable (official)",
+  "fish": [
+    "01",
+    "13",
+    "20"
+  ],
+  "fixed_fish_scales": [
+    0.782178217821782,
+    0.707865168539326,
+    0.959183673469388
+  ],
+  "fps": 16,
+  "frames": 48,
+  "game_applied": false,
+  "no_closed_ring": true,
+  "paid_generations": 0,
+  "particle_counts": [
+    160,
+    190,
+    210,
+    220
+  ],
+  "prototype": true,
+  "seconds": 3,
+  "speeds": [
+    64,
+    72,
+    80,
+    88
+  ],
+  "tiers": [
+    "rare",
+    "unique",
+    "legendary",
+    "mythic"
+  ],
+  "status": "prototype_user_review_pending",
+  "generator_only": "Godot 4.6.3 offline preview; production Godot4.4.1 not integrated",
+  "gif_checks": [
+    {
+      "tier": 0,
+      "gif_sha256": "2b1706e15fe6f25a08e0fa6a918720a347218e5f19b74602d3a0dd5165e5564a",
+      "frames": 48,
+      "size": [
+        384,
+        720
+      ]
+    },
+    {
+      "tier": 1,
+      "gif_sha256": "e1b12ec773b775442fdac4537928fe897cc248e96566fac6cd4d2b3d5e625f76",
+      "frames": 48,
+      "size": [
+        384,
+        720
+      ]
+    },
+    {
+      "tier": 2,
+      "gif_sha256": "4f5f2ffcbdffead0e5b9b1a3fa2ee99bff3a00c32b5ae12451bde6c8cf29869b",
+      "frames": 48,
+      "size": [
+        384,
+        720
+      ]
+    },
+    {
+      "tier": 3,
+      "gif_sha256": "2ea14b845dd3f5e909d4ac21aec512bd9cc84b7378c5aa10029550ed525d7b81",
+      "frames": 48,
+      "size": [
+        384,
+        720
+      ]
+    }
+  ],
+  "archive": {
+    "title": "fish_aura_4tiers_motion_preview.zip",
+    "sha256": "ca92fa9da788b9bbde7d47a2861ca9e9fbce03e31550c1bc668fa5a1f1e1d74f",
+    "library_file_id": "libfile_fde3_f-0109196cdd788191816d4e7115f6580b_d66dafb33acc81918ce203aeb3fcd18e"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "description": "A pure SQUID, horizontal swimming RIGHT. Its left 2/3 is ONE LARGE SMOOTH CORAL RED CONICAL MANTLE, like a long pointed hood: widest near the head at RIGHT and narrowing all the way to ONE SINGLE SHARP CLOSED POINT at extreme LEFT. NO tail of any kind. NO fish tail, no fork, no fish fins or scales. Two tiny triangular mantle flaps lie flush along the cone sides, never at the rear tip. Golden eye on small head at RIGHT, eight curling arms and two long tentacles extending RIGHT. Three glowing cyan-violet cracks run LENGTHWISE along red conical mantle. Native 96x64 crisp 16-bit pixel sprite, rich compact 3-tone shading, vivid coral red and violet, selective dark outline, transparent margins, single creature, no text or scenery.",
+  "image_size": {
+    "width": 96,
+    "height": 64
+  },
+  "no_background": true,
+  "direction": "east",
+  "outline": "selective outline",
+  "detail": "highly detailed",
+  "seed": 2026111505,
+  "enhance_prompt": false
+}

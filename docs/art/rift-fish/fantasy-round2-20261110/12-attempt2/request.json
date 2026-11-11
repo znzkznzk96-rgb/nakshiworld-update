@@ -1,0 +1,13 @@
+{
+  "description": "TOP VIEW of ONE FLAT FLOUNDER swimming RIGHT, like a very FLAT horizontal oval leaf lying on its side. Show the whole broad upper surface, NOT a normal side-view fish. TWO SMALL NORMAL EYES placed CLOSE TOGETHER on the SAME upper surface near the tiny mouth at the RIGHT tip. Exactly two eyes, no extra eyes. Thick violet/navy flattened oval body, small broad tail at LEFT. A smooth CONTINUOUS LOW LAVENDER FIN FRINGE surrounds top and bottom edges, separated into six soft petal sections, NO tall spiky dorsal fins. ONE bright magenta-white jagged DIAGONAL CRACK across the broad flat upper surface. Rich vivid violet, crisp compact pixel shading and clean dark selective outline, native 96x64 16-bit fishing RPG sprite, fully within transparent margins, no scenery/text.",
+  "image_size": {
+    "width": 96,
+    "height": 64
+  },
+  "no_background": true,
+  "direction": "east",
+  "outline": "selective outline",
+  "detail": "highly detailed",
+  "seed": 2026111512,
+  "enhance_prompt": false
+}

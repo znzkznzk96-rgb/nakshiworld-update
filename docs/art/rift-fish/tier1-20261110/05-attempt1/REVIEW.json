@@ -1,0 +1,28 @@
+{
+  "status": "rejected",
+  "note": "쨍한주황빨강/도트/우향/여백은통과하나물고기꼬리·등/배지느러미가남은혼합체라오징어형태불합격. 원본입력유지후물고기구조완전제거2차명세.",
+  "reviewed_at_native_and_nearest6x": true,
+  "compared_with_actual_reservoir_original": true,
+  "size": [
+    96,
+    64
+  ],
+  "bbox": [
+    4,
+    14,
+    90,
+    48
+  ],
+  "mode": "RGBA",
+  "sha256": "cf058b2f7cb6512aab90f23533432274bc03eb5f749aabdeb9e0149adf27429b",
+  "reference_sha256": "e454a6f227a1c2005f0844bb375b9bb6b2790e9043049451f214dd74e4eb03d2",
+  "shape": "failed_fish_tail_and_fins_remain",
+  "color": "passed",
+  "shading_pixel_clusters": "passed",
+  "outline": "passed",
+  "species_feature": "failed_squid_mantle_missing",
+  "alpha_margin": "passed",
+  "actual_generation_delta": 1.0,
+  "game_applied": false,
+  "user_final_approval": "pending"
+}

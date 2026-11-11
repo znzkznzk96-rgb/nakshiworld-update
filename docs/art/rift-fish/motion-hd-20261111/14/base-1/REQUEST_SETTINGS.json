@@ -1,0 +1,12 @@
+{
+  "image": {
+    "encoded_image_omitted": true,
+    "sha256": "f0191a35204a3df80243c8d513ff99bb23154ada5a05c75c7f0ac91e43873d05",
+    "input_role": "user-approved fish, transparent margins cropped/padded only"
+  },
+  "description": "Preserve this EXACT approved creature: identical silhouette, anatomy, number of tails/fins/eyes, markings and species colors. Render it at the new native resolution with finer clean pixel clusters and more defined original-style highlights and shadows, NOT a nearest-neighbor enlargement. Face LEFT. Keep the whole creature centered, about 200 pixels wide, with transparent margins. No redesign, extra fins, eyes, tail, particles, glow halo or background.",
+  "width": 232,
+  "height": 204,
+  "no_background": true,
+  "seed": 2026112014
+}

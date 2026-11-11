@@ -1,0 +1,12 @@
+{
+  "image": {
+    "encoded_image_omitted": true,
+    "sha256": "7a04b1a1a3c808ad7dbd494ff6da4e8dad3f57b0ecefbb6fecdfc214bfbc8f68",
+    "input_role": "user-approved fish, transparent margins cropped/padded only"
+  },
+  "description": "Keep the EXACT approved long silver ribbon creature: head LEFT, single pointed tail RIGHT, three cyan-violet rift bands and tiny dorsal blades. Render finer native pixels, identical anatomy/colors/pose. Use a thin DARK NAVY/BLACK outer outline like the reference. NO white border, sticker edge, halo or outer glow. Silver highlights stay INSIDE the body on its upper surface. Whole creature centered with transparent margins.",
+  "width": 232,
+  "height": 88,
+  "no_background": true,
+  "seed": 2026112111
+}

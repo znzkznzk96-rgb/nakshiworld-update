@@ -1,0 +1,19 @@
+{
+  "id": "06",
+  "name": "쥐포쥐치",
+  "stage": "base",
+  "attempt": 1,
+  "model": "edit-image-pixen",
+  "seed": 2026112006,
+  "native_canvas": [
+    232,
+    176
+  ],
+  "input_sha256": "70a6a38d8ec7ebe8c25e6942b1f28473d395870f75e60cdb8483fae9766ebb13",
+  "input_role": "user-approved fish, transparent margins cropped/padded only",
+  "request_sha256": "4b4b19f68ace91989e1439008fef461cce95fd2bca982f987065fd6da50b7924",
+  "additional_request_used": 0,
+  "expected_output_count": 1,
+  "quoted_generations": 1,
+  "game_applied": false
+}

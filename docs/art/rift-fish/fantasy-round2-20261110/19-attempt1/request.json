@@ -1,0 +1,13 @@
+{
+  "description": "ONE fantasy GLASS SHARK swimming RIGHT, clearly a shark: pointed snout, small bright eye, five gill slits, strong triangular dorsal fin, swept pectoral fins, asymmetric crescent tail at LEFT. Body looks like thick transparent icy-cyan glass drawn as crisp solid pixel facets, bright white edges, dark teal underside, 3 pale violet inner rib-like refraction bands visible through flank. A single magenta rift seam along the back. Friendly closed mouth, not a tooth monster. No aquarium, halo, ice scenery or additional fish. Cozy existing 16-bit fishing RPG sprite style. Crisp native 96x64 pixel clusters, clean selective dark outline, rich controlled 3-to-4-tone ramps per material, distinct highlights/midtones/shadows. Vivid species colors, no washed-out gray or yellow haze, no soft gradients, heavy dithering or blur. Entire single creature centered with transparent margins, head at RIGHT. Animation-ready neutral swimming pose, separate readable fin/tentacle shapes. No text, frames, scenery or external particle trails.",
+  "image_size": {
+    "width": 96,
+    "height": 64
+  },
+  "no_background": true,
+  "direction": "east",
+  "outline": "selective outline",
+  "detail": "highly detailed",
+  "seed": 2026111419,
+  "enhance_prompt": false
+}

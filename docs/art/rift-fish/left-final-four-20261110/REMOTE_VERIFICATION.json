@@ -1,0 +1,204 @@
+{
+  "commit": "0a8fbb72be9425ec18703755a0d4f6cc5dbe5067",
+  "remote_pngs": [
+    {
+      "path": "left-facing/01-쌍혜성 두꼬리꽁치.png",
+      "size": [
+        96,
+        64
+      ],
+      "sha256": "e91f17dea17f458fe87e461f46c91efc95aa9b6efaaaa3e49686c71805d20355"
+    },
+    {
+      "path": "left-facing/02-균열정어리.png",
+      "size": [
+        96,
+        64
+      ],
+      "sha256": "8d71141df8d29023aac56dafdb2f4724bf0008f25fe577398cccc037010d5712"
+    },
+    {
+      "path": "left-facing/03-네날개날치.png",
+      "size": [
+        96,
+        64
+      ],
+      "sha256": "25214549ef693e0e8bb1d5695d03d75bbaf97b930c97902e8772859d49cb8ca0"
+    },
+    {
+      "path": "left-facing/04-가시등전어.png",
+      "size": [
+        96,
+        64
+      ],
+      "sha256": "63ee9308050f08a1e8d286214f899f1da01faa7da3ee1e069d32fdb312538d38"
+    },
+    {
+      "path": "left-facing/05-균열장막 오징어.png",
+      "size": [
+        96,
+        64
+      ],
+      "sha256": "81e385c31d2ea669769b966ce98c48ea4ebcf27ffa2ff56023d984660fbca6bc"
+    },
+    {
+      "path": "left-facing/06-쥐포쥐치.png",
+      "size": [
+        96,
+        64
+      ],
+      "sha256": "4b2f44d5e07af096a875eddec5b68ab446237d8efb23d0693cddb8de8d1c11c0"
+    },
+    {
+      "path": "left-facing/07-금간정어리.png",
+      "size": [
+        96,
+        64
+      ],
+      "sha256": "408e0b3efb2d1f2db36c1cef2406ddc86829cc06eaea1f40dde70f7173e09bf9"
+    },
+    {
+      "path": "left-facing/08-빛멸치.png",
+      "size": [
+        96,
+        64
+      ],
+      "sha256": "42115d73b5bad77f01eb1d20062e413b08618fe99f34bd24c13a7d8a92d3655f"
+    },
+    {
+      "path": "left-facing/09-균열갑주 방어.png",
+      "size": [
+        96,
+        64
+      ],
+      "sha256": "c1538880445d6cd0a1e73c76c3dd7b5495ad9cca3511e193089fce385e20ce1d"
+    },
+    {
+      "path": "left-facing/10-유영리본 삼치.png",
+      "size": [
+        96,
+        64
+      ],
+      "sha256": "0f5bae35b539f50734eb7d46f67e144402f1c167a4baab7b2d3b70ec69d447de"
+    },
+    {
+      "path": "left-facing/11-균열칼날 갈치.png",
+      "size": [
+        96,
+        64
+      ],
+      "sha256": "dd9d59b85980c78ec7493407540b20989d3fc7b29436942d31efa440667f07da"
+    },
+    {
+      "path": "left-facing/13-틈새결정 복어.png",
+      "size": [
+        96,
+        64
+      ],
+      "sha256": "ba86f301146574c77121a784565bd387f1a571f50edd8b608cfb1500f31f97e5"
+    },
+    {
+      "path": "left-facing/14-거울날개 날치.png",
+      "size": [
+        96,
+        64
+      ],
+      "sha256": "6b7963bc1a8a24f23d764cac2136968978d3e64830b9b5192d430eccaa226a29"
+    },
+    {
+      "path": "left-facing/15-차원결정 참치.png",
+      "size": [
+        96,
+        64
+      ],
+      "sha256": "32738f7ee270fea90ae7b72cddf3e8ffdef18f78fcb903003acaa9d5b22612a2"
+    },
+    {
+      "path": "left-facing/17-뇌광 삼치.png",
+      "size": [
+        96,
+        64
+      ],
+      "sha256": "e6367ed4d684c5785428af37b57acf4e0110314af7816ffcf3670a597ff13921"
+    },
+    {
+      "path": "left-facing/18-차원창 청새치.png",
+      "size": [
+        96,
+        64
+      ],
+      "sha256": "d48838150cc64a481c23a61e9f43808f1800638d5a28fa413f114c2ccf3b95c8"
+    },
+    {
+      "path": "left-facing/19-균열유리 상어.png",
+      "size": [
+        96,
+        64
+      ],
+      "sha256": "420c05c550d394811c2496421717be6b6e4998ddb0eb3b8d7ea3106482af2402"
+    },
+    {
+      "path": "left-facing/20-폭풍다랑어.png",
+      "size": [
+        96,
+        64
+      ],
+      "sha256": "48f57bdc1de761476e14fa4b1531f65de27d793f619a6683b83104dba1deb38b"
+    },
+    {
+      "path": "11-attempt1/original.png",
+      "size": [
+        96,
+        64
+      ],
+      "sha256": "099fb8ad44c0b464a0790f9d110a794ef4cebeb7091af3fcf62383f0df427ade"
+    },
+    {
+      "path": "12-attempt1/original.png",
+      "size": [
+        96,
+        64
+      ],
+      "sha256": "eb1bf1a154299717aa3c672552158abae1557e1f5ae2d274f956726bf7705b99"
+    },
+    {
+      "path": "12-attempt2/original.png",
+      "size": [
+        96,
+        64
+      ],
+      "sha256": "82e159c7b1704943af74cf39acf99ddb1dd31c0e04de8faf9d87754d40067873"
+    },
+    {
+      "path": "16-attempt1/original.png",
+      "size": [
+        96,
+        64
+      ],
+      "sha256": "558a5d755b34be83dcb410cb5f99cb0dd63b026972227d8d896b4147a2918fb6"
+    },
+    {
+      "path": "16-attempt2/original.png",
+      "size": [
+        96,
+        64
+      ],
+      "sha256": "d6bd161be8644edf672c25dc914e3a455996fd16dad8a76384d7151c6f0efb96"
+    },
+    {
+      "path": "20-attempt1/original.png",
+      "size": [
+        96,
+        64
+      ],
+      "sha256": "1019133e06aa37328907d7f7952ea325c7b9b1b14472fbc04f19dddb7eed7c46"
+    }
+  ],
+  "all_decode_size_sha_match": true,
+  "canonical_left_facing": 18,
+  "new_raw_outputs": 6,
+  "existing16_originals_unchanged": true,
+  "game_applied": false,
+  "deployed": false,
+  "private_response_paths_absent": true
+}

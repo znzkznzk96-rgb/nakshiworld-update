@@ -15,7 +15,7 @@ var rects: = {}
 var notice: = ""
 var notice_until: = 0.0
 func setup() -> void :
-	for n in ART: images.append(load("res://art/refresh53/%s.png" % ("reservoir_clean" if n == "reservoir" else n)))
+	for n in ART: images.append(load("res://art/rift/base.png" if n=="rift" else "res://art/refresh53/%s.png" % ("reservoir_clean" if n == "reservoir" else n)))
 	chains = load("res://art/refresh53/chains.png")
 func enter() -> void : pointer = false;dragging = false;shift = 0;scroll = index;notice = ""
 func process(dt: float) -> void :
@@ -83,7 +83,7 @@ func draw(m, h: float) -> void :
 				m._ui_line(border.end, border.end - Vector2(0, border.size.y), col, 1)
 		var image_pos: Vector2 = r.position + Vector2(8, 8)
 		var image_source:=Rect2(0,(240-image_height)/2,208,image_height)
-		if i==2:
+		if i in [2,3]:
 			var source_size: Vector2=images[i].get_size()
 			var crop_height: float=source_size.x*image_height/208.0
 			image_source=Rect2(0,(source_size.y-crop_height)/2.0,source_size.x,crop_height)

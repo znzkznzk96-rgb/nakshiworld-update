@@ -1,0 +1,19 @@
+{
+  "id": "15",
+  "name": "차원결정 참치",
+  "stage": "motion",
+  "attempt": 1,
+  "model": "animate-pixminimax",
+  "seed": 2026113015,
+  "native_canvas": [
+    232,
+    148
+  ],
+  "input_sha256": "994ec2012e093c67eb2ee0f32d1c7d27c6f7e7e94806fd8859a4dc8defa99880",
+  "input_role": "internally passed native HD original derived from the user-approved fish",
+  "request_sha256": "2f8c9f102e480f3115ad57e0a7109d19b4e4f793c822654959797c5ef3884289",
+  "additional_request_used": 0,
+  "expected_output_count": 17,
+  "quoted_generations": 1,
+  "game_applied": false
+}

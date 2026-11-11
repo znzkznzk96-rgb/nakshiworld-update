@@ -1,0 +1,220 @@
+{
+  "id": "06",
+  "attempt": 1,
+  "job_id": "35fa642d-b065-420a-9a99-c27db2886e24",
+  "model": "animate-pixminimax",
+  "native_canvas": [
+    232,
+    176
+  ],
+  "frame0_matches_native": true,
+  "frame_count": 16,
+  "actual_generations": 2,
+  "frames": [
+    {
+      "frame": 0,
+      "path": "dyn11/06/attempt-1/frames/00.png",
+      "bytes": 5806,
+      "sha256": "3d4e59f4509f46e096e713b97152f275c5f898ecabfd0162838aedd078843f2a",
+      "bbox": [
+        17,
+        17,
+        212,
+        159
+      ]
+    },
+    {
+      "frame": 1,
+      "path": "dyn11/06/attempt-1/frames/01.png",
+      "bytes": 6843,
+      "sha256": "310d60a5a46c7451772c28958c70279ff22c533d32ae19b5eac479dfff1ec1ed",
+      "bbox": [
+        16,
+        17,
+        209,
+        159
+      ]
+    },
+    {
+      "frame": 2,
+      "path": "dyn11/06/attempt-1/frames/02.png",
+      "bytes": 7258,
+      "sha256": "3f860ad050fb8059207862de80f374ce1c8a72a5cf5c59ee227dd4cc52fb5e76",
+      "bbox": [
+        16,
+        17,
+        204,
+        159
+      ]
+    },
+    {
+      "frame": 3,
+      "path": "dyn11/06/attempt-1/frames/03.png",
+      "bytes": 7295,
+      "sha256": "30e229a624c25d700f88ed18c15719e3a8d8f25fae6706f80d4cde054ff704c7",
+      "bbox": [
+        16,
+        17,
+        194,
+        159
+      ]
+    },
+    {
+      "frame": 4,
+      "path": "dyn11/06/attempt-1/frames/04.png",
+      "bytes": 6886,
+      "sha256": "9e37e3185eff15b596629e9dd824a4d319889636acbb524129b2677a283bfae1",
+      "bbox": [
+        17,
+        17,
+        183,
+        159
+      ]
+    },
+    {
+      "frame": 5,
+      "path": "dyn11/06/attempt-1/frames/05.png",
+      "bytes": 6995,
+      "sha256": "c40b9886b0ac37888429b1aa0cebf7355cf677a182a6c02fa8dc283f8d533733",
+      "bbox": [
+        18,
+        17,
+        175,
+        159
+      ]
+    },
+    {
+      "frame": 6,
+      "path": "dyn11/06/attempt-1/frames/06.png",
+      "bytes": 7357,
+      "sha256": "be0b3e62a80c74d9c57c5a98ba9d8ad924b1f758c48546f0ea1dfe4163a77d0e",
+      "bbox": [
+        18,
+        17,
+        186,
+        159
+      ]
+    },
+    {
+      "frame": 7,
+      "path": "dyn11/06/attempt-1/frames/07.png",
+      "bytes": 7205,
+      "sha256": "b0b3b2bb1779589375f1d7ff6aac6685d263512bda9bee415939a7f35deb8cfb",
+      "bbox": [
+        18,
+        17,
+        204,
+        159
+      ]
+    },
+    {
+      "frame": 8,
+      "path": "dyn11/06/attempt-1/frames/08.png",
+      "bytes": 6513,
+      "sha256": "161c0c681a41ff17e82622a08e191dcc541c48deec821a46375c068fd0fbb4cc",
+      "bbox": [
+        17,
+        17,
+        212,
+        159
+      ]
+    },
+    {
+      "frame": 9,
+      "path": "dyn11/06/attempt-1/frames/09.png",
+      "bytes": 7275,
+      "sha256": "0256899b53ae3c049cdd09e5b74e6471a583de6542bce184b45df7bfecc857ca",
+      "bbox": [
+        17,
+        17,
+        209,
+        159
+      ]
+    },
+    {
+      "frame": 10,
+      "path": "dyn11/06/attempt-1/frames/10.png",
+      "bytes": 7566,
+      "sha256": "ca588f71a9535a1abe32235eaeb0ecfc9209d14daecdc341f336a45f7db19e5b",
+      "bbox": [
+        16,
+        17,
+        204,
+        159
+      ]
+    },
+    {
+      "frame": 11,
+      "path": "dyn11/06/attempt-1/frames/11.png",
+      "bytes": 7437,
+      "sha256": "9b235933a79c62038cc99ccff938865e88c201504f7bb9ba36de6a2e1849e18a",
+      "bbox": [
+        16,
+        17,
+        194,
+        159
+      ]
+    },
+    {
+      "frame": 12,
+      "path": "dyn11/06/attempt-1/frames/12.png",
+      "bytes": 6962,
+      "sha256": "d190c3d0a442c5fc8ba4f5d80695f326b60d58f379c33754fbaaf2509f4d1dea",
+      "bbox": [
+        17,
+        17,
+        183,
+        159
+      ]
+    },
+    {
+      "frame": 13,
+      "path": "dyn11/06/attempt-1/frames/13.png",
+      "bytes": 7113,
+      "sha256": "3c6ebd88b5586bcc411c42860da232eb71e03eb5254e3768d6fe81894b6b8ab9",
+      "bbox": [
+        18,
+        17,
+        172,
+        159
+      ]
+    },
+    {
+      "frame": 14,
+      "path": "dyn11/06/attempt-1/frames/14.png",
+      "bytes": 7224,
+      "sha256": "771b78c1b78cf5f5c20f99c25f10de3f1fc040a53059fe40f6d1adb8f2f2a980",
+      "bbox": [
+        18,
+        17,
+        186,
+        159
+      ]
+    },
+    {
+      "frame": 15,
+      "path": "dyn11/06/attempt-1/frames/15.png",
+      "bytes": 7175,
+      "sha256": "f11cf01fa2373c0ed5fb26f6530b432debf05c24b6291c4241294249e9e4c7aa",
+      "bbox": [
+        18,
+        17,
+        204,
+        159
+      ]
+    },
+    {
+      "frame": 16,
+      "path": "dyn11/06/attempt-1/frames/16.png",
+      "bytes": 6530,
+      "sha256": "eed5754e0291ee91d4ba575c3fec66d0db8d1bdc2df6fa1e60a20f55c533efc4",
+      "bbox": [
+        17,
+        17,
+        212,
+        159
+      ]
+    }
+  ],
+  "game_applied": false
+}

@@ -1,0 +1,14 @@
+{
+  "image": {
+    "type": "repository_original_reference",
+    "path": "game/art/fish/l0_07.png",
+    "sha256": "a09e70c432b23d10502eb18efa02d14bfbbd4ce4c5a15634b7f5c161a3ac47db",
+    "base64_omitted_from_public_record": true
+  },
+  "description": "A blue-silver FLYING FISH facing RIGHT with exactly ONE PAIR of very broad GLASS WINGS, one up and one down. Wings are large translucent-looking cyan and lavender mirror facets, clear geometric borders and diagonal pale sky-reflection bands. No four wings and no thin hairlike fin threads. Small golden line along body, clean normal eye, forked blue tail. Preserve original crisp pixel scale and rich compact shading. Crisp original pixel shading, vivid colors, clear margins.",
+  "width": 96,
+  "height": 64,
+  "no_background": true,
+  "seed": 2026111414,
+  "actual_request_sha256": "38d80629ff3f02c01790afb22a2e4e88430fb46b101824dbd09e94cfc4ab9a01"
+}

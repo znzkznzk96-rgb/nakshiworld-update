@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "note": "2차선명에메랄드녹색/청록등가시/밝은배명암통과. 원본도트와외곽선유지·우향/여백정상. 실제꼬리는청록색,원본세로무늬일부남음; 사용자최종시안검토대기.",
+  "reviewed_at_native_and_nearest6x": true,
+  "compared_with_actual_reservoir_original": true,
+  "size": [
+    96,
+    64
+  ],
+  "bbox": [
+    15,
+    6,
+    80,
+    55
+  ],
+  "mode": "RGBA",
+  "sha256": "cca9e6f8bcefe5caf69d5c912e118bda26d88ed4f40d5cb5d401234db4793e3f",
+  "reference_sha256": "bce75f4ed6675688253882dbd32d8e826e28c04c3b975c9cd9813b941d64a36a",
+  "shape": "passed",
+  "color": "passed",
+  "shading_pixel_clusters": "passed",
+  "outline": "passed",
+  "species_feature": "passed",
+  "alpha_margin": "passed",
+  "actual_generation_delta": 1.0,
+  "game_applied": false,
+  "user_final_approval": "pending"
+}

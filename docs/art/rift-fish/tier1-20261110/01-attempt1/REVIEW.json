@@ -1,0 +1,24 @@
+{
+  "status": "rejected",
+  "reason": [
+    "facing left instead of right",
+    "saury body not slender or recognizable",
+    "two complete tail fins unclear",
+    "palette muddy and dull relative to reservoir original",
+    "2px side margin instead of requested4px"
+  ],
+  "decode": "passed",
+  "size": [
+    96,
+    64
+  ],
+  "sha256": "2bb1174d22ef82b26b8acda3bb0f6b15debc34f80e7ae85702eff8b3ffb8868f",
+  "usage_reported": {
+    "type": "generations",
+    "generations": 1.0
+  },
+  "balance_before": 1123.6,
+  "balance_after": 1122.6,
+  "actual_generation_delta": 1.0,
+  "reference_reuse_prohibited": true
+}

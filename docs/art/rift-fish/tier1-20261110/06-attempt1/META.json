@@ -1,0 +1,9 @@
+{
+  "model": "edit-image-pixen",
+  "seed": 2026111206,
+  "reference_sha256": "bce75f4ed6675688253882dbd32d8e826e28c04c3b975c9cd9813b941d64a36a",
+  "reference_path": "game/art/fish/l0_04.png",
+  "input_role": "approved actual game original, edited directly to preserve native pixel style; no provisional or rejected image",
+  "request_cost_documented_generations": 1,
+  "no_image_rescale": true
+}

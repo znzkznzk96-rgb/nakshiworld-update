@@ -1,0 +1,19 @@
+{
+  "id": "20",
+  "stage": "motion",
+  "attempt": 2,
+  "status": "rejected",
+  "note": "추가1회에서도 꼬리·머리·배 주변에 흰색/청록/보라 고립 점과 파편이 남음. 정수확대 검수에서 재확인해 보류, 추가 생성 없음.",
+  "reviewed_native_and_nearest": true,
+  "approved_source_compared": true,
+  "observed_direction": "west",
+  "shape": "passed",
+  "color": "passed",
+  "native_detail": "failed",
+  "species_features": "passed",
+  "motion": "failed",
+  "alpha_margin": "passed",
+  "native_width_at_least_fight_max": "passed",
+  "actual_generation_delta": 2.0,
+  "game_applied": false
+}

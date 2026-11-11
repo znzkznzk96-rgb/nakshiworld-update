@@ -1,0 +1,36 @@
+{
+  "id": "12",
+  "attempt": 1,
+  "status": "passed",
+  "note": "꼬리 부채의 벌림/접힘과 가슴지느러미 노젓기, 가장자리 지느러미 파동이 이전보다 크게 보임. 승인 보라 체형·균열줄무늬·좌향 보존. 부위가 떨어지거나 외부파편/잘림 없음.",
+  "native_and_nearest_reviewed": true,
+  "approved_native_compared": true,
+  "before_after_motion_compared": true,
+  "direction": "west",
+  "identity_color_alpha_reviewed": true,
+  "motion_range": {
+    "id": "12",
+    "attempt": 1,
+    "old": {
+      "silhouette_change_max": 0.067,
+      "min_content_width": 198,
+      "unclipped": true
+    },
+    "new": {
+      "silhouette_change_max": 0.147,
+      "min_content_width": 177,
+      "unclipped": true
+    },
+    "native_reference_content_width": 198,
+    "fixed_common_bbox": [
+      16,
+      16,
+      218,
+      140
+    ],
+    "scale_policy": "fixed reference length/common bbox and anchor; never fit each pose to target width; natural tail edge-on narrowing allowed without enlargement"
+  },
+  "safe_native_fight_width": true,
+  "actual_generations": 1,
+  "game_applied": false
+}

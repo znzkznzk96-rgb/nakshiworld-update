@@ -1,0 +1,553 @@
+{
+  "date": "2026-11-10",
+  "scope": "13 new fantasy static previews; boss excluded; existing six unchanged",
+  "protected_existing_six": [
+    {
+      "id": "02",
+      "name": "균열정어리",
+      "attempt": 1,
+      "directory": "02-attempt1",
+      "sha256": "0fdcf1ad1b2818ca10802365c6ca1285922deeb0b6e13e56bd1c82b60b9216ea",
+      "size": [
+        96,
+        64
+      ],
+      "status": "internal_quality_pass_user_review_pending"
+    },
+    {
+      "id": "03",
+      "name": "네날개날치",
+      "attempt": 1,
+      "directory": "03-attempt1",
+      "sha256": "bb5da274a05ace32781a119f4341250b23f79bfe4d7cb6b08761eb9646e2fddd",
+      "size": [
+        96,
+        64
+      ],
+      "status": "internal_quality_pass_user_review_pending"
+    },
+    {
+      "id": "04",
+      "name": "가시등전어",
+      "attempt": 2,
+      "directory": "04-attempt2",
+      "sha256": "cca9e6f8bcefe5caf69d5c912e118bda26d88ed4f40d5cb5d401234db4793e3f",
+      "size": [
+        96,
+        64
+      ],
+      "status": "internal_quality_pass_user_review_pending"
+    },
+    {
+      "id": "06",
+      "name": "쥐포쥐치",
+      "attempt": 2,
+      "directory": "06-attempt2",
+      "sha256": "49bc3d38623b565a722512401299746cff7fd4ff4012118ebadb7a90ac9eaca9",
+      "size": [
+        96,
+        64
+      ],
+      "status": "internal_quality_pass_user_review_pending"
+    },
+    {
+      "id": "07",
+      "name": "금간정어리",
+      "attempt": 1,
+      "directory": "07-attempt1",
+      "sha256": "73e180f43b932d7bf5feb720c84aca00599907f665d757cd1842e7d4569e68fa",
+      "size": [
+        96,
+        64
+      ],
+      "status": "internal_quality_pass_user_review_pending"
+    },
+    {
+      "id": "08",
+      "name": "빛멸치",
+      "attempt": 1,
+      "directory": "08-attempt1",
+      "sha256": "04190e7b52eb9f691e77502ee390c3c6efb5fac7b9cbca7b40706512d9f31b1f",
+      "size": [
+        96,
+        64
+      ],
+      "status": "internal_quality_pass_user_review_pending"
+    }
+  ],
+  "species": [
+    {
+      "id": "01",
+      "name": "쌍혜성 두꼬리꽁치",
+      "original_species": "두꼬리꽁치",
+      "tier": 1,
+      "mode": "create",
+      "model": "create-image-pixen",
+      "reference_path": "game/art/fish/l0_07.png",
+      "reference_sha256": "a09e70c432b23d10502eb18efa02d14bfbbd4ce4c5a15634b7f5c161a3ac47db",
+      "reference_role": "visual comparison only; no reference image transmitted",
+      "motion_design": "두꼬리 각각 상하로 번갈아 부채질·꼬리끝 짧은 잔광, 몸은 가늘게 파동",
+      "colors": "cobalt/silver, turquoise upper-tail tip, violet lower-tail tip",
+      "seed": 2026111401,
+      "max_requests_this_round": 2,
+      "prior_requests": 2,
+      "status": "internal_pass_user_approval_pending",
+      "requests_this_round": 2,
+      "actual_motion_generated": false,
+      "game_applied": false,
+      "attempts_used": 2,
+      "attempt_records": [
+        {
+          "attempt": 1,
+          "model": "edit-image-pixen",
+          "status": "rejected",
+          "seed": 2026111401,
+          "request_sha256": "8cd74abe6123f049376642d5008c2f51056b469312317c4964e34780123f0c30"
+        },
+        {
+          "attempt": 2,
+          "model": "create-image-pixen",
+          "status": "passed",
+          "seed": 2026111501,
+          "request_sha256": "da21f9ad30c204a764eb9e926381108964374d0e695613c24ec78f4e013ab35c"
+        }
+      ],
+      "selected_attempt": 2,
+      "selected_path": "01-attempt2/original.png",
+      "result_sha256": "c101fa2cf92ba62596d2641048cea7800e6bf1b3c7f350dee039e9588f3002e5"
+    },
+    {
+      "id": "05",
+      "name": "균열장막 오징어",
+      "original_species": "오징어",
+      "tier": 1,
+      "mode": "create",
+      "model": "create-image-pixen",
+      "reference_path": "game/art/fish/l0_09.png",
+      "reference_sha256": "e454a6f227a1c2005f0844bb375b9bb6b2790e9043049451f214dd74e4eb03d2",
+      "reference_role": "visual inspection comparison only; create-image-pixen does NOT accept a style image, so no reference image is transmitted",
+      "motion_design": "맨틀 수축·확장 후 추진, 촉수 늦게 따라오는 물결·균열빛 맥동",
+      "colors": "coral-red mantle, maroon shadows, violet/cyan rift seams",
+      "seed": 2026111405,
+      "max_requests_this_round": 2,
+      "prior_requests": 2,
+      "status": "internal_pass_user_approval_pending",
+      "requests_this_round": 2,
+      "actual_motion_generated": false,
+      "game_applied": false,
+      "attempts_used": 2,
+      "attempt_records": [
+        {
+          "attempt": 1,
+          "model": "create-image-pixen",
+          "status": "rejected",
+          "seed": 2026111405,
+          "request_sha256": "a05fc0db8b3748cd5da3f8b1671859c0428b9db9b2bf2549797438f9299a50c9"
+        },
+        {
+          "attempt": 2,
+          "model": "create-image-pixen",
+          "status": "passed",
+          "seed": 2026111505,
+          "request_sha256": "863c2c374ea21130381d30d8a415bd31964bfea0ce621aaef51069670a818159"
+        }
+      ],
+      "selected_attempt": 2,
+      "selected_path": "05-attempt2/original.png",
+      "result_sha256": "ee248c3a3d789b33242f20efe822dd94840f7217bc4e6fb921ce6b42ffd81889"
+    },
+    {
+      "id": "09",
+      "name": "균열갑주 방어",
+      "original_species": "방어",
+      "tier": 2,
+      "mode": "edit",
+      "model": "edit-image-pixen",
+      "reference_path": "game/art/fish/l0_11.png",
+      "reference_sha256": "14a24c3994fd7457c475ee9cd6f2ff9651c1a3ab11c4dd3ad1eece76c77e562a",
+      "reference_role": "actual approved original transmitted unchanged as edit source",
+      "motion_design": "몸통 좌우 스윙·갑주판 약한 벌어짐, 등 결정이 순차적으로 빛남",
+      "colors": "cobalt/silver, bright turquoise armor, gold seams",
+      "seed": 2026111409,
+      "max_requests_this_round": 2,
+      "prior_requests": 0,
+      "status": "internal_pass_user_approval_pending",
+      "requests_this_round": 1,
+      "actual_motion_generated": false,
+      "game_applied": false,
+      "attempts_used": 1,
+      "attempt_records": [
+        {
+          "attempt": 1,
+          "model": "edit-image-pixen",
+          "status": "passed",
+          "seed": 2026111409,
+          "request_sha256": "b500a2297c1032712e592d660e92a1f26dc11957c0e710d2d9668cdd434d53d8"
+        }
+      ],
+      "selected_attempt": 1,
+      "selected_path": "09-attempt1/original.png",
+      "result_sha256": "5f7b7e1af3bf27e27d339c3195dd16c6ab3fcabfc7a056e967dab1ecea94a86b"
+    },
+    {
+      "id": "10",
+      "name": "유영리본 삼치",
+      "original_species": "삼치",
+      "tier": 2,
+      "mode": "edit",
+      "model": "edit-image-pixen",
+      "reference_path": "game/art/fish/l0_07.png",
+      "reference_sha256": "a09e70c432b23d10502eb18efa02d14bfbbd4ce4c5a15634b7f5c161a3ac47db",
+      "reference_role": "actual approved original transmitted unchanged as edit source",
+      "motion_design": "몸통보다 늦게 따라오는 리본 S자 물결, 급가속 때 리본을 뒤로 펴기",
+      "colors": "sapphire/silver, magenta and violet ribbon fins",
+      "seed": 2026111410,
+      "max_requests_this_round": 2,
+      "prior_requests": 0,
+      "status": "internal_pass_user_approval_pending",
+      "requests_this_round": 1,
+      "actual_motion_generated": false,
+      "game_applied": false,
+      "attempts_used": 1,
+      "attempt_records": [
+        {
+          "attempt": 1,
+          "model": "edit-image-pixen",
+          "status": "passed",
+          "seed": 2026111410,
+          "request_sha256": "0c275355b733c4c8f01442fa9382c5cd092d1a68b8710c8ac3e9682eaaa73ffa"
+        }
+      ],
+      "selected_attempt": 1,
+      "selected_path": "10-attempt1/original.png",
+      "result_sha256": "d3d1248d103a3156c4fe4aebe9a430301071db8337fcc7feabc72e47e510be4c"
+    },
+    {
+      "id": "11",
+      "name": "균열칼날 갈치",
+      "original_species": "갈치",
+      "tier": 2,
+      "mode": "create",
+      "model": "edit-image-pixen",
+      "reference_path": "game/art/fish/l0_13.png",
+      "reference_sha256": "d8bba111880b8c83651020c11f17ae75f158105de6e2a778d8b3e50e8397ea92",
+      "reference_role": "actual approved original transmitted unchanged as edit source",
+      "motion_design": "긴 몸 S자 전파·균열띠의 순차 점등, 등 칼날이 파도처럼 기울어짐",
+      "colors": "bright silver, indigo shadows, cyan/violet joints",
+      "seed": 2026111411,
+      "max_requests_this_round": 2,
+      "prior_requests": 0,
+      "status": "held",
+      "requests_this_round": 2,
+      "actual_motion_generated": false,
+      "game_applied": false,
+      "attempts_used": 2,
+      "attempt_records": [
+        {
+          "attempt": 1,
+          "model": "edit-image-pixen",
+          "status": "rejected",
+          "seed": 2026111411,
+          "request_sha256": "725c6150cb3a4b25ec1213befa1d62a99fc10470dc6478cfd71fd0c110eb031d"
+        },
+        {
+          "attempt": 2,
+          "model": "create-image-pixen",
+          "status": "rejected",
+          "seed": 2026111511,
+          "request_sha256": "f5478ebd272d2b00e6d01a68c783c66a915f55f501bc57497bd8f067cb9ad95e"
+        }
+      ]
+    },
+    {
+      "id": "12",
+      "name": "균열꽃 광어",
+      "original_species": "광어",
+      "tier": 2,
+      "mode": "create",
+      "model": "create-image-pixen",
+      "reference_path": "game/art/fish/l0_18.png",
+      "reference_sha256": "a87f59d881fbd6fe0027a8c9008e95a9849eeb6552d55ba5b1dee634dc690787",
+      "reference_role": "visual inspection comparison only; create-image-pixen does NOT accept a style image, so no reference image is transmitted",
+      "motion_design": "넓적한 몸 부드러운 들썩임·꽃잎형 지느러미 가장자리 순차 파동",
+      "colors": "violet/navy body, magenta-white crack, lavender petal fins",
+      "seed": 2026111412,
+      "max_requests_this_round": 2,
+      "prior_requests": 0,
+      "status": "held",
+      "requests_this_round": 2,
+      "actual_motion_generated": false,
+      "game_applied": false,
+      "attempts_used": 2,
+      "attempt_records": [
+        {
+          "attempt": 1,
+          "model": "create-image-pixen",
+          "status": "rejected",
+          "seed": 2026111412,
+          "request_sha256": "09f1c4c67aa472341a885883c42fd245e1f7cdf8a096c587c015ec325a2663a5"
+        },
+        {
+          "attempt": 2,
+          "model": "create-image-pixen",
+          "status": "rejected",
+          "seed": 2026111512,
+          "request_sha256": "2dd7101a1fce468ec4ad5be6092f565eefd74b21c799353df70e741ecf69d5f7"
+        }
+      ]
+    },
+    {
+      "id": "13",
+      "name": "틈새결정 복어",
+      "original_species": "틈새복어",
+      "tier": 2,
+      "mode": "edit",
+      "model": "edit-image-pixen",
+      "reference_path": "game/art/fish/l0_06.png",
+      "reference_sha256": "851cf7593ea5dfff00ce67ce5b53c061ac8f9c509ec7e708eeb6343805c31a91",
+      "reference_role": "actual approved original transmitted unchanged as edit source",
+      "motion_design": "복부 팽창·수축, 균열선 폭이 벌어지는 듯 밝기 변화·결정 흔들림",
+      "colors": "sapphire, magenta seams, pale cyan crystal spikes",
+      "seed": 2026111413,
+      "max_requests_this_round": 2,
+      "prior_requests": 0,
+      "status": "internal_pass_user_approval_pending",
+      "requests_this_round": 1,
+      "actual_motion_generated": false,
+      "game_applied": false,
+      "attempts_used": 1,
+      "attempt_records": [
+        {
+          "attempt": 1,
+          "model": "edit-image-pixen",
+          "status": "passed",
+          "seed": 2026111413,
+          "request_sha256": "3de563611b9fe1443473dbebeaadc6b85a30be9907cc10f50cb7512e123d57a5"
+        }
+      ],
+      "selected_attempt": 1,
+      "selected_path": "13-attempt1/original.png",
+      "result_sha256": "0552465627aae2e7b25cffe078b1ffd41c9ceb11c60e984a1e285e13ae01baa7"
+    },
+    {
+      "id": "14",
+      "name": "거울날개 날치",
+      "original_species": "거울날치",
+      "tier": 2,
+      "mode": "edit",
+      "model": "edit-image-pixen",
+      "reference_path": "game/art/fish/l0_07.png",
+      "reference_sha256": "a09e70c432b23d10502eb18efa02d14bfbbd4ce4c5a15634b7f5c161a3ac47db",
+      "reference_role": "actual approved original transmitted unchanged as edit source",
+      "motion_design": "큰 거울날개 한 쌍 상하 펄럭임·각도에 따라 반사 띠가 미끄러짐",
+      "colors": "silver/blue body, cyan/lavender mirror wing facets, fine gold accent",
+      "seed": 2026111414,
+      "max_requests_this_round": 2,
+      "prior_requests": 0,
+      "status": "internal_pass_user_approval_pending",
+      "requests_this_round": 1,
+      "actual_motion_generated": false,
+      "game_applied": false,
+      "attempts_used": 1,
+      "attempt_records": [
+        {
+          "attempt": 1,
+          "model": "edit-image-pixen",
+          "status": "passed",
+          "seed": 2026111414,
+          "request_sha256": "38d80629ff3f02c01790afb22a2e4e88430fb46b101824dbd09e94cfc4ab9a01"
+        }
+      ],
+      "selected_attempt": 1,
+      "selected_path": "14-attempt1/original.png",
+      "result_sha256": "a1b1454e9dcb7382b3507333a64a3dcc113f4faca60b70b87f5610c47efaa45f"
+    },
+    {
+      "id": "15",
+      "name": "차원결정 참치",
+      "original_species": "참치",
+      "tier": 3,
+      "mode": "edit",
+      "model": "edit-image-pixen",
+      "reference_path": "game/art/fish/l0_12.png",
+      "reference_sha256": "80c335634c9ce2125cedcb3fb84fc9b0235bd18896f9fe7dbdde243e0475d391",
+      "reference_role": "actual approved original transmitted unchanged as edit source",
+      "motion_design": "강한 꼬리 스냅·갑주 프리즘의 시차 반짝임, 가속 때 몸통 살짝 압축",
+      "colors": "cobalt/violet, silver belly, turquoise prisms, magenta seams",
+      "seed": 2026111415,
+      "max_requests_this_round": 2,
+      "prior_requests": 0,
+      "status": "internal_pass_user_approval_pending",
+      "requests_this_round": 2,
+      "actual_motion_generated": false,
+      "game_applied": false,
+      "attempts_used": 2,
+      "attempt_records": [
+        {
+          "attempt": 1,
+          "model": "edit-image-pixen",
+          "status": "rejected",
+          "seed": 2026111415,
+          "request_sha256": "8863ebda09049ef17dd2fe42e4b415a4bcbf5ee5dc250e682b981b08c19b990f"
+        },
+        {
+          "attempt": 2,
+          "model": "edit-image-pixen",
+          "status": "passed",
+          "seed": 2026111515,
+          "request_sha256": "9dd5a7a639a24c64fd9cdbe88b63d0102811da460d849d9726e1036ccc1d89ad"
+        }
+      ],
+      "selected_attempt": 2,
+      "selected_path": "15-attempt2/original.png",
+      "result_sha256": "180887aa8637707756354c0cc4deef1d7e8a8fe87e4f81a0d1785bdb2425262f"
+    },
+    {
+      "id": "16",
+      "name": "월식 개복치",
+      "original_species": "개복치",
+      "tier": 3,
+      "mode": "create",
+      "model": "create-image-pixen",
+      "reference_path": "game/art/fish/l0_18.png",
+      "reference_sha256": "a87f59d881fbd6fe0027a8c9008e95a9849eeb6552d55ba5b1dee634dc690787",
+      "reference_role": "visual inspection comparison only; create-image-pixen does NOT accept a style image, so no reference image is transmitted",
+      "motion_design": "느린 몸통 기울임·상하 지느러미 교차 노젓기·초승달 무늬 밝기 호흡",
+      "colors": "midnight blue/violet, gold crescent, icy-blue edge, lavender fins",
+      "seed": 2026111416,
+      "max_requests_this_round": 2,
+      "prior_requests": 0,
+      "status": "held",
+      "requests_this_round": 2,
+      "actual_motion_generated": false,
+      "game_applied": false,
+      "attempts_used": 2,
+      "attempt_records": [
+        {
+          "attempt": 1,
+          "model": "create-image-pixen",
+          "status": "rejected",
+          "seed": 2026111416,
+          "request_sha256": "c6f7b596a42ea7ceefabc22cfa80bdb5bb29107e774f62383666494d5e0776f8"
+        },
+        {
+          "attempt": 2,
+          "model": "create-image-pixen",
+          "status": "rejected",
+          "seed": 2026111516,
+          "request_sha256": "48de547a3ccaf8a81b3650e23de418f9a43733c36090a51a79098c1e9b367de1"
+        }
+      ]
+    },
+    {
+      "id": "17",
+      "name": "뇌광 삼치",
+      "original_species": "번개삼치",
+      "tier": 3,
+      "mode": "edit",
+      "model": "edit-image-pixen",
+      "reference_path": "game/art/fish/l0_00.png",
+      "reference_sha256": "35d557efb6ae37167aa577f0f0e8e0ff7a4aa7e580b34f529e359ddba8496ac0",
+      "reference_role": "actual approved original transmitted unchanged as edit source",
+      "motion_design": "짧고 빠른 꼬리 스냅·등 번개 지느러미 경직/해제, 문양이 짧게 번쩍임",
+      "colors": "electric yellow, cobalt zigzags, silver-white, cyan tail",
+      "seed": 2026111417,
+      "max_requests_this_round": 2,
+      "prior_requests": 0,
+      "status": "internal_pass_user_approval_pending",
+      "requests_this_round": 1,
+      "actual_motion_generated": false,
+      "game_applied": false,
+      "attempts_used": 1,
+      "attempt_records": [
+        {
+          "attempt": 1,
+          "model": "edit-image-pixen",
+          "status": "passed",
+          "seed": 2026111417,
+          "request_sha256": "be3aeb6b05eb62a248cc65bd0244be849bd18915b277533b24088bd12b10323e"
+        }
+      ],
+      "selected_attempt": 1,
+      "selected_path": "17-attempt1/original.png",
+      "result_sha256": "a539214aa0edbda35a7f6af430791b8d73f65e2b28682403e3ccb2916d3d2da3"
+    },
+    {
+      "id": "18",
+      "name": "차원창 청새치",
+      "original_species": "청새치",
+      "tier": 4,
+      "mode": "create",
+      "model": "create-image-pixen",
+      "reference_path": "game/art/fish/l0_07.png",
+      "reference_sha256": "a09e70c432b23d10502eb18efa02d14bfbbd4ce4c5a15634b7f5c161a3ac47db",
+      "reference_role": "visual inspection comparison only; create-image-pixen does NOT accept a style image, so no reference image is transmitted",
+      "motion_design": "주둥이 창을 앞세운 돌진·망토 등지느러미 후행 물결·창 끝 짧은 잔광",
+      "colors": "cobalt/silver, violet cape fin, cyan/lavender crystal bill",
+      "seed": 2026111418,
+      "max_requests_this_round": 2,
+      "prior_requests": 0,
+      "status": "internal_pass_user_approval_pending",
+      "requests_this_round": 1,
+      "actual_motion_generated": false,
+      "game_applied": false,
+      "attempts_used": 1,
+      "attempt_records": [
+        {
+          "attempt": 1,
+          "model": "create-image-pixen",
+          "status": "passed",
+          "seed": 2026111418,
+          "request_sha256": "0c0dfc07aa1c98193315ac9c76f88734578558a246262e6bf287f7a7c3644786"
+        }
+      ],
+      "selected_attempt": 1,
+      "selected_path": "18-attempt1/original.png",
+      "result_sha256": "099f415642c2fdbdc91c85d01c62185df062f9cd74fc0d73ee3b992d734b089e"
+    },
+    {
+      "id": "19",
+      "name": "균열유리 상어",
+      "original_species": "유리상어",
+      "tier": 4,
+      "mode": "create",
+      "model": "create-image-pixen",
+      "reference_path": "game/art/fish/l0_18.png",
+      "reference_sha256": "a87f59d881fbd6fe0027a8c9008e95a9849eeb6552d55ba5b1dee634dc690787",
+      "reference_role": "visual inspection comparison only; create-image-pixen does NOT accept a style image, so no reference image is transmitted",
+      "motion_design": "긴 꼬리 좌우 S파동·몸 기울기에 따라 유리 하이라이트 이동·내부 굴절띠 시차",
+      "colors": "icy cyan glass, white facet edges, dark teal, pale violet ribs, magenta seam",
+      "seed": 2026111419,
+      "max_requests_this_round": 2,
+      "prior_requests": 0,
+      "status": "internal_pass_user_approval_pending",
+      "requests_this_round": 1,
+      "actual_motion_generated": false,
+      "game_applied": false,
+      "attempts_used": 1,
+      "attempt_records": [
+        {
+          "attempt": 1,
+          "model": "create-image-pixen",
+          "status": "passed",
+          "seed": 2026111419,
+          "request_sha256": "ecf78af2ac50cf2e464f51009e21a5c9d0d8128d6f996239a0a65c353bfcae08"
+        }
+      ],
+      "selected_attempt": 1,
+      "selected_path": "19-attempt1/original.png",
+      "result_sha256": "591066cc8cbf0616ac4327c593287c4d0c339f743e92374b10dae86a9c0cd6f8"
+    }
+  ],
+  "limits": {
+    "max_requests_per_species_this_round": 2,
+    "concurrent_paid_requests": 1,
+    "failed_species_policy": "hold individually; continue independent species",
+    "automatic_post_retry": false
+  },
+  "actual_animation_generation_authorized": false,
+  "actual_animation_generated": false,
+  "game_applied": false,
+  "deployed": false,
+  "status": "complete_with_individual_holds"
+}

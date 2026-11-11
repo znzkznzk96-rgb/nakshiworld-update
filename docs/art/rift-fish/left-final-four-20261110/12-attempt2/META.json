@@ -1,0 +1,22 @@
+{
+  "id": "12",
+  "tier": 2,
+  "name": "균열꽃 광어",
+  "mode": "create",
+  "model": "create-image-pixen",
+  "reference_path": "game/art/fish/l0_18.png",
+  "reference_original_sha256": "a87f59d881fbd6fe0027a8c9008e95a9849eeb6552d55ba5b1dee634dc690787",
+  "reference_sha256": "a87f59d881fbd6fe0027a8c9008e95a9849eeb6552d55ba5b1dee634dc690787",
+  "reference_role": "actual reservoir original, visually compared only; create API accepts no style image",
+  "reference_reason": "silver blue compact detailed pixel shading",
+  "colors": "royal purple body / deep indigo shadows / vivid magenta-white crack / violet rim",
+  "forbidden_colors": "washed-out gray/brown/yellow haze; one-tone flat shading",
+  "motion_design": "납작한 몸 들썩임·꽃잎형 테두리 지느러미 순차 파동",
+  "direction": "west",
+  "max_requests_this_round": 2,
+  "prior_requests": 4,
+  "seed": 2026111712,
+  "status": "planned",
+  "actual_motion_generated": false,
+  "game_applied": false
+}

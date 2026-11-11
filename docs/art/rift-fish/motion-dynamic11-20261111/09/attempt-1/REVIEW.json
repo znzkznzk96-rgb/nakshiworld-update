@@ -1,0 +1,36 @@
+{
+  "id": "09",
+  "attempt": 1,
+  "status": "passed",
+  "note": "세 갑주가 몸에 붙어 유지된 채 뒤쪽 몸과 꼬리가 크게 왕복하고 노란 가슴지느러미가 넓게 펼쳐져 이전보다 힘있는 동작. 좌향·청록갑주·금빛지느러미 유지, 외부결정/파편과 잘림 없음.",
+  "native_and_nearest_reviewed": true,
+  "approved_native_compared": true,
+  "before_after_motion_compared": true,
+  "direction": "west",
+  "identity_color_alpha_reviewed": true,
+  "motion_range": {
+    "id": "09",
+    "attempt": 1,
+    "old": {
+      "silhouette_change_max": 0.119,
+      "min_content_width": 189,
+      "unclipped": true
+    },
+    "new": {
+      "silhouette_change_max": 0.228,
+      "min_content_width": 149,
+      "unclipped": true
+    },
+    "native_reference_content_width": 201,
+    "fixed_common_bbox": [
+      15,
+      18,
+      216,
+      132
+    ],
+    "scale_policy": "fixed reference length/common bbox and anchor; never fit each pose to target width; natural tail edge-on narrowing allowed without enlargement"
+  },
+  "safe_native_fight_width": true,
+  "actual_generations": 1,
+  "game_applied": false
+}

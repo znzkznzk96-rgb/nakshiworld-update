@@ -1,0 +1,16 @@
+{
+  "first_frame": {
+    "encoded_image_omitted": true,
+    "sha256": "094dda4f6cbb9c5be416f43b01a72f1ebe281a10279dd167bf137d546469b21d",
+    "input_role": "internally passed native HD original derived from the user-approved fish"
+  },
+  "description": "The two long magenta ribbon fins undulate in smooth delayed S curves behind the stable body, with restrained tail swishes. Keep both ribbons distinct and avoid tangling. Seamless gentle swimming loop IN PLACE, head LEFT throughout. Fixed camera, sprite position and scale. Preserve exact original identity, colors, markings and fin/tail count. No turning, new parts, particles, scenery, cropping or camera motion.",
+  "frame_count": 16,
+  "seed": 2026113010,
+  "no_background": true,
+  "enhance_prompt": false,
+  "direction": "west",
+  "view": "side",
+  "subject_description": "blue-silver mackerel with two magenta ribbon fins",
+  "initial_pose": "neutral horizontal swimming pose; head LEFT, tail or mantle RIGHT; whole creature visible inside transparent margins"
+}

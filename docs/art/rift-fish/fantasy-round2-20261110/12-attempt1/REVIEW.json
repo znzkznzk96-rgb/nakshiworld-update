@@ -1,0 +1,28 @@
+{
+  "status": "rejected",
+  "note": "균열과 꽃잎 지느러미는 보이나 몸이 옆에서 본 둥근 일반 물고기이고 눈도 한 개로 표현. 납작한 광어의 상면·같은 쪽 두 눈 필수 특징 불충족",
+  "reviewed_at_native_and_nearest6x": true,
+  "compared_with_actual_reservoir_original": true,
+  "size": [
+    96,
+    64
+  ],
+  "bbox": [
+    7,
+    1,
+    86,
+    63
+  ],
+  "mode": "RGBA",
+  "sha256": "e1271858720be724acbb7a0ad6d4e87baff5f5d46bdca52f33332793865f2959",
+  "reference_sha256": "a87f59d881fbd6fe0027a8c9008e95a9849eeb6552d55ba5b1dee634dc690787",
+  "shape": "rejected",
+  "color": "passed",
+  "shading_pixel_clusters": "passed",
+  "outline": "passed",
+  "species_feature": "rejected",
+  "alpha_margin": "passed",
+  "actual_generation_delta": 1.0,
+  "game_applied": false,
+  "user_final_approval": "pending"
+}

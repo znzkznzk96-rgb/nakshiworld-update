@@ -1,0 +1,36 @@
+{
+  "id": "08",
+  "attempt": 2,
+  "status": "passed",
+  "note": "수정본은 길쭉한 멸치 체형을 유지하면서 후방 몸통이 화면 위아래로 물결치고 꼬리가 후행해 이전의 꼬리미세동작보다 몸짓이 읽힘. 실루엣변화 수치만으로판정하지않고 굴곡위치를이전과대조. 은청록무늬·좌향 유지, 외부파편·잘림 없음.",
+  "native_and_nearest_reviewed": true,
+  "approved_native_compared": true,
+  "before_after_motion_compared": true,
+  "direction": "west",
+  "identity_color_alpha_reviewed": true,
+  "motion_range": {
+    "id": "08",
+    "attempt": 2,
+    "old": {
+      "silhouette_change_max": 0.193,
+      "min_content_width": 171,
+      "unclipped": true
+    },
+    "new": {
+      "silhouette_change_max": 0.189,
+      "min_content_width": 177,
+      "unclipped": true
+    },
+    "native_reference_content_width": 190,
+    "fixed_common_bbox": [
+      20,
+      14,
+      211,
+      69
+    ],
+    "scale_policy": "fixed reference length/common bbox and anchor; never fit each pose to target width; natural tail edge-on narrowing allowed without enlargement"
+  },
+  "safe_native_fight_width": true,
+  "actual_generations": 1,
+  "game_applied": false
+}

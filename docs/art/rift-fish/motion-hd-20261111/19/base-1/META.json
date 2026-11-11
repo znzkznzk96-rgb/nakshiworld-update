@@ -1,0 +1,19 @@
+{
+  "id": "19",
+  "name": "균열유리 상어",
+  "stage": "base",
+  "attempt": 1,
+  "model": "edit-image-pixen",
+  "seed": 2026112019,
+  "native_canvas": [
+    232,
+    140
+  ],
+  "input_sha256": "6d756139f482f740bdb7c39d3a707eab2fc716d37b672f2fe4cad18fd2142055",
+  "input_role": "user-approved fish, transparent margins cropped/padded only",
+  "request_sha256": "884a96f33201f3ecebc43086c6efbe06581c84f25502cc52ce609f53bf319fdc",
+  "additional_request_used": 0,
+  "expected_output_count": 1,
+  "quoted_generations": 1,
+  "game_applied": false
+}

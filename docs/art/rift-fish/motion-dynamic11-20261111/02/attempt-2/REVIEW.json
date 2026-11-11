@@ -1,0 +1,36 @@
+{
+  "id": "02",
+  "attempt": 2,
+  "status": "passed",
+  "note": "원화 청록균열·은청색 몸통과 좌향 유지, 이전보다 꼬리 왕복·앞지느러미 노젓기가 크게 읽힘. 꼬리의 옆면/가장자리 전환은 실제 왕복에 따른 자연스러운 포즈 변화이며 사라진 부위 없음. 고정공통영역 축소로 자세별 확대금지, 잘림·파편 없음.",
+  "native_and_nearest_reviewed": true,
+  "approved_native_compared": true,
+  "before_after_motion_compared": true,
+  "direction": "west",
+  "identity_color_alpha_reviewed": true,
+  "motion_range": {
+    "id": "02",
+    "attempt": 2,
+    "old": {
+      "silhouette_change_max": 0.075,
+      "min_content_width": 197,
+      "unclipped": true
+    },
+    "new": {
+      "silhouette_change_max": 0.229,
+      "min_content_width": 150,
+      "unclipped": true
+    },
+    "native_reference_content_width": 202,
+    "fixed_common_bbox": [
+      15,
+      15,
+      217,
+      114
+    ],
+    "scale_policy": "fixed reference length/common bbox and anchor; never fit each pose to target width; natural tail edge-on narrowing allowed without enlargement"
+  },
+  "safe_native_fight_width": true,
+  "actual_generations": 1,
+  "game_applied": false
+}

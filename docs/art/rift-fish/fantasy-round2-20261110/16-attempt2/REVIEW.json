@@ -1,0 +1,28 @@
+{
+  "status": "rejected",
+  "note": "원형 몸과 초승달은 개선됐으나 독립 꼬리자루가 남고 상하 지느러미가 캔버스 경계에 닿아 여백 불충분. 체색도 저채도여서 개복치만 이번 회차 보류, 추가 생성 없음.",
+  "reviewed_at_native_and_nearest6x": true,
+  "compared_with_actual_reservoir_original": true,
+  "size": [
+    96,
+    64
+  ],
+  "bbox": [
+    13,
+    0,
+    77,
+    64
+  ],
+  "mode": "RGBA",
+  "sha256": "acd282eed081b31a6fe2e2c05eb8919ce0576f0cf30792a51b6cf44e574f23b6",
+  "reference_sha256": "a87f59d881fbd6fe0027a8c9008e95a9849eeb6552d55ba5b1dee634dc690787",
+  "shape": "rejected",
+  "color": "rejected",
+  "shading_pixel_clusters": "passed",
+  "outline": "passed",
+  "species_feature": "rejected",
+  "alpha_margin": "rejected",
+  "actual_generation_delta": 1.0,
+  "game_applied": false,
+  "user_final_approval": "pending"
+}

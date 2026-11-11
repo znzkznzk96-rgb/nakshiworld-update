@@ -1,0 +1,19 @@
+{
+  "id": "01",
+  "stage": "motion",
+  "attempt": 1,
+  "status": "passed",
+  "note": "16프레임 원본232x132에서 좌향·독립 두 꼬리·청록/보라색·머리와 몸 구조 유지. 두 꼬리의 시차 움직임과 원생 세부묘사, 투명 여백 정상. 모든 프레임 본체 폭이 파이팅 상한156보다 넓고 입력 프레임은 HD원화와 픽셀 동일.",
+  "reviewed_native_and_nearest": true,
+  "approved_source_compared": true,
+  "observed_direction": "west",
+  "shape": "passed",
+  "color": "passed",
+  "native_detail": "passed",
+  "species_features": "passed",
+  "motion": "passed",
+  "alpha_margin": "passed",
+  "native_width_at_least_fight_max": "passed",
+  "actual_generation_delta": 1,
+  "game_applied": false
+}

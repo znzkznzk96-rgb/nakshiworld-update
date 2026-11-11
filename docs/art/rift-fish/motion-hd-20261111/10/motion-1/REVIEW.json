@@ -1,0 +1,19 @@
+{
+  "id": "10",
+  "stage": "motion",
+  "attempt": 1,
+  "status": "passed",
+  "note": "16프레임에서 위/아래 리본이 몸의 연결부를 유지한 채 뒤늦게 S자 물결로 움직임. 은청색 몸·눈·꼬리·비늘 구조 보존, 리본 전체가 캔버스 안에 들어오고 native폭/좌향/여백 정상.",
+  "reviewed_native_and_nearest": true,
+  "approved_source_compared": true,
+  "observed_direction": "west",
+  "shape": "passed",
+  "color": "passed",
+  "native_detail": "passed",
+  "species_features": "passed",
+  "motion": "passed",
+  "alpha_margin": "passed",
+  "native_width_at_least_fight_max": "passed",
+  "actual_generation_delta": 2.0,
+  "game_applied": false
+}

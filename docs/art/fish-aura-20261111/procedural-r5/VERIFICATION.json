@@ -1,0 +1,32 @@
+{
+  "revision": 5,
+  "gif_checks": [
+    {
+      "tier": 0,
+      "frames": 48,
+      "sha256": "e4e291030c0fbadb26974fe09c0aef90b071583fff102aa704ca7307a54c7168"
+    },
+    {
+      "tier": 1,
+      "frames": 48,
+      "sha256": "f7f9052b4fb6d3598e2672044b56f73f3594348b007b1c157a7e8b8d1af771b5"
+    },
+    {
+      "tier": 2,
+      "frames": 48,
+      "sha256": "293a7a1e4adf4a0d72b218d8933be15e8665befc39bcac29ecbfb36be8dbcee9"
+    },
+    {
+      "tier": 3,
+      "frames": 48,
+      "sha256": "7a4e3781de8403fdcd9c9b0352be818a486292fda4cd954c11a3994cc560d3d2"
+    }
+  ],
+  "rare_unique_bytes_unchanged": true,
+  "rendered_new_frames": 96,
+  "visual_review": "3 fish body shapes, alpha masking, broad fire versus open/discharge/close spatial tears reviewed",
+  "paid_calls": 0,
+  "user_approved": false,
+  "game_integrated": false,
+  "generator_only": "Godot4.6.3 offline prototype; production4.4.1 not verified"
+}

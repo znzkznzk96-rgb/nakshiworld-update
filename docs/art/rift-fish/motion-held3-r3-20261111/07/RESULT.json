@@ -1,0 +1,219 @@
+{
+  "id": "07",
+  "job_id": "588959a5-d1cc-42ac-9fc9-8d1382e1bf6d",
+  "model": "animate-pixminimax",
+  "native_canvas": [
+    232,
+    128
+  ],
+  "frame0_matches_native": true,
+  "frame_count": 16,
+  "actual_generations": 1,
+  "frames": [
+    {
+      "frame": 0,
+      "path": "r3/07/frames/00.png",
+      "bytes": 4479,
+      "sha256": "cbe71580e04c18a6a8aa2fb0c6bb77fb589bf30f23454c69e19336876079b3bf",
+      "bbox": [
+        18,
+        20,
+        211,
+        108
+      ]
+    },
+    {
+      "frame": 1,
+      "path": "r3/07/frames/01.png",
+      "bytes": 4795,
+      "sha256": "c6ef0e7d337d0f109e3bcc45cf753dee7b22871e0d32805a94443e155aacc7d2",
+      "bbox": [
+        18,
+        20,
+        210,
+        108
+      ]
+    },
+    {
+      "frame": 2,
+      "path": "r3/07/frames/02.png",
+      "bytes": 4890,
+      "sha256": "0cfd874e580bb6f9034fa350bd1dd00adcee4586a042f176631981f73a11c1c2",
+      "bbox": [
+        18,
+        20,
+        208,
+        108
+      ]
+    },
+    {
+      "frame": 3,
+      "path": "r3/07/frames/03.png",
+      "bytes": 5694,
+      "sha256": "e1f66329ba443a7a2c4de436c5898f7a66e7de6d9796140403961ee80f7f7132",
+      "bbox": [
+        18,
+        20,
+        206,
+        108
+      ]
+    },
+    {
+      "frame": 4,
+      "path": "r3/07/frames/04.png",
+      "bytes": 5574,
+      "sha256": "e3df9a4424cd4b09ea59aecab134e991dd81bfe248632bd7846dd1bce7d771ff",
+      "bbox": [
+        18,
+        20,
+        203,
+        108
+      ]
+    },
+    {
+      "frame": 5,
+      "path": "r3/07/frames/05.png",
+      "bytes": 5368,
+      "sha256": "c7588cfe370392ee2ebc40cc93ba4cd2313f99af222a1736773a907486d81c35",
+      "bbox": [
+        18,
+        20,
+        204,
+        108
+      ]
+    },
+    {
+      "frame": 6,
+      "path": "r3/07/frames/06.png",
+      "bytes": 5520,
+      "sha256": "2fdace20d815fac0f082db0a33c03622dae2b2c4b2e02548804c8e529618028e",
+      "bbox": [
+        18,
+        20,
+        207,
+        108
+      ]
+    },
+    {
+      "frame": 7,
+      "path": "r3/07/frames/07.png",
+      "bytes": 5290,
+      "sha256": "3c8903e1c87f137566f0c465828160c1abc4ddd7af9b7d761b7384c7e261ba0b",
+      "bbox": [
+        18,
+        20,
+        211,
+        108
+      ]
+    },
+    {
+      "frame": 8,
+      "path": "r3/07/frames/08.png",
+      "bytes": 4995,
+      "sha256": "f4789f2e52438700e18c6e8994b86975ec97ed493564c108cca9e443453032c9",
+      "bbox": [
+        18,
+        20,
+        211,
+        108
+      ]
+    },
+    {
+      "frame": 9,
+      "path": "r3/07/frames/09.png",
+      "bytes": 5077,
+      "sha256": "b4e72c9caca5ef2f2848b116d324ee04ad48ca2ab22f4d131bc056c37e723808",
+      "bbox": [
+        18,
+        20,
+        210,
+        108
+      ]
+    },
+    {
+      "frame": 10,
+      "path": "r3/07/frames/10.png",
+      "bytes": 5012,
+      "sha256": "fa26c0c15988b9115440f68f55ca150e2876736ee55190e70a02c01af0c5d489",
+      "bbox": [
+        18,
+        20,
+        209,
+        108
+      ]
+    },
+    {
+      "frame": 11,
+      "path": "r3/07/frames/11.png",
+      "bytes": 5660,
+      "sha256": "f76fe01b7858d1e6db95de9ac0ba5bef09f9010edb5b68c569112371e34bb3db",
+      "bbox": [
+        18,
+        20,
+        207,
+        108
+      ]
+    },
+    {
+      "frame": 12,
+      "path": "r3/07/frames/12.png",
+      "bytes": 5619,
+      "sha256": "1a638771c704f61d6d41114d651117d88fe5fe44a0cdabccc901e0b55492f360",
+      "bbox": [
+        18,
+        20,
+        204,
+        108
+      ]
+    },
+    {
+      "frame": 13,
+      "path": "r3/07/frames/13.png",
+      "bytes": 5537,
+      "sha256": "4d40636306469708c528d3ad1f4609097b1d6af9df699bddfce91b6035d3da59",
+      "bbox": [
+        18,
+        20,
+        204,
+        108
+      ]
+    },
+    {
+      "frame": 14,
+      "path": "r3/07/frames/14.png",
+      "bytes": 5602,
+      "sha256": "e61c1b46ad23393c14d968b42d2885688e9d2b06fb4a7dcea9a8140cc19166c5",
+      "bbox": [
+        18,
+        20,
+        207,
+        108
+      ]
+    },
+    {
+      "frame": 15,
+      "path": "r3/07/frames/15.png",
+      "bytes": 5376,
+      "sha256": "678c1fb09e3df2d802f0eb2e046359d1a18448ce3f9e545842207c60b055d754",
+      "bbox": [
+        18,
+        20,
+        211,
+        108
+      ]
+    },
+    {
+      "frame": 16,
+      "path": "r3/07/frames/16.png",
+      "bytes": 5009,
+      "sha256": "ee2821dc35b873e7568f602bf6f36bedd4b2c434c1aa65f58d42aa8d5520d06c",
+      "bbox": [
+        18,
+        20,
+        211,
+        108
+      ]
+    }
+  ],
+  "game_applied": false
+}

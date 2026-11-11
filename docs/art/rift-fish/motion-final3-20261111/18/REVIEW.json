@@ -1,0 +1,10 @@
+{
+  "id": "18",
+  "status": "rejected",
+  "reason": "First-frame-only generation improves tail articulation but rear-body bending remains small and the requested powerful alternating swim is not readable at fixed 156px reference size. No visual corruption; dynamic-motion gate fails.",
+  "native_review": true,
+  "nearest2_review": true,
+  "fixed_reference_156_review": true,
+  "actual_generations": 1,
+  "game_applied": false
+}

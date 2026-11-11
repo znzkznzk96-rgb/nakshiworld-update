@@ -1,0 +1,13 @@
+{
+  "id": "17",
+  "attempt": 1,
+  "model": "edit-image-pixen",
+  "seed": 2026111417,
+  "request_sha256": "be3aeb6b05eb62a248cc65bd0244be849bd18915b277533b24088bd12b10323e",
+  "job_id": "b02b846e-7792-4006-a999-3eb0f6bf6d45",
+  "http_status": 202,
+  "status": "passed",
+  "result_sha256": "a539214aa0edbda35a7f6af430791b8d73f65e2b28682403e3ccb2916d3d2da3",
+  "actual_generation_delta": 1.0,
+  "private_response_fields_omitted": true
+}

@@ -1,0 +1,22 @@
+{
+  "description": "Gentle swimming in place. The existing tail bends a little from side to side and small fins paddle slowly, then return to the starting pose. Head and body stay steady. Keep the exact original silhouette and all painted markings stable. Fixed camera, fixed position and size, left-facing for the entire seamless loop. Clean isolated sprite; only the existing attached body parts move. Empty space remains fully transparent.",
+  "frame_count": 16,
+  "seed": 2026114107,
+  "no_background": true,
+  "drift_threshold": 0,
+  "enhance_prompt": false,
+  "direction": "west",
+  "view": "side",
+  "subject_description": "a silver-blue sardine with purple fins and gold lines painted on its side",
+  "initial_pose": "horizontal side-on swimming, head left and tail right, whole sprite inside transparent margins",
+  "first_frame": {
+    "sha256": "cbe71580e04c18a6a8aa2fb0c6bb77fb589bf30f23454c69e19336876079b3bf",
+    "source": "docs/art/rift-fish/motion-hd-20261111/07/base-1/original.png",
+    "role": "passed HD original, exact bytes preserved"
+  },
+  "last_frame": {
+    "sha256": "cbe71580e04c18a6a8aa2fb0c6bb77fb589bf30f23454c69e19336876079b3bf",
+    "source": "docs/art/rift-fish/motion-hd-20261111/07/base-1/original.png",
+    "role": "passed HD original, exact bytes preserved"
+  }
+}

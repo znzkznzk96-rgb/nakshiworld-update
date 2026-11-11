@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "note": "참치 유선형 체형 위로 큰 청록 프리즘 3개·자홍 균열이 확실히 솟아 작은 원본에서도 식별됨. 은빛 배·보라 결정형 지느러미/꼬리와 3단 명암 확인. 1차 작은 점형 변이 문제 개선.",
+  "reviewed_at_native_and_nearest6x": true,
+  "compared_with_actual_reservoir_original": true,
+  "size": [
+    96,
+    64
+  ],
+  "bbox": [
+    5,
+    6,
+    90,
+    55
+  ],
+  "mode": "RGBA",
+  "sha256": "180887aa8637707756354c0cc4deef1d7e8a8fe87e4f81a0d1785bdb2425262f",
+  "reference_sha256": "80c335634c9ce2125cedcb3fb84fc9b0235bd18896f9fe7dbdde243e0475d391",
+  "shape": "passed",
+  "color": "passed",
+  "shading_pixel_clusters": "passed",
+  "outline": "passed",
+  "species_feature": "passed",
+  "alpha_margin": "passed",
+  "actual_generation_delta": 1.0,
+  "game_applied": false,
+  "user_final_approval": "pending"
+}

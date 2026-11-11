@@ -1,0 +1,16 @@
+{
+  "first_frame": {
+    "encoded_image_omitted": true,
+    "sha256": "2cfd473386916759061a23396d7edd1d7b88aec6d0e4ab5d2b5d22f6f730e039",
+    "input_role": "internally passed native HD original derived from the user-approved fish"
+  },
+  "description": "The ONE PAIR of broad mirror wings opens and closes gently with slight flexible tips; pale reflection bands shift subtly with wing angle. Keep exactly two wings and a stable slender body. Reflections stay strictly INSIDE the wing facets, with no sparkles or emitted glow. Seamless gentle swimming loop IN PLACE, head LEFT throughout. Fixed camera, sprite position and scale. Preserve exact original identity, colors, markings and fin/tail count. No turning, new parts, particles, scenery, cropping or camera motion.",
+  "frame_count": 16,
+  "seed": 2026113014,
+  "no_background": true,
+  "enhance_prompt": false,
+  "direction": "west",
+  "view": "side",
+  "subject_description": "blue-silver flying fish with two cyan-lavender mirror wings",
+  "initial_pose": "neutral horizontal swimming pose; head LEFT, tail or mantle RIGHT; whole creature visible inside transparent margins"
+}

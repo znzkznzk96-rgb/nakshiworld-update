@@ -1,0 +1,17 @@
+{
+  "description": "A strong swimming cycle: the rear half bends visibly upward, then downward, driving the tail through broad opposite arcs. The chest fins spread and row back with each stroke. The painted blue zigzag remains fixed on the skin, moving only with the body. Only one continuous solid fish moves. No sparks, electricity, dots, bubbles, detached pixels, trails or other effects. Energetic looping swim IN PLACE. Fixed camera, fixed scale, flat 2D SIDE profile, head left throughout. Preserve exact anatomy, rich original palette and clean pixel art. Keep all fins and tail inside clear transparent margins.",
+  "frame_count": 16,
+  "seed": 2026116117,
+  "no_background": true,
+  "drift_threshold": 0,
+  "enhance_prompt": false,
+  "direction": "west",
+  "view": "side",
+  "subject_description": "yellow-backed silver mackerel with blue skin zigzag and cyan fins",
+  "initial_pose": "horizontal side view, head left, tail right, whole fish visible",
+  "input_sha256": "fe72e2aa479a6b18d4e0907c7df0da249c306a87f51407d939df5b7f3148a764",
+  "canvas": [
+    232,
+    136
+  ]
+}

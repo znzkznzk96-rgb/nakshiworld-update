@@ -1,0 +1,42 @@
+{
+  "usage": {
+    "type": "generations",
+    "generations": 1.0
+  },
+  "id": "3233b997-d9e0-45ca-a7bb-d9cbceb4dd82",
+  "status": "completed",
+  "created_at": "2026-11-10T13:23:23.304204+00:00",
+  "last_response": {
+    "seed": 2026111306,
+    "type": "message_done",
+    "image": {
+      "type": "base64",
+      "width": 96,
+      "base64": "[omitted encoded image; original.png preserves exact bytes]",
+      "height": 64
+    },
+    "usage": {
+      "seconds": 23.9062819480896
+    },
+    "progress": 0.6833333333333333,
+    "billing_usage": {
+      "usd": 0.0,
+      "type": "generations",
+      "generations": 1
+    },
+    "generation_id": "5915cccf-efd6-4139-a1e3-409d873db315",
+    "queue_position": 0,
+    "billing_charged": true,
+    "generation_mode": "edit_image_pixen",
+    "quantized_image": {
+      "type": "base64",
+      "width": 96,
+      "base64": "[omitted encoded image; original.png preserves exact bytes]",
+      "height": 64
+    },
+    "generation_started_at": "2026-11-10T13:23:39.351281+00:00",
+    "estimated_wait_seconds": 0,
+    "original_image_n_colors": 1383,
+    "quantized_image_n_colors": 50
+  }
+}

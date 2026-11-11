@@ -1,0 +1,22 @@
+{
+  "description": "Fast darting swim in place: two pronounced tail snaps per cycle propagate a visible whip-like wave down the slim body. Fins flare at each reversal then fold on the push. Include a brief coiled anticipation and fully extended follow-through, so the action reads clearly at small game size. Seamless energetic swim IN PLACE. Fixed camera and scale; head LEFT throughout. Preserve identity, anatomy, fin count and rich original colors. All parts stay inside the canvas with clear margins. No external particles, glow, trails, new parts or background. Animate in a FLAT 2D SIDE PROFILE: bend the tail UP and DOWN on screen, never toward the camera. Keep the whole tail and fins visible at both extremes, with no foreshortening or disappearing parts.",
+  "frame_count": 16,
+  "seed": 2026115108,
+  "no_background": true,
+  "drift_threshold": 0,
+  "enhance_prompt": false,
+  "direction": "west",
+  "view": "side",
+  "subject_description": "slim silver-cyan anchovy",
+  "initial_pose": "horizontal side-view swim pose, head left and tail or mantle right, whole creature visible inside transparent margins",
+  "first_frame": {
+    "sha256": "d57e3569ffc01053e2a03aa7bd992506190de23ed729f3c4d27c21a4ac87b47e",
+    "source": "docs/art/rift-fish/motion-hd-20261111/08/base-1/original.png",
+    "role": "passed original HD art exact bytes"
+  },
+  "last_frame": {
+    "sha256": "d57e3569ffc01053e2a03aa7bd992506190de23ed729f3c4d27c21a4ac87b47e",
+    "source": "docs/art/rift-fish/motion-hd-20261111/08/base-1/original.png",
+    "role": "passed original HD art exact bytes"
+  }
+}

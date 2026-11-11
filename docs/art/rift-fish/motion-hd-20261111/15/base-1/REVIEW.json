@@ -1,0 +1,19 @@
+{
+  "id": "15",
+  "stage": "base",
+  "attempt": 1,
+  "status": "passed",
+  "note": "청록 결정 세 개와 자홍 균열·보라 꼬리·두꺼운 참치 체형 및 좌향 유지. 명암과 여백 정상.",
+  "reviewed_native_and_nearest": true,
+  "approved_source_compared": true,
+  "observed_direction": "west",
+  "shape": "passed",
+  "color": "passed",
+  "native_detail": "passed",
+  "species_features": "passed",
+  "motion": "not_applicable",
+  "alpha_margin": "passed",
+  "native_width_at_least_fight_max": "passed",
+  "actual_generation_delta": 1.0,
+  "game_applied": false
+}

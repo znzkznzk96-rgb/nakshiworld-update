@@ -1,0 +1,14 @@
+{
+  "image": {
+    "type": "repository_original_reference",
+    "path": "game/art/fish/l0_00.png",
+    "sha256": "35d557efb6ae37167aa577f0f0e8e0ff7a4aa7e580b34f529e359ddba8496ac0",
+    "base64_omitted_from_public_record": true
+  },
+  "description": "A long streamlined Spanish mackerel facing RIGHT. Vivid electric YELLOW back, silver-white belly, sharp cobalt zigzag flank stripes. ONE dorsal fin shaped like a thick blue LIGHTNING BOLT and a bright cyan zigzag-shaped forked tail. Strong closed pointed snout, ordinary clear eye. No external lightning cloud, particles or second fish. Keep detailed crisp original pixel shading and dark clean outline. Crisp original pixel shading, vivid colors, clear margins.",
+  "width": 96,
+  "height": 64,
+  "no_background": true,
+  "seed": 2026111417,
+  "actual_request_sha256": "be3aeb6b05eb62a248cc65bd0244be849bd18915b277533b24088bd12b10323e"
+}

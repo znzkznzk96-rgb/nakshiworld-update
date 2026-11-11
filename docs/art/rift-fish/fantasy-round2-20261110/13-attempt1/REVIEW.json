@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "note": "둥근 복어 몸·작은 입·사파이어 몸색·굵은 자홍 균열과 청록 결정 가시가 네이티브에서도 구분됨. 명암 및 투명 여백 확인. 실제 모션은 팽창/수축 구상만 기록.",
+  "reviewed_at_native_and_nearest6x": true,
+  "compared_with_actual_reservoir_original": true,
+  "size": [
+    96,
+    64
+  ],
+  "bbox": [
+    22,
+    11,
+    71,
+    55
+  ],
+  "mode": "RGBA",
+  "sha256": "0552465627aae2e7b25cffe078b1ffd41c9ceb11c60e984a1e285e13ae01baa7",
+  "reference_sha256": "851cf7593ea5dfff00ce67ce5b53c061ac8f9c509ec7e708eeb6343805c31a91",
+  "shape": "passed",
+  "color": "passed",
+  "shading_pixel_clusters": "passed",
+  "outline": "passed",
+  "species_feature": "passed",
+  "alpha_margin": "passed",
+  "actual_generation_delta": 1.0,
+  "game_applied": false,
+  "user_final_approval": "pending"
+}

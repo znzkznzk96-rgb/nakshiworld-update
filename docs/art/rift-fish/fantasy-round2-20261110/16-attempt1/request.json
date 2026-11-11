@@ -1,0 +1,13 @@
+{
+  "description": "ONE fantasy OCEAN SUNFISH / MOLA facing RIGHT, huge nearly CIRCULAR compressed disk body, tiny mouth and small eye on right edge, tall dorsal fin up and matching long anal fin down. LEFT rear is a short blunt scalloped clavus edge, NO normal forked fish tail. Deep midnight blue-violet body with ONE large luminous gold crescent marking around its front flank like an eclipse. Pale icy-blue rim and lavender fins. The crescent is a bright surface marking, not a hole or extra eye. Large readable pixel clusters. Cozy existing 16-bit fishing RPG sprite style. Crisp native 96x64 pixel clusters, clean selective dark outline, rich controlled 3-to-4-tone ramps per material, distinct highlights/midtones/shadows. Vivid species colors, no washed-out gray or yellow haze, no soft gradients, heavy dithering or blur. Entire single creature centered with transparent margins, head at RIGHT. Animation-ready neutral swimming pose, separate readable fin/tentacle shapes. No text, frames, scenery or external particle trails.",
+  "image_size": {
+    "width": 96,
+    "height": 64
+  },
+  "no_background": true,
+  "direction": "east",
+  "outline": "selective outline",
+  "detail": "highly detailed",
+  "seed": 2026111416,
+  "enhance_prompt": false
+}

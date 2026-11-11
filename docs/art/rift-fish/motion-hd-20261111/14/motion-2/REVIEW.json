@@ -1,0 +1,19 @@
+{
+  "id": "14",
+  "stage": "motion",
+  "attempt": 2,
+  "status": "rejected",
+  "note": "추가1회에서도 날개 주변 회색 불투명 잔상과 덩어리가 반복되어 보류. 원화는 유지하고 모션 적용 금지.",
+  "reviewed_native_and_nearest": true,
+  "approved_source_compared": true,
+  "observed_direction": "west",
+  "shape": "passed",
+  "color": "passed",
+  "native_detail": "failed",
+  "species_features": "passed",
+  "motion": "failed",
+  "alpha_margin": "failed",
+  "native_width_at_least_fight_max": "passed",
+  "actual_generation_delta": 2.0,
+  "game_applied": false
+}

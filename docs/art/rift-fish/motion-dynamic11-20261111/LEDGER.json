@@ -1,0 +1,261 @@
+{
+  "entries": [
+    {
+      "id": "02",
+      "attempt": 1,
+      "status": "rejected",
+      "model": "animate-pixminimax",
+      "seed": 2026115102,
+      "input_sha256": "7db650a1e42b245a87896ba5e4812411af51fdda6a001fa74e0c0e73e01672e3",
+      "request_sha256": "781b40a3277dcf38b6859ea774ecc3a70f5d8af6ac1f069e25ab65d221cf67ae",
+      "native_canvas": [
+        232,
+        132
+      ],
+      "submitted_unix": 1794346480.4479249,
+      "http_status": 200,
+      "job_id": "745029b8-bbc0-428f-8881-918be0c9e089",
+      "actual_generations": 1
+    },
+    {
+      "id": "02",
+      "attempt": 2,
+      "status": "passed",
+      "model": "animate-pixminimax",
+      "seed": 2026115202,
+      "input_sha256": "7db650a1e42b245a87896ba5e4812411af51fdda6a001fa74e0c0e73e01672e3",
+      "request_sha256": "b7f1ac55ea3f20abde03d5324200e0e0713ea49f0fe4154c489f436b119e46cf",
+      "native_canvas": [
+        232,
+        132
+      ],
+      "submitted_unix": 1794346663.9306962,
+      "http_status": 200,
+      "job_id": "4fe51a6c-b547-4667-8bb2-043d7c1a8431",
+      "actual_generations": 1
+    },
+    {
+      "id": "04",
+      "attempt": 1,
+      "status": "passed",
+      "model": "animate-pixminimax",
+      "seed": 2026115104,
+      "input_sha256": "adc1ff4a621523b624b0006145ec18612cdd7ecfff441e46a6fe899cc83b651a",
+      "request_sha256": "a67e5fe54deea4cd85db076f87c7df2d719ba13ff56e1f3282c28b94d3eafd53",
+      "native_canvas": [
+        232,
+        184
+      ],
+      "submitted_unix": 1794346868.2277374,
+      "http_status": 200,
+      "job_id": "ade295a2-e16d-4c36-8260-f5a2b1e2f82b",
+      "actual_generations": 2
+    },
+    {
+      "id": "05",
+      "attempt": 1,
+      "status": "passed",
+      "model": "animate-pixminimax",
+      "seed": 2026115105,
+      "input_sha256": "d4b42e7841e2fe97c1fc85137179c2058e67dd370171b91b3182ee90761f64e4",
+      "request_sha256": "6c6797cd20430f908a4955a5b201f41c153d7bc8dddf76de6a8e89c7cad117f4",
+      "native_canvas": [
+        232,
+        104
+      ],
+      "submitted_unix": 1794347038.1672173,
+      "http_status": 200,
+      "job_id": "8f6ca6ca-41c1-40c7-be18-9a60a6f98716",
+      "actual_generations": 1
+    },
+    {
+      "id": "06",
+      "attempt": 1,
+      "status": "passed",
+      "model": "animate-pixminimax",
+      "seed": 2026115106,
+      "input_sha256": "3d4e59f4509f46e096e713b97152f275c5f898ecabfd0162838aedd078843f2a",
+      "request_sha256": "f8fa8ec7d89135cc3caf34ce1f59aedf162c00a7bc8836c22d687e328e842639",
+      "native_canvas": [
+        232,
+        176
+      ],
+      "submitted_unix": 1794347166.703105,
+      "http_status": 200,
+      "job_id": "35fa642d-b065-420a-9a99-c27db2886e24",
+      "actual_generations": 2
+    },
+    {
+      "id": "07",
+      "attempt": 1,
+      "status": "passed",
+      "model": "animate-pixminimax",
+      "seed": 2026115107,
+      "input_sha256": "cbe71580e04c18a6a8aa2fb0c6bb77fb589bf30f23454c69e19336876079b3bf",
+      "request_sha256": "83bf802a20732e3be64bf299b81cf5d363a4c1eb15adde09fae9aed99f175e12",
+      "native_canvas": [
+        232,
+        128
+      ],
+      "submitted_unix": 1794347301.8447928,
+      "http_status": 200,
+      "job_id": "2b1c044a-2f15-4727-9f71-6b04ec99932b",
+      "actual_generations": 1
+    },
+    {
+      "id": "08",
+      "attempt": 1,
+      "status": "rejected",
+      "model": "animate-pixminimax",
+      "seed": 2026115108,
+      "input_sha256": "d57e3569ffc01053e2a03aa7bd992506190de23ed729f3c4d27c21a4ac87b47e",
+      "request_sha256": "438e9af67240255a7a96d467a1f62dae32f45e2c32ac27b0db12e19c3eab0b46",
+      "native_canvas": [
+        232,
+        84
+      ],
+      "submitted_unix": 1794347447.1282356,
+      "http_status": 200,
+      "job_id": "7b440698-cc4b-470a-bc87-e7002258d97a",
+      "actual_generations": 1
+    },
+    {
+      "id": "08",
+      "attempt": 2,
+      "status": "passed",
+      "model": "animate-pixminimax",
+      "seed": 2026115208,
+      "input_sha256": "d57e3569ffc01053e2a03aa7bd992506190de23ed729f3c4d27c21a4ac87b47e",
+      "request_sha256": "d07e0ad0da6504d8571d07b271dd6ff61b080f1ca35b9d411d9f981dd32cccf8",
+      "native_canvas": [
+        232,
+        84
+      ],
+      "submitted_unix": 1794347572.810008,
+      "http_status": 200,
+      "job_id": "730ab3a5-3fb2-4ece-8e2f-577d38d13664",
+      "actual_generations": 1
+    },
+    {
+      "id": "09",
+      "attempt": 1,
+      "status": "passed",
+      "model": "animate-pixminimax",
+      "seed": 2026115109,
+      "input_sha256": "f01711be0bd858920cf6c4ad6a1b16db47b930d3f67e41da107cc1ed22247ea7",
+      "request_sha256": "62344c6b465a9dd4b9f8a7a2c1920e08d4d029f93696b36150fb157884e18bd8",
+      "native_canvas": [
+        232,
+        152
+      ],
+      "submitted_unix": 1794347695.3597002,
+      "http_status": 200,
+      "job_id": "8a035ea6-6e5c-4189-94c9-e4851549cb9d",
+      "actual_generations": 1
+    },
+    {
+      "id": "12",
+      "attempt": 1,
+      "status": "passed",
+      "model": "animate-pixminimax",
+      "seed": 2026115112,
+      "input_sha256": "fd7523262fb2622e4729ee805a415699f68ffe36444fee5f8a5f2f02f2830daa",
+      "request_sha256": "49e4c7f4cb6e2aae9efacf7138193a690d414aa619fef46aaa3bf754d3f96e55",
+      "native_canvas": [
+        232,
+        156
+      ],
+      "submitted_unix": 1794347843.0375724,
+      "http_status": 200,
+      "job_id": "b08e262d-3a61-471b-bf9c-7a460a07cc2a",
+      "actual_generations": 1
+    },
+    {
+      "id": "16",
+      "attempt": 1,
+      "status": "passed",
+      "model": "animate-pixminimax",
+      "seed": 2026115116,
+      "input_sha256": "fdd58ac208bc5b858316ffad510f8eb0225cf312c418e22f21eee856ab1d031f",
+      "request_sha256": "c475c2253f1dd5c34b6675c5520a895dc4072cec4369bd17ee1ef7a9c82358e1",
+      "native_canvas": [
+        232,
+        256
+      ],
+      "submitted_unix": 1794348024.7669628,
+      "http_status": 200,
+      "job_id": "6b21be43-3ab0-4b34-a8f2-6f62f3b471a3",
+      "actual_generations": 2
+    },
+    {
+      "id": "17",
+      "attempt": 1,
+      "status": "rejected",
+      "model": "animate-pixminimax",
+      "seed": 2026115117,
+      "input_sha256": "fe72e2aa479a6b18d4e0907c7df0da249c306a87f51407d939df5b7f3148a764",
+      "request_sha256": "e2d8ebaf3f58d5395c1c140a5d8ffd68a1df4b74aba696404ec3e5964de22d1d",
+      "native_canvas": [
+        232,
+        136
+      ],
+      "submitted_unix": 1794348532.713506,
+      "http_status": 200,
+      "job_id": "f14f676b-e220-415a-b15b-9229b63f6344",
+      "actual_generations": 1
+    },
+    {
+      "id": "17",
+      "attempt": 2,
+      "status": "rejected",
+      "model": "animate-pixminimax",
+      "seed": 2026115217,
+      "input_sha256": "fe72e2aa479a6b18d4e0907c7df0da249c306a87f51407d939df5b7f3148a764",
+      "request_sha256": "eb24a2e6111417fb8c7f10f1c48df0bf103aea7c8880cef6b54c3c1e2dad9c76",
+      "native_canvas": [
+        232,
+        136
+      ],
+      "submitted_unix": 1794348674.7422068,
+      "http_status": 200,
+      "job_id": "d1ad4efa-ffd5-4f92-a12a-4e9c2c227b1a",
+      "actual_generations": 1
+    },
+    {
+      "id": "18",
+      "attempt": 1,
+      "status": "rejected",
+      "model": "animate-pixminimax",
+      "seed": 2026115118,
+      "input_sha256": "c4d16ee1ffb85704ac50eaeb830d6e386eddddaf1382b5e5eb26104cccac05a7",
+      "request_sha256": "e37534c664b63d305199307407e0eba52d182423869d64e746244a9fe3c61498",
+      "native_canvas": [
+        232,
+        156
+      ],
+      "submitted_unix": 1794348804.1765966,
+      "http_status": 200,
+      "job_id": "c7456631-6411-44a5-878b-29633fee0176",
+      "actual_generations": 1
+    },
+    {
+      "id": "18",
+      "attempt": 2,
+      "status": "rejected",
+      "model": "animate-pixminimax",
+      "seed": 2026115218,
+      "input_sha256": "c4d16ee1ffb85704ac50eaeb830d6e386eddddaf1382b5e5eb26104cccac05a7",
+      "request_sha256": "82e9f6e55b8452cad8ceec7b9f12a27fe0a6975e11b0fdc40e3630e56246f1a9",
+      "native_canvas": [
+        232,
+        156
+      ],
+      "submitted_unix": 1794348975.392314,
+      "http_status": 200,
+      "job_id": "d728eb3a-5db0-427e-bca2-aea616f0c070",
+      "actual_generations": 1,
+      "review": "docs/art/rift-fish/motion-dynamic11-20261111/18/attempt-2/REVIEW.json"
+    }
+  ],
+  "status": "complete_9_passed_2_held"
+}

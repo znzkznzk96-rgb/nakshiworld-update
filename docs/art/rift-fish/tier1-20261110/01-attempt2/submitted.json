@@ -1,0 +1,17 @@
+{
+  "http_status": 202,
+  "response": {
+    "usage": null,
+    "background_job_id": "57b15d88-baa7-4798-9295-da1b2cfd55a8",
+    "image_id": "11b0424f-ef94-5497-a436-071f33309fd1",
+    "source_image_id": "11b0424f-ef94-5497-a436-071f33309fd1",
+    "status": "processing",
+    "output_count": 1,
+    "image_size": {
+      "width": 96,
+      "height": 64
+    },
+    "estimated_generations": 5,
+    "pricing_provisional": true
+  }
+}

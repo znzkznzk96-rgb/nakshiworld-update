@@ -1,0 +1,55 @@
+{
+  "date": "2026-11-11",
+  "status": "user_approved_game_integrated_verification_pending",
+  "rare": {
+    "revision": 3,
+    "status": "user_approved",
+    "gif_sha256": "e4e291030c0fbadb26974fe09c0aef90b071583fff102aa704ca7307a54c7168",
+    "spec": "docs/art/fish-aura-20261111/procedural-r3/SPEC.json"
+  },
+  "unique": {
+    "revision": 4,
+    "status": "user_approved",
+    "spec": "docs/art/fish-aura-20261111/procedural-r4/SPEC.json",
+    "gif_sha256": "f7f9052b4fb6d3598e2672044b56f73f3594348b007b1c157a7e8b8d1af771b5",
+    "direction": "separate violet gem motes, slim short afterglows; no broad flames"
+  },
+  "legendary": {
+    "revision": 7,
+    "status": "user_approved",
+    "gif_sha256": "e83a6199e6d7995540446445053158851f71552e558a99a1ff01242b79ce82a5",
+    "spec": "docs/art/fish-aura-20261111/procedural-r7/SPEC.json",
+    "previous_approved_revision": 2,
+    "mechanism": "rich warm golden glow wisps with glints",
+    "rejected_revision": 5,
+    "rejected_revisions": [
+      5,
+      6
+    ]
+  },
+  "mythic": {
+    "revision": 7,
+    "status": "user_approved",
+    "gif_sha256": "f307bccf3aa34f81908b02f5e0dbb8cdd3f668d9e0e91cd49e454ebb06c6b8cd",
+    "spec": "docs/art/fish-aura-20261111/procedural-r7/SPEC.json",
+    "previous_approved_revision": 2,
+    "mechanism": "bright broad layered iridescent flowing echoes",
+    "rejected_revision": 5,
+    "rejected_revisions": [
+      5,
+      6
+    ]
+  },
+  "game_applied": true,
+  "deployed": false,
+  "latest_preview_archive": {
+    "title": "fish_aura_rich_high_tiers_r7.zip",
+    "sha256": "eea8db811ec03f5a95436177ef333c06bd3c7ea5346f672095b853da3d92136c",
+    "library_file_id": "libfile_fde3_f-c824d941d7808191becc35ce0d18bc01_d66dafb33acc81918ce203aeb3fcd18e"
+  },
+  "approval": {
+    "date": "2026-11-11",
+    "request": "그렇게가자 ㅇㅇ 업데이트가자",
+    "cue_rule": "전조 화살표·게이지 주변만 국소 알파. 방출량/궤적 유지."
+  }
+}

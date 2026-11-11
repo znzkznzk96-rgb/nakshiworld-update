@@ -1,0 +1,40 @@
+{
+  "status": "ready",
+  "entries": [
+    {
+      "id": "07",
+      "status": "passed",
+      "seed": 2026114107,
+      "request_sha256": "df32cd2e5510e238a5a0ce344482b10717bbf93abbb0742bc44e933123273661",
+      "model": "animate-pixminimax",
+      "submitted_unix": 1794343561.6447265,
+      "http_status": 200,
+      "job_id": "588959a5-d1cc-42ac-9fc9-8d1382e1bf6d",
+      "actual_generations": 1
+    },
+    {
+      "id": "14",
+      "status": "rejected",
+      "seed": 2026114114,
+      "request_sha256": "50038dc22876b837902935b3fe8a3c9e426ee24f8e5ee2a6bb45339d4f78dd0a",
+      "model": "animate-pixminimax",
+      "submitted_unix": 1794343682.9348664,
+      "http_status": 200,
+      "job_id": "6adf7247-4dbb-4dec-ac1b-40652507af6e",
+      "actual_generations": 2
+    },
+    {
+      "id": "20",
+      "status": "passed",
+      "seed": 2026114120,
+      "request_sha256": "f6d77f9af686981a054db4af9d6096773c42d8bb4a2a4485ab6355c355aaa4ec",
+      "model": "animate-pixminimax",
+      "submitted_unix": 1794343840.4981992,
+      "http_status": 200,
+      "job_id": "9c46c7a3-06e7-4d18-b76b-15692cf1ecde",
+      "actual_generations": 2
+    }
+  ],
+  "request_limit": 3,
+  "per_species_limit": 1
+}

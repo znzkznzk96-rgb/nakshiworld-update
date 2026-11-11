@@ -1,0 +1,19 @@
+{
+  "id": "20",
+  "name": "폭풍다랑어",
+  "stage": "base",
+  "attempt": 1,
+  "model": "edit-image-pixen",
+  "seed": 2026112020,
+  "native_canvas": [
+    232,
+    168
+  ],
+  "input_sha256": "5db08b2f3fc284eff707f73df95ce900cddc2834df6cb6dbe82a32fd2da50ab1",
+  "input_role": "user-approved fish, transparent margins cropped/padded only",
+  "request_sha256": "5dbf1c04ddfed59ac2ff1ff47aa97563f73af0349f12b1d4e3a8d0daf8d01cea",
+  "additional_request_used": 0,
+  "expected_output_count": 1,
+  "quoted_generations": 1,
+  "game_applied": false
+}

@@ -1,0 +1,19 @@
+{
+  "id": "12",
+  "stage": "base",
+  "attempt": 1,
+  "status": "passed",
+  "note": "사용자가 수용한 보라색 광어 시안의 둥근 몸·가시형 테두리·금빛 눈·균열 무늬·꼬리 형태 유지. native198px 본체에서 보라 명암/비늘 선명, 좌향·알파 여백 정상. 과거 원종 형태 제안으로 임의 재변경하지 않음.",
+  "reviewed_native_and_nearest": true,
+  "approved_source_compared": true,
+  "observed_direction": "west",
+  "shape": "passed",
+  "color": "passed",
+  "native_detail": "passed",
+  "species_features": "passed",
+  "motion": "not_applicable",
+  "alpha_margin": "passed",
+  "native_width_at_least_fight_max": "passed",
+  "actual_generation_delta": 1.0,
+  "game_applied": false
+}
