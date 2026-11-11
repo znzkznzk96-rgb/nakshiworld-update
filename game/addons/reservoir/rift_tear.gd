@@ -11,11 +11,20 @@ func _ready()->void:
 	make_tear(PackedVector2Array([Vector2(-20,397),Vector2(26,385),Vector2(62,375),Vector2(97,359),Vector2(126,338),Vector2(155,309),Vector2(192,300),Vector2(229,297),Vector2(265,293),Vector2(301,281),Vector2(339,270),Vector2(377,261),Vector2(412,239),Vector2(447,229),Vector2(488,223),Vector2(524,213),Vector2(560,204)]),[2,7,13,6,17,8,13,20,8,12,7,17,9,13,6,10,2],40.0)
 func make_tear(center:PackedVector2Array,widths:Array,shift_y:float=0)->void:
 	var upper:=PackedVector2Array();var lower:=PackedVector2Array()
-	for i in center.size():
-		var tangent:Vector2=(center[mini(i+1,center.size()-1)]-center[maxi(i-1,0)]).normalized()
+	for i in range(center.size()-1):
+		var tangent:Vector2=(center[i+1]-center[i]).normalized()
 		var normal:=Vector2(-tangent.y,tangent.x)
-		upper.append((center[i]+Vector2(0,shift_y)+normal*float(widths[i])).round())
-		lower.append((center[i]+Vector2(0,shift_y)-normal*float(widths[i])*(.65+.12*sin(i*2.3))).round())
+		var steps:int=maxi(2,ceili(center[i].distance_to(center[i+1])/6.0))
+		for j in steps:
+			var k:float=j/float(steps)
+			var p:Vector2=center[i].lerp(center[i+1],k)+Vector2(0,shift_y)
+			var width:float=lerpf(float(widths[i]),float(widths[i+1]),k)
+			var rough:float=sin(i*11.7+j*7.31)*1.6
+			var tooth:float=3.2 if (i*3+j)%9==0 else 0
+			upper.append((p+normal*maxf(1,width+rough+tooth)).round())
+			lower.append((p-normal*maxf(1,width*.76-rough*.9-tooth*.3)).round())
+	var last:Vector2=center[-1]+Vector2(0,shift_y)
+	upper.append(last+Vector2(0,2));lower.append(last-Vector2(0,2))
 	var polygon:=upper.duplicate()
 	for i in range(lower.size()-1,-1,-1):polygon.append(lower[i])
 	var shape:=Polygon2D.new();shape.polygon=polygon;shape.material=fill_material;add_child(shape)

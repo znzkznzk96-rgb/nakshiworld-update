@@ -17,9 +17,9 @@ func _draw()->void:
 	elif kind=="bubbles":
 		for i in 28:
 			var p:=bubble_position(i,t);var r:float=1.0+(i%4)*.45
-			var a:float=.22+.10*sin(t*.6+i)
-			draw_arc(p,r,0,TAU,12,Color(.70,.40,1,a),.7,false)
-			draw_line(p+Vector2(-r*.4,-r*.6),p+Vector2(0,-r*.75),Color(.91,.76,1,a+.13),.8,false)
+			var a:float=.34+.12*sin(t*.6+i)
+			draw_arc(p,r,0,TAU,12,Color(.78,.48,1,a),.7,false)
+			draw_line(p+Vector2(-r*.4,-r*.6),p+Vector2(0,-r*.75),Color(.91,.76,1,a+.18),.8,false)
 	elif kind=="motes":
 		for i in 38:
 			var p:=safe_position(Vector2(fposmod(i*163.1+sin(t*.13+i)*7,520)+10,690+fposmod(i*89.3-t*.8,530)))
@@ -45,10 +45,10 @@ func draw_schools(t:float)->void:
 		for i in [10,7,6][school]:
 			var p:=safe_position(origin+Vector2((i%5-2)*14,(i/5)*16+sin(i*2.8+t*.8)*4))
 			var sp:int=[60,61,63][school];var src:Rect2=art.source_rect(sp,t+i*.13)
-			var length:float=9+(i%3)*2;var size:Vector2=src.size*length/src.size.x
+			var length:float=12+(i%3)*3;var size:Vector2=src.size*length/src.size.x
 			var direction:float=-1 if cos(t*.055+school)>0 else 1
 			draw_set_transform(p.round()*2,0,Vector2(-direction*2,2))
-			draw_texture_rect_region(art.texture(sp),Rect2(-size/2,size),src,Color(.53,.37,.78,.29 if school==0 else .22))
+			draw_texture_rect_region(art.texture(sp),Rect2(-size/2,size),src,Color(.90,.76,1,.48 if school==0 else .38))
 			draw_set_transform(Vector2.ZERO,0,Vector2.ONE*2)
 func draw_plants(t:float)->void:
 	var anchors:Array=[Vector2(14,810),Vector2(28,1000),Vector2(520,891),Vector2(527,1118),Vector2(60,1242),Vector2(470,1244)]
