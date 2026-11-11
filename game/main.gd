@@ -228,6 +228,9 @@ var toast_action: = false
 var fx_mat: CanvasItemMaterial
 var fx_rid: = []
 var aura: = {}
+var drawing_telegraph=false
+var aura_cue_context:Dictionary={}
+var fish_grade_aura=preload("res://addons/reservoir/fish_grade_aura.gd").new()
 var aura_hist: = []
 var aura_hist_t: = 0.0
 var water_spawn_acc: = 0.0
@@ -1416,6 +1419,7 @@ func _draw() -> void :
 	text_items = []
 	ui_commands = []
 	aura = {}
+	aura_cue_context={}
 	if is_instance_valid(title_screen.root): title_screen.root.visible = title_open or title_screen.leaving
 	if title_open or title_screen.leaving:
 		title_screen.draw_ui(self, h);_fx_draw(t);_draw_trans(h)
@@ -1804,6 +1808,8 @@ func _draw_fight(t: float, tip: Vector2) -> void :
 	if S.spike > 0: dx += sin(t / 12.0) * 3;dy += cos(t / 15.0) * 2
 	var scale: float = _fight_fish_scale(S.lf)
 	var body_length: float = _fight_body_length(int(S.sp), float(S.lf), int(S.star))
+	var cue_origin:Vector2=Vector2(dx-CX[S.cloneReal]*spread,dy-CY[S.cloneReal]*spread) if cl else Vector2(dx,dy)
+	aura_cue_context={"center":cue_origin,"group":cl,"hud":_fish_tension_position(Vector2(dx,dy),scale,dtd,body_length)}
 	if cl:
 		for k in 3:
 			if k != S.cloneReal:
@@ -1949,24 +1955,8 @@ func _fish_quad(qd: Array, color: Color, tex: Texture2D) -> void :
 # Offset the animated alpha silhouette: each layer follows fins and tail, not an ellipse.
 # Body is drawn last; no colored overlay obscures the fish.
 func _draw_pixel_halo(quads: Array, tex: Texture2D, grade: int, t: float) -> void:
-	if grade <= 0: return
-	preload("res://addons/reservoir/fish_halo_batch.gd").queue(self, quads, tex, grade, t)
-	# Bright sparse pixel sparks outside the outline; body is drawn afterwards.
-	var count: int = 3+grade*2
-	var center:=Vector2.ZERO
-	for point in quads[0][0]: center+=point/4.0
-	var tail: Vector2=(quads[-1][0][1]+quads[-1][0][2])/2.0
-	var mid: Vector2=(center+tail)/2.0
-	var length: float=center.distance_to(tail)
-	for i in count:
-		var angle: float=i*TAU/count+t/2400.0
-		var point: Vector2=mid+Vector2(cos(angle)*(length*0.58+6),sin(angle)*(length*0.34+5))
-		if not ui_demo: point.y+=oy
-		var color:=_aura_col(grade,t,0.65+0.25*sin(t/220.0+i),i)
-		_ui_rect(Rect2(point,Vector2(1.5,1.5)),color)
-		if grade>=3 and i%3==0:
-			_ui_rect(Rect2(point+Vector2(-1,0.5),Vector2(3.5,0.5)),color)
-			_ui_rect(Rect2(point+Vector2(0.5,-1),Vector2(0.5,3.5)),color)
+	if grade <= 0:return
+	fish_grade_aura.queue(self,quads,grade,t)
 
 func _draw_action_wake(c: Vector2, length: float, hw: float, face: float, beh: String, t: float) -> void:
 	var force: float = _water_force(beh)
@@ -2162,22 +2152,7 @@ func _fx_update(dt: float, t: float) -> void :
 			var a: = randf() * TAU
 			parts.append({"kind": "burst", "p": aura.c, "v": Vector2(cos(a), sin(a) * 0.7) * randf_range(40, 80), "life": 0.6, "max": 0.6, "col": _aura_col(g, t, 1, i), "ph": 0.0, "sz": 2})
 	_spawn_action_water(dt)
-	var rate: float = [0, 9, 13, 18, 23][g]
-	var fast: bool = S.beh == "run" or S.beh == "charge" or S.beh == "jump"
-	if fast: rate *= 1.6
-	spawn_acc = minf(3.0, spawn_acc + rate * dt)
-	while spawn_acc >= 1.0 and parts.size() < 90:
-		spawn_acc -= 1.0
-		var k: = randi() % pts.size()
-		var nv: Vector2 = aura.nrms[k]
-		var p: Vector2 = pts[k] + nv * (aura.hw + 7) * (1.0 if randf() < 0.5 else -1.0)
-		if g == 1: p = pts[k] + Vector2(0, - absf(nv.y) * aura.hw - 2)
-		var col: = _aura_col(g, t, 1, randi() % 8)
-		match g:
-			1: parts.append({"kind": "bubble", "p": p, "v": Vector2(randf_range(-2, 2), randf_range(-22, -12)), "life": 1.3, "max": 1.3, "col": col.lerp(Color.WHITE, 0.4), "ph": randf() * 9, "sz": 3 if randf() < 0.35 else 1})
-			2: parts.append({"kind": "spark", "p": pts[pts.size() - 1] + Vector2(randf_range(-3, 3), randf_range(-4, 4)), "v": Vector2( - aura.face * randf_range(4, 12), randf_range(-6, 6)), "life": 0.9, "max": 0.9, "col": col.lerp(Color.WHITE, 0.3), "ph": randf() * 9, "sz": 1})
-			3: parts.append({"kind": "ember", "p": p, "v": Vector2(randf_range(-6, 6) - (aura.face * 25 if fast else 0.0), randf_range(-30, -14)), "life": 0.9, "max": 0.9, "col": Color(1, 0.85, 0.4), "ph": 0.0, "sz": 1})
-			4: parts.append({"kind": "spark", "p": p, "v": Vector2(randf_range(-8, 8), randf_range(-10, 4)), "life": 1.0, "max": 1.0, "col": col, "ph": randf() * 9, "sz": 1})
+	# Rarity emission is deterministic in fish_grade_aura; water and reveal effects remain.
 
 
 
@@ -2503,31 +2478,35 @@ func _tension_anchor(fish_pos: Vector2, scale: float, body_length: float = -1.0)
 	var offset: = maxf(20.0, length * 0.66 + 9.0)
 	return Vector2(clampf(fish_pos.x - 22.0, 4.0, VW - 48.0), maxf(top_y + 66.0 - oy, fish_pos.y - offset))
 
-func _draw_fish_tension(fish_pos: Vector2, scale: float, dt: float, body_length: float = -1.0) -> void :
+func _fish_tension_position(fish_pos: Vector2, scale: float, dt: float, body_length: float = -1.0) -> Vector2:
 	var target: = _tension_anchor(fish_pos, scale, body_length)
 	var previous: Vector2 = S.get("tensionHud", target)
 	var p: = previous.lerp(target, 1.0 - exp(-12.0 * dt)) if dt > 0 else target
 
 	p.y = minf(p.y, target.y)
 	p.x = clampf(p.x, 4, VW - 48)
+	return p
+
+func _draw_fish_tension(fish_pos: Vector2, scale: float, dt: float, body_length: float = -1.0) -> void:
+	var p:Vector2=_fish_tension_position(fish_pos,scale,dt,body_length)
 	S.tensionHud = p
-	p = p.round()
+	p = p.round()+Vector2(0,oy)
 	var v: = clampf(S.tension / 100.0, 0, 1)
 	var col: = tension_line_color(S.tension) if v >= 0.4 else Color("8ed274")
 	var r: = Rect2(p, Vector2(44, 8))
-	draw_rect(r.grow(1), Color("101c1e"))
-	draw_rect(r, Color("d9cca6"))
-	draw_rect(Rect2(p + Vector2(1, 1), Vector2(42, 6)), Color("263c39"))
+	_ui_rect(r.grow(1), Color("101c1e"))
+	_ui_rect(r, Color("d9cca6"))
+	_ui_rect(Rect2(p + Vector2(1, 1), Vector2(42, 6)), Color("263c39"))
 	var fill: = roundf(42 * v)
 	if fill > 0:
-		draw_rect(Rect2(p + Vector2(1, 1), Vector2(fill, 6)), col)
-		draw_rect(Rect2(p + Vector2(1, 1), Vector2(fill, 1)), col.lightened(0.25))
+		_ui_rect(Rect2(p + Vector2(1, 1), Vector2(fill, 6)), col)
+		_ui_rect(Rect2(p + Vector2(1, 1), Vector2(fill, 1)), col.lightened(0.25))
 	for threshold in [0.4, 0.65, 0.85]:
 		var x: = p.x + 1 + roundf(42 * threshold)
-		draw_rect(Rect2(x, p.y + 5, 1, 2), Color("172724"))
+		_ui_rect(Rect2(x, p.y + 5, 1, 2), Color("172724"))
 	if v > 0.85:
-		draw_rect(r.grow(1), Color(1, 0.28, 0.18, 0.65 + 0.3 * sin(anim_t * 9)), false, 1)
-		draw_rect(Rect2(p.x + clampf(fill, 1, 42), p.y - 1, 1, 10), Color("fff0ce"))
+		_ui_rect(r.grow(1), Color(1, 0.28, 0.18, 0.65 + 0.3 * sin(anim_t * 9)), false, 1)
+		_ui_rect(Rect2(p.x + clampf(fill, 1, 42), p.y - 1, 1, 10), Color("fff0ce"))
 
 func _draw_result(t: float) -> void :
 	var h: = get_viewport_rect().size.y
@@ -3206,8 +3185,9 @@ func _ui_fish(sp: int, box: Rect2) -> Rect2:
 	return r
 
 func _fish_effect_rect(r: Rect2, c: Color) -> void :
-	if ui_demo: _ui_rect(r, c)
-	else: draw_rect(r, c)
+	if ui_demo:_ui_rect(r,c)
+	elif drawing_telegraph:_ui_rect(Rect2(r.position+Vector2(0,oy),r.size),c)
+	else:draw_rect(r,c)
 func _fish_effect_circle(p: Vector2, r: float, c: Color) -> void :
 	if ui_demo: _ui_circle(p, r, c)
 	else: draw_circle(p, r, c)

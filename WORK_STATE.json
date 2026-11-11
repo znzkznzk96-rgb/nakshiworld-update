@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "aura_integration_cue_alpha_in_progress",
+  "status": "aura_implemented_ci_pending",
   "release_baseline": "v1.25",
   "target_release": "v1.25",
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/qa/fish-aura-integration/HANDOFF.md",
   "current_task": "선택오라4종 게임적용·전조주변국소투명도",
-  "next_step": "최신v125전체소스+overlay복원·4종오라/전조동일레이아웃연결·국소알파·실화면/관련검사",
+  "next_step": "원격CI 실화면24조건·전체회귀 확인, 결과기록",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -1482,6 +1482,9 @@
     "authorized": true,
     "spawn_rate_unchanged": true,
     "behavior_unchanged": true,
-    "deployed": false
+    "deployed": false,
+    "implemented": true,
+    "local_cases": 60,
+    "related_suites": 6
   }
 }
