@@ -1543,6 +1543,13 @@
     "gameplay_ready": false,
     "local_verified": true,
     "deployed": false,
-    "verification": "docs/qa/rift-art-integration/HANDOFF.md"
+    "verification": "docs/qa/rift-art-integration/HANDOFF.md",
+    "source_commit": "5cf118f654ec26118b0f4a17402934576bcb1131",
+    "ci_run": 42970312624,
+    "ci_status": "in_progress",
+    "native_verified": true,
+    "native_artifact": 13832917641,
+    "native_renders": 7,
+    "preview_library_file_id": "libfile_fde3_f-4ef93baa73bc81919e5311f4ba281c26_d66dafb33acc81918ce203aeb3fcd18e"
   }
 }
