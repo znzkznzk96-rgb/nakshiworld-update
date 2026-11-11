@@ -1,0 +1,23 @@
+{
+  "date": "2026-11-11",
+  "kind": "composition_concept_not_game_asset",
+  "generator": "built_in_image_generation",
+  "requests": 1,
+  "pixellab_requests": 0,
+  "model": "not_exposed",
+  "seed": "not_exposed",
+  "generated_image": "exec-aa363ed0-eb64-4fe2-b016-72949733a6d2.png",
+  "width": 1190,
+  "height": 1322,
+  "sha256": "17178277738842025140603e9129b82b824048c5bf6e7436681404b6b081448c",
+  "quality": {
+    "left_boat_and_character": "concept_shown",
+    "sky_rift": "present",
+    "empty_underwater": "present",
+    "target_portrait_9_20": "failed; delivered ratio differs",
+    "final_asset_separation": "not_done; character and cat concept only"
+  },
+  "game_applied": false,
+  "deployed": false,
+  "next": "user_review_then_correct_existing_portrait_dimensions_and_separate_characters"
+}
