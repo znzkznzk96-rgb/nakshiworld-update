@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "v126_published_verified",
+  "status": "rift_unlock_bundle_investigation",
   "release_baseline": "v1.26",
   "target_release": "v1.26",
   "deployed": true,
   "phone_verified": false,
-  "handoff": "docs/qa/release126/HANDOFF.md",
-  "current_task": "v1.26 공개·운영다운로드 검증완료, 타일바다20종/4635000비늘 일회성우편 포함",
-  "next_step": "휴대폰 재실행·업데이트 후 v1.26우편 수령 확인. 균열 실제입장은 준비중; 다음 게임수정은 v1.26 전체소스 기준으로 복원하고 빌드기준 갱신.",
+  "handoff": "docs/qa/rift-unlock127/HANDOFF.md",
+  "current_task": "균열 실제해금/낚시 연결 및 타일 번들 초기화 보고 조사",
+  "next_step": "진행보존/완료플래그/backup 검증, 균열 카탈로그 미정수치 확인 후 구현",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -118,7 +118,7 @@
     "production_balance_changed": false,
     "phone_tested": false
   },
-  "release_authorized": true,
+  "release_authorized": false,
   "balance110": {
     "applied": true,
     "deployed": true,
