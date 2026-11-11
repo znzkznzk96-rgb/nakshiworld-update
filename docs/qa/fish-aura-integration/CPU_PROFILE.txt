@@ -1,0 +1,16 @@
+Local Linux / Godot4.4.1 debug headless. Isolated XDG_DATA_HOME. Mesh construction only, not GPU/frame/phone FPS.
+Before CPU vertex mask:
+Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org
+
+AURA_CPU grade=1 mean_ms=2.66141666666667 max_ms=3.585 vertices=1500
+AURA_CPU grade=2 mean_ms=2.60591666666667 max_ms=3.482 vertices=1624
+AURA_CPU grade=3 mean_ms=13.5686666666667 max_ms=16.931 vertices=9188
+AURA_CPU grade=4 mean_ms=47.4643333333333 max_ms=55.907 vertices=31904
+
+After GPU alpha and packed quad path:
+Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org
+
+AURA_CPU grade=1 mean_ms=0.783 max_ms=1.585 vertices=892
+AURA_CPU grade=2 mean_ms=0.68816666666667 max_ms=0.859 vertices=824
+AURA_CPU grade=3 mean_ms=2.04241666666667 max_ms=2.347 vertices=4324
+AURA_CPU grade=4 mean_ms=7.01033333333333 max_ms=7.666 vertices=18208
