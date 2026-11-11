@@ -6,7 +6,7 @@ def stale(row, current):
             and row.get('event') == 'push' and row.get('head_branch') == current['head_branch']
             and current['head_branch'].startswith('work/')
             and row.get('head_repository', {}).get('id') == current.get('head_repository', {}).get('id')
-            and row.get('status') in {'queued','in_progress','waiting','pending','requested'})
+            and row.get('status') == 'in_progress')
 
 def api(path, method='GET'):
     result=subprocess.run(['gh','api','--method',method,path],text=True,capture_output=True,timeout=45)
@@ -28,7 +28,7 @@ def main():
         if not stale(row,current):continue
         fresh=api(f"repos/{repo}/actions/runs/{row['id']}")
         if not stale(fresh,current):continue
-        action='force-cancel' if fresh['status']=='in_progress' else 'cancel'
+        action='force-cancel'
         try:api(f"repos/{repo}/actions/runs/{fresh['id']}/{action}",'POST')
         except RuntimeError:
             if api(f"repos/{repo}/actions/runs/{fresh['id']}")['status']!='completed':raise
