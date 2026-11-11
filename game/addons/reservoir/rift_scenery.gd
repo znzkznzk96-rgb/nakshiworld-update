@@ -12,10 +12,6 @@ func _draw()->void:
 			var p:=Vector2(fposmod(i*137.7,536),fposmod(i*79.3,470))
 			var a:float=(.24+.20*sin(t*.6+i))*clampf((490-p.y)/200,0,1)
 			draw_rect(Rect2(p,Vector2.ONE*(2 if i%11==0 else 1)),Color(.72,.55,1,a))
-		# Jagged torn ribbons, not a uniformly bright full-screen flash.
-		crack(PackedVector2Array([Vector2(-10,244),Vector2(45,233),Vector2(84,214),Vector2(121,209),Vector2(151,183),Vector2(196,168),Vector2(224,145),Vector2(271,128),Vector2(309,111),Vector2(347,80),Vector2(388,61),Vector2(428,36),Vector2(473,23),Vector2(520,-5)]),t,0,2.1)
-		crack(PackedVector2Array([Vector2(-5,357),Vector2(58,344),Vector2(109,319),Vector2(153,313),Vector2(190,290),Vector2(245,275),Vector2(286,247),Vector2(333,236),Vector2(379,219),Vector2(429,215),Vector2(477,194),Vector2(545,179)]),t,1,1.5)
-		crack(PackedVector2Array([Vector2(191,505),Vector2(204,470),Vector2(230,455),Vector2(247,425),Vector2(269,414),Vector2(280,388),Vector2(309,369)]),t,2,.85)
 	elif kind=="clouds":
 		if cloud==null:cloud=load("res://art/rift/cloud_bank.png")
 		# Separate cloud banks drift slowly without wrapping visibly within the shot.
@@ -27,15 +23,15 @@ func _draw()->void:
 			draw_texture_rect(cloud,Rect2(p,Vector2(w,h)),false,Color(.90,.74,1,[.90,.85,.77,.60][i]))
 	elif kind=="reflection":
 		# Distant sunset and its broken perspective reflection stop at the waterline.
-		for r in range(18,1,-2):draw_circle(Vector2(329,507),r,Color(1,.62,.44,.015))
+		for r in range(18,1,-2):draw_circle(Vector2(315,546),r,Color(1,.62,.44,.015))
 		for i in 62:
-			var y:float=511+i*2.3
+			var y:float=548+i*1.7
 			var width:float=8+i*.82
-			var x:float=329+sin(i*1.83+t*.8)*(3+i*.11)
+			var x:float=315+sin(i*1.83+t*.8)*(3+i*.11)
 			var a:float=(.13+.12*sin(i*2.7+t))*clampf(1.0-i/72.0,0,1)
 			draw_line(Vector2(x-width,y),Vector2(x+width,y),Color(1,.42,.69,a),1 if i%3 else 2,false)
 		for band in 13:
-			var y:float=520+band*10.3
+			var y:float=550+band*8.0
 			var points:=PackedVector2Array()
 			for x in range(-4,549,4):points.append(Vector2(x,y+roundf(sin(x*.028+t*.7+band*.8)*(1+band*.09)+sin(x*.069-t*.5+band)*.65)))
 			draw_polyline(points,Color(.77,.44,1,.13+band*.009),1,false)
