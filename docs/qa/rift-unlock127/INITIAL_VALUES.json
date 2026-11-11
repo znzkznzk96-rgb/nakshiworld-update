@@ -1,5 +1,5 @@
 {
-  "status": "initial_implementation_candidate_not_public",
+  "status": "accepted_for_v127_publication",
   "entry_fee": 4635000,
   "following_entry_fee": 30150000,
   "existing_regions_unchanged": true,
@@ -147,5 +147,6 @@
   ],
   "resistance": 5.3,
   "star_addition": 0.06,
-  "existing_rods_unchanged": true
+  "existing_rods_unchanged": true,
+  "approval": "2026-11-12 검증 후보 배포해 ㄱㄱ"
 }

@@ -1,3 +1,6 @@
+# 최신 — v1.27 사용자 공개배포 승인, 동일후보 공개 진행
+2026-11-12 사용자 ‘배포해 ㄱㄱ’. 성공후보13898112168,소스73aa7cec8ddae15f3411b78461b1405d2b6a5372,CI43113397494 그대로 공개. 입력변경·재검사·재빌드없음. PR65 병합 전 main/head·입력불변 확인,공개후Release3파일/운영다운로드 검증. 폰적용/실제번들삭제원인은미확인.
+
 # 최신 — v1.27 전체검증·동일후보 보존 완료, 새 공개승인 대기
 2026-11-12. [PR65](https://github.com/znzkznzk96-rgb/nakshiworld-update/pull/65) · [검증](VERIFICATION.json) · [균열 첫 수치](INITIAL_VALUES.json).
 최종소스73aa7cec8ddae15f3411b78461b1405d2b6a5372의CI43113397494 성공,고유성공라벨138. 후보13898112168을직접다운로드하여원본artifact해시/3파일크기·해시/전체소스overlay/입력fingerprint·성공run검증. 재빌드없음.

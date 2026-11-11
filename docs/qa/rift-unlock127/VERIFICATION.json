@@ -1,6 +1,6 @@
 {
   "date": "2026-11-12",
-  "status": "verified_candidate_ready_for_publication_authorization",
+  "status": "publication_authorized",
   "source_commit": "73aa7cec8ddae15f3411b78461b1405d2b6a5372",
   "release_candidate": "v1.27",
   "public_release": "v1.26",
@@ -181,5 +181,9 @@
   "ci_log_artifact": 13898795448,
   "pr": 65,
   "rebuild": false,
-  "verification_and_restore_seconds": 774.014
+  "verification_and_restore_seconds": 774.014,
+  "publication_authorization": {
+    "date": "2026-11-12",
+    "request": "배포해 ㄱㄱ"
+  }
 }
