@@ -45,6 +45,8 @@ func run():
  m.progression.owner_gauge[3]=0
  var Capture=load("res://addons/reservoir/capture_robot.gd");var cr=Capture.new();var f=cr.make_fish(m)
  check(cr.valid_fish(f) and f.sp>=60 and f.sp<80,"robot makes/restores rift specimen")
+ var receipts=Progress.new();receipts.restore({"reward_claimed":{"2:0":true,"2:1":true,"2:2":true}})
+ check(receipts.bundle_done(2,0) and receipts.bundle_done(2,1) and receipts.bundle_done(2,2) and receipts.certificates[2],"receipt-only legacy data restores completion, never repays")
  var old=Progress.new();old.restore({"main_completed":[false,false,true],"certificates":[false,false,true],"extra_completed":{"2:1":true,"2:2":true},"reward_claimed":{"2:0":true,"2:1":true,"2:2":true},"bundle_values":{"2:1":2000}})
  check(old.bundle_counts(2,0)==[1,1,1,1,1,1] and old.bundle_counts(2,1)==[1,1,1,1,1,1],"completed legacy flags display fulfilled slots")
  var fresh=Progress.new();var recovered=Store.recover_bundles(fresh.serialize(),old.serialize());fresh.restore(recovered)
@@ -56,6 +58,7 @@ func run():
  var a=Progress.new();a.donations={"2":[1,0,0,0,0,0]};var b=Progress.new();b.donations={"2":[0,1,0,0,0,0]}
  var merged=Store.recover_bundles(a.serialize(),b.serialize());a.restore(merged)
  check(a.bundle_counts(2,0)==[1,1,0,0,0,0] and not a.bundle_done(2,0),"partial maximum not sum or whole-complete")
+ check(Store.recover_bundles(recovered,recovered)==recovered,"recovery is idempotent")
  var sample={"gold":777,"bag":[{"sp":42}],"testing_grants":["tile-once-20261112-126"],"regional_progress":old.serialize()}
  var path="user://recovery-fixture.json";check(Store.write(path,sample),"fixture first write")
  var current=sample.duplicate(true);current.gold=888;current.bag=[];current.regional_progress=Progress.new().serialize();check(Store.write(path,current),"fixture second write")

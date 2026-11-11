@@ -24,7 +24,7 @@ func run():
    check(m.region_shop.is_unlocked(3) and m.active_region==3,"real button entered")
   m._switch_scene("fish");m.trans={};m.active_region=3;m._layout();m.equipment.active_parts=["r3_float","r3_hook","r3_line","r3_reel"]
   for sp in [60,73,79]:
-   m.S={"sp":sp,"star":4 if sp==79 else 0,"grade":2,"lf":1.0,"len":float(m.FISH_LEN[sp]),"owner":sp==79};m.start_fight();m.S.t=2;m.S.bt=99;m.queue_redraw();await capture(out.path_join("fight-%d-%d.png"%[h,sp]));renders+=1
+   m.S={"sp":sp,"star":4 if sp==79 else 0,"grade":2,"lf":1.0,"len":float(m.FISH_LEN[sp]),"owner":sp==79};m.start_fight();m.S.t=2;m.S.bt=99;m.S.dist=35;m.S.fx=150;m.S.fy=m.WATER+85;m.S.dispY=m.WATER+85;m.queue_redraw();await capture(out.path_join("fight-%d-%d.png"%[h,sp]));renders+=1
    check(m.environment.rift.root.visible,"rift environment active")
   m._switch_scene("village");m.V.open_shop(m,"museum");m.V.bundle_preview.region=2;m.V.bundle_preview.tab=0;m.queue_redraw();await capture(out.path_join("tile-complete-%d.png"%h));renders+=1
   check(m.progression.bundle_counts(2,0)==[1,1,1,1,1,1],"tile completed slots preserved")

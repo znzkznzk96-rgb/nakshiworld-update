@@ -22,6 +22,12 @@ func restore(data: Dictionary) -> void:
 	bundle_values=data.get("bundle_values",{}).duplicate(true)
 	extra_completed=data.get("extra_completed",{}).duplicate(true)
 	reward_claimed=data.get("reward_claimed",{}).duplicate(true)
+	# A saved receipt proves completion even if a legacy completion array is absent.
+	for area in 4:
+		for kind in 3:
+			if not claimed(area,kind): continue
+			if kind==0: main_completed[area]=true;certificates[area]=true
+			else: extra_completed[bundle_key(area,kind)]=true
 	# Old automatic payouts are marked paid only when their completion flag existed.
 	# A completed main bundle without its certificate is recoverable via Receive.
 	if not data.has("reward_claimed"):
