@@ -1,0 +1,16 @@
+{
+  "working_size": [
+    540,
+    220
+  ],
+  "runtime_size": [
+    1080,
+    440
+  ],
+  "scale": 2,
+  "filter": "nearest",
+  "sha256": "9b0c19682429fb9cfcca97aae05f0f0de7fe997b409cdd26c8ff39ab63fdfee2",
+  "source": "imagegen single transparent cloud bank, reference rift-purple-preview",
+  "generation_calls": 1,
+  "charge_model_seed": "not_exposed"
+}

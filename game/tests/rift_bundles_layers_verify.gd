@@ -43,6 +43,8 @@ func run():
 		m.clock=i*.1;e.update(.1)
 		check(absf(e.bob_offset())<=1.5001 and e.boat.rotation==0,"small vertical motion no rotation")
 	check(randf()==expected_rng and p.serialize()==state,"layers preserve gameplay RNG and saves")
-	check(e.layers.size()==4 and e.boat.texture.get_size()==Vector2(360,450),"separate boat and procedural layers")
+	check(e.layers.size()==7 and e.boat.texture.get_size()==Vector2(360,450),"separate boat and procedural layers")
+	check(load("res://art/rift/cloud_bank.png").get_size()==Vector2(1080,440),"half-grid cloud exported at nearest2x")
+	for kind in ["sky","clouds","reflection","cliffs"]:check(e.layers.has("scenery_"+kind),"independent concept scenery layer "+kind)
 	m.audio_feedback.dispose();m.queue_free();await process_frame
 	print("RIFT_BUNDLES_LAYERS_VERIFY failures=",failures);quit(0 if failures.is_empty() else 1)

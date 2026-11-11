@@ -1,0 +1,17 @@
+{
+  "date": "2026-11-11",
+  "status": "local_related_passed_native_pending",
+  "reference": "rift-purple-preview-1080x2640.png",
+  "base_unchanged": true,
+  "boat_shared_bob_unchanged": true,
+  "layers": ["sky_ribbons_stars", "volumetric_cloud_banks", "sunset_reflection_waves", "edge_cliff_fissures"],
+  "cloud_working_size": [540,220],
+  "cloud_output_size": [1080,440],
+  "cloud_resize": "nearest_2x",
+  "imagegen_calls": 1,
+  "paid_charge_model_seed": "not_exposed",
+  "local_related": "RIFT_BUNDLES_LAYERS_VERIFY failures=[]",
+  "gameplay_rng_save_unchanged": true,
+  "deployed": false,
+  "phone_verified": false
+}

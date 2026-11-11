@@ -28,6 +28,12 @@ for i in range(3):
     rock=Image.open(io.BytesIO(base64.b64decode((repo/('game/art/rift_layers/rock_%d.png.b64.txt'%i)).read_text(),validate=True)))
     rock.load();assert rock.size==(64,64)
     rock.resize((128,128),Image.Resampling.NEAREST).save(root/('rock_%d.png'%i))
+cloud_raw=base64.b64decode((repo/'game/art/rift_layers/cloud_bank.png.b64.txt').read_text(),validate=True)
+cloud_meta=json.loads((repo/'game/art/rift_layers/cloud_bank.json').read_text())
+assert hashlib.sha256(cloud_raw).hexdigest()==cloud_meta['sha256']
+cloud=Image.open(io.BytesIO(cloud_raw));cloud.load();assert cloud.size==(540,220) and cloud.mode=='RGBA'
+assert cloud.getextrema()[3][0]==0 and cloud.getextrema()[3][1]==255
+cloud.resize((1080,440),Image.Resampling.NEAREST).save(root/'cloud_bank.png')
 entries=[]
 for item in selection['species']:
     assert item['motion_user_approved'] and item['status']=='user_approved'
