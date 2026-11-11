@@ -1,5 +1,5 @@
 shader_type canvas_item;
-render_mode unshaded, blend_add;
+render_mode unshaded, blend_mix;
 uniform float elapsed=0.0;
 void fragment(){
  vec2 px=TEXTURE_PIXEL_SIZE*2.0;
@@ -13,6 +13,7 @@ void fragment(){
   halo=max(halo,texture(TEXTURE,UV+direction*px*3.5).a);
  }
  float pulse=.70+.10*sin(elapsed*.65+UV.x*6.0)+.05*sin(elapsed*1.1-UV.y*17.0);
- vec3 light=vec3(.53,.11,.85)*halo*.15+vec3(.84,.22,.94)*edge*.48+vec3(.23,.84,1.0)*core*.80;
- COLOR=vec4(light*pulse,1.0);
+ vec3 light=mix(vec3(.72,.16,.98),vec3(.38,.95,1.0),core);
+ float opacity=max(core*.96,max(edge*.82,halo*.14));
+ COLOR=vec4(light,opacity*pulse);
 }

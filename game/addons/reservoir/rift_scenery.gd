@@ -30,14 +30,14 @@ func _draw()->void:
 			var x:float=315+sin(i*1.83+t*.8)*(3+i*.11)
 			var a:float=(.13+.12*sin(i*2.7+t))*clampf(1.0-i/72.0,0,1)
 			draw_line(Vector2(x-width,y),Vector2(x+width,y),Color(1,.42,.69,a),1 if i%3 else 2,false)
-		for band in 13:
-			var y:float=550+band*8.0
+		for band in 9:
+			var y:float=550+band*11.0
 			var points:=PackedVector2Array()
-			for x in range(-4,549,4):points.append(Vector2(x,y+roundf(sin(x*.028+t*.7+band*.8)*(1+band*.09)+sin(x*.069-t*.5+band)*.65)))
+			for x in range(-4,549,4):points.append(Vector2(x,y+roundf(sin(x*.028+t*.7+band*.8)*(2+band*.45)+sin(x*.069-t*.5+band)*1.2)))
 			draw_polyline(points,Color(.77,.44,1,.13+band*.009),1,false)
 	elif kind=="cliffs":
 		# Edge-only fissures leave the central fight space clear.
-		var paths:Array=[PackedVector2Array([Vector2(0,838),Vector2(16,844),Vector2(31,835),Vector2(45,838),Vector2(58,828)]),PackedVector2Array([Vector2(0,1005),Vector2(20,1010),Vector2(37,1002),Vector2(51,1006)]),PackedVector2Array([Vector2(493,792),Vector2(510,802),Vector2(522,798),Vector2(540,805)]),PackedVector2Array([Vector2(486,973),Vector2(501,982),Vector2(516,977),Vector2(540,983)]),PackedVector2Array([Vector2(463,1154),Vector2(480,1160),Vector2(501,1154),Vector2(519,1166),Vector2(540,1161)])]
+		var paths:Array=[PackedVector2Array([Vector2(0,838),Vector2(16,844),Vector2(31,835),Vector2(45,838),Vector2(58,828)]),PackedVector2Array([Vector2(0,1005),Vector2(20,1010),Vector2(37,1002),Vector2(51,1006)]),PackedVector2Array([Vector2(512,792),Vector2(522,802),Vector2(533,798),Vector2(540,805)]),PackedVector2Array([Vector2(518,973),Vector2(526,982),Vector2(533,977),Vector2(540,983)]),PackedVector2Array([Vector2(486,1154),Vector2(498,1160),Vector2(515,1154),Vector2(526,1166),Vector2(540,1161)])]
 		for i in paths.size():crack(paths[i],t,i+3,.65)
 func crack(points:PackedVector2Array,t:float,index:int,width:float)->void:
 	var strength:float=.65+.12*sin(t*.55+index*1.9)+.06*sin(t*1.1+index)
