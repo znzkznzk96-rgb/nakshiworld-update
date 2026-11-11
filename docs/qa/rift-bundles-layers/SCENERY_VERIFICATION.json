@@ -4,14 +4,40 @@
   "reference": "rift-purple-preview-1080x2640.png",
   "base_unchanged": true,
   "boat_shared_bob_unchanged": true,
-  "layers": ["sky_ribbons_stars", "volumetric_cloud_banks", "sunset_reflection_waves", "edge_cliff_fissures"],
-  "cloud_working_size": [540,220],
-  "cloud_output_size": [1080,440],
+  "layers": [
+    "sky_ribbons_stars",
+    "volumetric_cloud_banks",
+    "sunset_reflection_waves",
+    "edge_cliff_fissures"
+  ],
+  "cloud_working_size": [
+    540,
+    220
+  ],
+  "cloud_output_size": [
+    1080,
+    440
+  ],
   "cloud_resize": "nearest_2x",
   "imagegen_calls": 1,
   "paid_charge_model_seed": "not_exposed",
   "local_related": "RIFT_BUNDLES_LAYERS_VERIFY failures=[]",
   "gameplay_rng_save_unchanged": true,
   "deployed": false,
-  "phone_verified": false
+  "phone_verified": false,
+  "source_commit": "975e64a1ee4464b5db446ed47de6f6de010c6bf3",
+  "ci_run": 43009623530,
+  "ci_job": 130485698331,
+  "remote_cloud_exact_match": true,
+  "remote_cloud_sha256": "9b0c19682429fb9cfcca97aae05f0f0de7fe997b409cdd26c8ff39ab63fdfee2",
+  "cloud_input_generated_size": [
+    1964,
+    801
+  ],
+  "cloud_input_alpha": [
+    0,
+    255
+  ],
+  "cloud_preparation": "alpha bbox cropped, fitted nearest into540x220 transparent half canvas then exact nearest2x",
+  "sky": "cyan core/magenta edge shader follows original approved crack mask; no replacement geometry"
 }

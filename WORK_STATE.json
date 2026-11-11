@@ -1605,5 +1605,12 @@
     "candidate_artifact": 13835384365,
     "user_visual_approval": "pending",
     "verification": "docs/qa/rift-bundles-layers/VERIFICATION.json"
+  },
+  "rift_scenery_refinement": {
+    "source_commit": "975e64a1ee4464b5db446ed47de6f6de010c6bf3",
+    "ci_run": 43009623530,
+    "status": "native_ci_running",
+    "verification": "docs/qa/rift-bundles-layers/SCENERY_VERIFICATION.json",
+    "deployed": false
   }
 }
