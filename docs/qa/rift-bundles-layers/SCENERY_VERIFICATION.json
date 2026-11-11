@@ -1,6 +1,6 @@
 {
   "date": "2026-11-11",
-  "status": "local_related_passed_native_pending",
+  "status": "native_verified_full_ci_running",
   "reference": "rift-purple-preview-1080x2640.png",
   "base_unchanged": true,
   "boat_shared_bob_unchanged": true,
@@ -25,9 +25,9 @@
   "gameplay_rng_save_unchanged": true,
   "deployed": false,
   "phone_verified": false,
-  "source_commit": "975e64a1ee4464b5db446ed47de6f6de010c6bf3",
-  "ci_run": 43009623530,
-  "ci_job": 130485698331,
+  "source_commit": "7f372caf85990ce2c564499adf0cb45e61cb6398",
+  "ci_run": 43010202828,
+  "ci_job": 130487707497,
   "remote_cloud_exact_match": true,
   "remote_cloud_sha256": "9b0c19682429fb9cfcca97aae05f0f0de7fe997b409cdd26c8ff39ab63fdfee2",
   "cloud_input_generated_size": [
@@ -39,5 +39,29 @@
     255
   ],
   "cloud_preparation": "alpha bbox cropped, fitted nearest into540x220 transparent half canvas then exact nearest2x",
-  "sky": "cyan core/magenta edge shader follows original approved crack mask; no replacement geometry"
+  "sky": "cyan core/magenta edge shader follows original approved crack mask; no replacement geometry",
+  "reference_sha256": "581f26de3de2d7633298a4b5a5d38a660dbfdc8e5a90f0039eb862aa97371268",
+  "cloud_generated_original_sha256": "919aa915df99c3d3ed326dcdcb402aa501d2432efaf02eb01754fec1269ffe75",
+  "generation_input_role": "approved rift concept as style reference only, not replacement base",
+  "generation_prompt": "Transparent horizontal volumetric violet cumulus cloud bank matching the approved rift reference; lavender top, magenta lower edge, dark indigo underside; crisp pixel clusters; target half canvas540x220; no sky/stars/rifts/rocks/sea/boat; transparent margin.",
+  "native_artifact": 13851035478,
+  "native_artifact_sha256": "08be82b625bf5f59e71f642e191bcc23136f77fbd5c7692dbd682c51fcd113bb",
+  "native_renders": 26,
+  "art_renders": 7,
+  "native_heights": [
+    480,
+    540,
+    660
+  ],
+  "native_failures": [],
+  "cloud_visual_review": "passed: concept purple volume, transparent margins, no sky/boat contamination",
+  "internal_visual_review": "passed final26; initial cliff bleed and overly additive cyan corrected",
+  "preview_library_file_id": "libfile_fde3_f-61c43caae8648191bb2a69d9394304aa_d66dafb33acc81918ce203aeb3fcd18e",
+  "preview_sha256": "a4fcff29b522a42bf0018daf19127c374eb5a645df5c174c31cf80b024cc6172",
+  "preview_size": 1838981,
+  "preview_dimensions": [
+    540,
+    1080
+  ],
+  "user_visual_approval": "pending"
 }

@@ -1607,10 +1607,11 @@
     "verification": "docs/qa/rift-bundles-layers/VERIFICATION.json"
   },
   "rift_scenery_refinement": {
-    "source_commit": "975e64a1ee4464b5db446ed47de6f6de010c6bf3",
-    "ci_run": 43009623530,
-    "status": "native_ci_running",
+    "source_commit": "7f372caf85990ce2c564499adf0cb45e61cb6398",
+    "ci_run": 43010202828,
+    "status": "native_verified_full_ci_running",
     "verification": "docs/qa/rift-bundles-layers/SCENERY_VERIFICATION.json",
-    "deployed": false
+    "deployed": false,
+    "native_artifact": 13851035478
   }
 }
