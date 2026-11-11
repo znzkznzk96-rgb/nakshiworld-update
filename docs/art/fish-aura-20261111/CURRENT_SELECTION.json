@@ -1,0 +1,28 @@
+{
+  "date": "2026-11-11",
+  "status": "three_approved_unique_revision_pending",
+  "rare": {
+    "revision": 3,
+    "status": "user_approved",
+    "gif_sha256": "e4e291030c0fbadb26974fe09c0aef90b071583fff102aa704ca7307a54c7168",
+    "spec": "docs/art/fish-aura-20261111/procedural-r3/SPEC.json"
+  },
+  "unique": {
+    "status": "revision_requested",
+    "direction": "rare-like sparse gem motes and short slim tails; remove broad flame ribbons to keep body motions readable"
+  },
+  "legendary": {
+    "revision": 2,
+    "status": "user_approved",
+    "gif_sha256": "860d0ed11ed419f55983b1eb424804928c7c4b4633854868bd4c08af825c74b6",
+    "spec": "docs/art/fish-aura-20261111/procedural-r2/SPEC.json"
+  },
+  "mythic": {
+    "revision": 2,
+    "status": "user_approved",
+    "gif_sha256": "d769ebc625403a1d37f85a33b03fe6f9d23728e331c4d4d3b10187ae25c66f03",
+    "spec": "docs/art/fish-aura-20261111/procedural-r2/SPEC.json"
+  },
+  "game_applied": false,
+  "deployed": false
+}

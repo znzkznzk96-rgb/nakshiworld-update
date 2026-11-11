@@ -6,8 +6,8 @@
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/art/fish-aura-20261111/HANDOFF.md",
-  "current_task": "오라R3 레어강화·전설신화소폭강화 시안완료",
-  "next_step": "R3 시안 사용자검토·유니크R2동일유지.게임적용/배포별도.",
+  "current_task": "오라3등급선택확정·유니크가독성수정",
+  "next_step": "레어R3/전설신화R2보호·유니크만레어형빛조각으로개편",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -1476,5 +1476,6 @@
       "staggered branching energy jets followed by prismatic shards"
     ],
     "unique_r2_identical": true
-  }
+  },
+  "aura_selection": "docs/art/fish-aura-20261111/CURRENT_SELECTION.json"
 }
