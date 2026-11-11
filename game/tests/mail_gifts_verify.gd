@@ -5,10 +5,11 @@ func check(ok: bool,label: String):
 	if not ok: failures.append(label);push_error(label)
 func _initialize(): call_deferred("run")
 func run():
+	check(Gifts.info("1.26").gold==preload("res://addons/reservoir/spot_selection.gd").PRICES[3],"tile gift equals approved rift entry fee")
 	var m=load("res://main.gd").new();m.SET.sfx=0;m.SET.music=0;root.add_child(m);await process_frame;m.set_process(false)
 	if "resume" in OS.get_cmdline_user_args():
-		check(m.gold==2100123 and m.souls==1007 and m.expedition.data.souls==[51,52,53,54,55],"independent restart currencies")
-		check(m.bag.size()==61 and m.testing_grants.size()==4,"independent restart contents and IDs")
+		check(m.gold==6735123 and m.souls==1007 and m.expedition.data.souls==[51,52,53,54,55],"independent restart currencies")
+		check(m.bag.size()==81 and m.testing_grants.size()==5,"independent restart contents and IDs")
 		for version in Gifts.DATA: check(not Gifts.claim(m,version),"restart blocks "+version)
 	else:
 		for version in Gifts.DATA:
@@ -24,7 +25,7 @@ func run():
 			check(m.gold==123 and m.souls==7 and m.expedition.data.souls==[1,2,3,4,5] and m.bag==bag and m.testing_grants==["unrelated-existing-id"],"rollback every field "+version)
 			check(FileAccess.get_file_as_bytes("user://save.json")==disk,"preserve save bytes "+version)
 			check(DirAccess.remove_absolute("user://save.json.tmp")==OK,"unblock "+version)
-		# Claim all three in a single save to detect cross-gift marker/rollback interference.
+		# Claim all four in a single save to detect cross-gift marker/rollback interference.
 		check(not Gifts.claim(m,"unknown") and m.bag.size()==1,"unknown letter is inert")
 		for version in Gifts.DATA:
 			m.mailbox.detail=version;m.mailbox.draw(m,540)
@@ -32,11 +33,12 @@ func run():
 			m.mailbox.press(m,m.mailbox.rects.gift.get_center())
 			check(Gifts.info(version).id in m.testing_grants,"mail dispatch "+version)
 			check(not Gifts.claim(m,version),"duplicate "+version)
-		check(m.gold==2100123 and m.souls==1007 and m.expedition.data.souls==[51,52,53,54,55],"combined exact currencies")
-		check(m.bag.size()==61 and m.testing_grants.size()==4,"combined contents and existing marker")
-		for i in 60:
+		check(m.gold==6735123 and m.souls==1007 and m.expedition.data.souls==[51,52,53,54,55],"combined exact currencies")
+		check(m.bag.size()==81 and m.testing_grants.size()==5,"combined contents and existing marker")
+		for i in 80:
 			var f: Dictionary=m.bag[i+1]
 			check(f.sp==(i%20 if i<40 else i-20) and f.grade==(3 if i<40 else 0),"combined species and grade")
 			check(is_equal_approx(f.w,float(m.W_BASE[f.star])*float(m.W_GRADE[f.grade])),"average weight")
+			if i>=60:check(f.sp in m.CATALOG.by_star(2,f.star) and f.price==m.fish_price(f.sp,f.star,0,1.0),"tile specimen star/price preserved")
 	m.audio_feedback.dispose();m.queue_free();await process_frame
 	print("MAIL_GIFTS_VERIFY failures=",failures);quit(0 if failures.is_empty() else 1)

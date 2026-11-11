@@ -6,10 +6,25 @@ on:
 permissions:
   contents: read
 concurrency:
-  group: verify-work-${{ github.ref }}
+  group: verify-work-v2-${{ github.ref }}
   cancel-in-progress: true
 jobs:
+  cleanup:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 3
+    permissions:
+      contents: read
+      actions: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Stop stale verifications from this work branch only
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_RUN_ID: ${{ github.run_id }}
+        run: python3 automation/cancel_stale_work_runs.py
   verify:
+    needs: cleanup
     runs-on: ubuntu-24.04
     timeout-minutes: 20
     steps:
@@ -50,7 +65,9 @@ jobs:
           grep -F 'RIFT_ART_PREVIEW failures=[]' evidence/rift-native.log
           if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/rift-art.log evidence/rift-native.log; then exit 1; fi
       - uses: actions/upload-artifact@v4
+        timeout-minutes: 4
         with:
+          compression-level: 0
           name: rift-art-first-preview
           path: |
             evidence/rift-art/
@@ -116,7 +133,9 @@ jobs:
           if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/updater-font-native.log; then exit 1; fi
           if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/boot-smooth-native.log; then exit 1; fi
       - uses: actions/upload-artifact@v4
+        timeout-minutes: 4
         with:
+          compression-level: 0
           name: updater-first-preview
           path: |
             evidence/updater/
@@ -133,7 +152,9 @@ jobs:
           grep -F 'OWNER_GAUGE_PREVIEW complete' evidence/owner-alignment-preview.log
           if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/owner-alignment*.log; then exit 1; fi
       - uses: actions/upload-artifact@v4
+        timeout-minutes: 4
         with:
+          compression-level: 0
           name: owner-gauge-first-preview
           path: |
             evidence/owner-alignment/
@@ -148,7 +169,9 @@ jobs:
           XDG_DATA_HOME="$RUNNER_TEMP/isolated-village-reward-preview" timeout 90 xvfb-run -a "$GODOT" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/notification091_preview.gd -- "$GITHUB_WORKSPACE/evidence/village-reward" > evidence/village-reward-preview.log 2>&1
           if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/village-reward*.log; then exit 1; fi
       - uses: actions/upload-artifact@v4
+        timeout-minutes: 4
         with:
+          compression-level: 0
           name: village-reward-first-preview
           path: |
             evidence/village-reward/
@@ -178,7 +201,9 @@ jobs:
           XDG_DATA_HOME="$RUNNER_TEMP/isolated-formation" timeout 90 xvfb-run -a "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/formation_scroll_preview.gd -- "$GITHUB_WORKSPACE/evidence/formation" > evidence/formation.log 2>&1
           if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/formation.log; then cat evidence/formation.log; exit 1; fi
       - uses: actions/upload-artifact@v4
+        timeout-minutes: 4
         with:
+          compression-level: 0
           name: soldier-skills-first-preview
           path: |
             evidence/fish-grade-aura/
@@ -391,14 +416,18 @@ jobs:
           echo "candidate_build_seconds=$(( $(date +%s) - start ))" >> evidence/stage-timings.txt
       - name: Preserve exact tested release candidate
         uses: actions/upload-artifact@v4
+        timeout-minutes: 4
         with:
+          compression-level: 0
           name: ${{ env.CANDIDATE_ARTIFACT }}
           path: candidate/
           retention-days: 30
       - name: Preserve verification logs
-        if: always()
+        if: ${{ success() || failure() }}
         uses: actions/upload-artifact@v4
+        timeout-minutes: 4
         with:
+          compression-level: 0
           name: work-verification
           path: evidence/
 

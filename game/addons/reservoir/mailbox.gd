@@ -20,6 +20,8 @@ var detail_page := 0
 var full_text := false
 const Reader = preload("res://addons/reservoir/topic_reader.gd")
 func sections(letter: Dictionary) -> Array:
+	if letter.id=="1.26":
+		return [{"name":"일회성 선물","icon":"fish","body":letter.body.slice(0,2),"display":["타일바다20종 노멀 각1마리","4,635,000비늘 · 세이브당1회"]},{"name":"균열해역 준비","icon":"museum","body":letter.body.slice(2,4),"display":["균열 실제입장은 아직 준비 중","선물은 자동 기증·해금하지 않아요"]},{"name":"낚시 연출","icon":"tackle","body":letter.body.slice(4),"display":["희귀 등급 오라와 전조 가독성 개선","기존 물고기·재화·저장 기록 유지"]}]
 	if letter.id=="1.08":
 		return [{"name":"일회성 확인 선물","icon":"fish","body":letter.body.slice(0,2),"display":["계곡 물고기20종 각1마리","100만 비늘 · 해당 세이브에서1회"]},{"name":"타일바다 입장","icon":"museum","body":letter.body.slice(2),"display":["계곡 필수 번들 기증 → 보상 수령","낚시터에서 타일바다 해금"]}]
 	if letter.id=="0.93":

@@ -1,0 +1,45 @@
+{
+  "date": "2026-11-12",
+  "status": "local_gift_verified_ci_pending",
+  "release": "v1.26",
+  "authorized": true,
+  "gift": {
+    "id": "tile-once-20261112-126",
+    "species": [
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59
+    ],
+    "count_each": 1,
+    "grade": 0,
+    "gold": 4635000,
+    "once_per_save": true
+  },
+  "local": [
+    "MAIL_GIFTS_VERIFY failures=[]",
+    "MAIL_GIFTS_VERIFY failures=[] independent resume",
+    "STALE_WORK_RUN_SCOPE_VERIFY failures=[]",
+    "WORKFLOW_STRUCTURE_VERIFY failures=[]",
+    "release_candidate 7 tests passed"
+  ],
+  "rift_gameplay_open": false,
+  "deployed": false,
+  "phone_verified": false
+}
