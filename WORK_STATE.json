@@ -7,7 +7,7 @@
   "phone_verified": false,
   "handoff": "docs/art/rift-background-20261111/HANDOFF.md",
   "current_task": "균열해역 동일구도·선상낚시 배경 시안",
-  "next_step": "540×1320 절반캔버스 배경 제작·좌표검수→nearest2배1080×2640 시안",
+  "next_step": "1080×2640 보랏빛 균열선상 시안 사용자검토; 게임적용/배포 별도",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -1499,12 +1499,12 @@
   },
   "rift_background": {
     "date": "2026-11-11",
-    "status": "purple_sea_revision_authorized",
+    "status": "half_resolution_2x_preview_ready",
     "composition": "기존 세로형 낚시화면 구도 유지, 캐릭터는 왼쪽 배 갑판에서 오른쪽으로 낚시",
     "concept": "균열해역 기존확정 하늘의 빛나는 균열",
     "game_applied": false,
     "deployed": false,
-    "verification": "docs/art/rift-background-20261111/CONCEPT.json",
+    "verification": "docs/art/rift-background-20261111/HANDOFF.md",
     "canvas_reference": {
       "size": [
         801,
@@ -1531,6 +1531,7 @@
       "filter": "nearest",
       "deck_y": 597,
       "water_y": 657
-    }
+    },
+    "preview_library_file_id": "libfile_fde3_f-2faac35522408191b5b3ca84c6daba85_d66dafb33acc81918ce203aeb3fcd18e"
   }
 }
