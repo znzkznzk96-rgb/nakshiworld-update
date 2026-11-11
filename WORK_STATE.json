@@ -1,17 +1,17 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "rift_bundles_layers_local_verified_ci_pending",
+  "status": "rift_bundles_layers_full_verified",
   "release_baseline": "v1.25",
   "target_release": "v1.25",
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/qa/rift-bundles-layers/HANDOFF.md",
-  "current_task": "균열 번들·기존해금비 연동보상·선상레이어",
-  "next_step": "최신 균열전용작은화면 여백 네이티브검수·최종 전체CI/PCK 완료확인",
+  "current_task": "균열 번들·선상 레이어 적용·전체검증 완료",
+  "next_step": "사용자 시각검토. 실제 균열낚시 개방 조건/어종수치 및 공개배포는 별도.",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
-  "verification": "docs/qa/rift-art-integration/VERIFICATION.json",
+  "verification": "docs/qa/rift-bundles-layers/VERIFICATION.json",
   "baseline_phone_verified": false,
   "environment_recovery": "docs/CODEX_NETWORK_RECOVERY.md",
   "background_verified_branch": "work/tile-png-stage2-20261107",
@@ -1571,7 +1571,9 @@
     "sub_souls": 50,
     "owner_pearls": 6,
     "deployed": false,
-    "compact_layout_fixed": true
+    "compact_layout_fixed": true,
+    "verified": true,
+    "source_commit": "d6c2c09856ffd4b986f685dd1c7e7f5e20819563"
   },
   "rift_layers": {
     "authorized": true,
@@ -1593,10 +1595,15 @@
     "deployed": false,
     "paid_image_requests": 2,
     "native_renders": 26,
-    "native_artifact": 13835336027,
+    "native_artifact": 13835511673,
     "preview_library_file_id": "libfile_fde3_f-6cca7ea487ac81918b373e7ee74b85d9_d66dafb33acc81918ce203aeb3fcd18e",
     "source_commit": "d6c2c09856ffd4b986f685dd1c7e7f5e20819563",
     "ci_run": 42976146895,
-    "ci_status": "in_progress"
+    "ci_status": "success",
+    "verified": true,
+    "unique_success_labels": 135,
+    "candidate_artifact": 13835384365,
+    "user_visual_approval": "pending",
+    "verification": "docs/qa/rift-bundles-layers/VERIFICATION.json"
   }
 }
