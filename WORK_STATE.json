@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "rift_unlock_bundle_investigation",
+  "status": "rift_unlock_bundle_recovery_verification",
   "release_baseline": "v1.26",
-  "target_release": "v1.26",
+  "target_release": "v1.27",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/rift-unlock127/HANDOFF.md",
-  "current_task": "균열 실제해금/낚시 연결 및 타일 번들 초기화 보고 조사",
-  "next_step": "진행보존/완료플래그/backup 검증, 균열 카탈로그 미정수치 확인 후 구현",
+  "current_task": "균열 실제해금·80종 catalog·번들 완료/수령·backup 증거복원 구현, v1.27 검증중",
+  "next_step": "새소스 전체검사/네이티브/PCK 후보확인 후 수정결과 제시. 공개v1.26 유지, 새배포 별도승인.",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -1654,5 +1654,20 @@
     "publication_run": 43106961611,
     "public_verification_run": 43107761870,
     "phone_verified": false
+  },
+  "rift_unlock127": {
+    "implemented": true,
+    "deployed": false,
+    "phone_verified": false,
+    "entry_fee": 4635000,
+    "playable_regions": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "catalog_species": 80,
+    "initial_values_status": "implementation_candidate",
+    "phone_reset_cause_confirmed": false
   }
 }
