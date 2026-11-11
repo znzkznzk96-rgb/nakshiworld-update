@@ -214,6 +214,7 @@ var sfx_acc: = 0.0
 var creak_t: = 0.0
 var runbuzz_t: = 0.0
 var REC: = {}
+var rift_art = preload("res://addons/reservoir/rift_art.gd").new()
 var active_region := 0
 var development_preview := false
 var progression = preload("res://addons/reservoir/regional_progress.gd").new()
@@ -379,6 +380,16 @@ func _layout() -> void :
 	var vs: = get_viewport_rect().size
 	ox = floorf(maxf(0.0, vs.x - VW) / 2.0)
 
+	if active_region == 3:
+		oy=0.0
+		var rift_scale:float=maxf(vs.x/environment.rift.SOURCE.x,vs.y/environment.rift.SOURCE.y)
+		var rift_top:float=(vs.y-environment.rift.SOURCE.y*rift_scale)/2.0
+		SURF=roundi(rift_top+environment.rift.DECK_Y*rift_scale)
+		WATER=roundi(rift_top+environment.rift.WATER_Y*rift_scale)
+		uw_bot=minf(rift_top+environment.rift.SAND_Y*rift_scale,vs.y-bot_pad-137.0)
+		PY=SURF-57;CATY=SURF-32;PX=50;CATX=29
+		environment.layout(self)
+		return
 	if active_region == 2:
 		oy = 0.0
 		var tile_scale: float = maxf(vs.x / environment.tile.SOURCE.x,vs.y / environment.tile.SOURCE.y)
@@ -1853,6 +1864,10 @@ func _draw_fight(t: float, tip: Vector2) -> void :
 func _shadow_fish(c: Vector2, star: int, grade: int, t: float, beh: String, spike: bool, scale: float, pose: Dictionary, phase: float, sp: int, face: float, alpha: float, body_length: float = -1.0) -> void :
 	var revealed: bool = alpha >= 1.0 or (S.phase == "pre" and S.get("judge", "MISS") != "MISS")
 	var L: float = body_length if body_length > 0.0 else _fish_display_length(star, scale, alpha < 1.0, sp)
+	if rift_art.has_species(sp):
+		var mouth:Vector2=rift_art.draw(self,sp,c,L,t/1000.0,face,revealed,alpha,grade,float(pose.get("tilt",0.0)))
+		if alpha>=1.0:fish_mouth=mouth
+		return
 	# Keep subpixel motion: final display rasterizes the fish, not the 270px world.
 	var N: = 12
 	var fz: float = grade / 4.0
@@ -2005,7 +2020,7 @@ func _aura_col(g: int, t: float, a: float, k: = 0) -> Color:
 
 
 func _exit_tree() -> void :
-	environment.valley.dispose();environment.tile.dispose()
+	environment.valley.dispose();environment.tile.dispose();environment.rift.dispose()
 	environment.dispose()
 	audio_feedback.dispose()
 	title_screen.dispose()
@@ -3179,6 +3194,7 @@ func _ui_static_fish(sp: int, r: Rect2, source: Rect2) -> void:
 	_ui_polygon(PackedVector2Array([r.position,Vector2(r.end.x,r.position.y),r.end,Vector2(r.position.x,r.end.y)]),PackedColorArray([Color.WHITE,Color.WHITE,Color.WHITE,Color.WHITE]),uv,fish_tex[sp])
 
 func _ui_fish(sp: int, box: Rect2) -> Rect2:
+	if rift_art.has_species(sp):return rift_art.ui_draw(self,sp,box)
 	var source: Rect2 = Rect2(fish_used[sp])
 	var size: Vector2 = source.size * minf(box.size.x / source.size.x, box.size.y / source.size.y)
 	var r: = Rect2(box.get_center() - size / 2, size)

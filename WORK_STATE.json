@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "rift_background_and_fish_integration_authorized",
+  "status": "rift_art_integrated_local_verified_ci_pending",
   "release_baseline": "v1.25",
   "target_release": "v1.25",
   "deployed": false,
   "phone_verified": false,
-  "handoff": "docs/art/rift-background-20261111/HANDOFF.md",
-  "current_task": "승인 기본배경·균열 물고기20종 게임연결",
-  "next_step": "전체소스복원·어종/아트연결확인→구현·관련/전체검사·화면확인",
+  "handoff": "docs/qa/rift-art-integration/HANDOFF.md",
+  "current_task": "승인기본배경·20종320프레임 게임연결",
+  "next_step": "전체CI·네이티브화면·PCK 확인",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -1259,7 +1259,7 @@
     "max_quoted_generations": 76,
     "shared_additional_requests_per_species": 1,
     "concurrent_paid_requests": 1,
-    "game_applied": false,
+    "game_applied": true,
     "deployed": false,
     "completed_ids": [
       "01",
@@ -1417,7 +1417,7 @@
     "verification": "docs/art/rift-fish/motion-controlled-20261111/REMOTE_VERIFICATION.json",
     "preview": "docs/art/rift-fish/motion-controlled-20261111/preview.gif",
     "generator": "Godot4.6.3_offline_asset_preparation_only",
-    "game_applied": false,
+    "game_applied": true,
     "deployed": false,
     "user_visual_approved": true,
     "integration_authorized": true
@@ -1504,7 +1504,7 @@
     "status": "clean_base_review_pending",
     "composition": "기존 세로형 낚시화면 구도 유지, 캐릭터는 왼쪽 배 갑판에서 오른쪽으로 낚시",
     "concept": "균열해역 기존확정 하늘의 빛나는 균열",
-    "game_applied": false,
+    "game_applied": true,
     "deployed": false,
     "verification": "docs/art/rift-background-20261111/HANDOFF.md",
     "canvas_reference": {
@@ -1537,5 +1537,12 @@
     "preview_library_file_id": "libfile_fde3_f-e621e373aad08191a704522005c5af54_d66dafb33acc81918ce203aeb3fcd18e",
     "user_visual_approved": true,
     "integration_authorized": true
+  },
+  "rift_art_integration": {
+    "art_ready": true,
+    "gameplay_ready": false,
+    "local_verified": true,
+    "deployed": false,
+    "verification": "docs/qa/rift-art-integration/HANDOFF.md"
   }
 }
