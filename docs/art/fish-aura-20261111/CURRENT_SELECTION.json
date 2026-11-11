@@ -8,8 +8,11 @@
     "spec": "docs/art/fish-aura-20261111/procedural-r3/SPEC.json"
   },
   "unique": {
-    "status": "revision_requested",
-    "direction": "rare-like sparse gem motes and short slim tails; remove broad flame ribbons to keep body motions readable"
+    "revision": 4,
+    "status": "user_review_pending",
+    "spec": "docs/art/fish-aura-20261111/procedural-r4/SPEC.json",
+    "gif_sha256": "f7f9052b4fb6d3598e2672044b56f73f3594348b007b1c157a7e8b8d1af771b5",
+    "direction": "separate violet gem motes, slim short afterglows; no broad flames"
   },
   "legendary": {
     "revision": 2,
@@ -24,5 +27,10 @@
     "spec": "docs/art/fish-aura-20261111/procedural-r2/SPEC.json"
   },
   "game_applied": false,
-  "deployed": false
+  "deployed": false,
+  "latest_preview_archive": {
+    "title": "fish_aura_selected_preview_r4.zip",
+    "sha256": "84a83e543b216a546f049c0e5d646390502eb23d861163540957c95884759903",
+    "library_file_id": "libfile_fde3_f-c734cf75a7d88191b4b264cd4003b6f6_d66dafb33acc81918ce203aeb3fcd18e"
+  }
 }

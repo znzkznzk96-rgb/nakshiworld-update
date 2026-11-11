@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "aura_r3_previews_ready",
+  "status": "aura_three_approved_unique_r4_preview_ready",
   "release_baseline": "v1.25",
   "target_release": "v1.25",
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/art/fish-aura-20261111/HANDOFF.md",
-  "current_task": "오라3등급선택확정·유니크가독성수정",
-  "next_step": "레어R3/전설신화R2보호·유니크만레어형빛조각으로개편",
+  "current_task": "레어R3전설신화R2채택·유니크R4시안완료",
+  "next_step": "유니크R4만사용자검토.레어R3/전설R2/신화R2확정유지·게임적용/배포별도.",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -1456,26 +1456,26 @@
     "ledger": "docs/art/fish-aura-20261111/LEDGER.json"
   },
   "aura_procedural": {
-    "status": "r3_user_review_pending",
+    "status": "three_approved_unique_r4_review_pending",
     "tiers": 4,
     "fish_shapes": 3,
     "frames_per_preview": 48,
     "fps": 16,
     "paid_requests": 0,
-    "spec": "docs/art/fish-aura-20261111/procedural-r3/SPEC.json",
-    "verification": "docs/art/fish-aura-20261111/procedural-r3/VERIFICATION.json",
-    "archive_title": "fish_aura_4tiers_motion_preview_r3.zip",
-    "archive_sha256": "45b9c0e381bf984e84c08fb17ab78292506f70e98097f6d73de9f82d99a38fa7",
+    "spec": "docs/art/fish-aura-20261111/procedural-r4/SPEC.json",
+    "verification": "docs/art/fish-aura-20261111/procedural-r4/VERIFICATION.json",
+    "archive_title": "fish_aura_selected_preview_r4.zip",
+    "archive_sha256": "84a83e543b216a546f049c0e5d646390502eb23d861163540957c95884759903",
     "game_applied": false,
     "deployed": false,
-    "revision": 3,
+    "revision": 4,
     "emission_mechanisms": [
       "independent angular drifting motes",
       "continuous broad curling flame tongues",
       "synchronized gold eruption followed by embers",
       "staggered branching energy jets followed by prismatic shards"
     ],
-    "unique_r2_identical": true
+    "unique_r2_identical": false
   },
   "aura_selection": "docs/art/fish-aura-20261111/CURRENT_SELECTION.json"
 }

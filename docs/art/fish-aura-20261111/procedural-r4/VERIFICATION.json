@@ -1,0 +1,33 @@
+{
+  "revision": 4,
+  "gifs": [
+    {
+      "tier": 0,
+      "frames": 48,
+      "sha256": "e4e291030c0fbadb26974fe09c0aef90b071583fff102aa704ca7307a54c7168"
+    },
+    {
+      "tier": 1,
+      "frames": 48,
+      "sha256": "f7f9052b4fb6d3598e2672044b56f73f3594348b007b1c157a7e8b8d1af771b5"
+    },
+    {
+      "tier": 2,
+      "frames": 48,
+      "sha256": "860d0ed11ed419f55983b1eb424804928c7c4b4633854868bd4c08af825c74b6"
+    },
+    {
+      "tier": 3,
+      "frames": 48,
+      "sha256": "d769ebc625403a1d37f85a33b03fe6f9d23728e331c4d4d3b10187ae25c66f03"
+    }
+  ],
+  "approved_three_gifs_bytes_unchanged": true,
+  "unique_alpha_area_ge64_4_samples": {
+    "prior": 18915,
+    "new": 4080.5
+  },
+  "paid_calls": 0,
+  "game_integrated": false,
+  "unique_user_approved": false
+}
