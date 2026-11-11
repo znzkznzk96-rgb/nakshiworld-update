@@ -28,7 +28,11 @@ func setup(m)->void:
 	plate=Sprite2D.new();plate.centered=false;plate.texture=load("res://art/rift/base.png");root.add_child(plate)
 	glow=Sprite2D.new();glow.centered=false;glow.texture=load("res://art/rift/glow_mask.png")
 	var material:=ShaderMaterial.new();material.shader=load("res://addons/reservoir/rift_glow.gdshader");glow.material=material;plate.add_child(glow)
-	for kind in ["sky","clouds","reflection","cliffs"]:add_scenery(kind)
+	add_scenery("sky")
+	add_scenery("clouds")
+	var tear=load("res://addons/reservoir/rift_tear.gd").new();tear.name="RiftOpenTears";tear.environment=self;plate.add_child(tear);layers["open_tears"]=tear
+	for kind in ["reflection","cliffs"]:add_scenery(kind)
+	for kind in ["fish","kelp","jellies","motes","bubbles"]:add_underwater(kind)
 	for kind in ["rocks","surface"]:add_layer(kind)
 	boat=Sprite2D.new();boat.name="RiftBoat";boat.centered=false;boat.texture=load("res://art/rift/boat.png");plate.add_child(boat)
 	var water_material:=ShaderMaterial.new();water_material.shader=load("res://addons/reservoir/rift_boat_water.gdshader");boat.material=water_material
@@ -37,6 +41,8 @@ func setup(m)->void:
 	root.hide()
 func add_scenery(kind:String)->void:
 	var n=load("res://addons/reservoir/rift_scenery.gd").new();n.name="Rift_scenery_"+kind;n.environment=self;n.kind=kind;plate.add_child(n);layers["scenery_"+kind]=n
+func add_underwater(kind:String)->void:
+	var n=load("res://addons/reservoir/rift_underwater.gd").new();n.name="Rift_underwater_"+kind;n.environment=self;n.kind=kind;plate.add_child(n);layers["underwater_"+kind]=n
 func add_layer(kind:String)->void:
 	var n=load("res://addons/reservoir/rift_layer.gd").new();n.name="Rift_"+kind;n.environment=self;n.kind=kind;plate.add_child(n);layers[kind]=n
 func bob_offset()->float:return BOB_AMPLITUDE*sin(elapsed*TAU/BOB_PERIOD)
@@ -53,6 +59,7 @@ func update(dt:float)->void:
 	boat.position=Vector2(0,DECK_Y-306+bob_offset()/scale)
 	boat.material.set_shader_parameter("waterline",(WATER_Y-boat.position.y)/450.0)
 	glow.material.set_shader_parameter("elapsed",elapsed)
+	if layers.has("open_tears"):layers["open_tears"].sync(elapsed)
 	light.update_light(elapsed,12)
 	if light.shader_material!=null:
 		light.shader_material.set_shader_parameter("light_tint",Color(.73,.45,1))

@@ -1,0 +1,33 @@
+{
+  "date": "2026-11-12",
+  "status": "local_related_passed_native_pending",
+  "prior_sky_lines_rejected": true,
+  "sky_openings": 2,
+  "interior": "dark space with cyan moving mist and separate luminous magenta/cyan torn rims",
+  "working_grid": [
+    540,
+    1320
+  ],
+  "display_scale": 2,
+  "decorative_layers": [
+    "distant_fish_schools",
+    "edge_kelp_crystals",
+    "jellies",
+    "motes",
+    "purple_bubbles"
+  ],
+  "decorative_fish": "reuse approved rift atlas species60/61/63 at9-13half-gridpx, no grades/capture/sonar",
+  "bubble_count": 28,
+  "protected_center_half_grid": [
+    160,
+    800,
+    220,
+    370
+  ],
+  "paid_generation_requests": 0,
+  "local_related": "RIFT_BUNDLES_LAYERS_VERIFY failures=[]",
+  "gameplay_catalog_rng_save_unchanged": true,
+  "base_plate_unchanged": true,
+  "deployed": false,
+  "phone_verified": false
+}

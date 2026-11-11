@@ -43,8 +43,16 @@ func run():
 		m.clock=i*.1;e.update(.1)
 		check(absf(e.bob_offset())<=1.5001 and e.boat.rotation==0,"small vertical motion no rotation")
 	check(randf()==expected_rng and p.serialize()==state,"layers preserve gameplay RNG and saves")
-	check(e.layers.size()==7 and e.boat.texture.get_size()==Vector2(360,450),"separate boat and procedural layers")
+	check(e.layers.size()==13 and e.boat.texture.get_size()==Vector2(360,450),"separate boat and procedural layers")
 	check(load("res://art/rift/cloud_bank.png").get_size()==Vector2(1080,440),"half-grid cloud exported at nearest2x")
 	for kind in ["sky","clouds","reflection","cliffs"]:check(e.layers.has("scenery_"+kind),"independent concept scenery layer "+kind)
+	var tears=e.layers["open_tears"]
+	check(tears.opening_areas.size()==2 and tears.opening_areas[0]>5000 and tears.opening_areas[1]>5000,"sky tears have visible interior area, not a polyline")
+	var bubbles=e.layers["underwater_bubbles"]
+	for i in 28:
+		for seconds in [0.0,12.0,45.0,95.0]:
+			var pos:Vector2=bubbles.bubble_position(i,seconds)
+			check(pos.y>657 and not bubbles.CLEAR_CENTER.has_point(pos),"bubbles stay underwater and outside fight center")
+	for kind in ["fish","kelp","jellies","motes","bubbles"]:check(e.layers.has("underwater_"+kind),"underwater decorative layer "+kind)
 	m.audio_feedback.dispose();m.queue_free();await process_frame
 	print("RIFT_BUNDLES_LAYERS_VERIFY failures=",failures);quit(0 if failures.is_empty() else 1)
