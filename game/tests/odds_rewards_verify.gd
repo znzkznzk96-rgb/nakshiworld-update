@@ -35,6 +35,7 @@ func run() -> void:
 		var sp: int=p.SUB_SPECIES[0][i];expected+=m.fish_price(sp,ui.star(sp),0,1.0)
 	check(ui.reward_preview_amount(m,0,1)==roundi(expected*1.2),"partial estimate retains actual value plus only missing fish")
 	p.extra_completed={"0:1":true};check(ui.reward_preview_amount(m,0,1)==900,"completed display uses actual paid amount")
-	check(ui.reward_preview_amount(m,0,0)==0 and ui.reward_preview_amount(m,3,1)==0,"main and future conditions untouched")
+	check(ui.reward_preview_amount(m,0,0)==0 and ui.reward_preview_amount(m,4,1)==0,"main and unconfigured future conditions untouched")
+	check(ui.reward_preview_amount(m,3,1)==3015000,"approved rift sub reward follows next fee")
 	print("ODDS_REWARDS_VERIFY failures=",failures," stars=",stars," grades=",grades)
 	m.queue_free();await process_frame;quit(0 if failures.is_empty() else 1)
