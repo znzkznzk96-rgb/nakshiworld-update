@@ -35,17 +35,20 @@ func draw(m,h: float) -> void:
 	m._text("어류 박물관",head.get_center()+Vector2(-8,5),14,Color("fff0d1"),true,190)
 	m._ui_texture(m.icons.close,Vector2(head.end.x-27,head.position.y+5));rects.close=Rect2(head.end.x-31,head.position.y,31,32)
 	var y: float=head.end.y+7
-	var map:=Rect2(17,y,236,56)
+	var compact_rift:bool=region==3 and h<540
+	var map_height:float=40 if compact_rift else 56
+	var thumb_height:float=26 if compact_rift else 38
+	var map:=Rect2(17,y,236,map_height)
 	m._ui_rect(Rect2(map.position+Vector2(0,2),map.size),Color("8b7650"));m._ui_rect(map,Color("275665"))
 	for x in range(32,240,8): m._ui_rect(Rect2(x,y+28,3,2),Color("e9d9b3"))
 	var start:=clampi(region-1,0,3)
 	for j in 3:
 		var n:=start+j
-		var tile:=Rect2(25+j*79,y+7,62,38)
+		var tile:=Rect2(25+j*79,y+(5 if compact_rift else 7),62,thumb_height)
 		m._ui_rect(Rect2(tile.position+Vector2(2,3),tile.size),Color(0,0,0,0.3))
 		m._ui_rect(tile.grow(2),Color("e5c671") if n==region else Color("587782"))
 		var tex: Texture2D=MUSEUM_TILE if n==2 else m.spots.images[n];var ts:=tex.get_size()
-		m._ui_texture_rect_region(tex,tile,Rect2(0,0,ts.x,ts.x*38.0/62.0),Color.WHITE if n==region else Color(0.55,0.62,0.63))
+		m._ui_texture_rect_region(tex,tile,Rect2(0,0,ts.x,ts.x*thumb_height/62.0),Color.WHITE if n==region else Color(0.55,0.62,0.63))
 		m._text(str(n+1),Vector2(tile.position.x+7,tile.end.y-3),9,Color("fff0d1"),true,12,true)
 		rects["region:%d"%n]=tile.grow(3)
 		if n==region: m._ui_rect(Rect2(tile.position.x+18,tile.end.y+4,26,2),Color("e5c671"))
@@ -73,8 +76,9 @@ func draw(m,h: float) -> void:
 		m._ui_rect(Rect2(cell.position+Vector2(0,2),cell.size),Color("c6b68f"));m._ui_rect(cell,Color("f3e6c9"))
 		if i<targets.size():
 			var sp:=species_id(targets[i])
-			m._ui_fish(sp,Rect2(cell.position+Vector2(5,5),Vector2(cell.size.x-10,maxf(20,cell.size.y-38))))
-			m._text(m._ui_wrap(species_name(m,sp),10,cell.size.x-6,2),Vector2(cell.get_center().x,cell.end.y-26),10,Color("382619"),true,cell.size.x-6)
+			var fish_height:float=maxf(12,cell.size.y-48) if region==3 and tab!=2 else maxf(20,cell.size.y-38)
+			m._ui_fish(sp,Rect2(cell.position+Vector2(5,5),Vector2(cell.size.x-10,fish_height)))
+			m._text(m._ui_wrap(species_name(m,sp),10,cell.size.x-6,2),Vector2(cell.get_center().x,cell.end.y-(31 if region==3 and tab!=2 else 26)),10,Color("382619"),true,cell.size.x-6)
 			m._text("기증 완료" if int(counts[i])>0 else "★%d · 미기증"%(star(sp)+1),Vector2(cell.get_center().x,cell.end.y-6),9,Color("456a50") if int(counts[i])>0 else Color("68533d"),true,cell.size.x-6)
 		else:
 			m._text("?",cell.get_center(),16,Color("aa9d7f"),true,60)
