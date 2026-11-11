@@ -1,0 +1,58 @@
+{
+  "body_envelope_transparent": true,
+  "cycles_seconds": [
+    3,
+    1.5,
+    1,
+    1.5
+  ],
+  "emitter_counts": [
+    185,
+    52,
+    88,
+    72
+  ],
+  "engine": "4.6.3-stable (official)",
+  "fish": [
+    "01",
+    "13",
+    "20"
+  ],
+  "fixed_fish_scales": [
+    0.782178217821782,
+    0.707865168539326,
+    0.959183673469388
+  ],
+  "fps": 16,
+  "frames": 48,
+  "game_applied": false,
+  "mechanisms": [
+    "independent drifting motes",
+    "curling flame tongues",
+    "synchronized gold eruption and embers",
+    "branching jets and delayed prismatic shards"
+  ],
+  "no_closed_ring": true,
+  "paid_generations": 0,
+  "prototype": true,
+  "revision": 3,
+  "seconds": 3,
+  "tiers": [
+    "rare",
+    "unique",
+    "legendary",
+    "mythic"
+  ],
+  "status": "r3_user_review_pending",
+  "changes": {
+    "rare": "more angular motes, larger gems, glints and brighter trails",
+    "unique": "R2 exact same 48 rendered frames",
+    "legendary": "16% more emitters, slightly thicker and longer burst",
+    "mythic": "9% more emitters, slightly thicker branching jets and larger shards"
+  },
+  "archive": {
+    "title": "fish_aura_4tiers_motion_preview_r3.zip",
+    "sha256": "45b9c0e381bf984e84c08fb17ab78292506f70e98097f6d73de9f82d99a38fa7",
+    "library_file_id": "libfile_fde3_f-84954005eadc819198df7ffd67aff029_d66dafb33acc81918ce203aeb3fcd18e"
+  }
+}

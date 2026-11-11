@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "aura_distinct_four_previews_r2_ready",
+  "status": "aura_r3_previews_ready",
   "release_baseline": "v1.25",
   "target_release": "v1.25",
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/art/fish-aura-20261111/HANDOFF.md",
-  "current_task": "오라R3 레어강화·전설신화소폭강화",
-  "next_step": "레어빛조각/섬광증가·전설신화분출잔광보강·유니크R2동일유지·모션시안",
+  "current_task": "오라R3 레어강화·전설신화소폭강화 시안완료",
+  "next_step": "R3 시안 사용자검토·유니크R2동일유지.게임적용/배포별도.",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -1456,24 +1456,25 @@
     "ledger": "docs/art/fish-aura-20261111/LEDGER.json"
   },
   "aura_procedural": {
-    "status": "r3_in_progress",
+    "status": "r3_user_review_pending",
     "tiers": 4,
     "fish_shapes": 3,
     "frames_per_preview": 48,
     "fps": 16,
     "paid_requests": 0,
-    "spec": "docs/art/fish-aura-20261111/procedural-r2/SPEC.json",
-    "verification": "docs/art/fish-aura-20261111/procedural-r2/VERIFICATION.json",
-    "archive_title": "fish_aura_4tiers_motion_preview_r2.zip",
-    "archive_sha256": "44dc56bbee7002b617c0da2406a364a73806113fac9604a8816c3a40490275be",
+    "spec": "docs/art/fish-aura-20261111/procedural-r3/SPEC.json",
+    "verification": "docs/art/fish-aura-20261111/procedural-r3/VERIFICATION.json",
+    "archive_title": "fish_aura_4tiers_motion_preview_r3.zip",
+    "archive_sha256": "45b9c0e381bf984e84c08fb17ab78292506f70e98097f6d73de9f82d99a38fa7",
     "game_applied": false,
     "deployed": false,
-    "revision": 2,
+    "revision": 3,
     "emission_mechanisms": [
       "independent angular drifting motes",
       "continuous broad curling flame tongues",
       "synchronized gold eruption followed by embers",
       "staggered branching energy jets followed by prismatic shards"
-    ]
+    ],
+    "unique_r2_identical": true
   }
 }
