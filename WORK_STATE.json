@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "rift_unlock_bundle_recovery_verification",
+  "status": "v127_verified_waiting_publication_authorization",
   "release_baseline": "v1.26",
   "target_release": "v1.27",
-  "deployed": true,
+  "deployed": false,
   "phone_verified": false,
   "handoff": "docs/qa/rift-unlock127/HANDOFF.md",
-  "current_task": "균열 실제해금·80종 catalog·번들 완료/수령·backup 증거복원 구현, v1.27 검증중",
-  "next_step": "새소스 전체검사/네이티브/PCK 후보확인 후 수정결과 제시. 공개v1.26 유지, 새배포 별도승인.",
+  "current_task": "균열 실제해금·번들 증거복원 v1.27 동일후보 전체검증 완료",
+  "next_step": "사용자 새배포 승인 후 PR65 입력불변 병합→성공후보13898112168 그대로 공개→운영다운로드 검증",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -45,7 +45,8 @@
     "date": "2026-11-12",
     "user_request": "업데이트및 배포가고일단 일회성으로 타일바다 모든 물고기 한개씩주고 그에맞는 균열해협 해금비도 같이 보내주셈",
     "scope": "현재 승인 업데이트 및 타일바다20종 노멀각1+4635000비늘 일회성우편",
-    "fulfilled": true
+    "fulfilled": true,
+    "release": "v1.26"
   },
   "release_preflight": "docs/qa/soldier-size/VERIFICATION.json",
   "release_source_commit": "92582b96aee1eae64b78ecc4cf48ebcfc4371f05",
@@ -171,7 +172,7 @@
     "ledger": "analysis/tile-layer-art-v1/PLANT_LEDGER.json",
     "quality": "analysis/tile-layer-art-v1/PLANT_QA.json"
   },
-  "public_release": "v1.25",
+  "public_release": "v1.26",
   "shared_vertical_light": {
     "applied": true,
     "regions": [
@@ -1674,6 +1675,12 @@
     "native_renders": 15,
     "local_packed_verified": true,
     "ci_run": 43113397494,
-    "ci_status": "in_progress"
+    "ci_status": "success",
+    "unique_success_labels": 138,
+    "candidate_artifact": 13898112168,
+    "input_fingerprint": "b1562ac61b2c2423b68b5473111f0d21a0dc77e67b89e1635d9e54523c3600a7",
+    "candidate_ready": true,
+    "pr": 65,
+    "release_authorized": false
   }
 }
