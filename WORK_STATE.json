@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "v130_published_verified",
+  "status": "v131_authorized_implementation",
   "release_baseline": "v1.30",
-  "target_release": "v1.30",
+  "target_release": "v1.31",
   "deployed": true,
   "phone_verified": false,
-  "handoff": "docs/qa/harbor-mail/HANDOFF.md",
-  "current_task": "v1.30 마을 개선·가로등 제거·우편 표시 공개 및 운영 검증 완료",
-  "next_step": "휴대폰 앱 재실행 후 v1.30 마을과 우편 표시 확인",
+  "handoff": "docs/qa/village-life131/HANDOFF.md",
+  "current_task": "주민 XY 유영동선·배 하부/부유·마을 전체 레이어",
+  "next_step": "v1.30 소스 기준 구현 및 움직임/화면 검수",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -43,9 +43,9 @@
   "remaining_global_render_checks": false,
   "release_authorization": {
     "date": "2026-11-12",
-    "release": "v1.30",
-    "user_request": "가로등·붙은 깃발 제거, 벤치·화단 유지 후 업데이트 및 배포",
-    "fulfilled": true
+    "release": "v1.31",
+    "user_request": "주민 걷기·배 부유·제안 레이어 전체 적용 후 업데이트 및 배포",
+    "fulfilled": false
   },
   "release_preflight": "docs/qa/soldier-size/VERIFICATION.json",
   "release_source_commit": "58f154633ef876e8c6ee1306059cb625314b4fd2",
@@ -118,7 +118,7 @@
     "production_balance_changed": false,
     "phone_tested": false
   },
-  "release_authorized": false,
+  "release_authorized": true,
   "balance110": {
     "applied": true,
     "deployed": true,
