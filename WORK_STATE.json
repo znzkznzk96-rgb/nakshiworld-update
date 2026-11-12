@@ -1,6 +1,6 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "release132_full_ci_running",
+  "status": "release132_verified_ready_to_publish",
   "release_baseline": "v1.31",
   "target_release": "v1.32",
   "deployed": true,
@@ -1805,10 +1805,12 @@
       "bite_contact_and_bounded_preview"
     ],
     "user_request": "업뎃하고 배포 ㄱ",
-    "verification": "in_progress",
+    "verification": "success",
     "phone_verified": false,
     "source_commit": "e8403921d6e5e61ac1d5395bc932dc5c42524dd6",
     "ci_run": 43223316798,
-    "pr": 70
+    "pr": 70,
+    "candidate_artifact": 13947636489,
+    "input_fingerprint": "dfe8f299eb7e26dcd27bd45284b6457667714ad0eddc99e1c205a86e2a3bb8e8"
   }
 }
