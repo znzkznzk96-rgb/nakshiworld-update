@@ -1,0 +1,18 @@
+{
+  "date": "2026-11-12",
+  "baseline": "v1.31",
+  "source_commit": "8dba894e08754b8324ca525b522fc53322f44cfd",
+  "ci_run": 43220387938,
+  "related_suites_passed": 5,
+  "related_suites": [
+    "village_life131",
+    "village_entry_audio",
+    "village_reward_notice",
+    "facility_growth",
+    "aquarium_b"
+  ],
+  "native_visual_status": "pending_server_comparison",
+  "local_native_blocker": "X11 socket/display unavailable under current executor restrictions",
+  "deployed": false,
+  "paid_generations": 0
+}
