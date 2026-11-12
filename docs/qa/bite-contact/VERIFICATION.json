@@ -28,5 +28,9 @@
   "release_authorized": false,
   "native_local_note": "36 phone views and32 motion frames completed; preview cleanup root-property error fixed. Reran only4 gallery frames/cleanup successfully; final full CI uses corrected72-capture script.",
   "comparison_cases": 10240,
-  "maximum_geometry_extent": 28.4948425292969
+  "maximum_geometry_extent": 28.4948425292969,
+  "source_commit": "aa8043e172e2ceee50279fb97460c93dbf9a2173",
+  "full_ci": 43208061692,
+  "full_ci_status": "in_progress",
+  "preview_library_file_id": "libfile_fde3_f-c32089078ad88191ae64171c4894cdb2_d66dafb33acc81918ce203aeb3fcd18e"
 }

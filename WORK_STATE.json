@@ -1778,6 +1778,9 @@
     "maximum_extent": 28.4948425292969,
     "fight_unchanged": true,
     "deployed": false,
-    "full_ci_status": "pending_push"
+    "full_ci_status": "in_progress",
+    "source_commit": "aa8043e172e2ceee50279fb97460c93dbf9a2173",
+    "ci_run": 43208061692,
+    "preview_library_file_id": "libfile_fde3_f-c32089078ad88191ae64171c4894cdb2_d66dafb33acc81918ce203aeb3fcd18e"
   }
 }
