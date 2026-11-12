@@ -270,8 +270,8 @@ func draw(m, h: float) -> void :
 		m.draw_line(Vector2(bx, by + 2), Vector2(bx + 4, by), Color("344b50"), 1)
 
 	ground.draw(m, self, o)
-	m.draw_texture(art.terminal, (o + Vector2(0, -113)).round())
-	m.draw_texture(art.bridge, (o + Vector2(220, -6)).round())
+	m.draw_texture_rect_region(art.terminal, Rect2((o + Vector2(0,-113)).round(),Vector2(220,134)), Rect2(0,0,220,134))
+	ground.bridge(m,o.round())
 	var ferry_x: = lerpf(-110, 95, clampf(ferry_clock / 6.0, 0, 1))
 	if ferry_clock > 15: ferry_x = 95 - (ferry_clock - 15) * 24
 	_sprite(m, "boat", o + Vector2(ferry_x, 78 + roundf(sin(t * 1.8) * 1.2)), 122 + mini(m.boat_lv,6) * 20.0 / 6.0)
