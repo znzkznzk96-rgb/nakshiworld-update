@@ -1,7 +1,3 @@
-# Record photo motion checkpoint · 2026-11-13
+# Record photo motion verification
 
-Mat-only fixed-UV deformation of approved frame zero; no paid generation, record writes, fight animation changes or deployment. Six explicit body profiles cover all current 80 species. Intermittent 1.15s activity / 5.2s cycle, rest measurement witness, static export. Layered contact shadow, damp footprint, alpha-sampled fish glints, short water droplets, exposed-water ripples and low-opacity outer foliage. Tools retain existing painted shadows.
-
-Local Godot 4.4.1: RECORD_PHOTO_VERIFY failures=[] geometry_cases=400; RECORD_PHOTO_MOTION_VERIFY failures=[] samples=537600 profiles=6. Native render, cross-time export equality and full CI pending. Tests use isolated fixtures, no real user save. Body convention: existing recorded length retained; cephalopod mantle-length reinterpretation not implemented.
-
-Profile exceptions: flat 51/56/71; cephalopod 64; jelly 47; long 3/13/16/26/53/58/70; round 45/52/72/75; all others normal fish. Mat preview uses source-frame zero; no existing swimming atlas frames are modified.
+[Authoritative result and hashes](MOTION_VERIFICATION.json). Source `d0a78f4ffa1de8e34b39dc1940f06f4d0fa66e48`; read [HANDOFF](HANDOFF.md) for current status. Six body profiles, 537600 motion samples and 537600 actual-source deformed vertices passed. Native 288 frames / 15 still screens / 4 souvenir exports / 12 cross-time exports passed; saved pixels independent of animation phase. Full CI remains in progress. No deployment or paid generation; Android real-device gallery write and FPS untested.

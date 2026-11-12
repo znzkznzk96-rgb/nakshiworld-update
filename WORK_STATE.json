@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "record_photo_motion_layers_native_verification",
+  "status": "record_photo_motion_layers_native_verified",
   "release_baseline": "v1.32",
   "target_release": "v1.32",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "계측 체형별 모션·접촉/물기/환경 레이어 구현",
-  "next_step": "체형별 실제 렌더·고정사진 비교·전체 CI 결과 확인; 배포 금지",
+  "current_task": "계측 눈금·체형별 모션·레이어 적용 및 실제화면 확인 완료(미배포)",
+  "next_step": "전체 CI 결과 확인·사용자 화면 검토; 배포 승인 없음",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -1833,8 +1833,8 @@
     "hall_of_fame": "future_not_implemented",
     "preview_required": "actual_Godot_render",
     "gallery_target": "Android gallery; verify available native path without claiming untested device success",
-    "source_commit": "acf324815079a086f05c4442b29a69c7c73985ac",
-    "ci_run": 43308785637,
+    "source_commit": "d0a78f4ffa1de8e34b39dc1940f06f4d0fa66e48",
+    "ci_run": 43312585808,
     "related_suites_passed": 4,
     "geometry_cases": 400,
     "android_gallery_device_verified": false,
@@ -1852,7 +1852,7 @@
       "geometry_cases": 400,
       "native_screens": 15,
       "souvenir_exports": 4,
-      "full_ci_status": "in_progress",
+      "full_ci_status": "success",
       "ci_run": 43308785637,
       "deployed": false,
       "release_authorized": false,
@@ -1861,13 +1861,17 @@
     "previous_full_ci_run": 43301499283,
     "previous_full_ci_success_labels": 145,
     "motion_layers": {
+      "implemented": true,
       "authorized": true,
+      "source_commit": "d0a78f4ffa1de8e34b39dc1940f06f4d0fa66e48",
+      "profiles": 6,
+      "native_frames": 288,
+      "native_verified": true,
+      "export_pose_pixel_equality": true,
+      "verification": "docs/qa/record-photo/MOTION_VERIFICATION.json",
       "deployed": false,
-      "release_authorized": false,
-      "source_commit": "673ef2ae866dac5d9b0b2e1d0b34505f7c790a44",
-      "local_profiles": 6,
-      "local_motion_samples": 537600,
-      "native_status": "pending"
-    }
+      "release_authorized": false
+    },
+    "motion_preview_library_file_id": "libfile_fde3_f-b2adbce4789c8191b42364d8d16c5dc8_d66dafb33acc81918ce203aeb3fcd18e"
   }
 }
