@@ -8,7 +8,7 @@
   "baseline_sha256": "631a240334ec6ba97812bce5d655471a640bb77f3554d5fa24cff5cca489eb28",
   "godot": "4.4.1.stable",
   "paid_generations": 0,
-  "deployed": false,
+  "deployed": true,
   "phone_verified": false,
   "layers": [
     "slow sky clouds (existing maintained)",
@@ -198,7 +198,7 @@
     "size": 130126927
   },
   "input_fingerprint": "435a1c573d151c0bb0480b0e7afcaf249b5406c9df282a4d2be5e5d25d380106",
-  "status": "verified_publication_pending",
+  "status": "published_verified",
   "full_verify_log_span_seconds": 677,
   "publication": {
     "run": 43202658583,
@@ -206,6 +206,44 @@
     "draft_id": 442805317,
     "draft_source_verified": "594cd461f6c57e0dd0746e422d36f737cea240ef",
     "resume": "same draft and exact candidate; no new build",
-    "status": "attempt2_running"
+    "status": "success",
+    "attempts": 2,
+    "merge_commit": "1b8b3a243ed3333201d08cd5c5f7f22b3bf6d4a6",
+    "rebuild": false
+  },
+  "public_verification": {
+    "version": {
+      "code": 131,
+      "name": "1.31"
+    },
+    "source_commit": "594cd461f6c57e0dd0746e422d36f737cea240ef",
+    "assets": {
+      "version.json": {
+        "size": 199,
+        "sha256": "50c2976d70c1452c038eabc822fbb0093af8a203f916e3bd6f5c2c0172130416",
+        "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.31/version.json"
+      },
+      "patch.pck": {
+        "size": 62278128,
+        "sha256": "8322736e80f0544ea9746a4e5b68728bfdccba4b0b8d4122bfa8949efd1acc17",
+        "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.31/patch.pck"
+      },
+      "game-source.zip": {
+        "size": 67847204,
+        "sha256": "02585558ed68643903f2eb158398ff960668cc2342190df1415f42d4464c9f52",
+        "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.31/game-source.zip"
+      }
+    },
+    "phone_verified": false,
+    "source_overlay_files_verified": 725,
+    "zip_crc_verified": true,
+    "public_assets_verified": true,
+    "run": 43202902362,
+    "workflow_status": "success",
+    "installed_app_full_download_sha256_verified": true
+  },
+  "optional_local_range_probe": {
+    "status": "unconfirmed",
+    "reason": "Local outbound proxy connection timed out in urllib and curl before receiving manifest. Public full download from installed-app URL succeeded in deployment CI; no additional game/workflow checks repeated."
   }
 }
