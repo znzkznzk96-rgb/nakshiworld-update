@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "record_photo_original_pixel_conversion_preview_ready",
+  "status": "record_photo_release133_preparing",
   "release_baseline": "v1.32",
-  "target_release": "v1.32",
+  "target_release": "v1.33",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "기존 시안 원본 보존 도트 변환·비교본 완료(미적용/미배포)",
-  "next_step": "사용자 전후 시안 검토; 적용 승인 시 native233x227 비율/프레이밍 조정; 추가 생성·배포 승인 없음",
+  "current_task": "기존 계측 배경 기반 기록 사진/모션/대물 v1.33 준비·배포",
+  "next_step": "최종133 버전/우편 전체 CI→동일후보 공개→운영 다운로드 검증",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -118,7 +118,7 @@
     "production_balance_changed": false,
     "phone_tested": false
   },
-  "release_authorized": false,
+  "release_authorized": true,
   "balance110": {
     "applied": true,
     "deployed": true,
@@ -1828,7 +1828,7 @@
   "record_photo": {
     "authorized": true,
     "deployed": false,
-    "release_authorized": false,
+    "release_authorized": true,
     "design": "approved imagegen concept exec-85c8013d-785d-48fe-ac5f-0b9b899857b6.png",
     "hall_of_fame": "future_not_implemented",
     "preview_required": "actual_Godot_render",
@@ -1923,16 +1923,27 @@
       "job_id": "fe78d882-5645-4e17-b1cc-387088ebe6c7",
       "paid_posts": 1,
       "spec": "docs/art/record-photo-conversion-20261113/REQUEST_SPEC.json",
-      "status": "candidate_ready_user_review_pending",
+      "status": "not_selected_remote_copy_failed_integrity",
       "completed": true,
       "native_size": [
         233,
         227
       ],
       "actual_generations_charged": 20,
-      "result": "docs/art/record-photo-conversion-20261113/converted.png",
+      "result": "docs/art/record-photo-conversion-20261113/INTEGRITY.json",
       "review": "docs/art/record-photo-conversion-20261113/REVIEW.json",
-      "user_visual_approved": false
+      "user_visual_approved": false,
+      "repair_authorized": false
     }
+  },
+  "release133": {
+    "authorized": true,
+    "fulfilled": false,
+    "deployed": false,
+    "version": "1.33",
+    "user_request": "기존으로 가자그냥 업데이트및 배포해줘",
+    "date": "2026-11-13",
+    "selected_background": "game/art/record_photo/measuring_scene.png",
+    "background_sha256": "3b2ff4f0810c4991904842fe54c5caa5cc4b9d17293ba4fdb74a3385910be8f0"
   }
 }
