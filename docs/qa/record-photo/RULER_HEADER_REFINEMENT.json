@@ -1,0 +1,45 @@
+{
+  "date": "2026-11-13",
+  "source_commit": "acf324815079a086f05c4442b29a69c7c73985ac",
+  "scope": "Record-photo UI and exported ruler only; no save/gameplay/gallery changes",
+  "baseline_full_verified_source": "4fbeec4fc376719d4bb93c74ec4ff1df12e47cf4",
+  "baseline_full_ci_run": 43301499283,
+  "baseline_success_labels": 145,
+  "changes": [
+    "True8px ruler digits instead of commonUI10px floor",
+    "Actual glyph widths for all fractional labels; adaptive divisions and independent numeric strip below ticks",
+    "Measuring scene starts behind wood header, covering previous cream gap"
+  ],
+  "related_test": "RECORD_PHOTO_VERIFY failures=[] geometry_cases=400; numeric glyph rectangles checked for tick, neighbor and mat overlap",
+  "native_test": "RECORD_PHOTO_PREVIEW failures=[] screens=15 souvenir_exports=4",
+  "native_artifact": 13986075198,
+  "native_artifact_sha256": "sha256:3ab1c18b1a81e81ccc9673a561a05d104a44f4b011e977fc408213c7b53a8d87",
+  "phone_heights": [
+    480,
+    540,
+    660
+  ],
+  "export_size": [
+    1080,
+    1380
+  ],
+  "full_ci_run": 43308785637,
+  "full_ci_status": "in_progress",
+  "full_ci_last_step": "Verify and preview per-soldier skill feedback first",
+  "deployed": false,
+  "release_authorized": false,
+  "Android_gallery_device_verified": false,
+  "first_draft_test_failure": "Fractional labels can be wider than the maximum range label. Initial neighbor-overlap assertion exposed this; final fit uses all candidate label widths and passes.",
+  "previews": [
+    {
+      "library_file_id": "libfile_fde3_f-0a9085bc87108191b4443a1ca46e7939_d66dafb33acc81918ce203aeb3fcd18e",
+      "version": 1,
+      "sha256": "e8e379e69ed2123bc03379918a1b3e626b3ee199ddf0ff1469119de727e11062"
+    },
+    {
+      "library_file_id": "libfile_fde3_f-3a47595fe5308191a560a9a7d15dc7aa_d66dafb33acc81918ce203aeb3fcd18e",
+      "version": 1,
+      "sha256": "67e6ad6758b48c7ea052014c08a3a8a2f04c7c5e641c766ac2b7d7c3a3e8cf04"
+    }
+  ]
+}
