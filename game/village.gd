@@ -275,16 +275,16 @@ func draw(m, h: float) -> void :
 
 	ground.draw(m, self, o)
 	m.draw_texture_rect_region(art.terminal, Rect2((o + Vector2(0,-113)).round(),Vector2(220,134)), Rect2(0,0,220,134))
-	ground.bridge(m,o.round())
+	
 	var ferry_art := preload("res://art/town/passenger_ferry.png")
 	var berth_x: float = 136.0 + ground.BOARDING_OFFSET - 185.0
 	var ferry_left := lerpf(-float(ferry_art.get_width())-8, berth_x, clampf(ferry_clock/6.0,0,1))
 	if ferry_clock>15: ferry_left=berth_x-(ferry_clock-15)*24
-	var ferry_top := 62.0 - 50.0 + roundf(sin(t*1.8)*1.2)
+	var ferry_top := ground.deck_y(berth_x) - 50.0 + roundf(sin(t*1.8)*1.2)
 	m.draw_texture(ferry_art, (o + Vector2(ferry_left, ferry_top)).round())
 	var ferry_x := ferry_left + ferry_art.get_width()*0.5
 	var keel_y := ferry_top + ferry_art.get_height()
-	ground.boarding(m,o.round(),ferry_clock>=6 and ferry_clock<=15)
+	
 	for i in 3:
 		var radius: float = 9 + fposmod(t * 6 + i * 9, 24)
 		m.draw_arc(o + Vector2(ferry_x, keel_y), radius, 0, PI, 12, Color(0.72, 0.93, 0.89, 0.18), 1)
@@ -718,5 +718,4 @@ func _act(m, a: String) -> void :
 
 
 func visitor_y(r: Dictionary) -> float:
-	if r.get("from_ferry",false) and r.state==0: return ground.boarding_y(r.x-ground.BOARDING_OFFSET)
 	return _walk_y(r.x)
