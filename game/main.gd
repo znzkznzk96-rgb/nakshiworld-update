@@ -2805,7 +2805,6 @@ func _load_game() -> void :
 	environment.day_seconds = maxf(0.0, float(d.get("world_time", 0.0)))
 	gold = int(d.get("gold", 0));pearl = int(d.get("pearl", 0));bag_lv = int(d.get("bag_lv", 0))
 	region_shop.restore(d.get("region_shop", {}))
-	region_shop.recover_caught_regions(REC, d.get("personal_dex", {}))
 	progression.restore(d.get("regional_progress", {}))
 	progression.recover_unlock_evidence(region_shop.unlocked)
 	buyback.restore(d.get("buyback",{}))

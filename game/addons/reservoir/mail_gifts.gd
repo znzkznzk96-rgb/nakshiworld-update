@@ -5,7 +5,8 @@ const DATA = {
 	"0.78": {"id":"testing-20261026-078","region":0,"grade":3,"gold":1000000,"souls":1000,"elements":50,"button":"테스트 선물 받기","claimed":"테스트 선물 수령 완료","toast":"테스트 선물을 받았어요!","save_error":false},
 	"0.93": {"id":"reservoir-legendary-20261029-093","region":0,"grade":3,"gold":100000,"souls":0,"elements":0,"button":"전설 20마리 + 10만 비늘 받기","claimed":"선물 수령 완료","toast":"전설 물고기 20마리 · 100,000비늘 수령","save_error":false},
 	"1.08": {"id":"valley-once-20261107-108","region":1,"grade":0,"gold":1000000,"souls":0,"elements":0,"button":"계곡 20종 + 100만 비늘 받기","claimed":"선물 수령 완료","toast":"계곡20종 · 1,000,000비늘 수령","save_error":true},
-	"1.26": {"id":"tile-once-20261112-126","region":2,"grade":0,"gold":4635000,"souls":0,"elements":0,"button":"타일20종 + 4,635,000비늘 받기","claimed":"선물 수령 완료","toast":"타일바다20종 · 4,635,000비늘 수령","save_error":true}
+	"1.26": {"id":"tile-once-20261112-126","region":2,"grade":0,"gold":4635000,"souls":0,"elements":0,"button":"타일20종 + 4,635,000비늘 받기","claimed":"선물 수령 완료","toast":"타일바다20종 · 4,635,000비늘 수령","save_error":true},
+	"1.29": {"id":"bundle-essentials-129","species":[1,3,8,9,14,17,21,24,28,31,34,37],"grade":0,"gold":1000000,"souls":0,"elements":0,"button":"필수 어종 12마리 + 100만 받기","claimed":"선물 수령 완료","toast":"필수 어종 12마리 · 100만 비늘 수령","save_error":true}
 }
 static func info(letter_id: String) -> Dictionary:
 	return DATA.get(letter_id,{})
@@ -16,10 +17,11 @@ static func claim(m,letter_id: String) -> bool:
 	var old_souls: int=m.souls
 	var old_elements: Array=m.expedition.data.souls.duplicate()
 	var old_size: int=m.bag.size()
-	for sp in range(gift.region*20,gift.region*20+20):
+	var fish_ids: Array = gift.species if gift.has("species") else range(gift.region*20,gift.region*20+20)
+	for sp in fish_ids:
 		var star: int=0
 		for i in 5:
-			var species: Array=m.BY_STAR[i] if gift.region==0 else Catalog.by_star(gift.region,i)
+			var species: Array=m.BY_STAR[i] if sp<20 else Catalog.by_star(Catalog.region(sp),i)
 			if sp in species: star=i;break
 		m.bag.append({"sp":sp,"star":star,"grade":gift.grade,"len":float(m.FISH_LEN[sp]),"w":float(m.W_BASE[star])*float(m.W_GRADE[gift.grade]),"price":m.fish_price(sp,star,gift.grade,1.0),"shoulder":false})
 	m.gold+=gift.gold;m.souls+=gift.souls

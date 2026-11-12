@@ -27,20 +27,6 @@ func restore(data: Dictionary) -> void:
 	for i in mini(6,saved.size()): stocks[i]=maxi(0,int(saved[i]))
 	selected_bait=clampi(int(data.get("selected_bait",0)),-1,5)
 	if selected_bait>=0 and not bait_unlocked(selected_bait): selected_bait=0
-func recover_caught_regions(length_records: Dictionary, personal: Dictionary) -> void:
-	const Catalog = preload("res://addons/reservoir/regional_catalog.gd")
-	const PersonalDex = preload("res://addons/reservoir/personal_dex.gd")
-	var dex := PersonalDex.new()
-	dex.restore(personal)
-	for sp in range(Catalog.NAMES.size()-1, 19, -1):
-		var key := Catalog.key(sp)
-		var length = length_records.get(key, 0)
-		var measured: bool = typeof(length) in [TYPE_INT, TYPE_FLOAT] and is_finite(float(length)) and length > 0
-		if measured or dex.records.has(key):
-			for area in range(1, Catalog.region(sp)+1):
-				if not is_unlocked(area): unlocked.append(area)
-			return
-
 func serialize() -> Dictionary:
 	return {"unlocked":unlocked,"stocks":stocks,"selected_bait":selected_bait}
 func is_unlocked(n: int) -> bool: return n in unlocked
