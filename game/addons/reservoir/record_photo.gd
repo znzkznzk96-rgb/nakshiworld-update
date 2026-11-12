@@ -6,6 +6,9 @@ const INK:=Color("382619")
 const MUTED:=Color("68533d")
 const EXPORT_SIZE:=Vector2i(1080,1380)
 const EXPORT_LOGICAL:=Vector2i(270,345)
+var motion=preload("res://addons/reservoir/record_photo_motion.gd").new()
+var opened_at:=0
+var preview_time:=-1.0
 var opened:=false
 var species:=-1
 var kind:=""
@@ -20,6 +23,7 @@ func open(m, sp: int, record_kind: String) -> bool:
  var f:Dictionary=m.personal_dex.best(m,sp,record_kind)
  if f.is_empty():return false
  generation+=1
+ opened_at=Time.get_ticks_msec()
  species=sp;kind=record_kind;specimen=f.duplicate(true);opened=true;status="";rects={}
  m.personal_dex.cancel_pointer();m.holding=false
  return true
@@ -50,6 +54,13 @@ func fish_source(m, sp: int) -> Dictionary:
  var left:bool=rift or (sp>=40 and sp<60)
  var start:=x0-source.position.x if left else source.end.x-x1
  var result:Dictionary={"texture":texture,"source":source,"left":left,"body_start":start,"body_width":x1-x0}
+ var glints:Array=[]
+ for fraction in [.32,.48,.63]:
+  var xx:=clampi(int(source.position.x+source.size.x*fraction),0,image.get_width()-1)
+  for yy in range(int(source.position.y+source.size.y*.32),int(source.position.y+source.size.y*.56)):
+   if image.get_pixel(xx,yy).a>.9:
+    glints.append(Vector2(fraction if left else 1-fraction,(yy-source.position.y)/source.size.y));break
+ result["glints"]=glints
  geometry_cache[sp]=result
  return result
 func measure(m, sp: int, f: Dictionary, stage: Rect2) -> Dictionary:
@@ -97,7 +108,7 @@ func ruler_text(m,label:Dictionary) -> void:
  # Exact numeric font size and baseline: bypass the common UI's 10px minimum.
  var width:float=maxf(24,label.bounds.size.x+2)
  m.text_items.append([label.font,label.baseline-Vector2(width*.5,0),label.text,HORIZONTAL_ALIGNMENT_CENTER,width,label.px,INK,1.0])
-func ruler(m, g: Dictionary) -> void:
+func ruler(m, g: Dictionary, moving:bool=false) -> void:
  if float(g.range)<=0:
   m._text("길이 미기록",g.zero+Vector2(float(g.width)*.5,3),8,MUTED,true,float(g.width));return
  var origin:Vector2=g.zero
@@ -117,19 +128,25 @@ func ruler(m, g: Dictionary) -> void:
  var unit_pos:Vector2=(origin+Vector2(width-7,-9)).round()
  m.text_items.append([unit_font,unit_pos,"cm",HORIZONTAL_ALIGNMENT_LEFT,20,8,MUTED,1.0])
  m._ui_rect(Rect2(Vector2(origin.x-1,g.fish_rect.position.y).round(),Vector2(1,g.fish_rect.size.y)),Color(.22,.36,.33,.38))
- m._ui_line(Vector2(g.tail_x,origin.y-9),Vector2(g.tail_x,origin.y-1),Color("b56c36"),1)
+ if not moving:m._ui_line(Vector2(g.tail_x,origin.y-9),Vector2(g.tail_x,origin.y-1),Color("b56c36"),1)
 func quad(m, texture: Texture2D, src: Rect2, r: Rect2, left: bool, color: Color) -> void:
  var ts:=texture.get_size()
  var uv:=PackedVector2Array([src.position/ts,Vector2(src.end.x,src.position.y)/ts,src.end/ts,Vector2(src.position.x,src.end.y)/ts])
  if not left:uv=PackedVector2Array([uv[1],uv[0],uv[3],uv[2]])
  m._ui_polygon(PackedVector2Array([r.position,Vector2(r.end.x,r.position.y),r.end,Vector2(r.position.x,r.end.y)]),PackedColorArray([color,color,color,color]),uv,texture)
-func draw_scene(m, area: Rect2) -> Dictionary:
+func animation_time()->float:
+ if busy:return -1.0
+ return preview_time if preview_time>=0 else (Time.get_ticks_msec()-opened_at)/1000.0
+func draw_scene(m, area: Rect2, animated:bool=false) -> Dictionary:
  m._ui_texture_rect(STAGE,area)
+ var t:=animation_time() if animated else -1.0
+ motion.environment(m,area,t)
  var g:=measure(m,species,specimen,area)
- ruler(m,g)
- var source:Dictionary=g.source
- quad(m,source.texture,source.source,Rect2(g.fish_rect.position+Vector2(0,2),g.fish_rect.size),source.left,Color(.10,.15,.15,.26))
- quad(m,source.texture,source.source,g.fish_rect,source.left,Color.WHITE)
+ ruler(m,g,motion.strength(species,t)>.03)
+ motion.moisture(m,species,g,t)
+ motion.mesh(m,species,g,t,true)
+ motion.mesh(m,species,g,t)
+ motion.highlights(m,species,g,t)
  return g
 func text_values(m) -> Dictionary:
  return {"name":m.FISH_NAME[species],"grade":m.GRADE_N[int(specimen.grade)] if specimen.has("grade") else "등급 미기록","length":"%.1fcm"%float(specimen.len) if valid_length(specimen) else "길이 미기록","weight":m._wtxt(float(specimen.w)) if specimen.has("w") and float(specimen.w)>0 else "무게 미기록","date":str(specimen.get("date","")) if not str(specimen.get("date","")).is_empty() else "날짜 미기록","region":m.personal_dex.REGIONS[CATALOG.region(species)]}
@@ -151,7 +168,7 @@ func draw(m,h: float) -> void:
  var boxes:=layout(h)
  m._ui_rect(Rect2(-m.ox,0,270+2*m.ox,h),Color(.025,.06,.08,.92))
  m._ui_style_box(m.sb_panel,boxes.panel)
- draw_scene(m,boxes.scene)
+ draw_scene(m,boxes.scene,true)
  preload("res://addons/reservoir/ui_theme.gd").title(m,boxes.panel,"나의 최고 기록")
  var close_box:=Rect2(boxes.panel.end.x-31,boxes.panel.position.y+9,22,23)
  preload("res://addons/reservoir/close_control.gd").draw(m,close_box)
@@ -166,7 +183,7 @@ func draw(m,h: float) -> void:
  m._ui_rect(Rect2(camera+Vector2(3,-2),Vector2(5,2)),Color("fff0d1"))
  m._ui_circle(camera+Vector2(7,5),3,Color("fff0d1"),false,1)
  m._ui_style_box(m.sb_btn,boxes.close);m._text("닫기",boxes.close.get_center()+Vector2(0,4),11,INK,true,55)
- var note:=status if not status.is_empty() else "버튼 없이 기록 사진만 저장돼요"
+ var note:=status if not status.is_empty() else ("움직이는 중 · 사진은 안정 자세로 저장" if motion.strength(species,animation_time())>.03 else "버튼 없이 기록 사진만 저장돼요")
  m._text(note,Vector2(135,boxes.panel.position.y+380),8,MUTED,true,228)
  rects={"save":boxes.save,"close":boxes.close,"x":close_box}
 func press(m,p: Vector2) -> void:
