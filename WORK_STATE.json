@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "record_photo_pixellab_first_quality_failed_stop",
+  "status": "record_photo_original_pixel_conversion_approved",
   "release_baseline": "v1.32",
   "target_release": "v1.32",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "계측 배경 PixelLab 첫1장 기준 미달·추가 생성 중단",
-  "next_step": "사용자 결과 확인 및 수정된 무-init 입력의 추가1회 승인 여부; 게임 교체·배포 없음",
+  "current_task": "기존 계측 시안 원본을 보존하는 PixelLab 도트 변환1회",
+  "next_step": "원본720 입력 그대로 전송→동일job 조회→전후/원본/정수 확대 검토; 게임 미교체·미배포",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -1910,7 +1910,15 @@
       "next_request": "docs/art/record-photo-pixellab-20261113/NEXT_REQUEST_NOT_SUBMITTED.json",
       "additional_generation_authorized": false,
       "original_library_file_id": "libfile_fde3_f-8d9545dcdf9c8191abaef7914849fa74_d66dafb33acc81918ce203aeb3fcd18e",
-      "zoom_library_file_id": "libfile_fde3_f-38f886b48b9c81919b4c8601bcd53659_d66dafb33acc81918ce203aeb3fcd18e"
+      "zoom_library_file_id": "libfile_fde3_f-38f886b48b9c81919b4c8601bcd53659_d66dafb33acc81918ce203aeb3fcd18e",
+      "next_request_status": "discarded_wrong_direction_do_not_submit"
+    },
+    "background_conversion": {
+      "authorized": true,
+      "request_limit": 1,
+      "game_applied": false,
+      "deployed": false,
+      "source_sha256": "3b2ff4f0810c4991904842fe54c5caa5cc4b9d17293ba4fdb74a3385910be8f0"
     }
   }
 }
