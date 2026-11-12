@@ -1,0 +1,13 @@
+{
+  "manifest": {
+    "code": 133,
+    "name": "1.33",
+    "source_commit": "97ef8895dd8c7dba18c99a4f3b43a78c9f4ca664",
+    "size": 63334272,
+    "sha256": "32148ab10b430c26d23546dc322b3815e3db64ddb3b898235be5662b50b254a0"
+  },
+  "download_bytes": 63334272,
+  "sha256": "32148ab10b430c26d23546dc322b3815e3db64ddb3b898235be5662b50b254a0",
+  "installed_apk_float_version_url_verified": true,
+  "phone_applied": false
+}

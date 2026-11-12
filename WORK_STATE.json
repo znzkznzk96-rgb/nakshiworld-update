@@ -1,17 +1,17 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "record_photo_release133_verified_ready_to_publish",
-  "release_baseline": "v1.32",
+  "status": "record_photo_release133_published_verified",
+  "release_baseline": "v1.33",
   "target_release": "v1.33",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "기존 계측 배경 기반 기록 사진/모션/대물 v1.33 준비·배포",
-  "next_step": "승인된PR main병합→동일후보 공개→공개3파일/운영다운로드검증",
+  "current_task": "기존 배경 기반 계측 사진·체형모션·대물 v1.33 공개·운영 검증 완료",
+  "next_step": "휴대폰 v1.33 적용·갤러리 실저장 사용자 확인; 추가 배포 승인 없음",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
-  "verification": "docs/art/record-photo-conversion-20261113/REVIEW.json",
+  "verification": "docs/qa/record-photo/RELEASE133_VERIFICATION.json",
   "baseline_phone_verified": false,
   "environment_recovery": "docs/CODEX_NETWORK_RECOVERY.md",
   "background_verified_branch": "work/tile-png-stage2-20261107",
@@ -23,10 +23,10 @@
   "screen_evidence_commit": "04fa33a116915c0b7a7ca86ee235a24a4cf4d4d2",
   "screen_verification_run": 42315352676,
   "full_source_verified": {
-    "release": "v1.32",
-    "size": 67854538,
-    "sha256": "eb3ea207c4a4791340f50871867a56735b4bb3a53b2ef306f64411f59792f861",
-    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.32/game-source.zip"
+    "release": "v1.33",
+    "size": 69050947,
+    "sha256": "e73393a4fd98401bb68a5e04cdd17867ef9c9815dbf23a3e7e503b7f61e2906c",
+    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.33/game-source.zip"
   },
   "fish_verification_run": 42317071546,
   "automatic_full_regression_run": 42317071379,
@@ -35,31 +35,31 @@
   "bundle_verification_run": 42319985467,
   "bundle_evidence_commit": "dd8297cc9de9a5423091b61e06f166ee22023de4",
   "headless_regression_coverage": {
-    "run": 43315657110,
+    "run": 43327087587,
     "status": "passed",
-    "scope": "full workflow native/packed;149 unique success labels;giant framing source 5582b587bf13dd0b47f37fcc4af5522af92602f0"
+    "scope": "full workflow 149 unique success labels/native/PCK; packed record photo original pixels;740 overlay source files"
   },
   "standard_full_workflow_success": true,
   "remaining_global_render_checks": false,
   "release_authorization": {
-    "date": "2026-11-12",
-    "release": "v1.32",
-    "user_request": "업뎃하고 배포 ㄱ",
+    "date": "2026-11-13",
+    "release": "v1.33",
+    "user_request": "기존으로 가자그냥 업데이트및 배포해줘",
     "fulfilled": true
   },
   "release_preflight": "docs/qa/soldier-size/VERIFICATION.json",
-  "release_source_commit": "e8403921d6e5e61ac1d5395bc932dc5c42524dd6",
-  "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v1.32",
-  "release_build_run": 43225642140,
+  "release_source_commit": "97ef8895dd8c7dba18c99a4f3b43a78c9f4ca664",
+  "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v1.33",
+  "release_build_run": 43329531763,
   "release_build_status": "success",
-  "public_verification_run": 43225939672,
+  "public_verification_run": 43329769426,
   "public_verification_status": "success",
   "public_patch": {
-    "size": 62295712,
-    "sha256": "c295f67b331b5de6bfb7043a30afbc8059d051f094802d1a4c935a6d2999509f",
-    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.32/patch.pck"
+    "size": 63334272,
+    "sha256": "32148ab10b430c26d23546dc322b3815e3db64ddb3b898235be5662b50b254a0",
+    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.33/patch.pck"
   },
-  "standard_full_workflow_note": "미배포 대물 계측 소스 전체149성공라벨/native/PCK 통과. 공개v1.32 유지, 배포승인 없음.",
+  "standard_full_workflow_note": "v1.33 전체149/native/PCK·동일후보 공개·공개3파일/740소스파일/실제앱주소 전체다운로드 해시 검증완료",
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md#2026-11-07--소규모-작업-효율채팅-중단-대비",
   "approved_followup": "우편 단일원본·공통지급·검사통합 구현/검증 완료. 공개v1.08 유지, 새 배포 미승인.",
   "session_continuity": {
@@ -92,7 +92,7 @@
     "headless_passed": 73,
     "headless_total": 73
   },
-  "release_verification_run": 43225939672,
+  "release_verification_run": 43329769426,
   "prior_build_issue": {
     "run": 42384973558,
     "cause": "packed mail check hardcoded1.08; prepublication assertion",
@@ -118,7 +118,7 @@
     "production_balance_changed": false,
     "phone_tested": false
   },
-  "release_authorized": true,
+  "release_authorized": false,
   "balance110": {
     "applied": true,
     "deployed": true,
@@ -1827,13 +1827,13 @@
   },
   "record_photo": {
     "authorized": true,
-    "deployed": false,
-    "release_authorized": true,
+    "deployed": true,
+    "release_authorized": false,
     "design": "approved imagegen concept exec-85c8013d-785d-48fe-ac5f-0b9b899857b6.png",
     "hall_of_fame": "future_not_implemented",
     "preview_required": "actual_Godot_render",
     "gallery_target": "Android gallery; verify available native path without claiming untested device success",
-    "source_commit": "5582b587bf13dd0b47f37fcc4af5522af92602f0",
+    "source_commit": "97ef8895dd8c7dba18c99a4f3b43a78c9f4ca664",
     "ci_run": 43327087587,
     "related_suites_passed": 4,
     "geometry_cases": 400,
@@ -1842,7 +1842,7 @@
     "full_ci_status": "success",
     "native_screens": 15,
     "souvenir_exports": 4,
-    "candidate_artifact": 13982407430,
+    "candidate_artifact": 13993379197,
     "preview_library_file_id": "libfile_fde3_f-0a9085bc87108191b4443a1ca46e7939_d66dafb33acc81918ce203aeb3fcd18e",
     "export_library_file_id": "libfile_fde3_f-3a47595fe5308191a560a9a7d15dc7aa_d66dafb33acc81918ce203aeb3fcd18e",
     "gallery_device_verified": false,
@@ -1854,9 +1854,10 @@
       "souvenir_exports": 4,
       "full_ci_status": "success",
       "ci_run": 43308785637,
-      "deployed": false,
+      "deployed": true,
       "release_authorized": false,
-      "verification": "docs/qa/record-photo/RULER_HEADER_REFINEMENT.json"
+      "verification": "docs/qa/record-photo/RULER_HEADER_REFINEMENT.json",
+      "public_release": "v1.33"
     },
     "previous_full_ci_run": 43301499283,
     "previous_full_ci_success_labels": 145,
@@ -1869,10 +1870,11 @@
       "native_verified": true,
       "export_pose_pixel_equality": true,
       "verification": "docs/qa/record-photo/MOTION_VERIFICATION.json",
-      "deployed": false,
+      "deployed": true,
       "release_authorized": false,
       "full_ci_status": "success",
-      "ci_run": 43312585808
+      "ci_run": 43312585808,
+      "public_release": "v1.33"
     },
     "motion_preview_library_file_id": "libfile_fde3_f-b2adbce4789c8191b42364d8d16c5dc8_d66dafb33acc81918ce203aeb3fcd18e",
     "giant_framing": {
@@ -1880,7 +1882,7 @@
       "implemented": true,
       "native_verified": true,
       "fit_vertices": 1814400,
-      "deployed": false,
+      "deployed": true,
       "release_authorized": false,
       "source_commit": "5582b587bf13dd0b47f37fcc4af5522af92602f0",
       "native_screens": 20,
@@ -1889,7 +1891,8 @@
       "ci_run": 43315657110,
       "verification": "docs/qa/record-photo/GIANT_VERIFICATION.json",
       "full_ci_status": "success",
-      "preview_library_file_id": "libfile_fde3_f-5cc51f63380c81919cef370889f17cf1_d66dafb33acc81918ce203aeb3fcd18e"
+      "preview_library_file_id": "libfile_fde3_f-5cc51f63380c81919cef370889f17cf1_d66dafb33acc81918ce203aeb3fcd18e",
+      "public_release": "v1.33"
     },
     "background_remake": {
       "provider": "PixelLab",
@@ -1934,12 +1937,13 @@
       "review": "docs/art/record-photo-conversion-20261113/REVIEW.json",
       "user_visual_approved": false,
       "repair_authorized": false
-    }
+    },
+    "public_release": "v1.33"
   },
   "release133": {
     "authorized": true,
-    "fulfilled": false,
-    "deployed": false,
+    "fulfilled": true,
+    "deployed": true,
     "version": "1.33",
     "user_request": "기존으로 가자그냥 업데이트및 배포해줘",
     "date": "2026-11-13",
@@ -1951,6 +1955,16 @@
     "unique_success_labels": 149,
     "candidate_artifact": 13993379197,
     "input_fingerprint": "ce3b9f03405421ac1f87830d03b64eabdca17aed40170d91738cddd614fc4c86",
-    "verification": "docs/qa/record-photo/RELEASE133_VERIFICATION.json"
+    "verification": "docs/qa/record-photo/RELEASE133_VERIFICATION.json",
+    "authorization_fulfilled": true,
+    "release_authorized": false,
+    "publication_run": 43329531763,
+    "publication_attempts": 2,
+    "publication_status": "success",
+    "merge_commit": "63c72a46cf50c17e6bd7f5d02e8f6383aea966b5",
+    "pr": 71,
+    "public_verification_run": 43329769426,
+    "public_verification_status": "success",
+    "phone_verified": false
   }
 }
