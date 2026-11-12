@@ -12,6 +12,12 @@ func run():
   check(m.active_region==3 and m.region_shop.is_unlocked(3),"independent process rift saved entry")
   check(m.progression.bundle_done(2,0) and m.progression.claimed(2,0),"independent process tile license preserved")
   print("RIFT_UNLOCK_RELOAD_VERIFY failures=",JSON.stringify(failures));m.queue_free();await process_frame;quit(0 if failures.is_empty() else 1);return
+ m.region_shop.unlocked=[0];m.REC={"r2:s03":21.5};m._save_rec();m._save_game();m._load_game()
+ check(m.region_shop.is_unlocked(2) and m.progression.licensed(1) and m.progression.licensed(2),"independent tile catch restores both paid regions and prerequisite main bundles")
+ check(not m.region_shop.is_unlocked(3) and not m.progression.bundle_done(1,1),"no invented rift or optional donations")
+ m.region_shop.unlocked=[0];m.region_shop.recover_caught_regions({},{"records":{"r1:s00":{"length":{"grade":0,"len":12,"w":0.4}}}})
+ check(m.region_shop.unlocked==[0,1],"personal best alone restores valley only")
+ m.REC={};m._save_rec()
  var p=m.progression;p.restore({});m.region_shop.unlocked=[0,1,2];m.gold=4635000
  check(not m.region_shop.unlock(m,3) and m.gold==4635000,"tile main license required")
  p.main_completed[2]=true;check(not m.region_shop.unlock(m,3),"receive certificate first")
