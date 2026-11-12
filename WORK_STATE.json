@@ -11,7 +11,7 @@
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
-  "verification": "docs/qa/village-layers-rework/VERIFICATION.json",
+  "verification": "docs/qa/bite-contact/VERIFICATION.json",
   "baseline_phone_verified": false,
   "environment_recovery": "docs/CODEX_NETWORK_RECOVERY.md",
   "background_verified_branch": "work/tile-png-stage2-20261107",
@@ -1788,9 +1788,8 @@
     "release_authorized": false
   },
   "village_layers_rework": {
-    "status": "implementation_saved_native_comparison_running",
-    "source_commit": "8dba894e08754b8324ca525b522fc53322f44cfd",
-    "ci_run": 43220387938,
-    "related_suites_passed": 5
+    "source_commit": "eb1a3085c3843a83293aa298aa48e60e11035493",
+    "ci_run": 43221408977,
+    "status": "second_visual_revision_native_pending"
   }
 }
