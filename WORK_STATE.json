@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "record_photo_giant_verified_not_deployed",
+  "status": "record_photo_pixellab_remake_approved",
   "release_baseline": "v1.32",
   "target_release": "v1.32",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "대물 매트 초과·눈금 가림·카메라 후퇴 구현 및 전체검증 완료(미배포)",
-  "next_step": "사용자 실제화면 검토; 새 배포 승인 없음",
+  "current_task": "계측 배경 PixelLab 첫1장 재제작 시안",
+  "next_step": "실제 입력/색 기준 검토→단일 생성→원본/정수 확대 검수; 게임 교체·배포 없음",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -1890,6 +1890,14 @@
       "verification": "docs/qa/record-photo/GIANT_VERIFICATION.json",
       "full_ci_status": "success",
       "preview_library_file_id": "libfile_fde3_f-5cc51f63380c81919cef370889f17cf1_d66dafb33acc81918ce203aeb3fcd18e"
+    },
+    "background_remake": {
+      "provider": "PixelLab",
+      "authorized": true,
+      "request_limit": 1,
+      "game_applied": false,
+      "deployed": false,
+      "user_visual_approved": false
     }
   }
 }
