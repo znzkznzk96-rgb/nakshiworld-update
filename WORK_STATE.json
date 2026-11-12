@@ -1,17 +1,17 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "bite_contact_full_verified_undeployed",
+  "status": "village_layers_reworked_native_reviewed",
   "release_baseline": "v1.31",
   "target_release": "v1.31",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/bite-contact/HANDOFF.md",
-  "current_task": "찌 접촉 위치·입질 표시 크기 수정 및 전체 검증 완료(미배포)",
-  "next_step": "수정 시안 사용자 검토; 새 배포 요청시 버전/우편 준비",
+  "current_task": "마을 레이어 2차 보정·실제 전후 비교 완료(미배포)",
+  "next_step": "전체CI43221408977 결과 확인·사용자 움직임 시안 검토",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
-  "verification": "docs/qa/bite-contact/VERIFICATION.json",
+  "verification": "docs/qa/village-layers-rework/VERIFICATION.json",
   "baseline_phone_verified": false,
   "environment_recovery": "docs/CODEX_NETWORK_RECOVERY.md",
   "background_verified_branch": "work/tile-png-stage2-20261107",
@@ -1790,6 +1790,10 @@
   "village_layers_rework": {
     "source_commit": "eb1a3085c3843a83293aa298aa48e60e11035493",
     "ci_run": 43221408977,
-    "status": "second_visual_revision_native_pending"
+    "status": "native_comparison_reviewed_full_ci_running",
+    "native_screens": 240,
+    "preview_library_file_id": "libfile_fde3_f-3da69ed12528819197170e4d1bd14230_d66dafb33acc81918ce203aeb3fcd18e",
+    "full_ci_status": "in_progress",
+    "deployed": false
   }
 }

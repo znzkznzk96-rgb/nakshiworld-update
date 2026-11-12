@@ -1,8 +1,8 @@
 {
   "date": "2026-11-12",
   "baseline": "v1.31",
-  "source_commit": "8dba894e08754b8324ca525b522fc53322f44cfd",
-  "ci_run": 43220387938,
+  "source_commit": "eb1a3085c3843a83293aa298aa48e60e11035493",
+  "ci_run": 43221408977,
   "related_suites_passed": 5,
   "related_suites": [
     "village_life131",
@@ -11,7 +11,7 @@
     "facility_growth",
     "aquarium_b"
   ],
-  "native_visual_status": "revision2_pending",
+  "native_visual_status": "second_revision_reviewed",
   "local_native_blocker": "X11 socket/display unavailable under current executor restrictions",
   "deployed": false,
   "paid_generations": 0,
@@ -19,5 +19,41 @@
     "native_screens": 240,
     "artifact": 13946400906,
     "status": "forest_improved_water_still_too_subtle_revising"
-  }
+  },
+  "native_screens": 240,
+  "native_views": [
+    0,
+    360,
+    900
+  ],
+  "native_frames_per_view_per_variant": 40,
+  "native_artifact": 13946600956,
+  "native_artifact_sha256": "719dd60aed7e64a5cd083ca17c2c4253202f6ad4596b20c6d54015f7ffc5fe74",
+  "full_ci_status": "in_progress_full_regression",
+  "preview_library_file_id": "libfile_fde3_f-3da69ed12528819197170e4d1bd14230_d66dafb33acc81918ce203aeb3fcd18e",
+  "visual_review": [
+    "Duplicate forest and its strip reflection removed; ridge and original native tree silhouette retained",
+    "Near/far pixel water patterns now advect in integer strips; stepped crests have shadow/teal/pale tones",
+    "Interrupted shore swells and two expanding elliptical wakes per pile/hull end; no blur/white full-width foam",
+    "First comparison judged too subtle, second revision strengthened before completion"
+  ],
+  "preview_note": "Comparison crops the same centered world area in both native runs. Test process freezes root position before resize, leaving a margin in full raw captures; cropped comparison excludes that common margin. Actual gameplay position update unchanged.",
+  "motion_measurement": {
+    "view": 360,
+    "frames": [
+      0,
+      20
+    ],
+    "crop": [
+      48,
+      1470,
+      810,
+      1600
+    ],
+    "threshold_max_rgb_delta": 8,
+    "before_changed_percent": 0.6,
+    "after_changed_percent": 4.98,
+    "note": "visibility evidence only, not an artistic quality acceptance score"
+  },
+  "source_hashes": "7b6074f752f1aeabbb50ad051e37b5ea4bcdc2ea4f2815476eb7de70bf54701c  evidence-layers/village-layers-before-after.gif\nbfceb5cc3d7d865aaf60a29ff64fbbf395f73a957eb0705243947fb0a68e09c7  runtime-bite/village.gd\n76935aebb5e973240b746fd416cec895c749ac57838a7bd8e0d196a4b2a29c23  runtime-bite/addons/reservoir/village_life.gd\ndb25b63d37bbe77c5ebf776a6aae3182264ec857\n2083a3337d0da72d929da3dcfc8aa58f8b660b6e\n"
 }
