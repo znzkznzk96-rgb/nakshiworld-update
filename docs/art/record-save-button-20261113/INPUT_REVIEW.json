@@ -1,0 +1,16 @@
+{
+  "source": "game/art/ui_forest/secondary.png",
+  "source_size": [
+    96,
+    36
+  ],
+  "source_sha256": "1cfdd9043912861304394dd5f2611332c9ee656ad97f8943a4e2a8cfd955d002",
+  "role": "approved existing wooden UI-frame style, not rejected scene",
+  "target": [
+    160,
+    32
+  ],
+  "paid_post_limit": 1,
+  "retries": 0,
+  "seed": 2026111311
+}
