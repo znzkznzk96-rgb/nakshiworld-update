@@ -276,12 +276,14 @@ func draw(m, h: float) -> void :
 	ground.draw(m, self, o)
 	m.draw_texture_rect_region(art.terminal, Rect2((o + Vector2(0,-113)).round(),Vector2(220,134)), Rect2(0,0,220,134))
 	ground.bridge(m,o.round())
-	var hull_width := 222.0 + mini(m.boat_lv,6) * 20.0 / 6.0
-	var berth_x:float = 136.0 + ground.BOARDING_OFFSET - hull_width * 0.336
-	var ferry_x := lerpf(-hull_width/2-8,berth_x,clampf(ferry_clock/6.0,0,1))
-	if ferry_clock>15: ferry_x=berth_x-(ferry_clock-15)*24
-	var keel_y := 62.0 + hull_width * (16.0/122.0)
-	_sprite(m,"boat",o+Vector2(ferry_x,keel_y+roundf(sin(t*1.8)*1.2)),hull_width)
+	var ferry_art := preload("res://art/town/passenger_ferry.png")
+	var berth_x: float = 136.0 + ground.BOARDING_OFFSET - 185.0
+	var ferry_left := lerpf(-float(ferry_art.get_width())-8, berth_x, clampf(ferry_clock/6.0,0,1))
+	if ferry_clock>15: ferry_left=berth_x-(ferry_clock-15)*24
+	var ferry_top := 62.0 - 50.0 + roundf(sin(t*1.8)*1.2)
+	m.draw_texture(ferry_art, (o + Vector2(ferry_left, ferry_top)).round())
+	var ferry_x := ferry_left + ferry_art.get_width()*0.5
+	var keel_y := ferry_top + ferry_art.get_height()
 	ground.boarding(m,o.round(),ferry_clock>=6 and ferry_clock<=15)
 	for i in 3:
 		var radius: float = 9 + fposmod(t * 6 + i * 9, 24)
