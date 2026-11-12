@@ -1,0 +1,18 @@
+{
+  "provider": "PixelLab",
+  "endpoint": "/v2/create-image-pixflux-background",
+  "seed": 2026111307,
+  "job_id": "2208e3a0-c567-4ead-997f-3a580f40b69e",
+  "paid_posts": 1,
+  "request_limit": 1,
+  "retries": 0,
+  "submission_http": 202,
+  "status": "processing",
+  "game_applied": false,
+  "deployed": false,
+  "balance_before_generations": 1002.5999999999999,
+  "balance_after_generations": null,
+  "actual_generations_charged": null,
+  "quality_status": "pending",
+  "layers_status": "first composite candidate only; separate editable layers not yet produced"
+}
