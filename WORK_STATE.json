@@ -1,17 +1,17 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "record_photo_motion_layers_approved",
+  "status": "record_photo_motion_layers_native_verification",
   "release_baseline": "v1.32",
   "target_release": "v1.32",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
   "current_task": "계측 체형별 모션·접촉/물기/환경 레이어 구현",
-  "next_step": "체형명세·기록 눈금 유지→구현→실제 움직임 검토",
+  "next_step": "체형별 실제 렌더·고정사진 비교·전체 CI 결과 확인; 배포 금지",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
-  "verification": "docs/qa/record-photo/RULER_HEADER_REFINEMENT.json",
+  "verification": "docs/qa/record-photo/MOTION_VERIFICATION.md",
   "baseline_phone_verified": false,
   "environment_recovery": "docs/CODEX_NETWORK_RECOVERY.md",
   "background_verified_branch": "work/tile-png-stage2-20261107",
@@ -1863,7 +1863,11 @@
     "motion_layers": {
       "authorized": true,
       "deployed": false,
-      "release_authorized": false
+      "release_authorized": false,
+      "source_commit": "673ef2ae866dac5d9b0b2e1d0b34505f7c790a44",
+      "local_profiles": 6,
+      "local_motion_samples": 537600,
+      "native_status": "pending"
     }
   }
 }

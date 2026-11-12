@@ -37,7 +37,15 @@ func mesh(m,sp:int,g:Dictionary,t:float,shadow:bool=false)->void:
  var s:Dictionary=g.source
  var r:Rect2=g.fish_rect
  var size:Vector2=s.texture.get_size()
- var color:=Color(.10,.15,.15,.23) if shadow else Color.WHITE
+ var activity:=strength(sp,t)
+ var color:=Color(.10,.15,.15,.23-.07*activity) if shadow else Color.WHITE
+ if activity==0:
+  var src:Rect2=s.source
+  var uv:=PackedVector2Array([src.position/size,Vector2(src.end.x,src.position.y)/size,src.end/size,Vector2(src.position.x,src.end.y)/size])
+  if not s.left:uv=PackedVector2Array([uv[1],uv[0],uv[3],uv[2]])
+  var shift:=Vector2(0,2 if shadow else 0)
+  m._ui_polygon(PackedVector2Array([r.position+shift,Vector2(r.end.x,r.position.y)+shift,r.end+shift,Vector2(r.position.x,r.end.y)+shift]),PackedColorArray([color,color,color,color]),uv,s.texture)
+  return
  # Fixed UV grid: never refit individual frames or recolor approved pixels.
  for y in 6:
   for x in 14:
