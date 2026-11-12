@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "record_photo_release133_preparing",
+  "status": "record_photo_release133_verifying",
   "release_baseline": "v1.32",
   "target_release": "v1.33",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
   "current_task": "기존 계측 배경 기반 기록 사진/모션/대물 v1.33 준비·배포",
-  "next_step": "최종133 버전/우편 전체 CI→동일후보 공개→운영 다운로드 검증",
+  "next_step": "CI43327087587 성공/동일 후보 확인 후 main merge로 승인된 공개 진행",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -1944,6 +1944,9 @@
     "user_request": "기존으로 가자그냥 업데이트및 배포해줘",
     "date": "2026-11-13",
     "selected_background": "game/art/record_photo/measuring_scene.png",
-    "background_sha256": "3b2ff4f0810c4991904842fe54c5caa5cc4b9d17293ba4fdb74a3385910be8f0"
+    "background_sha256": "3b2ff4f0810c4991904842fe54c5caa5cc4b9d17293ba4fdb74a3385910be8f0",
+    "source_commit": "97ef8895dd8c7dba18c99a4f3b43a78c9f4ca664",
+    "ci_run": 43327087587,
+    "ci_status": "in_progress"
   }
 }
