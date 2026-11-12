@@ -1,6 +1,6 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "release132_authorized_preparing",
+  "status": "release132_full_ci_running",
   "release_baseline": "v1.31",
   "target_release": "v1.32",
   "deployed": true,
@@ -1805,7 +1805,10 @@
       "bite_contact_and_bounded_preview"
     ],
     "user_request": "업뎃하고 배포 ㄱ",
-    "verification": "pending_final_version_full_ci",
-    "phone_verified": false
+    "verification": "in_progress",
+    "phone_verified": false,
+    "source_commit": "e8403921d6e5e61ac1d5395bc932dc5c42524dd6",
+    "ci_run": 43223316798,
+    "pr": 70
   }
 }
