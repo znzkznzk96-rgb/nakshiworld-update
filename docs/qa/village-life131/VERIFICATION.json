@@ -199,5 +199,13 @@
   },
   "input_fingerprint": "435a1c573d151c0bb0480b0e7afcaf249b5406c9df282a4d2be5e5d25d380106",
   "status": "verified_publication_pending",
-  "full_verify_log_span_seconds": 677
+  "full_verify_log_span_seconds": 677,
+  "publication": {
+    "run": 43202658583,
+    "first_attempt": "draft_created_then_immediate_listing_not_found",
+    "draft_id": 442805317,
+    "draft_source_verified": "594cd461f6c57e0dd0746e422d36f737cea240ef",
+    "resume": "same draft and exact candidate; no new build",
+    "status": "attempt2_running"
+  }
 }
