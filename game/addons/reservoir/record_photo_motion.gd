@@ -67,7 +67,7 @@ func environment(m,area:Rect2,t:float)->void:
   m._ui_line(p,p+Vector2(w,0),Color(.75,.92,.88,.20+.05*sin(clock*2+i)),1)
  # Soft broken foliage silhouettes on the outer dirt, clear of mat and labels.
  for i in 5:
-  var p:Vector2=area.position+area.size*Vector2(.055+i*.018,.72+i*.024)
+  var p:Vector2=area.position+area.size*Vector2(.31+i*.03,.25+i*.008)
   p.x+=sin(clock*.55+i)*.6
   m._ui_circle(p,area.size.x*.012,Color(.12,.20,.15,.07))
 func moisture(m,sp:int,g:Dictionary,t:float)->void:
