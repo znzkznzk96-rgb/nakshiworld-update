@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "bite_contact_full_verified_undeployed",
+  "status": "village_layers_quality_rework",
   "release_baseline": "v1.31",
   "target_release": "v1.31",
   "deployed": true,
   "phone_verified": false,
-  "handoff": "docs/qa/bite-contact/HANDOFF.md",
-  "current_task": "찌 접촉 위치·입질 표시 크기 수정 및 전체 검증 완료(미배포)",
-  "next_step": "수정 시안 사용자 검토; 새 배포 요청시 버전/우편 준비",
+  "handoff": "docs/qa/village-layers-rework/HANDOFF.md",
+  "current_task": "마을 중복 숲 제거·수면/접수면 레이어 품질 재작업",
+  "next_step": "실제 휴대폰 크기 전후 움직임 비교·관련 검사",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -1786,5 +1786,12 @@
     "candidate_artifact": 13941390336,
     "verification_artifact": 13941170637,
     "release_authorized": false
+  },
+  "village_layers_rework": {
+    "authorized": true,
+    "deployed": false,
+    "release_authorized": false,
+    "paid_generations": 0,
+    "status": "decision_saved_before_implementation"
   }
 }
