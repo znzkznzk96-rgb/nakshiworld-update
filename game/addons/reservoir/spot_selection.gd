@@ -55,7 +55,7 @@ func press(m, p: Vector2) -> void :
 		elif m.region_shop.unlock(m,index):
 			m.active_region = index;m._layout();m.start_trans("fish")
 		else:
-			notice = m.region_shop.unlock_error if m.region_shop.unlock_error!="" else "해금에 필요한 비늘이 부족해요";notice_until = m.ui_clock + 2.5
+			notice = m.region_shop.unlock_error if m.region_shop.unlock_error!="" else "해금 조건을 확인해 주세요";notice_until = m.ui_clock + 2.5
 func draw(m, h: float) -> void :
 	m._ui_rect(Rect2( - m.ox, 0, m.VW + 2 * m.ox, h), Color("183d4b"))
 	for band in 12: m._ui_rect(Rect2( - m.ox, band * h / 12, m.VW + 2 * m.ox, h / 12 + 1), Color("163444").lerp(Color("315b60"), band / 11.0))
@@ -94,7 +94,7 @@ func draw(m, h: float) -> void :
 		m._text(m._ui_wrap(CONCEPT[i], 8, 204, 1), Vector2(cx, r.position.y + image_height+47), 8, Color("d5c8b2"), true, 204)
 		var button: = Rect2(r.position + Vector2(12, card_height-42), Vector2(200, 29))
 		m._ui_style_box(m.sb_primary if m.region_shop.is_unlocked(i) else m.sb_btn, button)
-		m._text("입장하기" if m.region_shop.is_unlocked(i) else "준비 중" if i not in m.progression.available_regions else "자격증 필요" if not m.progression.licensed(i) else "해금 · %s 비늘" % price_text(PRICES[i]), button.get_center() + Vector2(0, 5), 11, Color("fff0d1") if m.region_shop.is_unlocked(i) else Color("62584b"), true, 188)
+		m._text("입장하기" if m.region_shop.is_unlocked(i) else "준비 중" if i not in m.progression.available_regions else "이전 낚시터 해금 필요" if not m.region_shop.is_unlocked(i-1) else "자격증 필요" if not m.progression.licensed(i) else "해금 · %s 비늘" % price_text(PRICES[i]), button.get_center() + Vector2(0, 5), 11, Color("fff0d1") if m.region_shop.is_unlocked(i) else Color("62584b"), true, 188)
 		if i == index: rects.enter = button
 	var left: = Rect2(1, cy - 15, 24, 32); var right: = Rect2(245, cy - 15, 24, 32)
 	for item in [[left, "<"], [right, ">"]]:

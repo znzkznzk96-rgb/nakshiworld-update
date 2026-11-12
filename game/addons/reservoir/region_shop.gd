@@ -34,9 +34,15 @@ func unlock(m, n: int) -> bool:
 	unlock_error=""
 	if n<1 or n>5: return false
 	if is_unlocked(n): return true
-	if n not in m.progression.available_regions or not is_unlocked(n-1) or not m.progression.licensed(n): return false
+	if n not in m.progression.available_regions:
+		unlock_error="낚시터 준비 중";return false
+	if not is_unlocked(n-1):
+		unlock_error="%s 해금 기록이 필요해요" % SPOTS.NAMES[n-1];return false
+	if not m.progression.licensed(n):
+		unlock_error="%s 메인 번들 자격증이 필요해요" % SPOTS.NAMES[n-1];return false
 	var cost: int = int(SPOTS.PRICES[n])
-	if m.gold < cost: return false
+	if m.gold < cost:
+		unlock_error="%d비늘이 부족해요" % (cost - m.gold);return false
 	m.gold -= cost;unlocked.append(n)
 	if not m._save_game():
 		m.gold += cost;unlocked.erase(n);unlock_error="저장하지 못했어요. 다시 시도해 주세요.";return false

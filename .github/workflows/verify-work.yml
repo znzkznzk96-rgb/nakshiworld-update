@@ -29,15 +29,15 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
-      - name: Restore verified v1.26 source and overlay
+      - name: Restore verified v1.27 source and overlay
         shell: bash
         run: |
           set -euo pipefail
           echo "VERIFICATION_STARTED=$(date +%s)" >> "$GITHUB_ENV"
           sudo apt-get update -qq
           sudo apt-get install -y python3-pil > /dev/null
-          curl -fL --retry 2 https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.26/game-source.zip -o "$RUNNER_TEMP/source.zip"
-          echo "2198558a6f606bc13310e341f2a897cac2e1cd322695c0b51340c0f1f8b0bbbc  $RUNNER_TEMP/source.zip" | sha256sum -c -
+          curl -fL --retry 2 https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.27/game-source.zip -o "$RUNNER_TEMP/source.zip"
+          echo "2074023011ad400eae78ff3f3d94146b42c0ea4be96b3cb8ca86c06d69004377  $RUNNER_TEMP/source.zip" | sha256sum -c -
           python3 automation/restore_source.py "$RUNNER_TEMP/source.zip" "$RUNNER_TEMP/project"
           curl -fL --retry 2 https://github.com/godotengine/godot/releases/download/4.4.1-stable/Godot_v4.4.1-stable_linux.x86_64.zip -o "$RUNNER_TEMP/godot.zip"
           unzip -q "$RUNNER_TEMP/godot.zip" -d "$RUNNER_TEMP/godot"
