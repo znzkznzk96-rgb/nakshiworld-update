@@ -1713,6 +1713,9 @@
     "native_screens": 8,
     "related_suites_passed": 2,
     "deployed": false,
-    "preview_library_file_id": "libfile_fde3_f-b729521ffbb88191bf747f53cf347e25_d66dafb33acc81918ce203aeb3fcd18e"
+    "preview_library_file_id": "libfile_fde3_f-b729521ffbb88191bf747f53cf347e25_d66dafb33acc81918ce203aeb3fcd18e",
+    "ci_run": 43190512066,
+    "ci_status": "queued",
+    "source_commit": "d631baf8f78626b8e594af35bd41a9c1112b1bec"
   }
 }
