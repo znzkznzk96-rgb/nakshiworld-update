@@ -1,6 +1,6 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "record_photo_design_approved",
+  "status": "record_photo_native_verification_running",
   "release_baseline": "v1.32",
   "target_release": "v1.32",
   "deployed": true,
@@ -1832,6 +1832,11 @@
     "design": "approved imagegen concept exec-85c8013d-785d-48fe-ac5f-0b9b899857b6.png",
     "hall_of_fame": "future_not_implemented",
     "preview_required": "actual_Godot_render",
-    "gallery_target": "Android gallery; verify available native path without claiming untested device success"
+    "gallery_target": "Android gallery; verify available native path without claiming untested device success",
+    "source_commit": "4fbeec4fc376719d4bb93c74ec4ff1df12e47cf4",
+    "ci_run": 43301499283,
+    "related_suites_passed": 4,
+    "geometry_cases": 400,
+    "android_gallery_device_verified": false
   }
 }

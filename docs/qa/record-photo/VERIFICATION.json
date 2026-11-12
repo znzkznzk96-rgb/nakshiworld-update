@@ -1,0 +1,31 @@
+{
+  "date": "2026-11-13",
+  "baseline_release": "v1.32",
+  "source_commit": "4fbeec4fc376719d4bb93c74ec4ff1df12e47cf4",
+  "ci_run": 43301499283,
+  "related_suites": [
+    "record_photo",
+    "record_gallery_mock",
+    "personal_dex",
+    "android_back"
+  ],
+  "geometry_cases": 400,
+  "related_passed": 4,
+  "deployed": false,
+  "release_authorized": false,
+  "save_schema_changed": false,
+  "record_data_modified": false,
+  "gallery": {
+    "implementation": "AndroidRuntime + JavaClassWrapper + MediaStore (Android10+), own new PNG only",
+    "native_device_verified": false,
+    "desktop_png_write_verified": true,
+    "failed_write_cleanup_mock_verified": true
+  },
+  "asset": {
+    "path": "game/art/record_photo/measuring_scene.png",
+    "sha256": "3b2ff4f0810c4991904842fe54c5caa5cc4b9d17293ba4fdb74a3385910be8f0",
+    "git_blob": "7a7976ec96550ff5923f242caf25516b0d83f1d7",
+    "original_sha256": "9fe10b27edff2c22fe34b562f1d43bf5f70038efb8693e3ab583a397218105bc"
+  },
+  "native_visual_status": "pending"
+}
