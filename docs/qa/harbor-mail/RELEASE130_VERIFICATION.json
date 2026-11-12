@@ -193,5 +193,13 @@
     "name": "release-candidate-ed9df5eec070148842c64deebd8883e5f12e4bdcb2c410a3069f3d47798cdbdc",
     "size": 130097273
   },
-  "input_fingerprint": "ed9df5eec070148842c64deebd8883e5f12e4bdcb2c410a3069f3d47798cdbdc"
+  "input_fingerprint": "ed9df5eec070148842c64deebd8883e5f12e4bdcb2c410a3069f3d47798cdbdc",
+  "publication": {
+    "run": 43193902028,
+    "first_attempt": "draft_created_then_listing_not_found",
+    "draft_release_id": 442743999,
+    "verified_draft_target": "58f154633ef876e8c6ee1306059cb625314b4fd2",
+    "recovery": "resume existing draft with same verified candidate; no rebuild",
+    "status": "attempt2_in_progress"
+  }
 }
