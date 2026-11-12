@@ -315,11 +315,6 @@ func draw(m, h: float) -> void :
 				var age: float = fposmod(t * 0.16 + n * 0.5, 1.0)
 				var pos: Vector2 = o + Vector2(b[2].get_center().x + sin(t * 0.4 + n) * 5, - b[2].size.y - 25 - age * 24)
 				m.draw_texture(art.smoke, pos.round(), Color(0.85, 0.89, 0.88, (1 - age) * 0.28))
-	for x in [520.0, 1148.0, 1370.0]:
-		if _visible(x, 40):
-			var foot: Vector2 = o + Vector2(x, ground.STREET_FOOT_Y)
-			m.draw_rect(Rect2(foot + Vector2(-4, -1), Vector2(8, 2)), Color(0.18, 0.14, 0.09, 0.28))
-			_sprite(m, "lamp", foot)
 	for x in [695.0, 1355.0]:
 		if _visible(x, 50): _sprite(m, "bench", o + Vector2(x, ground.STREET_FOOT_Y))
 	for n in mini(m.pond_cap_lv,6):
