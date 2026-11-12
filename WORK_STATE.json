@@ -1,17 +1,17 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "bite_contact_work",
+  "status": "bite_contact_verified_related",
   "release_baseline": "v1.31",
   "target_release": "v1.31",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/bite-contact/HANDOFF.md",
   "current_task": "찌 접촉 위치·전80종 입질 표시 크기 보정",
-  "next_step": "알파/UV 입 앵커·표시 범위 구현 후 전80종 실제 기하/화면 검수",
+  "next_step": "전체 CI 및 최종 실제 화면 검토; 새 공개배포 미승인",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
-  "verification": "docs/qa/village-life131/VERIFICATION.json",
+  "verification": "docs/qa/bite-contact/VERIFICATION.json",
   "baseline_phone_verified": false,
   "environment_recovery": "docs/CODEX_NETWORK_RECOVERY.md",
   "background_verified_branch": "work/tile-png-stage2-20261107",
@@ -1763,5 +1763,21 @@
     "publication_status": "success",
     "publication_attempts": 2,
     "release_authorized": false
+  },
+  "bite_contact": {
+    "implemented": true,
+    "related_verified": true,
+    "cases": 10240,
+    "native_screens": 72,
+    "preview_nominal_caps": [
+      24,
+      26,
+      28,
+      30
+    ],
+    "maximum_extent": 28.4948425292969,
+    "fight_unchanged": true,
+    "deployed": false,
+    "full_ci_status": "pending_push"
   }
 }

@@ -215,6 +215,7 @@ var creak_t: = 0.0
 var runbuzz_t: = 0.0
 var REC: = {}
 var rift_art = preload("res://addons/reservoir/rift_art.gd").new()
+var bite_preview = preload("res://addons/reservoir/bite_preview.gd").new()
 var rift_actor_bob:=0.0
 var active_region := 0
 var development_preview := false
@@ -1670,28 +1671,28 @@ func _fish_texture_u(sp: int, along_body: float) -> float:
 	return x/float(fish_tex[sp].get_width())
 
 
-const BITE_PREVIEW_LENGTH := [28.0,30.0,32.0,34.0]
+const BITE_PREVIEW_LENGTH := [24.0,26.0,28.0,30.0]
 func _bite_preview_length(size_class: int) -> float:
 	return BITE_PREVIEW_LENGTH[clampi(size_class,0,3)]
 
 func _draw_bite_shadow(t: float, lx: float, dip: float) -> void :
 	var z: int = S.size
-	var scale: float = [0.55, 0.8, 1.15, 1.6][z]
-	var L: float = _bite_preview_length(z) # Bobber preview is readable regardless of species length.
+	var L: float = _bite_preview_length(z)
+	var target := Vector2(lx, WATER + dip + 1)
 	var biting: bool = S.phase != "wait" or clock >= S.biteAt
 	if not biting:
 		var c: Array = _bite_circle(clock)
 		if c[2] <= 0: return
 		var p: Vector2 = c[0]
 		var face: float = c[1]
+		var contact := 0.0
 		for f in S.fakes:
 			var w: float = 0.34 + 0.12 * z
 			if clock >= f - 0.12 and clock < f - 0.12 + w:
 				var b: = sin(PI * (clock - (f - 0.12)) / w)
 				face = 1.0 if p.x < lx else -1.0
-				var bite_c: = Vector2(lx - 0.45 * L * face, WATER + dip + 6)
-				p = p.lerp(bite_c, b)
-		_shadow_fish(p, S.star, 0, t, "swim", false, scale, {}, t / 1000.0 * TAU * 1.2, S.sp, face, 0.42 + 0.4 * c[2], L)
+				contact = maxf(contact, b)
+		bite_preview.draw(self, p, t, face, 0.42 + 0.4 * c[2], {}, t / 1000.0 * TAU * 1.2, target, contact)
 		return
 
 	var c0: Array = _bite_circle(S.biteAt)
@@ -1701,9 +1702,8 @@ func _draw_bite_shadow(t: float, lx: float, dip: float) -> void :
 	var e: = 1.0 if S.phase != "wait" else clampf((clock - S.biteAt) / 0.12, 0.0, 1.0)
 	var p2: Vector2 = (c0[0] as Vector2).lerp(hold, e)
 	var tilt: = -1.1 * e
-	var shake: = Vector2(sin(t / 35.0), cos(t / 50.0)) * (1.0 + 0.5 * z) if e >= 1.0 else Vector2.ZERO
-	var pose: = {"freq": 3.0, "amp": 0.08, "curl": 0.0, "tilt": tilt, "stretch": 1.0, "tailAmp": 1.4}
-	_shadow_fish(p2 + shake, S.star, 0, t, "swim", false, scale, pose, t / 1000.0 * TAU * 3.0, S.sp, face2, 0.8, L)
+	var pose: = {"freq": 3.0, "amp": 0.08, "curl": 0.0, "tilt": tilt + sin(t / 50.0) * 0.025 * e, "stretch": 1.0, "tailAmp": 1.4}
+	bite_preview.draw(self, p2, t, face2, 0.8, pose, t / 1000.0 * TAU * 3.0, mouth, e)
 
 func _draw_hookbar() -> void :
 	var x0: = 25.0
@@ -1973,6 +1973,9 @@ func _shadow_fish(c: Vector2, star: int, grade: int, t: float, beh: String, spik
 
 
 func _fish_quad(qd: Array, color: Color, tex: Texture2D) -> void :
+	if bite_preview.collecting:
+		bite_preview.quads.append([qd[0], qd[1], color, tex])
+		return
 	for ids in [[0, 1, 2], [0, 2, 3]]:
 		var pp: = PackedVector2Array([qd[0][ids[0]], qd[0][ids[1]], qd[0][ids[2]]])
 		if absf((pp[1] - pp[0]).cross(pp[2] - pp[0])) < 0.001: continue

@@ -1,0 +1,32 @@
+{
+  "date": "2026-11-12",
+  "baseline_release": "v1.31",
+  "baseline_sha256": "02585558ed68643903f2eb158398ff960668cc2342190df1415f42d4464c9f52",
+  "scope": "pre-fight bobber fish only; fight sizes/artwork/gameplay unchanged",
+  "cause": "Old center offset assumed unrotated model mouth; rift atlas rotates/flips differently. Previous tests covered only60 species and nominal length, not silhouette bounds.",
+  "fix": [
+    "Opaque forward body pixel per species/frame, projected through actual UV triangles; translate mouth to current bobber during bite/hook",
+    "Preview-only fixed species/class length based on union aspect; nominal caps24/26/28/30; no per-frame auto-fit",
+    "Body wiggle rotates around mouth; false nibbles contact at peak"
+  ],
+  "tests": {
+    "bite_contact": "Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org\n\nBITE_CONTACT_VERIFY failures=[] cases=10240 maximum_extent=28.4948425292969\n",
+    "fish_presentation": "Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org\n\nFISH_PRESENTATION_VERIFY failures=[]\n",
+    "fish_anchor_size": "Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org\n\nFISH_ANCHOR_SIZE_VERIFY failures=[]\n",
+    "fish_surface": "Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org\n\nFISH_SURFACE_VERIFY failures=[]\n",
+    "rift_art": "Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org\n\nRIFT_ART_VERIFY failures=[] frames=320\n",
+    "fishing_difficulty": "Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org\n\nFISHING_DIFFICULTY_VERIFY failures=[]\n"
+  },
+  "native_screens": 72,
+  "native_phone_heights": [
+    480,
+    540,
+    660
+  ],
+  "original_pngs_unchanged": true,
+  "deployed": false,
+  "release_authorized": false,
+  "native_local_note": "36 phone views and32 motion frames completed; preview cleanup root-property error fixed. Reran only4 gallery frames/cleanup successfully; final full CI uses corrected72-capture script.",
+  "comparison_cases": 10240,
+  "maximum_geometry_extent": 28.4948425292969
+}
