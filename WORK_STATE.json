@@ -1,17 +1,17 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "record_photo_original_pixel_conversion_processing",
+  "status": "record_photo_original_pixel_conversion_preview_ready",
   "release_baseline": "v1.32",
   "target_release": "v1.32",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "기존 계측 시안 원본을 보존하는 PixelLab 도트 변환1회",
-  "next_step": "원본720 입력 그대로 전송→동일job 조회→전후/원본/정수 확대 검토; 게임 미교체·미배포",
+  "current_task": "기존 시안 원본 보존 도트 변환·비교본 완료(미적용/미배포)",
+  "next_step": "사용자 전후 시안 검토; 적용 승인 시 native233x227 비율/프레이밍 조정; 추가 생성·배포 승인 없음",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
-  "verification": "docs/art/record-photo-pixellab-20261113/REVIEW.json",
+  "verification": "docs/art/record-photo-conversion-20261113/REVIEW.json",
   "baseline_phone_verified": false,
   "environment_recovery": "docs/CODEX_NETWORK_RECOVERY.md",
   "background_verified_branch": "work/tile-png-stage2-20261107",
@@ -1911,7 +1911,8 @@
       "additional_generation_authorized": false,
       "original_library_file_id": "libfile_fde3_f-8d9545dcdf9c8191abaef7914849fa74_d66dafb33acc81918ce203aeb3fcd18e",
       "zoom_library_file_id": "libfile_fde3_f-38f886b48b9c81919b4c8601bcd53659_d66dafb33acc81918ce203aeb3fcd18e",
-      "next_request_status": "discarded_wrong_direction_do_not_submit"
+      "next_request_status": "discarded_wrong_direction_do_not_submit",
+      "user_rejected": true
     },
     "background_conversion": {
       "authorized": true,
@@ -1921,7 +1922,17 @@
       "source_sha256": "3b2ff4f0810c4991904842fe54c5caa5cc4b9d17293ba4fdb74a3385910be8f0",
       "job_id": "fe78d882-5645-4e17-b1cc-387088ebe6c7",
       "paid_posts": 1,
-      "spec": "docs/art/record-photo-conversion-20261113/REQUEST_SPEC.json"
+      "spec": "docs/art/record-photo-conversion-20261113/REQUEST_SPEC.json",
+      "status": "candidate_ready_user_review_pending",
+      "completed": true,
+      "native_size": [
+        233,
+        227
+      ],
+      "actual_generations_charged": 20,
+      "result": "docs/art/record-photo-conversion-20261113/converted.png",
+      "review": "docs/art/record-photo-conversion-20261113/REVIEW.json",
+      "user_visual_approved": false
     }
   }
 }

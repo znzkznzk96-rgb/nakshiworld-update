@@ -1,5 +1,5 @@
 {
-  "status": "NOT_SUBMITTED_requires_additional_generation_authorization",
+  "status": "DISCARDED_wrong_direction_do_not_submit",
   "endpoint": "/v2/create-image-pixflux-background",
   "changes": [
     "Remove init_image entirely to avoid copying flat structural guide",
@@ -21,5 +21,6 @@
     "seed": 2026111308
   },
   "color_image_file": "reservoir_palette.png",
-  "additional_post_limit_proposed": 1
+  "additional_post_limit_proposed": 1,
+  "superseded_by": "docs/art/record-photo-conversion-20261113/REQUEST_SPEC.json"
 }
