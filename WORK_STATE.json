@@ -7,7 +7,7 @@
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
   "current_task": "매트 숫자경계·저장완료 상태·버튼아트·초반6초모션·타이틀번개/시작동기 수정",
-  "next_step": "native 실제화면·6초모션·3번개/활성·실제PNG저장상태 및 전체CI 확인; 새배포 없음",
+  "next_step": "CI43332771904 native 실제화면 확인·전체검사 완료; 새배포 없음",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -1956,7 +1956,10 @@
       "button_art_status": "PixelLab first quality failed; existing complete primary pixel texture reused without flat overpaint",
       "actual_button_generations_charged": 10,
       "button_extra_posts": 0,
-      "source_implemented": true
+      "source_implemented": true,
+      "ci_run": 43332771904,
+      "ci_status": "in_progress",
+      "source_commit": "83184a990c7197d356c1d174ed68bbb2de0dde4d"
     }
   },
   "release133": {
