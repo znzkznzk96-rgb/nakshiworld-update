@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "record_photo_ruler_header_native_verified",
+  "status": "record_photo_motion_layers_approved",
   "release_baseline": "v1.32",
   "target_release": "v1.32",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "계측 숫자·눈금 분리와 제목 뒤 배경 연결 보정 완료(미배포)",
-  "next_step": "수정 실제화면 사용자검토; 전체자동CI43308785637 결과 확인; 배포금지 유지",
+  "current_task": "계측 체형별 모션·접촉/물기/환경 레이어 구현",
+  "next_step": "체형명세·기록 눈금 유지→구현→실제 움직임 검토",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -1859,6 +1859,11 @@
       "verification": "docs/qa/record-photo/RULER_HEADER_REFINEMENT.json"
     },
     "previous_full_ci_run": 43301499283,
-    "previous_full_ci_success_labels": 145
+    "previous_full_ci_success_labels": 145,
+    "motion_layers": {
+      "authorized": true,
+      "deployed": false,
+      "release_authorized": false
+    }
   }
 }
