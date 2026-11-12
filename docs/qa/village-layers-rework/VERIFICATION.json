@@ -11,8 +11,13 @@
     "facility_growth",
     "aquarium_b"
   ],
-  "native_visual_status": "pending_server_comparison",
+  "native_visual_status": "revision2_pending",
   "local_native_blocker": "X11 socket/display unavailable under current executor restrictions",
   "deployed": false,
-  "paid_generations": 0
+  "paid_generations": 0,
+  "first_visual_review": {
+    "native_screens": 240,
+    "artifact": 13946400906,
+    "status": "forest_improved_water_still_too_subtle_revising"
+  }
 }

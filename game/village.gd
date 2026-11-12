@@ -255,10 +255,10 @@ func draw(m, h: float) -> void :
 	var water: Texture2D = art.water
 	m.draw_rect(Rect2( - m.ox, shore, m.VW + 2 * m.ox, h - shore), Color("228fac"))
 	var drift: float = sin(t * 0.36) * 1.7
-	m.draw_texture(water, Vector2(roundf( - camera_x * 0.22 - 90 + drift), roundf(shore)), Color(0.85, 0.95, 0.98, 1))
+	life.water_texture(m, water, Vector2(roundf( - camera_x * 0.22 - 90 + drift), roundf(shore)), Color(0.85, 0.95, 0.98, 1), t, false)
 	for row in ceili((h - shore - 110) / 46.0) + 1:
 		var near_drift: float = sin(t * (0.42 + row * 0.02) + row) * 1.4
-		m.draw_texture(art.water_near, Vector2(roundf( - camera_x * 0.22 - 90 + near_drift), roundf(shore) + 110 + row * 46), Color(0.7, 0.9, 0.96, 0.48))
+		life.water_texture(m, art.water_near, Vector2(roundf( - camera_x * 0.22 - 90 + near_drift), roundf(shore) + 110 + row * 46), Color(0.7, 0.9, 0.96, 0.48), t, true, row * 0.6)
 
 	life.water_back(m, self, forest, shore, t)
 	life.water_front(m, self, o, h, t)
