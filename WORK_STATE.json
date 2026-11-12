@@ -1,17 +1,17 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "harbor_contact_refinement",
+  "status": "harbor_contact_refined_visual_review",
   "release_baseline": "v1.29",
   "target_release": "v1.29",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/harbor-mail/HANDOFF.md",
   "current_task": "물가 그라데이션·부두 접합·건물 접지 개선",
-  "next_step": "렌더링 국소 개선 후 실제 화면 검토",
+  "next_step": "개선 화면 사용자 검토 및 새 자동 CI 결과 확인",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
-  "verification": "docs/qa/harbor-mail/RESUME_VERIFICATION.json",
+  "verification": "docs/qa/harbor-mail/CONTACT_REFINEMENT.json",
   "baseline_phone_verified": false,
   "environment_recovery": "docs/CODEX_NETWORK_RECOVERY.md",
   "background_verified_branch": "work/tile-png-stage2-20261107",
@@ -1694,5 +1694,15 @@
     "preview_library_file_id": "libfile_fde3_f-afb17a97354881919070cec423a5c2a7_d66dafb33acc81918ce203aeb3fcd18e",
     "ci_run": 43187294585,
     "ci_source_commit": "fcd00d4bb6da0aba6aa008e696f099886914986a"
+  },
+  "harbor_contact_refinement": {
+    "implemented": true,
+    "related_suites_passed": 4,
+    "native_screens": 8,
+    "original_pngs_unchanged": true,
+    "deployed": false,
+    "release_authorized": false,
+    "ci_status": "pending_push",
+    "preview_library_file_id": "libfile_fde3_f-d538dfebcc9081919b593b69932a6bae_d66dafb33acc81918ce203aeb3fcd18e"
   }
 }

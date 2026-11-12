@@ -281,7 +281,7 @@ func draw(m, h: float) -> void :
 	var ferry_left := lerpf(-float(ferry_art.get_width())-8, berth_x, clampf(ferry_clock/6.0,0,1))
 	if ferry_clock>15: ferry_left=berth_x-(ferry_clock-15)*24
 	var ferry_top := ground.deck_y(berth_x) - 50.0 + roundf(sin(t*1.8)*1.2)
-	m.draw_texture(ferry_art, (o + Vector2(ferry_left, ferry_top)).round())
+	ground.wet_texture(m, ferry_art, Rect2((o + Vector2(ferry_left, ferry_top)).round(), ferry_art.get_size()), Rect2(Vector2.ZERO, ferry_art.get_size()), 9)
 	var ferry_x := ferry_left + ferry_art.get_width()*0.5
 	var keel_y := ferry_top + ferry_art.get_height()
 	
@@ -301,7 +301,9 @@ func draw(m, h: float) -> void :
 	for i in 6:
 		var b = BUILD[i + 1]
 		if not _visible(b[2].get_center().x, b[2].size.x / 2 + 30): continue
-		_sprite(m, arts[i], o + Vector2(b[2].get_center().x, 0))
+		var building_base: Vector2 = o + Vector2(b[2].get_center().x, 0)
+		ground.building_contact(m, tex[arts[i]], building_base)
+		_sprite(m, arts[i], building_base + Vector2(0, 3))
 		var c: Vector2 = o + b[3]
 		var w: float = maxf(54, m._text_w(b[0], 10) + 16)
 		if o.y + (c.y - o.y) * zoom > m.top_y + 157:
