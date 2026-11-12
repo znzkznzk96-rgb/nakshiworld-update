@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "published_v132",
+  "status": "record_photo_design_approved",
   "release_baseline": "v1.32",
   "target_release": "v1.32",
   "deployed": true,
   "phone_verified": false,
-  "handoff": "docs/qa/bite-contact/HANDOFF.md",
-  "current_task": "v1.32 마을 레이어·찌 접촉/입질 크기 공개 및 운영 검증 완료",
-  "next_step": "휴대폰 업데이트 후 실제 화면·플레이 확인",
+  "handoff": "docs/qa/record-photo/HANDOFF.md",
+  "current_task": "도감 기록 계측 매트·기념사진·갤러리 저장 구현",
+  "next_step": "승인 디자인 자산 준비→기록별 실제개체 연결→사진/저장검증",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -1824,5 +1824,14 @@
     "authorization_fulfilled": true,
     "pr": 70,
     "report": "docs/qa/village-layers-rework/RELEASE132_VERIFICATION.json"
+  },
+  "record_photo": {
+    "authorized": true,
+    "deployed": false,
+    "release_authorized": false,
+    "design": "approved imagegen concept exec-85c8013d-785d-48fe-ac5f-0b9b899857b6.png",
+    "hall_of_fame": "future_not_implemented",
+    "preview_required": "actual_Godot_render",
+    "gallery_target": "Android gallery; verify available native path without claiming untested device success"
   }
 }
