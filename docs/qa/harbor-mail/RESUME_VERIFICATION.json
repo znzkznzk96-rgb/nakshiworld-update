@@ -1,0 +1,105 @@
+{
+  "date": "2026-11-12",
+  "source_commit": "54121b8364a5eba93bb61c3106b3a89961b11871",
+  "baseline_release": "v1.29",
+  "baseline_sha256": "fbf3e0f84c2b89fd12321ccfe381fea5eac106133393115d8e31fa1e0d54374d",
+  "godot": "4.4.1.stable.official.49a5bc7b6",
+  "deployed": false,
+  "paid_requests": 0,
+  "previous_ci": {
+    "run": 43184980187,
+    "failure": "ARRIVAL_GIFT_VERIFY: new mail exposes claim button",
+    "cause": "Arrival gift already claimed in same test; approved UI removes claimed gift hit target. Assertion expected opposite state.",
+    "fix": "Assert claimed arrival gift has no active claim button; mail_gifts_verify already covers unclaimed and claimed buttons for every gift."
+  },
+  "checks": {
+    "arrival": {
+      "passed": true,
+      "log_sha256": "7976ffc6d3d2ac4335df56e74b011a7ab6a56ddbd51247c4c8056beb6dc02d4c"
+    },
+    "mail_gifts": {
+      "passed": true,
+      "log_sha256": "537de33d20894465b84587831761365b746851e93624eba669232297ffe64f15"
+    },
+    "testing_gift": {
+      "passed": true,
+      "log_sha256": "1374e3eec908cd1ffc7a86eb4300e5e3bb448b8a64a42c647ffa044d54f25255"
+    },
+    "village_reward_notice": {
+      "passed": true,
+      "log_sha256": "46a2ae8705ab1187b824c9edddca5da2a57ef25967b5225de85a5ecfafc0f35f"
+    },
+    "village_entry_audio": {
+      "passed": true,
+      "log_sha256": "2a370c46b3c499b1348cbbe6eb57f886462dd7f2da34b51eddff82662c36e27e"
+    }
+  },
+  "screens": [
+    {
+      "name": "village-0.png",
+      "size": [
+        810,
+        1980
+      ],
+      "sha256": "ffc05a4a5ad297c07ef5fe5c83e6bef109ea854382efd5e8f209e98cb8703faa"
+    },
+    {
+      "name": "village-1080.png",
+      "size": [
+        810,
+        1980
+      ],
+      "sha256": "8c28c32ae33400e80eeaa91fd24cfc87b6f503490ef6adcbe8fde78eda004ebd"
+    },
+    {
+      "name": "village-1350.png",
+      "size": [
+        810,
+        1980
+      ],
+      "sha256": "320ae27a81a152da0ffbec8cd4e30253e2c6681cf6ae4c2a4d3b855fe961679b"
+    },
+    {
+      "name": "village-1360.png",
+      "size": [
+        810,
+        1980
+      ],
+      "sha256": "55f158941e86947c039b4d85eb9e142238f6b144a8f78a816fb01eb3651df288"
+    },
+    {
+      "name": "village-180.png",
+      "size": [
+        810,
+        1980
+      ],
+      "sha256": "ef360388b673ba46a7aea0bde8538edfd206c7b5a196a6f27205d092d3b2be2c"
+    },
+    {
+      "name": "village-270.png",
+      "size": [
+        810,
+        1980
+      ],
+      "sha256": "75d5ed1c0eeebec8c63b60c705df897e0eaf883868b7e0e6593da28733d4b517"
+    },
+    {
+      "name": "village-540.png",
+      "size": [
+        810,
+        1980
+      ],
+      "sha256": "6890f3c85d62700d2d1bae57b42becd75b77e1273078d637ca5774af2e61f9a2"
+    },
+    {
+      "name": "village-810.png",
+      "size": [
+        810,
+        1980
+      ],
+      "sha256": "c493263631cae76be34da7c001c3e7361e765f6add08294972312a778e285452"
+    }
+  ],
+  "visual_review": "Pier-to-soil joint retained; submerged pile/rock/ferry edges lightly tinted. No additional artwork or gameplay edits.",
+  "preview_library_file_id": "libfile_fde3_f-afb17a97354881919070cec423a5c2a7_d66dafb33acc81918ce203aeb3fcd18e"
+}

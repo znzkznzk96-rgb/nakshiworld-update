@@ -1,17 +1,17 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "harbor_mail_work",
+  "status": "harbor_mail_visual_review",
   "release_baseline": "v1.29",
   "target_release": "v1.29",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/harbor-mail/HANDOFF.md",
   "current_task": "마을 말뚝과 바위의 물속 경계 보정",
-  "next_step": "게임 화면 검토",
+  "next_step": "마을 물가 보정 화면 사용자 검토; 자동 CI 상태 확인",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
-  "verification": "docs/qa/unlock-recovery/GIFT129_VERIFICATION.json",
+  "verification": "docs/qa/harbor-mail/RESUME_VERIFICATION.json",
   "baseline_phone_verified": false,
   "environment_recovery": "docs/CODEX_NETWORK_RECOVERY.md",
   "background_verified_branch": "work/tile-png-stage2-20261107",
@@ -1683,5 +1683,14 @@
     "release_authorized": true,
     "publication_run": 43117903735,
     "public_verification_run": 43118083833
+  },
+  "harbor_mail_review": {
+    "source_commit": "54121b8364a5eba93bb61c3106b3a89961b11871",
+    "related_suites_passed": 5,
+    "native_screens": 8,
+    "deployed": false,
+    "release_authorized": false,
+    "ci_status": "pending_push",
+    "preview_library_file_id": "libfile_fde3_f-afb17a97354881919070cec423a5c2a7_d66dafb33acc81918ce203aeb3fcd18e"
   }
 }
