@@ -1,6 +1,6 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "record_photo_original_pixel_conversion_approved",
+  "status": "record_photo_original_pixel_conversion_processing",
   "release_baseline": "v1.32",
   "target_release": "v1.32",
   "deployed": true,
@@ -1918,7 +1918,10 @@
       "request_limit": 1,
       "game_applied": false,
       "deployed": false,
-      "source_sha256": "3b2ff4f0810c4991904842fe54c5caa5cc4b9d17293ba4fdb74a3385910be8f0"
+      "source_sha256": "3b2ff4f0810c4991904842fe54c5caa5cc4b9d17293ba4fdb74a3385910be8f0",
+      "job_id": "fe78d882-5645-4e17-b1cc-387088ebe6c7",
+      "paid_posts": 1,
+      "spec": "docs/art/record-photo-conversion-20261113/REQUEST_SPEC.json"
     }
   }
 }
