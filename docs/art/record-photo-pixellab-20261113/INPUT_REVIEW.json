@@ -1,0 +1,58 @@
+{
+  "layout": {
+    "file": "layout_guide.png",
+    "role": "new grayscale layout diagram; no rejected image pixels",
+    "sha256": "398b00fa08a9752b8a0f10d86971bf74a252ea557683e27ddab329069a582193"
+  },
+  "color": {
+    "file": "reservoir_palette.png",
+    "source": "game/art/bg/reservoir_approved.png",
+    "source_sha256": "d5edb44f052b3c582f438a5086ebb47b6be833021df7d2451c08b0844bb6c8ab",
+    "role": "actual reservoir sampled colors only; no fish-wide golden style image",
+    "selected_palette_hex": [
+      "#221b23",
+      "#3a2319",
+      "#573127",
+      "#764a29",
+      "#9c6232",
+      "#bb7a3d",
+      "#e09b52",
+      "#f5bc72",
+      "#ffefd2",
+      "#e6c8ab",
+      "#b5a47f",
+      "#877c65",
+      "#13303c",
+      "#174a56",
+      "#1b686f",
+      "#379491",
+      "#74b1aa",
+      "#b7cdce",
+      "#2a452d",
+      "#496031",
+      "#718336",
+      "#a3aa52",
+      "#3e4d55",
+      "#647475",
+      "#8fa0a0",
+      "#c2c7c4",
+      "#f8f4e5",
+      "#de6736",
+      "#a54a32",
+      "#e1a238",
+      "#66a3ba",
+      "#346d88"
+    ],
+    "selection": "32 sampled original reservoir pixels nearest required warm timber/earth/cream/teal/foliage colors; no texture transfer",
+    "sha256": "94ea1ab0d4485d2ed4663261c36b5d9666a123162f56139a65736620f0bc552f"
+  },
+  "target": [
+    240,
+    240
+  ],
+  "seed": 2026111307,
+  "paid_request_limit": 1,
+  "concurrent_limit": 1,
+  "game_applied": false,
+  "deployed": false
+}

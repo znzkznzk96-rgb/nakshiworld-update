@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "record_photo_pixellab_remake_approved",
+  "status": "record_photo_pixellab_input_reviewed",
   "release_baseline": "v1.32",
   "target_release": "v1.32",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
   "current_task": "계측 배경 PixelLab 첫1장 재제작 시안",
-  "next_step": "실제 입력/색 기준 검토→단일 생성→원본/정수 확대 검수; 게임 교체·배포 없음",
+  "next_step": "PixelLab pixflux-background POST 단일1회→동일job 조회→검수; 승인 전 게임 교체 없음",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -1897,7 +1897,8 @@
       "request_limit": 1,
       "game_applied": false,
       "deployed": false,
-      "user_visual_approved": false
+      "user_visual_approved": false,
+      "spec": "docs/art/record-photo-pixellab-20261113/INPUT_REVIEW.json"
     }
   }
 }
