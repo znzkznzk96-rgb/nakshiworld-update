@@ -1,0 +1,52 @@
+{
+  "date": "2026-11-13",
+  "source_commit": "5582b587bf13dd0b47f37fcc4af5522af92602f0",
+  "deployed": false,
+  "release_authorized": false,
+  "fit_vertices": 1814400,
+  "species": 80,
+  "geometry_cases": 400,
+  "native_screens": 20,
+  "native_intro_frames": 36,
+  "stable_exports": 12,
+  "export_pixels_independent_of_time": true,
+  "legacy_unfabricated": true,
+  "records_unchanged": true,
+  "ci": {
+    "run": 43315657110,
+    "native_stage": "success",
+    "full_status": "in_progress"
+  },
+  "previous_motion_full_ci": {
+    "run": 43312585808,
+    "status": "success"
+  },
+  "artifact": {
+    "id": 13987817977,
+    "size": 214626305,
+    "sha256": "af946976649a144cbbb5b0b1b673f4eb3577367e02eaac6c0b7b5a1d8c84726e"
+  },
+  "presentation": {
+    "threshold_cm": [
+      60,
+      240
+    ],
+    "camera_zoom": [
+      1.1,
+      1
+    ],
+    "camera_seconds": 1,
+    "giant_framing_max_scene_fraction": [
+      0.79,
+      0.55
+    ],
+    "whole_source_aspect_preserved": true,
+    "giant_can_occlude_ruler": true,
+    "exact_length_source": "existing record caption",
+    "no_zero_alignment_claim": true,
+    "tools": "same camera projection; no fish-size-driven independent enlargement"
+  },
+  "common_change": "ui_surface inline_text command to layer printed numeric glyphs under fish; existing commands unchanged",
+  "android_gallery_device_verified": false,
+  "phone_fps_verified": false
+}
