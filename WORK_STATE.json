@@ -6,7 +6,7 @@
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/harbor-mail/HANDOFF.md",
-  "current_task": "선착장과 마을을 연결하는 수평 통부두 시안",
+  "current_task": "어시장 기준 통부두 목재 도트 보강",
   "next_step": "게임 화면 검토",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
