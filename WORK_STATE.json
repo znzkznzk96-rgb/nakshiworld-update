@@ -1690,7 +1690,9 @@
     "native_screens": 8,
     "deployed": false,
     "release_authorized": false,
-    "ci_status": "pending_push",
-    "preview_library_file_id": "libfile_fde3_f-afb17a97354881919070cec423a5c2a7_d66dafb33acc81918ce203aeb3fcd18e"
+    "ci_status": "in_progress",
+    "preview_library_file_id": "libfile_fde3_f-afb17a97354881919070cec423a5c2a7_d66dafb33acc81918ce203aeb3fcd18e",
+    "ci_run": 43187294585,
+    "ci_source_commit": "fcd00d4bb6da0aba6aa008e696f099886914986a"
   }
 }

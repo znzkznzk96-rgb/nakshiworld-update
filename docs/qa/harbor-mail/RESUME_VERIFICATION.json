@@ -101,5 +101,11 @@
     }
   ],
   "visual_review": "Pier-to-soil joint retained; submerged pile/rock/ferry edges lightly tinted. No additional artwork or gameplay edits.",
-  "preview_library_file_id": "libfile_fde3_f-afb17a97354881919070cec423a5c2a7_d66dafb33acc81918ce203aeb3fcd18e"
+  "preview_library_file_id": "libfile_fde3_f-afb17a97354881919070cec423a5c2a7_d66dafb33acc81918ce203aeb3fcd18e",
+  "full_ci": {
+    "run": 43187294585,
+    "source_commit": "fcd00d4bb6da0aba6aa008e696f099886914986a",
+    "status": "in_progress",
+    "completion_verified": false
+  }
 }
