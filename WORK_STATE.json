@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "record_photo_release133_published_verified",
+  "status": "record_photo_title_followup_approved",
   "release_baseline": "v1.33",
   "target_release": "v1.33",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "기존 배경 기반 계측 사진·체형모션·대물 v1.33 공개·운영 검증 완료",
-  "next_step": "휴대폰 v1.33 적용·갤러리 실저장 사용자 확인; 추가 배포 승인 없음",
+  "current_task": "매트 숫자경계·저장완료 상태·버튼아트·초반6초모션·타이틀번개/시작동기 수정",
+  "next_step": "단일 버튼 아트 제작/관련 구현→재현검사·실제화면; 새배포 없음",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -1938,7 +1938,20 @@
       "user_visual_approved": false,
       "repair_authorized": false
     },
-    "public_release": "v1.33"
+    "public_release": "v1.33",
+    "followup": {
+      "authorized": true,
+      "deployed": false,
+      "release_authorized": false,
+      "button_paid_request_limit": 1,
+      "intro_seconds": 6,
+      "title_strikes_seconds": [
+        0.4,
+        0.75,
+        1.2
+      ],
+      "start_enabled_seconds": 1.2
+    }
   },
   "release133": {
     "authorized": true,

@@ -5,3 +5,6 @@
 [공개v1.33](https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v1.33) · [배포 검증 기록](RELEASE133_VERIFICATION.json). 소스 `97ef8895dd8c7dba18c99a4f3b43a78c9f4ca664`의 전체149성공라벨/native/PCK,740overlay/CRC/3파일해시와 실제PCK 기존배경 픽셀 동일 검증 후 같은후보를 재빌드 없이 공개했다. 실제 설치APK 방식133.0주소 전체63334272bytes 다운로드와 해시, 공개3파일/전체소스ZIP 모두 검증 성공. CI43327087587·배포43329531763(동일초안조회지연 후2차재개)·공개검증43329769426 성공.
 
 휴대폰 적용과 Android실기 갤러리 저장은 사용자 단말에서 별도 확인 필요. 이번배포승인은 이행 완료·추가배포 승인 없음. 다음은 휴대폰 v1.33 적용/사진 저장 확인이다. [원격 비채택시안 조사](../../art/record-photo-conversion-20261113/INTEGRITY.json), [직전 시안 원문](../../historical/2026-11-13-record-photo-before-release133/HANDOFF.md).
+
+## 최신 후속 승인
+사용자 단말에서 저장파일 완료를 보고했으나 UI저장중잔류 제보. 숫자띠/0 매트내정렬·저장상태·별도 저장버튼 PixelLab1장·초반6초강조모션·1.2초마지막타이틀번개/시작활성 동기 수정. 단말 갤러리 전체검증 완료로 확장하지 않음. 새배포 없음.
