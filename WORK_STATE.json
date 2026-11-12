@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "v130_verified_ready_to_publish",
+  "status": "v130_publishing",
   "release_baseline": "v1.29",
   "target_release": "v1.30",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/harbor-mail/HANDOFF.md",
   "current_task": "v1.30 가로등/깃발 제거·마을 개선 최종 검사",
-  "next_step": "PR68 병합·동일 검증후보 공개·운영 다운로드 검사",
+  "next_step": "배포43193902028 완료 및 후속 운영 다운로드 검증 확인",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -1729,6 +1729,8 @@
     "native_screens": 8,
     "candidate_artifact": 13930664941,
     "input_fingerprint": "ed9df5eec070148842c64deebd8883e5f12e4bdcb2c410a3069f3d47798cdbdc",
-    "unique_success_labels": 138
+    "unique_success_labels": 138,
+    "publication_run": 43193902028,
+    "merge_commit": "e4cea616b41a78263f34ef4f22d6b649486db783"
   }
 }
