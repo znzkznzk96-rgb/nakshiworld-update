@@ -84,7 +84,7 @@ jobs:
         run: |
           set -euo pipefail
           GODOT="$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
-          for suite in record_photo record_gallery record_photo_motion; do
+          for suite in record_photo record_gallery record_photo_motion record_photo_giant; do
             XDG_DATA_HOME="$RUNNER_TEMP/isolated-$suite" timeout 90 "$GODOT" --headless --path "$RUNNER_TEMP/project" --script "tests/${suite}_verify.gd" > "evidence/${suite}.log" 2>&1
             grep -F 'failures=[]' "evidence/${suite}.log"
             if grep -E 'SCRIPT ERROR:|Parse Error:|Assertion failed|ERROR:' "evidence/${suite}.log"; then exit 1; fi
@@ -95,6 +95,9 @@ jobs:
           XDG_DATA_HOME="$RUNNER_TEMP/isolated-record-motion-native" timeout 180 xvfb-run -a "$GODOT" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/record_photo_motion_preview.gd -- "$GITHUB_WORKSPACE/evidence/record-motion" > evidence/record-motion-native.log 2>&1
           grep -F 'RECORD_PHOTO_MOTION_PREVIEW failures=[]' evidence/record-motion-native.log
           if grep -E 'SCRIPT ERROR:|Parse Error:|Assertion failed|ERROR:' evidence/record-motion-native.log; then exit 1; fi
+          XDG_DATA_HOME="$RUNNER_TEMP/isolated-record-giant-native" timeout 180 xvfb-run -a "$GODOT" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/record_photo_giant_preview.gd -- "$GITHUB_WORKSPACE/evidence/record-giant" > evidence/record-giant-native.log 2>&1
+          grep -F 'RECORD_PHOTO_GIANT_PREVIEW failures=[]' evidence/record-giant-native.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|Assertion failed|ERROR:' evidence/record-giant-native.log; then exit 1; fi
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -102,6 +105,9 @@ jobs:
           compression-level: 0
           path: |
             evidence/record-photo/
+            evidence/record-giant/
+            evidence/record_photo_giant.log
+            evidence/record-giant-native.log
             evidence/record-motion/
             evidence/record_photo_motion.log
             evidence/record-motion-native.log

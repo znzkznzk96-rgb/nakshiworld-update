@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "record_photo_giant_framing_approved",
+  "status": "record_photo_giant_native_pending",
   "release_baseline": "v1.32",
   "target_release": "v1.32",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
   "current_task": "대물 매트 초과 구도·카메라 후퇴 구현",
-  "next_step": "표시 전용 대물 크기/후퇴 구현→80종 외곽/실제화면 검사; 배포 금지",
+  "next_step": "대물 실제화면·고정출력·공통 inline text 전체 CI 확인; 배포 금지",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -1875,7 +1875,9 @@
     "motion_preview_library_file_id": "libfile_fde3_f-b2adbce4789c8191b42364d8d16c5dc8_d66dafb33acc81918ce203aeb3fcd18e",
     "giant_framing": {
       "authorized": true,
-      "implemented": false,
+      "implemented": true,
+      "native_verified": false,
+      "fit_vertices": 1814400,
       "deployed": false,
       "release_authorized": false
     }

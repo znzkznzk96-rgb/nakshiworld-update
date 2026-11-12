@@ -63,7 +63,7 @@ func fish_source(m, sp: int) -> Dictionary:
  result["glints"]=glints
  geometry_cache[sp]=result
  return result
-func measure(m, sp: int, f: Dictionary, stage: Rect2) -> Dictionary:
+func measure_regular(m, sp: int, f: Dictionary, stage: Rect2) -> Dictionary:
  var source:Dictionary=fish_source(m,sp)
  var src:Rect2=source.source
  var zero:=stage.position+stage.size*Vector2(.185,.593)
@@ -83,6 +83,38 @@ func measure(m, sp: int, f: Dictionary, stage: Rect2) -> Dictionary:
  var p:=Vector2(zero.x-float(source.body_start)*scale,stage.position.y+stage.size.y*.463-size.y*.5)
  var fish_rect:=Rect2(p,size)
  return {"zero":zero,"width":ruler_width,"range":limit,"body_px":width,"tail_x":zero.x+width,"fish_rect":fish_rect,"source":source}
+func giant_amount(f:Dictionary)->float:
+ if not valid_length(f):return 0.0
+ # Presentation-only continuous threshold; never changes catch size or balance.
+ return smoothstep(60.0,240.0,float(f.len))
+func measure(m,sp:int,f:Dictionary,stage:Rect2)->Dictionary:
+ var g:=measure_regular(m,sp,f,stage)
+ var amount:=giant_amount(f)
+ g["giant"]=amount
+ if amount<=0:return g
+ var src:Rect2=g.source.source
+ # Fit the complete source, including fins/tentacles, with room for the close intro.
+ var safe:=stage.size*Vector2(.79,.55)
+ var scale:=minf(safe.x/src.size.x,safe.y/src.size.y)
+ var big_size:=src.size*scale
+ var size:Vector2=g.fish_rect.size.lerp(big_size,amount)
+ var center:Vector2=g.fish_rect.get_center().lerp(stage.position+stage.size*Vector2(.5,.52),amount)
+ g.fish_rect=Rect2(center-size*.5,size)
+ # Oversized specimens deliberately occlude the printed mat. No false end witness.
+ g["tail_x"]=g.fish_rect.position.x+(float(g.source.body_start)+float(g.source.body_width))*size.x/src.size.x
+ return g
+func camera_zoom(f:Dictionary,t:float)->float:
+ var amount:=giant_amount(f)
+ var elapsed:=clampf(t,0,1) if t>=0 else 1.0
+ return 1.0+.10*amount*(1.0-smoothstep(0.0,1.0,elapsed))
+func camera_geometry(g:Dictionary,area:Rect2,zoom:float)->Dictionary:
+ var out:=g.duplicate()
+ var pivot:=area.position+area.size*Vector2(.5,.52)
+ out.fish_rect=Rect2(pivot+(g.fish_rect.position-pivot)*zoom,g.fish_rect.size*zoom)
+ out.zero=pivot+(g.zero-pivot)*zoom
+ out.width=g.width*zoom;out.body_px=g.body_px*zoom
+ out.tail_x=pivot.x+(g.tail_x-pivot.x)*zoom
+ return out
 func number(value: float) -> String:
  if is_equal_approx(value,roundf(value)):return str(int(roundf(value)))
  return ("%.2f"%value).rstrip("0").rstrip(".")
@@ -127,8 +159,8 @@ func ruler(m, g: Dictionary, moving:bool=false) -> void:
  var unit_font:Font=m.fonts[0]
  var unit_pos:Vector2=(origin+Vector2(width-7,-9)).round()
  m.text_items.append([unit_font,unit_pos,"cm",HORIZONTAL_ALIGNMENT_LEFT,20,8,MUTED,1.0])
- m._ui_rect(Rect2(Vector2(origin.x-1,g.fish_rect.position.y).round(),Vector2(1,g.fish_rect.size.y)),Color(.22,.36,.33,.38))
- if not moving:m._ui_line(Vector2(g.tail_x,origin.y-9),Vector2(g.tail_x,origin.y-1),Color("b56c36"),1)
+ if float(g.get("giant",0))<=0:m._ui_rect(Rect2(Vector2(origin.x-1,g.fish_rect.position.y).round(),Vector2(1,g.fish_rect.size.y)),Color(.22,.36,.33,.38))
+ if not moving and float(g.get("giant",0))<=0:m._ui_line(Vector2(g.tail_x,origin.y-9),Vector2(g.tail_x,origin.y-1),Color("b56c36"),1)
 func quad(m, texture: Texture2D, src: Rect2, r: Rect2, left: bool, color: Color) -> void:
  var ts:=texture.get_size()
  var uv:=PackedVector2Array([src.position/ts,Vector2(src.end.x,src.position.y)/ts,src.end/ts,Vector2(src.position.x,src.end.y)/ts])
@@ -138,11 +170,25 @@ func animation_time()->float:
  if busy:return -1.0
  return preview_time if preview_time>=0 else (Time.get_ticks_msec()-opened_at)/1000.0
 func draw_scene(m, area: Rect2, animated:bool=false) -> Dictionary:
- m._ui_texture_rect(STAGE,area)
  var t:=animation_time() if animated else -1.0
+ var zoom:=camera_zoom(specimen,t)
+ # A bounded source crop provides a true camera pullback without invented outpaint.
+ var src_size:=STAGE.get_size()/zoom
+ var src_origin:=STAGE.get_size()*Vector2(.5,.52)-src_size*Vector2(.5,.52)
+ m._ui_texture_rect_region(STAGE,area,Rect2(src_origin,src_size))
+ var g:=camera_geometry(measure(m,species,specimen,area),area,zoom)
+ # The mat and tackle share camera projection, retaining their comparison scale.
  motion.environment(m,area,t)
- var g:=measure(m,species,specimen,area)
+ var old_text_count:int=m.text_items.size()
  ruler(m,g,motion.strength(species,t)>.03)
+ var ruler_texts:Array=m.text_items.slice(old_text_count)
+ m.text_items.resize(old_text_count)
+ if float(g.giant)>0:
+  # text_layer paints text after geometry; convert printed glyphs to commands now
+  # so the foreground fish can genuinely cover numbers as well as tick marks.
+  for label in ruler_texts:
+   m.ui_commands.append(["inline_text",label])
+ else:m.text_items.append_array(ruler_texts)
  motion.moisture(m,species,g,t)
  motion.mesh(m,species,g,t,true)
  motion.mesh(m,species,g,t)
@@ -183,7 +229,7 @@ func draw(m,h: float) -> void:
  m._ui_rect(Rect2(camera+Vector2(3,-2),Vector2(5,2)),Color("fff0d1"))
  m._ui_circle(camera+Vector2(7,5),3,Color("fff0d1"),false,1)
  m._ui_style_box(m.sb_btn,boxes.close);m._text("닫기",boxes.close.get_center()+Vector2(0,4),11,INK,true,55)
- var note:=status if not status.is_empty() else ("움직이는 중 · 사진은 안정 자세로 저장" if motion.strength(species,animation_time())>.03 else "버튼 없이 기록 사진만 저장돼요")
+ var note:=status if not status.is_empty() else ("대물 · 실측 길이는 아래 기록에 표시돼요" if giant_amount(specimen)>0 else ("움직이는 중 · 사진은 안정 자세로 저장" if motion.strength(species,animation_time())>.03 else "버튼 없이 기록 사진만 저장돼요"))
  m._text(note,Vector2(135,boxes.panel.position.y+380),8,MUTED,true,228)
  rects={"save":boxes.save,"close":boxes.close,"x":close_box}
 func press(m,p: Vector2) -> void:

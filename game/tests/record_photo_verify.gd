@@ -19,8 +19,8 @@ func run():
   for length in [.5,8.9,27.6,129.1,999.0]:
    var g:Dictionary=photo.measure(m,sp,{"len":length},Rect2(0,0,270,270))
    check(g.range>=length,"ruler range covers fish")
-   check(absf((g.tail_x-g.zero.x)/g.width*g.range-length)<.0001,"tail aligns with actual length")
-   check(g.fish_rect.size.y<=270*.208+.01,"fins fit mat vertically")
+   if g.giant==0:check(absf((g.tail_x-g.zero.x)/g.width*g.range-length)<.0001,"tail aligns with actual length")
+   check(g.fish_rect.size.y<=270*(.55 if g.giant>0 else .208)+.01,"complete fins fit framing")
    check(g.fish_rect.position.x>=0 and g.fish_rect.end.x<=270,"original art not clipped")
    check(g.fish_rect.size.x>0 and g.fish_rect.size.y>0,"valid fish source")
    var labels:Array=photo.ruler_numbers(m,g)
