@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "v131_full_verification",
+  "status": "v131_verified_ready_to_publish",
   "release_baseline": "v1.30",
   "target_release": "v1.31",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/village-life131/HANDOFF.md",
   "current_task": "v1.31 주민/배/마을 전체 레이어 구현·최종검사",
-  "next_step": "자동 전체CI 성공 후 동일후보 공개",
+  "next_step": "PR69 병합·동일후보 공개·운영 다운로드 검증",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -1748,10 +1748,13 @@
     "motion_frames": 144,
     "paid_generations": 0,
     "deployed": false,
-    "full_ci_status": "in_progress",
+    "full_ci_status": "success",
     "source_commit": "594cd461f6c57e0dd0746e422d36f737cea240ef",
     "ci_run": 43200705509,
     "pr": 69,
-    "preview_library_file_id": "libfile_fde3_f-c985da51d59081919c710edff58d54c9_d66dafb33acc81918ce203aeb3fcd18e"
+    "preview_library_file_id": "libfile_fde3_f-c985da51d59081919c710edff58d54c9_d66dafb33acc81918ce203aeb3fcd18e",
+    "unique_success_labels": 140,
+    "candidate_artifact": 13935757539,
+    "input_fingerprint": "435a1c573d151c0bb0480b0e7afcaf249b5406c9df282a4d2be5e5d25d380106"
   }
 }
