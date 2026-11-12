@@ -80,8 +80,10 @@ func ruler_numbers(m,g:Dictionary) -> Array:
  var px:=8
  var width:float=g.width
  var divisions:=6
- var longest:=font.get_string_size(number(float(g.range)),HORIZONTAL_ALIGNMENT_LEFT,-1,px).x
- if width/divisions<longest+6:divisions=3
+ var longest:=0.0
+ for i in 7:
+  longest=maxf(longest,font.get_string_size(number(float(g.range)*i/6.0),HORIZONTAL_ALIGNMENT_LEFT,-1,px).x)
+ if width/divisions<longest+8:divisions=3
  var result:Array=[]
  for i in divisions+1:
   var text:=number(float(g.range)*i/divisions)
