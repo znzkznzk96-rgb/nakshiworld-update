@@ -2,11 +2,18 @@
   "provider": "PixelLab",
   "endpoint": "/v2/generate-ui-v2",
   "job_id": "668b7439-b59f-4f5d-b90b-f610206b4063",
+  "seed": 2026111311,
   "paid_posts": 1,
   "retries": 0,
   "request_limit": 1,
-  "status": "processing",
-  "actual_generations_charged": null,
+  "status": "completed_but_quality_failed_stop",
+  "api_outputs": 4,
+  "quantized_outputs": 4,
+  "api_duplicates_match": true,
+  "actual_generations_charged": 10,
+  "api_billing_usage": 10,
+  "quality": "frame completeness/clipping failed; not used in game",
   "game_applied": false,
-  "deployed": false
+  "deployed": false,
+  "fallback": "reuse existing game/art/ui_forest/primary.png as complete textured button; no solid rectangle overlay"
 }

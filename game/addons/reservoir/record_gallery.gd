@@ -43,7 +43,7 @@ func android_save(data: PackedByteArray, filename: String, wrapper, runtime) -> 
  if not success:
   resolver.delete(uri,null,null);checked(wrapper)
   return failure("사진을 저장하지 못했어요. 다시 시도해 주세요")
- return {"ok":true,"message":"갤러리에 저장했어요","uri":str(uri.toString())}
+ return {"ok":true,"message":"갤러리에 저장했어요"}
 func save(image: Image, filename: String, directory: String="") -> Dictionary:
  last_error=""
  if image==null or image.is_empty():return failure("사진을 만들지 못했어요")

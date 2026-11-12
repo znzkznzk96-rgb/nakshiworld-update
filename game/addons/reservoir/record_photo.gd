@@ -132,6 +132,8 @@ func ruler_numbers(m,g:Dictionary) -> Array:
   var text:=number(float(g.range)*i/divisions)
   var center:Vector2=g.zero+Vector2(width*i/divisions,10)
   var size:=font.get_string_size(text,HORIZONTAL_ALIGNMENT_LEFT,-1,px)
+  if i==0:center.x+=size.x*.5+1
+  elif i==divisions:center.x-=size.x*.5+1
   var baseline:=center.round()
   var bounds:=Rect2(Vector2(baseline.x-size.x*.5,baseline.y-font.get_ascent(px)),Vector2(size.x,font.get_ascent(px)+font.get_descent(px)))
   result.append({"text":text,"baseline":baseline,"bounds":bounds,"font":font,"px":px,"divisions":divisions})
@@ -148,7 +150,7 @@ func ruler(m, g: Dictionary, moving:bool=false) -> void:
  var labels:=ruler_numbers(m,g)
  var step:=30/int(labels[0].divisions)
  # Separate printed rows: ticks above the rule, small numbers on a clear strip below.
- m._ui_rect(Rect2(origin+Vector2(-5,1),Vector2(width+10,12)),Color(.96,.89,.73,.94))
+ m._ui_rect(Rect2(origin+Vector2(0,1),Vector2(width,12)),Color(.96,.89,.73,.94))
  m._ui_line(origin,origin+Vector2(width,0),Color("9d8054"),1)
  for tick in 31:
   var x:=origin.x+width*tick/30.0
@@ -219,11 +221,10 @@ func draw(m,h: float) -> void:
  var close_box:=Rect2(boxes.panel.end.x-31,boxes.panel.position.y+9,22,23)
  preload("res://addons/reservoir/close_control.gd").draw(m,close_box)
  caption(m,boxes.caption)
- m._ui_style_box(m.sb_btn,boxes.save)
- m._ui_rect(boxes.save.grow(-4),Color("08646b"))
- m._ui_rect(Rect2(boxes.save.position+Vector2(5,4),Vector2(boxes.save.size.x-10,1)),Color("48b6b2"))
+ # Use the complete existing carved/raised pixel button; never overpaint its face.
+ m._ui_style_box(m.sb_primary,boxes.save)
  var label:="저장 중…" if busy else "갤러리 저장"
- m._text(label,boxes.save.get_center()+Vector2(6,4),11,Color("fff0d1"),true,boxes.save.size.x-25)
+ m._text(label,boxes.save.get_center()+Vector2(6,4),11,Color("fff0d1"),true,boxes.save.size.x-25,true)
  var camera:Vector2=boxes.save.position+Vector2(12,10)
  m._ui_rect(Rect2(camera,Vector2(14,10)),Color("fff0d1"),false,1)
  m._ui_rect(Rect2(camera+Vector2(3,-2),Vector2(5,2)),Color("fff0d1"))
@@ -256,10 +257,20 @@ func create_image(m) -> Image:
  viewport.queue_free()
  return image
 func save_photo(m) -> void:
+ if busy:return
  busy=true;status="사진을 만들고 있어요";m.queue_redraw()
  var started_generation:=generation
  var filename:="NakshiWorld_%s_%s_%s.png"%[CATALOG.key(species),kind,str(Time.get_unix_time_from_system()).replace(".","_")]
  var image:Image=await create_image(m)
- var result:Dictionary=gallery.save(image,filename)
- if generation==started_generation:status=str(result.message)
- busy=false;m.queue_redraw()
+ complete_image(m,image,filename,started_generation)
+func complete_image(m,image:Image,filename:String,started_generation:int)->void:
+ # Native JNI errors can abort a GDScript call. Clear waiting state before the
+ # synchronous native boundary; no event can interleave while save() runs.
+ busy=false
+ if generation!=started_generation:return
+ status="저장 결과를 확인하지 못했어요. 다시 시도해 주세요"
+ m.queue_redraw()
+ var result=gallery.save(image,filename)
+ if generation==started_generation and result is Dictionary:
+  status=str(result.get("message","저장 결과를 확인하지 못했어요"))
+ m.queue_redraw()

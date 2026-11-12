@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "record_photo_title_followup_approved",
+  "status": "record_photo_title_followup_native_pending",
   "release_baseline": "v1.33",
   "target_release": "v1.33",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
   "current_task": "매트 숫자경계·저장완료 상태·버튼아트·초반6초모션·타이틀번개/시작동기 수정",
-  "next_step": "단일 버튼 아트 제작/관련 구현→재현검사·실제화면; 새배포 없음",
+  "next_step": "native 실제화면·6초모션·3번개/활성·실제PNG저장상태 및 전체CI 확인; 새배포 없음",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -1952,7 +1952,11 @@
       ],
       "start_enabled_seconds": 1.2,
       "button_job_id": "668b7439-b59f-4f5d-b90b-f610206b4063",
-      "button_paid_posts": 1
+      "button_paid_posts": 1,
+      "button_art_status": "PixelLab first quality failed; existing complete primary pixel texture reused without flat overpaint",
+      "actual_button_generations_charged": 10,
+      "button_extra_posts": 0,
+      "source_implemented": true
     }
   },
   "release133": {

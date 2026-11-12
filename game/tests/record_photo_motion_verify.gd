@@ -13,7 +13,7 @@ func run():
     for frame in 64:
      var t:=frame/12.0
      var d:Vector2=motion.offset(sp,p,t)
-     if not d.is_finite() or d.length()>4:failures.append("motion bounds")
+     if not d.is_finite() or d.length()>8.4:failures.append("motion bounds")
      # Screen-space orientation must never fold or tear a grid cell.
      if x<14:
       var next:Vector2=motion.offset(sp,p+Vector2(1.0/14,0),t)
@@ -29,7 +29,7 @@ func run():
   var response:Array=[]
   for i in 12:response.append(motion.offset(sp,Vector2(.8,.2),i*.07))
   signatures[str(response)]=true
-  if motion.strength(sp,3)!=0:failures.append("rest interval")
+  if motion.strength(sp,9)!=0:failures.append("rest interval")
  if signatures.size()!=6:failures.append("duplicate body motion")
  print("RECORD_PHOTO_MOTION_VERIFY failures=",failures," samples=",samples," profiles=",profiles.size())
  quit(0 if failures.is_empty() else 1)
