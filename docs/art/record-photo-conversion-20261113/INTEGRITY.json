@@ -1,0 +1,22 @@
+{
+  "date": "2026-11-13",
+  "authorization": "existing background selected and update/publication approved",
+  "path": "docs/art/record-photo-conversion-20261113/converted.png",
+  "remote_blob": "b1c0e8a09f9233b87932be60a33d6f8e2a344a52",
+  "remote_size": 75059,
+  "remote_sha256": "fcefef3bb1de2b6f5fb082d8d0c48bafd6d3e9463b2673c0d273441b4eecfc0c",
+  "remote_png_decode": "UnidentifiedImageError",
+  "local_api_size": 87197,
+  "local_api_sha256": "8100045939a012e51ae66633c46ea1ba08117831475857a699b147c75b71fd2b",
+  "local_api_git_blob": "2932eaf993ada4eeb93c79a06fb72ea7480780fb",
+  "observation": "Binary transfer through a token-limited text output did not preserve bytes. Earlier completion metadata did not constitute verified remote PNG integrity.",
+  "action": "Remove only unselected bad remote candidate from current tree; retain Git history and normal local/API/Library originals; no regeneration or pixel edits.",
+  "game_source_affected": false,
+  "selected_original": {
+    "path": "game/art/record_photo/measuring_scene.png",
+    "size": 1174801,
+    "git_blob": "7a7976ec96550ff5923f242caf25516b0d83f1d7",
+    "sha256": "3b2ff4f0810c4991904842fe54c5caa5cc4b9d17293ba4fdb74a3385910be8f0"
+  },
+  "paid_generation_calls_this_task": 0
+}

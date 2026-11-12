@@ -1,0 +1,19 @@
+{
+  "endpoint": "/v2/image-to-pixelart-pro",
+  "settings": {
+    "description": "Convert THIS EXISTING fishing-scene illustration into finished handcrafted pixel art. Preserve the exact composition, camera angle, object positions, scale, and original rich warm orange-brown earth and timber colors, dark teal mat trim, cream mat center and metallic tackle details. Retain the recognizable reel, pliers, woven landing net, striped folded towel, float box, wooden dock and rope post. Keep the center mat blank. Change rendering only: coherent visible pixel grid roughly 240 pixels across, deliberate connected pixel clusters, crisp selective outlines, clean shade ramps with 3-4 tones per material, retain fine readable object detail and highlights while replacing photographic grain and tiny random texture specks with purposeful pixel clusters. No scene redesign, no flat geometric diagram, no grayscale recoloring, no blur, no added fish, no text or numbers.",
+    "seed": 2026111310
+  },
+  "source": "game/art/record_photo/measuring_scene.png",
+  "source_size": [
+    720,
+    720
+  ],
+  "source_sha256": "3b2ff4f0810c4991904842fe54c5caa5cc4b9d17293ba4fdb74a3385910be8f0",
+  "source_bytes_sent_unchanged": true,
+  "output_size": "API auto detects native pixel scale; no forced palette or fabricated guide",
+  "request_limit": 1,
+  "retries": 0,
+  "game_applied": false,
+  "deployed": false
+}

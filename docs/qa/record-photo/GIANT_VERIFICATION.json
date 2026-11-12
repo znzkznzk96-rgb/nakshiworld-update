@@ -1,0 +1,91 @@
+{
+  "date": "2026-11-13",
+  "source_commit": "5582b587bf13dd0b47f37fcc4af5522af92602f0",
+  "deployed": false,
+  "release_authorized": false,
+  "fit_vertices": 1814400,
+  "species": 80,
+  "geometry_cases": 400,
+  "native_screens": 20,
+  "native_intro_frames": 36,
+  "stable_exports": 12,
+  "export_pixels_independent_of_time": true,
+  "legacy_unfabricated": true,
+  "records_unchanged": true,
+  "ci": {
+    "run": 43315657110,
+    "native_stage": "success",
+    "full_status": "success",
+    "unique_success_labels": 149,
+    "labels": "GIANT_CI_LABELS.json"
+  },
+  "previous_motion_full_ci": {
+    "run": 43312585808,
+    "status": "success"
+  },
+  "artifact": {
+    "id": 13987817977,
+    "size": 214626305,
+    "sha256": "af946976649a144cbbb5b0b1b673f4eb3577367e02eaac6c0b7b5a1d8c84726e"
+  },
+  "presentation": {
+    "threshold_cm": [
+      60,
+      240
+    ],
+    "camera_zoom": [
+      1.1,
+      1
+    ],
+    "camera_seconds": 1,
+    "giant_framing_max_scene_fraction": [
+      0.79,
+      0.55
+    ],
+    "whole_source_aspect_preserved": true,
+    "giant_can_occlude_ruler": true,
+    "exact_length_source": "existing record caption",
+    "no_zero_alignment_claim": true,
+    "tools": "same camera projection; no fish-size-driven independent enlargement"
+  },
+  "common_change": "ui_surface inline_text command to layer printed numeric glyphs under fish; existing commands unchanged",
+  "android_gallery_device_verified": false,
+  "phone_fps_verified": false,
+  "hashes": {
+    "record-photo/runtime/game/addons/reservoir/record_photo.gd": "22d8a9b4e09ffc112b8f869678621f7e663929a927fbc38842a22abf1e6d5ee5",
+    "record-photo/runtime/game/addons/reservoir/ui_surface.gd": "67cc7c260fe316b17c50af09685d4d7a62451917bcaf0fb83488feb81d06c64c",
+    "record-photo/record_photo_giant_camera.gif": "65fc4cae2bd9e076d2449d214e86a05c72537800edb71058f7252652d2c3cede",
+    "record-photo/record_photo_applied.png": "a078051a1682f1c4eda754f8f7ae9a6422d1a642ed9e9d9de34415a19972f8fa",
+    "record-photo/record_photo_giant_tall.png": "2d0b0861faca6e8fa2939385729058c8912402286a05f8a4039c6ed48f63e0bc"
+  },
+  "previews": {
+    "camera_library_file_id": "libfile_fde3_f-5cc51f63380c81919cef370889f17cf1_d66dafb33acc81918ce203aeb3fcd18e",
+    "applied_library_file_id": "libfile_fde3_f-0a9085bc87108191b4443a1ca46e7939_d66dafb33acc81918ce203aeb3fcd18e",
+    "applied_version": 3,
+    "tall_library_file_id": "libfile_fde3_f-f7a93d31f67c8191aa65ebea7b3086cc_d66dafb33acc81918ce203aeb3fcd18e"
+  },
+  "changed_files": [
+    ".github/workflows/verify-work.yml",
+    "WORK_STATE.json",
+    "game/addons/reservoir/record_photo.gd",
+    "game/addons/reservoir/ui_surface.gd",
+    "game/tests/record_photo_giant_preview.gd",
+    "game/tests/record_photo_giant_verify.gd",
+    "game/tests/record_photo_verify.gd"
+  ],
+  "artifacts": [
+    {
+      "id": 13988717462,
+      "name": "work-verification",
+      "size": 669649402,
+      "digest": "sha256:d2adca257f726a66a63e95654ce525d860af0bf3cf91545655e3f1f2e1a21991"
+    },
+    {
+      "id": 13987993628,
+      "name": "release-candidate-96e5fb2dbcd2cf6da6e21ba98e65220165502c1a396c4544b924cc0e39d15a2d",
+      "size": 132385185,
+      "digest": "sha256:a0f893a4548a75aad784b500df1232713f9ac7e70834f475327d4fdb618f8aec"
+    }
+  ],
+  "paid_generation_calls": 0
+}

@@ -32,7 +32,8 @@ static func close_top(m)->bool:
   else:e.effect_kind="";e.opened=""
   return true
  if m.personal_dex.opened:
-  if m.personal_dex.selected>=0:m.personal_dex.selected=-1
+  if m.personal_dex.photo.opened:m.personal_dex.photo.close()
+  elif m.personal_dex.selected>=0:m.personal_dex.selected=-1
   else:m.personal_dex.opened=false
   return true
  if not m.equipment.pending_sale.is_empty():m.equipment.pending_sale="";return true

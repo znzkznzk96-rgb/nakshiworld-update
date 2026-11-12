@@ -1,0 +1,62 @@
+{
+  "status": "conversion_candidate_ready_user_visual_review_pending",
+  "provider": "PixelLab",
+  "endpoint": "/v2/image-to-pixelart-pro",
+  "job_id": "fe78d882-5645-4e17-b1cc-387088ebe6c7",
+  "seed": 2026111310,
+  "paid_posts": 1,
+  "retries": 0,
+  "actual_generations_charged": 20.0,
+  "api_reported_billing_usage": {
+    "usd": 0.0,
+    "type": "generations",
+    "generations": 20
+  },
+  "billing_charged": true,
+  "source_size": [
+    720,
+    720
+  ],
+  "native_output_size": [
+    233,
+    227
+  ],
+  "native_3x_size": [
+    699,
+    681
+  ],
+  "native_aspect_ratio_changed_by_api": true,
+  "aspect_ratio_delta_percent": 2.6432,
+  "native_result_not_stretched": true,
+  "manual_pixel_retouch": false,
+  "output_unique_rgba_colors": 114,
+  "api_reported_pre_quantization_colors": 2316,
+  "api_reported_quantized_colors": 114,
+  "observations": {
+    "composition": "dock/post/water wedge/mat/tackle/rod/net/towel/pliers positions retained",
+    "color": "original warm earth/timber, teal border and cream center retained",
+    "detail": "reel/net/cloth/pliers remain recognizable; not a flat diagram",
+    "pixel_grid": "native 233x227 result and exact nearest3x; source texture reduced to visible clusters",
+    "blank_mat": "center remains empty for game ruler/fish",
+    "remaining_review": "Some mat/earth speckle remains; subjective finish requires user review. API aspect change requires framing decision before integration.",
+    "layers": "flattened conversion only, no separated editable layers produced"
+  },
+  "source_input": "game/art/record_photo/measuring_scene.png",
+  "source_sha256": "3b2ff4f0810c4991904842fe54c5caa5cc4b9d17293ba4fdb74a3385910be8f0",
+  "input_sent_unchanged": true,
+  "rejected_layout_or_failure_used_as_input": false,
+  "user_visual_approved": false,
+  "game_applied": false,
+  "deployed": false,
+  "hashes": {
+    "REQUEST_SPEC.json": "8a1533a1ef54db86548c5d28281fd3c3053a2d704dae3fd860c42d654c81eb2b",
+    "record_photo_pixel_converted.png": "8100045939a012e51ae66633c46ea1ba08117831475857a699b147c75b71fd2b",
+    "record_photo_pixel_converted_3x.png": "c0dbe0f3fbc28100d86745fbbb6878e4d26e31f398325f5b391c93faadd8923a",
+    "record_photo_pixel_before_after.png": "ff51bc8980c886ce38be4261e9eb40f71e07b5b6ad21bbeef09d425ec5a1877d"
+  },
+  "previews": {
+    "native_library_file_id": "libfile_fde3_f-b6c1da67de888191a76286ebfc3183a7_d66dafb33acc81918ce203aeb3fcd18e",
+    "zoom_library_file_id": "libfile_fde3_f-70dca848a7088191a32ac561e20596b8_d66dafb33acc81918ce203aeb3fcd18e",
+    "comparison_library_file_id": "libfile_fde3_f-d7af1c0b558881918b09059f85aa0bf3_d66dafb33acc81918ce203aeb3fcd18e"
+  }
+}

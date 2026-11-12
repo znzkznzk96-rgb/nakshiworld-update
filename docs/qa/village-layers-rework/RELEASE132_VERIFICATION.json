@@ -7,12 +7,62 @@
   "candidate_artifact": 13947636489,
   "input_fingerprint": "dfe8f299eb7e26dcd27bd45284b6457667714ad0eddc99e1c205a86e2a3bb8e8",
   "pr": 70,
-  "deployed": false,
+  "deployed": true,
   "phone_verified": false,
   "scope": [
     "village_layer_quality_rework",
     "bite_contact_and_bounded_preview"
   ],
   "related_visual_verification": "VERIFICATION.json",
-  "bite_verification": "../bite-contact/VERIFICATION.json"
+  "bite_verification": "../bite-contact/VERIFICATION.json",
+  "unique_success_labels": 142,
+  "publication_run": 43225642140,
+  "publication_attempts": 2,
+  "publication_status": "success",
+  "merge_commit": "ecdd2d352d39c31af48fe0d109a49156c2a5892a",
+  "public_verification_run": 43225939672,
+  "public_verification_status": "success",
+  "public_report": {
+    "version": {
+      "code": 132,
+      "name": "1.32"
+    },
+    "source_commit": "e8403921d6e5e61ac1d5395bc932dc5c42524dd6",
+    "assets": {
+      "version.json": {
+        "size": 199,
+        "sha256": "4cf823429ea6aaa93c6aacba193046ea9c3fc50572245aeada668bea14ef8fb7",
+        "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.32/version.json"
+      },
+      "patch.pck": {
+        "size": 62295712,
+        "sha256": "c295f67b331b5de6bfb7043a30afbc8059d051f094802d1a4c935a6d2999509f",
+        "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.32/patch.pck"
+      },
+      "game-source.zip": {
+        "size": 67854538,
+        "sha256": "eb3ea207c4a4791340f50871867a56735b4bb3a53b2ef306f64411f59792f861",
+        "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.32/game-source.zip"
+      }
+    },
+    "phone_verified": false,
+    "source_overlay_files_verified": 729,
+    "zip_crc_verified": true,
+    "public_assets_verified": true
+  },
+  "gateway_manifest": {
+    "code": 132,
+    "name": "1.32",
+    "source_commit": "e8403921d6e5e61ac1d5395bc932dc5c42524dd6",
+    "size": 62295712,
+    "sha256": "c295f67b331b5de6bfb7043a30afbc8059d051f094802d1a4c935a6d2999509f"
+  },
+  "gateway_download_verified": true,
+  "rebuild": false,
+  "publication_interruption": {
+    "attempt": 1,
+    "reason": "Created draft not found immediately after creation",
+    "draft_release_id": 442971453,
+    "resolution": "Confirmed same draft target/source and resumed same publication job; no game rebuild or retest"
+  }
 }

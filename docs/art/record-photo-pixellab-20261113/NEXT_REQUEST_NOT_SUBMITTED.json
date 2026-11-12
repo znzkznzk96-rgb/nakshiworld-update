@@ -1,0 +1,26 @@
+{
+  "status": "DISCARDED_wrong_direction_do_not_submit",
+  "endpoint": "/v2/create-image-pixflux-background",
+  "changes": [
+    "Remove init_image entirely to avoid copying flat structural guide",
+    "Use shorter scene description and medium material shading",
+    "Same 240x240 target and reviewed original reservoir colors"
+  ],
+  "request_settings": {
+    "description": "Finished handcrafted pixel-art fishing scene, 240x240, overhead. Warm orange-brown packed earth. Broad EMPTY cream measuring mat at center x18%-85%, y34%-64%, rolled teal left edge and teal stitched border. Readable wooden dock and timber post upper left, blue water at left edge. Olive open tackle box with two colorful floats upper right. Fishing rod and distinct metal spinning reel at right edge. Circular landing net lower left. Folded cream towel with teal stripe bottom center. Real recognizable metal pliers bottom right. Cohesive cozy reservoir game style: clean pixel clusters, three shades per material, rich warm timber, crisp metal highlights, one-pixel selective outlines, sparse purposeful detail. No fish, no UI, no text, no numbers, no photo texture, no noise, no blur. Natural shading and finished object details, not flat diagram shapes.",
+    "image_size": {
+      "width": 240,
+      "height": 240
+    },
+    "outline": "selective outline",
+    "shading": "medium shading",
+    "detail": "medium detail",
+    "view": "high top-down",
+    "no_background": false,
+    "text_guidance_scale": 8,
+    "seed": 2026111308
+  },
+  "color_image_file": "reservoir_palette.png",
+  "additional_post_limit_proposed": 1,
+  "superseded_by": "docs/art/record-photo-conversion-20261113/REQUEST_SPEC.json"
+}

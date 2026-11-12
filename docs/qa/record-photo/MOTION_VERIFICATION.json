@@ -1,0 +1,100 @@
+{
+  "date": "2026-11-13",
+  "source_commit": "d0a78f4ffa1de8e34b39dc1940f06f4d0fa66e48",
+  "branch": "work/tile-release-107",
+  "deployed": false,
+  "release_authorized": false,
+  "source_baseline": {
+    "release": "v1.32",
+    "sha256": "eb3ea207c4a4791340f50871867a56735b4bb3a53b2ef306f64411f59792f861"
+  },
+  "implementation": {
+    "scope": "read-only mat presentation; no paid generation or art-file edits",
+    "profiles": {
+      "fish": "all other current species",
+      "flat": [
+        51,
+        56,
+        71
+      ],
+      "ceph": [
+        64
+      ],
+      "jelly": [
+        47
+      ],
+      "long": [
+        3,
+        13,
+        16,
+        26,
+        53,
+        58,
+        70
+      ],
+      "round": [
+        45,
+        52,
+        72,
+        75
+      ]
+    },
+    "behavior": "1.15s intermittent activity / 5.2s cycle; original quad during rest/export; moving tail witness hidden",
+    "layers": [
+      "contact shadow",
+      "damp footprint",
+      "alpha-sampled surface glints",
+      "brief airborne droplets",
+      "exposed-water ripples",
+      "outer-soil foliage shade"
+    ],
+    "length_convention": "retain recorded values; no cephalopod mantle-length reinterpretation"
+  },
+  "verification": {
+    "godot": "4.4.1",
+    "geometry_cases": 400,
+    "motion_samples": 537600,
+    "motion_fit_vertices": 537600,
+    "species_fit": 80,
+    "native_frames": 288,
+    "native_profiles": 6,
+    "native_static_screens": 15,
+    "static_souvenir_exports": 4,
+    "cross_time_exports": 12,
+    "cross_time_pixel_equality": true,
+    "records_unchanged": true,
+    "script_errors": 0,
+    "android_gallery_device_verified": false
+  },
+  "ci": {
+    "run": 43312585808,
+    "native_stage": "success",
+    "full_status": "in_progress",
+    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/actions/runs/43312585808"
+  },
+  "artifact": {
+    "id": 13985339723,
+    "size": 185626576,
+    "sha256": "9c30d9aa1b107f05437dd9345ad037f4b8a5618554b19b1160c980c8f4ec7105"
+  },
+  "prior_refinement_ci": {
+    "run": 43308785637,
+    "status": "success"
+  },
+  "artifacts": {
+    "hashes": {
+      "record-photo/runtime/game/addons/reservoir/record_photo.gd": "ceead13f1c86220bac6ac67178f1f52ec60367361b5cf201317b13b6cad6de47",
+      "record-photo/runtime/game/addons/reservoir/record_photo_motion.gd": "e021117a434f864398225e667908095d4e4d5fe342a2a4fa5056b490b8e78a6e",
+      "record-photo/record_photo_body_motions.gif": "e3667d2ce945bc383910617610ebe3d560c45873436959edc74e08d047b81dc3",
+      "record-photo/record_photo_applied.png": "0d9d36912ccec52caefc18415dd6bab16c6bdd973dcc1516d4f78393679be823"
+    },
+    "motion_library_file_id": "libfile_fde3_f-b2adbce4789c8191b42364d8d16c5dc8_d66dafb33acc81918ce203aeb3fcd18e",
+    "preview_library_file_id": "libfile_fde3_f-0a9085bc87108191b4443a1ca46e7939_d66dafb33acc81918ce203aeb3fcd18e",
+    "preview_version": 2
+  },
+  "limitations": [
+    "Desktop compatibility renderer verified; Android gallery real-device write and frame rate untested",
+    "No publication or phone update",
+    "Existing approved fight/swim atlases unchanged"
+  ]
+}

@@ -2,6 +2,15 @@ extends RefCounted
 static func paint(n: Node2D, commands: Array) -> void :
 	for c in commands:
 		match c[0]:
+			"inline_text":
+				var it:Array=c[1]
+				var raster:=maxf(1.0,n.get_viewport_transform().get_scale().x)
+				var pos:Vector2=(it[1]*raster).round()/raster
+				var scale:float=it[7]
+				var px:=maxi(1,roundi(it[5]*scale*raster))
+				n.draw_set_transform(pos,0,Vector2.ONE/raster)
+				n.draw_multiline_string(it[0],Vector2.ZERO,it[2],it[3],it[4]*scale*raster,px,-1,it[6])
+				n.draw_set_transform(Vector2.ZERO)
 			"transform": n.draw_set_transform(c[1], 0, c[2])
 			"reset_transform": n.draw_set_transform(Vector2.ZERO)
 			"rotated_texture":

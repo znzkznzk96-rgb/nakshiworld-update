@@ -1,0 +1,77 @@
+{
+  "date": "2026-11-13",
+  "baseline_release": "v1.32",
+  "source_commit": "4fbeec4fc376719d4bb93c74ec4ff1df12e47cf4",
+  "ci_run": 43301499283,
+  "related_suites": [
+    "record_photo",
+    "record_gallery_mock",
+    "personal_dex",
+    "android_back"
+  ],
+  "geometry_cases": 400,
+  "related_passed": 4,
+  "deployed": false,
+  "release_authorized": false,
+  "save_schema_changed": false,
+  "record_data_modified": false,
+  "gallery": {
+    "implementation": "AndroidRuntime + JavaClassWrapper + MediaStore (Android10+), own new PNG only",
+    "native_device_verified": false,
+    "desktop_png_write_verified": true,
+    "failed_write_cleanup_mock_verified": true
+  },
+  "asset": {
+    "path": "game/art/record_photo/measuring_scene.png",
+    "sha256": "3b2ff4f0810c4991904842fe54c5caa5cc4b9d17293ba4fdb74a3385910be8f0",
+    "git_blob": "7a7976ec96550ff5923f242caf25516b0d83f1d7",
+    "original_sha256": "9fe10b27edff2c22fe34b562f1d43bf5f70038efb8693e3ab583a397218105bc"
+  },
+  "native_visual_status": "reviewed_actual_Godot_render_matches_approved_design",
+  "full_ci_status": "success",
+  "unique_success_labels": 145,
+  "full_ci_run": 43301499283,
+  "native_screens": 15,
+  "native_heights": [
+    480,
+    540,
+    660
+  ],
+  "native_species_examples": [
+    0,
+    40,
+    60,
+    79
+  ],
+  "souvenir_exports": 4,
+  "souvenir_size": [
+    1080,
+    1380
+  ],
+  "native_artifact": 13980409338,
+  "native_artifact_sha256": "7deca2512fef10a77a5a4dc3d2bc6359a746a4f832d8e8032dab8850d2155abb",
+  "native_fixture_note": "Isolated QA catches only, not real user catches. Original fish art reused; backgrounds generated once from approved concept.",
+  "candidate_artifact": 13982407430,
+  "candidate_fingerprint": "d87ccef33fe12c23a5554491f305b4b27860129abb7d78be3086f749144f3e17",
+  "candidate_note": "Internal version1.32 verification only; NOT an approved publication candidate. No merge/main/release or public version bump.",
+  "gallery_device_verified": false,
+  "saved_previews": [
+    {
+      "library_file_id": "libfile_fde3_f-0a9085bc87108191b4443a1ca46e7939_d66dafb33acc81918ce203aeb3fcd18e",
+      "file_name": "record_photo_applied.png",
+      "size": 1353378,
+      "sha256": "bfe2659e094fcb9019a145fbe7904bfbf8ac90c1aa610923fb087cd18f6fe9af"
+    },
+    {
+      "library_file_id": "libfile_fde3_f-3a47595fe5308191a560a9a7d15dc7aa_d66dafb33acc81918ce203aeb3fcd18e",
+      "file_name": "record_photo_saved_example.png",
+      "size": 1526381,
+      "sha256": "824d9d71e0643e8af92ebc78f89a84f1e06aa1ca0f0ca5d380329937d207f8a6"
+    }
+  ],
+  "api_sources": [
+    "https://github.com/godotengine/godot/blob/4.4.1-stable/platform/android/api/api.cpp",
+    "https://github.com/godotengine/godot/blob/4.4.1-stable/platform/android/java/lib/src/org/godotengine/godot/plugin/AndroidRuntimePlugin.kt",
+    "https://developer.android.com/training/data-storage/shared/media"
+  ]
+}
