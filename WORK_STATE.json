@@ -1,17 +1,17 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "record_photo_native_verification_running",
+  "status": "record_photo_full_verified_undeployed",
   "release_baseline": "v1.32",
   "target_release": "v1.32",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "도감 기록 계측 매트·기념사진·갤러리 저장 구현",
-  "next_step": "승인 디자인 자산 준비→기록별 실제개체 연결→사진/저장검증",
+  "current_task": "도감 계측 사진 실제 적용·전체 검증 완료(미배포)",
+  "next_step": "사용자 실제 적용 시안 검토; Android 갤러리 실기 저장은 미검증; 배포 명시금지",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
-  "verification": "docs/qa/village-layers-rework/RELEASE132_VERIFICATION.json",
+  "verification": "docs/qa/record-photo/VERIFICATION.json",
   "baseline_phone_verified": false,
   "environment_recovery": "docs/CODEX_NETWORK_RECOVERY.md",
   "background_verified_branch": "work/tile-png-stage2-20261107",
@@ -1837,6 +1837,15 @@
     "ci_run": 43301499283,
     "related_suites_passed": 4,
     "geometry_cases": 400,
-    "android_gallery_device_verified": false
+    "android_gallery_device_verified": false,
+    "implemented": true,
+    "full_ci_status": "success",
+    "unique_success_labels": 145,
+    "native_screens": 15,
+    "souvenir_exports": 4,
+    "candidate_artifact": 13982407430,
+    "preview_library_file_id": "libfile_fde3_f-0a9085bc87108191b4443a1ca46e7939_d66dafb33acc81918ce203aeb3fcd18e",
+    "export_library_file_id": "libfile_fde3_f-3a47595fe5308191a560a9a7d15dc7aa_d66dafb33acc81918ce203aeb3fcd18e",
+    "gallery_device_verified": false
   }
 }

@@ -6,7 +6,8 @@
     "requests": 1,
     "source_file": "exec-fa132d7f-fe7a-40ac-8078-964f4d4cdaf1.png",
     "actual_charge": null,
-    "charge_note": "not exposed by built-in tool"
+    "charge_note": "not exposed by built-in tool",
+    "original_sha256": "9fe10b27edff2c22fe34b562f1d43bf5f70038efb8693e3ab583a397218105bc"
   },
   "game_asset": {
     "path": "game/art/record_photo/measuring_scene.png",
@@ -19,8 +20,14 @@
       1254
     ],
     "resize": "nearest, no blur",
-    "git_blob": "7a7976ec96550ff5923f242caf25516b0d83f1d7"
+    "git_blob": "7a7976ec96550ff5923f242caf25516b0d83f1d7",
+    "sha256": "3b2ff4f0810c4991904842fe54c5caa5cc4b9d17293ba4fdb74a3385910be8f0"
   },
   "fish_art": "unchanged approved game originals; no fish generation",
-  "render_strategy": "mat background art + actual species source texture + dynamically calculated cm ticks; UI-free SubViewport photo"
+  "render_strategy": "mat background art + actual species source texture + dynamically calculated cm ticks; UI-free SubViewport photo",
+  "review": {
+    "status": "reviewed_in_actual_game",
+    "screens": 15,
+    "fish_art_unchanged": true
+  }
 }
