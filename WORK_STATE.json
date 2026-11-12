@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "record_photo_release133_verifying",
+  "status": "record_photo_release133_verified_ready_to_publish",
   "release_baseline": "v1.32",
   "target_release": "v1.33",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
   "current_task": "기존 계측 배경 기반 기록 사진/모션/대물 v1.33 준비·배포",
-  "next_step": "CI43327087587 성공/동일 후보 확인 후 main merge로 승인된 공개 진행",
+  "next_step": "승인된PR main병합→동일후보 공개→공개3파일/운영다운로드검증",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -1834,7 +1834,7 @@
     "preview_required": "actual_Godot_render",
     "gallery_target": "Android gallery; verify available native path without claiming untested device success",
     "source_commit": "5582b587bf13dd0b47f37fcc4af5522af92602f0",
-    "ci_run": 43315657110,
+    "ci_run": 43327087587,
     "related_suites_passed": 4,
     "geometry_cases": 400,
     "android_gallery_device_verified": false,
@@ -1947,6 +1947,10 @@
     "background_sha256": "3b2ff4f0810c4991904842fe54c5caa5cc4b9d17293ba4fdb74a3385910be8f0",
     "source_commit": "97ef8895dd8c7dba18c99a4f3b43a78c9f4ca664",
     "ci_run": 43327087587,
-    "ci_status": "in_progress"
+    "ci_status": "success",
+    "unique_success_labels": 149,
+    "candidate_artifact": 13993379197,
+    "input_fingerprint": "ce3b9f03405421ac1f87830d03b64eabdca17aed40170d91738cddd614fc4c86",
+    "verification": "docs/qa/record-photo/RELEASE133_VERIFICATION.json"
   }
 }

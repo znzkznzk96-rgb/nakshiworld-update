@@ -1,0 +1,40 @@
+{
+  "date": "2026-11-13",
+  "version": "1.33",
+  "source_commit": "97ef8895dd8c7dba18c99a4f3b43a78c9f4ca664",
+  "ci_run": 43327087587,
+  "ci_status": "success",
+  "unique_success_labels": 149,
+  "candidate_artifact": 13993379197,
+  "input_fingerprint": "ce3b9f03405421ac1f87830d03b64eabdca17aed40170d91738cddd614fc4c86",
+  "deployed": false,
+  "phone_verified": false,
+  "android_gallery_device_verified": false,
+  "selected_background": {
+    "path": "game/art/record_photo/measuring_scene.png",
+    "sha256": "3b2ff4f0810c4991904842fe54c5caa5cc4b9d17293ba4fdb74a3385910be8f0",
+    "original_packed_pixels_identical": true
+  },
+  "converted_candidates_included": false,
+  "source_overlay_files_verified": 740,
+  "source_zip_crc_verified": true,
+  "packed_record_photo_smoke": "passed",
+  "files": {
+    "patch.pck": {
+      "size": 63334272,
+      "sha256": "32148ab10b430c26d23546dc322b3815e3db64ddb3b898235be5662b50b254a0"
+    },
+    "game-source.zip": {
+      "size": 69050947,
+      "sha256": "e73393a4fd98401bb68a5e04cdd17867ef9c9815dbf23a3e7e503b7f61e2906c"
+    },
+    "version.json": {
+      "size": 199,
+      "sha256": "477a214a1b679b2979c6a23aed68c52a5c117e65920a721fb59327f4090f5205"
+    }
+  },
+  "rebuild": false,
+  "publication_status": "authorized_ready",
+  "public_verification_status": "pending",
+  "paid_requests_this_task": 0
+}
