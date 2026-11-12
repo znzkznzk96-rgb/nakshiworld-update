@@ -55,7 +55,7 @@ func fish_source(m, sp: int) -> Dictionary:
 func measure(m, sp: int, f: Dictionary, stage: Rect2) -> Dictionary:
  var source:Dictionary=fish_source(m,sp)
  var src:Rect2=source.source
- var zero:=stage.position+stage.size*Vector2(.185,.624)
+ var zero:=stage.position+stage.size*Vector2(.185,.593)
  var ruler_width:=stage.size.x*.655
  var max_height:=stage.size.y*.208
  var length:=float(f.get("len",0.0)) if valid_length(f) else 0.0
@@ -69,25 +69,51 @@ func measure(m, sp: int, f: Dictionary, stage: Rect2) -> Dictionary:
  else:width=minf(width,max_height*float(source.body_width)/src.size.y)
  var scale:=width/float(source.body_width)
  var size:=src.size*scale
- var p:=Vector2(zero.x-float(source.body_start)*scale,stage.position.y+stage.size.y*.477-size.y*.5)
+ var p:=Vector2(zero.x-float(source.body_start)*scale,stage.position.y+stage.size.y*.463-size.y*.5)
  var fish_rect:=Rect2(p,size)
  return {"zero":zero,"width":ruler_width,"range":limit,"body_px":width,"tail_x":zero.x+width,"fish_rect":fish_rect,"source":source}
 func number(value: float) -> String:
  if is_equal_approx(value,roundf(value)):return str(int(roundf(value)))
  return ("%.2f"%value).rstrip("0").rstrip(".")
+func ruler_numbers(m,g:Dictionary) -> Array:
+ var font:Font=m.fonts[0]
+ var px:=8
+ var width:float=g.width
+ var divisions:=6
+ var longest:=font.get_string_size(number(float(g.range)),HORIZONTAL_ALIGNMENT_LEFT,-1,px).x
+ if width/divisions<longest+6:divisions=3
+ var result:Array=[]
+ for i in divisions+1:
+  var text:=number(float(g.range)*i/divisions)
+  var center:Vector2=g.zero+Vector2(width*i/divisions,10)
+  var size:=font.get_string_size(text,HORIZONTAL_ALIGNMENT_LEFT,-1,px)
+  var baseline:=center.round()
+  var bounds:=Rect2(Vector2(baseline.x-size.x*.5,baseline.y-font.get_ascent(px)),Vector2(size.x,font.get_ascent(px)+font.get_descent(px)))
+  result.append({"text":text,"baseline":baseline,"bounds":bounds,"font":font,"px":px,"divisions":divisions})
+ return result
+func ruler_text(m,label:Dictionary) -> void:
+ # Exact numeric font size and baseline: bypass the common UI's 10px minimum.
+ var width:float=maxf(24,label.bounds.size.x+2)
+ m.text_items.append([label.font,label.baseline-Vector2(width*.5,0),label.text,HORIZONTAL_ALIGNMENT_CENTER,width,label.px,INK,1.0])
 func ruler(m, g: Dictionary) -> void:
  if float(g.range)<=0:
-  m._text("길이 미기록",g.zero+Vector2(float(g.width)*.5,1),8,MUTED,true,float(g.width));return
+  m._text("길이 미기록",g.zero+Vector2(float(g.width)*.5,3),8,MUTED,true,float(g.width));return
  var origin:Vector2=g.zero
  var width:float=g.width
+ var labels:=ruler_numbers(m,g)
+ var step:=30/int(labels[0].divisions)
+ # Separate printed rows: ticks above the rule, small numbers on a clear strip below.
+ m._ui_rect(Rect2(origin+Vector2(-5,1),Vector2(width+10,12)),Color(.96,.89,.73,.94))
+ m._ui_line(origin,origin+Vector2(width,0),Color("9d8054"),1)
  for tick in 31:
   var x:=origin.x+width*tick/30.0
-  var major:=tick%5==0
+  var major:=tick%step==0
   var hh:=5.0 if major else (3.0 if tick%5==2 else 2.0)
   m._ui_rect(Rect2(Vector2(x,origin.y-hh).round(),Vector2(1,hh)),INK)
-  if major:m._text(number(float(g.range)*tick/30.0),Vector2(x,origin.y+7),6,INK,true,23)
- m._text("cm",origin+Vector2(width+7,6),6,MUTED,true,15)
- # A narrow measuring end-stop and a tail witness line make the measurement readable.
+ for label in labels:ruler_text(m,label)
+ var unit_font:Font=m.fonts[0]
+ var unit_pos:Vector2=(origin+Vector2(width-7,-9)).round()
+ m.text_items.append([unit_font,unit_pos,"cm",HORIZONTAL_ALIGNMENT_LEFT,20,8,MUTED,1.0])
  m._ui_rect(Rect2(Vector2(origin.x-1,g.fish_rect.position.y).round(),Vector2(1,g.fish_rect.size.y)),Color(.22,.36,.33,.38))
  m._ui_line(Vector2(g.tail_x,origin.y-9),Vector2(g.tail_x,origin.y-1),Color("b56c36"),1)
 func quad(m, texture: Texture2D, src: Rect2, r: Rect2, left: bool, color: Color) -> void:
@@ -115,18 +141,18 @@ func caption(m, area: Rect2, exported: bool=false) -> void:
  m._text(values.region+" · "+values.date,Vector2(cx,area.position.y+50),8,MUTED,true,area.size.x-16)
  if exported:m._text("낚시월드",Vector2(area.end.x-32,area.end.y-9),8,Color("08646b"),true,56)
 func layout(h: float) -> Dictionary:
- var height:=minf(452,h-24)
+ var height:=minf(412,h-24)
  var panel:=Rect2(8,floorf((h-height)/2),254,height)
- var image_size:=238.0
- return {"panel":panel,"scene":Rect2(panel.position+Vector2(8,49),Vector2(image_size,image_size)),"caption":Rect2(panel.position+Vector2(8,293),Vector2(238,62)),"save":Rect2(panel.position+Vector2(12,366),Vector2(156,32)),"close":Rect2(panel.position+Vector2(175,366),Vector2(67,32))}
+ var image_size:=240.0
+ return {"panel":panel,"scene":Rect2(panel.position+Vector2(7,7),Vector2(image_size,image_size)),"caption":Rect2(panel.position+Vector2(8,253),Vector2(238,62)),"save":Rect2(panel.position+Vector2(12,326),Vector2(156,32)),"close":Rect2(panel.position+Vector2(175,326),Vector2(67,32))}
 func draw(m,h: float) -> void:
  var boxes:=layout(h)
  m._ui_rect(Rect2(-m.ox,0,270+2*m.ox,h),Color(.025,.06,.08,.92))
  m._ui_style_box(m.sb_panel,boxes.panel)
+ draw_scene(m,boxes.scene)
  preload("res://addons/reservoir/ui_theme.gd").title(m,boxes.panel,"나의 최고 기록")
  var close_box:=Rect2(boxes.panel.end.x-31,boxes.panel.position.y+9,22,23)
  preload("res://addons/reservoir/close_control.gd").draw(m,close_box)
- draw_scene(m,boxes.scene)
  caption(m,boxes.caption)
  m._ui_style_box(m.sb_btn,boxes.save)
  m._ui_rect(boxes.save.grow(-4),Color("08646b"))
@@ -139,7 +165,7 @@ func draw(m,h: float) -> void:
  m._ui_circle(camera+Vector2(7,5),3,Color("fff0d1"),false,1)
  m._ui_style_box(m.sb_btn,boxes.close);m._text("닫기",boxes.close.get_center()+Vector2(0,4),11,INK,true,55)
  var note:=status if not status.is_empty() else "버튼 없이 기록 사진만 저장돼요"
- m._text(note,Vector2(135,boxes.panel.position.y+420),8,MUTED,true,228)
+ m._text(note,Vector2(135,boxes.panel.position.y+380),8,MUTED,true,228)
  rects={"save":boxes.save,"close":boxes.close,"x":close_box}
 func press(m,p: Vector2) -> void:
  if rects.get("close",Rect2()).has_point(p) or rects.get("x",Rect2()).has_point(p):close();return

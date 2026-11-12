@@ -23,11 +23,19 @@ func run():
    check(g.fish_rect.size.y<=270*.208+.01,"fins fit mat vertically")
    check(g.fish_rect.position.x>=0 and g.fish_rect.end.x<=270,"original art not clipped")
    check(g.fish_rect.size.x>0 and g.fish_rect.size.y>0,"valid fish source")
+   var labels:Array=photo.ruler_numbers(m,g)
+   for index in labels.size():
+    var box:Rect2=labels[index].bounds
+    check(box.position.y>=g.zero.y+1.5,"numeric glyphs clear of tick row")
+    check(box.end.y<=270*.65,"numeric glyphs stay inside mat")
+    if index>0:check(not labels[index-1].bounds.grow(1).intersects(box.grow(1)),"neighboring ruler numbers do not overlap")
  for h in [480,540,660]:
   var boxes:Dictionary=photo.layout(h)
   for key in ["scene","caption","save","close"]:
    check(boxes.panel.encloses(boxes[key]),"phone layout fits "+key)
   check(not boxes.save.intersects(boxes.close),"save close do not overlap")
+  check(boxes.scene.position.y==boxes.panel.position.y+7,"art extends behind header without cream gap")
+  check(boxes.scene.end.y+4<=boxes.caption.position.y,"image and caption spacing remains clean")
  d.open(m);d.selected=0;d.draw(m,540)
  d.press(m,d.rects.records[1][0].get_center());check(photo.opened and photo.kind=="length","record row touch opens correct photo")
  preload("res://addons/reservoir/back_navigation.gd").close_top(m)
