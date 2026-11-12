@@ -92,3 +92,36 @@ static func bridge(m, o: Vector2) -> void:
 		m.draw_rect(Rect2(pos,Vector2(6,2)),Color("d8c7a6"))
 static func front(_n: Node2D) -> void :
 	pass
+
+
+const BOARDING_OFFSET := 55.0
+
+static func boarding_y(x: float) -> float:
+	return 62.0 - 4.0 * clampi(floori((x-161.0)/6.0)+1,0,10)
+
+static func boarding(m, o: Vector2, docked: bool) -> void:
+	o.x += BOARDING_OFFSET
+	var wood:=Color("835035")
+	var edge:=Color("453029")
+	var lit:=Color("dca46a")
+	# Lower landing alongside the bow, with a short removable boarding plank.
+	for x in [151,175,199,217]:
+		var y:=boarding_y(x)
+		m.draw_rect(Rect2(o+Vector2(x,y+3),Vector2(5,75-y)),edge)
+		m.draw_rect(Rect2(o+Vector2(x+1,y+4),Vector2(2,72-y)),wood)
+	for x in range(146,221):
+		var y:=boarding_y(x)
+		m.draw_rect(Rect2(o+Vector2(x,y),Vector2(1,6)),edge)
+		m.draw_rect(Rect2(o+Vector2(x,y+1),Vector2(1,3)),wood)
+		m.draw_rect(Rect2(o+Vector2(x,y),Vector2(1,1)),lit)
+	for x in [157,181,205,219]:
+		var y:=boarding_y(x)
+		m.draw_rect(Rect2(o+Vector2(x,y-9),Vector2(3,9)),wood)
+		m.draw_rect(Rect2(o+Vector2(x-1,y-10),Vector2(5,2)),lit)
+	for pair in [[157,181],[181,205],[205,219]]:
+		var a:=Vector2(pair[0]+1,boarding_y(pair[0])-8)
+		var b:=Vector2(pair[1]+1,boarding_y(pair[1])-8)
+		m.draw_line(o+a,o+b,edge,2)
+	if docked:
+		m.draw_rect(Rect2(o+Vector2(135,62),Vector2(18,3)),wood)
+		m.draw_rect(Rect2(o+Vector2(135,62),Vector2(18,1)),lit)
