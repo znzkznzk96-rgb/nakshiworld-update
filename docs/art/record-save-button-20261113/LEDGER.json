@@ -1,0 +1,12 @@
+{
+  "provider": "PixelLab",
+  "endpoint": "/v2/generate-ui-v2",
+  "job_id": "668b7439-b59f-4f5d-b90b-f610206b4063",
+  "paid_posts": 1,
+  "retries": 0,
+  "request_limit": 1,
+  "status": "processing",
+  "actual_generations_charged": null,
+  "game_applied": false,
+  "deployed": false
+}

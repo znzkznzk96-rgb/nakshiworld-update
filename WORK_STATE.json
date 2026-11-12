@@ -1950,7 +1950,9 @@
         0.75,
         1.2
       ],
-      "start_enabled_seconds": 1.2
+      "start_enabled_seconds": 1.2,
+      "button_job_id": "668b7439-b59f-4f5d-b90b-f610206b4063",
+      "button_paid_posts": 1
     }
   },
   "release133": {
