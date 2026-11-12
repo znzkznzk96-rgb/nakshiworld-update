@@ -1,6 +1,7 @@
 extends RefCounted
 
 const BOARDING_OFFSET := 55.0
+const STREET_FOOT_Y := 12.0
 const LAND_START := 288
 const LAND_TILE_WIDTH := 360
 const TIMBER := preload("res://art/town/timber_quay.png")

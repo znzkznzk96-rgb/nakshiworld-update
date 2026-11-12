@@ -6,12 +6,12 @@
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/harbor-mail/HANDOFF.md",
-  "current_task": "물가 그라데이션·부두 접합·건물 접지 개선",
-  "next_step": "개선 화면 사용자 검토 및 새 자동 CI 결과 확인",
+  "current_task": "마을 가로등·벤치·화단 흙길 접지 정정",
+  "next_step": "가로등 정정 화면 검토 및 최신 자동 CI 확인",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
-  "verification": "docs/qa/harbor-mail/CONTACT_REFINEMENT.json",
+  "verification": "docs/qa/harbor-mail/STREET_CONTACT.json",
   "baseline_phone_verified": false,
   "environment_recovery": "docs/CODEX_NETWORK_RECOVERY.md",
   "background_verified_branch": "work/tile-png-stage2-20261107",
@@ -1706,5 +1706,13 @@
     "preview_library_file_id": "libfile_fde3_f-d538dfebcc9081919b593b69932a6bae_d66dafb33acc81918ce203aeb3fcd18e",
     "ci_run": 43189445294,
     "ci_source_commit": "e78c54b9b07f89e0cbbeb94316a599a888ab7be7"
+  },
+  "street_contact": {
+    "corrected": true,
+    "foot_y": 12,
+    "native_screens": 8,
+    "related_suites_passed": 2,
+    "deployed": false,
+    "preview_library_file_id": "libfile_fde3_f-b729521ffbb88191bf747f53cf347e25_d66dafb33acc81918ce203aeb3fcd18e"
   }
 }

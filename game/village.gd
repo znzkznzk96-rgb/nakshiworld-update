@@ -317,12 +317,14 @@ func draw(m, h: float) -> void :
 				m.draw_texture(art.smoke, pos.round(), Color(0.85, 0.89, 0.88, (1 - age) * 0.28))
 	for x in [520.0, 1148.0, 1370.0]:
 		if _visible(x, 40):
-			_sprite(m, "lamp", o + Vector2(x, 48))
+			var foot: Vector2 = o + Vector2(x, ground.STREET_FOOT_Y)
+			m.draw_rect(Rect2(foot + Vector2(-4, -1), Vector2(8, 2)), Color(0.18, 0.14, 0.09, 0.28))
+			_sprite(m, "lamp", foot)
 	for x in [695.0, 1355.0]:
-		if _visible(x, 50): _sprite(m, "bench", o + Vector2(x, 52))
+		if _visible(x, 50): _sprite(m, "bench", o + Vector2(x, ground.STREET_FOOT_Y))
 	for n in mini(m.pond_cap_lv,6):
 		var x: float = 400 + n * 245
-		if _visible(x, 35): _sprite(m, "hedge", o + Vector2(x, 64), 38)
+		if _visible(x, 35): _sprite(m, "hedge", o + Vector2(x, ground.STREET_FOOT_Y), 38)
 
 	for r in res + locals:
 		visitors.sync(self, m, r, o)

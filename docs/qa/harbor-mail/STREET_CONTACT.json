@@ -1,0 +1,77 @@
+{
+  "date": "2026-11-12",
+  "godot": "4.4.1",
+  "correction": "Street props retained pre-shore anchors; move lamp48/bench52/hedge64 to shared street foot12, inside dirt path. Add small lamp contact shadow. Deck22, ferry alignment, terrain, building and save unchanged.",
+  "native_screens": [
+    {
+      "file": "village-0.png",
+      "size": [
+        810,
+        1980
+      ],
+      "sha256": "e7ccef68b1c119a6e4f7d5396ba90c3598337c33a90a8004197ae6b0f3ce031d"
+    },
+    {
+      "file": "village-1080.png",
+      "size": [
+        810,
+        1980
+      ],
+      "sha256": "34987e7643e295460d8ec618b056c5d2ce3ec9e0590ff54d413ef5b68b14ab82"
+    },
+    {
+      "file": "village-1350.png",
+      "size": [
+        810,
+        1980
+      ],
+      "sha256": "ad7fc57b7cd80ad16e88a42a202eeaf7d022fcce9b6a3eaca4cc4239af81b57d"
+    },
+    {
+      "file": "village-1360.png",
+      "size": [
+        810,
+        1980
+      ],
+      "sha256": "588c2a63991b0fb1ef3ae00f98f5b382fbf1ecb47ac07433caf6bb86d01b92f1"
+    },
+    {
+      "file": "village-180.png",
+      "size": [
+        810,
+        1980
+      ],
+      "sha256": "3b9b77025e93f7db4ddd98d64ed1d329075b7d68e67af500283c2337f65c7494"
+    },
+    {
+      "file": "village-270.png",
+      "size": [
+        810,
+        1980
+      ],
+      "sha256": "8526602f1ed3bded4b0fd7ffc6bcef14b02e94f1e54112703368d1ee88a9e643"
+    },
+    {
+      "file": "village-540.png",
+      "size": [
+        810,
+        1980
+      ],
+      "sha256": "f69b04078d257f9e8233a4ba9886a1d56f3523b75555721a6c8e8a34635bd1a2"
+    },
+    {
+      "file": "village-810.png",
+      "size": [
+        810,
+        1980
+      ],
+      "sha256": "5fdbc7a1e1f586e84743eb7dae6131a2942053892b04dfe9a77d908be2a4fd83"
+    }
+  ],
+  "related_checks": {
+    "village_reward_notice": "Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org\n\nVILLAGE_REWARD_NOTICE_VERIFY failures=[] sign_cases=315\n",
+    "village_entry_audio": "Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org\n\nVILLAGE_ENTRY_AUDIO_VERIFY failures=[]\n"
+  },
+  "deployed": false,
+  "preview_library_file_id": "libfile_fde3_f-b729521ffbb88191bf747f53cf347e25_d66dafb33acc81918ce203aeb3fcd18e"
+}
