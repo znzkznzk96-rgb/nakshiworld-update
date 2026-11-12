@@ -1,17 +1,17 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "v130_publishing",
-  "release_baseline": "v1.29",
+  "status": "v130_published_verified",
+  "release_baseline": "v1.30",
   "target_release": "v1.30",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/harbor-mail/HANDOFF.md",
-  "current_task": "v1.30 가로등/깃발 제거·마을 개선 최종 검사",
-  "next_step": "배포43193902028 완료 및 후속 운영 다운로드 검증 확인",
+  "current_task": "v1.30 마을 개선·가로등 제거·우편 표시 공개 및 운영 검증 완료",
+  "next_step": "휴대폰 앱 재실행 후 v1.30 마을과 우편 표시 확인",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
-  "verification": "docs/qa/harbor-mail/STREET_CONTACT.json",
+  "verification": "docs/qa/harbor-mail/RELEASE130_VERIFICATION.json",
   "baseline_phone_verified": false,
   "environment_recovery": "docs/CODEX_NETWORK_RECOVERY.md",
   "background_verified_branch": "work/tile-png-stage2-20261107",
@@ -23,10 +23,10 @@
   "screen_evidence_commit": "04fa33a116915c0b7a7ca86ee235a24a4cf4d4d2",
   "screen_verification_run": 42315352676,
   "full_source_verified": {
-    "release": "v1.29",
-    "size": 67464964,
-    "sha256": "fbf3e0f84c2b89fd12321ccfe381fea5eac106133393115d8e31fa1e0d54374d",
-    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.29/game-source.zip"
+    "release": "v1.30",
+    "size": 67840909,
+    "sha256": "631a240334ec6ba97812bce5d655471a640bb77f3554d5fa24cff5cca489eb28",
+    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.30/game-source.zip"
   },
   "fish_verification_run": 42317071546,
   "automatic_full_regression_run": 42317071379,
@@ -35,9 +35,9 @@
   "bundle_verification_run": 42319985467,
   "bundle_evidence_commit": "dd8297cc9de9a5423091b61e06f166ee22023de4",
   "headless_regression_coverage": {
-    "run": 43113397494,
+    "run": 43191618115,
     "status": "passed",
-    "scope": "full verification-work workflow, native and packed checks;138 success labels"
+    "scope": "full workflow, native and packed checks;138 unique success labels"
   },
   "standard_full_workflow_success": true,
   "remaining_global_render_checks": false,
@@ -45,21 +45,21 @@
     "date": "2026-11-12",
     "release": "v1.30",
     "user_request": "가로등·붙은 깃발 제거, 벤치·화단 유지 후 업데이트 및 배포",
-    "fulfilled": false
+    "fulfilled": true
   },
   "release_preflight": "docs/qa/soldier-size/VERIFICATION.json",
-  "release_source_commit": "2889c4fedab19b9c72fa6a67d8f0fc78fa83ebad",
-  "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v1.29",
-  "release_build_run": 43132913094,
+  "release_source_commit": "58f154633ef876e8c6ee1306059cb625314b4fd2",
+  "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v1.30",
+  "release_build_run": 43193902028,
   "release_build_status": "success",
-  "public_verification_run": 43133074088,
+  "public_verification_run": 43194245560,
   "public_verification_status": "success",
   "public_patch": {
-    "size": 61916544,
-    "sha256": "4c80ce43d4a454e2b9a55f895e6c0c2343720632b3b44ba099bf265b18b16df5",
-    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.29/patch.pck"
+    "size": 62254768,
+    "sha256": "f57e9dfe3ff967e2b3c59aaf8fd00f211ea85f4004b2c9e4d8d791330e154598",
+    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.30/patch.pck"
   },
-  "standard_full_workflow_note": "v1.27 전체CI138성공라벨/native/PCK·동일후보 공개·3파일/실제앱주소/Range206 검증완료",
+  "standard_full_workflow_note": "v1.30 전체138성공라벨/native/PCK·동일후보 공개·3파일/전체소스721파일/앱다운로드/Range206검증완료",
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md#2026-11-07--소규모-작업-효율채팅-중단-대비",
   "approved_followup": "우편 단일원본·공통지급·검사통합 구현/검증 완료. 공개v1.08 유지, 새 배포 미승인.",
   "session_continuity": {
@@ -92,7 +92,7 @@
     "headless_passed": 73,
     "headless_total": 73
   },
-  "release_verification_run": 43133074088,
+  "release_verification_run": 43194245560,
   "prior_build_issue": {
     "run": 42384973558,
     "cause": "packed mail check hardcoded1.08; prepublication assertion",
@@ -118,7 +118,7 @@
     "production_balance_changed": false,
     "phone_tested": false
   },
-  "release_authorized": true,
+  "release_authorized": false,
   "balance110": {
     "applied": true,
     "deployed": true,
@@ -1688,7 +1688,7 @@
     "source_commit": "54121b8364a5eba93bb61c3106b3a89961b11871",
     "related_suites_passed": 5,
     "native_screens": 8,
-    "deployed": false,
+    "deployed": true,
     "release_authorized": false,
     "ci_status": "success",
     "preview_library_file_id": "libfile_fde3_f-afb17a97354881919070cec423a5c2a7_d66dafb33acc81918ce203aeb3fcd18e",
@@ -1700,19 +1700,20 @@
     "related_suites_passed": 4,
     "native_screens": 8,
     "original_pngs_unchanged": true,
-    "deployed": false,
+    "deployed": true,
     "release_authorized": false,
     "ci_status": "in_progress",
     "preview_library_file_id": "libfile_fde3_f-d538dfebcc9081919b593b69932a6bae_d66dafb33acc81918ce203aeb3fcd18e",
     "ci_run": 43189445294,
-    "ci_source_commit": "e78c54b9b07f89e0cbbeb94316a599a888ab7be7"
+    "ci_source_commit": "e78c54b9b07f89e0cbbeb94316a599a888ab7be7",
+    "lamps_flags_removed": true
   },
   "street_contact": {
     "corrected": true,
     "foot_y": 12,
     "native_screens": 8,
     "related_suites_passed": 2,
-    "deployed": false,
+    "deployed": true,
     "preview_library_file_id": "libfile_fde3_f-b729521ffbb88191bf747f53cf347e25_d66dafb33acc81918ce203aeb3fcd18e",
     "ci_run": 43190512066,
     "ci_status": "queued",
@@ -1720,7 +1721,7 @@
   },
   "release130": {
     "authorized": true,
-    "deployed": false,
+    "deployed": true,
     "version": "1.30",
     "verification": "success",
     "ci_run": 43191618115,
@@ -1731,6 +1732,11 @@
     "input_fingerprint": "ed9df5eec070148842c64deebd8883e5f12e4bdcb2c410a3069f3d47798cdbdc",
     "unique_success_labels": 138,
     "publication_run": 43193902028,
-    "merge_commit": "e4cea616b41a78263f34ef4f22d6b649486db783"
+    "merge_commit": "e4cea616b41a78263f34ef4f22d6b649486db783",
+    "phone_verified": false,
+    "public_verification_run": 43194245560,
+    "public_verification": "success",
+    "release_authorized": false,
+    "publication_attempts": 2
   }
 }
