@@ -14,7 +14,7 @@ const BUILD: = [
 	["마을 회관", "hall", Rect2(1190, -145, 140, 145), Vector2(1260, -157)], 
 	["어류 박물관", "museum", Rect2(1410, -128, 128, 128), Vector2(1474, -140)]
 ]
-const CHIEF_POS: = Vector2(1270, 27)
+const CHIEF_POS: = Vector2(1270, 14)
 const CHIEF_TALK: = ["배가 주민들을 태워 오고 있다네.", "회관에서 어장을 관리해 보게!", "수족관에 물고기를 전시하면 수입이 늘지."]
 const GREET: = {"up": "장비와 미끼를 챙겨요!", "bait": "오늘은 어떤 미끼를 쓸까요?", "aqua": "우리 물고기를 보러 와요!", "museum": "만난 물고기를 기록해요!", "work": "판매와 손질을 맡겨요!", "harbor": "더 큰 배로 손님을 맞아요!", "hall": "어장을 키워 더 오래 낚시해요!", "forge": "낚싯대를 고르고 강화해요!"}
 const KEEPER: = {"up": "k_up", "bait": "k_bait", "aqua": "k_aqua", "museum": "k_museum", "work": "k_work", "harbor": "k_work", "hall": "chief", "forge": "k_up"}
@@ -45,6 +45,7 @@ var res: = []
 var locals: = []
 var foreground: Node2D
 var ground: = preload("res://addons/reservoir/town_ground.gd").new()
+var life := preload("res://addons/reservoir/village_life.gd").new()
 var visitors: = preload("res://addons/reservoir/visitors.gd").new()
 var chief_say: = ""
 var chief_t: = -10.0
@@ -227,7 +228,10 @@ func _sprite(m, n: String, p: Vector2, w: float = -1.0) -> void :
 	var rect: = Rect2((p - Vector2(sz.x / 2, sz.y)).round(), sz.round())
 	if n == "chief":
 		for delta in [Vector2.LEFT, Vector2.RIGHT, Vector2.UP, Vector2.DOWN]: m.draw_texture_rect(t, Rect2(rect.position + delta, rect.size), false, Color("080706"))
-	m.draw_texture_rect(t, rect, false)
+	if n in ["tree", "hedge"]:
+		life.foliage(m, t, rect, town_time, p.x * 0.031)
+	else:
+		m.draw_texture_rect(t, rect, false)
 
 func draw(m, h: float) -> void :
 	var o = map_origin(m, h)
@@ -258,6 +262,8 @@ func draw(m, h: float) -> void :
 		var near_drift: float = sin(t * (0.42 + row * 0.02) + row) * 1.4
 		m.draw_texture(art.water_near, Vector2(roundf( - camera_x * 0.22 - 90 + near_drift), roundf(shore) + 110 + row * 46), Color(0.7, 0.9, 0.96, 0.48))
 
+	life.water_back(m, self, forest, shore, t)
+	life.water_front(m, self, o, h, t)
 	for i in 3:
 		var tx: Texture2D = art[["cloud_wisp", "cloud_cumulus", "cloud_far"][i]]
 		var xx: float = fposmod(i * 173 + t * (1.2 + i * 0.45) - camera_x * 0.07, 550) - 180
@@ -274,23 +280,19 @@ func draw(m, h: float) -> void :
 		m.draw_line(Vector2(bx, by + 2), Vector2(bx + 4, by), Color("344b50"), 1)
 
 	ground.draw(m, self, o)
+	life.shore_contact(m, self, o, t)
 	m.draw_texture_rect_region(art.terminal, Rect2((o + Vector2(0,-113)).round(),Vector2(220,134)), Rect2(0,0,220,134))
 	
 	var ferry_art := preload("res://art/town/passenger_ferry.png")
 	var berth_x: float = 136.0 + ground.BOARDING_OFFSET - 185.0
 	var ferry_left := lerpf(-float(ferry_art.get_width())-8, berth_x, clampf(ferry_clock/6.0,0,1))
 	if ferry_clock>15: ferry_left=berth_x-(ferry_clock-15)*24
-	var ferry_top := ground.deck_y(berth_x) - 50.0 + roundf(sin(t*1.8)*1.2)
-	ground.wet_texture(m, ferry_art, Rect2((o + Vector2(ferry_left, ferry_top)).round(), ferry_art.get_size()), Rect2(Vector2.ZERO, ferry_art.get_size()), 9)
+	var ferry_top := ground.deck_y(berth_x) - 50.0 + roundf(sin(t * TAU / 4.8) * 1.0)
 	var ferry_x := ferry_left + ferry_art.get_width()*0.5
 	var keel_y := ferry_top + ferry_art.get_height()
-	
-	for i in 3:
-		var radius: float = 9 + fposmod(t * 6 + i * 9, 24)
-		m.draw_arc(o + Vector2(ferry_x, keel_y), radius, 0, PI, 12, Color(0.72, 0.93, 0.89, 0.18), 1)
-	for i in 5:
-		var x: float = o.x + 18 + i * 43
-		m.draw_line(Vector2(x - 5, o.y + 42 + sin(t * 1.5 + i)), Vector2(x + 7, o.y + 42 + sin(t * 1.5 + i)), Color(0.72, 0.92, 0.86, 0.3), 1)
+	life.hull(m, o + Vector2(ferry_left, 0), ferry_art.get_width(), keel_y, t)
+	ground.wet_texture(m, ferry_art, Rect2((o + Vector2(ferry_left, ferry_top)).round(), ferry_art.get_size()), Rect2(Vector2.ZERO, ferry_art.get_size()), 4)
+	life.hull_water(m, o + Vector2(ferry_left, 0), ferry_art.get_width(), keel_y, t)
 	for x in [370.0, 885.0, 1370.0, 1575.0]:
 		if _visible(x, 65):
 			m.draw_rect(Rect2(o + Vector2(x - 9, 1), Vector2(18, 3)), Color(0.1, 0.16, 0.12, 0.3))
@@ -304,6 +306,7 @@ func draw(m, h: float) -> void :
 		var building_base: Vector2 = o + Vector2(b[2].get_center().x, 0)
 		ground.building_contact(m, tex[arts[i]], building_base)
 		_sprite(m, arts[i], building_base + Vector2(0, 3))
+		life.building_life(m, arts[i], building_base, t)
 		var c: Vector2 = o + b[3]
 		var w: float = maxf(54, m._text_w(b[0], 10) + 16)
 		if o.y + (c.y - o.y) * zoom > m.top_y + 157:
@@ -311,8 +314,8 @@ func draw(m, h: float) -> void :
 			m._text(b[0], c + Vector2(0, 3), 10, Color("fff0d1"), true, w - 8)
 
 		if i == 2:
-			for n in 2:
-				var age: float = fposmod(t * 0.16 + n * 0.5, 1.0)
+			for n in 3:
+				var age: float = fposmod(t * 0.14 + n / 3.0, 1.0)
 				var pos: Vector2 = o + Vector2(b[2].get_center().x + sin(t * 0.4 + n) * 5, - b[2].size.y - 25 - age * 24)
 				m.draw_texture(art.smoke, pos.round(), Color(0.85, 0.89, 0.88, (1 - age) * 0.28))
 	for x in [695.0, 1355.0]:
@@ -331,6 +334,7 @@ func draw(m, h: float) -> void :
 			m._text("+%d 비늘" % r.reward, reward_pos, 9, Color("ffe07a"), true, 82, true)
 	if _visible(CHIEF_POS.x, 24):
 		_sprite(m, "chief", o + CHIEF_POS)
+	life.foreground(m, self, o, t)
 
 	if _visible(100, 120):
 		var c: Vector2 = o + Vector2(95, -122)
@@ -717,4 +721,4 @@ func _act(m, a: String) -> void :
 
 
 func visitor_y(r: Dictionary) -> float:
-	return _walk_y(r.x)
+	return lerpf(_walk_y(r.x), 14.0, smoothstep(310.0, 370.0, r.x))
