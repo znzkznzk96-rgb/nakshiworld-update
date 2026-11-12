@@ -1,44 +1,67 @@
 extends RefCounted
 
 # Decorative motion only. No global random calls or persistent/gameplay state.
-static func water_back(m, v, forest: Texture2D, shore: float, t: float) -> void:
-	var left := -fposmod(v.camera_x * 0.32, 400.0)
-	# Broken, vertically reflected forest strips; the open water remains readable.
-	for row in 14:
-		var sway := roundf(sin(t * 0.55 + row * 0.7) * (1.0 + row * 0.09))
-		for copy in range(-1, 3):
-			m.draw_texture_rect_region(forest, Rect2(left + copy * 400 + sway, shore + row * 2, 400, 2),
-				Rect2(0, forest.get_height() - 1 - row, 400, 1), Color(0.20, 0.48, 0.47, 0.16 * (1.0 - row / 14.0)))
-	for i in 16:
-		var x := fposmod(i * 53.0 - v.camera_x * 0.22 + t * 1.4, 370.0) - 50
-		var y := shore + 7 + (i % 5) * 7
-		m.draw_rect(Rect2(Vector2(x, y).round(), Vector2(8 + i % 8, 1)), Color(0.61, 0.87, 0.86, 0.09))
+# Pixel stepped wavelets: shadow trough, teal shoulder, broken pale crest.
+# Positions use world coordinates so camera movement cannot make ripples swim.
+static func crest(m, p: Vector2, width: float, strength: float, phase: float) -> void:
+	var count := maxi(3, int(width / 4.0))
+	for j in count:
+		var u := float(j) / maxf(1, count - 1)
+		var y := roundf(sin(u * PI) * 2.0 + sin(phase + u * 3.0) * 0.6)
+		var q := (p + Vector2(j * 4, y)).round()
+		var fade := strength * (0.35 + 0.65 * sin(u * PI))
+		m.draw_rect(Rect2(q + Vector2(0, 2), Vector2(4, 2)), Color(0.03, 0.35, 0.46, fade * 0.38))
+		m.draw_rect(Rect2(q + Vector2(0, 1), Vector2(4, 1)), Color(0.27, 0.73, 0.77, fade * 0.70))
+		if j % 5 != 3:
+			m.draw_rect(Rect2(q, Vector2(3, 1)), Color(0.72, 0.92, 0.85, fade))
+
+static func ripple(m, center: Vector2, radius: float, alpha: float, phase: float) -> void:
+	# Sparse elliptical arcs, never a solid outline or a full white ring.
+	for side in 2:
+		for j in 9:
+			var a := PI * (0.08 + j * 0.105) + side * PI
+			if (j + int(phase)) % 7 == 0: continue
+			var p := (center + Vector2(cos(a) * radius, sin(a) * radius * 0.24)).round()
+			m.draw_rect(Rect2(p + Vector2(0, 1), Vector2(3, 1)), Color(0.05, 0.39, 0.48, alpha * 0.45))
+			m.draw_rect(Rect2(p, Vector2(2 + j % 2, 1)), Color(0.64, 0.88, 0.81, alpha))
+
+static func water_back(m, v, _forest: Texture2D, shore: float, t: float) -> void:
+	# Distant glints are smaller, slower and dimmer than the foreground swells.
+	for i in 14:
+		var x := fposmod(i * 73.0 - v.camera_x * 0.22 + t * 1.8, 430.0) - 65
+		var y := shore + 9 + (i % 5) * 8
+		var pulse := 0.5 + 0.5 * sin(t * 0.6 + i * 2.3)
+		crest(m, Vector2(x, y), 10 + i % 7, 0.12 + pulse * 0.12, t + i)
 
 static func water_front(m, v, o: Vector2, h: float, t: float) -> void:
-	for i in 22:
-		var x := fposmod(i * 61.0 - v.camera_x * 0.44 + t * (2.3 + i % 3), 430.0) - 80
-		var y := o.y + 83 + (i % 7) * maxf(12, (h - o.y - 150) / 7)
-		var pulse := pow(maxf(0, sin(t * 0.65 + i * 2.1)), 10)
-		m.draw_rect(Rect2(Vector2(x, y).round(), Vector2(9 + i % 11, 1)), Color(0.68, 0.91, 0.88, 0.05 + pulse * 0.17))
-		if pulse > 0.7:
-			m.draw_rect(Rect2(Vector2(x + 4, y - 1).round(), Vector2(1, 3)), Color(0.90, 1.0, 0.91, (pulse - 0.7) * 0.65))
+	var rows := maxi(3, int((h - o.y - 74) / 26))
+	for row in rows:
+		var depth := float(row + 1) / rows
+		for col in 4:
+			var i := row * 4 + col
+			var speed := 2.6 + depth * 3.4
+			var x := fposmod(col * 103.0 + row * 39.0 - v.camera_x * 0.44 + t * speed, 430.0) - 65
+			var y := o.y + 79 + row * 26 + sin(t * 0.7 + i * 1.7) * 1.5
+			var cycle := 0.5 + 0.5 * sin(t * 0.75 + i * 2.7)
+			crest(m, Vector2(x, y), 17 + i % 4 * 5 + depth * 9, (0.19 + depth * 0.10) * (0.45 + cycle * 0.55), t * 0.6 + i)
 
 static func shore_contact(m, v, o: Vector2, t: float) -> void:
-	for i in 65:
-		var x := i * 25.0 + 8
-		if not v._visible(x, 30): continue
-		var phase := t * 0.9 + i * 1.73
-		var y := 53.0 + sin(i * 1.2) * 3 + sin(phase) * 1.4
-		var amount := 0.10 + maxf(0, sin(phase)) * 0.12
-		m.draw_rect(Rect2((o + Vector2(x, y)).round(), Vector2(9 + i % 9, 1)), Color(0.66, 0.88, 0.82, amount))
-		m.draw_rect(Rect2((o + Vector2(x + 2, y + 2)).round(), Vector2(5 + i % 6, 1)), Color(0.17, 0.52, 0.57, amount * 0.7))
-	# Ripples follow the actual dock piles rather than a full-width foam border.
+	# Broken surge patches track the wet rock foot, leaving dry stone untouched.
+	for i in 46:
+		var x := 348.0 + i * 28.0
+		if not v._visible(x, 38): continue
+		var age := fposmod(t * 0.19 + i * 0.381966, 1.0)
+		var envelope := sin(age * PI)
+		var y := 57.0 + sin(i * 1.73) * 2.0 - envelope * 2.0
+		crest(m, o + Vector2(x - age * 3, y), 12 + i % 4 * 4, envelope * 0.48, i + age)
+		if i % 3 == 0:
+			crest(m, o + Vector2(x + 5, y + 5 + age * 2), 10 + age * 8, envelope * 0.18, i)
+	# Two staggered spreading wakes around each pile, anchored to its wet foot.
 	for x in [54.0, 153.0, 252.0]:
-		if not v._visible(x, 30): continue
+		if not v._visible(x, 34): continue
 		for band in 2:
 			var age := fposmod(t * 0.24 + x * 0.01 + band * 0.5, 1.0)
-			var width := 6.0 + age * 13.0
-			m.draw_line((o + Vector2(x - width, 62 + band * 2)).round(), (o + Vector2(x + width, 62 + band * 2)).round(), Color(0.67, 0.91, 0.87, (1.0 - age) * 0.17), 1)
+			ripple(m, o + Vector2(x, 59), 5 + age * 21, sin(age * PI) * 0.42, x + band)
 
 static func hull(m, origin: Vector2, width: float, keel: float, t: float) -> void:
 	for row in 5:
@@ -55,14 +78,15 @@ static func hull(m, origin: Vector2, width: float, keel: float, t: float) -> voi
 		m.draw_rect(Rect2((origin + Vector2(inset, keel - 7 + row)).round(), Vector2(width - inset * 2, 1)), color)
 
 static func hull_water(m, origin: Vector2, width: float, keel: float, t: float) -> void:
-	for i in 11:
-		var x := 17.0 + i * (width - 34.0) / 11.0
-		var y := keel + 6.0 + roundf(sin(t * 1.1 + i * 0.8))
-		var alpha := 0.16 + maxf(0, sin(t * 0.8 + i)) * 0.18
-		m.draw_rect(Rect2((origin + Vector2(x, y)).round(), Vector2(8 + i % 4, 1)), Color(0.75, 0.94, 0.86, alpha))
-	for end in [13.0, width - 21.0]:
-		var age := fposmod(t * 0.23 + end * 0.03, 1.0)
-		m.draw_rect(Rect2((origin + Vector2(end - age * 8, keel + 10 + age * 3)).round(), Vector2(9 + age * 8, 1)), Color(0.69, 0.92, 0.85, (1.0 - age) * 0.23))
+	# Water hugs the visible hull in short interrupted swells rather than a cut line.
+	for i in 7:
+		var phase := t * 0.9 + i * 1.8
+		var x := 12 + i * (width - 34) / 7
+		crest(m, origin + Vector2(x, keel + 5 + sin(phase)), 15 + i % 3 * 4, 0.32 + sin(phase) * 0.12, phase)
+	for end in [14.0, width - 16.0]:
+		for band in 2:
+			var age := fposmod(t * 0.22 + band * 0.5 + end * 0.003, 1.0)
+			ripple(m, origin + Vector2(end, keel + 7), 7 + age * 22, sin(age * PI) * 0.35, end)
 
 static func foliage(m, texture: Texture2D, target: Rect2, t: float, phase: float) -> void:
 	var canopy := floorf(target.size.y * 0.75)

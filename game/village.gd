@@ -251,9 +251,7 @@ func draw(m, h: float) -> void :
 	var ridge: Texture2D = art.mountains
 	m.draw_texture(ridge, Vector2(roundf( - camera_x * 0.18 - 100), roundf(shore - 80)), Color(0.87, 0.95, 0.98, 1))
 	var forest: Texture2D = art.forest
-	var forest_x: float = - fposmod(camera_x * 0.32, 400)
-	for copy in range(-1, 3):
-		m.draw_texture(forest, Vector2(roundf(forest_x + copy * 400), roundf(shore - 79)), Color(0.79, 0.91, 0.89, 0.38))
+	# Ridge already includes a tree silhouette; no duplicate forest overlay.
 	var water: Texture2D = art.water
 	m.draw_rect(Rect2( - m.ox, shore, m.VW + 2 * m.ox, h - shore), Color("228fac"))
 	var drift: float = sin(t * 0.36) * 1.7
