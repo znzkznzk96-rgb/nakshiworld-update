@@ -196,7 +196,11 @@ func process(m, dt: float) -> void :
 		arrived = true;arrival_count = mini(capacity(m), passengers(m));arrival_clock = town_time
 		var free: = maxi(0, capacity(m) - res.size())
 		for i in mini(arrival_count, free):
-			res.append(visitors.create(m, i))
+			var passenger:Dictionary = visitors.create(m,i)
+			passenger.x=136.0+ground.BOARDING_OFFSET
+			passenger.lane=0.0
+			passenger.from_ferry=true
+			res.append(passenger)
 	if ferry_clock > interval(m): ferry_clock = 0;arrived = false
 	var keep = []
 	for r in res:
@@ -270,14 +274,20 @@ func draw(m, h: float) -> void :
 		m.draw_line(Vector2(bx, by + 2), Vector2(bx + 4, by), Color("344b50"), 1)
 
 	ground.draw(m, self, o)
-	m.draw_texture(art.terminal, (o + Vector2(0, -113)).round())
-	m.draw_texture(art.bridge, (o + Vector2(220, -6)).round())
-	var ferry_x: = lerpf(-110, 95, clampf(ferry_clock / 6.0, 0, 1))
-	if ferry_clock > 15: ferry_x = 95 - (ferry_clock - 15) * 24
-	_sprite(m, "boat", o + Vector2(ferry_x, 78 + roundf(sin(t * 1.8) * 1.2)), 122 + mini(m.boat_lv,6) * 20.0 / 6.0)
+	m.draw_texture_rect_region(art.terminal, Rect2((o + Vector2(0,-113)).round(),Vector2(220,134)), Rect2(0,0,220,134))
+	
+	var ferry_art := preload("res://art/town/passenger_ferry.png")
+	var berth_x: float = 136.0 + ground.BOARDING_OFFSET - 185.0
+	var ferry_left := lerpf(-float(ferry_art.get_width())-8, berth_x, clampf(ferry_clock/6.0,0,1))
+	if ferry_clock>15: ferry_left=berth_x-(ferry_clock-15)*24
+	var ferry_top := ground.deck_y(berth_x) - 50.0 + roundf(sin(t*1.8)*1.2)
+	ground.wet_texture(m, ferry_art, Rect2((o + Vector2(ferry_left, ferry_top)).round(), ferry_art.get_size()), Rect2(Vector2.ZERO, ferry_art.get_size()), 9)
+	var ferry_x := ferry_left + ferry_art.get_width()*0.5
+	var keel_y := ferry_top + ferry_art.get_height()
+	
 	for i in 3:
 		var radius: float = 9 + fposmod(t * 6 + i * 9, 24)
-		m.draw_arc(o + Vector2(ferry_x, 78), radius, 0, PI, 12, Color(0.72, 0.93, 0.89, 0.18), 1)
+		m.draw_arc(o + Vector2(ferry_x, keel_y), radius, 0, PI, 12, Color(0.72, 0.93, 0.89, 0.18), 1)
 	for i in 5:
 		var x: float = o.x + 18 + i * 43
 		m.draw_line(Vector2(x - 5, o.y + 42 + sin(t * 1.5 + i)), Vector2(x + 7, o.y + 42 + sin(t * 1.5 + i)), Color(0.72, 0.92, 0.86, 0.3), 1)
@@ -291,7 +301,9 @@ func draw(m, h: float) -> void :
 	for i in 6:
 		var b = BUILD[i + 1]
 		if not _visible(b[2].get_center().x, b[2].size.x / 2 + 30): continue
-		_sprite(m, arts[i], o + Vector2(b[2].get_center().x, 0))
+		var building_base: Vector2 = o + Vector2(b[2].get_center().x, 0)
+		ground.building_contact(m, tex[arts[i]], building_base)
+		_sprite(m, arts[i], building_base + Vector2(0, 3))
 		var c: Vector2 = o + b[3]
 		var w: float = maxf(54, m._text_w(b[0], 10) + 16)
 		if o.y + (c.y - o.y) * zoom > m.top_y + 157:
@@ -303,19 +315,16 @@ func draw(m, h: float) -> void :
 				var age: float = fposmod(t * 0.16 + n * 0.5, 1.0)
 				var pos: Vector2 = o + Vector2(b[2].get_center().x + sin(t * 0.4 + n) * 5, - b[2].size.y - 25 - age * 24)
 				m.draw_texture(art.smoke, pos.round(), Color(0.85, 0.89, 0.88, (1 - age) * 0.28))
-	for x in [520.0, 1148.0, 1370.0]:
-		if _visible(x, 40):
-			_sprite(m, "lamp", o + Vector2(x, 48))
 	for x in [695.0, 1355.0]:
-		if _visible(x, 50): _sprite(m, "bench", o + Vector2(x, 52))
+		if _visible(x, 50): _sprite(m, "bench", o + Vector2(x, ground.STREET_FOOT_Y))
 	for n in mini(m.pond_cap_lv,6):
 		var x: float = 400 + n * 245
-		if _visible(x, 35): _sprite(m, "hedge", o + Vector2(x, 64), 38)
+		if _visible(x, 35): _sprite(m, "hedge", o + Vector2(x, ground.STREET_FOOT_Y), 38)
 
 	for r in res + locals:
 		visitors.sync(self, m, r, o)
 		if r.state != 1 and _visible(r.x, 24):
-			var p: Vector2 = o + Vector2(r.x, _walk_y(r.x) + r.lane)
+			var p: Vector2 = o + Vector2(r.x, visitor_y(r) + r.lane)
 			m.draw_rect(Rect2(p + Vector2(-7, -1), Vector2(14, 2)), Color(0.1, 0.15, 0.1, 0.22))
 		if r.reward_t > 0.0 and _visible(r.x, 36):
 			var reward_pos: Vector2 = o + Vector2(r.x, _walk_y(r.x) - float(r.height) - 8)
@@ -706,3 +715,6 @@ func _act(m, a: String) -> void :
 		commerce.report(m,"저장하지 못했어요. 거래가 취소됐어요.");m.show_toast(commerce.notice,Color("ffdc96"));return
 	m.buzz(30)
 
+
+func visitor_y(r: Dictionary) -> float:
+	return _walk_y(r.x)

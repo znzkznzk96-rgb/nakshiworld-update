@@ -15,7 +15,7 @@ func run() -> void:
 	check(m.personal_dex.serialize()==dex and m.catch_counts==counts,"gift does not forge catch records")
 	check(not Gift.claim(m),"repeat blocked")
 	check("testing-20261026-078" in m.testing_grants,"old gift marker preserved")
-	m.mailbox.detail="0.93";m.mailbox.draw(m,660);check(m.mailbox.rects.has("gift"),"new mail exposes claim button")
+	m.mailbox.detail="0.93";m.mailbox.draw(m,660);check(not m.mailbox.rects.has("gift"),"claimed arrival gift has no active claim button")
 	m.scene="fish";m.title_open=false;m.trans={};m.TUT.done=true;m.lesson_open=false;m.mailbox.opened=false
 	for phase in ["cast","wait","hook","pre","fight","catch","fail"]:
 		m.S={"phase":phase};m.bait_picker.draw_button(m,500);check(not m.bait_picker.visible(m) and m.bait_picker.button.size==Vector2.ZERO,"bait hidden during "+phase)

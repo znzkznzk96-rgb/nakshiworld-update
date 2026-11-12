@@ -31,6 +31,8 @@ func run():
 			m.mailbox.detail=version;m.mailbox.draw(m,540)
 			check(m.mailbox.rects.has("gift"),"button "+version)
 			m.mailbox.press(m,m.mailbox.rects.gift.get_center())
+			m.mailbox.draw(m,540)
+			check(not m.mailbox.rects.has("gift"),"claimed button disabled "+version)
 			check(Gifts.info(version).id in m.testing_grants,"mail dispatch "+version)
 			check(not Gifts.claim(m,version),"duplicate "+version)
 		check(m.gold==7735123 and m.souls==1007 and m.expedition.data.souls==[51,52,53,54,55],"combined exact currencies")

@@ -1,17 +1,17 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "v129_published_verified",
+  "status": "v130_verified_ready_to_publish",
   "release_baseline": "v1.29",
-  "target_release": "v1.29",
+  "target_release": "v1.30",
   "deployed": true,
   "phone_verified": false,
-  "handoff": "docs/qa/unlock-recovery/HANDOFF.md",
-  "current_task": "v1.29 필수 번들 우편 공개 및 다운로드 검증 완료",
-  "next_step": "휴대폰에서 업데이트 후 우편 수령 및 직접 기증",
+  "handoff": "docs/qa/harbor-mail/HANDOFF.md",
+  "current_task": "v1.30 가로등/깃발 제거·마을 개선 최종 검사",
+  "next_step": "PR68 병합·동일 검증후보 공개·운영 다운로드 검사",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
-  "verification": "docs/qa/unlock-recovery/GIFT129_VERIFICATION.json",
+  "verification": "docs/qa/harbor-mail/STREET_CONTACT.json",
   "baseline_phone_verified": false,
   "environment_recovery": "docs/CODEX_NETWORK_RECOVERY.md",
   "background_verified_branch": "work/tile-png-stage2-20261107",
@@ -43,9 +43,9 @@
   "remaining_global_render_checks": false,
   "release_authorization": {
     "date": "2026-11-12",
-    "release": "v1.29",
-    "user_request": "필수번들 물고기 및 100만 비늘 지급·배포",
-    "fulfilled": true
+    "release": "v1.30",
+    "user_request": "가로등·붙은 깃발 제거, 벤치·화단 유지 후 업데이트 및 배포",
+    "fulfilled": false
   },
   "release_preflight": "docs/qa/soldier-size/VERIFICATION.json",
   "release_source_commit": "2889c4fedab19b9c72fa6a67d8f0fc78fa83ebad",
@@ -118,7 +118,7 @@
     "production_balance_changed": false,
     "phone_tested": false
   },
-  "release_authorized": false,
+  "release_authorized": true,
   "balance110": {
     "applied": true,
     "deployed": true,
@@ -1683,5 +1683,52 @@
     "release_authorized": true,
     "publication_run": 43117903735,
     "public_verification_run": 43118083833
+  },
+  "harbor_mail_review": {
+    "source_commit": "54121b8364a5eba93bb61c3106b3a89961b11871",
+    "related_suites_passed": 5,
+    "native_screens": 8,
+    "deployed": false,
+    "release_authorized": false,
+    "ci_status": "success",
+    "preview_library_file_id": "libfile_fde3_f-afb17a97354881919070cec423a5c2a7_d66dafb33acc81918ce203aeb3fcd18e",
+    "ci_run": 43187294585,
+    "ci_source_commit": "fcd00d4bb6da0aba6aa008e696f099886914986a"
+  },
+  "harbor_contact_refinement": {
+    "implemented": true,
+    "related_suites_passed": 4,
+    "native_screens": 8,
+    "original_pngs_unchanged": true,
+    "deployed": false,
+    "release_authorized": false,
+    "ci_status": "in_progress",
+    "preview_library_file_id": "libfile_fde3_f-d538dfebcc9081919b593b69932a6bae_d66dafb33acc81918ce203aeb3fcd18e",
+    "ci_run": 43189445294,
+    "ci_source_commit": "e78c54b9b07f89e0cbbeb94316a599a888ab7be7"
+  },
+  "street_contact": {
+    "corrected": true,
+    "foot_y": 12,
+    "native_screens": 8,
+    "related_suites_passed": 2,
+    "deployed": false,
+    "preview_library_file_id": "libfile_fde3_f-b729521ffbb88191bf747f53cf347e25_d66dafb33acc81918ce203aeb3fcd18e",
+    "ci_run": 43190512066,
+    "ci_status": "queued",
+    "source_commit": "d631baf8f78626b8e594af35bd41a9c1112b1bec"
+  },
+  "release130": {
+    "authorized": true,
+    "deployed": false,
+    "version": "1.30",
+    "verification": "success",
+    "ci_run": 43191618115,
+    "source_commit": "58f154633ef876e8c6ee1306059cb625314b4fd2",
+    "pr": 68,
+    "native_screens": 8,
+    "candidate_artifact": 13930664941,
+    "input_fingerprint": "ed9df5eec070148842c64deebd8883e5f12e4bdcb2c410a3069f3d47798cdbdc",
+    "unique_success_labels": 138
   }
 }

@@ -1,0 +1,82 @@
+{
+  "date": "2026-11-12",
+  "godot": "4.4.1.stable.official.49a5bc7b6",
+  "baseline_source_commit": "1b035b3cfb8d1486b8ca94c0f2781f7a380a5013",
+  "changes": [
+    "Submerged texture strips: dark mid band then cyan tint and smooth alpha fade, no filtering",
+    "Continuous land behind landing transparency; 12 logical pixel stepped overlap at right seam",
+    "Low stone contact plinth and narrow ground shadow; building render offset +3 logical pixels"
+  ],
+  "unchanged": [
+    "original PNG bytes",
+    "deck_y=22 and boarding offset55",
+    "building interaction rectangles",
+    "save, economy and UI logic"
+  ],
+  "related_checks": {
+    "village_reward_notice": {
+      "passed": true,
+      "log": "Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org\n\nVILLAGE_REWARD_NOTICE_VERIFY failures=[] sign_cases=315\n"
+    },
+    "village_entry_audio": {
+      "passed": true,
+      "log": "Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org\n\nVILLAGE_ENTRY_AUDIO_VERIFY failures=[]\n"
+    },
+    "arrival_gift": {
+      "passed": true,
+      "log": "Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org\n\nARRIVAL_GIFT_VERIFY failures=[]\n"
+    },
+    "mail_gifts": {
+      "passed": true,
+      "log": "Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org\n\nMAIL_GIFTS_VERIFY failures=[]\n"
+    }
+  },
+  "native_screens": [
+    {
+      "file": "village-0.png",
+      "sha256": "e7ccef68b1c119a6e4f7d5396ba90c3598337c33a90a8004197ae6b0f3ce031d"
+    },
+    {
+      "file": "village-1080.png",
+      "sha256": "5af1681eaeda9a3a7a7c8bf6053cbea2df27eea6c3a9d8d48cd5e725f98bdf49"
+    },
+    {
+      "file": "village-1350.png",
+      "sha256": "6565712ae736d605c227ffef51f57f7d763170cb74276b1ce447c65241902f43"
+    },
+    {
+      "file": "village-1360.png",
+      "sha256": "e6db7cfc573e7e59a19090939769952d8968d12ea944f89df928d3584dcefea2"
+    },
+    {
+      "file": "village-180.png",
+      "sha256": "3b9b77025e93f7db4ddd98d64ed1d329075b7d68e67af500283c2337f65c7494"
+    },
+    {
+      "file": "village-270.png",
+      "sha256": "1a5fabae6f2bd4a682a79cac4d0414d56c265875b3cf46b3e4848becdb5f09eb"
+    },
+    {
+      "file": "village-540.png",
+      "sha256": "639a77fe1330d302f7d71bbf8992556b213d98f9d94068e28fb53a9a3d5c79d1"
+    },
+    {
+      "file": "village-810.png",
+      "sha256": "3f09a0115e8c394f2a5055d9d16c2f79acd40f33c7f8d5cedee947dddc325cab"
+    }
+  ],
+  "deployed": false,
+  "user_visual_approval": "pending",
+  "full_ci_status": "pending_push",
+  "full_ci": {
+    "run": 43189445294,
+    "source_commit": "e78c54b9b07f89e0cbbeb94316a599a888ab7be7",
+    "status": "in_progress",
+    "completion_verified": false
+  },
+  "previous_mail_fix_full_ci": {
+    "run": 43187294585,
+    "status": "success"
+  },
+  "preview_library_file_id": "libfile_fde3_f-d538dfebcc9081919b593b69932a6bae_d66dafb33acc81918ce203aeb3fcd18e"
+}

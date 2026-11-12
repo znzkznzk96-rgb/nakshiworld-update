@@ -65,10 +65,15 @@ static func draw(mail,m,r: Rect2) -> void:
 			m._text("%d / %d"%[mail.detail_page+1,pages],Vector2(135,footer-20),9,Color("847052"),true,80)
 	if gift:
 		var gift_rect:=Rect2(27,r.end.y-45,216,28)
-		m._ui_style_box(m.sb_primary,gift_rect)
 		var claimed: bool=gift_info.id in m.testing_grants
+		if claimed:
+			m._ui_rect(gift_rect,Color("817666"))
+			m._ui_rect(gift_rect.grow(-1),Color("d0c8b6"))
+		else:
+			m._ui_style_box(m.sb_primary,gift_rect)
+			mail.rects.gift=gift_rect
 		var caption: String=gift_info.claimed if claimed else gift_info.button
-		m._text(caption,gift_rect.get_center()+Vector2(0,4),10,Color("fff0d1"),true,206);mail.rects.gift=gift_rect
+		m._text(caption,gift_rect.get_center()+Vector2(0,4),10,Color("504c43") if claimed else Color("fff0d1"),true,206)
 	var back:=Rect2(27,footer,87,30);var toggle:=Rect2(156,footer,87,30)
 	for b in [back,toggle]: m._ui_style_box(m.sb_btn,b)
 	m._text("목록으로",back.get_center()+Vector2(0,4),10,Color("513b29"),true,77)
