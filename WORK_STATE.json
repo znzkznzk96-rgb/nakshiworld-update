@@ -1722,6 +1722,10 @@
     "authorized": true,
     "deployed": false,
     "version": "1.30",
-    "verification": "pending_push"
+    "verification": "in_progress",
+    "ci_run": 43191618115,
+    "source_commit": "58f154633ef876e8c6ee1306059cb625314b4fd2",
+    "pr": 68,
+    "native_screens": 8
   }
 }
