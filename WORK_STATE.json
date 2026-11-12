@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "village_layers_reworked_native_reviewed",
+  "status": "release132_authorized_preparing",
   "release_baseline": "v1.31",
-  "target_release": "v1.31",
+  "target_release": "v1.32",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/bite-contact/HANDOFF.md",
-  "current_task": "마을 레이어 2차 보정·실제 전후 비교 완료(미배포)",
-  "next_step": "전체CI43221408977 결과 확인·사용자 움직임 시안 검토",
+  "current_task": "v1.32 마을 레이어·찌 접촉/입질 크기 최종검증·공개",
+  "next_step": "버전/우편 준비 후 최종 전체CI·동일후보 공개",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -118,7 +118,7 @@
     "production_balance_changed": false,
     "phone_tested": false
   },
-  "release_authorized": false,
+  "release_authorized": true,
   "balance110": {
     "applied": true,
     "deployed": true,
@@ -1795,5 +1795,17 @@
     "preview_library_file_id": "libfile_fde3_f-3da69ed12528819197170e4d1bd14230_d66dafb33acc81918ce203aeb3fcd18e",
     "full_ci_status": "in_progress",
     "deployed": false
+  },
+  "release132": {
+    "authorized": true,
+    "deployed": false,
+    "version": "1.32",
+    "scope": [
+      "village_layer_quality_rework",
+      "bite_contact_and_bounded_preview"
+    ],
+    "user_request": "업뎃하고 배포 ㄱ",
+    "verification": "pending_final_version_full_ci",
+    "phone_verified": false
   }
 }
