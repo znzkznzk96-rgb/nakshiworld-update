@@ -1,0 +1,39 @@
+{
+  "release_id": 442371798,
+  "target_commitish": "2889c4fedab19b9c72fa6a67d8f0fc78fa83ebad",
+  "assets": [
+    {
+      "name": "game-source.zip",
+      "size": 67464964,
+      "sha256": "fbf3e0f84c2b89fd12321ccfe381fea5eac106133393115d8e31fa1e0d54374d"
+    },
+    {
+      "name": "patch.pck",
+      "size": 61916544,
+      "sha256": "4c80ce43d4a454e2b9a55f895e6c0c2343720632b3b44ba099bf265b18b16df5"
+    },
+    {
+      "name": "version.json",
+      "size": 199,
+      "sha256": "0e3bb90cfc3b35f65986cbfbfcc125ee86a2ae988e60c41971b9b158a251dbec"
+    }
+  ],
+  "gateway": {
+    "code": 129,
+    "name": "1.29",
+    "source_commit": "2889c4fedab19b9c72fa6a67d8f0fc78fa83ebad",
+    "size": 61916544,
+    "sha256": "4c80ce43d4a454e2b9a55f895e6c0c2343720632b3b44ba099bf265b18b16df5"
+  },
+  "gateway_full_download": true,
+  "range": {
+    "status": 206,
+    "content_range": "bytes 0-99/61916544",
+    "size": 100
+  },
+  "phone_verified": false,
+  "verification_run": 43131222152,
+  "publisher_run": 43132913094,
+  "public_verification_run": 43133074088,
+  "pull_request": 67
+}

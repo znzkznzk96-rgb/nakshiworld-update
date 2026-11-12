@@ -1,17 +1,17 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "v129_gift_authorized",
-  "release_baseline": "v1.28",
+  "status": "v129_published_verified",
+  "release_baseline": "v1.29",
   "target_release": "v1.29",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/unlock-recovery/HANDOFF.md",
-  "current_task": "필수번들 12마리와 100만 비늘 우편",
-  "next_step": "검증 후 배포",
+  "current_task": "v1.29 필수 번들 우편 공개 및 다운로드 검증 완료",
+  "next_step": "휴대폰에서 업데이트 후 우편 수령 및 직접 기증",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
-  "verification": "docs/qa/unlock-recovery/VERIFICATION.json",
+  "verification": "docs/qa/unlock-recovery/GIFT129_VERIFICATION.json",
   "baseline_phone_verified": false,
   "environment_recovery": "docs/CODEX_NETWORK_RECOVERY.md",
   "background_verified_branch": "work/tile-png-stage2-20261107",
@@ -23,10 +23,10 @@
   "screen_evidence_commit": "04fa33a116915c0b7a7ca86ee235a24a4cf4d4d2",
   "screen_verification_run": 42315352676,
   "full_source_verified": {
-    "release": "v1.28",
-    "size": 67464622,
-    "sha256": "250de4893c5e269a86b2eb1cdac78b2f0e6f44c8b325d24b9f335f5b9494d3b5",
-    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.28/game-source.zip"
+    "release": "v1.29",
+    "size": 67464964,
+    "sha256": "fbf3e0f84c2b89fd12321ccfe381fea5eac106133393115d8e31fa1e0d54374d",
+    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.29/game-source.zip"
   },
   "fish_verification_run": 42317071546,
   "automatic_full_regression_run": 42317071379,
@@ -43,21 +43,21 @@
   "remaining_global_render_checks": false,
   "release_authorization": {
     "date": "2026-11-12",
-    "release": "v1.28",
-    "user_request": "수정햇다니 그럼 배포해줘 ㅇㅇ",
+    "release": "v1.29",
+    "user_request": "필수번들 물고기 및 100만 비늘 지급·배포",
     "fulfilled": true
   },
   "release_preflight": "docs/qa/soldier-size/VERIFICATION.json",
-  "release_source_commit": "a0f03a7ad2a4c0fe0cbc2fcedcd033c489583324",
-  "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v1.28",
-  "release_build_run": 43128114440,
+  "release_source_commit": "2889c4fedab19b9c72fa6a67d8f0fc78fa83ebad",
+  "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v1.29",
+  "release_build_run": 43132913094,
   "release_build_status": "success",
-  "public_verification_run": 43128175463,
+  "public_verification_run": 43133074088,
   "public_verification_status": "success",
   "public_patch": {
-    "size": 61914704,
-    "sha256": "3282f365c881b171251720a28ab01a3f41b9d8f2e2ddd8e44f83e581647431c1",
-    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.28/patch.pck"
+    "size": 61916544,
+    "sha256": "4c80ce43d4a454e2b9a55f895e6c0c2343720632b3b44ba099bf265b18b16df5",
+    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.29/patch.pck"
   },
   "standard_full_workflow_note": "v1.27 전체CI138성공라벨/native/PCK·동일후보 공개·3파일/실제앱주소/Range206 검증완료",
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md#2026-11-07--소규모-작업-효율채팅-중단-대비",
@@ -92,7 +92,7 @@
     "headless_passed": 73,
     "headless_total": 73
   },
-  "release_verification_run": 43128175463,
+  "release_verification_run": 43133074088,
   "prior_build_issue": {
     "run": 42384973558,
     "cause": "packed mail check hardcoded1.08; prepublication assertion",
@@ -118,7 +118,7 @@
     "production_balance_changed": false,
     "phone_tested": false
   },
-  "release_authorized": true,
+  "release_authorized": false,
   "balance110": {
     "applied": true,
     "deployed": true,
@@ -171,7 +171,7 @@
     "ledger": "analysis/tile-layer-art-v1/PLANT_LEDGER.json",
     "quality": "analysis/tile-layer-art-v1/PLANT_QA.json"
   },
-  "public_release": "v1.28",
+  "public_release": "v1.29",
   "shared_vertical_light": {
     "applied": true,
     "regions": [
