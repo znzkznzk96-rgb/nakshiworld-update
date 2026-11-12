@@ -27,6 +27,7 @@ var origin := Vector2.ZERO
 var last := Vector2.ZERO
 var touch_id := -1
 var down_id := -1
+var photo=preload("res://addons/reservoir/record_photo.gd").new()
 var record_icons := {}
 func restore(data: Dictionary) -> void:
 	records = {}
@@ -73,6 +74,7 @@ func best(m, sp: int, kind: String) -> Dictionary:
 		if old>float(f.get("len",0)): return {"len":old,"legacy":true}
 	return f
 func open(m) -> void:
+	photo.close()
 	opened=true;region=clampi(m.active_region,0,5);category="fish";selected=-1;trophy=0;scroll=0;role_filter="all";soldier_star=1;cancel_pointer()
 	m.menu_open=false;m.holding=false
 func value(m, f: Dictionary, kind: String) -> String:
@@ -113,6 +115,7 @@ func area_ids() -> Array:
 func draw(m,h: float) -> void:
 	if not opened:return
 	m.text_items=[];m.ui_commands=[]
+	if photo.opened:photo.draw(m,h);return
 	m._ui_rect(Rect2(-m.ox,0,270+2*m.ox,h),Color(.04,.06,.1,.82))
 	var desired: float=500 if selected>=0 else (548 if soldier_mode() else 508)
 	var height: float=minf(desired,h-64)
@@ -121,7 +124,7 @@ func draw(m,h: float) -> void:
 	preload("res://addons/reservoir/ui_theme.gd").title(m,r,"도감" if selected<0 else ("병사 상세" if soldier_mode() else "물고기 상세"))
 	var close:=Rect2(r.end.x-31,r.position.y+9,22,23)
 	preload("res://addons/reservoir/close_control.gd").draw(m,close)
-	rects={"close":close.grow(3),"regions":[],"categories":[],"fish":[],"tabs":[],"filters":[],"stars":[],"region_labels":[],"back":Rect2()}
+	rects={"close":close.grow(3),"regions":[],"categories":[],"fish":[],"tabs":[],"filters":[],"stars":[],"region_labels":[],"back":Rect2(),"records":[],"record_header":Rect2()}
 	list_view=Rect2()
 	if selected>=0:
 		if soldier_mode():draw_soldier_detail(m,r)
@@ -265,12 +268,14 @@ func draw_trophy(m,r: Rect2) -> void:
 	m._text("총 포획 %d마리"%total,Vector2(116,y+58),10,INK,false,124)
 	y+=76
 	m._ui_style_box(m.sb_btn,Rect2(21,y,228,25));m._ui_rect(Rect2(26,y+4,218,17),Color("07515c"))
-	m._text("나의 최고 기록",Vector2(135,y+17),11,Color("fff0d1"),true,210)
+	m._text("나의 최고 기록  ›",Vector2(135,y+17),11,Color("fff0d1"),true,210)
+	rects.record_header=Rect2(21,y,228,25)
 	y+=31
 	var card_h: float=clampf((r.end.y-y-99)/3.0,43,58)
 	for i in 3:
 		var f: Dictionary=best(m,selected,TYPES[i])
 		var card:=Rect2(21,y,228,card_h-4);m._ui_style_box(m.sb_chip,card)
+		rects.records.append([card,TYPES[i]])
 		record_icon(m,["medal","ruler","weight"][i],Rect2(29,y+(card_h-4-25)/2,25,25))
 		m._text(["최고 등급","최대 길이","최대 무게"][i],Vector2(62,y+18),11,INK,false,84)
 		m._text(value(m,f,TYPES[i]),Vector2(204,y+20),14,Color("246da4") if not f.is_empty() else INK,true,76)
@@ -335,6 +340,13 @@ func hit_id(p: Vector2) -> int:
 		if row[0].has_point(p):return int(row[1])
 	return -1
 func press(m,p: Vector2) -> void:
+	if photo.opened:photo.press(m,p);return
+	if selected>=0 and not soldier_mode():
+		for entry in rects.get("records",[]):
+			if entry[0].has_point(p):photo.open(m,selected,entry[1]);return
+		if rects.get("record_header",Rect2()).has_point(p):
+			for record_kind in TYPES:
+				if photo.open(m,selected,record_kind):return
 	if rects.get("close",Rect2()).has_point(p):opened=false;cancel_pointer();return
 	for i in rects.get("categories",[]).size():
 		if rects.categories[i].has_point(p):category=["fish","soldier"][i];selected=-1;scroll=0;role_filter="all";soldier_star=1;cancel_pointer();return
@@ -359,7 +371,8 @@ func finish(m,p: Vector2) -> void:
 func input_event(m,e: InputEvent) -> bool:
 	if not opened:return false
 	if e is InputEventKey and e.pressed and e.keycode==KEY_ESCAPE:
-		if selected>=0:selected=-1
+		if photo.opened:photo.close()
+		elif selected>=0:selected=-1
 		else:opened=false
 		cancel_pointer();return true
 	if (e is InputEventMouseButton or e is InputEventMouseMotion) and (e.device==-1 or Time.get_ticks_msec()-touch_time<350):return true

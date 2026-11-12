@@ -29,15 +29,15 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
-      - name: Restore verified v1.31 source and overlay
+      - name: Restore verified v1.32 source and overlay
         shell: bash
         run: |
           set -euo pipefail
           echo "VERIFICATION_STARTED=$(date +%s)" >> "$GITHUB_ENV"
           sudo apt-get update -qq
           sudo apt-get install -y python3-pil > /dev/null
-          curl -fL --retry 2 https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.31/game-source.zip -o "$RUNNER_TEMP/source.zip"
-          echo "02585558ed68643903f2eb158398ff960668cc2342190df1415f42d4464c9f52  $RUNNER_TEMP/source.zip" | sha256sum -c -
+          curl -fL --retry 2 https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.32/game-source.zip -o "$RUNNER_TEMP/source.zip"
+          echo "eb3ea207c4a4791340f50871867a56735b4bb3a53b2ef306f64411f59792f861  $RUNNER_TEMP/source.zip" | sha256sum -c -
           python3 automation/restore_source.py "$RUNNER_TEMP/source.zip" "$RUNNER_TEMP/project"
           curl -fL --retry 2 https://github.com/godotengine/godot/releases/download/4.4.1-stable/Godot_v4.4.1-stable_linux.x86_64.zip -o "$RUNNER_TEMP/godot.zip"
           unzip -q "$RUNNER_TEMP/godot.zip" -d "$RUNNER_TEMP/godot"
@@ -79,6 +79,29 @@ jobs:
             evidence/rift-layers/
             evidence/rift-bundles-layers.log
             evidence/rift-layers-native.log
+      - name: Verify and render measured record photo first
+        shell: bash
+        run: |
+          set -euo pipefail
+          GODOT="$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
+          for suite in record_photo record_gallery; do
+            XDG_DATA_HOME="$RUNNER_TEMP/isolated-$suite" timeout 90 "$GODOT" --headless --path "$RUNNER_TEMP/project" --script "tests/${suite}_verify.gd" > "evidence/${suite}.log" 2>&1
+            grep -F 'failures=[]' "evidence/${suite}.log"
+            if grep -E 'SCRIPT ERROR:|Parse Error:|Assertion failed|ERROR:' "evidence/${suite}.log"; then exit 1; fi
+          done
+          XDG_DATA_HOME="$RUNNER_TEMP/isolated-record-photo-native" timeout 180 xvfb-run -a "$GODOT" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/record_photo_preview.gd -- "$GITHUB_WORKSPACE/evidence/record-photo" > evidence/record-photo-native.log 2>&1
+          grep -F 'RECORD_PHOTO_PREVIEW failures=[]' evidence/record-photo-native.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|Assertion failed|ERROR:' evidence/record-photo-native.log; then exit 1; fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: record-photo-first-preview
+          compression-level: 0
+          path: |
+            evidence/record-photo/
+            evidence/record_photo.log
+            evidence/record_gallery.log
+            evidence/record-photo-native.log
       - name: Verify native bobber contact and bounded fish previews
         shell: bash
         run: |

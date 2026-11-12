@@ -1,0 +1,26 @@
+{
+  "date": "2026-11-13",
+  "approved_design": "exec-85c8013d-785d-48fe-ac5f-0b9b899857b6.png",
+  "background_generation": {
+    "tool": "built-in imagegen",
+    "requests": 1,
+    "source_file": "exec-fa132d7f-fe7a-40ac-8078-964f4d4cdaf1.png",
+    "actual_charge": null,
+    "charge_note": "not exposed by built-in tool"
+  },
+  "game_asset": {
+    "path": "game/art/record_photo/measuring_scene.png",
+    "size": [
+      720,
+      720
+    ],
+    "source_size": [
+      1254,
+      1254
+    ],
+    "resize": "nearest, no blur",
+    "git_blob": "7a7976ec96550ff5923f242caf25516b0d83f1d7"
+  },
+  "fish_art": "unchanged approved game originals; no fish generation",
+  "render_strategy": "mat background art + actual species source texture + dynamically calculated cm ticks; UI-free SubViewport photo"
+}
