@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "bite_contact_verified_related",
+  "status": "bite_contact_full_verified_undeployed",
   "release_baseline": "v1.31",
   "target_release": "v1.31",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/bite-contact/HANDOFF.md",
-  "current_task": "찌 접촉 위치·전80종 입질 표시 크기 보정",
-  "next_step": "전체 CI 및 최종 실제 화면 검토; 새 공개배포 미승인",
+  "current_task": "찌 접촉 위치·입질 표시 크기 수정 및 전체 검증 완료(미배포)",
+  "next_step": "수정 시안 사용자 검토; 새 배포 요청시 버전/우편 준비",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -1778,9 +1778,13 @@
     "maximum_extent": 28.4948425292969,
     "fight_unchanged": true,
     "deployed": false,
-    "full_ci_status": "in_progress",
+    "full_ci_status": "success",
     "source_commit": "aa8043e172e2ceee50279fb97460c93dbf9a2173",
     "ci_run": 43208061692,
-    "preview_library_file_id": "libfile_fde3_f-c32089078ad88191ae64171c4894cdb2_d66dafb33acc81918ce203aeb3fcd18e"
+    "preview_library_file_id": "libfile_fde3_f-c32089078ad88191ae64171c4894cdb2_d66dafb33acc81918ce203aeb3fcd18e",
+    "unique_success_labels": 142,
+    "candidate_artifact": 13941390336,
+    "verification_artifact": 13941170637,
+    "release_authorized": false
   }
 }
