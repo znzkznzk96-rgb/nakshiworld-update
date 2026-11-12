@@ -1,17 +1,17 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "record_photo_giant_native_verified",
+  "status": "record_photo_giant_verified_not_deployed",
   "release_baseline": "v1.32",
   "target_release": "v1.32",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "대물 매트 초과 구도·카메라 후퇴 구현",
-  "next_step": "공통 inline text 변경 전체 CI 완료 확인; 배포 금지",
+  "current_task": "대물 매트 초과·눈금 가림·카메라 후퇴 구현 및 전체검증 완료(미배포)",
+  "next_step": "사용자 실제화면 검토; 새 배포 승인 없음",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
-  "verification": "docs/qa/record-photo/MOTION_VERIFICATION.md",
+  "verification": "docs/qa/record-photo/GIANT_VERIFICATION.json",
   "baseline_phone_verified": false,
   "environment_recovery": "docs/CODEX_NETWORK_RECOVERY.md",
   "background_verified_branch": "work/tile-png-stage2-20261107",
@@ -35,9 +35,9 @@
   "bundle_verification_run": 42319985467,
   "bundle_evidence_commit": "dd8297cc9de9a5423091b61e06f166ee22023de4",
   "headless_regression_coverage": {
-    "run": 43223316798,
+    "run": 43315657110,
     "status": "passed",
-    "scope": "full workflow native/packed;142 unique success labels"
+    "scope": "full workflow native/packed;149 unique success labels;giant framing source 5582b587bf13dd0b47f37fcc4af5522af92602f0"
   },
   "standard_full_workflow_success": true,
   "remaining_global_render_checks": false,
@@ -59,7 +59,7 @@
     "sha256": "c295f67b331b5de6bfb7043a30afbc8059d051f094802d1a4c935a6d2999509f",
     "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.32/patch.pck"
   },
-  "standard_full_workflow_note": "v1.31 전체140성공라벨/native/PCK·동일후보 공개·3파일/725소스파일/앱전체다운로드 해시검증완료",
+  "standard_full_workflow_note": "미배포 대물 계측 소스 전체149성공라벨/native/PCK 통과. 공개v1.32 유지, 배포승인 없음.",
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md#2026-11-07--소규모-작업-효율채팅-중단-대비",
   "approved_followup": "우편 단일원본·공통지급·검사통합 구현/검증 완료. 공개v1.08 유지, 새 배포 미승인.",
   "session_continuity": {
@@ -1833,13 +1833,13 @@
     "hall_of_fame": "future_not_implemented",
     "preview_required": "actual_Godot_render",
     "gallery_target": "Android gallery; verify available native path without claiming untested device success",
-    "source_commit": "d0a78f4ffa1de8e34b39dc1940f06f4d0fa66e48",
-    "ci_run": 43312585808,
+    "source_commit": "5582b587bf13dd0b47f37fcc4af5522af92602f0",
+    "ci_run": 43315657110,
     "related_suites_passed": 4,
     "geometry_cases": 400,
     "android_gallery_device_verified": false,
     "implemented": true,
-    "full_ci_status": "in_progress",
+    "full_ci_status": "success",
     "native_screens": 15,
     "souvenir_exports": 4,
     "candidate_artifact": 13982407430,
@@ -1870,7 +1870,9 @@
       "export_pose_pixel_equality": true,
       "verification": "docs/qa/record-photo/MOTION_VERIFICATION.json",
       "deployed": false,
-      "release_authorized": false
+      "release_authorized": false,
+      "full_ci_status": "success",
+      "ci_run": 43312585808
     },
     "motion_preview_library_file_id": "libfile_fde3_f-b2adbce4789c8191b42364d8d16c5dc8_d66dafb33acc81918ce203aeb3fcd18e",
     "giant_framing": {
@@ -1885,7 +1887,9 @@
       "intro_frames": 36,
       "stable_exports": 12,
       "ci_run": 43315657110,
-      "verification": "docs/qa/record-photo/GIANT_VERIFICATION.json"
+      "verification": "docs/qa/record-photo/GIANT_VERIFICATION.json",
+      "full_ci_status": "success",
+      "preview_library_file_id": "libfile_fde3_f-5cc51f63380c81919cef370889f17cf1_d66dafb33acc81918ce203aeb3fcd18e"
     }
   }
 }
