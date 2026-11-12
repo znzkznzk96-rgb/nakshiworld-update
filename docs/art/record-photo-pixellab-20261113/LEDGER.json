@@ -7,12 +7,22 @@
   "request_limit": 1,
   "retries": 0,
   "submission_http": 202,
-  "status": "processing",
+  "status": "completed_but_quality_failed_stop",
   "game_applied": false,
   "deployed": false,
   "balance_before_generations": 1002.5999999999999,
-  "balance_after_generations": null,
-  "actual_generations_charged": null,
-  "quality_status": "pending",
-  "layers_status": "first composite candidate only; separate editable layers not yet produced"
+  "balance_after_generations": 1001.5999999999999,
+  "actual_generations_charged": 1.0,
+  "api_reported_usage": 1.0,
+  "api_billing_charged": true,
+  "quality_status": "failed_stop",
+  "layers_status": "flattened first candidate only; separate editable layers not produced",
+  "input_commit": "3a5950e3aaae94a688b574ef89b31831cab31c3b",
+  "hashes": {
+    "request.json": "19938b5f587a5e0bfad8c2dfd8f1c9c2206c9970427a4135ab9b225f414d3e1c",
+    "layout_guide.png": "398b00fa08a9752b8a0f10d86971bf74a252ea557683e27ddab329069a582193",
+    "reservoir_palette.png": "94ea1ab0d4485d2ed4663261c36b5d9666a123162f56139a65736620f0bc552f",
+    "record_photo_pixellab_candidate.png": "8ba580fb8b9d475226109a214850d8e6e105a474f4657e382ebe0a3ef47ab2d3",
+    "record_photo_pixellab_3x.png": "6893f4bc6e6f2eea9f342812160e21749ff6d19b553dc33f47d169e0dc222605"
+  }
 }

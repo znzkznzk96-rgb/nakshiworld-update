@@ -1,0 +1,24 @@
+{
+  "status": "failed_stop",
+  "observations": {
+    "composition": "approximate major placements retained",
+    "mat": "blank center retained",
+    "pixel_grid": "native240 and nearest3x verified",
+    "surface_design": "FAIL: grayscale layout largely recolored, not reconstructed as finished pixel art",
+    "material_shading": "FAIL: earth/timber/cloth/tools lack readable material-specific shade clusters",
+    "palette_style": "FAIL: gray-brown flat appearance; does not meet original reservoir richness",
+    "tools": "FAIL: pliers/cloth/reel remain abstract blocks",
+    "editable_layers": "not produced; flattened candidate only"
+  },
+  "actual_output_size": [
+    240,
+    240
+  ],
+  "paid_posts": 1,
+  "billing_usage_generations": 1.0,
+  "no_additional_generation": true,
+  "game_applied": false,
+  "deployed": false,
+  "hypothesis": "Init layout may have constrained reconstruction too strongly; a single uncontrolled attempt does not establish causal attribution.",
+  "next_proposed_request": "Remove init_image entirely, describe composition textually, retain reviewed colors with medium material shading and clear readable tackle. One further request requires authorization; not submitted."
+}
