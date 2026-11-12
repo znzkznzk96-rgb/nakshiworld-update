@@ -1,0 +1,50 @@
+{
+  "date": "2026-11-12",
+  "version": {
+    "code": 130,
+    "name": "1.30"
+  },
+  "source_commit": "58f154633ef876e8c6ee1306059cb625314b4fd2",
+  "godot": "4.4.1.stable.official.49a5bc7b6",
+  "native_screens": [
+    {
+      "name": "village-0.png",
+      "sha256": "e7ccef68b1c119a6e4f7d5396ba90c3598337c33a90a8004197ae6b0f3ce031d"
+    },
+    {
+      "name": "village-1080.png",
+      "sha256": "e088faea790d27323633134b16dd44c05f02d39866b40c50c3ef8a8eaad48140"
+    },
+    {
+      "name": "village-1350.png",
+      "sha256": "9b6cb20e34a2045d43c72d2026629353ed1f6d4a0582c20324c54f844c6228a5"
+    },
+    {
+      "name": "village-1360.png",
+      "sha256": "897879a9bac86737672e816e93d79509d9b8cc80013b5c9ce98bd4a8eb545299"
+    },
+    {
+      "name": "village-180.png",
+      "sha256": "3b9b77025e93f7db4ddd98d64ed1d329075b7d68e67af500283c2337f65c7494"
+    },
+    {
+      "name": "village-270.png",
+      "sha256": "bc96bf6d83a664d42e5fa56184b466481d8604ca30bceed87ca095955fee8e92"
+    },
+    {
+      "name": "village-540.png",
+      "sha256": "f69b04078d257f9e8233a4ba9886a1d56f3523b75555721a6c8e8a34635bd1a2"
+    },
+    {
+      "name": "village-810.png",
+      "sha256": "7b6a91b0b7efcf17a58582a88efcce710a4029e90783090619de528b6984750a"
+    }
+  ],
+  "release_authorized": true,
+  "deployed": false,
+  "full_ci": 43191618115,
+  "status": "full_ci_in_progress",
+  "preview_library_file_id": "libfile_fde3_f-abd63c7518b08191857ca8f1af147639_d66dafb33acc81918ce203aeb3fcd18e",
+  "pr": 68,
+  "full_ci_status": "in_progress"
+}
