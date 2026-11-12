@@ -67,5 +67,16 @@
   ],
   "deployed": false,
   "user_visual_approval": "pending",
-  "full_ci_status": "pending_push"
+  "full_ci_status": "pending_push",
+  "full_ci": {
+    "run": 43189445294,
+    "source_commit": "e78c54b9b07f89e0cbbeb94316a599a888ab7be7",
+    "status": "in_progress",
+    "completion_verified": false
+  },
+  "previous_mail_fix_full_ci": {
+    "run": 43187294585,
+    "status": "success"
+  },
+  "preview_library_file_id": "libfile_fde3_f-d538dfebcc9081919b593b69932a6bae_d66dafb33acc81918ce203aeb3fcd18e"
 }
