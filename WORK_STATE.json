@@ -1,17 +1,17 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "v131_published_verified",
+  "status": "release132_verified_ready_to_publish",
   "release_baseline": "v1.31",
-  "target_release": "v1.31",
+  "target_release": "v1.32",
   "deployed": true,
   "phone_verified": false,
-  "handoff": "docs/qa/village-life131/HANDOFF.md",
-  "current_task": "v1.31 주민XY·배부유·전체 마을레이어 공개 및 운영검증 완료",
-  "next_step": "앱 재실행 후 v1.31 주민 이동·배·마을 레이어 휴대폰 확인",
+  "handoff": "docs/qa/bite-contact/HANDOFF.md",
+  "current_task": "v1.32 마을 레이어·찌 접촉/입질 크기 최종검증·공개",
+  "next_step": "버전/우편 준비 후 최종 전체CI·동일후보 공개",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
-  "verification": "docs/qa/village-life131/VERIFICATION.json",
+  "verification": "docs/qa/village-layers-rework/VERIFICATION.json",
   "baseline_phone_verified": false,
   "environment_recovery": "docs/CODEX_NETWORK_RECOVERY.md",
   "background_verified_branch": "work/tile-png-stage2-20261107",
@@ -118,7 +118,7 @@
     "production_balance_changed": false,
     "phone_tested": false
   },
-  "release_authorized": false,
+  "release_authorized": true,
   "balance110": {
     "applied": true,
     "deployed": true,
@@ -1763,5 +1763,54 @@
     "publication_status": "success",
     "publication_attempts": 2,
     "release_authorized": false
+  },
+  "bite_contact": {
+    "implemented": true,
+    "related_verified": true,
+    "cases": 10240,
+    "native_screens": 72,
+    "preview_nominal_caps": [
+      24,
+      26,
+      28,
+      30
+    ],
+    "maximum_extent": 28.4948425292969,
+    "fight_unchanged": true,
+    "deployed": false,
+    "full_ci_status": "success",
+    "source_commit": "aa8043e172e2ceee50279fb97460c93dbf9a2173",
+    "ci_run": 43208061692,
+    "preview_library_file_id": "libfile_fde3_f-c32089078ad88191ae64171c4894cdb2_d66dafb33acc81918ce203aeb3fcd18e",
+    "unique_success_labels": 142,
+    "candidate_artifact": 13941390336,
+    "verification_artifact": 13941170637,
+    "release_authorized": false
+  },
+  "village_layers_rework": {
+    "source_commit": "eb1a3085c3843a83293aa298aa48e60e11035493",
+    "ci_run": 43221408977,
+    "status": "native_comparison_reviewed_full_ci_running",
+    "native_screens": 240,
+    "preview_library_file_id": "libfile_fde3_f-3da69ed12528819197170e4d1bd14230_d66dafb33acc81918ce203aeb3fcd18e",
+    "full_ci_status": "in_progress",
+    "deployed": false
+  },
+  "release132": {
+    "authorized": true,
+    "deployed": false,
+    "version": "1.32",
+    "scope": [
+      "village_layer_quality_rework",
+      "bite_contact_and_bounded_preview"
+    ],
+    "user_request": "업뎃하고 배포 ㄱ",
+    "verification": "success",
+    "phone_verified": false,
+    "source_commit": "e8403921d6e5e61ac1d5395bc932dc5c42524dd6",
+    "ci_run": 43223316798,
+    "pr": 70,
+    "candidate_artifact": 13947636489,
+    "input_fingerprint": "dfe8f299eb7e26dcd27bd45284b6457667714ad0eddc99e1c205a86e2a3bb8e8"
   }
 }

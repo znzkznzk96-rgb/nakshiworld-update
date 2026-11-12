@@ -27,8 +27,8 @@ func run():
     m.clock=9.0 if timing=="approach" else 10.05
     m.S={"phase":"hook" if timing=="hook" else "wait","sp":sp,"star":int(sp%5),"size":z,"biteAt":10.0,"fakes":[]}
     m.ui_commands=[];m._draw_bite_shadow(10000,150,0)
-    check(is_equal_approx(m.preview_length,float([28,30,32,34][z])),"actual bobber renderer gets normalized body length")
-    check(m.preview_length>=28 and m.preview_length<=34,"all species readable and similarly sized before fight")
- check(m._bite_preview_length(-1)==28 and m._bite_preview_length(9)==34,"preview class safely bounded")
+    check(m.preview_length>0 and m.preview_length<=m._bite_preview_length(z),"preview uses fixed aspect-aware length")
+    check(maxf(m.bite_preview.last_bounds.size.x,m.bite_preview.last_bounds.size.y)<=m._bite_preview_length(z)+0.01,"visible preview geometry is bounded")
+ check(m._bite_preview_length(-1)==24 and m._bite_preview_length(9)==30,"preview class safely bounded")
  m.audio_feedback.dispose();m.queue_free();await process_frame
  print("FISH_PRESENTATION_VERIFY failures=",failures);quit(0 if failures.is_empty() else 1)

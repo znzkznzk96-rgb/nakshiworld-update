@@ -1,0 +1,18 @@
+{
+  "date": "2026-11-12",
+  "version": "1.32",
+  "source_commit": "e8403921d6e5e61ac1d5395bc932dc5c42524dd6",
+  "ci_run": 43223316798,
+  "ci_status": "success",
+  "candidate_artifact": 13947636489,
+  "input_fingerprint": "dfe8f299eb7e26dcd27bd45284b6457667714ad0eddc99e1c205a86e2a3bb8e8",
+  "pr": 70,
+  "deployed": false,
+  "phone_verified": false,
+  "scope": [
+    "village_layer_quality_rework",
+    "bite_contact_and_bounded_preview"
+  ],
+  "related_visual_verification": "VERIFICATION.json",
+  "bite_verification": "../bite-contact/VERIFICATION.json"
+}
