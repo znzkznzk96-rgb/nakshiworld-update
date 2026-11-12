@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "catch_record_recovery_work",
+  "status": "v129_gift_authorized",
   "release_baseline": "v1.28",
-  "target_release": "v1.28",
+  "target_release": "v1.29",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/unlock-recovery/HANDOFF.md",
-  "current_task": "v1.28 단말 복원 실패 후 실측 낚시 기록 복원",
-  "next_step": "원격 전체검사 확인 후 수정 패치 배포 승인",
+  "current_task": "필수번들 12마리와 100만 비늘 우편",
+  "next_step": "검증 후 배포",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -118,7 +118,7 @@
     "production_balance_changed": false,
     "phone_tested": false
   },
-  "release_authorized": false,
+  "release_authorized": true,
   "balance110": {
     "applied": true,
     "deployed": true,
