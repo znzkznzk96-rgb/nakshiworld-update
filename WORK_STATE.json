@@ -1,17 +1,17 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "v131_authorized_implementation",
+  "status": "v131_full_verification",
   "release_baseline": "v1.30",
   "target_release": "v1.31",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/village-life131/HANDOFF.md",
-  "current_task": "주민 XY 유영동선·배 하부/부유·마을 전체 레이어",
-  "next_step": "v1.30 소스 기준 구현 및 움직임/화면 검수",
+  "current_task": "v1.31 주민/배/마을 전체 레이어 구현·최종검사",
+  "next_step": "자동 전체CI 성공 후 동일후보 공개",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
-  "verification": "docs/qa/harbor-mail/RELEASE130_VERIFICATION.json",
+  "verification": "docs/qa/village-life131/VERIFICATION.json",
   "baseline_phone_verified": false,
   "environment_recovery": "docs/CODEX_NETWORK_RECOVERY.md",
   "background_verified_branch": "work/tile-png-stage2-20261107",
@@ -1738,5 +1738,16 @@
     "public_verification": "success",
     "release_authorized": false,
     "publication_attempts": 2
+  },
+  "village_life131": {
+    "authorized": true,
+    "implemented": true,
+    "local_verified": true,
+    "related_suites": 7,
+    "native_screens": 156,
+    "motion_frames": 144,
+    "paid_generations": 0,
+    "deployed": false,
+    "full_ci_status": "pending_push"
   }
 }

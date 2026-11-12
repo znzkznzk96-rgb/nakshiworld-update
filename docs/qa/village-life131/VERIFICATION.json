@@ -1,0 +1,48 @@
+{
+  "date": "2026-11-12",
+  "version": {
+    "code": 131,
+    "name": "1.31"
+  },
+  "baseline": "v1.30",
+  "baseline_sha256": "631a240334ec6ba97812bce5d655471a640bb77f3554d5fa24cff5cca489eb28",
+  "godot": "4.4.1.stable",
+  "paid_generations": 0,
+  "deployed": false,
+  "phone_verified": false,
+  "layers": [
+    "slow sky clouds (existing maintained)",
+    "mountain/forest parallax (existing maintained)",
+    "rear ripples and broken forest reflection",
+    "integer foliage canopy motion",
+    "window/aquarium detail and forge smoke",
+    "XY destination residents and depth order",
+    "deep hull floating/shadow/contact ripples",
+    "rock/pile contact water motion",
+    "near ripples and sparse glints",
+    "foreground shore reeds"
+  ],
+  "tests": {
+    "motion": "Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org\n\nVILLAGE_LIFE131_VERIFY failures=[] timeline_frames=6000 local_frames=57600\n",
+    "village_entry_audio": "Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org\n\nVILLAGE_ENTRY_AUDIO_VERIFY failures=[]\n",
+    "village_reward_notice": "Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org\n\nVILLAGE_REWARD_NOTICE_VERIFY failures=[] sign_cases=315\n",
+    "facility_growth": "Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org\n\nFACILITY_GROWTH_VERIFY failures=[]\n",
+    "regional": "Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org\n\nREGIONAL_VERIFY failures=[]\n",
+    "inventory_layout": "Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org\n\nINVENTORY_LAYOUT_VERIFY failures=[]\n",
+    "aquarium_b": "Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org\n\nAQUARIUM_B_VERIFY failures=[]\n"
+  },
+  "native_screens": 156,
+  "native_phone_heights": [
+    480,
+    540,
+    660
+  ],
+  "motion_frames": 144,
+  "passenger_timeline_identical_frames": 6000,
+  "local_motion_frames": 57600,
+  "full_ci_status": "pending_push",
+  "preview": {
+    "frames": 48,
+    "sha256": "a25abe0ee6e4d5c16d30041e5cfd4dbaab5bd1a18b47c75fd9cf354920705b98"
+  }
+}
