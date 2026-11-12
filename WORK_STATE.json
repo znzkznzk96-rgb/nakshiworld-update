@@ -1748,6 +1748,10 @@
     "motion_frames": 144,
     "paid_generations": 0,
     "deployed": false,
-    "full_ci_status": "pending_push"
+    "full_ci_status": "in_progress",
+    "source_commit": "594cd461f6c57e0dd0746e422d36f737cea240ef",
+    "ci_run": 43200705509,
+    "pr": 69,
+    "preview_library_file_id": "libfile_fde3_f-c985da51d59081919c710edff58d54c9_d66dafb33acc81918ce203aeb3fcd18e"
   }
 }

@@ -40,9 +40,13 @@
   "motion_frames": 144,
   "passenger_timeline_identical_frames": 6000,
   "local_motion_frames": 57600,
-  "full_ci_status": "pending_push",
+  "full_ci_status": "in_progress",
   "preview": {
     "frames": 48,
-    "sha256": "a25abe0ee6e4d5c16d30041e5cfd4dbaab5bd1a18b47c75fd9cf354920705b98"
-  }
+    "sha256": "a25abe0ee6e4d5c16d30041e5cfd4dbaab5bd1a18b47c75fd9cf354920705b98",
+    "library_file_id": "libfile_fde3_f-c985da51d59081919c710edff58d54c9_d66dafb33acc81918ce203aeb3fcd18e"
+  },
+  "source_commit": "594cd461f6c57e0dd0746e422d36f737cea240ef",
+  "full_ci": 43200705509,
+  "pr": 69
 }
