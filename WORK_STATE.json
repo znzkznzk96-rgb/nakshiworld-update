@@ -1,6 +1,6 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "record_photo_title_followup_native_pending",
+  "status": "record_photo_title_followup_native_verified",
   "release_baseline": "v1.33",
   "target_release": "v1.33",
   "deployed": true,
@@ -1959,8 +1959,12 @@
       "source_implemented": true,
       "ci_run": 43332771904,
       "ci_status": "in_progress",
-      "source_commit": "83184a990c7197d356c1d174ed68bbb2de0dde4d"
-    }
+      "source_commit": "83184a990c7197d356c1d174ed68bbb2de0dde4d",
+      "native_verified": true,
+      "verification": "docs/qa/record-photo/FOLLOWUP_VERIFICATION.json",
+      "android_after_fix_verified": false
+    },
+    "gallery_file_written_user_reported": true
   },
   "release133": {
     "authorized": true,
@@ -1988,5 +1992,10 @@
     "public_verification_run": 43329769426,
     "public_verification_status": "success",
     "phone_verified": false
+  },
+  "phone_version_observed": {
+    "version": "1.33",
+    "date": "2026-11-13",
+    "basis": "user title screenshot 1000102767.jpg; does not mean all features verified"
   }
 }

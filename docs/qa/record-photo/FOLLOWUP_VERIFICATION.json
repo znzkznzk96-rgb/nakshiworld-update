@@ -1,0 +1,82 @@
+{
+  "date": "2026-11-13",
+  "source_commit": "83184a990c7197d356c1d174ed68bbb2de0dde4d",
+  "baseline": "v1.33",
+  "deployed": false,
+  "release_authorized": false,
+  "changes": {
+    "ruler": "numeric band spans zero..last tick only; first/last glyph bounds inset inside paper",
+    "save": "remove post-publish URI.toString; release busy and install neutral failure status before synchronous native boundary; generation guard and dictionary-result guard",
+    "button": "existing complete ui_forest/primary.png textured style; removed flat teal rectangle/highlight overlays",
+    "fish_intro": {
+      "seconds": 6,
+      "maximum_gain": 2.1,
+      "repeat_seconds": 0.95,
+      "fade_seconds": [
+        5,
+        6
+      ],
+      "afterwards": "exact existing periodic_strength",
+      "export": "static original pose"
+    },
+    "title": {
+      "strikes": [
+        0.4,
+        0.75,
+        1.2
+      ],
+      "enabled_at": 1.2,
+      "early_taps": "ignored",
+      "button_before_final": "visible dimmed; disabled"
+    }
+  },
+  "verification": {
+    "related_suites": [
+      "record_gallery",
+      "record_photo",
+      "record_photo_motion",
+      "record_photo_giant",
+      "record_followup"
+    ],
+    "ruler_geometry_cases": 400,
+    "motion_samples": 537600,
+    "giant_fit_vertices": 1814400,
+    "followup_native": {
+      "fish_intro_frames": 80,
+      "title_frames": 39,
+      "actual_desktop_png_written": true,
+      "export_phase_pixel_equality": true
+    },
+    "android_native_device_after_fix": false,
+    "main_and_save_records_unchanged": true
+  },
+  "native_artifact": {
+    "id": 13994954968,
+    "size": 300297144,
+    "sha256": "cd0f5df620ad85c7477383da27346661ae680ce2c13a7188c79c57ca166ccd59"
+  },
+  "ci": {
+    "run": 43332771904,
+    "native_stage": "success",
+    "full_status": "in_progress"
+  },
+  "button_generation": {
+    "job_id": "668b7439-b59f-4f5d-b90b-f610206b4063",
+    "paid_posts": 1,
+    "actual_generations_charged": 10,
+    "api_outputs": 4,
+    "quantized_duplicates": 4,
+    "quality_failed": true,
+    "game_applied": false,
+    "extra_posts": 0,
+    "evidence": "../../art/record-save-button-20261113/LEDGER.json"
+  },
+  "previews": {
+    "applied_library_file_id": "libfile_fde3_f-0a9085bc87108191b4443a1ca46e7939_d66dafb33acc81918ce203aeb3fcd18e",
+    "applied_version": 4,
+    "fish_gif_library_file_id": "libfile_fde3_f-7d2920fb77848191b7240ceb44bae8c7_d66dafb33acc81918ce203aeb3fcd18e",
+    "title_gif_library_file_id": "libfile_fde3_f-30bd1516d0c08191ad742803826fdd27_d66dafb33acc81918ce203aeb3fcd18e",
+    "provenance": "actual native renders; title clip excludes launcher-less fixture version footer; no frame retouch"
+  },
+  "root_cause_limit": "User reports gallery file already written. Optional Java URI reflection after successful publish is a credible stall path and was removed; no real-device exception log was available to prove exclusive cause."
+}
