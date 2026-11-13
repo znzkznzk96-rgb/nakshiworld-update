@@ -4,7 +4,7 @@
     "code": 136,
     "name": "1.36"
   },
-  "status": "full_verified_identical_candidate_ready_for_publication",
+  "status": "publication_in_progress",
   "authorization": "업뎃및 배포 ㄱㄱ",
   "baseline": {
     "release": "v1.35",
@@ -96,5 +96,7 @@
     },
     "downloaded_hashes_verified": true
   },
-  "pr": 74
+  "pr": 74,
+  "publication_run": 43366484269,
+  "merge_commit": "efbe96ed97eb855e6d58831888bc5ed8f2928b39"
 }

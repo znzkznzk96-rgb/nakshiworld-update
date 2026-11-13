@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "release136_full_verified_ready_for_publication",
+  "status": "release136_publication_in_progress",
   "release_baseline": "v1.35",
   "target_release": "v1.36",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
   "current_task": "낚시터6버튼 시인성/선택표현 통일",
-  "next_step": "성공한동일후보를PR74로공개·운영다운로드검증",
+  "next_step": "공개43366484269확인→운영다운로드/3파일검증",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -2172,6 +2172,9 @@
     "candidate_artifact": 14009924701,
     "input_fingerprint": "bdbf57af4cc2eba5dadffda6bc443807843e9106d0d6d2eb00facd349b9d2aad",
     "pr": 74,
-    "candidate_ready": true
+    "candidate_ready": true,
+    "publication_run": 43366484269,
+    "merge_commit": "efbe96ed97eb855e6d58831888bc5ed8f2928b39",
+    "publication_status": "in_progress"
   }
 }
