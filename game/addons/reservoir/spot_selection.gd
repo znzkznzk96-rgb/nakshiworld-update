@@ -15,7 +15,7 @@ var rects: = {}
 var notice: = ""
 var notice_until: = 0.0
 func setup() -> void :
-	for n in ART: images.append(load("res://art/rift/base.png" if n=="rift" else "res://art/refresh53/%s.png" % ("reservoir_clean" if n == "reservoir" else n)))
+	for n in ART: images.append(load("res://art/refresh53/%s.png" % ("reservoir_clean" if n == "reservoir" else n)))
 	chains = load("res://art/refresh53/chains.png")
 func enter() -> void : pointer = false;dragging = false;shift = 0;scroll = index;notice = ""
 func process(dt: float) -> void :
