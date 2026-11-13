@@ -1,17 +1,17 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "record_photo_title_followup_native_verified",
+  "status": "record_photo_title_followup_verified_not_deployed",
   "release_baseline": "v1.33",
   "target_release": "v1.33",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "매트 숫자경계·저장완료 상태·버튼아트·초반6초모션·타이틀번개/시작동기 수정",
-  "next_step": "CI43332771904 native 실제화면 확인·전체검사 완료; 새배포 없음",
+  "current_task": "매트숫자·저장상태·버튼·첫6초모션·타이틀번개/시작 동기 수정·전체검증 완료(미배포)",
+  "next_step": "사용자 실제화면 검토 및 추후 배포 승인 시 단말 저장완료 확인; 이번 새배포 없음",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
-  "verification": "docs/qa/record-photo/RELEASE133_VERIFICATION.json",
+  "verification": "docs/qa/record-photo/FOLLOWUP_VERIFICATION.json",
   "baseline_phone_verified": false,
   "environment_recovery": "docs/CODEX_NETWORK_RECOVERY.md",
   "background_verified_branch": "work/tile-png-stage2-20261107",
@@ -35,9 +35,9 @@
   "bundle_verification_run": 42319985467,
   "bundle_evidence_commit": "dd8297cc9de9a5423091b61e06f166ee22023de4",
   "headless_regression_coverage": {
-    "run": 43327087587,
+    "run": 43332771904,
     "status": "passed",
-    "scope": "full workflow 149 unique success labels/native/PCK; packed record photo original pixels;740 overlay source files"
+    "scope": "unpublished followup source83184a9:151 unique success labels/native/PCK; release133 unchanged"
   },
   "standard_full_workflow_success": true,
   "remaining_global_render_checks": false,
@@ -59,7 +59,7 @@
     "sha256": "32148ab10b430c26d23546dc322b3815e3db64ddb3b898235be5662b50b254a0",
     "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.33/patch.pck"
   },
-  "standard_full_workflow_note": "v1.33 전체149/native/PCK·동일후보 공개·공개3파일/740소스파일/실제앱주소 전체다운로드 해시 검증완료",
+  "standard_full_workflow_note": "미배포 계측/타이틀후속151성공라벨/native/PCK통과. 공개v1.33유지, 새배포승인 없음.",
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md#2026-11-07--소규모-작업-효율채팅-중단-대비",
   "approved_followup": "우편 단일원본·공통지급·검사통합 구현/검증 완료. 공개v1.08 유지, 새 배포 미승인.",
   "session_continuity": {
@@ -1958,11 +1958,14 @@
       "button_extra_posts": 0,
       "source_implemented": true,
       "ci_run": 43332771904,
-      "ci_status": "in_progress",
+      "ci_status": "success",
       "source_commit": "83184a990c7197d356c1d174ed68bbb2de0dde4d",
       "native_verified": true,
       "verification": "docs/qa/record-photo/FOLLOWUP_VERIFICATION.json",
-      "android_after_fix_verified": false
+      "android_after_fix_verified": false,
+      "unique_success_labels": 151,
+      "button_new_generation_applied": false,
+      "button_existing_theme_reused": true
     },
     "gallery_file_written_user_reported": true
   },

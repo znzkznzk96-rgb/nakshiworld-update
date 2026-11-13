@@ -58,7 +58,9 @@
   "ci": {
     "run": 43332771904,
     "native_stage": "success",
-    "full_status": "in_progress"
+    "full_status": "success",
+    "unique_success_labels": 151,
+    "labels": "FOLLOWUP_CI_LABELS.json"
   },
   "button_generation": {
     "job_id": "668b7439-b59f-4f5d-b90b-f610206b4063",
@@ -78,5 +80,30 @@
     "title_gif_library_file_id": "libfile_fde3_f-30bd1516d0c08191ad742803826fdd27_d66dafb33acc81918ce203aeb3fcd18e",
     "provenance": "actual native renders; title clip excludes launcher-less fixture version footer; no frame retouch"
   },
-  "root_cause_limit": "User reports gallery file already written. Optional Java URI reflection after successful publish is a credible stall path and was removed; no real-device exception log was available to prove exclusive cause."
+  "root_cause_limit": "User reports gallery file already written. Optional Java URI reflection after successful publish is a credible stall path and was removed; no real-device exception log was available to prove exclusive cause.",
+  "hashes": {
+    "record-fixes/game/addons/reservoir/record_photo.gd": "fcf590372a9fcd66efad745bc4ed685584d78de0b0b9f14779c64b777f42ef26",
+    "record-fixes/game/addons/reservoir/record_gallery.gd": "bd38ceb97915cea4d8f8bc3f9d90ff0354592d0aa9e809b6f9de730d672c4e63",
+    "record-fixes/game/addons/reservoir/record_photo_motion.gd": "593afcd2f86761b09dded1e3fafb28a829350cfee93de10956982d0182af052d",
+    "record-fixes/game/addons/reservoir/title_screen.gd": "9bcdaed8ffe9f6ab68bd5beaa45f64ec9e973dc5085d620174ce7bedbb2c2321",
+    "record-photo/record_photo_applied.png": "79b1318cfc187ca59669ce22e6a25671d63525a38e836c9f13e3785522d3d267",
+    "record-fixes/record_photo_intro_six_seconds.gif": "8db756c64a65425d26174e8ffbe71bff527cf6f5a1d0ce38fdd08a07be2d7bea",
+    "record-fixes/title_lightning_start_timing.gif": "2718b32c01ae62d28186ce2d0b59bf2abefa78239f7aee0fb5e5c53ef400e679"
+  },
+  "artifacts": [
+    {
+      "id": 13996318298,
+      "name": "release-candidate-0db1ff72595235192445b729fdcaed5cb2b45145761a75bed1909e924e7c0db4",
+      "size": 132392830,
+      "digest": "sha256:c3036e9a842e6494e60971f83f4581e1645b145969537a0ec9c1502841a22449"
+    },
+    {
+      "id": 13996058522,
+      "name": "work-verification",
+      "size": 756801487,
+      "digest": "sha256:9e5341d698affb059cea44101ab68f8136196547ec3a4837878596ac75bbf89a"
+    }
+  ],
+  "public_release_unchanged": "v1.33",
+  "main_unchanged": "f3e3949020f23ddf5ff05dd09c6aa4e6ff68deb9"
 }
