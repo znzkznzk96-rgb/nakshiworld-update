@@ -22,7 +22,7 @@ def validate():
  call('git','fetch','--depth=1','origin',OLD)
  changed=call('git','diff','--name-only',OLD,'HEAD').splitlines()
  allowed={'game/tests/audio_save_verify.gd','automation/resume_verified_137.py','.github/workflows/verify-work.yml'}
- assert all(p in allowed or p.startswith('docs/') or p in ['WORK_STATE.json','CHANGELOG.md'] for p in changed),changed
+ assert all(p in allowed or p in ['WORK_STATE.json','CHANGELOG.md','docs/qa/record-photo/HANDOFF.md'] for p in changed),changed
  # Explicitly prove every runtime file and all previous build tools are identical.
  for p in changed:
   assert not p.startswith('game/') or p=='game/tests/audio_save_verify.gd'
