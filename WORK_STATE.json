@@ -6,8 +6,8 @@
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "강화 시안 색감·도트 수정1장 완료·검토대기",
-  "next_step": "쨍한 색감/선명한 도트 수정본 사용자 검토",
+  "current_task": "강화3타격·빛응축 성공/실패 연출 구현",
+  "next_step": "승인구도 레이어와 기존강화경로 확인→표시전용 연출/사운드→관련검사/실제미리보기",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -2282,7 +2282,7 @@
   },
   "forge_rework": {
     "authorized": true,
-    "phase": "color_pixel_revision_review",
+    "phase": "three_strike_implementation",
     "generation_limit": 1,
     "game_applied": false,
     "deployed": false,
@@ -2296,6 +2296,9 @@
     "revision_limit": 1,
     "revision_outputs": 1,
     "revision_preview": "exec-41fbeaa7-cf41-46eb-a1d8-13986848571c.png",
-    "revision_user_approved": false
+    "revision_user_approved": false,
+    "motion_authorized": true,
+    "vivid_preview_approved": true,
+    "paid_generation_authorized": false
   }
 }
