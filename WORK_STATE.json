@@ -2232,11 +2232,12 @@
       "approved_unlock_v2_chain_latch",
       "centered_expedition_notice"
     ],
-    "ci_run": 43379836360,
-    "source_commit": "67b8e813d2d1489c43a0d88064dc475baf7e1c91",
+    "ci_run": 43380331082,
+    "source_commit": "fa654d8bf4c0f1935cc66552a3aebcdd017005bf",
     "pr": 75,
-    "status": "full_ci_in_progress",
+    "status": "verified_prefix_reused_remaining_checks_in_progress",
     "previous_ci_run": 43377848838,
-    "reuse": "previous runtime and existing tools identical; old hardcoded sound count corrected; proof-gated previous success prefix reused"
+    "reuse": "previous runtime and existing tools identical; old hardcoded sound count corrected; proof-gated previous success prefix reused",
+    "reused_prefix_run": 43377848838
   }
 }
