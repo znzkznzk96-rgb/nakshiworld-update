@@ -1,5 +1,5 @@
 ## 2026-11-13 · 후속 번개·최고기록 버튼·사진 캔버스 격리(미배포)
-후속번개4.6초·완성형 도트프레임/줄자아이콘·사진전용World2D 적용. 4.4.1 import/관련검사 통과, 도감혼입 픽셀회귀/native/전체CI 대기. [검증](docs/qa/record-photo/EXPORT_ISOLATION_VERIFICATION.json)
+후속번개4.6초·완성형 도트프레임/줄자아이콘·사진전용World2D 적용. 4.4.1 관련검사·사진혼입 픽셀동일/native·전체152고유성공라벨/PCK 통과. CI43349995350 성공·실제결과제시·공개v1.35 유지·Android실기미확인. [검증](docs/qa/record-photo/EXPORT_ISOLATION_VERIFICATION.json)
 
 ## v1.35 공개·운영 검증 완료 · 2026-11-13
 첫3초 강한 반복몸짓·갤러리JNI문자열/배열null인자 수정·실제파일크기 확인후공개 배포. 전체151/native/PCK·동일후보·공개3파일/742소스/설치앱135.0주소 전체다운로드 해시검증 성공. 기존원화/세이브/밸런스 유지·추가유료0·수정후Android실기확인은별도. [검증](docs/qa/record-photo/RELEASE135_VERIFICATION.json)

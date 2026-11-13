@@ -1,6 +1,6 @@
 {
   "date": "2026-11-13",
-  "status": "related_and_native_verified_full_ci_running",
+  "status": "full_ci_native_pck_verified_not_deployed",
   "baseline": "v1.35",
   "source_sha256": "c4ed628334ba3c428f6b15624483a63ffb03109e13f9e68b158b8549ef2f6d14",
   "changes": [
@@ -32,5 +32,11 @@
   "deployed": false,
   "phone_verified": false,
   "ci_run": 43349995350,
-  "source_commit": "962312737cb151309179534dfe382ff7af1a98d5"
+  "source_commit": "962312737cb151309179534dfe382ff7af1a98d5",
+  "ci_status": "success",
+  "unique_success_labels": 152,
+  "candidate_artifact": 14003698996,
+  "preview_artifact": 14003057815,
+  "input_fingerprint": "2a8d350cd5af298f0f011693472e53eccfc60d8e2b20ffecfd804ca1e7bc0f11",
+  "logs_artifact": 14003997493
 }

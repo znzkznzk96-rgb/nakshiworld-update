@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "record_export_isolation_and_button_fix",
+  "status": "record_export_button_lightning_verified_not_deployed",
   "release_baseline": "v1.35",
   "target_release": "v1.35",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
   "current_task": "후속번개간격·최고기록버튼·저장사진캔버스분리",
-  "next_step": "원격 CI의 기록사진 캔버스 격리 픽셀회귀·버튼 실제화면·전체검사 결과 확인",
+  "next_step": "실제 화면 결과 확인·사용자 새 배포 승인 대기; 휴대폰 적용은 별도",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -2007,9 +2007,16 @@
       "implemented": true,
       "source_commit": "962312737cb151309179534dfe382ff7af1a98d5",
       "ci_run": 43349995350,
-      "ci_status": "in_progress",
+      "ci_status": "success",
       "native_verified": true,
-      "related_verified": true
+      "related_verified": true,
+      "full_verified": true,
+      "unique_success_labels": 152,
+      "candidate_artifact": 14003698996,
+      "preview_artifact": 14003057815,
+      "phone_verified": false,
+      "preview_library_file_id": "libfile_fde3_f-53f13f4b10b481919adecd4ed7c55ff7_d66dafb33acc81918ce203aeb3fcd18e",
+      "export_library_file_id": "libfile_fde3_f-84346a7b6fd08191aa721e15b6bffb62_d66dafb33acc81918ce203aeb3fcd18e"
     }
   },
   "release133": {
