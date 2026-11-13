@@ -1,17 +1,17 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "release136_published_public_verified",
-  "release_baseline": "v1.36",
-  "target_release": "v1.36",
+  "status": "v1.37_public_download_verified",
+  "release_baseline": "v1.37",
+  "target_release": "v1.37",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "v1.37 전체검증·배포",
-  "next_step": "버전/업데이트우편·전체검사·동일후보공개·운영검증",
+  "current_task": "v1.37 공개·운영검증 완료",
+  "next_step": "Android 앱 완전종료/재실행 후 v1.37 적용·해금/탐험중앙안내 실기확인",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
-  "verification": "docs/qa/record-photo/RELEASE136_VERIFICATION.json",
+  "verification": "docs/qa/record-photo/RELEASE137_VERIFICATION.json",
   "baseline_phone_verified": false,
   "environment_recovery": "docs/CODEX_NETWORK_RECOVERY.md",
   "background_verified_branch": "work/tile-png-stage2-20261107",
@@ -2191,25 +2191,29 @@
   "spot_selection_restore": {
     "authorized": true,
     "implemented": true,
-    "deployed": false,
-    "next": "사용자 해금 연출 방향 결정; 새 공개배포 미승인",
+    "deployed": true,
+    "next": "완료",
     "unlock_animation": "idea_only_not_approved",
-    "related_verified": true
+    "related_verified": true,
+    "public_release": "v1.37",
+    "release_authorized": false
   },
   "spot_unlock_animation": {
     "authorized": true,
     "implemented": true,
-    "deployed": false,
+    "deployed": true,
     "related_verified": true,
     "native_frames": 96,
     "layout_cases": 18,
     "paid_generations": 0,
     "verification": "docs/qa/spot-unlock/V2_VERIFICATION.json",
     "user_visual_approved": true,
-    "status": "v2_and_chain_latch_confirmed",
+    "status": "confirmed_and_published_v137",
     "duration_seconds": 3.15,
     "sound_rework": "implemented_chain_pull_latch_chain_release",
-    "audio_verification": "docs/qa/spot-unlock/AUDIO_VERIFICATION.json"
+    "audio_verification": "docs/qa/spot-unlock/AUDIO_VERIFICATION.json",
+    "public_release": "v1.37",
+    "release_authorized": false
   },
   "expedition_start_notice": {
     "implemented": true,
@@ -2219,12 +2223,14 @@
       540,
       660
     ],
-    "deployed": false,
-    "verification": "docs/qa/expedition-start-notice/VERIFICATION.json"
+    "deployed": true,
+    "verification": "docs/qa/expedition-start-notice/VERIFICATION.json",
+    "public_release": "v1.37",
+    "release_authorized": false
   },
   "release137": {
     "authorized": true,
-    "deployed": false,
+    "deployed": true,
     "version": "1.37",
     "phone_verified": false,
     "scope": [
@@ -2235,9 +2241,19 @@
     "ci_run": 43381593379,
     "source_commit": "15d1f96ea2776de12ee84c666b67b95f7af36765",
     "pr": 75,
-    "status": "remaining_checks_after_import_and_fixture_prerequisites",
+    "status": "published_public_download_verified",
     "previous_ci_run": 43377848838,
     "reuse": "previous runtime and existing tools identical; old hardcoded sound count corrected; proof-gated previous success prefix reused",
-    "reused_prefix_run": 43377848838
+    "reused_prefix_run": 43377848838,
+    "release_authorized": false,
+    "authorization_fulfilled": true,
+    "verification": "docs/qa/record-photo/RELEASE137_VERIFICATION.json",
+    "unique_success_labels": 155,
+    "candidate_artifact": 14017535994,
+    "merge_commit": "8ecabd38bd49aa6a77097e56f99a773c7aa23ea8",
+    "publication_run": 43382597898,
+    "publication_attempts": 2,
+    "public_verification_run": 43382789163,
+    "public_verification_status": "success"
   }
 }

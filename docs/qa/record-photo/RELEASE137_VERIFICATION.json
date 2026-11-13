@@ -1,0 +1,78 @@
+{
+  "version": {
+    "code": 137,
+    "name": "1.37"
+  },
+  "source_commit": "15d1f96ea2776de12ee84c666b67b95f7af36765",
+  "release_id": 443913728,
+  "assets": {
+    "version.json": {
+      "size": 199,
+      "sha256": "9fab3b13f2f98fa43f6f36b6bc758c038eb78ca7d25abe5f9bc01d0b0e10b268",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.37/version.json"
+    },
+    "patch.pck": {
+      "size": 63440848,
+      "sha256": "8b1c439274e43005bec280008238e8b26f744c74fc46fa130453b737ed1f9786",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.37/patch.pck"
+    },
+    "game-source.zip": {
+      "size": 69300483,
+      "sha256": "101657a2e83f764234a67bebb0b73dea03686a8c60e5e407288a794f41fe15f9",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.37/game-source.zip"
+    }
+  },
+  "deployed": true,
+  "phone_verified": false,
+  "source_overlay_files_verified": 752,
+  "zip_crc_verified": true,
+  "installed_app_download": {
+    "address": "https://nakshiworld-update-kr.znzkznzk96.workers.dev/patch.pck?v=137.0",
+    "size": 63440848,
+    "sha256": "8b1c439274e43005bec280008238e8b26f744c74fc46fa130453b737ed1f9786"
+  },
+  "range206_verified": true,
+  "public_download_verified": true,
+  "verification": {
+    "ci_run": 43381593379,
+    "ci_job": 131740506184,
+    "ci_status": "success",
+    "unique_success_labels": 155,
+    "source_commit": "15d1f96ea2776de12ee84c666b67b95f7af36765",
+    "reused_prefix": {
+      "run": 43377848838,
+      "job": 131728576871,
+      "completed_steps": 18,
+      "proof": "automation/resume_verified_137.py verifies exact unchanged runtime/assets/build inputs/existing tools; status-only docs and corrected audio test permitted",
+      "reason": "20 fixed sound count rejected 3 new valid metal samples; corrected to23 named, nonnull resources; completed successes reused; isolated reload fixtures rebuilt"
+    },
+    "packed_checks": {
+      "ci": 3,
+      "local_new_features": "pass: metal sounds3, original rift selector, centered expedition notice"
+    }
+  },
+  "candidate": {
+    "artifact": 14017535994,
+    "input_fingerprint": "408d162dd9aefc0646bdaedb13c8275400a2b5eafde6d5fc54a7aff751cfc125",
+    "published_without_rebuild": true
+  },
+  "publication": {
+    "pr": 75,
+    "merge_commit": "8ecabd38bd49aa6a77097e56f99a773c7aa23ea8",
+    "run": 43382597898,
+    "attempts": 2,
+    "initial_job": 131743633914,
+    "initial_issue": "Created draft not found immediately after creation; existing correct draft confirmed before resuming same candidate",
+    "successful_job": 131744083426
+  },
+  "public_ci": {
+    "run": 43382789163,
+    "job": 131744228916,
+    "status": "success"
+  },
+  "implementation_verified": true,
+  "approved_visuals_and_sound": true,
+  "paid_generations": 0,
+  "existing_saves_art_balance_preserved": true,
+  "authorization_fulfilled": true
+}
