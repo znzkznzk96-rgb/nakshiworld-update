@@ -1,0 +1,14 @@
+{
+  "description": "Pixel art architectural landscape of a surreal enormous tiled swimming pool, pale cream square tiles form the entire floor and walls. ONE LARGE IVORY STONE ARCH spans across the upper middle, its blue-violet shadowed opening visible. Clear bright turquoise pool fills lower half with stepped tile edges. Empty dreamlike backrooms pool atmosphere, blue sky through arch, cream and cyan palette with purple shadow. Detailed but readable at 48x40 pixels, bold crisp pixel clusters and three shades per material, flat side-view game background, complete full canvas scene. NO trees, NO plants, NO beach, NO sand, NO characters, NO text, NO UI border.",
+  "negative_description": "text, letters, numbers, watermark, border, UI frame, photograph, blur, messy dithering, tiny noise, cropped edges, gray or white background, muddy colors",
+  "image_size": {
+    "width": 48,
+    "height": 40
+  },
+  "text_guidance_scale": 8,
+  "outline": "selective outline",
+  "shading": "basic shading",
+  "detail": "medium detail",
+  "no_background": false,
+  "seed": 2026111422
+}
