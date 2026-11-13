@@ -6,8 +6,8 @@
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "강화 연출 기준 정지시안1장",
-  "next_step": "손/망치/모루/낚싯대 접점 고정 시안 생성·표시→사용자 구도 검토",
+  "current_task": "강화 연출 기준 정지시안1장 생성 완료·사용자 구도 검토 대기",
+  "next_step": "생성된 강화 정지시안의 손/망치/모루/낚싯대 구도 사용자 검토; 추가 생성·모션·게임 적용은 후속 지시 전 진행하지 않음",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -2282,10 +2282,14 @@
   },
   "forge_rework": {
     "authorized": true,
-    "phase": "single_composition_preview",
+    "phase": "single_composition_preview_review",
     "generation_limit": 1,
     "game_applied": false,
     "deployed": false,
-    "probability_cost_save_changed": false
+    "probability_cost_save_changed": false,
+    "generated_outputs": 1,
+    "generation_limit_consumed": true,
+    "preview": "exec-8f5f7fd5-7ee4-45df-9ccf-575da2d3a82d.png",
+    "user_visual_approved": false
   }
 }
