@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "dex_region_buttons_related_native_verified_not_deployed",
+  "status": "dex_region_pixellab_art_requested",
   "release_baseline": "v1.35",
   "target_release": "v1.35",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "도감 낚시터 선택버튼 크림/목재 도트 UI 재제작",
-  "next_step": "도감 낚시터 버튼 실제화면 사용자 검토; 공개배포 보류",
+  "current_task": "도감 낚시터 그림 PixelLab 순차제작·거꾸로 폭포 한줄버튼",
+  "next_step": "기존연결복원·실제API입력검토→첫저수지1장검수",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -2068,6 +2068,10 @@
     "preview_library_file_id": "libfile_fde3_f-095ff9391f648191ba22866e97884c5b_d66dafb33acc81918ce203aeb3fcd18e",
     "source_commit": "33c2a6f677af7000006e98cbf765a3cfa9fbf71a",
     "ci_run": 43354807811,
-    "ci_status": "in_progress"
+    "ci_status": "in_progress",
+    "art_rework": true,
+    "art_generation_limit": 6,
+    "art_generated": 0,
+    "valley_button_label": "거꾸로 폭포"
   }
 }
