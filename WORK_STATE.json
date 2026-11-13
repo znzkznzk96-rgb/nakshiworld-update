@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "release134_authorized_preparing",
+  "status": "release134_full_verification_running",
   "release_baseline": "v1.33",
   "target_release": "v1.34",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
   "current_task": "계측 후속·타이틀 수정 v1.34 배포",
-  "next_step": "버전·우편 확정 후 전체검사 및 동일후보 공개/운영검증",
+  "next_step": "CI43336566180 완료 후 동일후보 공개·운영검증",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -48,7 +48,7 @@
     "fulfilled": false
   },
   "release_preflight": "docs/qa/soldier-size/VERIFICATION.json",
-  "release_source_commit": "97ef8895dd8c7dba18c99a4f3b43a78c9f4ca664",
+  "release_source_commit": "c0ea402ab6313da251b1cf48e938d68685b5cc3f",
   "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v1.33",
   "release_build_run": 43329531763,
   "release_build_status": "success",
@@ -248,9 +248,9 @@
     "release_authorized": false
   },
   "full_release_ci": {
-    "run": 42790651193,
-    "status": "success",
-    "source_commit": "d1303a61a9d1f073901201481e67329edb49ec06"
+    "run": 43336566180,
+    "status": "in_progress",
+    "source_commit": "c0ea402ab6313da251b1cf48e938d68685b5cc3f"
   },
   "release_candidate": {
     "version": {
