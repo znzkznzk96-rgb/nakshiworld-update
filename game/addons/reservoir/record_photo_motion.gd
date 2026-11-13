@@ -20,11 +20,11 @@ func periodic_strength(sp:int,t:float)->float:
 func strength(sp:int,t:float)->float:
  if t<0:return 0.0
  var normal:=periodic_strength(sp,t)
- if t>=6.0:return normal
- # Repeated, clearly stronger introduction; fade into existing cadence at 6s.
+ if t>=3.0:return normal
+ # Repeated, clearly stronger introduction; fade into existing cadence at 3s.
  var phase:=fposmod(t+float(sp%5)*.04,.95)
  var burst:=pow(maxf(0,sin(PI*minf(phase/.82,1.0))),2)*2.1
- return lerpf(normal,burst,1.0-smoothstep(5.0,6.0,t))
+ return lerpf(normal,burst,1.0-smoothstep(2.0,3.0,t))
 func offset(sp:int,p:Vector2,t:float)->Vector2:
  var a:=strength(sp,t)
  if a==0:return Vector2.ZERO

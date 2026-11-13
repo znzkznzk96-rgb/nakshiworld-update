@@ -1,0 +1,18 @@
+{
+  "date": "2026-11-13",
+  "status": "related_checks_passed_full_ci_pending",
+  "reason": "Godot4.4.1 rejects NIL for Java String and String[]; update/delete used null, potentially aborting publication after write",
+  "engine_evidence": "https://github.com/godotengine/godot/blob/4.4.1-stable/platform/android/java_class_wrapper.cpp",
+  "engine_function": "JavaClass::_call_method parameter validation ARG_TYPE_STRING/ARG_ARRAY_BIT|ARG_TYPE_STRING",
+  "fix": "empty String and PackedStringArray; file descriptor actual size must equal PNG data size before publish; delete partial row on failure",
+  "tests": [
+    "typed String/PackedStringArray mock native method signatures",
+    "successful write/size/close/publish sequence",
+    "write error closes stream and removes row",
+    "file size mismatch closes descriptor and removes row without publishing",
+    "first3s strong repeated motion and exact old cadence after3s"
+  ],
+  "intro_seconds": 3,
+  "android_device_after_fix_verified": false,
+  "additional_paid_generations": 0
+}
