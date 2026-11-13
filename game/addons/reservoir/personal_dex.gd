@@ -154,19 +154,28 @@ func draw_collection(m,r: Rect2) -> void:
 	else:
 		icon(m,"rod",Rect2(23,y-3,15,15));m._text("낚시터",Vector2(42,y+10),10,INK,false,200);y+=17
 		for area in 6:
-			var b:=Rect2(21+(area%2)*116,y+floori(area/2.0)*33,111,31)
-			m._ui_style_box(m.sb_btn,b)
-			if area==region:m._ui_rect(b.grow(-4),Color("08646b"))
-			icon(m,"region%d"%area,Rect2(b.position+Vector2(4,4),Vector2(29,19)))
-			var labels: Array=["거꾸로 폭포"] if area==1 else [REGIONS[area]]
+			var b:=Rect2(21+(area%2)*116,y+floori(area/2.0)*37,111,34)
+			var active:bool=area==region
+			# Retain the complete cream/wood texture; selection never paints over it.
+			var face:Rect2=Rect2(b.position+Vector2(0,1),b.size) if active else b
+			m._ui_style_box(m.sb_btn,face)
+			if active:
+				var accent:=Color("247e79")
+				for x in [b.position.x+3,b.end.x-9]:
+					m._ui_rect(Rect2(x,b.position.y,6,1),accent)
+					m._ui_rect(Rect2(x,b.end.y,6,1),accent)
+				m._ui_rect(Rect2(b.position.x,b.position.y+4,1,b.size.y-7),accent)
+				m._ui_rect(Rect2(b.end.x-1,b.position.y+4,1,b.size.y-7),accent)
+			icon(m,"region%d"%area,Rect2(face.position+Vector2(7,6),Vector2(27,23)))
+			var labels:Array=["거꾸로 폭포","계곡"] if area==1 else [REGIONS[area]]
 			for line in labels.size():
-				var at: Vector2=b.position+Vector2(36,19)
-				m._text(labels[line],at,9,Color("fff0d1") if area==region else INK,false,70)
-				var it: Array=m.text_items[-1]
-				var font: Font=it[0];var px: int=it[5];var scale: float=it[7]
-				rects.region_labels.append([area,labels[line],Rect2(it[1]-Vector2(0,font.get_ascent(px)*scale),Vector2(m._text_w(labels[line],9),font.get_height(px)*scale))])
-			rects.regions.append(b)
-		y+=103;ids=area_ids()
+				var at:Vector2=face.position+Vector2(39,16+line*10 if labels.size()>1 else 22)
+				m._text(labels[line],at,8 if labels.size()>1 else 9,Color("155f5a") if active else INK,false,65)
+				var it:Array=m.text_items[-1]
+				var font:Font=it[0];var px:int=it[5];var scale:float=it[7]
+				rects.region_labels.append([area,labels[line],Rect2(it[1]-Vector2(0,font.get_ascent(px)*scale),Vector2(m._text_w(labels[line],8 if labels.size()>1 else 9),font.get_height(px)*scale))])
+			rects.regions.append(b.grow(1))
+		y+=115;ids=area_ids()
 		for sp in ids:
 			if not best(m,sp,"grade").is_empty() or not best(m,sp,"length").is_empty():count+=1
 		m._text("%s · 발견 %d / %d종"%[REGIONS[region],count,ids.size()] if not ids.is_empty() else REGIONS[region],Vector2(23,y+10),9,INK,false,224)

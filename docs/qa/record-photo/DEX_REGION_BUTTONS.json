@@ -1,0 +1,33 @@
+{
+  "date": "2026-11-13",
+  "status": "related_native_verified_not_deployed",
+  "decision_commit": "751b0a79bb613eb64b635d11d11f933a2f8347f7",
+  "godot": "4.4.1",
+  "native": {
+    "heights": [
+      480,
+      540,
+      660
+    ],
+    "region_states": 18,
+    "screens": 30,
+    "renderer": "Mesa llvmpipe OpenGL compatibility",
+    "result": "DEX_READABILITY_PREVIEW failures=[]"
+  },
+  "related": [
+    "DEX_READABILITY_VERIFY failures=[]",
+    "PERSONAL_DEX_VERIFY failures=[]",
+    "RECORD_PHOTO_VERIFY failures=[] geometry_cases=400"
+  ],
+  "checks": [
+    "all six selection targets",
+    "full valley name",
+    "label bounds",
+    "three collection rows minimum",
+    "specimen records unchanged"
+  ],
+  "paid_generations": 0,
+  "deployed": false,
+  "phone_verified": false,
+  "full_ci": "automatic verification pending; previous full CI 43349995350 predates redesign"
+}

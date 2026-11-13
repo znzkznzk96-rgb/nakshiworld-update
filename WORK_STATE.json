@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "dex_region_buttons_rework",
+  "status": "dex_region_buttons_related_native_verified_not_deployed",
   "release_baseline": "v1.35",
   "target_release": "v1.35",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
   "current_task": "도감 낚시터 선택버튼 크림/목재 도트 UI 재제작",
-  "next_step": "기존 그림/정확한 명칭·선택상태 실제화면 확인 및 관련검사",
+  "next_step": "도감 낚시터 버튼 실제화면 사용자 검토; 공개배포 보류",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -2050,5 +2050,21 @@
     "version": "1.33",
     "date": "2026-11-13",
     "basis": "user title screenshot 1000102767.jpg; does not mean all features verified"
+  },
+  "dex_region_buttons": {
+    "implemented": true,
+    "related_verified": true,
+    "native_verified": true,
+    "heights": [
+      480,
+      540,
+      660
+    ],
+    "region_states": 18,
+    "native_screens": 30,
+    "deployed": false,
+    "release_authorized": false,
+    "verification": "docs/qa/record-photo/DEX_REGION_BUTTONS.json",
+    "preview_library_file_id": "libfile_fde3_f-095ff9391f648191ba22866e97884c5b_d66dafb33acc81918ce203aeb3fcd18e"
   }
 }
