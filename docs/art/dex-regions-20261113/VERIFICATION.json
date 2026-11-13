@@ -156,6 +156,8 @@
     "new_paid_generations": 0,
     "save_records_preserved": true,
     "deployed": false,
-    "full_ci": "pending_for_final_source"
+    "full_ci": "pending",
+    "source_commit": "58ddc8c9cc9fdca894ac3f7d80f727067e851b0a",
+    "ci_run": 43359860225
   }
 }
