@@ -245,6 +245,7 @@ func create_image(m) -> Image:
  var commands:Array=m.ui_commands;var texts:Array=m.text_items
  m.ui_commands=old_commands;m.text_items=old_text
  var viewport:=SubViewport.new();viewport.size=EXPORT_SIZE
+ viewport.world_2d=World2D.new()
  viewport.size_2d_override=EXPORT_LOGICAL;viewport.size_2d_override_stretch=true
  viewport.render_target_update_mode=SubViewport.UPDATE_ALWAYS
  viewport.canvas_item_default_texture_filter=Viewport.DEFAULT_CANVAS_ITEM_TEXTURE_FILTER_NEAREST

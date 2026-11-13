@@ -1,0 +1,19 @@
+{
+  "quality_passed": true,
+  "user_visual_approval": "pending",
+  "native_size": [
+    48,
+    40
+  ],
+  "reviewed": [
+    "native",
+    "nearest8x"
+  ],
+  "features": {
+    "ivory_arch": true,
+    "tiled_edges": true,
+    "cyan_pool": true,
+    "purple_shadows": true
+  },
+  "deployed": false
+}

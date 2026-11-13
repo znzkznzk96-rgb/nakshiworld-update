@@ -1,0 +1,187 @@
+{
+  "date": "2026-11-13",
+  "status": "six_candidates_selected_pending_user_visual_review",
+  "attempt_limits_per_region": 4,
+  "selected_attempts": [
+    4,
+    4,
+    2,
+    2,
+    1,
+    1
+  ],
+  "request_attempt_counts": [
+    4,
+    4,
+    2,
+    2,
+    1,
+    1
+  ],
+  "successful_paid_requests_this_resume": 13,
+  "actual_generation_delta_this_resume": 13,
+  "prior_http500_request": "LEDGER0.json; included in reservoir attempt count; initial balance query failed at the time",
+  "user_visual_approval": "pending",
+  "deployed": false,
+  "regions": [
+    {
+      "area": 0,
+      "button_name": "동네 저수지",
+      "selected": "docs/art/dex-regions-20261113/0-attempt4/result.png",
+      "game": "game/art/ui/codex/region0.png",
+      "sha256": "11a61bf5b06af4d8f6743155b14131d7e524f54063ce1d411eb0c98d927e9a2d",
+      "size": [
+        48,
+        40
+      ],
+      "quality_review": "passed technical/identity checks; user review pending"
+    },
+    {
+      "area": 1,
+      "button_name": "거꾸로 폭포",
+      "selected": "docs/art/dex-regions-20261113/1-attempt4/result.png",
+      "game": "game/art/ui/codex/region1.png",
+      "sha256": "44bdaa326fbdb6689ac98fe11f3f834310e76e931adcb49664feb8b5b37a3c50",
+      "size": [
+        48,
+        40
+      ],
+      "quality_review": "passed technical/identity checks; user review pending"
+    },
+    {
+      "area": 2,
+      "button_name": "타일 바다",
+      "selected": "docs/art/dex-regions-20261113/2-attempt2/result.png",
+      "game": "game/art/ui/codex/region2.png",
+      "sha256": "d50eb3adee02658dd92a1ab8a33ea0637a64bd7d62d19f44e625ddd3f8641d34",
+      "size": [
+        48,
+        40
+      ],
+      "quality_review": "passed technical/identity checks; user review pending"
+    },
+    {
+      "area": 3,
+      "button_name": "균열 해역",
+      "selected": "docs/art/dex-regions-20261113/3-attempt2/result.png",
+      "game": "game/art/ui/codex/region3.png",
+      "sha256": "e8b0b8c3bf8e247a1e5801b6cdeb4d033051a97029bc65c7e9b592681a11275b",
+      "size": [
+        48,
+        40
+      ],
+      "quality_review": "passed technical/identity checks; user review pending"
+    },
+    {
+      "area": 4,
+      "button_name": "심해",
+      "selected": "docs/art/dex-regions-20261113/4-attempt1/result.png",
+      "game": "game/art/ui/codex/region4.png",
+      "sha256": "0b1bc556a9e8f1c6e52bf004d2ce687bd6eb2d2d97c9a223a4603e4dd3d713a5",
+      "size": [
+        48,
+        40
+      ],
+      "quality_review": "passed technical/identity checks; user review pending"
+    },
+    {
+      "area": 5,
+      "button_name": "우주 바다",
+      "selected": "docs/art/dex-regions-20261113/5-attempt1/result.png",
+      "game": "game/art/ui/codex/region5.png",
+      "sha256": "2240c7fe60ea6bac3a9624881616b5c47033af9c8f312f7f86f4b6b10fb9a837",
+      "size": [
+        48,
+        40
+      ],
+      "quality_review": "passed technical/identity checks; user review pending"
+    }
+  ],
+  "related_suites": [
+    "DEX_READABILITY_VERIFY failures=[]",
+    "PERSONAL_DEX_VERIFY failures=[]",
+    "RECORD_PHOTO_VERIFY failures=[] geometry_cases=400"
+  ],
+  "godot": "4.4.1",
+  "native_screens": 30,
+  "native_heights": [
+    480,
+    540,
+    660
+  ],
+  "region_states": 18,
+  "native_result": "DEX_READABILITY_PREVIEW failures=[]",
+  "full_ci": "queued",
+  "source_commit": "c5165dbc4bccf56b9db8b832f7623bf98f6a640c",
+  "ci_run": 43358355364,
+  "remote_asset_byte_equality": true,
+  "preview_library_file_id": "libfile_fde3_f-065f296067808191a387227c1aeeb2cd_d66dafb33acc81918ce203aeb3fcd18e",
+  "category_icons": {
+    "fish": "actual species0 pirami game art",
+    "soldier": "existing PixelLab crossed swords role icon",
+    "replaced": "unrelated creature/humanoid codex tab images",
+    "new_paid_generations": 0,
+    "related_suites": [
+      "DEX_READABILITY_VERIFY failures=[]",
+      "PERSONAL_DEX_VERIFY failures=[]"
+    ],
+    "native_screens": 30,
+    "heights": [
+      480,
+      540,
+      660
+    ],
+    "visual_review": "actual fish and soldier pages at all three heights passed",
+    "deployed": false,
+    "full_ci": "pending",
+    "source_commit": "54a3ec8571f7d4723b374beb210a8c792721a7f6",
+    "ci_run": 43359098574
+  },
+  "category_button_visibility": {
+    "godot": "4.4.1",
+    "native_heights": [
+      480,
+      540,
+      660
+    ],
+    "native_screens": 30,
+    "related_suites": [
+      "DEX_READABILITY_VERIFY failures=[]",
+      "PERSONAL_DEX_VERIFY failures=[]"
+    ],
+    "final_native": "DEX_READABILITY_PREVIEW failures=[]",
+    "selected": "orange original pixel texture, cream check, highlight and 1px press",
+    "inactive": "cream original frame and lower shadow",
+    "common_other_buttons_unchanged": true,
+    "new_paid_generations": 0,
+    "save_records_preserved": true,
+    "deployed": false,
+    "full_ci": "pending",
+    "source_commit": "58ddc8c9cc9fdca894ac3f7d80f727067e851b0a",
+    "ci_run": 43359860225
+  },
+  "region_button_visibility": {
+    "godot": "4.4.1",
+    "style": "same orange selection, cream check, framed thumbnail, 1px press and inactive shadow as category tabs",
+    "native_heights": [
+      480,
+      540,
+      660
+    ],
+    "region_states": 18,
+    "native_screens": 30,
+    "related_suites": [
+      "DEX_READABILITY_VERIFY failures=[]",
+      "PERSONAL_DEX_VERIFY failures=[]"
+    ],
+    "native_result": "DEX_READABILITY_PREVIEW failures=[]",
+    "original_art_bytes_unchanged": true,
+    "button_names_unchanged": true,
+    "save_records_preserved": true,
+    "new_paid_generations": 0,
+    "deployed": false,
+    "full_ci": "pending",
+    "source_commit": "d7cf0c14cae852e311deddba2941f8af70dd7122",
+    "ci_run": 43360593332
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "description": "Pixel art full scene of a magical RIFT OCEAN at twilight. A HUGE jagged zigzag CRACK OF BRIGHT CYAN LIGHT cuts vertically through the DARK PURPLE SKY, glowing hot pink on the edges. The open glowing tear dominates upper half and is wide enough to be visibly a broken hole in space, NOT a star or sun. Deep PURPLE and INDIGO ocean waves below reflect cyan rift light. One tiny brown open fishing boat WITHOUT A SAIL floats at bottom right. Violet dark cliffs at far edges. Strong contrasting cyan-pink-purple palette, readable at 48x40, crisp deliberate pixel clusters, complete edge-to-edge side view game scene. NO sunlight, no blue daytime sea, no people, no letters, no UI border.",
+  "negative_description": "text, letters, numbers, watermark, border, UI frame, photograph, blur, messy dithering, tiny noise, cropped edges, gray or white background, muddy colors",
+  "image_size": {
+    "width": 48,
+    "height": 40
+  },
+  "text_guidance_scale": 8,
+  "outline": "selective outline",
+  "shading": "basic shading",
+  "detail": "medium detail",
+  "no_background": false,
+  "seed": 2026111432
+}

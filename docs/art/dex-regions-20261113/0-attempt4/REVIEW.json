@@ -1,0 +1,21 @@
+{
+  "quality_passed": true,
+  "user_visual_approval": "pending",
+  "native_size": [
+    48,
+    40
+  ],
+  "reviewed": [
+    "native48x40",
+    "nearest8x",
+    "actualGodotbutton480/540/660"
+  ],
+  "features": {
+    "reservoir": true,
+    "small_hut": true,
+    "autumn_tree": true,
+    "mountain": true
+  },
+  "style": "clear saturated pixel clusters; original shape retained in thumbnail",
+  "deployed": false
+}

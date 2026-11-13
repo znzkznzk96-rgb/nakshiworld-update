@@ -1,0 +1,100 @@
+{
+  "date": "2026-11-13",
+  "version": {
+    "code": 136,
+    "name": "1.36"
+  },
+  "status": "full_verified_identical_candidate_ready_for_publication",
+  "authorization": "업뎃및 배포 ㄱㄱ",
+  "baseline": {
+    "release": "v1.35",
+    "size": 69055670,
+    "sha256": "c4ed628334ba3c428f6b15624483a63ffb03109e13f9e68b158b8549ef2f6d14"
+  },
+  "scope": [
+    "record photo World2D isolation",
+    "repeat title lightning 4.6s",
+    "highest record button",
+    "six PixelLab region landscapes",
+    "single-line waterfall button",
+    "real fish/crossed swords categories",
+    "category and region button visibility"
+  ],
+  "candidate_protection_tests": 7,
+  "paid_generations_for_publication": 0,
+  "deployed": false,
+  "phone_verified": false,
+  "source_commit": "b31f8ac64b98de529a46ddba14245c35a105e011",
+  "ci_run": 43364135828,
+  "attempts": [
+    {
+      "source_commit": "95a0fb9b261302bd1c01ab2136605381cd39153e",
+      "ci_run": 43361845442,
+      "job": 131677060325,
+      "result": "failed_at_packaged_asset_size_assertion",
+      "exit_code": 124,
+      "all_game_and_native_checks_passed": true,
+      "reason": "outdated verifier expected all codex images 32x32; approved region images are 48x40; assert aborted SceneTree without quitting"
+    }
+  ],
+  "verifier_fix": {
+    "region_images": [
+      48,
+      40
+    ],
+    "other_codex_images": [
+      32,
+      32
+    ],
+    "fail_fast_exit": 1,
+    "game_bytes_changed": false,
+    "local_packed_checks": [
+      "PACKED_ANGLER_VERIFY failures=[]",
+      "PACKED_TILE107_VERIFY failures=[]",
+      "PACKED_RIFT_ART_VERIFY failures=[] species=20"
+    ],
+    "negative_size_check": {
+      "exit_code": 1,
+      "seconds": 2.275,
+      "production_source_changed": false
+    }
+  },
+  "ci_status": "success",
+  "unique_success_labels": 152,
+  "candidate": {
+    "artifact_id": 14009924701,
+    "metadata": {
+      "schema": 1,
+      "source_commit": "b31f8ac64b98de529a46ddba14245c35a105e011",
+      "input_fingerprint": "bdbf57af4cc2eba5dadffda6bc443807843e9106d0d6d2eb00facd349b9d2aad",
+      "tools": {
+        "godot": "4.4.1.stable",
+        "baseline": "v1.35",
+        "baseline_sha256": "c4ed628334ba3c428f6b15624483a63ffb03109e13f9e68b158b8549ef2f6d14"
+      },
+      "run_id": 43364135828,
+      "files": {
+        "patch.pck": {
+          "size": 63347472,
+          "sha256": "0ed34998e3dcb8db0a22636d235d471a181d074ea096c4ff252ea4e1afc62e4f"
+        },
+        "game-source.zip": {
+          "size": 69062689,
+          "sha256": "ced26a80c76af7743c0d3cb90a1d4e0ff6f35c19e6e263dd5bd708d2b4fde62c"
+        },
+        "version.json": {
+          "size": 199,
+          "sha256": "ed0ef72cb9ea04537fc77465571e9f73866b3d5fe33e8a1468c32c4fa5814812"
+        }
+      },
+      "version": {
+        "code": 136,
+        "name": "1.36"
+      },
+      "seal_seconds": 3.78,
+      "verification_and_restore_seconds": 1042.756
+    },
+    "downloaded_hashes_verified": true
+  },
+  "pr": 74
+}

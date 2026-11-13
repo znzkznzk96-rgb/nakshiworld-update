@@ -1,0 +1,14 @@
+{
+  "description": "A complete richly colored pixel art LANDSCAPE SCENE, like a miniature side-view game background filling the entire rectangular canvas. A vivid autumn lake landscape, NOT a house object. Broad sparkling azure lake occupies lower half. Large saturated red-orange maple tree on left shore; a VERY SMALL dark brown hut and tiny dock beneath it. One deep purple mountain and warm golden sky behind lake. Bright saturated red/orange foliage and blue water, dark brown hut roof, NO pale beige roof. Clear layered scenic composition. Strict crisp pixel clusters, rich clean colors, three distinct shades per material, dark warm selective contour, a readable simple silhouette at tiny original size. Slightly elevated side view, edge-to-edge scenic composition with sky in top third, distant shore across middle, broad water in bottom half. Opaque full background, not an isolated object. No button frame, no text, no people, no animals, no fish. Beautiful handcrafted 16-bit fishing scenery.",
+  "negative_description": "text, letters, numbers, watermark, border, UI frame, photograph, blur, messy dithering, tiny noise, cropped edges, gray or white background, muddy colors",
+  "image_size": {
+    "width": 48,
+    "height": 40
+  },
+  "text_guidance_scale": 8,
+  "outline": "selective outline",
+  "shading": "basic shading",
+  "detail": "medium detail",
+  "no_background": false,
+  "seed": 2026111404
+}

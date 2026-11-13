@@ -1,0 +1,46 @@
+{
+  "area": 1,
+  "attempt": 2,
+  "max_attempts": 4,
+  "endpoint": "/create-image-pixflux",
+  "model": "pixflux",
+  "seed": 2026111412,
+  "references": [],
+  "reference_reason": "same-size validation rejected prior large reference; no image input avoids size mismatch and noisy miniature transfer; actual game palette expressed in text",
+  "paid_posts": 1,
+  "started_at": 1794539247.6628926,
+  "balance_before": {
+    "credits": {
+      "type": "usd",
+      "usd": 0.0
+    },
+    "subscription": {
+      "type": "generations",
+      "status": "active",
+      "plan": "Tier 2: Pixel Artisan",
+      "generations": 967.5999999999999,
+      "total": 3935.0
+    }
+  },
+  "status": "received_quality_pending",
+  "http_status": 200,
+  "usage": {
+    "type": "generations",
+    "generations": 1.0
+  },
+  "sha256": "6fc434b73f87da9ca654674f5b588cd80870c37e6f2ddf3b160380aee4a7bf30",
+  "balance_after": {
+    "credits": {
+      "type": "usd",
+      "usd": 0.0
+    },
+    "subscription": {
+      "type": "generations",
+      "status": "active",
+      "plan": "Tier 2: Pixel Artisan",
+      "generations": 966.5999999999999,
+      "total": 3935.0
+    }
+  },
+  "actual_generations_delta": 1.0
+}

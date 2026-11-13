@@ -1,0 +1,14 @@
+{
+  "description": "Pixel art fully UNDERWATER DEEP SEA landscape, no sky or water surface. A mysterious large sunken dark stone ARCH frames a cyan glowing abyss opening in the middle. Deep navy ocean surrounds it, shafts of cold teal light descending from upper water, dark rocks and a few small bioluminescent cyan corals on seafloor, three blue bubbles. Rich navy blue, dark indigo and luminous cyan, clear strong silhouette and readable arch at 48x40 pixels. Crisp pixel clusters, medium game scenery detail, complete full rectangular background. No fish, no people, no letters, no UI border, no gray fog.",
+  "negative_description": "text, letters, numbers, watermark, border, UI frame, photograph, blur, messy dithering, tiny noise, cropped edges, gray or white background, muddy colors",
+  "image_size": {
+    "width": 48,
+    "height": 40
+  },
+  "text_guidance_scale": 8,
+  "outline": "selective outline",
+  "shading": "basic shading",
+  "detail": "medium detail",
+  "no_background": false,
+  "seed": 2026111441
+}

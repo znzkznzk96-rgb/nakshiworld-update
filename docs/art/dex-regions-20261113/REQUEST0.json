@@ -1,0 +1,21 @@
+{
+  "description": "A clean tiny pixel art fishing location icon, a miniature autumn countryside reservoir diorama: broad clear blue pond at the bottom, one small rustic wooden fishing hut and a short wooden pier on the left, one red-orange maple tree beside it, distant violet mountain silhouette. Readable bold silhouettes at 24 pixels, warm rich colors matching the supplied actual game pixel-art reference, 3 shades per material, deliberate crisp pixel clusters, dark warm brown selective outlines, simple clean composition, no text, no people, no animals, no fish, no fishing rod, isolated on transparent background. A finished tiny scene emblem for a cream parchment and carved wood mobile game button.",
+  "negative_description": "letters, numbers, watermark, UI frame, big border, photorealism, blur, gradient haze, noisy dithering, scattered pixels, clutter, cropped objects, gray background",
+  "image_size": {
+    "width": 24,
+    "height": 24
+  },
+  "text_guidance_scale": 8,
+  "style_strength": 35,
+  "outline": "selective outline",
+  "shading": "basic shading",
+  "detail": "low detail",
+  "view": "low top-down",
+  "no_background": true,
+  "seed": 2026111300,
+  "style_image": {
+    "path": "game/art/bg_reservoir.png (full verified runtime baseline)",
+    "sha256": "394568fc7cc7c3fa3e8c1c6bd925ea333d9bbca8480633489efcf9c1b6c99611",
+    "role": "actual reservoir original pixel palette/style; not rejected thumbnail or temporary artwork"
+  }
+}

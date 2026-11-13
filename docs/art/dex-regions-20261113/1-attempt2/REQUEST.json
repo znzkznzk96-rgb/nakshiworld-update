@@ -1,0 +1,14 @@
+{
+  "description": "A complete richly colored pixel art LANDSCAPE SCENE, like a miniature side-view game background filling the entire rectangular canvas. A surreal REVERSE waterfall landscape. A bright cyan water jet shoots UP like a tall fountain from a wide rocky blue pool at bottom, widens into white upward spray at its TOP, and reaches a SMALL FLOATING ROCK ISLAND with a suspended water pool high in the sky. A visible blue sky AIR GAP surrounds the floating island. Small emerald cliffs frame left and right. Several separated cyan droplets rise above the upward spray. This is NOT an ordinary waterfall falling from a cliff: no continuous cliff behind the jet. Magical blue-green landscape. Strict crisp pixel clusters, rich clean colors, three distinct shades per material, dark warm selective contour, a readable simple silhouette at tiny original size. Slightly elevated side view, edge-to-edge scenic composition with sky in top third, distant shore across middle, broad water in bottom half. Opaque full background, not an isolated object. No button frame, no text, no people, no animals, no fish. Beautiful handcrafted 16-bit fishing scenery.",
+  "negative_description": "text, letters, numbers, watermark, border, UI frame, photograph, blur, messy dithering, tiny noise, cropped edges, gray or white background, muddy colors",
+  "image_size": {
+    "width": 48,
+    "height": 40
+  },
+  "text_guidance_scale": 8,
+  "outline": "selective outline",
+  "shading": "basic shading",
+  "detail": "medium detail",
+  "no_background": false,
+  "seed": 2026111412
+}

@@ -1,0 +1,14 @@
+{
+  "description": "Pixel art full landscape of a COSMIC OCEAN among stars. Upper half is deep violet star-filled outer space with one large pale cyan crescent PLANET at upper right and a luminous magenta nebula sweeping left. Lower half is reflective purple and deep blue ocean with several bright cyan wave crests, one small floating rocky island at far edge. Many distinct small pale stars in dark sky. Clearly outer space above an ocean, no daytime sky or normal clouds, no trees. Strong midnight blue, purple, magenta and cyan palette. Crisp deliberate 16-bit pixel clusters, readable at 48x40, complete side view game background, no characters, no fish, no letters or UI border.",
+  "negative_description": "text, letters, numbers, watermark, border, UI frame, photograph, blur, messy dithering, tiny noise, cropped edges, gray or white background, muddy colors",
+  "image_size": {
+    "width": 48,
+    "height": 40
+  },
+  "text_guidance_scale": 8,
+  "outline": "selective outline",
+  "shading": "basic shading",
+  "detail": "medium detail",
+  "no_background": false,
+  "seed": 2026111451
+}

@@ -1,0 +1,19 @@
+{
+  "quality_passed": true,
+  "user_visual_approval": "pending",
+  "native_size": [
+    48,
+    40
+  ],
+  "reviewed": [
+    "native",
+    "nearest8x"
+  ],
+  "features": {
+    "dark_underwater_arch": true,
+    "cyan_luminous_depth": true,
+    "navy_underwater_palette": true
+  },
+  "limitations": "arch represented as large rocky cave silhouette, no detailed ruins",
+  "deployed": false
+}

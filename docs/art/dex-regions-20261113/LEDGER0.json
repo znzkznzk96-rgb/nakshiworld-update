@@ -1,0 +1,14 @@
+{
+  "endpoint": "/create-image-bitforge",
+  "model": "bitforge",
+  "seed": 2026111300,
+  "paid_posts": 1,
+  "submitted_at": 1794538461.1974466,
+  "status": "input_size_rejected_no_result_stopped",
+  "additional_posts": 0,
+  "error_type": "HTTPError",
+  "http_status": 500,
+  "error_detail": "style_image must be size (24, 24), not torch.Size([480, 270])",
+  "balance_after_status": "unconfirmed_URLError",
+  "actual_generations_delta": null
+}

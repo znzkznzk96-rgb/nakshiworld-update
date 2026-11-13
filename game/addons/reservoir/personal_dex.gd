@@ -132,8 +132,27 @@ func draw(m,h: float) -> void:
 		return
 	for tab in 2:
 		var b:=Rect2(r.position+Vector2(13+tab*116,46),Vector2(111,27))
-		button(m,b,["물고기","병사"][tab],category==["fish","soldier"][tab]);icon(m,["fish","soldier"][tab],Rect2(b.position+Vector2(8,6),Vector2(16,16)));rects.categories.append(b)
+		draw_category_button(m,b,tab)
+		rects.categories.append(b)
 	draw_collection(m,r)
+func draw_category_button(m,b:Rect2,tab:int) -> void:
+	var active:bool=category==["fish","soldier"][tab]
+	var face:=Rect2(b.position+Vector2(0,1 if active else 0),b.size)
+	# Full existing pixel textures supply the bevel, grain and warm selected face.
+	# The former flat teal overpaint is not used for these two navigation tabs.
+	m._ui_rect(Rect2(b.position+Vector2(4,b.size.y-1),Vector2(b.size.x-8,3 if not active else 2)),Color("68452f",.45))
+	m._ui_style_box(m.sb_primary if active else m.sb_btn,face)
+	m._ui_style_box(m.sb_chip,Rect2(face.position+Vector2(5,3),Vector2(30,21)))
+	if tab==0:m._ui_fish(0,Rect2(face.position+Vector2(9,6),Vector2(22,15)))
+	else:m.expedition.symbol(m,"attack",Rect2(face.position+Vector2(11,5),Vector2(18,18)))
+	m._text(["물고기","병사"][tab],face.position+Vector2(65,18),11,Color("fff4d4") if active else INK,true,58,active)
+	if active:
+		# A compact cream check keeps selection recognizable without relying on hue.
+		selection_check(m,face.position+Vector2(95,10))
+		m._ui_rect(Rect2(face.position+Vector2(9,2),Vector2(face.size.x-18,1)),Color("ffe9a8"))
+func selection_check(m,p:Vector2) -> void:
+	for step in [Vector2(0,2),Vector2(1,3),Vector2(2,4),Vector2(3,3),Vector2(4,2),Vector2(5,1),Vector2(6,0)]:
+		m._ui_rect(Rect2(p+step,Vector2(2,2)),Color("fff4d4"))
 func draw_collection(m,r: Rect2) -> void:
 	var ids: Array=[]
 	var count:=0
@@ -154,19 +173,25 @@ func draw_collection(m,r: Rect2) -> void:
 	else:
 		icon(m,"rod",Rect2(23,y-3,15,15));m._text("낚시터",Vector2(42,y+10),10,INK,false,200);y+=17
 		for area in 6:
-			var b:=Rect2(21+(area%2)*116,y+floori(area/2.0)*33,111,31)
-			m._ui_style_box(m.sb_btn,b)
-			if area==region:m._ui_rect(b.grow(-4),Color("08646b"))
-			icon(m,"region%d"%area,Rect2(b.position+Vector2(4,4),Vector2(29,19)))
-			var labels: Array=["거꾸로 폭포"] if area==1 else [REGIONS[area]]
+			var b:=Rect2(21+(area%2)*116,y+floori(area/2.0)*37,111,34)
+			var active:bool=area==region
+			var face:=Rect2(b.position+Vector2(0,1 if active else 0),b.size)
+			m._ui_rect(Rect2(b.position+Vector2(4,b.size.y-1),Vector2(b.size.x-8,3 if not active else 2)),Color("68452f",.45))
+			m._ui_style_box(m.sb_primary if active else m.sb_btn,face)
+			m._ui_style_box(m.sb_chip,Rect2(face.position+Vector2(4,3),Vector2(32,28)))
+			icon(m,"region%d"%area,Rect2(face.position+Vector2(7,6),Vector2(26,22)))
+			if active:
+				selection_check(m,face.position+Vector2(99,14))
+				m._ui_rect(Rect2(face.position+Vector2(9,2),Vector2(face.size.x-18,1)),Color("ffe9a8"))
+			var labels:Array=["거꾸로 폭포"] if area==1 else [REGIONS[area]]
 			for line in labels.size():
-				var at: Vector2=b.position+Vector2(36,19)
-				m._text(labels[line],at,9,Color("fff0d1") if area==region else INK,false,70)
-				var it: Array=m.text_items[-1]
-				var font: Font=it[0];var px: int=it[5];var scale: float=it[7]
-				rects.region_labels.append([area,labels[line],Rect2(it[1]-Vector2(0,font.get_ascent(px)*scale),Vector2(m._text_w(labels[line],9),font.get_height(px)*scale))])
-			rects.regions.append(b)
-		y+=103;ids=area_ids()
+				var at:Vector2=face.position+Vector2(39,16+line*10 if labels.size()>1 else 22)
+				m._text(labels[line],at,8 if labels.size()>1 else 9,Color("fff4d4") if active else INK,false,58,active)
+				var it:Array=m.text_items[-1]
+				var font:Font=it[0];var px:int=it[5];var scale:float=it[7]
+				rects.region_labels.append([area,labels[line],Rect2(it[1]-Vector2(0,font.get_ascent(px)*scale),Vector2(m._text_w(labels[line],8 if labels.size()>1 else 9),font.get_height(px)*scale))])
+			rects.regions.append(b.grow(1))
+		y+=115;ids=area_ids()
 		for sp in ids:
 			if not best(m,sp,"grade").is_empty() or not best(m,sp,"length").is_empty():count+=1
 		m._text("%s · 발견 %d / %d종"%[REGIONS[region],count,ids.size()] if not ids.is_empty() else REGIONS[region],Vector2(23,y+10),9,INK,false,224)
@@ -241,9 +266,8 @@ func record_icon(m,kind: String,box: Rect2) -> void:
 		var path: String="res://art/ui/codex/%s.png"%kind
 		if ResourceLoader.exists(path):record_icons[kind]=load(path)
 	if record_icons.has(kind):
-		# The original reservoir thumbnail alone includes a solid gray matte.
-		if kind=="region0":m._ui_texture_rect_region(record_icons[kind],box,Rect2(6,6,20,19))
-		else:m._ui_texture_rect(record_icons[kind],box,false)
+		# Region landscapes use the complete original image, without the old matte crop.
+		m._ui_texture_rect(record_icons[kind],box,false)
 func specimen(m,f: Dictionary,kind: String) -> String:
 	if f.is_empty():return "아직 기록이 없어요"
 	if f.get("legacy",false):return "길이·무게 기록 없음" if kind=="grade" else "등급·무게 기록 없음"
@@ -267,8 +291,10 @@ func draw_trophy(m,r: Rect2) -> void:
 	for n in m.fish_counts(selected):total+=int(n)
 	m._text("총 포획 %d마리"%total,Vector2(116,y+58),10,INK,false,124)
 	y+=76
-	m._ui_style_box(m.sb_btn,Rect2(21,y,228,25));m._ui_rect(Rect2(26,y+4,218,17),Color("07515c"))
-	m._text("나의 최고 기록  ›",Vector2(135,y+17),11,Color("fff0d1"),true,210)
+	m._ui_style_box(m.sb_primary,Rect2(21,y,228,25))
+	record_icon(m,"ruler",Rect2(30,y+4,17,17))
+	m._text("나의 최고 기록",Vector2(135,y+17),11,Color("fff0d1"),true,166)
+	m._text("›",Vector2(232,y+17),13,Color("fff0d1"),true,14)
 	rects.record_header=Rect2(21,y,228,25)
 	y+=31
 	var card_h: float=clampf((r.end.y-y-99)/3.0,43,58)

@@ -1,0 +1,14 @@
+{
+  "description": "A complete richly colored pixel art LANDSCAPE SCENE, like a miniature side-view game background filling the entire rectangular canvas. An enchanted green gorge with a gravity-defying UPWARD WATERFALL. A tall bright cyan fountain jet erupts from the middle of a dark blue lake. The jet is NARROW AT BOTTOM and opens into a WIDE FAN OF WHITE SPRAY AT ITS TOP, with detached blue droplets ABOVE it in the SKY. Short green rocky cliffs on the far left and far right only, lower than the top of the water jet. The entire tall water jet stands against open blue SKY, no mountain or cliff behind it. Very obvious fountain-like upward motion, an inverted waterfall. Emerald moss, dark purple rocks, blue water, bright white top spray. Strict crisp pixel clusters, rich clean colors, three distinct shades per material, dark warm selective contour, a readable simple silhouette at tiny original size. Slightly elevated side view, edge-to-edge scenic composition with sky in top third, distant shore across middle, broad water in bottom half. Opaque full background, not an isolated object. No button frame, no text, no people, no animals, no fish. Beautiful handcrafted 16-bit fishing scenery.",
+  "negative_description": "text, letters, numbers, watermark, border, UI frame, photograph, blur, messy dithering, tiny noise, cropped edges, gray or white background, muddy colors",
+  "image_size": {
+    "width": 48,
+    "height": 40
+  },
+  "text_guidance_scale": 8,
+  "outline": "selective outline",
+  "shading": "basic shading",
+  "detail": "medium detail",
+  "no_background": false,
+  "seed": 2026111413
+}

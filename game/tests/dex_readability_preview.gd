@@ -18,7 +18,7 @@ func run():
  for height in [480,540,660]:
   root.content_scale_size=Vector2i(270,height);root.size=Vector2i(540,height*2);await process_frame
   m.personal_dex.open(m)
-  for region in [0,1,2]:
+  for region in [0,1,2,3,4,5]:
    m.personal_dex.region=region;await capture(m,out,"fish_%d_%d"%[region,height])
   m.personal_dex.category="soldier"
   for star in [1,2,3]:

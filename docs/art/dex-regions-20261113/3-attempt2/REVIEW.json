@@ -1,0 +1,19 @@
+{
+  "quality_passed": true,
+  "user_visual_approval": "pending",
+  "native_size": [
+    48,
+    40
+  ],
+  "reviewed": [
+    "native",
+    "nearest8x"
+  ],
+  "features": {
+    "cyan_sky_tear": true,
+    "purple_indigo_water": true,
+    "pink_edges": true
+  },
+  "limitations": "fishing boat is tiny background element; rift is primary identity",
+  "deployed": false
+}
