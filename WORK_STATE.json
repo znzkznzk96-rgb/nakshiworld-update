@@ -6,8 +6,8 @@
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "개발/배포 검사 효율 개선 완료(work)",
-  "next_step": "다음 게임작업은 관련검사만; 세이브/공통 변경·승인배포 시 docs/DELIVERY_WORKFLOW.md에 따라 전체검사 요청·실측",
+  "current_task": "입질 가독성·결과 물고기 체급 표시 통일",
+  "next_step": "표시크기 경로 확인→최소크기/체급/확대상한 구현→관련검사/실제화면→work저장",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -2266,5 +2266,12 @@
     "live_ci_exercised": false,
     "speedup_measured": false,
     "new_release_authorized": false
+  },
+  "fish_display_size": {
+    "authorized": true,
+    "implemented": false,
+    "deployed": false,
+    "release_authorized": false,
+    "paid_generations": 0
   }
 }
