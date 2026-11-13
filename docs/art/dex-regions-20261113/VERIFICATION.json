@@ -180,6 +180,8 @@
     "save_records_preserved": true,
     "new_paid_generations": 0,
     "deployed": false,
-    "full_ci": "pending_for_final_source"
+    "full_ci": "pending",
+    "source_commit": "d7cf0c14cae852e311deddba2941f8af70dd7122",
+    "ci_run": 43360593332
   }
 }

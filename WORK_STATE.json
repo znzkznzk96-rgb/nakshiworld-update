@@ -2147,7 +2147,10 @@
     "native_screens": 30,
     "paid_generations": 0,
     "deployed": false,
-    "full_ci": "pending_for_final_source",
-    "verification": "docs/art/dex-regions-20261113/VERIFICATION.json"
+    "full_ci": "pending",
+    "verification": "docs/art/dex-regions-20261113/VERIFICATION.json",
+    "source_commit": "d7cf0c14cae852e311deddba2941f8af70dd7122",
+    "ci_run": 43360593332,
+    "preview_library_file_id": "libfile_fde3_f-21aa9996e36481919d2c947b2f74c6af_d66dafb33acc81918ce203aeb3fcd18e"
   }
 }
