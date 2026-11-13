@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "release135_verified_ready_to_publish",
-  "release_baseline": "v1.34",
+  "status": "release135_published_public_verified",
+  "release_baseline": "v1.35",
   "target_release": "v1.35",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "초반모션3초·갤러리JNI완료 수정 후 배포",
-  "next_step": "검증된 동일v1.35후보 main 병합·공개·운영검증",
+  "current_task": "v1.35 갤러리JNI완료·3초모션 수정 배포 및 운영검증 완료",
+  "next_step": "앱 재실행 후 v1.35 및 Android갤러리 사진/완료상태 실기 확인",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -23,10 +23,10 @@
   "screen_evidence_commit": "04fa33a116915c0b7a7ca86ee235a24a4cf4d4d2",
   "screen_verification_run": 42315352676,
   "full_source_verified": {
-    "release": "v1.34",
-    "size": 69055168,
-    "sha256": "235428c781afadcc223f16d5b4f58913c0e69d1b21f18921b78dcc57c8ea4d3c",
-    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.34/game-source.zip"
+    "release": "v1.35",
+    "size": 69055670,
+    "sha256": "c4ed628334ba3c428f6b15624483a63ffb03109e13f9e68b158b8549ef2f6d14",
+    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.35/game-source.zip"
   },
   "fish_verification_run": 42317071546,
   "automatic_full_regression_run": 42317071379,
@@ -35,9 +35,9 @@
   "bundle_verification_run": 42319985467,
   "bundle_evidence_commit": "dd8297cc9de9a5423091b61e06f166ee22023de4",
   "headless_regression_coverage": {
-    "run": 43336566180,
+    "run": 43340604068,
     "status": "passed",
-    "scope": "151 unique success labels/native/PCK; final v1.34"
+    "scope": "151 unique success labels/native/PCK; final v1.35"
   },
   "standard_full_workflow_success": true,
   "remaining_global_render_checks": false,
@@ -45,21 +45,21 @@
     "date": "2026-11-13",
     "release": "v1.35",
     "user_request": "3초로 변경·갤러리 저장 수정후 업데이트 및 배포",
-    "fulfilled": false
+    "fulfilled": true
   },
   "release_preflight": "docs/qa/soldier-size/VERIFICATION.json",
   "release_source_commit": "d2422ea6758f6362edaacddec4e66f79ecb782ea",
-  "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v1.34",
-  "release_build_run": 43338981216,
+  "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v1.35",
+  "release_build_run": 43343445728,
   "release_build_status": "success",
-  "public_verification_run": 43339211743,
+  "public_verification_run": 43343632986,
   "public_verification_status": "success",
   "public_patch": {
-    "size": 63337536,
-    "sha256": "af84dec0a26f72e5fc46a89b6ec52c2d6bcb2913feb64640ab49f34ccae30715",
-    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.34/patch.pck"
+    "size": 63339392,
+    "sha256": "d94b5e4aa83482718b9526f966ebc4d50e85abea445cf6d0a4675c7773b920b2",
+    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.35/patch.pck"
   },
-  "standard_full_workflow_note": "최종v1.34 전체151/native/PCK·동일후보·공개3파일/742소스/실제설치앱134.0주소 전체다운로드 검증 성공",
+  "standard_full_workflow_note": "최종v1.35 전체151/native/PCK·동일후보·공개3파일/742소스/설치앱135.0주소 전체다운로드 검증 성공",
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md#2026-11-07--소규모-작업-효율채팅-중단-대비",
   "approved_followup": "우편 단일원본·공통지급·검사통합 구현/검증 완료. 공개v1.08 유지, 새 배포 미승인.",
   "session_continuity": {
@@ -92,7 +92,7 @@
     "headless_passed": 73,
     "headless_total": 73
   },
-  "release_verification_run": 43339211743,
+  "release_verification_run": 43343632986,
   "prior_build_issue": {
     "run": 42384973558,
     "cause": "packed mail check hardcoded1.08; prepublication assertion",
@@ -118,7 +118,7 @@
     "production_balance_changed": false,
     "phone_tested": false
   },
-  "release_authorized": true,
+  "release_authorized": false,
   "balance110": {
     "applied": true,
     "deployed": true,
@@ -171,7 +171,7 @@
     "ledger": "analysis/tile-layer-art-v1/PLANT_LEDGER.json",
     "quality": "analysis/tile-layer-art-v1/PLANT_QA.json"
   },
-  "public_release": "v1.34",
+  "public_release": "v1.35",
   "shared_vertical_light": {
     "applied": true,
     "regions": [
@@ -409,8 +409,8 @@
     "verification_artifact": 13618959416
   },
   "latest_release_instruction": {
-    "user_request": "배포진행해 ㅇㅇ",
-    "scope": "v1.34",
+    "user_request": "3초변경·갤러리저장수정후 업데이트및배포",
+    "scope": "v1.35",
     "fulfilled": true
   },
   "economy_analysis": {
@@ -1967,7 +1967,7 @@
       "deployed": true,
       "release_authorized": false,
       "button_paid_request_limit": 1,
-      "intro_seconds": 6,
+      "intro_seconds": 3,
       "title_strikes_seconds": [
         0.4,
         0.75,
@@ -1989,9 +1989,16 @@
       "unique_success_labels": 151,
       "button_new_generation_applied": false,
       "button_existing_theme_reused": true,
-      "release": "v1.34"
+      "release": "v1.35"
     },
-    "gallery_file_written_user_reported": true
+    "gallery_file_written_user_reported": true,
+    "gallery135": {
+      "release": "v1.35",
+      "deployed": true,
+      "release_authorized": false,
+      "verification": "docs/qa/record-photo/RELEASE135_VERIFICATION.json",
+      "android_after_fix_verified": false
+    }
   },
   "release133": {
     "authorized": true,

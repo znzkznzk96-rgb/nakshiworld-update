@@ -1,6 +1,6 @@
 {
   "date": "2026-11-13",
-  "status": "full_verified_ready_to_publish",
+  "status": "published_and_public_verified",
   "reason": "Godot4.4.1 rejects NIL for Java String and String[]; update/delete used null, potentially aborting publication after write",
   "engine_evidence": "https://github.com/godotengine/godot/blob/4.4.1-stable/platform/android/java_class_wrapper.cpp",
   "engine_function": "JavaClass::_call_method parameter validation ARG_TYPE_STRING/ARG_ARRAY_BIT|ARG_TYPE_STRING",
@@ -74,5 +74,52 @@
   },
   "full_source_overlay_files": 742,
   "packed_original_scene_pixels_identical": true,
-  "public_verified": false
+  "public_verified": true,
+  "public": {
+    "version": {
+      "code": 135,
+      "name": "1.35"
+    },
+    "source_commit": "d2422ea6758f6362edaacddec4e66f79ecb782ea",
+    "assets": {
+      "version.json": {
+        "size": 199,
+        "sha256": "63bfab64d1fd1ff8b46cfebb4651407d1263328567d8fc37d69f915420614ba0",
+        "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.35/version.json"
+      },
+      "patch.pck": {
+        "size": 63339392,
+        "sha256": "d94b5e4aa83482718b9526f966ebc4d50e85abea445cf6d0a4675c7773b920b2",
+        "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.35/patch.pck"
+      },
+      "game-source.zip": {
+        "size": 69055670,
+        "sha256": "c4ed628334ba3c428f6b15624483a63ffb03109e13f9e68b158b8549ef2f6d14",
+        "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.35/game-source.zip"
+      }
+    },
+    "phone_verified": false,
+    "source_overlay_files_verified": 742,
+    "zip_crc_verified": true,
+    "public_assets_verified": true
+  },
+  "pr": 73,
+  "merge_commit": "3982218e4681e4f31e5f1d443ed79f0aa9287f73",
+  "release_id": 443698482,
+  "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v1.35",
+  "publication": {
+    "run": 43343445728,
+    "status": "success",
+    "attempts": 2,
+    "rebuild": false,
+    "interruption": "Initial draft discovery delayed; same draft/source validated and exact candidate resumed"
+  },
+  "public_verification": {
+    "run": 43343632986,
+    "job": 131617619748,
+    "status": "success",
+    "artifact": 13999884021,
+    "installed_apk_query": "/patch.pck?v=135.0",
+    "complete_download_sha256_verified": true
+  }
 }
