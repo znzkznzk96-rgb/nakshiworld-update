@@ -1,6 +1,6 @@
 {
   "date": "2026-11-13",
-  "status": "verified_before_publication",
+  "status": "published_and_public_verified",
   "authorization": "배포진행해 ㅇㅇ",
   "candidate": {
     "schema": 1,
@@ -49,5 +49,55 @@
   "original_scene_pixels_packed_identical": true,
   "phone_after_fix_verified": false,
   "new_paid_generations": 0,
-  "public_verified": false
+  "public_verified": true,
+  "public": {
+    "version": {
+      "code": 134,
+      "name": "1.34"
+    },
+    "source_commit": "c0ea402ab6313da251b1cf48e938d68685b5cc3f",
+    "assets": {
+      "version.json": {
+        "size": 199,
+        "sha256": "607af91cd8443ad15739ad0909209250261495c91477ae7a6942fbc87d40db0d",
+        "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.34/version.json"
+      },
+      "patch.pck": {
+        "size": 63337536,
+        "sha256": "af84dec0a26f72e5fc46a89b6ec52c2d6bcb2913feb64640ab49f34ccae30715",
+        "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.34/patch.pck"
+      },
+      "game-source.zip": {
+        "size": 69055168,
+        "sha256": "235428c781afadcc223f16d5b4f58913c0e69d1b21f18921b78dcc57c8ea4d3c",
+        "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.34/game-source.zip"
+      }
+    },
+    "phone_verified": false,
+    "source_overlay_files_verified": 742,
+    "zip_crc_verified": true,
+    "public_assets_verified": true
+  },
+  "release_id": 443677722,
+  "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v1.34",
+  "pr": 72,
+  "merge_commit": "df9cb09d05ffd1523e32cee8724c014de6eb3aed",
+  "publication": {
+    "run": 43338981216,
+    "status": "success",
+    "attempts": 2,
+    "interruption": "Created draft not found after initial draft creation; exact draft/source confirmed, same candidate resumed without rebuilding"
+  },
+  "public_verification": {
+    "run": 43339211743,
+    "job": 131603007304,
+    "status": "success",
+    "artifact": 13997733818,
+    "installed_apk_float_query": "/patch.pck?v=134.0",
+    "whole_download_hash_verified": true
+  },
+  "local_gateway_probe": {
+    "status": "blocked_403_by_environment",
+    "note": "Independent remote CI actual installed-APK URL whole download/hash succeeded; no local success claimed."
+  }
 }
