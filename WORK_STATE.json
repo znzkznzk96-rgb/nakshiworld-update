@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "dex_category_button_visibility_refinement",
+  "status": "dex_button_visibility_related_native_verified_not_deployed",
   "release_baseline": "v1.35",
   "target_release": "v1.35",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
   "current_task": "물고기/병사탭 버튼 시인성·선택상태 보강",
-  "next_step": "실제화면/관련검사·원격저장",
+  "next_step": "분류버튼 시인성 실제화면 사용자검토·공개배포보류",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -2117,5 +2117,18 @@
     "source_commit": "54a3ec8571f7d4723b374beb210a8c792721a7f6",
     "ci_run": 43359098574,
     "preview_library_file_id": "libfile_fde3_f-79f51df0555c8191b2dab5861ce9a5a5_d66dafb33acc81918ce203aeb3fcd18e"
+  },
+  "dex_button_visibility": {
+    "implemented": true,
+    "selected_style": "complete existing orange pixel texture + light check",
+    "inactive_style": "cream wood frame + raised shadow",
+    "icon_plate": true,
+    "related_verified": true,
+    "native_verified": true,
+    "native_screens": 30,
+    "paid_generations": 0,
+    "deployed": false,
+    "full_ci": "pending_for_final_source",
+    "verification": "docs/art/dex-regions-20261113/VERIFICATION.json"
   }
 }

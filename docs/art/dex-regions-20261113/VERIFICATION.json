@@ -136,5 +136,26 @@
     "full_ci": "pending",
     "source_commit": "54a3ec8571f7d4723b374beb210a8c792721a7f6",
     "ci_run": 43359098574
+  },
+  "category_button_visibility": {
+    "godot": "4.4.1",
+    "native_heights": [
+      480,
+      540,
+      660
+    ],
+    "native_screens": 30,
+    "related_suites": [
+      "DEX_READABILITY_VERIFY failures=[]",
+      "PERSONAL_DEX_VERIFY failures=[]"
+    ],
+    "final_native": "DEX_READABILITY_PREVIEW failures=[]",
+    "selected": "orange original pixel texture, cream check, highlight and 1px press",
+    "inactive": "cream original frame and lower shadow",
+    "common_other_buttons_unchanged": true,
+    "new_paid_generations": 0,
+    "save_records_preserved": true,
+    "deployed": false,
+    "full_ci": "pending_for_final_source"
   }
 }

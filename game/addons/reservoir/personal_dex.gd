@@ -132,13 +132,25 @@ func draw(m,h: float) -> void:
 		return
 	for tab in 2:
 		var b:=Rect2(r.position+Vector2(13+tab*116,46),Vector2(111,27))
-		button(m,b,["물고기","병사"][tab],category==["fish","soldier"][tab])
-		if tab==0:
-			m._ui_fish(0,Rect2(b.position+Vector2(8,5),Vector2(22,17)))
-		else:
-			m.expedition.symbol(m,"attack",Rect2(b.position+Vector2(8,4),Vector2(20,20)))
+		draw_category_button(m,b,tab)
 		rects.categories.append(b)
 	draw_collection(m,r)
+func draw_category_button(m,b:Rect2,tab:int) -> void:
+	var active:bool=category==["fish","soldier"][tab]
+	var face:=Rect2(b.position+Vector2(0,1 if active else 0),b.size)
+	# Full existing pixel textures supply the bevel, grain and warm selected face.
+	# The former flat teal overpaint is not used for these two navigation tabs.
+	m._ui_rect(Rect2(b.position+Vector2(4,b.size.y-1),Vector2(b.size.x-8,3 if not active else 2)),Color("68452f",.45))
+	m._ui_style_box(m.sb_primary if active else m.sb_btn,face)
+	m._ui_style_box(m.sb_chip,Rect2(face.position+Vector2(5,3),Vector2(30,21)))
+	if tab==0:m._ui_fish(0,Rect2(face.position+Vector2(9,6),Vector2(22,15)))
+	else:m.expedition.symbol(m,"attack",Rect2(face.position+Vector2(11,5),Vector2(18,18)))
+	m._text(["물고기","병사"][tab],face.position+Vector2(65,18),11,Color("fff4d4") if active else INK,true,58,active)
+	if active:
+		# A compact cream check keeps selection recognizable without relying on hue.
+		for step in [Vector2(0,2),Vector2(1,3),Vector2(2,4),Vector2(3,3),Vector2(4,2),Vector2(5,1),Vector2(6,0)]:
+			m._ui_rect(Rect2(face.position+Vector2(95,10)+step,Vector2(2,2)),Color("fff4d4"))
+		m._ui_rect(Rect2(face.position+Vector2(9,2),Vector2(face.size.x-18,1)),Color("ffe9a8"))
 func draw_collection(m,r: Rect2) -> void:
 	var ids: Array=[]
 	var count:=0
