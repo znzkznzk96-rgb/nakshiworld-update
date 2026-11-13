@@ -2187,5 +2187,12 @@
     "public_verification_status": "success",
     "verification": "docs/qa/record-photo/RELEASE136_VERIFICATION.json",
     "authorization_fulfilled": true
+  },
+  "spot_selection_restore": {
+    "authorized": true,
+    "implemented": false,
+    "deployed": false,
+    "next": "균열 해역 카드 원화 경로 복구·관련 검사",
+    "unlock_animation": "idea_only_not_approved"
   }
 }
