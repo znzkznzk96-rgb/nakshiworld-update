@@ -132,7 +132,12 @@ func draw(m,h: float) -> void:
 		return
 	for tab in 2:
 		var b:=Rect2(r.position+Vector2(13+tab*116,46),Vector2(111,27))
-		button(m,b,["물고기","병사"][tab],category==["fish","soldier"][tab]);icon(m,["fish","soldier"][tab],Rect2(b.position+Vector2(8,6),Vector2(16,16)));rects.categories.append(b)
+		button(m,b,["물고기","병사"][tab],category==["fish","soldier"][tab])
+		if tab==0:
+			m._ui_fish(0,Rect2(b.position+Vector2(8,5),Vector2(22,17)))
+		else:
+			m.expedition.symbol(m,"attack",Rect2(b.position+Vector2(8,4),Vector2(20,20)))
+		rects.categories.append(b)
 	draw_collection(m,r)
 func draw_collection(m,r: Rect2) -> void:
 	var ids: Array=[]

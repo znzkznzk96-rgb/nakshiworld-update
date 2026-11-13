@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "dex_category_icons_rework",
+  "status": "dex_category_icons_related_native_verified_not_deployed",
   "release_baseline": "v1.35",
   "target_release": "v1.35",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
   "current_task": "도감 물고기/병사 분류탭 아이콘교체",
-  "next_step": "실제피라미/교차검 탭화면·선택/가독성검사",
+  "next_step": "물고기/병사탭·낚시터6종 실제화면 사용자검토·새배포보류",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -2104,5 +2104,15 @@
     "user_visual_approval": "pending",
     "remote_asset_bytes_verified": true,
     "actual_screen_library_file_id": "libfile_fde3_f-8a72827c8dac819183923c9e34043ca9_d66dafb33acc81918ce203aeb3fcd18e"
+  },
+  "dex_category_icons": {
+    "implemented": true,
+    "related_verified": true,
+    "native_verified": true,
+    "native_screens": 30,
+    "paid_generations": 0,
+    "deployed": false,
+    "verification": "docs/art/dex-regions-20261113/VERIFICATION.json",
+    "full_ci": "pending_for_final_source"
   }
 }

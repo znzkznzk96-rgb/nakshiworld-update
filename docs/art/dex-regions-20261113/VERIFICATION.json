@@ -115,5 +115,24 @@
   "source_commit": "c5165dbc4bccf56b9db8b832f7623bf98f6a640c",
   "ci_run": 43358355364,
   "remote_asset_byte_equality": true,
-  "preview_library_file_id": "libfile_fde3_f-065f296067808191a387227c1aeeb2cd_d66dafb33acc81918ce203aeb3fcd18e"
+  "preview_library_file_id": "libfile_fde3_f-065f296067808191a387227c1aeeb2cd_d66dafb33acc81918ce203aeb3fcd18e",
+  "category_icons": {
+    "fish": "actual species0 pirami game art",
+    "soldier": "existing PixelLab crossed swords role icon",
+    "replaced": "unrelated creature/humanoid codex tab images",
+    "new_paid_generations": 0,
+    "related_suites": [
+      "DEX_READABILITY_VERIFY failures=[]",
+      "PERSONAL_DEX_VERIFY failures=[]"
+    ],
+    "native_screens": 30,
+    "heights": [
+      480,
+      540,
+      660
+    ],
+    "visual_review": "actual fish and soldier pages at all three heights passed",
+    "deployed": false,
+    "full_ci": "pending_for_category_source"
+  }
 }
