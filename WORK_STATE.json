@@ -6,8 +6,8 @@
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "해금 연출 첫 시안 거절·재설계",
-  "next_step": "허접한 번개/테두리 선 효과 폐기·사슬/자물쇠 중심 재설계",
+  "current_task": "해금 연출 품질 재작업",
+  "next_step": "자물쇠/사슬 중심 재구성→실제 핵심프레임 검수→전체미리보기",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -2206,6 +2206,6 @@
     "paid_generations": 0,
     "verification": "docs/qa/spot-unlock/VERIFICATION.json",
     "user_visual_approved": false,
-    "status": "first_preview_rejected_do_not_publish"
+    "status": "quality_rework_authorized"
   }
 }
