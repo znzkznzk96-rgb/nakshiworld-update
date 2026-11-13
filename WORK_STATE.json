@@ -2161,7 +2161,9 @@
     "phone_verified": false,
     "baseline": "v1.35",
     "local_candidate_tests": 7,
-    "full_ci": "pending",
-    "release_authorized": true
+    "full_ci": "in_progress",
+    "release_authorized": true,
+    "source_commit": "95a0fb9b261302bd1c01ab2136605381cd39153e",
+    "ci_run": 43361845442
   }
 }

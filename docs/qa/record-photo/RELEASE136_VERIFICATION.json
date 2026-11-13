@@ -4,7 +4,7 @@
     "code": 136,
     "name": "1.36"
   },
-  "status": "final_source_prepared_full_ci_pending",
+  "status": "full_ci_in_progress",
   "authorization": "업뎃및 배포 ㄱㄱ",
   "baseline": {
     "release": "v1.35",
@@ -23,5 +23,7 @@
   "candidate_protection_tests": 7,
   "paid_generations_for_publication": 0,
   "deployed": false,
-  "phone_verified": false
+  "phone_verified": false,
+  "source_commit": "95a0fb9b261302bd1c01ab2136605381cd39153e",
+  "ci_run": 43361845442
 }
