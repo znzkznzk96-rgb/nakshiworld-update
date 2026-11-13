@@ -1,0 +1,15 @@
+{
+  "description": "A polished 24x24 pixel art miniature landscape emblem for a cozy fishing game UI. A serene autumn reservoir: a blue pond, one small wooden fishing hut on the left, orange maple tree, a short wooden pier, violet distant hill. Warm orange foliage and clear blue water. Strict crisp pixel clusters, rich clean colors, three distinct shades per material, dark warm selective contour, a readable simple silhouette at tiny original size. Slightly elevated side view, the whole miniature scene contained within canvas with one pixel clear margin, transparent outer background. No button frame, no text, no people, no animals, no fish. Beautiful handcrafted 16-bit game icon matching cream parchment and carved wood UI.",
+  "negative_description": "text, letters, numbers, watermark, border, UI frame, photograph, blur, messy dithering, tiny noise, cropped edges, gray or white background, muddy colors",
+  "image_size": {
+    "width": 24,
+    "height": 24
+  },
+  "text_guidance_scale": 8,
+  "outline": "selective outline",
+  "shading": "basic shading",
+  "detail": "low detail",
+  "view": "low top-down",
+  "no_background": true,
+  "seed": 2026111402
+}

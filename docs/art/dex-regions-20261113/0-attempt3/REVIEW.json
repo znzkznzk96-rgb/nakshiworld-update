@@ -1,0 +1,9 @@
+{
+  "quality_passed": false,
+  "reason": "tree-only object, reservoir absent; inappropriate isolated-object composition",
+  "native_size": [
+    32,
+    32
+  ],
+  "next": "attempt4 last reservoir request; pixflux full background scene"
+}

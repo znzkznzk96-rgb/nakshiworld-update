@@ -1,0 +1,46 @@
+{
+  "area": 0,
+  "attempt": 3,
+  "max_attempts": 4,
+  "endpoint": "/create-image-bitforge",
+  "model": "bitforge",
+  "seed": 2026111403,
+  "references": [],
+  "reference_reason": "same-size validation rejected prior large reference; no image input avoids size mismatch and noisy miniature transfer; actual game palette expressed in text",
+  "paid_posts": 1,
+  "started_at": 1794538965.5196204,
+  "balance_before": {
+    "credits": {
+      "type": "usd",
+      "usd": 0.0
+    },
+    "subscription": {
+      "type": "generations",
+      "status": "active",
+      "plan": "Tier 2: Pixel Artisan",
+      "generations": 970.5999999999999,
+      "total": 3935.0
+    }
+  },
+  "status": "received_quality_pending",
+  "http_status": 200,
+  "usage": {
+    "type": "generations",
+    "generations": 1.0
+  },
+  "sha256": "3a231de940eac7d8358ce30efe4f10622835616d572e592ecb837a96df403ac4",
+  "balance_after": {
+    "credits": {
+      "type": "usd",
+      "usd": 0.0
+    },
+    "subscription": {
+      "type": "generations",
+      "status": "active",
+      "plan": "Tier 2: Pixel Artisan",
+      "generations": 969.5999999999999,
+      "total": 3935.0
+    }
+  },
+  "actual_generations_delta": 1.0
+}
