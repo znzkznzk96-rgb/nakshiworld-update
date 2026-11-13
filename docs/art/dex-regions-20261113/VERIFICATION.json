@@ -159,5 +159,27 @@
     "full_ci": "pending",
     "source_commit": "58ddc8c9cc9fdca894ac3f7d80f727067e851b0a",
     "ci_run": 43359860225
+  },
+  "region_button_visibility": {
+    "godot": "4.4.1",
+    "style": "same orange selection, cream check, framed thumbnail, 1px press and inactive shadow as category tabs",
+    "native_heights": [
+      480,
+      540,
+      660
+    ],
+    "region_states": 18,
+    "native_screens": 30,
+    "related_suites": [
+      "DEX_READABILITY_VERIFY failures=[]",
+      "PERSONAL_DEX_VERIFY failures=[]"
+    ],
+    "native_result": "DEX_READABILITY_PREVIEW failures=[]",
+    "original_art_bytes_unchanged": true,
+    "button_names_unchanged": true,
+    "save_records_preserved": true,
+    "new_paid_generations": 0,
+    "deployed": false,
+    "full_ci": "pending_for_final_source"
   }
 }

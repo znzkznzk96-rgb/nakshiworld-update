@@ -148,9 +148,11 @@ func draw_category_button(m,b:Rect2,tab:int) -> void:
 	m._text(["물고기","병사"][tab],face.position+Vector2(65,18),11,Color("fff4d4") if active else INK,true,58,active)
 	if active:
 		# A compact cream check keeps selection recognizable without relying on hue.
-		for step in [Vector2(0,2),Vector2(1,3),Vector2(2,4),Vector2(3,3),Vector2(4,2),Vector2(5,1),Vector2(6,0)]:
-			m._ui_rect(Rect2(face.position+Vector2(95,10)+step,Vector2(2,2)),Color("fff4d4"))
+		selection_check(m,face.position+Vector2(95,10))
 		m._ui_rect(Rect2(face.position+Vector2(9,2),Vector2(face.size.x-18,1)),Color("ffe9a8"))
+func selection_check(m,p:Vector2) -> void:
+	for step in [Vector2(0,2),Vector2(1,3),Vector2(2,4),Vector2(3,3),Vector2(4,2),Vector2(5,1),Vector2(6,0)]:
+		m._ui_rect(Rect2(p+step,Vector2(2,2)),Color("fff4d4"))
 func draw_collection(m,r: Rect2) -> void:
 	var ids: Array=[]
 	var count:=0
@@ -173,21 +175,18 @@ func draw_collection(m,r: Rect2) -> void:
 		for area in 6:
 			var b:=Rect2(21+(area%2)*116,y+floori(area/2.0)*37,111,34)
 			var active:bool=area==region
-			# Retain the complete cream/wood texture; selection never paints over it.
-			var face:Rect2=Rect2(b.position+Vector2(0,1),b.size) if active else b
-			m._ui_style_box(m.sb_btn,face)
+			var face:=Rect2(b.position+Vector2(0,1 if active else 0),b.size)
+			m._ui_rect(Rect2(b.position+Vector2(4,b.size.y-1),Vector2(b.size.x-8,3 if not active else 2)),Color("68452f",.45))
+			m._ui_style_box(m.sb_primary if active else m.sb_btn,face)
+			m._ui_style_box(m.sb_chip,Rect2(face.position+Vector2(4,3),Vector2(32,28)))
+			icon(m,"region%d"%area,Rect2(face.position+Vector2(7,6),Vector2(26,22)))
 			if active:
-				var accent:=Color("247e79")
-				for x in [b.position.x+3,b.end.x-9]:
-					m._ui_rect(Rect2(x,b.position.y,6,1),accent)
-					m._ui_rect(Rect2(x,b.end.y,6,1),accent)
-				m._ui_rect(Rect2(b.position.x,b.position.y+4,1,b.size.y-7),accent)
-				m._ui_rect(Rect2(b.end.x-1,b.position.y+4,1,b.size.y-7),accent)
-			icon(m,"region%d"%area,Rect2(face.position+Vector2(7,6),Vector2(27,23)))
+				selection_check(m,face.position+Vector2(99,14))
+				m._ui_rect(Rect2(face.position+Vector2(9,2),Vector2(face.size.x-18,1)),Color("ffe9a8"))
 			var labels:Array=["거꾸로 폭포"] if area==1 else [REGIONS[area]]
 			for line in labels.size():
 				var at:Vector2=face.position+Vector2(39,16+line*10 if labels.size()>1 else 22)
-				m._text(labels[line],at,8 if labels.size()>1 else 9,Color("155f5a") if active else INK,false,65)
+				m._text(labels[line],at,8 if labels.size()>1 else 9,Color("fff4d4") if active else INK,false,58,active)
 				var it:Array=m.text_items[-1]
 				var font:Font=it[0];var px:int=it[5];var scale:float=it[7]
 				rects.region_labels.append([area,labels[line],Rect2(it[1]-Vector2(0,font.get_ascent(px)*scale),Vector2(m._text_w(labels[line],8 if labels.size()>1 else 9),font.get_height(px)*scale))])
