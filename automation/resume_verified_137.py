@@ -27,9 +27,10 @@ def validate():
  for p in changed:
   assert not p.startswith('game/') or p=='game/tests/audio_save_verify.gd'
   assert not p.startswith('automation/') or p=='automation/resume_verified_137.py'
- log=call('gh','api',f'repos/{REPO}/actions/jobs/{JOB}/logs')
+ log=call('gh','api',f'repos/{REPO}/actions/jobs/{JOB}/logs').replace('\r\n','\n')
  assert 'AUDIO_SAVE_VERIFY failures=["all sound resources imported"]' in log
  errors=re.findall(r'^\S+Z ERROR: (.+)$',log,re.M)
+ errors=[e.strip() for e in errors]
  assert errors==['all sound resources imported'],errors
  assert 'SHOP_VERIFY failures=[]' in log
  evidence=ROOT/'evidence';evidence.mkdir(exist_ok=True)
