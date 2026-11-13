@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "release134_full_verification_running",
+  "status": "release134_verified_ready_to_publish",
   "release_baseline": "v1.33",
   "target_release": "v1.34",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
   "current_task": "계측 후속·타이틀 수정 v1.34 배포",
-  "next_step": "CI43336566180 완료 후 동일후보 공개·운영검증",
+  "next_step": "검증된 동일 v1.34 후보 main 병합·공개·운영다운로드 확인",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -249,17 +249,40 @@
   },
   "full_release_ci": {
     "run": 43336566180,
-    "status": "in_progress",
+    "status": "success",
     "source_commit": "c0ea402ab6313da251b1cf48e938d68685b5cc3f"
   },
   "release_candidate": {
-    "version": {
-      "code": 125,
-      "name": "1.25"
+    "schema": 1,
+    "source_commit": "c0ea402ab6313da251b1cf48e938d68685b5cc3f",
+    "input_fingerprint": "b408cd5e57b30db27126148c9533ac6ef3bdfd99275fc6bbc357f5e92e6b78de",
+    "tools": {
+      "godot": "4.4.1.stable",
+      "baseline": "v1.33",
+      "baseline_sha256": "e73393a4fd98401bb68a5e04cdd17867ef9c9815dbf23a3e7e503b7f61e2906c"
     },
-    "source_commit": "d1303a61a9d1f073901201481e67329edb49ec06",
-    "artifact": 13753065145,
-    "input_fingerprint": "09c93e0736cebc65e881d2270796320f470d17f605004d739b4c58d7322fe053",
+    "run_id": 43336566180,
+    "files": {
+      "patch.pck": {
+        "size": 63337536,
+        "sha256": "af84dec0a26f72e5fc46a89b6ec52c2d6bcb2913feb64640ab49f34ccae30715"
+      },
+      "game-source.zip": {
+        "size": 69055168,
+        "sha256": "235428c781afadcc223f16d5b4f58913c0e69d1b21f18921b78dcc57c8ea4d3c"
+      },
+      "version.json": {
+        "size": 199,
+        "sha256": "607af91cd8443ad15739ad0909209250261495c91477ae7a6942fbc87d40db0d"
+      }
+    },
+    "version": {
+      "code": 134,
+      "name": "1.34"
+    },
+    "seal_seconds": 2.865,
+    "verification_and_restore_seconds": 883.611,
+    "artifact": 13997953160,
     "verified": true
   },
   "release_resume_run": 42424430555,
