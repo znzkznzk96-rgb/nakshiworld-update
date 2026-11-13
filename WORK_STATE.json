@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "dex_all_buttons_visibility_related_native_verified_not_deployed",
+  "status": "release136_authorized_preparing",
   "release_baseline": "v1.35",
-  "target_release": "v1.35",
+  "target_release": "v1.36",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
   "current_task": "낚시터6버튼 시인성/선택표현 통일",
-  "next_step": "분류/낚시터버튼 통일 실제화면 사용자검토·배포보류",
+  "next_step": "최종버전/우편·최신v1.35기준 전체CI후 동일후보공개",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -2101,7 +2101,7 @@
       1
     ],
     "art_verification": "docs/art/dex-regions-20261113/VERIFICATION.json",
-    "user_visual_approval": "pending",
+    "user_visual_approval": "accepted_for_v136_publication",
     "remote_asset_bytes_verified": true,
     "actual_screen_library_file_id": "libfile_fde3_f-8a72827c8dac819183923c9e34043ca9_d66dafb33acc81918ce203aeb3fcd18e"
   },
@@ -2152,5 +2152,12 @@
     "source_commit": "d7cf0c14cae852e311deddba2941f8af70dd7122",
     "ci_run": 43360593332,
     "preview_library_file_id": "libfile_fde3_f-21aa9996e36481919d2c947b2f74c6af_d66dafb33acc81918ce203aeb3fcd18e"
+  },
+  "release136": {
+    "authorized": true,
+    "deployed": false,
+    "user_request": "업뎃및 배포 ㄱㄱ",
+    "version": "1.36",
+    "phone_verified": false
   }
 }
