@@ -12,16 +12,21 @@ var dragging: = false
 var down: = Vector2.ZERO
 var shift: = 0.0
 var rects: = {}
+var unlock_fx = preload("res://addons/reservoir/spot_unlock.gd").new()
 var notice: = ""
 var notice_until: = 0.0
 func setup() -> void :
-	for n in ART: images.append(load("res://art/rift/base.png" if n=="rift" else "res://art/refresh53/%s.png" % ("reservoir_clean" if n == "reservoir" else n)))
+	for n in ART: images.append(load("res://art/refresh53/%s.png" % ("reservoir_clean" if n == "reservoir" else n)))
 	chains = load("res://art/refresh53/chains.png")
-func enter() -> void : pointer = false;dragging = false;shift = 0;scroll = index;notice = ""
-func process(dt: float) -> void :
+func enter() -> void : unlock_fx.reset();pointer = false;dragging = false;shift = 0;scroll = index;notice = ""
+func process(dt: float, m=null) -> void :
+	unlock_fx.update(dt,m)
 	if not pointer: scroll = lerpf(scroll, float(index), 1 - exp( - dt * 13));shift = lerpf(shift, 0, 1 - exp( - dt * 13))
-func change(delta: int) -> void : index = clampi(index + delta, 0, 5);shift = 0
+func change(delta: int) -> void :
+	if unlock_fx.active(): return
+	index = clampi(index + delta, 0, 5);shift = 0
 func input_event(m, e: InputEvent) -> bool:
+	if unlock_fx.active(): return true
 	if e is InputEventMouseButton and e.button_index == MOUSE_BUTTON_LEFT:
 		var p: Vector2 = e.position - Vector2(m.ox, 0)
 		if e.pressed: pointer = true;dragging = false;down = p
@@ -42,6 +47,7 @@ func price_text(value: int) -> String:
 	if value >= 10000: return ("%.0f만" if value % 10000 == 0 else "%.1f만") % (float(value) / 10000)
 	return str(value)
 func press(m, p: Vector2) -> void :
+	if unlock_fx.active(): return
 	if rects.get("back", Rect2()).has_point(p): m.start_trans("village");return
 	if rects.get("left", Rect2()).has_point(p): change(-1);m.play("plop", -9);return
 	if rects.get("right", Rect2()).has_point(p): change(1);m.play("plop", -9);return
@@ -53,7 +59,8 @@ func press(m, p: Vector2) -> void :
 		elif not m.progression.licensed(index):
 			notice = "%s 메인 번들 완료 후 자격증 획득" % NAMES[index-1];notice_until = m.ui_clock + 3.0
 		elif m.region_shop.unlock(m,index):
-			m.active_region = index;m._layout();m.start_trans("fish")
+			pointer=false;dragging=false;shift=0;scroll=index
+			unlock_fx.start(index)
 		else:
 			notice = m.region_shop.unlock_error if m.region_shop.unlock_error!="" else "해금 조건을 확인해 주세요";notice_until = m.ui_clock + 2.5
 func draw(m, h: float) -> void :
@@ -68,6 +75,7 @@ func draw(m, h: float) -> void :
 	var card_height: float=minf(340,h-m.bot_pad-118-top)
 	var image_height: float=card_height-100
 	for i in 6:
+		if i==index and unlock_fx.active(): continue
 		var cx: float = 135 + (i - scroll) * 238 + shift
 		if cx < -120 or cx > 390: continue
 		var r: = Rect2(roundf(cx - 112), roundf(top), 224, card_height)
@@ -101,7 +109,9 @@ func draw(m, h: float) -> void :
 		m._ui_style_box(m.sb_chip, item[0]);m._text(item[1], item[0].get_center() + Vector2(0, 5), 14, Color("513b29"), true, 20)
 	rects.left = left;rects.right = right
 	var note: String = notice if m.ui_clock < notice_until else "좌우로 밀어 낚시터 선택하기"
-	m._text(m._ui_wrap(note,8,244,1),Vector2(135,top+card_height+14),8,Color("e6d5ad"),true,244)
+	if not unlock_fx.active(): m._text(m._ui_wrap(note,8,244,1),Vector2(135,top+card_height+14),8,Color("e6d5ad"),true,244)
 	var back: = Rect2(60, h - m.bot_pad - 93, 150, 32)
 	m._ui_style_box(m.sb_btn, back);m._text("뒤로가기", back.get_center() + Vector2(0, 5), 12, Color("513b29"), true, 138)
 	rects.back = back
+
+	unlock_fx.draw(m,self,Rect2(23,top,224,card_height),h)

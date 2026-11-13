@@ -19,6 +19,8 @@ func run():
 	check(not m.region_shop.unlock(m,2) and m.gold==311999,"short payment cannot unlock")
 	m.gold=312000;m.scene="spots";m.spots.index=2;m.spots.rects.enter=Rect2(20,200,200,30)
 	m.spots.press(m,Vector2(100,215))
+	check(m.spots.unlock_fx.active() and m.scene=="spots","saved purchase presents unlock before entry")
+	m.spots.process(m.spots.unlock_fx.DURATION,m);m.spots.press(m,Vector2(100,215))
 	check(m.active_region==2 and m.region_shop.is_unlocked(2) and m.gold==0,"real entry pays exact existing price")
 	m._switch_scene("fish");m.trans={};m._save_game();m.active_region=0;m._load_game()
 	check(m.active_region==2 and m.region_shop.is_unlocked(2),"tile entry survives restart")

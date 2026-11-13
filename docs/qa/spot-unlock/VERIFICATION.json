@@ -1,0 +1,16 @@
+{
+  "date": "2026-11-13",
+  "engine": "4.4.1.stable.official.49a5bc7b6",
+  "status": "implemented_verified_not_deployed",
+  "duration_seconds": 2.3,
+  "original_selector_art_preserved": true,
+  "paid_generations": 0,
+  "tests": {
+    "spot_unlock_verify": "pass: insufficient funds, save failure rollback, successful atomic unlock, input lock, completion, real isolated save reload, original rift image",
+    "economy_balance_verify": "pass",
+    "native_preview": "70 frames + 18 region/height cases; text overlap corrected before final capture"
+  },
+  "preview": "Godot actual rendering; GIF 30fps, silent; existing sound cues wired",
+  "phone_verified": false,
+  "public_deployment_authorized": false
+}

@@ -33,6 +33,8 @@ func run():
  m.development_preview=false;m.gold=4634999
  check(not m.region_shop.unlock(m,3),"exact fee shortage blocked");check(m.region_shop.unlock_error=="1비늘이 부족해요","exact shortage shown")
  m.gold=4635000;m.spots.index=3;m.spots.rects.enter=Rect2(20,200,200,30);m.spots.press(m,Vector2(100,215));m.trans={}
+ check(m.spots.unlock_fx.active() and m.scene=="spots","saved purchase presents unlock before entry")
+ m.spots.process(m.spots.unlock_fx.DURATION,m);m.spots.press(m,Vector2(100,215))
  check(m.active_region==3 and m.region_shop.is_unlocked(3) and m.gold==0,"actual spot button unlocks rift exact fee")
  m._switch_scene("fish");m.trans={};m._save_game();m.active_region=0;m._load_game()
  check(m.active_region==3 and m.region_shop.is_unlocked(3),"rift entry reload preserved")

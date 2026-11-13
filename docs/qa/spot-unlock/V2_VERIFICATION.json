@@ -1,0 +1,35 @@
+{
+  "date": "2026-11-13",
+  "engine": "Godot 4.4.1.stable.official.49a5bc7b6",
+  "status": "reworked_awaiting_user_visual_review_not_deployed",
+  "previous_preview": "rejected; retained only as history",
+  "duration_seconds": 3.15,
+  "changes": [
+    "removed added lightning and chasing frame lines",
+    "original lock enlarged with anticipation, opened shackle, seam light",
+    "chain halves anchored, tensioned, rotated and whipped away",
+    "single warm release, tapered shafts, ember trails, restrained corner glints",
+    "card anticipation, overshoot, landing, quiet completion hold"
+  ],
+  "original_art_preserved": true,
+  "paid_generations": 0,
+  "verification": {
+    "spot_unlock_verify": "passed: insufficient funds/save failure rollback/single saved purchase/input lock/large timestep/reload/reentry/6-region zoom/original rift path",
+    "native": "96 actual frames, 18 region-height layouts",
+    "visual": "core frame montage and short-height/long-name layout inspected",
+    "economy": "previous pass reused; no economy or save code changed in v2"
+  },
+  "preview": {
+    "frames_fps": 30,
+    "video_seconds": 3.904,
+    "audio": "same in-game assets mixed at configured cue times/gains/pitches; not device recording"
+  },
+  "source_sha256": {
+    "game/addons/reservoir/spot_unlock.gd": "191d0563ca58682d8a54b6264686f989d5d53c3173eb206bba299aeaf9428f0c",
+    "game/addons/reservoir/spot_selection.gd": "0b9bcf8afdee7bc421f694b7ce4b9dc6b9ac0ccca8da770a7bb4e0ee1014a36d",
+    "game/tests/spot_unlock_verify.gd": "ef9f80b7809783b572f1992008d448efe880ebcfa7fb6c836ec399185378dd06",
+    "game/tests/spot_unlock_preview.gd": "7f616096535521cc98efafc972e54a909ce584bf519a21e968c0d28783b6d4e1"
+  },
+  "phone_verified": false,
+  "full_release_checks": "not run; no deployment authorized"
+}

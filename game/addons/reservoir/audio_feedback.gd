@@ -28,6 +28,7 @@ var title_gain := 0.0
 func setup(m) -> void:
 	for name in ["water","swim","bubbles","splash","rain","music","click","hook","catch","record","snap","hammer","reel","thunder","tension","cast"]:
 		streams[name] = load(ROOT + name + ".ogg")
+	for name in ["unlock_chain_pull","unlock_latch","unlock_chain_release"]: streams[name]=load("res://sfx/unlock/"+name+".wav")
 	streams["cast"]=load("res://sfx/refine68/cast.ogg")
 	for name in ["village","gull1","gull2","horn"]: streams[name]=load("res://sfx/village/"+name+".ogg")
 	village_music=AudioStreamPlayer.new();village_fx=AudioStreamPlayer.new();m.add_child(village_music);m.add_child(village_fx)

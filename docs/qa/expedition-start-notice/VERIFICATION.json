@@ -1,0 +1,22 @@
+{
+  "date": "2026-11-13",
+  "engine": "Godot4.4.1.stable.official",
+  "status": "implemented_verified_not_deployed",
+  "cause": "start failure used village toast rendered underneath expedition modal",
+  "fix": "dedicated screen-centered 238x74 foreground notice after expedition contents; occluded text removed; 3s lifetime; no duplicate village toast",
+  "message": "병사 3마리를 편성하고 회복을 기다리세요",
+  "checks": {
+    "expedition_start_notice_verify": "pass headless and native at 480/540/660; real start-button failure, no battle mutation, final surface order, center bounds, expiry, stale-state reset",
+    "expedition080_verify": "pass"
+  },
+  "preserved": [
+    "formation requirements",
+    "recovery conditions",
+    "save path",
+    "approved unlock V2 and chain/latch sounds",
+    "original selector artwork"
+  ],
+  "paid_generations": 0,
+  "phone_verified": false,
+  "deployed": false
+}

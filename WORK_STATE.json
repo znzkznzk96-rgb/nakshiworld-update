@@ -6,8 +6,8 @@
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "v1.36 기록사진·도감UI 업데이트 공개/운영검증 완료",
-  "next_step": "앱재실행후 v1.36·Android갤러리 실제사진저장 확인",
+  "current_task": "v1.37 전체검증·배포",
+  "next_step": "버전/업데이트우편·전체검사·동일후보공개·운영검증",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -2187,5 +2187,57 @@
     "public_verification_status": "success",
     "verification": "docs/qa/record-photo/RELEASE136_VERIFICATION.json",
     "authorization_fulfilled": true
+  },
+  "spot_selection_restore": {
+    "authorized": true,
+    "implemented": true,
+    "deployed": false,
+    "next": "사용자 해금 연출 방향 결정; 새 공개배포 미승인",
+    "unlock_animation": "idea_only_not_approved",
+    "related_verified": true
+  },
+  "spot_unlock_animation": {
+    "authorized": true,
+    "implemented": true,
+    "deployed": false,
+    "related_verified": true,
+    "native_frames": 96,
+    "layout_cases": 18,
+    "paid_generations": 0,
+    "verification": "docs/qa/spot-unlock/V2_VERIFICATION.json",
+    "user_visual_approved": true,
+    "status": "v2_and_chain_latch_confirmed",
+    "duration_seconds": 3.15,
+    "sound_rework": "implemented_chain_pull_latch_chain_release",
+    "audio_verification": "docs/qa/spot-unlock/AUDIO_VERIFICATION.json"
+  },
+  "expedition_start_notice": {
+    "implemented": true,
+    "related_verified": true,
+    "native_heights": [
+      480,
+      540,
+      660
+    ],
+    "deployed": false,
+    "verification": "docs/qa/expedition-start-notice/VERIFICATION.json"
+  },
+  "release137": {
+    "authorized": true,
+    "deployed": false,
+    "version": "1.37",
+    "phone_verified": false,
+    "scope": [
+      "original_rift_selector",
+      "approved_unlock_v2_chain_latch",
+      "centered_expedition_notice"
+    ],
+    "ci_run": 43381593379,
+    "source_commit": "15d1f96ea2776de12ee84c666b67b95f7af36765",
+    "pr": 75,
+    "status": "remaining_checks_after_import_and_fixture_prerequisites",
+    "previous_ci_run": 43377848838,
+    "reuse": "previous runtime and existing tools identical; old hardcoded sound count corrected; proof-gated previous success prefix reused",
+    "reused_prefix_run": 43377848838
   }
 }
