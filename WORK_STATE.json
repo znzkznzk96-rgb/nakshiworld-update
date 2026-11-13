@@ -1,17 +1,17 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "release135_fix_authorized",
+  "status": "release135_full_verification_running",
   "release_baseline": "v1.34",
   "target_release": "v1.35",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
   "current_task": "초반모션3초·갤러리JNI완료 수정 후 배포",
-  "next_step": "JNI타입회귀/파일크기검증 및 최종전체검사 후 동일후보 배포",
+  "next_step": "CI43340604068 완료 후 동일후보 공개·운영검증",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
-  "verification": "docs/qa/record-photo/RELEASE134_VERIFICATION.json",
+  "verification": "docs/qa/record-photo/RELEASE135_VERIFICATION.json",
   "baseline_phone_verified": false,
   "environment_recovery": "docs/CODEX_NETWORK_RECOVERY.md",
   "background_verified_branch": "work/tile-png-stage2-20261107",
@@ -48,7 +48,7 @@
     "fulfilled": false
   },
   "release_preflight": "docs/qa/soldier-size/VERIFICATION.json",
-  "release_source_commit": "c0ea402ab6313da251b1cf48e938d68685b5cc3f",
+  "release_source_commit": "d2422ea6758f6362edaacddec4e66f79ecb782ea",
   "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v1.34",
   "release_build_run": 43338981216,
   "release_build_status": "success",
@@ -248,9 +248,9 @@
     "release_authorized": false
   },
   "full_release_ci": {
-    "run": 43336566180,
-    "status": "success",
-    "source_commit": "c0ea402ab6313da251b1cf48e938d68685b5cc3f"
+    "run": 43340604068,
+    "source_commit": "d2422ea6758f6362edaacddec4e66f79ecb782ea",
+    "status": "in_progress"
   },
   "release_candidate": {
     "schema": 1,
