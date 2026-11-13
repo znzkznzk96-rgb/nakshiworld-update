@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "release134_published_public_verified",
+  "status": "release135_fix_authorized",
   "release_baseline": "v1.34",
-  "target_release": "v1.34",
+  "target_release": "v1.35",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "v1.34 계측 후속·타이틀 배포 및 운영검증 완료",
-  "next_step": "앱 재실행 후 v1.34 적용 및 Android 갤러리 저장완료 상태 실기 확인",
+  "current_task": "초반모션3초·갤러리JNI완료 수정 후 배포",
+  "next_step": "JNI타입회귀/파일크기검증 및 최종전체검사 후 동일후보 배포",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -43,9 +43,9 @@
   "remaining_global_render_checks": false,
   "release_authorization": {
     "date": "2026-11-13",
-    "release": "v1.34",
-    "user_request": "배포진행해 ㅇㅇ",
-    "fulfilled": true
+    "release": "v1.35",
+    "user_request": "3초로 변경·갤러리 저장 수정후 업데이트 및 배포",
+    "fulfilled": false
   },
   "release_preflight": "docs/qa/soldier-size/VERIFICATION.json",
   "release_source_commit": "c0ea402ab6313da251b1cf48e938d68685b5cc3f",
@@ -118,7 +118,7 @@
     "production_balance_changed": false,
     "phone_tested": false
   },
-  "release_authorized": false,
+  "release_authorized": true,
   "balance110": {
     "applied": true,
     "deployed": true,
