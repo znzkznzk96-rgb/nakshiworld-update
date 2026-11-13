@@ -6,8 +6,8 @@
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "낚시터 해금 2.3초 연출 구현·미리보기",
-  "next_step": "연출 구현→격리검사/실제화면→work 저장",
+  "current_task": "낚시터 해금 연출 제작·미리보기 완료",
+  "next_step": "사용자 실제 연출 검토; 공개배포 미승인",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -2198,8 +2198,12 @@
   },
   "spot_unlock_animation": {
     "authorized": true,
-    "implemented": false,
+    "implemented": true,
     "deployed": false,
-    "paid_generations": 0
+    "related_verified": true,
+    "native_frames": 70,
+    "layout_cases": 18,
+    "paid_generations": 0,
+    "verification": "docs/qa/spot-unlock/VERIFICATION.json"
   }
 }

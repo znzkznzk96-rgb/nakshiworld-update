@@ -1373,7 +1373,7 @@ func _process(dt: float) -> void :
 			trans.done = true;_switch_scene(trans.to)
 		if trans.t >= TR_CLOSE + TR_HOLD + TR_OPEN: trans = {}
 	if capture_robot.opened or bait_picker.opened or expedition.opened!="" or personal_dex.opened or guide.opened or mailbox.opened or settings_open or market_open or not V.commerce.pending.is_empty() or not equipment.pending_sale.is_empty() or inventory.selected >= 0: queue_redraw();return
-	if scene == "spots": spots.process(dt);queue_redraw();return
+	if scene == "spots": spots.process(dt,self);queue_redraw();return
 	if scene == "village":
 		toast_t = max(0.0, toast_t - dt);judge_t = max(0.0, judge_t - dt)
 		V.process(self, dt);queue_redraw();return
