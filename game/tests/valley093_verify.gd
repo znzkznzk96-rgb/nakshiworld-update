@@ -15,6 +15,8 @@ func run():
  check(not m.region_shop.unlock(m,1) and m.gold==6599,"insufficient funds no partial payment")
  m.gold=19800;m.scene="spots";m.spots.index=1;m.spots.rects.enter=Rect2(20,200,200,30)
  m.spots.press(m,Vector2(100,215))
+ check(m.spots.unlock_fx.active() and m.scene=="spots","saved purchase presents unlock before entry")
+ m.spots.process(m.spots.unlock_fx.DURATION,m);m.spots.press(m,Vector2(100,215))
  check(m.active_region==1 and m.region_shop.is_unlocked(1) and m.gold==0 and m.trans.get("to","")=="fish","real selection opens licensed valley for exact price")
  m._switch_scene("fish");m.trans={};m.active_region=0;m.region_shop.restore({});m.progression.restore({});m._load_game()
  check(m.active_region==1 and m.region_shop.is_unlocked(1) and m.progression.licensed(1),"old license and new unlock survive save reload")
