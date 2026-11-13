@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "release135_published_public_verified",
+  "status": "record_export_isolation_and_button_fix",
   "release_baseline": "v1.35",
   "target_release": "v1.35",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "v1.35 갤러리JNI완료·3초모션 수정 배포 및 운영검증 완료",
-  "next_step": "앱 재실행 후 v1.35 및 Android갤러리 사진/완료상태 실기 확인",
+  "current_task": "후속번개간격·최고기록버튼·저장사진캔버스분리",
+  "next_step": "계측사진 전용월드·실제캡처 회귀검사 및 화면결과",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -1998,6 +1998,12 @@
       "release_authorized": false,
       "verification": "docs/qa/record-photo/RELEASE135_VERIFICATION.json",
       "android_after_fix_verified": false
+    },
+    "export_followup": {
+      "authorized": true,
+      "deployed": false,
+      "release_authorized": false,
+      "verification": "docs/qa/record-photo/EXPORT_ISOLATION_VERIFICATION.json"
     }
   },
   "release133": {
