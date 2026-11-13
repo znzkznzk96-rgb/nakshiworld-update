@@ -6,8 +6,8 @@
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "낚시터 선택 균열 해역 원화 복구 완료·해금 연출 제안",
-  "next_step": "사용자 해금 연출 방향 결정; 새 공개배포 미승인",
+  "current_task": "낚시터 해금 2.3초 연출 구현·미리보기",
+  "next_step": "연출 구현→격리검사/실제화면→work 저장",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -2195,5 +2195,11 @@
     "next": "사용자 해금 연출 방향 결정; 새 공개배포 미승인",
     "unlock_animation": "idea_only_not_approved",
     "related_verified": true
+  },
+  "spot_unlock_animation": {
+    "authorized": true,
+    "implemented": false,
+    "deployed": false,
+    "paid_generations": 0
   }
 }
