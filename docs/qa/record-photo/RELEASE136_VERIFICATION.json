@@ -4,7 +4,7 @@
     "code": 136,
     "name": "1.36"
   },
-  "status": "full_verified_identical_candidate_ready_for_publication",
+  "status": "published_and_public_verified",
   "authorization": "업뎃및 배포 ㄱㄱ",
   "baseline": {
     "release": "v1.35",
@@ -22,7 +22,7 @@
   ],
   "candidate_protection_tests": 7,
   "paid_generations_for_publication": 0,
-  "deployed": false,
+  "deployed": true,
   "phone_verified": false,
   "source_commit": "b31f8ac64b98de529a46ddba14245c35a105e011",
   "ci_run": 43364135828,
@@ -96,5 +96,74 @@
     },
     "downloaded_hashes_verified": true
   },
-  "pr": 74
+  "pr": 74,
+  "publication_run": 43366484269,
+  "merge_commit": "efbe96ed97eb855e6d58831888bc5ed8f2928b39",
+  "publication_status": "success",
+  "publication_attempts": [
+    {
+      "attempt": 1,
+      "run": 43366484269,
+      "job": 131691976897,
+      "result": "failed_after_draft_create",
+      "reason": "Created draft not found in immediate release-list response",
+      "draft_id": 443819449
+    },
+    {
+      "attempt": 2,
+      "run": 43366484269,
+      "job": 131692612627,
+      "result": "success",
+      "same_draft_id": 443819449,
+      "rebuild": false
+    }
+  ],
+  "release_id": 443819449,
+  "published_at": "2026-11-13T04:37:24Z",
+  "public_verification_run": 43366736266,
+  "public_verification_status": "success",
+  "public_ci": {
+    "source_overlay_files_verified": 743,
+    "zip_crc_verified": true,
+    "public_assets_verified": true,
+    "installed_app_136_0_full_download_verified": true
+  },
+  "local_public": {
+    "version": {
+      "code": 136,
+      "name": "1.36"
+    },
+    "source_commit": "b31f8ac64b98de529a46ddba14245c35a105e011",
+    "release_id": 443819449,
+    "assets": {
+      "version.json": {
+        "size": 199,
+        "sha256": "ed0ef72cb9ea04537fc77465571e9f73866b3d5fe33e8a1468c32c4fa5814812",
+        "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.36/version.json"
+      },
+      "patch.pck": {
+        "size": 63347472,
+        "sha256": "0ed34998e3dcb8db0a22636d235d471a181d074ea096c4ff252ea4e1afc62e4f",
+        "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.36/patch.pck"
+      },
+      "game-source.zip": {
+        "size": 69062689,
+        "sha256": "ced26a80c76af7743c0d3cb90a1d4e0ff6f35c19e6e263dd5bd708d2b4fde62c",
+        "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.36/game-source.zip"
+      }
+    },
+    "deployed": true,
+    "phone_verified": false,
+    "source_overlay_files_verified": 743,
+    "zip_crc_verified": true,
+    "installed_app_download": {
+      "address": "https://nakshiworld-update-kr.znzkznzk96.workers.dev/patch.pck?v=136.0",
+      "size": 63347472,
+      "sha256": "0ed34998e3dcb8db0a22636d235d471a181d074ea096c4ff252ea4e1afc62e4f"
+    },
+    "range206_verified": true,
+    "public_download_verified": true
+  },
+  "authorization_fulfilled": true,
+  "release_authorized": false
 }

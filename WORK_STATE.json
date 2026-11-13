@@ -1,17 +1,17 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "release136_full_verified_ready_for_publication",
-  "release_baseline": "v1.35",
+  "status": "release136_published_public_verified",
+  "release_baseline": "v1.36",
   "target_release": "v1.36",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "낚시터6버튼 시인성/선택표현 통일",
-  "next_step": "성공한동일후보를PR74로공개·운영다운로드검증",
+  "current_task": "v1.36 기록사진·도감UI 업데이트 공개/운영검증 완료",
+  "next_step": "앱재실행후 v1.36·Android갤러리 실제사진저장 확인",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
-  "verification": "docs/qa/record-photo/RELEASE135_VERIFICATION.json",
+  "verification": "docs/qa/record-photo/RELEASE136_VERIFICATION.json",
   "baseline_phone_verified": false,
   "environment_recovery": "docs/CODEX_NETWORK_RECOVERY.md",
   "background_verified_branch": "work/tile-png-stage2-20261107",
@@ -23,10 +23,10 @@
   "screen_evidence_commit": "04fa33a116915c0b7a7ca86ee235a24a4cf4d4d2",
   "screen_verification_run": 42315352676,
   "full_source_verified": {
-    "release": "v1.35",
-    "size": 69055670,
-    "sha256": "c4ed628334ba3c428f6b15624483a63ffb03109e13f9e68b158b8549ef2f6d14",
-    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.35/game-source.zip"
+    "release": "v1.36",
+    "size": 69062689,
+    "sha256": "ced26a80c76af7743c0d3cb90a1d4e0ff6f35c19e6e263dd5bd708d2b4fde62c",
+    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.36/game-source.zip"
   },
   "fish_verification_run": 42317071546,
   "automatic_full_regression_run": 42317071379,
@@ -1961,7 +1961,7 @@
       "user_visual_approved": false,
       "repair_authorized": false
     },
-    "public_release": "v1.33",
+    "public_release": "v1.36",
     "followup": {
       "authorized": true,
       "deployed": true,
@@ -2001,12 +2001,12 @@
     },
     "export_followup": {
       "authorized": true,
-      "deployed": false,
+      "deployed": true,
       "release_authorized": false,
       "verification": "docs/qa/record-photo/EXPORT_ISOLATION_VERIFICATION.json",
       "implemented": true,
-      "source_commit": "962312737cb151309179534dfe382ff7af1a98d5",
-      "ci_run": 43349995350,
+      "source_commit": "b31f8ac64b98de529a46ddba14245c35a105e011",
+      "ci_run": 43364135828,
       "ci_status": "success",
       "native_verified": true,
       "related_verified": true,
@@ -2016,7 +2016,8 @@
       "preview_artifact": 14003057815,
       "phone_verified": false,
       "preview_library_file_id": "libfile_fde3_f-53f13f4b10b481919adecd4ed7c55ff7_d66dafb33acc81918ce203aeb3fcd18e",
-      "export_library_file_id": "libfile_fde3_f-84346a7b6fd08191aa721e15b6bffb62_d66dafb33acc81918ce203aeb3fcd18e"
+      "export_library_file_id": "libfile_fde3_f-84346a7b6fd08191aa721e15b6bffb62_d66dafb33acc81918ce203aeb3fcd18e",
+      "public_release": "v1.36"
     }
   },
   "release133": {
@@ -2062,13 +2063,13 @@
     ],
     "region_states": 18,
     "native_screens": 30,
-    "deployed": false,
+    "deployed": true,
     "release_authorized": false,
     "verification": "docs/qa/record-photo/DEX_REGION_BUTTONS.json",
     "preview_library_file_id": "libfile_fde3_f-065f296067808191a387227c1aeeb2cd_d66dafb33acc81918ce203aeb3fcd18e",
-    "source_commit": "c5165dbc4bccf56b9db8b832f7623bf98f6a640c",
-    "ci_run": 43358355364,
-    "ci_status": "queued",
+    "source_commit": "b31f8ac64b98de529a46ddba14245c35a105e011",
+    "ci_run": 43364135828,
+    "ci_status": "success",
     "art_rework": true,
     "art_generation_limit": 6,
     "art_generated": 13,
@@ -2077,11 +2078,11 @@
     "valley_label_verified": true,
     "art_paid_posts": 1,
     "art_additional_posts": 0,
-    "art_status": "six_candidates_quality_passed_user_review_pending",
+    "art_status": "selected_and_published_v136",
     "actual_generations_delta": null,
     "ledger": "docs/art/dex-regions-20261113/LEDGER0.json",
     "art_attempt_limit_per_region": 4,
-    "retry_authorized": true,
+    "retry_authorized": false,
     "art_selected": 6,
     "actual_generations_delta_this_resume": 13,
     "art_attempts_per_region": [
@@ -2103,7 +2104,8 @@
     "art_verification": "docs/art/dex-regions-20261113/VERIFICATION.json",
     "user_visual_approval": "accepted_for_v136_publication",
     "remote_asset_bytes_verified": true,
-    "actual_screen_library_file_id": "libfile_fde3_f-8a72827c8dac819183923c9e34043ca9_d66dafb33acc81918ce203aeb3fcd18e"
+    "actual_screen_library_file_id": "libfile_fde3_f-8a72827c8dac819183923c9e34043ca9_d66dafb33acc81918ce203aeb3fcd18e",
+    "public_release": "v1.36"
   },
   "dex_category_icons": {
     "implemented": true,
@@ -2111,12 +2113,13 @@
     "native_verified": true,
     "native_screens": 30,
     "paid_generations": 0,
-    "deployed": false,
+    "deployed": true,
     "verification": "docs/art/dex-regions-20261113/VERIFICATION.json",
-    "full_ci": "pending",
-    "source_commit": "54a3ec8571f7d4723b374beb210a8c792721a7f6",
-    "ci_run": 43359098574,
-    "preview_library_file_id": "libfile_fde3_f-79f51df0555c8191b2dab5861ce9a5a5_d66dafb33acc81918ce203aeb3fcd18e"
+    "full_ci": "success",
+    "source_commit": "b31f8ac64b98de529a46ddba14245c35a105e011",
+    "ci_run": 43364135828,
+    "preview_library_file_id": "libfile_fde3_f-79f51df0555c8191b2dab5861ce9a5a5_d66dafb33acc81918ce203aeb3fcd18e",
+    "public_release": "v1.36"
   },
   "dex_button_visibility": {
     "implemented": true,
@@ -2127,12 +2130,13 @@
     "native_verified": true,
     "native_screens": 30,
     "paid_generations": 0,
-    "deployed": false,
-    "full_ci": "pending",
+    "deployed": true,
+    "full_ci": "success",
     "verification": "docs/art/dex-regions-20261113/VERIFICATION.json",
-    "source_commit": "58ddc8c9cc9fdca894ac3f7d80f727067e851b0a",
-    "ci_run": 43359860225,
-    "preview_library_file_id": "libfile_fde3_f-679b763ae50c8191a251004b6eca0571_d66dafb33acc81918ce203aeb3fcd18e"
+    "source_commit": "b31f8ac64b98de529a46ddba14245c35a105e011",
+    "ci_run": 43364135828,
+    "preview_library_file_id": "libfile_fde3_f-679b763ae50c8191a251004b6eca0571_d66dafb33acc81918ce203aeb3fcd18e",
+    "public_release": "v1.36"
   },
   "dex_region_button_visibility": {
     "implemented": true,
@@ -2146,23 +2150,24 @@
     "region_states": 18,
     "native_screens": 30,
     "paid_generations": 0,
-    "deployed": false,
-    "full_ci": "pending",
+    "deployed": true,
+    "full_ci": "success",
     "verification": "docs/art/dex-regions-20261113/VERIFICATION.json",
-    "source_commit": "d7cf0c14cae852e311deddba2941f8af70dd7122",
-    "ci_run": 43360593332,
-    "preview_library_file_id": "libfile_fde3_f-21aa9996e36481919d2c947b2f74c6af_d66dafb33acc81918ce203aeb3fcd18e"
+    "source_commit": "b31f8ac64b98de529a46ddba14245c35a105e011",
+    "ci_run": 43364135828,
+    "preview_library_file_id": "libfile_fde3_f-21aa9996e36481919d2c947b2f74c6af_d66dafb33acc81918ce203aeb3fcd18e",
+    "public_release": "v1.36"
   },
   "release136": {
     "authorized": true,
-    "deployed": false,
+    "deployed": true,
     "user_request": "업뎃및 배포 ㄱㄱ",
     "version": "1.36",
     "phone_verified": false,
     "baseline": "v1.35",
     "local_candidate_tests": 7,
     "full_ci": "success",
-    "release_authorized": true,
+    "release_authorized": false,
     "source_commit": "b31f8ac64b98de529a46ddba14245c35a105e011",
     "ci_run": 43364135828,
     "previous_ci_run": 43361845442,
@@ -2172,6 +2177,15 @@
     "candidate_artifact": 14009924701,
     "input_fingerprint": "bdbf57af4cc2eba5dadffda6bc443807843e9106d0d6d2eb00facd349b9d2aad",
     "pr": 74,
-    "candidate_ready": true
+    "candidate_ready": true,
+    "publication_run": 43366484269,
+    "merge_commit": "efbe96ed97eb855e6d58831888bc5ed8f2928b39",
+    "publication_status": "success",
+    "publication_attempts": 2,
+    "release_id": 443819449,
+    "public_verification_run": 43366736266,
+    "public_verification_status": "success",
+    "verification": "docs/qa/record-photo/RELEASE136_VERIFICATION.json",
+    "authorization_fulfilled": true
   }
 }
