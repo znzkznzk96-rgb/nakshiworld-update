@@ -21,7 +21,9 @@ func run():
   m._switch_scene("spots");m.trans={};m.queue_redraw();await capture(out.path_join("unlock-%d.png"%h));renders+=1
   if not m.region_shop.is_unlocked(3):
    m.spots.press(m,m.spots.rects.enter.get_center());m.trans={}
-   check(m.region_shop.is_unlocked(3) and m.active_region==3,"real button entered")
+   check(m.region_shop.is_unlocked(3) and m.spots.unlock_fx.active() and m.scene=="spots","saved unlock starts approved presentation")
+   m.spots.process(m.spots.unlock_fx.DURATION,m);m.spots.press(m,m.spots.rects.enter.get_center())
+   check(m.active_region==3,"enter after completed unlock presentation")
   m._switch_scene("fish");m.trans={};m.active_region=3;m._layout();m.equipment.active_parts=["r3_float","r3_hook","r3_line","r3_reel"]
   for sp in [60,73,79]:
    m.S={"sp":sp,"star":4 if sp==79 else 0,"grade":2,"lf":1.0,"len":float(m.FISH_LEN[sp]),"owner":sp==79};m.start_fight();m.S.t=2;m.S.bt=99;m.S.dist=35;m.S.fx=150;m.S.fy=m.WATER+85;m.S.dispY=m.WATER+85;m.queue_redraw();await capture(out.path_join("fight-%d-%d.png"%[h,sp]));renders+=1
