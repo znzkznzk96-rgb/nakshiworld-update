@@ -1671,7 +1671,7 @@ func _fish_texture_u(sp: int, along_body: float) -> float:
 	return x/float(fish_tex[sp].get_width())
 
 
-const BITE_PREVIEW_LENGTH := [24.0,26.0,28.0,30.0]
+const BITE_PREVIEW_LENGTH := [36.0,42.0,48.0,54.0]
 func _bite_preview_length(size_class: int) -> float:
 	return BITE_PREVIEW_LENGTH[clampi(size_class,0,3)]
 
@@ -2543,6 +2543,18 @@ func _draw_fish_tension(fish_pos: Vector2, scale: float, dt: float, body_length:
 		_ui_rect(r.grow(1), Color(1, 0.28, 0.18, 0.65 + 0.3 * sin(anim_t * 9)), false, 1)
 		_ui_rect(Rect2(p.x + clampf(fill, 1, 42), p.y - 1, 1, 10), Color("fff0ce"))
 
+# Result-only sizing. Inventory/dex thumbnails, fighting and ruler geometry are unchanged.
+func _result_fish_rect(sp: int, actual_cm: float, box: Rect2) -> Rect2:
+	var source: Vector2 = rift_art.source_rect(sp,0).size if rift_art.has_species(sp) else Vector2(fish_used[sp].size)
+	var mean_cm: float = maxf(1.0,float(FISH_LEN[sp]))
+	var base: float = 44.0 if mean_cm<=15.0 else 70.0 if mean_cm<=40.0 else 104.0 if mean_cm<=90.0 else 140.0
+	var individual: float = sqrt(clampf(actual_cm/mean_cm,0.5,1.65))
+	var width: float = minf(174.0,base*individual)
+	# No tiny source is expanded beyond twice its original opaque body crop.
+	var factor: float = minf(2.0,minf(width/maxf(1.0,source.x),minf(box.size.x/maxf(1.0,source.x),box.size.y/maxf(1.0,source.y))))
+	var size: Vector2 = source*factor
+	return Rect2(box.get_center()-size/2.0,size)
+
 func _draw_result(t: float) -> void :
 	var h: = get_viewport_rect().size.y
 	var cy: = roundf(h * 0.42)
@@ -2551,13 +2563,13 @@ func _draw_result(t: float) -> void :
 		return
 
 	var pop: = int(maxf(0.0, 1.0 - result_t / 0.18) * 10)
-	result_rect = Rect2(15, cy - 92 + pop, 240, 186)
+	result_rect = Rect2(15, cy - 92 + pop, 240, 202)
 	var r: = result_rect
 	_ui_style_box(sb_panel, r)
 	_text(FISH_NAME[S.sp], Vector2(VW / 2.0, r.position.y + 32), 14, Color("382619"), true, 200)
-	_ui_fish(S.sp, Rect2(r.position + Vector2(24, 44), Vector2(192, 43)))
+	_ui_fish(S.sp, _result_fish_rect(int(S.sp),float(S.len),Rect2(r.position + Vector2(24,44),Vector2(192,62))))
 
-	var gy: = r.position.y + 112
+	var gy: = r.position.y + 128
 	var stars: = "★".repeat(S.star + 1)
 	var gc: = _aura_col(S.grade, t, 1.0) if S.grade > 0 else Color("e8e2d0")
 	if S.grade == 1: gc = Color("4fa3ff")

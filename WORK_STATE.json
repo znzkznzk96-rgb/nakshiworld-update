@@ -6,8 +6,8 @@
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "입질 가독성·결과 물고기 체급 표시 통일",
-  "next_step": "표시크기 경로 확인→최소크기/체급/확대상한 구현→관련검사/실제화면→work저장",
+  "current_task": "입질 가독성·결과 체급 크기 수정 완료(미배포)",
+  "next_step": "실제화면 사용자 검토; 공개배포 금지 유지",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -2269,9 +2269,15 @@
   },
   "fish_display_size": {
     "authorized": true,
-    "implemented": false,
+    "implemented": true,
+    "related_verified": true,
+    "native_verified": true,
+    "result_cases": 400,
+    "bite_contact_cases": 10240,
+    "native_screens": 18,
     "deployed": false,
     "release_authorized": false,
-    "paid_generations": 0
+    "paid_generations": 0,
+    "verification": "docs/qa/fish-display-size/VERIFICATION.json"
   }
 }

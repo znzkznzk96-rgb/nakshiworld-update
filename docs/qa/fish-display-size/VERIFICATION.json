@@ -1,0 +1,53 @@
+{
+  "date": "2026-11-13",
+  "engine": "Godot4.4.1.stable.official.49a5bc7b6",
+  "status": "implemented_related_verified_not_deployed",
+  "baseline": {
+    "release": "v1.37",
+    "zip_sha256": "101657a2e83f764234a67bebb0b73dea03686a8c60e5e407288a794f41fe15f9",
+    "tracked_game_blobs_verified": 752,
+    "overlay_delta_before_change": 0,
+    "deletion_manifest_satisfied": true
+  },
+  "changes": {
+    "bite_class_caps": {
+      "before": [
+        24,
+        26,
+        28,
+        30
+      ],
+      "after": [
+        36,
+        42,
+        48,
+        54
+      ]
+    },
+    "result": "species mean four body tiers, individual actual/mean square-root scaling, max2x original opaque source crop, fixed aspect ratio; result-only slot62px and panel+16px for text clearance"
+  },
+  "verification": {
+    "fish_display_size_verify": "pass; 80 species x5 individual lengths =400; monotonicity/aspect/source2x cap/box fit/actual painter dimensions",
+    "bite_contact_verify": "pass; 10240 species/frame/class/facing cases; actual opaque mouth anchored to moving bobber; no scale pumping; maximum extent49.690673828125",
+    "fish_presentation_verify": "pass; approved class expectation36/54 updated",
+    "fish_anchor_size_verify": "pass; fighting/species geometry unchanged",
+    "measurement_speed_verify": "pass; measurement accuracy/timing unchanged",
+    "native_preview": "pass; 18 actual Godot screens at480/540/660 across4 result specimens and2 bite specimens"
+  },
+  "preservation": {
+    "original_tracked_files_unchanged": 750,
+    "modified_original_files": [
+      "game/main.gd",
+      "game/tests/fish_presentation_verify.gd"
+    ],
+    "art_pixels_unchanged": true,
+    "fish_physics_probability_economy_saves_unchanged": true,
+    "measurement_ruler_geometry_unchanged": true,
+    "inventory_dex_thumbnail_fit_unchanged": true
+  },
+  "paid_generations": 0,
+  "new_version": false,
+  "deployed": false,
+  "release_authorized": false,
+  "full_release_ci_not_requested": "display-only development change; focused related checks per approved delivery workflow"
+}
