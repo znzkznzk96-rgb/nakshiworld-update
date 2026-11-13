@@ -2,7 +2,7 @@ name: Verify work branch without deployment
 on:
   push:
     branches: [work/valley-runtime, work/skills-105, work/valley-clarity-106, work/tile-release-107]
-    paths: ['game/**', 'automation/**', '.github/workflows/verify-work.yml']
+    paths: ['automation/release.json', 'automation/verification-request.json']
 permissions:
   contents: read
   actions: read
@@ -30,26 +30,20 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
-      - name: Restore verified v1.36 source and overlay
+      - name: Restore verified v1.37 source and overlay
         shell: bash
         run: |
           set -euo pipefail
           echo "VERIFICATION_STARTED=$(date +%s)" >> "$GITHUB_ENV"
           sudo apt-get update -qq
           sudo apt-get install -y python3-pil > /dev/null
-          curl -fL --retry 2 https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.36/game-source.zip -o "$RUNNER_TEMP/source.zip"
-          echo "ced26a80c76af7743c0d3cb90a1d4e0ff6f35c19e6e263dd5bd708d2b4fde62c  $RUNNER_TEMP/source.zip" | sha256sum -c -
+          curl -fL --retry 2 https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.37/game-source.zip -o "$RUNNER_TEMP/source.zip"
+          echo "101657a2e83f764234a67bebb0b73dea03686a8c60e5e407288a794f41fe15f9  $RUNNER_TEMP/source.zip" | sha256sum -c -
           python3 automation/restore_source.py "$RUNNER_TEMP/source.zip" "$RUNNER_TEMP/project"
           curl -fL --retry 2 https://github.com/godotengine/godot/releases/download/4.4.1-stable/Godot_v4.4.1-stable_linux.x86_64.zip -o "$RUNNER_TEMP/godot.zip"
           unzip -q "$RUNNER_TEMP/godot.zip" -d "$RUNNER_TEMP/godot"
           chmod +x "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
-      - name: Validate unchanged successful v1.37 verification prefix
-        env:
-          GH_TOKEN: ${{ github.token }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
-        run: python3 automation/resume_verified_137.py
       - name: Verify and render approved rift art integration
-        if: env.REUSE_137_PREFIX != 'true'
         shell: bash
         run: |
           set -euo pipefail
@@ -75,7 +69,6 @@ jobs:
           grep -F 'RIFT_ART_PREVIEW failures=[]' evidence/rift-native.log
           if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/rift-art.log evidence/rift-native.log; then exit 1; fi
       - uses: actions/upload-artifact@v4
-        if: env.REUSE_137_PREFIX != 'true'
         timeout-minutes: 4
         with:
           compression-level: 0
@@ -88,7 +81,6 @@ jobs:
             evidence/rift-bundles-layers.log
             evidence/rift-layers-native.log
       - name: Verify approved unlock and centered expedition notice
-        if: env.REUSE_137_PREFIX != 'true'
         shell: bash
         run: |
           set -euo pipefail
@@ -102,7 +94,6 @@ jobs:
           XDG_DATA_HOME="$RUNNER_TEMP/isolated-expedition-notice-native" timeout 90 xvfb-run -a "$GODOT" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/expedition_start_notice_verify.gd -- "$GITHUB_WORKSPACE/evidence/expedition-notice" > evidence/expedition-notice-native.log 2>&1
           if grep -E 'SCRIPT ERROR:|Parse Error:|Assertion failed|ERROR:' evidence/unlock-native.log evidence/expedition-notice-native.log; then exit 1; fi
       - name: Verify and render measured record photo first
-        if: env.REUSE_137_PREFIX != 'true'
         shell: bash
         run: |
           set -euo pipefail
@@ -128,7 +119,7 @@ jobs:
           grep -F 'RECORD_EXPORT_ISOLATION_PREVIEW failures=[]' evidence/record-export.log
           if grep -E 'SCRIPT ERROR:|Parse Error:|Assertion failed|ERROR:' evidence/record-export.log; then exit 1; fi
       - uses: actions/upload-artifact@v4
-        if: ${{ env.REUSE_137_PREFIX != 'true' && always() }}
+        if: always()
         with:
           name: record-photo-first-preview
           compression-level: 0
@@ -149,7 +140,6 @@ jobs:
             evidence/record_gallery.log
             evidence/record-photo-native.log
       - name: Verify native bobber contact and bounded fish previews
-        if: env.REUSE_137_PREFIX != 'true'
         shell: bash
         run: |
           set -euo pipefail
@@ -158,7 +148,6 @@ jobs:
           grep -F 'BITE_CONTACT_PREVIEW failures=[]' evidence/bite-contact-native.log
           if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/bite-contact-native.log; then exit 1; fi
       - name: Compare village layer quality at phone size
-        if: env.REUSE_137_PREFIX != 'true'
         shell: bash
         run: |
           set -euo pipefail
@@ -175,7 +164,6 @@ jobs:
           grep -F 'VILLAGE_LAYERS_QUALITY_PREVIEW screens=120' evidence/village-quality-before.log evidence/village-quality-after.log
           if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/village-quality-before.log evidence/village-quality-after.log; then exit 1; fi
       - uses: actions/upload-artifact@v4
-        if: env.REUSE_137_PREFIX != 'true'
         with:
           name: village-quality-first-preview
           compression-level: 0
@@ -184,7 +172,6 @@ jobs:
             evidence/village-quality-before.log
             evidence/village-quality-after.log
       - name: Render village life layers and passenger motion
-        if: env.REUSE_137_PREFIX != 'true'
         shell: bash
         run: |
           set -euo pipefail
@@ -193,7 +180,6 @@ jobs:
           grep -F 'VILLAGE_LIFE131_PREVIEW failures=[]' evidence/village-life131-native.log
           if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/village-life131-native.log; then exit 1; fi
       - name: Render updater checking download and circular chase
-        if: env.REUSE_137_PREFIX != 'true'
         shell: bash
         run: |
           set -euo pipefail
@@ -250,7 +236,6 @@ jobs:
           if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/updater-font-native.log; then exit 1; fi
           if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/boot-smooth-native.log; then exit 1; fi
       - uses: actions/upload-artifact@v4
-        if: env.REUSE_137_PREFIX != 'true'
         timeout-minutes: 4
         with:
           compression-level: 0
@@ -260,7 +245,6 @@ jobs:
             evidence/updater.log
             evidence/updater-preview.log
       - name: Verify all six owner gauge layouts before full checks
-        if: env.REUSE_137_PREFIX != 'true'
         shell: bash
         run: |
           set -euo pipefail
@@ -271,7 +255,6 @@ jobs:
           grep -F 'OWNER_GAUGE_PREVIEW complete' evidence/owner-alignment-preview.log
           if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/owner-alignment*.log; then exit 1; fi
       - uses: actions/upload-artifact@v4
-        if: env.REUSE_137_PREFIX != 'true'
         timeout-minutes: 4
         with:
           compression-level: 0
@@ -280,7 +263,6 @@ jobs:
             evidence/owner-alignment/
             evidence/owner-alignment*.log
       - name: Verify and render village reward notice before full checks
-        if: env.REUSE_137_PREFIX != 'true'
         shell: bash
         run: |
           set -euo pipefail
@@ -290,7 +272,6 @@ jobs:
           XDG_DATA_HOME="$RUNNER_TEMP/isolated-village-reward-preview" timeout 90 xvfb-run -a "$GODOT" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/notification091_preview.gd -- "$GITHUB_WORKSPACE/evidence/village-reward" > evidence/village-reward-preview.log 2>&1
           if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/village-reward*.log; then exit 1; fi
       - uses: actions/upload-artifact@v4
-        if: env.REUSE_137_PREFIX != 'true'
         timeout-minutes: 4
         with:
           compression-level: 0
@@ -299,7 +280,6 @@ jobs:
             evidence/village-reward/
             evidence/village-reward*.log
       - name: Verify and preview per-soldier skill feedback first
-        if: env.REUSE_137_PREFIX != 'true'
         shell: bash
         run: |
           set -euo pipefail
@@ -318,14 +298,12 @@ jobs:
           if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/soldier-size-preview.log; then exit 1; fi
           if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/soldier-skill-cues.log evidence/soldier-skill-parity.log evidence/soldier-skill-preview.log; then exit 1; fi
       - name: Render revised formation scroll and PixelLab roles
-        if: env.REUSE_137_PREFIX != 'true'
         shell: bash
         run: |
           set -euo pipefail
           XDG_DATA_HOME="$RUNNER_TEMP/isolated-formation" timeout 90 xvfb-run -a "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/formation_scroll_preview.gd -- "$GITHUB_WORKSPACE/evidence/formation" > evidence/formation.log 2>&1
           if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/formation.log; then cat evidence/formation.log; exit 1; fi
       - uses: actions/upload-artifact@v4
-        if: env.REUSE_137_PREFIX != 'true'
         timeout-minutes: 4
         with:
           compression-level: 0
@@ -345,26 +323,11 @@ jobs:
           set -euo pipefail
           mkdir -p evidence
           GODOT="$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
-          if [ "${REUSE_137_PREFIX:-false}" = true ]; then
-            timeout 180 "$GODOT" --headless --editor --path "$RUNNER_TEMP/project" --import > evidence/reuse-initial-import.log 2>&1
-            if grep -E 'SCRIPT ERROR:|Parse Error:|Failed to load script' evidence/reuse-initial-import.log; then exit 1; fi
-          fi
           timeout 90 "$GODOT" --headless --path "$RUNNER_TEMP/project" --script tests/bake_expedition_assets.gd > evidence/bake.log 2>&1
           grep -F 'EXPEDITION_BAKE files=130' evidence/bake.log
           "$GODOT" --headless --editor --path "$RUNNER_TEMP/project" --import > evidence/prepared-import.log 2>&1
           if grep -E 'SCRIPT ERROR:|Parse Error:|Failed to load script' evidence/prepared-import.log; then exit 1; fi
-          resume_remaining=false
           for suite in bite_contact village_life131 rift_unlock_recovery fish_grade_aura updater_font soldier_size android_back close_controls updater_smoothness shop_signs hall_forge119 dex_readability body_book_telegraph fight_telegraph facility_growth night_play night_glow regional_night fight_body_size fishing_difficulty fish_presentation fish_anchor_size regional_bundle_rewards mail_gifts valley_gift108 arrival_gift testing_gift reader tile107 tier_skills training_costs tier3_motion tier2_motion management101 formation_compare forge_layout robot_ui_revision capture_robot balance096 guide_ac valley094 valley093 bait092 notification091 ui090 codex089 aquarium_b ui_guide pouch_inventory expedition_result support_utility combat_feedback bag_event_order bag_formation selected_ui bag_interaction startup_assets soul_pouch expedition_hard_balance expedition_label bundle_aqua expedition080 expedition079 soldier_dex approved_ui expedition_motion expedition expedition_save expedition_balance action_readability economy_balance rod_aura atmosphere_encounter angler_scene market_reader odds_rewards reservoir_layers owner_gauge bag_list bundles_buyback equipment visual guide shop audio_save bundle_preview rewards fish_surface regional inventory_layout personal_dex bait_roles measurement_speed village_entry_audio shared_vertical_light tile_surface_water tile_scenery; do
-            if [ "${REUSE_137_PREFIX:-false}" = true ] && [ "$resume_remaining" = false ]; then
-              if [ "$suite" != audio_save ]; then
-                case "$suite" in
-                  rift_unlock_recovery|mail_gifts|facility_growth) echo "RECREATE_ISOLATED_RELOAD_FIXTURE=$suite" ;;
-                  *) echo "REUSED_IDENTICAL_RUNTIME_SUITE=$suite"; continue ;;
-                esac
-              else
-                resume_remaining=true
-              fi
-            fi
             XDG_DATA_HOME="$RUNNER_TEMP/isolated-$suite" timeout 90 "$GODOT" --headless --path "$RUNNER_TEMP/project" --script "tests/${suite}_verify.gd" > "evidence/$suite.log" 2>&1 || { cat "evidence/$suite.log"; exit 1; }
             cat "evidence/$suite.log"
             grep -F 'VERIFY failures=[]' "evidence/$suite.log"
@@ -564,6 +527,14 @@ jobs:
           name: ${{ env.CANDIDATE_ARTIFACT }}
           path: candidate/
           retention-days: 30
+      - name: Record verification step timings
+        if: always()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_RUN_ID: ${{ github.run_id }}
+        run: python3 automation/ci_timings.py --output evidence/ci-timings.json
       - name: Preserve verification logs
         if: ${{ success() || failure() }}
         uses: actions/upload-artifact@v4
@@ -572,5 +543,6 @@ jobs:
           compression-level: 0
           name: work-verification
           path: evidence/
+
 
 

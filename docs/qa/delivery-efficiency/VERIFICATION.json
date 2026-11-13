@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-13",
+  "status": "implemented_on_work_branch_not_published",
+  "game_changed": false,
+  "release_version_unchanged": "1.37",
+  "whole_game_rebuild": false,
+  "changes": [
+    "ordinary game/tool/docs pushes no longer trigger full CI",
+    "full verification starts on release.json or explicit verification-request.json change",
+    "v137 hardcoded partial-run resumption removed and archived unchanged",
+    "all required suites/native/PCK checks retained, standard import and isolated reload order restored",
+    "CI step timing JSON/Markdown and Actions summary added",
+    "latest v1.37 baseline source SHA pinned consistently"
+  ],
+  "verification": {
+    "delivery_configuration_unit_tests": 4,
+    "existing_release_candidate_guard_tests": 7,
+    "request_writer_cli": "passed with isolated output path; no live request file created",
+    "timing_report_cli": "passed with isolated jobs fixture",
+    "workflow_yaml": "parsed; required step and full suite contract retained; no REUSE_137_PREFIX guards",
+    "baseline_digest": "v1.37 release metadata matches pinned source SHA",
+    "trigger_effect": "changed tool/workflow/doc files match neither release.json nor verification-request.json; no full CI/publication intended"
+  },
+  "live_ci_exercised": false,
+  "speedup_measured": false,
+  "next": "next approved release: request one full verification, compare recorded per-step times; no automatic unproven stage skipping"
+}

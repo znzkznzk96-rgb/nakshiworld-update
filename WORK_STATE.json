@@ -6,8 +6,8 @@
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "개발/배포 검사 효율 개선",
-  "next_step": "전체CI 트리거 분리·v137전용재개 제거·단계별계측·설정검사·work저장",
+  "current_task": "개발/배포 검사 효율 개선 완료(work)",
+  "next_step": "다음 게임작업은 관련검사만; 세이브/공통 변경·승인배포 시 docs/DELIVERY_WORKFLOW.md에 따라 전체검사 요청·실측",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -2258,8 +2258,13 @@
   },
   "delivery_efficiency": {
     "authorized": true,
-    "status": "implementation",
+    "implemented": true,
+    "on_work_branch": true,
+    "verification": "docs/qa/delivery-efficiency/VERIFICATION.json",
+    "procedure": "docs/DELIVERY_WORKFLOW.md",
     "game_changed": false,
+    "live_ci_exercised": false,
+    "speedup_measured": false,
     "new_release_authorized": false
   }
 }
