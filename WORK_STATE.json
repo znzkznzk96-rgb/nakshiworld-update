@@ -2065,6 +2065,9 @@
     "deployed": false,
     "release_authorized": false,
     "verification": "docs/qa/record-photo/DEX_REGION_BUTTONS.json",
-    "preview_library_file_id": "libfile_fde3_f-095ff9391f648191ba22866e97884c5b_d66dafb33acc81918ce203aeb3fcd18e"
+    "preview_library_file_id": "libfile_fde3_f-095ff9391f648191ba22866e97884c5b_d66dafb33acc81918ce203aeb3fcd18e",
+    "source_commit": "33c2a6f677af7000006e98cbf765a3cfa9fbf71a",
+    "ci_run": 43354807811,
+    "ci_status": "in_progress"
   }
 }

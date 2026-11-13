@@ -29,5 +29,7 @@
   "paid_generations": 0,
   "deployed": false,
   "phone_verified": false,
-  "full_ci": "automatic verification pending; previous full CI 43349995350 predates redesign"
+  "full_ci": "in_progress",
+  "source_commit": "33c2a6f677af7000006e98cbf765a3cfa9fbf71a",
+  "ci_run": 43354807811
 }
