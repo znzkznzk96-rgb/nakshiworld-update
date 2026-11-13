@@ -2113,6 +2113,9 @@
     "paid_generations": 0,
     "deployed": false,
     "verification": "docs/art/dex-regions-20261113/VERIFICATION.json",
-    "full_ci": "pending_for_final_source"
+    "full_ci": "pending",
+    "source_commit": "54a3ec8571f7d4723b374beb210a8c792721a7f6",
+    "ci_run": 43359098574,
+    "preview_library_file_id": "libfile_fde3_f-79f51df0555c8191b2dab5861ce9a5a5_d66dafb33acc81918ce203aeb3fcd18e"
   }
 }

@@ -133,6 +133,8 @@
     ],
     "visual_review": "actual fish and soldier pages at all three heights passed",
     "deployed": false,
-    "full_ci": "pending_for_category_source"
+    "full_ci": "pending",
+    "source_commit": "54a3ec8571f7d4723b374beb210a8c792721a7f6",
+    "ci_run": 43359098574
   }
 }
