@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "release136_packed_check_size_assertion_fixed",
+  "status": "release136_full_verified_ready_for_publication",
   "release_baseline": "v1.35",
   "target_release": "v1.36",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
   "current_task": "낚시터6버튼 시인성/선택표현 통일",
-  "next_step": "수정검사규격을반영한 최종CI→동일후보공개",
+  "next_step": "성공한동일후보를PR74로공개·운영다운로드검증",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -35,9 +35,9 @@
   "bundle_verification_run": 42319985467,
   "bundle_evidence_commit": "dd8297cc9de9a5423091b61e06f166ee22023de4",
   "headless_regression_coverage": {
-    "run": 43340604068,
+    "run": 43364135828,
     "status": "passed",
-    "scope": "151 unique success labels/native/PCK; final v1.35"
+    "scope": "152 unique success labels/native/PCK; final v1.36"
   },
   "standard_full_workflow_success": true,
   "remaining_global_render_checks": false,
@@ -2161,12 +2161,17 @@
     "phone_verified": false,
     "baseline": "v1.35",
     "local_candidate_tests": 7,
-    "full_ci": "in_progress",
+    "full_ci": "success",
     "release_authorized": true,
     "source_commit": "b31f8ac64b98de529a46ddba14245c35a105e011",
     "ci_run": 43364135828,
     "previous_ci_run": 43361845442,
     "previous_ci_result": "game_and_native_passed_packed_size_assertion_failed",
-    "local_packed_tests_passed": 3
+    "local_packed_tests_passed": 3,
+    "unique_success_labels": 152,
+    "candidate_artifact": 14009924701,
+    "input_fingerprint": "bdbf57af4cc2eba5dadffda6bc443807843e9106d0d6d2eb00facd349b9d2aad",
+    "pr": 74,
+    "candidate_ready": true
   }
 }
