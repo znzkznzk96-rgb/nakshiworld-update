@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-13",
+  "version": {
+    "code": 136,
+    "name": "1.36"
+  },
+  "status": "final_source_prepared_full_ci_pending",
+  "authorization": "업뎃및 배포 ㄱㄱ",
+  "baseline": {
+    "release": "v1.35",
+    "size": 69055670,
+    "sha256": "c4ed628334ba3c428f6b15624483a63ffb03109e13f9e68b158b8549ef2f6d14"
+  },
+  "scope": [
+    "record photo World2D isolation",
+    "repeat title lightning 4.6s",
+    "highest record button",
+    "six PixelLab region landscapes",
+    "single-line waterfall button",
+    "real fish/crossed swords categories",
+    "category and region button visibility"
+  ],
+  "candidate_protection_tests": 7,
+  "paid_generations_for_publication": 0,
+  "deployed": false,
+  "phone_verified": false
+}
