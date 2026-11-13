@@ -267,8 +267,10 @@ func draw_trophy(m,r: Rect2) -> void:
 	for n in m.fish_counts(selected):total+=int(n)
 	m._text("총 포획 %d마리"%total,Vector2(116,y+58),10,INK,false,124)
 	y+=76
-	m._ui_style_box(m.sb_btn,Rect2(21,y,228,25));m._ui_rect(Rect2(26,y+4,218,17),Color("07515c"))
-	m._text("나의 최고 기록  ›",Vector2(135,y+17),11,Color("fff0d1"),true,210)
+	m._ui_style_box(m.sb_primary,Rect2(21,y,228,25))
+	record_icon(m,"ruler",Rect2(30,y+4,17,17))
+	m._text("나의 최고 기록",Vector2(135,y+17),11,Color("fff0d1"),true,166)
+	m._text("›",Vector2(232,y+17),13,Color("fff0d1"),true,14)
 	rects.record_header=Rect2(21,y,228,25)
 	y+=31
 	var card_h: float=clampf((r.end.y-y-99)/3.0,43,58)

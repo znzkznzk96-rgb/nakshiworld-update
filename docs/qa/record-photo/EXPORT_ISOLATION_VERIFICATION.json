@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-13",
+  "status": "implemented_local_related_passed_native_ci_pending",
+  "baseline": "v1.35",
+  "source_sha256": "c4ed628334ba3c428f6b15624483a63ffb03109e13f9e68b158b8549ef2f6d14",
+  "changes": [
+    "isolated World2D for souvenir SubViewport",
+    "complete primary pixel record button with ruler icon",
+    "repeat lightning cycle 4.6 seconds"
+  ],
+  "local": {
+    "godot": "4.4.1",
+    "import": "passed",
+    "record_followup_verify": "passed"
+  },
+  "native": "CI pending; local xvfb unavailable",
+  "deployed": false,
+  "phone_verified": false
+}

@@ -7,7 +7,7 @@
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
   "current_task": "후속번개간격·최고기록버튼·저장사진캔버스분리",
-  "next_step": "계측사진 전용월드·실제캡처 회귀검사 및 화면결과",
+  "next_step": "원격 CI의 기록사진 캔버스 격리 픽셀회귀·버튼 실제화면·전체검사 결과 확인",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -2003,7 +2003,8 @@
       "authorized": true,
       "deployed": false,
       "release_authorized": false,
-      "verification": "docs/qa/record-photo/EXPORT_ISOLATION_VERIFICATION.json"
+      "verification": "docs/qa/record-photo/EXPORT_ISOLATION_VERIFICATION.json",
+      "implemented": true
     }
   },
   "release133": {

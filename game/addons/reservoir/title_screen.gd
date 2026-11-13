@@ -1,7 +1,7 @@
 extends RefCounted
 
 const SOURCE_RECTS: = {"boat": Rect2(215, 140, 1364, 654), "wave": Rect2(0, 241, 2172, 329), "logo": Rect2(62, 68, 1664, 779), "guardian": Rect2(12, 7, 928, 1651)}
-const CYCLE: = 9.2
+const CYCLE: = 4.6
 const STRIKES: = [0.40, 0.75, 1.20]
 const POWER: = [0.22, 0.32, 1.0]
 const LAYER_NAMES: = ["plate", "clouds_far", "clouds_near", "guardian", "depth_light", "bubbles_far", "waves_far", "boat", "waves_near", "bubbles_near", "rain_far", "rain_near", "lightning", "logo"]
