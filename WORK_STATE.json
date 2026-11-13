@@ -2231,6 +2231,10 @@
       "original_rift_selector",
       "approved_unlock_v2_chain_latch",
       "centered_expedition_notice"
-    ]
+    ],
+    "ci_run": 43377848838,
+    "source_commit": "ed08215cc7ef4166f1cb7541e6c88dea5654152f",
+    "pr": 75,
+    "status": "full_ci_in_progress"
   }
 }
