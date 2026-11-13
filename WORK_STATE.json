@@ -6,8 +6,8 @@
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "v1.37 공개·운영검증 완료",
-  "next_step": "Android 앱 완전종료/재실행 후 v1.37 적용·해금/탐험중앙안내 실기확인",
+  "current_task": "개발/배포 검사 효율 개선",
+  "next_step": "전체CI 트리거 분리·v137전용재개 제거·단계별계측·설정검사·work저장",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -2255,5 +2255,11 @@
     "publication_attempts": 2,
     "public_verification_run": 43382789163,
     "public_verification_status": "success"
+  },
+  "delivery_efficiency": {
+    "authorized": true,
+    "status": "implementation",
+    "game_changed": false,
+    "new_release_authorized": false
   }
 }
