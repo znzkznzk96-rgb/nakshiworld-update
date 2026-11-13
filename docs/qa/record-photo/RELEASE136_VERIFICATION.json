@@ -4,7 +4,7 @@
     "code": 136,
     "name": "1.36"
   },
-  "status": "full_ci_in_progress",
+  "status": "packed_size_check_corrected_local_three_passed",
   "authorization": "업뎃및 배포 ㄱㄱ",
   "baseline": {
     "release": "v1.35",
@@ -25,5 +25,33 @@
   "deployed": false,
   "phone_verified": false,
   "source_commit": "95a0fb9b261302bd1c01ab2136605381cd39153e",
-  "ci_run": 43361845442
+  "ci_run": 43361845442,
+  "attempts": [
+    {
+      "source_commit": "95a0fb9b261302bd1c01ab2136605381cd39153e",
+      "ci_run": 43361845442,
+      "job": 131677060325,
+      "result": "failed_at_packaged_asset_size_assertion",
+      "exit_code": 124,
+      "all_game_and_native_checks_passed": true,
+      "reason": "outdated verifier expected all codex images 32x32; approved region images are 48x40; assert aborted SceneTree without quitting"
+    }
+  ],
+  "verifier_fix": {
+    "region_images": [
+      48,
+      40
+    ],
+    "other_codex_images": [
+      32,
+      32
+    ],
+    "fail_fast_exit": 1,
+    "game_bytes_changed": false,
+    "local_packed_checks": [
+      "PACKED_ANGLER_VERIFY failures=[]",
+      "PACKED_TILE107_VERIFY failures=[]",
+      "PACKED_RIFT_ART_VERIFY failures=[] species=20"
+    ]
+  }
 }

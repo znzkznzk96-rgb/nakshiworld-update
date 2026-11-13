@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "release136_final_source_ready_for_full_ci",
+  "status": "release136_packed_check_size_assertion_fixed",
   "release_baseline": "v1.35",
   "target_release": "v1.36",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
   "current_task": "낚시터6버튼 시인성/선택표현 통일",
-  "next_step": "최종v1.36 전체/native/PCK CI확인→동일후보공개·운영검증",
+  "next_step": "수정검사규격을반영한 최종CI→동일후보공개",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -2161,9 +2161,12 @@
     "phone_verified": false,
     "baseline": "v1.35",
     "local_candidate_tests": 7,
-    "full_ci": "in_progress",
+    "full_ci": "pending_new_verifier_source",
     "release_authorized": true,
     "source_commit": "95a0fb9b261302bd1c01ab2136605381cd39153e",
-    "ci_run": 43361845442
+    "ci_run": 43361845442,
+    "previous_ci_run": 43361845442,
+    "previous_ci_result": "game_and_native_passed_packed_size_assertion_failed",
+    "local_packed_tests_passed": 3
   }
 }
