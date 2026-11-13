@@ -1,0 +1,19 @@
+{
+  "quality_passed": true,
+  "user_visual_approval": "pending",
+  "native_size": [
+    48,
+    40
+  ],
+  "reviewed": [
+    "native",
+    "nearest8x"
+  ],
+  "features": {
+    "crescent_planet": true,
+    "magenta_nebula": true,
+    "stars": true,
+    "cosmic_ocean": true
+  },
+  "deployed": false
+}

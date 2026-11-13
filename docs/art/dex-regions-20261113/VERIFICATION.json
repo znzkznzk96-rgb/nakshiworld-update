@@ -1,0 +1,115 @@
+{
+  "date": "2026-11-13",
+  "status": "six_candidates_selected_pending_user_visual_review",
+  "attempt_limits_per_region": 4,
+  "selected_attempts": [
+    4,
+    4,
+    2,
+    2,
+    1,
+    1
+  ],
+  "request_attempt_counts": [
+    4,
+    4,
+    2,
+    2,
+    1,
+    1
+  ],
+  "successful_paid_requests_this_resume": 13,
+  "actual_generation_delta_this_resume": 13.0,
+  "prior_http500_request": "LEDGER0.json; included in reservoir attempt count; initial balance query failed at the time",
+  "user_visual_approval": "pending",
+  "deployed": false,
+  "regions": [
+    {
+      "area": 0,
+      "button_name": "동네 저수지",
+      "selected": "docs/art/dex-regions-20261113/0-attempt4/result.png",
+      "game": "game/art/ui/codex/region0.png",
+      "sha256": "11a61bf5b06af4d8f6743155b14131d7e524f54063ce1d411eb0c98d927e9a2d",
+      "size": [
+        48,
+        40
+      ],
+      "quality_review": "passed technical/identity checks; user review pending"
+    },
+    {
+      "area": 1,
+      "button_name": "거꾸로 폭포",
+      "selected": "docs/art/dex-regions-20261113/1-attempt4/result.png",
+      "game": "game/art/ui/codex/region1.png",
+      "sha256": "44bdaa326fbdb6689ac98fe11f3f834310e76e931adcb49664feb8b5b37a3c50",
+      "size": [
+        48,
+        40
+      ],
+      "quality_review": "passed technical/identity checks; user review pending"
+    },
+    {
+      "area": 2,
+      "button_name": "타일 바다",
+      "selected": "docs/art/dex-regions-20261113/2-attempt2/result.png",
+      "game": "game/art/ui/codex/region2.png",
+      "sha256": "d50eb3adee02658dd92a1ab8a33ea0637a64bd7d62d19f44e625ddd3f8641d34",
+      "size": [
+        48,
+        40
+      ],
+      "quality_review": "passed technical/identity checks; user review pending"
+    },
+    {
+      "area": 3,
+      "button_name": "균열 해역",
+      "selected": "docs/art/dex-regions-20261113/3-attempt2/result.png",
+      "game": "game/art/ui/codex/region3.png",
+      "sha256": "e8b0b8c3bf8e247a1e5801b6cdeb4d033051a97029bc65c7e9b592681a11275b",
+      "size": [
+        48,
+        40
+      ],
+      "quality_review": "passed technical/identity checks; user review pending"
+    },
+    {
+      "area": 4,
+      "button_name": "심해",
+      "selected": "docs/art/dex-regions-20261113/4-attempt1/result.png",
+      "game": "game/art/ui/codex/region4.png",
+      "sha256": "0b1bc556a9e8f1c6e52bf004d2ce687bd6eb2d2d97c9a223a4603e4dd3d713a5",
+      "size": [
+        48,
+        40
+      ],
+      "quality_review": "passed technical/identity checks; user review pending"
+    },
+    {
+      "area": 5,
+      "button_name": "우주 바다",
+      "selected": "docs/art/dex-regions-20261113/5-attempt1/result.png",
+      "game": "game/art/ui/codex/region5.png",
+      "sha256": "2240c7fe60ea6bac3a9624881616b5c47033af9c8f312f7f86f4b6b10fb9a837",
+      "size": [
+        48,
+        40
+      ],
+      "quality_review": "passed technical/identity checks; user review pending"
+    }
+  ],
+  "related_suites": [
+    "DEX_READABILITY_VERIFY failures=[]",
+    "PERSONAL_DEX_VERIFY failures=[]",
+    "RECORD_PHOTO_VERIFY failures=[] geometry_cases=400"
+  ],
+  "godot": "4.4.1",
+  "native_screens": 30,
+  "native_heights": [
+    480,
+    540,
+    660
+  ],
+  "region_states": 18,
+  "native_result": "DEX_READABILITY_PREVIEW failures=[]",
+  "full_ci": "pending_for_final_source"
+}

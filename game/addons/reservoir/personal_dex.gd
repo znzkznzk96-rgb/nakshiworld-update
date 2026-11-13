@@ -250,9 +250,8 @@ func record_icon(m,kind: String,box: Rect2) -> void:
 		var path: String="res://art/ui/codex/%s.png"%kind
 		if ResourceLoader.exists(path):record_icons[kind]=load(path)
 	if record_icons.has(kind):
-		# The original reservoir thumbnail alone includes a solid gray matte.
-		if kind=="region0":m._ui_texture_rect_region(record_icons[kind],box,Rect2(6,6,20,19))
-		else:m._ui_texture_rect(record_icons[kind],box,false)
+		# Region landscapes use the complete original image, without the old matte crop.
+		m._ui_texture_rect(record_icons[kind],box,false)
 func specimen(m,f: Dictionary,kind: String) -> String:
 	if f.is_empty():return "아직 기록이 없어요"
 	if f.get("legacy",false):return "길이·무게 기록 없음" if kind=="grade" else "등급·무게 기록 없음"
