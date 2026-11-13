@@ -1,13 +1,13 @@
 {
   "work_branch": "work/tile-release-107",
-  "status": "release135_full_verification_running",
+  "status": "release135_verified_ready_to_publish",
   "release_baseline": "v1.34",
   "target_release": "v1.35",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
   "current_task": "초반모션3초·갤러리JNI완료 수정 후 배포",
-  "next_step": "CI43340604068 완료 후 동일후보 공개·운영검증",
+  "next_step": "검증된 동일v1.35후보 main 병합·공개·운영검증",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -250,39 +250,39 @@
   "full_release_ci": {
     "run": 43340604068,
     "source_commit": "d2422ea6758f6362edaacddec4e66f79ecb782ea",
-    "status": "in_progress"
+    "status": "success"
   },
   "release_candidate": {
     "schema": 1,
-    "source_commit": "c0ea402ab6313da251b1cf48e938d68685b5cc3f",
-    "input_fingerprint": "b408cd5e57b30db27126148c9533ac6ef3bdfd99275fc6bbc357f5e92e6b78de",
+    "source_commit": "d2422ea6758f6362edaacddec4e66f79ecb782ea",
+    "input_fingerprint": "f68c04f407aeb90a96925187b4996abde119dd95aeb11626778020f0c6134c0b",
     "tools": {
       "godot": "4.4.1.stable",
       "baseline": "v1.33",
       "baseline_sha256": "e73393a4fd98401bb68a5e04cdd17867ef9c9815dbf23a3e7e503b7f61e2906c"
     },
-    "run_id": 43336566180,
+    "run_id": 43340604068,
     "files": {
       "patch.pck": {
-        "size": 63337536,
-        "sha256": "af84dec0a26f72e5fc46a89b6ec52c2d6bcb2913feb64640ab49f34ccae30715"
+        "size": 63339392,
+        "sha256": "d94b5e4aa83482718b9526f966ebc4d50e85abea445cf6d0a4675c7773b920b2"
       },
       "game-source.zip": {
-        "size": 69055168,
-        "sha256": "235428c781afadcc223f16d5b4f58913c0e69d1b21f18921b78dcc57c8ea4d3c"
+        "size": 69055670,
+        "sha256": "c4ed628334ba3c428f6b15624483a63ffb03109e13f9e68b158b8549ef2f6d14"
       },
       "version.json": {
         "size": 199,
-        "sha256": "607af91cd8443ad15739ad0909209250261495c91477ae7a6942fbc87d40db0d"
+        "sha256": "63bfab64d1fd1ff8b46cfebb4651407d1263328567d8fc37d69f915420614ba0"
       }
     },
     "version": {
-      "code": 134,
-      "name": "1.34"
+      "code": 135,
+      "name": "1.35"
     },
-    "seal_seconds": 2.865,
-    "verification_and_restore_seconds": 883.611,
-    "artifact": 13997953160,
+    "seal_seconds": 3.959,
+    "verification_and_restore_seconds": 1096.632,
+    "artifact": 14000282933,
     "verified": true
   },
   "release_resume_run": 42424430555,

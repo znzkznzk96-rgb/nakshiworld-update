@@ -1,5 +1,3 @@
-# v1.35 최종 전체검사 진행 중
+# v1.35 검증완료·공개진행
 
-큰 몸짓 첫3초로 변경. Java String/String[] null호환오류 수정·실제사진파일크기 확인 후 갤러리공개. 관련 갤러리 성공/쓰기실패/크기불일치·3초후기존주기·537600모션점 검사 통과. 소스 d2422ea6758f6362edaacddec4e66f79ecb782ea·[CI43340604068](https://github.com/znzkznzk96-rgb/nakshiworld-update/actions/runs/43340604068). 성공 후 동일후보 공개·운영3파일/실제앱다운로드 검증 예정. 수정후 Android실기확인은 별도. [상세](RELEASE135_VERIFICATION.json).
-
-[직전배포](RELEASE134_VERIFICATION.json)
+강한몸짓 첫3초·갤러리JNI문자열/배열null인자 수정·실제사진크기확인후공개 구현. 전체151/native/PCK·742소스대조·기존배경패킹픽셀 동일 통과. [동일후보/증거](RELEASE135_VERIFICATION.json). CI43340604068·소스d2422ea6758f6362edaacddec4e66f79ecb782ea. 다음은main병합→동일후보공개→운영다운로드검증. 수정후Android실기는별도.
