@@ -24,7 +24,7 @@ func update(dt: float, m=null) -> void:
  var before:=elapsed
  elapsed=minf(DURATION,elapsed+maxf(0.0,dt))
  if m!=null:
-  for cue in [[0.48,"tension",-18.0,0.78],[0.82,"click",-6.0,0.8],[RELEASE,"snap",-6.0,0.85],[1.58,"record",-11.0,1.0]]:
+  for cue in [[0.48,"unlock_chain_pull",-8.0,1.0],[0.82,"unlock_latch",-5.0,1.0],[RELEASE,"unlock_chain_release",-7.0,1.0]]:
    if before<float(cue[0]) and elapsed>=float(cue[0]): m.audio_feedback.sound(m,cue[1],cue[2],cue[3])
 func scale_at() -> float:
  if elapsed<RELEASE: return 1.0-0.008*smoothstep(0.75,RELEASE,elapsed)

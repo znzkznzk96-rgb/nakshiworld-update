@@ -1,0 +1,49 @@
+{
+  "date": "2026-11-13",
+  "status": "implemented_awaiting_user_listening_review_not_deployed",
+  "origin": "original modal synthesis; no external recordings or paid API",
+  "assets": {
+    "origin": "original deterministic modal synthesis",
+    "license": "project original; no third-party samples",
+    "generator": "automation/audio/generate_unlock.py",
+    "rate": 44100,
+    "channels": 2,
+    "bits": 16,
+    "assets": [
+      {
+        "file": "unlock_chain_pull.wav",
+        "duration": 0.48,
+        "peak": 0.84,
+        "rms": 0.16691130794721545,
+        "sha256": "172407e735c9bbc99b202406f17e19b8124c6892bbe7099711a429e044e5187b"
+      },
+      {
+        "file": "unlock_latch.wav",
+        "duration": 0.34,
+        "peak": 0.84,
+        "rms": 0.1707047751241299,
+        "sha256": "9e615cb0ad7f94951d9d4a53d58605d0fc5baf1c7b48de273775408f875a5c42"
+      },
+      {
+        "file": "unlock_chain_release.wav",
+        "duration": 0.62,
+        "peak": 0.84,
+        "rms": 0.1294031009144341,
+        "sha256": "9c9527c07390e400af2f2ac76a92fe7276a55c65a55e57973613c92c9e5e8a3d"
+      }
+    ]
+  },
+  "cues_seconds": {
+    "unlock_chain_pull": 0.48,
+    "unlock_latch": 0.82,
+    "unlock_chain_release": 1.22
+  },
+  "checks": {
+    "audio_cues": "pass: actual loaded samples, nonlooping, correct cue assignment, no repeat, no success chime, SFX mute and audio suspension",
+    "spot_unlock_verify": "pass",
+    "picture_animation": "unchanged except cue identifiers/gains"
+  },
+  "preview": "previous actual V2 video copied without reencoding picture; new sound mix at in-game cue times",
+  "phone_verified": false,
+  "public_deployment_authorized": false
+}
