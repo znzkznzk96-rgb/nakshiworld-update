@@ -19,7 +19,7 @@
     1
   ],
   "successful_paid_requests_this_resume": 13,
-  "actual_generation_delta_this_resume": 13.0,
+  "actual_generation_delta_this_resume": 13,
   "prior_http500_request": "LEDGER0.json; included in reservoir attempt count; initial balance query failed at the time",
   "user_visual_approval": "pending",
   "deployed": false,
@@ -111,5 +111,9 @@
   ],
   "region_states": 18,
   "native_result": "DEX_READABILITY_PREVIEW failures=[]",
-  "full_ci": "pending_for_final_source"
+  "full_ci": "queued",
+  "source_commit": "c5165dbc4bccf56b9db8b832f7623bf98f6a640c",
+  "ci_run": 43358355364,
+  "remote_asset_byte_equality": true,
+  "preview_library_file_id": "libfile_fde3_f-065f296067808191a387227c1aeeb2cd_d66dafb33acc81918ce203aeb3fcd18e"
 }

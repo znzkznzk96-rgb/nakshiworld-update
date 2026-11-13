@@ -2065,10 +2065,10 @@
     "deployed": false,
     "release_authorized": false,
     "verification": "docs/qa/record-photo/DEX_REGION_BUTTONS.json",
-    "preview_library_file_id": "libfile_fde3_f-095ff9391f648191ba22866e97884c5b_d66dafb33acc81918ce203aeb3fcd18e",
-    "source_commit": "33c2a6f677af7000006e98cbf765a3cfa9fbf71a",
-    "ci_run": 43354807811,
-    "ci_status": "pending_for_final_source",
+    "preview_library_file_id": "libfile_fde3_f-065f296067808191a387227c1aeeb2cd_d66dafb33acc81918ce203aeb3fcd18e",
+    "source_commit": "c5165dbc4bccf56b9db8b832f7623bf98f6a640c",
+    "ci_run": 43358355364,
+    "ci_status": "queued",
     "art_rework": true,
     "art_generation_limit": 6,
     "art_generated": 13,
@@ -2101,6 +2101,8 @@
       1
     ],
     "art_verification": "docs/art/dex-regions-20261113/VERIFICATION.json",
-    "user_visual_approval": "pending"
+    "user_visual_approval": "pending",
+    "remote_asset_bytes_verified": true,
+    "actual_screen_library_file_id": "libfile_fde3_f-8a72827c8dac819183923c9e34043ca9_d66dafb33acc81918ce203aeb3fcd18e"
   }
 }
