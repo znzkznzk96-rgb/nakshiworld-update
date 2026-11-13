@@ -12,11 +12,19 @@ func profile(sp:int)->String:
  if sp in LONG:return "long"
  if sp in ROUND:return "round"
  return "fish"
-func strength(sp:int,t:float)->float:
+func periodic_strength(sp:int,t:float)->float:
  if t<0:return 0.0
  var phase:=fposmod(t+float(sp%5)*.31,5.2)
  if phase>1.15:return 0.0
  return pow(sin(PI*phase/1.15),2)
+func strength(sp:int,t:float)->float:
+ if t<0:return 0.0
+ var normal:=periodic_strength(sp,t)
+ if t>=6.0:return normal
+ # Repeated, clearly stronger introduction; fade into existing cadence at 6s.
+ var phase:=fposmod(t+float(sp%5)*.04,.95)
+ var burst:=pow(maxf(0,sin(PI*minf(phase/.82,1.0))),2)*2.1
+ return lerpf(normal,burst,1.0-smoothstep(5.0,6.0,t))
 func offset(sp:int,p:Vector2,t:float)->Vector2:
  var a:=strength(sp,t)
  if a==0:return Vector2.ZERO
@@ -38,7 +46,7 @@ func mesh(m,sp:int,g:Dictionary,t:float,shadow:bool=false)->void:
  var r:Rect2=g.fish_rect
  var size:Vector2=s.texture.get_size()
  var activity:=strength(sp,t)
- var color:=Color(.10,.15,.15,.23-.07*activity) if shadow else Color.WHITE
+ var color:=Color(.10,.15,.15,.23-.07*minf(activity,1)) if shadow else Color.WHITE
  if activity==0:
   var src:Rect2=s.source
   var uv:=PackedVector2Array([src.position/size,Vector2(src.end.x,src.position.y)/size,src.end/size,Vector2(src.position.x,src.end.y)/size])
@@ -85,4 +93,4 @@ func highlights(m,sp:int,g:Dictionary,t:float)->void:
  if a>.25:
   for i in 3:
    var p:=Vector2(r.position.x+r.size.x*(.35+i*.2),r.position.y-1-a*(2+i))
-   m._ui_rect(Rect2(p.round(),Vector2(1,2)),Color(.76,.91,.90,.55*a))
+   m._ui_rect(Rect2(p.round(),Vector2(1,2)),Color(.76,.91,.90,.55*minf(a,1)))

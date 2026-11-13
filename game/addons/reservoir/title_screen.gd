@@ -2,7 +2,7 @@ extends RefCounted
 
 const SOURCE_RECTS: = {"boat": Rect2(215, 140, 1364, 654), "wave": Rect2(0, 241, 2172, 329), "logo": Rect2(62, 68, 1664, 779), "guardian": Rect2(12, 7, 928, 1651)}
 const CYCLE: = 9.2
-const STRIKES: = [3.0, 3.43, 4.02]
+const STRIKES: = [0.40, 0.75, 1.20]
 const POWER: = [0.22, 0.32, 1.0]
 const LAYER_NAMES: = ["plate", "clouds_far", "clouds_near", "guardian", "depth_light", "bubbles_far", "waves_far", "boat", "waves_near", "bubbles_near", "rain_far", "rain_near", "lightning", "logo"]
 const GUARDIAN_SHADER: = "shader_type canvas_item;\nuniform float flash = 0.0;\nuniform float front = 0.0;\nuniform float time = 0.0;\nvoid fragment(){\n vec2 uv=UV;\n uv.x+=sin(uv.y*9.0+time*.6)*.003*smoothstep(.25,1.0,uv.y);\n vec4 fish=texture(TEXTURE,uv);\n float reveal=1.0-smoothstep(front-.08,front+.14,UV.y);\n float depth=pow(1.0-smoothstep(.08,.82,UV.y),3.0);\n float intensity=clamp(flash*1.9,0.0,1.0)*reveal*depth;\n fish.rgb*=mix(vec3(.025,.045,.07),vec3(1.05,1.15,1.20),clamp(intensity*1.6,0.0,1.0));\n fish.a*=.003+intensity*.98;\n COLOR=fish;\n}"
@@ -88,7 +88,9 @@ func logo_pose(time: float) -> Vector2:
 		var cycle: float = fposmod(time - 1.25, 5.0)
 		if cycle < 1.6: angle = sin(cycle * 9) * 0.025 * sin(cycle / 1.6 * PI)
 	return Vector2(scale, angle)
-func button_alpha(time: float) -> float: return smoothstep(1.5, 3.0, time)
+func button_enabled(time:float)->bool:return time>=STRIKES[2]
+func button_alpha(time: float) -> float:
+	return 1.0 if button_enabled(time) else .42*smoothstep(.20,.65,time)
 func update(m, dt: float) -> void :
 	elapsed += dt
 	if not is_instance_valid(root): return
@@ -114,7 +116,7 @@ func update(m, dt: float) -> void :
 	logo.modulate = Color(1, 1, 1, smoothstep(0, 0.4, elapsed))
 	for name in layers: layers[name].queue_redraw()
 func press(m, p: Vector2) -> void :
-	if button_alpha(elapsed) < 0.95: return
+	if not button_enabled(elapsed): return
 	if rects.get("start", Rect2()).grow(4).has_point(p):
 		m.title_open = false;m.holding = false;m.play("ui", -6)
 		leaving = m.scene != "village"

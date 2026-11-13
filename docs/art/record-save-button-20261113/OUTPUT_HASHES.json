@@ -1,0 +1,18 @@
+{
+  "result_0.png": {
+    "size": 2394,
+    "sha256": "af4b5e9671576d4581b5b7bf827da9ebb0c8127e0f4515f295f08544283add80"
+  },
+  "result_1.png": {
+    "size": 3206,
+    "sha256": "baae771d8278988040b26ab9b8b9a167ccfefda7f3d3144f66a1c4b50dff50a1"
+  },
+  "result_2.png": {
+    "size": 2548,
+    "sha256": "93f4ce50d719b594b24b46713b063d71a551cfd17bbb77a076da2fe919ff2568"
+  },
+  "result_3.png": {
+    "size": 2134,
+    "sha256": "c913149f72ac5e7cb1425b55479f3c5b299dbf04469d27424c7cc1cb56c3f6d3"
+  }
+}

@@ -29,15 +29,15 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
-      - name: Restore verified v1.32 source and overlay
+      - name: Restore verified v1.33 source and overlay
         shell: bash
         run: |
           set -euo pipefail
           echo "VERIFICATION_STARTED=$(date +%s)" >> "$GITHUB_ENV"
           sudo apt-get update -qq
           sudo apt-get install -y python3-pil > /dev/null
-          curl -fL --retry 2 https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.32/game-source.zip -o "$RUNNER_TEMP/source.zip"
-          echo "eb3ea207c4a4791340f50871867a56735b4bb3a53b2ef306f64411f59792f861  $RUNNER_TEMP/source.zip" | sha256sum -c -
+          curl -fL --retry 2 https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.33/game-source.zip -o "$RUNNER_TEMP/source.zip"
+          echo "e73393a4fd98401bb68a5e04cdd17867ef9c9815dbf23a3e7e503b7f61e2906c  $RUNNER_TEMP/source.zip" | sha256sum -c -
           python3 automation/restore_source.py "$RUNNER_TEMP/source.zip" "$RUNNER_TEMP/project"
           curl -fL --retry 2 https://github.com/godotengine/godot/releases/download/4.4.1-stable/Godot_v4.4.1-stable_linux.x86_64.zip -o "$RUNNER_TEMP/godot.zip"
           unzip -q "$RUNNER_TEMP/godot.zip" -d "$RUNNER_TEMP/godot"
@@ -84,7 +84,7 @@ jobs:
         run: |
           set -euo pipefail
           GODOT="$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
-          for suite in record_photo record_gallery record_photo_motion record_photo_giant; do
+          for suite in record_photo record_gallery record_photo_motion record_photo_giant record_followup; do
             XDG_DATA_HOME="$RUNNER_TEMP/isolated-$suite" timeout 90 "$GODOT" --headless --path "$RUNNER_TEMP/project" --script "tests/${suite}_verify.gd" > "evidence/${suite}.log" 2>&1
             grep -F 'failures=[]' "evidence/${suite}.log"
             if grep -E 'SCRIPT ERROR:|Parse Error:|Assertion failed|ERROR:' "evidence/${suite}.log"; then exit 1; fi
@@ -98,6 +98,9 @@ jobs:
           XDG_DATA_HOME="$RUNNER_TEMP/isolated-record-giant-native" timeout 180 xvfb-run -a "$GODOT" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/record_photo_giant_preview.gd -- "$GITHUB_WORKSPACE/evidence/record-giant" > evidence/record-giant-native.log 2>&1
           grep -F 'RECORD_PHOTO_GIANT_PREVIEW failures=[]' evidence/record-giant-native.log
           if grep -E 'SCRIPT ERROR:|Parse Error:|Assertion failed|ERROR:' evidence/record-giant-native.log; then exit 1; fi
+          XDG_DATA_HOME="$RUNNER_TEMP/isolated-record-followup-native" timeout 180 xvfb-run -a "$GODOT" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/record_followup_preview.gd -- "$GITHUB_WORKSPACE/evidence/record-followup" > evidence/record-followup-native.log 2>&1
+          grep -F 'RECORD_FOLLOWUP_PREVIEW failures=[]' evidence/record-followup-native.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|Assertion failed|ERROR:' evidence/record-followup-native.log; then exit 1; fi
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -105,6 +108,9 @@ jobs:
           compression-level: 0
           path: |
             evidence/record-photo/
+            evidence/record-followup/
+            evidence/record_followup.log
+            evidence/record-followup-native.log
             evidence/record-giant/
             evidence/record_photo_giant.log
             evidence/record-giant-native.log

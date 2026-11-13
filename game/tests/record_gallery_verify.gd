@@ -1,6 +1,6 @@
 extends SceneTree
 class Uri extends RefCounted:
- func toString():return "content://media/owned/1"
+ pass
 class Values extends RefCounted:
  var data:Dictionary={}
  func put(key,value):data[key]=value
