@@ -4,7 +4,7 @@
     "code": 136,
     "name": "1.36"
   },
-  "status": "packed_size_check_corrected_local_three_passed",
+  "status": "corrected_final_ci_in_progress",
   "authorization": "업뎃및 배포 ㄱㄱ",
   "baseline": {
     "release": "v1.35",
@@ -24,8 +24,8 @@
   "paid_generations_for_publication": 0,
   "deployed": false,
   "phone_verified": false,
-  "source_commit": "95a0fb9b261302bd1c01ab2136605381cd39153e",
-  "ci_run": 43361845442,
+  "source_commit": "b31f8ac64b98de529a46ddba14245c35a105e011",
+  "ci_run": 43364135828,
   "attempts": [
     {
       "source_commit": "95a0fb9b261302bd1c01ab2136605381cd39153e",

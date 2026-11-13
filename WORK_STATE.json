@@ -2161,10 +2161,10 @@
     "phone_verified": false,
     "baseline": "v1.35",
     "local_candidate_tests": 7,
-    "full_ci": "pending_new_verifier_source",
+    "full_ci": "in_progress",
     "release_authorized": true,
-    "source_commit": "95a0fb9b261302bd1c01ab2136605381cd39153e",
-    "ci_run": 43361845442,
+    "source_commit": "b31f8ac64b98de529a46ddba14245c35a105e011",
+    "ci_run": 43364135828,
     "previous_ci_run": 43361845442,
     "previous_ci_result": "game_and_native_passed_packed_size_assertion_failed",
     "local_packed_tests_passed": 3
