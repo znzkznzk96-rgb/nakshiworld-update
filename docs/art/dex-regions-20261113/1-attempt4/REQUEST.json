@@ -1,0 +1,14 @@
+{
+  "description": "A complete richly colored pixel art LANDSCAPE SCENE, like a miniature side-view game background filling the entire rectangular canvas. A magical natural FOUNTAIN shooting UPWARD from a bright blue lake. A white and turquoise upward water spout grows narrow from the lake surface at bottom and splits into THREE CURVED UPWARD JETS like a fan at the top. Many bright water droplets suspended ABOVE the fountain jets against open blue sky. Small mossy stones and green grass surround the base of the fountain, distant low forest hills. The sky and branching spray occupy upper half. No tall cliffs, no vertical rock wall. Bright emerald, sky blue, turquoise and white. Clearly recognizable high upward fountain in a fantasy landscape. Strict crisp pixel clusters, rich clean colors, three distinct shades per material, dark warm selective contour, a readable simple silhouette at tiny original size. Slightly elevated side view, edge-to-edge scenic composition with sky in top third, distant shore across middle, broad water in bottom half. Opaque full background, not an isolated object. No button frame, no text, no people, no animals, no fish. Beautiful handcrafted 16-bit fishing scenery.",
+  "negative_description": "text, letters, numbers, watermark, border, UI frame, photograph, blur, messy dithering, tiny noise, cropped edges, gray or white background, muddy colors",
+  "image_size": {
+    "width": 48,
+    "height": 40
+  },
+  "text_guidance_scale": 8,
+  "outline": "selective outline",
+  "shading": "basic shading",
+  "detail": "medium detail",
+  "no_background": false,
+  "seed": 2026111414
+}

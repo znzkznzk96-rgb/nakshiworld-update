@@ -1,0 +1,15 @@
+{
+  "quality_passed": true,
+  "user_visual_approval": "pending",
+  "native_size": [
+    48,
+    40
+  ],
+  "reviewed": [
+    "native",
+    "nearest8x"
+  ],
+  "reason": "central water jet rises from pool against sky without elevated cliff source; visually distinct from rejected downward waterfalls",
+  "limitations": "single upward jet rather than three branching jets; static icon direction requires user visual review",
+  "deployed": false
+}
