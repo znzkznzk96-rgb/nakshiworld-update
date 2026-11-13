@@ -1,0 +1,78 @@
+{
+  "date": "2026-11-13",
+  "status": "full_verified_ready_to_publish",
+  "reason": "Godot4.4.1 rejects NIL for Java String and String[]; update/delete used null, potentially aborting publication after write",
+  "engine_evidence": "https://github.com/godotengine/godot/blob/4.4.1-stable/platform/android/java_class_wrapper.cpp",
+  "engine_function": "JavaClass::_call_method parameter validation ARG_TYPE_STRING/ARG_ARRAY_BIT|ARG_TYPE_STRING",
+  "fix": "empty String and PackedStringArray; file descriptor actual size must equal PNG data size before publish; delete partial row on failure",
+  "tests": [
+    "typed String/PackedStringArray mock native method signatures",
+    "successful write/size/close/publish sequence",
+    "write error closes stream and removes row",
+    "file size mismatch closes descriptor and removes row without publishing",
+    "first3s strong repeated motion and exact old cadence after3s"
+  ],
+  "intro_seconds": 3,
+  "android_device_after_fix_verified": false,
+  "additional_paid_generations": 0,
+  "source_commit": "d2422ea6758f6362edaacddec4e66f79ecb782ea",
+  "ci": {
+    "run": 43340604068,
+    "status": "success",
+    "job": 131607806839,
+    "unique_success_labels": 151
+  },
+  "candidate": {
+    "schema": 1,
+    "source_commit": "d2422ea6758f6362edaacddec4e66f79ecb782ea",
+    "input_fingerprint": "f68c04f407aeb90a96925187b4996abde119dd95aeb11626778020f0c6134c0b",
+    "tools": {
+      "godot": "4.4.1.stable",
+      "baseline": "v1.33",
+      "baseline_sha256": "e73393a4fd98401bb68a5e04cdd17867ef9c9815dbf23a3e7e503b7f61e2906c"
+    },
+    "run_id": 43340604068,
+    "files": {
+      "patch.pck": {
+        "size": 63339392,
+        "sha256": "d94b5e4aa83482718b9526f966ebc4d50e85abea445cf6d0a4675c7773b920b2"
+      },
+      "game-source.zip": {
+        "size": 69055670,
+        "sha256": "c4ed628334ba3c428f6b15624483a63ffb03109e13f9e68b158b8549ef2f6d14"
+      },
+      "version.json": {
+        "size": 199,
+        "sha256": "63bfab64d1fd1ff8b46cfebb4651407d1263328567d8fc37d69f915420614ba0"
+      }
+    },
+    "version": {
+      "code": 135,
+      "name": "1.35"
+    },
+    "seal_seconds": 3.959,
+    "verification_and_restore_seconds": 1096.632
+  },
+  "artifact": {
+    "id": 14000282933,
+    "name": "release-candidate-f68c04f407aeb90a96925187b4996abde119dd95aeb11626778020f0c6134c0b",
+    "size_in_bytes": 132396659,
+    "url": "https://api.github.com/repos/znzkznzk96-rgb/nakshiworld-update/actions/artifacts/14000282933",
+    "archive_download_url": "https://api.github.com/repos/znzkznzk96-rgb/nakshiworld-update/actions/artifacts/14000282933/zip",
+    "expired": false,
+    "created_at": "2026-11-13T01:12:06Z",
+    "expires_at": "2026-12-13T01:11:56Z",
+    "updated_at": "2026-11-13T01:12:06Z",
+    "digest": "sha256:8a0ff5f9b806e7ed5bce180083d216211994b887387c5d5d11cb9a759bd4851b",
+    "workflow_run": {
+      "id": 43340604068,
+      "repository_id": 1423971848,
+      "head_repository_id": 1423971848,
+      "head_branch": "work/tile-release-107",
+      "head_sha": "d2422ea6758f6362edaacddec4e66f79ecb782ea"
+    }
+  },
+  "full_source_overlay_files": 742,
+  "packed_original_scene_pixels_identical": true,
+  "public_verified": false
+}

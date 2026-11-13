@@ -28,20 +28,31 @@ func android_save(data: PackedByteArray, filename: String, wrapper, runtime) -> 
  var stream=resolver.openOutputStream(uri,"w")
  var stream_ok:=checked(wrapper)
  if stream==null or not stream_ok:
-  resolver.delete(uri,null,null);checked(wrapper)
+  resolver.delete(uri,"",PackedStringArray());checked(wrapper)
   return failure("사진 저장 공간을 열지 못했어요")
  stream.write(data)
  var success:=checked(wrapper)
  if success:stream.flush();success=checked(wrapper)
  stream.close();success=checked(wrapper) and success
+ # Verify the actual newly written file before making it visible in the gallery.
+ # Godot 4.4 rejects NIL for Java String and String[] arguments; use explicit
+ # empty selection/arguments for update/delete, even though Android permits null.
+ if success:
+  var descriptor=resolver.openFileDescriptor(uri,"r")
+  var opened:=checked(wrapper)
+  success=descriptor!=null and opened
+  if success:
+   var stored_size=descriptor.getStatSize()
+   success=checked(wrapper) and int(stored_size)==data.size()
+   descriptor.close();success=checked(wrapper) and success
  if success:
   values.clear();values.put("is_pending","0")
   success=checked(wrapper)
   if success:
-   var updated=resolver.update(uri,values,null,null)
+   var updated=resolver.update(uri,values,"",PackedStringArray())
    success=checked(wrapper) and int(updated)>0
  if not success:
-  resolver.delete(uri,null,null);checked(wrapper)
+  resolver.delete(uri,"",PackedStringArray());checked(wrapper)
   return failure("사진을 저장하지 못했어요. 다시 시도해 주세요")
  return {"ok":true,"message":"갤러리에 저장했어요"}
 func save(image: Image, filename: String, directory: String="") -> Dictionary:

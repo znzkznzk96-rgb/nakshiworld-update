@@ -31,13 +31,13 @@ func run():
    check(label.bounds.position.x>=g.zero.x and label.bounds.end.x<=g.zero.x+g.width,"end labels remain inside paper band")
  var motion=p.motion
  var active:=0;var peak:=0.0
- for frame in 600:
+ for frame in 300:
   var a:float=motion.strength(0,frame/100.0);peak=maxf(peak,a)
   if a>.2:active+=1
- check(peak>1.9 and active>350,"six-second intro repeatedly stronger")
+ check(peak>1.9 and active>170,"three-second intro repeatedly stronger")
  for sp in 80:
   for frame in 64:
-   var t:=6.0+frame/12.0
+   var t:=3.0+frame/12.0
    check(is_equal_approx(motion.strength(sp,t),motion.periodic_strength(sp,t)),"post-intro exact previous cadence")
  check(motion.offset(0,Vector2(.9,.2),-1)==Vector2.ZERO,"export pose remains static")
  var title=m.title_screen
@@ -49,5 +49,5 @@ func run():
  title.elapsed=1.2;title.press(m,Vector2(130,410));check(not m.title_open,"final beat permits start")
  check(JSON.stringify(m.personal_dex.serialize())==saved,"records unchanged")
  gallery.photo=null;m.audio_feedback.dispose();m.queue_free();await process_frame
- print("RECORD_FOLLOWUP_VERIFY failures=",failures," intro_seconds=6 title_enable_seconds=1.2")
+ print("RECORD_FOLLOWUP_VERIFY failures=",failures," intro_seconds=3 title_enable_seconds=1.2")
  quit(0 if failures.is_empty() else 1)
