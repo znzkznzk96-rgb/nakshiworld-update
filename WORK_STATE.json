@@ -6,8 +6,8 @@
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "해금 연출 품질 재작업·실제화면 검토대기",
-  "next_step": "사용자 재작업 영상 검토; 공개배포 미승인",
+  "current_task": "해금 사슬/철컥 효과음 교체",
+  "next_step": "효과음 제작·타이밍/음소거 검사·미리보기",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -2207,6 +2207,7 @@
     "verification": "docs/qa/spot-unlock/V2_VERIFICATION.json",
     "user_visual_approved": false,
     "status": "v2_reworked_awaiting_visual_review",
-    "duration_seconds": 3.15
+    "duration_seconds": 3.15,
+    "sound_rework": "chain_and_metal_latch_authorized"
   }
 }
