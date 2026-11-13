@@ -1,6 +1,6 @@
 {
   "date": "2026-11-13",
-  "status": "implemented_local_related_passed_native_ci_pending",
+  "status": "related_and_native_verified_full_ci_running",
   "baseline": "v1.35",
   "source_sha256": "c4ed628334ba3c428f6b15624483a63ffb03109e13f9e68b158b8549ef2f6d14",
   "changes": [
@@ -11,9 +11,26 @@
   "local": {
     "godot": "4.4.1",
     "import": "passed",
-    "record_followup_verify": "passed"
+    "record_followup_verify": "passed",
+    "record_photo_verify": "passed 400 cases",
+    "record_photo_motion_verify": "passed 537600 samples",
+    "record_photo_giant_verify": "passed 1814400 vertices"
   },
-  "native": "CI pending; local xvfb unavailable",
+  "native": {
+    "godot": "4.4.1",
+    "renderer": "Mesa llvmpipe OpenGL compatibility",
+    "canvas_contamination_pixel_equality": true,
+    "screens": 2,
+    "souvenir_size": [
+      1080,
+      1380
+    ],
+    "repeat_cycle": 4.6,
+    "result": "RECORD_EXPORT_ISOLATION_PREVIEW failures=[]",
+    "setup": "Xorg dummy in same execution cell; xvfb unavailable"
+  },
   "deployed": false,
-  "phone_verified": false
+  "phone_verified": false,
+  "ci_run": 43349995350,
+  "source_commit": "962312737cb151309179534dfe382ff7af1a98d5"
 }

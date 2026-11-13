@@ -2004,7 +2004,12 @@
       "deployed": false,
       "release_authorized": false,
       "verification": "docs/qa/record-photo/EXPORT_ISOLATION_VERIFICATION.json",
-      "implemented": true
+      "implemented": true,
+      "source_commit": "962312737cb151309179534dfe382ff7af1a98d5",
+      "ci_run": 43349995350,
+      "ci_status": "in_progress",
+      "native_verified": true,
+      "related_verified": true
     }
   },
   "release133": {
