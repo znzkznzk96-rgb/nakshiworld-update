@@ -18,6 +18,7 @@ var drag_slot: int = -1
 var drag_start: Vector2
 var drag_pos: Vector2
 var notice: String = ""
+var start_notice_until := 0.0
 var choosing_slot: int = -1
 var approved: Dictionary = {}
 var result_notice: float = 0.0
@@ -91,6 +92,7 @@ func open(m,screen: String) -> void:
 	if screen=="explore" and m.scene!="village" and not data.battle.is_empty() and not data.active():
 		m.show_toast("탐험 결과는 마을에서 확인해 주세요",Color("ffdc96"));return
 	formation_uid=-1
+	start_notice_until=0.0
 	opened=screen;effect_kind="";page=0;roster_scroll=0;roster_pointer=false;formation_scroll=0;formation_pointer=false;role_filter="all";selected=[];notice="";choosing_slot=-1;m.menu_open=false;m.holding=false
 	selected_round=mini(data.unlocked,maxi(1,selected_round))
 	if screen=="explore" and not data.battle.is_empty() and not data.active(): explore_tab=0
@@ -388,7 +390,23 @@ func draw(m,h: float) -> void:
 	elif opened=="explore": draw_explore(m,y+37,bottom)
 	elif opened=="training": draw_training(m,y+37,bottom)
 	else: draw_alchemy(m,y+37,bottom)
+	draw_start_notice(m,h)
 
+
+
+func start_notice_rect(h: float) -> Rect2:
+	return Rect2(16,roundf((h-74)/2.0),238,74)
+
+func draw_start_notice(m,h: float) -> void:
+	if opened!="explore" or notice=="" or m.ui_clock>=start_notice_until:return
+	var r:=start_notice_rect(h)
+	# Text is painted after surfaces: remove labels covered by the foreground notice.
+	m.text_items=m.text_items.filter(func(item):return item[1].y<r.position.y-4 or item[1].y>r.end.y+14)
+	m._ui_rect(Rect2(r.position+Vector2(-2,1),r.size+Vector2(4,4)),Color(0,0,0,0.42))
+	m._ui_style_box(m.sb_chip,r)
+	m._text("탐험을 시작할 수 없어요",Vector2(135,r.position.y+19),10,Color("9b4329"),true,214)
+	var lines:PackedStringArray=m._ui_wrap(notice,11,214,2).split("\n")
+	for i in lines.size():m._text(lines[i],Vector2(135,r.position.y+40+i*16),11,Color("513b29"),true,214)
 
 
 func draw_explore(m,y: float,bottom: float) -> void:
@@ -579,7 +597,7 @@ func press(m,pos: Vector2) -> void:
 	if key=="":
 		for k in rects:
 			if rects[k].has_point(pos): key=k;break
-	notice=""
+	notice="";start_notice_until=0.0
 	if key=="close": effect_kind="";opened="";choosing_slot=-1;return
 	if effect_kind!="":
 		if key in ["roster","go_alchemy","go_explore"]: effect_kind=""
@@ -650,7 +668,9 @@ func press(m,pos: Vector2) -> void:
 	elif key=="start":
 		if data.start(selected_round,Time.get_unix_time_from_system()):
 			opened="";m.start_trans("village") if m.scene!="village" else m.play("ui")
-		else: notice="병사 3마리를 편성하고 회복을 기다리세요"
+		else:
+			notice="병사 3마리를 편성하고 회복을 기다리세요"
+			start_notice_until=m.ui_clock+3.0
 	elif key=="claim":
 		var old: Dictionary=data.serialize().duplicate(true);var old_gold: int=m.gold
 		var reward: Dictionary=data.claim()
@@ -722,7 +742,7 @@ func press(m,pos: Vector2) -> void:
 			data.restore(before);m.show_toast("저장하지 못했어요. 계승을 다시 선택해 주세요",Color("ffdc96"))
 		return
 	elif key=="pending_done": data.pending={};opened="alchemy";tab=2;page=maxi(0,ceili(data.soldiers.size()/4.0)-1)
-	if notice!="": m.show_toast(notice,Color("ffdc96"))
+	if notice!="" and m.ui_clock>=start_notice_until: m.show_toast(notice,Color("ffdc96"))
 	m._save_game()
 
 func draw_confirmation(m,y: float,bottom: float) -> void:

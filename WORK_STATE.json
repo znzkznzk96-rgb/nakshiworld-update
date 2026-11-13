@@ -6,8 +6,8 @@
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "탐험 미편성 안내 중앙 표시 수정",
-  "next_step": "가림 원인 수정·관련검사·실제화면 표시",
+  "current_task": "탐험 미편성 안내 중앙 표시 수정 완료",
+  "next_step": "사용자 실제화면 검토; 새배포 미승인",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -2210,5 +2210,16 @@
     "duration_seconds": 3.15,
     "sound_rework": "implemented_chain_pull_latch_chain_release",
     "audio_verification": "docs/qa/spot-unlock/AUDIO_VERIFICATION.json"
+  },
+  "expedition_start_notice": {
+    "implemented": true,
+    "related_verified": true,
+    "native_heights": [
+      480,
+      540,
+      660
+    ],
+    "deployed": false,
+    "verification": "docs/qa/expedition-start-notice/VERIFICATION.json"
   }
 }
