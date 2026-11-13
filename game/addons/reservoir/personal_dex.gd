@@ -167,7 +167,7 @@ func draw_collection(m,r: Rect2) -> void:
 				m._ui_rect(Rect2(b.position.x,b.position.y+4,1,b.size.y-7),accent)
 				m._ui_rect(Rect2(b.end.x-1,b.position.y+4,1,b.size.y-7),accent)
 			icon(m,"region%d"%area,Rect2(face.position+Vector2(7,6),Vector2(27,23)))
-			var labels:Array=["거꾸로 폭포","계곡"] if area==1 else [REGIONS[area]]
+			var labels:Array=["거꾸로 폭포"] if area==1 else [REGIONS[area]]
 			for line in labels.size():
 				var at:Vector2=face.position+Vector2(39,16+line*10 if labels.size()>1 else 22)
 				m._text(labels[line],at,8 if labels.size()>1 else 9,Color("155f5a") if active else INK,false,65)
