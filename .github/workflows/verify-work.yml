@@ -29,15 +29,15 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
-      - name: Restore verified v1.35 source and overlay
+      - name: Restore verified v1.36 source and overlay
         shell: bash
         run: |
           set -euo pipefail
           echo "VERIFICATION_STARTED=$(date +%s)" >> "$GITHUB_ENV"
           sudo apt-get update -qq
           sudo apt-get install -y python3-pil > /dev/null
-          curl -fL --retry 2 https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.35/game-source.zip -o "$RUNNER_TEMP/source.zip"
-          echo "c4ed628334ba3c428f6b15624483a63ffb03109e13f9e68b158b8549ef2f6d14  $RUNNER_TEMP/source.zip" | sha256sum -c -
+          curl -fL --retry 2 https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.36/game-source.zip -o "$RUNNER_TEMP/source.zip"
+          echo "ced26a80c76af7743c0d3cb90a1d4e0ff6f35c19e6e263dd5bd708d2b4fde62c  $RUNNER_TEMP/source.zip" | sha256sum -c -
           python3 automation/restore_source.py "$RUNNER_TEMP/source.zip" "$RUNNER_TEMP/project"
           curl -fL --retry 2 https://github.com/godotengine/godot/releases/download/4.4.1-stable/Godot_v4.4.1-stable_linux.x86_64.zip -o "$RUNNER_TEMP/godot.zip"
           unzip -q "$RUNNER_TEMP/godot.zip" -d "$RUNNER_TEMP/godot"
@@ -79,6 +79,19 @@ jobs:
             evidence/rift-layers/
             evidence/rift-bundles-layers.log
             evidence/rift-layers-native.log
+      - name: Verify approved unlock and centered expedition notice
+        shell: bash
+        run: |
+          set -euo pipefail
+          GODOT="$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
+          for suite in spot_unlock spot_unlock_audio expedition_start_notice; do
+            XDG_DATA_HOME="$RUNNER_TEMP/isolated-new-$suite" timeout 90 "$GODOT" --headless --path "$RUNNER_TEMP/project" --script "tests/${suite}_verify.gd" > "evidence/${suite}.log" 2>&1
+            grep -F 'failures=[]' "evidence/${suite}.log"
+            if grep -E 'SCRIPT ERROR:|Parse Error:|Assertion failed|ERROR:' "evidence/${suite}.log"; then exit 1; fi
+          done
+          XDG_DATA_HOME="$RUNNER_TEMP/isolated-unlock-native" timeout 180 xvfb-run -a "$GODOT" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/spot_unlock_preview.gd -- "$GITHUB_WORKSPACE/evidence/unlock" > evidence/unlock-native.log 2>&1
+          XDG_DATA_HOME="$RUNNER_TEMP/isolated-expedition-notice-native" timeout 90 xvfb-run -a "$GODOT" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/expedition_start_notice_verify.gd -- "$GITHUB_WORKSPACE/evidence/expedition-notice" > evidence/expedition-notice-native.log 2>&1
+          if grep -E 'SCRIPT ERROR:|Parse Error:|Assertion failed|ERROR:' evidence/unlock-native.log evidence/expedition-notice-native.log; then exit 1; fi
       - name: Verify and render measured record photo first
         shell: bash
         run: |
