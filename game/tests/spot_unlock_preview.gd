@@ -12,13 +12,13 @@ func run():
  m.title_open=false;m.title_screen.root.hide();m.lesson_open=false;m.guide.opened=false;m.mailbox.opened=false;m.trans={};m.TUT.done=true;m.tip_t=0
  root.content_scale_size=Vector2i(270,660);root.size=Vector2i(540,1320);await process_frame
  m._switch_scene("spots");m.region_shop.unlocked=[0,1,2,3];m.spots.index=3;m.spots.scroll=3;m.spots.shift=0
- for i in 70:
-  m.spots.unlock_fx.start(3);m.spots.unlock_fx.elapsed=minf(i/30.0,2.3);m.queue_redraw()
+ for i in 96:
+  m.spots.unlock_fx.start(3);m.spots.unlock_fx.elapsed=minf(i/30.0,3.15);m.queue_redraw()
   await capture(out.path_join("frame-%03d.png"%i))
  for h in [480,540,660]:
   root.content_scale_size=Vector2i(270,h);root.size=Vector2i(540,h*2);await process_frame
   for n in 6:
-   m.spots.index=n;m.spots.scroll=n;m.spots.unlock_fx.start(n);m.spots.unlock_fx.elapsed=1.2;m.queue_redraw()
+   m.spots.index=n;m.spots.scroll=n;m.spots.unlock_fx.start(n);m.spots.unlock_fx.elapsed=1.5;m.queue_redraw()
    await capture(out.path_join("layout-%d-%d.png"%[h,n]))
  m.audio_feedback.dispose();m.queue_free();await process_frame
- print("SPOT_UNLOCK_PREVIEW_OK 70 frames 18 layout cases");quit()
+ print("SPOT_UNLOCK_PREVIEW_OK 96 frames 18 layout cases");quit()

@@ -6,8 +6,8 @@
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "해금 연출 품질 재작업",
-  "next_step": "자물쇠/사슬 중심 재구성→실제 핵심프레임 검수→전체미리보기",
+  "current_task": "해금 연출 품질 재작업·실제화면 검토대기",
+  "next_step": "사용자 재작업 영상 검토; 공개배포 미승인",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -2201,11 +2201,12 @@
     "implemented": true,
     "deployed": false,
     "related_verified": true,
-    "native_frames": 70,
+    "native_frames": 96,
     "layout_cases": 18,
     "paid_generations": 0,
-    "verification": "docs/qa/spot-unlock/VERIFICATION.json",
+    "verification": "docs/qa/spot-unlock/V2_VERIFICATION.json",
     "user_visual_approved": false,
-    "status": "quality_rework_authorized"
+    "status": "v2_reworked_awaiting_visual_review",
+    "duration_seconds": 3.15
   }
 }

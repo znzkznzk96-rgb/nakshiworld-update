@@ -25,9 +25,9 @@ func run():
  s.enter();check(not s.unlock_fx.active(),"reentry never replays purchase")
  for n in 6:
   s.unlock_fx.start(n)
-  for i in 24:
+  for i in 33:
    s.unlock_fx.elapsed=i/10.0
-   check(s.unlock_fx.scale_at()>=1.0 and s.unlock_fx.scale_at()<=1.066,"bounded hero zoom")
+   check(s.unlock_fx.scale_at()>=0.991 and s.unlock_fx.scale_at()<=1.061,"bounded hero zoom")
  s.unlock_fx.reset()
  check(s.images[3].resource_path=="res://art/refresh53/rift.png","original rift selector art preserved")
  m.audio_feedback.dispose();m.queue_free();await process_frame
