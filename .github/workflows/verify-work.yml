@@ -49,6 +49,10 @@ jobs:
           set -euo pipefail
           mkdir -p evidence/forge-three-strike
           GODOT="$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
+          timeout 90 "$GODOT" --headless --path "$RUNNER_TEMP/project" --script tests/bake_expedition_assets.gd > evidence/bake.log 2>&1
+          grep -F 'EXPEDITION_BAKE files=130' evidence/bake.log
+          "$GODOT" --headless --editor --path "$RUNNER_TEMP/project" --import > evidence/prepared-import.log 2>&1
+          if grep -E 'SCRIPT ERROR:|Parse Error:|Failed to load script' evidence/prepared-import.log; then exit 1; fi
           XDG_DATA_HOME="$RUNNER_TEMP/isolated-forge-three-logic" timeout 90 "$GODOT" --headless --path "$RUNNER_TEMP/project" --script tests/forge_three_strike_verify.gd > evidence/forge-three-strike-logic.log 2>&1
           grep -F 'FORGE_THREE_STRIKE_VERIFY failures=[]' evidence/forge-three-strike-logic.log
           XDG_DATA_HOME="$RUNNER_TEMP/isolated-forge-three-native" timeout 180 xvfb-run -a "$GODOT" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/forge_three_strike_preview.gd -- "$GITHUB_WORKSPACE/evidence/forge-three-strike" > evidence/forge-three-strike-native.log 2>&1
@@ -337,16 +341,12 @@ jobs:
             evidence/soldier-skill-cues.log
             evidence/soldier-skill-parity.log
             evidence/soldier-skill-preview.log
-      - name: Import and full regression checks
+      - name: Full regression checks using prepared imported source
         shell: bash
         run: |
           set -euo pipefail
           mkdir -p evidence
           GODOT="$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
-          timeout 90 "$GODOT" --headless --path "$RUNNER_TEMP/project" --script tests/bake_expedition_assets.gd > evidence/bake.log 2>&1
-          grep -F 'EXPEDITION_BAKE files=130' evidence/bake.log
-          "$GODOT" --headless --editor --path "$RUNNER_TEMP/project" --import > evidence/prepared-import.log 2>&1
-          if grep -E 'SCRIPT ERROR:|Parse Error:|Failed to load script' evidence/prepared-import.log; then exit 1; fi
           for suite in bite_contact village_life131 rift_unlock_recovery fish_grade_aura updater_font soldier_size android_back close_controls updater_smoothness shop_signs hall_forge119 dex_readability body_book_telegraph fight_telegraph facility_growth night_play night_glow regional_night fight_body_size fishing_difficulty fish_presentation fish_anchor_size regional_bundle_rewards mail_gifts valley_gift108 arrival_gift testing_gift reader tile107 tier_skills training_costs tier3_motion tier2_motion management101 formation_compare forge_layout robot_ui_revision capture_robot balance096 guide_ac valley094 valley093 bait092 notification091 ui090 codex089 aquarium_b ui_guide pouch_inventory expedition_result support_utility combat_feedback bag_event_order bag_formation selected_ui bag_interaction startup_assets soul_pouch expedition_hard_balance expedition_label bundle_aqua expedition080 expedition079 soldier_dex approved_ui expedition_motion expedition expedition_save expedition_balance action_readability economy_balance rod_aura atmosphere_encounter angler_scene market_reader odds_rewards reservoir_layers owner_gauge bag_list bundles_buyback equipment visual guide shop audio_save bundle_preview rewards fish_surface regional inventory_layout personal_dex bait_roles measurement_speed village_entry_audio shared_vertical_light tile_surface_water tile_scenery; do
             XDG_DATA_HOME="$RUNNER_TEMP/isolated-$suite" timeout 90 "$GODOT" --headless --path "$RUNNER_TEMP/project" --script "tests/${suite}_verify.gd" > "evidence/$suite.log" 2>&1 || { cat "evidence/$suite.log"; exit 1; }
             cat "evidence/$suite.log"
