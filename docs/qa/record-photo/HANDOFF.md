@@ -1,3 +1,7 @@
+## 2026-11-14 · 강화 전체 CI 종료 확인
+
+[검증 실행](https://github.com/znzkznzk96-rgb/nakshiworld-update/actions/runs/43538268264) 전체 회귀·화면 검사·후보 빌드 및 보관 성공. 다음은 성공/실패 캡처에서 망치와 낚싯대 접점 사용자 시각 검토. 현재 공개 v1.37, 이번 연출 미배포.
+
 ## 2026-11-14 · 강화 3타격 실제 Godot 렌더 104장 확보
 
 Run [43538268264](https://github.com/znzkznzk96-rgb/nakshiworld-update/actions/runs/43538268264)의 강화전용 단계 성공. 논리33/33, 실기화면 에뮬레이션 480/540/660 세로높이·성공/실패 총104PNG·failure=[]; [원격 캡처 아티팩트](https://github.com/znzkznzk96-rgb/nakshiworld-update/actions/runs/43538268264/artifacts/14091021332). 대화에 성공/실패 각36프레임 3.5초 GIF를 보여줌. 전체 CI 최종완료 여부는 별도 확인 필요. 기존 대장간 아틀라스에 코드 조명/번개/연기 효과를 덧씌운 1차 구현으로, 승인 시안의 손·망치·낚싯대 클로즈업 구도를 아트 수준에서 재현했다고 주장하지 않음. 사용자 시각 평가 대기·추가 유료 생성0·공개배포 없음. [검증 기록](../forge-three-strike/VERIFICATION.json).
