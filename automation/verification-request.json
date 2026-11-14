@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "requested_at": "2026-11-14",
+  "source_head_before_request": "cd36516c6f9b1fa4808c0635f1a3d1d8142304d7",
+  "reason": "approved forge three-strike implementation; verify and capture actual Godot success and failure native frames; no release",
+  "test": "tests/forge_three_strike_verify.gd",
+  "preview": "tests/forge_three_strike_preview.gd"
+}
