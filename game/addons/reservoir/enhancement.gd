@@ -195,7 +195,7 @@ func _cinematic(v, m, r: Rect2, y: float) -> void:
 	m.ui_commands.append(["rotated_texture", v.rods[int(record.rod)], scene.position + Vector2(112, 74), PI / 4])
 	var focus: Vector2 = scene.position + Vector2(110, 72)
 	if phase == "working":
-		_charge(m, focus, minf(elapsed, WORK_TIME))
+		_charge(m, focus, minf(elapsed, WORK_TIME - HOLD_TIME))
 		m._text("망치 3타격 · 빛 응축", Vector2(135, y + 140), 12, Color("f4d48a"), true, 230)
 		m._ui_rect(Rect2(39, y + 154, 192, 9), Color("382c2c"))
 		m._ui_rect(Rect2(40, y + 155, 190 * minf(1.0, elapsed / WORK_TIME), 7), Color("ffd36b"))
