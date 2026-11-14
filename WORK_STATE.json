@@ -6,7 +6,7 @@
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "강화3타격·빛응축 성공/실패 연출 구현",
+  "current_task": "강화 3타격·빛응축 성공/실패 연출 구현 원격 저장·Godot 검증 대기",
   "next_step": "승인구도 레이어와 기존강화경로 확인→표시전용 연출/사운드→관련검사/실제미리보기",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
@@ -2282,9 +2282,9 @@
   },
   "forge_rework": {
     "authorized": true,
-    "phase": "three_strike_implementation",
+    "phase": "implemented_pending_ci_native_preview",
     "generation_limit": 1,
-    "game_applied": false,
+    "game_applied": true,
     "deployed": false,
     "probability_cost_save_changed": false,
     "generated_outputs": 1,
@@ -2299,6 +2299,14 @@
     "revision_user_approved": false,
     "motion_authorized": true,
     "vivid_preview_approved": true,
-    "paid_generation_authorized": false
+    "paid_generation_authorized": false,
+    "enhancement_script": "game/addons/reservoir/enhancement.gd",
+    "logic_test": "game/tests/forge_three_strike_verify.gd",
+    "native_preview": "game/tests/forge_three_strike_preview.gd",
+    "workflow": ".github/workflows/verify-work.yml",
+    "code_commit": "ed7f0725387b6da0b7ccc76fc61b91f48657ef3e",
+    "checks": "not_run",
+    "native_verified": false,
+    "release_authorized": false
   }
 }
