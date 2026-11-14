@@ -1,3 +1,7 @@
+## 2026-11-14 · 강화 3타격 실제 Godot 렌더 104장 확보
+
+Run [43538268264](https://github.com/znzkznzk96-rgb/nakshiworld-update/actions/runs/43538268264)의 강화전용 단계 성공. 논리33/33, 실기화면 에뮬레이션 480/540/660 세로높이·성공/실패 총104PNG·failure=[]; [원격 캡처 아티팩트](https://github.com/znzkznzk96-rgb/nakshiworld-update/actions/runs/43538268264/artifacts/14091021332). 대화에 성공/실패 각36프레임 3.5초 GIF를 보여줌. 전체 CI 최종완료 여부는 별도 확인 필요. 기존 대장간 아틀라스에 코드 조명/번개/연기 효과를 덧씌운 1차 구현으로, 승인 시안의 손·망치·낚싯대 클로즈업 구도를 아트 수준에서 재현했다고 주장하지 않음. 사용자 시각 평가 대기·추가 유료 생성0·공개배포 없음. [검증 기록](../forge-three-strike/VERIFICATION.json).
+
 ## 2026-11-14 · 검증 1차 결과·검사 순서 수정
 
 첫 CI [43536464175](https://github.com/znzkznzk96-rgb/nakshiworld-update/actions/runs/43536464175): 강화 3타격 논리33/33 PASS. native 캡처는 Godot --editor --import가 실행되기 전에 시작돼 텍스처 .ctex 캐시가 없는 상태로 180초 제한에 걸림(exit124). 본 오류는 승인 PNG 디코드·해시 불일치가 아닌 **검증 단계 순서 문제**이며 렌더 품질 검증 실패/성공으로 간주하지 않음. [첫 실패 로그](https://github.com/znzkznzk96-rgb/nakshiworld-update/actions/runs/43536464175/artifacts/14090770205). 워크플로의 기존 bake/import 단계를 강화 렌더 검사 이전으로 이동하고 중복 import는 제거. source 코드/게임 에셋 변경 없음. 두 번째 CI 및 사용자 시각검수 대기.
