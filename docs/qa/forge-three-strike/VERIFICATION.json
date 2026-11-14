@@ -1,0 +1,45 @@
+{
+  "schema": 1,
+  "date": "2026-11-14",
+  "status": "native_preview_rendered_user_visual_review_pending",
+  "source_run_commit": "f5e6d41ff165bf9cbdc8b5202376cf1e02f254b3",
+  "logic": {
+    "checks": 33,
+    "failures": 0,
+    "log": "forge-three-strike-logic.log"
+  },
+  "native": {
+    "captures": 104,
+    "failures": 0,
+    "heights": [
+      480,
+      540,
+      660
+    ],
+    "outcomes": [
+      "success",
+      "failure"
+    ],
+    "frames_per_outcome_at_540": 36,
+    "artifact_id": 14091021332,
+    "artifact_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/actions/runs/43538268264/artifacts/14091021332"
+  },
+  "workflow_run": 43538268264,
+  "workflow_forge_step": "success",
+  "entire_workflow": "still_running_when_checked",
+  "game_changes": [
+    "3 hits",
+    "intensifying pixel glows",
+    "0.15 s hold",
+    "success bolt and sparks",
+    "failure spark rupture and dark smoke",
+    "confirm gating"
+  ],
+  "gameplay_changed": false,
+  "save_format_changed": false,
+  "paid_generations": 0,
+  "deployed": false,
+  "phone_tested": false,
+  "visual_approved": false,
+  "notes": "Current visual still uses existing forge smith atlas with code-driven effects. The previously discussed close-up hand/rod/anvil composition has not been established by a new accepted production asset; visual user review remains necessary. First and second CI attempts failed before native capture; third generated actual Godot preview."
+}
