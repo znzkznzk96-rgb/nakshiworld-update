@@ -6,7 +6,7 @@
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "강화 3타격·빛응축 성공/실패 연출 구현 원격 저장·Godot 검증 대기",
+  "current_task": "강화3타격 로직 33/33 통과; native 1차 import순서 실패 수정·2차 요청 저장, 실행 생성 대기",
   "next_step": "승인구도 레이어와 기존강화경로 확인→표시전용 연출/사운드→관련검사/실제미리보기",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
@@ -2282,7 +2282,7 @@
   },
   "forge_rework": {
     "authorized": true,
-    "phase": "implemented_pending_ci_native_preview",
+    "phase": "logic_pass_native_ci_retry_requested",
     "generation_limit": 1,
     "game_applied": true,
     "deployed": false,
@@ -2305,8 +2305,11 @@
     "native_preview": "game/tests/forge_three_strike_preview.gd",
     "workflow": ".github/workflows/verify-work.yml",
     "code_commit": "ed7f0725387b6da0b7ccc76fc61b91f48657ef3e",
-    "checks": "not_run",
+    "checks": "33_of_33_logic_pass",
     "native_verified": false,
-    "release_authorized": false
+    "release_authorized": false,
+    "verification_first_run": 43536464175,
+    "verification_first_failure": "native render timeout due missing Godot imported textures; workflow import-order corrected",
+    "verification_retry_commit": "e401ec7129cbb7d9bdc000dd160f1bcf737c930f"
   }
 }
