@@ -2,6 +2,12 @@ extends RefCounted
 
 const LIMIT: = [5, 8, 10, 13, 16, 20]
 const SOUL_COEF: = [1, 2, 4, 8, 16, 32]
+# Three blows, a 0.15 s held beat, then 0.82 s of non-skippable reveal.
+const HIT_AT: = [0.58, 1.40, 2.22]
+const WORK_TIME: = 2.70
+const HOLD_TIME: = 0.15
+const REVEAL_TIME: = 0.82
+const SMITH_CYCLE: = 0.82
 var phase: = ""
 var elapsed: = 0.0
 var strikes: = 0
@@ -41,24 +47,43 @@ func start(m, roll: float = -1.0) -> bool:
 	m.forge_pending = record.duplicate();m._save_game()
 	phase = "working";elapsed = 0.0;strikes = 0
 	return true
-func process(m, dt: float) -> void :
-	if phase == "": return
-	elapsed += dt
+func process(m, dt: float) -> void:
+	if phase == "":
+		return
+	elapsed += maxf(0.0, dt)
 	if phase == "working":
-		var strike: int = clampi(int(floor((elapsed - 0.5) / 1.3)) + 1, 0, 2)
-		if strike > strikes:
-			strikes = strike;m.play("hammer", -4.0, 0.96 + strikes * 0.03);m.buzz([20])
-		if elapsed >= 2.6:
-			phase = "result";elapsed = 0.0;m.forge_seen = true;m._save_game()
-			m.play("catch" if bool(record.success) else "snap")
-			m.buzz([40, 20, 70] if bool(record.success) else [80])
+		var count: int = 0
+		for i in HIT_AT.size():
+			if elapsed >= float(HIT_AT[i]):
+				count += 1
+		if count > strikes:
+			for i in range(strikes, count):
+				m.play("hammer", -5.5 + float(i) * 1.5, 0.88 + float(i) * 0.09)
+				m.buzz([25 + 20 * i])
+			strikes = count
+		if elapsed >= WORK_TIME:
+			_reveal(m)
+
+func _reveal(m) -> void:
+	if phase != "working":
+		return
+	phase = "result"
+	elapsed = 0.0
+	m.forge_seen = true
+	m._save_game()
+	m.play("catch" if bool(record.success) else "snap", -2.0 if bool(record.success) else -5.0)
+	m.buzz([40, 20, 75] if bool(record.success) else [80, 25, 55])
 func dismiss(m) -> void :
 	phase = "";record = {};m.forge_pending = {};m._save_game()
 func act(v, m, a: String) -> bool:
 	match a:
 		"forge": start(m);return true
-		"forge_skip": elapsed = 2.6;process(m, 0.0);return true
-		"forge_done": dismiss(m);return true
+		"forge_skip":
+			if phase == "working" and m.forge_seen: _reveal(m)
+			return true
+		"forge_done":
+			if phase == "result" and elapsed >= REVEAL_TIME: dismiss(m)
+			return true
 		"forge_protect": use_protection = not use_protection;return true
 		"forge_ticket":
 			if m.pearl >= 1: m.pearl -= 1;m.protection_tickets += 1;m._save_game()
@@ -78,29 +103,112 @@ func _material(v, m, r: Rect2, icon: Texture2D, name: String, required: int, own
 func draw(v, m, r: Rect2, y: float) -> void :
 	if busy(): _cinematic(v, m, r, y);return
 	preload("res://addons/reservoir/forge_layout.gd").new().draw_upgrade(v,m,r,y+3)
-func _cinematic(v, m, r: Rect2, y: float) -> void :
-	var scene: = Rect2(39, y + 5, 192, 112)
-	m._ui_rect(scene, Color("211d24"))
-	# The approved 13-frame PixelLab cycle replaces the old eight-frame smith.
-	var fi: int = mini(12,int(fposmod(elapsed,1.3)/0.1)) if phase=="working" else 0
-	m._ui_texture_rect_region(animation.rod_sheet,scene,Rect2(fi*192,0,192,112))
-	m.ui_commands.append(["rotated_texture", v.rods[int(record.rod)], scene.position + Vector2(112, 74), PI / 4])
-	if phase == "working":
-		m._text("강화 중…", Vector2(135, y + 140), 14, v.active_style.ink, true, 230)
-		m._ui_rect(Rect2(39, y + 154, 192, 9), Color("382c2c"))
-		m._ui_rect(Rect2(40, y + 155, 190 * minf(1, elapsed / 2.6), 7), Color("e7ad56"))
-		m._text("+%d → +%d" % [int(record.old), int(record.old) + 1], Vector2(135, y + 191), 16, v.active_style.ink, true, 220)
-		if m.forge_seen: _button(v, m, Rect2(91, y + 213, 88, 25), "빠르게 보기", "forge_skip")
+func _pixel(m, p: Vector2, sz: Vector2, col: Color) -> void:
+	m._ui_rect(Rect2(p.round(), sz), col)
+
+func _burst(m, origin: Vector2, age: float, duration: float, radius: float, tint: Color, rays: int = 12) -> void:
+	if age < 0.0 or age >= duration:
+		return
+	var progress: float = age / duration
+	var light: Color = tint
+	light.a = (1.0 - progress) * 0.97
+	for i in rays:
+		var angle: float = TAU * float(i) / float(rays) + float(i % 3) * 0.14
+		var direction: Vector2 = Vector2(cos(angle), sin(angle))
+		var distance: float = 3.0 + radius * progress * (0.75 + 0.15 * float(i % 3))
+		var p: Vector2 = origin + direction * distance
+		_pixel(m, p, Vector2(3 if i % 4 == 0 else 2, 2), light)
+		if i % 3 == 0:
+			_pixel(m, p - direction * 5.0, Vector2(2, 2), Color(1.0, 0.99, 0.87, light.a * 0.65))
+
+func _charge(m, focus: Vector2, t: float) -> void:
+	var hit_count: int = 0
+	for at in HIT_AT:
+		if t >= float(at): hit_count += 1
+	var intensity: float = clampf(0.22 + float(hit_count) * 0.18 + t / WORK_TIME * 0.22, 0.0, 0.98)
+	var halo: Color = Color("ffd36b")
+	halo.a = intensity * 0.32
+	_pixel(m, focus + Vector2(-8, -4), Vector2(16, 8), halo)
+	_pixel(m, focus + Vector2(-5, -8), Vector2(10, 16), halo)
+	var core: Color = Color("fff8b5")
+	core.a = intensity
+	_pixel(m, focus + Vector2(-3, -2), Vector2(6, 4), core)
+	for i in 16 + hit_count * 6:
+		var angle: float = TAU * float(i) / float(16 + hit_count * 6)
+		var distance: float = 9.0 + float(hit_count) * 4.0 + sin(t * 10.0 + i * 1.7) * 3.0
+		var pos: Vector2 = focus + Vector2(cos(angle), sin(angle)) * distance
+		var glint: Color = Color("54f1f2") if i % 4 == 0 else Color("ffe073")
+		glint.a = intensity * (0.36 + 0.45 * absf(sin(t * 8.0 + i)))
+		_pixel(m, pos, Vector2(2, 2), glint)
+	for i in HIT_AT.size():
+		_burst(m, focus, t - float(HIT_AT[i]), 0.24, 19.0 + i * 4.0, Color("fff19a") if i == 0 else Color("6bf7ff") if i == 1 else Color("ffdc71"), 10 + i * 2)
+	# The last 0.15 seconds deliberately hold without moving particles.
+	if t >= WORK_TIME - HOLD_TIME:
+		_pixel(m, focus + Vector2(-11, -1), Vector2(22, 2), Color("fff3b3"))
+		_pixel(m, focus + Vector2(-1, -11), Vector2(2, 22), Color("fff3b3"))
+
+func _result_fx(m, scene: Rect2, focus: Vector2, ok: bool) -> void:
+	var t: float = elapsed
+	if ok:
+		if t < 0.16:
+			m._ui_rect(scene.grow(-1), Color(1.0, 0.95, 0.76, 0.64 * (1.0 - t / 0.16)))
+		# A stepwise bolt follows the unbroken rod, not the outer UI frame.
+		if t < 0.58:
+			var alpha: float = 1.0 - t / 0.58
+			for i in 30:
+				var f: float = float(i) / 29.0
+				var p: Vector2 = (focus + Vector2(-44, 27)).lerp(focus + Vector2(39, -24), f)
+				p += Vector2([0, 2, -2, 1, -1][i % 5], [1, -1, 2, -2][i % 4])
+				_pixel(m, p, Vector2(3, 3 if i % 4 == 0 else 2), Color(0.78, 0.99, 1.0, alpha))
+			_burst(m, focus, t, 0.65, 48.0, Color("9ffaff"), 16)
+			_burst(m, focus, t - 0.08, 0.62, 39.0, Color("ffe279"), 14)
+		if t < REVEAL_TIME:
+			m._text("+%d" % int(record.next), focus + Vector2(34, -20 - 4 * sin(t * 5.0)), 16, Color("fff1a0"), true, 53)
 	else:
-		var ok: bool = record.success
-		var frames: Array = animation.get("success" if ok else "failure", [])
-		if ok and elapsed < 1.1:
-			for spark in 8:
-				var p := scene.get_center() + Vector2(cos(spark * TAU / 8) * (10 + elapsed * 25), sin(spark * TAU / 8) * (10 + elapsed * 25))
-				m._ui_rect(Rect2(p.round(), Vector2(2, 2)), Color(1.0, 0.8, 0.3, 1.0 - elapsed / 1.1))
+		if t < 0.18:
+			m._ui_rect(scene.grow(-1), Color(0.92, 0.55, 0.40, 0.42 * (1.0 - t / 0.18)))
+		_burst(m, focus, t, 0.22, 22.0, Color("f6b878"), 13)
+		# Smoke curls upward and fades; the rod and anvil stay intact.
+		for i in 11:
+			var age: float = t - float(i % 4) * 0.048
+			if age < 0.0 or age >= 0.83:
+				continue
+			var drift: float = sin(float(i) * 2.3 + age * 2.8) * (4.0 + age * 7.0)
+			var p: Vector2 = focus + Vector2(-16 + float(i % 6) * 6.0 + drift, -2 - age * (23.0 + float(i % 3) * 9.0))
+			var smoke: Color = Color("161b26") if i % 2 == 0 else Color("55505d")
+			smoke.a = (1.0 - age / 0.83) * 0.86
+			_pixel(m, p, Vector2(7 if i % 3 == 0 else 5, 5 if i % 3 == 0 else 4), smoke)
+		for i in 5:
+			var cinder_age: float = t - float(i) * 0.04
+			if cinder_age >= 0.0 and cinder_age < 0.3:
+				var p: Vector2 = focus + Vector2(-12 + i * 6, 6 + cinder_age * 15.0)
+				_pixel(m, p, Vector2(2, 2), Color(0.98, 0.47, 0.24, 1.0 - cinder_age / 0.3))
+
+func _cinematic(v, m, r: Rect2, y: float) -> void:
+	var scene: Rect2 = Rect2(39, y + 5, 192, 112)
+	m._ui_rect(scene, Color("211d24"))
+	var frame: int = 9
+	if phase == "working":
+		frame = clampi(int(fposmod(elapsed, SMITH_CYCLE) * 13.0 / SMITH_CYCLE), 0, 12)
+		if elapsed >= WORK_TIME - HOLD_TIME: frame = 9
+	m._ui_texture_rect_region(animation.rod_sheet, scene, Rect2(frame * 192, 0, 192, 112))
+	m.ui_commands.append(["rotated_texture", v.rods[int(record.rod)], scene.position + Vector2(112, 74), PI / 4])
+	var focus: Vector2 = scene.position + Vector2(110, 72)
+	if phase == "working":
+		_charge(m, focus, minf(elapsed, WORK_TIME))
+		m._text("망치 3타격 · 빛 응축", Vector2(135, y + 140), 12, Color("f4d48a"), true, 230)
+		m._ui_rect(Rect2(39, y + 154, 192, 9), Color("382c2c"))
+		m._ui_rect(Rect2(40, y + 155, 190 * minf(1.0, elapsed / WORK_TIME), 7), Color("ffd36b"))
+		m._text("+%d → +%d" % [int(record.old), int(record.old) + 1], Vector2(135, y + 191), 16, v.active_style.ink, true, 220)
+		if m.forge_seen:
+			_button(v, m, Rect2(91, y + 213, 88, 25), "빠르게 보기", "forge_skip")
+	else:
+		var ok: bool = bool(record.success)
+		_result_fx(m, scene, focus, ok)
 		var title: String = "강화 성공!" if ok else ("강화 실패 · 단계 하락" if int(record.next) < int(record.old) else "강화 실패 · 단계 유지")
-		m._text(title, Vector2(135, y + 141), 14, Color("b77c24") if ok else Color("81546e"), true, 230)
+		m._text(title, Vector2(135, y + 141), 14, Color("edba4b") if ok else Color("b17b81"), true, 230)
 		m._text("+%d → +%d" % [int(record.old), int(record.next)], Vector2(135, y + 174), 20, v.active_style.ink, true, 220)
 		var desc: String = "감기·제어 성능↑ · 판매가 +5%" if ok else ("보호권이 하락을 막았어요" if bool(record.protected) else "낚싯대는 파괴되지 않아요")
 		m._text(desc, Vector2(135, y + 199), 9, v.active_style.ink, true, 232)
-		_button(v, m, Rect2(64, y + 216, 142, 28), "확인", "forge_done")
+		if elapsed >= REVEAL_TIME:
+			_button(v, m, Rect2(64, y + 216, 142, 28), "확인", "forge_done")
