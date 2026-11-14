@@ -49,10 +49,11 @@ jobs:
           set -euo pipefail
           mkdir -p evidence/forge-three-strike
           GODOT="$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
-          timeout 90 "$GODOT" --headless --path "$RUNNER_TEMP/project" --script tests/bake_expedition_assets.gd > evidence/bake.log 2>&1
+          # Godot asset import must precede bake/test script execution.
+          timeout 180 "$GODOT" --headless --editor --path "$RUNNER_TEMP/project" --import > evidence/prepared-import.log 2>&1 || { tail -100 evidence/prepared-import.log; exit 1; }
+          if grep -E 'SCRIPT ERROR:|Parse Error:|Failed to load script' evidence/prepared-import.log; then tail -100 evidence/prepared-import.log; exit 1; fi
+          XDG_DATA_HOME="$RUNNER_TEMP/isolated-forge-bake" timeout 90 "$GODOT" --headless --path "$RUNNER_TEMP/project" --script tests/bake_expedition_assets.gd > evidence/bake.log 2>&1 || { tail -100 evidence/bake.log; exit 1; }
           grep -F 'EXPEDITION_BAKE files=130' evidence/bake.log
-          "$GODOT" --headless --editor --path "$RUNNER_TEMP/project" --import > evidence/prepared-import.log 2>&1
-          if grep -E 'SCRIPT ERROR:|Parse Error:|Failed to load script' evidence/prepared-import.log; then exit 1; fi
           XDG_DATA_HOME="$RUNNER_TEMP/isolated-forge-three-logic" timeout 90 "$GODOT" --headless --path "$RUNNER_TEMP/project" --script tests/forge_three_strike_verify.gd > evidence/forge-three-strike-logic.log 2>&1
           grep -F 'FORGE_THREE_STRIKE_VERIFY failures=[]' evidence/forge-three-strike-logic.log
           XDG_DATA_HOME="$RUNNER_TEMP/isolated-forge-three-native" timeout 180 xvfb-run -a "$GODOT" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/forge_three_strike_preview.gd -- "$GITHUB_WORKSPACE/evidence/forge-three-strike" > evidence/forge-three-strike-native.log 2>&1
