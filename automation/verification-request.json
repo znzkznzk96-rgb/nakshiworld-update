@@ -2,7 +2,10 @@
   "schema": 1,
   "requested_at": "2026-11-14",
   "source_head_before_request": "cd36516c6f9b1fa4808c0635f1a3d1d8142304d7",
-  "reason": "approved forge three-strike implementation; verify and capture actual Godot success and failure native frames; no release",
+  "reason": "Recheck forge: 33 logic passed; native rendering initially lacked Godot --editor --import. Workflow now imports before native captures.",
   "test": "tests/forge_three_strike_verify.gd",
-  "preview": "tests/forge_three_strike_preview.gd"
+  "preview": "tests/forge_three_strike_preview.gd",
+  "attempt": 2,
+  "previous_run": 43536464175,
+  "previous_failure": "native preview timed out after missing imported .ctex; no source or asset damage confirmed"
 }
