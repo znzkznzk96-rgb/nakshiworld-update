@@ -8,7 +8,7 @@ var wake := PackedVector2Array()
 var stamps := PackedFloat64Array()
 var wake_key := ""
 const TILE_COUNT := 4
-const GLINT_COUNTS := [0,0,4,9,16]
+const GLINT_COUNTS := [0,0,7,9,16]
 var atlas:Texture2D
 var points=PackedVector2Array()
 var uvs=PackedVector2Array()
@@ -168,7 +168,7 @@ func _emit(m,p:Vector2,size:Vector2,color:Color,kind:int,regions:Array):
 
 # Detached bubbles rise in the water while the fish continues swimming.
 func _water_particles(m,grade:int,quads:Array,tail:Vector2,forward:Vector2,unit:float,t:float,history:bool,regions:Array):
-	var count:int=[0,7,11,12,15][grade]
+	var count:int=[0,10,15,12,15][grade]
 	var tint:Color=[Color.WHITE,Color("08ddff"),Color("b039ff"),Color("ffba09"),Color("14ffd7")][grade]
 	for k in count:
 		var speed:=0.67+0.16*sin(k*3.87)
@@ -182,6 +182,12 @@ func _water_particles(m,grade:int,quads:Array,tail:Vector2,forward:Vector2,unit:
 		var radius:float=(3.0+2.4*fposmod(k*0.43,1.0)+0.9*age)*unit
 		var alpha:=pow(maxf(0.0,sin(PI*age)),0.55)
 		_emit(m,at,Vector2.ONE*radius,Color(tint,alpha*0.97),0,regions)
+		if grade == 1 and k % 3 == 0:
+			var wake_at := at - forward * (3.0 + age * 12.0) * unit
+			var bubble_size := (5.0 + 3.0 * age) * unit
+			_emit(m,wake_at,Vector2.ONE*bubble_size,Color(Color("24edff"),alpha),0,regions)
+			var small_at := wake_at - forward * bubble_size * 0.7 + Vector2.UP * age * 4.0 * unit
+			_emit(m,small_at,Vector2.ONE*bubble_size*0.49,Color(Color("85ffe3"),alpha),0,regions)
 		if grade>=2 and k%2==0:
 			# A detached scale flashes only while its broad face turns to the light.
 			var flip:=absf(sin(t*3.7+k*2.31))
