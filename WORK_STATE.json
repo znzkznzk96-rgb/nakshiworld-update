@@ -6,8 +6,8 @@
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "비늘조각 교체·시작 시 저장 덮어쓰기 방지 적용",
-  "next_step": "기존 휴대폰 백업 상태 확인 및 계정 클라우드 저장 방식 결정",
+  "current_task": "수중 등급 오라 4종 방향 검토",
+  "next_step": "등급별 연출안 검토 후 실제 크기에서 모션 시안 비교",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -2310,5 +2310,9 @@
   "scale_fragment": {
     "verification": "docs/qa/scale-fragment/verification.json",
     "released": false
+  },
+  "fish_aura_direction": {
+    "reference": "Guild Wars 2 Frenzy",
+    "status": "direction_confirmed_tier_design_proposed"
   }
 }
