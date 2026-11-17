@@ -2536,7 +2536,7 @@ func _draw_fish_tension(fish_pos: Vector2, scale: float, dt: float, body_length:
 	var rarity := int(S.get("grade",0))
 	if rarity > 0 and rarity < GRADE_N.size():
 		var accent:Color = [Color.WHITE,Color("6fe0ff"),Color("df9cff"),Color("ffda62"),Color("bdfff0")][rarity]
-		var w := 32 if rarity==2 else 24
+		var w := 40 if rarity==2 else 24
 		var badge_x := p.x-w-3 if p.x>=w+4 else p.x+47
 		var badge := Rect2(badge_x,p.y-2,w,12)
 		_ui_rect(badge,Color("172438"))

@@ -163,78 +163,28 @@ func _emit(m,p:Vector2,size:Vector2,color:Color,kind:int,regions:Array):
 	last_samples.append(p)
 	_sprite(m,p,size,color,kind,regions)
 
-# Joined tapered ribbons use the white texel of the scale tile in the same
-# masked mesh as the particles, keeping the fish and its alerts in front.
-func _ribbon(m,path:PackedVector2Array,width:float,ink:Color,regions:Array):
-	var first := points.size()
-	for i in path.size():
-		var tangent := path[mini(i+1,path.size()-1)]-path[maxi(i-1,0)]
-		var flank := tangent.normalized().orthogonal()
-		var taper := 0.08+0.92*pow(maxf(0,sin(PI*i/(path.size()-1))),0.65)
-		for sign_y in [-1.0,1.0]:
-			var at:Vector2 = path[i]+flank*width*taper*sign_y
-			var color:=ink
-			if not gpu_mask and masking_enabled:
-				for j in regions.size():
-					color.a*=lerpf(1.0,mask_alpha(at,[regions[j]]),region_weights[j])
-			points.append(at+Vector2(0,0 if m.ui_demo else m.oy))
-			uvs.append(Vector2(12.5/24.0,1.5/8.0))
-			colors.append(color)
-		if i>0:
-			var n:=first+i*2
-			indices.append_array(PackedInt32Array([n-2,n-1,n,n,n-1,n+1]))
-
-func _flare(m,at:Vector2,r:float,ink:Color,regions:Array):
-	for axis in [Vector2.RIGHT,Vector2.DOWN]:
-		var ray:Vector2=axis*r*(0.70 if axis==Vector2.RIGHT else 1.0)
-		_ribbon(m,PackedVector2Array([at-ray,at,at+ray]),r*0.20,ink,regions)
-
-func _crest(m,grade:int,head:Vector2,tail:Vector2,unit:float,t:float,surge:float,regions:Array):
-	var axis:=(head-tail).normalized()
-	var normal:=axis.orthogonal()
-	var center:=(head+tail)*0.5
-	var length:=head.distance_to(tail)
-	for side in [-1.0,1.0]:
-		var path:=PackedVector2Array()
-		match grade:
-			1,2:
-				# Blue crescents break into spray. Violet blades cross on a tilted orbit.
-				var spin:float=t*(1.9 if grade==1 else 2.8)+side*0.32
-				for i in 16:
-					var a:=spin+i/15.0*(1.7 if grade==1 else 2.35)
-					var along:=cos(a)*length*(0.55 if grade==1 else 0.66)
-					var across:=sin(a)*(7.0 if grade==1 else 11.0)*unit
-					if grade==2: across+=along*0.32
-					path.append(center+(axis*along+normal*across)*side)
-				var ink:=Color("39ceff") if grade==1 else Color("aa50ff")
-				_ribbon(m,path,(1.35 if grade==1 else 2.4)*unit,ink,regions)
-				_ribbon(m,path,0.58*unit,ink.lightened(0.78),regions)
-				if grade==2: _flare(m,path[11],4.3*unit,Color("f2baff"),regions)
-			3:
-				# Three unequal golden plumes unfurl from the tail on each beat.
-				for plume in 3:
-					path.clear()
-					for i in 13:
-						var u:=i/12.0
-						var spread:float=side*(3+plume*4.2)*unit*sin(u*PI*0.8)
-						spread+=sin(t*6-u*5+plume*0.6)*u*2.7*unit
-						path.append(tail+axis*length*(0.34-u*(1.08-plume*0.18+surge*0.14))+normal*spread)
-					_ribbon(m,path,(2.35-plume*0.38)*unit,Color("ff9b24"),regions)
-					_ribbon(m,path,0.85*unit,Color("fff0a1"),regions)
-				var pulse:=fposmod(t*1.35+(0.5 if side>0 else 0.0),1.0)
-				_flare(m,head.lerp(tail,pulse)+normal*side*4.8*unit,unit*(2.5+3.5*sin(PI*pulse)),Color("fff9c9"),regions)
-			4:
-				# Three aurora streams wrap the body and trail the escort school.
-				for band in 3:
-					path.clear()
-					for i in 18:
-						var u:=i/17.0
-						var wave:float=side*(sin(PI*u)*(8+band*2.5)+sin(u*TAU*1.4-t*3+band*0.45)*6*u)*unit
-						path.append(head+axis*length*(0.10-u*(1.98+surge*0.2))+normal*wave)
-					var hue:=fposmod(0.49+band*0.13+side*0.08+sin(t*2)*0.05,1.0)
-					_ribbon(m,path,(2.15-band*0.3)*unit,Color.from_hsv(hue,0.76,1,0.82),regions)
-					if band==1: _ribbon(m,path,0.64*unit,Color("edfffd"),regions)
-				_flare(m,path[5],unit*(3.5+2.2*sin(t*5+side)),Color("ffebff"),regions)
+# Detached bubbles rise in the water while the fish continues swimming.
+func _water_particles(m,grade:int,quads:Array,tail:Vector2,forward:Vector2,unit:float,t:float,history:bool,regions:Array):
+	var count:int=[0,7,8,12,15][grade]
+	var tint:Color=[Color.WHITE,Color("69d5ff"),Color("b7a0fa"),Color("ffe8a0"),Color("a9f8f0")][grade]
+	for k in count:
+		var speed:=0.67+0.16*sin(k*3.87)
+		var age:=fposmod(t*speed+k*0.618,1.0)
+		var upper:=k%2==0
+		var anchor:=fposmod(k*0.3819+0.08,1.0)
+		var at:=_edge(quads,anchor,upper)
+		var offset:=Vector2(sin(k*1.9+age*4.0)*1.9,(-1.0 if upper else 1.0)*2.0-age*age*(8.0+4.0*sin(k)))*unit
+		at+=offset-forward*(age*age*(6.0+3.0*cos(k))*unit)
+		if history: at+=(_past(t-age*0.32,tail)-tail)*age
+		var radius:float=(3.0+2.4*fposmod(k*0.43,1.0)+0.9*age)*unit
+		var alpha:=pow(maxf(0.0,sin(PI*age)),0.55)
+		_emit(m,at,Vector2.ONE*radius,Color(tint,alpha*0.82),0,regions)
+		if grade>=2 and k%2==0:
+			# A detached scale flashes only while its broad face turns to the light.
+			var flip:=absf(sin(t*3.7+k*2.31))
+			var scale_at:=at-forward*2.8*unit+Vector2(0,2.2*unit)
+			var metal:Color=[Color.WHITE,Color.WHITE,Color("ae6df1"),Color("ffb239"),Color.from_hsv(fposmod(0.47+k*0.16+t*0.08,1),0.53,1)][grade]
+			_emit(m,scale_at,Vector2(1.8+4.8*flip,4.8)*unit,Color(metal.lerp(Color.WHITE,pow(flip,8)*0.78),alpha),1,regions)
 
 func queue(m,quads:Array,grade:int,t:float):
 	points.clear();uvs.clear();colors.clear();indices.clear();last_samples.clear()
@@ -264,7 +214,7 @@ func queue(m,quads:Array,grade:int,t:float):
 	if remember_motion: _remember(seconds,tail,str(m.aura.get("tex"))+str(grade),length)
 	var beat := float(m.aura.get("swim_phase",seconds*TAU))
 	var surge := 1.0 if str(m.aura.get("behavior","")) in ["run","charge","turn","thrash"] else 0.0
-	_crest(m,grade,head,tail,unit,seconds,surge,regions)
+	_water_particles(m,grade,quads,tail,forward,unit,seconds,remember_motion,regions)
 	for side in 2:
 		var upper := side == 0
 		var normal := Vector2.UP if upper else Vector2.DOWN
@@ -283,7 +233,7 @@ func queue(m,quads:Array,grade:int,t:float):
 				var at := _edge(quads,u,upper)+normal*(2.4+2.0*sin(PI*u))*unit
 				if remember_motion: at+=(_past(seconds-0.08,tail)-tail)*u*0.36
 				var flip := absf(cos(seconds*4.4+side*2.1))
-				_emit(m,at,Vector2(2+6*flip,7)*unit,Color("ae79fd").lerp(Color("f7ddff"),pow(flip,5)),1,regions)
+				_emit(m,at,Vector2(2+8*flip,8)*unit,Color("ae79fd").lerp(Color("f7ddff"),pow(flip,5)),1,regions)
 			3:
 				for k in 5:
 					var u := flow-k*0.045
@@ -296,22 +246,22 @@ func queue(m,quads:Array,grade:int,t:float):
 					var pearl := Color.from_hsv(fposmod(u*0.42+side*0.3+seconds*0.12,1.0),0.32,1)
 					_emit(m,_edge(quads,u,upper)+normal*1.6*unit,Vector2(4,2.8)*unit,Color(pearl,sin(PI*u)*0.86),1,regions)
 	if grade == 3:
-		for k in 4:
-			var age := fposmod(beat/TAU*0.5-k*0.16,1.0)
+		for k in 6:
+			var age := fposmod(beat/TAU*0.5-k*0.158,1.0)
 			var travel := (1.0-pow(1.0-age,2))*length*(0.63+surge*0.24)
-			var at := tail-forward*travel + Vector2(0,(k-1.5)*sin(age*PI*0.85)*5.0-sin(age*TAU)*2.5)*unit
+			var at := tail-forward*travel + Vector2(0,(k-2.5)*sin(age*PI*0.85)*3.45-sin(age*TAU)*2.5)*unit
 			if remember_motion: at+=(_past(seconds-0.24*age,tail)-tail)*age*0.55
 			var flip := absf(cos(age*9+k))
-			_emit(m,at,Vector2(3+6*flip,6.5)*unit,Color(Color("ff9f1e").lerp(Color("fff7d2"),flip),sin(PI*age)),1,regions)
+			_emit(m,at,Vector2(3+7*flip,7.5)*unit,Color(Color("ff9f1e").lerp(Color("fff7d2"),flip),sin(PI*age)),1,regions)
 	elif grade == 4:
-		for k in 3:
-			var orbit := seconds*2.5+k*TAU/3.0
-			var at := tail-forward*length*(0.25+0.16*cos(orbit)+k*0.085)
-			at.y += sin(orbit)*(6+surge*5)*unit
+		for k in 5:
+			var orbit := seconds*(1.65+0.09*k)+k*TAU/5.0
+			var at := tail-forward*length*(0.13+0.33*cos(orbit)+k*0.078)
+			at.y += sin(orbit)*(7+k*0.8+surge*4)*unit
 			if remember_motion: at+=(_past(seconds-0.10-k*0.05,tail)-tail)*0.65
 			var hue := fposmod(0.48+k*0.23+0.09*sin(orbit),1.0)
 			var pearl := Color.from_hsv(hue,0.44,1).lerp(Color.WHITE,pow(absf(cos(orbit)),8)*0.6)
-			var size := Vector2(14+1.5*cos(beat+k),9)*unit
+			var size := Vector2(10.5+1.8*cos(beat+k)+k*0.4,6.8+k*0.24)*unit
 			if forward.x<0: size.x=-size.x
 			_emit(m,at,size,pearl,2,regions)
 	if not indices.is_empty():
