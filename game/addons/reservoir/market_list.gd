@@ -85,7 +85,7 @@ func draw(v, m, r: Rect2, y: float, items: Array) -> void:
 		var f: Dictionary=items[i]
 		var nm: String=m.FISH_NAME[int(f.sp)]+(" (어깨)" if f.get("shoulder",false) else "")
 		var desc: String="%s · %.1fcm" % [m.GRADE_N[int(f.grade)],float(f.len)]
-		v._row(m,r,yy,m.fish_tex[int(f.sp)],nm,desc,"" if v.tab=="sell" else "비늘조각 +%d" % v.soul_of(f),int(f.price) if v.tab=="sell" else 0,true,"%s:%d" % [v.tab,i])
+		v._row(m,r,yy,m.fish_tex[int(f.sp)],nm,desc,"" if v.tab=="sell" else "+%d" % v.soul_of(f),int(f.price) if v.tab=="sell" else 0,true,"%s:%d" % [v.tab,i],v.tool_icons.soul if v.tab=="clean" else null)
 		visible.append(i)
 	if maximum()>0:
 		var track:=Rect2(r.end.x-7,viewport.position.y,2,viewport.size.y)
