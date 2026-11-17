@@ -44,7 +44,7 @@ const BITE_WINDOW: = [1.5, 1.0, 0.7, 0.5, 0.35]
 
 const BAR_SPEED: = [0.72, 0.84, 0.98, 1.12, 1.28]
 const BAR_ACC: = [1.1, 1.15, 1.2, 1.25, 1.3]
-const QUICK_HOOK_WINDOW := 0.25
+const QUICK_HOOK_WINDOW := 0.5
 const QUICK_HOOK_MULTIPLIER := 2.0
 const BAR_PERF: = [0.06, 0.05, 0.045, 0.035, 0.03]
 const BAR_GREAT: = [0.2, 0.18, 0.16, 0.14, 0.12]
@@ -1734,12 +1734,7 @@ func _draw_hookbar() -> void :
 	var pr: = Rect2(int(ix + iw * (zc - pw)), y - 4, maxi(4, int(iw * pw * 2)), 8)
 	draw_style_box(sb_fill, pr)
 	if S.get("quickHook", false):
-		var sweep := clampf((clock - float(S.hookStartedAt)) / 0.18, 0.0, 1.0)
-		if sweep < 1.0:
-			var offset := (pr.size.x * 0.25 - 1.0) * (1.0 + sweep)
-			for side in [-1.0, 1.0]:
-				var edge_x := roundf(pr.get_center().x + side * offset)
-				draw_rect(Rect2(edge_x, pr.position.y - 1, 2, pr.size.y + 2), Color(1, 0.88, 0.98, 1.0 - sweep))
+		_draw_quick_hook_burst(pr, clock - float(S.hookStartedAt))
 	draw_rect(Rect2(roundf(ix + iw * zc), y - 5, 1, 10), Color("fff4fb"))
 	var sh: = int(fmod(clock * 40.0, pr.size.x + 12)) - 6
 	if sh >= 0 and sh < pr.size.x: draw_rect(Rect2(pr.position.x + sh, y - 3, 1, 6), Color(1, 1, 1, 0.8))
@@ -1748,6 +1743,33 @@ func _draw_hookbar() -> void :
 	for k in range(star_hist.size() - 1, 0, -1):
 		draw_texture_rect(tex_star, Rect2(int(ix + iw * star_hist[k]) - 7, int(y) - 7, 14, 14), false, Color(1, 0.9, 0.5, 0.08 * (5 - k)))
 	draw_texture_rect(tex_star, Rect2(int(ix + iw * S.pos) - 7, int(y) - 7, 14, 14), false)
+
+
+func _draw_quick_hook_burst(zone: Rect2, elapsed: float) -> void:
+	var progress := clampf(elapsed / 0.55, 0.0, 1.0)
+	if progress >= 1.0:
+		return
+	var spread := ease(progress, 0.45)
+	var opacity := 1.0 - smoothstep(0.45, 1.0, progress)
+	var pink := Color("ff69bd")
+	var gold := Color("ffda77")
+	pink.a = opacity
+	gold.a = opacity
+	var white := Color(1.0, 0.97, 1.0, opacity)
+	for side: float in [-1.0, 1.0]:
+		var edge := zone.get_center() + Vector2(side * zone.size.x * 0.5, 0)
+		for vertical: float in [-1.0, 1.0]:
+			var origin := edge + Vector2(0, vertical * 6)
+			for ray in 3:
+				var travel := Vector2(side * (6 + ray * 8), vertical * (20 - ray * 6))
+				var tip := (origin + travel * spread).round()
+				var tail := (tip - travel.normalized() * (4.0 - progress * 2.0)).round()
+				draw_line(tail, tip, pink, 3.0)
+				draw_rect(Rect2(tip, Vector2(3, 2)), gold)
+				if ray == 1:
+					draw_rect(Rect2(tip - Vector2(2, 0), Vector2(7, 2)), white)
+					draw_rect(Rect2(tip - Vector2(0, 2), Vector2(2, 6)), white)
+		draw_rect(Rect2(edge.round() - Vector2(1, 5), Vector2(2, 10)), white)
 
 
 func _ease(r: float, dtd: float) -> float: return 1.0 - exp( - r * dtd)
