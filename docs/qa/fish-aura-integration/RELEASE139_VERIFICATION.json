@@ -1,0 +1,37 @@
+{
+  "version": {
+    "code": 139,
+    "name": "1.39"
+  },
+  "source_commit": "88cf587afb298d8c81e0d6723c08f060bd91f870",
+  "assets": {
+    "version.json": {
+      "size": 199,
+      "sha256": "f58e12ce59c36ab91c261b1775fdc70f6824b8add47ffe6574fad8f19c423f6f",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.39/version.json"
+    },
+    "patch.pck": {
+      "size": 66324032,
+      "sha256": "c21e9cb18ea4fad8c228da58ba41bd6b2bf5d19c07ea29da7956e3de3df5d20a",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.39/patch.pck"
+    },
+    "game-source.zip": {
+      "size": 71984421,
+      "sha256": "29780553cb88cae421e8ab0caf8f2f472984e9d27bceb4c54cc91e175762f4b2",
+      "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.39/game-source.zip"
+    }
+  },
+  "phone_verified": false,
+  "source_overlay_files_verified": 769,
+  "zip_crc_verified": true,
+  "public_assets_verified": true,
+  "work_ci": 44047130701,
+  "release_build_run": 44049533852,
+  "public_verification_run": 44049802245,
+  "pull_request": 77,
+  "installed_app_download": {
+    "url": "https://nakshiworld-update-kr.znzkznzk96.workers.dev/patch.pck?v=139.0",
+    "sha256": "c21e9cb18ea4fad8c228da58ba41bd6b2bf5d19c07ea29da7956e3de3df5d20a",
+    "size": 66324032
+  }
+}
