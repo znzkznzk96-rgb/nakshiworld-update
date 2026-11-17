@@ -472,7 +472,7 @@ func _short(m, s: String, size: int, width: float) -> String:
 	while s.length() > 1 and m._text_w(s + "..", size) > width: s = s.left(s.length() - 1)
 	return s + ".."
 
-func _row(m, r: Rect2, y: float, icon: Texture2D, name: String, desc: String, btn: String, price: int, enabled: bool, act: String) -> void :
+func _row(m, r: Rect2, y: float, icon: Texture2D, name: String, desc: String, btn: String, price: int, enabled: bool, act: String, reward_icon: Texture2D = null) -> void :
 	var cell: = Rect2(r.position.x + 11, y, r.size.x - 22, 36)
 	m._ui_style_box(active_style.card, cell)
 	if icon:
@@ -490,9 +490,9 @@ func _row(m, r: Rect2, y: float, icon: Texture2D, name: String, desc: String, bt
 	var button: = Rect2(cell.end.x - 67, y + 4, 62, 28)
 	m._ui_style_box(active_style.header if enabled else active_style.card, button)
 	var color: = Color("fff0d1") if enabled else Color("817767")
-	if price > 0:
-		m._ui_texture_rect(m.icons.scale, Rect2(button.position + Vector2(4, 5), Vector2(18, 18)))
-		m._text(m.spots.price_text(price), button.position + Vector2(41, 18), 10, color, true, 38)
+	if price > 0 or reward_icon:
+		m._ui_texture_rect(reward_icon if reward_icon else m.icons.scale, Rect2(button.position + Vector2(4, 5), Vector2(18, 18)))
+		m._text(btn if reward_icon else m.spots.price_text(price), button.position + Vector2(41, 18), 10, color, true, 38)
 	else: m._text(_short(m, btn, 10, 58), button.position + Vector2(31, 18), 10, color, true, 58)
 	if enabled or (price > 0 and not commerce.quote(self, m, act).is_empty()): rects.rows.append([button, act])
 

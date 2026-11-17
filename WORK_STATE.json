@@ -1,13 +1,13 @@
 {
   "work_branch": "work/forge-138",
-  "status": "v1.41_public_download_verified",
+  "status": "v1.42_verification_requested",
   "release_baseline": "v1.41",
-  "target_release": "v1.41",
+  "target_release": "v1.42",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "v1.41 빠른 챔질 보너스 공개·운영 다운로드 검증 완료",
-  "next_step": "Android에서 진짜 입질 직후 챔질과 훅바 진입 반짝임 확인",
+  "current_task": "v1.42 길잡이와 손질 버튼 공개 배포",
+  "next_step": "전체 검사 통과 후보 공개 및 운영 다운로드 검증",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -42,10 +42,10 @@
   "standard_full_workflow_success": true,
   "remaining_global_render_checks": false,
   "release_authorization": {
-    "release": "v1.41",
+    "release": "v1.42",
     "date": "2026-11-17",
-    "user_request": "그렇게가자 ㅇㅇ ㄱㄱ 업데이트",
-    "fulfilled": true
+    "user_request": "업데이트및 배포가자 ㅇㅇ",
+    "fulfilled": false
   },
   "release_preflight": "docs/qa/quick-hook/RELEASE141_VERIFICATION.json",
   "release_source_commit": "ee816d946e80db178594944edb12d2ce1dc512ee",
@@ -118,7 +118,7 @@
     "production_balance_changed": false,
     "phone_tested": false
   },
-  "release_authorized": false,
+  "release_authorized": true,
   "balance110": {
     "applied": true,
     "deployed": true,
