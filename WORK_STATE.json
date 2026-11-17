@@ -6,7 +6,7 @@
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "수중 등급 오라 4종 방향 검토",
+  "current_task": "4등급 수중 오라 제작",
   "next_step": "등급별 연출안 검토 후 실제 크기에서 모션 시안 비교",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
@@ -2313,7 +2313,7 @@
   },
   "fish_aura_direction": {
     "reference": "Guild Wars 2 Frenzy",
-    "status": "direction_confirmed_tier_design_proposed",
+    "status": "tier_design_approved",
     "placement": "머리까지 위아래로 연결, 게이지와 겹치는 오라만 감쇠"
   }
 }
