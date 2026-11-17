@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_before_request": "24e30ee45764fa83ada58d45e382f66bd675e4bb",
-  "reason": "강화 효과음 5종을 오디오 자원 전수검사에 추가, 격리 오디오/저장 검사 통과 후 최종 후보 요청",
-  "requested_at": "2026-11-17T05:05:21.451531+00:00"
+  "source_before_request": "acc27aeb6a54b911bdf33da383be0de629e5dceb",
+  "reason": "v1.39 이전 마을 스크린샷에 쓰는 구버전 아이콘을 별도 검사본에 복원",
+  "requested_at": "2026-11-17T08:28:50.933401+00:00"
 }
