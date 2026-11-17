@@ -5,7 +5,7 @@ RIFT_SELECTION = 'docs/art/rift-fish/APPROVED_MOTION_20_20261111.json'
 INPUTS = ['game', 'automation', '.github/workflows/verify-work.yml', '.github/workflows/release-patch.yml', RIFT_SELECTION, 'docs/art/rift-background-20261111/approved-clean-data']
 # These approved archives are build inputs even though their audit trail lives in docs.
 INPUTS += sorted({s['motion_source'] for s in json.loads((ROOT/RIFT_SELECTION).read_text())['species']})
-TOOLS = {'godot':'4.4.1.stable', 'baseline':'v1.37', 'baseline_sha256':'101657a2e83f764234a67bebb0b73dea03686a8c60e5e407288a794f41fe15f9'}
+TOOLS = {'godot':'4.4.1.stable', 'baseline':'v1.38', 'baseline_sha256':'a77b058de362121a4f669ef715b7e4e57bb4a34467908f0f8086ddb1700f2aca'}
 def git(*args):
     return subprocess.check_output(['git', *args], cwd=ROOT).decode().strip()
 def fingerprint():
