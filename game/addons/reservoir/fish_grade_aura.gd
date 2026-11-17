@@ -7,6 +7,8 @@ var outline := PackedVector2Array()
 var wake := PackedVector2Array()
 var stamps := PackedFloat64Array()
 var wake_key := ""
+const TILE_COUNT := 4
+const GLINT_COUNTS := [0,0,4,9,16]
 var atlas:Texture2D
 var points=PackedVector2Array()
 var uvs=PackedVector2Array()
@@ -57,13 +59,14 @@ static func mask_alpha(p:Vector2,regions:Array)->float:
 
 func _atlas()->Texture2D:
 	if atlas!=null:return atlas
-	# Three native pixel silhouettes: a hollow bubble, a ridged scale and a fry.
+	# Native pixel silhouettes: bubble, scale, fry and four-point glint.
 	var tiles := [
 		["..2332..",".31..23.","31....13","2.....12","2.....12","31....13",".322223.","..2332.."],
 		["....2...","..2342..",".234432.","23433221",".232221.","..2211..","...11...","........"],
-		["........","...2....","3.23432.","23234413","12233332","1..2211.","....1...","........"]
+		["........","...2....","3.23432.","23234413","12233332","1..2211.","....1...","........"],
+		["...1....","...2....","..232...",".234432.","..232...","...2....","...1....","........"]
 	]
-	var image := Image.create(24,8,false,Image.FORMAT_RGBA8)
+	var image := Image.create(8*TILE_COUNT,8,false,Image.FORMAT_RGBA8)
 	var ink := [Color.TRANSPARENT,Color(0.34,0.48,0.62,0.82),Color(0.63,0.78,0.89),Color(0.91,0.97,1),Color.WHITE]
 	for tile in tiles.size():
 		for y in 8:
@@ -82,7 +85,7 @@ func _sprite(m,p:Vector2,size:Vector2,col:Color,kind:int,regions:Array):
 		var first=points.size()
 		points.append_array(PackedVector2Array([at,at+Vector2(size.x,0),at+size,at+Vector2(0,size.y)]))
 		colors.append_array(PackedColorArray([col,col,col,col]))
-		var left=float(kind)/3.0;var right=float(kind+1)/3.0
+		var left=float(kind)/TILE_COUNT;var right=float(kind+1)/TILE_COUNT
 		uvs.append_array(PackedVector2Array([Vector2(left,0),Vector2(right,0),Vector2(right,1),Vector2(left,1)]))
 		indices.append_array(PackedInt32Array([first,first+1,first+2,first,first+2,first+3]))
 		return
@@ -105,7 +108,7 @@ func _sprite(m,p:Vector2,size:Vector2,col:Color,kind:int,regions:Array):
 					ink.a*=attenuation
 				colors.append(ink)
 				points.append(at+Vector2(0,0 if m.ui_demo else m.oy))
-				uvs.append(Vector2((kind+uv.x)/3.0,uv.y))
+				uvs.append(Vector2((kind+uv.x)/TILE_COUNT,uv.y))
 			indices.append_array(PackedInt32Array([first,first+1,first+2,first,first+2,first+3]))
 
 # Read each sprite once. Quantiles keep tall decorative fins from lifting the
@@ -165,7 +168,7 @@ func _emit(m,p:Vector2,size:Vector2,color:Color,kind:int,regions:Array):
 
 # Detached bubbles rise in the water while the fish continues swimming.
 func _water_particles(m,grade:int,quads:Array,tail:Vector2,forward:Vector2,unit:float,t:float,history:bool,regions:Array):
-	var count:int=[0,7,8,12,15][grade]
+	var count:int=[0,7,11,12,15][grade]
 	var tint:Color=[Color.WHITE,Color("69d5ff"),Color("b7a0fa"),Color("ffe8a0"),Color("a9f8f0")][grade]
 	for k in count:
 		var speed:=0.67+0.16*sin(k*3.87)
@@ -185,6 +188,23 @@ func _water_particles(m,grade:int,quads:Array,tail:Vector2,forward:Vector2,unit:
 			var scale_at:=at-forward*2.8*unit+Vector2(0,2.2*unit)
 			var metal:Color=[Color.WHITE,Color.WHITE,Color("ae6df1"),Color("ffb239"),Color.from_hsv(fposmod(0.47+k*0.16+t*0.08,1),0.53,1)][grade]
 			_emit(m,scale_at,Vector2(1.8+4.8*flip,4.8)*unit,Color(metal.lerp(Color.WHITE,pow(flip,8)*0.78),alpha),1,regions)
+
+# Offset the individual pulses so the school shimmers without flashing as a unit.
+func _glints(m,grade:int,quads:Array,tail:Vector2,forward:Vector2,unit:float,t:float,history:bool,regions:Array):
+	for k: int in GLINT_COUNTS[grade]:
+		var phase := fposmod(t*(0.82+0.12*cos(k*2.13))+k*0.618,1.0)
+		var pulse := pow(maxf(0.0,sin(PI*phase)),2.5)
+		var upper := k%2==0
+		var anchor := fposmod(k*0.382+0.18,1.0)
+		var at := _edge(quads,anchor,upper)
+		var drift := (3.2+4.5*fposmod(k*0.73,1.0)+phase*4.0)*unit
+		at += Vector2(0,-drift if upper else drift)-forward*phase*phase*unit*(5.0+k%5)
+		if history: at+=(_past(t-phase*0.27,tail)-tail)*phase
+		var tint := Color("de9aff")
+		if grade==3: tint=Color("ffce70")
+		elif grade==4: tint=Color.from_hsv(fposmod(0.42+k*0.173,1.0),0.46,1)
+		var radius := (3.0+5.2*pulse)*unit
+		_emit(m,at,Vector2.ONE*radius,Color(tint.lerp(Color.WHITE,pulse*0.58),pulse),3,regions)
 
 func queue(m,quads:Array,grade:int,t:float):
 	points.clear();uvs.clear();colors.clear();indices.clear();last_samples.clear()
@@ -215,6 +235,7 @@ func queue(m,quads:Array,grade:int,t:float):
 	var beat := float(m.aura.get("swim_phase",seconds*TAU))
 	var surge := 1.0 if str(m.aura.get("behavior","")) in ["run","charge","turn","thrash"] else 0.0
 	_water_particles(m,grade,quads,tail,forward,unit,seconds,remember_motion,regions)
+	_glints(m,grade,quads,tail,forward,unit,seconds,remember_motion,regions)
 	for side in 2:
 		var upper := side == 0
 		var normal := Vector2.UP if upper else Vector2.DOWN

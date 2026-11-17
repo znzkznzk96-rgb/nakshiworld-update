@@ -7,7 +7,7 @@
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
   "current_task": "유니크 수중 입자 및 상위 등급별 빛입자 추가",
-  "next_step": "프렌지 수중 입자 비교본 검토",
+  "next_step": "유니크 이상 빛입자 비교본 검토",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -2313,7 +2313,7 @@
   },
   "fish_aura_direction": {
     "reference": "Guild Wars 2 Frenzy",
-    "status": "water_particles_revised_work_only",
+    "status": "tiered_glints_work_only",
     "placement": "머리까지 위아래로 연결, 게이지와 겹치는 오라만 감쇠",
     "space_preview": "https://chatgpt.com/space/page_348c945c851c8191966ef0b8b3440b60",
     "deployed": false
