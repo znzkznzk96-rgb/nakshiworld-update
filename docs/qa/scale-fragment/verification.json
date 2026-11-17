@@ -19,5 +19,12 @@
   "save_regression": "startup pause before load, legacy wallet and backup, offline settlement",
   "account_sync": "proposed; no provider configured",
   "phone_recovery": "not verified",
-  "published": false
+  "published": false,
+  "local_regression": {
+    "engine": "4.4.1",
+    "passed_suites": 106,
+    "reload_passes": 3,
+    "guide_articles_verified": 75,
+    "historical_guide093": "Old card size assertion fails identically on unchanged v1.38 guide and current guide, outside active suite."
+  }
 }
