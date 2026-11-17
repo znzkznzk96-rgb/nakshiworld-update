@@ -2,12 +2,12 @@
   "work_branch": "work/forge-138",
   "status": "v1.40_public_download_verified",
   "release_baseline": "v1.40",
-  "target_release": "v1.40",
+  "target_release": "v1.41",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "v1.40 파이팅 등급 배지 공개·운영 다운로드 검증 완료",
-  "next_step": "Android에서 R·U·L·M 배지 실기 확인",
+  "current_task": "빠른 챔질 PERFECT 2배 보상",
+  "next_step": "입질 경계·판정 검사 후 v1.41 배포",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -42,10 +42,10 @@
   "standard_full_workflow_success": true,
   "remaining_global_render_checks": false,
   "release_authorization": {
-    "release": "v1.40",
+    "release": "v1.41",
     "date": "2026-11-17",
-    "user_request": "엉 그렇게 수정 하고 업데이트 고고",
-    "fulfilled": true
+    "user_request": "그렇게가자 ㅇㅇ ㄱㄱ 업데이트",
+    "fulfilled": false
   },
   "release_preflight": "docs/qa/fish-aura-integration/RELEASE140_VERIFICATION.json",
   "release_source_commit": "35e301a8dae60251d3a64644309a34a4ded927ee",
@@ -118,7 +118,7 @@
     "production_balance_changed": false,
     "phone_tested": false
   },
-  "release_authorized": false,
+  "release_authorized": true,
   "balance110": {
     "applied": true,
     "deployed": true,
