@@ -1951,7 +1951,7 @@ func _shadow_fish(c: Vector2, star: int, grade: int, t: float, beh: String, spik
 			PackedVector2Array([Vector2(u0, v0), Vector2(u1, v0), Vector2(u1, v1), Vector2(u0, v1)])])
 	if alpha >= 1.0: fish_mouth = pts[0] if beh == "hanging" else (pts[0] as Vector2).lerp(pts[1], 0.35)
 	if alpha >= 1.0 and not ui_demo:
-		aura = {"quads": quads, "pts": pts, "L": L, "g": grade, "tex": tex, "face": face, "c": pts[5], "nrms": nrms, "hw": hw}
+		aura = {"quads": quads, "pts": pts, "L": L, "g": grade, "tex": tex, "face": face, "c": pts[5], "nrms": nrms, "hw": hw, "swim_phase": phase, "behavior": beh}
 
 	if alpha >= 1.0:
 		_draw_pixel_halo(quads, tex, grade, t)

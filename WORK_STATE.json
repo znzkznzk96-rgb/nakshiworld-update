@@ -7,7 +7,7 @@
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
   "current_task": "4등급 수중 오라 제작",
-  "next_step": "등급별 연출안 검토 후 실제 크기에서 모션 시안 비교",
+  "next_step": "스페이스 4등급 모션 비교 검토",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -2313,7 +2313,9 @@
   },
   "fish_aura_direction": {
     "reference": "Guild Wars 2 Frenzy",
-    "status": "tier_design_approved",
-    "placement": "머리까지 위아래로 연결, 게이지와 겹치는 오라만 감쇠"
+    "status": "implemented_work_branch",
+    "placement": "머리까지 위아래로 연결, 게이지와 겹치는 오라만 감쇠",
+    "space_preview": "https://chatgpt.com/space/page_348c945c851c8191966ef0b8b3440b60",
+    "deployed": false
   }
 }

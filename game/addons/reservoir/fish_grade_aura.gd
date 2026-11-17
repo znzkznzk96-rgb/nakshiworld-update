@@ -1,7 +1,12 @@
 extends RefCounted
-# Selected R3/R4/R7 rarity presentation; no simulation RNG or save state.
+# Presentation follows the same head-to-tail strips as the swimming body.
 const FLOOR_ALPHA=0.04
 const FEATHER=12.0
+var outlines := {}
+var outline := PackedVector2Array()
+var wake := PackedVector2Array()
+var stamps := PackedFloat64Array()
+var wake_key := ""
 var atlas:Texture2D
 var points=PackedVector2Array()
 var uvs=PackedVector2Array()
@@ -52,22 +57,22 @@ static func mask_alpha(p:Vector2,regions:Array)->float:
 
 func _atlas()->Texture2D:
 	if atlas!=null:return atlas
-	var image=Image.create(96,32,false,Image.FORMAT_RGBA8);image.fill(Color.TRANSPARENT)
-	for y in 32:
-		for x in 32:
-			var q=Vector2(x-15.5,y-15.5)
-			var d=q.length()/6.5
-			var a=0.95 if d<0.55 else 0.54 if d<1 else 0.18 if d<1.6 else 0.045 if d<2.3 else 0.0
-			image.set_pixel(x,y,Color(1,1,1,a))
-			var diamond=absf(q.x)*1.8+absf(q.y)
-			image.set_pixel(x+32,y,Color(1,1,1,1.0 if diamond<12 else 0.0))
-			var glint=(absf(q.x)<1.2 and absf(q.y)<11) or (absf(q.y)<1.2 and absf(q.x)<8)
-			image.set_pixel(x+64,y,Color(1,1,1,1.0 if glint else 0.0))
+	# Three native pixel silhouettes: a hollow bubble, a ridged scale and a fry.
+	var tiles := [
+		["..2332..",".31..23.","31....13","2.....12","2.....12","31....13",".322223.","..2332.."],
+		["....2...","..2342..",".234432.","23433221",".232221.","..2211..","...11...","........"],
+		["........","...2....","3.23432.","23234413","12233332","1..2211.","....1...","........"]
+	]
+	var image := Image.create(24,8,false,Image.FORMAT_RGBA8)
+	var ink := [Color.TRANSPARENT,Color(0.34,0.48,0.62,0.82),Color(0.63,0.78,0.89),Color(0.91,0.97,1),Color.WHITE]
+	for tile in tiles.size():
+		for y in 8:
+			for x in 8:
+				var tone: String = tiles[tile][y][x]
+				if tone != ".":
+					image.set_pixel(tile*8+x,y,ink[int(tone)])
 	atlas=ImageTexture.create_from_image(image)
 	return atlas
-
-static func hash01(k:int,salt:int)->float:
-	return fposmod(sin(float(k*127+salt*311))*43758.5453,1.0)
 
 func _sprite(m,p:Vector2,size:Vector2,col:Color,kind:int,regions:Array):
 	if col.a<=0.002:return
@@ -103,11 +108,60 @@ func _sprite(m,p:Vector2,size:Vector2,col:Color,kind:int,regions:Array):
 				uvs.append(Vector2((kind+uv.x)/3.0,uv.y))
 			indices.append_array(PackedInt32Array([first,first+1,first+2,first,first+2,first+3]))
 
-func _mote(m,p:Vector2,radius:float,col:Color,alpha:float,regions:Array):
-	var ink=col;ink.a=alpha
-	_sprite(m,p,Vector2.ONE*radius*4.9,ink,0,regions)
-	ink=col.lerp(Color.WHITE,0.55);ink.a=alpha*0.65
-	_sprite(m,p,Vector2.ONE*radius*1.5,ink,0,regions)
+# Read each sprite once. Quantiles keep tall decorative fins from lifting the
+# whole aura away from the denser body pixels.
+func _outline(texture:Texture2D) -> PackedVector2Array:
+	var key := texture.get_instance_id()
+	if outlines.has(key): return outlines[key]
+	var image := texture.get_image()
+	var profile := PackedVector2Array()
+	var bounds := image.get_used_rect()
+	for x in image.get_width():
+		var rows := PackedInt32Array()
+		for y in range(bounds.position.y,bounds.end.y):
+			if image.get_pixel(x,y).a > 0.4: rows.append(y)
+		if rows.is_empty(): profile.append(Vector2(0.5,0.5))
+		else:
+			var last := rows.size()-1
+			profile.append((Vector2(rows[roundi(last*0.12)],rows[roundi(last*0.88)]+1)-Vector2.ONE*bounds.position.y)/maxf(1,bounds.size.y))
+	outlines[key]=profile
+	return profile
+
+func _remember(t:float,tail:Vector2,key:String,length:float):
+	if key!=wake_key or (not stamps.is_empty() and (t<stamps[-1] or t-stamps[-1]>0.25 or wake[-1].distance_to(tail)>length*1.5)):
+		stamps.clear()
+		wake.clear()
+	wake_key=key
+	if stamps.is_empty() or t-stamps[-1]>=0.022:
+		stamps.append(t)
+		wake.append(tail)
+		if stamps.size()>22:
+			stamps.remove_at(0)
+			wake.remove_at(0)
+
+func _past(t:float,tail:Vector2) -> Vector2:
+	if stamps.is_empty(): return tail
+	for i in range(stamps.size()-1,0,-1):
+		if stamps[i-1]<=t:
+			return wake[i-1].lerp(wake[i],clampf(inverse_lerp(stamps[i-1],stamps[i],t),0,1))
+	return wake[0]
+
+# Sample the moving top/bottom edge; beyond the tail continue its tangent.
+func _edge(quads:Array,u:float,upper:bool) -> Vector2:
+	var strip := clampi(floori(u*quads.size()),0,quads.size()-1)
+	var v:PackedVector2Array = quads[strip][0]
+	var f := u*quads.size()-strip
+	var a := v[0].lerp(v[1],f)
+	var b := v[3].lerp(v[2],f)
+	if outline.is_empty(): return a if (a.y < b.y) == upper else b
+	var uv:PackedVector2Array=quads[strip][1]
+	var x:=clampi(floori(lerpf(uv[0].x,uv[1].x,f)*outline.size()),0,outline.size()-1)
+	var limits:=outline[x]
+	return a.lerp(b,limits.x if (a.y < b.y) == upper else limits.y)
+
+func _emit(m,p:Vector2,size:Vector2,color:Color,kind:int,regions:Array):
+	last_samples.append(p)
+	_sprite(m,p,size,color,kind,regions)
 
 func queue(m,quads:Array,grade:int,t:float):
 	points.clear();uvs.clear();colors.clear();indices.clear();last_samples.clear()
@@ -126,55 +180,66 @@ func queue(m,quads:Array,grade:int,t:float):
 		if cue_strength>0:
 			regions.append(cue_rect);region_weights.append(cue_strength)
 		regions.append(layout.hud);region_weights.append(1.0)
-	var length:float=float(m.aura.get("L",60))
-	var scale=clampf(length/156.0,0.45,1.0)
-	var n:int=roundi([0,185,180,185,150][grade]*clampf(length/126.0,0.40,1.0))
-	for k in n:
-		var unit=hash01(k,1)
-		var strip=clampi(int(unit*quads.size()),0,quads.size()-1)
-		var v:PackedVector2Array=quads[strip][0]
-		var side=-1.0 if hash01(k,2)<0.5 else 1.0
-		var fraction=hash01(k,3)
-		var edge:Vector2=v[0].lerp(v[1],fraction) if side<0 else v[3].lerp(v[2],fraction)
-		var axis:Vector2=((v[0]+v[3])*0.5).lerp((v[1]+v[2])*0.5,fraction)
-		var dir=(edge-axis).normalized()+Vector2((hash01(k,4)-0.5)*0.8,0)
-		dir=dir.normalized()
-		var across=Vector2(-dir.y,dir.x)
-		var start=edge+dir*3.0
-		var age=fposmod(t/1000.0-hash01(k,5)*3.0,3.0)
-		var phase=hash01(k,6)*TAU
-		var life=[0,1.15,1.10,1.50,1.8][grade]
-		if age>=life:continue
-		var u=age/life
-		var base=start+dir*(u*[0,55,57,54,60][grade]*scale)
-		last_samples.append([base,age,k])
-		if grade<=2:
-			var ink=Color("4fa3ff") if grade==1 else Color("bd7aff")
-			var fade=minf(age*16,1)*pow(1-u,0.48 if grade==1 else 0.55)
-			if grade==2:base+=across*sin(u*3.5+phase)*3.0
-			var radius=(5.8 if grade==1 else 5.0) if k%4==0 else (3.5 if grade==1 else 3.0)
-			radius*=1-u*0.65
-			_sprite(m,base,Vector2(radius*1.2,radius*2.0),Color(ink,fade),1,regions)
-			_sprite(m,base-Vector2(radius*0.12,radius*0.20),Vector2(radius*0.45,radius*0.85),Color(ink.lerp(Color.WHITE,0.7),fade),1,regions)
-			if k%3==0:_mote(m,base-dir*3,1.5,ink,fade*0.5,regions)
-			if k%(6 if grade==1 else 8)==0:_sprite(m,base,Vector2(9,13),Color(ink.lerp(Color.WHITE,0.8),sin(PI*u)),2,regions)
-		elif grade==3:
-			base+=Vector2(0,-u*14*scale)
-			var fade=pow(sin(PI*u),0.65)
-			for j in 5:
-				var behind=j/4.0
-				var p=base-dir*(behind*16*scale)+across*sin(u*4+phase-behind)*(3+u*5)*scale
-				_mote(m,p,(4.6+sin(phase)*1.2)*(1-u*0.35)*(1-behind*0.25),Color("ffb93e").lerp(Color("fff1b0"),1-behind),fade*(1-behind*0.4),regions)
-			if k%5==0:_sprite(m,base,Vector2(8,12),Color("fff3c2",pow(sin(PI*u),2)),2,regions)
-		else:
-			base+=Vector2(0,-u*10*scale)
-			var fade=pow(sin(PI*u),0.65)
-			for layer in 3:
-				for j in 8:
-					var trail=j/7.0
-					var p=base-dir*(trail*23+layer*4)*scale+across*(sin(u*4+phase-trail*2)*7+layer*2.8)*scale
-					var ink=Color.from_hsv(fposmod(k*0.145+trail*0.10+u*0.08,1),0.70,1).lerp(Color.WHITE,0.12)
-					_mote(m,p,(2.9-trail*0.9)*(1-u*0.25),ink,fade*(1.0 if layer==0 else 0.45 if layer==1 else 0.18)*(1-trail*0.35),regions)
+	outline = _outline(m.aura.tex) if m.aura.has("tex") and not m.ui_demo else PackedVector2Array()
+	var head := (_edge(quads,0,true)+_edge(quads,0,false))*0.5
+	var tail := (_edge(quads,1,true)+_edge(quads,1,false))*0.5
+	var length := maxf(12.0,head.distance_to(tail))
+	var unit := clampf(length/42.0,0.75,2.0)
+	var forward := (head-tail).normalized()
+	var seconds := t*0.001
+	var remember_motion:bool=not m.ui_demo and not context.get("group",false)
+	if remember_motion: _remember(seconds,tail,str(m.aura.get("tex"))+str(grade),length)
+	var beat := float(m.aura.get("swim_phase",seconds*TAU))
+	var surge := 1.0 if str(m.aura.get("behavior","")) in ["run","charge","turn","thrash"] else 0.0
+	for side in 2:
+		var upper := side == 0
+		var normal := Vector2.UP if upper else Vector2.DOWN
+		var flow := fposmod(seconds*0.77 + side*0.43,1.0)
+		match grade:
+			1:
+				for k in 2:
+					var age := fposmod(seconds*0.85+k*0.51+side*0.32,1.0)
+					var at := _edge(quads,0.08+0.88*age,upper)
+					at += normal*(1.0+age*2.0)*unit + Vector2(0,-age*age*5)*unit
+					if remember_motion: at+=(_past(seconds-age*0.29,tail)-tail)*smoothstep(0.2,0.9,age)
+					var radius := (4.4+2.3*age)*unit
+					_emit(m,at,Vector2.ONE*radius,Color(Color("a2eaff"),pow(sin(PI*age),0.65)),0,regions)
+			2:
+				var u := 0.50+0.46*sin(seconds*2.6+side*PI)
+				var at := _edge(quads,u,upper)+normal*(2.4+2.0*sin(PI*u))*unit
+				if remember_motion: at+=(_past(seconds-0.08,tail)-tail)*u*0.36
+				var flip := absf(cos(seconds*4.4+side*2.1))
+				_emit(m,at,Vector2(2+6*flip,7)*unit,Color("ae79fd").lerp(Color("f7ddff"),pow(flip,5)),1,regions)
+			3:
+				for k in 5:
+					var u := flow-k*0.045
+					if u >= 0:
+						var at := _edge(quads,u,upper)+normal*(1.1+sin(PI*u))*unit
+						_emit(m,at,Vector2(5.8-k*0.65,3.4)*unit,Color(Color("fff5bb").lerp(Color("ffab3d"),k/5.0),sin(PI*flow)*(1-k*0.16)),1,regions)
+			4:
+				for k in 3:
+					var u := fposmod(flow+k/3.0,1.0)
+					var pearl := Color.from_hsv(fposmod(u*0.42+side*0.3+seconds*0.12,1.0),0.32,1)
+					_emit(m,_edge(quads,u,upper)+normal*1.6*unit,Vector2(4,2.8)*unit,Color(pearl,sin(PI*u)*0.86),1,regions)
+	if grade == 3:
+		for k in 4:
+			var age := fposmod(beat/TAU*0.5-k*0.16,1.0)
+			var travel := (1.0-pow(1.0-age,2))*length*(0.63+surge*0.24)
+			var at := tail-forward*travel + Vector2(0,(k-1.5)*sin(age*PI*0.85)*5.0-sin(age*TAU)*2.5)*unit
+			if remember_motion: at+=(_past(seconds-0.24*age,tail)-tail)*age*0.55
+			var flip := absf(cos(age*9+k))
+			_emit(m,at,Vector2(3+6*flip,6.5)*unit,Color(Color("ff9f1e").lerp(Color("fff7d2"),flip),sin(PI*age)),1,regions)
+	elif grade == 4:
+		for k in 3:
+			var orbit := seconds*2.5+k*TAU/3.0
+			var at := tail-forward*length*(0.25+0.16*cos(orbit)+k*0.085)
+			at.y += sin(orbit)*(6+surge*5)*unit
+			if remember_motion: at+=(_past(seconds-0.10-k*0.05,tail)-tail)*0.65
+			var hue := fposmod(0.48+k*0.23+0.09*sin(orbit),1.0)
+			var pearl := Color.from_hsv(hue,0.44,1).lerp(Color.WHITE,pow(absf(cos(orbit)),8)*0.6)
+			var size := Vector2(10+1.5*cos(beat+k),6.5)*unit
+			if forward.x<0: size.x=-size.x
+			_emit(m,at,size,pearl,2,regions)
 	if not indices.is_empty():
 		if gpu_mask:
 			var target=_surface(m)
