@@ -100,7 +100,7 @@ func draw_upgrade(v,m,r:Rect2,y:float):
  label(m,"실패 시 1단계 하락" if risk else "실패해도 단계 유지",Vector2(x+123,y+18),9,Color("a34a40") if risk else Color("75614d"),false,104)
  y+=32;line(m,x,y,w)
  m._ui_texture_rect(v.tool_icons.soul,Rect2(x+5,y+9,19,19))
- label(m,"혼 %s"%m.spots.price_text(e.soul_cost(ri,lv)),Vector2(x+29,y+18),10)
+ label(m,"비늘조각 %s"%m.spots.price_text(e.soul_cost(ri,lv)),Vector2(x+29,y+18),10)
  label(m,"보유 %s"%m.spots.price_text(m.souls),Vector2(x+29,y+32),8,Color("75614d"))
  m._ui_texture_rect(m.icons.scale,Rect2(x+120,y+9,16,18))
  label(m,"비늘 %s"%m.spots.price_text(e.cost(lv,ri)),Vector2(x+142,y+18),10)

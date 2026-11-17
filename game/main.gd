@@ -257,6 +257,7 @@ func _notification(what: int) -> void :
 	if what == NOTIFICATION_APPLICATION_RESUMED: audio_feedback.suspended=false
 
 var cooperative_boot:=false
+var progress_loaded := false
 var boot_ready:=false
 
 func _ready() -> void :
@@ -1512,7 +1513,7 @@ func _draw_overlays(t: float, h: float) -> void :
 const TR_CLOSE: = 0.45
 const TR_HOLD: = 0.45
 const TR_OPEN: = 0.5
-const TR_TIPS: = ["수족관 물고기는 쉬는 동안에도 돈을 벌어요", "파츠를 달수록 귀한 물고기가 물어요", "손질하면 물고기의 혼을 얻어요", "미끼가 없으면 큰 물고기는 잘 안 물어요", "보관통이 차면 마을로!"]
+const TR_TIPS: = ["수족관 물고기는 쉬는 동안에도 돈을 벌어요", "파츠를 달수록 귀한 물고기가 물어요", "손질하면 비늘조각을 얻어요", "미끼가 없으면 큰 물고기는 잘 안 물어요", "보관통이 차면 마을로!"]
 func start_trans(to: String) -> void :
 	if not trans.is_empty() or to == scene: return
 	trans = {"t": 0.0, "to": to, "done": false, "tip": TR_TIPS[randi() % TR_TIPS.size()]}
@@ -2753,7 +2754,7 @@ func _draw_title(_t: float, h: float) -> void :
 
 const SAVE_VER: = 1
 func _save_game() -> bool:
-	if resetting or development_preview: return false
+	if not progress_loaded or resetting or development_preview: return false
 	var ok: bool = preload("res://addons/reservoir/save_store.gd").write("user://save.json", {"testing_grants":testing_grants.duplicate(),"buyback":buyback.serialize(),"regional_progress":progression.serialize(),"active_region":active_region,"region_shop": region_shop.serialize(), "equipment": equipment.serialize(), "mail_read": mailbox.read_ids, "mail_deleted": mailbox.deleted_ids, "v": SAVE_VER, "gold": gold, "pearl": pearl, "bag": bag_items(), "bag_lv": bag_lv, "parts": parts_owned, "tips": tips_seen,
 		"town_zoom": V.zoom, "boat_lv": boat_lv, "town_lv": town_lv, "forge_lv": forge_lv, "rod_lv": rod_lv, "rod_owned": rod_owned, "rod_enh": rod_enh, "protection_tickets": protection_tickets, "forge_pending": forge_pending, "forge_seen": forge_seen, 
 		"capture_robot":capture_robot.serialize(),"facility_rev":FACILITIES.REV,"pond_overflow":pond_overflow,"pond_base":pond_base,"pond_cap_lv": pond_cap_lv, "pond_regen_lv": pond_regen_lv, "pond_stock": pond_stock,
@@ -2800,7 +2801,12 @@ func aqua_rate() -> float:
 
 func _load_game() -> void :
 	var d: Dictionary = preload("res://addons/reservoir/save_store.gd").read("user://save.json")
-	if d.is_empty(): return
+	if d.is_empty():
+		progress_loaded = not FileAccess.file_exists("user://save.json") and not FileAccess.file_exists("user://save.json.bak")
+		if not progress_loaded:
+			tip_txt = "기존 저장을 읽을 수 없어 자동 저장을 중지했어요."
+			tip_t = 15
+		return
 	d=FACILITIES.migrate(d)
 	testing_grants=[]
 	if d.get("testing_grants",[]) is Array:
@@ -2858,6 +2864,7 @@ func _load_game() -> void :
 		gold += earn;tip_txt = "쉬는 동안 수족관에서 %d 비늘을 벌었어요!" % earn;tip_t = 5.0
 	if returned_owners>0:
 		tip_txt="중복 주인 %d마리를 보관통으로 돌려보냈어요 · 종류별 1마리 전시"%returned_owners;tip_t=8.0
+	progress_loaded = true
 	_save_game()
 
 

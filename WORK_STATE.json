@@ -1,13 +1,13 @@
 {
   "work_branch": "work/forge-138",
-  "status": "v1.38_public_download_verified",
+  "status": "scale_fragment_local_save_fix_work_only",
   "release_baseline": "v1.38",
   "target_release": "v1.38",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "손질 재료 비늘조각 교체 및 세이브 초기화 조사",
-  "next_step": "PixelLab 아이콘 한 장 제작 및 표시·도움말 교체, 저장 경로 확인",
+  "current_task": "비늘조각 교체·시작 시 저장 덮어쓰기 방지 적용",
+  "next_step": "기존 휴대폰 백업 상태 확인 및 계정 클라우드 저장 방식 결정",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -2306,5 +2306,9 @@
     "verification": "docs/qa/record-photo/RELEASE138_VERIFICATION.json",
     "deployed": true,
     "phone_verified": false
+  },
+  "scale_fragment": {
+    "verification": "docs/qa/scale-fragment/verification.json",
+    "released": false
   }
 }

@@ -91,7 +91,7 @@ func setup() -> void :
 	for n in ["cloud_wisp", "cloud_cumulus", "cloud_far"]: art[n] = load("res://art/atmosphere/%s.png" % n)
 	for n in ["bamboo", "carbon", "surf", "boat", "deep", "galaxy"]:
 		rods.append(load("res://art/refresh52/rod_%s.png" % n))
-	for n in ["plaque", "chief", "res1", "res2", "k_up", "k_bait", "k_aqua", "k_museum", "k_work", "i_worm", "i_soul", "i_stringer", "i_bucket", "i_net", "i_ice"]:
+	for n in ["plaque", "chief", "res1", "res2", "k_up", "k_bait", "k_aqua", "k_museum", "k_work", "i_worm", "i_stringer", "i_bucket", "i_net", "i_ice"]:
 		tex[n] = load("res://art/village/%s.png" % n)
 	for n in ["market", "tackle", "forge", "aquarium", "hall", "museum", "dock", "bridge", "boat", "tree", "lamp", "hedge", "bench", "backdrop"]:
 		tex[n] = load("res://art/town/%s.png" % n)
@@ -102,7 +102,7 @@ func setup() -> void :
 	var keeper_ids: = {"chief": 4, "k_up": 1, "k_bait": 0, "k_aqua": 3, "k_museum": 5, "k_work": 1, "res1": 0, "res2": 1}
 	for n in keeper_ids: tex[n] = people_frames[keeper_ids[n]][1]
 	tex.chief = visitors.textures[6].idle
-	for n in ["rod", "float", "hook", "line", "reel", "worm", "soul", "stringer", "bucket", "net", "ice", "hammer", "boat", "hall", "book", "coin"]:
+	for n in ["rod", "float", "hook", "line", "reel", "worm", "stringer", "bucket", "net", "ice", "hammer", "boat", "hall", "book", "coin"]:
 		tool_icons[n] = load("res://art/tools_clean/%s_24.png" % n)
 	for n in preload("res://addons/reservoir/equipment_art.gd").NAMES:
 		tool_icons[n] = preload("res://addons/reservoir/equipment_art.gd").icon(n, 24)
@@ -560,7 +560,7 @@ func _draw_work(m, r: Rect2, y: float) -> void :
 	y += 32
 	if tab=="buyback": m.buyback.draw(self,m,r,y);return
 	m._ui_texture_rect(tool_icons.scale if tab == "sell" else tool_icons.soul, Rect2(r.position.x + 16, y - 3, 16, 16), false)
-	m._text(("보유 비늘 %d" % m.gold) if tab == "sell" else ("물고기의 혼 %d" % m.souls), Vector2(r.position.x + 35, y + 9), 9, Color("382619"))
+	m._text(("보유 비늘 %d" % m.gold) if tab == "sell" else ("비늘조각 %d" % m.souls), Vector2(r.position.x + 35, y + 9), 9, Color("382619"))
 	y += 16
 	var items: Array = m.bag_items()
 	market_list.draw(self,m,r,y,items)
@@ -710,7 +710,7 @@ func _act(m, a: String) -> void :
 		"sellall": m.sell_all();return
 		"clean":
 			var f: Dictionary = m.bag[n]
-			m.souls += soul_of(f);m.bag.remove_at(n);m.show_toast("혼 +%d" % soul_of(f), Color("9fd8ff"));m.play("splash_s", -6.0)
+			m.souls += soul_of(f);m.bag.remove_at(n);m.show_toast("비늘조각 +%d" % soul_of(f), Color("9fd8ff"));m.play("splash_s", -6.0)
 	if not m._save_game():
 		for field in before:m.set(field,before[field])
 		m.equipment.restore(m,old_equipment);m.region_shop.restore(old_region);m.buyback.restore(old_buyback)

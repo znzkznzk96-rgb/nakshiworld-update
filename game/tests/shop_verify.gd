@@ -53,7 +53,7 @@ func run() -> void:
 	m.V.open_shop(m,"work");m.text_items=[];m.V.draw_shop(m,660)
 	check(m.text_items.any(func(it):return "보유 비늘" in str(it[2])),"sell tab displays scales")
 	m.V.tab="clean";m.text_items=[];m.V.draw_shop(m,660)
-	check(m.text_items.any(func(it):return "물고기의 혼" in str(it[2])),"clean tab displays souls")
+	check(m.text_items.any(func(it):return "비늘조각" in str(it[2])),"clean tab displays souls")
 	print("SHOP_VERIFY failures=",failures)
 	c.pending={};c.notice_icon=null;c=null;m.region_shop.icons.clear()
 	m.queue_free();await process_frame;quit(0 if failures.is_empty() else 1)
