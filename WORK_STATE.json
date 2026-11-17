@@ -7,7 +7,7 @@
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
   "current_task": "강화 3타격 실제 Godot 성공·실패 애니메이션 제작·공유 완료, 사용자 시각 검토 대기",
-  "next_step": "승인구도 레이어와 기존강화경로 확인→표시전용 연출/사운드→관련검사/실제미리보기",
+  "next_step": "PixelLab 새 타격 모션 제작·접점 검수 후 스페이스 미리보기",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
