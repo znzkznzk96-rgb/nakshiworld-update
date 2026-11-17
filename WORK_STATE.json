@@ -7,7 +7,7 @@
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
   "current_task": "강화 3타격 실제 Godot 성공·실패 애니메이션 제작·공유 완료, 사용자 시각 검토 대기",
-  "next_step": "강화 효과 재작업 스페이스 미리보기 시각 검수",
+  "next_step": "강화 타격·잔열·단일 금빛 폭죽과 냉각 실패 분기 제작 후 스페이스 개별 검수",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
