@@ -26,6 +26,7 @@ const EARLY_REGION_STOCK_FLOOR := 0.70
 const OTHER_REGION_STAR_P = [0.62, 0.27, 0.09, 0.018, 0.0]
 const GRADE_P: = [0.71, 0.15, 0.10, 0.03, 0.01]
 const OTHER_REGION_GRADE_P = [0.8653, 0.0661, 0.0628, 0.0042, 0.0016]
+const FIGHT_GRADE_INITIALS := ["", "R", "U", "L", "M"]
 const GRADE_N: = ["노멀", "레어", "유니크", "전설", "신화"]
 const GRADE_C: = [Color("c9d2d6"), Color("4fa3ff"), Color("b06cff"), Color("ffb340"), Color("ffffff")]
 const CATALOG = preload("res://addons/reservoir/regional_catalog.gd")
@@ -2534,14 +2535,14 @@ func _draw_fish_tension(fish_pos: Vector2, scale: float, dt: float, body_length:
 	var col: = tension_line_color(S.tension) if v >= 0.4 else Color("8ed274")
 	var r: = Rect2(p, Vector2(44, 8))
 	var rarity := int(S.get("grade",0))
-	if rarity > 0 and rarity < GRADE_N.size():
+	if rarity > 0 and rarity < FIGHT_GRADE_INITIALS.size():
 		var accent:Color = [Color.WHITE,Color("6fe0ff"),Color("df9cff"),Color("ffda62"),Color("bdfff0")][rarity]
-		var w := 40 if rarity==2 else 24
+		var w := 12
 		var badge_x := p.x-w-3 if p.x>=w+4 else p.x+47
 		var badge := Rect2(badge_x,p.y-2,w,12)
 		_ui_rect(badge,Color("172438"))
 		_ui_rect(Rect2(badge.position,Vector2(2,12)),accent)
-		_text(GRADE_N[rarity],Vector2(badge_x+w*0.5+1,p.y+8),9,accent,true,w-3,true)
+		_text(FIGHT_GRADE_INITIALS[rarity],Vector2(badge_x+w*0.5+1,p.y+8),9,accent,true,w-3,true)
 	_ui_rect(r.grow(1), Color("101c1e"))
 	_ui_rect(r, Color("d9cca6"))
 	_ui_rect(Rect2(p + Vector2(1, 1), Vector2(42, 6)), Color("263c39"))
