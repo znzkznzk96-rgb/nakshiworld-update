@@ -7,6 +7,12 @@ var outline := PackedVector2Array()
 var wake := PackedVector2Array()
 var stamps := PackedFloat64Array()
 var wake_key := ""
+var previous_behavior := ""
+var previous_facing := 0.0
+var previous_kick := -1
+var action_time := -100.0
+var action_origin := Vector2.ZERO
+var action_forward := Vector2.RIGHT
 const TILE_COUNT := 4
 const GLINT_COUNTS := [0,0,7,9,16]
 var atlas:Texture2D
@@ -131,7 +137,13 @@ func _outline(texture:Texture2D) -> PackedVector2Array:
 	return profile
 
 func _remember(t:float,tail:Vector2,key:String,length:float):
-	if key!=wake_key or (not stamps.is_empty() and (t<stamps[-1] or t-stamps[-1]>0.25 or wake[-1].distance_to(tail)>length*1.5)):
+	var new_sequence := key != wake_key or (not stamps.is_empty() and (t < stamps[-1] or t-stamps[-1] > 0.25))
+	if new_sequence:
+		previous_behavior = ""
+		previous_facing = 0.0
+		action_time = -100.0
+	# A facing flip can move the tail across the fish during the same action.
+	if new_sequence or (not wake.is_empty() and wake[-1].distance_to(tail)>length*1.5):
 		stamps.clear()
 		wake.clear()
 	wake_key=key
@@ -212,6 +224,66 @@ func _glints(m,grade:int,quads:Array,tail:Vector2,forward:Vector2,unit:float,t:f
 		var radius := (3.0+5.2*pulse)*unit
 		_emit(m,at,Vector2.ONE*radius,Color(tint.lerp(Color.WHITE,pulse*0.16),pulse),3,regions)
 
+func _action_motion(m, grade:int, quads:Array, tail:Vector2, forward:Vector2, unit:float, seconds:float, beat:float, regions:Array) -> float:
+	var behavior := str(m.aura.get("behavior",m.S.get("beh","")))
+	var dashing := behavior in ["run","charge"]
+	var was_dashing := previous_behavior in ["run","charge"]
+	var facing := signf(forward.x)
+	var turned := behavior == "turn" and previous_behavior != "turn"
+	var reversed := previous_facing * facing < 0 and behavior in ["circle","run","skim"]
+	var kick := floori(beat / TAU)
+	if grade == 1 and (dashing or behavior == "thrash") and (behavior != previous_behavior or kick != previous_kick) and seconds - action_time > 0.46:
+		action_time = seconds
+		action_origin = tail
+		action_forward = forward
+	elif grade in [2,4] and (turned or reversed) and seconds - action_time > 0.60:
+		action_time = seconds
+	elif grade == 3 and was_dashing and not dashing:
+		action_time = seconds
+		action_origin = tail
+		action_forward = forward
+	previous_behavior = behavior
+	previous_facing = facing
+	previous_kick = kick
+	var age := seconds - action_time
+	if grade == 3 and dashing:
+		for i in 6:
+			var lag := (i+1)*0.055
+			var trail_at := _past(seconds-lag,tail)
+			_emit(m,trail_at,Vector2(7.0-i*0.7,4.2-i*0.35)*unit,Color(Color("ffbd14"),0.92-i*0.12),1,regions)
+	if age < 0 or age >= 0.8:
+		return 0.0
+	if grade == 1:
+		var center := action_origin-action_forward*(3.0+age*9.0)*unit
+		if age < 0.22:
+			_emit(m,center,Vector2.ONE*(6.0+age*26.0)*unit,Color("40f5ff"),0,regions)
+		else:
+			var split := (age-0.22)/0.58
+			for i in 5:
+				var ray := Vector2.UP.rotated((i-2)*0.55)
+				_emit(m,center+ray*(3.0+split*13.0)*unit,Vector2.ONE*(4.3-split*2.0)*unit,Color(Color("62ffe2"),1.0-split),0,regions)
+	elif grade == 2:
+		for i in 8:
+			var u := i/7.0
+			var shine := maxf(0.0,1.0-absf(age-0.08-u*0.36)/0.105)
+			if shine > 0:
+				for upper in [true,false]:
+					_emit(m,_edge(quads,u,upper),Vector2(8,5)*unit,Color(Color("df4aff"),shine),1,regions)
+		if age >= 0.42:
+			var spread := (age-0.42)/0.38
+			for i in 4:
+				var dir := (-forward).rotated((i-1.5)*0.56)
+				_emit(m,tail+dir*(4+spread*16)*unit,Vector2.ONE*(6-spread*3)*unit,Color(Color("ee62ff"),1-spread),3,regions)
+	elif grade == 3:
+		var spread := age/0.8
+		for i in 9:
+			var ray := (-action_forward).rotated((i-4)*0.37)
+			var at := action_origin+ray*(2+sqrt(spread)*(10+i%3*5))*unit
+			_emit(m,at,Vector2.ONE*(5.5-spread*3)*unit,Color(Color("ffd534"),1-spread),3,regions)
+	elif grade == 4:
+		return sin(PI*clampf((age-0.08)/0.72,0.0,1.0))
+	return 0.0
+
 func queue(m,quads:Array,grade:int,t:float):
 	points.clear();uvs.clear();colors.clear();indices.clear();last_samples.clear()
 	gpu_mask=not m.ui_demo and is_instance_valid(m.text_layer)
@@ -237,9 +309,12 @@ func queue(m,quads:Array,grade:int,t:float):
 	var forward := (head-tail).normalized()
 	var seconds := t*0.001
 	var remember_motion:bool=not m.ui_demo and not context.get("group",false)
-	if remember_motion: _remember(seconds,tail,str(m.aura.get("tex"))+str(grade),length)
+	if remember_motion: _remember(seconds,tail,str(m.S.get("sp",-1))+":"+str(grade),length)
 	var beat := float(m.aura.get("swim_phase",seconds*TAU))
 	var surge := 1.0 if str(m.aura.get("behavior","")) in ["run","charge","turn","thrash"] else 0.0
+	var fan := 0.0
+	if remember_motion and str(m.S.get("phase","")) == "fight":
+		fan = _action_motion(m,grade,quads,tail,forward,unit,seconds,beat,regions)
 	_water_particles(m,grade,quads,tail,forward,unit,seconds,remember_motion,regions)
 	_glints(m,grade,quads,tail,forward,unit,seconds,remember_motion,regions)
 	for side in 2:
@@ -286,6 +361,9 @@ func queue(m,quads:Array,grade:int,t:float):
 			var at := tail-forward*length*(0.13+0.33*cos(orbit)+k*0.078)
 			at.y += sin(orbit)*(7+k*0.8+surge*4)*unit
 			if remember_motion: at+=(_past(seconds-0.10-k*0.05,tail)-tail)*0.65
+			if fan > 0:
+				var slot := tail-forward*(16.0+3.0*absf(k-2))*unit+Vector2.DOWN*(k-2)*7.2*unit
+				at = at.lerp(slot,fan)
 			var hue := fposmod(0.48+k*0.23+0.09*sin(orbit),1.0)
 			var pearl := Color.from_hsv(hue,0.88,1).lerp(Color.WHITE,pow(absf(cos(orbit)),8)*0.22)
 			var size := Vector2(10.5+1.8*cos(beat+k)+k*0.4,6.8+k*0.24)*unit

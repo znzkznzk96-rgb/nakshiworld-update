@@ -1,0 +1,30 @@
+{
+  "cases": 24,
+  "failures": [],
+  "heights": [
+    480,
+    540,
+    660
+  ],
+  "max_live_emitters": 50,
+  "max_ui_commands": 181,
+  "renders": 48,
+  "action_checks": {
+    "reservoir_samples": [
+      "ACTION_SAMPLE 1 50 charge age=0.13333333333333",
+      "ACTION_SAMPLE 1 72 charge age=0.0",
+      "ACTION_SAMPLE 1 102 swim age=0.5",
+      "ACTION_SAMPLE 2 50 turn age=0.13333333333333",
+      "ACTION_SAMPLE 2 72 turn age=0.5",
+      "ACTION_SAMPLE 2 102 swim age=1.0",
+      "ACTION_SAMPLE 3 50 charge age=115.833333333333",
+      "ACTION_SAMPLE 3 72 charge age=116.2",
+      "ACTION_SAMPLE 3 102 swim age=0.21666666666666",
+      "ACTION_SAMPLE 4 50 turn age=0.13333333333333",
+      "ACTION_SAMPLE 4 72 turn age=0.5",
+      "ACTION_SAMPLE 4 102 swim age=1.0"
+    ],
+    "rift_species": 60,
+    "rift_result": "RIFT_ACTION_FAILURES []"
+  }
+}

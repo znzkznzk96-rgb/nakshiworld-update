@@ -7,7 +7,7 @@
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
   "current_task": "등급별 파이팅 동작 오라",
-  "next_step": "행동 연출 구현",
+  "next_step": "네 등급 동작 비교본 검토",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
