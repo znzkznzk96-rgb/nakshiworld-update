@@ -7,7 +7,7 @@
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
   "current_task": "등급 오라 식별성 및 화려함 재제작",
-  "next_step": "스페이스 4등급 모션 비교 검토",
+  "next_step": "새 오라 영상 검토",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -2313,7 +2313,7 @@
   },
   "fish_aura_direction": {
     "reference": "Guild Wars 2 Frenzy",
-    "status": "implemented_work_branch",
+    "status": "rarity_label_and_ribbon_rework_implemented",
     "placement": "머리까지 위아래로 연결, 게이지와 겹치는 오라만 감쇠",
     "space_preview": "https://chatgpt.com/space/page_348c945c851c8191966ef0b8b3440b60",
     "deployed": false

@@ -163,6 +163,79 @@ func _emit(m,p:Vector2,size:Vector2,color:Color,kind:int,regions:Array):
 	last_samples.append(p)
 	_sprite(m,p,size,color,kind,regions)
 
+# Joined tapered ribbons use the white texel of the scale tile in the same
+# masked mesh as the particles, keeping the fish and its alerts in front.
+func _ribbon(m,path:PackedVector2Array,width:float,ink:Color,regions:Array):
+	var first := points.size()
+	for i in path.size():
+		var tangent := path[mini(i+1,path.size()-1)]-path[maxi(i-1,0)]
+		var flank := tangent.normalized().orthogonal()
+		var taper := 0.08+0.92*pow(maxf(0,sin(PI*i/(path.size()-1))),0.65)
+		for sign_y in [-1.0,1.0]:
+			var at:Vector2 = path[i]+flank*width*taper*sign_y
+			var color:=ink
+			if not gpu_mask and masking_enabled:
+				for j in regions.size():
+					color.a*=lerpf(1.0,mask_alpha(at,[regions[j]]),region_weights[j])
+			points.append(at+Vector2(0,0 if m.ui_demo else m.oy))
+			uvs.append(Vector2(12.5/24.0,1.5/8.0))
+			colors.append(color)
+		if i>0:
+			var n:=first+i*2
+			indices.append_array(PackedInt32Array([n-2,n-1,n,n,n-1,n+1]))
+
+func _flare(m,at:Vector2,r:float,ink:Color,regions:Array):
+	for axis in [Vector2.RIGHT,Vector2.DOWN]:
+		var ray:Vector2=axis*r*(0.70 if axis==Vector2.RIGHT else 1.0)
+		_ribbon(m,PackedVector2Array([at-ray,at,at+ray]),r*0.20,ink,regions)
+
+func _crest(m,grade:int,head:Vector2,tail:Vector2,unit:float,t:float,surge:float,regions:Array):
+	var axis:=(head-tail).normalized()
+	var normal:=axis.orthogonal()
+	var center:=(head+tail)*0.5
+	var length:=head.distance_to(tail)
+	for side in [-1.0,1.0]:
+		var path:=PackedVector2Array()
+		match grade:
+			1,2:
+				# Blue crescents break into spray. Violet blades cross on a tilted orbit.
+				var spin:float=t*(1.9 if grade==1 else 2.8)+side*0.32
+				for i in 16:
+					var a:=spin+i/15.0*(1.7 if grade==1 else 2.35)
+					var along:=cos(a)*length*(0.55 if grade==1 else 0.66)
+					var across:=sin(a)*(7.0 if grade==1 else 11.0)*unit
+					if grade==2: across+=along*0.32
+					path.append(center+(axis*along+normal*across)*side)
+				var ink:=Color("39ceff") if grade==1 else Color("aa50ff")
+				_ribbon(m,path,(1.35 if grade==1 else 2.4)*unit,ink,regions)
+				_ribbon(m,path,0.58*unit,ink.lightened(0.78),regions)
+				if grade==2: _flare(m,path[11],4.3*unit,Color("f2baff"),regions)
+			3:
+				# Three unequal golden plumes unfurl from the tail on each beat.
+				for plume in 3:
+					path.clear()
+					for i in 13:
+						var u:=i/12.0
+						var spread:float=side*(3+plume*4.2)*unit*sin(u*PI*0.8)
+						spread+=sin(t*6-u*5+plume*0.6)*u*2.7*unit
+						path.append(tail+axis*length*(0.34-u*(1.08-plume*0.18+surge*0.14))+normal*spread)
+					_ribbon(m,path,(2.35-plume*0.38)*unit,Color("ff9b24"),regions)
+					_ribbon(m,path,0.85*unit,Color("fff0a1"),regions)
+				var pulse:=fposmod(t*1.35+(0.5 if side>0 else 0.0),1.0)
+				_flare(m,head.lerp(tail,pulse)+normal*side*4.8*unit,unit*(2.5+3.5*sin(PI*pulse)),Color("fff9c9"),regions)
+			4:
+				# Three aurora streams wrap the body and trail the escort school.
+				for band in 3:
+					path.clear()
+					for i in 18:
+						var u:=i/17.0
+						var wave:float=side*(sin(PI*u)*(8+band*2.5)+sin(u*TAU*1.4-t*3+band*0.45)*6*u)*unit
+						path.append(head+axis*length*(0.10-u*(1.98+surge*0.2))+normal*wave)
+					var hue:=fposmod(0.49+band*0.13+side*0.08+sin(t*2)*0.05,1.0)
+					_ribbon(m,path,(2.15-band*0.3)*unit,Color.from_hsv(hue,0.76,1,0.82),regions)
+					if band==1: _ribbon(m,path,0.64*unit,Color("edfffd"),regions)
+				_flare(m,path[5],unit*(3.5+2.2*sin(t*5+side)),Color("ffebff"),regions)
+
 func queue(m,quads:Array,grade:int,t:float):
 	points.clear();uvs.clear();colors.clear();indices.clear();last_samples.clear()
 	gpu_mask=not m.ui_demo and is_instance_valid(m.text_layer)
@@ -191,6 +264,7 @@ func queue(m,quads:Array,grade:int,t:float):
 	if remember_motion: _remember(seconds,tail,str(m.aura.get("tex"))+str(grade),length)
 	var beat := float(m.aura.get("swim_phase",seconds*TAU))
 	var surge := 1.0 if str(m.aura.get("behavior","")) in ["run","charge","turn","thrash"] else 0.0
+	_crest(m,grade,head,tail,unit,seconds,surge,regions)
 	for side in 2:
 		var upper := side == 0
 		var normal := Vector2.UP if upper else Vector2.DOWN
@@ -237,7 +311,7 @@ func queue(m,quads:Array,grade:int,t:float):
 			if remember_motion: at+=(_past(seconds-0.10-k*0.05,tail)-tail)*0.65
 			var hue := fposmod(0.48+k*0.23+0.09*sin(orbit),1.0)
 			var pearl := Color.from_hsv(hue,0.44,1).lerp(Color.WHITE,pow(absf(cos(orbit)),8)*0.6)
-			var size := Vector2(10+1.5*cos(beat+k),6.5)*unit
+			var size := Vector2(14+1.5*cos(beat+k),9)*unit
 			if forward.x<0: size.x=-size.x
 			_emit(m,at,size,pearl,2,regions)
 	if not indices.is_empty():

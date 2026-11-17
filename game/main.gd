@@ -2533,6 +2533,15 @@ func _draw_fish_tension(fish_pos: Vector2, scale: float, dt: float, body_length:
 	var v: = clampf(S.tension / 100.0, 0, 1)
 	var col: = tension_line_color(S.tension) if v >= 0.4 else Color("8ed274")
 	var r: = Rect2(p, Vector2(44, 8))
+	var rarity := int(S.get("grade",0))
+	if rarity > 0 and rarity < GRADE_N.size():
+		var accent:Color = [Color.WHITE,Color("6fe0ff"),Color("df9cff"),Color("ffda62"),Color("bdfff0")][rarity]
+		var w := 32 if rarity==2 else 24
+		var badge_x := p.x-w-3 if p.x>=w+4 else p.x+47
+		var badge := Rect2(badge_x,p.y-2,w,12)
+		_ui_rect(badge,Color("172438"))
+		_ui_rect(Rect2(badge.position,Vector2(2,12)),accent)
+		_text(GRADE_N[rarity],Vector2(badge_x+w*0.5+1,p.y+8),9,accent,true,w-3,true)
 	_ui_rect(r.grow(1), Color("101c1e"))
 	_ui_rect(r, Color("d9cca6"))
 	_ui_rect(Rect2(p + Vector2(1, 1), Vector2(42, 6)), Color("263c39"))
