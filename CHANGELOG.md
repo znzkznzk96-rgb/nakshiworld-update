@@ -1,3 +1,7 @@
+## v1.40 · 2026-11-17 · 파이팅 한 글자 등급 배지
+
+등급색 R·U·L·M 배지를 파이팅 게이지 옆에 적용해 공개했다. 결과창·도감은 한글 표기. [배포 및 운영 다운로드 검증](docs/qa/fish-aura-integration/RELEASE140_VERIFICATION.json). 휴대폰 적용 미확인.
+
 ## v1.39 · 2026-11-17 · 물고기 등급 오라와 비늘조각
 
 네 등급 동작 오라와 등급 표기, 비늘조각 이름·그림·도움말, 로딩 중 세이브 보호를 공개했다. [배포 및 운영 다운로드 검증](docs/qa/fish-aura-integration/RELEASE139_VERIFICATION.json). 다음 확인은 Android 실기 적용이다.
