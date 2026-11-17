@@ -2313,6 +2313,7 @@
   },
   "fish_aura_direction": {
     "reference": "Guild Wars 2 Frenzy",
-    "status": "direction_confirmed_tier_design_proposed"
+    "status": "direction_confirmed_tier_design_proposed",
+    "placement": "머리까지 위아래로 연결, 게이지와 겹치는 오라만 감쇠"
   }
 }
