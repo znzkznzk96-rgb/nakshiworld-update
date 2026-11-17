@@ -169,7 +169,7 @@ func _emit(m,p:Vector2,size:Vector2,color:Color,kind:int,regions:Array):
 # Detached bubbles rise in the water while the fish continues swimming.
 func _water_particles(m,grade:int,quads:Array,tail:Vector2,forward:Vector2,unit:float,t:float,history:bool,regions:Array):
 	var count:int=[0,7,11,12,15][grade]
-	var tint:Color=[Color.WHITE,Color("69d5ff"),Color("b7a0fa"),Color("ffe8a0"),Color("a9f8f0")][grade]
+	var tint:Color=[Color.WHITE,Color("08ddff"),Color("b039ff"),Color("ffba09"),Color("14ffd7")][grade]
 	for k in count:
 		var speed:=0.67+0.16*sin(k*3.87)
 		var age:=fposmod(t*speed+k*0.618,1.0)
@@ -181,13 +181,13 @@ func _water_particles(m,grade:int,quads:Array,tail:Vector2,forward:Vector2,unit:
 		if history: at+=(_past(t-age*0.32,tail)-tail)*age
 		var radius:float=(3.0+2.4*fposmod(k*0.43,1.0)+0.9*age)*unit
 		var alpha:=pow(maxf(0.0,sin(PI*age)),0.55)
-		_emit(m,at,Vector2.ONE*radius,Color(tint,alpha*0.82),0,regions)
+		_emit(m,at,Vector2.ONE*radius,Color(tint,alpha*0.97),0,regions)
 		if grade>=2 and k%2==0:
 			# A detached scale flashes only while its broad face turns to the light.
 			var flip:=absf(sin(t*3.7+k*2.31))
 			var scale_at:=at-forward*2.8*unit+Vector2(0,2.2*unit)
-			var metal:Color=[Color.WHITE,Color.WHITE,Color("ae6df1"),Color("ffb239"),Color.from_hsv(fposmod(0.47+k*0.16+t*0.08,1),0.53,1)][grade]
-			_emit(m,scale_at,Vector2(1.8+4.8*flip,4.8)*unit,Color(metal.lerp(Color.WHITE,pow(flip,8)*0.78),alpha),1,regions)
+			var metal:Color=[Color.WHITE,Color.WHITE,Color("c02aff"),Color("ff9700"),Color.from_hsv(fposmod(0.47+k*0.16+t*0.08,1),0.92,1)][grade]
+			_emit(m,scale_at,Vector2(1.8+4.8*flip,4.8)*unit,Color(metal.lerp(Color.WHITE,pow(flip,8)*0.25),alpha),1,regions)
 
 # Offset the individual pulses so the school shimmers without flashing as a unit.
 func _glints(m,grade:int,quads:Array,tail:Vector2,forward:Vector2,unit:float,t:float,history:bool,regions:Array):
@@ -200,11 +200,11 @@ func _glints(m,grade:int,quads:Array,tail:Vector2,forward:Vector2,unit:float,t:f
 		var drift := (3.2+4.5*fposmod(k*0.73,1.0)+phase*4.0)*unit
 		at += Vector2(0,-drift if upper else drift)-forward*phase*phase*unit*(5.0+k%5)
 		if history: at+=(_past(t-phase*0.27,tail)-tail)*phase
-		var tint := Color("de9aff")
-		if grade==3: tint=Color("ffce70")
-		elif grade==4: tint=Color.from_hsv(fposmod(0.42+k*0.173,1.0),0.46,1)
+		var tint := Color("dc42ff")
+		if grade==3: tint=Color("ffcc0a")
+		elif grade==4: tint=Color.from_hsv(fposmod(0.42+k*0.173,1.0),0.89,1)
 		var radius := (3.0+5.2*pulse)*unit
-		_emit(m,at,Vector2.ONE*radius,Color(tint.lerp(Color.WHITE,pulse*0.58),pulse),3,regions)
+		_emit(m,at,Vector2.ONE*radius,Color(tint.lerp(Color.WHITE,pulse*0.16),pulse),3,regions)
 
 func queue(m,quads:Array,grade:int,t:float):
 	points.clear();uvs.clear();colors.clear();indices.clear();last_samples.clear()
@@ -243,28 +243,28 @@ func queue(m,quads:Array,grade:int,t:float):
 		match grade:
 			1:
 				for k in 2:
-					var age := fposmod(seconds*0.85+k*0.51+side*0.32,1.0)
+					var age := fposmod(seconds*0.85+k*0.51+side*0.83,1.0)
 					var at := _edge(quads,0.08+0.88*age,upper)
 					at += normal*(1.0+age*2.0)*unit + Vector2(0,-age*age*5)*unit
 					if remember_motion: at+=(_past(seconds-age*0.29,tail)-tail)*smoothstep(0.2,0.9,age)
 					var radius := (4.4+2.3*age)*unit
-					_emit(m,at,Vector2.ONE*radius,Color(Color("a2eaff"),pow(sin(PI*age),0.65)),0,regions)
+					_emit(m,at,Vector2.ONE*radius,Color(Color("36efff"),pow(sin(PI*age),0.65)),0,regions)
 			2:
 				var u := 0.50+0.46*sin(seconds*2.6+side*PI)
 				var at := _edge(quads,u,upper)+normal*(2.4+2.0*sin(PI*u))*unit
 				if remember_motion: at+=(_past(seconds-0.08,tail)-tail)*u*0.36
 				var flip := absf(cos(seconds*4.4+side*2.1))
-				_emit(m,at,Vector2(2+8*flip,8)*unit,Color("ae79fd").lerp(Color("f7ddff"),pow(flip,5)),1,regions)
+				_emit(m,at,Vector2(2+8*flip,8)*unit,Color("b431ff").lerp(Color("f489ff"),pow(flip,5)),1,regions)
 			3:
 				for k in 5:
 					var u := flow-k*0.045
 					if u >= 0:
 						var at := _edge(quads,u,upper)+normal*(1.1+sin(PI*u))*unit
-						_emit(m,at,Vector2(5.8-k*0.65,3.4)*unit,Color(Color("fff5bb").lerp(Color("ffab3d"),k/5.0),sin(PI*flow)*(1-k*0.16)),1,regions)
+						_emit(m,at,Vector2(5.8-k*0.65,3.4)*unit,Color(Color("ffe43d").lerp(Color("ff8a00"),k/5.0),sin(PI*flow)*(1-k*0.16)),1,regions)
 			4:
 				for k in 3:
 					var u := fposmod(flow+k/3.0,1.0)
-					var pearl := Color.from_hsv(fposmod(u*0.42+side*0.3+seconds*0.12,1.0),0.32,1)
+					var pearl := Color.from_hsv(fposmod(u*0.42+side*0.3+seconds*0.12,1.0),0.83,1)
 					_emit(m,_edge(quads,u,upper)+normal*1.6*unit,Vector2(4,2.8)*unit,Color(pearl,sin(PI*u)*0.86),1,regions)
 	if grade == 3:
 		for k in 6:
@@ -273,7 +273,7 @@ func queue(m,quads:Array,grade:int,t:float):
 			var at := tail-forward*travel + Vector2(0,(k-2.5)*sin(age*PI*0.85)*3.45-sin(age*TAU)*2.5)*unit
 			if remember_motion: at+=(_past(seconds-0.24*age,tail)-tail)*age*0.55
 			var flip := absf(cos(age*9+k))
-			_emit(m,at,Vector2(3+7*flip,7.5)*unit,Color(Color("ff9f1e").lerp(Color("fff7d2"),flip),sin(PI*age)),1,regions)
+			_emit(m,at,Vector2(3+7*flip,7.5)*unit,Color(Color("ff8800").lerp(Color("ffe53d"),flip),sin(PI*age)),1,regions)
 	elif grade == 4:
 		for k in 5:
 			var orbit := seconds*(1.65+0.09*k)+k*TAU/5.0
@@ -281,7 +281,7 @@ func queue(m,quads:Array,grade:int,t:float):
 			at.y += sin(orbit)*(7+k*0.8+surge*4)*unit
 			if remember_motion: at+=(_past(seconds-0.10-k*0.05,tail)-tail)*0.65
 			var hue := fposmod(0.48+k*0.23+0.09*sin(orbit),1.0)
-			var pearl := Color.from_hsv(hue,0.44,1).lerp(Color.WHITE,pow(absf(cos(orbit)),8)*0.6)
+			var pearl := Color.from_hsv(hue,0.88,1).lerp(Color.WHITE,pow(absf(cos(orbit)),8)*0.22)
 			var size := Vector2(10.5+1.8*cos(beat+k)+k*0.4,6.8+k*0.24)*unit
 			if forward.x<0: size.x=-size.x
 			_emit(m,at,size,pearl,2,regions)

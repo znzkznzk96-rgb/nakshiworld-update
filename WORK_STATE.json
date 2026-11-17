@@ -7,7 +7,7 @@
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
   "current_task": "등급별 수중 오라 채도 조정",
-  "next_step": "등급별 발광색 수정 및 렌더 검수",
+  "next_step": "스페이스에서 등급별 오라 발색 검토",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
