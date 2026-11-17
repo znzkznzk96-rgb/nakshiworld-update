@@ -23,7 +23,7 @@ func run() -> void:
 		m.queue_redraw(); await process_frame; await process_frame; await RenderingServer.frame_post_draw
 		var found := false
 		for cmd in m.ui_commands:
-			if cmd[0] == "region" and cmd[1] == e.animation.rod_sheet: found = true
+			if cmd[0] == "region" and cmd[1] in e.sheets: found = true
 		if not found: failures.append("missing whole smith atlas frame " + str(i))
 		root.get_texture().get_image().save_png(out.path_join("smith_%d.png" % i))
 	e.phase = "result"; e.elapsed = 0.6

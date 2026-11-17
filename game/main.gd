@@ -435,6 +435,9 @@ func _pixel_font(p: String) -> FontFile:
 
 
 func play(n: String, vol: = 0.0, pitch: = 1.0) -> void :
+	if n.begins_with("forge_"):
+		audio_feedback.sound(self, n, vol, pitch)
+		return
 	var replacement := {"ui":"click","plop":"water","splash_s":"water","splash_b":"splash","hook":"hook","catch":"catch","record":"record","snap":"snap","creak":"tension","hammer":"hammer","land":"splash","reel":"reel"}
 	if replacement.has(n) and not audio_feedback.streams.is_empty():
 		audio_feedback.sound(self,replacement[n],vol-8.0,pitch);return

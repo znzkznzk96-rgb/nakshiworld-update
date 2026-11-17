@@ -2,20 +2,22 @@ extends RefCounted
 
 const LIMIT: = [5, 8, 10, 13, 16, 20]
 const SOUL_COEF: = [1, 2, 4, 8, 16, 32]
+const HIT_AT := [0.60, 1.42, 2.48]
+const HIT_SOUNDS := ["forge_light", "forge_medium", "forge_heavy"]
+const WORK_TIME := 2.56
+const REVEAL_TIME := 1.04
+const TOTAL_FRAMES := 216
+const FAILURE_START := 148
+const FRAME_SIZE := 128
+var sheets: Array[Texture2D] = []
 var phase: = ""
 var elapsed: = 0.0
 var strikes: = 0
 var use_protection: = false
 var record: = {}
-var animation: = {}
-func setup() -> void :
-	animation["rod_sheet"] = load("res://art/effects/upgrade/rod.png")
-	for name in ["smith", "success", "failure"]:
-		var frames: Array = []
-		for i in 8:
-			var path: String = "res://art/refresh52/%s_%d.png" % [name, i]
-			if ResourceLoader.exists(path): frames.append(load(path))
-		animation[name] = frames
+func setup() -> void:
+	for i in 9:
+		sheets.append(load("res://art/forge138/strike_%02d.webp" % i))
 func chance(rod: int, level: int) -> float:
 	return maxf(0.3, 0.95 - 0.05 * float(level) * 20.0 / LIMIT[rod])
 const BASE_COST: = [90, 300, 1080, 3600, 12000, 39000]
@@ -41,24 +43,43 @@ func start(m, roll: float = -1.0) -> bool:
 	m.forge_pending = record.duplicate();m._save_game()
 	phase = "working";elapsed = 0.0;strikes = 0
 	return true
-func process(m, dt: float) -> void :
-	if phase == "": return
-	elapsed += dt
+func process(m, dt: float) -> void:
+	if phase == "":
+		return
+	elapsed += maxf(0.0, dt)
 	if phase == "working":
-		var strike: int = clampi(int(floor((elapsed - 0.5) / 1.3)) + 1, 0, 2)
-		if strike > strikes:
-			strikes = strike;m.play("hammer", -4.0, 0.96 + strikes * 0.03);m.buzz([20])
-		if elapsed >= 2.6:
-			phase = "result";elapsed = 0.0;m.forge_seen = true;m._save_game()
-			m.play("catch" if bool(record.success) else "snap")
-			m.buzz([40, 20, 70] if bool(record.success) else [80])
+		var count: int = 0
+		for i in HIT_AT.size():
+			if elapsed >= float(HIT_AT[i]):
+				count += 1
+		if count > strikes:
+			for i in range(strikes, count):
+				m.play(HIT_SOUNDS[i])
+				m.buzz([25 + 20 * i])
+			strikes = count
+		if elapsed >= WORK_TIME:
+			_reveal(m)
+
+func _reveal(m) -> void:
+	if phase != "working":
+		return
+	phase = "result"
+	elapsed = 0.0
+	m.forge_seen = true
+	m._save_game()
+	m.play("forge_success" if bool(record.success) else "forge_failure")
+	m.buzz([40, 20, 75] if bool(record.success) else [80, 25, 55])
 func dismiss(m) -> void :
 	phase = "";record = {};m.forge_pending = {};m._save_game()
 func act(v, m, a: String) -> bool:
 	match a:
 		"forge": start(m);return true
-		"forge_skip": elapsed = 2.6;process(m, 0.0);return true
-		"forge_done": dismiss(m);return true
+		"forge_skip":
+			if phase == "working" and m.forge_seen: _reveal(m)
+			return true
+		"forge_done":
+			if phase == "result" and elapsed >= REVEAL_TIME: dismiss(m)
+			return true
 		"forge_protect": use_protection = not use_protection;return true
 		"forge_ticket":
 			if m.pearl >= 1: m.pearl -= 1;m.protection_tickets += 1;m._save_game()
@@ -78,29 +99,29 @@ func _material(v, m, r: Rect2, icon: Texture2D, name: String, required: int, own
 func draw(v, m, r: Rect2, y: float) -> void :
 	if busy(): _cinematic(v, m, r, y);return
 	preload("res://addons/reservoir/forge_layout.gd").new().draw_upgrade(v,m,r,y+3)
-func _cinematic(v, m, r: Rect2, y: float) -> void :
-	var scene: = Rect2(39, y + 5, 192, 112)
-	m._ui_rect(scene, Color("211d24"))
-	# The approved 13-frame PixelLab cycle replaces the old eight-frame smith.
-	var fi: int = mini(12,int(fposmod(elapsed,1.3)/0.1)) if phase=="working" else 0
-	m._ui_texture_rect_region(animation.rod_sheet,scene,Rect2(fi*192,0,192,112))
-	m.ui_commands.append(["rotated_texture", v.rods[int(record.rod)], scene.position + Vector2(112, 74), PI / 4])
+func _cinematic(v, m, _r: Rect2, y: float) -> void:
+	var t: float = elapsed if phase == "working" else WORK_TIME + elapsed
+	var frame := clampi(floori(t * 60.0), 0, TOTAL_FRAMES - 1)
+	if not bool(record.success) and frame >= FAILURE_START:
+		frame += TOTAL_FRAMES - FAILURE_START
+	var cell := Vector2i(frame % 8, (frame % 32) / 8)
+	var scene := Rect2(71, y + 1, FRAME_SIZE, FRAME_SIZE)
+	m._ui_texture_rect_region(sheets[frame / 32], scene, Rect2(Vector2(cell * FRAME_SIZE), Vector2(FRAME_SIZE, FRAME_SIZE)))
 	if phase == "working":
-		m._text("강화 중…", Vector2(135, y + 140), 14, v.active_style.ink, true, 230)
+		m._text("망치 3타격 · 빛 응축", Vector2(135, y + 140), 12, Color("f4d48a"), true, 230)
 		m._ui_rect(Rect2(39, y + 154, 192, 9), Color("382c2c"))
-		m._ui_rect(Rect2(40, y + 155, 190 * minf(1, elapsed / 2.6), 7), Color("e7ad56"))
+		m._ui_rect(Rect2(40, y + 155, 190 * minf(1.0, elapsed / WORK_TIME), 7), Color("ffd36b"))
 		m._text("+%d → +%d" % [int(record.old), int(record.old) + 1], Vector2(135, y + 191), 16, v.active_style.ink, true, 220)
-		if m.forge_seen: _button(v, m, Rect2(91, y + 213, 88, 25), "빠르게 보기", "forge_skip")
+		if m.forge_seen:
+			_button(v, m, Rect2(91, y + 213, 88, 25), "빠르게 보기", "forge_skip")
 	else:
-		var ok: bool = record.success
-		var frames: Array = animation.get("success" if ok else "failure", [])
-		if ok and elapsed < 1.1:
-			for spark in 8:
-				var p := scene.get_center() + Vector2(cos(spark * TAU / 8) * (10 + elapsed * 25), sin(spark * TAU / 8) * (10 + elapsed * 25))
-				m._ui_rect(Rect2(p.round(), Vector2(2, 2)), Color(1.0, 0.8, 0.3, 1.0 - elapsed / 1.1))
+		var ok: bool = bool(record.success)
+		if ok and t >= 3.01:
+			m._text("+%d" % int(record.next), scene.position + Vector2(64, 76), 16, Color("fff3aa"), true, 58)
 		var title: String = "강화 성공!" if ok else ("강화 실패 · 단계 하락" if int(record.next) < int(record.old) else "강화 실패 · 단계 유지")
-		m._text(title, Vector2(135, y + 141), 14, Color("b77c24") if ok else Color("81546e"), true, 230)
+		m._text(title, Vector2(135, y + 141), 14, Color("edba4b") if ok else Color("b17b81"), true, 230)
 		m._text("+%d → +%d" % [int(record.old), int(record.next)], Vector2(135, y + 174), 20, v.active_style.ink, true, 220)
 		var desc: String = "감기·제어 성능↑ · 판매가 +5%" if ok else ("보호권이 하락을 막았어요" if bool(record.protected) else "낚싯대는 파괴되지 않아요")
 		m._text(desc, Vector2(135, y + 199), 9, v.active_style.ink, true, 232)
-		_button(v, m, Rect2(64, y + 216, 142, 28), "확인", "forge_done")
+		if elapsed >= REVEAL_TIME:
+			_button(v, m, Rect2(64, y + 216, 142, 28), "확인", "forge_done")

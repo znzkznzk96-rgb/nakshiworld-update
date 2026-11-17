@@ -46,6 +46,7 @@ func run() -> void:
 	for key in m.audio_feedback.PATTERNS:
 		m.audio_feedback.action(m,key);await create_timer(0.06).timeout;m.audio_feedback.stop_all();await process_frame
 	var expected_sounds:Array=["water","swim","bubbles","splash","rain","music","click","hook","catch","record","snap","hammer","reel","thunder","tension","cast","village","gull1","gull2","horn","unlock_chain_pull","unlock_latch","unlock_chain_release"]
+	expected_sounds.append_array(["forge_light","forge_medium","forge_heavy","forge_success","forge_failure"])
 	check(m.audio_feedback.streams.size()==expected_sounds.size(),"all named sound resources imported")
 	for key in expected_sounds:check(m.audio_feedback.streams.get(key) is AudioStream,"valid imported sound "+key)
 	check(m.audio_feedback.music.stream.loop and m.audio_feedback.rain.stream.loop,"title seamless loops enabled")

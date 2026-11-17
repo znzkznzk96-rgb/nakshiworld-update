@@ -30,7 +30,7 @@ func run() -> void:
  var gold: int=m.gold;v.press(m,Vector2(10,10));check(m.gold==gold and int(d.unit(uid).level)==1,"double train blocked")
  v.update(m,2.1);check(v.effect_kind=="" and int(d.unit(uid).level)==1,"effect ends without reapplying upgrade")
  for kind in ["alchemy","soldier"]:check(v.textures["fx_"+kind].get_size()==Vector2(1664,128),"effect atlas loaded "+kind)
- check(m.V.enhancement.animation.rod_sheet.get_size()==Vector2(2496,112),"rod atlas loaded")
+ check(m.V.enhancement.sheets.size()==9 and m.V.enhancement.sheets[0].get_size()==Vector2(1024,512),"rod atlas loaded")
  var host=FailedSaveHost.new();var other=load("res://addons/expedition/view.gd").new();other.data.restore({});other.data.souls=[10,10,10,10,10]
  other.rects={"craft":Rect2(0,0,20,20)};other.press(host,Vector2(10,10))
  check(other.data.soldiers.is_empty() and other.data.souls==[10,10,10,10,10] and other.effect_kind=="","craft rolls back failed save")

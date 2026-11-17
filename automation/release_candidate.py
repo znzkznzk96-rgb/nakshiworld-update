@@ -5,7 +5,7 @@ RIFT_SELECTION = 'docs/art/rift-fish/APPROVED_MOTION_20_20261111.json'
 INPUTS = ['game', 'automation', '.github/workflows/verify-work.yml', '.github/workflows/release-patch.yml', RIFT_SELECTION, 'docs/art/rift-background-20261111/approved-clean-data']
 # These approved archives are build inputs even though their audit trail lives in docs.
 INPUTS += sorted({s['motion_source'] for s in json.loads((ROOT/RIFT_SELECTION).read_text())['species']})
-TOOLS = {'godot':'4.4.1.stable', 'baseline':'v1.36', 'baseline_sha256':'ced26a80c76af7743c0d3cb90a1d4e0ff6f35c19e6e263dd5bd708d2b4fde62c'}
+TOOLS = {'godot':'4.4.1.stable', 'baseline':'v1.37', 'baseline_sha256':'101657a2e83f764234a67bebb0b73dea03686a8c60e5e407288a794f41fe15f9'}
 def git(*args):
     return subprocess.check_output(['git', *args], cwd=ROOT).decode().strip()
 def fingerprint():
@@ -102,3 +102,4 @@ if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('action',choices=['seal','publish']);p.add_argument('--project',type=pathlib.Path);p.add_argument('--out',type=pathlib.Path,required=True);a=p.parse_args()
     if a.action=='seal': seal(a.project,a.out)
     else: a.out.mkdir(parents=True,exist_ok=True);publish(a.out)
+
