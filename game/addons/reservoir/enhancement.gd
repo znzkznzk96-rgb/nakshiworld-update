@@ -2,26 +2,22 @@ extends RefCounted
 
 const LIMIT: = [5, 8, 10, 13, 16, 20]
 const SOUL_COEF: = [1, 2, 4, 8, 16, 32]
-# Three blows, a 0.15 s held beat, then 0.82 s of non-skippable reveal.
-const HIT_AT: = [0.58, 1.40, 2.22]
-const WORK_TIME: = 2.70
-const HOLD_TIME: = 0.15
-const REVEAL_TIME: = 0.82
-const SMITH_CYCLE: = 0.82
+const HIT_AT := [0.60, 1.42, 2.48]
+const HIT_SOUNDS := ["forge_light", "forge_medium", "forge_heavy"]
+const WORK_TIME := 2.56
+const REVEAL_TIME := 1.04
+const TOTAL_FRAMES := 216
+const FAILURE_START := 148
+const FRAME_SIZE := 128
+var sheets: Array[Texture2D] = []
 var phase: = ""
 var elapsed: = 0.0
 var strikes: = 0
 var use_protection: = false
 var record: = {}
-var animation: = {}
-func setup() -> void :
-	animation["rod_sheet"] = load("res://art/effects/upgrade/rod.png")
-	for name in ["smith", "success", "failure"]:
-		var frames: Array = []
-		for i in 8:
-			var path: String = "res://art/refresh52/%s_%d.png" % [name, i]
-			if ResourceLoader.exists(path): frames.append(load(path))
-		animation[name] = frames
+func setup() -> void:
+	for i in 9:
+		sheets.append(load("res://art/forge138/strike_%02d.webp" % i))
 func chance(rod: int, level: int) -> float:
 	return maxf(0.3, 0.95 - 0.05 * float(level) * 20.0 / LIMIT[rod])
 const BASE_COST: = [90, 300, 1080, 3600, 12000, 39000]
@@ -58,7 +54,7 @@ func process(m, dt: float) -> void:
 				count += 1
 		if count > strikes:
 			for i in range(strikes, count):
-				m.play("hammer", -5.5 + float(i) * 1.5, 0.88 + float(i) * 0.09)
+				m.play(HIT_SOUNDS[i])
 				m.buzz([25 + 20 * i])
 			strikes = count
 		if elapsed >= WORK_TIME:
@@ -71,7 +67,7 @@ func _reveal(m) -> void:
 	elapsed = 0.0
 	m.forge_seen = true
 	m._save_game()
-	m.play("catch" if bool(record.success) else "snap", -2.0 if bool(record.success) else -5.0)
+	m.play("forge_success" if bool(record.success) else "forge_failure")
 	m.buzz([40, 20, 75] if bool(record.success) else [80, 25, 55])
 func dismiss(m) -> void :
 	phase = "";record = {};m.forge_pending = {};m._save_game()
@@ -103,99 +99,15 @@ func _material(v, m, r: Rect2, icon: Texture2D, name: String, required: int, own
 func draw(v, m, r: Rect2, y: float) -> void :
 	if busy(): _cinematic(v, m, r, y);return
 	preload("res://addons/reservoir/forge_layout.gd").new().draw_upgrade(v,m,r,y+3)
-func _pixel(m, p: Vector2, sz: Vector2, col: Color) -> void:
-	m._ui_rect(Rect2(p.round(), sz), col)
-
-func _burst(m, origin: Vector2, age: float, duration: float, radius: float, tint: Color, rays: int = 12) -> void:
-	if age < 0.0 or age >= duration:
-		return
-	var progress: float = age / duration
-	var light: Color = tint
-	light.a = (1.0 - progress) * 0.97
-	for i in rays:
-		var angle: float = TAU * float(i) / float(rays) + float(i % 3) * 0.14
-		var direction: Vector2 = Vector2(cos(angle), sin(angle))
-		var distance: float = 3.0 + radius * progress * (0.75 + 0.15 * float(i % 3))
-		var p: Vector2 = origin + direction * distance
-		_pixel(m, p, Vector2(3 if i % 4 == 0 else 2, 2), light)
-		if i % 3 == 0:
-			_pixel(m, p - direction * 5.0, Vector2(2, 2), Color(1.0, 0.99, 0.87, light.a * 0.65))
-
-func _charge(m, focus: Vector2, t: float) -> void:
-	var hit_count: int = 0
-	for at in HIT_AT:
-		if t >= float(at): hit_count += 1
-	var intensity: float = clampf(0.22 + float(hit_count) * 0.18 + t / WORK_TIME * 0.22, 0.0, 0.98)
-	var halo: Color = Color("ffd36b")
-	halo.a = intensity * 0.32
-	_pixel(m, focus + Vector2(-8, -4), Vector2(16, 8), halo)
-	_pixel(m, focus + Vector2(-5, -8), Vector2(10, 16), halo)
-	var core: Color = Color("fff8b5")
-	core.a = intensity
-	_pixel(m, focus + Vector2(-3, -2), Vector2(6, 4), core)
-	for i in 16 + hit_count * 6:
-		var angle: float = TAU * float(i) / float(16 + hit_count * 6)
-		var distance: float = 9.0 + float(hit_count) * 4.0 + sin(t * 10.0 + i * 1.7) * 3.0
-		var pos: Vector2 = focus + Vector2(cos(angle), sin(angle)) * distance
-		var glint: Color = Color("54f1f2") if i % 4 == 0 else Color("ffe073")
-		glint.a = intensity * (0.36 + 0.45 * absf(sin(t * 8.0 + i)))
-		_pixel(m, pos, Vector2(2, 2), glint)
-	for i in HIT_AT.size():
-		_burst(m, focus, t - float(HIT_AT[i]), 0.24, 19.0 + i * 4.0, Color("fff19a") if i == 0 else Color("6bf7ff") if i == 1 else Color("ffdc71"), 10 + i * 2)
-	# The last 0.15 seconds deliberately hold without moving particles.
-	if t >= WORK_TIME - HOLD_TIME:
-		_pixel(m, focus + Vector2(-11, -1), Vector2(22, 2), Color("fff3b3"))
-		_pixel(m, focus + Vector2(-1, -11), Vector2(2, 22), Color("fff3b3"))
-
-func _result_fx(m, scene: Rect2, focus: Vector2, ok: bool) -> void:
-	var t: float = elapsed
-	if ok:
-		if t < 0.16:
-			m._ui_rect(scene.grow(-1), Color(1.0, 0.95, 0.76, 0.64 * (1.0 - t / 0.16)))
-		# A stepwise bolt follows the unbroken rod, not the outer UI frame.
-		if t < 0.58:
-			var alpha: float = 1.0 - t / 0.58
-			for i in 30:
-				var f: float = float(i) / 29.0
-				var p: Vector2 = (focus + Vector2(-44, 27)).lerp(focus + Vector2(39, -24), f)
-				p += Vector2([0, 2, -2, 1, -1][i % 5], [1, -1, 2, -2][i % 4])
-				_pixel(m, p, Vector2(3, 3 if i % 4 == 0 else 2), Color(0.78, 0.99, 1.0, alpha))
-			_burst(m, focus, t, 0.65, 48.0, Color("9ffaff"), 16)
-			_burst(m, focus, t - 0.08, 0.62, 39.0, Color("ffe279"), 14)
-		if t < REVEAL_TIME:
-			m._text("+%d" % int(record.next), focus + Vector2(34, -20 - 4 * sin(t * 5.0)), 16, Color("fff1a0"), true, 53)
-	else:
-		if t < 0.18:
-			m._ui_rect(scene.grow(-1), Color(0.92, 0.55, 0.40, 0.42 * (1.0 - t / 0.18)))
-		_burst(m, focus, t, 0.22, 22.0, Color("f6b878"), 13)
-		# Smoke curls upward and fades; the rod and anvil stay intact.
-		for i in 11:
-			var age: float = t - float(i % 4) * 0.048
-			if age < 0.0 or age >= 0.83:
-				continue
-			var drift: float = sin(float(i) * 2.3 + age * 2.8) * (4.0 + age * 7.0)
-			var p: Vector2 = focus + Vector2(-16 + float(i % 6) * 6.0 + drift, -2 - age * (23.0 + float(i % 3) * 9.0))
-			var smoke: Color = Color("161b26") if i % 2 == 0 else Color("55505d")
-			smoke.a = (1.0 - age / 0.83) * 0.86
-			_pixel(m, p, Vector2(7 if i % 3 == 0 else 5, 5 if i % 3 == 0 else 4), smoke)
-		for i in 5:
-			var cinder_age: float = t - float(i) * 0.04
-			if cinder_age >= 0.0 and cinder_age < 0.3:
-				var p: Vector2 = focus + Vector2(-12 + i * 6, 6 + cinder_age * 15.0)
-				_pixel(m, p, Vector2(2, 2), Color(0.98, 0.47, 0.24, 1.0 - cinder_age / 0.3))
-
-func _cinematic(v, m, r: Rect2, y: float) -> void:
-	var scene: Rect2 = Rect2(39, y + 5, 192, 112)
-	m._ui_rect(scene, Color("211d24"))
-	var frame: int = 9
+func _cinematic(v, m, _r: Rect2, y: float) -> void:
+	var t: float = elapsed if phase == "working" else WORK_TIME + elapsed
+	var frame := clampi(floori(t * 60.0), 0, TOTAL_FRAMES - 1)
+	if not bool(record.success) and frame >= FAILURE_START:
+		frame += TOTAL_FRAMES - FAILURE_START
+	var cell := Vector2i(frame % 8, (frame % 32) / 8)
+	var scene := Rect2(71, y + 1, FRAME_SIZE, FRAME_SIZE)
+	m._ui_texture_rect_region(sheets[frame / 32], scene, Rect2(Vector2(cell * FRAME_SIZE), Vector2(FRAME_SIZE, FRAME_SIZE)))
 	if phase == "working":
-		frame = clampi(int(fposmod(elapsed, SMITH_CYCLE) * 13.0 / SMITH_CYCLE), 0, 12)
-		if elapsed >= WORK_TIME - HOLD_TIME: frame = 9
-	m._ui_texture_rect_region(animation.rod_sheet, scene, Rect2(frame * 192, 0, 192, 112))
-	m.ui_commands.append(["rotated_texture", v.rods[int(record.rod)], scene.position + Vector2(112, 74), PI / 4])
-	var focus: Vector2 = scene.position + Vector2(110, 72)
-	if phase == "working":
-		_charge(m, focus, minf(elapsed, WORK_TIME - HOLD_TIME))
 		m._text("망치 3타격 · 빛 응축", Vector2(135, y + 140), 12, Color("f4d48a"), true, 230)
 		m._ui_rect(Rect2(39, y + 154, 192, 9), Color("382c2c"))
 		m._ui_rect(Rect2(40, y + 155, 190 * minf(1.0, elapsed / WORK_TIME), 7), Color("ffd36b"))
@@ -204,7 +116,8 @@ func _cinematic(v, m, r: Rect2, y: float) -> void:
 			_button(v, m, Rect2(91, y + 213, 88, 25), "빠르게 보기", "forge_skip")
 	else:
 		var ok: bool = bool(record.success)
-		_result_fx(m, scene, focus, ok)
+		if ok and t >= 3.01:
+			m._text("+%d" % int(record.next), scene.position + Vector2(64, 76), 16, Color("fff3aa"), true, 58)
 		var title: String = "강화 성공!" if ok else ("강화 실패 · 단계 하락" if int(record.next) < int(record.old) else "강화 실패 · 단계 유지")
 		m._text(title, Vector2(135, y + 141), 14, Color("edba4b") if ok else Color("b17b81"), true, 230)
 		m._text("+%d → +%d" % [int(record.old), int(record.next)], Vector2(135, y + 174), 20, v.active_style.ink, true, 220)

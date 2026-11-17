@@ -1,7 +1,7 @@
 name: Verify work branch without deployment
 on:
   push:
-    branches: [work/valley-runtime, work/skills-105, work/valley-clarity-106, work/tile-release-107]
+    branches: [work/valley-runtime, work/skills-105, work/valley-clarity-106, work/tile-release-107, work/forge-138]
     paths: ['automation/release.json', 'automation/verification-request.json']
 permissions:
   contents: read
