@@ -4,6 +4,13 @@ func check(value: bool,label: String) -> void:
 	if not value: failures.append(label);push_error(label)
 func _initialize() -> void: call_deferred("run")
 func run() -> void:
+	var early=load("res://main.gd").new()
+	var initial_path := "user://save.json"
+	var fixture := FileAccess.open(initial_path,FileAccess.WRITE)
+	fixture.store_string('{"gold":1234,"souls":19}');fixture.close()
+	early._notification(Node.NOTIFICATION_APPLICATION_PAUSED)
+	check(JSON.parse_string(FileAccess.get_file_as_string(initial_path)).gold==1234,"pause before initial load preserves previous game")
+	early.free()
 	var m=load("res://main.gd").new();m.SET.sfx=0;m.SET.music=0;m.title_open=false;root.add_child(m);await process_frame;m.set_process(false)
 	m.audio_feedback.stop_all();m.title_open=false;m.SET.sfx=0;m.SET.music=0;m.SET.vib=false
 	var store=load("res://addons/reservoir/save_store.gd")

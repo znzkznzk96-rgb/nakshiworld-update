@@ -58,7 +58,7 @@ func draw(m,h: float) -> void:
 	y+=30
 	for i in 3: button(m,["main","sub","owner"][i],["필수 번들","서브 번들","주인 번들"][i],Rect2(17+i*80,y,76,26),tab==i)
 	y+=36
-	m._text(["다음 낚시터 라이선스","비늘과 물고기의 혼","낚시터 주인에게 도전"][tab],Vector2(22,y+4),11,Color("382619"),false,226)
+	m._text(["다음 낚시터 라이선스","비늘과 비늘조각","낚시터 주인에게 도전"][tab],Vector2(22,y+4),11,Color("382619"),false,226)
 	y+=12
 	var bottom: float=r.end.y-9
 	var grid_end: float=bottom-103
@@ -94,7 +94,7 @@ func draw(m,h: float) -> void:
 	else:
 		m._ui_texture_rect(m.V.tool_icons.scale,Rect2(reward.position+Vector2(8,7),Vector2(24,24)),false)
 		var caption: String="보상 준비 중"
-		if region<4: caption="%s 비늘 · 혼 %d개"%[_amount(reward_preview_amount(m,region,tab)),m.progression.SOUL_REWARD[region]] if tab==1 else "%s 비늘 · 진주 %d개"%[_amount(reward_preview_amount(m,region,tab)),m.progression.PEARL_REWARD[region]]
+		if region<4: caption="%s 비늘 · 비늘조각 %d개"%[_amount(reward_preview_amount(m,region,tab)),m.progression.SOUL_REWARD[region]] if tab==1 else "%s 비늘 · 진주 %d개"%[_amount(reward_preview_amount(m,region,tab)),m.progression.PEARL_REWARD[region]]
 		m._text(caption,reward.position+Vector2(39,16),10,Color("382619"),false,192)
 		m._text(("받은 보상" if m.progression.claimed(region,tab) else "받기 버튼으로 수령") if done else (("다음 해금비의 %d%% · 완료 후 수령"%(10 if tab==1 else 30)) if region in [1,2,3] or (region==0 and tab==2) else "완료 예상 · 미기증은 노멀·평균 기준" if region==0 else "보상 준비 중"),reward.position+Vector2(39,30),9,Color("513b29"),false,192)
 	button(m,"register",("보상 확인" if m.progression.claimed(region,tab) else "보상 받기") if done else ("보유 물고기 기증" if not targets.is_empty() else "번들 준비 중"),Rect2(17,bottom-48,154,29),done)
@@ -111,7 +111,7 @@ func reward_dialog(m,h: float) -> void:
 	m._text("보상을 받았어요!" if just_claimed else "번들 완료!",Vector2(135,r.position.y+29),16,Color("513b29"),true,200)
 	m._text(SPOTS.NAMES[region]+" · "+["필수 번들","서브 번들","주인 번들"][tab],Vector2(135,r.position.y+54),11,Color("513b29"),true,202)
 	var reward: String="낚시 자격증 %d급\n다음 낚시터 구매 자격"%(region+1)
-	if tab==1: reward="%s 비늘\n물고기의 혼 %d개"%[_amount(reward_amount(m,region,tab)),m.progression.SOUL_REWARD[region]]
+	if tab==1: reward="%s 비늘\n비늘조각 %d개"%[_amount(reward_amount(m,region,tab)),m.progression.SOUL_REWARD[region]]
 	elif tab==2: reward="%s 비늘\n진주 %d개"%[_amount(reward_amount(m,region,tab)),m.progression.PEARL_REWARD[region]]
 	m._text(reward,Vector2(135,r.position.y+88),12,Color("513b29"),true,200)
 	var received: bool=m.progression.claimed(region,tab)

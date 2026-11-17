@@ -1,0 +1,30 @@
+{
+  "base_release": "v1.38",
+  "model": "generate-ui-v2",
+  "job": "5ac0bf49-9684-4d47-a6e5-a5f49b6a18bc",
+  "requests": 1,
+  "generations_charged": 10,
+  "size": [
+    32,
+    32
+  ],
+  "alpha_bounds": [
+    3,
+    5,
+    29,
+    27
+  ],
+  "sha256": "0f7b118686f214c61149e28b25095f9f833aa946f2c747f6e1e52479fe49db08",
+  "review": "은청색 비늘 두 조각, 투명 배경, 정수 확대 확인",
+  "save_regression": "startup pause before load, legacy wallet and backup, offline settlement",
+  "account_sync": "proposed; no provider configured",
+  "phone_recovery": "not verified",
+  "published": false,
+  "local_regression": {
+    "engine": "4.4.1",
+    "passed_suites": 106,
+    "reload_passes": 3,
+    "guide_articles_verified": 75,
+    "historical_guide093": "Old card size assertion fails identically on unchanged v1.38 guide and current guide, outside active suite."
+  }
+}

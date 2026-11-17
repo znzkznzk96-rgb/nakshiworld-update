@@ -257,6 +257,7 @@ func _notification(what: int) -> void :
 	if what == NOTIFICATION_APPLICATION_RESUMED: audio_feedback.suspended=false
 
 var cooperative_boot:=false
+var progress_loaded := false
 var boot_ready:=false
 
 func _ready() -> void :
@@ -1512,7 +1513,7 @@ func _draw_overlays(t: float, h: float) -> void :
 const TR_CLOSE: = 0.45
 const TR_HOLD: = 0.45
 const TR_OPEN: = 0.5
-const TR_TIPS: = ["수족관 물고기는 쉬는 동안에도 돈을 벌어요", "파츠를 달수록 귀한 물고기가 물어요", "손질하면 물고기의 혼을 얻어요", "미끼가 없으면 큰 물고기는 잘 안 물어요", "보관통이 차면 마을로!"]
+const TR_TIPS: = ["수족관 물고기는 쉬는 동안에도 돈을 벌어요", "파츠를 달수록 귀한 물고기가 물어요", "손질하면 비늘조각을 얻어요", "미끼가 없으면 큰 물고기는 잘 안 물어요", "보관통이 차면 마을로!"]
 func start_trans(to: String) -> void :
 	if not trans.is_empty() or to == scene: return
 	trans = {"t": 0.0, "to": to, "done": false, "tip": TR_TIPS[randi() % TR_TIPS.size()]}
@@ -1950,7 +1951,7 @@ func _shadow_fish(c: Vector2, star: int, grade: int, t: float, beh: String, spik
 			PackedVector2Array([Vector2(u0, v0), Vector2(u1, v0), Vector2(u1, v1), Vector2(u0, v1)])])
 	if alpha >= 1.0: fish_mouth = pts[0] if beh == "hanging" else (pts[0] as Vector2).lerp(pts[1], 0.35)
 	if alpha >= 1.0 and not ui_demo:
-		aura = {"quads": quads, "pts": pts, "L": L, "g": grade, "tex": tex, "face": face, "c": pts[5], "nrms": nrms, "hw": hw}
+		aura = {"quads": quads, "pts": pts, "L": L, "g": grade, "tex": tex, "face": face, "c": pts[5], "nrms": nrms, "hw": hw, "swim_phase": phase, "behavior": beh}
 
 	if alpha >= 1.0:
 		_draw_pixel_halo(quads, tex, grade, t)
@@ -2532,6 +2533,15 @@ func _draw_fish_tension(fish_pos: Vector2, scale: float, dt: float, body_length:
 	var v: = clampf(S.tension / 100.0, 0, 1)
 	var col: = tension_line_color(S.tension) if v >= 0.4 else Color("8ed274")
 	var r: = Rect2(p, Vector2(44, 8))
+	var rarity := int(S.get("grade",0))
+	if rarity > 0 and rarity < GRADE_N.size():
+		var accent:Color = [Color.WHITE,Color("6fe0ff"),Color("df9cff"),Color("ffda62"),Color("bdfff0")][rarity]
+		var w := 40 if rarity==2 else 24
+		var badge_x := p.x-w-3 if p.x>=w+4 else p.x+47
+		var badge := Rect2(badge_x,p.y-2,w,12)
+		_ui_rect(badge,Color("172438"))
+		_ui_rect(Rect2(badge.position,Vector2(2,12)),accent)
+		_text(GRADE_N[rarity],Vector2(badge_x+w*0.5+1,p.y+8),9,accent,true,w-3,true)
 	_ui_rect(r.grow(1), Color("101c1e"))
 	_ui_rect(r, Color("d9cca6"))
 	_ui_rect(Rect2(p + Vector2(1, 1), Vector2(42, 6)), Color("263c39"))
@@ -2753,7 +2763,7 @@ func _draw_title(_t: float, h: float) -> void :
 
 const SAVE_VER: = 1
 func _save_game() -> bool:
-	if resetting or development_preview: return false
+	if not progress_loaded or resetting or development_preview: return false
 	var ok: bool = preload("res://addons/reservoir/save_store.gd").write("user://save.json", {"testing_grants":testing_grants.duplicate(),"buyback":buyback.serialize(),"regional_progress":progression.serialize(),"active_region":active_region,"region_shop": region_shop.serialize(), "equipment": equipment.serialize(), "mail_read": mailbox.read_ids, "mail_deleted": mailbox.deleted_ids, "v": SAVE_VER, "gold": gold, "pearl": pearl, "bag": bag_items(), "bag_lv": bag_lv, "parts": parts_owned, "tips": tips_seen,
 		"town_zoom": V.zoom, "boat_lv": boat_lv, "town_lv": town_lv, "forge_lv": forge_lv, "rod_lv": rod_lv, "rod_owned": rod_owned, "rod_enh": rod_enh, "protection_tickets": protection_tickets, "forge_pending": forge_pending, "forge_seen": forge_seen, 
 		"capture_robot":capture_robot.serialize(),"facility_rev":FACILITIES.REV,"pond_overflow":pond_overflow,"pond_base":pond_base,"pond_cap_lv": pond_cap_lv, "pond_regen_lv": pond_regen_lv, "pond_stock": pond_stock,
@@ -2800,7 +2810,12 @@ func aqua_rate() -> float:
 
 func _load_game() -> void :
 	var d: Dictionary = preload("res://addons/reservoir/save_store.gd").read("user://save.json")
-	if d.is_empty(): return
+	if d.is_empty():
+		progress_loaded = not FileAccess.file_exists("user://save.json") and not FileAccess.file_exists("user://save.json.bak")
+		if not progress_loaded:
+			tip_txt = "기존 저장을 읽을 수 없어 자동 저장을 중지했어요."
+			tip_t = 15
+		return
 	d=FACILITIES.migrate(d)
 	testing_grants=[]
 	if d.get("testing_grants",[]) is Array:
@@ -2858,6 +2873,7 @@ func _load_game() -> void :
 		gold += earn;tip_txt = "쉬는 동안 수족관에서 %d 비늘을 벌었어요!" % earn;tip_t = 5.0
 	if returned_owners>0:
 		tip_txt="중복 주인 %d마리를 보관통으로 돌려보냈어요 · 종류별 1마리 전시"%returned_owners;tip_t=8.0
+	progress_loaded = true
 	_save_game()
 
 

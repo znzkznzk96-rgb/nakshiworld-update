@@ -1,13 +1,13 @@
 {
   "work_branch": "work/forge-138",
-  "status": "v1.38_public_download_verified",
+  "status": "scale_fragment_local_save_fix_work_only",
   "release_baseline": "v1.38",
   "target_release": "v1.38",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "v1.38 강화 모션 공개 및 운영 다운로드 검증 완료",
-  "next_step": "Android 앱 재실행 후 v1.38 강화 성공/실패·효과음 실기 확인",
+  "current_task": "등급별 파이팅 동작 오라",
+  "next_step": "네 등급 동작 비교본 검토",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -2306,5 +2306,16 @@
     "verification": "docs/qa/record-photo/RELEASE138_VERIFICATION.json",
     "deployed": true,
     "phone_verified": false
+  },
+  "scale_fragment": {
+    "verification": "docs/qa/scale-fragment/verification.json",
+    "released": false
+  },
+  "fish_aura_direction": {
+    "reference": "Guild Wars 2 Frenzy",
+    "status": "tiered_glints_work_only",
+    "placement": "머리까지 위아래로 연결, 게이지와 겹치는 오라만 감쇠",
+    "space_preview": "https://chatgpt.com/space/page_348c945c851c8191966ef0b8b3440b60",
+    "deployed": false
   }
 }

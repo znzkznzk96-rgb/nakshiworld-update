@@ -1,0 +1,47 @@
+{
+  "native": {
+    "cases": 24,
+    "failures": [],
+    "heights": [
+      480,
+      540,
+      660
+    ],
+    "max_live_emitters": 50,
+    "max_ui_commands": 181,
+    "renders": 48
+  },
+  "matched_frames": [
+    20,
+    55,
+    85,
+    120
+  ],
+  "metric": "Mean HSV saturation of pixels with max RGB channel delta above 5 on an 8-bit scale",
+  "samples": [
+    {
+      "grade": 1,
+      "changed_samples": 4699,
+      "before_saturation": 0.547,
+      "after_saturation": 0.569
+    },
+    {
+      "grade": 2,
+      "changed_samples": 3361,
+      "before_saturation": 0.536,
+      "after_saturation": 0.603
+    },
+    {
+      "grade": 3,
+      "changed_samples": 6248,
+      "before_saturation": 0.521,
+      "after_saturation": 0.603
+    },
+    {
+      "grade": 4,
+      "changed_samples": 7379,
+      "before_saturation": 0.546,
+      "after_saturation": 0.703
+    }
+  ]
+}

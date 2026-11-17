@@ -1,0 +1,12 @@
+{
+	"cases": 24,
+	"failures": [],
+	"heights": [
+		480,
+		540,
+		660
+	],
+	"max_live_emitters": 14,
+	"max_ui_commands": 181,
+	"renders": 48
+}

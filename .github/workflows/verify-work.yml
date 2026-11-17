@@ -30,15 +30,15 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
-      - name: Restore verified v1.37 source and overlay
+      - name: Restore verified v1.38 source and overlay
         shell: bash
         run: |
           set -euo pipefail
           echo "VERIFICATION_STARTED=$(date +%s)" >> "$GITHUB_ENV"
           sudo apt-get update -qq
           sudo apt-get install -y python3-pil > /dev/null
-          curl -fL --retry 2 https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.37/game-source.zip -o "$RUNNER_TEMP/source.zip"
-          echo "101657a2e83f764234a67bebb0b73dea03686a8c60e5e407288a794f41fe15f9  $RUNNER_TEMP/source.zip" | sha256sum -c -
+          curl -fL --retry 2 https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.38/game-source.zip -o "$RUNNER_TEMP/source.zip"
+          echo "a77b058de362121a4f669ef715b7e4e57bb4a34467908f0f8086ddb1700f2aca  $RUNNER_TEMP/source.zip" | sha256sum -c -
           python3 automation/restore_source.py "$RUNNER_TEMP/source.zip" "$RUNNER_TEMP/project"
           curl -fL --retry 2 https://github.com/godotengine/godot/releases/download/4.4.1-stable/Godot_v4.4.1-stable_linux.x86_64.zip -o "$RUNNER_TEMP/godot.zip"
           unzip -q "$RUNNER_TEMP/godot.zip" -d "$RUNNER_TEMP/godot"
@@ -177,14 +177,17 @@ jobs:
         run: |
           set -euo pipefail
           GODOT="$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
-          cp "$RUNNER_TEMP/project/village.gd" "$RUNNER_TEMP/village-after.gd"
-          cp "$RUNNER_TEMP/project/addons/reservoir/village_life.gd" "$RUNNER_TEMP/life-after.gd"
+          before="$RUNNER_TEMP/village-before"
+          cp -a --reflink=auto "$RUNNER_TEMP/project" "$before"
           git fetch --depth=1 origin 594cd461f6c57e0dd0746e422d36f737cea240ef
-          git show 594cd461f6c57e0dd0746e422d36f737cea240ef:game/village.gd > "$RUNNER_TEMP/project/village.gd"
-          git show 594cd461f6c57e0dd0746e422d36f737cea240ef:game/addons/reservoir/village_life.gd > "$RUNNER_TEMP/project/addons/reservoir/village_life.gd"
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-layer-before" timeout 180 xvfb-run -a "$GODOT" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/village_layers_quality_preview.gd -- "$GITHUB_WORKSPACE/evidence/village-quality/before" > evidence/village-quality-before.log 2>&1
-          cp "$RUNNER_TEMP/village-after.gd" "$RUNNER_TEMP/project/village.gd"
-          cp "$RUNNER_TEMP/life-after.gd" "$RUNNER_TEMP/project/addons/reservoir/village_life.gd"
+          git show 594cd461f6c57e0dd0746e422d36f737cea240ef:game/village.gd > "$before/village.gd"
+          git show 594cd461f6c57e0dd0746e422d36f737cea240ef:game/addons/reservoir/village_life.gd > "$before/addons/reservoir/village_life.gd"
+          for icon in art/village/i_soul.png art/tools_clean/soul_24.png; do
+            unzip -p "$RUNNER_TEMP/source.zip" "game/$icon" > "$before/$icon"
+          done
+          XDG_DATA_HOME="$RUNNER_TEMP/isolated-layer-before" timeout 90 "$GODOT" --headless --editor --path "$before" --import > evidence/village-before-import.log 2>&1
+          XDG_DATA_HOME="$RUNNER_TEMP/isolated-layer-before" timeout 180 xvfb-run -a "$GODOT" --audio-driver Dummy --rendering-method gl_compatibility --path "$before" --script tests/village_layers_quality_preview.gd -- "$GITHUB_WORKSPACE/evidence/village-quality/before" > evidence/village-quality-before.log 2>&1
+          test ! -e "$RUNNER_TEMP/project/art/village/i_soul.png" && test ! -e "$RUNNER_TEMP/project/art/tools_clean/soul_24.png"
           XDG_DATA_HOME="$RUNNER_TEMP/isolated-layer-after" timeout 180 xvfb-run -a "$GODOT" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/village_layers_quality_preview.gd -- "$GITHUB_WORKSPACE/evidence/village-quality/after" > evidence/village-quality-after.log 2>&1
           grep -F 'VILLAGE_LAYERS_QUALITY_PREVIEW screens=120' evidence/village-quality-before.log evidence/village-quality-after.log
           if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/village-quality-before.log evidence/village-quality-after.log; then exit 1; fi
