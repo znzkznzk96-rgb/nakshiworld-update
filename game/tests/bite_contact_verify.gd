@@ -35,6 +35,23 @@ func run() -> void:
 			check(m.bite_preview.last_mouth.distance_to(Vector2(169,m.WATER+4))<0.001,"fake nibble peak also contacts bobber")
 		m.S={"phase":"fight"}
 		check(m._fish_display_length(4,2.2,false,sp)>0,"fight sizing remains species-dependent")
+	m.title_open = false
+	m.lesson_open = false
+	m.scene = "fish"
+	for grade in 5:
+		for delay in [0.0, 0.25, 0.251, 0.7, -0.01, 0.701]:
+			m.S = {"phase":"wait","biteAt":8.0,"realUntil":8.7,"grade":grade,"size":0,"sp":0,"lf":1.0,"fakes":[7.99]}
+			m.clock = 8.0 + delay
+			m.press(Vector2(160,300))
+			if delay < 0 or delay > 0.7:
+				check(m.S.phase == "fail", "early or expired tap fails")
+				continue
+			var quick: bool = delay <= 0.25
+			check(m.S.phase == "hook" and m.S.get("quickHook") == quick, "quick hook timing threshold")
+			check(is_equal_approx(m._perfect_half_width(),m.BAR_PERF[grade]*(2.0 if quick else 1.0)), "grade-specific perfect width")
+			m.S.pos = m.S.zc + 1.5*m.BAR_PERF[grade]
+			m.hook_tap()
+			check(m.S.judge == ("PERFECT" if quick else "GREAT"), "expanded area awards correct judgement")
 	m.audio_feedback.dispose();m.queue_free();await process_frame
 	print("BITE_CONTACT_VERIFY failures=",failures," cases=",cases," maximum_extent=",max_extent)
 	quit(0 if failures.is_empty() else 1)

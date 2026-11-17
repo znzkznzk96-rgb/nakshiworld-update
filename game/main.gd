@@ -44,6 +44,8 @@ const BITE_WINDOW: = [1.5, 1.0, 0.7, 0.5, 0.35]
 
 const BAR_SPEED: = [0.72, 0.84, 0.98, 1.12, 1.28]
 const BAR_ACC: = [1.1, 1.15, 1.2, 1.25, 1.3]
+const QUICK_HOOK_WINDOW := 0.25
+const QUICK_HOOK_MULTIPLIER := 2.0
 const BAR_PERF: = [0.06, 0.05, 0.045, 0.035, 0.03]
 const BAR_GREAT: = [0.2, 0.18, 0.16, 0.14, 0.12]
 const PULL: = [0.9, 1.1, 1.35, 1.6, 1.9]
@@ -562,7 +564,12 @@ func fail(text: String) -> void :
 	S.failText = text;S.phase = "fail";S.t = 0.0
 	set_anim("miss", false);msg = ""
 
-func start_hook() -> void :
+func _perfect_half_width() -> float:
+	return BAR_PERF[S.grade] * (QUICK_HOOK_MULTIPLIER if S.get("quickHook", false) else 1.0)
+
+func start_hook(quick_hook: bool = false) -> void :
+	S.quickHook = quick_hook
+	S.hookStartedAt = clock
 	play("hook");play("splash_s", -4.0 + 3.0 * S.size)
 	S.phase = "hook";S.pos = 0.0;S.dir = 1;S.pauseUntil = 0.0
 	S.barSp = BAR_SPEED[S.grade];S.zc = 0.5;star_hist.clear()
@@ -571,7 +578,7 @@ func start_hook() -> void :
 func hook_tap() -> void :
 	var d: float = abs(S.pos - S.zc)
 	S.baseGrade = S.grade
-	if d < BAR_PERF[S.grade]:
+	if d < _perfect_half_width():
 		S.judge = "PERFECT"
 		if randf() < 0.2 and not S.get("tutFish", false):
 			S.grade = min(4, S.grade + 1);show_judge("PERFECT 등급 UP!");buzz([30, 40, 30, 40, 60])
@@ -1336,7 +1343,8 @@ func press(pos: = Vector2.ZERO) -> void :
 				holding = false;show_tip("", "어깨에 멘 물고기가 있어요. 마을에 가서 팔아요!");return
 			start_cast()
 		"wait":
-			if clock >= S.biteAt and clock <= S.realUntil: start_hook()
+			if clock >= S.biteAt and clock <= S.realUntil:
+				start_hook(clock <= S.biteAt + QUICK_HOOK_WINDOW)
 			else: holding = false;fail("너무 일찍 챘어요. 물고기가 도망갔어요" if clock < S.biteAt else "")
 		"hook":
 			hook_tap()
@@ -1719,12 +1727,19 @@ func _draw_hookbar() -> void :
 	var iw: = w - 24.0
 	var zc: float = S.get("zc", 0.5)
 	var gw: float = BAR_GREAT[S.grade]
-	var pw: float = BAR_PERF[S.grade]
+	var pw := _perfect_half_width()
 	sb_fill.modulate_color = Color("8fd36a") * Color(1.7, 1.7, 1.7, 1)
 	draw_style_box(sb_fill, Rect2(int(ix + iw * (zc - gw)), y - 4, int(iw * gw * 2), 8))
 	sb_fill.modulate_color = Color("eb82df") * Color(1.4, 1.4, 1.4, 1)
 	var pr: = Rect2(int(ix + iw * (zc - pw)), y - 4, maxi(4, int(iw * pw * 2)), 8)
 	draw_style_box(sb_fill, pr)
+	if S.get("quickHook", false):
+		var sweep := clampf((clock - float(S.hookStartedAt)) / 0.18, 0.0, 1.0)
+		if sweep < 1.0:
+			var offset := (pr.size.x * 0.25 - 1.0) * (1.0 + sweep)
+			for side in [-1.0, 1.0]:
+				var edge_x := roundf(pr.get_center().x + side * offset)
+				draw_rect(Rect2(edge_x, pr.position.y - 1, 2, pr.size.y + 2), Color(1, 0.88, 0.98, 1.0 - sweep))
 	draw_rect(Rect2(roundf(ix + iw * zc), y - 5, 1, 10), Color("fff4fb"))
 	var sh: = int(fmod(clock * 40.0, pr.size.x + 12)) - 6
 	if sh >= 0 and sh < pr.size.x: draw_rect(Rect2(pr.position.x + sh, y - 3, 1, 6), Color(1, 1, 1, 0.8))
