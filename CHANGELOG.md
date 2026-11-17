@@ -1,3 +1,7 @@
+## v1.41 · 2026-11-17 · 빠른 챔질 보너스
+
+진짜 입질 후 0.25초 이내에 챔질하면 해당 훅바의 분홍 PERFECT 표시와 실제 판정 폭이 두 배가 된다. [배포 및 운영 다운로드 검증](docs/qa/quick-hook/RELEASE141_VERIFICATION.json). 휴대폰 적용 미확인.
+
 ## v1.40 · 2026-11-17 · 파이팅 한 글자 등급 배지
 
 등급색 R·U·L·M 배지를 파이팅 게이지 옆에 적용해 공개했다. 결과창·도감은 한글 표기. [배포 및 운영 다운로드 검증](docs/qa/fish-aura-integration/RELEASE140_VERIFICATION.json). 휴대폰 적용 미확인.
