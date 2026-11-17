@@ -1,17 +1,17 @@
 {
-  "work_branch": "work/tile-release-107",
-  "status": "v1.37_public_download_verified",
-  "release_baseline": "v1.37",
-  "target_release": "v1.37",
+  "work_branch": "work/forge-138",
+  "status": "v1.38_public_download_verified",
+  "release_baseline": "v1.38",
+  "target_release": "v1.38",
   "deployed": true,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "60fps 강화 성공·실패 미리보기 게임 반영과 공개 배포 승인",
-  "next_step": "게임 적용·전체 검증·공개 다운로드 검증",
+  "current_task": "v1.38 강화 모션 공개 및 운영 다운로드 검증 완료",
+  "next_step": "Android 앱 재실행 후 v1.38 강화 성공/실패·효과음 실기 확인",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
-  "verification": "docs/qa/record-photo/RELEASE137_VERIFICATION.json",
+  "verification": "docs/qa/record-photo/RELEASE138_VERIFICATION.json",
   "baseline_phone_verified": false,
   "environment_recovery": "docs/CODEX_NETWORK_RECOVERY.md",
   "background_verified_branch": "work/tile-png-stage2-20261107",
@@ -23,10 +23,10 @@
   "screen_evidence_commit": "04fa33a116915c0b7a7ca86ee235a24a4cf4d4d2",
   "screen_verification_run": 42315352676,
   "full_source_verified": {
-    "release": "v1.36",
-    "size": 69062689,
-    "sha256": "ced26a80c76af7743c0d3cb90a1d4e0ff6f35c19e6e263dd5bd708d2b4fde62c",
-    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.36/game-source.zip"
+    "release": "v1.38",
+    "size": 71983702,
+    "sha256": "a77b058de362121a4f669ef715b7e4e57bb4a34467908f0f8086ddb1700f2aca",
+    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.38/game-source.zip"
   },
   "fish_verification_run": 42317071546,
   "automatic_full_regression_run": 42317071379,
@@ -35,31 +35,31 @@
   "bundle_verification_run": 42319985467,
   "bundle_evidence_commit": "dd8297cc9de9a5423091b61e06f166ee22023de4",
   "headless_regression_coverage": {
-    "run": 43364135828,
+    "run": 44021638070,
     "status": "passed",
-    "scope": "152 unique success labels/native/PCK; final v1.36"
+    "scope": "full regression, native renders, isolated reload, PCK"
   },
   "standard_full_workflow_success": true,
   "remaining_global_render_checks": false,
   "release_authorization": {
-    "date": "2026-11-13",
-    "release": "v1.35",
-    "user_request": "3초로 변경·갤러리 저장 수정후 업데이트 및 배포",
+    "release": "v1.38",
+    "date": "2026-11-17",
+    "user_request": "이걸로 업데이트하고 배포가자",
     "fulfilled": true
   },
-  "release_preflight": "docs/qa/soldier-size/VERIFICATION.json",
-  "release_source_commit": "d2422ea6758f6362edaacddec4e66f79ecb782ea",
-  "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v1.35",
-  "release_build_run": 43343445728,
+  "release_preflight": "docs/qa/record-photo/RELEASE138_VERIFICATION.json",
+  "release_source_commit": "cf5f7f939ee4fdcd7a0354fd6e0e215949da0ae7",
+  "release_url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/tag/v1.38",
+  "release_build_run": 44023564042,
   "release_build_status": "success",
-  "public_verification_run": 43343632986,
+  "public_verification_run": 44023734258,
   "public_verification_status": "success",
   "public_patch": {
-    "size": 63339392,
-    "sha256": "d94b5e4aa83482718b9526f966ebc4d50e85abea445cf6d0a4675c7773b920b2",
-    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.35/patch.pck"
+    "size": 66294704,
+    "sha256": "4a57d6380116de5098ab63a2db5f4f541aefe661767c2d98c529b3ddd5004477",
+    "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.38/patch.pck"
   },
-  "standard_full_workflow_note": "최종v1.35 전체151/native/PCK·동일후보·공개3파일/742소스/설치앱135.0주소 전체다운로드 검증 성공",
+  "standard_full_workflow_note": "v1.38 필수 전체검사·동일 후보 공개·설치앱 다운로드 검증 통과",
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md#2026-11-07--소규모-작업-효율채팅-중단-대비",
   "approved_followup": "우편 단일원본·공통지급·검사통합 구현/검증 완료. 공개v1.08 유지, 새 배포 미승인.",
   "session_continuity": {
@@ -92,7 +92,7 @@
     "headless_passed": 73,
     "headless_total": 73
   },
-  "release_verification_run": 43343632986,
+  "release_verification_run": 44023734258,
   "prior_build_issue": {
     "run": 42384973558,
     "cause": "packed mail check hardcoded1.08; prepublication assertion",
@@ -118,7 +118,7 @@
     "production_balance_changed": false,
     "phone_tested": false
   },
-  "release_authorized": true,
+  "release_authorized": false,
   "balance110": {
     "applied": true,
     "deployed": true,
@@ -171,7 +171,7 @@
     "ledger": "analysis/tile-layer-art-v1/PLANT_LEDGER.json",
     "quality": "analysis/tile-layer-art-v1/PLANT_QA.json"
   },
-  "public_release": "v1.35",
+  "public_release": "v1.38",
   "shared_vertical_light": {
     "applied": true,
     "regions": [
@@ -253,37 +253,13 @@
     "status": "success"
   },
   "release_candidate": {
-    "schema": 1,
-    "source_commit": "d2422ea6758f6362edaacddec4e66f79ecb782ea",
-    "input_fingerprint": "f68c04f407aeb90a96925187b4996abde119dd95aeb11626778020f0c6134c0b",
-    "tools": {
-      "godot": "4.4.1.stable",
-      "baseline": "v1.33",
-      "baseline_sha256": "e73393a4fd98401bb68a5e04cdd17867ef9c9815dbf23a3e7e503b7f61e2906c"
-    },
-    "run_id": 43340604068,
-    "files": {
-      "patch.pck": {
-        "size": 63339392,
-        "sha256": "d94b5e4aa83482718b9526f966ebc4d50e85abea445cf6d0a4675c7773b920b2"
-      },
-      "game-source.zip": {
-        "size": 69055670,
-        "sha256": "c4ed628334ba3c428f6b15624483a63ffb03109e13f9e68b158b8549ef2f6d14"
-      },
-      "version.json": {
-        "size": 199,
-        "sha256": "63bfab64d1fd1ff8b46cfebb4651407d1263328567d8fc37d69f915420614ba0"
-      }
-    },
     "version": {
-      "code": 135,
-      "name": "1.35"
+      "code": 138,
+      "name": "1.38"
     },
-    "seal_seconds": 3.959,
-    "verification_and_restore_seconds": 1096.632,
-    "artifact": 14000282933,
-    "verified": true
+    "source_commit": "cf5f7f939ee4fdcd7a0354fd6e0e215949da0ae7",
+    "run_id": 44021638070,
+    "publication_run": 44023564042
   },
   "release_resume_run": 42424430555,
   "fight_body_size": {
@@ -2282,7 +2258,7 @@
   },
   "forge_rework": {
     "authorized": true,
-    "phase": "native_rendered_user_visual_review_pending",
+    "phase": "v138_published_download_verified",
     "generation_limit": 1,
     "game_applied": true,
     "deployed": false,
@@ -2321,5 +2297,14 @@
     "verification_artifact": 14091021332,
     "verification": "docs/qa/forge-three-strike/VERIFICATION.json",
     "visual_approved": false
+  },
+  "deferred_fish_display_work": {
+    "branch": "work/tile-release-107",
+    "included_in_v138": false
+  },
+  "release138": {
+    "verification": "docs/qa/record-photo/RELEASE138_VERIFICATION.json",
+    "deployed": true,
+    "phone_verified": false
   }
 }
