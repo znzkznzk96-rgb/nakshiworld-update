@@ -6,8 +6,8 @@
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "고슴도치·멧돼지 질감 시안 2장",
-  "next_step": "사용자 전후 비교 및 채택 여부",
+  "current_task": "고슴도치 기존 A 유지·꼬마 멧돼지 수정본 채택",
+  "next_step": "대표 펫 기본 대기 모션 시안 범위 결정",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -2421,6 +2421,7 @@
   "pet_style_trial": {
     "count": 2,
     "spent_generations": 2,
-    "review": "docs/qa/pet-roster-20261118/STYLE_TRIAL.md"
+    "review": "docs/qa/pet-roster-20261118/STYLE_TRIAL.md",
+    "status": "user_selection_complete"
   }
 }

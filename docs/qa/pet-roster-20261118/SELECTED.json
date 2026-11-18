@@ -17,7 +17,7 @@
     "장사 너구리": "raccoon-A",
     "보석 햄스터": "hamster7-B",
     "불꽃 병아리": "chick7-B",
-    "꼬마 멧돼지": "boar7-B"
+    "꼬마 멧돼지": "boar-style"
   },
   "game_applied": false,
   "sha256": {
@@ -36,6 +36,6 @@
     "raccoon-A": "aa634fc566b15b86031b62d44cc91a7c97bec9a04a8956267e4555f7efa8e847",
     "hamster7-B": "cb9a092b9d5f9c6de78ef82dd26a44ab3f6fb945f5bb9b26a0c8023fd78878ba",
     "chick7-B": "9a196e7cd0eae21478ff642fc9edca5434ff7e68a76524947f3ab52fcef6afd7",
-    "boar7-B": "ce0f987d6cf54c9b0e78f7aa85359cd1ee12a175f67c73f44ebb1b96707fcdfb"
+    "boar-style": "b894e87c025980905f7704059dbc0e5f75262f449d141a6b6cd32e9c32f3929a"
   }
 }
