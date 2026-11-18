@@ -1,0 +1,362 @@
+{
+  "date": "2026-11-18",
+  "generated": 14,
+  "balance_before": {
+    "credits": {
+      "type": "usd",
+      "usd": 0.0
+    },
+    "subscription": {
+      "type": "generations",
+      "status": "active",
+      "plan": "Tier 2: Pixel Artisan",
+      "generations": 4979.0,
+      "total": 5000.0
+    }
+  },
+  "balance_after": {
+    "credits": {
+      "type": "usd",
+      "usd": 0.0
+    },
+    "subscription": {
+      "type": "generations",
+      "status": "active",
+      "plan": "Tier 2: Pixel Artisan",
+      "generations": 4965.0,
+      "total": 5000.0
+    }
+  },
+  "images": [
+    {
+      "id": "hamster2-A",
+      "name": "보석햄스터 새 시안",
+      "size": [
+        96,
+        96
+      ],
+      "bbox": [
+        15,
+        5,
+        80,
+        91
+      ],
+      "sha256": "7d1245647e855c95bcf6f91f9cbddab3169d5ddb8a64cb80d9a352fb5df5569e",
+      "status": "candidate_pending_user_selection",
+      "checks": {
+        "decode": "pass",
+        "margin": "pass",
+        "limb_role_separation": "visual_pass",
+        "animation": "not_tested",
+        "game_integration": "not_applied"
+      }
+    },
+    {
+      "id": "hamster2-B",
+      "name": "보석햄스터 새 시안",
+      "size": [
+        96,
+        96
+      ],
+      "bbox": [
+        16,
+        10,
+        82,
+        84
+      ],
+      "sha256": "1c56d3c5ec5d26b77a3c1557af7761a7dc560a112059925a64f800c650a52cf4",
+      "status": "candidate_pending_user_selection",
+      "checks": {
+        "decode": "pass",
+        "margin": "pass",
+        "limb_role_separation": "visual_pass",
+        "animation": "not_tested",
+        "game_integration": "not_applied"
+      }
+    },
+    {
+      "id": "turtle-A",
+      "name": "배낭 거북",
+      "size": [
+        96,
+        96
+      ],
+      "bbox": [
+        6,
+        15,
+        89,
+        80
+      ],
+      "sha256": "53917404fb3d3fe993154f9ab7d465242c477b06109138afcfa318354daa502a",
+      "status": "candidate_pending_user_selection",
+      "checks": {
+        "decode": "pass",
+        "margin": "pass",
+        "limb_role_separation": "visual_pass",
+        "animation": "not_tested",
+        "game_integration": "not_applied"
+      }
+    },
+    {
+      "id": "turtle-B",
+      "name": "배낭 거북",
+      "size": [
+        96,
+        96
+      ],
+      "bbox": [
+        6,
+        12,
+        90,
+        86
+      ],
+      "sha256": "e3637c47f38f08ff14874c1d2f2e69f8b036f26cdc587f17b0cc6f6507861a79",
+      "status": "candidate_pending_user_selection",
+      "checks": {
+        "decode": "pass",
+        "margin": "pass",
+        "limb_role_separation": "visual_pass",
+        "animation": "not_tested",
+        "game_integration": "not_applied"
+      }
+    },
+    {
+      "id": "chick-A",
+      "name": "불꽃 병아리",
+      "size": [
+        96,
+        96
+      ],
+      "bbox": [
+        10,
+        4,
+        82,
+        92
+      ],
+      "sha256": "c6db6e20a04a134de7b72558188b6ae6c7494757b3569318158205f5e5cd843a",
+      "status": "candidate_pending_user_selection",
+      "checks": {
+        "decode": "pass",
+        "margin": "pass",
+        "limb_role_separation": "visual_pass",
+        "animation": "not_tested",
+        "game_integration": "not_applied"
+      }
+    },
+    {
+      "id": "chick-B",
+      "name": "불꽃 병아리",
+      "size": [
+        96,
+        96
+      ],
+      "bbox": [
+        14,
+        8,
+        82,
+        88
+      ],
+      "sha256": "c7a4d3f37a6401f167343dd30cc9533819855c51190f5eeea55be8c63d14e8d6",
+      "status": "candidate_pending_user_selection",
+      "checks": {
+        "decode": "pass",
+        "margin": "pass",
+        "limb_role_separation": "visual_pass",
+        "animation": "not_tested",
+        "game_integration": "not_applied"
+      }
+    },
+    {
+      "id": "hedgehog-A",
+      "name": "밤송이 고슴도치",
+      "size": [
+        96,
+        96
+      ],
+      "bbox": [
+        5,
+        6,
+        90,
+        90
+      ],
+      "sha256": "35c0f2757d423a1400d98bd015efea5d347cad3285a06266d10d0db9eec0514d",
+      "status": "candidate_pending_user_selection",
+      "checks": {
+        "decode": "pass",
+        "margin": "pass",
+        "limb_role_separation": "visual_pass",
+        "animation": "not_tested",
+        "game_integration": "not_applied"
+      }
+    },
+    {
+      "id": "hedgehog-B",
+      "name": "밤송이 고슴도치",
+      "size": [
+        96,
+        96
+      ],
+      "bbox": [
+        10,
+        4,
+        84,
+        92
+      ],
+      "sha256": "cb2f59127a121837aaa850a061b3a7dc86232f0d05e8ea7f57c62677b424eda2",
+      "status": "candidate_pending_user_selection",
+      "checks": {
+        "decode": "pass",
+        "margin": "pass",
+        "limb_role_separation": "visual_pass",
+        "animation": "not_tested",
+        "game_integration": "not_applied"
+      }
+    },
+    {
+      "id": "sparrow-A",
+      "name": "찌 참새",
+      "size": [
+        96,
+        96
+      ],
+      "bbox": [
+        2,
+        10,
+        81,
+        88
+      ],
+      "sha256": "e08cd627c6c15aeb87331bf0772626b8630fee2bc014123527277c93f897b9f0",
+      "status": "candidate_pending_user_selection",
+      "checks": {
+        "decode": "pass",
+        "margin": "pass",
+        "limb_role_separation": "visual_pass",
+        "animation": "not_tested",
+        "game_integration": "not_applied"
+      }
+    },
+    {
+      "id": "sparrow-B",
+      "name": "찌 참새",
+      "size": [
+        96,
+        96
+      ],
+      "bbox": [
+        8,
+        12,
+        78,
+        89
+      ],
+      "sha256": "e16adc280e918a256fa0293aa6c63c54117786ec496553b043da47a261fd42b0",
+      "status": "candidate_pending_user_selection",
+      "checks": {
+        "decode": "pass",
+        "margin": "pass",
+        "limb_role_separation": "visual_pass",
+        "animation": "not_tested",
+        "game_integration": "not_applied"
+      }
+    },
+    {
+      "id": "raccoon-A",
+      "name": "장사 너구리",
+      "size": [
+        96,
+        96
+      ],
+      "bbox": [
+        8,
+        7,
+        78,
+        89
+      ],
+      "sha256": "aa634fc566b15b86031b62d44cc91a7c97bec9a04a8956267e4555f7efa8e847",
+      "status": "candidate_pending_user_selection",
+      "checks": {
+        "decode": "pass",
+        "margin": "pass",
+        "limb_role_separation": "visual_pass",
+        "animation": "not_tested",
+        "game_integration": "not_applied"
+      }
+    },
+    {
+      "id": "raccoon-B",
+      "name": "장사 너구리",
+      "size": [
+        96,
+        96
+      ],
+      "bbox": [
+        7,
+        4,
+        85,
+        91
+      ],
+      "sha256": "ef2db299a5c1d641acd8104f3e32336618cffb2d57ef58f442938e9b9293aaab",
+      "status": "candidate_pending_user_selection",
+      "checks": {
+        "decode": "pass",
+        "margin": "pass",
+        "limb_role_separation": "visual_pass",
+        "animation": "not_tested",
+        "game_integration": "not_applied"
+      }
+    },
+    {
+      "id": "boar-A",
+      "name": "꼬마 멧돼지",
+      "size": [
+        96,
+        96
+      ],
+      "bbox": [
+        11,
+        15,
+        85,
+        83
+      ],
+      "sha256": "b173a99bde287ce7f30da267b921fab7e0583da257bb0a3262d8d2272d7d091e",
+      "status": "candidate_pending_user_selection",
+      "checks": {
+        "decode": "pass",
+        "margin": "pass",
+        "limb_role_separation": "visual_pass",
+        "animation": "not_tested",
+        "game_integration": "not_applied"
+      }
+    },
+    {
+      "id": "boar-B",
+      "name": "꼬마 멧돼지",
+      "size": [
+        96,
+        96
+      ],
+      "bbox": [
+        3,
+        5,
+        92,
+        92
+      ],
+      "sha256": "ca5a88f4c2a859b1a4b9a977d17f07e3ca68916a6992c99a03366207f40dd1ea",
+      "status": "candidate_pending_user_selection",
+      "checks": {
+        "decode": "pass",
+        "margin": "pass",
+        "limb_role_separation": "visual_pass",
+        "animation": "not_tested",
+        "game_integration": "not_applied"
+      }
+    }
+  ],
+  "notes": [
+    "기존 사용자 선택9종 변경없음",
+    "거절 hamster-A는 미사용",
+    "새14장 원본 보존, 36px 정적 비교",
+    "거북 시안의 바닥 그림자는 최종 적용 시 별도 검토, 원본 수정 없음",
+    "고슴도치A는 네발, B는 앉은 자세의 후보 차이",
+    "세부 프롬프트와 결과 외형 차이는 최종 사용자 선택 대상"
+  ]
+}

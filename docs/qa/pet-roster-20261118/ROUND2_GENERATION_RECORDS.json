@@ -1,0 +1,422 @@
+[
+  {
+    "id": "hamster2-A",
+    "request": {
+      "description": "Small baby jewel hamster, full body occupying only 70 percent of canvas with wide transparent margins on ALL sides. Honey-gold fur, white cheeks and belly, small round ears, big chubby cheeks. ONE small turquoise gemstone BROOCH on chest, no crown or tall head ornaments. Sitting upright: TWO tiny pink front hands beside upper chest, TWO larger pink hind feet spread on ground far below hands. Clear gap between hands and feet. Friendly round face, no held items. One extremely cute baby animal companion, big round head and bright eyes, natural clear anatomy. Facing RIGHT in near-side three-quarter view. All limbs visibly separated, clearly connected to body, no merged limbs, no extra limbs. Tail and accessories never hide feet. Bright crisp 16-bit pixel art, clean pixel clusters, 3-4 shades per color, low noise. Whole body centered with clear margin, no text, no scenery, no ground shadow, no loose floating particles.",
+      "image_size": {
+        "width": 96,
+        "height": 96
+      },
+      "outline": "selective outline",
+      "detail": "medium detail",
+      "view": "side",
+      "direction": "east",
+      "no_background": true,
+      "seed": 2026111900,
+      "enhance_prompt": false
+    },
+    "submission": {
+      "endpoint": "create-image-pixen",
+      "at": 1795005645.952405,
+      "attempt": 1
+    },
+    "response_metadata": {
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "enhanced_prompt": null,
+      "enhance_usage": null
+    }
+  },
+  {
+    "id": "hamster2-B",
+    "request": {
+      "description": "Small baby jewel hamster, entire body only 70 percent canvas with generous clear margins. Soft silver-white fur, pale lilac ear tips and cheeks, pink nose. Short purple ribbon collar with ONE small amethyst jewel, NO crown. Sitting upright, TWO small pink front hands held beside upper chest, TWO larger pink hind feet splayed on ground well below hands. Arms and feet clearly separate. Round big cheeks, friendly eyes, no held objects. One extremely cute baby animal companion, big round head and bright eyes, natural clear anatomy. Facing RIGHT in near-side three-quarter view. All limbs visibly separated, clearly connected to body, no merged limbs, no extra limbs. Tail and accessories never hide feet. Bright crisp 16-bit pixel art, clean pixel clusters, 3-4 shades per color, low noise. Whole body centered with clear margin, no text, no scenery, no ground shadow, no loose floating particles.",
+      "image_size": {
+        "width": 96,
+        "height": 96
+      },
+      "outline": "selective outline",
+      "detail": "medium detail",
+      "view": "side",
+      "direction": "east",
+      "no_background": true,
+      "seed": 2026111901,
+      "enhance_prompt": false
+    },
+    "submission": {
+      "endpoint": "create-image-pixen",
+      "at": 1795005681.7618732,
+      "attempt": 1
+    },
+    "response_metadata": {
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "enhanced_prompt": null,
+      "enhance_usage": null
+    }
+  },
+  {
+    "id": "turtle-A",
+    "request": {
+      "description": "Baby backpack turtle. Small green head and FOUR short green legs clearly visible under brown domed shell, front and hind leg pairs separated by open gaps. Tiny brown leather backpack strapped on top of shell only, never hiding legs. Pale yellow belly, friendly dark eyes, tiny smile. Standing naturally facing right. Simple cozy traveler pet, no sparkles or crown. Full body 70 percent of canvas, wide transparent margins. One extremely cute baby animal companion, big round head and bright eyes, natural clear anatomy. Facing RIGHT in near-side three-quarter view. All limbs visibly separated, clearly connected to body, no merged limbs, no extra limbs. Tail and accessories never hide feet. Bright crisp 16-bit pixel art, clean pixel clusters, 3-4 shades per color, low noise. Whole body centered with clear margin, no text, no scenery, no ground shadow, no loose floating particles.",
+      "image_size": {
+        "width": 96,
+        "height": 96
+      },
+      "outline": "selective outline",
+      "detail": "medium detail",
+      "view": "side",
+      "direction": "east",
+      "no_background": true,
+      "seed": 2026111902,
+      "enhance_prompt": false
+    },
+    "submission": {
+      "endpoint": "create-image-pixen",
+      "at": 1795005738.2196565,
+      "attempt": 1
+    },
+    "response_metadata": {
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "enhanced_prompt": null,
+      "enhance_usage": null
+    }
+  },
+  {
+    "id": "turtle-B",
+    "request": {
+      "description": "Baby backpack turtle with mint-blue head and FOUR sturdy short feet clearly spaced. Dark teal domed shell, cream underside, small beige canvas rucksack with rolled green blanket strapped on top of shell. Pack never covers head or legs. Two forelegs under chest and two hindlegs under rear shell, visible gaps. Sweet round eyes. Simple charming traveler, no glow or particles. Full body 70 percent canvas, broad clear margins. One extremely cute baby animal companion, big round head and bright eyes, natural clear anatomy. Facing RIGHT in near-side three-quarter view. All limbs visibly separated, clearly connected to body, no merged limbs, no extra limbs. Tail and accessories never hide feet. Bright crisp 16-bit pixel art, clean pixel clusters, 3-4 shades per color, low noise. Whole body centered with clear margin, no text, no scenery, no ground shadow, no loose floating particles.",
+      "image_size": {
+        "width": 96,
+        "height": 96
+      },
+      "outline": "selective outline",
+      "detail": "medium detail",
+      "view": "side",
+      "direction": "east",
+      "no_background": true,
+      "seed": 2026111903,
+      "enhance_prompt": false
+    },
+    "submission": {
+      "endpoint": "create-image-pixen",
+      "at": 1795005786.1747112,
+      "attempt": 1
+    },
+    "response_metadata": {
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "enhanced_prompt": null,
+      "enhance_usage": null
+    }
+  },
+  {
+    "id": "chick-A",
+    "request": {
+      "description": "Very tiny round baby chick, fluffy sunny-yellow body and pale cream belly. Small orange feather tuft shaped like a flame, NOT actual fire. Tiny orange beak and friendly round black eyes. TWO small wings held slightly out at body sides, clearly ABOVE TWO separate orange feet with visible toes. Simple baby pet with no crown or jewelry. Full body including tuft and feet within middle 70 percent canvas, generous margins. One extremely cute baby animal companion, big round head and bright eyes, natural clear anatomy. Facing RIGHT in near-side three-quarter view. All limbs visibly separated, clearly connected to body, no merged limbs, no extra limbs. Tail and accessories never hide feet. Bright crisp 16-bit pixel art, clean pixel clusters, 3-4 shades per color, low noise. Whole body centered with clear margin, no text, no scenery, no ground shadow, no loose floating particles.",
+      "image_size": {
+        "width": 96,
+        "height": 96
+      },
+      "outline": "selective outline",
+      "detail": "medium detail",
+      "view": "side",
+      "direction": "east",
+      "no_background": true,
+      "seed": 2026111904,
+      "enhance_prompt": false
+    },
+    "submission": {
+      "endpoint": "create-image-pixen",
+      "at": 1795005834.8872395,
+      "attempt": 1
+    },
+    "response_metadata": {
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "enhanced_prompt": null,
+      "enhance_usage": null
+    }
+  },
+  {
+    "id": "chick-B",
+    "request": {
+      "description": "Tiny fluffy baby chick, soft ivory-white body, peach-orange belly and short apricot feather tuft. A little red bandana tied neatly at neck. TWO short orange-tipped wings above belly, clearly separate from TWO wide-set tiny orange feet below body. Sweet large dark eyes and tiny beak. No crown, no flame particles. Cute simple A-tier pet. Full body with generous empty margins above tuft and below toes. One extremely cute baby animal companion, big round head and bright eyes, natural clear anatomy. Facing RIGHT in near-side three-quarter view. All limbs visibly separated, clearly connected to body, no merged limbs, no extra limbs. Tail and accessories never hide feet. Bright crisp 16-bit pixel art, clean pixel clusters, 3-4 shades per color, low noise. Whole body centered with clear margin, no text, no scenery, no ground shadow, no loose floating particles.",
+      "image_size": {
+        "width": 96,
+        "height": 96
+      },
+      "outline": "selective outline",
+      "detail": "medium detail",
+      "view": "side",
+      "direction": "east",
+      "no_background": true,
+      "seed": 2026111905,
+      "enhance_prompt": false
+    },
+    "submission": {
+      "endpoint": "create-image-pixen",
+      "at": 1795005873.9637644,
+      "attempt": 1
+    },
+    "response_metadata": {
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "enhanced_prompt": null,
+      "enhance_usage": null
+    }
+  },
+  {
+    "id": "hedgehog-A",
+    "request": {
+      "description": "Baby chestnut hedgehog, round brown spiny back with SHORT soft-looking spines, cream face and belly, tiny round ears, small dark nose and friendly eyes. Natural low four-legged stance. FOUR short peach paws visible BELOW the body, front and hind pairs separated by open space. Spines never reach over feet. Small green leaf tucked behind ear. No glow, no armor. Entire compact body occupies middle 70 percent canvas. One extremely cute baby animal companion, big round head and bright eyes, natural clear anatomy. Facing RIGHT in near-side three-quarter view. All limbs visibly separated, clearly connected to body, no merged limbs, no extra limbs. Tail and accessories never hide feet. Bright crisp 16-bit pixel art, clean pixel clusters, 3-4 shades per color, low noise. Whole body centered with clear margin, no text, no scenery, no ground shadow, no loose floating particles.",
+      "image_size": {
+        "width": 96,
+        "height": 96
+      },
+      "outline": "selective outline",
+      "detail": "medium detail",
+      "view": "side",
+      "direction": "east",
+      "no_background": true,
+      "seed": 2026111906,
+      "enhance_prompt": false
+    },
+    "submission": {
+      "endpoint": "create-image-pixen",
+      "at": 1795005919.8079278,
+      "attempt": 1
+    },
+    "response_metadata": {
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "enhanced_prompt": null,
+      "enhance_usage": null
+    }
+  },
+  {
+    "id": "hedgehog-B",
+    "request": {
+      "description": "Baby hedgehog with rounded smoky-grey spiny back, SHORT tidy rounded spine clusters, white face and cream belly. Tiny pink nose, small round ears, big friendly eyes. FOUR short pink feet clearly visible below body, separate front and rear leg pairs with gaps. Small blue cloth neckerchief, no jewelry. Low natural standing pose, not rolled into ball. Broad transparent margins around entire character. One extremely cute baby animal companion, big round head and bright eyes, natural clear anatomy. Facing RIGHT in near-side three-quarter view. All limbs visibly separated, clearly connected to body, no merged limbs, no extra limbs. Tail and accessories never hide feet. Bright crisp 16-bit pixel art, clean pixel clusters, 3-4 shades per color, low noise. Whole body centered with clear margin, no text, no scenery, no ground shadow, no loose floating particles.",
+      "image_size": {
+        "width": 96,
+        "height": 96
+      },
+      "outline": "selective outline",
+      "detail": "medium detail",
+      "view": "side",
+      "direction": "east",
+      "no_background": true,
+      "seed": 2026111907,
+      "enhance_prompt": false
+    },
+    "submission": {
+      "endpoint": "create-image-pixen",
+      "at": 1795005972.9767516,
+      "attempt": 1
+    },
+    "response_metadata": {
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "enhanced_prompt": null,
+      "enhance_usage": null
+    }
+  },
+  {
+    "id": "sparrow-A",
+    "request": {
+      "description": "Tiny plump baby sparrow, warm brown back, cream belly, chestnut cheek patch, tiny dark beak and bright friendly eye. Small red-and-white fishing bobber shaped cloth badge on chest, not held in beak. TWO folded wings on upper body, TWO distinct thin brown legs and feet with spread toes below belly. Short tail points left behind body. Simple low-tier cozy pet, no crown, no glow. Wide margins all around. One extremely cute baby animal companion, big round head and bright eyes, natural clear anatomy. Facing RIGHT in near-side three-quarter view. All limbs visibly separated, clearly connected to body, no merged limbs, no extra limbs. Tail and accessories never hide feet. Bright crisp 16-bit pixel art, clean pixel clusters, 3-4 shades per color, low noise. Whole body centered with clear margin, no text, no scenery, no ground shadow, no loose floating particles.",
+      "image_size": {
+        "width": 96,
+        "height": 96
+      },
+      "outline": "selective outline",
+      "detail": "medium detail",
+      "view": "side",
+      "direction": "east",
+      "no_background": true,
+      "seed": 2026111908,
+      "enhance_prompt": false
+    },
+    "submission": {
+      "endpoint": "create-image-pixen",
+      "at": 1795006017.6244314,
+      "attempt": 1
+    },
+    "response_metadata": {
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "enhanced_prompt": null,
+      "enhance_usage": null
+    }
+  },
+  {
+    "id": "sparrow-B",
+    "request": {
+      "description": "Tiny round baby sparrow with pale grey-brown back, white cheeks and cream belly, chestnut cap on head. Tiny dark beak, friendly black eyes. A little blue cloth neck band with small red-white bobber badge. TWO short folded wings distinctly above TWO thin separate orange feet with spread toes, visible leg gap. Short tail behind. No perch, no crown, no sparkles. Entire bird centered with generous empty margins. One extremely cute baby animal companion, big round head and bright eyes, natural clear anatomy. Facing RIGHT in near-side three-quarter view. All limbs visibly separated, clearly connected to body, no merged limbs, no extra limbs. Tail and accessories never hide feet. Bright crisp 16-bit pixel art, clean pixel clusters, 3-4 shades per color, low noise. Whole body centered with clear margin, no text, no scenery, no ground shadow, no loose floating particles.",
+      "image_size": {
+        "width": 96,
+        "height": 96
+      },
+      "outline": "selective outline",
+      "detail": "medium detail",
+      "view": "side",
+      "direction": "east",
+      "no_background": true,
+      "seed": 2026111909,
+      "enhance_prompt": false
+    },
+    "submission": {
+      "endpoint": "create-image-pixen",
+      "at": 1795006061.8926957,
+      "attempt": 1
+    },
+    "response_metadata": {
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "enhanced_prompt": null,
+      "enhance_usage": null
+    }
+  },
+  {
+    "id": "raccoon-A",
+    "request": {
+      "description": "Baby merchant raccoon, soft grey-brown fur, dark eye mask, cream belly, big friendly eyes. Small green merchant neckerchief, tiny flat brown waist pouch at SIDE only. Sitting upright on TWO broad hind feet separated on ground, TWO small front hands raised beside upper chest and away from feet. Clearly distinct arms and legs. Bushy striped tail curls behind body without covering feet. No held objects, no crown. Full body within generous canvas margins. One extremely cute baby animal companion, big round head and bright eyes, natural clear anatomy. Facing RIGHT in near-side three-quarter view. All limbs visibly separated, clearly connected to body, no merged limbs, no extra limbs. Tail and accessories never hide feet. Bright crisp 16-bit pixel art, clean pixel clusters, 3-4 shades per color, low noise. Whole body centered with clear margin, no text, no scenery, no ground shadow, no loose floating particles.",
+      "image_size": {
+        "width": 96,
+        "height": 96
+      },
+      "outline": "selective outline",
+      "detail": "medium detail",
+      "view": "side",
+      "direction": "east",
+      "no_background": true,
+      "seed": 2026111910,
+      "enhance_prompt": false
+    },
+    "submission": {
+      "endpoint": "create-image-pixen",
+      "at": 1795006097.2764583,
+      "attempt": 1
+    },
+    "response_metadata": {
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "enhanced_prompt": null,
+      "enhance_usage": null
+    }
+  },
+  {
+    "id": "raccoon-B",
+    "request": {
+      "description": "Baby merchant raccoon with cinnamon brown fur, dark brown eye mask, white cheeks and belly. Short navy-blue neck scarf with tiny round brass button, no pouch. Sitting upright: TWO small front arms curled near upper chest, TWO larger hind feet spread wide on ground far below hands. Clear spaces around every paw. Thick brown striped tail arcs behind rump, not across legs. Friendly rounded face, no objects held. Broad transparent margins. One extremely cute baby animal companion, big round head and bright eyes, natural clear anatomy. Facing RIGHT in near-side three-quarter view. All limbs visibly separated, clearly connected to body, no merged limbs, no extra limbs. Tail and accessories never hide feet. Bright crisp 16-bit pixel art, clean pixel clusters, 3-4 shades per color, low noise. Whole body centered with clear margin, no text, no scenery, no ground shadow, no loose floating particles.",
+      "image_size": {
+        "width": 96,
+        "height": 96
+      },
+      "outline": "selective outline",
+      "detail": "medium detail",
+      "view": "side",
+      "direction": "east",
+      "no_background": true,
+      "seed": 2026111911,
+      "enhance_prompt": false
+    },
+    "submission": {
+      "endpoint": "create-image-pixen",
+      "at": 1795006134.3519094,
+      "attempt": 1
+    },
+    "response_metadata": {
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "enhanced_prompt": null,
+      "enhance_usage": null
+    }
+  },
+  {
+    "id": "boar-A",
+    "request": {
+      "description": "Tiny baby wild boar piglet, warm chestnut brown body with cream horizontal baby stripes on back, short pink snout and small round ears. FOUR short stout legs with dark cloven hooves, front pair and back pair clearly separated by gaps. Standing naturally on all four hooves, little tail behind, no humanoid arms. Small green neckerchief, friendly large eyes, no tusks, no armor. Whole body centered in middle 70 percent canvas with wide margins. One extremely cute baby animal companion, big round head and bright eyes, natural clear anatomy. Facing RIGHT in near-side three-quarter view. All limbs visibly separated, clearly connected to body, no merged limbs, no extra limbs. Tail and accessories never hide feet. Bright crisp 16-bit pixel art, clean pixel clusters, 3-4 shades per color, low noise. Whole body centered with clear margin, no text, no scenery, no ground shadow, no loose floating particles.",
+      "image_size": {
+        "width": 96,
+        "height": 96
+      },
+      "outline": "selective outline",
+      "detail": "medium detail",
+      "view": "side",
+      "direction": "east",
+      "no_background": true,
+      "seed": 2026111912,
+      "enhance_prompt": false
+    },
+    "submission": {
+      "endpoint": "create-image-pixen",
+      "at": 1795006184.0833256,
+      "attempt": 1
+    },
+    "response_metadata": {
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "enhanced_prompt": null,
+      "enhance_usage": null
+    }
+  },
+  {
+    "id": "boar-B",
+    "request": {
+      "description": "Tiny fluffy wild boar piglet, soft grey-brown coat with three light cream baby stripes along back, pale pink snout, small upright ears and friendly black eyes. Tiny red cloth neck band. FOUR short chunky legs ending in clearly visible dark hooves, front and hind pairs separated by open gap. Natural standing pose, small curled tail behind, no tusks, no armor. Cute rounded body, no human arms. All ears, tail and hooves inside wide transparent margins. One extremely cute baby animal companion, big round head and bright eyes, natural clear anatomy. Facing RIGHT in near-side three-quarter view. All limbs visibly separated, clearly connected to body, no merged limbs, no extra limbs. Tail and accessories never hide feet. Bright crisp 16-bit pixel art, clean pixel clusters, 3-4 shades per color, low noise. Whole body centered with clear margin, no text, no scenery, no ground shadow, no loose floating particles.",
+      "image_size": {
+        "width": 96,
+        "height": 96
+      },
+      "outline": "selective outline",
+      "detail": "medium detail",
+      "view": "side",
+      "direction": "east",
+      "no_background": true,
+      "seed": 2026111913,
+      "enhance_prompt": false
+    },
+    "submission": {
+      "endpoint": "create-image-pixen",
+      "at": 1795006228.9738197,
+      "attempt": 1
+    },
+    "response_metadata": {
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "enhanced_prompt": null,
+      "enhance_usage": null
+    }
+  }
+]

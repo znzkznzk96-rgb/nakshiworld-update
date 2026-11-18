@@ -6,8 +6,8 @@
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "펫9종 선택 확정·햄스터부터14장 제작 재개",
-  "next_step": "햄스터 새 A/B와 나머지6종 A/B 순차 생성·검수",
+  "current_task": "펫9종 선택 확정·남은7종 A/B14장 제작 완료",
+  "next_step": "사용자가 햄스터/거북/병아리/고슴도치/참새/너구리/멧돼지 각 A/B 선택",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -2405,13 +2405,12 @@
     "implemented": false
   },
   "pet_art_generation": {
-    "status": "resumed_user_authorized",
-    "scope": 14,
-    "completed": 0,
-    "rejected": [
-      "hamster-A"
-    ],
-    "previous_scope_status": "superseded remaining13 by new14"
+    "status": "14_completed_pending_selection",
+    "generated_this_round": 14,
+    "spent_generations": 14,
+    "balance_after": 4965,
+    "review": "docs/qa/pet-roster-20261118/ROUND2_REVIEWS.json",
+    "game_applied": false
   },
   "pet_art_selection": {
     "date": "2026-11-18",
