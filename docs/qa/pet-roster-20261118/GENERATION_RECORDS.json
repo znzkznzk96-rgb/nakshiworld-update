@@ -1,0 +1,572 @@
+[
+  {
+    "id": "dragon-A",
+    "request": {
+      "description": "Baby thunder sea dragon, tiny quadruped with short round body. Turquoise scales, cream belly, gold lightning-shaped small horns and bright blue dorsal fins. FOUR sturdy little legs clearly spaced, front pair beneath chest and hind pair beneath hips. Stand on ground, not serpentine coiling. Large finned tail arches behind body without covering feet. Cute short snout, no teeth, no wings, no electricity particles. One extremely cute baby animal companion, big round head and bright eyes, natural clear anatomy. Facing RIGHT in near-side three-quarter view. All limbs visibly separated, clearly connected to body, no merged limbs, no extra limbs. Tail and accessories never hide feet. Bright crisp 16-bit pixel art, clean pixel clusters, 3-4 shades per color, low noise. Whole body centered with clear margin, no text, no scenery, no ground shadow, no loose floating particles.",
+      "image_size": {
+        "width": 96,
+        "height": 96
+      },
+      "outline": "selective outline",
+      "detail": "medium detail",
+      "view": "side",
+      "direction": "east",
+      "no_background": true,
+      "seed": 2026111814,
+      "enhance_prompt": false
+    },
+    "response_metadata": {
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "enhanced_prompt": null,
+      "enhance_usage": null
+    },
+    "submission": {
+      "endpoint": "create-image-pixen",
+      "at": 1795004505.3789253,
+      "attempt": 1
+    }
+  },
+  {
+    "id": "dragon-B",
+    "request": {
+      "description": "Baby thunder sea dragon. Pearl white and deep indigo scales, pale gold belly, two small violet lightning horns, cyan fin-shaped ears and tail fin. FOUR short chunky legs supporting body, clear space between front and hind leg pairs, paws visible. Rounded head, tiny muzzle, sweet large eyes. Standing naturally, tail curls upward behind rump. Compact premium fantasy pet. No handheld objects or particles. One extremely cute baby animal companion, big round head and bright eyes, natural clear anatomy. Facing RIGHT in near-side three-quarter view. All limbs visibly separated, clearly connected to body, no merged limbs, no extra limbs. Tail and accessories never hide feet. Bright crisp 16-bit pixel art, clean pixel clusters, 3-4 shades per color, low noise. Whole body centered with clear margin, no text, no scenery, no ground shadow, no loose floating particles.",
+      "image_size": {
+        "width": 96,
+        "height": 96
+      },
+      "outline": "selective outline",
+      "detail": "medium detail",
+      "view": "side",
+      "direction": "east",
+      "no_background": true,
+      "seed": 2026111815,
+      "enhance_prompt": false
+    },
+    "response_metadata": {
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "enhanced_prompt": null,
+      "enhance_usage": null
+    },
+    "submission": {
+      "endpoint": "create-image-pixen",
+      "at": 1795004557.9577696,
+      "attempt": 1
+    }
+  },
+  {
+    "id": "fox-A",
+    "request": {
+      "description": "Single adorable baby fox pet. Natural FOUR-LEGGED animal anatomy, standing on all four paws, facing RIGHT in a near-side three-quarter view. Short but clearly visible legs. Two forelegs under the chest, two hindlegs under the rump. Clear empty space between front and hind leg pairs. Paws spaced apart, no overlapping or fused legs. Rounded big head, short muzzle, small triangular ears, bright dark eyes. Ivory white fur, sapphire blue fluffy tail with cyan star-shaped markings, tiny gold star collar. Tail curls upward BEHIND the rump, never covers any legs. Cute compact fantasy creature, not humanoid. Clean 16-bit game pixel art, crisp clustered pixels, 3-4 shades per color, readable silhouette. Entire body with margin. No props, no text, no scenery, no ground shadow, no floating particles.",
+      "image_size": {
+        "width": 96,
+        "height": 96
+      },
+      "outline": "selective outline",
+      "detail": "medium detail",
+      "view": "side",
+      "direction": "east",
+      "no_background": true,
+      "seed": 2026111810,
+      "enhance_prompt": false
+    },
+    "response_metadata": {
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "enhanced_prompt": null,
+      "enhance_usage": null
+    },
+    "submission": {
+      "endpoint": "create-image-pixen",
+      "at": 1795004290.607855,
+      "attempt": 1
+    }
+  },
+  {
+    "id": "fox-B",
+    "request": {
+      "description": "Baby arctic fox standing naturally on FOUR legs. Two forelegs under chest and two hindlegs under rump, distinct paws and open gaps between all legs. Pale lavender fur, white muzzle and chest, dark violet paws, enormous fluffy plum-purple tail with small gold star markings. Gold star hairclip at ear. Tail curls above rump. No humanoid arms. One extremely cute baby animal companion, big round head and bright eyes, natural clear anatomy. Facing RIGHT in near-side three-quarter view. All limbs visibly separated, clearly connected to body, no merged limbs, no extra limbs. Tail and accessories never hide feet. Bright crisp 16-bit pixel art, clean pixel clusters, 3-4 shades per color, low noise. Whole body centered with clear margin, no text, no scenery, no ground shadow, no loose floating particles.",
+      "image_size": {
+        "width": 96,
+        "height": 96
+      },
+      "outline": "selective outline",
+      "detail": "medium detail",
+      "view": "side",
+      "direction": "east",
+      "no_background": true,
+      "seed": 2026111811,
+      "enhance_prompt": false
+    },
+    "response_metadata": {
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "enhanced_prompt": null,
+      "enhance_usage": null
+    },
+    "submission": {
+      "endpoint": "create-image-pixen",
+      "at": 1795004354.4118867,
+      "attempt": 1
+    }
+  },
+  {
+    "id": "frog-A",
+    "request": {
+      "description": "Baby spring-water frog, mint green round body, pale yellow belly, large glossy eyes, tiny smile, blue water-drop gemstone collar. Natural squat pose: TWO slender front legs planted below chest with small spread toes, TWO thick folded hind legs far to the sides with separate large webbed feet. Front hands and rear feet clearly distinct and not touching. Tiny leaf-shaped head tuft, no held objects. One extremely cute baby animal companion, big round head and bright eyes, natural clear anatomy. Facing RIGHT in near-side three-quarter view. All limbs visibly separated, clearly connected to body, no merged limbs, no extra limbs. Tail and accessories never hide feet. Bright crisp 16-bit pixel art, clean pixel clusters, 3-4 shades per color, low noise. Whole body centered with clear margin, no text, no scenery, no ground shadow, no loose floating particles.",
+      "image_size": {
+        "width": 96,
+        "height": 96
+      },
+      "outline": "selective outline",
+      "detail": "medium detail",
+      "view": "side",
+      "direction": "east",
+      "no_background": true,
+      "seed": 2026111826,
+      "enhance_prompt": false
+    },
+    "response_metadata": {
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "enhanced_prompt": null,
+      "enhance_usage": null
+    },
+    "submission": {
+      "endpoint": "create-image-pixen",
+      "at": 1795005125.8700118,
+      "attempt": 1
+    }
+  },
+  {
+    "id": "frog-B",
+    "request": {
+      "description": "Baby spring-water tree frog, sky-blue round body and white belly with small lavender spots. Big friendly eyes, little smile, tiny silver water-drop forehead ornament. Natural crouch: TWO slim front arms planted under chest and TWO thick folded hind legs at sides, all hands and webbed feet visibly spaced apart. Each front hand distinct from rear foot. No leaf or branch props. One extremely cute baby animal companion, big round head and bright eyes, natural clear anatomy. Facing RIGHT in near-side three-quarter view. All limbs visibly separated, clearly connected to body, no merged limbs, no extra limbs. Tail and accessories never hide feet. Bright crisp 16-bit pixel art, clean pixel clusters, 3-4 shades per color, low noise. Whole body centered with clear margin, no text, no scenery, no ground shadow, no loose floating particles.",
+      "image_size": {
+        "width": 96,
+        "height": 96
+      },
+      "outline": "selective outline",
+      "detail": "medium detail",
+      "view": "side",
+      "direction": "east",
+      "no_background": true,
+      "seed": 2026111827,
+      "enhance_prompt": false
+    },
+    "response_metadata": {
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "enhanced_prompt": null,
+      "enhance_usage": null
+    },
+    "submission": {
+      "endpoint": "create-image-pixen",
+      "at": 1795005164.6701584,
+      "attempt": 1
+    }
+  },
+  {
+    "id": "hamster-A",
+    "request": {
+      "description": "Baby gemstone hamster, honey-gold fur and white belly, huge chubby cheeks, small round ears. Tiny turquoise gem crown and short blue neck ribbon. Sitting upright with TWO tiny front hands held separately beside upper chest, TWO larger pink hind feet spread on the ground below belly. Wide clear empty space between hands and feet. No objects in hands, no bag hiding anatomy. Cute round plush silhouette. One extremely cute baby animal companion, big round head and bright eyes, natural clear anatomy. Facing RIGHT in near-side three-quarter view. All limbs visibly separated, clearly connected to body, no merged limbs, no extra limbs. Tail and accessories never hide feet. Bright crisp 16-bit pixel art, clean pixel clusters, 3-4 shades per color, low noise. Whole body centered with clear margin, no text, no scenery, no ground shadow, no loose floating particles.",
+      "image_size": {
+        "width": 96,
+        "height": 96
+      },
+      "outline": "selective outline",
+      "detail": "medium detail",
+      "view": "side",
+      "direction": "east",
+      "no_background": true,
+      "seed": 2026111828,
+      "enhance_prompt": false
+    },
+    "response_metadata": {
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "enhanced_prompt": null,
+      "enhance_usage": null
+    },
+    "submission": {
+      "endpoint": "create-image-pixen",
+      "at": 1795005211.220978,
+      "attempt": 1
+    }
+  },
+  {
+    "id": "hawk-A",
+    "request": {
+      "description": "Baby fire falcon, round scarlet-red bird with warm orange breast and golden flame-shaped feather crest. Tiny curved dark beak, kind large eyes. Two short folded wings above the legs, clear outlines and orange feather tips. TWO widely spaced golden feet with distinct toes below belly. Short red tail behind left side. Gold collar with ruby. No ground shadow, no fire particles, no perch. One extremely cute baby animal companion, big round head and bright eyes, natural clear anatomy. Facing RIGHT in near-side three-quarter view. All limbs visibly separated, clearly connected to body, no merged limbs, no extra limbs. Tail and accessories never hide feet. Bright crisp 16-bit pixel art, clean pixel clusters, 3-4 shades per color, low noise. Whole body centered with clear margin, no text, no scenery, no ground shadow, no loose floating particles.",
+      "image_size": {
+        "width": 96,
+        "height": 96
+      },
+      "outline": "selective outline",
+      "detail": "medium detail",
+      "view": "side",
+      "direction": "east",
+      "no_background": true,
+      "seed": 2026111822,
+      "enhance_prompt": false
+    },
+    "response_metadata": {
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "enhanced_prompt": null,
+      "enhance_usage": null
+    },
+    "submission": {
+      "endpoint": "create-image-pixen",
+      "at": 1795004932.6747215,
+      "attempt": 1
+    }
+  },
+  {
+    "id": "hawk-B",
+    "request": {
+      "description": "Baby fire falcon. Cream-white feather body, orange-red folded wings, golden chest, small flame-orange head tuft, ruby-red eyes with friendly expression, tiny grey hooked beak. Gold neck ring. TWO distinct golden feet spaced apart beneath belly, wing tips stay high above feet. Short fan of orange tail feathers behind. No flame effects, no held objects, no ground shadow. One extremely cute baby animal companion, big round head and bright eyes, natural clear anatomy. Facing RIGHT in near-side three-quarter view. All limbs visibly separated, clearly connected to body, no merged limbs, no extra limbs. Tail and accessories never hide feet. Bright crisp 16-bit pixel art, clean pixel clusters, 3-4 shades per color, low noise. Whole body centered with clear margin, no text, no scenery, no ground shadow, no loose floating particles.",
+      "image_size": {
+        "width": 96,
+        "height": 96
+      },
+      "outline": "selective outline",
+      "detail": "medium detail",
+      "view": "side",
+      "direction": "east",
+      "no_background": true,
+      "seed": 2026111823,
+      "enhance_prompt": false
+    },
+    "response_metadata": {
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "enhanced_prompt": null,
+      "enhance_usage": null
+    },
+    "submission": {
+      "endpoint": "create-image-pixen",
+      "at": 1795004976.1978498,
+      "attempt": 1
+    }
+  },
+  {
+    "id": "kingfisher-A",
+    "request": {
+      "description": "Baby kingfisher hunting pet. Round turquoise-blue bird, orange breast, white cheek patch, short straight dark beak, tiny golden feather crest. Two folded wings clearly outlined on body sides, TWO separate orange feet with visible toes planted below round belly. Short tail sticks behind to left, distinct from feet. Small blue gemstone neck ring. No perch, no fish in beak. One extremely cute baby animal companion, big round head and bright eyes, natural clear anatomy. Facing RIGHT in near-side three-quarter view. All limbs visibly separated, clearly connected to body, no merged limbs, no extra limbs. Tail and accessories never hide feet. Bright crisp 16-bit pixel art, clean pixel clusters, 3-4 shades per color, low noise. Whole body centered with clear margin, no text, no scenery, no ground shadow, no loose floating particles.",
+      "image_size": {
+        "width": 96,
+        "height": 96
+      },
+      "outline": "selective outline",
+      "detail": "medium detail",
+      "view": "side",
+      "direction": "east",
+      "no_background": true,
+      "seed": 2026111820,
+      "enhance_prompt": false
+    },
+    "response_metadata": {
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "enhanced_prompt": null,
+      "enhance_usage": null
+    },
+    "submission": {
+      "endpoint": "create-image-pixen",
+      "at": 1795004812.5264592,
+      "attempt": 1
+    }
+  },
+  {
+    "id": "kingfisher-B",
+    "request": {
+      "description": "Plump baby kingfisher, deep cobalt blue feathers, white belly, pale sky-blue wing tips, tiny silver star crest. Straight dark beak, sweet round face. Wing folded neatly at side, wing tip well above feet. TWO separate coral-orange feet widely spaced below belly with distinct toes. Tail points backward left. Small silver and cyan neck brooch. No perch or other objects. One extremely cute baby animal companion, big round head and bright eyes, natural clear anatomy. Facing RIGHT in near-side three-quarter view. All limbs visibly separated, clearly connected to body, no merged limbs, no extra limbs. Tail and accessories never hide feet. Bright crisp 16-bit pixel art, clean pixel clusters, 3-4 shades per color, low noise. Whole body centered with clear margin, no text, no scenery, no ground shadow, no loose floating particles.",
+      "image_size": {
+        "width": 96,
+        "height": 96
+      },
+      "outline": "selective outline",
+      "detail": "medium detail",
+      "view": "side",
+      "direction": "east",
+      "no_background": true,
+      "seed": 2026111821,
+      "enhance_prompt": false
+    },
+    "response_metadata": {
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "enhanced_prompt": null,
+      "enhance_usage": null
+    },
+    "submission": {
+      "endpoint": "create-image-pixen",
+      "at": 1795004864.988892,
+      "attempt": 1
+    }
+  },
+  {
+    "id": "otter-A",
+    "request": {
+      "description": "Royal fishing baby otter. Warm chestnut fur and cream belly. Sitting upright on TWO large webbed hind feet visibly planted wide apart. TWO short front arms held beside chest, paws well above belly, clear gaps from feet. Round ears, whiskered face. Small turquoise fisherman cap with gold star badge and blue neck scarf. Thick tail behind left side away from feet. No fishing rod or held objects. One extremely cute baby animal companion, big round head and bright eyes, natural clear anatomy. Facing RIGHT in near-side three-quarter view. All limbs visibly separated, clearly connected to body, no merged limbs, no extra limbs. Tail and accessories never hide feet. Bright crisp 16-bit pixel art, clean pixel clusters, 3-4 shades per color, low noise. Whole body centered with clear margin, no text, no scenery, no ground shadow, no loose floating particles.",
+      "image_size": {
+        "width": 96,
+        "height": 96
+      },
+      "outline": "selective outline",
+      "detail": "medium detail",
+      "view": "side",
+      "direction": "east",
+      "no_background": true,
+      "seed": 2026111812,
+      "enhance_prompt": false
+    },
+    "response_metadata": {
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "enhanced_prompt": null,
+      "enhance_usage": null
+    },
+    "submission": {
+      "endpoint": "create-image-pixen",
+      "at": 1795004403.3997638,
+      "attempt": 1
+    }
+  },
+  {
+    "id": "otter-B",
+    "request": {
+      "description": "Royal fishing baby otter. Soft silver-grey fur, white cheeks and belly, tiny golden crown tilted between small ears, violet scarf with gold trim. Sitting upright on TWO large webbed hind feet spread on ground. TWO short forearms curled next to upper chest, distinct little paws above belly with clear space before feet. Thick grey tail curls behind rump, outside leg silhouette. No held objects. One extremely cute baby animal companion, big round head and bright eyes, natural clear anatomy. Facing RIGHT in near-side three-quarter view. All limbs visibly separated, clearly connected to body, no merged limbs, no extra limbs. Tail and accessories never hide feet. Bright crisp 16-bit pixel art, clean pixel clusters, 3-4 shades per color, low noise. Whole body centered with clear margin, no text, no scenery, no ground shadow, no loose floating particles.",
+      "image_size": {
+        "width": 96,
+        "height": 96
+      },
+      "outline": "selective outline",
+      "detail": "medium detail",
+      "view": "side",
+      "direction": "east",
+      "no_background": true,
+      "seed": 2026111813,
+      "enhance_prompt": false
+    },
+    "response_metadata": {
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "enhanced_prompt": null,
+      "enhance_usage": null
+    },
+    "submission": {
+      "endpoint": "create-image-pixen",
+      "at": 1795004457.5409272,
+      "attempt": 1
+    }
+  },
+  {
+    "id": "penguin-A",
+    "request": {
+      "description": "Chubby baby penguin pet, navy-blue back and white belly, blush cheeks, tiny orange beak. Bright turquoise scarf and small gold star badge. Standing on TWO widely spaced orange webbed feet. TWO flipper arms slightly lifted away from body at belly height, clear empty gaps between flippers and feet. Rounded egg-shaped baby body, no held objects. One extremely cute baby animal companion, big round head and bright eyes, natural clear anatomy. Facing RIGHT in near-side three-quarter view. All limbs visibly separated, clearly connected to body, no merged limbs, no extra limbs. Tail and accessories never hide feet. Bright crisp 16-bit pixel art, clean pixel clusters, 3-4 shades per color, low noise. Whole body centered with clear margin, no text, no scenery, no ground shadow, no loose floating particles.",
+      "image_size": {
+        "width": 96,
+        "height": 96
+      },
+      "outline": "selective outline",
+      "detail": "medium detail",
+      "view": "side",
+      "direction": "east",
+      "no_background": true,
+      "seed": 2026111824,
+      "enhance_prompt": false
+    },
+    "response_metadata": {
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "enhanced_prompt": null,
+      "enhance_usage": null
+    },
+    "submission": {
+      "endpoint": "create-image-pixen",
+      "at": 1795005024.6713407,
+      "attempt": 1
+    }
+  },
+  {
+    "id": "penguin-B",
+    "request": {
+      "description": "Tiny baby emperor penguin, soft silver-grey back, white belly, dark head mask and small yellow cheek patches. Small purple knit cap with gold star and short purple scarf. TWO flipper arms held outward slightly at sides, clearly above TWO separate wide orange webbed feet. Round cute body, friendly eyes, orange beak, no held objects. One extremely cute baby animal companion, big round head and bright eyes, natural clear anatomy. Facing RIGHT in near-side three-quarter view. All limbs visibly separated, clearly connected to body, no merged limbs, no extra limbs. Tail and accessories never hide feet. Bright crisp 16-bit pixel art, clean pixel clusters, 3-4 shades per color, low noise. Whole body centered with clear margin, no text, no scenery, no ground shadow, no loose floating particles.",
+      "image_size": {
+        "width": 96,
+        "height": 96
+      },
+      "outline": "selective outline",
+      "detail": "medium detail",
+      "view": "side",
+      "direction": "east",
+      "no_background": true,
+      "seed": 2026111825,
+      "enhance_prompt": false
+    },
+    "response_metadata": {
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "enhanced_prompt": null,
+      "enhance_usage": null
+    },
+    "submission": {
+      "endpoint": "create-image-pixen",
+      "at": 1795005073.0526845,
+      "attempt": 1
+    }
+  },
+  {
+    "id": "whale-A",
+    "request": {
+      "description": "Golden baby whale companion, round chubby body floating calmly horizontally facing right. Bright golden yellow back, cream belly, small royal blue saddle-like ornamental back marking and tiny gold crown. TWO side flippers clearly separate from body and a distinct two-lobed tail fluke at the rear. No arms or legs. Small smiling mouth, large kind dark eye. Flippers point down, tail curves upward, all separated silhouettes. No water or splash. One extremely cute baby animal companion, big round head and bright eyes, natural clear anatomy. Facing RIGHT in near-side three-quarter view. All limbs visibly separated, clearly connected to body, no merged limbs, no extra limbs. Tail and accessories never hide feet. Bright crisp 16-bit pixel art, clean pixel clusters, 3-4 shades per color, low noise. Whole body centered with clear margin, no text, no scenery, no ground shadow, no loose floating particles.",
+      "image_size": {
+        "width": 96,
+        "height": 96
+      },
+      "outline": "selective outline",
+      "detail": "medium detail",
+      "view": "side",
+      "direction": "east",
+      "no_background": true,
+      "seed": 2026111816,
+      "enhance_prompt": false
+    },
+    "response_metadata": {
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "enhanced_prompt": null,
+      "enhance_usage": null
+    },
+    "submission": {
+      "endpoint": "create-image-pixen",
+      "at": 1795004623.6407437,
+      "attempt": 1
+    }
+  },
+  {
+    "id": "whale-B",
+    "request": {
+      "description": "Golden baby whale companion with white pearl body and amber gold fins, belly and tail. Tiny sapphire gemstone in golden forehead ornament. Chubby round body floating horizontally facing right, friendly eye and small smile. Distinct near flipper points diagonally down, far flipper visible separately beneath belly, two-lobed tail at left rear curves up. Clear separate fin silhouettes, natural whale anatomy, no legs. No water or splash. One extremely cute baby animal companion, big round head and bright eyes, natural clear anatomy. Facing RIGHT in near-side three-quarter view. All limbs visibly separated, clearly connected to body, no merged limbs, no extra limbs. Tail and accessories never hide feet. Bright crisp 16-bit pixel art, clean pixel clusters, 3-4 shades per color, low noise. Whole body centered with clear margin, no text, no scenery, no ground shadow, no loose floating particles.",
+      "image_size": {
+        "width": 96,
+        "height": 96
+      },
+      "outline": "selective outline",
+      "detail": "medium detail",
+      "view": "side",
+      "direction": "east",
+      "no_background": true,
+      "seed": 2026111817,
+      "enhance_prompt": false
+    },
+    "response_metadata": {
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "enhanced_prompt": null,
+      "enhance_usage": null
+    },
+    "submission": {
+      "endpoint": "create-image-pixen",
+      "at": 1795004661.1063387,
+      "attempt": 1
+    }
+  },
+  {
+    "id": "wolf-A",
+    "request": {
+      "description": "Baby rift wolf, round blue-grey puppy body, white chest and muzzle, violet ear tips and glowing cyan geometric shoulder markings. Tiny violet crystal collar, no armor. Standing naturally on FOUR paws clearly spaced, front legs beneath chest and hind legs beneath hips with open gap. Fluffy tail behind rump raised away from legs. Short friendly muzzle and big eyes, not fierce. One extremely cute baby animal companion, big round head and bright eyes, natural clear anatomy. Facing RIGHT in near-side three-quarter view. All limbs visibly separated, clearly connected to body, no merged limbs, no extra limbs. Tail and accessories never hide feet. Bright crisp 16-bit pixel art, clean pixel clusters, 3-4 shades per color, low noise. Whole body centered with clear margin, no text, no scenery, no ground shadow, no loose floating particles.",
+      "image_size": {
+        "width": 96,
+        "height": 96
+      },
+      "outline": "selective outline",
+      "detail": "medium detail",
+      "view": "side",
+      "direction": "east",
+      "no_background": true,
+      "seed": 2026111818,
+      "enhance_prompt": false
+    },
+    "response_metadata": {
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "enhanced_prompt": null,
+      "enhance_usage": null
+    },
+    "submission": {
+      "endpoint": "create-image-pixen",
+      "at": 1795004710.622028,
+      "attempt": 1
+    }
+  },
+  {
+    "id": "wolf-B",
+    "request": {
+      "description": "Baby rift wolf with charcoal black fur, cream muzzle and chest, lavender paws, amethyst crystal collar and purple star markings on fluffy tail. Friendly rounded puppy head and large amber eyes. FOUR naturally planted paws, forelegs and hindlegs clearly separate with visible gaps. Tail raised behind rump, no tail over legs. Tiny silver crescent ear ornament. No armor or weapons. One extremely cute baby animal companion, big round head and bright eyes, natural clear anatomy. Facing RIGHT in near-side three-quarter view. All limbs visibly separated, clearly connected to body, no merged limbs, no extra limbs. Tail and accessories never hide feet. Bright crisp 16-bit pixel art, clean pixel clusters, 3-4 shades per color, low noise. Whole body centered with clear margin, no text, no scenery, no ground shadow, no loose floating particles.",
+      "image_size": {
+        "width": 96,
+        "height": 96
+      },
+      "outline": "selective outline",
+      "detail": "medium detail",
+      "view": "side",
+      "direction": "east",
+      "no_background": true,
+      "seed": 2026111819,
+      "enhance_prompt": false
+    },
+    "response_metadata": {
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "enhanced_prompt": null,
+      "enhance_usage": null
+    },
+    "submission": {
+      "endpoint": "create-image-pixen",
+      "at": 1795004768.649096,
+      "attempt": 1
+    }
+  }
+]

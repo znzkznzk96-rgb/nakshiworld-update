@@ -1,82 +1,416 @@
-[
-  {
-    "id": "fox-A",
-    "status": "technical_review_pass_user_selection_pending",
-    "sha256": "09e5d29f840db2eed8bc0d4ba918cce859950acd84a338f491d43c00c3ef42d8",
-    "usage": {
-      "type": "generations",
-      "generations": 1.0
+{
+  "status": "stopped_at_hamster_A_canvas_edge",
+  "authorized": 32,
+  "generated": 19,
+  "not_generated": 13,
+  "balance_before": {
+    "credits": {
+      "type": "usd",
+      "usd": 0.0
     },
-    "notes": "팔다리 또는 지느러미 구분/원본 투명/윤곽/여백 확인. 세부 팔레트는 후보이며 최종 승인 전."
+    "subscription": {
+      "type": "generations",
+      "status": "active",
+      "plan": "Tier 2: Pixel Artisan",
+      "generations": 4998.0,
+      "total": 5000.0
+    }
   },
-  {
-    "id": "fox-B",
-    "status": "technical_review_pass_user_selection_pending",
-    "sha256": "55ec115701ecbbb12892c2eff6cd37c4f539bf33f2f3393b320dfe8e3dba085a",
-    "usage": {
-      "type": "generations",
-      "generations": 1.0
+  "balance_after": {
+    "credits": {
+      "type": "usd",
+      "usd": 0.0
     },
-    "notes": "팔다리 또는 지느러미 구분/원본 투명/윤곽/여백 확인. 세부 팔레트는 후보이며 최종 승인 전."
+    "subscription": {
+      "type": "generations",
+      "status": "active",
+      "plan": "Tier 2: Pixel Artisan",
+      "generations": 4979.0,
+      "total": 5000.0
+    }
   },
-  {
-    "id": "otter-A",
-    "status": "technical_review_pass_user_selection_pending",
-    "sha256": "1b263d7f4dba17015499725dc99cb7b9f1db4820add580ca3b1afc3c28a79b71",
-    "usage": {
-      "type": "generations",
-      "generations": 1.0
+  "images": [
+    {
+      "id": "dragon-A",
+      "status": "technical_review_pass_pending_user_choice",
+      "sha256": "ca6f7769b47ffa49a4f5fde4c260b06063abde344d2e4473abb182dbca0d2a1a",
+      "size": [
+        96,
+        96
+      ],
+      "bbox": [
+        6,
+        4,
+        82,
+        92
+      ],
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "notes": "육안: 앞/뒷다리 또는 날개/발 분리 확인, 원본 여백 확인. 최종 외형은 사용자 선택 전."
     },
-    "notes": "팔다리 또는 지느러미 구분/원본 투명/윤곽/여백 확인. 세부 팔레트는 후보이며 최종 승인 전."
-  },
-  {
-    "id": "otter-B",
-    "status": "technical_review_pass_user_selection_pending",
-    "sha256": "970b3b93a811634481a00e1ad75b67edc6f03b8b3695fce3391445dd29410b1f",
-    "usage": {
-      "type": "generations",
-      "generations": 1.0
+    {
+      "id": "dragon-B",
+      "status": "technical_review_pass_pending_user_choice",
+      "sha256": "a95d0f781dd72baa107401382e674a8f5d773c1cf3b9c4705ee852ba0e3b2d2d",
+      "size": [
+        96,
+        96
+      ],
+      "bbox": [
+        7,
+        7,
+        84,
+        89
+      ],
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "notes": "육안: 앞/뒷다리 또는 날개/발 분리 확인, 원본 여백 확인. 최종 외형은 사용자 선택 전."
     },
-    "notes": "팔다리 또는 지느러미 구분/원본 투명/윤곽/여백 확인. 세부 팔레트는 후보이며 최종 승인 전."
-  },
-  {
-    "id": "dragon-A",
-    "status": "technical_review_pass_user_selection_pending",
-    "sha256": "ca6f7769b47ffa49a4f5fde4c260b06063abde344d2e4473abb182dbca0d2a1a",
-    "usage": {
-      "type": "generations",
-      "generations": 1.0
+    {
+      "id": "fox-A",
+      "status": "technical_review_pass_pending_user_choice",
+      "sha256": "09e5d29f840db2eed8bc0d4ba918cce859950acd84a338f491d43c00c3ef42d8",
+      "size": [
+        96,
+        96
+      ],
+      "bbox": [
+        3,
+        6,
+        91,
+        91
+      ],
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "notes": "육안: 앞/뒷다리 또는 날개/발 분리 확인, 원본 여백 확인. 최종 외형은 사용자 선택 전."
     },
-    "notes": "팔다리 또는 지느러미 구분/원본 투명/윤곽/여백 확인. 세부 팔레트는 후보이며 최종 승인 전."
-  },
-  {
-    "id": "dragon-B",
-    "status": "technical_review_pass_user_selection_pending",
-    "sha256": "a95d0f781dd72baa107401382e674a8f5d773c1cf3b9c4705ee852ba0e3b2d2d",
-    "usage": {
-      "type": "generations",
-      "generations": 1.0
+    {
+      "id": "fox-B",
+      "status": "technical_review_pass_pending_user_choice",
+      "sha256": "55ec115701ecbbb12892c2eff6cd37c4f539bf33f2f3393b320dfe8e3dba085a",
+      "size": [
+        96,
+        96
+      ],
+      "bbox": [
+        5,
+        6,
+        84,
+        90
+      ],
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "notes": "육안: 앞/뒷다리 또는 날개/발 분리 확인, 원본 여백 확인. 최종 외형은 사용자 선택 전."
     },
-    "notes": "팔다리 또는 지느러미 구분/원본 투명/윤곽/여백 확인. 세부 팔레트는 후보이며 최종 승인 전."
-  },
-  {
-    "id": "whale-A",
-    "status": "technical_review_pass_user_selection_pending",
-    "sha256": "e5b78945423c0b9aa9ed0677781e37b742a217ca349b7d6880cb0df6b1b67a59",
-    "usage": {
-      "type": "generations",
-      "generations": 1.0
+    {
+      "id": "frog-A",
+      "status": "technical_review_pass_pending_user_choice",
+      "sha256": "2146f55fbd2dc83f80fb48307d93a9fcbbb629dec9004438727888192e79bf7c",
+      "size": [
+        96,
+        96
+      ],
+      "bbox": [
+        8,
+        5,
+        86,
+        91
+      ],
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "notes": "육안: 앞/뒷다리 또는 날개/발 분리 확인, 원본 여백 확인. 최종 외형은 사용자 선택 전."
     },
-    "notes": "팔다리 또는 지느러미 구분/원본 투명/윤곽/여백 확인. 세부 팔레트는 후보이며 최종 승인 전."
-  },
-  {
-    "id": "whale-B",
-    "status": "technical_review_pass_user_selection_pending",
-    "sha256": "b2bfbbbdf2cff0f3c6ac2330edc1a05dfeba72bf4946060a9023af6140b3d563",
-    "usage": {
-      "type": "generations",
-      "generations": 1.0
+    {
+      "id": "frog-B",
+      "status": "technical_review_pass_pending_user_choice",
+      "sha256": "7c743604e33e0974477475618aa19b3ac733c6afae85c50d0b463fd5eb19cea2",
+      "size": [
+        96,
+        96
+      ],
+      "bbox": [
+        8,
+        9,
+        86,
+        88
+      ],
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "notes": "육안: 앞/뒷다리 또는 날개/발 분리 확인, 원본 여백 확인. 최종 외형은 사용자 선택 전."
     },
-    "notes": "팔다리 또는 지느러미 구분/원본 투명/윤곽/여백 확인. 세부 팔레트는 후보이며 최종 승인 전."
-  }
-]
+    {
+      "id": "hamster-A",
+      "status": "hold_canvas_edge",
+      "sha256": "8b956c2ff5e8bcbcacc9f6ea5942ccf852dfe8077838f7e36e23efc14d2620d1",
+      "size": [
+        96,
+        96
+      ],
+      "bbox": [
+        14,
+        0,
+        79,
+        92
+      ],
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "notes": "왕관 끝이 y=0에 닿아 잘림 의심, 추가 호출 중단"
+    },
+    {
+      "id": "hawk-A",
+      "status": "technical_review_pass_pending_user_choice",
+      "sha256": "4973c6e8a3bf90078a9ee343f71e21ab61500dbb50a2ca2d3908a9c4bd320f8c",
+      "size": [
+        96,
+        96
+      ],
+      "bbox": [
+        7,
+        1,
+        74,
+        94
+      ],
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "notes": "육안: 앞/뒷다리 또는 날개/발 분리 확인, 원본 여백 확인. 최종 외형은 사용자 선택 전."
+    },
+    {
+      "id": "hawk-B",
+      "status": "technical_review_pass_pending_user_choice",
+      "sha256": "d9cbe7c18df552f61f9058c5849b5baa0c8e6ac7f5c82cb5efa7cd566f42983f",
+      "size": [
+        96,
+        96
+      ],
+      "bbox": [
+        3,
+        2,
+        88,
+        93
+      ],
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "notes": "육안: 앞/뒷다리 또는 날개/발 분리 확인, 원본 여백 확인. 최종 외형은 사용자 선택 전."
+    },
+    {
+      "id": "kingfisher-A",
+      "status": "technical_review_pass_pending_user_choice",
+      "sha256": "3eac29ffd1bd76986f3bb3574f2bdb044260f3609fe2df618eeec3a48af63134",
+      "size": [
+        96,
+        96
+      ],
+      "bbox": [
+        5,
+        8,
+        91,
+        87
+      ],
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "notes": "육안: 앞/뒷다리 또는 날개/발 분리 확인, 원본 여백 확인. 최종 외형은 사용자 선택 전."
+    },
+    {
+      "id": "kingfisher-B",
+      "status": "technical_review_pass_pending_user_choice",
+      "sha256": "c392fc2d357c124bbbb9433368b8696f16aba18ec479abaff269e48a6f4586ed",
+      "size": [
+        96,
+        96
+      ],
+      "bbox": [
+        6,
+        16,
+        89,
+        84
+      ],
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "notes": "육안: 앞/뒷다리 또는 날개/발 분리 확인, 원본 여백 확인. 최종 외형은 사용자 선택 전."
+    },
+    {
+      "id": "otter-A",
+      "status": "technical_review_pass_pending_user_choice",
+      "sha256": "1b263d7f4dba17015499725dc99cb7b9f1db4820add580ca3b1afc3c28a79b71",
+      "size": [
+        96,
+        96
+      ],
+      "bbox": [
+        2,
+        3,
+        89,
+        94
+      ],
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "notes": "육안: 앞/뒷다리 또는 날개/발 분리 확인, 원본 여백 확인. 최종 외형은 사용자 선택 전."
+    },
+    {
+      "id": "otter-B",
+      "status": "technical_review_pass_pending_user_choice",
+      "sha256": "970b3b93a811634481a00e1ad75b67edc6f03b8b3695fce3391445dd29410b1f",
+      "size": [
+        96,
+        96
+      ],
+      "bbox": [
+        7,
+        5,
+        86,
+        88
+      ],
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "notes": "육안: 앞/뒷다리 또는 날개/발 분리 확인, 원본 여백 확인. 최종 외형은 사용자 선택 전."
+    },
+    {
+      "id": "penguin-A",
+      "status": "technical_review_pass_pending_user_choice",
+      "sha256": "f505d9120b389adc927b0ecc30953e7d4d37afb2f3bc7865cf6c2e36e64cbe62",
+      "size": [
+        96,
+        96
+      ],
+      "bbox": [
+        10,
+        5,
+        86,
+        91
+      ],
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "notes": "육안: 앞/뒷다리 또는 날개/발 분리 확인, 원본 여백 확인. 최종 외형은 사용자 선택 전."
+    },
+    {
+      "id": "penguin-B",
+      "status": "technical_review_pass_pending_user_choice",
+      "sha256": "afa68a9fbb09b151a74d02693b058cb20e087ff96e2771f9ab84af4ac586b147",
+      "size": [
+        96,
+        96
+      ],
+      "bbox": [
+        17,
+        5,
+        78,
+        90
+      ],
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "notes": "육안: 앞/뒷다리 또는 날개/발 분리 확인, 원본 여백 확인. 최종 외형은 사용자 선택 전."
+    },
+    {
+      "id": "whale-A",
+      "status": "technical_review_pass_pending_user_choice",
+      "sha256": "e5b78945423c0b9aa9ed0677781e37b742a217ca349b7d6880cb0df6b1b67a59",
+      "size": [
+        96,
+        96
+      ],
+      "bbox": [
+        4,
+        10,
+        90,
+        78
+      ],
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "notes": "육안: 앞/뒷다리 또는 날개/발 분리 확인, 원본 여백 확인. 최종 외형은 사용자 선택 전."
+    },
+    {
+      "id": "whale-B",
+      "status": "technical_review_pass_pending_user_choice",
+      "sha256": "b2bfbbbdf2cff0f3c6ac2330edc1a05dfeba72bf4946060a9023af6140b3d563",
+      "size": [
+        96,
+        96
+      ],
+      "bbox": [
+        3,
+        17,
+        93,
+        78
+      ],
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "notes": "육안: 앞/뒷다리 또는 날개/발 분리 확인, 원본 여백 확인. 최종 외형은 사용자 선택 전."
+    },
+    {
+      "id": "wolf-A",
+      "status": "technical_review_pass_pending_user_choice",
+      "sha256": "4ea8566a577ec4549f0abe8324bc41c77d5dc793876874f7a691310f88cc4db6",
+      "size": [
+        96,
+        96
+      ],
+      "bbox": [
+        9,
+        5,
+        86,
+        88
+      ],
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "notes": "육안: 앞/뒷다리 또는 날개/발 분리 확인, 원본 여백 확인. 최종 외형은 사용자 선택 전."
+    },
+    {
+      "id": "wolf-B",
+      "status": "technical_review_pass_pending_user_choice",
+      "sha256": "b69c5578c800af5cc339c8192d8ff008ef64d1abcfede34fab894b7ab975f69c",
+      "size": [
+        96,
+        96
+      ],
+      "bbox": [
+        6,
+        5,
+        89,
+        89
+      ],
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "notes": "육안: 앞/뒷다리 또는 날개/발 분리 확인, 원본 여백 확인. 최종 외형은 사용자 선택 전."
+    }
+  ],
+  "game_applied": false,
+  "next": "사용자 검토 및 잘림 수정 방향 결정 전 추가 유료 호출 없음"
+}

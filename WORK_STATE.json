@@ -6,8 +6,8 @@
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "펫16종 각2안 기본 이미지 재제작",
-  "next_step": "팔다리 구분 기준 첫 여우1장 검수 후 단일 순차 제작",
+  "current_task": "펫 시안19/32 생성·햄스터 상단 경계 검수 보류로 중단",
+  "next_step": "사용자에게18장 비교안과 햄스터 보류본 제시, 후속 지시 후 재개",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -2405,10 +2405,15 @@
     "implemented": false
   },
   "pet_art_generation": {
-    "status": "authorized_preflight",
-    "total": 32,
-    "completed": 0,
-    "previous_fox": "excluded_by_user",
-    "review": "docs/qa/pet-roster-20261118/"
+    "status": "stopped_at_canvas_edge",
+    "authorized": 32,
+    "generated": 19,
+    "technical_pass_candidates": 18,
+    "held": 1,
+    "not_generated": 13,
+    "spent_generations": 19,
+    "balance_after": 4979,
+    "review": "docs/qa/pet-roster-20261118/REVIEWS.json",
+    "game_applied": false
   }
 }
