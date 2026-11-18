@@ -1,3 +1,7 @@
+## 2026-11-18 · PixelLab 펫 6장 제작 완료
+
+[원본과 검증](docs/qa/pet-roster-20261118/PIXELLAB_SIX.md). 보석햄스터·불꽃병아리·꼬마멧돼지 각 A/B 선택 대기. 게임 미적용.
+
 ## 2026-11-18 · PixelLab hamster5-A 검수 불합격
 
 [원본과 검수](docs/qa/pet-roster-20261118/hamster5-A-review.md). 남은 5장.

@@ -1,0 +1,140 @@
+[
+  {
+    "id": "hamster5-A",
+    "sha256": "78bb1a038d7a1e9d08a0ed4ac33b1b8e07a99ed025db99d45b046deb52b87ef9",
+    "request": {
+      "description": "A tiny eastern-facing golden hamster game sprite, seated naturally on a broad low haunch. Small round head, compact ears, cream muzzle, a single FLAT dark brown dot for an eye like a Game Boy Color overworld critter; no white in the eye. Clear small bent front paw above two distinct feet, lower body widest. Two angular teal gemstone prisms attached to the back with clear hard planar facets and no glow. Amber ochre fur, three flat color clusters, warm selective outline. Simple charming handheld console pixel art, full body with plenty of transparent padding. No gradient, blush, shine, mascot grin, floor or extra particles.",
+      "image_size": {
+        "width": 64,
+        "height": 64
+      },
+      "outline": "selective outline",
+      "detail": "low detail",
+      "view": "side",
+      "direction": "east",
+      "no_background": true,
+      "seed": 2026111850,
+      "enhance_prompt": false
+    },
+    "balance_after": 4957,
+    "usage": {
+      "type": "generations",
+      "generations": 1
+    }
+  },
+  {
+    "id": "hamster5-B",
+    "sha256": "25150169e4a4efc75d3823fca9578c502d438dbd8060e55be28b171eb1b90994",
+    "request": {
+      "description": "64px side-view pixel RPG sprite, a low crouched gray dwarf hamster facing right, tiny dark eye, cream muzzle, amethyst crystal cluster on its back, front and rear feet visibly separated, muted flat shading, transparent background",
+      "image_size": {
+        "width": 64,
+        "height": 64
+      },
+      "outline": "selective outline",
+      "detail": "low detail",
+      "view": "side",
+      "direction": "east",
+      "no_background": true,
+      "seed": 2026111851,
+      "enhance_prompt": false
+    },
+    "balance_after": 4956,
+    "usage": {
+      "type": "generations",
+      "generations": 1
+    }
+  },
+  {
+    "id": "chick5-A",
+    "sha256": "fb6bb31706787ed951b347e9a96310a74de178c1cc0550a9a01a9a3ef24e7fb8",
+    "request": {
+      "description": "64px side-view pixel RPG sprite, a small yellow baby chick facing right with red flame-shaped feather crest, tiny dark eye, compact folded wing, two visible orange feet, flat warm shading, transparent background",
+      "image_size": {
+        "width": 64,
+        "height": 64
+      },
+      "outline": "selective outline",
+      "detail": "low detail",
+      "view": "side",
+      "direction": "east",
+      "no_background": true,
+      "seed": 2026111852,
+      "enhance_prompt": false
+    },
+    "balance_after": 4955,
+    "usage": {
+      "type": "generations",
+      "generations": 1
+    }
+  },
+  {
+    "id": "chick5-B",
+    "sha256": "bc94baedbc876a030fc2e981d30488139aad39ca65f6f3b12fb04880c24eaab4",
+    "request": {
+      "description": "64px side-view pixel RPG sprite, a tiny charcoal baby chick facing right, flame-shaped vivid orange tail feathers, stubby amber beak, tiny dark eye, visible folded wing above two feet, simple flat colors, transparent background",
+      "image_size": {
+        "width": 64,
+        "height": 64
+      },
+      "outline": "selective outline",
+      "detail": "low detail",
+      "view": "side",
+      "direction": "east",
+      "no_background": true,
+      "seed": 2026111853,
+      "enhance_prompt": false
+    },
+    "balance_after": 4954,
+    "usage": {
+      "type": "generations",
+      "generations": 1
+    }
+  },
+  {
+    "id": "boar5-A",
+    "sha256": "c540abe30b934d1ccde7acf55734bcc99b5db4e5c3f4321ce440868dafd8f2e5",
+    "request": {
+      "description": "64px pixel RPG sprite of a little wild boar piglet facing right, squat cinnamon body, cream longitudinal baby stripes, tiny dark eye, blunt short snout, distinct short legs and dark hooves, muted flat shading, transparent background",
+      "image_size": {
+        "width": 64,
+        "height": 64
+      },
+      "outline": "selective outline",
+      "detail": "low detail",
+      "view": "side",
+      "direction": "east",
+      "no_background": true,
+      "seed": 2026111854,
+      "enhance_prompt": false
+    },
+    "balance_after": 4953,
+    "usage": {
+      "type": "generations",
+      "generations": 1
+    }
+  },
+  {
+    "id": "boar5-B",
+    "sha256": "6a69332717c9971ef80687e03b9cb24aaa892e4eaa654459ad8db33c222587b1",
+    "request": {
+      "description": "64px pixel RPG sprite of a small dark taupe wild boar piglet facing right in slight three quarter view, short raised snout, broken buff baby stripes, tiny dark eye, tucked ears, visible gaps between little hooves, muted flat shading, transparent background",
+      "image_size": {
+        "width": 64,
+        "height": 64
+      },
+      "outline": "selective outline",
+      "detail": "low detail",
+      "view": "side",
+      "direction": "east",
+      "no_background": true,
+      "seed": 2026111855,
+      "enhance_prompt": false
+    },
+    "balance_after": 4952,
+    "usage": {
+      "type": "generations",
+      "generations": 1
+    }
+  }
+]

@@ -6,8 +6,8 @@
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "PixelLab 펫 새 A/B 1/6장 검수",
-  "next_step": "부적합 시안 검토 후 재개 범위 결정",
+  "current_task": "PixelLab 펫 3종 A/B 6장 제공",
+  "next_step": "사용자 펫 A/B 선택",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -2405,9 +2405,9 @@
     "implemented": false
   },
   "pet_art_generation": {
-    "status": "pixellab_six_failed_stop",
-    "generated": 1,
-    "spent_generations": 1,
+    "status": "pixellab_six_previewed_pending_selection",
+    "generated": 6,
+    "spent_generations": 7,
     "scope": 6,
     "excluded": [
       "hamster3-A",
@@ -2419,7 +2419,7 @@
     ],
     "game_applied": false,
     "round4_failure_review": "docs/qa/pet-roster-20261118/ROUND4_REVIEW.md",
-    "review": "docs/qa/pet-roster-20261118/hamster5-A-review.md"
+    "review": "docs/qa/pet-roster-20261118/PIXELLAB_SIX.md"
   },
   "pet_art_selection": {
     "date": "2026-11-18",
