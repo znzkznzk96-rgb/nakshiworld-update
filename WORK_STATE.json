@@ -1,13 +1,13 @@
 {
   "work_branch": "work/forge-138",
-  "status": "ux_boat_simulation_complete_full_ci_running",
+  "status": "ux_boat_verified_not_deployed",
   "release_baseline": "v1.42",
   "target_release": "v1.42",
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "UX 수정·여객선 조정·20회 비교 시뮬 완료",
-  "next_step": "전체 CI44238400029 완료 확인·오류 시 수정; 공개 배포 미승인",
+  "current_task": "UX 수정·여객선2/2/1/1·20회 시뮬·전체 CI 완료",
+  "next_step": "후속 사용자 지시 대기; 새 공개 배포 미승인, 실제 Android 확인 별도",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -35,9 +35,10 @@
   "bundle_verification_run": 42319985467,
   "bundle_evidence_commit": "dd8297cc9de9a5423091b61e06f166ee22023de4",
   "headless_regression_coverage": {
-    "run": 44096222109,
+    "run": 44238400029,
     "status": "passed",
-    "scope": "전체 회귀 및 격리 저장 검사, 네이티브 렌더, PCK"
+    "source_commit": "99610b6191562ddaca00b5662d39945938fa5f17",
+    "scope": "전체 회귀·격리 저장 재실행·네이티브 렌더·PCK/소스 후보 빌드"
   },
   "standard_full_workflow_success": true,
   "remaining_global_render_checks": false,
@@ -59,7 +60,7 @@
     "sha256": "01bb5634b027a1d30c8ea7d297f346f89ec61f5e2b49995e35571e84a1d45b6b",
     "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.42/patch.pck"
   },
-  "standard_full_workflow_note": "v1.42 전체 검사, 동일 후보 공개, 운영 다운로드 검증 통과",
+  "standard_full_workflow_note": "UX/여객선 작업 전체 CI44238400029 통과; 운영은 v1.42 유지, 새 작업 미배포",
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md#2026-11-07--소규모-작업-효율채팅-중단-대비",
   "approved_followup": "우편 단일원본·공통지급·검사통합 구현/검증 완료. 공개v1.08 유지, 새 배포 미승인.",
   "session_continuity": {
@@ -2324,7 +2325,12 @@
     "ci_status": "failure",
     "related_test": "pond_empty passed; guide_ac pending CI",
     "deployed": false,
-    "failure": "assertions passed; 2 resources still in use at exit"
+    "failure": "assertions passed; 2 resources still in use at exit",
+    "followup": {
+      "ci_run": 44238400029,
+      "status": "passed",
+      "resolution": "검사 로컬 참조 해제 후 종료, 전체 회귀 통과"
+    }
   },
   "growth_simulation": {
     "report": "analysis/route-growth-20261118/REPORT.md",
@@ -2342,6 +2348,7 @@
     "report": "analysis/ux-boat-fix-20261118/REPORT.md",
     "verification": "analysis/ux-boat-fix-20261118/VERIFICATION.json",
     "source": "99610b6191562ddaca00b5662d39945938fa5f17",
-    "full_ci_run": 44238400029
+    "full_ci_run": 44238400029,
+    "status": "verified_not_deployed"
   }
 }
