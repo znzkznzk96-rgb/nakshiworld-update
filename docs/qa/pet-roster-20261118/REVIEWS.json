@@ -1,0 +1,82 @@
+[
+  {
+    "id": "fox-A",
+    "status": "technical_review_pass_user_selection_pending",
+    "sha256": "09e5d29f840db2eed8bc0d4ba918cce859950acd84a338f491d43c00c3ef42d8",
+    "usage": {
+      "type": "generations",
+      "generations": 1.0
+    },
+    "notes": "팔다리 또는 지느러미 구분/원본 투명/윤곽/여백 확인. 세부 팔레트는 후보이며 최종 승인 전."
+  },
+  {
+    "id": "fox-B",
+    "status": "technical_review_pass_user_selection_pending",
+    "sha256": "55ec115701ecbbb12892c2eff6cd37c4f539bf33f2f3393b320dfe8e3dba085a",
+    "usage": {
+      "type": "generations",
+      "generations": 1.0
+    },
+    "notes": "팔다리 또는 지느러미 구분/원본 투명/윤곽/여백 확인. 세부 팔레트는 후보이며 최종 승인 전."
+  },
+  {
+    "id": "otter-A",
+    "status": "technical_review_pass_user_selection_pending",
+    "sha256": "1b263d7f4dba17015499725dc99cb7b9f1db4820add580ca3b1afc3c28a79b71",
+    "usage": {
+      "type": "generations",
+      "generations": 1.0
+    },
+    "notes": "팔다리 또는 지느러미 구분/원본 투명/윤곽/여백 확인. 세부 팔레트는 후보이며 최종 승인 전."
+  },
+  {
+    "id": "otter-B",
+    "status": "technical_review_pass_user_selection_pending",
+    "sha256": "970b3b93a811634481a00e1ad75b67edc6f03b8b3695fce3391445dd29410b1f",
+    "usage": {
+      "type": "generations",
+      "generations": 1.0
+    },
+    "notes": "팔다리 또는 지느러미 구분/원본 투명/윤곽/여백 확인. 세부 팔레트는 후보이며 최종 승인 전."
+  },
+  {
+    "id": "dragon-A",
+    "status": "technical_review_pass_user_selection_pending",
+    "sha256": "ca6f7769b47ffa49a4f5fde4c260b06063abde344d2e4473abb182dbca0d2a1a",
+    "usage": {
+      "type": "generations",
+      "generations": 1.0
+    },
+    "notes": "팔다리 또는 지느러미 구분/원본 투명/윤곽/여백 확인. 세부 팔레트는 후보이며 최종 승인 전."
+  },
+  {
+    "id": "dragon-B",
+    "status": "technical_review_pass_user_selection_pending",
+    "sha256": "a95d0f781dd72baa107401382e674a8f5d773c1cf3b9c4705ee852ba0e3b2d2d",
+    "usage": {
+      "type": "generations",
+      "generations": 1.0
+    },
+    "notes": "팔다리 또는 지느러미 구분/원본 투명/윤곽/여백 확인. 세부 팔레트는 후보이며 최종 승인 전."
+  },
+  {
+    "id": "whale-A",
+    "status": "technical_review_pass_user_selection_pending",
+    "sha256": "e5b78945423c0b9aa9ed0677781e37b742a217ca349b7d6880cb0df6b1b67a59",
+    "usage": {
+      "type": "generations",
+      "generations": 1.0
+    },
+    "notes": "팔다리 또는 지느러미 구분/원본 투명/윤곽/여백 확인. 세부 팔레트는 후보이며 최종 승인 전."
+  },
+  {
+    "id": "whale-B",
+    "status": "technical_review_pass_user_selection_pending",
+    "sha256": "b2bfbbbdf2cff0f3c6ac2330edc1a05dfeba72bf4946060a9023af6140b3d563",
+    "usage": {
+      "type": "generations",
+      "generations": 1.0
+    },
+    "notes": "팔다리 또는 지느러미 구분/원본 투명/윤곽/여백 확인. 세부 팔레트는 후보이며 최종 승인 전."
+  }
+]
