@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-18",
+  "status": "user_selected_static_art",
+  "selected": {
+    "낚시왕 수달": "otter-A",
+    "천둥 해룡": "dragon-A",
+    "황금 고래": "whale-A",
+    "균열 늑대": "wolf-B",
+    "별꼬리 여우": "fox-B",
+    "사냥 물총새": "kingfisher-A",
+    "불꽃 매": "hawk-A",
+    "꼬마 펭귄": "penguin-B",
+    "샘물 개구리": "frog-A"
+  },
+  "game_applied": false,
+  "sha256": {
+    "otter-A": "1b263d7f4dba17015499725dc99cb7b9f1db4820add580ca3b1afc3c28a79b71",
+    "dragon-A": "ca6f7769b47ffa49a4f5fde4c260b06063abde344d2e4473abb182dbca0d2a1a",
+    "whale-A": "e5b78945423c0b9aa9ed0677781e37b742a217ca349b7d6880cb0df6b1b67a59",
+    "wolf-B": "b69c5578c800af5cc339c8192d8ff008ef64d1abcfede34fab894b7ab975f69c",
+    "fox-B": "55ec115701ecbbb12892c2eff6cd37c4f539bf33f2f3393b320dfe8e3dba085a",
+    "kingfisher-A": "3eac29ffd1bd76986f3bb3574f2bdb044260f3609fe2df618eeec3a48af63134",
+    "hawk-A": "4973c6e8a3bf90078a9ee343f71e21ab61500dbb50a2ca2d3908a9c4bd320f8c",
+    "penguin-B": "afa68a9fbb09b151a74d02693b058cb20e087ff96e2771f9ab84af4ac586b147",
+    "frog-A": "2146f55fbd2dc83f80fb48307d93a9fcbbb629dec9004438727888192e79bf7c"
+  }
+}
