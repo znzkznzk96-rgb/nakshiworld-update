@@ -505,7 +505,11 @@ func start_cast() -> void :
 		holding = false
 		show_tip("", "가방의 인벤토리에서 낚싯대를 장착해 주세요")
 		return
-	var insufficient: bool=pond_stock<1.0
+	if pond_stock < 1.0:
+		holding = false
+		show_tip("", "어장이 비었어요. 1마리 이상 회복되면 낚시할 수 있어요")
+		return
+	var insufficient: bool=false
 	pond_stock = maxf(0.0, pond_stock - 1.0)
 	S = {"phase": "cast", "t": 0.0, "insufficient":insufficient}
 	set_anim("cast", false);msg = "";audio_feedback.sound(self,"cast",-6)
@@ -528,8 +532,6 @@ func start_wait() -> void :
 	for i in 5:
 		var stock_weight: float = 1.0 if i == 0 else lerpf(0.04, 1.0, odds_stock_ratio) ** i
 		sp_w.append(star_base[i] * (0.1 if bare and i > 0 else 1.0) * stock_weight if i <= mini(nparts, 3) else 0.0)
-	if pond_stock <= 0.0 and active_region not in [0,1]:
-		sp_w = [1.0, 0.0, 0.0, 0.0, 0.0]
 	var gp: = []
 	for i in 5: gp.append(grade_base[i] * pow(bait_multiplier, i))
 	S = {"phase": "wait", "star": pick(sp_w), "grade": pick(gp), "fakes": [], "bare": bare, "bait_id": region_shop.last_bait}
