@@ -6,8 +6,8 @@
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "펫 시안19/32 생성·햄스터 상단 경계 검수 보류로 중단",
-  "next_step": "사용자에게18장 비교안과 햄스터 보류본 제시, 후속 지시 후 재개",
+  "current_task": "펫9종 선택 확정·햄스터부터14장 제작 재개",
+  "next_step": "햄스터 새 A/B와 나머지6종 A/B 순차 생성·검수",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -2405,15 +2405,28 @@
     "implemented": false
   },
   "pet_art_generation": {
-    "status": "stopped_at_canvas_edge",
-    "authorized": 32,
-    "generated": 19,
-    "technical_pass_candidates": 18,
-    "held": 1,
-    "not_generated": 13,
-    "spent_generations": 19,
-    "balance_after": 4979,
-    "review": "docs/qa/pet-roster-20261118/REVIEWS.json",
+    "status": "resumed_user_authorized",
+    "scope": 14,
+    "completed": 0,
+    "rejected": [
+      "hamster-A"
+    ],
+    "previous_scope_status": "superseded remaining13 by new14"
+  },
+  "pet_art_selection": {
+    "date": "2026-11-18",
+    "selected": {
+      "낚시왕 수달": "otter-A",
+      "천둥 해룡": "dragon-A",
+      "황금 고래": "whale-A",
+      "균열 늑대": "wolf-B",
+      "별꼬리 여우": "fox-B",
+      "사냥 물총새": "kingfisher-A",
+      "불꽃 매": "hawk-A",
+      "꼬마 펭귄": "penguin-B",
+      "샘물 개구리": "frog-A"
+    },
+    "path": "docs/qa/pet-roster-20261118",
     "game_applied": false
   }
 }
