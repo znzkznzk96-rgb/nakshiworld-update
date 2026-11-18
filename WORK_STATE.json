@@ -6,8 +6,8 @@
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "SS·SSS 펫 도면 획득 방향 확정 기록",
-  "next_step": "도면 제작 조건·재료·획득 경로 검토; 미정 수치 구현 금지",
+  "current_task": "16종 펫 구현·모션 범위 감사 완료",
+  "next_step": "감사 결과를 바탕으로 대표1종 시제품 범위 및 아트 계획 결정",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -2367,5 +2367,12 @@
     "gacha_reward": "blueprint_not_completed_pet",
     "game_implemented": false,
     "deployed": false
+  },
+  "pet_feasibility": {
+    "status": "code_review_and_existing_seam_probe_complete",
+    "report": "analysis/pet-feasibility-20261118/REPORT.md",
+    "pet_motion_rendered": false,
+    "pet_art_ready": false,
+    "production_changed": false
   }
 }

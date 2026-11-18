@@ -1,0 +1,182 @@
+{
+	"anchor_cases": [
+		{
+			"cat_anchor": [
+				29,
+				195
+			],
+			"height": 480,
+			"region": 0,
+			"robot_rect": [
+				210.0,
+				227.0,
+				54.0,
+				27.0
+			]
+		},
+		{
+			"cat_anchor": [
+				29,
+				195
+			],
+			"height": 480,
+			"region": 1,
+			"robot_rect": [
+				210.0,
+				227.0,
+				54.0,
+				27.0
+			]
+		},
+		{
+			"cat_anchor": [
+				29,
+				195
+			],
+			"height": 480,
+			"region": 2,
+			"robot_rect": [
+				210.0,
+				227.0,
+				54.0,
+				27.0
+			]
+		},
+		{
+			"cat_anchor": [
+				29,
+				195
+			],
+			"height": 480,
+			"region": 3,
+			"robot_rect": [
+				210.0,
+				227.0,
+				54.0,
+				27.0
+			]
+		},
+		{
+			"cat_anchor": [
+				29,
+				239
+			],
+			"height": 540,
+			"region": 0,
+			"robot_rect": [
+				210.0,
+				250.0,
+				54.0,
+				27.0
+			]
+		},
+		{
+			"cat_anchor": [
+				29,
+				239
+			],
+			"height": 540,
+			"region": 1,
+			"robot_rect": [
+				210.0,
+				250.0,
+				54.0,
+				27.0
+			]
+		},
+		{
+			"cat_anchor": [
+				29,
+				239
+			],
+			"height": 540,
+			"region": 2,
+			"robot_rect": [
+				210.0,
+				250.0,
+				54.0,
+				27.0
+			]
+		},
+		{
+			"cat_anchor": [
+				29,
+				239
+			],
+			"height": 540,
+			"region": 3,
+			"robot_rect": [
+				210.0,
+				250.0,
+				54.0,
+				27.0
+			]
+		},
+		{
+			"cat_anchor": [
+				29,
+				299
+			],
+			"height": 660,
+			"region": 0,
+			"robot_rect": [
+				210.0,
+				310.0,
+				54.0,
+				27.0
+			]
+		},
+		{
+			"cat_anchor": [
+				29,
+				299
+			],
+			"height": 660,
+			"region": 1,
+			"robot_rect": [
+				210.0,
+				310.0,
+				54.0,
+				27.0
+			]
+		},
+		{
+			"cat_anchor": [
+				29,
+				299
+			],
+			"height": 660,
+			"region": 2,
+			"robot_rect": [
+				210.0,
+				310.0,
+				54.0,
+				27.0
+			]
+		},
+		{
+			"cat_anchor": [
+				29,
+				299
+			],
+			"height": 660,
+			"region": 3,
+			"robot_rect": [
+				210.0,
+				310.0,
+				54.0,
+				27.0
+			]
+		}
+	],
+	"battle_snapshot_roundtrip": true,
+	"cat_frames": {
+		"hop": 12,
+		"idle": 48,
+		"look": 12
+	},
+	"quick_hook_multiplier": 2,
+	"robot_roundtrip": true,
+	"scope": "existing integration seams only; no pet motion render or pet mechanic implementation",
+	"zero_stock_robot_blocked": true
+}
