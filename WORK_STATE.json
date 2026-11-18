@@ -6,8 +6,8 @@
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "펫 공통 고양이 위치·기본 모션 방향 확정",
-  "next_step": "공통 크기·기본 대기 모션·장착 효과 표시 세부 설계",
+  "current_task": "펫 귀여움 우선·S급 이상 화려함 아트 방향 확정",
+  "next_step": "공통 위치·기본 모션 기준으로 등급별 외형/장식/색감 세부 설계",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -2382,6 +2382,14 @@
     "motion": "idle_only",
     "bespoke_action_motion": false,
     "effects": "logic_applied_when_equipped_with_feedback",
+    "implemented": false
+  },
+  "pet_art_direction": {
+    "status": "direction_confirmed_details_pending",
+    "priority": "maximum_cuteness",
+    "flashy_from_tier": "S",
+    "preserve_idle_only": true,
+    "generated": false,
     "implemented": false
   }
 }
