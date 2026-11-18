@@ -6,8 +6,8 @@
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "13종 펫 선택 확정·햄스터/병아리/멧돼지6장 재제작",
-  "next_step": "보석 정체성·불꽃 특징·아기 멧돼지 외형 기준 순차 생성·검수",
+  "current_task": "13종 확정·햄스터/병아리/멧돼지 새6장 완료",
+  "next_step": "사용자 새3종 A/B 선택 후 기본 모션 제작 범위 결정",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -2405,17 +2405,11 @@
     "implemented": false
   },
   "pet_art_generation": {
-    "status": "round3_authorized",
-    "scope": 6,
-    "completed": 0,
-    "excluded": [
-      "hamster2-A",
-      "hamster2-B",
-      "chick-A",
-      "chick-B",
-      "boar-A",
-      "boar-B"
-    ],
+    "status": "round3_completed_pending_user_choice",
+    "generated": 6,
+    "spent_generations": 6,
+    "balance_after": 4959,
+    "review": "docs/qa/pet-roster-20261118/ROUND3_REVIEWS.json",
     "game_applied": false
   },
   "pet_art_selection": {
