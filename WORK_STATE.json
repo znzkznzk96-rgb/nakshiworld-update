@@ -6,8 +6,8 @@
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "16종 펫 구현·모션 범위 감사 완료",
-  "next_step": "감사 결과를 바탕으로 대표1종 시제품 범위 및 아트 계획 결정",
+  "current_task": "펫 공통 고양이 위치·기본 모션 방향 확정",
+  "next_step": "공통 크기·기본 대기 모션·장착 효과 표시 세부 설계",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -2374,5 +2374,14 @@
     "pet_motion_rendered": false,
     "pet_art_ready": false,
     "production_changed": false
+  },
+  "pet_presentation": {
+    "status": "direction_confirmed",
+    "position": "existing_cat_anchor",
+    "equipped_replaces_cat": true,
+    "motion": "idle_only",
+    "bespoke_action_motion": false,
+    "effects": "logic_applied_when_equipped_with_feedback",
+    "implemented": false
   }
 }
