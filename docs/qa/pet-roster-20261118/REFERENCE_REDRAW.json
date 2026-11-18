@@ -1,0 +1,116 @@
+[
+  {
+    "id": "hamster6-A",
+    "before": 4952,
+    "after": 4951,
+    "job": "3a7734e3-83bd-49c4-aabb-8572c69b0d19",
+    "usage": null,
+    "request": {
+      "description": "Replace the raccoon with a warm golden baby jewel hamster. Preserve the exact sitting front three-quarter angle, full-body framing, and both visible eyes. Keep both raised forepaws apart from the two grounded hind feet. Give it cream cheeks, small round ears, a tiny tail, and a compact blue crystal cluster attached beside its shoulder. Remove the raccoon mask, scarf and pouch. Keep the same detailed pixel-art shading.",
+      "seed": 2026111860,
+      "width": 64,
+      "height": 64,
+      "no_background": true,
+      "image": {
+        "ref": "raccoon-A",
+        "sha256": "aa634fc566b15b86031b62d44cc91a7c97bec9a04a8956267e4555f7efa8e847"
+      }
+    },
+    "sha256": "0786883f75832ecd966186a5d7e82a6e0a5ab6ea25d6ccf103edb9c5817d0acb"
+  },
+  {
+    "id": "hamster6-B",
+    "before": 4951,
+    "after": 4950,
+    "job": "2b266953-95d9-4194-8f5a-452828a8f4cb",
+    "usage": null,
+    "request": {
+      "description": "Turn it into a gray dwarf hamster with a cream belly and an amethyst cluster visibly held in its raised forepaws. Preserve the reference sitting three-quarter camera, both visible eyes, and clearly separated grounded hind feet. Small rounded ears, tiny tail, no scarf, no raccoon mask. Preserve detail and framing.",
+      "seed": 2026111861,
+      "width": 64,
+      "height": 64,
+      "no_background": true,
+      "image": {
+        "ref": "raccoon-A",
+        "sha256": "aa634fc566b15b86031b62d44cc91a7c97bec9a04a8956267e4555f7efa8e847"
+      }
+    },
+    "sha256": "73912734c01651ba7cf470d52183056d45e51d1aa0127cfc39bef1e1f8458f17"
+  },
+  {
+    "id": "chick6-A",
+    "before": 4950,
+    "after": 4949,
+    "job": "f6239b37-5b49-4512-8d70-926d8b5cfac2",
+    "usage": null,
+    "request": {
+      "description": "Turn the sparrow into a golden very young chick. Keep the reference three-quarter camera, folded wing clearly above two separate feet, and short beak. Replace brown plumage with yellow down and add a red-orange flame-shaped crest attached to the head. Remove blue collar and bobber. Keep pixel-art detail and framing.",
+      "seed": 2026111862,
+      "width": 64,
+      "height": 64,
+      "no_background": true,
+      "image": {
+        "ref": "sparrow-B",
+        "sha256": "e16adc280e918a256fa0293aa6c63c54117786ec496553b043da47a261fd42b0"
+      }
+    },
+    "sha256": "ab1686601f6f118f47f2d7b20e30fea3b0e72ffe2c95023eba4c15fbb9218863"
+  },
+  {
+    "id": "chick6-B",
+    "before": 4949,
+    "after": 4948,
+    "job": "51933c3c-fe94-4c60-8bd6-92d568aab9cb",
+    "usage": null,
+    "request": {
+      "description": "Change the sparrow into a charcoal baby chick with a cream throat and a short attached flame tail. Preserve the exact three-quarter camera, wings above the feet, and both separate feet. Remove the collar and charm. Small amber bill and low amber crest. Preserve the clean pixel detailing.",
+      "seed": 2026111863,
+      "width": 64,
+      "height": 64,
+      "no_background": true,
+      "image": {
+        "ref": "sparrow-B",
+        "sha256": "e16adc280e918a256fa0293aa6c63c54117786ec496553b043da47a261fd42b0"
+      }
+    },
+    "sha256": "b97cc0f81bb870783dcef63a2107343e4812878380895bce470c12dffb3fc42c"
+  },
+  {
+    "id": "boar6-A",
+    "before": 4948,
+    "after": 4947,
+    "job": "f6dedcdc-0f94-4503-ae7d-d26793b06118",
+    "usage": null,
+    "request": {
+      "description": "Replace the hedgehog with a short caramel wild boar piglet with cream baby stripes, a blunt pink snout and small rounded ears. Match its exact low three-quarter angle with both eyes and clearly separated feet. Tiny tail, no tusks, leaf or spines. Maintain detailed pixel-art rendering and framing.",
+      "seed": 2026111864,
+      "width": 64,
+      "height": 64,
+      "no_background": true,
+      "image": {
+        "ref": "hedgehog-A",
+        "sha256": "35c0f2757d423a1400d98bd015efea5d347cad3285a06266d10d0db9eec0514d"
+      }
+    },
+    "sha256": "d452127faa7fa25a0861ecc145e96c299dd8241ef10c6e6ee4640a568183f88e"
+  },
+  {
+    "id": "boar6-B",
+    "before": 4947,
+    "after": 4946,
+    "job": "69b78c44-d9d9-42b5-9711-be6e8b809834",
+    "usage": null,
+    "request": {
+      "description": "Replace the hedgehog with a compact ash-brown baby boar with subtle buff stripes, small upright rounded ears and a short dusty-pink snout. Match the reference low three-quarter angle showing both eyes and visible separated feet. No tusks, leaf or spines. Preserve pixel-art detail, framing and transparent background.",
+      "seed": 2026111865,
+      "width": 64,
+      "height": 64,
+      "no_background": true,
+      "image": {
+        "ref": "hedgehog-A",
+        "sha256": "35c0f2757d423a1400d98bd015efea5d347cad3285a06266d10d0db9eec0514d"
+      }
+    },
+    "sha256": "f294e953f4152ac695f2eaba61197fd5b3b848eecd94a8f4a88bdea89704d2d7"
+  }
+]
