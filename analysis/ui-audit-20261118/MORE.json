@@ -1,0 +1,44 @@
+[
+  {
+    "name": "guide_ac_preview",
+    "code": 0,
+    "errors": [],
+    "png": 18
+  },
+  {
+    "name": "selected_ui_preview",
+    "code": 0,
+    "errors": [],
+    "png": 6
+  },
+  {
+    "name": "pouch_inventory_preview",
+    "code": 0,
+    "errors": [],
+    "png": 8
+  },
+  {
+    "name": "aquarium_b_preview",
+    "code": 0,
+    "errors": [],
+    "png": 4
+  },
+  {
+    "name": "capture_robot_preview",
+    "code": 0,
+    "errors": [],
+    "png": 8
+  },
+  {
+    "name": "combat_feedback_preview",
+    "code": 0,
+    "errors": [],
+    "png": 2
+  },
+  {
+    "name": "robot097_preview",
+    "code": 0,
+    "errors": [],
+    "png": 49
+  }
+]

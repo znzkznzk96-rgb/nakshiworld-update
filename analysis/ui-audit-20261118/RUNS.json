@@ -1,0 +1,1480 @@
+[
+  {
+    "name": "action_readability",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 5.28,
+    "log": "logic-action_readability.log",
+    "png": 0
+  },
+  {
+    "name": "android_back",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 4.33,
+    "log": "logic-android_back.log",
+    "png": 0
+  },
+  {
+    "name": "angler_scene",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 1.27,
+    "log": "logic-angler_scene.log",
+    "png": 0
+  },
+  {
+    "name": "approved_ui",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 4.33,
+    "log": "logic-approved_ui.log",
+    "png": 0
+  },
+  {
+    "name": "aquarium_b",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 4.23,
+    "log": "logic-aquarium_b.log",
+    "png": 0
+  },
+  {
+    "name": "arrival_gift",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 4.23,
+    "log": "logic-arrival_gift.log",
+    "png": 0
+  },
+  {
+    "name": "atmosphere_encounter",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 4.23,
+    "log": "logic-atmosphere_encounter.log",
+    "png": 0
+  },
+  {
+    "name": "audio_save",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 5.24,
+    "log": "logic-audio_save.log",
+    "png": 0
+  },
+  {
+    "name": "bag_event_order",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 4.18,
+    "log": "logic-bag_event_order.log",
+    "png": 0
+  },
+  {
+    "name": "bag_formation",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 4.24,
+    "log": "logic-bag_formation.log",
+    "png": 0
+  },
+  {
+    "name": "bag_interaction",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 4.18,
+    "log": "logic-bag_interaction.log",
+    "png": 0
+  },
+  {
+    "name": "bag_list",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 4.24,
+    "log": "logic-bag_list.log",
+    "png": 0
+  },
+  {
+    "name": "bait092",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 4.24,
+    "log": "logic-bait092.log",
+    "png": 0
+  },
+  {
+    "name": "bait_roles",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 5.19,
+    "log": "logic-bait_roles.log",
+    "png": 0
+  },
+  {
+    "name": "balance096",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 2.22,
+    "log": "logic-balance096.log",
+    "png": 0
+  },
+  {
+    "name": "bite_contact",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 16.21,
+    "log": "logic-bite_contact.log",
+    "png": 0
+  },
+  {
+    "name": "body_book_telegraph",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 4.24,
+    "log": "logic-body_book_telegraph.log",
+    "png": 0
+  },
+  {
+    "name": "bundle_aqua",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 4.19,
+    "log": "logic-bundle_aqua.log",
+    "png": 0
+  },
+  {
+    "name": "bundle_next_unlock_native",
+    "kind": "logic",
+    "code": 124,
+    "errors": [
+      "SCRIPT ERROR: Invalid access of index '0' on a base object of type: 'PackedStringArray'."
+    ],
+    "seconds": 120.01,
+    "log": "logic-bundle_next_unlock_native.log",
+    "png": 0
+  },
+  {
+    "name": "bundle_preview",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 4.24,
+    "log": "logic-bundle_preview.log",
+    "png": 0
+  },
+  {
+    "name": "bundles_buyback",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 5.23,
+    "log": "logic-bundles_buyback.log",
+    "png": 0
+  },
+  {
+    "name": "capture_robot",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 4.18,
+    "log": "logic-capture_robot.log",
+    "png": 0
+  },
+  {
+    "name": "close_controls",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 4.23,
+    "log": "logic-close_controls.log",
+    "png": 0
+  },
+  {
+    "name": "codex089",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 4.23,
+    "log": "logic-codex089.log",
+    "png": 0
+  },
+  {
+    "name": "combat_feedback",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 2.22,
+    "log": "logic-combat_feedback.log",
+    "png": 0
+  },
+  {
+    "name": "dex_readability",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 4.23,
+    "log": "logic-dex_readability.log",
+    "png": 0
+  },
+  {
+    "name": "economy_balance",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 5.23,
+    "log": "logic-economy_balance.log",
+    "png": 0
+  },
+  {
+    "name": "equipment",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 8.24,
+    "log": "logic-equipment.log",
+    "png": 0
+  },
+  {
+    "name": "expedition",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 1.22,
+    "log": "logic-expedition.log",
+    "png": 0
+  },
+  {
+    "name": "expedition079",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 1.22,
+    "log": "logic-expedition079.log",
+    "png": 0
+  },
+  {
+    "name": "expedition080",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 4.23,
+    "log": "logic-expedition080.log",
+    "png": 0
+  },
+  {
+    "name": "expedition_balance",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 10.15,
+    "log": "logic-expedition_balance.log",
+    "png": 0
+  },
+  {
+    "name": "expedition_hard_balance",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 6.24,
+    "log": "logic-expedition_hard_balance.log",
+    "png": 0
+  },
+  {
+    "name": "expedition_label",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 1.22,
+    "log": "logic-expedition_label.log",
+    "png": 0
+  },
+  {
+    "name": "expedition_motion",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 1.22,
+    "log": "logic-expedition_motion.log",
+    "png": 0
+  },
+  {
+    "name": "expedition_result",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 4.18,
+    "log": "logic-expedition_result.log",
+    "png": 0
+  },
+  {
+    "name": "expedition_save",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 4.23,
+    "log": "logic-expedition_save.log",
+    "png": 0
+  },
+  {
+    "name": "expedition_start_notice",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 4.23,
+    "log": "logic-expedition_start_notice.log",
+    "png": 0
+  },
+  {
+    "name": "facility_growth",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 4.23,
+    "log": "logic-facility_growth.log",
+    "png": 0
+  },
+  {
+    "name": "fight_body_size",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 3.23,
+    "log": "logic-fight_body_size.log",
+    "png": 0
+  },
+  {
+    "name": "fight_telegraph",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 3.22,
+    "log": "logic-fight_telegraph.log",
+    "png": 0
+  },
+  {
+    "name": "fish_anchor_size",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 4.23,
+    "log": "logic-fish_anchor_size.log",
+    "png": 0
+  },
+  {
+    "name": "fish_grade_aura",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 4.23,
+    "log": "logic-fish_grade_aura.log",
+    "png": 0
+  },
+  {
+    "name": "fish_presentation",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 4.23,
+    "log": "logic-fish_presentation.log",
+    "png": 0
+  },
+  {
+    "name": "fish_surface",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 4.23,
+    "log": "logic-fish_surface.log",
+    "png": 0
+  },
+  {
+    "name": "fishing_difficulty",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 3.23,
+    "log": "logic-fishing_difficulty.log",
+    "png": 0
+  },
+  {
+    "name": "forge_layout",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 3.23,
+    "log": "logic-forge_layout.log",
+    "png": 0
+  },
+  {
+    "name": "forge_three_strike",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 1.17,
+    "log": "logic-forge_three_strike.log",
+    "png": 0
+  },
+  {
+    "name": "formation_compare",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 4.23,
+    "log": "logic-formation_compare.log",
+    "png": 0
+  },
+  {
+    "name": "guide",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 4.23,
+    "log": "logic-guide.log",
+    "png": 0
+  },
+  {
+    "name": "guide_ac",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 5.18,
+    "log": "logic-guide_ac.log",
+    "png": 0
+  },
+  {
+    "name": "hall_forge119",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 4.29,
+    "log": "logic-hall_forge119.log",
+    "png": 0
+  },
+  {
+    "name": "incremental",
+    "kind": "logic",
+    "code": 124,
+    "errors": [
+      "SCRIPT ERROR: Out of bounds get index '0' (on base: 'PackedStringArray')"
+    ],
+    "seconds": 120.0,
+    "log": "logic-incremental.log",
+    "png": 0
+  },
+  {
+    "name": "incremental_network",
+    "kind": "logic",
+    "code": 124,
+    "errors": [
+      "SCRIPT ERROR: Out of bounds get index '0' (on base: 'PackedStringArray')"
+    ],
+    "seconds": 120.01,
+    "log": "logic-incremental_network.log",
+    "png": 0
+  },
+  {
+    "name": "inventory_layout",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 4.28,
+    "log": "logic-inventory_layout.log",
+    "png": 0
+  },
+  {
+    "name": "mail_gifts",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 4.18,
+    "log": "logic-mail_gifts.log",
+    "png": 0
+  },
+  {
+    "name": "management101",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 4.24,
+    "log": "logic-management101.log",
+    "png": 0
+  },
+  {
+    "name": "market_reader",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 4.24,
+    "log": "logic-market_reader.log",
+    "png": 0
+  },
+  {
+    "name": "measurement_speed",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 3.18,
+    "log": "logic-measurement_speed.log",
+    "png": 0
+  },
+  {
+    "name": "night_glow",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 4.23,
+    "log": "logic-night_glow.log",
+    "png": 0
+  },
+  {
+    "name": "night_play",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 3.23,
+    "log": "logic-night_play.log",
+    "png": 0
+  },
+  {
+    "name": "night_play_native",
+    "kind": "logic",
+    "code": 124,
+    "errors": [
+      "SCRIPT ERROR: Invalid access of index '0' on a base object of type: 'PackedStringArray'."
+    ],
+    "seconds": 120.0,
+    "log": "logic-night_play_native.log",
+    "png": 0
+  },
+  {
+    "name": "notification091",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 5.24,
+    "log": "logic-notification091.log",
+    "png": 0
+  },
+  {
+    "name": "odds_rewards",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 4.23,
+    "log": "logic-odds_rewards.log",
+    "png": 0
+  },
+  {
+    "name": "owner_gauge",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 4.18,
+    "log": "logic-owner_gauge.log",
+    "png": 0
+  },
+  {
+    "name": "personal_dex",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 4.23,
+    "log": "logic-personal_dex.log",
+    "png": 0
+  },
+  {
+    "name": "pond_empty",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 17.34,
+    "log": "logic-pond_empty.log",
+    "png": 0
+  },
+  {
+    "name": "pouch_inventory",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 4.23,
+    "log": "logic-pouch_inventory.log",
+    "png": 0
+  },
+  {
+    "name": "reader",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 6.24,
+    "log": "logic-reader.log",
+    "png": 0
+  },
+  {
+    "name": "record_followup",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 3.23,
+    "log": "logic-record_followup.log",
+    "png": 0
+  },
+  {
+    "name": "record_gallery",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 1.22,
+    "log": "logic-record_gallery.log",
+    "png": 0
+  },
+  {
+    "name": "record_photo",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 5.19,
+    "log": "logic-record_photo.log",
+    "png": 0
+  },
+  {
+    "name": "record_photo_giant",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 11.26,
+    "log": "logic-record_photo_giant.log",
+    "png": 0
+  },
+  {
+    "name": "record_photo_motion",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 4.21,
+    "log": "logic-record_photo_motion.log",
+    "png": 0
+  },
+  {
+    "name": "regional",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 4.28,
+    "log": "logic-regional.log",
+    "png": 0
+  },
+  {
+    "name": "regional_bundle_rewards",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 4.23,
+    "log": "logic-regional_bundle_rewards.log",
+    "png": 0
+  },
+  {
+    "name": "regional_night",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 4.23,
+    "log": "logic-regional_night.log",
+    "png": 0
+  },
+  {
+    "name": "regional_night_native",
+    "kind": "logic",
+    "code": 124,
+    "errors": [
+      "SCRIPT ERROR: Invalid access of index '0' on a base object of type: 'PackedStringArray'."
+    ],
+    "seconds": 120.01,
+    "log": "logic-regional_night_native.log",
+    "png": 0
+  },
+  {
+    "name": "reservoir_layers",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 3.22,
+    "log": "logic-reservoir_layers.log",
+    "png": 0
+  },
+  {
+    "name": "rewards",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 3.23,
+    "log": "logic-rewards.log",
+    "png": 0
+  },
+  {
+    "name": "rift_art",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 3.23,
+    "log": "logic-rift_art.log",
+    "png": 0
+  },
+  {
+    "name": "rift_bundles_layers",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 3.22,
+    "log": "logic-rift_bundles_layers.log",
+    "png": 0
+  },
+  {
+    "name": "rift_unlock_recovery",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 4.23,
+    "log": "logic-rift_unlock_recovery.log",
+    "png": 0
+  },
+  {
+    "name": "robot_ui_revision",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 4.23,
+    "log": "logic-robot_ui_revision.log",
+    "png": 0
+  },
+  {
+    "name": "rod_aura",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 3.23,
+    "log": "logic-rod_aura.log",
+    "png": 0
+  },
+  {
+    "name": "selected_ui",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 3.17,
+    "log": "logic-selected_ui.log",
+    "png": 0
+  },
+  {
+    "name": "shared_vertical_light",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 4.23,
+    "log": "logic-shared_vertical_light.log",
+    "png": 0
+  },
+  {
+    "name": "shop",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 4.23,
+    "log": "logic-shop.log",
+    "png": 0
+  },
+  {
+    "name": "shop_signs",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 4.23,
+    "log": "logic-shop_signs.log",
+    "png": 0
+  },
+  {
+    "name": "soldier_dex",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 4.18,
+    "log": "logic-soldier_dex.log",
+    "png": 0
+  },
+  {
+    "name": "soldier_size",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 4.23,
+    "log": "logic-soldier_size.log",
+    "png": 0
+  },
+  {
+    "name": "soldier_skill_cues",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 1.17,
+    "log": "logic-soldier_skill_cues.log",
+    "png": 0
+  },
+  {
+    "name": "soul_pouch",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 18.21,
+    "log": "logic-soul_pouch.log",
+    "png": 0
+  },
+  {
+    "name": "spot_unlock",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 4.23,
+    "log": "logic-spot_unlock.log",
+    "png": 0
+  },
+  {
+    "name": "spot_unlock_audio",
+    "kind": "logic",
+    "code": 0,
+    "errors": [
+      "ERROR: 3 resources still in use at exit (run with --verbose for details)."
+    ],
+    "seconds": 4.33,
+    "log": "logic-spot_unlock_audio.log",
+    "png": 0
+  },
+  {
+    "name": "startup_assets",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 15.21,
+    "log": "logic-startup_assets.log",
+    "png": 0
+  },
+  {
+    "name": "support_utility",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 2.3,
+    "log": "logic-support_utility.log",
+    "png": 0
+  },
+  {
+    "name": "testing_gift",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 4.26,
+    "log": "logic-testing_gift.log",
+    "png": 0
+  },
+  {
+    "name": "tier2_motion",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 1.23,
+    "log": "logic-tier2_motion.log",
+    "png": 0
+  },
+  {
+    "name": "tier3_motion",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 1.22,
+    "log": "logic-tier3_motion.log",
+    "png": 0
+  },
+  {
+    "name": "tier_skills",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 2.22,
+    "log": "logic-tier_skills.log",
+    "png": 0
+  },
+  {
+    "name": "tile107",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 4.24,
+    "log": "logic-tile107.log",
+    "png": 0
+  },
+  {
+    "name": "tile107_native",
+    "kind": "logic",
+    "code": 124,
+    "errors": [
+      "SCRIPT ERROR: Out of bounds get index '0' (on base: 'PackedStringArray')"
+    ],
+    "seconds": 120.01,
+    "log": "logic-tile107_native.log",
+    "png": 0
+  },
+  {
+    "name": "tile_scenery",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 4.19,
+    "log": "logic-tile_scenery.log",
+    "png": 0
+  },
+  {
+    "name": "tile_surface_water",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 4.19,
+    "log": "logic-tile_surface_water.log",
+    "png": 0
+  },
+  {
+    "name": "training_costs",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 1.22,
+    "log": "logic-training_costs.log",
+    "png": 0
+  },
+  {
+    "name": "ui090",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 3.2,
+    "log": "logic-ui090.log",
+    "png": 0
+  },
+  {
+    "name": "ui_guide",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 6.25,
+    "log": "logic-ui_guide.log",
+    "png": 0
+  },
+  {
+    "name": "updater",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 1.17,
+    "log": "logic-updater.log",
+    "png": 0
+  },
+  {
+    "name": "updater_font",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 4.17,
+    "log": "logic-updater_font.log",
+    "png": 0
+  },
+  {
+    "name": "updater_smoothness",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 2.13,
+    "log": "logic-updater_smoothness.log",
+    "png": 0
+  },
+  {
+    "name": "valley093",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 3.18,
+    "log": "logic-valley093.log",
+    "png": 0
+  },
+  {
+    "name": "valley094",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 4.16,
+    "log": "logic-valley094.log",
+    "png": 0
+  },
+  {
+    "name": "valley_gift108",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 4.2,
+    "log": "logic-valley_gift108.log",
+    "png": 0
+  },
+  {
+    "name": "valley_native",
+    "kind": "logic",
+    "code": 124,
+    "errors": [
+      "SCRIPT ERROR: Out of bounds get index '0' (on base: 'PackedStringArray')"
+    ],
+    "seconds": 120.01,
+    "log": "logic-valley_native.log",
+    "png": 0
+  },
+  {
+    "name": "village_entry_audio",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 4.24,
+    "log": "logic-village_entry_audio.log",
+    "png": 0
+  },
+  {
+    "name": "village_life131",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 1.22,
+    "log": "logic-village_life131.log",
+    "png": 0
+  },
+  {
+    "name": "village_reward_notice",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 3.18,
+    "log": "logic-village_reward_notice.log",
+    "png": 0
+  },
+  {
+    "name": "visual",
+    "kind": "logic",
+    "code": 0,
+    "errors": [],
+    "seconds": 5.24,
+    "log": "logic-visual.log",
+    "png": 0
+  },
+  {
+    "name": "angler_scene_preview",
+    "kind": "native",
+    "code": 0,
+    "errors": [],
+    "seconds": 14.46,
+    "log": "native-angler_scene_preview.log",
+    "png": 17
+  },
+  {
+    "name": "atmosphere_encounter_preview",
+    "kind": "native",
+    "code": 0,
+    "errors": [],
+    "seconds": 12.85,
+    "log": "native-atmosphere_encounter_preview.log",
+    "png": 13
+  },
+  {
+    "name": "bait092_preview",
+    "kind": "native",
+    "code": 0,
+    "errors": [],
+    "seconds": 5.29,
+    "log": "native-bait092_preview.log",
+    "png": 6
+  },
+  {
+    "name": "bite_contact_preview",
+    "kind": "native",
+    "code": 0,
+    "errors": [],
+    "seconds": 47.6,
+    "log": "native-bite_contact_preview.log",
+    "png": 72
+  },
+  {
+    "name": "body_book_telegraph_preview",
+    "kind": "native",
+    "code": 0,
+    "errors": [],
+    "seconds": 8.84,
+    "log": "native-body_book_telegraph_preview.log",
+    "png": 10
+  },
+  {
+    "name": "bundles_ui_preview",
+    "kind": "native",
+    "code": 0,
+    "errors": [
+      "ERROR: Can't save PNG at path: '/tmp/helpchange/analysis/ui-audit-20261118/screens/bundles_ui_preview/museum_0_0.png'.",
+      "ERROR: Can't save PNG at path: '/tmp/helpchange/analysis/ui-audit-20261118/screens/bundles_ui_preview/museum_0_1.png'.",
+      "ERROR: Can't save PNG at path: '/tmp/helpchange/analysis/ui-audit-20261118/screens/bundles_ui_preview/museum_0_2.png'.",
+      "ERROR: Can't save PNG at path: '/tmp/helpchange/analysis/ui-audit-20261118/screens/bundles_ui_preview/museum_1_0.png'.",
+      "ERROR: Can't save PNG at path: '/tmp/helpchange/analysis/ui-audit-20261118/screens/bundles_ui_preview/museum_1_1.png'.",
+      "ERROR: Can't save PNG at path: '/tmp/helpchange/analysis/ui-audit-20261118/screens/bundles_ui_preview/museum_1_2.png'.",
+      "ERROR: Can't save PNG at path: '/tmp/helpchange/analysis/ui-audit-20261118/screens/bundles_ui_preview/donation_choice.png'.",
+      "ERROR: Can't save PNG at path: '/tmp/helpchange/analysis/ui-audit-20261118/screens/bundles_ui_preview/buyback_top.png'.",
+      "ERROR: Can't save PNG at path: '/tmp/helpchange/analysis/ui-audit-20261118/screens/bundles_ui_preview/buyback_bottom.png'.",
+      "ERROR: Can't save PNG at path: '/tmp/helpchange/analysis/ui-audit-20261118/screens/bundles_ui_preview/buyback_confirm.png'.",
+      "ERROR: Can't save PNG at path: '/tmp/helpchange/analysis/ui-audit-20261118/screens/bundles_ui_preview/market_sell_480_top.png'.",
+      "ERROR: Can't save PNG at path: '/tmp/helpchange/analysis/ui-audit-20261118/screens/bundles_ui_preview/market_sell_480_bottom.png'.",
+      "ERROR: Can't save PNG at path: '/tmp/helpchange/analysis/ui-audit-20261118/screens/bundles_ui_preview/market_clean_480_top.png'.",
+      "ERROR: Can't save PNG at path: '/tmp/helpchange/analysis/ui-audit-20261118/screens/bundles_ui_preview/market_clean_480_bottom.png'.",
+      "ERROR: Can't save PNG at path: '/tmp/helpchange/analysis/ui-audit-20261118/screens/bundles_ui_preview/guide_wrapped_480.png'.",
+      "ERROR: Can't save PNG at path: '/tmp/helpchange/analysis/ui-audit-20261118/screens/bundles_ui_preview/mail_wrapped_480.png'.",
+      "ERROR: Can't save PNG at path: '/tmp/helpchange/analysis/ui-audit-20261118/screens/bundles_ui_preview/market_sell_540_top.png'.",
+      "ERROR: Can't save PNG at path: '/tmp/helpchange/analysis/ui-audit-20261118/screens/bundles_ui_preview/market_sell_540_bottom.png'.",
+      "ERROR: Can't save PNG at path: '/tmp/helpchange/analysis/ui-audit-20261118/screens/bundles_ui_preview/market_clean_540_top.png'.",
+      "ERROR: Can't save PNG at path: '/tmp/helpchange/analysis/ui-audit-20261118/screens/bundles_ui_preview/market_clean_540_bottom.png'.",
+      "ERROR: Can't save PNG at path: '/tmp/helpchange/analysis/ui-audit-20261118/screens/bundles_ui_preview/guide_wrapped_540.png'.",
+      "ERROR: Can't save PNG at path: '/tmp/helpchange/analysis/ui-audit-20261118/screens/bundles_ui_preview/mail_wrapped_540.png'.",
+      "ERROR: Can't save PNG at path: '/tmp/helpchange/analysis/ui-audit-20261118/screens/bundles_ui_preview/museum_short.png'.",
+      "ERROR: Can't save PNG at path: '/tmp/helpchange/analysis/ui-audit-20261118/screens/bundles_ui_preview/bag_list_top.png'.",
+      "ERROR: Can't save PNG at path: '/tmp/helpchange/analysis/ui-audit-20261118/screens/bundles_ui_preview/bag_list_detail.png'.",
+      "ERROR: Can't save PNG at path: '/tmp/helpchange/analysis/ui-audit-20261118/screens/bundles_ui_preview/bag_list_scroll_top.png'.",
+      "ERROR: Can't save PNG at path: '/tmp/helpchange/analysis/ui-audit-20261118/screens/bundles_ui_preview/bag_list_bottom.png'.",
+      "ERROR: Can't save PNG at path: '/tmp/helpchange/analysis/ui-audit-20261118/screens/bundles_ui_preview/bag_list_short.png'.",
+      "ERROR: Can't save PNG at path: '/tmp/helpchange/analysis/ui-audit-20261118/screens/bundles_ui_preview/bag_A.png'.",
+      "ERROR: Can't save PNG at path: '/tmp/helpchange/analysis/ui-audit-20261118/screens/bundles_ui_preview/bag_B.png'."
+    ],
+    "seconds": 7.75,
+    "log": "native-bundles_ui_preview.log",
+    "png": 0
+  },
+  {
+    "name": "close_controls_preview",
+    "kind": "native",
+    "code": 0,
+    "errors": [],
+    "seconds": 7.69,
+    "log": "native-close_controls_preview.log",
+    "png": 18
+  },
+  {
+    "name": "dex_readability_preview",
+    "kind": "native",
+    "code": 0,
+    "errors": [],
+    "seconds": 8.75,
+    "log": "native-dex_readability_preview.log",
+    "png": 30
+  },
+  {
+    "name": "expedition_preview",
+    "kind": "native",
+    "code": 0,
+    "errors": [],
+    "seconds": 7.73,
+    "log": "native-expedition_preview.log",
+    "png": 23
+  },
+  {
+    "name": "facility_growth_preview",
+    "kind": "native",
+    "code": 0,
+    "errors": [],
+    "seconds": 7.37,
+    "log": "native-facility_growth_preview.log",
+    "png": 24
+  },
+  {
+    "name": "fight_telegraph_preview",
+    "kind": "native",
+    "code": 0,
+    "errors": [],
+    "seconds": 8.83,
+    "log": "native-fight_telegraph_preview.log",
+    "png": 8
+  },
+  {
+    "name": "fish_grade_aura_preview",
+    "kind": "native",
+    "code": 0,
+    "errors": [],
+    "seconds": 9.19,
+    "log": "native-fish_grade_aura_preview.log",
+    "png": 5
+  },
+  {
+    "name": "forge_three_strike_preview",
+    "kind": "native",
+    "code": 0,
+    "errors": [],
+    "seconds": 14.57,
+    "log": "native-forge_three_strike_preview.log",
+    "png": 104
+  },
+  {
+    "name": "formation_scroll_preview",
+    "kind": "native",
+    "code": 0,
+    "errors": [],
+    "seconds": 7.97,
+    "log": "native-formation_scroll_preview.log",
+    "png": 30
+  },
+  {
+    "name": "hall_forge119_preview",
+    "kind": "native",
+    "code": 0,
+    "errors": [],
+    "seconds": 7.54,
+    "log": "native-hall_forge119_preview.log",
+    "png": 15
+  },
+  {
+    "name": "mail_gifts_preview",
+    "kind": "native",
+    "code": 0,
+    "errors": [],
+    "seconds": 8.56,
+    "log": "native-mail_gifts_preview.log",
+    "png": 12
+  },
+  {
+    "name": "management101_preview",
+    "kind": "native",
+    "code": 0,
+    "errors": [],
+    "seconds": 8.69,
+    "log": "native-management101_preview.log",
+    "png": 21
+  },
+  {
+    "name": "notification091_preview",
+    "kind": "native",
+    "code": 0,
+    "errors": [],
+    "seconds": 7.82,
+    "log": "native-notification091_preview.log",
+    "png": 17
+  },
+  {
+    "name": "owner_gauge_preview",
+    "kind": "native",
+    "code": 0,
+    "errors": [],
+    "seconds": 12.67,
+    "log": "native-owner_gauge_preview.log",
+    "png": 28
+  },
+  {
+    "name": "record_export_isolation_preview",
+    "kind": "native",
+    "code": 0,
+    "errors": [],
+    "seconds": 5.63,
+    "log": "native-record_export_isolation_preview.log",
+    "png": 3
+  },
+  {
+    "name": "record_followup_preview",
+    "kind": "native",
+    "code": 0,
+    "errors": [],
+    "seconds": 35.57,
+    "log": "native-record_followup_preview.log",
+    "png": 5
+  },
+  {
+    "name": "record_photo_giant_preview",
+    "kind": "native",
+    "code": 0,
+    "errors": [],
+    "seconds": 13.59,
+    "log": "native-record_photo_giant_preview.log",
+    "png": 22
+  },
+  {
+    "name": "record_photo_motion_preview",
+    "kind": "native",
+    "code": 0,
+    "errors": [],
+    "seconds": 39.57,
+    "log": "native-record_photo_motion_preview.log",
+    "png": 7
+  },
+  {
+    "name": "record_photo_preview",
+    "kind": "native",
+    "code": 0,
+    "errors": [],
+    "seconds": 11.54,
+    "log": "native-record_photo_preview.log",
+    "png": 19
+  },
+  {
+    "name": "release075_preview",
+    "kind": "native",
+    "code": 0,
+    "errors": [],
+    "seconds": 6.6,
+    "log": "native-release075_preview.log",
+    "png": 22
+  },
+  {
+    "name": "rift_art_preview",
+    "kind": "native",
+    "code": 0,
+    "errors": [],
+    "seconds": 8.16,
+    "log": "native-rift_art_preview.log",
+    "png": 7
+  },
+  {
+    "name": "rift_layers_preview",
+    "kind": "native",
+    "code": 0,
+    "errors": [],
+    "seconds": 12.55,
+    "log": "native-rift_layers_preview.log",
+    "png": 26
+  },
+  {
+    "name": "rift_unlock_preview",
+    "kind": "native",
+    "code": 0,
+    "errors": [],
+    "seconds": 9.07,
+    "log": "native-rift_unlock_preview.log",
+    "png": 15
+  },
+  {
+    "name": "rod_aura_preview",
+    "kind": "native",
+    "code": 0,
+    "errors": [],
+    "seconds": 12.61,
+    "log": "native-rod_aura_preview.log",
+    "png": 13
+  },
+  {
+    "name": "shop_signs_preview",
+    "kind": "native",
+    "code": 0,
+    "errors": [],
+    "seconds": 8.6,
+    "log": "native-shop_signs_preview.log",
+    "png": 24
+  },
+  {
+    "name": "soldier_size_preview",
+    "kind": "native",
+    "code": 0,
+    "errors": [],
+    "seconds": 7.52,
+    "log": "native-soldier_size_preview.log",
+    "png": 24
+  },
+  {
+    "name": "soldier_skill_cues_preview",
+    "kind": "native",
+    "code": 0,
+    "errors": [],
+    "seconds": 7.16,
+    "log": "native-soldier_skill_cues_preview.log",
+    "png": 24
+  },
+  {
+    "name": "spot_unlock_preview",
+    "kind": "native",
+    "code": 0,
+    "errors": [],
+    "seconds": 14.63,
+    "log": "native-spot_unlock_preview.log",
+    "png": 114
+  },
+  {
+    "name": "tier2_body_preview",
+    "kind": "native",
+    "code": 0,
+    "errors": [],
+    "seconds": 6.51,
+    "log": "native-tier2_body_preview.log",
+    "png": 24
+  },
+  {
+    "name": "tier3_motion_preview",
+    "kind": "native",
+    "code": 0,
+    "errors": [],
+    "seconds": 12.37,
+    "log": "native-tier3_motion_preview.log",
+    "png": 41
+  },
+  {
+    "name": "tier_skills_preview",
+    "kind": "native",
+    "code": 0,
+    "errors": [],
+    "seconds": 5.9,
+    "log": "native-tier_skills_preview.log",
+    "png": 4
+  },
+  {
+    "name": "updater_preview",
+    "kind": "native",
+    "code": 0,
+    "errors": [],
+    "seconds": 3.59,
+    "log": "native-updater_preview.log",
+    "png": 22
+  },
+  {
+    "name": "updater_smoothness_preview",
+    "kind": "native",
+    "code": 0,
+    "errors": [],
+    "seconds": 5.51,
+    "log": "native-updater_smoothness_preview.log",
+    "png": 3
+  },
+  {
+    "name": "village_layers_quality_preview",
+    "kind": "native",
+    "code": 0,
+    "errors": [],
+    "seconds": 28.6,
+    "log": "native-village_layers_quality_preview.log",
+    "png": 120
+  },
+  {
+    "name": "village_life131_preview",
+    "kind": "native",
+    "code": 0,
+    "errors": [],
+    "seconds": 35.94,
+    "log": "native-village_life131_preview.log",
+    "png": 156
+  }
+]

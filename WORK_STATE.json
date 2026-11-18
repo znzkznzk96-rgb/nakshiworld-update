@@ -1,13 +1,13 @@
 {
   "work_branch": "work/forge-138",
-  "status": "growth_simulation_complete_pond_full_ci_failed",
+  "status": "ux_ui_audit_complete_findings_unfixed",
   "release_baseline": "v1.42",
   "target_release": "v1.42",
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "시설·로봇 포함 재시뮬 완료",
-  "next_step": "pond_empty 테스트 종료 리소스 미해제 수정 및 전체검사; 공개 미승인",
+  "current_task": "전체 UX/UI 감사 완료 · 확정 UI 문제3건 및 균열 시설 준비중 안내1건",
+  "next_step": "UX01~03 수정 범위 결정 후 구현; 균열 시설 기획 별도 결정; 종료 리소스 오류 정리 및 필수 전체 CI. 새 배포 미승인",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -2330,5 +2330,12 @@
     "report": "analysis/route-growth-20261118/REPORT.md",
     "trials": 4,
     "production_balance_changed": false
+  },
+  "ux_ui_audit_20261118": {
+    "report": "analysis/ui-audit-20261118/REPORT.md",
+    "summary": "analysis/ui-audit-20261118/SUMMARY.json",
+    "source_head": "2821bd13207772778a34698f7d5514eb57730831",
+    "game_changed": false,
+    "phone_verified": false
   }
 }
