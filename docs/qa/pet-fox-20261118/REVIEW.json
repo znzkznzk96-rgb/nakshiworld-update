@@ -1,0 +1,40 @@
+{
+  "date": "2026-11-18",
+  "endpoint": "create-image-bitforge",
+  "seed": 2026111801,
+  "calls": 1,
+  "response_usage_generations": 1,
+  "before_subscription_generations": 5000,
+  "after_balance": {
+    "credits": {
+      "type": "usd",
+      "usd": 0.0
+    },
+    "subscription": {
+      "type": "generations",
+      "status": "active",
+      "plan": "Tier 2: Pixel Artisan",
+      "generations": 4999.0,
+      "total": 5000.0
+    }
+  },
+  "status": "rejected_stop_before_B",
+  "image_sha256": "7c9553d90b64b2911f6e7cfc7c10e677cd7e20ec018a8b0b48a249822f339879",
+  "inputs": {
+    "visual_inputs": [],
+    "text_request": "A-request.json"
+  },
+  "checks": {
+    "png_decode": "pass",
+    "alpha": "pass",
+    "clipping": "pass",
+    "cute_face": "pass",
+    "pixel_readability": "pass",
+    "cream_body_blue_tail": "fail: pink body white tipped tail",
+    "sitting_pose": "fail: upright standing pose",
+    "star_tail": "fail: missing distinct star tail"
+  },
+  "user_approved": false,
+  "game_applied": false,
+  "next": "Review actual A result with user before additional paid generation; B not submitted."
+}
