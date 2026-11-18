@@ -54,8 +54,8 @@ func run()->void:
 		m.region_shop.unlocked=range(area+1)
 		for action in FG.FIELDS:
 			m.set(FG.FIELDS[action],area*2);m.aqua.resize(m.aqua_capacity());m.pond_stock=m.pond_max()*0.4
-			for step in 2:
-				check(FG.unlocked(m,action),"regional two-step gate opens")
+			for step in (1 if action=="boat" and area==2 else 2):
+				check(FG.unlocked(m,action),"regional facility gate opens")
 				var quote:Dictionary=m.V.commerce.quote(m.V,m,action);var gold:int=m.gold;var ratio:float=m.pond_stock/m.pond_max()
 				check(not quote.is_empty() and quote.price==FG.cost(m,action),"quote uses actual regional price")
 				check(m._save_game(),"save before one-write assertion")

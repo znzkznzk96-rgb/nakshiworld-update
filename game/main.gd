@@ -2521,14 +2521,21 @@ func _draw_ui(t: float, h: float) -> void :
 func _village_toast_rect() -> Rect2:
 	return Rect2(12, get_viewport_rect().size.y - bot_pad - 158, 246, 38)
 
+func tip_rect() -> Rect2:
+	if tip_t<=0 or S.phase in ["fail", "result"] or (S.phase=="pre" and S.get("owner",false)): return Rect2()
+	var y: float=top_y+164.0 if scene=="village" else (top_y+150.0 if S.phase=="fight" else top_y+(146.0 if owner_ui.visible(self) else 74.0))
+	var lines: int=_ui_wrap(tip_txt,12,218,2).split("\n").size()
+	return Rect2(12,y,246,34 if lines==1 else 50)
+
 func _draw_notes() -> void :
 
 	if S.phase in ["fail", "result"]: return
 	if tip_t > 0 and not (S.phase=="pre" and S.get("owner",false)):
-		var tip_y: = top_y + 164.0 if scene == "village" else (top_y + 150.0 if S.phase == "fight" else top_y + (146.0 if owner_ui.visible(self) else 74.0))
+		var box: Rect2=tip_rect()
+		var tip_y: float=box.position.y
 		var body: = _ui_wrap(tip_txt, 12, 218, 2)
 		var lines: = body.split("\n").size()
-		_ui_style_box(sb_chip, Rect2(12, tip_y, 246, 34 if lines == 1 else 50))
+		_ui_style_box(sb_chip, box)
 		_text(body, Vector2(135, tip_y + 21 if lines == 1 else tip_y + 19), 12, Color("513b29"), true, 218)
 	if judge_t > 0 and not lesson_open:
 		_judge_text(judge_txt, Vector2(VW / 2.0, WATER - 40 + oy), judge_col)
@@ -2740,7 +2747,7 @@ func _draw_weight(y: float) -> void :
 			_ui_texture(V.art.stock, Vector2(x + 1, y + 2))
 			var max_stock: float = pond_max()
 			var stock_ratio: float = clampf(pond_stock / max_stock, 0.0, 1.0)
-			_text("%d/%d" % [roundi(pond_stock), roundi(max_stock)], Vector2(x + 79, y + 14), 8, Color("fff0d1"), true, 80)
+			_text("%d/%d" % [floori(pond_stock), roundi(max_stock)], Vector2(x + 79, y + 14), 8, Color("fff0d1"), true, 80)
 			_ui_rect(Rect2(x + 36, y + 24, w - 42, 5), Color("27342f"))
 			_ui_rect(Rect2(x + 37, y + 25, (w - 44) * stock_ratio, 3), Color("68c5d3") if stock_ratio > 0.25 else Color("e3a64d"))
 

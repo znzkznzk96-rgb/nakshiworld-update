@@ -33,4 +33,10 @@ func run() -> void:
 	check(higher>0,"last unit has nonzero higher-star chance")
 	m.audio_feedback.dispose();m.queue_free();await process_frame
 	print("POND_EMPTY_VERIFY failures=",failures)
+	call_deferred("finish")
+
+func finish() -> void:
+	# Let run() release its local RefCounted resources before engine shutdown.
+	await process_frame
+	await create_timer(0.2).timeout
 	quit(0 if failures.is_empty() else 1)

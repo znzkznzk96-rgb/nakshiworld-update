@@ -1,0 +1,53 @@
+[
+  {
+    "name": "ux_boat",
+    "code": 0,
+    "errors": []
+  },
+  {
+    "name": "pond_empty",
+    "code": 0,
+    "errors": []
+  },
+  {
+    "name": "spot_unlock_audio",
+    "code": 0,
+    "errors": [],
+    "note": "test indentation corrected; rerun passed"
+  },
+  {
+    "name": "guide_ac",
+    "code": 0,
+    "errors": []
+  },
+  {
+    "name": "guide",
+    "code": 0,
+    "errors": []
+  },
+  {
+    "name": "ui_guide",
+    "code": 0,
+    "errors": []
+  },
+  {
+    "name": "village_reward_notice",
+    "code": 0,
+    "errors": []
+  },
+  {
+    "name": "facility_growth",
+    "code": 0,
+    "errors": []
+  },
+  {
+    "name": "close_controls",
+    "code": 0,
+    "errors": []
+  },
+  {
+    "name": "hall_forge119",
+    "code": 0,
+    "errors": []
+  }
+]

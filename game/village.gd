@@ -344,6 +344,17 @@ func draw(m, h: float) -> void :
 		m.text_items[i][1] = zoom_anchor + (m.text_items[i][1] - zoom_anchor) * zoom
 		m.text_items[i][7] *= zoom
 
+	# World labels share the top text layer; remove only labels hidden by a notice.
+	var notice: Rect2=m.tip_rect()
+	if notice.has_area():
+		for i in range(m.text_items.size()-1,world_text_start-1,-1):
+			var it: Array=m.text_items[i]
+			var scale: float=it[7]
+			var size: Vector2=it[0].get_string_size(it[2],HORIZONTAL_ALIGNMENT_LEFT,-1,it[5])*scale
+			var left: float=it[1].x + ((it[4]*scale-size.x)/2.0 if it[3]==HORIZONTAL_ALIGNMENT_CENTER else 0.0)
+			var bounds:=Rect2(Vector2(left,it[1].y-it[0].get_ascent(it[5])*scale),size)
+			if bounds.intersects(notice): m.text_items.remove_at(i)
+
 	if shop == "":
 		rects.zoom=[]
 		m.expedition.draw_strip(m)
@@ -578,15 +589,15 @@ func soul_of(f: Dictionary) -> int:
 
 func _draw_growth(m, r: Rect2, y: float, harbor: bool) -> void :
 	var lv: int = m.boat_lv
-	m._text("배 강화 %d / 12" % lv, Vector2(135, y + 8), 14, Color("382619"), true)
+	m._text("배 강화 %d / %d" % [lv,FACILITIES.max_level("boat")], Vector2(135, y + 8), 14, Color("382619"), true)
 	y += 30
 	m._text("한 번에 %d명 · %.0f초마다 입항" % [passengers(m), interval(m)], Vector2(135, y), 10, Color("382619"), true, 224)
 	m._text("수족관 수익 배수 ×%.2f" % multiplier(m), Vector2(135, y + 40), 11, Color("376556"), true)
 	y += 53
 	if FACILITIES.unlocked(m,"boat"):
-		var desc: String="%d명 → %d명 · %d초 → %d초"%[passengers(m),FACILITIES.PASSENGERS[lv+1],roundi(interval(m)),FACILITIES.INTERVAL[lv+1]]
+		var desc: String="다음 %d명 · %d초"%[FACILITIES.PASSENGERS[lv+1],FACILITIES.INTERVAL[lv+1]]
 		_row(m,r,y,tool_icons.boat,"배 확장",desc,"",UPGRADE_COST[lv],m.gold>=UPGRADE_COST[lv],"boat")
-	else: _row(m,r,y,null,"배 확장",FACILITIES.lock_label(m,"boat"),"잠김" if lv<12 else "완료",0,false,"")
+	else: _row(m,r,y,null,"배 확장",FACILITIES.lock_label(m,"boat"),"잠김" if lv<FACILITIES.max_level("boat") else "완료",0,false,"")
 	m._text("배가 커질수록 더 많은 손님이 방문해요.", Vector2(135, y + 62), 9, Color("6a4a2a"), true, 224)
 	m._text("수족관 수익과 마을 방문객에 반영돼요.", Vector2(135, y + 80), 9, Color("6a4a2a"), true, 224)
 
