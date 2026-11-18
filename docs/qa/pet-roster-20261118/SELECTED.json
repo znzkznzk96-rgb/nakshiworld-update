@@ -14,7 +14,10 @@
     "배낭 거북": "turtle-B",
     "밤송이 고슴도치": "hedgehog-A",
     "찌 참새": "sparrow-B",
-    "장사 너구리": "raccoon-A"
+    "장사 너구리": "raccoon-A",
+    "보석 햄스터": "hamster7-B",
+    "불꽃 병아리": "chick7-B",
+    "꼬마 멧돼지": "boar7-B"
   },
   "game_applied": false,
   "sha256": {
@@ -30,6 +33,9 @@
     "turtle-B": "e3637c47f38f08ff14874c1d2f2e69f8b036f26cdc587f17b0cc6f6507861a79",
     "hedgehog-A": "35c0f2757d423a1400d98bd015efea5d347cad3285a06266d10d0db9eec0514d",
     "sparrow-B": "e16adc280e918a256fa0293aa6c63c54117786ec496553b043da47a261fd42b0",
-    "raccoon-A": "aa634fc566b15b86031b62d44cc91a7c97bec9a04a8956267e4555f7efa8e847"
+    "raccoon-A": "aa634fc566b15b86031b62d44cc91a7c97bec9a04a8956267e4555f7efa8e847",
+    "hamster7-B": "cb9a092b9d5f9c6de78ef82dd26a44ab3f6fb945f5bb9b26a0c8023fd78878ba",
+    "chick7-B": "9a196e7cd0eae21478ff642fc9edca5434ff7e68a76524947f3ab52fcef6afd7",
+    "boar7-B": "ce0f987d6cf54c9b0e78f7aa85359cd1ee12a175f67c73f44ebb1b96707fcdfb"
   }
 }

@@ -6,8 +6,8 @@
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "확정 원본 참조 PixelLab 96px 6/6장",
-  "next_step": "사용자 A/B 선택",
+  "current_task": "펫 16종 정지 원본 확정",
+  "next_step": "기본 모션 제작 범위 결정",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -2405,7 +2405,7 @@
     "implemented": false
   },
   "pet_art_generation": {
-    "status": "native96_review",
+    "status": "native96_selection_complete",
     "scope": 6,
     "generated": 6,
     "spent_generations": 6,
@@ -2413,23 +2413,9 @@
     "game_applied": false
   },
   "pet_art_selection": {
-    "date": "2026-11-18",
-    "selected": {
-      "낚시왕 수달": "otter-A",
-      "천둥 해룡": "dragon-A",
-      "황금 고래": "whale-A",
-      "균열 늑대": "wolf-B",
-      "별꼬리 여우": "fox-B",
-      "사냥 물총새": "kingfisher-A",
-      "불꽃 매": "hawk-A",
-      "꼬마 펭귄": "penguin-B",
-      "샘물 개구리": "frog-A",
-      "배낭 거북": "turtle-B",
-      "밤송이 고슴도치": "hedgehog-A",
-      "찌 참새": "sparrow-B",
-      "장사 너구리": "raccoon-A"
-    },
-    "path": "docs/qa/pet-roster-20261118",
+    "status": "user_selected_static_art",
+    "count": 16,
+    "manifest": "docs/qa/pet-roster-20261118/SELECTED.json",
     "game_applied": false
   }
 }
