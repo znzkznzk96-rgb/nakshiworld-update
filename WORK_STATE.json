@@ -6,8 +6,8 @@
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "펫 4종 제외 확정 및 대체 후보 재설계",
-  "next_step": "달빛 해파리·진주 조개·약초 토끼·집게 가재 대체 외형/효과 검토; 대체 후보는 미승인",
+  "current_task": "별꼬리 여우 기본 이미지 A/B 2안 제작",
+  "next_step": "첫 이미지 생성·검수 후 두 번째 생성, 공통 고양이 크기로 비교 제시",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -2394,7 +2394,7 @@
   },
   "pet_roster_replacement": {
     "date": "2026-11-18",
-    "status": "four_removed_replacements_proposed",
+    "status": "replacement_roles_accepted_numbers_pending",
     "removed": [
       "달빛 해파리",
       "진주 조개",
@@ -2403,5 +2403,12 @@
     ],
     "decision_source": "docs/GAME_BIBLE.md",
     "implemented": false
+  },
+  "pet_art_generation": {
+    "status": "authorized_preflight",
+    "pet": "별꼬리 여우",
+    "count": 2,
+    "completed": 0,
+    "animation": false
   }
 }
