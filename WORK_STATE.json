@@ -1,13 +1,13 @@
 {
   "work_branch": "work/forge-138",
-  "status": "ux_boat_verified_not_deployed",
+  "status": "pet_balance_study_complete_no_game_changes",
   "release_baseline": "v1.42",
   "target_release": "v1.42",
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "펫 밸런스 격리 비교 시뮬",
-  "next_step": "단일 펫 및 중첩 시험 결과 기록",
+  "current_task": "펫 밸런스240회·탐험6000전투 비교 완료",
+  "next_step": "결과 검토 후 펫 장착 수·중첩·수치 확정(현재 미정)",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -2352,8 +2352,9 @@
     "status": "verified_not_deployed"
   },
   "pet_balance": {
-    "status": "simulation_planned",
-    "plan": "analysis/pet-balance-20261118/PLAN.md",
+    "status": "simulation_complete",
+    "report": "analysis/pet-balance-20261118/REPORT.md",
+    "verification": "analysis/pet-balance-20261118/VERIFICATION.json",
     "game_changed": false,
     "deployed": false
   }

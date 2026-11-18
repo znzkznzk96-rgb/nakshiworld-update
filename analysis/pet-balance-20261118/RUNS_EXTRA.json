@@ -1,0 +1,122 @@
+[
+  {
+    "mode": "aqua20_slots2",
+    "seed": 17,
+    "code": 0,
+    "seconds": 14.16
+  },
+  {
+    "mode": "auto_guard",
+    "seed": 17,
+    "code": 0,
+    "seconds": 16.16
+  },
+  {
+    "mode": "auto_guard",
+    "seed": 31,
+    "code": 0,
+    "seconds": 16.17
+  },
+  {
+    "mode": "aqua20_slots2",
+    "seed": 31,
+    "code": 0,
+    "seconds": 14.17
+  },
+  {
+    "mode": "aqua20_slots2",
+    "seed": 59,
+    "code": 0,
+    "seconds": 15.17
+  },
+  {
+    "mode": "auto_guard",
+    "seed": 59,
+    "code": 0,
+    "seconds": 16.18
+  },
+  {
+    "mode": "auto_guard",
+    "seed": 83,
+    "code": 0,
+    "seconds": 12.16
+  },
+  {
+    "mode": "aqua20_slots2",
+    "seed": 83,
+    "code": 0,
+    "seconds": 13.21
+  },
+  {
+    "mode": "auto_guard",
+    "seed": 107,
+    "code": 0,
+    "seconds": 14.2
+  },
+  {
+    "mode": "aqua20_slots2",
+    "seed": 107,
+    "code": 0,
+    "seconds": 14.18
+  },
+  {
+    "mode": "auto_guard",
+    "seed": 131,
+    "code": 0,
+    "seconds": 14.21
+  },
+  {
+    "mode": "aqua20_slots2",
+    "seed": 131,
+    "code": 0,
+    "seconds": 17.19
+  },
+  {
+    "mode": "aqua20_slots2",
+    "seed": 151,
+    "code": 0,
+    "seconds": 14.15
+  },
+  {
+    "mode": "auto_guard",
+    "seed": 151,
+    "code": 0,
+    "seconds": 21.19
+  },
+  {
+    "mode": "aqua20_slots2",
+    "seed": 173,
+    "code": 0,
+    "seconds": 12.21
+  },
+  {
+    "mode": "auto_guard",
+    "seed": 173,
+    "code": 0,
+    "seconds": 15.17
+  },
+  {
+    "mode": "auto_guard",
+    "seed": 197,
+    "code": 0,
+    "seconds": 13.19
+  },
+  {
+    "mode": "aqua20_slots2",
+    "seed": 197,
+    "code": 0,
+    "seconds": 13.18
+  },
+  {
+    "mode": "aqua20_slots2",
+    "seed": 223,
+    "code": 0,
+    "seconds": 11.21
+  },
+  {
+    "mode": "auto_guard",
+    "seed": 223,
+    "code": 0,
+    "seconds": 16.2
+  }
+]

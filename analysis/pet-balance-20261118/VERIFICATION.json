@@ -1,0 +1,25 @@
+{
+  "game_source_commit": "c2f51b27c09d76293f92caeb6254b833de2bdeff",
+  "decision_commit": "a0989ac347abe63e9bf4240cbec03c775dde28a4",
+  "baseline_release": "v1.42",
+  "source_zip_size": 71985692,
+  "source_zip_sha256": "f64d08576bc607cf74d922c84a2a98cd1a448a76e40551a9739d16ea437d82d5",
+  "godot": "4.4.1.stable.official.49a5bc7b6",
+  "production_game_diff": [],
+  "published": false,
+  "physical_phone_tested": false,
+  "save_isolation": "XDG_DATA_HOME per mode and seed; save writer mocked; no user saves",
+  "route_runs": 240,
+  "route_completed": 240,
+  "expedition_battles": 6000,
+  "expedition_timeouts": 0,
+  "script_errors": 0,
+  "baseline_parity": "10 seeds, all previous fields identical",
+  "outputs": {
+    "logs.zip": "31a5c3dd3b40beea2831e6b917d97374580f5f0316448cb036dacde290820dee",
+    "sim.gd": "7fbe7d3b5e9f9b73ca3c53c5065cdf7bf0b3904849a2336b44c272512504afe6",
+    "sim_crn.gd": "95d43d37ac20d7b33962cc36ac231a5d1ff4af316e6549cdb344bf3cfe353c2b",
+    "RESULTS.json": "00bbaee3ae5c8c5745684f0262cd06a22554b9363f22625e469e31a85642fd2e",
+    "crn/RESULTS.json": "31c05e9798cb6fee98752f8fde3b210c48f2c09634df56d9640f354c479dbb70"
+  }
+}
