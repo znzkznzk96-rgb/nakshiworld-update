@@ -6,8 +6,8 @@
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "고슴도치 기존 A 유지·꼬마 멧돼지 수정본 채택",
-  "next_step": "대표 펫 기본 대기 모션 시안 범위 결정",
+  "current_task": "수달 A 대기 모션 1종 시안 완료",
+  "next_step": "수달 모션 시안 검토",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -2423,5 +2423,11 @@
     "spent_generations": 2,
     "review": "docs/qa/pet-roster-20261118/STYLE_TRIAL.md",
     "status": "user_selection_complete"
+  },
+  "pet_motion_trial": {
+    "species": "otter-A",
+    "status": "awaiting_review",
+    "path": "docs/qa/pet-roster-20261118/OTTER_IDLE.md",
+    "game_applied": false
   }
 }
