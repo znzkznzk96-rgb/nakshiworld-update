@@ -6,8 +6,8 @@
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "PixelLab 펫 3종 A/B 6장 제공",
-  "next_step": "사용자 펫 A/B 선택",
+  "current_task": "PixelLab 확정 원본 참조로 펫 3종 재제작",
+  "next_step": "보석햄스터 A 구도 검수 후 후속 단일 생성",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -2405,7 +2405,7 @@
     "implemented": false
   },
   "pet_art_generation": {
-    "status": "pixellab_six_previewed_pending_selection",
+    "status": "reference_redraw_authorized",
     "generated": 6,
     "spent_generations": 6,
     "scope": 6,
