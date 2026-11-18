@@ -6,8 +6,8 @@
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "펫 귀여움 우선·S급 이상 화려함 아트 방향 확정",
-  "next_step": "공통 위치·기본 모션 기준으로 등급별 외형/장식/색감 세부 설계",
+  "current_task": "펫 4종 제외 확정 및 대체 후보 재설계",
+  "next_step": "달빛 해파리·진주 조개·약초 토끼·집게 가재 대체 외형/효과 검토; 대체 후보는 미승인",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -2390,6 +2390,18 @@
     "flashy_from_tier": "S",
     "preserve_idle_only": true,
     "generated": false,
+    "implemented": false
+  },
+  "pet_roster_replacement": {
+    "date": "2026-11-18",
+    "status": "four_removed_replacements_proposed",
+    "removed": [
+      "달빛 해파리",
+      "진주 조개",
+      "약초 토끼",
+      "집게 가재"
+    ],
+    "decision_source": "docs/GAME_BIBLE.md",
     "implemented": false
   }
 }
