@@ -1,13 +1,13 @@
 {
   "work_branch": "work/forge-138",
-  "status": "pond_empty_block_related_verified",
+  "status": "growth_simulation_complete_pond_full_ci_failed",
   "release_baseline": "v1.42",
   "target_release": "v1.42",
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "어장 고갈 시 전 지역 캐스팅 차단",
-  "next_step": "Actions 44226484028 전체 검사 결과 확인. 새 배포 미승인.",
+  "current_task": "시설·로봇 포함 재시뮬 완료",
+  "next_step": "pond_empty 테스트 종료 리소스 미해제 수정 및 전체검사; 공개 미승인",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -2321,8 +2321,14 @@
   "pond_empty": {
     "source_commit": "d1d20aab5126bb66096076cbd82d6359822d0ba6",
     "ci_run": 44226484028,
-    "ci_status": "in_progress",
+    "ci_status": "failure",
     "related_test": "pond_empty passed; guide_ac pending CI",
-    "deployed": false
+    "deployed": false,
+    "failure": "assertions passed; 2 resources still in use at exit"
+  },
+  "growth_simulation": {
+    "report": "analysis/route-growth-20261118/REPORT.md",
+    "trials": 4,
+    "production_balance_changed": false
   }
 }
