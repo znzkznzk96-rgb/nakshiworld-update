@@ -2405,10 +2405,9 @@
     "implemented": false
   },
   "pet_art_generation": {
-    "status": "round4_failed_stop",
-    "generated": 1,
-    "spent_generations": 1,
-    "review": "docs/qa/pet-roster-20261118/ROUND4_REVIEW.md",
+    "status": "six_concepts_previewed_pending_selection",
+    "generated": 6,
+    "spent_generations": 0,
     "scope": 6,
     "excluded": [
       "hamster3-A",
@@ -2418,7 +2417,8 @@
       "boar3-A",
       "boar3-B"
     ],
-    "game_applied": false
+    "game_applied": false,
+    "round4_failure_review": "docs/qa/pet-roster-20261118/ROUND4_REVIEW.md"
   },
   "pet_art_selection": {
     "date": "2026-11-18",
