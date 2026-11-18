@@ -2407,7 +2407,7 @@
   "pet_art_generation": {
     "status": "pixellab_six_previewed_pending_selection",
     "generated": 6,
-    "spent_generations": 7,
+    "spent_generations": 6,
     "scope": 6,
     "excluded": [
       "hamster3-A",
