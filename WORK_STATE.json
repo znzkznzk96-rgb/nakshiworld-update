@@ -6,8 +6,8 @@
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "분홍 여우 우측 구도 예시 1장 완료·사용자 검토 대기",
-  "next_step": "사용자 구도 평가 후 다음 제작 범위 결정",
+  "current_task": "펫16종 각2안 기본 이미지 재제작",
+  "next_step": "팔다리 구분 기준 첫 여우1장 검수 후 단일 순차 제작",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -2405,13 +2405,10 @@
     "implemented": false
   },
   "pet_art_generation": {
-    "status": "pose_example_pending_review",
-    "calls_this_turn": 1,
-    "spent_generations_this_turn": 1,
-    "balance_after": 4998,
-    "review": "docs/qa/pet-fox-20261118/pose-review.json",
-    "raw_direction": "left",
-    "display_direction": "right via horizontal flip",
-    "game_applied": false
+    "status": "authorized_preflight",
+    "total": 32,
+    "completed": 0,
+    "previous_fox": "excluded_by_user",
+    "review": "docs/qa/pet-roster-20261118/"
   }
 }
