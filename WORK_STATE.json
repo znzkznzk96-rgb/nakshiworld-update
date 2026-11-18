@@ -6,8 +6,8 @@
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "확정 원본 참조 PixelLab 6/6장 생성",
-  "next_step": "펫 A/B 외형 검토",
+  "current_task": "확정 원본 참조 PixelLab 96px 6/6장",
+  "next_step": "사용자 A/B 선택",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -2405,11 +2405,11 @@
     "implemented": false
   },
   "pet_art_generation": {
-    "status": "reference_redraw_review",
+    "status": "native96_review",
     "scope": 6,
     "generated": 6,
     "spent_generations": 6,
-    "review": "docs/qa/pet-roster-20261118/REFERENCE_REDRAW.md",
+    "review": "docs/qa/pet-roster-20261118/NATIVE96.md",
     "game_applied": false
   },
   "pet_art_selection": {

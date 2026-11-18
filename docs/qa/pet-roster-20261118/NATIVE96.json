@@ -1,0 +1,116 @@
+[
+  {
+    "id": "hamster7-A",
+    "before": 4946,
+    "after": 4945,
+    "job": "c34aa598-200f-4f6b-bba0-e711c3e6016d",
+    "usage": null,
+    "request": {
+      "description": "Replace the raccoon with a golden baby jewel hamster, retaining the exact sitting front three-quarter angle, full framing, and both visible eyes. Keep both raised forepaws apart from two grounded hind feet. Cream cheeks, small round ears, tiny tail. One compact blue crystal held in its raised paws. Remove raccoon mask, scarf and pouch. Match the original 96px fine pixel clusters, soft material shading and line weight.",
+      "seed": 2026111870,
+      "width": 96,
+      "height": 96,
+      "no_background": true,
+      "image": {
+        "ref": "raccoon-A",
+        "sha256": "aa634fc566b15b86031b62d44cc91a7c97bec9a04a8956267e4555f7efa8e847"
+      }
+    },
+    "sha256": "f86003cddf6406437a2cddf1a3a43711648b22f94c1e619b653e9a68a0769d6f"
+  },
+  {
+    "id": "hamster7-B",
+    "before": 4945,
+    "after": 4944,
+    "job": "41179357-4b2a-4b67-8135-adbdc136de7f",
+    "usage": null,
+    "request": {
+      "description": "Turn this into a gray dwarf hamster with cream belly holding a faceted amethyst in its forepaws. Keep exact sitting three-quarter camera, grounded hind feet visibly separate, both eyes, full-body framing. Small round ears and tiny tail. Remove scarf and mask. Match this reference 96px fine pixel clusters and softly shaded fur volumes.",
+      "seed": 2026111871,
+      "width": 96,
+      "height": 96,
+      "no_background": true,
+      "image": {
+        "ref": "raccoon-A",
+        "sha256": "aa634fc566b15b86031b62d44cc91a7c97bec9a04a8956267e4555f7efa8e847"
+      }
+    },
+    "sha256": "cb9a092b9d5f9c6de78ef82dd26a44ab3f6fb945f5bb9b26a0c8023fd78878ba"
+  },
+  {
+    "id": "chick7-A",
+    "before": 4944,
+    "after": 4943,
+    "job": "63264f28-7445-4540-a18e-addfd5a756b5",
+    "usage": null,
+    "request": {
+      "description": "Turn the sparrow into a young yellow chick. Keep the reference three-quarter angle, folded wing above two feet, and framing. Use yellow down, small amber bill and short red flame-shaped crest attached to its head. Remove collar and bobber. Match this reference fine pixel clusters, line weight and level of detail.",
+      "seed": 2026111872,
+      "width": 96,
+      "height": 96,
+      "no_background": true,
+      "image": {
+        "ref": "sparrow-B",
+        "sha256": "e16adc280e918a256fa0293aa6c63c54117786ec496553b043da47a261fd42b0"
+      }
+    },
+    "sha256": "3e79e19c05c1d11dce37ae1d3d60cdb2071cffb935129a231ffc69e0cd365bf0"
+  },
+  {
+    "id": "chick7-B",
+    "before": 4943,
+    "after": 4942,
+    "job": "ab8e663d-d437-4c9a-a011-b7f0d305067c",
+    "usage": null,
+    "request": {
+      "description": "Turn the sparrow into a charcoal baby chick with cream throat and short orange flame tail attached to rump. Keep exact three-quarter pose, folded wing above feet, both separate feet. Remove collar and charm. Small amber bill. Match the source fine pixel clusters and softly shaded feathers.",
+      "seed": 2026111873,
+      "width": 96,
+      "height": 96,
+      "no_background": true,
+      "image": {
+        "ref": "sparrow-B",
+        "sha256": "e16adc280e918a256fa0293aa6c63c54117786ec496553b043da47a261fd42b0"
+      }
+    },
+    "sha256": "9a196e7cd0eae21478ff642fc9edca5434ff7e68a76524947f3ab52fcef6afd7"
+  },
+  {
+    "id": "boar7-A",
+    "before": 4942,
+    "after": 4941,
+    "job": "854ab079-8766-4518-944b-7c00d721748a",
+    "usage": null,
+    "request": {
+      "description": "Turn this into a caramel baby wild boar with muted cream baby stripes, a blunt pink snout and small rounded ears. Match its exact low front three-quarter angle with both eyes and clearly separated feet. Tiny tail, no tusks, leaf or spines. Preserve source fine 96px pixel detail, fur shading and full-body framing.",
+      "seed": 2026111874,
+      "width": 96,
+      "height": 96,
+      "no_background": true,
+      "image": {
+        "ref": "hedgehog-A",
+        "sha256": "35c0f2757d423a1400d98bd015efea5d347cad3285a06266d10d0db9eec0514d"
+      }
+    },
+    "sha256": "e608f520444dfe97e01b4d25a3b0d0456cfcdbf945695172cf5c9a0321cf4713"
+  },
+  {
+    "id": "boar7-B",
+    "before": 4941,
+    "after": 4940,
+    "job": "1ac9a825-d5fc-49c2-a0c3-123738801c61",
+    "usage": null,
+    "request": {
+      "description": "Turn this into a compact dark taupe boar piglet with broken buff baby stripes, small ears and a short dusty-pink snout. Keep the same low front three-quarter camera, both visible eyes and clearly spaced feet. Remove leaf and spines. No tusks. Match the source fine 96px pixel-art shading and framing.",
+      "seed": 2026111875,
+      "width": 96,
+      "height": 96,
+      "no_background": true,
+      "image": {
+        "ref": "hedgehog-A",
+        "sha256": "35c0f2757d423a1400d98bd015efea5d347cad3285a06266d10d0db9eec0514d"
+      }
+    },
+    "sha256": "ce0f987d6cf54c9b0e78f7aa85359cd1ee12a175f67c73f44ebb1b96707fcdfb"
+  }
+]
