@@ -1,0 +1,14 @@
+{
+  "description": "Single adorable baby fox pet. Natural FOUR-LEGGED animal anatomy, standing on all four paws, facing RIGHT in a near-side three-quarter view. Short but clearly visible legs. Two forelegs under the chest, two hindlegs under the rump. Clear empty space between front and hind leg pairs. Paws spaced apart, no overlapping or fused legs. Rounded big head, short muzzle, small triangular ears, bright dark eyes. Ivory white fur, sapphire blue fluffy tail with cyan star-shaped markings, tiny gold star collar. Tail curls upward BEHIND the rump, never covers any legs. Cute compact fantasy creature, not humanoid. Clean 16-bit game pixel art, crisp clustered pixels, 3-4 shades per color, readable silhouette. Entire body with margin. No props, no text, no scenery, no ground shadow, no floating particles.",
+  "image_size": {
+    "width": 96,
+    "height": 96
+  },
+  "outline": "selective outline",
+  "detail": "medium detail",
+  "view": "side",
+  "direction": "east",
+  "no_background": true,
+  "seed": 2026111810,
+  "enhance_prompt": false
+}
