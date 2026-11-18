@@ -1,13 +1,13 @@
 {
   "work_branch": "work/forge-138",
-  "status": "ux_boat_related_passed_full_ci_pending",
+  "status": "ux_boat_simulation_complete_full_ci_running",
   "release_baseline": "v1.42",
   "target_release": "v1.42",
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "UX 수정·여객선2/2/1/1 구현, 관련검사 통과",
-  "next_step": "필수 전체 CI 결과 및 밸런스 비교 보고서 정리; 배포 미승인",
+  "current_task": "UX 수정·여객선 조정·20회 비교 시뮬 완료",
+  "next_step": "전체 CI44238400029 완료 확인·오류 시 수정; 공개 배포 미승인",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -2337,5 +2337,11 @@
     "source_head": "2821bd13207772778a34698f7d5514eb57730831",
     "game_changed": false,
     "phone_verified": false
+  },
+  "ux_boat_fix_20261118": {
+    "report": "analysis/ux-boat-fix-20261118/REPORT.md",
+    "verification": "analysis/ux-boat-fix-20261118/VERIFICATION.json",
+    "source": "99610b6191562ddaca00b5662d39945938fa5f17",
+    "full_ci_run": 44238400029
   }
 }

@@ -1,0 +1,11 @@
+{
+  "source_commit": "99610b6191562ddaca00b5662d39945938fa5f17",
+  "full_ci_run": 44238400029,
+  "status": "in_progress",
+  "related_passed": 10,
+  "facility_restart_passed": true,
+  "native_frames": 24,
+  "simulation_runs": 20,
+  "deployed": false,
+  "phone_verified": false
+}
