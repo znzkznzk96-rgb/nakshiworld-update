@@ -6,8 +6,8 @@
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "펫 밸런스240회·탐험6000전투 비교 완료",
-  "next_step": "결과 검토 후 펫 장착 수·중첩·수치 확정(현재 미정)",
+  "current_task": "SS·SSS 펫 도면 획득 방향 확정 기록",
+  "next_step": "도면 제작 조건·재료·획득 경로 검토; 미정 수치 구현 금지",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -2356,6 +2356,16 @@
     "report": "analysis/pet-balance-20261118/REPORT.md",
     "verification": "analysis/pet-balance-20261118/VERIFICATION.json",
     "game_changed": false,
+    "deployed": false
+  },
+  "pet_blueprint": {
+    "status": "direction_confirmed_details_pending",
+    "tiers": [
+      "SS",
+      "SSS"
+    ],
+    "gacha_reward": "blueprint_not_completed_pet",
+    "game_implemented": false,
     "deployed": false
   }
 }
