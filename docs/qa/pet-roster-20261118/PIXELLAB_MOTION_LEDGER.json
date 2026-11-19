@@ -1,0 +1,527 @@
+[
+  {
+    "sprite": "boar-style",
+    "request": {
+      "name": "꼬마 멧돼지",
+      "endpoint": "animate-with-text-v3",
+      "first_and_last_sha256": "b894e87c025980905f7704059dbc0e5f75262f449d141a6b6cd32e9c32f3929a",
+      "action": "Lifts its pink snout to sniff twice with a subtle ear flick, then relaxes. One short stationary idle animation. Preserve exact design, colors, accessories, limb count, direction and pixel style. Fixed camera and planted contact points. Return precisely to the first pose. Transparent background; no floor or added props.",
+      "frame_count": 8,
+      "seed": 2026111944,
+      "no_background": true,
+      "enhance_prompt": false
+    },
+    "result": {
+      "count": 9,
+      "usage": {
+        "type": "generations",
+        "generations": 2.0
+      },
+      "billing_charged": true,
+      "frame_sha256": [
+        "b894e87c025980905f7704059dbc0e5f75262f449d141a6b6cd32e9c32f3929a",
+        "a36ddcf2de45933a6d0af24f3197a3b5307ff01c30a24656dd1ebbe12340efae",
+        "9923f353d4e79ccc1d63ad53d3e753b5b966a912479f44f58712e54793350f68",
+        "7297971e20da359609d83525639fbfdafab184eb4bc719eabd710d3c2d886657",
+        "7e9a917a1ef172b2845973e1b0c551d9d12a8f31ae87f58cfcf33e09d2ae9fb1",
+        "77d4c811e66a749311b66c0f8cf27f9aae43c9b0e346563cfe4fc489f281dfab",
+        "6260fe2de1ba553ebd17e000e0299f4bb0d8e79e3520b1f321831fe57f2dd0c6",
+        "c3539454663bd64622e81730ab45052511de3e522eecc282aba34ed80bb3bf70",
+        "ccdc86ab3494e37c7c748b6e1e8c0710571a61035c81336370433bb2b87c3e44"
+      ]
+    },
+    "job": "1c7ee85c-8068-4c13-8107-a488e51414de",
+    "before": 4908.0,
+    "after": 4906.0
+  },
+  {
+    "sprite": "chick7-B",
+    "request": {
+      "name": "불꽃 병아리",
+      "endpoint": "animate-with-text-v3",
+      "first_and_last_sha256": "9a196e7cd0eae21478ff642fc9edca5434ff7e68a76524947f3ab52fcef6afd7",
+      "action": "Makes one quick feather shake, with a short bright flicker in its existing tail flame. One short stationary idle animation. Preserve exact design, colors, accessories, limb count, direction and pixel style. Fixed camera and planted contact points. Return precisely to the first pose. Transparent background; no floor or added props.",
+      "frame_count": 8,
+      "seed": 2026111943,
+      "no_background": true,
+      "enhance_prompt": false
+    },
+    "result": {
+      "count": 9,
+      "usage": {
+        "type": "generations",
+        "generations": 2.0
+      },
+      "billing_charged": true,
+      "frame_sha256": [
+        "9a196e7cd0eae21478ff642fc9edca5434ff7e68a76524947f3ab52fcef6afd7",
+        "a75b4b91ecaf114566c432bdbe861a744671cc3675f81ce7dac002f865c46b19",
+        "63d89cb42e91cc071d765d84b0f2a35bd96abad56d80ae9c4cbeaedc8c9746a9",
+        "f075e3e36fe64c047eef60bfed56c03cad7d07a6a52c1785cc2ae56a7e97133d",
+        "a7b0a4b82898e7cb5959c12220412212358958ef5dcb17d22d2c982df96e1d56",
+        "5cd7b4e572a712f148e4ae8bb258be50f48a49cb08f5c7ac7ab5674dda969660",
+        "4dc4b4765298afda1ebac118b46999c1ea68b96b51510f7dfc0630c765753625",
+        "47edb65d99a324254d73d51f8186358fe3edb244554e7f18c536bc45cc0ac4a0",
+        "33e67d5dccc5a7e159ad24c1d7e40de869046e840f29bcd89390b1d4dcfcbfd4"
+      ]
+    },
+    "job": "9ff1c6ab-2381-4b66-b413-418e7f726321",
+    "before": 4910.0,
+    "after": 4908.0
+  },
+  {
+    "sprite": "dragon-A",
+    "request": {
+      "name": "천둥 해룡",
+      "endpoint": "animate-with-text-v3",
+      "first_and_last_sha256": "ca6f7769b47ffa49a4f5fde4c260b06063abde344d2e4473abb182dbca0d2a1a",
+      "action": "Raises its head briefly with a proud little stretch, then settles. One short stationary idle animation. Preserve exact design, colors, accessories, limb count, direction and pixel style. Fixed camera and planted contact points. Return precisely to the first pose. Transparent background; no floor or added props.",
+      "frame_count": 8,
+      "seed": 2026111930,
+      "no_background": true,
+      "enhance_prompt": false
+    },
+    "result": {
+      "count": 9,
+      "usage": {
+        "type": "generations",
+        "generations": 2.0
+      },
+      "billing_charged": true,
+      "frame_sha256": [
+        "ca6f7769b47ffa49a4f5fde4c260b06063abde344d2e4473abb182dbca0d2a1a",
+        "d40ab17e5115bb7c284eaf20066a970201aa927b9ef7b9426044c65357200502",
+        "75352f86fd944109bf09a419d41afdfe9fe91431c828939afff5e816a176b5a5",
+        "9251dbc796d2db8adf6798d40b9a0f3dcfe23b1603d8dae0d07535872aa2adf5",
+        "b79c5ce1e903406c76a79947c961103140600dcd5fdd03d6deaae90df7685559",
+        "3cf7bd9fee65adce6665642dbb21cda9e06410131d2d6604044cae0407e9d1cb",
+        "8e2d3bd0726657efcc539079dbe3bf62226f36e31feb1e23195525578a106fb1",
+        "6523cc3dfa06885e9c608dc17fd86d7d2d71e5e55d89e4b4dc303bcf3df0270c",
+        "dc1a7cfc342be7d73a7badd8982aa938ef96113572e8a6f914dde4c75790b83b"
+      ]
+    },
+    "job": "0e478482-abc1-4a31-97f5-c152c2a3512d",
+    "before": 4936.0,
+    "after": 4934.0
+  },
+  {
+    "sprite": "fox-B",
+    "request": {
+      "name": "별꼬리 여우",
+      "endpoint": "animate-with-text-v3",
+      "first_and_last_sha256": "55ec115701ecbbb12892c2eff6cd37c4f539bf33f2f3393b320dfe8e3dba085a",
+      "action": "Gently swishes its original star-marked tail side to side; ears follow subtly. One short stationary idle animation. Preserve exact design, colors, accessories, limb count, direction and pixel style. Fixed camera and planted contact points. Return precisely to the first pose. Transparent background; no floor or added props.",
+      "frame_count": 8,
+      "seed": 2026111933,
+      "no_background": true,
+      "enhance_prompt": false
+    },
+    "result": {
+      "count": 9,
+      "usage": {
+        "type": "generations",
+        "generations": 2.0
+      },
+      "billing_charged": true,
+      "frame_sha256": [
+        "55ec115701ecbbb12892c2eff6cd37c4f539bf33f2f3393b320dfe8e3dba085a",
+        "05d22510cd081601e01c712124bf71b45dac67c4e3a6bf5f17d7fc53c9772910",
+        "7ffc43674812cc31f2289ec0032c2d53743d2ad2c6780dbdf29d01a90c44fb28",
+        "8564823e10fcbac5269f710cb81f69d0db835dfc340809f9b70a2fe63420f34f",
+        "20177cd6602e0d8a75124d7a78172bf0e45667451bbeede3fa34060f482f18be",
+        "912064caa5b7c609c5fb98111b7a3619770accf848fda9aea1f73d5ec2ee2991",
+        "46571f0a370956ada37966b9a65cc37422c057c3a033eac5c04ae19d0bd30ffa",
+        "48dc4ad6a68b0cc6b86b995a7ac1d4de332847d0dfd27da6f861357111d42aa1",
+        "e7a8cc64f4a8834bffe92aae3f4a749a4c73d3d8e023694bc473b91af03b52ea"
+      ]
+    },
+    "job": "823aa915-1217-4e8c-a565-4cd925908fbf",
+    "before": 4930.0,
+    "after": 4928.0
+  },
+  {
+    "sprite": "frog-A",
+    "request": {
+      "name": "샘물 개구리",
+      "endpoint": "animate-with-text-v3",
+      "first_and_last_sha256": "2146f55fbd2dc83f80fb48307d93a9fcbbb629dec9004438727888192e79bf7c",
+      "action": "Puffs both cheeks once then lets the air out and relaxes; feet stay planted. One short stationary idle animation. Preserve exact design, colors, accessories, limb count, direction and pixel style. Fixed camera and planted contact points. Return precisely to the first pose. Transparent background; no floor or added props.",
+      "frame_count": 8,
+      "seed": 2026111937,
+      "no_background": true,
+      "enhance_prompt": false
+    },
+    "result": {
+      "count": 9,
+      "usage": {
+        "type": "generations",
+        "generations": 2.0
+      },
+      "billing_charged": true,
+      "frame_sha256": [
+        "2146f55fbd2dc83f80fb48307d93a9fcbbb629dec9004438727888192e79bf7c",
+        "19af183daec186f21e0576e8ae3c3962f923fdf53edfa21865e9e8978dfc79ee",
+        "eacefa02b553baa6d517f19921a9539fdd92ecff356c294886813b8ed91c09ac",
+        "42d233bdfbd425da6c8c26bca4bbfc57a998a4f552bed3c0b0344f70419b6324",
+        "72c01e7b948d8e733f66b705a052d5f84a3ce2dee193383b85ad542baae69e31",
+        "86ba39a8cd33b00c5e62a0436a008c363d06955e820026caa0337abd31148ac7",
+        "86c7be36273d76935bc41146b6e7cf745555ba5d820b8f75322ae02e87844271",
+        "628f86fd860807971d1c9246672be8b5ce524b23a9d5a2be5f5711a682e50a1f",
+        "474a6115407f7543a6607d419d5c45ad33fcf2dfe34a46aa40cff6b5109e0c10"
+      ]
+    },
+    "job": "17125f1b-7f16-4c21-be39-40929583a636",
+    "before": 4922.0,
+    "after": 4920.0
+  },
+  {
+    "sprite": "hamster7-B",
+    "request": {
+      "name": "보석 햄스터",
+      "endpoint": "animate-with-text-v3",
+      "first_and_last_sha256": "cb9a092b9d5f9c6de78ef82dd26a44ab3f6fb945f5bb9b26a0c8023fd78878ba",
+      "action": "Raises the same purple gem with both existing forepaws, tilts its head toward the gem, then lowers it. One short stationary idle animation. Preserve exact design, colors, accessories, limb count, direction and pixel style. Fixed camera and planted contact points. Return precisely to the first pose. Transparent background; no floor or added props.",
+      "frame_count": 8,
+      "seed": 2026111942,
+      "no_background": true,
+      "enhance_prompt": false
+    },
+    "result": {
+      "count": 9,
+      "usage": {
+        "type": "generations",
+        "generations": 2.0
+      },
+      "billing_charged": true,
+      "frame_sha256": [
+        "cb9a092b9d5f9c6de78ef82dd26a44ab3f6fb945f5bb9b26a0c8023fd78878ba",
+        "f32f478d58edc9746b4a2b7802976bf8104f73ada8d54f2383206529c0d459f8",
+        "ad232224fa7a69832a1b432b6dd5c5ee7ab8eabb2b00cd11e9249b5423f64774",
+        "89a40dfc1ea210b387b9a6a32fe901d87d34fa3d446869509c09adec68ba7ec3",
+        "8b633e05fd93f898fe1cefcd405412ce27af0d4b0852fea22932014ee6511479",
+        "8b55182f8495a3a9437ec5fbce75f3bb94bc5504584e29d5c152f4a4169aa455",
+        "15e1412c536b6c4a72f37702921ceb272ac953eb0b34024ec379a4aea55ee15c",
+        "d1f250a3b2b33fa766bc755458c3272e82e523d8a954b87602311ed763096de2",
+        "503c584423adca4173c78918f75c55768e8b80f9dd06daa5471fdf783501f5f8"
+      ]
+    },
+    "job": "af9bb79e-ebb1-49a1-94d0-57234237e844",
+    "before": 4912.0,
+    "after": 4910.0
+  },
+  {
+    "sprite": "hawk-A",
+    "request": {
+      "name": "불꽃 매",
+      "endpoint": "animate-with-text-v3",
+      "first_and_last_sha256": "4973c6e8a3bf90078a9ee343f71e21ab61500dbb50a2ca2d3908a9c4bd320f8c",
+      "action": "Ruffles its existing flame feathers with one small shoulder shake, wings remain folded. One short stationary idle animation. Preserve exact design, colors, accessories, limb count, direction and pixel style. Fixed camera and planted contact points. Return precisely to the first pose. Transparent background; no floor or added props.",
+      "frame_count": 8,
+      "seed": 2026111935,
+      "no_background": true,
+      "enhance_prompt": false
+    },
+    "result": {
+      "count": 9,
+      "usage": {
+        "type": "generations",
+        "generations": 2.0
+      },
+      "billing_charged": true,
+      "frame_sha256": [
+        "4973c6e8a3bf90078a9ee343f71e21ab61500dbb50a2ca2d3908a9c4bd320f8c",
+        "ba2301f2ee4620516d0612badbe7643cc47b449274444b0923bf0687da6ab2f8",
+        "25ae4a846a2fd7557889fff214dbe65d47940a455bf0ba8146a4da8b69d3edf0",
+        "2f7db98700d55a5e0a54fd87b7114468846a76f314d3fc1efb0d69f344e06da4",
+        "d08e1a0ed6b0ca9eb4c0180a4cf071e6fa31a3afb4be67f5ceccb1f85f462fa2",
+        "ec33306357704872f152088aebf06aad685bd0c41e82f7f6db669fb9de22da2c",
+        "a928f6365dbe2916e3818d0b64cbe524e5c05fa696bee1cbd23121c9795d5060",
+        "e29ddfa09660f88fe86cd36d30ffd6edd22b58b09ac74cb6f4c826c8fee84857",
+        "f59188e72632807a46ae6bbabd755b85160d4177a9d6b3fc23ab61a41b302cb2"
+      ]
+    },
+    "job": "495196aa-e07c-4e18-89b0-109db3ccc2d3",
+    "before": 4926.0,
+    "after": 4924.0
+  },
+  {
+    "sprite": "hedgehog-A",
+    "request": {
+      "name": "밤송이 고슴도치",
+      "endpoint": "animate-with-text-v3",
+      "first_and_last_sha256": "35c0f2757d423a1400d98bd015efea5d347cad3285a06266d10d0db9eec0514d",
+      "action": "Gives a brief full-body shiver that ripples through its existing spines, then settles. One short stationary idle animation. Preserve exact design, colors, accessories, limb count, direction and pixel style. Fixed camera and planted contact points. Return precisely to the first pose. Transparent background; no floor or added props.",
+      "frame_count": 8,
+      "seed": 2026111939,
+      "no_background": true,
+      "enhance_prompt": false
+    },
+    "result": {
+      "count": 9,
+      "usage": {
+        "type": "generations",
+        "generations": 2.0
+      },
+      "billing_charged": true,
+      "frame_sha256": [
+        "35c0f2757d423a1400d98bd015efea5d347cad3285a06266d10d0db9eec0514d",
+        "44f2ad2c27bd2182ed807dd5d467341dcd838d6ad51791bcd4c357cd22123a33",
+        "d353b43fd9a89f0a47dffda5c7e58d8f3b3cbfe7848e4316e4e8ed6fe5a5e631",
+        "634fc6e5602bd6639ffdf268e86ca4b919ecccb25b51d58c53469ce0eb69f78d",
+        "031fd64419d075b0533d2a2e62cd2bedafbb2cfa5a06e432fc2d35304827ae73",
+        "a35a74f1e54979b928a8159924eff4ced135cf34ba0d5233a3c71bc2da48ab3f",
+        "2d930f15290815eb6efda69d988a41c2ee4bace9b87895272eec8df65f975797",
+        "6d89b064055ad25891bd0af95a46a6c4383e2910cccee902d2dce2c2a96616ad",
+        "34a0f452f84034dc275a54d8f37328dd9d6c93b6a53c7874780211498d922282"
+      ]
+    },
+    "job": "da055d86-9137-4146-9af2-24191330d001",
+    "before": 4918.0,
+    "after": 4916.0
+  },
+  {
+    "sprite": "kingfisher-A",
+    "request": {
+      "name": "사냥 물총새",
+      "endpoint": "animate-with-text-v3",
+      "first_and_last_sha256": "3eac29ffd1bd76986f3bb3574f2bdb044260f3609fe2df618eeec3a48af63134",
+      "action": "Bends its head toward the near wing, briefly preens the wing with its beak, then lifts its head. One short stationary idle animation. Preserve exact design, colors, accessories, limb count, direction and pixel style. Fixed camera and planted contact points. Return precisely to the first pose. Transparent background; no floor or added props.",
+      "frame_count": 8,
+      "seed": 2026111934,
+      "no_background": true,
+      "enhance_prompt": false
+    },
+    "result": {
+      "count": 9,
+      "usage": {
+        "type": "generations",
+        "generations": 2.0
+      },
+      "billing_charged": true,
+      "frame_sha256": [
+        "3eac29ffd1bd76986f3bb3574f2bdb044260f3609fe2df618eeec3a48af63134",
+        "da3c07403e4da055648e05a66f0e62fc4f69aaadea57d98e84a1bf3d1c8332d1",
+        "498ac8dafeca91ab053f0a1cbdb91f7db8699a51dda3b76cd93eafaecaad85d0",
+        "e1b64fffaaa934c4158863294f92f8c227844ba899f1d9a0418c911ba6138c9d",
+        "5dc2aff07089dea04d5d02f8498afbe0e3c55ad3a38b61f3591301b356e8aa23",
+        "e81493e83d3dc9016ae22031b31ede03dbad6a52253cec6e52f17501ec9f5ffa",
+        "7553d1977d950bce475a5f2dcee26ae4b962a7908fb7d4b84ca062df3d63eb1e",
+        "c0da0a8ba0fdb84b6f9163828239c1715fddc81e7e69b45a79984f193873207c",
+        "b82592e2e6e8e0a5a433b044c421b755bcacc62b111b807db0c2f99582792d4b"
+      ]
+    },
+    "job": "83b42c40-1081-43b1-9207-56b9c69352a8",
+    "before": 4928.0,
+    "after": 4926.0
+  },
+  {
+    "sprite": "penguin-B",
+    "request": {
+      "name": "꼬마 펭귄",
+      "endpoint": "animate-with-text-v3",
+      "first_and_last_sha256": "afa68a9fbb09b151a74d02693b058cb20e087ff96e2771f9ab84af4ac586b147",
+      "action": "Rocks its weight left and right once, with small flipper reactions and planted feet. One short stationary idle animation. Preserve exact design, colors, accessories, limb count, direction and pixel style. Fixed camera and planted contact points. Return precisely to the first pose. Transparent background; no floor or added props.",
+      "frame_count": 8,
+      "seed": 2026111936,
+      "no_background": true,
+      "enhance_prompt": false
+    },
+    "result": {
+      "count": 9,
+      "usage": {
+        "type": "generations",
+        "generations": 2.0
+      },
+      "billing_charged": true,
+      "frame_sha256": [
+        "afa68a9fbb09b151a74d02693b058cb20e087ff96e2771f9ab84af4ac586b147",
+        "42900f177430004a56a36365d176b9f3eda69dc7cdd55953254e20761c18eb46",
+        "df312f5fdd6b7a3a6bd7461785cb86b51d26bd081560e5b56cef3a43153f98b5",
+        "e1dee5e7c8d559042f9c171f311dfeebb4490d5f14ee1b3f3df372f1a1c788aa",
+        "29a2c50e2cf142ccaa6bfc31118baa86d222bf0283c2d7a086276dcecd303da1",
+        "2435c060c42342157cd29f4bd8065d383264483b585f229e166818b5d4460980",
+        "fd7ba9043388dd5c8aece0a3960397e81d3df609b752f0bf2eceefcbbf67df45",
+        "9fb83ef48ad4fa6d11a88d24dc9e548f8a8df8d11dde585e71f9da2cb5e444e8",
+        "0e179f201b926bff46dc3388bd04104a8a470af7210b279dc8166f07e03f35f0"
+      ]
+    },
+    "job": "56e954fc-f524-41e1-acaa-1b0ad1eb2a3d",
+    "before": 4924.0,
+    "after": 4922.0
+  },
+  {
+    "sprite": "raccoon-A",
+    "request": {
+      "name": "장사 너구리",
+      "endpoint": "animate-with-text-v3",
+      "first_and_last_sha256": "aa634fc566b15b86031b62d44cc91a7c97bec9a04a8956267e4555f7efa8e847",
+      "action": "Gives a gentle seated bow, lowering head and shoulders together and returning upright. One short stationary idle animation. Preserve exact design, colors, accessories, limb count, direction and pixel style. Fixed camera and planted contact points. Return precisely to the first pose. Transparent background; no floor or added props.",
+      "frame_count": 8,
+      "seed": 2026111941,
+      "no_background": true,
+      "enhance_prompt": false
+    },
+    "result": {
+      "count": 9,
+      "usage": {
+        "type": "generations",
+        "generations": 2.0
+      },
+      "billing_charged": true,
+      "frame_sha256": [
+        "aa634fc566b15b86031b62d44cc91a7c97bec9a04a8956267e4555f7efa8e847",
+        "122329aa7d8e0906bc881f4e14d8d08253679f0a4401ce07f53bf36d3e4f8e83",
+        "4e5d67d730eaa11b34be761e4ecd267f191f13c674beade52821b924c9a063e2",
+        "07d19d97f9b0054e03a90588a7d6617654b07e15cb8f61c0dec5b0ff303b9090",
+        "cc96dce7ca30ae742ab90a70d1dcc226fabb40c08c255d9201ec1154937ed1a6",
+        "88871acaec782e79b01baac37444c9d6296e0ccd3497862c728975a29de15639",
+        "198b929ca49d0cc8fcb7c659cf719bad5e5a1416a314ec690ff381db0bc24b66",
+        "3350716e87fd87042e1cb779bbb143d5c2dc2fe21e53e56184791b5c9dc1fc98",
+        "2ba886c76271a1a1c4a2dbd02a8c30d048b111e911f39db6a950d35a273a9630"
+      ]
+    },
+    "job": "7cb0a765-8b06-4b3a-9eeb-bd1ebc53d225",
+    "before": 4914.0,
+    "after": 4912.0
+  },
+  {
+    "sprite": "sparrow-B",
+    "request": {
+      "name": "찌 참새",
+      "endpoint": "animate-with-text-v3",
+      "first_and_last_sha256": "e16adc280e918a256fa0293aa6c63c54117786ec496553b043da47a261fd42b0",
+      "action": "Bends down and pecks twice below with its beak, then draws its head back upright. One short stationary idle animation. Preserve exact design, colors, accessories, limb count, direction and pixel style. Fixed camera and planted contact points. Return precisely to the first pose. Transparent background; no floor or added props.",
+      "frame_count": 8,
+      "seed": 2026111940,
+      "no_background": true,
+      "enhance_prompt": false
+    },
+    "result": {
+      "count": 9,
+      "usage": {
+        "type": "generations",
+        "generations": 2.0
+      },
+      "billing_charged": true,
+      "frame_sha256": [
+        "e16adc280e918a256fa0293aa6c63c54117786ec496553b043da47a261fd42b0",
+        "86cae1f7d641ba2ef6f4c18330f13e456356be08bb9bea9e610bf1d291b8f06f",
+        "fa2ad52d2e315b3557868f142b8461dcf90ced3d1e57653c1c0e2c70657f1e3f",
+        "a5baa2d654c8db82b3ec89cbf992b1527737293f0e35fd9830c673b3a0198977",
+        "30932c7f7f4d9a9138433701110e5b3057e881b96b4df4193f0b9ba50988a3c8",
+        "75c59aa50cb8f4ec6ab9c55162bde17b92d2f63ec44707e49ab14b1b2cd73522",
+        "71dad7945c2294c445a488291eca7227fd777551092c57490ea818e234297c7b",
+        "b7b6c1fd77343e64cc69ea429113d6a426eabeaf8c386722560cadeeda4ba1a5",
+        "a49ba5c938c2974cf6431690532234daef61ce24922816ee3569f549d742d62b"
+      ]
+    },
+    "job": "23c4d253-21aa-41dc-9ce3-d89675101766",
+    "before": 4916.0,
+    "after": 4914.0
+  },
+  {
+    "sprite": "turtle-B",
+    "request": {
+      "name": "배낭 거북",
+      "endpoint": "animate-with-text-v3",
+      "first_and_last_sha256": "e3637c47f38f08ff14874c1d2f2e69f8b036f26cdc587f17b0cc6f6507861a79",
+      "action": "Slowly extends its head and looks around, then returns. Shell and backpack stay attached. One short stationary idle animation. Preserve exact design, colors, accessories, limb count, direction and pixel style. Fixed camera and planted contact points. Return precisely to the first pose. Transparent background; no floor or added props.",
+      "frame_count": 8,
+      "seed": 2026111938,
+      "no_background": true,
+      "enhance_prompt": false
+    },
+    "result": {
+      "count": 9,
+      "usage": {
+        "type": "generations",
+        "generations": 2.0
+      },
+      "billing_charged": true,
+      "frame_sha256": [
+        "e3637c47f38f08ff14874c1d2f2e69f8b036f26cdc587f17b0cc6f6507861a79",
+        "d0c7026294580ad0d891db071efa8ab51c4e9c1fcb6f7e45294f4b47a0f4a457",
+        "3fffc52c763930847c8e3b735844ed497b96b004e8814248ef5915231543c447",
+        "409f8f8429ab60e279ad2f5035298941f2c8b4f56fe386d9af1a52ca800d4146",
+        "2ae895eb8466d047e519532863759f95cd11b1b12f063f466afc257d3394836f",
+        "c63e6cba9416abe5377c568d3df9ebe0d7a7ad7f53dcda11018843d8e7e29f26",
+        "8b7f0e435334ec048ac72eb8f6e5e0720eb8f8448965241b28a1d133a70c061f",
+        "0edd798909194603b347621bb3eac10c8ed35e41b0864322acc5e1ae7968fc52",
+        "89bfbf2ea2f80ee6ef7df7f5d16efbb08a7f76343c1c673ccc8481347fc982c2"
+      ]
+    },
+    "job": "b9ff30de-91f3-4b06-9a0b-d5d7640ab5dd",
+    "before": 4920.0,
+    "after": 4918.0
+  },
+  {
+    "sprite": "whale-A",
+    "request": {
+      "name": "황금 고래",
+      "endpoint": "animate-with-text-v3",
+      "first_and_last_sha256": "e5b78945423c0b9aa9ed0677781e37b742a217ca349b7d6880cb0df6b1b67a59",
+      "action": "Makes a tiny buoyant bob and blows a short jet of blue water droplets from the top of its head. One short stationary idle animation. Preserve exact design, colors, accessories, limb count, direction and pixel style. Fixed camera and planted contact points. Return precisely to the first pose. Transparent background; no floor or added props.",
+      "frame_count": 8,
+      "seed": 2026111931,
+      "no_background": true,
+      "enhance_prompt": false
+    },
+    "result": {
+      "count": 9,
+      "usage": {
+        "type": "generations",
+        "generations": 2.0
+      },
+      "billing_charged": true,
+      "frame_sha256": [
+        "e5b78945423c0b9aa9ed0677781e37b742a217ca349b7d6880cb0df6b1b67a59",
+        "fb56b8503d32fec7895b5d93221c4003b1aaf14f74a5385d0d56d7d73efabae8",
+        "429ec9cdc0b5f9f9a7adcc01db9a83db86aa7fcf2a1378426d84d47d6217512f",
+        "abbdc9859aafdf6ce04a01336cc98a395f170395be8a19ff6379530406150f42",
+        "81fb55d24310646737d03ae0ba028bd9f529d5ad82eebfc0b02d286022f71e72",
+        "a8bb6c981ae7db858a958e55dcc82811ccac51a996143d2860478edd660b77fb",
+        "f6fe3b076ad4594d3b9da2b2ebee06985fa59c7087a810a551f6a30ad6bd31b9",
+        "b12bf4c4aef012233f0bd80b67a38342ddc1575a8677221f2645140496226c85",
+        "2352b8e711b89db7d87144f834f810eec5c7c3efd8bdee35fba99a70125c4579"
+      ]
+    },
+    "job": "6f19c9f1-12de-4df8-9dba-5db4609ec390",
+    "before": 4934.0,
+    "after": 4932.0
+  },
+  {
+    "sprite": "wolf-B",
+    "request": {
+      "name": "균열 늑대",
+      "endpoint": "animate-with-text-v3",
+      "first_and_last_sha256": "b69c5578c800af5cc339c8192d8ff008ef64d1abcfede34fab894b7ab975f69c",
+      "action": "Perks both ears and gives its existing tail two short wags. One short stationary idle animation. Preserve exact design, colors, accessories, limb count, direction and pixel style. Fixed camera and planted contact points. Return precisely to the first pose. Transparent background; no floor or added props.",
+      "frame_count": 8,
+      "seed": 2026111932,
+      "no_background": true,
+      "enhance_prompt": false
+    },
+    "result": {
+      "count": 9,
+      "usage": {
+        "type": "generations",
+        "generations": 2.0
+      },
+      "billing_charged": true,
+      "frame_sha256": [
+        "b69c5578c800af5cc339c8192d8ff008ef64d1abcfede34fab894b7ab975f69c",
+        "2ddc1a9bb06c95a56a7d88582bb016f126a5db162c246b48fc9098b886d91549",
+        "db2664f7ef18db2929bb0165f7393000e83b76d0350a92fdd1e0f628fd0a0d37",
+        "58ef591bc61072f29775360bef764f3871988dc07d7eda8cd8bfc72537113e02",
+        "7d416ef09f3a8240d267eb45f7f7393a7ca5cc9fc727e0fe98dbbbd852d94407",
+        "2afcfe938f8c623db5c446d704b11c72c0a37aa51f1513c947f3c4d6ba0db9d3",
+        "30ba1bc69b87189bc8b29ce197a27e173d1442b660ab78087fc1538492024c12",
+        "3453ae8fbdb4444f87d00dfcc5d8d9d524daa101094f2ead7122e497a773678e",
+        "a25874e01c11addf83ace943518bd077f5167abdf6d234391c4ed047ed81ed94"
+      ]
+    },
+    "job": "774c234f-3bff-49e2-bc07-be43a91f4f40",
+    "before": 4932.0,
+    "after": 4930.0
+  }
+]

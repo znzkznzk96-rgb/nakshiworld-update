@@ -6,8 +6,8 @@
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "PixelLab 펫 15종 대기 모션 순차 제작",
-  "next_step": "완료된 PixelLab 프레임 48px 검토 및 저장",
+  "current_task": "PixelLab 펫 전체 대기 모션 생성 완료",
+  "next_step": "48px 모션 검토 후 게임 화면 시연 범위 결정",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -2447,12 +2447,12 @@
     "game_applied": false
   },
   "pet_pixellab_roster": {
-    "status": "in_progress",
-    "remaining_scope": 15,
+    "status": "review",
+    "completed": 15,
+    "roster_size": 16,
+    "usage_generations": 30,
     "otter_selected": "세수 모션",
-    "game_applied": false,
-    "completed": 6,
-    "usage_generations": 12,
-    "active": "penguin-B"
+    "review": "docs/qa/pet-roster-20261118/PIXELLAB_MOTION_ROSTER.md",
+    "game_applied": false
   }
 }

@@ -1,3 +1,7 @@
+## 2026-11-19 · PixelLab 펫 전체 모션
+
+[프레임과 검증](../pet-roster-20261118/PIXELLAB_MOTION_ROSTER.md). 수달 포함 16종. 게임 미적용.
+
 ## 2026-11-19 · 수달 PixelLab 모션 시험
 
 [검수](../pet-roster-20261118/OTTER_PIXELLAB.md). 1건, 사용자 검토 대기.
