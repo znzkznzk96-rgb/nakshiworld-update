@@ -1,0 +1,55 @@
+{
+  "request": {
+    "endpoint": "animate-with-text-v3",
+    "reference_sha256": "97c7827e57a3ad9cf853de188355ae8f551c40de8a566b695aa20a8094fbdebd",
+    "apex_sha256": "97a4c11835e320e3f816be517a3e5acbd682d69adef0e1e2af8e3da631b93614",
+    "action": "Vertical mobile game cinematic. Water-level perspective, quiet reservoir ripple then one natural Korean crucian carp bursts diagonally upward with a sudden tail whip, a bent body and a teal splash trail. Steep upward camera follow, fish grows toward camera and occupies over 40 percent of the screen height at the apex. Olive honey scale sheen, tiny eye, closed mouth, short fins. Finish on supplied pose, muted gold sparks behind fish. No koi, decorations, text or crossfades.",
+    "frame_count": 16,
+    "seed": 2026112094,
+    "no_background": false,
+    "enhance_prompt": false
+  },
+  "job": {
+    "usage": null,
+    "background_job_id": "965961fc-4ca7-4435-a570-40f0298dc930",
+    "status": "processing",
+    "enhanced_prompt": null,
+    "enhance_usage": null
+  },
+  "result": {
+    "usage": {
+      "type": "generations",
+      "generations": 7.0
+    },
+    "billing_charged": true
+  },
+  "charged_generations": 7,
+  "sha256": {
+    "apex.png": "97a4c11835e320e3f816be517a3e5acbd682d69adef0e1e2af8e3da631b93614",
+    "first.png": "97c7827e57a3ad9cf853de188355ae8f551c40de8a566b695aa20a8094fbdebd",
+    "frame-00.png": "622df44857b18be983af9c142874292e3fd16d9b977957b41fe4c5a92ea7f259",
+    "frame-01.png": "382973aaade6758a3636ba6f0e1aa2dc232669b61808cf0a4e8dbb63f1906506",
+    "frame-02.png": "fc20b96dfd1f49b424b2d5aa323f80f0fad4bb874b224f97d377a719fbe30389",
+    "frame-03.png": "a7ab4078e36b4f34980f0cf434c5aa3f1f32aa2b64a5ba3b6f9ffe48f8b60ba1",
+    "frame-04.png": "b65c7a2565999ae1a29253148118a4c2d77f4b2acdfde69c1e67ff6e93981391",
+    "frame-05.png": "90d74dd144d6e09c06b098d2167ee83854127fd794dc6cd16a43014670cbe248",
+    "frame-06.png": "e0a2a5ebffcfefd81eeddcbcaf1f8907f607ba8d5a115289163c307eb8b9765a",
+    "frame-07.png": "02f442314b1d33d1f47cf7ab090aa53b36a045f8b1b6b312c759af1e5209725b",
+    "frame-08.png": "3f8ee12932969f1a4b43ec0360ea686a4b2e19415388df07bd5e387699f301ba",
+    "frame-09.png": "06a8030ed783ab4c7cd0f265038a20b1c6cda99c46c958fa368ee984f0549b8c",
+    "frame-10.png": "be07f7b73748615c2a467c10dee2abb5dbbb7003b2c841f4df73dc45cf82741c",
+    "frame-11.png": "8f418e5c5f07845f064420c34028403966cbbe35e936669d37a3bdc2f342e87c",
+    "frame-12.png": "ee20d874e157727d3fca1b2b56b2b9bd60782894c990808ebfd1296fd2c9d9e6",
+    "frame-13.png": "998a345812665b02b5bb0f537eb6c7cb382fd7a6a1c3383165796fef82507272",
+    "frame-14.png": "d45be2da09c584dc4982e923f3611f2100fffa2cd6d0ee48f83ca05ae5b8c3bc",
+    "frame-15.png": "1fbf8b227e95f79678d436a2afa67d81c405b22736b82782d9265b672564988c",
+    "frame-16.png": "6afe4eb76c87423904c2e7c8e9f9664877c283a0c73f46ed95d649851b3298fe"
+  },
+  "preview": {
+    "frames": 60,
+    "distinct_frames": 55,
+    "duration_s": 3,
+    "fps": 20,
+    "peak_height_ratio": 0.41
+  }
+}
