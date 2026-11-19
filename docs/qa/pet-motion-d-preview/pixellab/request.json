@@ -1,0 +1,9 @@
+{
+  "endpoint": "animate-with-text-v3",
+  "reference_sha256": "ce5c58da4d74302b3444f2c81a94c66e940fa3d9c95e20fc7e4e2b9d8c8b9fd3",
+  "action": "A tiny tadpole pet visibly crouches and tucks its head on anticipation, leaf tail lifts first and flicks. It springs up once in a cute short brisk jump, tucks its existing feet then extends them, soft landing and tiny settling bounce. Fixed side three-quarter facing right, same adorable face, mottled gray skin and attached green leaf tail. No water, accessories, particles, extra limbs or background. Return to the supplied stance.",
+  "frame_count": 8,
+  "seed": 2026112089,
+  "no_background": true,
+  "enhance_prompt": false
+}
