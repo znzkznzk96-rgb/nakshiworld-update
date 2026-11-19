@@ -2450,6 +2450,9 @@
     "status": "in_progress",
     "remaining_scope": 15,
     "otter_selected": "세수 모션",
-    "game_applied": false
+    "game_applied": false,
+    "completed": 6,
+    "usage_generations": 12,
+    "active": "penguin-B"
   }
 }
