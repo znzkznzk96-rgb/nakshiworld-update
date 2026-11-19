@@ -1,0 +1,47 @@
+{
+  "request": {
+    "endpoint": "animate-with-text-v3",
+    "reference_sha256": "55138222db637fefbb74f71efcedbe597cfa88a4046d33f8cf6700e63e9c2e75",
+    "action": "One chunky golden crucian carp in a lively airborne jump. Animate a strong tail flick, flex its body and fins, then visibly roll clockwise from upward-facing diagonal into the downward-curving poised final orientation. Animate the body continuously. Keep exact iconic few-scale 16-bit appearance, clean silhouette, gold palette, tiny eye and short fins. No scenery, no motion trails, no particles, no extra fish. Crisp individual pixels, fixed camera, transparent background.",
+    "frame_count": 16,
+    "seed": 2026112098,
+    "no_background": true,
+    "enhance_prompt": false
+  },
+  "job": {
+    "usage": null,
+    "background_job_id": "ccc1076f-d31d-4c0e-b78f-9c9653d03b95",
+    "status": "processing",
+    "enhanced_prompt": null,
+    "enhance_usage": null
+  },
+  "result": {
+    "usage": {
+      "type": "generations",
+      "generations": 3.0
+    },
+    "billing_charged": true
+  },
+  "sha256": {
+    "end.png": "2a5a759b10e3f63d0fb063ea731b80f6683c088e9033979de8523527bfc54590",
+    "frame-00.png": "16dc814fb3fc9e01254bcc688523153a8f3c7ffeb6c460bd7b9a35bd7effd321",
+    "frame-01.png": "c3bba670f0626434e9b70afa5f35d8ca8cf2ef8993862322a9e375bec93d89fb",
+    "frame-02.png": "169d5ead0f80289aecb7eb2f2d2637a75c17bbd71daa5a88859242f0c671cb2b",
+    "frame-03.png": "4f522b6bb14dffb1dca2eff04e42cc2b61efcb1c524f47a5f996e7f2b7b2f55a",
+    "frame-04.png": "e8c15357dd058057328229c9215cb27994ae929d60b266a5b5b9ade1bd5e1e90",
+    "frame-05.png": "60a247db3c556cb7c2db41befc3280e7c386eee9349894dd6d8d9d5dd261cc18",
+    "frame-06.png": "2db23e052113c012a8b51f8523092a4f851e853771899c5b7fc0e8f77575eae1",
+    "frame-07.png": "dc5d888edec7e3cfbf943b7f7b6715570f7d1d4ad03729973dc304bb1020a921",
+    "frame-08.png": "2de39dc39c328c8f4d306cb2b1621644f7400f5f419112bb34f5accd5ea84a00",
+    "frame-09.png": "7af281a13ef2e968fe2aaba3e8be5a632a5e70aa4f36e702c4a48dd6b461321b",
+    "frame-10.png": "672c29596d07eedac967ab71f387b764ed76848a6292e916dea16e96f82d80a4",
+    "frame-11.png": "12b9451a623716a8ababd3d89b5bcdf6b2dd5e7bc48f7eee7c2d7a57bddbbb35",
+    "frame-12.png": "d110d29569fde22acb0ef94875a0e6245a9746a208b7ab1dc853247fbf0c1d53",
+    "frame-13.png": "f7b963cd45fc021da8af909121a2b014276368b3c17824a0d822fed1d4cabd3e",
+    "frame-14.png": "3885a3aa007ad2962a425ad629a0d26c42bd65e0ff79af6a6c7c66ebd7915db4",
+    "frame-15.png": "24d3c8f3f1ecbfba56661b411556d16a4ac859880b243c58186b65a31ff6f071",
+    "frame-16.png": "af1e88698e22df1474f8293a59340d42c657726ba20ad57e5b9469ff5fa49ea5",
+    "input.png": "55138222db637fefbb74f71efcedbe597cfa88a4046d33f8cf6700e63e9c2e75"
+  },
+  "charged_generations": 3
+}
