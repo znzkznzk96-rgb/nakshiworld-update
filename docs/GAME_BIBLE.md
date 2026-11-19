@@ -1,3 +1,7 @@
+## 2026-11-20 · SSS 의식 컷신 재구성
+
+SSS 붕어·해룡 기본 배율 1배, 270×480 배경과 가까운 밀도로 재구성했다. 수중 불씨, 삼중 마법진, 네 빛기둥, 엠블럼 착인과 7초 여운을 시연했다. [시연 및 제작표](qa/pet-motion-d-preview/godot-cutscene/ceremony/README.md). 게임 미연결, 신규 PixelLab 0회.
+
 ## 2026-11-19 · SSS 황금 무대 각성 시안
 
 일식과 네 기둥의 황금 무대, 응축 후 해룡 공개, 왕관 아우라 및 지연 엠블럼 타격으로 재제작했다. [시연·구현](qa/pet-motion-d-preview/godot-cutscene/awakening/README.md). 게임 미적용, 신규 PixelLab 0회.

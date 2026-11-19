@@ -1,3 +1,7 @@
+## 2026-11-20 · SSS 의식 컷신 재구성
+
+[영상 및 독립 프로젝트](../pet-motion-d-preview/godot-cutscene/ceremony/README.md).
+
 ## 2026-11-19 · SSS 황금 무대 각성 시안
 
 [시연과 독립 프로젝트](../pet-motion-d-preview/godot-cutscene/awakening/README.md). 게임 미적용.
