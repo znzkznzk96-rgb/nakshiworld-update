@@ -6,8 +6,8 @@
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "수달 쓰다듬기 팔 중복 수정 시안",
-  "next_step": "수달 수정 모션 검토",
+  "current_task": "수달 쓰다듬기 상체 연동 시안",
+  "next_step": "수달 96px·48px 모션 검토",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -2432,7 +2432,7 @@
   },
   "pet_signature_trial": {
     "status": "awaiting_review",
-    "path": "docs/qa/pet-roster-20261118/OTTER_HEAD_PAT_V2.md",
+    "path": "docs/qa/pet-roster-20261118/otter-head-pat-v3.gif",
     "game_applied": false
   }
 }
