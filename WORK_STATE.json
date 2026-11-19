@@ -6,8 +6,8 @@
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "PixelLab 펫 전체 대기 모션 생성 완료",
-  "next_step": "48px 모션 검토 후 게임 화면 시연 범위 결정",
+  "current_task": "첫 PixelLab 모션 합격·두 번째 모션 16종 제작 완료",
+  "next_step": "두 번째 모션 사용자 확인 및 게임 화면 시연 범위 결정",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -2447,12 +2447,20 @@
     "game_applied": false
   },
   "pet_pixellab_roster": {
-    "status": "review",
+    "status": "user_approved",
     "completed": 15,
     "roster_size": 16,
     "usage_generations": 30,
     "otter_selected": "세수 모션",
     "review": "docs/qa/pet-roster-20261118/PIXELLAB_MOTION_ROSTER.md",
+    "game_applied": false
+  },
+  "pet_pixellab_motion2": {
+    "status": "awaiting_review",
+    "completed": 16,
+    "frames": 144,
+    "usage_generations": 32,
+    "review": "docs/qa/pet-roster-20261118/PIXELLAB_MOTION2.md",
     "game_applied": false
   }
 }

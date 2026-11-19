@@ -1,3 +1,7 @@
+## 2026-11-19 · 펫 첫 모션 합격 및 두 번째 모션 완료
+
+[PixelLab 두 번째 모션 16종](docs/qa/pet-roster-20261118/PIXELLAB_MOTION2.md). 게임 미적용.
+
 ## 2026-11-19 · PixelLab 펫 전체 모션
 
 [프레임과 검증](docs/qa/pet-roster-20261118/PIXELLAB_MOTION_ROSTER.md). 수달 포함 16종. 게임 미적용.
