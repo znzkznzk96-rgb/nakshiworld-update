@@ -1,3 +1,7 @@
+## 2026-11-20 · SSS 10초 컷신
+
+[10초 영상과 독립 프로젝트](../pet-motion-d-preview/godot-cutscene/ten-seconds/README.md).
+
 ## 2026-11-20 · SSS 의식 컷신 재구성
 
 [영상 및 독립 프로젝트](../pet-motion-d-preview/godot-cutscene/ceremony/README.md).

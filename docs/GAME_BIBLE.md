@@ -1,3 +1,7 @@
+## 2026-11-20 · SSS 10초 컷신
+
+입질 훅·줄 풀림·재긴장·정점 정지와 각성 후 0.43초 시차 엠블럼을 갖춘 SSS 10초 시연. [영상과 구현](qa/pet-motion-d-preview/godot-cutscene/ten-seconds/README.md). 신규 PixelLab 0회, 적용 전.
+
 ## 2026-11-20 · SSS 의식 컷신 재구성
 
 SSS 붕어·해룡 기본 배율 1배, 270×480 배경과 가까운 밀도로 재구성했다. 수중 불씨, 삼중 마법진, 네 빛기둥, 엠블럼 착인과 7초 여운을 시연했다. [시연 및 제작표](qa/pet-motion-d-preview/godot-cutscene/ceremony/README.md). 게임 미연결, 신규 PixelLab 0회.
