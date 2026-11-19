@@ -1,3 +1,7 @@
+## 2026-11-19 · SSS 황금 무대 각성 시안
+
+일식과 네 기둥의 황금 무대, 응축 후 해룡 공개, 왕관 아우라 및 지연 엠블럼 타격으로 재제작했다. [시연·구현](qa/pet-motion-d-preview/godot-cutscene/awakening/README.md). 게임 미적용, 신규 PixelLab 0회.
+
 ## 2026-11-19 · SSS 컷신 7초 버전
 
 사용자 요청대로 SSS만 약 7초로 확장했다. 가속 심박, 반전/오로라, 80ms 정지, 슬로우 후 빛 응축과 해룡 공개, 지연 엠블럼과 체공을 포함한다. [시연 및 구현](qa/pet-motion-d-preview/godot-cutscene/v3/README.md). 신규 PixelLab 생성과 게임 통합 없음.

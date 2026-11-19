@@ -1,3 +1,7 @@
+## 2026-11-19 · SSS 황금 무대 각성 시안
+
+[시연과 독립 프로젝트](../pet-motion-d-preview/godot-cutscene/awakening/README.md). 게임 미적용.
+
 ## 2026-11-19 · SSS 컷신 7초 버전
 
 [7초 시연 및 프로젝트](../pet-motion-d-preview/godot-cutscene/v3/README.md). 독립 데모.
