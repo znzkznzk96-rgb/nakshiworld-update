@@ -1,0 +1,379 @@
+{
+  "status": "visual comparison drafts",
+  "model": "Pixen (edit-image-pixen)",
+  "charged_generations": 12,
+  "entries": [
+    {
+      "sprite": "chestnut-squirrel-A",
+      "alignment": {
+        "x_shift": -1,
+        "sha256": "f4147d799b2516bc0c72197db7723d0450711aebd042dcfdb3b75878c36bc328"
+      },
+      "charged": 1.0,
+      "immediate_balance_delta": 1.0,
+      "request": {
+        "endpoint": "edit-image-pixen",
+        "reference_name": "raccoon-A",
+        "reference_sha256": "aa634fc566b15b86031b62d44cc91a7c97bec9a04a8956267e4555f7efa8e847",
+        "description": "Replace animal with russet squirrel seated facing right and holding chestnut, tall upright curled tail. Match the input sprite's screen-RIGHT three-quarter view, exact compact left placement, foot baseline, muted colored outlines and small native pixel clusters. Head/nose points diagonally toward the RIGHT edge; body extends back toward LEFT. Full body with extra clear space on the right, no clipping. Use only new props. Transparent, no shadow.",
+        "seed": 2026112024,
+        "width": 96,
+        "height": 96,
+        "no_background": true
+      },
+      "sha256": "cf7bf8050d3e09e19f9d58bdc68ee7eddcaa535f49b14d51c3e970417fda7c16",
+      "job": "ccc8e3be-ef9b-48ce-b6c7-852a5e8b6146",
+      "bbox": [
+        9,
+        7,
+        79,
+        88
+      ],
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      }
+    },
+    {
+      "sprite": "chestnut-squirrel-B",
+      "alignment": {
+        "x_shift": 0,
+        "sha256": "1a8034387dcce04cda878d07d1cda4c170b55e3596e17b55205e8dc195ca2b3b"
+      },
+      "charged": 1.0,
+      "immediate_balance_delta": 1.0,
+      "request": {
+        "endpoint": "edit-image-pixen",
+        "reference_name": "raccoon-A",
+        "reference_sha256": "aa634fc566b15b86031b62d44cc91a7c97bec9a04a8956267e4555f7efa8e847",
+        "description": "Replace animal with golden-brown squirrel crouching left, forepaws on chestnut, tail curving above back. Match the input sprite's screen-RIGHT three-quarter view, exact compact left placement, foot baseline, muted colored outlines and small native pixel clusters. Head/nose points diagonally toward the RIGHT edge; body extends back toward LEFT. Full body with extra clear space on the right, no clipping. Use only new props. Transparent, no shadow.",
+        "seed": 2026112025,
+        "width": 96,
+        "height": 96,
+        "no_background": true
+      },
+      "sha256": "de630f669cd54c7de8b78c8e971ad1c8f93adfe81a2007cfda8f88b3d1b89f9e",
+      "job": "e45cb27c-ebf3-46d7-9932-b59cd43a1a05",
+      "bbox": [
+        8,
+        10,
+        79,
+        88
+      ],
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      }
+    },
+    {
+      "sprite": "dandelion-rabbit-A",
+      "alignment": {
+        "x_shift": -3,
+        "sha256": "11c7077063d9999e2fdace44e6c70f3a61a1b93304a5ad0c42c85c6ba8fea2ea"
+      },
+      "charged": 1.0,
+      "immediate_balance_delta": 1.0,
+      "request": {
+        "endpoint": "edit-image-pixen",
+        "reference_name": "raccoon-A",
+        "reference_sha256": "aa634fc566b15b86031b62d44cc91a7c97bec9a04a8956267e4555f7efa8e847",
+        "description": "Replace animal with cream lop rabbit sitting upright at three-quarter angle, yellow dandelion beside ear. Match the input sprite's screen-RIGHT three-quarter view, exact compact left placement, foot baseline, muted colored outlines and small native pixel clusters. Head/nose points diagonally toward the RIGHT edge; body extends back toward LEFT. Full body with extra clear space on the right, no clipping. Use only new props. Transparent, no shadow.",
+        "seed": 2026112030,
+        "width": 96,
+        "height": 96,
+        "no_background": true
+      },
+      "sha256": "2097084c628e1e63f2887558af3b185f333f0da50f912b0da30e5e7930835492",
+      "job": "8b42ef56-6196-449c-a0aa-eeef1195ea33",
+      "bbox": [
+        16,
+        7,
+        76,
+        89
+      ],
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      }
+    },
+    {
+      "sprite": "dandelion-rabbit-B",
+      "alignment": {
+        "x_shift": -1,
+        "sha256": "da1afb79107f643ee45882f4639cba7edf08d1de3028fc09dc10c086f9409297"
+      },
+      "charged": 1.0,
+      "immediate_balance_delta": 1.0,
+      "request": {
+        "endpoint": "edit-image-pixen",
+        "reference_name": "raccoon-A",
+        "reference_sha256": "aa634fc566b15b86031b62d44cc91a7c97bec9a04a8956267e4555f7efa8e847",
+        "description": "Replace animal with warm gray lop rabbit sitting low facing right, yellow dandelion by folded ear. Match the input sprite's screen-RIGHT three-quarter view, exact compact left placement, foot baseline, muted colored outlines and small native pixel clusters. Head/nose points diagonally toward the RIGHT edge; body extends back toward LEFT. Full body with extra clear space on the right, no clipping. Use only new props. Transparent, no shadow.",
+        "seed": 2026112031,
+        "width": 96,
+        "height": 96,
+        "no_background": true
+      },
+      "sha256": "0b5396ac7af268f321291518d2e0bacd401bc622625445f87a68e5fa8a4724ce",
+      "job": "6d8a7189-2604-4f5a-a7dc-60ebbeb3bc85",
+      "bbox": [
+        11,
+        7,
+        77,
+        88
+      ],
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      }
+    },
+    {
+      "sprite": "pebble-crab-A",
+      "alignment": {
+        "x_shift": -5,
+        "sha256": "11fa79333fd6f20734155690d78e6795c4a6a29e14f0bb4386c8f350765a66b3"
+      },
+      "charged": 1.0,
+      "immediate_balance_delta": 1.0,
+      "request": {
+        "endpoint": "edit-image-pixen",
+        "reference_name": "boar-style",
+        "reference_sha256": "b894e87c025980905f7704059dbc0e5f75262f449d141a6b6cd32e9c32f3929a",
+        "description": "Replace animal with right-facing three-quarter round gray pebble crab with two distinct orange claws. Match the input sprite's screen-RIGHT three-quarter view, exact compact left placement, foot baseline, muted colored outlines and small native pixel clusters. Head/nose points diagonally toward the RIGHT edge; body extends back toward LEFT. Full body with extra clear space on the right, no clipping. Use only new props. Transparent, no shadow.",
+        "seed": 2026112028,
+        "width": 96,
+        "height": 96,
+        "no_background": true
+      },
+      "sha256": "922f8269dce91e214287cb261a381ce55d16f4a7c26ae4341bd7578b0256bf54",
+      "job": "aaf19f7e-bd3b-4b9c-89c6-8c9a247caca1",
+      "bbox": [
+        10,
+        13,
+        87,
+        89
+      ],
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      }
+    },
+    {
+      "sprite": "pebble-crab-B",
+      "alignment": {
+        "x_shift": -3,
+        "sha256": "d1eba3050460294f4760376eec802e9ac781b5f83441a190517eae63b6d56d8a"
+      },
+      "charged": 1.0,
+      "immediate_balance_delta": 1.0,
+      "request": {
+        "endpoint": "edit-image-pixen",
+        "reference_name": "boar-style",
+        "reference_sha256": "b894e87c025980905f7704059dbc0e5f75262f449d141a6b6cd32e9c32f3929a",
+        "description": "Replace animal with right-facing three-quarter slate crab with angular pebble shell and orange claw tips. Match the input sprite's screen-RIGHT three-quarter view, exact compact left placement, foot baseline, muted colored outlines and small native pixel clusters. Head/nose points diagonally toward the RIGHT edge; body extends back toward LEFT. Full body with extra clear space on the right, no clipping. Use only new props. Transparent, no shadow.",
+        "seed": 2026112029,
+        "width": 96,
+        "height": 96,
+        "no_background": true
+      },
+      "sha256": "b91a532306217ff1bdf3cc4036a4e73a335cc0b30b51d79ae4f0cbc9275750d2",
+      "job": "b2b5ba85-d8f3-4faa-91ac-f1b2c83dabd7",
+      "bbox": [
+        5,
+        6,
+        87,
+        90
+      ],
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      }
+    },
+    {
+      "sprite": "puddle-tadpole-A",
+      "alignment": {
+        "x_shift": -2,
+        "sha256": "c8b62b49762c256e309395ddf7de15a29a3a349b010da76bd834dfbc8c5f4c45"
+      },
+      "charged": 1.0,
+      "immediate_balance_delta": 1.0,
+      "request": {
+        "endpoint": "edit-image-pixen",
+        "reference_name": "turtle-B",
+        "reference_sha256": "e3637c47f38f08ff14874c1d2f2e69f8b036f26cdc587f17b0cc6f6507861a79",
+        "description": "Replace animal with dark tadpole facing right, broad leaf-shaped tail curves up behind it to screen LEFT. Match the input sprite's screen-RIGHT three-quarter view, exact compact left placement, foot baseline, muted colored outlines and small native pixel clusters. Head/nose points diagonally toward the RIGHT edge; body extends back toward LEFT. Full body with extra clear space on the right, no clipping. Use only new props. Transparent, no shadow.",
+        "seed": 2026112026,
+        "width": 96,
+        "height": 96,
+        "no_background": true
+      },
+      "sha256": "f7fb4cba13c819c4c9ba139e7371e3f46ecd914d2fc32d1a627bdd504166da57",
+      "job": "156d030c-2ce6-46ec-a59b-cb6946df75fd",
+      "bbox": [
+        7,
+        14,
+        84,
+        79
+      ],
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      }
+    },
+    {
+      "sprite": "puddle-tadpole-B",
+      "alignment": {
+        "x_shift": -5,
+        "sha256": "4b23729924d87de45f73f5622eb80e80e98fbc6bf1ba4b4cd5992bbbadf095b9"
+      },
+      "charged": 1.0,
+      "immediate_balance_delta": 1.0,
+      "request": {
+        "endpoint": "edit-image-pixen",
+        "reference_name": "turtle-B",
+        "reference_sha256": "e3637c47f38f08ff14874c1d2f2e69f8b036f26cdc587f17b0cc6f6507861a79",
+        "description": "Replace animal with charcoal tadpole facing right with pale underside, leaf-shaped tail curves up on left. Match the input sprite's screen-RIGHT three-quarter view, exact compact left placement, foot baseline, muted colored outlines and small native pixel clusters. Head/nose points diagonally toward the RIGHT edge; body extends back toward LEFT. Full body with extra clear space on the right, no clipping. Use only new props. Transparent, no shadow.",
+        "seed": 2026112027,
+        "width": 96,
+        "height": 96,
+        "no_background": true
+      },
+      "sha256": "50446f61653d27ee1a0c425dcbca61426c082dc0289358dc0e1d7b1448f25db4",
+      "job": "1a271b68-0fb1-4fc0-865a-c6e6b83fea08",
+      "bbox": [
+        7,
+        17,
+        90,
+        82
+      ],
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      }
+    },
+    {
+      "sprite": "reed-duck-A",
+      "alignment": {
+        "x_shift": -7,
+        "sha256": "15944b4cbf61e0a067e9dd4f2915445771e8d72c6da0a8b2fb752efb22f03a93"
+      },
+      "charged": 1.0,
+      "immediate_balance_delta": 1.0,
+      "request": {
+        "endpoint": "edit-image-pixen",
+        "reference_name": "sparrow-B",
+        "reference_sha256": "e16adc280e918a256fa0293aa6c63c54117786ec496553b043da47a261fd42b0",
+        "description": "Replace animal with cream standing duckling facing right, orange bill and feet, green reed tucked over its back. Match the input sprite's screen-RIGHT three-quarter view, exact compact left placement, foot baseline, muted colored outlines and small native pixel clusters. Head/nose points diagonally toward the RIGHT edge; body extends back toward LEFT. Full body with extra clear space on the right, no clipping. Use only new props. Transparent, no shadow.",
+        "seed": 2026112020,
+        "width": 96,
+        "height": 96,
+        "no_background": true
+      },
+      "sha256": "e97d6ac5c5d0f8a3940c3bad0d49fd1ebe9a77db3c6f2095ebeeb8014c105bfd",
+      "job": "e8f17be5-1c9f-43f5-9cde-cf3cd1d13a44",
+      "bbox": [
+        17,
+        11,
+        83,
+        88
+      ],
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      }
+    },
+    {
+      "sprite": "reed-duck-B",
+      "alignment": {
+        "x_shift": -5,
+        "sha256": "0e6149dc8e5ca9c60c52f2129521fd2d871b789b4de523b172cffbb987b78de4"
+      },
+      "charged": 1.0,
+      "immediate_balance_delta": 1.0,
+      "request": {
+        "endpoint": "edit-image-pixen",
+        "reference_name": "sparrow-B",
+        "reference_sha256": "e16adc280e918a256fa0293aa6c63c54117786ec496553b043da47a261fd42b0",
+        "description": "Replace animal with buff mallard duckling facing right, olive crown, holding a reed in bill. Match the input sprite's screen-RIGHT three-quarter view, exact compact left placement, foot baseline, muted colored outlines and small native pixel clusters. Head/nose points diagonally toward the RIGHT edge; body extends back toward LEFT. Full body with extra clear space on the right, no clipping. Use only new props. Transparent, no shadow.",
+        "seed": 2026112021,
+        "width": 96,
+        "height": 96,
+        "no_background": true
+      },
+      "sha256": "218b5fbfa34e5d42c6c1c065370856fab305c083fd0fc98ada5e08371e01c3a5",
+      "job": "9ebe94dd-6a58-4cc1-9c99-d4c53f5e67e5",
+      "bbox": [
+        12,
+        6,
+        84,
+        89
+      ],
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      }
+    },
+    {
+      "sprite": "waterdrop-snail-A",
+      "alignment": {
+        "x_shift": -4,
+        "sha256": "664e39b8af3f3b47b71f89b1ffbc43127e51c81c456ff2f5c0db66182e869df6"
+      },
+      "charged": 1.0,
+      "immediate_balance_delta": 1.0,
+      "request": {
+        "endpoint": "edit-image-pixen",
+        "reference_name": "turtle-B",
+        "reference_sha256": "e3637c47f38f08ff14874c1d2f2e69f8b036f26cdc587f17b0cc6f6507861a79",
+        "description": "Replace animal with mint snail facing right with spiral jade shell and a blue water bead on top. Match the input sprite's screen-RIGHT three-quarter view, exact compact left placement, foot baseline, muted colored outlines and small native pixel clusters. Head/nose points diagonally toward the RIGHT edge; body extends back toward LEFT. Full body with extra clear space on the right, no clipping. Use only new props. Transparent, no shadow.",
+        "seed": 2026112022,
+        "width": 96,
+        "height": 96,
+        "no_background": true
+      },
+      "sha256": "f316e7a90aefa95c6a37e4ab8baae64883e23ac25b7c86df7ddddf5b2df59155",
+      "job": "53377f39-afd4-4e8e-8702-9c91819e3279",
+      "bbox": [
+        9,
+        11,
+        86,
+        80
+      ],
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      }
+    },
+    {
+      "sprite": "waterdrop-snail-B",
+      "alignment": {
+        "x_shift": -3,
+        "sha256": "8009fc4eedd5575be5eb2e38c7192c0f5849247e46a3087fcb0a5222d390ed6b"
+      },
+      "charged": 1.0,
+      "immediate_balance_delta": 1.0,
+      "request": {
+        "endpoint": "edit-image-pixen",
+        "reference_name": "turtle-B",
+        "reference_sha256": "e3637c47f38f08ff14874c1d2f2e69f8b036f26cdc587f17b0cc6f6507861a79",
+        "description": "Replace animal with teal snail facing right, its single curled shell has a pointed droplet silhouette. Match the input sprite's screen-RIGHT three-quarter view, exact compact left placement, foot baseline, muted colored outlines and small native pixel clusters. Head/nose points diagonally toward the RIGHT edge; body extends back toward LEFT. Full body with extra clear space on the right, no clipping. Use only new props. Transparent, no shadow.",
+        "seed": 2026112023,
+        "width": 96,
+        "height": 96,
+        "no_background": true
+      },
+      "sha256": "537874967d7aac406be1d10ca68d9feacf0621c1ec3cf25c7aa497ad656db6f5",
+      "job": "6ca895ec-ecd1-4b50-9d3f-a1396e2c09f4",
+      "bbox": [
+        8,
+        24,
+        85,
+        77
+      ],
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      }
+    }
+  ]
+}

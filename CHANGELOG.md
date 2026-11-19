@@ -1,3 +1,7 @@
+## 2026-11-19 · C·D급 펫 우향 재제작 결과
+
+[비교·검증](docs/qa/pet-roster-20261118/cd-pixellab-right/README.md). 시안 10장과 반려 2장 기록.
+
 ## 2026-11-19 · C·D급 펫 PixelLab A/B 12장 완료
 
 [원본 크기 비교·검증](docs/qa/pet-roster-20261118/cd-pixellab/README.md). 게임 미적용.
