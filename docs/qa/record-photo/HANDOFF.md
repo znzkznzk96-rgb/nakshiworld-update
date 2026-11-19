@@ -1,3 +1,7 @@
+## 2026-11-19 · 등급 파라미터 기반 Godot 뽑기 컷신
+
+[독립 Godot 프로젝트](../pet-motion-d-preview/godot-cutscene/README.md). 본 게임 미연결.
+
 ## 2026-11-19 · D급 뽑기 시안 승인 및 나머지 등급 제작
 
 [C~SSS 무음 GIF 시안](../pet-motion-d-preview/tiers/README.md). 사용자 검토 대기.
