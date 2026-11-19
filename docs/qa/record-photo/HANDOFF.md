@@ -1,3 +1,7 @@
+## 2026-11-19 · D급 뽑기 시안 승인 및 나머지 등급 제작
+
+[C~SSS 무음 GIF 시안](../pet-motion-d-preview/tiers/README.md). 사용자 검토 대기.
+
 ## 2026-11-19 · 신규 펫 모션 및 D급 소환 미리보기
 
 [신규 펫 모션 및 D급 소환 미리보기](../pet-motion-d-preview/README.md). 게임 미적용.

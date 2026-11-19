@@ -1,0 +1,38 @@
+{
+  "request": {
+    "endpoint": "animate-with-text-v3",
+    "reference_sha256": "b0ec9639d7b7e6fa233404b4bff74f167f235b4e48c1583312b6c8ceae3b27e4",
+    "action": "The small mint snail raises and extends its two existing eyestalks, stretches forward excitedly and softly bobs its head and shell before settling. Preserve the exact right-facing mint shell, blue drop, cream foot, and silhouette. No legs or new appendages, no background. Return to supplied pose.",
+    "frame_count": 8,
+    "seed": 2026112090,
+    "no_background": true,
+    "enhance_prompt": false
+  },
+  "job": {
+    "usage": null,
+    "background_job_id": "0e665b09-4e5a-4e26-b8c3-b684329a44bc",
+    "status": "processing",
+    "enhanced_prompt": null,
+    "enhance_usage": null
+  },
+  "result": {
+    "usage": {
+      "type": "generations",
+      "generations": 2.0
+    },
+    "billing_charged": true
+  },
+  "hashes": {
+    "frame-00.png": "1a103da21006986c71717cfc22fc84601bce4a75857e00fd3a80ca03c150d492",
+    "frame-01.png": "666e3ea3dde5435ec8a1ad7274557317b6868169db53940d650f41d67c14bb5c",
+    "frame-02.png": "9882707e18a3e482296b92d9af6e50f07ae84808a9e5e7e8c3dc3be77af79f4e",
+    "frame-03.png": "0cc02abba19f46be95803199376f416f18da55d31227e364c6df4a4f2f83ae81",
+    "frame-04.png": "0a3ad16350dc583c0ae13235c74925e8c4fa2b5322f12f8dc7f8b39112861e96",
+    "frame-05.png": "6720d6ad3088122ff48943842beb6dd47b25ababa18d73bb2fe82eefcf54af8f",
+    "frame-06.png": "006cf56dac1a1dc0502f024a113d83aab53e3434738384e04275f90ac18687d0",
+    "frame-07.png": "0921fe607a40faad547df370726dd618430ce9f6c11344360bb6731e75262054",
+    "frame-08.png": "eab5000f9d6c3c75c7d13d5322b5b2842f05fc4de54e763d3023165c58787a63",
+    "input.png": "b0ec9639d7b7e6fa233404b4bff74f167f235b4e48c1583312b6c8ceae3b27e4"
+  },
+  "charged_generations": 2
+}
