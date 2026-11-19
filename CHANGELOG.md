@@ -1,3 +1,7 @@
+## 2026-11-19 · C·D급 펫 PixelLab A/B 12장 완료
+
+[원본 크기 비교·검증](docs/qa/pet-roster-20261118/cd-pixellab/README.md). 게임 미적용.
+
 ## 2026-11-19 · 펫 첫 모션 합격 및 두 번째 모션 완료
 
 [PixelLab 두 번째 모션 16종](docs/qa/pet-roster-20261118/PIXELLAB_MOTION2.md). 게임 미적용.

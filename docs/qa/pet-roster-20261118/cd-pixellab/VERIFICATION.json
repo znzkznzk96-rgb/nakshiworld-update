@@ -1,0 +1,319 @@
+{
+  "status": "visual comparison drafts",
+  "model": "Pixen (edit-image-pixen)",
+  "charged_generations": 12,
+  "entries": [
+    {
+      "sprite": "chestnut-squirrel-A",
+      "charged": 1.0,
+      "immediate_balance_delta": 1.0,
+      "request": {
+        "endpoint": "edit-image-pixen",
+        "reference_sha256": "de1174b15fbf84766e26da264b5732ef2441734fb3c8cdee4742fd37b5fd98f5",
+        "description": "Redraw the exact reference pose, angle, silhouette and colors as a centered 96px pixel game sprite: russet squirrel seated facing left and holding chestnut, tall upright curled tail. Crisp fine pixel clusters, soft earthy material shades, clear anatomy. Keep the full animal and accessory with 5px breathing room. Transparent background, no ground, cast shadow, letters, or outline glow.",
+        "seed": 2026112004,
+        "width": 96,
+        "height": 96,
+        "no_background": true
+      },
+      "sha256": "74f81d46fffb041ba24cb11f3dc172083d6db6cbad3eb2fb7717f9ac669added",
+      "job": "04f392dd-5c93-4be4-b854-cc9c31ef7bea",
+      "bbox": [
+        10,
+        1,
+        93,
+        94
+      ],
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      }
+    },
+    {
+      "sprite": "chestnut-squirrel-B",
+      "charged": 1.0,
+      "immediate_balance_delta": 1.0,
+      "request": {
+        "endpoint": "edit-image-pixen",
+        "reference_sha256": "33361691960e5b94b86fff875914eb79799715512d012d9247612c363609e6c8",
+        "description": "Redraw the exact reference pose, angle, silhouette and colors as a centered 96px pixel game sprite: golden-brown squirrel crouching left, forepaws on chestnut, tail curving above back. Crisp fine pixel clusters, soft earthy material shades, clear anatomy. Keep the full animal and accessory with 5px breathing room. Transparent background, no ground, cast shadow, letters, or outline glow.",
+        "seed": 2026112005,
+        "width": 96,
+        "height": 96,
+        "no_background": true
+      },
+      "sha256": "3db062fea72e7fdd222e1342ad7e2cb6c6ca74761b57c44d1787e64a2754da54",
+      "job": "a780a841-2d27-4327-9641-b76b9da2832a",
+      "bbox": [
+        0,
+        2,
+        88,
+        92
+      ],
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      }
+    },
+    {
+      "sprite": "dandelion-rabbit-A",
+      "charged": 1.0,
+      "immediate_balance_delta": 1.0,
+      "request": {
+        "endpoint": "edit-image-pixen",
+        "reference_sha256": "b71eb60430f6af1bc6ccb1112ebd230eb0536bf0771925822d922a12cdac45af",
+        "description": "Redraw the exact reference pose, angle, silhouette and colors as a centered 96px pixel game sprite: cream lop rabbit sitting upright at three-quarter angle, yellow dandelion beside ear. Crisp fine pixel clusters, soft earthy material shades, clear anatomy. Keep the full animal and accessory with 5px breathing room. Transparent background, no ground, cast shadow, letters, or outline glow.",
+        "seed": 2026112010,
+        "width": 96,
+        "height": 96,
+        "no_background": true
+      },
+      "sha256": "5daf14cc3e77eb1d7356b54de3b5e95e6607edcf7b36845aa98f760e8cfe2e58",
+      "job": "43a33db3-8a9c-4e4e-92fc-b6e573d4ae65",
+      "bbox": [
+        2,
+        8,
+        88,
+        93
+      ],
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      }
+    },
+    {
+      "sprite": "dandelion-rabbit-B",
+      "charged": 1.0,
+      "immediate_balance_delta": 1.0,
+      "request": {
+        "endpoint": "edit-image-pixen",
+        "reference_sha256": "1f349c118806fd060db19e89a7f24dd8428eab1450ee1233b01c721c4fbe42bc",
+        "description": "Redraw the exact reference pose, angle, silhouette and colors as a centered 96px pixel game sprite: warm gray lop rabbit sitting low facing left, yellow dandelion by folded ear. Crisp fine pixel clusters, soft earthy material shades, clear anatomy. Keep the full animal and accessory with 5px breathing room. Transparent background, no ground, cast shadow, letters, or outline glow.",
+        "seed": 2026112011,
+        "width": 96,
+        "height": 96,
+        "no_background": true
+      },
+      "sha256": "4324a3ac7e4437f84f63a42501ab4128b1ce262e06a523f635217cd257aec42d",
+      "job": "2255cdd4-0272-493e-9bd6-26ff3bd849fe",
+      "bbox": [
+        3,
+        19,
+        94,
+        87
+      ],
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      }
+    },
+    {
+      "sprite": "pebble-crab-A",
+      "charged": 1.0,
+      "immediate_balance_delta": 1.0,
+      "request": {
+        "endpoint": "edit-image-pixen",
+        "reference_sha256": "5fc1b84cf55c40b62590eff67351270eaf8fcc274036e393d75c49c1b6fff126",
+        "description": "Redraw the exact reference pose, angle, silhouette and colors as a centered 96px pixel game sprite: front-facing round gray pebble crab with two distinct orange claws. Crisp fine pixel clusters, soft earthy material shades, clear anatomy. Keep the full animal and accessory with 5px breathing room. Transparent background, no ground, cast shadow, letters, or outline glow.",
+        "seed": 2026112008,
+        "width": 96,
+        "height": 96,
+        "no_background": true
+      },
+      "sha256": "9a328a7c3067c6259c8c7d7154ab179a535a86aaf5e5aa700b42eefd32e69f6b",
+      "job": "f6489a34-98ac-49f3-a6f6-67ed26278cae",
+      "bbox": [
+        6,
+        27,
+        90,
+        91
+      ],
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      }
+    },
+    {
+      "sprite": "pebble-crab-B",
+      "charged": 1.0,
+      "immediate_balance_delta": 1.0,
+      "request": {
+        "endpoint": "edit-image-pixen",
+        "reference_sha256": "e3e834d0e4e990042195c7521713f177ff30852bf22cfde5cb614ee6d8d4eece",
+        "description": "Redraw the exact reference pose, angle, silhouette and colors as a centered 96px pixel game sprite: front-facing slate crab with angular pebble shell and orange claw tips. Crisp fine pixel clusters, soft earthy material shades, clear anatomy. Keep the full animal and accessory with 5px breathing room. Transparent background, no ground, cast shadow, letters, or outline glow.",
+        "seed": 2026112009,
+        "width": 96,
+        "height": 96,
+        "no_background": true
+      },
+      "sha256": "76ad316a20c51a9f16128a52f1ab0318d07785747f989c8f74a753a4f1bd1d14",
+      "job": "d8baef39-d7ca-47d9-9fdb-1f00884c348e",
+      "bbox": [
+        6,
+        22,
+        92,
+        87
+      ],
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      }
+    },
+    {
+      "sprite": "puddle-tadpole-A",
+      "charged": 1.0,
+      "immediate_balance_delta": 0.0,
+      "request": {
+        "endpoint": "edit-image-pixen",
+        "reference_sha256": "64e6df3eb357b7f177e5592fbdfed4370bb97c07c0461ee9a49e6faa2fb291aa",
+        "description": "Redraw the exact reference pose, angle, silhouette and colors as a centered 96px pixel game sprite: dark tadpole facing left, broad leaf-shaped tail curves up on the right. Crisp fine pixel clusters, soft earthy material shades, clear anatomy. Keep the full animal and accessory with 5px breathing room. Transparent background, no ground, cast shadow, letters, or outline glow.",
+        "seed": 2026112006,
+        "width": 96,
+        "height": 96,
+        "no_background": true
+      },
+      "sha256": "7ab87505532a22fd085898d7291515ea2315b77892d7f8f69a823a5db3323d15",
+      "job": "9c04332f-4440-467e-8845-646ce855514b",
+      "bbox": [
+        13,
+        18,
+        83,
+        94
+      ],
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      }
+    },
+    {
+      "sprite": "puddle-tadpole-B",
+      "charged": 1.0,
+      "immediate_balance_delta": 1.0,
+      "request": {
+        "endpoint": "edit-image-pixen",
+        "reference_sha256": "7643cf5410f7e96da8ef78f21795497ce1fdff7deb31d3bfcaff72741d854241",
+        "description": "Redraw the exact reference pose, angle, silhouette and colors as a centered 96px pixel game sprite: charcoal tadpole facing right with pale underside, leaf-shaped tail curves up on left. Crisp fine pixel clusters, soft earthy material shades, clear anatomy. Keep the full animal and accessory with 5px breathing room. Transparent background, no ground, cast shadow, letters, or outline glow.",
+        "seed": 2026112007,
+        "width": 96,
+        "height": 96,
+        "no_background": true
+      },
+      "sha256": "c0e250a1d4fb2147a3ee70f0d20edc4842a19ab723006c944d7d12881e5581c0",
+      "job": "4e40f308-59cf-459e-9937-c072d855fa11",
+      "bbox": [
+        7,
+        10,
+        85,
+        90
+      ],
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      }
+    },
+    {
+      "sprite": "reed-duck-A",
+      "charged": 1.0,
+      "immediate_balance_delta": 1.0,
+      "request": {
+        "endpoint": "edit-image-pixen",
+        "reference_sha256": "9e8a20bb10672f06a0d62af649d41ce7a39007010c5cb13cc3a7f36ee6d6a032",
+        "description": "Redraw the exact reference pose, angle, silhouette and colors as a centered 96px pixel game sprite: cream standing duckling facing left, orange bill and feet, green reed tucked over its back. Crisp fine pixel clusters, soft earthy material shades, clear anatomy. Keep the full animal and accessory with 5px breathing room. Transparent background, no ground, cast shadow, letters, or outline glow.",
+        "seed": 2026112000,
+        "width": 96,
+        "height": 96,
+        "no_background": true
+      },
+      "sha256": "bad3e47049ac38aad2a2f643a81abc41b4143278568a7b67820ebfa555127887",
+      "job": "ba2bad93-b343-4acf-b28e-1c6e637e3376",
+      "bbox": [
+        20,
+        12,
+        87,
+        95
+      ],
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      }
+    },
+    {
+      "sprite": "reed-duck-B",
+      "charged": 1.0,
+      "immediate_balance_delta": 1.0,
+      "request": {
+        "endpoint": "edit-image-pixen",
+        "reference_sha256": "aa1b157e577d8b30945ec93c3368a7e78b1775897fa4b2538520f8878801168e",
+        "description": "Redraw the exact reference pose, angle, silhouette and colors as a centered 96px pixel game sprite: buff mallard duckling facing left, olive crown, holding a reed in bill. Crisp fine pixel clusters, soft earthy material shades, clear anatomy. Keep the full animal and accessory with 5px breathing room. Transparent background, no ground, cast shadow, letters, or outline glow.",
+        "seed": 2026112001,
+        "width": 96,
+        "height": 96,
+        "no_background": true
+      },
+      "sha256": "cdee95a044a0fed08b3ea5cf892e4d87fa9ecfb81d1228a0a4ed79ddc3fe7d77",
+      "job": "63fa9f28-8dec-4414-a19c-f9f66e977fb4",
+      "bbox": [
+        8,
+        6,
+        88,
+        92
+      ],
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      }
+    },
+    {
+      "sprite": "waterdrop-snail-A",
+      "charged": 1.0,
+      "immediate_balance_delta": 1.0,
+      "request": {
+        "endpoint": "edit-image-pixen",
+        "reference_sha256": "b61a49e24e4fe323fc32683affc50ca74709e40935fdf2140334b91518da0720",
+        "description": "Redraw the exact reference pose, angle, silhouette and colors as a centered 96px pixel game sprite: mint snail facing left with spiral jade shell and a blue water bead on top. Crisp fine pixel clusters, soft earthy material shades, clear anatomy. Keep the full animal and accessory with 5px breathing room. Transparent background, no ground, cast shadow, letters, or outline glow.",
+        "seed": 2026112002,
+        "width": 96,
+        "height": 96,
+        "no_background": true
+      },
+      "sha256": "d81a21fad80eff1338cb005258bd53f09c159faaf552ed0d741363d6462e85d5",
+      "job": "f867704c-7856-4497-8b27-7c38c9cb812d",
+      "bbox": [
+        15,
+        25,
+        82,
+        90
+      ],
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      }
+    },
+    {
+      "sprite": "waterdrop-snail-B",
+      "charged": 1.0,
+      "immediate_balance_delta": 1.0,
+      "request": {
+        "endpoint": "edit-image-pixen",
+        "reference_sha256": "34eed7628a8a3db73482b2053d3a18a1ac7567e45891cbaeeb6c1f19c5ec056e",
+        "description": "Redraw the exact reference pose, angle, silhouette and colors as a centered 96px pixel game sprite: teal snail facing left, its single curled shell has a pointed droplet silhouette. Crisp fine pixel clusters, soft earthy material shades, clear anatomy. Keep the full animal and accessory with 5px breathing room. Transparent background, no ground, cast shadow, letters, or outline glow.",
+        "seed": 2026112003,
+        "width": 96,
+        "height": 96,
+        "no_background": true
+      },
+      "sha256": "923993a7ec16a92b6efd5e023335743294db40846d0cdc1383766adbfd2028b4",
+      "job": "e576a496-94a7-495b-ac28-446c29bedcd0",
+      "bbox": [
+        12,
+        20,
+        81,
+        86
+      ],
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      }
+    }
+  ]
+}
