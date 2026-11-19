@@ -1,3 +1,7 @@
+## 2026-11-19 · SSS 컷신 7초 버전
+
+사용자 요청대로 SSS만 약 7초로 확장했다. 가속 심박, 반전/오로라, 80ms 정지, 슬로우 후 빛 응축과 해룡 공개, 지연 엠블럼과 체공을 포함한다. [시연 및 구현](qa/pet-motion-d-preview/godot-cutscene/v3/README.md). 신규 PixelLab 생성과 게임 통합 없음.
+
 ## 2026-11-19 · 등급 파라미터 기반 Godot 뽑기 컷신
 
 사용자 요청의 D~SSS 단일 씬과 SSS 전조·반전·80ms 돌파 정지·줌/흔들림·정점 슬로우·충격파·공중 배너 구조를 독립 프로토타입으로 구현했다. [에셋 명세와 시퀀스](qa/pet-motion-d-preview/godot-cutscene/README.md). 기존 이미지·임시 이펙트 사용, 신규 PixelLab 0회 및 본 게임 미연결.

@@ -1,3 +1,7 @@
+## 2026-11-19 · SSS 컷신 7초 버전
+
+[7초 시연 및 프로젝트](../pet-motion-d-preview/godot-cutscene/v3/README.md). 독립 데모.
+
 ## 2026-11-19 · 등급 파라미터 기반 Godot 뽑기 컷신
 
 [독립 Godot 프로젝트](../pet-motion-d-preview/godot-cutscene/README.md). 본 게임 미연결.
