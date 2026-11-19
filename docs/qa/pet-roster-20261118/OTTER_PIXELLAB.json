@@ -1,0 +1,16 @@
+{
+  "request": {
+    "action": "Seated otter stays on the same spot. It raises its existing near forepaw from the belly, leans its shoulder and bows its head toward the paw, rubs the side of its head twice, briefly taps its teal cap brim and returns to the exact starting pose. Opposite forepaw stays near belly. Exactly two forepaws, no duplicate limb. Hind feet and tail planted. Preserve face, cap, yellow pin and blue scarf, camera, pixel palette and silhouette proportions. No floor, particles or props.",
+    "frame_count": 8,
+    "seed": 2026111921,
+    "no_background": true,
+    "enhance_prompt": false
+  },
+  "job": "6cf12e3f-ecdb-4789-ad90-98837a2ba7ce",
+  "usage": {
+    "type": "generations",
+    "generations": 2.0
+  },
+  "billing_charged": true,
+  "received": 9
+}
