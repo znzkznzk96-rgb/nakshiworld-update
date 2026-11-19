@@ -6,8 +6,8 @@
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "수달 PixelLab 모션 시험 1건 완료",
-  "next_step": "PixelLab 수달 비교 시안 검토",
+  "current_task": "PixelLab 펫 15종 대기 모션 순차 제작",
+  "next_step": "완료된 PixelLab 프레임 48px 검토 및 저장",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -2444,6 +2444,12 @@
   "pet_pixellab_trial": {
     "status": "awaiting_review",
     "review": "docs/qa/pet-roster-20261118/OTTER_PIXELLAB.md",
+    "game_applied": false
+  },
+  "pet_pixellab_roster": {
+    "status": "in_progress",
+    "remaining_scope": 15,
+    "otter_selected": "세수 모션",
     "game_applied": false
   }
 }
