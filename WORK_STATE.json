@@ -6,8 +6,8 @@
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "수달 쓰다듬기 상체 연동 시안",
-  "next_step": "수달 96px·48px 모션 검토",
+  "current_task": "펫 16종 고유 대기 동작 시안 완료",
+  "next_step": "48px 미리보기 검토 및 실제 낚시 화면 시연 범위 결정",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -2433,6 +2433,12 @@
   "pet_signature_trial": {
     "status": "awaiting_review",
     "path": "docs/qa/pet-roster-20261118/otter-head-pat-v3.gif",
+    "game_applied": false
+  },
+  "pet_signature_roster": {
+    "count": 16,
+    "new_count": 15,
+    "review": "docs/qa/pet-roster-20261118/PET_SIGNATURES.md",
     "game_applied": false
   }
 }
