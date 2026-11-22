@@ -1,0 +1,9 @@
+{
+ "desc": "Keep this exact dragon: same silhouette, pose, face, small eye, mouth, colors and outline. Only enrich the rendering: add more shading steps and pixel clusters for volume, deeper shadows under the head, belly and legs, highlights on horns and fin spikes, subtle scale shading on the body, wing membrane shading. Keep it clean and readable, no noisy random texture.",
+ "seed": 2026113101,
+ "input": "final4/dragon/dragon-final.png",
+ "input_sha256": "6e1c40db08a1d83e8fc965385e58f8838f7e069d368bdcc24ecfc49528b102a2",
+ "before": 4756.0,
+ "after": 4755.0,
+ "sha256": "41f203defe4bf871ceb521a8e9dcde3a04427d8dc810085b0de61a8c7cd53a06"
+}

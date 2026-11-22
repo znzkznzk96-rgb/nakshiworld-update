@@ -412,3 +412,7 @@ Run [43538268264](https://github.com/znzkznzk96-rgb/nakshiworld-update/actions/r
 관련5검사 통과: 결과400조합·입질접촉10240조합 포함. 실제18화면/3높이 확인. 수정·원격저장 완료, 새버전/배포 없음. 다음: 사용자 시각검토. 현재 공개v1.37은 그대로다.
 
 [검증](../fish-display-size/VERIFICATION.json) · [개발/배포 절차](../../DELIVERY_WORKFLOW.md) · [이전 HANDOFF](../../historical/2026-11-13-fish-display-size/HANDOFF-before.md)
+
+## 실패 기록 2026-11-22 · 펫 리메이크 PixelLab 낭비
+- 성공한 수달 설명문을 그대로 쓰지 않고 '유지' 문구를 임의로 덧붙여 결과가 거의 원본과 같았다. 확인 약속을 어기고 20종 일괄을 두 번 돌렸다. Pro 레퍼런스 편집은 레퍼런스 캐릭터로 바꿔치기(1회 10 차감).
+- 재발 방지: 승인된 절차 문구만 사용, 3종마다 멈추고 확인, 기준 미달 시 즉시 중단.

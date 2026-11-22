@@ -1,0 +1,8 @@
+{
+ "desc": "Remake this sea dragon pet as a classic 16-bit indie pixel game sprite, not a flashy cartoon. Small simple dot eyes with one 1px highlight. Clean pixel outline in dark navy tones, not pure black. Calm muted colors, 3-4 shade steps with pixel clusters and dithering. Cute chibi about 2 heads tall, short body and limbs. Keep the sitting pose and wings; simplify the spiky crest to a few clean spikes.",
+ "seed": 2026112801,
+ "ref_sha256": "ca6f7769b47ffa49a4f5fde4c260b06063abde344d2e4473abb182dbca0d2a1a",
+ "before": 4768.0,
+ "after": 4767.0,
+ "sha256": "639ae22bd4547bdbca707d95e314fd25887603155368b1062b6e9da8bbef31b0"
+}

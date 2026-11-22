@@ -1,0 +1,9 @@
+{
+ "desc": "Edit only the face of this dragon. Keep everything else exactly the same: pixel texture, dark outline, horns, back fins, wings, body, colors and shading. 1) Replace the eye with a small calm 2x2 pixel dark eye with a single 1px highlight, placed naturally on the head. 2) Make the mouth and face proportions plain and natural: a short simple mouth line, no big smile, a calm heavy look like a small otter sprite. Do not simplify any details.",
+ "seed": 2026113001,
+ "input": "final2/dragon/dragon-final.png",
+ "input_sha256": "fe1f3d7817a719c9e1056aaaa7264a4f3be3d51b906a73363a3c4d59312c275f",
+ "before": 4757.0,
+ "after": 4756.0,
+ "sha256": "6e1c40db08a1d83e8fc965385e58f8838f7e069d368bdcc24ecfc49528b102a2"
+}
