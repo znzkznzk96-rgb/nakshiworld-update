@@ -9,6 +9,8 @@ PNG 등 파일 손상·디코드 실패·승인 해시 불일치를 발견하면
 
 - 작업 절차와 보호 규칙의 원본은 [docs/PROJECT_INSTRUCTIONS.md](docs/PROJECT_INSTRUCTIONS.md)다. 반드시 읽고 따른다. 사용자 최신 지시가 우선한다.
 - 새 작업은 [START_HERE.md](START_HERE.md) → [docs/CONTINUE_HERE.md](docs/CONTINUE_HERE.md). 현재 상태는 WORK_STATE, 기획은 GAME_BIBLE, 활성 브랜치 상세는 HANDOFF다.
+- 세션 시작은 [docs/STATE_BRIEF.md](docs/STATE_BRIEF.md) 한 장만 읽는다. WORK_STATE·HANDOFF·GAME_BIBLE은 전체를 읽지 않고 필요한 부분만 찾아 읽는다. 체크포인트마다 STATE_BRIEF도 같이 갱신한다.
+- 단순 작업 위임(사용자 지시, 2026-11-22): 단순 질문 답변, 문서 정리, 파일 검색·요약처럼 판단이 가벼운 일은 Agent 도구로 haiku 모델 서브에이전트에 맡겨 토큰을 줄인다. 코드 수정·배포·아트·기획 결정·검증 판정은 직접 한다. 위임 결과는 한 줄로만 받아 쓰고, 중요한 사실은 원본과 대조한다.
 - 게임 결정 즉시 원격 저장, 세이브 보호, 승인 아트/유료 호출 제한, 배포 전 전체 검사와 실제 공개파일 검증을 생략하지 않는다. 작업 효율 개선은 반복 읽기·중복 기록·불필요한 재검사를 줄이는 것이다.
 - 의미 있는 변경은 work/*에 저장하고 원격 SHA/내용 확인. 실제 workflow의 배포 조건을 확인한다. 저장 실패/미검증/휴대폰 미확인을 숨기지 않는다.
 - 물고기 제작 전 [docs/FISH_ART_RULES.md](docs/FISH_ART_RULES.md) 전체를 읽는다. 기존 제작 실패를 반복하지 않는다.
