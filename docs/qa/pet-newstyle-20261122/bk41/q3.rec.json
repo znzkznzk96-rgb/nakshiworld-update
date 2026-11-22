@@ -1,0 +1,8 @@
+{
+ "desc": "Keep the same character, colors, eyes, outline and details. Composition: an upright hooded figure about 72 pixels wide and 72 tall, body turned slightly right in a 3/4 view like a floating mage, the prop held at its right hand beside the body, small feet visible at the bottom, centered. No wings: a long cloak flowing behind, horns on the hood, a small red flame floating above the right hand. 1px outline, flat shades. Transparent background.",
+ "seed": 2026124203,
+ "input_sha256": "e6c779689f2a5077a52c0164f26b741e2e7fe14c158930094d7880985b5d066a",
+ "before": 4415.0,
+ "after": 4414.0,
+ "sha256": "d4bf0ae10f19842cd39f9a5c04063deceb84afc8e3f743be46197ab1e3aa7b9b"
+}
