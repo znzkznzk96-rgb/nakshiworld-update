@@ -1,0 +1,8 @@
+{
+ "desc": "Keep the same character and details. Redraw to match the rendering of existing top-rank pets: soft lavender and violet palette, 2-3 flat shade colors, uniform 1px navy outline, no anti-aliasing, no noise, solid black hood void with small glowing eyes. Compact wide pose. Remove ground shadow, halo and background. Transparent background.",
+ "seed": 2026123606,
+ "input_sha256": "6bf91ea818ad7f3e90983a85823f353da56587632f7817af08380db6df6bce02",
+ "before": 4429.0,
+ "after": 4428.0,
+ "sha256": "08d78937800cc6cb2e6f781654a9fd2188501a0424539b7e571a2c7bdf68d456"
+}
