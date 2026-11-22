@@ -1,0 +1,8 @@
+{
+ "desc": "Keep the exact same shape, pose, size, wings and props. Only recolor with clearly distinct color groups. Cloak deep navy blue, butterfly wings pale cyan and white with gold patterns, lantern warm yellow, trim cyan, glowing cyan eyes. No purple. Keep 1px outline, 2-3 flat shades, no noise. Transparent background.",
+ "seed": 2026123706,
+ "input_sha256": "02f26a495b120b3b9c67d219bedff3580e5c0b36cffc43038d74b52bd98d94d2",
+ "before": 4427.0,
+ "after": 4426.0,
+ "sha256": "bd432086c075f454bee6f2af52c55e94d1f4441aee249127f60a91c55d0d9e58"
+}
