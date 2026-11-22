@@ -1,0 +1,8 @@
+{
+ "desc": "Keep the exact same body, pose, wings, armor and gold details, 1px outline and flat shading. Change only the face, keep it a solid black void face but with these eyes: two narrow glowing red slit eyes and a small jagged fang grin.",
+ "seed": 2026123203,
+ "input_sha256": "a02983c5fb65c263770589905a9890c559207eababeb2cc439195fd971ba79c7",
+ "before": 4446.0,
+ "after": 4445.0,
+ "sha256": "a2f33d5a4d541d4c4f7d7810b535b64be19a4939f5aee9ed644c55b832c38a40"
+}

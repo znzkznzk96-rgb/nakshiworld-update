@@ -1,0 +1,8 @@
+{
+ "desc": "Keep the exact same body, pose, wings, armor and gold details, 1px outline and flat shading. Change only the face, keep it a solid black void face but with these eyes: two closed happy arc eyes and tiny pink blush dots.",
+ "seed": 2026123206,
+ "input_sha256": "fbc479650a200beca6bcecba2f405d52f12bea45e1e4dfc9ec03ca683c8f33ec",
+ "before": 4445.0,
+ "after": 4444.0,
+ "sha256": "0c8d6875c13d02932a8a4dfb0ac06da1a5756b0e6fee7d1f61a243cded00e12f"
+}
