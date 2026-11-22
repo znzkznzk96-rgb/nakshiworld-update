@@ -1,0 +1,8 @@
+{
+ "desc": "Edit only the face of this wolf. Keep everything else the same: pixel texture, outline, ears, tail, paws, body, colors. Eyes: small round dark eyes about 3 to 4 pixels wide with a single 1px white highlight, slightly glossy, calm, like a small otter sprite. Mouth: a natural short mouth line fitting a wolf, clearly visible, not erased, no big smile.",
+ "seed": 2026120329,
+ "input_sha256": "6bee16b8a1edbab570b352a6278529c3b3caf4f1db75d5f25dca9bff2c9634cc",
+ "before": 4742.0,
+ "after": 4741.0,
+ "sha256": "ad8c4248d78a4ccbbb80d67fbd9f686b39a9354a5f1ec814c54917ed8af0d874"
+}

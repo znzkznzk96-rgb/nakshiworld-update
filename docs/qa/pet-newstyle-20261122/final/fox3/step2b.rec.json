@@ -1,0 +1,8 @@
+{
+ "desc": "Edit only the face of this fox. Keep everything else the same: pixel texture, outline, ears, tail, legs, body, colors. Eyes: small round dark eyes about 3 to 4 pixels wide with a single 1px white highlight, slightly glossy, calm, like a small otter sprite. Mouth: a natural short mouth line fitting a fox, clearly visible, not erased, no big smile.",
+ "seed": 2026120321,
+ "input_sha256": "0611b2fc7f38fc66e59447a5077ac103e53518b2c53cd3ec25ad540b3e41700b",
+ "before": 4746.0,
+ "after": 4745.0,
+ "sha256": "43d44fdb48f528af55c0fe29726aff2739c16ce806cc820a740ad848ee4de1e6"
+}

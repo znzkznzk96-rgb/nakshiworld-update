@@ -1,0 +1,8 @@
+{
+ "desc": "Keep this exact whale: same silhouette, pose, face, eyes, mouth, colors and outline. Only enrich the rendering: add more shading steps and pixel clusters for volume, deeper shadows under the head, belly and legs, highlights on crown and fins, subtle skin shading. Keep it clean and readable, no noisy random texture.",
+ "seed": 2026120435,
+ "input_sha256": "36b1ddd3df121df9e824db7b359f2fc8d1bcf533732b5f49f45492bd433762af",
+ "before": 4743.0,
+ "after": 4742.0,
+ "sha256": "79022fe1ab50b6e551575cc91677dc38e0e956bcefe5de2fd209895850c75419"
+}

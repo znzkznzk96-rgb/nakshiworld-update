@@ -1,0 +1,8 @@
+{
+ "desc": "Edit only the face of this whale. Keep everything else exactly the same: pixel texture, dark outline, crown, fins, tail, body, colors and shading. 1) Replace the eyes with small calm 2x2 pixel dark eyes with a single 1px highlight, placed naturally. 2) Make the mouth and face plain and natural, no big smile, a calm heavy look like a small otter sprite. Do not simplify any details.",
+ "seed": 2026120135,
+ "input_sha256": "ceed810c56e86aa420a29784d5ecbcd798b1154afe168f98d245072e8cf5d94d",
+ "before": 4754.0,
+ "after": 4753.0,
+ "sha256": "17c3064ae276cd1d6a93fc5192e7b0b3467f679aefb822c6d38c1a21d7c5d3b1"
+}

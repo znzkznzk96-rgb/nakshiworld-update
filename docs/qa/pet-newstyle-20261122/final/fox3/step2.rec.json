@@ -1,0 +1,8 @@
+{
+ "desc": "Edit only the face of this fox. Keep everything else exactly the same: pixel texture, dark outline, ears, tail, legs, body, colors and shading. 1) Replace the eyes with small calm 2x2 pixel dark eyes with a single 1px highlight, placed naturally. 2) Make the mouth and face plain and natural, no big smile, a calm heavy look like a small otter sprite. Do not simplify any details.",
+ "seed": 2026120123,
+ "input_sha256": "0611b2fc7f38fc66e59447a5077ac103e53518b2c53cd3ec25ad540b3e41700b",
+ "before": 4748.0,
+ "after": 4747.0,
+ "sha256": "6368dce77ff467a63e6db0b6796ce1b050ca7ec50ddb8628e648503be910fdf1"
+}

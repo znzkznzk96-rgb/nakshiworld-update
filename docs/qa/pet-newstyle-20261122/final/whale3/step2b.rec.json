@@ -1,0 +1,8 @@
+{
+ "desc": "Edit only the face of this whale. Keep everything else the same: pixel texture, outline, crown, fins, tail, body, colors. Keep the blue goggles on the head. Eyes: small round dark eyes about 3 to 4 pixels wide with a single 1px white highlight, slightly glossy, calm, like a small otter sprite. Mouth: a natural short mouth line fitting a whale, clearly visible, not erased, no big smile.",
+ "seed": 2026120335,
+ "input_sha256": "ceed810c56e86aa420a29784d5ecbcd798b1154afe168f98d245072e8cf5d94d",
+ "before": 4744.0,
+ "after": 4743.0,
+ "sha256": "36b1ddd3df121df9e824db7b359f2fc8d1bcf533732b5f49f45492bd433762af"
+}
