@@ -1,0 +1,12 @@
+{
+ "id": "dragon",
+ "ref": "../pet-roster-20261118/dragon-A.png",
+ "ref_sha256": "ca6f7769b47ffa49a4f5fde4c260b06063abde344d2e4473abb182dbca0d2a1a",
+ "description": "Redraw this thunder sea dragon as a detailed game sprite: realistic proportions, same face and expression, same colors and accessories, same pose and silhouette. Clean dark navy 1px outline, dithered two-tone shading, limited palette, small plain eyes, no extra tiny details, no gradients, no anti-aliasing.",
+ "seed": 2026112210,
+ "job": "b18891fb-e7ca-42db-ac00-a274541a6bf0",
+ "status": "completed",
+ "generations_before": 4830.0,
+ "generations_after": 4829.0,
+ "sha256": "474d13ebc18223077f428c81429d7e9f6a1c79fcbbd81aad6f11a27379e292f9"
+}

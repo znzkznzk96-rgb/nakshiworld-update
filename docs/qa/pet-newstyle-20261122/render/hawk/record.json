@@ -1,0 +1,10 @@
+{
+ "id": "hawk",
+ "ref": "../pet-roster-20261118/hawk-A.png",
+ "ref_sha256": "4973c6e8a3bf90078a9ee343f71e21ab61500dbb50a2ca2d3908a9c4bd320f8c",
+ "desc": "Keep this cute chubby flame hawk character design, but repaint it with rich material rendering like detailed painterly pixel art: thin dark selective outline in a darker shade of each fill color instead of a thick navy outline, many subtle tonal steps, desaturated natural palette, visible fur, feather or scale texture, soft volumetric lighting with a rim light, subtle wear. Keep 1px pixels, no chunky blocks.",
+ "seed": 2026112405,
+ "before": 4808.0,
+ "after": 4807.0,
+ "sha256": "4fe75f57dd3abea69b71210189cb70841fd789c3f95acb2b2e41ca80dbe1ead5"
+}

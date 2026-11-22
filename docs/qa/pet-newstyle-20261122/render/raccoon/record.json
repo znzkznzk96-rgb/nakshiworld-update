@@ -1,0 +1,10 @@
+{
+ "id": "raccoon",
+ "ref": "../pet-roster-20261118/raccoon-A.png",
+ "ref_sha256": "aa634fc566b15b86031b62d44cc91a7c97bec9a04a8956267e4555f7efa8e847",
+ "desc": "Keep this cute chubby raccoon character design, but repaint it with rich material rendering like detailed painterly pixel art: thin dark selective outline in a darker shade of each fill color instead of a thick navy outline, many subtle tonal steps, desaturated natural palette, visible fur, feather or scale texture, soft volumetric lighting with a rim light, subtle wear. Keep 1px pixels, no chunky blocks.",
+ "seed": 2026112411,
+ "before": 4802.0,
+ "after": 4801.0,
+ "sha256": "38547ffdfc1a0bf388cded5aa6104fa1e1ac1c259afdf7dd9bea8f6f076595f2"
+}

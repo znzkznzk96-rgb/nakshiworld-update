@@ -1,0 +1,10 @@
+{
+ "id": "boar",
+ "ref": "../pet-roster-20261118/boar-style.png",
+ "ref_sha256": "b894e87c025980905f7704059dbc0e5f75262f449d141a6b6cd32e9c32f3929a",
+ "desc": "Keep this cute chubby little boar character design, but repaint it with rich material rendering like detailed painterly pixel art: thin dark selective outline in a darker shade of each fill color instead of a thick navy outline, many subtle tonal steps, desaturated natural palette, visible fur, feather or scale texture, soft volumetric lighting with a rim light, subtle wear. Keep 1px pixels, no chunky blocks.",
+ "seed": 2026112414,
+ "before": 4799.0,
+ "after": 4798.0,
+ "sha256": "4734157b3a8667cc8077076e541f92a7c58bf96d6ba4dc537d69449c3b09bb24"
+}

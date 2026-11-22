@@ -1,0 +1,12 @@
+{
+ "id": "fox",
+ "ref": "../pet-roster-20261118/fox-B.png",
+ "ref_sha256": "55ec115701ecbbb12892c2eff6cd37c4f539bf33f2f3393b320dfe8e3dba085a",
+ "description": "Redraw this star-tailed fox as a detailed game sprite: realistic proportions, same face and expression, same colors and accessories, same pose and silhouette. Clean dark navy 1px outline, dithered two-tone shading, limited palette, small plain eyes, no extra tiny details, no gradients, no anti-aliasing.",
+ "seed": 2026112211,
+ "job": "a99f38f1-02f7-4dc4-89e6-cc4956f00815",
+ "status": "completed",
+ "generations_before": 4829.0,
+ "generations_after": 4828.0,
+ "sha256": "3d99d551b2aa9172ceac907ebfeea65385d5efb56b81ac71034d7665c8338e1a"
+}

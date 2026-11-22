@@ -1,0 +1,10 @@
+{
+ "id": "penguin",
+ "ref": "../pet-roster-20261118/penguin-B.png",
+ "ref_sha256": "afa68a9fbb09b151a74d02693b058cb20e087ff96e2771f9ab84af4ac586b147",
+ "desc": "Keep this cute chubby little penguin character design, but repaint it with rich material rendering like detailed painterly pixel art: thin dark selective outline in a darker shade of each fill color instead of a thick navy outline, many subtle tonal steps, desaturated natural palette, visible fur, feather or scale texture, soft volumetric lighting with a rim light, subtle wear. Keep 1px pixels, no chunky blocks.",
+ "seed": 2026112406,
+ "before": 4807.0,
+ "after": 4806.0,
+ "sha256": "2cc8533c8e6ad42090791ed1e007139ef6e0ca2b2be21732145b82ec35c86f6d"
+}

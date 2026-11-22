@@ -1,0 +1,10 @@
+{
+ "id": "fox",
+ "ref": "../pet-roster-20261118/fox-B.png",
+ "ref_sha256": "55ec115701ecbbb12892c2eff6cd37c4f539bf33f2f3393b320dfe8e3dba085a",
+ "desc": "Keep this cute chubby star-tailed fox character design, but repaint it with rich material rendering like detailed painterly pixel art: thin dark selective outline in a darker shade of each fill color instead of a thick navy outline, many subtle tonal steps, desaturated natural palette, visible fur, feather or scale texture, soft volumetric lighting with a rim light, subtle wear. Keep 1px pixels, no chunky blocks.",
+ "seed": 2026112403,
+ "before": 4810.0,
+ "after": 4809.0,
+ "sha256": "e74d36214560fc67c85ac227439932bab78a54f0c8393a9c4a2e7e2313cb7949"
+}

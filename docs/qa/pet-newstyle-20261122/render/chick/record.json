@@ -1,0 +1,10 @@
+{
+ "id": "chick",
+ "ref": "../pet-roster-20261118/chick7-B.png",
+ "ref_sha256": "9a196e7cd0eae21478ff642fc9edca5434ff7e68a76524947f3ab52fcef6afd7",
+ "desc": "Keep this cute chubby flame chick character design, but repaint it with rich material rendering like detailed painterly pixel art: thin dark selective outline in a darker shade of each fill color instead of a thick navy outline, many subtle tonal steps, desaturated natural palette, visible fur, feather or scale texture, soft volumetric lighting with a rim light, subtle wear. Keep 1px pixels, no chunky blocks.",
+ "seed": 2026112413,
+ "before": 4800.0,
+ "after": 4799.0,
+ "sha256": "4212874a3c00e40e0c769b558481d935e03543c6e8349b1b837c799bebd02f50"
+}

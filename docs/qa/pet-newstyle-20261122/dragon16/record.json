@@ -1,0 +1,9 @@
+{
+ "desc": "Redraw this thunder sea dragon as a 16-bit SNES era game sprite: chunky readable pixels, bold dark outline, flat cel shading with 3 tones per color, about 12 colors total, no dithering, no fine texture, strong silhouette, simple eyes, slightly menacing, same species and main colors.",
+ "seed": 2026112220,
+ "job": "fcedab9a-0596-4ff7-8867-3ce4478467ef",
+ "before": 4827.0,
+ "after": 4826.0,
+ "ref48_sha": "54d0fe3846bf91487b6bf0f3370b7c024e6b188013ffbeacbc07e737f5a2c001",
+ "sha48": "415baf44d9a488d9bf96febf1fc22fb7f035c1b735b16507af4883fe85c25ec8"
+}
