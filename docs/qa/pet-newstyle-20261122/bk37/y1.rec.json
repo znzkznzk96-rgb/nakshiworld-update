@@ -1,0 +1,8 @@
+{
+ "desc": "Keep the same character, colors, outline, size and details. Redraw in a true right-facing side view: head and body turned to the right, one foot forward, hood opening and eyes pointing right, cloak trailing behind to the left, compact wide pose. 1px outline, flat shades. Transparent background.",
+ "seed": 2026123901,
+ "input_sha256": "e972981555a13f3ec9660fdfe6aa239341f7f717206b23509a00db85f859814c",
+ "before": 4424.0,
+ "after": 4423.0,
+ "sha256": "f17567169cd21f6a19f54065578b1727e4159396b50dcc2a183fef4c65751e5e"
+}

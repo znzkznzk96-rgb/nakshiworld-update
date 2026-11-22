@@ -1,0 +1,8 @@
+{
+ "desc": "Keep the same character, colors, outline, size and details. Redraw in a right-facing 3/4 side view: body turned to the right, wings spread behind, hood opening facing right, hold the gold spear diagonally forward to the right in a wide pose. 1px outline, flat shades, no halo. Transparent background.",
+ "seed": 2026123902,
+ "input_sha256": "ac97ecd0f85794befd4b60cbfa20a7d157af014c4a91d6ce7f4a35d51c0200d6",
+ "before": 4423.0,
+ "after": 4422.0,
+ "sha256": "a27ca82396a5e13a49f9701e952689dbd2a36e129c3472d351efeba54f20067e"
+}
