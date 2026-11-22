@@ -1,0 +1,8 @@
+{
+ "desc": "Redraw this flame hawk as a detailed 16-bit indie game sprite: realistic hawk proportions, same face, red and orange feathers with a flame crest, small plain eyes, same pose and silhouette. Muted natural palette, thin dark navy outline, 3-4 shade steps with pixel clusters, deeper shadows under head and belly, highlights on flame crest and wings, subtle feather shading. No gradients, no ground shadow.",
+ "seed": 2026121001,
+ "input_sha256": "4973c6e8a3bf90078a9ee343f71e21ab61500dbb50a2ca2d3908a9c4bd320f8c",
+ "before": 4727.0,
+ "after": 4726.0,
+ "sha256": "ec79a7df6b3ce7f177bbb35da319ac2e451480dcbdeb8a1fa40b2aad8129c0d0"
+}

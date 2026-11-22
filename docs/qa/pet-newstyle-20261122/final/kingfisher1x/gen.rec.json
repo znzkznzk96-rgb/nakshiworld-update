@@ -1,0 +1,8 @@
+{
+ "desc": "Redraw this kingfisher as a detailed 16-bit indie game sprite: realistic kingfisher proportions, same face, blue back and wings, orange belly, long black beak, small plain eyes, same pose and silhouette. Muted natural palette, thin dark navy outline, 3-4 shade steps with pixel clusters, deeper shadows under head and belly, highlights on crest and wings, subtle feather shading. No gradients, no ground shadow.",
+ "seed": 2026121000,
+ "input_sha256": "3eac29ffd1bd76986f3bb3574f2bdb044260f3609fe2df618eeec3a48af63134",
+ "before": 4728.0,
+ "after": 4727.0,
+ "sha256": "f89ad3c9cf2c153d5a5905bc0a49ea062da326aa309c36e9dd80669547ca2861"
+}

@@ -1,0 +1,8 @@
+{
+ "desc": "Redraw this flame chick as a detailed 16-bit indie game sprite: realistic chick proportions, same face, dark gray body with white chest, orange beak and feet, small flame on the tail, small plain eyes, same pose and silhouette. Muted natural palette, thin dark navy outline, 3-4 shade steps with pixel clusters, deeper shadows under head and belly, highlights on flame and beak, subtle feather shading. No gradients, no ground shadow.",
+ "seed": 2026121003,
+ "input_sha256": "9a196e7cd0eae21478ff642fc9edca5434ff7e68a76524947f3ab52fcef6afd7",
+ "before": 4725.0,
+ "after": 4724.0,
+ "sha256": "b59d0a7f59baaef2cf3241088b46281a36fce0d40ff66c056bfd624151ff86e5"
+}
