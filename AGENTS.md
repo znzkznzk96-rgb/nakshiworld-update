@@ -15,6 +15,13 @@ PNG 등 파일 손상·디코드 실패·승인 해시 불일치를 발견하면
 
 - PixelLab은 기존 API v2 경로의 실제 호출이 검증되어 있다. 새 대화에서는 [PixelLab 이어하기](docs/PIXELLAB_CONNECTION.md)를 먼저 읽고 기존 경로를 재사용한다. 도구 목록 검색 실패만으로 사용 불가를 선언하거나 재설치/@태그/재첨부를 기본 요구하지 않는다.
 
+## 도구 자동 사용 (사용자 지시, 2026-11-22)
+
+사용자가 따로 명령하지 않아도 에이전트가 알아서 적용한다.
+- 포니테일: `.claude/settings.json`으로 자동 활성화된다. 에이전트는 항상 그 원칙(새 코드 최소화, 기존 것 재사용)을 따른다. 사용자 요청·검증·에러 처리는 줄이지 않는다.
+- 그래피파이: 세션 시작 시 `graphify`가 없으면 `pip install --break-system-packages graphifyy`로 직접 설치한다. 사용자에게 설치를 시키지 않는다. 단 게임 코드(.gd)는 지원되지 않아 `game/` 그래프는 만들지 않는다(2026-11-22 시험: 332개 중 16개만 추출). 문서 지도는 토큰을 쓰므로 사용자가 요청할 때만 만든다.
+- 헤드룸: PC에서 claude를 감싸는 프록시라 클라우드 세션에서는 적용할 수 없다. 에이전트가 대신 긴 출력은 파일 로그로 저장하고 핵심만 보여 토큰을 줄인다.
+
 ## graphify
 
 This project has a knowledge graph at graphify-out/ with god nodes, community structure, and cross-file relationships.
