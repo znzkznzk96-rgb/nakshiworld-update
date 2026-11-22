@@ -1,0 +1,8 @@
+{
+ "desc": "Keep the same character, colors, eyes, outline and details. Redraw with a low, wide, compact right-facing side composition about 78 pixels wide and 68 pixels tall, like a small creature crouching or hovering low, facing right. The bat wings spread wide to the left and right behind the body, the scythe is held lying nearly horizontal beside the body, hood and eyes point right. 1px outline, flat shades. Transparent background.",
+ "seed": 2026124001,
+ "input_sha256": "8e3a2568aa2d29cc6496f4fe0a6f20139d341417a46e97bfd6a5a26e87396188",
+ "before": 4421.0,
+ "after": 4420.0,
+ "sha256": "620ce5cdec06f096e99f580ce01d41ce7121fa290e6918f5390b30b0c2021602"
+}
