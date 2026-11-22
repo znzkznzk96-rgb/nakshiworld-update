@@ -1,0 +1,8 @@
+{
+ "desc": "Keep the exact same shape, pose, size, colors, eyes and props. Add more pixel detail and shading without noise: cloak folds with darker navy shadow shapes and a lighter cyan rim light, small gold star dots on the cloak, golden veins on the butterfly wings, bright yellow light around the lantern. Keep 1px outline, 3-4 clear shade steps. Transparent background.",
+ "seed": 2026123806,
+ "input_sha256": "d96b61045551389fa660abc0649788bdd31f14db0c2ac6847afd51c52ca373a2",
+ "before": 4425.0,
+ "after": 4424.0,
+ "sha256": "2bd86cf4ab2dc75b943cfe50fc5c0d96f0c1498edeec10fe729a8e02fc300e98"
+}
