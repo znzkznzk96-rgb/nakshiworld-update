@@ -1,0 +1,8 @@
+{
+ "desc": "Redraw this chestnut hedgehog from scratch as a clean, sharp 16-bit pixel art sprite. Do not copy the source; keep only the species, pose and colors: brown spines, cream face, small leaf on the spines. Eyes: small, a dark pupil with one clear white highlight pixel, crisp and sharp. Dark navy outline, 2 to 3 flat shade steps, clean readable shapes, no noise, no texture, no gradients, no blur, no ground shadow.",
+ "seed": 2026121104,
+ "input_sha256": "35c0f2757d423a1400d98bd015efea5d347cad3285a06266d10d0db9eec0514d",
+ "before": 4708.0,
+ "after": 4707.0,
+ "sha256": "415c0c3dc578180ffa9b497b79e63c873b27ba79119e48327f97922aa62ac3ac"
+}

@@ -1,0 +1,8 @@
+{
+ "desc": "Redraw this dandelion rabbit from scratch as a clean, sharp 16-bit pixel art sprite. Do not copy the source; keep only the species, pose and colors: cream white fur, pink inner ears, small dandelion flower. Eyes: small, a dark pupil with one clear white highlight pixel, crisp and sharp. Dark navy outline, 2 to 3 flat shade steps, clean readable shapes, no noise, no texture, no gradients, no blur, no ground shadow.",
+ "seed": 2026121101,
+ "input_sha256": "11c7077063d9999e2fdace44e6c70f3a61a1b93304a5ad0c42c85c6ba8fea2ea",
+ "before": 4714.0,
+ "after": 4713.0,
+ "sha256": "11218d6fa09bf8a619c19657ab4b7b25195d10009ba895ac229731df90b0504b"
+}

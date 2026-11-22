@@ -1,0 +1,8 @@
+{
+ "desc": "Redraw this flame chick from scratch as a clean, sharp 16-bit pixel art sprite. Do not copy the source; keep only the species, pose and colors: dark gray body with white chest, orange beak and feet, small flame on the tail. Eyes: small, a dark pupil with one clear white highlight pixel, crisp and sharp. Dark navy outline, 2 to 3 flat shade steps, clean readable shapes, no noise, no texture, no gradients, no blur, no ground shadow.",
+ "seed": 2026121103,
+ "input_sha256": "9a196e7cd0eae21478ff642fc9edca5434ff7e68a76524947f3ab52fcef6afd7",
+ "before": 4709.0,
+ "after": 4708.0,
+ "sha256": "72714eec2ec01a7acd5bfab187d84f1da5f6c13c1887fa3a87abf8e2bdca11b4"
+}

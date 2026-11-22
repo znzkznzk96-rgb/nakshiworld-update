@@ -1,0 +1,8 @@
+{
+ "desc": "Redraw this kingfisher from scratch as a clean, sharp 16-bit pixel art sprite. Do not copy the source; keep only the species, pose and colors: blue back and wings, orange belly, long black beak. Eyes: small, a dark pupil with one clear white highlight pixel, crisp and sharp. Dark navy outline, 2 to 3 flat shade steps, clean readable shapes, no noise, no texture, no gradients, no blur, no ground shadow.",
+ "seed": 2026121100,
+ "input_sha256": "3eac29ffd1bd76986f3bb3574f2bdb044260f3609fe2df618eeec3a48af63134",
+ "before": 4712.0,
+ "after": 4711.0,
+ "sha256": "21e432d3a9c62c96e96d7cdd27d47f21d59d79790d29bda219278f6cd9dd029f"
+}
