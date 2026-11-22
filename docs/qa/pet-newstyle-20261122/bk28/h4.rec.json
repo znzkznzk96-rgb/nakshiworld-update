@@ -1,0 +1,8 @@
+{
+ "desc": "Obvious top-rank demon with a different look: round dark violet body, three stacked layers of dark violet wings on each side with red crystal rims, four red crystal horns, gold collar, gold spade tail, holds a gold cardboard cube, red slit eyes. Tiny chibi humanoid with big head, two arms and two legs, right-facing 3/4. Keep the exact same pixel style, size, 1px outline, palette and black void face as the input. Remove ground shadow, no glow, no ring, no halo. Transparent background.",
+ "seed": 2026122904,
+ "input_sha256": "dc918c7d3b65b4b416e4e08cb1749e7b235867d4b7fccac345a7b4e8ab85ee1c",
+ "before": 4461.0,
+ "after": 4460.0,
+ "sha256": "e09786c6faf0358e3266f0885dc3cea2f2e60f90ec2a96a98439cae5f04f178f"
+}
