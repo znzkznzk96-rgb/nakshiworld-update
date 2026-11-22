@@ -14,3 +14,17 @@ PNG 등 파일 손상·디코드 실패·승인 해시 불일치를 발견하면
 - 물고기 제작 전 [docs/FISH_ART_RULES.md](docs/FISH_ART_RULES.md) 전체를 읽는다. 기존 제작 실패를 반복하지 않는다.
 
 - PixelLab은 기존 API v2 경로의 실제 호출이 검증되어 있다. 새 대화에서는 [PixelLab 이어하기](docs/PIXELLAB_CONNECTION.md)를 먼저 읽고 기존 경로를 재사용한다. 도구 목록 검색 실패만으로 사용 불가를 선언하거나 재설치/@태그/재첨부를 기본 요구하지 않는다.
+
+## graphify
+
+This project has a knowledge graph at graphify-out/ with god nodes, community structure, and cross-file relationships.
+
+When the user types `/graphify`, use the installed graphify skill or instructions before doing anything else.
+
+Rules:
+- When graphify-out/graph.json exists, run `graphify query "<question>"` before your first grep, search or source-file read for a codebase question, and put this rule in every subagent prompt that explores code. Read raw files only for lines the graph or an earlier read already located. Use `graphify path "<A>" "<B>"` for relationships and `graphify explain "<concept>"` for focused concepts. When the answer is under a Markdown heading, `graphify section "<heading>"` prints that section's text, so the .md need not be opened. These return a scoped subgraph, usually much smaller than GRAPH_REPORT.md or raw grep output.
+- Dirty graphify-out/ files are expected after hooks or incremental updates; dirty graph files are not a reason to skip graphify. Only skip graphify if the task is about stale or incorrect graph output, or the user explicitly says not to use it.
+- If graphify-out/wiki/index.md exists, use it for broad navigation instead of raw source browsing.
+- Read graphify-out/GRAPH_REPORT.md only for broad architecture review or when query/path/explain do not surface enough context.
+- After modifying code, run `graphify update .` to keep the graph current (AST-only, no API cost).
+- A committed graphify-out/graph.json is rewritten whole on every build, so a large diff to it in a pull request is expected. Do not flag it as churn or suggest skipping the graph rebuild or its hooks.
