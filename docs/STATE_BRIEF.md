@@ -24,3 +24,4 @@
 - 규칙 원본: docs/PROJECT_INSTRUCTIONS.md. 물고기 제작 때만 docs/FISH_ART_RULES.md
 - 게임 수정이 필요할 때만 v1.42 전체 소스 ZIP을 복원한다. 문서·기획 작업은 복원하지 않는다
 - docs/CODEX_HANDOFF.md는 2026-11-06 시점 내용이라 현재 기준이 아니다
+- 11/22 수달 A/B 시험 완료(PixelLab 2회 소진). 방향 확정: 백룸 컨셉, 22종 전부 교체, 등급 상승 시 그림자 침식(SSS=완전 그림자). 다음: 침식 단계 설계와 추가 생성 재승인. 키는 저장소 밖(~/.pixellab_key)
