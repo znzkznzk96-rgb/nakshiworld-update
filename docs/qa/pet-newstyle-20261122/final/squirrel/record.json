@@ -1,0 +1,13 @@
+{
+ "id": "squirrel",
+ "ref": "../pet-roster-20261118/cd-pixellab-right/chestnut-squirrel-A.png",
+ "ref_sha256": "f4147d799b2516bc0c72197db7723d0450711aebd042dcfdb3b75878c36bc328",
+ "desc": "Edit this exact image. The outer silhouette, size, pose and every body part position must stay identical; do not lengthen or move anything. Change only internal details: bushy tail strands, ear tufts, chestnut texture, fur lines. Keep colors. Thin dark selective outline, many tonal steps, rim light, 1px pixels.",
+ "seed": 2026112615,
+ "before": 4774.0,
+ "after": 4773.0,
+ "sha256": "538945d90a09e1bf31867dc4c4f67c663f02e332561b008f346f593efba82da1",
+ "iou": 0.992,
+ "changed": 0.378,
+ "gate_pass": false
+}

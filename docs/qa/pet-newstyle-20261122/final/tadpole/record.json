@@ -1,0 +1,13 @@
+{
+ "id": "tadpole",
+ "ref": "../pet-roster-20261118/cd-pixellab-right/puddle-tadpole-B.png",
+ "ref_sha256": "4b23729924d87de45f73f5622eb80e80e98fbc6bf1ba4b4cd5992bbbadf095b9",
+ "desc": "Edit this exact image. The outer silhouette, size, pose and every body part position must stay identical; do not lengthen or move anything. Change only internal details: translucent skin shading, tail fin veins, eye detail, spots. Keep colors. Thin dark selective outline, many tonal steps, rim light, 1px pixels.",
+ "seed": 2026112618,
+ "before": 4771.0,
+ "after": 4770.0,
+ "sha256": "a5cca0546015a1f89b1fef32ff2d4decbdcf4eefe4865a25d95b300856f4bef7",
+ "iou": 1.0,
+ "changed": 0.296,
+ "gate_pass": false
+}

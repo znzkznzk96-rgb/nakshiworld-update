@@ -1,0 +1,13 @@
+{
+ "id": "hedgehog",
+ "ref": "../pet-roster-20261118/hedgehog-A.png",
+ "ref_sha256": "35c0f2757d423a1400d98bd015efea5d347cad3285a06266d10d0db9eec0514d",
+ "desc": "Edit this exact image. The outer silhouette, size, pose and every body part position must stay identical; do not lengthen or move anything. Change only internal details: individual spine rows, face fur, nose shine, chestnut burr texture. Keep colors. Thin dark selective outline, many tonal steps, rim light, 1px pixels.",
+ "seed": 2026112609,
+ "before": 4780.0,
+ "after": 4779.0,
+ "sha256": "f990d1258a4d1de3d102a940b0a947160757ff599b31a2eec7ae9e1c1f45a72a",
+ "iou": 0.987,
+ "changed": 0.517,
+ "gate_pass": true
+}

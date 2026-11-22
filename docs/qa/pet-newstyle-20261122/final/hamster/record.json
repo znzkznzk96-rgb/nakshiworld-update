@@ -1,0 +1,13 @@
+{
+ "id": "hamster",
+ "ref": "../pet-roster-20261118/hamster7-B.png",
+ "ref_sha256": "cb9a092b9d5f9c6de78ef82dd26a44ab3f6fb945f5bb9b26a0c8023fd78878ba",
+ "desc": "Edit this exact image. The outer silhouette, size, pose and every body part position must stay identical; do not lengthen or move anything. Change only internal details: fur tufts, cheek shading, gem facets, paw details. Keep colors. Thin dark selective outline, many tonal steps, rim light, 1px pixels.",
+ "seed": 2026112612,
+ "before": 4777.0,
+ "after": 4776.0,
+ "sha256": "81b2b514f3ce00a0cd5d999b86c40b7c1c6cfcfae7a84a309e1a564e4003df1c",
+ "iou": 0.907,
+ "changed": 0.378,
+ "gate_pass": false
+}
