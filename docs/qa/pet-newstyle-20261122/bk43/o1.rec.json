@@ -1,0 +1,8 @@
+{
+ "desc": "Keep the same character, colors, face, outline and details. Redraw as a low wide creature composition about 79 pixels wide and 70 tall: a big head at the upper right with the face mostly front-facing and turned only slightly right, the body low and horizontal toward the lower left, short legs at the bottom, a cloak or tail curling out to the left. Feathered wings folded up behind the body, short gold spear lying along the body, no halo. 1px outline, flat shades. Transparent background.",
+ "seed": 2026124401,
+ "input_sha256": "f27ef1a88ef03231c1632ed3852aefea41e2400faec562ce8188c56e75627712",
+ "before": 4411.0,
+ "after": 4410.0,
+ "sha256": "d4b8f83eaa49f58e42695cb0dd246ae42902875f69c9b604d4274dc9b3c1cb18"
+}
