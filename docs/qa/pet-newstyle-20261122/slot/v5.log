@@ -1,0 +1,3 @@
+slot/v5_B 3641.0 -> 3640.0
+slot/v5_glass 3640.0 -> 3639.0
+HTTP 422 {"detail":[{"type":"extra_forbidden","loc":["body","image_size"],"msg":"Extra inputs are not permitted","input":{"width":49,"height":118}}]}

@@ -25,6 +25,9 @@ var _strips: Array[Node2D] = []
 var _tweens: Array[Tween] = []
 var _result: Array = []
 var _stopped_count := 0
+var _blur: Array[Texture2D] = []
+## 도는 동안 채움 심볼에 쓰는 세로 번짐 정도(픽셀). 0이면 끔.
+@export var blur_radius := 7
 
 func _ready() -> void:
 	custom_minimum_size = Vector2(cell_size.x * reels, cell_size.y * rows)
@@ -39,6 +42,7 @@ func spin(result: Array) -> void:
 	spinning = true
 	_result = result
 	_stopped_count = 0
+	_make_blur()
 	for s in _strips:
 		s.queue_free()
 	_strips.clear()
@@ -53,7 +57,7 @@ func spin(result: Array) -> void:
 		for r in rows:
 			_add_symbol(strip, result[r][c], r)
 		for i in fillers:
-			_add_symbol(strip, randi() % symbols.size(), rows + i)
+			_add_symbol(strip, randi() % symbols.size(), rows + i, true)
 		var travel := fillers * cell_size.y
 		strip.position = Vector2(c * cell_size.x, -travel)
 		var tw := create_tween()
@@ -72,9 +76,9 @@ func skip() -> void:
 			_strips[c].position.y = 0.0
 			_on_reel_done(c)
 
-func _add_symbol(strip: Node2D, idx: int, row_index: int) -> void:
+func _add_symbol(strip: Node2D, idx: int, row_index: int, blurred := false) -> void:
 	var sp := Sprite2D.new()
-	sp.texture = symbols[idx]
+	sp.texture = _blur[idx] if blurred and blur_radius > 0 else symbols[idx]
 	sp.centered = true
 	sp.position = Vector2(cell_size.x * 0.5, cell_size.y * (row_index + 0.5))
 	strip.add_child(sp)
@@ -85,3 +89,26 @@ func _on_reel_done(c: int) -> void:
 	if _stopped_count >= reels:
 		spinning = false
 		spin_finished.emit(_result)
+
+## 실제 심볼 그림을 세로로 번지게 해서(코드, 이미지 생성 없음) 도는 동안 쓰는 텍스처를 만든다.
+func _make_blur() -> void:
+	if blur_radius <= 0 or _blur.size() == symbols.size():
+		return
+	_blur.clear()
+	for t in symbols:
+		var src := t.get_image()
+		src.convert(Image.FORMAT_RGBA8)
+		var w := src.get_width()
+		var h := src.get_height()
+		var dst := Image.create(w, h, false, Image.FORMAT_RGBA8)
+		for x in w:
+			for y in h:
+				var r := 0.0; var g := 0.0; var b := 0.0; var a := 0.0
+				for k in range(-blur_radius, blur_radius + 1):
+					var yy := clampi(y + k, 0, h - 1)
+					var c := src.get_pixel(x, yy)
+					r += c.r * c.a; g += c.g * c.a; b += c.b * c.a; a += c.a
+				var n := float(blur_radius * 2 + 1)
+				if a > 0.0:
+					dst.set_pixel(x, y, Color(r / a, g / a, b / a, a / n))
+		_blur.append(ImageTexture.create_from_image(dst))
