@@ -2,7 +2,7 @@ extends RefCounted
 var pouch_last_open: Array=[]
 var pouch_error: String=""
 
-const MAP_W: = 1630
+const MAP_W: = 1800
 const MAP_H: = 480
 
 const BUILD: = [
@@ -12,7 +12,8 @@ const BUILD: = [
 	["대장간", "forge", Rect2(720, -140, 150, 140), Vector2(795, -152)], 
 	["수족관", "aqua", Rect2(920, -148, 208, 148), Vector2(1024, -160)], 
 	["마을 회관", "hall", Rect2(1190, -145, 140, 145), Vector2(1260, -157)], 
-	["어류 박물관", "museum", Rect2(1410, -128, 128, 128), Vector2(1474, -140)]
+	["어류 박물관", "museum", Rect2(1410, -128, 128, 128), Vector2(1474, -140)], 
+	["펫 오두막", "pet", Rect2(1585, -125, 140, 125), Vector2(1655, -137)]
 ]
 const CHIEF_POS: = Vector2(1270, 14)
 const CHIEF_TALK: = ["배가 주민들을 태워 오고 있다네.", "회관에서 어장을 관리해 보게!", "수족관에 물고기를 전시하면 수입이 늘지."]
@@ -51,6 +52,7 @@ var chief_say: = ""
 var chief_t: = -10.0
 var enter_t: = 0.0
 var shop: = ""
+var hut = null
 var tab: = "sell"
 var forge_tab: = "rods"
 var rod_page: = 0
@@ -95,6 +97,7 @@ func setup() -> void :
 		tex[n] = load("res://art/village/%s.png" % n)
 	for n in ["market", "tackle", "forge", "aquarium", "hall", "museum", "dock", "bridge", "boat", "tree", "lamp", "hedge", "bench", "backdrop"]:
 		tex[n] = load("res://art/town/%s.png" % n)
+	tex["pet"] = load("res://art/town/pet_hut.png")
 	for person in 6:
 		var frames = []
 		for frame in 4: frames.append(load("res://art/people/resident_%d_%d.png" % [person, frame]))
@@ -297,8 +300,8 @@ func draw(m, h: float) -> void :
 			_sprite(m, "tree", o + Vector2(x, 3))
 	for x in [515.0, 1155.0]:
 		if _visible(x, 65): _sprite(m, "hedge", o + Vector2(x, 0))
-	var arts: = ["market", "tackle", "forge", "aquarium", "hall", "museum"]
-	for i in 6:
+	var arts: = ["market", "tackle", "forge", "aquarium", "hall", "museum", "pet"]
+	for i in 7:
 		var b = BUILD[i + 1]
 		if not _visible(b[2].get_center().x, b[2].size.x / 2 + 30): continue
 		var building_base: Vector2 = o + Vector2(b[2].get_center().x, 0)
@@ -407,10 +410,40 @@ func open_shop(m, k: String) -> void :
 	aquarium.reset()
 	market_list.reset()
 	shop = k;tab = "sell";forge_tab = "rods";rod_page = mini(m.rod_owned+1,5) if k=="forge" else m.rod_lv;pick_slot = -1;m.play("ui", -8.0)
+	if k == "pet": _open_hut(m)
+
+# 펫 오두막: 창(PetHutUI)은 마을 위에 얹고, 입력은 마을이 받아서 넘긴다
+func _open_hut(m) -> void :
+	if hut != null and is_instance_valid(hut): hut.queue_free()
+	hut = preload("res://addons/reservoir/pet_hut/pet_hut_ui.gd").new()
+	hut.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	hut.z_index = 60
+	hut.restore(m.pet_hut, Time.get_unix_time_from_system())
+	hut.pearl_total = m.pearl
+	hut.state_changed.connect(func():
+		m.pet_hut = hut.serialize();m.pearl = hut.pearl_total;m._save_game())
+	hut.closed.connect(func(): _close_hut(m))
+	m.add_child(hut)
+
+func _close_hut(m) -> void :
+	shop = ""
+	if hut != null and is_instance_valid(hut): hut.queue_free()
+	hut = null
+	m._save_game()
+
+func _draw_hut(m, h: float) -> void :
+	var top: float = m.top_y + 78
+	m.text_items = m.text_items.filter( func(it): return it[1].y < top)
+	if hut == null or not is_instance_valid(hut): return
+	hut.dim_margin = m.ox
+	hut.size = Vector2(m.VW, h)
+	hut.panel_y = maxf(top + 6.0, roundf((h - 380.0) / 2.0))
+	hut.queue_redraw()
 
 
 func draw_shop(m, h: float) -> void :
 	if shop == "": return
+	if shop == "pet": _draw_hut(m, h);return
 	if shop=="museum" and not bundle_preview.legacy_dex:
 		bundle_preview.draw(m,h);return
 	var top: float = m.top_y + 78
@@ -621,6 +654,9 @@ func _draw_forge(m, r: Rect2, y: float) -> void :
 	enhancement.draw(self, m, r, y)
 
 func _shop_press(m, pos: Vector2) -> void :
+	if shop == "pet":
+		if hut != null and is_instance_valid(hut): hut.press(pos)
+		return
 	if shop=="museum" and not bundle_preview.legacy_dex:
 		bundle_preview.press(m,pos);return
 	m.play("ui")

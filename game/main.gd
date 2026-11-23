@@ -185,6 +185,7 @@ var lesson_key: = ""
 var lesson_after: = ""
 const SKIP_RECT: = Rect2(85, 450, 100, 22)
 var pearl: = 0
+var pet_hut: = {}
 var star_hist: = []
 var judge_col: = Color(1, 0.95, 0.6)
 var hitstop: = 0.0
@@ -2811,7 +2812,7 @@ func _draw_title(_t: float, h: float) -> void :
 const SAVE_VER: = 1
 func _save_game() -> bool:
 	if not progress_loaded or resetting or development_preview: return false
-	var ok: bool = preload("res://addons/reservoir/save_store.gd").write("user://save.json", {"testing_grants":testing_grants.duplicate(),"buyback":buyback.serialize(),"regional_progress":progression.serialize(),"active_region":active_region,"region_shop": region_shop.serialize(), "equipment": equipment.serialize(), "mail_read": mailbox.read_ids, "mail_deleted": mailbox.deleted_ids, "v": SAVE_VER, "gold": gold, "pearl": pearl, "bag": bag_items(), "bag_lv": bag_lv, "parts": parts_owned, "tips": tips_seen,
+	var ok: bool = preload("res://addons/reservoir/save_store.gd").write("user://save.json", {"testing_grants":testing_grants.duplicate(),"buyback":buyback.serialize(),"regional_progress":progression.serialize(),"active_region":active_region,"region_shop": region_shop.serialize(), "equipment": equipment.serialize(), "mail_read": mailbox.read_ids, "mail_deleted": mailbox.deleted_ids, "v": SAVE_VER, "gold": gold, "pearl": pearl, "pet_hut": pet_hut, "bag": bag_items(), "bag_lv": bag_lv, "parts": parts_owned, "tips": tips_seen,
 		"town_zoom": V.zoom, "boat_lv": boat_lv, "town_lv": town_lv, "forge_lv": forge_lv, "rod_lv": rod_lv, "rod_owned": rod_owned, "rod_enh": rod_enh, "protection_tickets": protection_tickets, "forge_pending": forge_pending, "forge_seen": forge_seen, 
 		"capture_robot":capture_robot.serialize(),"facility_rev":FACILITIES.REV,"pond_overflow":pond_overflow,"pond_base":pond_base,"pond_cap_lv": pond_cap_lv, "pond_regen_lv": pond_regen_lv, "pond_stock": pond_stock,
 		"expedition": expedition.data.serialize(), "bait": bait, "souls": souls, "aqua_lv": aqua_lv, "aqua": aqua, "dex": DEX, "personal_dex": personal_dex.serialize(), "catch_counts": catch_counts, "catch_legacy": catch_legacy, "world_time": environment.day_seconds, "time": Time.get_unix_time_from_system()})
@@ -2871,7 +2872,7 @@ func _load_game() -> void :
 	expedition.data.restore(d.get("expedition",{}))
 	mailbox.read_ids = d.get("mail_read", []);mailbox.deleted_ids = d.get("mail_deleted", [])
 	environment.day_seconds = maxf(0.0, float(d.get("world_time", 0.0)))
-	gold = int(d.get("gold", 0));pearl = int(d.get("pearl", 0));bag_lv = int(d.get("bag_lv", 0))
+	gold = int(d.get("gold", 0));pearl = int(d.get("pearl", 0));pet_hut = d.get("pet_hut", {}) if d.get("pet_hut", {}) is Dictionary else {};bag_lv = int(d.get("bag_lv", 0))
 	region_shop.restore(d.get("region_shop", {}))
 	progression.restore(d.get("regional_progress", {}))
 	progression.recover_unlock_evidence(region_shop.unlocked)
@@ -3015,8 +3016,8 @@ func _shot_mode() -> void :
 			for i in 2000: bait = 0;start_wait();cnt[S.star] += 1
 			print("STARS bare ", cnt)
 			get_tree().quit();return
-		if state in ["village_shops", "village_forge", "village_aqua", "village_hall", "village_museum"]:
-			V.camera_x = {"village_shops": 355.0, "village_forge": 650.0, "village_aqua": 890.0, "village_hall": 1150.0, "village_museum": 1360.0}[state]
+		if state in ["village_shops", "village_forge", "village_aqua", "village_hall", "village_museum", "village_pet", "village_pet_view"]:
+			V.camera_x = {"village_shops": 355.0, "village_forge": 650.0, "village_aqua": 890.0, "village_hall": 1150.0, "village_museum": 1360.0, "village_pet": 1530.0, "village_pet_view": 1530.0}[state]
 			V.ferry_clock = 12;V.process(self, 0.1)
 		if state == "village_talk": V.chief_say = V.CHIEF_TALK[0];V.chief_t = 0.0
 	if state == "small_wait":
@@ -3167,6 +3168,8 @@ func _shot_mode() -> void :
 			market_open = true;market_sell = false;inventory.tab = "inventory" if state == "bag_inventory" else "equipment"
 	if state == "village_lockedshop": V.open_shop(self,"up");region_shop.region=1
 	if state == "village_museum": V.open_shop(self,"museum")
+	if state == "village_pet":
+		pet_hut = {"c": {"d_chick": 3, "b_hamster": 2, "ss_golem": 2, "sss_seraph": 1, "a_owl": 1}, "e": ["b_hamster", "ss_golem", "sss_seraph"], "l": "sss_seraph", "f": 60, "s": 3.5, "t": Time.get_unix_time_from_system()};pearl = 120;V.open_shop(self, "pet")
 	if state == "settings_reset": reset_confirm=true
 	if state == "measure_crucian": S.sp=1;S.len=25.9;S.weight=0.088;S.newRec=false;S.grade=0;S.t=S.netEnd+2.3;tip_t=0.0
 	if state.begins_with("lesson_book_"):
