@@ -35,6 +35,16 @@ var _parts: Array = []
 ## PixelLab 모션 프레임(이름 → 텍스처 9장)과 재생 중인 스프라이트 연출
 var _fr := {}
 var _sprs: Array = []
+var _snd := {}
+var _players: Array[AudioStreamPlayer] = []
+var _bn_t := -1.0
+var _rv_t := -1.0
+var _rv_grade := 0
+var _rv_skip := false
+var rv: Control
+## 펫 등장 컷신을 모듈 안에서 보여줄지(게임이 직접 하려면 false로 두고 reveal_requested만 받는다)
+var show_reveal := true
+const REVEAL_COL := [Color(0.7, 0.7, 0.7), Color(0.4, 0.9, 0.4), Color(0.4, 0.7, 1.0), Color(0.8, 0.5, 1.0), Color(1.0, 0.85, 0.3), Color(1.0, 0.4, 0.6), Color(1, 1, 1)]
 var _flash := 0.0
 var _spot := 0.0
 var _ring := -1.0
@@ -82,6 +92,23 @@ func _ready() -> void:
 		var arr: Array[Texture2D] = []
 		for i in 9: arr.append(_tex("%s_%02d" % [n, i]))
 		_fr[n] = arr
+	for g in GRADES:
+		var parr: Array[Texture2D] = []
+		for i in 9: parr.append(_tex("pet_%s_%02d" % [g.to_lower(), i]))
+		_fr["pet_" + g.to_lower()] = parr
+	_fr["banner"] = [_tex("banner")]
+	var snames := ["lever", "spin", "reel_stop", "jackpot", "reveal"]
+	for i in 7: snames.append("win_%d" % i)
+	for n in snames:
+		_snd[n] = load(A + "sfx/" + n + ".wav")
+	for i in 6:
+		var pl := AudioStreamPlayer.new(); add_child(pl); _players.append(pl)
+	sfx.connect(_on_sfx)
+	reels.reel_stopped.connect(func(c): sfx.emit("reel_stop"))
+	rv = Control.new()
+	rv.size = Vector2(270, 420); rv.z_index = 40; rv.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	rv.draw.connect(_draw_reveal)
+	add_child(rv)
 	for i in [0,1,2,3,5,8]:
 		_lever_tex[i] = _tex("lever_pull_%02d" % i)
 	lever = Sprite2D.new()
@@ -151,7 +178,6 @@ func play(grid: Array) -> void:
 	await _pull_lever()
 	sfx.emit("spin")
 	_start_lamp_chase()
-	reels.reel_stopped.connect(func(c): sfx.emit("reel_stop"), CONNECT_ONE_SHOT)
 	reels.spin(grid)
 	await reels.spin_finished
 	_stop_lamp_chase()
@@ -161,6 +187,7 @@ func play(grid: Array) -> void:
 
 func skip() -> void:
 	if reels.spinning: reels.skip()
+	if _rv_t >= 0.0: _rv_skip = true
 
 func _pull_lever() -> void:
 	for f in LEVER_DOWN:
@@ -228,6 +255,7 @@ func _win_show(info: Dictionary) -> void:
 		_rain(60)
 		await _jackpot()
 	reveal_requested.emit(top)
+	if show_reveal: await _reveal(top)
 	_spot = 0.0; _ring = -1.0
 	_dim = false
 	fx.queue_redraw()
@@ -271,16 +299,41 @@ func _shake(top: int) -> void:
 		tw.tween_property(self, "position", Vector2(randf_range(-amp, amp), randf_range(-amp, amp)), 0.04)
 	tw.tween_property(self, "position", Vector2.ZERO, 0.04)
 
+func _on_sfx(n: String) -> void:
+	if not _snd.has(n): return
+	for pl in _players:
+		if not pl.playing:
+			pl.stream = _snd[n]; pl.play(); return
+	_players[0].stream = _snd[n]; _players[0].play()
+
+## 전체 칸 잭팟: 리본 배너가 튀어나온다.
 func _jackpot() -> void:
+	_bn_t = 0.0
 	for i in 10:
 		_lamps_all(i % 2 == 0); await get_tree().create_timer(0.08).timeout
 	_lamps_all(false)
+	await get_tree().create_timer(1.2).timeout
+	_bn_t = -1.0
+
+## 펫 등장 컷신: 어두워지고 등급색 빛줄기가 돌며 펫이 튀어나온다. 높은 등급일수록 길고 화려하다.
+func _reveal(top: int) -> void:
+	_rv_grade = top; _rv_skip = false; _rv_t = 0.0
+	sfx.emit("reveal")
+	var dur: float = [1.6, 1.8, 2.0, 2.3, 2.7, 3.1, 3.6][top]
+	while _rv_t < dur and not _rv_skip:
+		await get_tree().process_frame
+	_rv_t = -1.0
+	rv.queue_redraw()
 
 func _process(delta: float) -> void:
 	if not _win_cells.is_empty():
 		_fx_time += delta
 		fx.queue_redraw()
 	var dirty := false
+	if _bn_t >= 0.0:
+		_bn_t += delta; dirty = true
+	if _rv_t >= 0.0:
+		_rv_t += delta; rv.queue_redraw()
 	if _flash > 0.0:
 		_flash = maxf(0.0, _flash - delta * 1.6); dirty = true
 	if _ring >= 0.0:
@@ -330,6 +383,21 @@ func _draw_fx() -> void:
 
 ## 맨 위 층: 번쩍·스포트라이트·충격파·파티클
 func _draw_top() -> void:
+	if _bn_t >= 0.0:
+		var bt: Texture2D = _fr["banner"][0]
+		var k := maxf(0.05, minf(1.0, _bn_t / 0.25))
+		var pop := 1.0 + 0.3 * sin(minf(1.0, _bn_t / 0.25) * PI)
+		var sz := Vector2(bt.get_width(), bt.get_height()) * 1.4 * k * pop
+		var c := Vector2(135, 190)
+		top_fx.draw_texture_rect(bt, Rect2((c - sz * 0.5).round(), sz), false)
+		var font := ThemeDB.fallback_font
+		var label := "JACKPOT"
+		var fs := int(20 * k)
+		var tw := font.get_string_size(label, HORIZONTAL_ALIGNMENT_LEFT, -1, fs).x
+		var lp := Vector2(135 - tw * 0.5, 190 + fs * 0.35)
+		var tc := Color(1, 1, 0.8) if int(_bn_t * 10.0) % 2 == 0 else Color(1, 0.85, 0.3)
+		top_fx.draw_string_outline(font, lp, label, HORIZONTAL_ALIGNMENT_LEFT, -1, fs, 5, Color(0.3, 0.05, 0.05))
+		top_fx.draw_string(font, lp, label, HORIZONTAL_ALIGNMENT_LEFT, -1, fs, tc)
 	if _spot > 0.0:
 		var w := Rect2(WINDOW_POS, Vector2(CELL.x * 3, CELL.y * 3))
 		var c := Color(0, 0, 0, 0.6)
@@ -359,3 +427,33 @@ func _draw_top() -> void:
 		top_fx.draw_rect(Rect2(int(pt.p.x), int(pt.p.y), 2, 2), Color(col.r, col.g, col.b, a))
 	if _flash > 0.0:
 		top_fx.draw_rect(Rect2(0, 0, 270, 420), Color(1, 1, 1, _flash))
+
+func _draw_reveal() -> void:
+	if _rv_t < 0.0: return
+	var g := _rv_grade
+	var col: Color = REVEAL_COL[g]
+	if g == 6: col = Color.from_hsv(fmod(_rv_t * 0.8, 1.0), 0.5, 1.0)
+	var a := clampf(_rv_t / 0.35, 0.0, 1.0)
+	rv.draw_rect(Rect2(0, 0, 270, 420), Color(0, 0, 0, 0.82 * a))
+	var ctr := Vector2(135, 190)
+	var pt := _rv_t - 0.5
+	if pt > 0.0:
+		var n := 6 + g * 2
+		for i in n:
+			var a0 := _rv_t * (0.5 + 0.1 * g) + TAU * i / n
+			var w := TAU / n * 0.35
+			rv.draw_colored_polygon(PackedVector2Array([ctr, ctr + Vector2(cos(a0 - w), sin(a0 - w)) * 260.0, ctr + Vector2(cos(a0 + w), sin(a0 + w)) * 260.0]), Color(col.r, col.g, col.b, 0.22))
+		var k := clampf(pt / 0.35, 0.0, 1.0)
+		var sc := 6.0 * (1.0 + 0.25 * sin(k * PI)) * k
+		var frames: Array = _fr["pet_" + GRADES[g].to_lower()]
+		var ft: Texture2D = frames[int(_rv_t * 8.0) % 9]
+		var sz: Vector2 = Vector2(ft.get_width(), ft.get_height()) * floorf(maxf(sc, 0.01) * 2.0) / 2.0
+		if sz.x > 0.0: rv.draw_texture_rect(ft, Rect2((ctr + Vector2(0, -6.0 * absf(sin(_rv_t * 3.0))) - sz * 0.5).round(), sz), false)
+		var label: String = "%s 등급 획득!" % GRADES[g]
+		var font := ThemeDB.fallback_font
+		var tw := font.get_string_size(label, HORIZONTAL_ALIGNMENT_LEFT, -1, 18).x
+		var lp := Vector2(135 - tw * 0.5, 300)
+		rv.draw_string_outline(font, lp, label, HORIZONTAL_ALIGNMENT_LEFT, -1, 18, 5, Color(0, 0, 0))
+		rv.draw_string(font, lp, label, HORIZONTAL_ALIGNMENT_LEFT, -1, 18, col)
+	if _rv_t < 0.6:
+		rv.draw_rect(Rect2(0, 0, 270, 420), Color(1, 1, 1, clampf(1.0 - absf(_rv_t - 0.5) * 8.0, 0.0, 1.0)))

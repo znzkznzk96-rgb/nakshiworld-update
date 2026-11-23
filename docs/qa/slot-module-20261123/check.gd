@@ -21,4 +21,10 @@ func _init() -> void:
 		main.pull(g)
 		await main.machine.finished
 		print("CHECK3 grade=", g, " top=", got.get("top"), " busy=", main.machine.busy)
+	# 4) 효과음 신호: 한 판에 레버·회전·릴 정지 3번·당첨·등장이 순서대로 나온다
+	var names: Array = []
+	main.machine.sfx.connect(func(n): names.append(n))
+	main.pull(3)
+	await main.machine.finished
+	print("CHECK4 sfx=", names)
 	quit()
