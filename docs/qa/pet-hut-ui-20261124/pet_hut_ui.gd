@@ -8,6 +8,8 @@ const NAME := {"d_chick": "병아리", "d_frog": "개구리", "d_mouse": "생쥐
 const GRADE_NAME := ["D", "C", "B", "A", "S", "SS", "SSS"]
 const RATE := [0.1, 0.2, 0.35, 0.6, 1.0, 1.6, 2.5]   # 시간당 진주
 const CAP_HOURS := 12.0
+const WALK_X0 := 44.0   # 모래바닥 좌우 끝 (양옆 바위 안쪽)
+const WALK_X1 := 188.0
 const FLYERS := ["a_owl", "s_fairy", "s_tome", "s_wisp", "ss_storm", "sss_lunar", "sss_seraph"]
 const SCENE := Vector2(230, 128)
 const TABS := [["pets", "내 펫"], ["gacha", "뽑기"], ["plans", "도면"]]
@@ -19,6 +21,7 @@ var owned: Array = PETS.duplicate()
 var equipped: Array = ["b_hamster", "ss_golem", "sss_seraph"]
 var stored := 0.0
 var pearl_total := 0
+var _dust: Array = []
 var time_scale := 1.0          # 시험용: 시간 가속
 var picker := -1               # 펫 고르는 슬롯 번호, -1이면 닫힘
 var _pets: Array = []
@@ -123,16 +126,15 @@ func _strip(k: String, kind: String) -> Texture2D:
 func _reset_pets() -> void:
 	_pets = []
 	for i in equipped.size():
-		var hw := _half_w(equipped[i]) + 2.0
-		var x := clampf(40.0 + i * 70.0, hw, SCENE.x - hw)
-		_pets.append({"k": equipped[i], "x": x, "y": 104.0 + (i % 2) * 10.0, "tx": x, "face": 1, "state": "walk", "t": 0.0, "wait": _rng.randf_range(0.2, 1.5)})
+		var x := clampf(60.0 + i * 50.0, WALK_X0, WALK_X1)
+		_pets.append({"k": equipped[i], "x": x, "y": 112.0 + (i % 2) * 8.0, "puff": 0.0, "tx": x, "face": 1, "state": "walk", "t": 0.0, "wait": _rng.randf_range(0.2, 1.5)})
 
 func _half_w(k: String) -> float:
-	return float(_strip(k, "move").get_height())   # 2배 확대 폭의 절반
+	return _strip(k, "move").get_height() / 2.0   # 1배 폭의 절반
 
 func _pick_target(i: int) -> float:
-	var lo := _half_w(_pets[i].k) + 2.0
-	var hi := SCENE.x - lo
+	var lo := WALK_X0
+	var hi := WALK_X1
 	for _n in 8:
 		var x := _rng.randf_range(lo, hi)
 		var ok := true
@@ -158,11 +160,17 @@ func step(dt: float) -> void:
 				else:
 					p.face = 1 if d > 0 else -1
 					p.x += signf(d) * minf(absf(d), 15.0 * dt)
+					p.puff -= dt
+					if p.puff <= 0.0 and not (p.k in FLYERS):
+						p.puff = 0.14
+						_dust.append({"x": p.x - p.face * 4.0 + _rng.randf_range(-2, 2), "y": p.y - 1.0, "t": 0.0})
 			"work":
 				if p.t >= 9.0 / 7.0:       # 동작 한 번(9프레임, 초당 7프레임)
 					_fx.append({"x": p.x, "y": p.y, "t": 0.0})
 					p.state = "walk"; p.t = 0.0; p.tx = _pick_target(i); p.wait = _rng.randf_range(0.3, 1.2)
 	for f in _fx: f.t += dt
+	for d in _dust: d.t += dt
+	_dust = _dust.filter(func(d): return d.t < 0.6)
 	_fx = _fx.filter(func(f): return f.t < 1.0)
 	queue_redraw()
 
@@ -177,6 +185,12 @@ func _draw_pets_tab(body: Rect2) -> void:
 		var tex: Texture2D = _t("prop_" + pr[0])
 		var fi := int(_clock * 6.0 + pr[2]) % 9
 		draw_texture_rect_region(tex, Rect2(scene.position + pr[1] - Vector2(0, 32), Vector2(32, 32)), Rect2(fi * 32, 0, 32, 32))
+	for d in _dust:
+		var u: float = d.t / 0.6
+		var r := roundf(1.5 + u * 2.5)
+		var c := Color(0.93, 0.85, 0.7, 0.75 * (1.0 - u))
+		var cp := scene.position + Vector2(roundf(d.x), roundf(d.y - u * 6.0))
+		draw_rect(Rect2(cp - Vector2(r, r), Vector2(r * 2.0, r * 2.0)), c)
 	var order := range(_pets.size())
 	order.sort_custom(func(a, b): return _pets[a].y < _pets[b].y)
 	for i in order:
@@ -185,7 +199,7 @@ func _draw_pets_tab(body: Rect2) -> void:
 		var tex: Texture2D = _strip(p.k, kind)
 		var h := tex.get_height()
 		var fr := int(p.t * 7.0) % 9 if kind == "work" else (int(_clock * 8.0) % 9 if absf(p.tx - p.x) > 1.5 and p.wait <= 0.0 else 0)
-		var sc := 2
+		var sc := 1
 		var lift := 0.0
 		if p.k in FLYERS: lift = 6.0 + sin(_clock * 3.0 + i) * 2.0
 		var pos := scene.position + Vector2(p.x, p.y - lift)

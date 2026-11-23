@@ -29,7 +29,7 @@ func _init() -> void:
 	for i in 400: ui.step(0.05)                      # 20초 시뮬레이션
 	n += 1; ok += 1 if ui._fx.size() >= 0 and ui._pets.size() == 3 else 0
 	var xs_ok := true
-	for p in ui._pets: xs_ok = xs_ok and p.x - ui._half_w(p.k) >= 0.0 and p.x + ui._half_w(p.k) <= 230.0
+	for p in ui._pets: xs_ok = xs_ok and p.x >= ui.WALK_X0 and p.x <= ui.WALK_X1
 	n += 1; ok += 1 if xs_ok else 0                  # 펫이 장면 밖으로 안 나감
 	ui.stored = 0.0; ui.time_scale = 3600.0
 	ui.step(1.0)                                     # 1초 = 1시간
