@@ -84,14 +84,14 @@ func run() -> void:
 	m.TUT.done=true
 	m.pet_hut={"e":["ss_storm"],"l":"ss_storm"}
 	for i in 60:
-		m.pet_missed=false;m.bait=50;m.start_wait();w0+=m.S.biteAt-m.clock
-		m.pet_missed=true;m.bait=50;m.start_wait();w1+=m.S.biteAt-m.clock
+		seed(i);m.pet_missed=false;m.bait=50;m.start_wait();w0+=m.S.biteAt-m.clock
+		seed(i);m.pet_missed=true;m.bait=50;m.start_wait();w1+=m.S.biteAt-m.clock
 	check(w1/w0<0.85,"바람 정령: 놓친 직후 입질 대기 감소 (%.2f)" % (w1/w0))
 	m.pet_hut={"e":["d_frog"],"l":"d_frog"}
 	for i in 60:
-		m.pet_missed=false;m.bait=50;m.start_wait();w3+=m.S.biteAt-m.clock
-		m.pet_missed=true;m.bait=50;m.start_wait();w2+=m.S.biteAt-m.clock
-	check(absf((w3-w2)/60.0-0.2)<0.12 and w2<w3,"개구리: 놓친 뒤 약 0.2초 단축 (%.2f)" % ((w3-w2)/60.0))
+		seed(i);m.pet_missed=false;m.bait=50;m.start_wait();w3+=m.S.biteAt-m.clock
+		seed(i);m.pet_missed=true;m.bait=50;m.start_wait();w2+=m.S.biteAt-m.clock
+	check(absf((w3-w2)/60.0-0.2)<0.02 and w2<w3,"개구리: 놓친 뒤 약 0.2초 단축 (%.2f)" % ((w3-w2)/60.0))
 	m.pet_missed=false;m.pet_hut={}
 	m.fail("테스트");check(m.pet_missed,"놓치면 pet_missed 켜짐")
 	m.pet_hut={"e":["sss_apostle"],"l":"sss_apostle"};var up:=0;var hyp:=0
