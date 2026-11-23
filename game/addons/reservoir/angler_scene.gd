@@ -94,7 +94,7 @@ func cat(m,kind: String,local: float) -> void:
 	m.draw_texture_rect(image,Rect2(p,size),false,tint)
 	debug.cat_action=action;debug.cat_frame=frame;debug.cat_air=air
 const AURA:={"d":Color(.9,.9,.85),"c":Color(.55,.95,.6),"b":Color(.5,.75,1),"a":Color(.75,.55,1),"s":Color(1,.85,.35),"ss":Color(1,.55,.3),"sss":Color(1,.6,.9)}
-const AURA_POWER:={"c":.5,"b":.6,"a":.75,"s":1.0,"ss":1.2,"sss":1.5}
+const AURA_POWER:={"a":.75,"s":1.0,"ss":1.2,"sss":1.5}
 var pet_cache:={}
 # 낚시 화면 캔버스에서는 불러온 압축 텍스처가 흰 사각형으로 그려져, 이미지로 풀어 새 텍스처를 만든다
 func pet_tex(k: String,kind: String) -> Texture2D:
