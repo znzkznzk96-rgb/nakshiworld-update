@@ -105,16 +105,36 @@ func _init() -> void:
 	for g in [3, 4, 5, 6]: cost_ok = cost_ok and PetHutUI.BP_COST[g].size() == 2
 	n += 1; ok += 1 if cost_ok and PetHutUI.BP_COST[6] == [2100, 300] else 0
 	ui.step(0.0); await process_frame
-	ui.press(ui.rects["open_dis"].get_center()); ui.step(0.0); await process_frame
-	ui.press(ui.rects["dis:ss_golem"].get_center()); ui.step(0.0); await process_frame
-	n += 1; ok += 1 if ui.plan_dis and ui.dis_sel == "ss_golem" and ui.rects.has("dismantle") else 0
-	ui.press(ui.rects["dismantle"].get_center())
-	n += 1; ok += 1 if ui.frags == 200 and ui.counts["ss_golem"] == 1 else 0                # 화면에서 눌러 분해
-	ui.press(ui.rects["dis_close"].get_center()); ui.step(0.0); await process_frame; await process_frame
-	n += 1; ok += 1 if not ui.plan_dis and PetHutUI.bp_pets().size() == 13 and ui.rects.has("bp:sss_lunar") else 0     # 상점에 13종
+	n += 1; ok += 1 if PetHutUI.bp_pets().size() == 13 and ui.rects.has("bp:sss_lunar") and not ui.rects.has("open_dis") else 0     # 상점에 13종
 	ui.frags = 2100; ui.pearl_total = 300
 	ui.press(ui.rects["bp:sss_seraph"].get_center()); ui.step(0.0); await process_frame
 	ui.press(ui.rects["buy"].get_center())
 	n += 1; ok += 1 if ui.plan_sel == "sss_seraph" and ui.frags == 0 and ui.pearl_total == 0 and ui.counts["sss_seraph"] == 1 else 0   # 화면에서 눌러 구매
+	# ── 보관함 탭 ──
+	ui.counts = {"d_chick": 1, "ss_golem": 3, "a_owl": 2, "b_hamster": 1}; ui._sync_owned(); ui.equipped = ["b_hamster", "ss_golem"]; ui._reset_pets(); ui.frags = 0
+	ui.press(ui.rects["tab:box"].get_center()); ui.step(0.0); await process_frame
+	n += 1; ok += 1 if ui.tab == "box" and ui.rects.has("bx:sss_lunar") and ui.rects.has("bx:d_chick") else 0     # 22칸(없는 펫 포함)
+	ui.press(ui.rects["bx:a_owl"].get_center()); ui.step(0.0); await process_frame
+	ui.press(ui.rects["bx_equip"].get_center()); ui.step(0.0); await process_frame
+	n += 1; ok += 1 if ui.equipped == ["b_hamster", "ss_golem", "a_owl"] and ui._pets.size() == 3 else 0           # 장착
+	ui.press(ui.rects["bx:d_chick"].get_center()); ui.step(0.0); await process_frame
+	ui.press(ui.rects["bx_equip"].get_center())
+	n += 1; ok += 1 if not ui.equipped.has("d_chick") and ui.equipped.size() == 3 else 0                          # 가득 차면 장착 안 됨
+	ui.step(0.0); await process_frame
+	ui.press(ui.rects["bx:a_owl"].get_center()); ui.step(0.0); await process_frame
+	ui.press(ui.rects["bx_equip"].get_center())
+	n += 1; ok += 1 if ui.equipped == ["b_hamster", "ss_golem"] else 0                                              # 빼기
+	ui.step(0.0); await process_frame
+	ui.press(ui.rects["bx:ss_golem"].get_center()); ui.step(0.0); await process_frame
+	ui.press(ui.rects["bx_dis"].get_center())
+	n += 1; ok += 1 if ui.frags == 200 and ui.counts["ss_golem"] == 2 and ui.equipped.has("ss_golem") else 0       # 분해(장착 유지)
+	ui.step(0.0); await process_frame
+	ui.press(ui.rects["bx:d_chick"].get_center()); ui.step(0.0); await process_frame
+	ui.press(ui.rects["bx_dis"].get_center())
+	n += 1; ok += 1 if ui.frags == 200 and ui.counts["d_chick"] == 1 else 0                                         # 1마리는 분해 불가
+	ui.press(ui.rects["tab:pets"].get_center()); ui.step(0.0); await process_frame
+	ui.press(ui.rects["slot:2"].get_center()); ui.step(0.0); await process_frame
+	ui.press(ui.rects["pick:d_chick"].get_center())
+	n += 1; ok += 1 if ui.equipped == ["b_hamster", "ss_golem", "d_chick"] else 0                                    # 빈 슬롯에 장착
 	print("통과 %d/%d" % [ok, n])
 	quit(0 if ok == n else 1)
