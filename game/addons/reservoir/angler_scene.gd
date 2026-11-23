@@ -79,6 +79,9 @@ func cat(m,kind: String,local: float) -> void:
 	if kind=="success":
 		action="hop";frame=clampi(int(clampf(local/1.1,0,1)*12),0,11)
 		air=sin(clampf((local-.2)/.65,0,1)*PI) if local<.85 else 0.0
+	var leader: String=PetEffects.leader(m.pet_hut)
+	if leader!="":
+		pet(m,leader,kind,local,air);return
 	var image: Texture2D=cats[action][frame]
 	var p: Vector2=Vector2(m.CATX-.5,m.SURF-36.0*247/256.0)
 	var size: Vector2=Vector2(36,36)
@@ -90,6 +93,31 @@ func cat(m,kind: String,local: float) -> void:
 		m.draw_texture_rect(image,Rect2(p+off,size),false,c*tint)
 	m.draw_texture_rect(image,Rect2(p,size),false,tint)
 	debug.cat_action=action;debug.cat_frame=frame;debug.cat_air=air
+var pet_cache:={}
+# 화면 확대 시 흰 사각형이 되는 문제를 피하려고 이미지에서 직접 텍스처를 만든다
+func pet_tex(k: String,kind: String) -> Texture2D:
+	var key:=k+"_"+kind
+	if not pet_cache.has(key):
+		var img:=Image.load_from_file("res://art/pet_hut/pets/%s.png"%key)
+		pet_cache[key]=ImageTexture.create_from_image(img) if img!=null else null
+	return pet_cache[key]
+
+# 대표 펫이 있으면 고양이 자리에 그린다(20px 스프라이트 2배, 낚시꾼 쪽을 봄)
+func pet(m,k: String,kind: String,local: float,air: float) -> void:
+	var tex: Texture2D=pet_tex(k,"work" if kind=="success" else "move")
+	if tex==null: return
+	var h: int=tex.get_height()
+	var frame: int=clampi(int(clampf(local/1.1,0,1)*9),0,8) if kind=="success" else 0
+	var bob: float=roundf(sin(m.clock*3.0)) if kind!="success" else -roundf(air*7.0)
+	var fly: float=5.0 if k in ["c_puffbird","b_sparrow","s_fairy","s_wisp","s_tome","sss_apostle","sss_lunar","sss_seraph"] else 0.0
+	var sz: float=h*1.0
+	var x: float=roundf(m.CATX+18.0-sz*.5);var y: float=roundf(m.SURF-sz-fly*(1.0 if air==0.0 else 1.0)+bob)
+	m.draw_set_transform(Vector2(0,m.oy))
+	m.draw_rect(Rect2(m.CATX+18.0-7.0,m.SURF,14,1),Color(.11,.13,.1,.22))
+	m.draw_set_transform(Vector2(m.CATX+18.0,m.oy),0.0,Vector2(-1,1))
+	m.draw_texture_rect_region(tex,Rect2(-sz*.5,y-0.0,sz,sz),Rect2(frame*h,0,h,h),tint)
+	m.draw_set_transform(Vector2(0,m.oy))
+
 func draw(m) -> Vector2:
 	if textures.is_empty(): setup()
 	light_parts.clear()

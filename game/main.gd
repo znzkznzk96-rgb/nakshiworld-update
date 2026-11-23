@@ -3110,6 +3110,7 @@ func _shot_mode() -> void :
 	if state == "valley_fight":
 		TUT.done=true;start_wait();S.sp=28;S.star=1;S.grade=1;S.lf=1.0;S.size=1;S.judge="GREAT";S.len=35.0
 		start_fight();S.dist=35.0;S.fx=170.0;S.fy=WATER+65.0;S.dispY=WATER+65.0;S.bt=99.0;S.tut=false
+	if "--pet" in args: var pk: String = args[args.find("--pet") + 1];pet_hut = {"e": [pk], "l": pk}
 	if "--danger" in args and S.phase == "fight": S.tension = 93.0;holding = false
 	if "--town-zoom" in args: V.set_zoom(self, float(args[args.find("--town-zoom") + 1]))
 	if state == "village_refresh_motion":
