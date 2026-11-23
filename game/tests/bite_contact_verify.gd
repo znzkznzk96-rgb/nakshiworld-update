@@ -39,14 +39,14 @@ func run() -> void:
 	m.lesson_open = false
 	m.scene = "fish"
 	for grade in 5:
-		for delay in [0.0, 0.25, 0.251, 0.7, -0.01, 0.701]:
+		for delay in [0.0, 0.25, 0.499, 0.5, 0.501, 0.7, -0.01, 0.701]:
 			m.S = {"phase":"wait","biteAt":8.0,"realUntil":8.7,"grade":grade,"size":0,"sp":0,"lf":1.0,"fakes":[7.99]}
 			m.clock = 8.0 + delay
 			m.press(Vector2(160,300))
 			if delay < 0 or delay > 0.7:
 				check(m.S.phase == "fail", "early or expired tap fails")
 				continue
-			var quick: bool = delay <= 0.25
+			var quick: bool = delay <= 0.5
 			check(m.S.phase == "hook" and m.S.get("quickHook") == quick, "quick hook timing threshold")
 			check(is_equal_approx(m._perfect_half_width(),m.BAR_PERF[grade]*(2.0 if quick else 1.0)), "grade-specific perfect width")
 			m.S.pos = m.S.zc + 1.5*m.BAR_PERF[grade]

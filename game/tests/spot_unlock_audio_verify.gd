@@ -24,4 +24,10 @@ func run():
  m.SET.sfx=1;audio.suspended=true;fx.start(3);fx.update(4,m)
  check(audio.pool.filter(func(p):return p.playing).is_empty(),"suspended audio honored")
  playing.clear();audio.dispose();m.queue_free();await process_frame;await create_timer(0.15).timeout
- print("SPOT_UNLOCK_AUDIO_VERIFY failures=",failures);quit(0 if failures.is_empty() else 1)
+ print("SPOT_UNLOCK_AUDIO_VERIFY failures=",failures);call_deferred("finish")
+
+func finish() -> void:
+ # Let run() release its local RefCounted resources before engine shutdown.
+ await process_frame
+ await create_timer(0.2).timeout
+ quit(0 if failures.is_empty() else 1)

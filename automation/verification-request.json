@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_before_request": "acc27aeb6a54b911bdf33da383be0de629e5dceb",
-  "reason": "v1.39 이전 마을 스크린샷에 쓰는 구버전 아이콘을 별도 검사본에 복원",
-  "requested_at": "2026-11-17T08:28:50.933401+00:00"
+  "source_before_request": "cc30e3818f4334d6f5538ca350d2127df09077df",
+  "reason": "UX 공통 렌더 수정 및 여객선 지역 게이트·기존 저장 보호 전체 검사",
+  "requested_at": "2026-11-18T04:33:01.914348+00:00"
 }

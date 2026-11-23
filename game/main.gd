@@ -44,7 +44,7 @@ const BITE_WINDOW: = [1.5, 1.0, 0.7, 0.5, 0.35]
 
 const BAR_SPEED: = [0.72, 0.84, 0.98, 1.12, 1.28]
 const BAR_ACC: = [1.1, 1.15, 1.2, 1.25, 1.3]
-const QUICK_HOOK_WINDOW := 0.25
+const QUICK_HOOK_WINDOW := 0.5
 const QUICK_HOOK_MULTIPLIER := 2.0
 const BAR_PERF: = [0.06, 0.05, 0.045, 0.035, 0.03]
 const BAR_GREAT: = [0.2, 0.18, 0.16, 0.14, 0.12]
@@ -185,6 +185,11 @@ var lesson_key: = ""
 var lesson_after: = ""
 const SKIP_RECT: = Rect2(85, 450, 100, 22)
 var pearl: = 0
+var pet_hut: = {}
+func pet_fx(name: String) -> float: return PetEffects.value(pet_hut, name)
+var pet_missed := false   # 직전 낚시를 놓쳤는지(놓친 직후 효과용)
+func apply_pet_effects() -> void:
+	expedition.data.pet_atk = pet_fx("atk");expedition.data.pet_boss = pet_fx("boss");expedition.data.pet_cut = int(pet_fx("cut"))
 var star_hist: = []
 var judge_col: = Color(1, 0.95, 0.6)
 var hitstop: = 0.0
@@ -505,7 +510,11 @@ func start_cast() -> void :
 		holding = false
 		show_tip("", "가방의 인벤토리에서 낚싯대를 장착해 주세요")
 		return
-	var insufficient: bool=pond_stock<1.0
+	if pond_stock < 1.0:
+		holding = false
+		show_tip("", "어장이 비었어요. 1마리 이상 회복되면 낚시할 수 있어요")
+		return
+	var insufficient: bool=false
 	pond_stock = maxf(0.0, pond_stock - 1.0)
 	S = {"phase": "cast", "t": 0.0, "insufficient":insufficient}
 	set_anim("cast", false);msg = "";audio_feedback.sound(self,"cast",-6)
@@ -528,8 +537,6 @@ func start_wait() -> void :
 	for i in 5:
 		var stock_weight: float = 1.0 if i == 0 else lerpf(0.04, 1.0, odds_stock_ratio) ** i
 		sp_w.append(star_base[i] * (0.1 if bare and i > 0 else 1.0) * stock_weight if i <= mini(nparts, 3) else 0.0)
-	if pond_stock <= 0.0 and active_region not in [0,1]:
-		sp_w = [1.0, 0.0, 0.0, 0.0, 0.0]
 	var gp: = []
 	for i in 5: gp.append(grade_base[i] * pow(bait_multiplier, i))
 	S = {"phase": "wait", "star": pick(sp_w), "grade": pick(gp), "fakes": [], "bare": bare, "bait_id": region_shop.last_bait}
@@ -545,7 +552,9 @@ func start_wait() -> void :
 		S.lf = bait_length_cm(S.sp) / float(FISH_LEN[S.sp])
 	else: S.lf = minf(S.lf, species_max_cm(S.sp) / FISH_LEN[S.sp])
 	S.size = 0 if S.lf < 0.9 else (1 if S.lf < 1.15 else (2 if S.lf < 1.35 else 3))
-	S.biteAt = clock + randf_range(BITE_WAIT[0], BITE_WAIT[1]) * (BAIT_WAIT_MUL if S.bare else 1.0) * (3.5 if insufficient else lerpf(1.0, 1.6, 1.0 - stock_ratio))
+	var bite_wait: float = randf_range(BITE_WAIT[0], BITE_WAIT[1]) * (BAIT_WAIT_MUL if S.bare else 1.0) * (3.5 if insufficient else lerpf(1.0, 1.6, 1.0 - stock_ratio)) * (1.0 - pet_fx("bite_wait"))
+	if pet_missed: bite_wait = maxf(0.5, bite_wait * (1.0 - pet_fx("miss_pct")) - pet_fx("miss_sec"))
+	S.biteAt = clock + bite_wait
 	S.fakeI = 0;ripples.clear()
 	var t: = clock + randf_range(0.5, 0.9)
 	while t < S.biteAt - 0.4:
@@ -560,6 +569,7 @@ func start_wait() -> void :
 		TUT["bite_hint_seen"] = true;_save_tut()
 
 func fail(text: String) -> void :
+	pet_missed = true
 	_settle_owner(false)
 	S.failText = text;S.phase = "fail";S.t = 0.0
 	set_anim("miss", false);msg = ""
@@ -608,7 +618,10 @@ func start_fight() -> void :
 		"dartUntil": 0.0, "dartDir": 1, "dartSp": 1.0, "faceS": 1.0, "dispY": -1.0, "diveOff": 0.0, "diveDX": 0.0, 
 		"chargeX": 0.0, "cloneT": 0.0, "cloneSub": "run", "cloneSw": 0.0, "cloneReal": 1, "diveDir": 1}, true)
 	S.rod = rod_lv;S.line = 0;S.locMul = 1.0
-	S.tensionMul = (1.0 - 0.08 * S.rod) * (1.0 - 0.02 * forge_lv)
+	S.hypno = 0.0
+	if not S.get("tutFish",false) and not S.get("owner",false) and int(S.star)<4 and randf()<pet_fx("hypnosis")*(2.0 if pet_missed else 1.0):
+		S.hypno = 3.0;show_toast("별의 사도 · 최면!",Color("c9a7ff"))
+	S.tensionMul = (1.0 - 0.08 * S.rod) * (1.0 - 0.02 * forge_lv) * (1.0 - pet_fx("tension"))
 	S.reelMul = (1.0 + 0.12 * S.rod) * (1.0 + 0.03 * forge_lv)
 	FISHING_DIFFICULTY.configure(self)
 	S.chaos = (S.star + S.grade) / 8.0
@@ -1111,9 +1124,14 @@ func _draw_lesson_card(t: float) -> void :
 	ui_demo = false
 
 func shock_amount(k: float) -> float:
-	return k * (20 + 8 * S.star + 4 * S.grade) * S.tensionMul * (1.0 - 0.1 * S.line) * S.locMul
+	var cut: = 1.0
+	if k >= 1.0 and not S.get("pet_shock_done", false):
+		S.pet_shock_done = true;cut = 1.0 - pet_fx("first_shock")
+	return k * (20 + 8 * S.star + 4 * S.grade) * S.tensionMul * (1.0 - 0.1 * S.line) * S.locMul * cut
 
 func update_fight(dt: float) -> void :
+	if float(S.get("hypno",0.0))>0.0:
+		S.hypno=float(S.hypno)-dt;S.beh="rest";S.fakeRest=false;S.bt=maxf(float(S.bt),0.3);S.spike=0.0;S.spikeWarn=0.0
 	fight_telegraph.note_behavior(self)
 	if S.tut:
 		if not tut_update(dt): return
@@ -1215,6 +1233,10 @@ func sfx_update(dt: float) -> void :
 
 func start_catch() -> void :
 	var first_capture: bool=not S.get("capture_logged",false)
+	if first_capture and not S.get("tutFish",false) and not S.get("owner",false) and int(S.star)<4:
+		if int(S.grade)<4 and randf()<pet_fx("upgrade"): S.grade=int(S.grade)+1;show_toast("별의 사도 · 품질 등급 UP!",Color("ffe066"))
+		if randf()<pet_fx("extra"): souls+=1;show_toast("마도서 · 비늘조각 +1",Color("9fd8ff"))
+	if first_capture: pet_missed=false
 	_migrate_fish_records()
 	_settle_owner(true)
 	holding = false
@@ -1734,12 +1756,7 @@ func _draw_hookbar() -> void :
 	var pr: = Rect2(int(ix + iw * (zc - pw)), y - 4, maxi(4, int(iw * pw * 2)), 8)
 	draw_style_box(sb_fill, pr)
 	if S.get("quickHook", false):
-		var sweep := clampf((clock - float(S.hookStartedAt)) / 0.18, 0.0, 1.0)
-		if sweep < 1.0:
-			var offset := (pr.size.x * 0.25 - 1.0) * (1.0 + sweep)
-			for side in [-1.0, 1.0]:
-				var edge_x := roundf(pr.get_center().x + side * offset)
-				draw_rect(Rect2(edge_x, pr.position.y - 1, 2, pr.size.y + 2), Color(1, 0.88, 0.98, 1.0 - sweep))
+		_draw_quick_hook_burst(pr, clock - float(S.hookStartedAt))
 	draw_rect(Rect2(roundf(ix + iw * zc), y - 5, 1, 10), Color("fff4fb"))
 	var sh: = int(fmod(clock * 40.0, pr.size.x + 12)) - 6
 	if sh >= 0 and sh < pr.size.x: draw_rect(Rect2(pr.position.x + sh, y - 3, 1, 6), Color(1, 1, 1, 0.8))
@@ -1748,6 +1765,33 @@ func _draw_hookbar() -> void :
 	for k in range(star_hist.size() - 1, 0, -1):
 		draw_texture_rect(tex_star, Rect2(int(ix + iw * star_hist[k]) - 7, int(y) - 7, 14, 14), false, Color(1, 0.9, 0.5, 0.08 * (5 - k)))
 	draw_texture_rect(tex_star, Rect2(int(ix + iw * S.pos) - 7, int(y) - 7, 14, 14), false)
+
+
+func _draw_quick_hook_burst(zone: Rect2, elapsed: float) -> void:
+	var progress := clampf(elapsed / 0.55, 0.0, 1.0)
+	if progress >= 1.0:
+		return
+	var spread := ease(progress, 0.45)
+	var opacity := 1.0 - smoothstep(0.45, 1.0, progress)
+	var pink := Color("ff69bd")
+	var gold := Color("ffda77")
+	pink.a = opacity
+	gold.a = opacity
+	var white := Color(1.0, 0.97, 1.0, opacity)
+	for side: float in [-1.0, 1.0]:
+		var edge := zone.get_center() + Vector2(side * zone.size.x * 0.5, 0)
+		for vertical: float in [-1.0, 1.0]:
+			var origin := edge + Vector2(0, vertical * 6)
+			for ray in 3:
+				var travel := Vector2(side * (6 + ray * 8), vertical * (20 - ray * 6))
+				var tip := (origin + travel * spread).round()
+				var tail := (tip - travel.normalized() * (4.0 - progress * 2.0)).round()
+				draw_line(tail, tip, pink, 3.0)
+				draw_rect(Rect2(tip, Vector2(3, 2)), gold)
+				if ray == 1:
+					draw_rect(Rect2(tip - Vector2(2, 0), Vector2(7, 2)), white)
+					draw_rect(Rect2(tip - Vector2(0, 2), Vector2(2, 6)), white)
+		draw_rect(Rect2(edge.round() - Vector2(1, 5), Vector2(2, 10)), white)
 
 
 func _ease(r: float, dtd: float) -> float: return 1.0 - exp( - r * dtd)
@@ -2497,14 +2541,21 @@ func _draw_ui(t: float, h: float) -> void :
 func _village_toast_rect() -> Rect2:
 	return Rect2(12, get_viewport_rect().size.y - bot_pad - 158, 246, 38)
 
+func tip_rect() -> Rect2:
+	if tip_t<=0 or S.phase in ["fail", "result"] or (S.phase=="pre" and S.get("owner",false)): return Rect2()
+	var y: float=top_y+164.0 if scene=="village" else (top_y+150.0 if S.phase=="fight" else top_y+(146.0 if owner_ui.visible(self) else 74.0))
+	var lines: int=_ui_wrap(tip_txt,12,218,2).split("\n").size()
+	return Rect2(12,y,246,34 if lines==1 else 50)
+
 func _draw_notes() -> void :
 
 	if S.phase in ["fail", "result"]: return
 	if tip_t > 0 and not (S.phase=="pre" and S.get("owner",false)):
-		var tip_y: = top_y + 164.0 if scene == "village" else (top_y + 150.0 if S.phase == "fight" else top_y + (146.0 if owner_ui.visible(self) else 74.0))
+		var box: Rect2=tip_rect()
+		var tip_y: float=box.position.y
 		var body: = _ui_wrap(tip_txt, 12, 218, 2)
 		var lines: = body.split("\n").size()
-		_ui_style_box(sb_chip, Rect2(12, tip_y, 246, 34 if lines == 1 else 50))
+		_ui_style_box(sb_chip, box)
 		_text(body, Vector2(135, tip_y + 21 if lines == 1 else tip_y + 19), 12, Color("513b29"), true, 218)
 	if judge_t > 0 and not lesson_open:
 		_judge_text(judge_txt, Vector2(VW / 2.0, WATER - 40 + oy), judge_col)
@@ -2716,7 +2767,7 @@ func _draw_weight(y: float) -> void :
 			_ui_texture(V.art.stock, Vector2(x + 1, y + 2))
 			var max_stock: float = pond_max()
 			var stock_ratio: float = clampf(pond_stock / max_stock, 0.0, 1.0)
-			_text("%d/%d" % [roundi(pond_stock), roundi(max_stock)], Vector2(x + 79, y + 14), 8, Color("fff0d1"), true, 80)
+			_text("%d/%d" % [floori(pond_stock), roundi(max_stock)], Vector2(x + 79, y + 14), 8, Color("fff0d1"), true, 80)
 			_ui_rect(Rect2(x + 36, y + 24, w - 42, 5), Color("27342f"))
 			_ui_rect(Rect2(x + 37, y + 25, (w - 44) * stock_ratio, 3), Color("68c5d3") if stock_ratio > 0.25 else Color("e3a64d"))
 
@@ -2780,7 +2831,7 @@ func _draw_title(_t: float, h: float) -> void :
 const SAVE_VER: = 1
 func _save_game() -> bool:
 	if not progress_loaded or resetting or development_preview: return false
-	var ok: bool = preload("res://addons/reservoir/save_store.gd").write("user://save.json", {"testing_grants":testing_grants.duplicate(),"buyback":buyback.serialize(),"regional_progress":progression.serialize(),"active_region":active_region,"region_shop": region_shop.serialize(), "equipment": equipment.serialize(), "mail_read": mailbox.read_ids, "mail_deleted": mailbox.deleted_ids, "v": SAVE_VER, "gold": gold, "pearl": pearl, "bag": bag_items(), "bag_lv": bag_lv, "parts": parts_owned, "tips": tips_seen,
+	var ok: bool = preload("res://addons/reservoir/save_store.gd").write("user://save.json", {"testing_grants":testing_grants.duplicate(),"buyback":buyback.serialize(),"regional_progress":progression.serialize(),"active_region":active_region,"region_shop": region_shop.serialize(), "equipment": equipment.serialize(), "mail_read": mailbox.read_ids, "mail_deleted": mailbox.deleted_ids, "v": SAVE_VER, "gold": gold, "pearl": pearl, "pet_hut": pet_hut, "bag": bag_items(), "bag_lv": bag_lv, "parts": parts_owned, "tips": tips_seen,
 		"town_zoom": V.zoom, "boat_lv": boat_lv, "town_lv": town_lv, "forge_lv": forge_lv, "rod_lv": rod_lv, "rod_owned": rod_owned, "rod_enh": rod_enh, "protection_tickets": protection_tickets, "forge_pending": forge_pending, "forge_seen": forge_seen, 
 		"capture_robot":capture_robot.serialize(),"facility_rev":FACILITIES.REV,"pond_overflow":pond_overflow,"pond_base":pond_base,"pond_cap_lv": pond_cap_lv, "pond_regen_lv": pond_regen_lv, "pond_stock": pond_stock,
 		"expedition": expedition.data.serialize(), "bait": bait, "souls": souls, "aqua_lv": aqua_lv, "aqua": aqua, "dex": DEX, "personal_dex": personal_dex.serialize(), "catch_counts": catch_counts, "catch_legacy": catch_legacy, "world_time": environment.day_seconds, "time": Time.get_unix_time_from_system()})
@@ -2820,7 +2871,7 @@ func aqua_rate() -> float:
 		if f==null: continue
 		var sp:int=int(f.get("sp",-1))
 		if sp>=0 and sp%20==19: owners[sp]=maxf(float(owners.get(sp,0.0)),float(f.price))
-		else: r+=float(f.price)/300.0
+		else: r+=float(f.price)/300.0*PetEffects.income_mul(pet_hut,int(f.get("star",0)))
 	for value in owners.values(): r+=float(value)/300.0
 	return r * V.multiplier(self) * 0.75 # Approved aquarium income adjustment; visitor multiplier unchanged.
 
@@ -2840,7 +2891,7 @@ func _load_game() -> void :
 	expedition.data.restore(d.get("expedition",{}))
 	mailbox.read_ids = d.get("mail_read", []);mailbox.deleted_ids = d.get("mail_deleted", [])
 	environment.day_seconds = maxf(0.0, float(d.get("world_time", 0.0)))
-	gold = int(d.get("gold", 0));pearl = int(d.get("pearl", 0));bag_lv = int(d.get("bag_lv", 0))
+	gold = int(d.get("gold", 0));pearl = int(d.get("pearl", 0));pet_hut = d.get("pet_hut", {}) if d.get("pet_hut", {}) is Dictionary else {};apply_pet_effects();bag_lv = int(d.get("bag_lv", 0))
 	region_shop.restore(d.get("region_shop", {}))
 	progression.restore(d.get("regional_progress", {}))
 	progression.recover_unlock_evidence(region_shop.unlocked)
@@ -2984,8 +3035,8 @@ func _shot_mode() -> void :
 			for i in 2000: bait = 0;start_wait();cnt[S.star] += 1
 			print("STARS bare ", cnt)
 			get_tree().quit();return
-		if state in ["village_shops", "village_forge", "village_aqua", "village_hall", "village_museum"]:
-			V.camera_x = {"village_shops": 355.0, "village_forge": 650.0, "village_aqua": 890.0, "village_hall": 1150.0, "village_museum": 1360.0}[state]
+		if state in ["village_shops", "village_forge", "village_aqua", "village_hall", "village_museum", "village_pet", "village_pet_view"]:
+			V.camera_x = {"village_shops": 355.0, "village_forge": 650.0, "village_aqua": 890.0, "village_hall": 1150.0, "village_museum": 1360.0, "village_pet": 1530.0, "village_pet_view": 1530.0}[state]
 			V.ferry_clock = 12;V.process(self, 0.1)
 		if state == "village_talk": V.chief_say = V.CHIEF_TALK[0];V.chief_t = 0.0
 	if state == "small_wait":
@@ -3059,6 +3110,9 @@ func _shot_mode() -> void :
 	if state == "valley_fight":
 		TUT.done=true;start_wait();S.sp=28;S.star=1;S.grade=1;S.lf=1.0;S.size=1;S.judge="GREAT";S.len=35.0
 		start_fight();S.dist=35.0;S.fx=170.0;S.fy=WATER+65.0;S.dispY=WATER+65.0;S.bt=99.0;S.tut=false
+	if "--forge" in args: rod_lv = 5;equipment.rod_equipped = true;forge_lv = int(args[args.find("--forge") + 1])
+	if "--hour" in args: environment.day_seconds = (float(args[args.find("--hour") + 1]) - 8.0) / 24.0 * environment.DAY_LENGTH;environment.update(0)
+	if "--pet" in args: var pk: String = args[args.find("--pet") + 1];pet_hut = {"e": [pk], "l": pk}
 	if "--danger" in args and S.phase == "fight": S.tension = 93.0;holding = false
 	if "--town-zoom" in args: V.set_zoom(self, float(args[args.find("--town-zoom") + 1]))
 	if state == "village_refresh_motion":
@@ -3136,6 +3190,8 @@ func _shot_mode() -> void :
 			market_open = true;market_sell = false;inventory.tab = "inventory" if state == "bag_inventory" else "equipment"
 	if state == "village_lockedshop": V.open_shop(self,"up");region_shop.region=1
 	if state == "village_museum": V.open_shop(self,"museum")
+	if state == "village_pet":
+		pet_hut = {"c": {"d_chick": 3, "b_hamster": 2, "ss_golem": 2, "sss_seraph": 1, "a_owl": 1}, "e": ["b_hamster", "ss_golem", "sss_seraph"], "l": "sss_seraph", "f": 60, "s": 3.5, "t": Time.get_unix_time_from_system()};pearl = 120;V.open_shop(self, "pet")
 	if state == "settings_reset": reset_confirm=true
 	if state == "measure_crucian": S.sp=1;S.len=25.9;S.weight=0.088;S.newRec=false;S.grade=0;S.t=S.netEnd+2.3;tip_t=0.0
 	if state.begins_with("lesson_book_"):

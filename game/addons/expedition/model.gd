@@ -28,6 +28,9 @@ var pending: Dictionary = {}
 var battle: Dictionary = {}
 var recovery_until: float = 0
 var rng = RandomNumberGenerator.new()
+var pet_boss := 0.0   # 보스전 추가 공격력
+var pet_cut := 0   # 용병이 처음 받는 일반 공격 피해 감소
+var pet_atk := 0.0   # 대표 펫의 용병 공격력 보너스(예: 0.15 = +15%)
 
 func _init() -> void:
 	rng.randomize()
@@ -185,7 +188,7 @@ func start(round_no: int,now: float) -> bool:
 		var u: Dictionary=unit(int(uid))
 		if u.is_empty(): return false
 		var st: Dictionary=stats(u)
-		fighters.append({"id":u.id,"uid":u.uid,"star":u.star,"hp":st.hp,"max_hp":st.hp,"atk":st.atk,"def":st.def,"shield":0,"hits":0})
+		fighters.append({"id":u.id,"uid":u.uid,"star":u.star,"hp":st.hp,"max_hp":st.hp,"atk":roundi(float(st.atk)*(1.0+pet_atk)),"def":st.def,"shield":0,"hits":0})
 	battle={"tier_skill_revision":1,"utility_revision":1,"utility_tick":0,"rescue_ready":0,"ward_ready":0,"reward_revision":2,"pouch_reward":0,"repeat_pouch_roll":rng.randf(),"balance_revision":BALANCE_REVISION,"status":"running","round":round_no,"index":0,"fighters":fighters,"ticks":0,"clock":0.0,"phase":"approach","phase_time":0.0,"reward":0,"cleared":0,"first":round_no not in completed,"last_damage":0,"progress":0.0,"result_seen":false}
 	spawn_enemy()
 	return true
@@ -404,6 +407,7 @@ func tick_utility() -> void:
 		var dealt: int=damage(power,enemy_def*0.5 if sk=="pierce" else enemy_def)
 		if living.any(func(v):return skill(v)=="curse"): dealt=roundi(dealt*(1.0+float(UTILITY_PROFILE.expose)))
 		if TIER_SKILLS.enabled(self):dealt+=TIER_SKILLS.normal_bonus(self,f)
+		if pet_boss>0.0 and str(enemy.id).ends_with("R"): dealt=roundi(dealt*(1.0+pet_boss))
 		attack+=dealt
 		battle.fx.attacks.append({"source":int(f.uid),"role":str(catalog.soldiers[int(f.id)].role),"amount":dealt})
 		if sk=="drain": f.hp=mini(int(f.max_hp),int(f.hp)+roundi(power*0.18*POWER))

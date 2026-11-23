@@ -2,7 +2,7 @@ extends RefCounted
 var pouch_last_open: Array=[]
 var pouch_error: String=""
 
-const MAP_W: = 1630
+const MAP_W: = 1800
 const MAP_H: = 480
 
 const BUILD: = [
@@ -12,7 +12,8 @@ const BUILD: = [
 	["대장간", "forge", Rect2(720, -140, 150, 140), Vector2(795, -152)], 
 	["수족관", "aqua", Rect2(920, -148, 208, 148), Vector2(1024, -160)], 
 	["마을 회관", "hall", Rect2(1190, -145, 140, 145), Vector2(1260, -157)], 
-	["어류 박물관", "museum", Rect2(1410, -128, 128, 128), Vector2(1474, -140)]
+	["어류 박물관", "museum", Rect2(1410, -128, 128, 128), Vector2(1474, -140)], 
+	["펫 오두막", "pet", Rect2(1585, -125, 140, 125), Vector2(1655, -137)]
 ]
 const CHIEF_POS: = Vector2(1270, 14)
 const CHIEF_TALK: = ["배가 주민들을 태워 오고 있다네.", "회관에서 어장을 관리해 보게!", "수족관에 물고기를 전시하면 수입이 늘지."]
@@ -51,6 +52,7 @@ var chief_say: = ""
 var chief_t: = -10.0
 var enter_t: = 0.0
 var shop: = ""
+var hut = null
 var tab: = "sell"
 var forge_tab: = "rods"
 var rod_page: = 0
@@ -95,6 +97,7 @@ func setup() -> void :
 		tex[n] = load("res://art/village/%s.png" % n)
 	for n in ["market", "tackle", "forge", "aquarium", "hall", "museum", "dock", "bridge", "boat", "tree", "lamp", "hedge", "bench", "backdrop"]:
 		tex[n] = load("res://art/town/%s.png" % n)
+	tex["pet"] = load("res://art/town/pet_hut.png")
 	for person in 6:
 		var frames = []
 		for frame in 4: frames.append(load("res://art/people/resident_%d_%d.png" % [person, frame]))
@@ -297,8 +300,8 @@ func draw(m, h: float) -> void :
 			_sprite(m, "tree", o + Vector2(x, 3))
 	for x in [515.0, 1155.0]:
 		if _visible(x, 65): _sprite(m, "hedge", o + Vector2(x, 0))
-	var arts: = ["market", "tackle", "forge", "aquarium", "hall", "museum"]
-	for i in 6:
+	var arts: = ["market", "tackle", "forge", "aquarium", "hall", "museum", "pet"]
+	for i in 7:
 		var b = BUILD[i + 1]
 		if not _visible(b[2].get_center().x, b[2].size.x / 2 + 30): continue
 		var building_base: Vector2 = o + Vector2(b[2].get_center().x, 0)
@@ -343,6 +346,17 @@ func draw(m, h: float) -> void :
 	for i in range(world_text_start, m.text_items.size()):
 		m.text_items[i][1] = zoom_anchor + (m.text_items[i][1] - zoom_anchor) * zoom
 		m.text_items[i][7] *= zoom
+
+	# World labels share the top text layer; remove only labels hidden by a notice.
+	var notice: Rect2=m.tip_rect()
+	if notice.has_area():
+		for i in range(m.text_items.size()-1,world_text_start-1,-1):
+			var it: Array=m.text_items[i]
+			var scale: float=it[7]
+			var size: Vector2=it[0].get_string_size(it[2],HORIZONTAL_ALIGNMENT_LEFT,-1,it[5])*scale
+			var left: float=it[1].x + ((it[4]*scale-size.x)/2.0 if it[3]==HORIZONTAL_ALIGNMENT_CENTER else 0.0)
+			var bounds:=Rect2(Vector2(left,it[1].y-it[0].get_ascent(it[5])*scale),size)
+			if bounds.intersects(notice): m.text_items.remove_at(i)
 
 	if shop == "":
 		rects.zoom=[]
@@ -396,10 +410,40 @@ func open_shop(m, k: String) -> void :
 	aquarium.reset()
 	market_list.reset()
 	shop = k;tab = "sell";forge_tab = "rods";rod_page = mini(m.rod_owned+1,5) if k=="forge" else m.rod_lv;pick_slot = -1;m.play("ui", -8.0)
+	if k == "pet": _open_hut(m)
+
+# 펫 오두막: 창(PetHutUI)은 마을 위에 얹고, 입력은 마을이 받아서 넘긴다
+func _open_hut(m) -> void :
+	if hut != null and is_instance_valid(hut): hut.queue_free()
+	hut = preload("res://addons/reservoir/pet_hut/pet_hut_ui.gd").new()
+	hut.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	hut.z_index = 60
+	hut.restore(m.pet_hut, Time.get_unix_time_from_system())
+	hut.pearl_total = m.pearl
+	hut.state_changed.connect(func():
+		m.pet_hut = hut.serialize();m.pearl = hut.pearl_total;m.apply_pet_effects();m._save_game())
+	hut.closed.connect(func(): _close_hut(m))
+	m.add_child(hut)
+
+func _close_hut(m) -> void :
+	shop = ""
+	if hut != null and is_instance_valid(hut): hut.queue_free()
+	hut = null
+	m._save_game()
+
+func _draw_hut(m, h: float) -> void :
+	var top: float = m.top_y + 78
+	m.text_items = m.text_items.filter( func(it): return it[1].y < top)
+	if hut == null or not is_instance_valid(hut): return
+	hut.dim_margin = m.ox
+	hut.size = Vector2(m.VW, h)
+	hut.panel_y = maxf(top + 6.0, roundf((h - 380.0) / 2.0))
+	hut.queue_redraw()
 
 
 func draw_shop(m, h: float) -> void :
 	if shop == "": return
+	if shop == "pet": _draw_hut(m, h);return
 	if shop=="museum" and not bundle_preview.legacy_dex:
 		bundle_preview.draw(m,h);return
 	var top: float = m.top_y + 78
@@ -578,15 +622,15 @@ func soul_of(f: Dictionary) -> int:
 
 func _draw_growth(m, r: Rect2, y: float, harbor: bool) -> void :
 	var lv: int = m.boat_lv
-	m._text("배 강화 %d / 12" % lv, Vector2(135, y + 8), 14, Color("382619"), true)
+	m._text("배 강화 %d / %d" % [lv,FACILITIES.max_level("boat")], Vector2(135, y + 8), 14, Color("382619"), true)
 	y += 30
 	m._text("한 번에 %d명 · %.0f초마다 입항" % [passengers(m), interval(m)], Vector2(135, y), 10, Color("382619"), true, 224)
 	m._text("수족관 수익 배수 ×%.2f" % multiplier(m), Vector2(135, y + 40), 11, Color("376556"), true)
 	y += 53
 	if FACILITIES.unlocked(m,"boat"):
-		var desc: String="%d명 → %d명 · %d초 → %d초"%[passengers(m),FACILITIES.PASSENGERS[lv+1],roundi(interval(m)),FACILITIES.INTERVAL[lv+1]]
+		var desc: String="다음 %d명 · %d초"%[FACILITIES.PASSENGERS[lv+1],FACILITIES.INTERVAL[lv+1]]
 		_row(m,r,y,tool_icons.boat,"배 확장",desc,"",UPGRADE_COST[lv],m.gold>=UPGRADE_COST[lv],"boat")
-	else: _row(m,r,y,null,"배 확장",FACILITIES.lock_label(m,"boat"),"잠김" if lv<12 else "완료",0,false,"")
+	else: _row(m,r,y,null,"배 확장",FACILITIES.lock_label(m,"boat"),"잠김" if lv<FACILITIES.max_level("boat") else "완료",0,false,"")
 	m._text("배가 커질수록 더 많은 손님이 방문해요.", Vector2(135, y + 62), 9, Color("6a4a2a"), true, 224)
 	m._text("수족관 수익과 마을 방문객에 반영돼요.", Vector2(135, y + 80), 9, Color("6a4a2a"), true, 224)
 
@@ -610,6 +654,9 @@ func _draw_forge(m, r: Rect2, y: float) -> void :
 	enhancement.draw(self, m, r, y)
 
 func _shop_press(m, pos: Vector2) -> void :
+	if shop == "pet":
+		if hut != null and is_instance_valid(hut): hut.press(pos)
+		return
 	if shop=="museum" and not bundle_preview.legacy_dex:
 		bundle_preview.press(m,pos);return
 	m.play("ui")
@@ -710,7 +757,7 @@ func _act(m, a: String) -> void :
 		"sellall": m.sell_all();return
 		"clean":
 			var f: Dictionary = m.bag[n]
-			m.souls += soul_of(f);m.bag.remove_at(n);m.show_toast("비늘조각 +%d" % soul_of(f), Color("9fd8ff"));m.play("splash_s", -6.0)
+			var soul_gain: int = PetEffects.boost_int(soul_of(f), m.pet_fx("scale"), randf());m.souls += soul_gain;m.bag.remove_at(n);m.show_toast("비늘조각 +%d" % soul_gain, Color("9fd8ff"));m.play("splash_s", -6.0)
 	if not m._save_game():
 		for field in before:m.set(field,before[field])
 		m.equipment.restore(m,old_equipment);m.region_shop.restore(old_region);m.buyback.restore(old_buyback)

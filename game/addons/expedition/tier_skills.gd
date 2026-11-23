@@ -87,6 +87,7 @@ static func hit(m,f:Dictionary,power:float,ignore:float=0,raw:bool=false)->void:
 	# Skill descriptions use literal ATK percentages. POWER only scales normal attacks.
 	var amount:int=maxi(1,roundi(power*100.0/(100.0+maxf(0,defense))))
 	var e:Dictionary=m.battle.enemy
+	if m.pet_boss>0.0 and str(e.id).ends_with("R"):amount=maxi(1,roundi(amount*(1.0+m.pet_boss)))
 	var blocked:int=mini(int(e.get("shield",0)),amount);e.shield=int(e.get("shield",0))-blocked
 	var actual:int=mini(int(e.hp),amount-blocked);e.hp-=actual;f.skill_damage+=actual
 	if not m.battle.has("fx"):m.battle.fx={}
@@ -273,6 +274,8 @@ static func enemy_attack(m)->void:
 	var enemy_atk:float=enemy_stat(m,"atk")
 	if a.any(func(v):return m.skill(v)=="weaken"):enemy_atk=maxf(float(m.battle.enemy.atk)*.7,enemy_atk*.8)
 	var incoming:int=m.damage(enemy_atk,float(front.def))
+	if m.pet_cut>0 and not bool(m.battle.get("pet_cut_used",false)):
+		m.battle.pet_cut_used=true;incoming=maxi(1,incoming-m.pet_cut)
 	incoming=before_hurt(m,front,incoming)
 	m.battle.fx.hit_uid=int(front.uid);m.battle.fx.enemy_hit=true
 	m.utility_hurt(front,incoming);front.hits+=1

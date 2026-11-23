@@ -101,7 +101,9 @@ func update(m,dt: float) -> void:
 		before=serialize();stock_before=m.pond_stock
 	progress+=dt
 	if progress>=3600.0/RATES[speed]:
-		fish.append(job);job={};progress=0;flash=2.0
+		var n: int=PetEffects.amp_count(m.pet_hut,randf()) if int(job.get("star",0))<4 else 1
+		for k in mini(n,CAPS[capacity]-fish.size()): fish.append(job.duplicate(true))
+		job={};progress=0;flash=2.0
 		checkpoint(m,before,stock_before)
 	elif since_save>=15: checkpoint(m,before,stock_before)
 func can_level(m,level: int) -> bool:

@@ -2,6 +2,7 @@ extends RefCounted
 # Regional facility progression; price 0 means prepared, never a free purchase.
 const REV := 1
 const MAX_LEVEL := 12
+const BOAT_REGIONS := [0,0,1,1,2,3,4,5]
 const BASE_STOCK := 30.0
 const AQUA_CAP := [3,4,6,8,10,15,20,22,24,26,28,30,32]
 const STOCK_ADD := [0,10,20,40,60,80,100,115,130,145,160,175,190]
@@ -17,24 +18,31 @@ const PRICES := {"aexpand":AQUA_COST,"boat":BOAT_COST,"pondcap":CAP_COST,"pondre
 const OLD_AQUA := [0,2,4,5,6]
 const OLD_OTHER := [0,2,3,4,5,6]
 
+static func max_level(action: String) -> int:
+	return BOAT_REGIONS.size() if action=="boat" else MAX_LEVEL
+
+static func next_region(m, action: String) -> int:
+	var lv := level(m,action)
+	return BOAT_REGIONS[lv] if action=="boat" and lv<BOAT_REGIONS.size() else int(lv/2)
+
 static func level(m, action: String) -> int:
 	return clampi(int(m.get(FIELDS[action])),0,MAX_LEVEL) if FIELDS.has(action) else MAX_LEVEL
 
 static func cost(m, action: String) -> int:
 	var lv := level(m,action)
-	return int(PRICES[action][lv]) if FIELDS.has(action) and lv<MAX_LEVEL else 0
+	return int(PRICES[action][lv]) if FIELDS.has(action) and lv<max_level(action) else 0
 
 static func unlocked(m, action: String) -> bool:
 	var lv := level(m,action)
-	if lv>=MAX_LEVEL or cost(m,action)<=0: return false
-	var area := int(lv/2)
+	if lv>=max_level(action) or cost(m,action)<=0: return false
+	var area := next_region(m,action)
 	return area in m.progression.available_regions and m.region_shop.is_unlocked(area)
 
 static func lock_label(m, action: String) -> String:
 	var lv := level(m,action)
-	if lv>=MAX_LEVEL: return "최대 단계"
-	var area := int(lv/2)
-	if cost(m,action)<=0 or area not in m.progression.available_regions: return "다음 낚시터 · 준비 중"
+	if lv>=max_level(action): return "최대 단계"
+	var area := next_region(m,action)
+	if cost(m,action)<=0 or area not in m.progression.available_regions: return "강화 준비 중"
 	return m.region_shop.TITLES[area]+" 해금 필요"
 
 static func purchase(m, action: String) -> bool:
