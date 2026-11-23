@@ -1,0 +1,17 @@
+config_version=5
+
+[application]
+
+config/name="슬롯 릴 모듈 시험"
+run/main_scene="res://test_main.tscn"
+config/features=PackedStringArray("4.4")
+
+[display]
+
+window/size/viewport_width=270
+window/size/viewport_height=420
+window/stretch/mode="canvas_items"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
