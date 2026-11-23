@@ -6,7 +6,7 @@
   "deployed": false,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "펫 22종 성능·장착 구조 초안 확정, 별의 사도 승급+최면 반영(게임 미적용)",
+  "current_task": "펫 22종 성능·장착 구조 초안 확정, 별의 사도 등급승급 40%+최면 반영(게임 미적용)",
   "next_step": "일꾼 산출·컨셉 시너지 확정 → 낚시·파이팅 계열 시뮬 → 게임 적용 여부는 사용자 결정. PixelLab 추가 호출은 재승인 필요",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
