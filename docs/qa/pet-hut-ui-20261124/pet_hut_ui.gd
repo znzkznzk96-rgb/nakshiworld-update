@@ -40,6 +40,7 @@ var last_pet := ""
 var frags := 0
 var plan_sel := "a_fennec"     # 도면 상점에서 고른 펫
 var box_sel := ""
+var leader := "sss_seraph"     # 대표 펫(장착 중인 펫 중 하나)
 var box_msg := ""
 var dis_sel := ""
 var plan_msg := ""
@@ -271,6 +272,9 @@ func _draw_pets_tab(body: Rect2) -> void:
 		draw_texture_rect_region(tex, Rect2(sr.position + Vector2(3, 6), Vector2(th, th)), Rect2(0, 0, th, th))
 		_txt(NAME[k], sr.position + Vector2(40, 17), 8, INK, false, 30)
 		_txt(GRADE_NAME[grade_of(k)], sr.position + Vector2(40, 31), 9, Color("8f6951"), false, 28)
+		if get_leader() == k:
+			draw_rect(Rect2(sr.position.x + 2, sr.position.y + 2, 16, 10), Color("c8962b"))
+			_txt("대표", Vector2(sr.position.x + 10, sr.position.y + 10), 7, CREAM, true, 16)
 	if picker >= 0: _draw_picker(body)
 
 func _draw_picker(body: Rect2) -> void:
@@ -302,6 +306,7 @@ func _pets_press(p: Vector2) -> bool:
 					if other >= 0: equipped.remove_at(other)
 					equipped.append(k)
 				else:
+					if get_leader() == equipped[picker]: leader = k
 					if other >= 0 and other != picker: equipped[other] = equipped[picker]
 					equipped[picker] = k
 				picker = -1; _reset_pets(); queue_redraw(); return true
@@ -475,27 +480,24 @@ func _draw_plans_tab(body: Rect2) -> void:
 	var list := bp_pets()
 	for n in list.size():
 		var k: String = list[n]
-		var cr := Rect2(b.x + 4 + (n % 4) * 56.0, b.y + 26 + (n / 4) * 40.0, 54, 38)
+		var cr := Rect2(b.x + 4 + (n % 3) * 75.0, b.y + 26 + (n / 3) * 38.0, 73, 36)
 		_art("teal" if plan_sel == k else "card", cr)
+		var aff := can_craft(k)
+		draw_texture(_t("icon/bp_" + k), cr.position + Vector2(2, 2), Color(1, 1, 1, 1.0 if aff else 0.5))
 		var tex: Texture2D = _strip(k, "move")
 		var th := tex.get_height()
-		var tint := Color(1, 1, 1, 1.0 if can_craft(k) else 0.55)
-		draw_texture_rect_region(tex, Rect2(cr.position + Vector2((54 - th) / 2.0, (38 - th) / 2.0), Vector2(th, th)), Rect2(0, 0, th, th), tint)
-		_txt(GRADE_NAME[grade_of(k)], cr.position + Vector2(5, 12), 8, CREAM if plan_sel == k else Color("8f6951"), false, 20)
+		draw_texture_rect_region(tex, Rect2(cr.position + Vector2(36 + (36 - th) / 2.0, (36 - th) / 2.0), Vector2(th, th)), Rect2(0, 0, th, th), Color(1, 1, 1, 1.0 if aff else 0.55))
 		rects["bp:" + k] = cr
-	var dr := Rect2(b.x + 6, b.y + 190, body.size.x - 12, 46)
+	var dr := Rect2(b.x + 6, b.y + 218, body.size.x - 12, 42)
 	_art("card", dr)
 	if plan_sel == "":
 		_txt("살 도면을 골라요 (흐린 칸은 재료 부족)", dr.get_center() + Vector2(0, 4), 8, Color("8f6951"), true, dr.size.x - 10)
 	else:
-		var tex2: Texture2D = _strip(plan_sel, "move")
-		var th2 := tex2.get_height()
-		draw_texture_rect_region(tex2, Rect2(dr.position + Vector2(4 + (36 - th2) / 2.0, (46 - th2) / 2.0), Vector2(th2, th2)), Rect2(0, 0, th2, th2))
 		var c: Array = BP_COST[grade_of(plan_sel)]
-		_txt("%s 도면 (%s)" % [NAME[plan_sel], GRADE_NAME[grade_of(plan_sel)]], dr.position + Vector2(44, 17), 9, INK, false, 110)
-		_txt("조각 %d" % c[0], dr.position + Vector2(44, 33), 8, Color("2f8f84") if frags >= c[0] else Color("b04a3a"), false, 50)
-		_txt("진주 %d" % c[1], dr.position + Vector2(90, 33), 8, Color("2f8f84") if pearl_total >= c[1] else Color("b04a3a"), false, 50)
-		var bt := Rect2(dr.end.x - 54, dr.position.y + 11, 48, 24)
+		_txt("%s 도면 (%s)" % [NAME[plan_sel], GRADE_NAME[grade_of(plan_sel)]], dr.position + Vector2(8, 15), 9, INK, false, 130)
+		_txt("조각 %d" % c[0], dr.position + Vector2(8, 31), 8, Color("2f8f84") if frags >= c[0] else Color("b04a3a"), false, 50)
+		_txt("진주 %d" % c[1], dr.position + Vector2(60, 31), 8, Color("2f8f84") if pearl_total >= c[1] else Color("b04a3a"), false, 50)
+		var bt := Rect2(dr.end.x - 54, dr.position.y + 9, 48, 24)
 		var ok := can_craft(plan_sel)
 		_art("button" if ok else "card", bt)
 		_txt("구매", bt.get_center() + Vector2(0, 4), 9, CREAM if ok else Color("6e5c49"), true, 44)
@@ -511,21 +513,36 @@ func _plans_press(p: Vector2) -> bool:
 	return false
 
 # ───────── 보관함 탭: 가진 펫 보기, 장착/빼기, 분해 ─────────
+func get_leader() -> String:
+	if equipped.has(leader): return leader
+	return equipped[0] if equipped.size() > 0 else ""
+
+func set_leader(k: String) -> bool:
+	if counts.get(k, 0) < 1: return false
+	if not equipped.has(k) and not equip(k): return false
+	leader = k; box_msg = "%s 대표 지정!" % NAME[k]
+	return true
+
 func equip(k: String) -> bool:
 	if counts.get(k, 0) < 1 or equipped.has(k): return false
 	if equipped.size() >= 3: box_msg = "슬롯이 가득 찼어요. 먼저 빼 주세요"; return false
-	equipped.append(k); _reset_pets(); box_msg = "%s 장착!" % NAME[k]
+	equipped.append(k)
+	if equipped.size() == 1: leader = k
+	_reset_pets(); box_msg = "%s 장착!" % NAME[k]
 	return true
 
 func unequip(k: String) -> bool:
 	if not equipped.has(k): return false
-	equipped.erase(k); _reset_pets(); box_msg = "%s 뺐어요" % NAME[k]
+	var was := get_leader() == k
+	equipped.erase(k)
+	if was: leader = equipped[0] if equipped.size() > 0 else ""
+	_reset_pets(); box_msg = "%s 뺐어요" % NAME[k]
 	return true
 
 func _draw_box_tab(body: Rect2) -> void:
 	var b := body.position
 	var cx := b.x + body.size.x / 2.0
-	_txt(box_msg if box_msg != "" else "보유 %d/%d종 · 장착 %d/3 · 조각 %d" % [owned.size(), PETS.size(), equipped.size(), frags], Vector2(cx, b.y + 17), 9, Color("2f8f84") if box_msg != "" else INK, true, 224)
+	_txt(box_msg if box_msg != "" else "도감 %d/%d · 장착 %d/3 · 조각 %d" % [owned.size(), PETS.size(), equipped.size(), frags], Vector2(cx, b.y + 17), 9, Color("2f8f84") if box_msg != "" else INK, true, 224)
 	for n in PETS.size():
 		var k: String = PETS[n]
 		var have: int = counts.get(k, 0)
@@ -541,6 +558,9 @@ func _draw_box_tab(body: Rect2) -> void:
 		if equipped.has(k):
 			draw_rect(Rect2(cr.position.x + 2, cr.position.y + 2, 11, 9), Color("2f8f84"))
 			_txt("장", Vector2(cr.position.x + 7.5, cr.position.y + 9), 7, CREAM, true, 11)
+		if get_leader() == k:
+			draw_rect(Rect2(cr.end.x - 13, cr.position.y + 2, 11, 9), Color("c8962b"))
+			_txt("대", Vector2(cr.end.x - 7.5, cr.position.y + 9), 7, CREAM, true, 11)
 		rects["bx:" + k] = cr
 	var dr := Rect2(b.x + 4, b.y + 184, body.size.x - 8, 74)
 	_art("card", dr)
@@ -554,16 +574,24 @@ func _draw_box_tab(body: Rect2) -> void:
 	draw_texture_rect_region(tex2, Rect2(dr.position + Vector2(6 + (36 - th2) / 2.0, 4 + (36 - th2) / 2.0), Vector2(th2, th2)), Rect2(0, 0, th2, th2), t2)
 	_txt("%s (%s)" % [NAME[box_sel], GRADE_NAME[grade_of(box_sel)]], dr.position + Vector2(48, 16), 9, INK, false, 110)
 	_txt("보유 %d · 시간당 진주 %.2f" % [have2, RATE[grade_of(box_sel)]] if have2 >= 1 else "아직 없는 펫이에요", dr.position + Vector2(48, 31), 8, Color("8f6951"), false, 170)
+	if have2 >= 1:
+		draw_texture(_t("icon/frag_" + box_sel), dr.position + Vector2(dr.size.x - 38, 4))
 	var eq := equipped.has(box_sel)
-	var b1 := Rect2(dr.position.x + 6, dr.position.y + 44, 102, 24)
 	var ok1 := have2 >= 1
+	var b1 := Rect2(dr.position.x + 6, dr.position.y + 44, 68, 24)
 	_art("button" if ok1 else "card", b1)
-	_txt("빼기" if eq else "장착", b1.get_center() + Vector2(0, 4), 9, CREAM if ok1 else Color("6e5c49"), true, 96)
+	_txt("빼기" if eq else "장착", b1.get_center() + Vector2(0, 4), 9, CREAM if ok1 else Color("6e5c49"), true, 62)
 	rects["bx_equip"] = b1
-	var b2 := Rect2(dr.position.x + 114, dr.position.y + 44, 102, 24)
+	var is_l := get_leader() == box_sel
+	var b3 := Rect2(dr.position.x + 78, dr.position.y + 44, 68, 24)
+	var ok3 := ok1 and not is_l
+	_art("button" if ok3 else "card", b3)
+	_txt("대표 중" if is_l else "대표 지정", b3.get_center() + Vector2(0, 4), 8, CREAM if ok3 else Color("6e5c49"), true, 62)
+	rects["bx_leader"] = b3
+	var b2 := Rect2(dr.position.x + 150, dr.position.y + 44, 68, 24)
 	var ok2 := can_dismantle(box_sel)
 	_art("button" if ok2 else "card", b2)
-	_txt("분해 조각 +%d" % frag_of(box_sel) if ok2 else ("분해 불가 (1마리)" if have2 == 1 else "분해 불가"), b2.get_center() + Vector2(0, 4), 8, CREAM if ok2 else Color("6e5c49"), true, 96)
+	_txt("분해 +%d" % frag_of(box_sel) if ok2 else "분해 불가", b2.get_center() + Vector2(0, 4), 8, CREAM if ok2 else Color("6e5c49"), true, 62)
 	rects["bx_dis"] = b2
 
 func _box_press(p: Vector2) -> bool:
@@ -573,6 +601,8 @@ func _box_press(p: Vector2) -> bool:
 		if equipped.has(box_sel): unequip(box_sel)
 		else: equip(box_sel)
 		queue_redraw(); return true
+	if box_sel != "" and rects.get("bx_leader", Rect2()).has_point(p):
+		set_leader(box_sel); queue_redraw(); return true
 	if box_sel != "" and rects.get("bx_dis", Rect2()).has_point(p):
 		if dismantle(box_sel): box_msg = plan_msg
 		queue_redraw(); return true

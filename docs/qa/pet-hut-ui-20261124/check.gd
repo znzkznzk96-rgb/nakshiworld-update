@@ -136,5 +136,26 @@ func _init() -> void:
 	ui.press(ui.rects["slot:2"].get_center()); ui.step(0.0); await process_frame
 	ui.press(ui.rects["pick:d_chick"].get_center())
 	n += 1; ok += 1 if ui.equipped == ["b_hamster", "ss_golem", "d_chick"] else 0                                    # 빈 슬롯에 장착
+	# ── 대표 지정 ──
+	ui.counts = {"d_chick": 1, "ss_golem": 2, "a_owl": 1, "b_hamster": 1}; ui._sync_owned(); ui.equipped = ["b_hamster", "ss_golem"]; ui.leader = "b_hamster"; ui._reset_pets()
+	ui.press(ui.rects["tab:box"].get_center()); ui.step(0.0); await process_frame
+	ui.press(ui.rects["bx:ss_golem"].get_center()); ui.step(0.0); await process_frame
+	ui.press(ui.rects["bx_leader"].get_center()); ui.step(0.0); await process_frame
+	n += 1; ok += 1 if ui.get_leader() == "ss_golem" else 0                                            # 대표 지정
+	ui.press(ui.rects["bx:a_owl"].get_center()); ui.step(0.0); await process_frame
+	ui.press(ui.rects["bx_leader"].get_center()); ui.step(0.0); await process_frame
+	n += 1; ok += 1 if ui.get_leader() == "a_owl" and ui.equipped.size() == 3 else 0                   # 안 낀 펫을 대표로 → 자동 장착
+	ui.press(ui.rects["bx:d_chick"].get_center()); ui.step(0.0); await process_frame
+	ui.press(ui.rects["bx_leader"].get_center())
+	n += 1; ok += 1 if ui.get_leader() == "a_owl" and not ui.equipped.has("d_chick") else 0            # 가득 차면 대표 지정 안 됨
+	ui.step(0.0); await process_frame
+	ui.press(ui.rects["bx:a_owl"].get_center()); ui.step(0.0); await process_frame
+	ui.press(ui.rects["bx_equip"].get_center())
+	n += 1; ok += 1 if not ui.equipped.has("a_owl") and ui.get_leader() == "b_hamster" else 0          # 대표를 빼면 다음 펫이 대표
+	var icons_ok := true
+	for k in PetHutUI.PETS:
+		icons_ok = icons_ok and FileAccess.file_exists("res://assets/icon/frag_%s.png" % k)
+		if PetHutUI.BP_COST.has(PetHutUI.grade_of(k)): icons_ok = icons_ok and FileAccess.file_exists("res://assets/icon/bp_%s.png" % k)
+	n += 1; ok += 1 if icons_ok else 0                                                                  # 조각 22·도면 13 아이콘
 	print("통과 %d/%d" % [ok, n])
 	quit(0 if ok == n else 1)
