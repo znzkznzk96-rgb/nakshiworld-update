@@ -421,7 +421,7 @@ func _open_hut(m) -> void :
 	hut.restore(m.pet_hut, Time.get_unix_time_from_system())
 	hut.pearl_total = m.pearl
 	hut.state_changed.connect(func():
-		m.pet_hut = hut.serialize();m.pearl = hut.pearl_total;m._save_game())
+		m.pet_hut = hut.serialize();m.pearl = hut.pearl_total;m.apply_pet_effects();m._save_game())
 	hut.closed.connect(func(): _close_hut(m))
 	m.add_child(hut)
 
@@ -757,7 +757,7 @@ func _act(m, a: String) -> void :
 		"sellall": m.sell_all();return
 		"clean":
 			var f: Dictionary = m.bag[n]
-			m.souls += soul_of(f);m.bag.remove_at(n);m.show_toast("비늘조각 +%d" % soul_of(f), Color("9fd8ff"));m.play("splash_s", -6.0)
+			var soul_gain: int = PetEffects.boost_int(soul_of(f), m.pet_fx("scale"), randf());m.souls += soul_gain;m.bag.remove_at(n);m.show_toast("비늘조각 +%d" % soul_gain, Color("9fd8ff"));m.play("splash_s", -6.0)
 	if not m._save_game():
 		for field in before:m.set(field,before[field])
 		m.equipment.restore(m,old_equipment);m.region_shop.restore(old_region);m.buyback.restore(old_buyback)

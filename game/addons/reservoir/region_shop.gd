@@ -80,6 +80,9 @@ func take_bait(m) -> float:
 	if not bait_unlocked(i) or stock(m,i)<=0: return 0.85
 	if i==0: m.bait-=1
 	else: stocks[i]-=1
+	if randf()<m.pet_fx("bait_save"):
+		if i==0: m.bait+=1
+		else: stocks[i]+=1
 	last_bait=i
 	return BAIT_MULT[i]
 func grade_chance(m, i: int) -> float:

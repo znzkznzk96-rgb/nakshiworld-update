@@ -186,6 +186,8 @@ var lesson_after: = ""
 const SKIP_RECT: = Rect2(85, 450, 100, 22)
 var pearl: = 0
 var pet_hut: = {}
+func pet_fx(name: String) -> float: return PetEffects.value(pet_hut, name)
+func apply_pet_effects() -> void: expedition.data.pet_atk = pet_fx("atk")
 var star_hist: = []
 var judge_col: = Color(1, 0.95, 0.6)
 var hitstop: = 0.0
@@ -548,7 +550,7 @@ func start_wait() -> void :
 		S.lf = bait_length_cm(S.sp) / float(FISH_LEN[S.sp])
 	else: S.lf = minf(S.lf, species_max_cm(S.sp) / FISH_LEN[S.sp])
 	S.size = 0 if S.lf < 0.9 else (1 if S.lf < 1.15 else (2 if S.lf < 1.35 else 3))
-	S.biteAt = clock + randf_range(BITE_WAIT[0], BITE_WAIT[1]) * (BAIT_WAIT_MUL if S.bare else 1.0) * (3.5 if insufficient else lerpf(1.0, 1.6, 1.0 - stock_ratio))
+	S.biteAt = clock + randf_range(BITE_WAIT[0], BITE_WAIT[1]) * (BAIT_WAIT_MUL if S.bare else 1.0) * (3.5 if insufficient else lerpf(1.0, 1.6, 1.0 - stock_ratio)) * (1.0 - pet_fx("bite_wait"))
 	S.fakeI = 0;ripples.clear()
 	var t: = clock + randf_range(0.5, 0.9)
 	while t < S.biteAt - 0.4:
@@ -611,7 +613,7 @@ func start_fight() -> void :
 		"dartUntil": 0.0, "dartDir": 1, "dartSp": 1.0, "faceS": 1.0, "dispY": -1.0, "diveOff": 0.0, "diveDX": 0.0, 
 		"chargeX": 0.0, "cloneT": 0.0, "cloneSub": "run", "cloneSw": 0.0, "cloneReal": 1, "diveDir": 1}, true)
 	S.rod = rod_lv;S.line = 0;S.locMul = 1.0
-	S.tensionMul = (1.0 - 0.08 * S.rod) * (1.0 - 0.02 * forge_lv)
+	S.tensionMul = (1.0 - 0.08 * S.rod) * (1.0 - 0.02 * forge_lv) * (1.0 - pet_fx("tension"))
 	S.reelMul = (1.0 + 0.12 * S.rod) * (1.0 + 0.03 * forge_lv)
 	FISHING_DIFFICULTY.configure(self)
 	S.chaos = (S.star + S.grade) / 8.0
@@ -1114,7 +1116,10 @@ func _draw_lesson_card(t: float) -> void :
 	ui_demo = false
 
 func shock_amount(k: float) -> float:
-	return k * (20 + 8 * S.star + 4 * S.grade) * S.tensionMul * (1.0 - 0.1 * S.line) * S.locMul
+	var cut: = 1.0
+	if k >= 1.0 and not S.get("pet_shock_done", false):
+		S.pet_shock_done = true;cut = 1.0 - pet_fx("first_shock")
+	return k * (20 + 8 * S.star + 4 * S.grade) * S.tensionMul * (1.0 - 0.1 * S.line) * S.locMul * cut
 
 func update_fight(dt: float) -> void :
 	fight_telegraph.note_behavior(self)
@@ -2852,7 +2857,7 @@ func aqua_rate() -> float:
 		if f==null: continue
 		var sp:int=int(f.get("sp",-1))
 		if sp>=0 and sp%20==19: owners[sp]=maxf(float(owners.get(sp,0.0)),float(f.price))
-		else: r+=float(f.price)/300.0
+		else: r+=float(f.price)/300.0*PetEffects.income_mul(pet_hut,int(f.get("star",0)))
 	for value in owners.values(): r+=float(value)/300.0
 	return r * V.multiplier(self) * 0.75 # Approved aquarium income adjustment; visitor multiplier unchanged.
 
@@ -2872,7 +2877,7 @@ func _load_game() -> void :
 	expedition.data.restore(d.get("expedition",{}))
 	mailbox.read_ids = d.get("mail_read", []);mailbox.deleted_ids = d.get("mail_deleted", [])
 	environment.day_seconds = maxf(0.0, float(d.get("world_time", 0.0)))
-	gold = int(d.get("gold", 0));pearl = int(d.get("pearl", 0));pet_hut = d.get("pet_hut", {}) if d.get("pet_hut", {}) is Dictionary else {};bag_lv = int(d.get("bag_lv", 0))
+	gold = int(d.get("gold", 0));pearl = int(d.get("pearl", 0));pet_hut = d.get("pet_hut", {}) if d.get("pet_hut", {}) is Dictionary else {};apply_pet_effects();bag_lv = int(d.get("bag_lv", 0))
 	region_shop.restore(d.get("region_shop", {}))
 	progression.restore(d.get("regional_progress", {}))
 	progression.recover_unlock_evidence(region_shop.unlocked)

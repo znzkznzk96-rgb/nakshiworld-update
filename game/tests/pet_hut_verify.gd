@@ -45,6 +45,34 @@ func run() -> void:
 	u.restore(base.merged({"t":now+5000.0}),now);check(u.stored==0.0,"시계를 과거로 돌리면 쌓이지 않음")
 	u.restore({"c":{"nope":3,"d_chick":-2},"e":["nope","d_chick"],"l":"x","f":-5,"s":-1.0,"t":now},now);check(u.counts.get("nope",0)==0 and u.equipped.is_empty() and u.frags==0 and u.stored==0.0,"잘못된 저장값 정리")
 	u.free()
+	# 대표 펫 능력
+	check(PetEffects.leader({"e":["a","b"],"l":"b"})=="b" and PetEffects.leader({"e":["a","b"],"l":"z"})=="a" and PetEffects.leader({})=="","대표 결정(없으면 첫 장착)")
+	m.pet_hut={"e":["a_fennec","sss_lunar"],"l":"a_fennec"}
+	check(absf(m.pet_fx("bite_wait")-0.08)<0.0001 and m.pet_fx("income_all")==0.0,"대표 1마리 능력만 적용(사막여우)")
+	m.pet_hut={"e":["a_fennec","sss_lunar"],"l":"sss_lunar"}
+	check(absf(m.pet_fx("income_all")-0.10)<0.0001 and m.pet_fx("bite_wait")==0.0,"대표를 바꾸면 능력도 바뀜")
+	m.pet_hut={}
+	check(m.pet_fx("bite_wait")==0.0 and m.pet_fx("tension")==0.0,"펫이 없으면 효과 없음")
+	m.aqua=[{"sp":1,"star":0,"grade":0,"len":10.0,"w":0.1,"price":300},{"sp":2,"star":1,"grade":0,"len":10.0,"w":0.1,"price":300},{"sp":3,"star":2,"grade":0,"len":10.0,"w":0.1,"price":300}]
+	var base_rate: float=m.aqua_rate()
+	m.pet_hut={"e":["sss_lunar"],"l":"sss_lunar"};check(absf(m.aqua_rate()/base_rate-1.10)<0.001,"달의 여인: 전시 수입 +10%")
+	m.pet_hut={"e":["s_fairy"],"l":"s_fairy"};check(absf(m.aqua_rate()/base_rate-(3.0+0.16)/3.0)<0.001,"숲 요정: ★1~2 수입 +8%")
+	m.pet_hut={"e":["d_chick"],"l":"d_chick"};check(absf(m.aqua_rate()/base_rate-(3.0+0.02)/3.0)<0.001,"병아리: ★1 수입 +2%")
+	check(PetEffects.boost_int(100,0.15,0.9)==115 and PetEffects.boost_int(10,0.05,0.4)==11 and PetEffects.boost_int(10,0.05,0.6)==10,"비늘조각 증가 계산")
+	m.pet_hut={"e":["sss_demon"],"l":"sss_demon"};m.apply_pet_effects();check(absf(m.expedition.data.pet_atk-0.15)<0.0001,"악마: 용병 공격력 +15%")
+	m.pet_hut={};m.apply_pet_effects();check(m.expedition.data.pet_atk==0.0,"대표 없으면 공격력 보너스 없음")
+	m.region_shop.selected_bait=0;m.bait=5000;m.pet_hut={"e":["a_otter"],"l":"a_otter"}
+	for i in 2000: m.region_shop.take_bait(m)
+	var used: int=5000-m.bait;check(used>1700 and used<1900,"수달: 미끼 약 10%% 절약 (사용 %d/2000)" % used)
+	m.bait=5000;m.pet_hut={}
+	for i in 200: m.region_shop.take_bait(m)
+	check(m.bait==4800,"펫이 없으면 절약 없음")
+	m.S={"star":1,"grade":0,"tensionMul":1.0,"line":0,"locMul":1.0}
+	m.pet_hut={};var full: float=m.shock_amount(1.0)
+	m.S={"star":1,"grade":0,"tensionMul":1.0,"line":0,"locMul":1.0};m.pet_hut={"e":["a_owl"],"l":"a_owl"}
+	var first: float=m.shock_amount(1.0);var second: float=m.shock_amount(1.0)
+	check(absf(first/full-0.6)<0.001 and absf(second/full-1.0)<0.001,"부엉이: 첫 큰 충격만 -40%")
+	m.pet_hut={}
 	# 저장 파일에 포함됨
 	m.progress_loaded=true;m.pet_hut={"c":{"d_chick":1}}
 	var ok: bool=m._save_game()

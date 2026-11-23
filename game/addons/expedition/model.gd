@@ -28,6 +28,7 @@ var pending: Dictionary = {}
 var battle: Dictionary = {}
 var recovery_until: float = 0
 var rng = RandomNumberGenerator.new()
+var pet_atk := 0.0   # 대표 펫의 용병 공격력 보너스(예: 0.15 = +15%)
 
 func _init() -> void:
 	rng.randomize()
@@ -185,7 +186,7 @@ func start(round_no: int,now: float) -> bool:
 		var u: Dictionary=unit(int(uid))
 		if u.is_empty(): return false
 		var st: Dictionary=stats(u)
-		fighters.append({"id":u.id,"uid":u.uid,"star":u.star,"hp":st.hp,"max_hp":st.hp,"atk":st.atk,"def":st.def,"shield":0,"hits":0})
+		fighters.append({"id":u.id,"uid":u.uid,"star":u.star,"hp":st.hp,"max_hp":st.hp,"atk":roundi(float(st.atk)*(1.0+pet_atk)),"def":st.def,"shield":0,"hits":0})
 	battle={"tier_skill_revision":1,"utility_revision":1,"utility_tick":0,"rescue_ready":0,"ward_ready":0,"reward_revision":2,"pouch_reward":0,"repeat_pouch_roll":rng.randf(),"balance_revision":BALANCE_REVISION,"status":"running","round":round_no,"index":0,"fighters":fighters,"ticks":0,"clock":0.0,"phase":"approach","phase_time":0.0,"reward":0,"cleared":0,"first":round_no not in completed,"last_damage":0,"progress":0.0,"result_seen":false}
 	spawn_enemy()
 	return true
