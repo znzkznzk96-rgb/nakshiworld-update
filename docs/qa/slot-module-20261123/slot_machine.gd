@@ -42,6 +42,8 @@ var _rv_t := -1.0
 var _rv_grade := 0
 var _rv_skip := false
 var rv: Control
+## 픽셀 한글 폰트(갈무리11 Bold, OFL). 11 또는 22 크기에서 또렷하다.
+var _font: FontFile
 ## 펫 등장 컷신을 모듈 안에서 보여줄지(게임이 직접 하려면 false로 두고 reveal_requested만 받는다)
 var show_reveal := true
 ## 등급별 펫 후보(0=D..6=SSS)와 이름, 등장 방식. 게임에서는 실제 뽑힌 펫 키를 reveal_pet에 넣는다.
@@ -98,6 +100,10 @@ static func _tex(name: String) -> Texture2D:
 	return ImageTexture.create_from_image(Image.load_from_file(ProjectSettings.globalize_path(A + name + ".png")))
 
 func _ready() -> void:
+	_font = load(A + "fonts/Galmuri11-Bold.ttf")
+	_font.antialiasing = TextServer.FONT_ANTIALIASING_NONE
+	_font.hinting = TextServer.HINTING_NONE
+	_font.subpixel_positioning = TextServer.SUBPIXEL_POSITIONING_DISABLED
 	_body = Sprite2D.new()
 	_body.texture = _tex("body_empty"); _body.centered = false; _body.position = BODY_POS
 	add_child(_body)
@@ -451,14 +457,15 @@ func _draw_top() -> void:
 		var sz := Vector2(bt.get_width(), bt.get_height()) * 1.4 * k * pop
 		var c := Vector2(135, 190)
 		top_fx.draw_texture_rect(bt, Rect2((c - sz * 0.5).round(), sz), false)
-		var font := ThemeDB.fallback_font
+		var font: Font = _font
 		var label := "JACKPOT"
-		var fs := int(20 * k)
+		var fs := 22
 		var tw := font.get_string_size(label, HORIZONTAL_ALIGNMENT_LEFT, -1, fs).x
 		var lp := Vector2(135 - tw * 0.5, 190 + fs * 0.35)
 		var tc := Color(1, 1, 0.8) if int(_bn_t * 10.0) % 2 == 0 else Color(1, 0.85, 0.3)
-		top_fx.draw_string_outline(font, lp, label, HORIZONTAL_ALIGNMENT_LEFT, -1, fs, 5, Color(0.3, 0.05, 0.05))
-		top_fx.draw_string(font, lp, label, HORIZONTAL_ALIGNMENT_LEFT, -1, fs, tc)
+		if _bn_t >= 0.25:
+			top_fx.draw_string_outline(font, lp, label, HORIZONTAL_ALIGNMENT_LEFT, -1, fs, 4, Color(0.3, 0.05, 0.05))
+			top_fx.draw_string(font, lp, label, HORIZONTAL_ALIGNMENT_LEFT, -1, fs, tc)
 	if _spot > 0.0:
 		var w := Rect2(WINDOW_POS, Vector2(CELL.x * 3, CELL.y * 3))
 		var c := Color(0, 0, 0, 0.6)
@@ -568,23 +575,23 @@ func _draw_reveal() -> void:
 	# 이름: 등급은 위 줄에 색 글자로, 펫 이름은 아래 줄(S 이상은 리본의 붉은 띠 가운데)에 쓴다
 	if t0 >= 0.4:
 		var la := clampf((t0 - 0.4) / 0.25, 0.0, 1.0)
-		var font := ThemeDB.fallback_font
+		var font: Font = _font
 		var gtxt: String = "%s 등급" % GRADES[g]
-		var gw := font.get_string_size(gtxt, HORIZONTAL_ALIGNMENT_LEFT, -1, 13).x
+		var gw := font.get_string_size(gtxt, HORIZONTAL_ALIGNMENT_LEFT, -1, 11).x
 		var gp := Vector2(135 - gw * 0.5, 268)
-		rv.draw_string_outline(font, gp, gtxt, HORIZONTAL_ALIGNMENT_LEFT, -1, 13, 4, Color(0, 0, 0, la))
-		rv.draw_string(font, gp, gtxt, HORIZONTAL_ALIGNMENT_LEFT, -1, 13, Color(col.r, col.g, col.b, la))
+		rv.draw_string_outline(font, gp, gtxt, HORIZONTAL_ALIGNMENT_LEFT, -1, 11, 3, Color(0, 0, 0, la))
+		rv.draw_string(font, gp, gtxt, HORIZONTAL_ALIGNMENT_LEFT, -1, 11, Color(col.r, col.g, col.b, la))
 		var nm: String = PET_NAME[_rv_pet]
-		var nfs := 18
+		var nfs := 22
 		var ny := 300.0
 		if g >= 4:
 			var bt: Texture2D = _fr["banner"][0]
 			rv.draw_texture_rect(bt, Rect2(Vector2(135 - 96, 276), Vector2(192, 64)), false, Color(1, 1, 1, la))
-			nfs = 12
+			nfs = 11
 			ny = 276.0 + 35.0 + (font.get_ascent(nfs) - font.get_descent(nfs)) * 0.5   # 붉은 띠(배너 y 28~41)의 세로 가운데
 		var nw := font.get_string_size(nm, HORIZONTAL_ALIGNMENT_LEFT, -1, nfs).x
 		var np := Vector2(135 - nw * 0.5, ny)
-		rv.draw_string_outline(font, np, nm, HORIZONTAL_ALIGNMENT_LEFT, -1, nfs, 3 if g >= 4 else 5, Color(0, 0, 0, la))
+		rv.draw_string_outline(font, np, nm, HORIZONTAL_ALIGNMENT_LEFT, -1, nfs, 2 if g >= 4 else 4, Color(0, 0, 0, la))
 		rv.draw_string(font, np, nm, HORIZONTAL_ALIGNMENT_LEFT, -1, nfs, Color(1, 1, 1, la))
 	# 번쩍: 등장 순간(SSS는 두 번), SSS는 충격파 고리도
 	var fl := clampf(1.0 - absf(t0) * (6.0 if t0 < 0.0 else 3.0), 0.0, 1.0) if absf(t0) < 0.4 else 0.0
