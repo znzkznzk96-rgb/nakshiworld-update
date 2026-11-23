@@ -1,3 +1,8 @@
+## 2026-11-23 · 펫 rn5·rn6 실패
+- rn5: generate-image-v2(style_image=선택 천사) 악마 1회를 사용자가 중단했으나 서버 작업은 진행돼 15 차감(4299→4283 구간에 반영), 결과·job id 미보존. 비동기 작업은 중단해도 차감될 수 있음.
+- rn6: bitforge(style_image=게임 배경 크롭, strength 40, 색 강제 없음) 악마 3장(3 차감) 형태 붕괴로 불합격·중단. bitforge는 천사·배경 어느 스타일이든 실패 → 재사용 금지.
+- 결론: 게임 스타일 품질은 그리드형(generate-with-style-v2·generate-image-v2, 1회 약 15)에서만 확인됨.
+
 ## 2026-11-23 · 펫 rn3·rn4 시험
 - rn3: generate-with-style-v2(게임 밤 배경 base.png 게임해상도 크롭 3장 + 기존 고양이, max_colors 32), 36×36, 1회=36장, 차감 15. 결과 게임과 잘 맞음. 사용자 선택 5-3 = rn3/out/sss_seraph/26.png → rn3/sss_seraph_pick.png.
 - rn4: bitforge(style_image=선택 천사, 캔버스와 같은 크기 필수, style_strength 60) 3종 1회씩 차감 1. 천사 색·형태가 번져 골렘·사막여우·병아리 정체성 상실 → 불합격, 같은 방식 반복 금지.
