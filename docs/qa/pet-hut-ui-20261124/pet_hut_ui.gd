@@ -495,8 +495,9 @@ func _draw_plans_tab(body: Rect2) -> void:
 	else:
 		var c: Array = BP_COST[grade_of(plan_sel)]
 		_txt("%s 도면 (%s)" % [NAME[plan_sel], GRADE_NAME[grade_of(plan_sel)]], dr.position + Vector2(8, 15), 9, INK, false, 130)
-		_txt("조각 %d" % c[0], dr.position + Vector2(8, 31), 8, Color("2f8f84") if frags >= c[0] else Color("b04a3a"), false, 50)
-		_txt("진주 %d" % c[1], dr.position + Vector2(60, 31), 8, Color("2f8f84") if pearl_total >= c[1] else Color("b04a3a"), false, 50)
+		draw_texture(_t("icon/frag16"), dr.position + Vector2(8, 22))
+		_txt("%d" % c[0], dr.position + Vector2(27, 31), 8, Color("2f8f84") if frags >= c[0] else Color("b04a3a"), false, 40)
+		_txt("진주 %d" % c[1], dr.position + Vector2(66, 31), 8, Color("2f8f84") if pearl_total >= c[1] else Color("b04a3a"), false, 50)
 		var bt := Rect2(dr.end.x - 54, dr.position.y + 9, 48, 24)
 		var ok := can_craft(plan_sel)
 		_art("button" if ok else "card", bt)
@@ -574,8 +575,6 @@ func _draw_box_tab(body: Rect2) -> void:
 	draw_texture_rect_region(tex2, Rect2(dr.position + Vector2(6 + (36 - th2) / 2.0, 4 + (36 - th2) / 2.0), Vector2(th2, th2)), Rect2(0, 0, th2, th2), t2)
 	_txt("%s (%s)" % [NAME[box_sel], GRADE_NAME[grade_of(box_sel)]], dr.position + Vector2(48, 16), 9, INK, false, 110)
 	_txt("보유 %d · 시간당 진주 %.2f" % [have2, RATE[grade_of(box_sel)]] if have2 >= 1 else "아직 없는 펫이에요", dr.position + Vector2(48, 31), 8, Color("8f6951"), false, 170)
-	if have2 >= 1:
-		draw_texture(_t("icon/frag16"), dr.position + Vector2(dr.size.x - 24, 8))
 	var eq := equipped.has(box_sel)
 	var ok1 := have2 >= 1
 	var b1 := Rect2(dr.position.x + 6, dr.position.y + 44, 68, 24)
@@ -591,7 +590,11 @@ func _draw_box_tab(body: Rect2) -> void:
 	var b2 := Rect2(dr.position.x + 150, dr.position.y + 44, 68, 24)
 	var ok2 := can_dismantle(box_sel)
 	_art("button" if ok2 else "card", b2)
-	_txt("분해 +%d" % frag_of(box_sel) if ok2 else "분해 불가", b2.get_center() + Vector2(0, 4), 8, CREAM if ok2 else Color("6e5c49"), true, 62)
+	if ok2:
+		draw_texture(_t("icon/frag16"), (b2.get_center() + Vector2(-22, -8)).round())
+		_txt("+%d" % frag_of(box_sel), b2.get_center() + Vector2(8, 4), 8, CREAM, true, 40)
+	else:
+		_txt("분해 불가", b2.get_center() + Vector2(0, 4), 8, Color("6e5c49"), true, 62)
 	rects["bx_dis"] = b2
 
 func _box_press(p: Vector2) -> bool:
