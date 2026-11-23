@@ -1,0 +1,15 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1795452271
+check.gd::GDScript::6610969636573674525::1795452266::0::1::::<>SceneTree<><>0<>0<><>::
+pet_hut_ui.gd::GDScript::3427553817805517729::1795452266::0::1::::PetHutUI<>Control<><>0<>0<><>::
+shot.gd::GDScript::3259735003380825407::1795452266::0::1::::<>SceneTree<><>0<>0<><>::
+test_main.gd::GDScript::5211416186619543434::1795452266::0::1::::<>Control<><>0<>0<><>::
+test_main.tscn::PackedScene::-1::1795452266::0::1::::<><><>0<>0<><>::res://test_main.gd
+::res://assets/::1795452266
+badge.png::CompressedTexture2D::9027517371513169380::1795452266::1795452277::1::::<><><>0<>0<>e353e5086fecd3cc3ac4531752124b44<>res://.godot/imported/badge.png-d06d2226f047b9398d9b9740c1b6bd5f.ctex::
+button.png::CompressedTexture2D::147074592994119782::1795452265::1795452277::1::::<><><>0<>0<>2fd9af5b3261e9f44bec2f4fbc92fd07<>res://.godot/imported/button.png-c79155b6e84601a7c5a042250ad77b07.ctex::
+card.png::CompressedTexture2D::5359227298410688620::1795452265::1795452277::1::::<><><>0<>0<>1f41eec928cb8251deddf557e571cb51<>res://.godot/imported/card.png-c12f80167372a8ea75cae1cb137b9cb2.ctex::
+header.png::CompressedTexture2D::1860977633464900611::1795452265::1795452277::1::::<><><>0<>0<>a4d35af7a046936645a7f02e8344bf9d<>res://.godot/imported/header.png-475fa8b9382a0bf2e9ddfb4f7a120a61.ctex::
+neodgm.ttf::FontFile::4211056300946254012::1795452266::1795452277::1::::<><><>0<>0<>9bc49eaa93a98b6cd5b252f776d59cbd<>res://.godot/imported/neodgm.ttf-d7fb6876e16d834b7cc6b8e90f226c9a.fontdata::
+panel.png::CompressedTexture2D::8897525287338565691::1795452265::1795452277::1::::<><><>0<>0<>007af4c2032c9eeea0eac70f5c24132b<>res://.godot/imported/panel.png-98abd75f17820992d19abbe4c1e458c7.ctex::
+teal.png::CompressedTexture2D::3274877396666816330::1795452265::1795452277::1::::<><><>0<>0<>84bb9dc066ba36258ca64aed8a878a54<>res://.godot/imported/teal.png-93ddba5cedfc148b8195e203858c407f.ctex::
