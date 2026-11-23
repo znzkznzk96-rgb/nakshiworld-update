@@ -96,12 +96,13 @@ func cat(m,kind: String,local: float) -> void:
 const AURA:={"d":Color(.9,.9,.85),"c":Color(.55,.95,.6),"b":Color(.5,.75,1),"a":Color(.75,.55,1),"s":Color(1,.85,.35),"ss":Color(1,.55,.3),"sss":Color(1,.6,.9)}
 const AURA_POWER:={"c":.5,"b":.6,"a":.75,"s":1.0,"ss":1.2,"sss":1.5}
 var pet_cache:={}
-# 화면 확대 시 흰 사각형이 되는 문제를 피하려고 이미지에서 직접 텍스처를 만든다
+# 낚시 화면 캔버스에서는 불러온 압축 텍스처가 흰 사각형으로 그려져, 이미지로 풀어 새 텍스처를 만든다
 func pet_tex(k: String,kind: String) -> Texture2D:
 	var key:=k+"_"+kind
 	if not pet_cache.has(key):
-		var img:=Image.load_from_file("res://art/pet_hut/pets/%s.png"%key)
-		pet_cache[key]=ImageTexture.create_from_image(img) if img!=null else null
+		var path:="res://art/pet_hut/pets/%s.png"%key
+		var src: Texture2D=load(path) if ResourceLoader.exists(path) else null
+		pet_cache[key]=ImageTexture.create_from_image(src.get_image()) if src!=null else null
 	return pet_cache[key]
 
 # 대표 펫이 있으면 고양이 자리에 그린다(20px 스프라이트 2배, 낚시꾼 쪽을 봄)
@@ -121,29 +122,23 @@ func pet(m,k: String,kind: String,local: float,air: float) -> void:
 	# 바닥 그림자
 	m.draw_rect(Rect2(cx-8.0,m.SURF,16,1),Color(.11,.13,.1,.3))
 	m.draw_rect(Rect2(cx-6.0,m.SURF+1,12,1),Color(.11,.13,.1,.15))
-	# 등급 오라: 펫 뒤에서 숨쉬듯 번지는 빛과 위로 오르는 반짝임
-	# 낮에는 밝은 배경에 묻히므로 오라를 더 진하게 한다
-	var strength: float=AURA_POWER.get(grade,0.0)*lerpf(2.8,1.4,m.environment.night_strength())
+	# 밤에는 오라 색의 빛번짐을 한 겹 깐다(윤곽 오라·발광·파티클은 아래 오버레이)
+	var night: float=m.environment.night_strength()
+	var strength: float=AURA_POWER.get(grade,0.0)*night
 	if strength>0.0:
 		var pulse: float=.75+.25*sin(m.clock*2.4)
-		for i in 4:
-			var r: float=sz*(.62-i*.12)
-			m.draw_circle(Vector2(cx,y+sz*.55),r,Color(col.r,col.g,col.b,strength*pulse*(.07+i*.05))*tint)
-		# 밤에는 오라가 빛나듯 큰 빛번짐이 한 겹 더 깔린다
-		var night: float=m.environment.night_strength()
-		if night>.02:
-			for i in 3:
-				m.draw_circle(Vector2(cx,y+sz*.55),sz*(.95-i*.2),Color(col.r,col.g,col.b,strength*pulse*night*(.06+i*.05)))
 		for i in 3:
-			var ph: float=fmod(m.clock*.6+i*.34,1.0)
-			var px: float=roundf(cx+[-9.0,8.0,0.0][i]+sin(m.clock*2.0+i*2.0)*1.5)
-			var py: float=roundf(y+sz*.7-ph*sz*.9)
-			m.draw_rect(Rect2(px,py,1,1),Color(1,1,1,sin(ph*PI)*strength*1.4))
-			m.draw_rect(Rect2(px-1,py,3,1),Color(col.r,col.g,col.b,sin(ph*PI)*strength*.7))
+			m.draw_circle(Vector2(cx,y+sz*.55),sz*(.95-i*.2),Color(col.r,col.g,col.b,strength*pulse*(.06+i*.05)))
 	# 펫은 원본 방향(오른쪽 = 낚시꾼 쪽)을 본다
 	for off in [Vector2(-.5,0),Vector2(.5,0),Vector2(0,-.5),Vector2(0,.5)]:
 		m.draw_texture_rect_region(tex,Rect2(cx-sz*.5+off.x,y+off.y,sz,sz),Rect2(frame*h,0,h,h),Color(.18,.1,.2,.55)*tint)
 	m.draw_texture_rect_region(tex,Rect2(cx-sz*.5,y,sz,sz),Rect2(frame*h,0,h,h),tint)
+	# 11/22에 만든 펫별 오라(윤곽·발광·파티클) 오버레이: 몸 칸을 사방 14픽셀 넓힌 칸
+	var fx: Texture2D=pet_tex(k,"fx_work" if kind=="success" else "fx_idle")
+	if fx!=null:
+		var fs: int=fx.get_height()
+		var ff: int=frame if kind=="success" else int(m.clock*8.0)%9
+		m.draw_texture_rect_region(fx,Rect2(cx-fs*.5,y-(fs-h)*.5,fs,fs),Rect2(ff*fs,0,fs,fs),Color(1,1,1,1))
 
 func draw(m) -> Vector2:
 	if textures.is_empty(): setup()

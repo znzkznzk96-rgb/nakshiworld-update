@@ -268,6 +268,20 @@ func _draw_pets_tab(body: Rect2) -> void:
 			draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 		else:
 			draw_texture_rect_region(tex, dest, Rect2(fr * h, 0, h, h))
+		# 11/22에 만든 펫별 오라 오버레이(윤곽·발광·파티클): 몸 칸을 사방 14픽셀 넓힌 칸
+		var moving: bool = absf(p.tx - p.x) > 1.5 and p.wait <= 0.0
+		var fxk: String = "work" if kind == "work" else ("move" if moving else "idle")
+		var fxt: Texture2D = _strip(p.k, "fx_" + fxk)
+		if fxt != null:
+			var fs := fxt.get_height()
+			var ff := fr if fxk != "idle" else int(_clock * 8.0) % 9
+			var pad := (fs - h) * 0.5
+			if p.face < 0:
+				draw_set_transform(Vector2(pos.x, 0), 0.0, Vector2(-1, 1))
+				draw_texture_rect_region(fxt, Rect2(-fs / 2.0, pos.y - h - pad, fs, fs), Rect2(ff * fs, 0, fs, fs))
+				draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+			else:
+				draw_texture_rect_region(fxt, Rect2(pos.x - fs / 2.0, pos.y - h - pad, fs, fs), Rect2(ff * fs, 0, fs, fs))
 	for f in _fx:
 		var yy: float = scene.position.y + f.y - 30.0 - f.t * 26.0
 		var xx: float = scene.position.x + f.x
