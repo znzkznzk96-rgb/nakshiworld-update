@@ -152,7 +152,7 @@ func _init() -> void:
 	ui.press(ui.rects["bx:a_owl"].get_center()); ui.step(0.0); await process_frame
 	ui.press(ui.rects["bx_equip"].get_center())
 	n += 1; ok += 1 if not ui.equipped.has("a_owl") and ui.get_leader() == "b_hamster" else 0          # 대표를 빼면 다음 펫이 대표
-	var icons_ok := FileAccess.file_exists("res://assets/icon/frag.png")
+	var icons_ok := FileAccess.file_exists("res://assets/icon/frag16.png")
 	for k in PetHutUI.PETS:
 		if PetHutUI.BP_COST.has(PetHutUI.grade_of(k)): icons_ok = icons_ok and FileAccess.file_exists("res://assets/icon/bp_%s.png" % k)
 	n += 1; ok += 1 if icons_ok else 0                                                                  # 조각 1·도면 13 아이콘

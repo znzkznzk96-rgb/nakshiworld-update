@@ -575,7 +575,7 @@ func _draw_box_tab(body: Rect2) -> void:
 	_txt("%s (%s)" % [NAME[box_sel], GRADE_NAME[grade_of(box_sel)]], dr.position + Vector2(48, 16), 9, INK, false, 110)
 	_txt("보유 %d · 시간당 진주 %.2f" % [have2, RATE[grade_of(box_sel)]] if have2 >= 1 else "아직 없는 펫이에요", dr.position + Vector2(48, 31), 8, Color("8f6951"), false, 170)
 	if have2 >= 1:
-		draw_texture(_t("icon/frag"), dr.position + Vector2(dr.size.x - 38, 4))
+		draw_texture(_t("icon/frag16"), dr.position + Vector2(dr.size.x - 24, 8))
 	var eq := equipped.has(box_sel)
 	var ok1 := have2 >= 1
 	var b1 := Rect2(dr.position.x + 6, dr.position.y + 44, 68, 24)
