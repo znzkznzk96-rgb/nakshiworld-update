@@ -52,5 +52,41 @@ func _init() -> void:
 	var prev0: String = ui.equipped[0]; var prev1: String = ui.equipped[1]
 	ui.press(ui.rects["pick:" + prev0].get_center())   # 이미 다른 칸에 있는 펫 → 서로 교환
 	n += 1; ok += 1 if ui.equipped[1] == prev0 and ui.equipped[0] == prev1 else 0
+	# ── 뽑기 탭 ──
+	var psum := 0.0
+	for g in PetHutUI.GRADE_P: psum += g
+	n += 1; ok += 1 if absf(psum - 100.0) < 0.001 and PetHutUI.PETS.size() == 22 else 0
+	var pp := 0.0
+	for k in PetHutUI.PETS: pp += PetHutUI.pet_percent(k)
+	n += 1; ok += 1 if absf(pp - 100.0) < 0.001 else 0           # 펫별 확률 합 100
+	ui._grng.seed = 11
+	var gc := [0, 0, 0, 0, 0, 0, 0]
+	for i in 100000: gc[PetHutUI.grade_of(ui.roll_pet())] += 1
+	var dist_ok := true
+	for g in 7: dist_ok = dist_ok and absf(gc[g] / 1000.0 - PetHutUI.GRADE_P[g]) < maxf(0.25, PetHutUI.GRADE_P[g] * 0.15)
+	n += 1; ok += 1 if dist_ok else 0                            # 시뮬 확률이 표와 일치
+	ui.press(ui.rects["tab:gacha"].get_center()); ui.step(0.0); await process_frame
+	ui.pearl_total = 9
+	n += 1; ok += 1 if not ui.can_pull() and not ui.pull() and ui.pearl_total == 9 else 0   # 진주 부족이면 안 됨
+	ui.pearl_total = 25
+	var before_cnt := 0
+	for k in ui.counts: before_cnt += ui.counts[k]
+	var done := [false]
+	n += 1; ok += 1 if ui.pull() and ui.pearl_total == 15 and ui._slot != null else 0       # 10개 차감, 슬롯 시작
+	var after_cnt := 0
+	for k in ui.counts: after_cnt += ui.counts[k]
+	n += 1; ok += 1 if after_cnt == before_cnt + 1 and ui.counts[ui.last_pet] >= 1 and ui.owned.has(ui.last_pet) else 0
+	n += 1; ok += 1 if not ui.pull() and ui.pearl_total == 15 else 0                          # 연출 중 중복 뽑기 막힘
+	ui.press(Vector2(135, 200)); n += 1; ok += 1 if ui._slot != null else 0                  # 연출 중 창은 반응 없음
+	var waited := 0.0
+	while ui._slot != null and waited < 40.0:
+		await process_frame
+		if ui._machine != null and ui._machine.busy: ui._machine.skip()
+		waited += 0.016
+	n += 1; ok += 1 if ui._slot == null and ui.can_pull() else 0                              # 연출이 끝나고 돌아옴
+	ui.step(0.0); await process_frame
+	ui.press(ui.rects["odds"].get_center()); n += 1; ok += 1 if ui.show_odds else 0
+	ui.step(0.0); await process_frame
+	ui.press(ui.rects["odds_close"].get_center()); n += 1; ok += 1 if not ui.show_odds else 0
 	print("통과 %d/%d" % [ok, n])
 	quit(0 if ok == n else 1)

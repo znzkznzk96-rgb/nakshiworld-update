@@ -49,20 +49,20 @@ var show_reveal := true
 ## 등급별 펫 후보(0=D..6=SSS)와 이름, 등장 방식. 게임에서는 실제 뽑힌 펫 키를 reveal_pet에 넣는다.
 const PETS := {
 	0: ["d_chick", "d_frog", "d_mouse"], 1: ["c_mushroom", "c_puffbird", "c_slime"], 2: ["b_hamster", "b_hedgehog", "b_sparrow"],
-	3: ["a_fennec", "a_otter", "a_owl"], 4: ["s_fairy", "s_rock", "s_tome", "s_wisp"], 5: ["ss_golem", "ss_knight", "ss_storm"],
+	3: ["a_fennec", "a_otter", "a_owl"], 4: ["s_fairy", "s_tome", "s_wisp"], 5: ["ss_golem", "ss_knight", "ss_storm"],
 	6: ["sss_apostle", "sss_demon", "sss_lunar", "sss_seraph"],
 }
 const PET_NAME := {
 	"d_chick": "병아리", "d_frog": "개구리", "d_mouse": "생쥐", "c_mushroom": "버섯", "c_puffbird": "퍼프버드", "c_slime": "슬라임",
 	"b_hamster": "햄스터", "b_hedgehog": "고슴도치", "b_sparrow": "참새", "a_fennec": "사막여우", "a_otter": "수달", "a_owl": "부엉이",
-	"s_fairy": "요정", "s_rock": "이끼바위", "s_tome": "마도서", "s_wisp": "촛불정령", "ss_golem": "골렘", "ss_knight": "기사",
+	"s_fairy": "요정", "s_tome": "마도서", "s_wisp": "촛불정령", "ss_golem": "골렘", "ss_knight": "기사",
 	"ss_storm": "폭풍룡", "sss_apostle": "별의 사도", "sss_demon": "심연의 악마", "sss_lunar": "달의 여인", "sss_seraph": "세라핌",
 }
 ## 등장 방식: drop 떨어져 튕김 / slam 쾅 내리꽂음(화면 흔들림) / hop 옆에서 점프 / rise 아래서 솟음 / float 위에서 천천히 / roll 옆에서 굴러옴
 const PET_ENTRY := {
 	"d_chick": "hop", "d_frog": "hop", "d_mouse": "roll", "c_mushroom": "drop", "c_puffbird": "float", "c_slime": "drop",
 	"b_hamster": "hop", "b_hedgehog": "roll", "b_sparrow": "float", "a_fennec": "hop", "a_otter": "rise", "a_owl": "float",
-	"s_fairy": "float", "s_rock": "slam", "s_tome": "rise", "s_wisp": "rise", "ss_golem": "slam", "ss_knight": "slam",
+	"s_fairy": "float", "s_tome": "rise", "s_wisp": "rise", "ss_golem": "slam", "ss_knight": "slam",
 	"ss_storm": "roll", "sss_apostle": "rise", "sss_demon": "slam", "sss_lunar": "float", "sss_seraph": "float",
 }
 ## 펫 속성별 연출 모티프와 색(밝은색, 포인트색). 한 점에서 퍼지는 빛줄기는 쓰지 않는다.
@@ -75,7 +75,7 @@ const THEME_COL := {
 const PET_THEME := {
 	"d_chick": "air", "d_frog": "water", "d_mouse": "earth", "c_mushroom": "nature", "c_puffbird": "air", "c_slime": "water",
 	"b_hamster": "nature", "b_hedgehog": "nature", "b_sparrow": "air", "a_fennec": "earth", "a_otter": "water", "a_owl": "air",
-	"s_fairy": "nature", "s_rock": "earth", "s_tome": "magic", "s_wisp": "fire", "ss_golem": "earth", "ss_knight": "magic",
+	"s_fairy": "nature", "s_tome": "magic", "s_wisp": "fire", "ss_golem": "earth", "ss_knight": "magic",
 	"ss_storm": "volt", "sss_apostle": "magic", "sss_demon": "fire", "sss_lunar": "magic", "sss_seraph": "air",
 }
 ## 뽑기 결과로 보여줄 펫 키(비워 두면 해당 등급에서 무작위)
