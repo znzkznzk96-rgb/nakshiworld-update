@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://b2wrv6h5fqy7a"
-path="res://.godot/imported/Galmuri11-Bold.ttf-3a23d149e7b99ee54cc37134f38f9040.fontdata"
+uid="uid://6th71abfsx8l"
+path="res://.godot/imported/neodgm.ttf-56a2ba7cd44cac636f344001a4de6fa3.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/Galmuri11-Bold.ttf"
-dest_files=["res://.godot/imported/Galmuri11-Bold.ttf-3a23d149e7b99ee54cc37134f38f9040.fontdata"]
+source_file="res://assets/fonts/neodgm.ttf"
+dest_files=["res://.godot/imported/neodgm.ttf-56a2ba7cd44cac636f344001a4de6fa3.fontdata"]
 
 [params]
 

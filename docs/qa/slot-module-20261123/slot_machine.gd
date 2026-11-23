@@ -42,7 +42,7 @@ var _rv_t := -1.0
 var _rv_grade := 0
 var _rv_skip := false
 var rv: Control
-## 픽셀 한글 폰트(갈무리11 Bold, OFL). 11 또는 22 크기에서 또렷하다.
+## 픽셀 한글 폰트(Neo둥근모 v1.600, OFL). 16의 배수(16·32) 크기에서 또렷하다.
 var _font: FontFile
 ## 펫 등장 컷신을 모듈 안에서 보여줄지(게임이 직접 하려면 false로 두고 reveal_requested만 받는다)
 var show_reveal := true
@@ -100,7 +100,7 @@ static func _tex(name: String) -> Texture2D:
 	return ImageTexture.create_from_image(Image.load_from_file(ProjectSettings.globalize_path(A + name + ".png")))
 
 func _ready() -> void:
-	_font = load(A + "fonts/Galmuri11-Bold.ttf")
+	_font = load(A + "fonts/neodgm.ttf")
 	_font.antialiasing = TextServer.FONT_ANTIALIASING_NONE
 	_font.hinting = TextServer.HINTING_NONE
 	_font.subpixel_positioning = TextServer.SUBPIXEL_POSITIONING_DISABLED
@@ -459,7 +459,7 @@ func _draw_top() -> void:
 		top_fx.draw_texture_rect(bt, Rect2((c - sz * 0.5).round(), sz), false)
 		var font: Font = _font
 		var label := "JACKPOT"
-		var fs := 22
+		var fs := 32
 		var tw := font.get_string_size(label, HORIZONTAL_ALIGNMENT_LEFT, -1, fs).x
 		var lp := Vector2(135 - tw * 0.5, 190 + fs * 0.35)
 		var tc := Color(1, 1, 0.8) if int(_bn_t * 10.0) % 2 == 0 else Color(1, 0.85, 0.3)
@@ -577,17 +577,17 @@ func _draw_reveal() -> void:
 		var la := clampf((t0 - 0.4) / 0.25, 0.0, 1.0)
 		var font: Font = _font
 		var gtxt: String = "%s 등급" % GRADES[g]
-		var gw := font.get_string_size(gtxt, HORIZONTAL_ALIGNMENT_LEFT, -1, 11).x
+		var gw := font.get_string_size(gtxt, HORIZONTAL_ALIGNMENT_LEFT, -1, 16).x
 		var gp := Vector2(135 - gw * 0.5, 268)
-		rv.draw_string_outline(font, gp, gtxt, HORIZONTAL_ALIGNMENT_LEFT, -1, 11, 3, Color(0, 0, 0, la))
-		rv.draw_string(font, gp, gtxt, HORIZONTAL_ALIGNMENT_LEFT, -1, 11, Color(col.r, col.g, col.b, la))
+		rv.draw_string_outline(font, gp, gtxt, HORIZONTAL_ALIGNMENT_LEFT, -1, 16, 3, Color(0, 0, 0, la))
+		rv.draw_string(font, gp, gtxt, HORIZONTAL_ALIGNMENT_LEFT, -1, 16, Color(col.r, col.g, col.b, la))
 		var nm: String = PET_NAME[_rv_pet]
-		var nfs := 22
+		var nfs := 32
 		var ny := 300.0
 		if g >= 4:
 			var bt: Texture2D = _fr["banner"][0]
 			rv.draw_texture_rect(bt, Rect2(Vector2(135 - 96, 276), Vector2(192, 64)), false, Color(1, 1, 1, la))
-			nfs = 11
+			nfs = 16
 			ny = 276.0 + 35.0 + (font.get_ascent(nfs) - font.get_descent(nfs)) * 0.5   # 붉은 띠(배너 y 28~41)의 세로 가운데
 		var nw := font.get_string_size(nm, HORIZONTAL_ALIGNMENT_LEFT, -1, nfs).x
 		var np := Vector2(135 - nw * 0.5, ny)
