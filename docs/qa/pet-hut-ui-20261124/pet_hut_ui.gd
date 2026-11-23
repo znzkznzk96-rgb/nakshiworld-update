@@ -38,8 +38,8 @@ var _tex := {}
 var _font: FontFile
 var last_pet := ""
 var frags := 0
-var plan_mode := "craft"       # craft 도면 제작 / dis 펫 분해
-var plan_g := 3                # 도면 목록에서 보는 등급
+var plan_sel := "a_fennec"     # 도면 상점에서 고른 펫
+var plan_dis := false          # 분해 창 열림
 var dis_sel := ""
 var plan_msg := ""
 var last_new := false
@@ -130,7 +130,7 @@ func press(p: Vector2) -> void:
 	if tab == "plans" and _plans_press(p): return
 	for t in TABS:
 		if rects.get("tab:" + t[0], Rect2()).has_point(p):
-			tab = t[0]; picker = -1; show_odds = false; plan_msg = ""; queue_redraw(); return
+			tab = t[0]; picker = -1; show_odds = false; plan_msg = ""; plan_dis = false; queue_redraw(); return
 
 # ───────── 내 펫 탭: 돌아다니며 진주 캐기 ─────────
 static func grade_of(k: String) -> int:
@@ -454,55 +454,65 @@ func craft(k: String) -> bool:
 	counts[k] = counts.get(k, 0) + 1
 	last_pet = k
 	_sync_owned()
-	plan_msg = "%s 제작 완료!" % NAME[k]
+	plan_msg = "%s 도면 구매! 펫을 얻었어요" % NAME[k]
 	return true
 
 func _draw_plans_tab(body: Rect2) -> void:
 	var b := body.position
 	var cx := b.x + body.size.x / 2.0
 	_txt(plan_msg if plan_msg != "" else "조각 %d개 · 진주 %d개" % [frags, pearl_total], Vector2(cx, b.y + 17), 9, Color("2f8f84") if plan_msg != "" else INK, true, 220)
-	for i in 2:
-		var key: String = ["craft", "dis"][i]
-		var sr := Rect2(b.x + 6 + i * 110, b.y + 26, 108, 22)
-		_art("teal" if plan_mode == key else "card", sr)
-		_txt(["도면 제작", "펫 분해"][i], sr.get_center() + Vector2(0, 4), 9, CREAM if plan_mode == key else INK, true, 100)
-		rects["pm:" + key] = sr
-	if plan_mode == "craft": _draw_craft(body)
-	else: _draw_dismantle(body)
-
-func _draw_craft(body: Rect2) -> void:
-	var b := body.position
-	for i in 4:
-		var g: int = [3, 4, 5, 6][i]
-		var cr := Rect2(b.x + 6 + i * 55, b.y + 54, 52, 20)
-		_art("teal" if plan_g == g else "card", cr)
-		_txt(GRADE_NAME[g], cr.get_center() + Vector2(0, 4), 9, CREAM if plan_g == g else INK, true, 48)
-		rects["pg:%d" % g] = cr
-	var list := pets_of(plan_g)
+	var list := bp_pets()
 	for n in list.size():
 		var k: String = list[n]
-		var rr := Rect2(b.x + 6, b.y + 80 + n * 40.0, body.size.x - 12, 38)
-		_art("card", rr)
+		var cr := Rect2(b.x + 4 + (n % 4) * 56.0, b.y + 26 + (n / 4) * 40.0, 54, 38)
+		_art("teal" if plan_sel == k else "card", cr)
 		var tex: Texture2D = _strip(k, "move")
 		var th := tex.get_height()
-		draw_texture_rect_region(tex, Rect2(rr.position + Vector2(4 + (36 - th) / 2.0, (38 - th) / 2.0), Vector2(th, th)), Rect2(0, 0, th, th))
-		var c: Array = BP_COST[plan_g]
-		_txt(NAME[k], rr.position + Vector2(44, 15), 9, INK, false, 100)
-		var okf: bool = frags >= c[0]
-		var okp: bool = pearl_total >= c[1]
-		_txt("조각 %d" % c[0], rr.position + Vector2(44, 29), 8, Color("2f8f84") if okf else Color("b04a3a"), false, 50)
-		_txt("진주 %d" % c[1], rr.position + Vector2(90, 29), 8, Color("2f8f84") if okp else Color("b04a3a"), false, 50)
-		var bt := Rect2(rr.end.x - 54, rr.position.y + 7, 48, 24)
-		var ok := can_craft(k)
+		var tint := Color(1, 1, 1, 1.0 if can_craft(k) else 0.55)
+		draw_texture_rect_region(tex, Rect2(cr.position + Vector2((54 - th) / 2.0, (38 - th) / 2.0), Vector2(th, th)), Rect2(0, 0, th, th), tint)
+		_txt(GRADE_NAME[grade_of(k)], cr.position + Vector2(5, 12), 8, CREAM if plan_sel == k else Color("8f6951"), false, 20)
+		rects["bp:" + k] = cr
+	var dr := Rect2(b.x + 6, b.y + 190, body.size.x - 12, 46)
+	_art("card", dr)
+	if plan_sel == "":
+		_txt("살 도면을 골라요 (흐린 칸은 재료 부족)", dr.get_center() + Vector2(0, 4), 8, Color("8f6951"), true, dr.size.x - 10)
+	else:
+		var tex2: Texture2D = _strip(plan_sel, "move")
+		var th2 := tex2.get_height()
+		draw_texture_rect_region(tex2, Rect2(dr.position + Vector2(4 + (36 - th2) / 2.0, (46 - th2) / 2.0), Vector2(th2, th2)), Rect2(0, 0, th2, th2))
+		var c: Array = BP_COST[grade_of(plan_sel)]
+		_txt("%s 도면 (%s)" % [NAME[plan_sel], GRADE_NAME[grade_of(plan_sel)]], dr.position + Vector2(44, 17), 9, INK, false, 110)
+		_txt("조각 %d" % c[0], dr.position + Vector2(44, 33), 8, Color("2f8f84") if frags >= c[0] else Color("b04a3a"), false, 50)
+		_txt("진주 %d" % c[1], dr.position + Vector2(90, 33), 8, Color("2f8f84") if pearl_total >= c[1] else Color("b04a3a"), false, 50)
+		var bt := Rect2(dr.end.x - 54, dr.position.y + 11, 48, 24)
+		var ok := can_craft(plan_sel)
 		_art("button" if ok else "card", bt)
-		_txt("제작", bt.get_center() + Vector2(0, 4), 9, CREAM if ok else Color("6e5c49"), true, 44)
-		rects["craft:" + k] = bt
+		_txt("구매", bt.get_center() + Vector2(0, 4), 9, CREAM if ok else Color("6e5c49"), true, 44)
+		rects["buy"] = bt
+	var xb := Rect2(b.x + 6, b.y + 242, body.size.x - 12, 18)
+	_art("card", xb)
+	_txt("펫 분해해서 조각 얻기", xb.get_center() + Vector2(0, 4), 8, INK, true, xb.size.x - 10)
+	rects["open_dis"] = xb
+	if plan_dis: _draw_dis_popup(body)
+
+func _draw_dis_popup(body: Rect2) -> void:
+	var pr := Rect2(body.position + Vector2(2, 2), body.size - Vector2(4, 4))
+	_art("panel", pr)
+	_txt(plan_msg if plan_msg != "" else "펫 분해 · 조각 %d개" % frags, Vector2(pr.position.x + 80, pr.position.y + 17), 9, Color("2f8f84") if plan_msg != "" else INK, true, 150)
+	var xb := Rect2(pr.end.x - 38, pr.position.y + 5, 32, 16)
+	_art("button", xb)
+	_txt("닫기", xb.get_center() + Vector2(0, 4), 8, CREAM, true, 30)
+	rects["dis_close"] = xb
+	_draw_dismantle(body)
+
+static func bp_pets() -> Array:
+	return PETS.filter(func(k): return BP_COST.has(grade_of(k)))
 
 func _draw_dismantle(body: Rect2) -> void:
 	var b := body.position
 	for n in owned.size():
 		var k: String = owned[n]
-		var cr := Rect2(b.x + 4 + (n % 6) * 37.0, b.y + 54 + (n / 6) * 38.0, 36, 36)
+		var cr := Rect2(b.x + 4 + (n % 6) * 37.0, b.y + 30 + (n / 6) * 38.0, 36, 36)
 		_art("teal" if dis_sel == k else "card", cr)
 		var tex: Texture2D = _strip(k, "move")
 		var th := tex.get_height()
@@ -528,15 +538,14 @@ func _draw_dismantle(body: Rect2) -> void:
 	rects["dismantle"] = bt
 
 func _plans_press(p: Vector2) -> bool:
-	for key in ["craft", "dis"]:
-		if rects.get("pm:" + key, Rect2()).has_point(p): plan_mode = key; plan_msg = ""; queue_redraw(); return true
-	if plan_mode == "craft":
-		for g in [3, 4, 5, 6]:
-			if rects.get("pg:%d" % g, Rect2()).has_point(p): plan_g = g; plan_msg = ""; queue_redraw(); return true
-		for k in pets_of(plan_g):
-			if rects.get("craft:" + k, Rect2()).has_point(p): craft(k); queue_redraw(); return true
-	else:
+	if plan_dis:
+		if rects.get("dis_close", Rect2()).has_point(p): plan_dis = false; plan_msg = ""; queue_redraw(); return true
 		for k in owned:
 			if rects.get("dis:" + k, Rect2()).has_point(p): dis_sel = k; plan_msg = ""; queue_redraw(); return true
-		if dis_sel != "" and rects.get("dismantle", Rect2()).has_point(p): dismantle(dis_sel); queue_redraw(); return true
+		if dis_sel != "" and rects.get("dismantle", Rect2()).has_point(p): dismantle(dis_sel); queue_redraw()
+		return true
+	for k in bp_pets():
+		if rects.get("bp:" + k, Rect2()).has_point(p): plan_sel = k; plan_msg = ""; queue_redraw(); return true
+	if plan_sel != "" and rects.get("buy", Rect2()).has_point(p): craft(plan_sel); queue_redraw(); return true
+	if rects.get("open_dis", Rect2()).has_point(p): plan_dis = true; plan_msg = ""; queue_redraw(); return true
 	return false

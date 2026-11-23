@@ -105,13 +105,16 @@ func _init() -> void:
 	for g in [3, 4, 5, 6]: cost_ok = cost_ok and PetHutUI.BP_COST[g].size() == 2
 	n += 1; ok += 1 if cost_ok and PetHutUI.BP_COST[6] == [2100, 300] else 0
 	ui.step(0.0); await process_frame
-	ui.press(ui.rects["pm:dis"].get_center()); ui.step(0.0); await process_frame
+	ui.press(ui.rects["open_dis"].get_center()); ui.step(0.0); await process_frame
 	ui.press(ui.rects["dis:ss_golem"].get_center()); ui.step(0.0); await process_frame
-	n += 1; ok += 1 if ui.plan_mode == "dis" and ui.dis_sel == "ss_golem" and ui.rects.has("dismantle") else 0
+	n += 1; ok += 1 if ui.plan_dis and ui.dis_sel == "ss_golem" and ui.rects.has("dismantle") else 0
 	ui.press(ui.rects["dismantle"].get_center())
 	n += 1; ok += 1 if ui.frags == 200 and ui.counts["ss_golem"] == 1 else 0                # 화면에서 눌러 분해
-	ui.press(ui.rects["pm:craft"].get_center()); ui.step(0.0); await process_frame
-	ui.press(ui.rects["pg:6"].get_center()); ui.step(0.0); await process_frame
-	n += 1; ok += 1 if ui.plan_g == 6 and ui.rects.has("craft:sss_seraph") and ui.rects.has("craft:sss_lunar") else 0
+	ui.press(ui.rects["dis_close"].get_center()); ui.step(0.0); await process_frame; await process_frame
+	n += 1; ok += 1 if not ui.plan_dis and PetHutUI.bp_pets().size() == 13 and ui.rects.has("bp:sss_lunar") else 0     # 상점에 13종
+	ui.frags = 2100; ui.pearl_total = 300
+	ui.press(ui.rects["bp:sss_seraph"].get_center()); ui.step(0.0); await process_frame
+	ui.press(ui.rects["buy"].get_center())
+	n += 1; ok += 1 if ui.plan_sel == "sss_seraph" and ui.frags == 0 and ui.pearl_total == 0 and ui.counts["sss_seraph"] == 1 else 0   # 화면에서 눌러 구매
 	print("통과 %d/%d" % [ok, n])
 	quit(0 if ok == n else 1)
