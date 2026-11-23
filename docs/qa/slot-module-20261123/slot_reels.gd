@@ -19,6 +19,8 @@ signal reel_stopped(col: int)
 @export var speed := 14.0
 ## 릴 사이 정지 시간 차(초)
 @export var reel_delay := 0.25
+## 마지막 릴을 한 칸씩 기어가듯 멈추게 한다(니어미스 예고 연출)
+var crawl_last := false
 
 var spinning := false
 var _strips: Array[Node2D] = []
@@ -71,7 +73,11 @@ func spin(result: Array) -> void:
 		var travel := fillers * cell_size.y
 		strip.position = Vector2(c * cell_size.x, -travel)
 		var tw := create_tween()
-		tw.tween_property(strip, "position:y", 0.0, duration).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
+		if crawl_last and c == reels - 1:
+			tw.tween_property(strip, "position:y", -cell_size.y, duration * 0.8).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+			tw.tween_property(strip, "position:y", 0.0, 1.1).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+		else:
+			tw.tween_property(strip, "position:y", 0.0, duration).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
 		tw.finished.connect(_on_reel_done.bind(c))
 		_tweens.append(tw)
 

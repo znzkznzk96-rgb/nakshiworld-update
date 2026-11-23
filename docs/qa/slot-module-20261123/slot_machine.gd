@@ -4,6 +4,10 @@ class_name SlotMachine
 extends Node2D
 
 signal finished(info: Dictionary)
+## 효과음 자리: 게임에서 이 이름에 소리를 연결한다. (lever, spin, reel_stop, win_0..win_6, jackpot, reveal)
+signal sfx(name: String)
+## 펫 등장 컷신 자리: 게임이 받아서 펫 연출을 재생한다. 끝나면 reveal_done()을 부른다.
+signal reveal_requested(grade: int)
 
 const A := "res://assets/"
 const GRADES := ["D", "C", "B", "A", "S", "SS", "SSS"]
@@ -26,10 +30,16 @@ var reels: SlotReels
 var lever: Sprite2D
 var lamps: Array[Sprite2D] = []
 var fx: Control
+var top_fx: Control
+var _parts: Array = []
+var _flash := 0.0
+var _spot := 0.0
+var _ring := -1.0
 var _lever_tex := {}
 var _lamp_off: Array[Texture2D] = []
 var _lamp_on: Array[Texture2D] = []
 var _win_cells: Array = []
+var _cell_sym := {}
 var _fx_time := 0.0
 var _fx_tier := 0
 var _dim := false
@@ -56,6 +66,10 @@ func _ready() -> void:
 	fx.z_index = 20; fx.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	fx.draw.connect(_draw_fx)
 	add_child(fx)
+	top_fx = Control.new()
+	top_fx.size = Vector2(270, 420); top_fx.z_index = 30; top_fx.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	top_fx.draw.connect(_draw_top)
+	add_child(top_fx)
 	for i in 5:
 		_lamp_off.append(_tex("btn_off%d" % i)); _lamp_on.append(_tex("btn_on%d" % i))
 		var l := Sprite2D.new()
@@ -119,11 +133,18 @@ func play(grid: Array) -> void:
 	fx.queue_redraw()
 	var info := evaluate(grid)
 	var top: int = info.top
+	_cell_sym.clear()
+	for r in 3:
+		for c in 3: _cell_sym[r * 3 + c] = grid[r][c]
 	# 예고: 높은 등급일수록 마지막 릴을 더 뜸 들인다(결과는 이미 정해져 있음)
 	reels.runtime = 1.0
 	reels.reel_delay = 0.25 + (0.3 if top >= 4 else 0.0) + (0.4 if top >= 6 else 0.0)
+	reels.crawl_last = top >= 4
+	sfx.emit("lever")
 	await _pull_lever()
+	sfx.emit("spin")
 	_start_lamp_chase()
+	reels.reel_stopped.connect(func(c): sfx.emit("reel_stop"), CONNECT_ONE_SHOT)
 	reels.spin(grid)
 	await reels.spin_finished
 	_stop_lamp_chase()
@@ -157,7 +178,9 @@ func _chase_loop() -> void:
 func _lamps_all(on: bool) -> void:
 	for i in 5: lamps[i].texture = _lamp_on[i] if on else _lamp_off[i]
 
-## 등급별 당첨 연출. 큰 등급일수록 단계가 늘어난다.
+## 등급별 당첨 연출. 위 등급일수록 아래 층이 하나씩 더 쌓인다(누적).
+##  D~C: 줄 테두리 + 램프  / B: 어두운 배경 + 심볼 팝  / A: 반짝 터짐 + 번쩍
+##  S: 파티클 폭죽 + 작은 흔들림  / SS: 정적 → 흰 번쩍 + 금빛 비 + 큰 흔들림  / SSS: 스포트라이트 + 이중 번쩍 + 충격파 + 비 두 배
 func _win_show(info: Dictionary) -> void:
 	var top: int = info.top
 	_fx_tier = top
@@ -169,24 +192,53 @@ func _win_show(info: Dictionary) -> void:
 	_win_cells = cells
 	_dim = top >= 2
 	_fx_time = 0.0
+	sfx.emit("win_%d" % top)
+	if top >= 5:
+		# 정적: 램프를 끄고 화면을 잠깐 멈춘다
+		_lamps_all(false)
+		_spot = 1.0 if top >= 6 else 0.0
+		fx.queue_redraw()
+		await get_tree().create_timer(0.35).timeout
+	if top >= 3: _flash = 0.25 + 0.15 * (top - 3)
+	if top >= 6:
+		_ring = 0.0
+	if top >= 3: _burst(cells, [0, 0, 0, 6, 12, 18, 26][top])
+	if top >= 5: _rain([0, 0, 0, 0, 0, 40, 90][top])
+	if top >= 4: _shake(top)
 	var dur: float = [0.6, 0.8, 1.1, 1.3, 1.8, 2.3, 3.2][top]
-	# 버튼 램프: 등급이 높을수록 점멸이 많고 빠름
 	var blinks: int = [1, 2, 3, 4, 6, 8, 12][top]
-	if top >= 5: _shake(top)
-	var t := 0.0
 	var step: float = dur / (blinks * 2)
 	for b in blinks * 2:
 		_lamps_all(b % 2 == 0)
+		if top >= 6 and b == blinks:
+			_flash = 0.7   # 두 번째 번쩍
 		fx.queue_redraw()
 		await get_tree().create_timer(step).timeout
 	_lamps_all(false)
 	if info.jackpot:
+		sfx.emit("jackpot")
+		_rain(60)
 		await _jackpot()
+	reveal_requested.emit(top)
+	_spot = 0.0; _ring = -1.0
 	_dim = false
 	fx.queue_redraw()
 
+func _burst(cells: Array, per_cell: int) -> void:
+	for cell in cells:
+		var cx: float = WINDOW_POS.x + (cell[1] + 0.5) * CELL.x
+		var cy: float = WINDOW_POS.y + (cell[0] + 0.5) * CELL.y
+		for i in per_cell:
+			var ang := randf() * TAU
+			var sp := randf_range(30.0, 90.0)
+			_parts.append({"p": Vector2(cx, cy), "v": Vector2(cos(ang), sin(ang)) * sp, "life": randf_range(0.5, 1.0), "g": 60.0, "c": [Color(1, 0.85, 0.3), Color(1, 1, 0.8), Color(1, 0.6, 0.2)][randi() % 3]})
+
+func _rain(n: int) -> void:
+	for i in n:
+		_parts.append({"p": Vector2(randf_range(6, 264), randf_range(-40, 0)), "v": Vector2(randf_range(-8, 8), randf_range(50, 110)), "life": randf_range(1.2, 2.2), "g": 20.0, "c": [Color(1, 0.85, 0.3), Color(1, 0.95, 0.6)][randi() % 2]})
+
 func _shake(top: int) -> void:
-	var amp := 2.0 if top == 5 else 3.0
+	var amp: float = [0, 0, 0, 0, 1.5, 2.5, 3.5][top]
 	var tw := create_tween()
 	for i in 8:
 		tw.tween_property(self, "position", Vector2(randf_range(-amp, amp), randf_range(-amp, amp)), 0.04)
@@ -201,6 +253,16 @@ func _process(delta: float) -> void:
 	if not _win_cells.is_empty():
 		_fx_time += delta
 		fx.queue_redraw()
+	var dirty := false
+	if _flash > 0.0:
+		_flash = maxf(0.0, _flash - delta * 1.6); dirty = true
+	if _ring >= 0.0:
+		_ring += delta * 150.0; dirty = true
+	for pt in _parts:
+		pt.life -= delta; pt.v.y += pt.g * delta; pt.p += pt.v * delta; dirty = true
+	_parts = _parts.filter(func(q): return q.life > 0.0)
+	if dirty or _spot > 0.0:
+		top_fx.queue_redraw()
 
 ## 당첨 칸 테두리·반짝임을 코드로 그린다(정수 좌표, 도트 느낌).
 func _draw_fx() -> void:
@@ -217,12 +279,42 @@ func _draw_fx() -> void:
 		var x: float = cell[1] * CELL.x
 		var y: float = cell[0] * CELL.y
 		fx.draw_rect(Rect2(x, y, CELL.x, CELL.y), Color(col.r, col.g, col.b, 0.14 + (0.1 if pulse else 0.0)))
-		var t := 2 if _fx_tier >= 4 else 1
+		var t := 2 if _fx_tier >= 3 else 1
 		fx.draw_rect(Rect2(x, y, CELL.x, t), col); fx.draw_rect(Rect2(x, y + CELL.y - t, CELL.x, t), col)
 		fx.draw_rect(Rect2(x, y, t, CELL.y), col); fx.draw_rect(Rect2(x + CELL.x - t, y, t, CELL.y), col)
+		if _fx_tier >= 2:
+			var sym: int = _cell_sym.get(cell[0] * 3 + cell[1], -1)
+			if sym >= 0:
+				var k := 1.0 + 0.16 * (0.5 + 0.5 * sin(_fx_time * 9.0))
+				var tex: Texture2D = reels.symbols[sym]
+				var sz := Vector2(tex.get_width(), tex.get_height()) * k
+				fx.draw_texture_rect(tex, Rect2(Vector2(x + CELL.x * 0.5, y + CELL.y * 0.5) - sz * 0.5, sz), false)
 		if _fx_tier >= 4:
 			# 반짝이 점: 시간에 따라 칸 안에서 위치가 바뀜
 			for k in 3:
 				var sx := x + 6 + fmod(_fx_time * 37.0 + k * 19.0 + cell[0] * 11.0, CELL.x - 12)
 				var sy := y + 5 + fmod(_fx_time * 23.0 + k * 13.0 + cell[1] * 7.0, CELL.y - 10)
 				fx.draw_rect(Rect2(int(sx), int(sy), 2, 2), Color(1, 1, 0.8))
+
+## 맨 위 층: 번쩍·스포트라이트·충격파·파티클
+func _draw_top() -> void:
+	if _spot > 0.0:
+		var w := Rect2(WINDOW_POS, Vector2(CELL.x * 3, CELL.y * 3))
+		var c := Color(0, 0, 0, 0.6)
+		top_fx.draw_rect(Rect2(0, 0, 270, w.position.y), c)
+		top_fx.draw_rect(Rect2(0, w.end.y, 270, 420 - w.end.y), c)
+		top_fx.draw_rect(Rect2(0, w.position.y, w.position.x, w.size.y), c)
+		top_fx.draw_rect(Rect2(w.end.x, w.position.y, 270 - w.end.x, w.size.y), c)
+	if _ring >= 0.0:
+		var ctr := WINDOW_POS + Vector2(CELL.x * 1.5, CELL.y * 1.5)
+		var r := int(_ring)
+		top_fx.draw_rect(Rect2(ctr.x - r, ctr.y - r * 0.8, r * 2, 2), Color(1, 0.9, 0.4, 0.8))
+		top_fx.draw_rect(Rect2(ctr.x - r, ctr.y + r * 0.8, r * 2, 2), Color(1, 0.9, 0.4, 0.8))
+		top_fx.draw_rect(Rect2(ctr.x - r, ctr.y - r * 0.8, 2, r * 1.6), Color(1, 0.9, 0.4, 0.8))
+		top_fx.draw_rect(Rect2(ctr.x + r, ctr.y - r * 0.8, 2, r * 1.6), Color(1, 0.9, 0.4, 0.8))
+	for pt in _parts:
+		var a := clampf(pt.life * 2.0, 0.0, 1.0)
+		var col: Color = pt.c
+		top_fx.draw_rect(Rect2(int(pt.p.x), int(pt.p.y), 2, 2), Color(col.r, col.g, col.b, a))
+	if _flash > 0.0:
+		top_fx.draw_rect(Rect2(0, 0, 270, 420), Color(1, 1, 1, _flash))
