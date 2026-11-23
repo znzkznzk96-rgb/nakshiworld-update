@@ -32,6 +32,9 @@ var lamps: Array[Sprite2D] = []
 var fx: Control
 var top_fx: Control
 var _parts: Array = []
+## PixelLab 모션 프레임(이름 → 텍스처 9장)과 재생 중인 스프라이트 연출
+var _fr := {}
+var _sprs: Array = []
 var _flash := 0.0
 var _spot := 0.0
 var _ring := -1.0
@@ -75,6 +78,10 @@ func _ready() -> void:
 		var l := Sprite2D.new()
 		l.texture = _lamp_off[i]; l.position = Vector2(LAMP_X[i], LAMP_Y)
 		add_child(l); lamps.append(l)
+	for n in ["burst", "rainbow", "coin", "gem", "shim_S", "shim_SS", "shim_SSS"]:
+		var arr: Array[Texture2D] = []
+		for i in 9: arr.append(_tex("%s_%02d" % [n, i]))
+		_fr[n] = arr
 	for i in [0,1,2,3,5,8]:
 		_lever_tex[i] = _tex("lever_pull_%02d" % i)
 	lever = Sprite2D.new()
@@ -203,6 +210,7 @@ func _win_show(info: Dictionary) -> void:
 	if top >= 6:
 		_ring = 0.0
 	if top >= 3: _burst(cells, [0, 0, 0, 6, 12, 18, 26][top])
+	if top >= 3: _sprite_show(cells, top)
 	if top >= 5: _rain([0, 0, 0, 0, 0, 40, 90][top])
 	if top >= 4: _shake(top)
 	var dur: float = [0.6, 0.8, 1.1, 1.3, 1.8, 2.3, 3.2][top]
@@ -237,6 +245,25 @@ func _rain(n: int) -> void:
 	for i in n:
 		_parts.append({"p": Vector2(randf_range(6, 264), randf_range(-40, 0)), "v": Vector2(randf_range(-8, 8), randf_range(50, 110)), "life": randf_range(1.2, 2.2), "g": 20.0, "c": [Color(1, 0.85, 0.3), Color(1, 0.95, 0.6)][randi() % 2]})
 
+## PixelLab 모션: 칸마다 폭발, 위 등급일수록 창 한가운데 큰 폭발이 겹치고 보석·동전 비가 내린다.
+func _sprite_show(cells: Array, top: int) -> void:
+	var ctr := WINDOW_POS + Vector2(CELL.x * 1.5, CELL.y * 1.5)
+	var kind := "rainbow" if top >= 5 else "burst"
+	var sc: float = [0, 0, 0, 1, 1, 1, 2][top]
+	for cell in cells:
+		_anim(kind, WINDOW_POS + Vector2((cell[1] + 0.5) * CELL.x, (cell[0] + 0.5) * CELL.y), sc, 12.0, randf() * 0.15)
+	if top >= 4: _anim("burst", ctr, 2.0, 12.0, 0.1)
+	if top >= 5: _anim("rainbow", ctr, 3.0, 12.0, 0.2)
+	if top >= 6:
+		_anim("rainbow", ctr, 4.0, 10.0, 0.0)
+		_anim("burst", ctr, 3.0, 10.0, 0.35)
+	var n: int = [0, 0, 0, 0, 6, 14, 30][top]
+	for i in n:
+		_parts.append({"p": Vector2(randf_range(10, 260), randf_range(-60, -10)), "v": Vector2(randf_range(-10, 10), randf_range(60, 130)), "life": randf_range(1.5, 2.6), "g": 30.0, "c": Color.WHITE, "spr": "coin" if i % 2 == 0 else "gem", "ph": randi() % 9})
+
+func _anim(name: String, pos: Vector2, sc: float, fps: float, delay := 0.0) -> void:
+	_sprs.append({"n": name, "p": pos, "s": sc, "fps": fps, "t": -delay})
+
 func _shake(top: int) -> void:
 	var amp: float = [0, 0, 0, 0, 1.5, 2.5, 3.5][top]
 	var tw := create_tween()
@@ -258,6 +285,9 @@ func _process(delta: float) -> void:
 		_flash = maxf(0.0, _flash - delta * 1.6); dirty = true
 	if _ring >= 0.0:
 		_ring += delta * 150.0; dirty = true
+	for sp in _sprs:
+		sp.t += delta; dirty = true
+	_sprs = _sprs.filter(func(q): return q.t * q.fps < 9.0)
 	for pt in _parts:
 		pt.life -= delta; pt.v.y += pt.g * delta; pt.p += pt.v * delta; dirty = true
 	_parts = _parts.filter(func(q): return q.life > 0.0)
@@ -287,6 +317,8 @@ func _draw_fx() -> void:
 			if sym >= 0:
 				var k := 1.0 + 0.16 * (0.5 + 0.5 * sin(_fx_time * 9.0))
 				var tex: Texture2D = reels.symbols[sym]
+				if sym >= 4:
+					tex = _fr["shim_" + GRADES[sym]][int(_fx_time * 10.0) % 9]
 				var sz := Vector2(tex.get_width(), tex.get_height()) * k
 				fx.draw_texture_rect(tex, Rect2(Vector2(x + CELL.x * 0.5, y + CELL.y * 0.5) - sz * 0.5, sz), false)
 		if _fx_tier >= 4:
@@ -312,7 +344,16 @@ func _draw_top() -> void:
 		top_fx.draw_rect(Rect2(ctr.x - r, ctr.y + r * 0.8, r * 2, 2), Color(1, 0.9, 0.4, 0.8))
 		top_fx.draw_rect(Rect2(ctr.x - r, ctr.y - r * 0.8, 2, r * 1.6), Color(1, 0.9, 0.4, 0.8))
 		top_fx.draw_rect(Rect2(ctr.x + r, ctr.y - r * 0.8, 2, r * 1.6), Color(1, 0.9, 0.4, 0.8))
+	for sp in _sprs:
+		if sp.t < 0.0: continue
+		var ft: Texture2D = _fr[sp.n][mini(int(sp.t * sp.fps), 8)]
+		var fs: Vector2 = Vector2(ft.get_width(), ft.get_height()) * float(sp.s)
+		top_fx.draw_texture_rect(ft, Rect2((sp.p - fs * 0.5).round(), fs), false)
 	for pt in _parts:
+		if pt.has("spr"):
+			var st: Texture2D = _fr[pt.spr][(pt.ph + int(pt.life * 12.0)) % 9]
+			top_fx.draw_texture(st, (pt.p - Vector2(st.get_width(), st.get_height()) * 0.5).round())
+			continue
 		var a := clampf(pt.life * 2.0, 0.0, 1.0)
 		var col: Color = pt.c
 		top_fx.draw_rect(Rect2(int(pt.p.x), int(pt.p.y), 2, 2), Color(col.r, col.g, col.b, a))
