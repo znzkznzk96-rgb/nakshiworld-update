@@ -12,7 +12,7 @@ signal reel_stopped(col: int)
 @export var symbols: Array[Texture2D] = []
 @export var reels := 3
 @export var rows := 3
-@export var cell_size := Vector2(50, 48)
+@export var cell_size := Vector2(62, 48)
 ## 첫 릴이 도는 시간(초)
 @export var runtime := 1.2
 ## 도는 속도(칸/초). 클수록 빨리 흐른다.
@@ -28,11 +28,21 @@ var _stopped_count := 0
 var _blur: Array[Texture2D] = []
 ## 도는 동안 채움 심볼에 쓰는 세로 번짐 정도(픽셀). 0이면 끔.
 @export var blur_radius := 7
+## 창 유리 느낌(반사 줄무늬 + 위아래 어두운 띠). 코드로 그려서 이미지 생성이 필요 없다.
+@export var glass := true
+var _glass: Control
 
 func _ready() -> void:
 	custom_minimum_size = Vector2(cell_size.x * reels, cell_size.y * rows)
 	size = custom_minimum_size
 	clip_contents = true
+	if glass:
+		_glass = Control.new()
+		_glass.size = size
+		_glass.z_index = 10
+		_glass.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		_glass.draw.connect(_draw_glass)
+		add_child(_glass)
 
 ## result[행][열] = symbols 인덱스. 결과는 호출하는 쪽(가챠 로직)이 먼저 정해서 넘긴다.
 func spin(result: Array) -> void:
@@ -112,3 +122,18 @@ func _make_blur() -> void:
 				if a > 0.0:
 					dst.set_pixel(x, y, Color(r / a, g / a, b / a, a / n))
 		_blur.append(ImageTexture.create_from_image(dst))
+
+## 도트 느낌이 나게 정수 좌표 계단으로만 그린다(부드러운 그라데이션 없음).
+func _draw_glass() -> void:
+	var w := int(size.x)
+	var h := int(size.y)
+	# 위·아래 어두운 띠 (릴이 둥글게 말린 느낌), 3단계
+	for i in 3:
+		var a := 0.34 - i * 0.11
+		_glass.draw_rect(Rect2(0, i * 3, w, 3), Color(0, 0, 0, a))
+		_glass.draw_rect(Rect2(0, h - (i + 1) * 3, w, 3), Color(0, 0, 0, a))
+	# 비스듬한 반사 줄무늬 두 줄
+	for y in h:
+		var x1 := int(w * 0.30 - y * 0.55)
+		_glass.draw_rect(Rect2(x1, y, 7, 1), Color(1, 1, 1, 0.13))
+		_glass.draw_rect(Rect2(x1 + 12, y, 3, 1), Color(1, 1, 1, 0.09))
