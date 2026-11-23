@@ -15,21 +15,17 @@ func star(m,p: Vector2,size: float,col: Color) -> void:
 	m.draw_rect(Rect2((p-Vector2(size,.65)).round(),Vector2(size*2,1.3)),col)
 	m.draw_rect(Rect2((p-Vector2(.65,size)).round(),Vector2(1.3,size*2)),col)
 	m.draw_rect(Rect2((p-Vector2(1.1,1.1)).round(),Vector2(2.2,2.2)),Color(1,1,1,col.a))
-# 낮에는 밝은 배경에 묻히지 않게 진하게, 밤에는 빛번짐을 더한다
-func day_boost(m) -> float: return lerpf(1.9,1.0,m.environment.night_strength())
-func glow(m) -> float: return m.environment.night_strength()
 func back(m,points: PackedVector2Array,xf: Transform2D,enhancement: int,time: float,action: String,held: bool) -> void:
 	var level: int=tier(enhancement)
 	debug={"tier":level,"motes":COUNTS[level],"width":WIDTHS[level],"line_and_bobber_aura":false}
 	if level==0:return
-	var dk: float=day_boost(m);var night: float=glow(m)
 	var energy: float=1.2 if action=="cast" else (1.12 if action=="fight" and held else 1.0)
 	if time<previous_time or (previous_time>=0 and time-previous_time>.2):trail.clear()
 	# Keep curved world-space snapshots, so cast afterimages do not rotate with the next pose.
 	if level>=3 and action in ["cast","fight"]:
 		m.draw_set_transform(Vector2.ZERO)
 		for k in trail.size():
-			var alpha: float=float(k+1)/maxi(1,trail.size())*.10*float(mini(level,6)-2)*energy*dk
+			var alpha: float=float(k+1)/maxi(1,trail.size())*.10*float(mini(level,6)-2)*energy
 			var old: PackedVector2Array=trail[k]
 			for j in range(1,old.size(),2):
 				m.draw_line(old[j-1],old[j],Color(color_at(level,j/40.0,time),alpha),.65+level*.16,false)
@@ -43,12 +39,9 @@ func back(m,points: PackedVector2Array,xf: Transform2D,enhancement: int,time: fl
 	m.draw_set_transform_matrix(xf)
 	for layer in 3:
 		var width: float=WIDTHS[level]*(1.0-layer*.25)
-		var alpha: float=minf(1.0,(.17+minf(level,5)*.012)*(1+layer*.18)*energy*dk)
+		var alpha: float=(.17+minf(level,5)*.012)*(1+layer*.18)*energy
 		for j in points.size()-1:
 			m.draw_line(points[j],points[j+1],Color(color_at(level,j/40.0,time),alpha),width,false)
-	if night>.02:
-		for j in points.size()-1:
-			m.draw_line(points[j],points[j+1],Color(color_at(level,j/40.0,time).lightened(.35),.11*night*energy),WIDTHS[level]*1.8,false)
 	if level==1:
 		for side in [-1.0,1.0]:
 			for j in points.size()-1:
@@ -67,7 +60,7 @@ func back(m,points: PackedVector2Array,xf: Transform2D,enhancement: int,time: fl
 			var phase_next: float=v*TAU*1.5-time*3+ribbon*TAU/maxi(1,ribbons)
 			var a: Vector2=points[j]+normal_at(points,j)*sin(phase)*amplitude
 			var b: Vector2=points[j+1]+normal_at(points,j+1)*sin(phase_next)*amplitude_next
-			var alpha: float=minf(1.0,(.65+minf(level,5)*.055)*(.55+.45*maxf(0,cos(phase)))*sqrt(dk))
+			var alpha: float=(.65+minf(level,5)*.055)*(.55+.45*maxf(0,cos(phase)))
 			m.draw_line(a,b,Color(color_at(level,u,time+ribbon*.4),alpha),1.7+minf(level,6)*.15,false)
 	# High tiers have broad translucent aurora tongues, bounded to the shaft.
 	if level>=4:
@@ -83,7 +76,7 @@ func back(m,points: PackedVector2Array,xf: Transform2D,enhancement: int,time: fl
 				var a: Vector2=points[j]+normal_at(points,j)*off
 				var b: Vector2=points[j+1]+normal_at(points,j+1)*off_next
 				var col: Color=color_at(level,u,time+ribbon*.7)
-				m.draw_colored_polygon(PackedVector2Array([points[j],a,b,points[j+1]]),Color(col,minf(1.0,(.25 if level==4 else .31)*dk)))
+				m.draw_colored_polygon(PackedVector2Array([points[j],a,b,points[j+1]]),Color(col,.25 if level==4 else .31))
 				m.draw_line(a,b,Color(col.lightened(.1),.8),1.2,false)
 	# Deterministic particles do not consume the fishing RNG.
 	for i in COUNTS[level]:
@@ -92,9 +85,8 @@ func back(m,points: PackedVector2Array,xf: Transform2D,enhancement: int,time: fl
 		var j: int=clampi(int(u*40),0,40)
 		var p: Vector2=points[j]+normal_at(points,j)*sin(i*2.4+age*3)*age*(3+level*2)
 		p.y-=age*age*(3+level*1.6)
-		var col:=Color(color_at(level,u,time),minf(1.0,(.3+.7*sin(age*PI))*.95*sqrt(dk)))
+		var col:=Color(color_at(level,u,time),(.3+.7*sin(age*PI))*.95)
 		var size: float=2.2 if level<3 else (2.5 if i%4 else 3.2)
-		if night>.02: m.draw_circle(p,(2.4+level*.5)*(1.4 if i%4==0 else 1.0),Color(col.r,col.g,col.b,col.a*.18*night))
 		if i%4==0:star(m,p,2+level*.45,col)
 		else:m.draw_rect(Rect2((p-Vector2.ONE*size*.5).round(),Vector2.ONE*size),col)
 func front(m,points: PackedVector2Array,enhancement: int,time: float) -> void:
@@ -106,9 +98,6 @@ func front(m,points: PackedVector2Array,enhancement: int,time: float) -> void:
 		if sweep>.08:m.draw_line(points[j],points[j+1],Color(color_at(level,u,time).lightened(.4),sweep*.7),1.0,false)
 	if level>=1:
 		var pulse: float=.7+.3*sin(time*3.1)
-		var gn: float=glow(m)
-		if gn>.02:
-			for r in 3: m.draw_circle(points[-1],(4+level*1.2)*(1.0+r*.6),Color(color_at(level,1,time),.10*gn*pulse))
 		star(m,points[-1],(2+level*.65)*pulse,Color(color_at(level,1,time),.65+.25*pulse))
 	if level>=6:
 		for j in (3 if level<10 else 5):

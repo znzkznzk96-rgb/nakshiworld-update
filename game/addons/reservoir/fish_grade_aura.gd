@@ -175,11 +175,8 @@ func _edge(quads:Array,u:float,upper:bool) -> Vector2:
 	return a.lerp(b,limits.x if (a.y < b.y) == upper else limits.y)
 
 func _emit(m,p:Vector2,size:Vector2,color:Color,kind:int,regions:Array):
-	var night:float=m.environment.night_strength()
 	last_samples.append(p)
-	# 낮에는 진하게, 밤에는 같은 모양의 큰 빛번짐을 한 겹 더 깐다
-	_sprite(m,p,size,Color(color,minf(1.0,color.a*lerpf(1.7,1.0,night))),kind,regions)
-	if night>.05 and color.a>.05:_sprite(m,p,size*1.9,Color(color.r,color.g,color.b,color.a*.2*night),kind,regions)
+	_sprite(m,p,size,color,kind,regions)
 
 # Detached bubbles rise in the water while the fish continues swimming.
 func _water_particles(m,grade:int,quads:Array,tail:Vector2,forward:Vector2,unit:float,t:float,history:bool,regions:Array):

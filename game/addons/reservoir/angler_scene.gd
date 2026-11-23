@@ -123,12 +123,17 @@ func pet(m,k: String,kind: String,local: float,air: float) -> void:
 	m.draw_rect(Rect2(cx-6.0,m.SURF+1,12,1),Color(.11,.13,.1,.15))
 	# 등급 오라: 펫 뒤에서 숨쉬듯 번지는 빛과 위로 오르는 반짝임
 	# 낮에는 밝은 배경에 묻히므로 오라를 더 진하게 한다
-	var strength: float=AURA_POWER.get(grade,0.0)*lerpf(2.4,1.0,m.environment.night_strength())
+	var strength: float=AURA_POWER.get(grade,0.0)*lerpf(2.8,1.4,m.environment.night_strength())
 	if strength>0.0:
 		var pulse: float=.75+.25*sin(m.clock*2.4)
 		for i in 4:
 			var r: float=sz*(.62-i*.12)
 			m.draw_circle(Vector2(cx,y+sz*.55),r,Color(col.r,col.g,col.b,strength*pulse*(.07+i*.05))*tint)
+		# 밤에는 오라가 빛나듯 큰 빛번짐이 한 겹 더 깔린다
+		var night: float=m.environment.night_strength()
+		if night>.02:
+			for i in 3:
+				m.draw_circle(Vector2(cx,y+sz*.55),sz*(.95-i*.2),Color(col.r,col.g,col.b,strength*pulse*night*(.06+i*.05)))
 		for i in 3:
 			var ph: float=fmod(m.clock*.6+i*.34,1.0)
 			var px: float=roundf(cx+[-9.0,8.0,0.0][i]+sin(m.clock*2.0+i*2.0)*1.5)
