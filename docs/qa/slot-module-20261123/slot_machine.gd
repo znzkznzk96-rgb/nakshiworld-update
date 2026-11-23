@@ -581,7 +581,7 @@ func _draw_reveal() -> void:
 			var bt: Texture2D = _fr["banner"][0]
 			rv.draw_texture_rect(bt, Rect2(Vector2(135 - 96, 276), Vector2(192, 64)), false, Color(1, 1, 1, la))
 			nfs = 12
-			ny = 276.0 + 30.0 + nfs * 0.35   # 붉은 띠(배너 y 19~41)의 세로 가운데
+			ny = 276.0 + 35.0 + (font.get_ascent(nfs) - font.get_descent(nfs)) * 0.5   # 붉은 띠(배너 y 28~41)의 세로 가운데
 		var nw := font.get_string_size(nm, HORIZONTAL_ALIGNMENT_LEFT, -1, nfs).x
 		var np := Vector2(135 - nw * 0.5, ny)
 		rv.draw_string_outline(font, np, nm, HORIZONTAL_ALIGNMENT_LEFT, -1, nfs, 3 if g >= 4 else 5, Color(0, 0, 0, la))
