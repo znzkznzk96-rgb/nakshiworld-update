@@ -122,7 +122,8 @@ func pet(m,k: String,kind: String,local: float,air: float) -> void:
 	m.draw_rect(Rect2(cx-8.0,m.SURF,16,1),Color(.11,.13,.1,.3))
 	m.draw_rect(Rect2(cx-6.0,m.SURF+1,12,1),Color(.11,.13,.1,.15))
 	# 등급 오라: 펫 뒤에서 숨쉬듯 번지는 빛과 위로 오르는 반짝임
-	var strength: float=AURA_POWER.get(grade,0.0)
+	# 낮에는 밝은 배경에 묻히므로 오라를 더 진하게 한다
+	var strength: float=AURA_POWER.get(grade,0.0)*lerpf(2.4,1.0,m.environment.night_strength())
 	if strength>0.0:
 		var pulse: float=.75+.25*sin(m.clock*2.4)
 		for i in 4:
