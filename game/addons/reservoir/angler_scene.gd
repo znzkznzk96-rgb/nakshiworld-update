@@ -93,6 +93,8 @@ func cat(m,kind: String,local: float) -> void:
 		m.draw_texture_rect(image,Rect2(p+off,size),false,c*tint)
 	m.draw_texture_rect(image,Rect2(p,size),false,tint)
 	debug.cat_action=action;debug.cat_frame=frame;debug.cat_air=air
+const AURA:={"d":Color(.9,.9,.85),"c":Color(.55,.95,.6),"b":Color(.5,.75,1),"a":Color(.75,.55,1),"s":Color(1,.85,.35),"ss":Color(1,.55,.3),"sss":Color(1,.6,.9)}
+const AURA_POWER:={"c":.5,"b":.6,"a":.75,"s":1.0,"ss":1.2,"sss":1.5}
 var pet_cache:={}
 # 화면 확대 시 흰 사각형이 되는 문제를 피하려고 이미지에서 직접 텍스처를 만든다
 func pet_tex(k: String,kind: String) -> Texture2D:
@@ -111,12 +113,31 @@ func pet(m,k: String,kind: String,local: float,air: float) -> void:
 	var bob: float=roundf(sin(m.clock*3.0)) if kind!="success" else -roundf(air*7.0)
 	var fly: float=5.0 if k in ["c_puffbird","b_sparrow","s_fairy","s_wisp","s_tome","sss_apostle","sss_lunar","sss_seraph"] else 0.0
 	var sz: float=h*1.0
-	var x: float=roundf(m.CATX+18.0-sz*.5);var y: float=roundf(m.SURF-sz-fly*(1.0 if air==0.0 else 1.0)+bob)
+	var cx: float=m.CATX+18.0
+	var y: float=roundf(m.SURF-sz-fly+bob)
+	var grade: String=k.get_slice("_",0)
+	var col: Color=AURA.get(grade,Color(1,1,1))
 	m.draw_set_transform(Vector2(0,m.oy))
-	m.draw_rect(Rect2(m.CATX+18.0-7.0,m.SURF,14,1),Color(.11,.13,.1,.22))
-	m.draw_set_transform(Vector2(m.CATX+18.0,m.oy),0.0,Vector2(-1,1))
-	m.draw_texture_rect_region(tex,Rect2(-sz*.5,y-0.0,sz,sz),Rect2(frame*h,0,h,h),tint)
-	m.draw_set_transform(Vector2(0,m.oy))
+	# 바닥 그림자
+	m.draw_rect(Rect2(cx-8.0,m.SURF,16,1),Color(.11,.13,.1,.3))
+	m.draw_rect(Rect2(cx-6.0,m.SURF+1,12,1),Color(.11,.13,.1,.15))
+	# 등급 오라: 펫 뒤에서 숨쉬듯 번지는 빛과 위로 오르는 반짝임
+	var strength: float=AURA_POWER.get(grade,0.0)
+	if strength>0.0:
+		var pulse: float=.75+.25*sin(m.clock*2.4)
+		for i in 4:
+			var r: float=sz*(.62-i*.12)
+			m.draw_circle(Vector2(cx,y+sz*.55),r,Color(col.r,col.g,col.b,strength*pulse*(.07+i*.05))*tint)
+		for i in 3:
+			var ph: float=fmod(m.clock*.6+i*.34,1.0)
+			var px: float=roundf(cx+[-9.0,8.0,0.0][i]+sin(m.clock*2.0+i*2.0)*1.5)
+			var py: float=roundf(y+sz*.7-ph*sz*.9)
+			m.draw_rect(Rect2(px,py,1,1),Color(1,1,1,sin(ph*PI)*strength*1.4))
+			m.draw_rect(Rect2(px-1,py,3,1),Color(col.r,col.g,col.b,sin(ph*PI)*strength*.7))
+	# 펫은 원본 방향(오른쪽 = 낚시꾼 쪽)을 본다
+	for off in [Vector2(-.5,0),Vector2(.5,0),Vector2(0,-.5),Vector2(0,.5)]:
+		m.draw_texture_rect_region(tex,Rect2(cx-sz*.5+off.x,y+off.y,sz,sz),Rect2(frame*h,0,h,h),Color(.18,.1,.2,.55)*tint)
+	m.draw_texture_rect_region(tex,Rect2(cx-sz*.5,y,sz,sz),Rect2(frame*h,0,h,h),tint)
 
 func draw(m) -> Vector2:
 	if textures.is_empty(): setup()
