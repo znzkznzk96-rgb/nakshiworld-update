@@ -187,7 +187,9 @@ const SKIP_RECT: = Rect2(85, 450, 100, 22)
 var pearl: = 0
 var pet_hut: = {}
 func pet_fx(name: String) -> float: return PetEffects.value(pet_hut, name)
-func apply_pet_effects() -> void: expedition.data.pet_atk = pet_fx("atk")
+var pet_missed := false   # 직전 낚시를 놓쳤는지(놓친 직후 효과용)
+func apply_pet_effects() -> void:
+	expedition.data.pet_atk = pet_fx("atk");expedition.data.pet_boss = pet_fx("boss");expedition.data.pet_cut = int(pet_fx("cut"))
 var star_hist: = []
 var judge_col: = Color(1, 0.95, 0.6)
 var hitstop: = 0.0
@@ -550,7 +552,9 @@ func start_wait() -> void :
 		S.lf = bait_length_cm(S.sp) / float(FISH_LEN[S.sp])
 	else: S.lf = minf(S.lf, species_max_cm(S.sp) / FISH_LEN[S.sp])
 	S.size = 0 if S.lf < 0.9 else (1 if S.lf < 1.15 else (2 if S.lf < 1.35 else 3))
-	S.biteAt = clock + randf_range(BITE_WAIT[0], BITE_WAIT[1]) * (BAIT_WAIT_MUL if S.bare else 1.0) * (3.5 if insufficient else lerpf(1.0, 1.6, 1.0 - stock_ratio)) * (1.0 - pet_fx("bite_wait"))
+	var bite_wait: float = randf_range(BITE_WAIT[0], BITE_WAIT[1]) * (BAIT_WAIT_MUL if S.bare else 1.0) * (3.5 if insufficient else lerpf(1.0, 1.6, 1.0 - stock_ratio)) * (1.0 - pet_fx("bite_wait"))
+	if pet_missed: bite_wait = maxf(0.5, bite_wait * (1.0 - pet_fx("miss_pct")) - pet_fx("miss_sec"))
+	S.biteAt = clock + bite_wait
 	S.fakeI = 0;ripples.clear()
 	var t: = clock + randf_range(0.5, 0.9)
 	while t < S.biteAt - 0.4:
@@ -565,6 +569,7 @@ func start_wait() -> void :
 		TUT["bite_hint_seen"] = true;_save_tut()
 
 func fail(text: String) -> void :
+	pet_missed = true
 	_settle_owner(false)
 	S.failText = text;S.phase = "fail";S.t = 0.0
 	set_anim("miss", false);msg = ""
@@ -613,6 +618,9 @@ func start_fight() -> void :
 		"dartUntil": 0.0, "dartDir": 1, "dartSp": 1.0, "faceS": 1.0, "dispY": -1.0, "diveOff": 0.0, "diveDX": 0.0, 
 		"chargeX": 0.0, "cloneT": 0.0, "cloneSub": "run", "cloneSw": 0.0, "cloneReal": 1, "diveDir": 1}, true)
 	S.rod = rod_lv;S.line = 0;S.locMul = 1.0
+	S.hypno = 0.0
+	if not S.get("tutFish",false) and not S.get("owner",false) and int(S.star)<4 and randf()<pet_fx("hypnosis")*(2.0 if pet_missed else 1.0):
+		S.hypno = 3.0;show_toast("별의 사도 · 최면!",Color("c9a7ff"))
 	S.tensionMul = (1.0 - 0.08 * S.rod) * (1.0 - 0.02 * forge_lv) * (1.0 - pet_fx("tension"))
 	S.reelMul = (1.0 + 0.12 * S.rod) * (1.0 + 0.03 * forge_lv)
 	FISHING_DIFFICULTY.configure(self)
@@ -1122,6 +1130,8 @@ func shock_amount(k: float) -> float:
 	return k * (20 + 8 * S.star + 4 * S.grade) * S.tensionMul * (1.0 - 0.1 * S.line) * S.locMul * cut
 
 func update_fight(dt: float) -> void :
+	if float(S.get("hypno",0.0))>0.0:
+		S.hypno=float(S.hypno)-dt;S.beh="rest";S.fakeRest=false;S.bt=maxf(float(S.bt),0.3);S.spike=0.0;S.spikeWarn=0.0
 	fight_telegraph.note_behavior(self)
 	if S.tut:
 		if not tut_update(dt): return
@@ -1223,6 +1233,10 @@ func sfx_update(dt: float) -> void :
 
 func start_catch() -> void :
 	var first_capture: bool=not S.get("capture_logged",false)
+	if first_capture and not S.get("tutFish",false) and not S.get("owner",false) and int(S.star)<4:
+		if int(S.grade)<4 and randf()<pet_fx("upgrade"): S.grade=int(S.grade)+1;show_toast("별의 사도 · 품질 등급 UP!",Color("ffe066"))
+		if randf()<pet_fx("extra"): souls+=1;show_toast("마도서 · 비늘조각 +1",Color("9fd8ff"))
+	if first_capture: pet_missed=false
 	_migrate_fish_records()
 	_settle_owner(true)
 	holding = false

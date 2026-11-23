@@ -73,6 +73,41 @@ func run() -> void:
 	var first: float=m.shock_amount(1.0);var second: float=m.shock_amount(1.0)
 	check(absf(first/full-0.6)<0.001 and absf(second/full-1.0)<0.001,"부엉이: 첫 큰 충격만 -40%")
 	m.pet_hut={}
+	# 나머지 능력
+	m.pet_hut={"e":["ss_golem"],"l":"ss_golem"}
+	check(PetEffects.amp_count(m.pet_hut,0.02)==3 and PetEffects.amp_count(m.pet_hut,0.10)==2 and PetEffects.amp_count(m.pet_hut,0.5)==1,"골렘: 포획 증폭 ×3/×2/없음")
+	m.pet_hut={"e":["s_wisp"],"l":"s_wisp"};check(PetEffects.amp_count(m.pet_hut,0.07)==2 and PetEffects.amp_count(m.pet_hut,0.09)==1,"도깨비불: ×2만")
+	m.pet_hut={"e":["sss_demon"],"l":"sss_demon"};m.apply_pet_effects();check(absf(m.expedition.data.pet_boss-0.10)<0.0001,"악마: 보스 +10% 설정")
+	m.pet_hut={"e":["ss_knight"],"l":"ss_knight"};m.apply_pet_effects();check(m.expedition.data.pet_cut==2 and absf(m.expedition.data.pet_atk-0.10)<0.0001,"기사: 첫 피해 -2·공격 +10%")
+	m.pet_hut={};m.apply_pet_effects();check(m.expedition.data.pet_cut==0 and m.expedition.data.pet_boss==0.0,"대표 없으면 용병 효과 없음")
+	var w0:=0.0;var w1:=0.0;var w2:=0.0;var w3:=0.0
+	m.TUT.done=true
+	m.pet_hut={"e":["ss_storm"],"l":"ss_storm"}
+	for i in 60:
+		m.pet_missed=false;m.bait=50;m.start_wait();w0+=m.S.biteAt-m.clock
+		m.pet_missed=true;m.bait=50;m.start_wait();w1+=m.S.biteAt-m.clock
+	check(w1/w0<0.85,"바람 정령: 놓친 직후 입질 대기 감소 (%.2f)" % (w1/w0))
+	m.pet_hut={"e":["d_frog"],"l":"d_frog"}
+	for i in 60:
+		m.pet_missed=false;m.bait=50;m.start_wait();w3+=m.S.biteAt-m.clock
+		m.pet_missed=true;m.bait=50;m.start_wait();w2+=m.S.biteAt-m.clock
+	check(absf((w3-w2)/60.0-0.2)<0.12 and w2<w3,"개구리: 놓친 뒤 약 0.2초 단축 (%.2f)" % ((w3-w2)/60.0))
+	m.pet_missed=false;m.pet_hut={}
+	m.fail("테스트");check(m.pet_missed,"놓치면 pet_missed 켜짐")
+	m.pet_hut={"e":["sss_apostle"],"l":"sss_apostle"};var up:=0;var hyp:=0
+	for i in 300:
+		m.pet_missed=false;m.bait=50;m.start_wait();m.S.star=1;m.S.grade=1;m.S.owner=false;m.S.len=10.0;m.start_catch();if int(m.S.grade)==2: up+=1
+	for i in 300:
+		m.pet_missed=false;m.bait=50;m.start_wait();m.S.star=1;m.S.grade=1;m.start_fight();if float(m.S.hypno)>0.0: hyp+=1
+	check(up>90 and up<150,"사도: 승급 약 40%% (%d/300)" % up)
+	check(hyp>45 and hyp<105,"사도: 최면 약 25%% (%d/300)" % hyp)
+	m.bait=50;m.start_wait();m.S.star=1;m.S.grade=4;m.S.len=10.0;m.start_catch();check(int(m.S.grade)==4,"신화는 승급 안 함")
+	m.bait=50;m.start_wait();m.S.star=4;m.S.grade=1;m.start_fight();check(float(m.S.hypno)==0.0,"★5는 최면 제외")
+	m.pet_hut={"e":["s_tome"],"l":"s_tome"};var s0: int=m.souls
+	for i in 300:
+		m.bait=50;m.start_wait();m.S.star=1;m.S.grade=1;m.S.len=10.0;m.start_catch()
+	check(m.souls-s0>15 and m.souls-s0<50,"마도서: 수동 성공 시 약 10%% +1 (%d/300)" % (m.souls-s0))
+	m.pet_hut={}
 	# 저장 파일에 포함됨
 	m.progress_loaded=true;m.pet_hut={"c":{"d_chick":1}}
 	var ok: bool=m._save_game()

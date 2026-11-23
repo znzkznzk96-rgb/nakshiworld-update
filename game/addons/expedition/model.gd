@@ -28,6 +28,8 @@ var pending: Dictionary = {}
 var battle: Dictionary = {}
 var recovery_until: float = 0
 var rng = RandomNumberGenerator.new()
+var pet_boss := 0.0   # 보스전 추가 공격력
+var pet_cut := 0   # 용병이 처음 받는 일반 공격 피해 감소
 var pet_atk := 0.0   # 대표 펫의 용병 공격력 보너스(예: 0.15 = +15%)
 
 func _init() -> void:
@@ -405,6 +407,7 @@ func tick_utility() -> void:
 		var dealt: int=damage(power,enemy_def*0.5 if sk=="pierce" else enemy_def)
 		if living.any(func(v):return skill(v)=="curse"): dealt=roundi(dealt*(1.0+float(UTILITY_PROFILE.expose)))
 		if TIER_SKILLS.enabled(self):dealt+=TIER_SKILLS.normal_bonus(self,f)
+		if pet_boss>0.0 and str(enemy.id).ends_with("R"): dealt=roundi(dealt*(1.0+pet_boss))
 		attack+=dealt
 		battle.fx.attacks.append({"source":int(f.uid),"role":str(catalog.soldiers[int(f.id)].role),"amount":dealt})
 		if sk=="drain": f.hp=mini(int(f.max_hp),int(f.hp)+roundi(power*0.18*POWER))

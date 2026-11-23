@@ -1,19 +1,17 @@
 class_name PetEffects
 extends RefCounted
 # 대표 펫의 능력(GAME_BIBLE 2026-11-23 초안 수치). 대표 1마리의 능력만 적용한다.
-# 연결됨: bite_wait 입질 대기 감소, tension 장력 감소, first_shock 첫 큰 충격 감소, bait_save 미끼 절약 확률,
-#        scale 비늘조각 증가, income_all/income12/income1 전시 수입, atk 탐험 용병 공격력.
-# 아직 연결 안 됨: miss_wait(놓친 뒤 대기), first_hit_cut(용병 첫 피해 감소), boss(보스전 추가), capture_amp(포획 증폭),
-#        upgrade/hypnosis(별의 사도), extra(마도서 +1).
+# 모든 능력 연결됨: bite_wait·miss_sec·miss_pct 입질, tension·first_shock 파이팅, bait_save, scale·extra 비늘조각,
+#        income_* 전시 수입, atk·boss·cut 용병, amp2·amp3 로봇 포획 증폭, upgrade·hypnosis 별의 사도.
 const FX := {
-	"d_chick": {"income1": 0.02}, "d_frog": {"miss_wait": 0.2}, "d_mouse": {"first_hit_cut": 1},
+	"d_chick": {"income1": 0.02}, "d_frog": {"miss_sec": 0.2}, "d_mouse": {"cut": 1},
 	"c_mushroom": {"bait_save": 0.05}, "c_puffbird": {"bite_wait": 0.05}, "c_slime": {"tension": 0.05},
 	"b_hamster": {"scale": 0.05}, "b_hedgehog": {"tension": 0.04}, "b_sparrow": {"bite_wait": 0.04},
 	"a_fennec": {"bite_wait": 0.08}, "a_otter": {"bait_save": 0.10}, "a_owl": {"first_shock": 0.40},
-	"s_fairy": {"income12": 0.08}, "s_tome": {"scale": 0.15, "extra": 0.10}, "s_wisp": {"capture_amp": 0.08},
-	"ss_golem": {"capture_amp": 0.10}, "ss_knight": {"atk": 0.10, "first_hit_cut": 2}, "ss_storm": {"bite_wait": 0.12, "miss_wait": 0.30},
+	"s_fairy": {"income12": 0.08}, "s_tome": {"scale": 0.15, "extra": 0.10}, "s_wisp": {"amp2": 0.08},
+	"ss_golem": {"amp2": 0.10, "amp3": 0.03}, "ss_knight": {"atk": 0.10, "cut": 2}, "ss_storm": {"bite_wait": 0.12, "miss_pct": 0.30},
 	"sss_apostle": {"upgrade": 0.40, "hypnosis": 0.25}, "sss_demon": {"atk": 0.15, "boss": 0.10},
-	"sss_lunar": {"income_all": 0.10}, "sss_seraph": {"capture_amp": 0.15},
+	"sss_lunar": {"income_all": 0.10}, "sss_seraph": {"amp2": 0.15, "amp3": 0.05},
 }
 
 # 저장 데이터(pet_hut)에서 대표 펫. 대표가 장착 목록에 없으면 첫 장착 펫, 없으면 "".
@@ -39,3 +37,10 @@ static func boost_int(base: int, bonus: float, roll: float) -> int:
 	var x := float(base) * bonus
 	var whole := int(floor(x))
 	return base + whole + (1 if roll < x - whole else 0)
+
+# 포획 증폭: 로봇이 만든 물고기 1마리의 배수(1~3). roll은 0~1 난수
+static func amp_count(d: Dictionary, roll: float) -> int:
+	var a3 := value(d, "amp3")
+	if roll < a3: return 3
+	if roll < a3 + value(d, "amp2"): return 2
+	return 1
