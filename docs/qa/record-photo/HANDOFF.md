@@ -1,3 +1,11 @@
+## 2026-11-23 · 펫 rn3·rn4 시험
+- rn3: generate-with-style-v2(게임 밤 배경 base.png 게임해상도 크롭 3장 + 기존 고양이, max_colors 32), 36×36, 1회=36장, 차감 15. 결과 게임과 잘 맞음. 사용자 선택 5-3 = rn3/out/sss_seraph/26.png → rn3/sss_seraph_pick.png.
+- rn4: bitforge(style_image=선택 천사, 캔버스와 같은 크기 필수, style_strength 60) 3종 1회씩 차감 1. 천사 색·형태가 번져 골렘·사막여우·병아리 정체성 상실 → 불합격, 같은 방식 반복 금지.
+
+## 2026-11-23 · rn1·rn2 88회 낭비 원인 (사용자 지적)
+- 펫 생성 전에 PixelLab API 목록(generate-with-style-v2 style_images·target_palette, bitforge style_image·color_image)과 저장소 과거 사용 기록(analysis/codex-089 bitforge)을 확인하지 않고 텍스트 생성만 반복함. 게임 화면과의 크기·색 조화도 생성 후에야 검토.
+- 규칙: 아트 생성 전 API 목록·과거 기록 확인, 게임 화면 기준(표시 크기·팔레트·스타일 참조)을 먼저 정하고 생성한다.
+
 ## 2026-11-23 · rn1 실패 원인 (사용자 지적)
 - 48px로 만들고 2배 확대함 → 픽셀이 커져 품질 저하. 앞으로 확대 금지, 처음부터 목표 크기로 생성.
 - 등급별 크기 차이 없음(생성기가 캔버스를 꽉 채움). 등급별 캔버스 크기를 달리해 원본 크기 그대로 96 캔버스에 배치.
