@@ -5,8 +5,6 @@
 "sss_lunar": "rn7/final_B/sss_lunar.png",
 "ss_golem": "rn7/final_B/ss_golem.png",
 "ss_knight": "rn3/final_A/ss_knight.png",
-"ss_storm1": "rn7/final_B/ss_storm1.png",
-"ss_storm2": "rn7/final_B/ss_storm2.png",
 "s_wisp": "rn3/final_A/s_wisp.png",
 "s_tome": "rn3/final_A/s_tome.png",
 "s_rock": "rn3/cand/s_rock-1.png",
@@ -21,5 +19,6 @@
 "c_puffbird": "rn3/final_A/c_puffbird.png",
 "d_frog": "rn3/final_A/d_frog.png",
 "d_chick": "rn3/final_A/d_chick.png",
-"d_mouse": "rn3/final_A/d_mouse.png"
+"d_mouse": "rn3/final_A/d_mouse.png",
+"ss_storm": "rn7/final_B/ss_storm2.png"
 }
