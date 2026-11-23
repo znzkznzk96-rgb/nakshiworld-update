@@ -1,0 +1,22 @@
+{
+"sss_seraph": "out/sss_seraph/26",
+"sss_demon": "cand/sss_demon-1",
+"sss_apostle": "cand/sss_apostle-1",
+"sss_lunar": "cand/sss_lunar-1",
+"ss_golem": "cand/ss_golem-1",
+"ss_knight": "cand/ss_knight-1",
+"s_wisp": "cand/s_wisp-2",
+"s_tome": "cand/s_tome-1",
+"a_fennec": "cand/a_fennec-1",
+"a_otter": "cand/a_otter-1",
+"a_owl": "cand/a_owl-1",
+"b_hamster": "cand/b_hamster-1",
+"b_hedgehog": "cand/b_hedgehog-1",
+"b_sparrow": "cand/b_sparrow-1",
+"c_slime": "cand/c_slime-1",
+"c_mushroom": "cand/c_mushroom-1",
+"c_puffbird": "cand/c_puffbird-1",
+"d_frog": "cand/d_frog-1",
+"d_chick": "cand/d_chick-1",
+"d_mouse": "cand/d_mouse-1"
+}

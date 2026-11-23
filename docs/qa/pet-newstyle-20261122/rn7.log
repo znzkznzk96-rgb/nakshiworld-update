@@ -1,0 +1,24 @@
+sss_seraph 36 36 4058.0 -> 4043.0
+sss_demon 36 36 4043.0 -> 4028.0
+sss_apostle 36 36 4028.0 -> 4013.0
+sss_lunar 36 36 4013.0 -> 3998.0
+ss_golem 32 64 3998.0 -> 3988.0
+ss_knight 32 64 3988.0 -> 3978.0
+ss_storm1 32 64 3978.0 -> 3968.0
+ss_storm2 status {'usage': {'type': 'usd', 'usd': 0.0}, 'id': '252e780f-560a-4a8e-b1e5-38ac52bf9d89', 'status': 'failed', 'created_at': '2026-11-23T06:28:58.580273+00:00', 'last_response': {'code': 5000, 'type': 'error', 'error': 'Generation failed', 'trace': None, 'detail': 'Generation failed because it is against 
+ss_storm2 32 64 3968.0 -> 3958.0
+s_wisp 28 64 3958.0 -> 3948.0
+s_tome 28 64 3948.0 -> 3938.0
+s_rock 28 64 3938.0 -> 3928.0
+a_fennec 26 64 3928.0 -> 3918.0
+a_otter 26 64 3918.0 -> 3908.0
+a_owl 26 64 3908.0 -> 3898.0
+b_hamster 24 64 3898.0 -> 3888.0
+b_hedgehog 24 64 3888.0 -> 3878.0
+b_sparrow 24 64 3878.0 -> 3868.0
+c_slime 22 64 3868.0 -> 3858.0
+c_mushroom 22 64 3858.0 -> 3848.0
+c_puffbird 22 64 3848.0 -> 3838.0
+d_frog 20 64 3838.0 -> 3828.0
+d_chick 20 64 3828.0 -> 3818.0
+d_mouse 20 64 3818.0 -> 3808.0
