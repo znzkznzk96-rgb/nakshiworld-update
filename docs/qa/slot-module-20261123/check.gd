@@ -1,26 +1,24 @@
 extends SceneTree
-# 헤드리스 검증: 정해 준 결과로 돌려서 signal 결과가 같은지, skip이 즉시 끝내는지 확인
+# 헤드리스 검증
 func _init() -> void:
+	var rng := RandomNumberGenerator.new(); rng.seed = 7
+	# 1) 등급별 결과 생성이 항상 그 등급의 줄 하나만 만든다
+	var bad := 0
+	for g in 7:
+		for i in 300:
+			var info := SlotMachine.evaluate(SlotMachine.make_grid(g, rng))
+			if info.top != g or info.lines.size() != 1: bad += 1
+	print("CHECK1 grid_bad=", bad, " of 2100")
+	var jp := SlotMachine.evaluate(SlotMachine.make_grid(6, rng, true))
+	print("CHECK2 jackpot=", jp.jackpot, " lines=", jp.lines.size())
+	# 2) 한 판 진행이 끝나고 결과 정보가 나온다 (SS, SSS)
 	var main = load("res://test_main.tscn").instantiate()
 	root.add_child(main)
 	await process_frame
-	var want := [[0,1,2],[3,4,5],[6,5,4]]
-	var got := []
-	main.reels.spin_finished.connect(func(r): got.assign(r))
-	var stops := []
-	main.reels.reel_stopped.connect(func(c): stops.append(c))
-	main.reels.runtime = 0.3; main.reels.reel_delay = 0.1
-	main.reels.spin(want)
-	await main.reels.spin_finished
-	print("CHECK1 result_ok=", got == want, " stops=", stops)
-	# 정지 위치: 각 릴 strip이 y=0이어야 결과 행이 창에 맞는다
-	var ys := []
-	for s in main.reels._strips: ys.append(s.position.y)
-	print("CHECK2 strip_y=", ys)
-	got.clear(); stops.clear()
-	main.reels.runtime = 5.0
-	main.reels.spin(want)
-	await process_frame
-	main.reels.skip()
-	print("CHECK3 skip_ok=", got == want, " spinning=", main.reels.spinning, " stops=", stops)
+	for g in [0, 5, 6]:
+		var got := {}
+		main.machine.finished.connect(func(i): got.assign(i), CONNECT_ONE_SHOT)
+		main.pull(g)
+		await main.machine.finished
+		print("CHECK3 grade=", g, " top=", got.get("top"), " busy=", main.machine.busy)
 	quit()

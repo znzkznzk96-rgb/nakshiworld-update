@@ -3,13 +3,12 @@ func _init() -> void:
 	var main = load("res://test_main.tscn").instantiate()
 	root.add_child(main)
 	await process_frame
-	main.reels.runtime = 0.6; main.reels.reel_delay = 0.2
-	main.reels.spin([[5,4,1],[3,3,3],[6,2,0]])
-	await create_timer(0.25).timeout
-	await process_frame
-	root.get_viewport().get_texture().get_image().save_png("/tmp/shot_mid.png")
-	await main.reels.spin_finished
-	await create_timer(0.1).timeout
-	await process_frame
-	root.get_viewport().get_texture().get_image().save_png("/tmp/shot_end.png")
+	var rng := RandomNumberGenerator.new(); rng.seed = 11
+	var cases := [["d", 0, false, 2.2], ["a", 3, false, 2.3], ["ss", 5, false, 2.9], ["jp", 6, true, 3.9]]
+	for c in cases:
+		main.machine.play(SlotMachine.make_grid(c[1], rng, c[2]))
+		await create_timer(c[3]).timeout
+		root.get_viewport().get_texture().get_image().save_png("/tmp/fx_%s.png" % c[0])
+		await main.machine.finished
+		await create_timer(0.3).timeout
 	quit()
