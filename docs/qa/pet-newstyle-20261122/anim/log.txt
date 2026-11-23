@@ -1,0 +1,42 @@
+sss_demon job 41bd672e-84b3-440c-9e4d-885895a0e6dc
+sss_demon 9 frames 3807.0 -> 3806.0
+sss_apostle job f2e997e7-08ba-41bb-b714-5d728273f423
+sss_apostle 9 frames 3806.0 -> 3805.0
+sss_lunar job d12def5e-533d-46b5-9225-a8d40a3ad7ea
+sss_lunar 9 frames 3805.0 -> 3804.0
+ss_golem job 467040fa-3557-4d50-869f-d4fde8bbef38
+ss_golem 9 frames 3804.0 -> 3803.0
+ss_knight job b2d5771f-54a0-4e9f-84f8-46b82d0c81e4
+ss_knight 9 frames 3803.0 -> 3802.0
+ss_storm job 4da79554-cbe8-4547-b72d-5af340d32398
+ss_storm 9 frames 3802.0 -> 3801.0
+s_wisp job efe9318f-9059-4be0-ab82-342e37ec84c7
+s_wisp 9 frames 3801.0 -> 3800.0
+s_tome job 897bb370-5b73-41aa-8d1c-47cf4ab7db06
+s_tome 9 frames 3800.0 -> 3799.0
+s_rock job 6fd1ff15-09c7-4ff1-9907-d5f7019a4216
+s_rock 9 frames 3799.0 -> 3798.0
+a_fennec job 5d265679-59cf-4d8d-aedb-a704279a3738
+a_fennec 9 frames 3798.0 -> 3797.0
+a_otter job 3582f2bd-83ed-4eea-806c-04f9e09e4668
+a_otter 9 frames 3797.0 -> 3796.0
+a_owl job 60315356-d186-4d4f-b2eb-79d2e770d12e
+a_owl 9 frames 3796.0 -> 3795.0
+b_hamster job f97010bb-11b5-4211-bdd0-41bdea077004
+b_hamster 9 frames 3795.0 -> 3794.0
+b_hedgehog job ee9617ff-7147-4608-88f0-865e9fe3d6d7
+b_hedgehog 9 frames 3794.0 -> 3793.0
+b_sparrow job 563ed536-c701-4e19-809a-14ec92f6799d
+b_sparrow 9 frames 3793.0 -> 3792.0
+c_slime job 81b39258-60c0-494b-9844-2da692ac88d6
+c_slime 9 frames 3792.0 -> 3791.0
+c_mushroom job 5bd82466-b8bf-4e92-9d67-7b0a267c98d6
+c_mushroom 9 frames 3791.0 -> 3790.0
+c_puffbird job 4b0dd197-e9ac-469f-af08-80aa6b3a4941
+c_puffbird 9 frames 3790.0 -> 3789.0
+d_frog job 08ce55b2-179f-4973-9a4f-e22ec0499b4f
+d_frog 9 frames 3789.0 -> 3788.0
+d_chick job 1a90775a-e6f7-497c-a32c-bf4b94c0f6c1
+d_chick 9 frames 3788.0 -> 3787.0
+d_mouse job b2f41752-0d81-4f3a-84dd-f117f64cb75d
+d_mouse 9 frames 3787.0 -> 3786.0
