@@ -63,6 +63,19 @@ const PET_ENTRY := {
 	"s_fairy": "float", "s_rock": "slam", "s_tome": "rise", "s_wisp": "rise", "ss_golem": "slam", "ss_knight": "slam",
 	"ss_storm": "roll", "sss_apostle": "rise", "sss_demon": "slam", "sss_lunar": "float", "sss_seraph": "float",
 }
+## 펫 속성별 연출 모티프와 색(밝은색, 포인트색). 한 점에서 퍼지는 빛줄기는 쓰지 않는다.
+const THEME_COL := {
+	"fire": [Color(1, 0.5, 0.15), Color(1, 0.85, 0.3)], "water": [Color(0.4, 0.8, 1.0), Color(0.8, 1, 1)],
+	"nature": [Color(0.5, 0.9, 0.4), Color(0.9, 1, 0.6)], "air": [Color(0.9, 0.95, 1.0), Color(1, 1, 0.8)],
+	"volt": [Color(0.6, 0.8, 1.0), Color(1, 1, 0.5)], "magic": [Color(0.8, 0.5, 1.0), Color(1, 0.9, 0.5)],
+	"earth": [Color(0.75, 0.65, 0.5), Color(0.5, 0.95, 0.9)],
+}
+const PET_THEME := {
+	"d_chick": "air", "d_frog": "water", "d_mouse": "earth", "c_mushroom": "nature", "c_puffbird": "air", "c_slime": "water",
+	"b_hamster": "nature", "b_hedgehog": "nature", "b_sparrow": "air", "a_fennec": "earth", "a_otter": "water", "a_owl": "air",
+	"s_fairy": "nature", "s_rock": "earth", "s_tome": "magic", "s_wisp": "fire", "ss_golem": "earth", "ss_knight": "magic",
+	"ss_storm": "volt", "sss_apostle": "magic", "sss_demon": "fire", "sss_lunar": "magic", "sss_seraph": "air",
+}
 ## 뽑기 결과로 보여줄 펫 키(비워 두면 해당 등급에서 무작위)
 var reveal_pet := ""
 var _rv_pet := ""
@@ -303,11 +316,7 @@ func _sprite_show(cells: Array, top: int) -> void:
 	var sc: float = [0, 0, 0, 1, 1, 1, 2][top]
 	for cell in cells:
 		_anim(kind, WINDOW_POS + Vector2((cell[1] + 0.5) * CELL.x, (cell[0] + 0.5) * CELL.y), sc, 12.0, randf() * 0.15)
-	if top >= 4: _anim("burst", ctr, 2.0, 12.0, 0.1)
-	if top >= 5: _anim("rainbow", ctr, 3.0, 12.0, 0.2)
-	if top >= 6:
-		_anim("rainbow", ctr, 4.0, 10.0, 0.0)
-		_anim("burst", ctr, 3.0, 10.0, 0.35)
+	if top >= 5: _ring = 0.0
 	var n: int = [0, 0, 0, 0, 6, 14, 30][top]
 	for i in n:
 		_parts.append({"p": Vector2(randf_range(10, 260), randf_range(-60, -10)), "v": Vector2(randf_range(-10, 10), randf_range(60, 130)), "life": randf_range(1.5, 2.6), "g": 30.0, "c": Color.WHITE, "spr": "coin" if i % 2 == 0 else "gem", "ph": randi() % 9})
@@ -495,21 +504,43 @@ func _draw_reveal() -> void:
 	rv.position = Vector2(randf_range(-amp, amp), randf_range(-amp, amp)) if amp > 0.0 else Vector2.ZERO
 	var a := clampf(_rv_t / 0.35, 0.0, 1.0)
 	rv.draw_rect(Rect2(-20, -20, 310, 460), Color(0, 0, 0, 0.85 * a))
+	var theme: String = PET_THEME[_rv_pet]
+	var tc: Array = THEME_COL[theme]
+	var base: Color = tc[0]
+	var feet := ctr + Vector2(0, 62)
 	# 바닥 빛 웅덩이: 실루엣 동안 점점 밝아진다
 	var glow := clampf((_rv_t - 0.2) / maxf(0.2, T0 - 0.2), 0.0, 1.0) if t0 < 0.0 else 1.0
 	for i in 4:
-		rv.draw_circle(ctr + Vector2(0, 8), 40.0 + g * 6.0 + i * 16.0 * (0.5 + glow), Color(col.r, col.g, col.b, (0.10 - i * 0.02) * (0.4 + glow)))
-	# 빛줄기: B부터, 위 등급일수록 개수·겹 증가. SSS는 무지개
-	if g >= 2 and (t0 >= 0.0 or g >= 4):
-		var n := 4 + g * 2
-		var layers := 1 + (1 if g >= 4 else 0) + (1 if g >= 6 else 0)
-		for ly in layers:
-			for i in n:
-				var a0 := _rv_t * (0.5 + 0.1 * g) * (1.0 if ly % 2 == 0 else -0.7) + TAU * i / n
-				var w := TAU / n * 0.3
-				var rc := col if g < 6 else Color.from_hsv(fmod(float(i) / n + _rv_t * 0.4, 1.0), 0.6, 1.0)
-				var al := (0.18 if t0 >= 0.0 else 0.08 * glow)
-				rv.draw_colored_polygon(PackedVector2Array([ctr, ctr + Vector2(cos(a0 - w), sin(a0 - w)) * 280.0, ctr + Vector2(cos(a0 + w), sin(a0 + w)) * 280.0]), Color(rc.r, rc.g, rc.b, al))
+		rv.draw_circle(ctr + Vector2(0, 8), 40.0 + g * 6.0 + i * 16.0 * (0.5 + glow), Color(base.r, base.g, base.b, (0.10 - i * 0.02) * (0.4 + glow)))
+	# SSS: 오로라 커튼(세로 띠가 일렁임)
+	if g >= 6:
+		for i in 5:
+			var cx := 25.0 + i * 55.0 + sin(_rv_t * 1.5 + i) * 10.0
+			var hc := Color.from_hsv(fmod(0.45 + i * 0.12 + _rv_t * 0.1, 1.0), 0.55, 1.0)
+			var ca := 0.28 * (0.3 + 0.7 * glow)
+			rv.draw_polygon(PackedVector2Array([Vector2(cx - 18, 0), Vector2(cx + 18, 0), Vector2(cx + 24, 190), Vector2(cx + 30, 380), Vector2(cx - 30, 380), Vector2(cx - 24, 190)]), PackedColorArray([Color(hc.r, hc.g, hc.b, 0.0), Color(hc.r, hc.g, hc.b, 0.0), Color(hc.r, hc.g, hc.b, ca), Color(hc.r, hc.g, hc.b, 0.0), Color(hc.r, hc.g, hc.b, 0.0), Color(hc.r, hc.g, hc.b, ca)]))
+	# B 이상: 바닥에서 퍼지는 물결 고리
+	var vis := 0.3 + 0.7 * glow
+	rv.draw_set_transform(feet, 0.0, Vector2(1.0, 0.35))
+	if g >= 2:
+		for k in 2:
+			var ph := fmod(_rv_t * 0.9 + k * 0.5, 1.0)
+			rv.draw_arc(Vector2.ZERO, 20.0 + ph * 90.0, 0.0, TAU, 40, Color(base.r, base.g, base.b, (1.0 - ph) * 0.6 * vis), 2.0)
+	# A 이상: 발밑 마법진(고리+도는 점). 등급이 오를수록 고리와 점이 늘어난다
+	if g >= 3:
+		var rings := 1 + (1 if g >= 4 else 0) + (1 if g >= 5 else 0)
+		for k in rings:
+			var rad := 56.0 + k * 18.0
+			rv.draw_arc(Vector2.ZERO, rad, 0.0, TAU, 48, Color(base.r, base.g, base.b, 0.8 * vis), 2.0)
+			var dots := 8 + k * 4
+			for d in dots:
+				var an := TAU * d / dots + _rv_t * (1.0 if k % 2 == 0 else -1.0)
+				rv.draw_rect(Rect2((Vector2(cos(an), sin(an)) * rad).round() - Vector2(1, 1), Vector2(3, 3)), Color(tc[1].r, tc[1].g, tc[1].b, vis))
+		if g >= 4:
+			var pts := PackedVector2Array()
+			for d in 4: pts.append(Vector2(cos(TAU * d / 3.0 + _rv_t * 0.6), sin(TAU * d / 3.0 + _rv_t * 0.6)) * 56.0)
+			rv.draw_polyline(pts, Color(tc[1].r, tc[1].g, tc[1].b, 0.7 * vis), 2.0)
+	rv.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 	# 위에서 내리꽂는 빛기둥: S부터
 	if g >= 4:
 		var pw := 10.0 + 26.0 * glow if t0 < 0.0 else maxf(0.0, 36.0 - t0 * 30.0)
@@ -524,16 +555,12 @@ func _draw_reveal() -> void:
 	if t0 < 0.0:
 		off = Vector2(randf_range(-1, 1), randf_range(-1, 1)) * (glow * (g - 1.0) * 0.8)   # 실루엣이 떨린다
 	rv.draw_texture_rect(ft, Rect2((ctr + off - sz * 0.5).round(), sz), false, mod)
-	# 반짝 가루: B부터, 위 등급일수록 많다
-	if t0 >= 0.0 and g >= 2:
-		for i in g * 5:
-			var ang := float(i) * 2.399 + _rv_t * 1.5
-			var rr := fmod(t0 * (40.0 + i * 3.0) + i * 11.0, 120.0)
-			var sp := ctr + Vector2(cos(ang), sin(ang)) * rr
-			rv.draw_rect(Rect2(sp.round(), Vector2(2, 2)), Color(1, 1, 0.8, 1.0 - rr / 120.0))
+	# 속성별 입자: 불=솟는 불똥, 물=거품, 풀=낙엽, 바람=깃털, 번개=불꽃+번개줄, 마법=별빛, 바위=먼지. 등급이 높을수록 많다
+	if t0 >= 0.0:
+		_rv_particles(theme, tc, ctr, t0, g)
 	# SS·SSS: 동전·보석 비
 	if t0 >= 0.0 and g >= 5:
-		for i in (10 if g == 5 else 24):
+		for i in (5 if g == 5 else 12):
 			var x := fmod(float(i) * 53.0, 250.0) + 10.0
 			var y := fmod(t0 * (80.0 + (i % 4) * 20.0) + i * 47.0, 470.0) - 40.0
 			var st: Texture2D = _fr["coin" if i % 2 == 0 else "gem"][(i + int(_rv_t * 12.0)) % 9]
@@ -559,3 +586,44 @@ func _draw_reveal() -> void:
 	if g >= 5 and t0 > 0.0 and t0 < 1.0:
 		var r := t0 * 300.0
 		rv.draw_arc(ctr, r, 0.0, TAU, 48, Color(col.r, col.g, col.b, 1.0 - t0), 3.0)
+
+func _rv_particles(theme: String, tc: Array, ctr: Vector2, t: float, g: int) -> void:
+	var n := 6 + g * 5
+	var c0: Color = tc[0]
+	var c1: Color = tc[1]
+	for i in n:
+		var bx := fmod(float(i) * 61.3, 250.0) + 10.0
+		var sp := 1.0 + float(i % 5) * 0.25
+		match theme:
+			"fire":
+				var y := 340.0 - fmod(t * 70.0 * sp + i * 37.0, 300.0)
+				rv.draw_rect(Rect2(Vector2(bx + sin(t * 3.0 + i) * 6.0, y).round(), Vector2(2, 3)), c0 if i % 2 == 0 else c1)
+			"water":
+				var y := 340.0 - fmod(t * 35.0 * sp + i * 41.0, 320.0)
+				rv.draw_arc(Vector2(bx + sin(t * 2.0 + i) * 8.0, y).round(), 2.0 + float(i % 3), 0.0, TAU, 8, c0 if i % 2 == 0 else c1, 1.0)
+			"nature":
+				var y := fmod(t * 32.0 * sp + i * 43.0, 380.0) - 20.0
+				rv.draw_rect(Rect2(Vector2(bx + sin(t * 2.0 + i) * 14.0, y).round(), Vector2(3, 2)), c0 if i % 2 == 0 else c1)
+			"air":
+				var y := fmod(t * 22.0 * sp + i * 47.0, 380.0) - 20.0
+				rv.draw_rect(Rect2(Vector2(bx + sin(t * 1.6 + i) * 20.0, y).round(), Vector2(2, 5)), c0 if i % 2 == 0 else c1)
+			"volt":
+				var an := fmod(float(i) * 2.399 + floorf(t * 8.0) * 1.7, TAU)
+				var rr := 50.0 + fmod(float(i) * 23.0, 80.0)
+				rv.draw_rect(Rect2((ctr + Vector2(cos(an), sin(an)) * rr).round(), Vector2(2, 2)), c1)
+			"magic":
+				var y := 340.0 - fmod(t * 40.0 * sp + i * 39.0, 320.0)
+				var tw := 1 + int(t * 6.0 + i) % 2
+				var p := Vector2(bx, y).round()
+				rv.draw_rect(Rect2(p - Vector2(tw, 0), Vector2(tw * 2 + 1, 1)), c1)
+				rv.draw_rect(Rect2(p - Vector2(0, tw), Vector2(1, tw * 2 + 1)), c0)
+			"earth":
+				var y := 340.0 - fmod(t * 28.0 * sp + i * 37.0, 300.0)
+				rv.draw_rect(Rect2(Vector2(bx + sin(t + i) * 5.0, y).round(), Vector2(2, 2)), c0 if i % 3 != 0 else c1)
+	if theme == "volt" and g >= 2 and int(t * 5.0) % 2 == 0:
+		var seed := int(t * 5.0)
+		var pts := PackedVector2Array()
+		var x := 135.0 + float((seed * 37) % 80 - 40)
+		for k in 7:
+			pts.append(Vector2(x + float((seed * 13 + k * 29) % 31 - 15) * (1.0 if k < 6 else 0.0), k * (ctr.y + 50.0) / 6.0))
+		rv.draw_polyline(pts, c1, 2.0)
