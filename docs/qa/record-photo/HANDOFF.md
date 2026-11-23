@@ -1,3 +1,7 @@
+## 2026-11-23 · 펫 22종 시안 bk44
+
+[SSS 악마 재생성 기록](../../GAME_BIBLE.md#2026-11-23--펫-22종-시안-bk43bk44-sss-악마-재생성). 최종 시트 `docs/qa/pet-newstyle-20261122/bk44/sheet22.png`, 사용자 확인 대기. 게임 미적용. 인증은 클라우드 네트워크 시크릿 필요(키는 저장소·채팅에 두지 않는다).
+
 ## 2026-11-20 · SSS 10초 컷신
 
 [10초 영상과 독립 프로젝트](../pet-motion-d-preview/godot-cutscene/ten-seconds/README.md).
