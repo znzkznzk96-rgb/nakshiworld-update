@@ -16,6 +16,8 @@ const TABS := [["pets", "내 펫"], ["gacha", "뽑기"], ["plans", "도면"]]
 const INK := Color("382619")
 const CREAM := Color("fff0d1")
 const A := "res://assets/"
+const FRAG := [1, 3, 8, 20, 60, 200, 600]          # 분해로 얻는 조각(등급별)
+const BP_COST := {3: [150, 50], 4: [450, 100], 5: [1200, 200], 6: [2100, 300]}   # 도면 제작: 조각, 진주
 const COST := 10                                   # 슬롯 1회 진주
 const GRADE_P := [71.3, 13.0, 8.0, 5.0, 2.0, 0.5, 0.2]   # 등급별 확률(%), 합 100
 var tab := "pets"
@@ -35,6 +37,11 @@ var rects := {}
 var _tex := {}
 var _font: FontFile
 var last_pet := ""
+var frags := 0
+var plan_mode := "craft"       # craft 도면 제작 / dis 펫 분해
+var plan_g := 3                # 도면 목록에서 보는 등급
+var dis_sel := ""
+var plan_msg := ""
 var last_new := false
 var show_odds := false
 var _grng := RandomNumberGenerator.new()
@@ -108,7 +115,7 @@ func _draw() -> void:
 	elif tab == "gacha":
 		_draw_gacha_tab(body)
 	else:
-		_txt({"gacha": "뽑기", "plans": "도면"}[tab] + " 화면", body.get_center() + Vector2(0, 4), 10, INK, true, body.size.x - 12)
+		_draw_plans_tab(body)
 
 func _gui_input(e: InputEvent) -> void:
 	if e is InputEventMouseButton and e.pressed and e.button_index == MOUSE_BUTTON_LEFT:
@@ -120,9 +127,10 @@ func press(p: Vector2) -> void:
 		closed.emit(); return
 	if tab == "pets" and _pets_press(p): return
 	if tab == "gacha" and _gacha_press(p): return
+	if tab == "plans" and _plans_press(p): return
 	for t in TABS:
 		if rects.get("tab:" + t[0], Rect2()).has_point(p):
-			tab = t[0]; picker = -1; show_odds = false; queue_redraw(); return
+			tab = t[0]; picker = -1; show_odds = false; plan_msg = ""; queue_redraw(); return
 
 # ───────── 내 펫 탭: 돌아다니며 진주 캐기 ─────────
 static func grade_of(k: String) -> int:
@@ -418,4 +426,117 @@ func _gacha_press(p: Vector2) -> bool:
 		return true
 	if rects.get("pull", Rect2()).has_point(p): pull(); return true
 	if rects.get("odds", Rect2()).has_point(p): show_odds = true; queue_redraw(); return true
+	return false
+
+# ───────── 도면 탭: 중복 펫 분해 → 조각, 조각+진주로 도면 제작 ─────────
+static func frag_of(k: String) -> int:
+	return FRAG[grade_of(k)]
+
+func can_dismantle(k: String) -> bool:
+	return counts.get(k, 0) >= 2          # 처음 얻은 1마리는 도감용이라 분해 불가
+
+func dismantle(k: String) -> bool:
+	if not can_dismantle(k): return false
+	counts[k] -= 1
+	frags += frag_of(k)
+	plan_msg = "%s 분해! 조각 +%d" % [NAME[k], frag_of(k)]
+	return true
+
+func can_craft(k: String) -> bool:
+	var g := grade_of(k)
+	return BP_COST.has(g) and frags >= BP_COST[g][0] and pearl_total >= BP_COST[g][1]
+
+func craft(k: String) -> bool:
+	if not can_craft(k): return false
+	var c: Array = BP_COST[grade_of(k)]
+	frags -= c[0]; pearl_total -= c[1]
+	last_new = counts.get(k, 0) == 0
+	counts[k] = counts.get(k, 0) + 1
+	last_pet = k
+	_sync_owned()
+	plan_msg = "%s 제작 완료!" % NAME[k]
+	return true
+
+func _draw_plans_tab(body: Rect2) -> void:
+	var b := body.position
+	var cx := b.x + body.size.x / 2.0
+	_txt(plan_msg if plan_msg != "" else "조각 %d개 · 진주 %d개" % [frags, pearl_total], Vector2(cx, b.y + 17), 9, Color("2f8f84") if plan_msg != "" else INK, true, 220)
+	for i in 2:
+		var key: String = ["craft", "dis"][i]
+		var sr := Rect2(b.x + 6 + i * 110, b.y + 26, 108, 22)
+		_art("teal" if plan_mode == key else "card", sr)
+		_txt(["도면 제작", "펫 분해"][i], sr.get_center() + Vector2(0, 4), 9, CREAM if plan_mode == key else INK, true, 100)
+		rects["pm:" + key] = sr
+	if plan_mode == "craft": _draw_craft(body)
+	else: _draw_dismantle(body)
+
+func _draw_craft(body: Rect2) -> void:
+	var b := body.position
+	for i in 4:
+		var g: int = [3, 4, 5, 6][i]
+		var cr := Rect2(b.x + 6 + i * 55, b.y + 54, 52, 20)
+		_art("teal" if plan_g == g else "card", cr)
+		_txt(GRADE_NAME[g], cr.get_center() + Vector2(0, 4), 9, CREAM if plan_g == g else INK, true, 48)
+		rects["pg:%d" % g] = cr
+	var list := pets_of(plan_g)
+	for n in list.size():
+		var k: String = list[n]
+		var rr := Rect2(b.x + 6, b.y + 80 + n * 40.0, body.size.x - 12, 38)
+		_art("card", rr)
+		var tex: Texture2D = _strip(k, "move")
+		var th := tex.get_height()
+		draw_texture_rect_region(tex, Rect2(rr.position + Vector2(4 + (36 - th) / 2.0, (38 - th) / 2.0), Vector2(th, th)), Rect2(0, 0, th, th))
+		var c: Array = BP_COST[plan_g]
+		_txt(NAME[k], rr.position + Vector2(44, 15), 9, INK, false, 100)
+		var okf: bool = frags >= c[0]
+		var okp: bool = pearl_total >= c[1]
+		_txt("조각 %d" % c[0], rr.position + Vector2(44, 29), 8, Color("2f8f84") if okf else Color("b04a3a"), false, 50)
+		_txt("진주 %d" % c[1], rr.position + Vector2(90, 29), 8, Color("2f8f84") if okp else Color("b04a3a"), false, 50)
+		var bt := Rect2(rr.end.x - 54, rr.position.y + 7, 48, 24)
+		var ok := can_craft(k)
+		_art("button" if ok else "card", bt)
+		_txt("제작", bt.get_center() + Vector2(0, 4), 9, CREAM if ok else Color("6e5c49"), true, 44)
+		rects["craft:" + k] = bt
+
+func _draw_dismantle(body: Rect2) -> void:
+	var b := body.position
+	for n in owned.size():
+		var k: String = owned[n]
+		var cr := Rect2(b.x + 4 + (n % 6) * 37.0, b.y + 54 + (n / 6) * 38.0, 36, 36)
+		_art("teal" if dis_sel == k else "card", cr)
+		var tex: Texture2D = _strip(k, "move")
+		var th := tex.get_height()
+		var tint := Color(1, 1, 1, 1.0 if counts[k] >= 2 else 0.5)
+		draw_texture_rect_region(tex, Rect2(cr.position + Vector2((36 - th) / 2.0, (36 - th) / 2.0 - 1), Vector2(th, th)), Rect2(0, 0, th, th), tint)
+		draw_rect(Rect2(cr.end.x - 14, cr.end.y - 10, 12, 9), Color(0.22, 0.15, 0.1, 0.85))
+		_txt("%d" % counts[k], Vector2(cr.end.x - 8, cr.end.y - 3), 7, CREAM, true, 12)
+		rects["dis:" + k] = cr
+	var dr := Rect2(b.x + 6, b.y + 212, body.size.x - 12, 46)
+	_art("card", dr)
+	if dis_sel == "":
+		_txt("분해할 펫을 골라요 (숫자 = 보유 수)" if owned.size() > 0 else "가진 펫이 없어요", dr.get_center() + Vector2(0, 4), 8, Color("8f6951"), true, dr.size.x - 10)
+		return
+	var tex2: Texture2D = _strip(dis_sel, "move")
+	var th2 := tex2.get_height()
+	draw_texture_rect_region(tex2, Rect2(dr.position + Vector2(4 + (36 - th2) / 2.0, (46 - th2) / 2.0), Vector2(th2, th2)), Rect2(0, 0, th2, th2))
+	_txt("%s (%s)" % [NAME[dis_sel], GRADE_NAME[grade_of(dis_sel)]], dr.position + Vector2(44, 17), 9, INK, false, 100)
+	var can := can_dismantle(dis_sel)
+	_txt("조각 +%d" % frag_of(dis_sel) if can else "처음 1마리는 분해 못 해요", dr.position + Vector2(44, 33), 8, Color("2f8f84") if can else Color("b04a3a"), false, 110)
+	var bt := Rect2(dr.end.x - 54, dr.position.y + 11, 48, 24)
+	_art("button" if can else "card", bt)
+	_txt("분해", bt.get_center() + Vector2(0, 4), 9, CREAM if can else Color("6e5c49"), true, 44)
+	rects["dismantle"] = bt
+
+func _plans_press(p: Vector2) -> bool:
+	for key in ["craft", "dis"]:
+		if rects.get("pm:" + key, Rect2()).has_point(p): plan_mode = key; plan_msg = ""; queue_redraw(); return true
+	if plan_mode == "craft":
+		for g in [3, 4, 5, 6]:
+			if rects.get("pg:%d" % g, Rect2()).has_point(p): plan_g = g; plan_msg = ""; queue_redraw(); return true
+		for k in pets_of(plan_g):
+			if rects.get("craft:" + k, Rect2()).has_point(p): craft(k); queue_redraw(); return true
+	else:
+		for k in owned:
+			if rects.get("dis:" + k, Rect2()).has_point(p): dis_sel = k; plan_msg = ""; queue_redraw(); return true
+		if dis_sel != "" and rects.get("dismantle", Rect2()).has_point(p): dismantle(dis_sel); queue_redraw(); return true
 	return false

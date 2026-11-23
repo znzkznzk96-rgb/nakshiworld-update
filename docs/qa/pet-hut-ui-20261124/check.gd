@@ -88,5 +88,30 @@ func _init() -> void:
 	ui.press(ui.rects["odds"].get_center()); n += 1; ok += 1 if ui.show_odds else 0
 	ui.step(0.0); await process_frame
 	ui.press(ui.rects["odds_close"].get_center()); n += 1; ok += 1 if not ui.show_odds else 0
+	# ── 도면 탭 ──
+	ui.press(ui.rects["tab:plans"].get_center()); ui.step(0.0); await process_frame
+	ui.counts = {"d_chick": 1, "ss_golem": 3, "a_owl": 2}; ui._sync_owned(); ui.frags = 0; ui.pearl_total = 0
+	n += 1; ok += 1 if not ui.dismantle("d_chick") and ui.frags == 0 else 0                 # 처음 1마리는 분해 불가
+	n += 1; ok += 1 if ui.dismantle("ss_golem") and ui.frags == 200 and ui.counts["ss_golem"] == 2 else 0
+	n += 1; ok += 1 if ui.dismantle("a_owl") and ui.frags == 220 and ui.counts["a_owl"] == 1 and not ui.dismantle("a_owl") else 0
+	ui.frags = 149; ui.pearl_total = 50
+	n += 1; ok += 1 if not ui.can_craft("a_fennec") else 0                                  # 조각 부족
+	ui.frags = 150; ui.pearl_total = 49
+	n += 1; ok += 1 if not ui.can_craft("a_fennec") else 0                                  # 진주 부족
+	ui.pearl_total = 50
+	n += 1; ok += 1 if not ui.can_craft("b_hamster") else 0                                 # B 이하는 도면 없음
+	n += 1; ok += 1 if ui.craft("a_fennec") and ui.frags == 0 and ui.pearl_total == 0 and ui.counts["a_fennec"] == 1 and ui.owned.has("a_fennec") else 0
+	var cost_ok := true
+	for g in [3, 4, 5, 6]: cost_ok = cost_ok and PetHutUI.BP_COST[g].size() == 2
+	n += 1; ok += 1 if cost_ok and PetHutUI.BP_COST[6] == [2100, 300] else 0
+	ui.step(0.0); await process_frame
+	ui.press(ui.rects["pm:dis"].get_center()); ui.step(0.0); await process_frame
+	ui.press(ui.rects["dis:ss_golem"].get_center()); ui.step(0.0); await process_frame
+	n += 1; ok += 1 if ui.plan_mode == "dis" and ui.dis_sel == "ss_golem" and ui.rects.has("dismantle") else 0
+	ui.press(ui.rects["dismantle"].get_center())
+	n += 1; ok += 1 if ui.frags == 200 and ui.counts["ss_golem"] == 1 else 0                # 화면에서 눌러 분해
+	ui.press(ui.rects["pm:craft"].get_center()); ui.step(0.0); await process_frame
+	ui.press(ui.rects["pg:6"].get_center()); ui.step(0.0); await process_frame
+	n += 1; ok += 1 if ui.plan_g == 6 and ui.rects.has("craft:sss_seraph") and ui.rects.has("craft:sss_lunar") else 0
 	print("통과 %d/%d" % [ok, n])
 	quit(0 if ok == n else 1)
