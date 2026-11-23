@@ -461,7 +461,7 @@ func _draw_top() -> void:
 		var label := "JACKPOT"
 		var fs := 32
 		var tw := font.get_string_size(label, HORIZONTAL_ALIGNMENT_LEFT, -1, fs).x
-		var lp := Vector2(135 - tw * 0.5, 190 + (40.0 - 37.0) * 1.4 + (font.get_ascent(fs) - font.get_descent(fs)) * 0.5)
+		var lp := Vector2(135 - tw * 0.5, 190 + (40.0 - 37.0) * 1.4 + 2.0 + (font.get_ascent(fs) - font.get_descent(fs)) * 0.5)
 		var tc := Color(1, 1, 0.8) if int(_bn_t * 10.0) % 2 == 0 else Color(1, 0.85, 0.3)
 		if _bn_t >= 0.25:
 			top_fx.draw_string_outline(font, lp, label, HORIZONTAL_ALIGNMENT_LEFT, -1, fs, 4, Color(0.3, 0.05, 0.05))
@@ -588,7 +588,7 @@ func _draw_reveal() -> void:
 			var bt: Texture2D = _fr["banner"][0]
 			rv.draw_texture_rect(bt, Rect2(Vector2(135 - 96, 276), Vector2(192, 74)), false, Color(1, 1, 1, la))
 			nfs = 16
-			ny = 276.0 + 40.0 + (font.get_ascent(nfs) - font.get_descent(nfs)) * 0.5   # 붉은 띠(배너 y 28~51)의 세로 가운데
+			ny = 276.0 + 42.0 + (font.get_ascent(nfs) - font.get_descent(nfs)) * 0.5   # 붉은 띠(배너 y 28~51)의 세로 가운데
 		var nw := font.get_string_size(nm, HORIZONTAL_ALIGNMENT_LEFT, -1, nfs).x
 		var np := Vector2(135 - nw * 0.5, ny)
 		rv.draw_string_outline(font, np, nm, HORIZONTAL_ALIGNMENT_LEFT, -1, nfs, 2 if g >= 4 else 4, Color(0, 0, 0, la))
