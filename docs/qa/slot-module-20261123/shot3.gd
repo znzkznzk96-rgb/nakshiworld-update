@@ -4,7 +4,7 @@ func _init() -> void:
 	root.add_child(main)
 	await process_frame
 	var m: SlotMachine = main.machine
-	var cases := [["a_otter", 3], ["s_wisp", 4], ["ss_storm", 5], ["sss_lunar", 6], ["sss_seraph", 6], ["s_rock", 4]]
+	var cases := [["d_frog", 0], ["a_otter", 3], ["s_wisp", 4], ["ss_storm", 5], ["sss_demon", 6], ["sss_apostle", 6]]
 	for c in cases:
 		m.reveal_pet = c[0]
 		var g: int = c[1]

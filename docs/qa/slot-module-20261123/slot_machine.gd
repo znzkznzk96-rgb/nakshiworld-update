@@ -565,20 +565,27 @@ func _draw_reveal() -> void:
 			var y := fmod(t0 * (80.0 + (i % 4) * 20.0) + i * 47.0, 470.0) - 40.0
 			var st: Texture2D = _fr["coin" if i % 2 == 0 else "gem"][(i + int(_rv_t * 12.0)) % 9]
 			rv.draw_texture(st, Vector2(x, y).round())
-	# 이름: S 이상은 리본 위에
-	var label: String = "%s  %s" % [GRADES[g], PET_NAME[_rv_pet]]
-	var font := ThemeDB.fallback_font
-	var fs := 18
+	# 이름: 등급은 위 줄에 색 글자로, 펫 이름은 아래 줄(S 이상은 리본의 붉은 띠 가운데)에 쓴다
 	if t0 >= 0.4:
-		var lp_a := clampf((t0 - 0.4) / 0.25, 0.0, 1.0)
+		var la := clampf((t0 - 0.4) / 0.25, 0.0, 1.0)
+		var font := ThemeDB.fallback_font
+		var gtxt: String = "%s 등급" % GRADES[g]
+		var gw := font.get_string_size(gtxt, HORIZONTAL_ALIGNMENT_LEFT, -1, 13).x
+		var gp := Vector2(135 - gw * 0.5, 268)
+		rv.draw_string_outline(font, gp, gtxt, HORIZONTAL_ALIGNMENT_LEFT, -1, 13, 4, Color(0, 0, 0, la))
+		rv.draw_string(font, gp, gtxt, HORIZONTAL_ALIGNMENT_LEFT, -1, 13, Color(col.r, col.g, col.b, la))
+		var nm: String = PET_NAME[_rv_pet]
+		var nfs := 18
+		var ny := 300.0
 		if g >= 4:
 			var bt: Texture2D = _fr["banner"][0]
-			rv.draw_texture_rect(bt, Rect2(Vector2(135 - 96, 304 - 32), Vector2(192, 64)), false, Color(1, 1, 1, lp_a))
-			fs = 16
-		var tw := font.get_string_size(label, HORIZONTAL_ALIGNMENT_LEFT, -1, fs).x
-		var lp := Vector2(135 - tw * 0.5, 310 if g >= 4 else 300)
-		rv.draw_string_outline(font, lp, label, HORIZONTAL_ALIGNMENT_LEFT, -1, fs, 5, Color(0, 0, 0, lp_a))
-		rv.draw_string(font, lp, label, HORIZONTAL_ALIGNMENT_LEFT, -1, fs, Color(1, 1, 1, lp_a) if g >= 4 else Color(col.r, col.g, col.b, lp_a))
+			rv.draw_texture_rect(bt, Rect2(Vector2(135 - 96, 276), Vector2(192, 64)), false, Color(1, 1, 1, la))
+			nfs = 12
+			ny = 276.0 + 30.0 + nfs * 0.35   # 붉은 띠(배너 y 19~41)의 세로 가운데
+		var nw := font.get_string_size(nm, HORIZONTAL_ALIGNMENT_LEFT, -1, nfs).x
+		var np := Vector2(135 - nw * 0.5, ny)
+		rv.draw_string_outline(font, np, nm, HORIZONTAL_ALIGNMENT_LEFT, -1, nfs, 3 if g >= 4 else 5, Color(0, 0, 0, la))
+		rv.draw_string(font, np, nm, HORIZONTAL_ALIGNMENT_LEFT, -1, nfs, Color(1, 1, 1, la))
 	# 번쩍: 등장 순간(SSS는 두 번), SSS는 충격파 고리도
 	var fl := clampf(1.0 - absf(t0) * (6.0 if t0 < 0.0 else 3.0), 0.0, 1.0) if absf(t0) < 0.4 else 0.0
 	if g == 6 and t0 > 0.5 and t0 < 0.8: fl = maxf(fl, (0.8 - t0) * 2.0)
