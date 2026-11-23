@@ -44,6 +44,28 @@ var _rv_skip := false
 var rv: Control
 ## 펫 등장 컷신을 모듈 안에서 보여줄지(게임이 직접 하려면 false로 두고 reveal_requested만 받는다)
 var show_reveal := true
+## 등급별 펫 후보(0=D..6=SSS)와 이름, 등장 방식. 게임에서는 실제 뽑힌 펫 키를 reveal_pet에 넣는다.
+const PETS := {
+	0: ["d_chick", "d_frog", "d_mouse"], 1: ["c_mushroom", "c_puffbird", "c_slime"], 2: ["b_hamster", "b_hedgehog", "b_sparrow"],
+	3: ["a_fennec", "a_otter", "a_owl"], 4: ["s_fairy", "s_rock", "s_tome", "s_wisp"], 5: ["ss_golem", "ss_knight", "ss_storm"],
+	6: ["sss_apostle", "sss_demon", "sss_lunar", "sss_seraph"],
+}
+const PET_NAME := {
+	"d_chick": "병아리", "d_frog": "개구리", "d_mouse": "생쥐", "c_mushroom": "버섯", "c_puffbird": "퍼프버드", "c_slime": "슬라임",
+	"b_hamster": "햄스터", "b_hedgehog": "고슴도치", "b_sparrow": "참새", "a_fennec": "사막여우", "a_otter": "수달", "a_owl": "부엉이",
+	"s_fairy": "요정", "s_rock": "이끼바위", "s_tome": "마도서", "s_wisp": "촛불정령", "ss_golem": "골렘", "ss_knight": "기사",
+	"ss_storm": "폭풍룡", "sss_apostle": "별의 사도", "sss_demon": "심연의 악마", "sss_lunar": "달의 여인", "sss_seraph": "세라핌",
+}
+## 등장 방식: drop 떨어져 튕김 / slam 쾅 내리꽂음(화면 흔들림) / hop 옆에서 점프 / rise 아래서 솟음 / float 위에서 천천히 / roll 옆에서 굴러옴
+const PET_ENTRY := {
+	"d_chick": "hop", "d_frog": "hop", "d_mouse": "roll", "c_mushroom": "drop", "c_puffbird": "float", "c_slime": "drop",
+	"b_hamster": "hop", "b_hedgehog": "roll", "b_sparrow": "float", "a_fennec": "hop", "a_otter": "rise", "a_owl": "float",
+	"s_fairy": "float", "s_rock": "slam", "s_tome": "rise", "s_wisp": "rise", "ss_golem": "slam", "ss_knight": "slam",
+	"ss_storm": "roll", "sss_apostle": "rise", "sss_demon": "slam", "sss_lunar": "float", "sss_seraph": "float",
+}
+## 뽑기 결과로 보여줄 펫 키(비워 두면 해당 등급에서 무작위)
+var reveal_pet := ""
+var _rv_pet := ""
 const REVEAL_COL := [Color(0.7, 0.7, 0.7), Color(0.4, 0.9, 0.4), Color(0.4, 0.7, 1.0), Color(0.8, 0.5, 1.0), Color(1.0, 0.85, 0.3), Color(1.0, 0.4, 0.6), Color(1, 1, 1)]
 var _flash := 0.0
 var _spot := 0.0
@@ -92,10 +114,11 @@ func _ready() -> void:
 		var arr: Array[Texture2D] = []
 		for i in 9: arr.append(_tex("%s_%02d" % [n, i]))
 		_fr[n] = arr
-	for g in GRADES:
-		var parr: Array[Texture2D] = []
-		for i in 9: parr.append(_tex("pet_%s_%02d" % [g.to_lower(), i]))
-		_fr["pet_" + g.to_lower()] = parr
+	for g in PETS:
+		for k in PETS[g]:
+			var parr: Array[Texture2D] = []
+			for i in 9: parr.append(_tex("rv_%s_%02d" % [k, i]))
+			_fr["rv_" + k] = parr
 	_fr["banner"] = [_tex("banner")]
 	var snames := ["lever", "spin", "reel_stop", "jackpot", "reveal"]
 	for i in 7: snames.append("win_%d" % i)
@@ -315,15 +338,44 @@ func _jackpot() -> void:
 	await get_tree().create_timer(1.2).timeout
 	_bn_t = -1.0
 
-## 펫 등장 컷신: 어두워지고 등급색 빛줄기가 돌며 펫이 튀어나온다. 높은 등급일수록 길고 화려하다.
+## 펫 등장 컷신: 어두워지고 → 실루엣(등급 높을수록 길게 뜸 들임) → 번쩍 → 펫마다 다른 방식으로 등장.
 func _reveal(top: int) -> void:
 	_rv_grade = top; _rv_skip = false; _rv_t = 0.0
+	_rv_pet = reveal_pet if reveal_pet != "" else PETS[top][randi() % PETS[top].size()]
 	sfx.emit("reveal")
-	var dur: float = [1.6, 1.8, 2.0, 2.3, 2.7, 3.1, 3.6][top]
+	var dur: float = _rv_start(top) + 1.0 + [1.0, 1.1, 1.2, 1.4, 1.7, 2.0, 2.4][top]
 	while _rv_t < dur and not _rv_skip:
 		await get_tree().process_frame
 	_rv_t = -1.0
+	rv.position = Vector2.ZERO
 	rv.queue_redraw()
+
+## 번쩍하며 펫이 나타나는 시각(초)
+func _rv_start(top: int) -> float:
+	return 0.35 + [0.0, 0.0, 0.3, 0.6, 0.9, 1.2, 1.6][top]
+
+## 등장 방식별 위치 오프셋(t = 등장 시작 후 시간)
+static func _entry(kind: String, t: float) -> Vector2:
+	match kind:
+		"drop":
+			if t < 0.45: return Vector2(0, -230.0 * (1.0 - pow(t / 0.45, 2.0)))
+			var u := t - 0.45
+			return Vector2(0, -absf(sin(u * 11.0)) * 26.0 * exp(-u * 5.0))
+		"slam":
+			if t < 0.25: return Vector2(0, -260.0 * (1.0 - pow(t / 0.25, 2.0)))
+			var u := t - 0.25
+			return Vector2(0, -absf(sin(u * 14.0)) * 10.0 * exp(-u * 8.0))
+		"hop":
+			var k := minf(1.0, t / 0.7)
+			return Vector2(-150.0 * (1.0 - k), -70.0 * sin(PI * k))
+		"rise":
+			return Vector2(0, 150.0 * pow(1.0 - minf(1.0, t / 0.6), 3.0))
+		"float":
+			var k := minf(1.0, t / 0.9)
+			return Vector2(14.0 * sin(t * 5.0) * (1.0 - k), -140.0 * pow(1.0 - k, 3.0))
+		"roll":
+			return Vector2(170.0 * pow(1.0 - minf(1.0, t / 0.7), 2.0), 0)
+	return Vector2.ZERO
 
 func _process(delta: float) -> void:
 	if not _win_cells.is_empty():
@@ -432,28 +484,78 @@ func _draw_reveal() -> void:
 	if _rv_t < 0.0: return
 	var g := _rv_grade
 	var col: Color = REVEAL_COL[g]
-	if g == 6: col = Color.from_hsv(fmod(_rv_t * 0.8, 1.0), 0.5, 1.0)
-	var a := clampf(_rv_t / 0.35, 0.0, 1.0)
-	rv.draw_rect(Rect2(0, 0, 270, 420), Color(0, 0, 0, 0.82 * a))
+	var T0 := _rv_start(g)
+	var t0 := _rv_t - T0            # 등장 시작 후 시간(음수면 실루엣 단계)
 	var ctr := Vector2(135, 190)
-	var pt := _rv_t - 0.5
-	if pt > 0.0:
-		var n := 6 + g * 2
-		for i in n:
-			var a0 := _rv_t * (0.5 + 0.1 * g) + TAU * i / n
-			var w := TAU / n * 0.35
-			rv.draw_colored_polygon(PackedVector2Array([ctr, ctr + Vector2(cos(a0 - w), sin(a0 - w)) * 260.0, ctr + Vector2(cos(a0 + w), sin(a0 + w)) * 260.0]), Color(col.r, col.g, col.b, 0.22))
-		var k := clampf(pt / 0.35, 0.0, 1.0)
-		var sc := 6.0 * (1.0 + 0.25 * sin(k * PI)) * k
-		var frames: Array = _fr["pet_" + GRADES[g].to_lower()]
-		var ft: Texture2D = frames[int(_rv_t * 8.0) % 9]
-		var sz: Vector2 = Vector2(ft.get_width(), ft.get_height()) * floorf(maxf(sc, 0.01) * 2.0) / 2.0
-		if sz.x > 0.0: rv.draw_texture_rect(ft, Rect2((ctr + Vector2(0, -6.0 * absf(sin(_rv_t * 3.0))) - sz * 0.5).round(), sz), false)
-		var label: String = "%s 등급 획득!" % GRADES[g]
-		var font := ThemeDB.fallback_font
-		var tw := font.get_string_size(label, HORIZONTAL_ALIGNMENT_LEFT, -1, 18).x
-		var lp := Vector2(135 - tw * 0.5, 300)
-		rv.draw_string_outline(font, lp, label, HORIZONTAL_ALIGNMENT_LEFT, -1, 18, 5, Color(0, 0, 0))
-		rv.draw_string(font, lp, label, HORIZONTAL_ALIGNMENT_LEFT, -1, 18, col)
-	if _rv_t < 0.6:
-		rv.draw_rect(Rect2(0, 0, 270, 420), Color(1, 1, 1, clampf(1.0 - absf(_rv_t - 0.5) * 8.0, 0.0, 1.0)))
+	var kind: String = PET_ENTRY[_rv_pet]
+	# 흔들림: 쾅 착지 순간 / 높은 등급은 등장 순간
+	var amp := 0.0
+	if kind == "slam" and t0 > 0.25 and t0 < 0.65: amp = 6.0 * (0.65 - t0) / 0.4
+	if g >= 5 and t0 > 0.0 and t0 < 0.5: amp = maxf(amp, (2.0 + g - 5.0) * (0.5 - t0) / 0.5)
+	rv.position = Vector2(randf_range(-amp, amp), randf_range(-amp, amp)) if amp > 0.0 else Vector2.ZERO
+	var a := clampf(_rv_t / 0.35, 0.0, 1.0)
+	rv.draw_rect(Rect2(-20, -20, 310, 460), Color(0, 0, 0, 0.85 * a))
+	# 바닥 빛 웅덩이: 실루엣 동안 점점 밝아진다
+	var glow := clampf((_rv_t - 0.2) / maxf(0.2, T0 - 0.2), 0.0, 1.0) if t0 < 0.0 else 1.0
+	for i in 4:
+		rv.draw_circle(ctr + Vector2(0, 8), 40.0 + g * 6.0 + i * 16.0 * (0.5 + glow), Color(col.r, col.g, col.b, (0.10 - i * 0.02) * (0.4 + glow)))
+	# 빛줄기: B부터, 위 등급일수록 개수·겹 증가. SSS는 무지개
+	if g >= 2 and (t0 >= 0.0 or g >= 4):
+		var n := 4 + g * 2
+		var layers := 1 + (1 if g >= 4 else 0) + (1 if g >= 6 else 0)
+		for ly in layers:
+			for i in n:
+				var a0 := _rv_t * (0.5 + 0.1 * g) * (1.0 if ly % 2 == 0 else -0.7) + TAU * i / n
+				var w := TAU / n * 0.3
+				var rc := col if g < 6 else Color.from_hsv(fmod(float(i) / n + _rv_t * 0.4, 1.0), 0.6, 1.0)
+				var al := (0.18 if t0 >= 0.0 else 0.08 * glow)
+				rv.draw_colored_polygon(PackedVector2Array([ctr, ctr + Vector2(cos(a0 - w), sin(a0 - w)) * 280.0, ctr + Vector2(cos(a0 + w), sin(a0 + w)) * 280.0]), Color(rc.r, rc.g, rc.b, al))
+	# 위에서 내리꽂는 빛기둥: S부터
+	if g >= 4:
+		var pw := 10.0 + 26.0 * glow if t0 < 0.0 else maxf(0.0, 36.0 - t0 * 30.0)
+		rv.draw_rect(Rect2(ctr.x - pw * 0.5, 0, pw, ctr.y + 30), Color(1, 1, 0.9, 0.25 + 0.2 * glow))
+	# 펫
+	var frames: Array = _fr["rv_" + _rv_pet]
+	var ft: Texture2D = frames[int(maxf(t0, 0.0) * 10.0) % 9]
+	var ps := maxi(2, int(130.0 / maxf(ft.get_width(), ft.get_height())))
+	var sz := Vector2(ft.get_width(), ft.get_height()) * ps
+	var off := Vector2.ZERO if t0 < 0.0 else _entry(kind, t0)
+	var mod := Color(0, 0, 0, 1) if t0 < 0.0 else Color.WHITE
+	if t0 < 0.0:
+		off = Vector2(randf_range(-1, 1), randf_range(-1, 1)) * (glow * (g - 1.0) * 0.8)   # 실루엣이 떨린다
+	rv.draw_texture_rect(ft, Rect2((ctr + off - sz * 0.5).round(), sz), false, mod)
+	# 반짝 가루: B부터, 위 등급일수록 많다
+	if t0 >= 0.0 and g >= 2:
+		for i in g * 5:
+			var ang := float(i) * 2.399 + _rv_t * 1.5
+			var rr := fmod(t0 * (40.0 + i * 3.0) + i * 11.0, 120.0)
+			var sp := ctr + Vector2(cos(ang), sin(ang)) * rr
+			rv.draw_rect(Rect2(sp.round(), Vector2(2, 2)), Color(1, 1, 0.8, 1.0 - rr / 120.0))
+	# SS·SSS: 동전·보석 비
+	if t0 >= 0.0 and g >= 5:
+		for i in (10 if g == 5 else 24):
+			var x := fmod(float(i) * 53.0, 250.0) + 10.0
+			var y := fmod(t0 * (80.0 + (i % 4) * 20.0) + i * 47.0, 470.0) - 40.0
+			var st: Texture2D = _fr["coin" if i % 2 == 0 else "gem"][(i + int(_rv_t * 12.0)) % 9]
+			rv.draw_texture(st, Vector2(x, y).round())
+	# 이름: S 이상은 리본 위에
+	var label: String = "%s  %s" % [GRADES[g], PET_NAME[_rv_pet]]
+	var font := ThemeDB.fallback_font
+	var fs := 18
+	if t0 >= 0.4:
+		var lp_a := clampf((t0 - 0.4) / 0.25, 0.0, 1.0)
+		if g >= 4:
+			var bt: Texture2D = _fr["banner"][0]
+			rv.draw_texture_rect(bt, Rect2(Vector2(135 - 96, 304 - 32), Vector2(192, 64)), false, Color(1, 1, 1, lp_a))
+			fs = 16
+		var tw := font.get_string_size(label, HORIZONTAL_ALIGNMENT_LEFT, -1, fs).x
+		var lp := Vector2(135 - tw * 0.5, 310 if g >= 4 else 300)
+		rv.draw_string_outline(font, lp, label, HORIZONTAL_ALIGNMENT_LEFT, -1, fs, 5, Color(0, 0, 0, lp_a))
+		rv.draw_string(font, lp, label, HORIZONTAL_ALIGNMENT_LEFT, -1, fs, Color(1, 1, 1, lp_a) if g >= 4 else Color(col.r, col.g, col.b, lp_a))
+	# 번쩍: 등장 순간(SSS는 두 번), SSS는 충격파 고리도
+	var fl := clampf(1.0 - absf(t0) * (6.0 if t0 < 0.0 else 3.0), 0.0, 1.0) if absf(t0) < 0.4 else 0.0
+	if g == 6 and t0 > 0.5 and t0 < 0.8: fl = maxf(fl, (0.8 - t0) * 2.0)
+	if fl > 0.0: rv.draw_rect(Rect2(-20, -20, 310, 460), Color(1, 1, 1, fl))
+	if g >= 5 and t0 > 0.0 and t0 < 1.0:
+		var r := t0 * 300.0
+		rv.draw_arc(ctr, r, 0.0, TAU, 48, Color(col.r, col.g, col.b, 1.0 - t0), 3.0)
