@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_before_request": "d77879dceba7c1215bf8a2954ce43ec374ffe6ea",
-  "reason": "v1.47 펫 오두막 글자 층·슬롯 위치와 속도 전체 검사",
-  "requested_at": "2026-11-24T09:07:49.471854+00:00"
+  "source_before_request": "96337ba3156b96efaa3c7a9d48fa6474b3393ef3",
+  "reason": "v1.48 slot/hut UI",
+  "requested_at": "2026-11-24T09:38:10.804522+00:00"
 }
