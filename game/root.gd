@@ -3,8 +3,15 @@ extends Node2D
 const BUILD_CODE := 123
 const BUILD_NAME := "1.23"
 const UPDATE_BASE := "https://nakshiworld-update-kr.znzkznzk96.workers.dev/"
-const PATCH := "user://patch.pck"
-const PATCH_VER := "user://patch_ver.txt"
+## 업데이트 방식: 버전마다 압축 파일(patch.pck) 하나. APK에 든 파일과 달라진 파일(코드·자주 바뀌는 데이터)만 들어 있다.
+## 켜기 화면에서 버전 정보(version.json)를 한 번 읽고, 새 버전이면 받는다. 시간 안에 끝나면 바로, 아니면 게임을 시작한 채 백그라운드로 받고 다음 실행 때 적용한다.
+const UPD_DIR := "user://upd/"
+const CUR := "user://upd/current.pck"
+const CUR_VER := "user://upd/current.ver"
+const NEXT := "user://upd/next.pck"
+const NEXT_VER := "user://upd/next.ver"
+const PART := "user://upd/part.pck"
+const WAIT_SECONDS := 5.0
 var update_art: Texture2D
 var chase_frames:Array[Texture2D]=[]
 var chase_fish:Texture2D
@@ -24,9 +31,10 @@ var font: Font
 var expected_hash := ""
 var expected_size := 0
 var started := false
-var incremental:RefCounted
-var pending_code:=0
-var pending_name:=""
+var want_code:=0
+var want_name:=""
+var fetching:=false
+var wait_deadline_msec:=0
 const MINIMUM_SPLASH_SECONDS:=2.0
 var splash_started_msec:=Time.get_ticks_msec()
 var boot_timings:Dictionary={}
@@ -46,88 +54,115 @@ func _ready() -> void:
 		_start()
 		return
 	status = "업데이트 확인 중…"
+	DirAccess.make_dir_recursive_absolute(UPD_DIR)
+	_drop_legacy()
+	_apply_pending()
 	http = HTTPRequest.new()
-	http.timeout = 8.0
+	http.timeout = 4.0
 	add_child(http)
 	http.request_completed.connect(_on_version)
 	if http.request(UPDATE_BASE + "version.json") != OK:
 		_start()
 
+## 예전 방식(전체 patch.pck)으로 받아 둔 파일은 새 APK에 이미 들어 있어 필요 없다
+func _drop_legacy() -> void:
+	for f in ["user://patch.pck", "user://patch_ver.txt", "user://patch.pck.new", "user://patch.pck.bak", "user://patch_ver.txt.new"]:
+		if FileAccess.file_exists(f): DirAccess.remove_absolute(f)
+
+static func _read_ver(path: String) -> Array:
+	if not FileAccess.file_exists(path): return [0, ""]
+	var t := FileAccess.get_file_as_string(path).strip_edges()
+	return [int(t.get_slice("|", 0)), t.get_slice("|", 1) if t.contains("|") else ""]
+
 func _local_code() -> int:
-	if FileAccess.file_exists(PATCH) and FileAccess.file_exists(PATCH_VER):
-		var f := FileAccess.open(PATCH_VER, FileAccess.READ)
-		if f:
-			return maxi(BUILD_CODE, int(f.get_as_text().get_slice("|", 0)))
-	return BUILD_CODE
+	return maxi(BUILD_CODE, _read_ver(CUR_VER)[0]) if FileAccess.file_exists(CUR) else BUILD_CODE
 
 func _local_name() -> String:
-	if _local_code() > BUILD_CODE:
-		var f := FileAccess.open(PATCH_VER, FileAccess.READ)
-		if f:
-			var t := f.get_as_text()
-			if t.contains("|"):
-				return t.get_slice("|", 1)
-	return BUILD_NAME
+	return _read_ver(CUR_VER)[1] if _local_code() > BUILD_CODE else BUILD_NAME
+
+## 지난번에 다 받아 확인까지 끝낸 새 버전이 있으면 지금(켜기 화면)에 적용한다
+func _apply_pending() -> void:
+	if not (FileAccess.file_exists(NEXT) and FileAccess.file_exists(NEXT_VER)): return
+	if _read_ver(NEXT_VER)[0] <= _local_code():
+		DirAccess.remove_absolute(NEXT); DirAccess.remove_absolute(NEXT_VER); return
+	status = "업데이트 중…"; update_phase = "applying"
+	if FileAccess.file_exists(CUR): DirAccess.remove_absolute(CUR)
+	if DirAccess.rename_absolute(NEXT, CUR) == OK and DirAccess.rename_absolute(NEXT_VER, CUR_VER) == OK: return
+	for f in [CUR, CUR_VER, NEXT, NEXT_VER]:
+		if FileAccess.file_exists(f): DirAccess.remove_absolute(f)
 
 func _on_version(result: int, code: int, _h: PackedStringArray, body: PackedByteArray) -> void:
 	http.request_completed.disconnect(_on_version)
 	var d = JSON.parse_string(body.get_string_from_utf8()) if result == HTTPRequest.RESULT_SUCCESS and code == 200 else null
-	if not (d is Dictionary) or int(d.get("code", 0)) <= _local_code():
-		update_phase="ready"
-		status="최신 버전입니다 · 곧 시작합니다" if d is Dictionary else "기존 버전으로 시작합니다"
+	if not (d is Dictionary):
+		update_phase="ready";status="기존 버전으로 시작합니다"
 		_start()
 		return
+	want_code = int(d.get("code", 0))
+	want_name = str(d.get("name", ""))
 	expected_hash = str(d.get("sha256", "")).to_lower()
 	expected_size = int(d.get("size", 0))
-	if expected_hash.length() != 64 or expected_size <= 0:
+	if want_code <= _local_code() or (FileAccess.file_exists(NEXT_VER) and _read_ver(NEXT_VER)[0] >= want_code):
+		update_phase="ready";status="최신 버전입니다 · 곧 시작합니다"
 		_start()
 		return
-	update_phase="planning";progress=-1;received_bytes=0
-	status="변경된 파일 확인 중…"
-	incremental=load("res://incremental_update.gd").new()
-	var installed:String=PATCH if _local_code()>BUILD_CODE else ""
-	var valid:bool=await incremental.download(self,UPDATE_BASE+"patch.pck?v="+str(int(d.code)),expected_size,expected_hash,PATCH+".new",installed,false)
-	if valid:
-		await _on_patch(HTTPRequest.RESULT_SUCCESS,200,PackedStringArray(),PackedByteArray(),int(d.code),str(d.get("name","")))
-	else:
-		if FileAccess.file_exists(PATCH+".new"):DirAccess.remove_absolute(PATCH+".new")
-		status="업데이트를 받지 못했어요 · 기존 버전으로 시작합니다"
+	if expected_hash.length() != 64 or expected_size <= 0 or expected_size > 200000000:
+		_start()
+		return
+	update_phase="download";progress=-1;received_bytes=0;fetching=true
+	status="업데이트 받는 중…"
+	wait_deadline_msec=Time.get_ticks_msec()+int(WAIT_SECONDS*1000)
+	http.download_file=PART
+	http.use_threads=true
+	http.timeout=180.0
+	http.body_size_limit=expected_size+4096
+	http.request_completed.connect(_on_download)
+	if http.request(UPDATE_BASE+"patch.pck?v="+str(want_code))!=OK:
+		fetching=false
 		_start()
 
-func _on_patch(result: int, code: int, _h: PackedStringArray, _b: PackedByteArray, ver: int, vname: String) -> void:
-	update_phase="verifying";status="받은 파일 확인 중…";queue_redraw()
-	var candidate := PATCH + ".new"
-	var valid := result == HTTPRequest.RESULT_SUCCESS and code == 200 and FileAccess.file_exists(candidate)
+## 다 받았을 때: 크기·파일 머리·sha256이 모두 맞을 때만 다음 적용 후보로 저장한다
+func _on_download(result: int, code: int, _h: PackedStringArray, _b: PackedByteArray) -> void:
+	http.request_completed.disconnect(_on_download)
+	var valid := result == HTTPRequest.RESULT_SUCCESS and code == 200 and FileAccess.file_exists(PART)
 	if valid:
-		var f := FileAccess.open(candidate, FileAccess.READ)
-		valid = f != null and f.get_length() == expected_size
+		var f := FileAccess.open(PART, FileAccess.READ)
+		valid = f != null and f.get_length() == expected_size and f.get_buffer(4) == PackedByteArray([71, 68, 80, 67])
 		f = null
 	if valid:
-		var before:=Time.get_ticks_msec()
-		valid = await preload("res://incremental_update.gd").digest_file(self,candidate) == expected_hash
-		boot_timings["sha256_ms"]=Time.get_ticks_msec()-before
+		if not started: update_phase="verifying";status="받은 파일 확인 중…"
+		valid = await digest_file(self, PART) == expected_hash
 	if valid:
-		var header := FileAccess.open(candidate, FileAccess.READ)
-		valid = header != null and header.get_buffer(4) == PackedByteArray([71, 68, 80, 67])
-		header = null
-	if valid:
-		var vf:=FileAccess.open(PATCH_VER+".new",FileAccess.WRITE)
-		if vf:
-			vf.store_string("%d|%s"%[ver,vname]);vf.flush()
-			valid=vf.get_error()==OK;vf=null
-		else:valid=false
-	if valid:
-		var had_patch:bool=FileAccess.file_exists(PATCH)
-		if had_patch and DirAccess.rename_absolute(PATCH,PATCH+".bak")!=OK:valid=false
+		var vf := FileAccess.open(NEXT_VER + ".tmp", FileAccess.WRITE)
+		valid = vf != null
 		if valid:
-			if DirAccess.rename_absolute(candidate,PATCH)!=OK:valid=false
-			elif DirAccess.rename_absolute(PATCH_VER+".new",PATCH_VER)!=OK:
-				DirAccess.remove_absolute(PATCH);valid=false
-			if not valid and had_patch:DirAccess.rename_absolute(PATCH+".bak",PATCH)
-			elif valid and had_patch:DirAccess.remove_absolute(PATCH+".bak")
-	if not valid and FileAccess.file_exists(candidate):DirAccess.remove_absolute(candidate)
+			vf.store_string("%d|%s" % [want_code, want_name]); vf.flush(); valid = vf.get_error() == OK; vf = null
+		if valid:
+			if FileAccess.file_exists(NEXT): DirAccess.remove_absolute(NEXT)
+			valid = DirAccess.rename_absolute(PART, NEXT) == OK and DirAccess.rename_absolute(NEXT_VER + ".tmp", NEXT_VER) == OK
+	if not valid:
+		for f in [PART, NEXT_VER + ".tmp"]:
+			if FileAccess.file_exists(f): DirAccess.remove_absolute(f)
+	fetching = false
+	if not started:
+		if valid: _apply_pending()
+		else: status="업데이트를 받지 못했어요 · 기존 버전으로 시작합니다"
+		_start()
 
-	_start()
+static func digest_file(owner: Node, path: String) -> String:
+	var f := FileAccess.open(path, FileAccess.READ)
+	if f == null: return ""
+	var hash := HashingContext.new(); hash.start(HashingContext.HASH_SHA256)
+	var tick := Time.get_ticks_usec(); var chunks := 0
+	while f.get_position() < f.get_length():
+		var chunk := f.get_buffer(524288)
+		if chunk.is_empty(): return ""
+		hash.update(chunk)
+		chunks += 1
+		if chunks >= 8 or Time.get_ticks_usec() - tick >= 3000:
+			await owner.get_tree().process_frame
+			tick = Time.get_ticks_usec(); chunks = 0
+	return hash.finish().hex_encode()
 
 func transfer_snapshot(received:int,declared_size:int,header_size:int=-1) -> Dictionary:
 	var total:int=declared_size if declared_size>0 else header_size
@@ -136,25 +171,21 @@ func transfer_snapshot(received:int,declared_size:int,header_size:int=-1) -> Dic
 
 func transfer_detail() -> String:
 	if update_phase=="checking":return "새로운 소식을 확인하고 있어요"
-	if update_phase=="planning":return "기기에 있는 파일은 다시 받지 않아요"
+	if update_phase=="applying":return "새 버전을 적용하고 있어요"
 	if update_phase=="verifying":return "다운로드 완료 · 파일 안전성을 확인하고 있어요"
 	if update_phase=="ready":return "잠시 후 낚시월드로 이동해요"
-	if update_phase=="assembling":return "다운로드 완료 · 기존 데이터와 합치고 있어요"
 	if update_phase=="loading":return "게임 화면과 장비를 준비하고 있어요"
-	var total:int=total_bytes if incremental!=null else (expected_size if expected_size>0 else total_bytes)
+	var total:int=expected_size if expected_size>0 else total_bytes
 	if total<=0:return "%.1f MB 받음 · 전체 크기 확인 중"%(received_bytes/1000000.0)
 	return "%d%%   %.1f / %.1f MB"%[int(clampf(progress,0,1)*100),received_bytes/1000000.0,total/1000000.0]
 
 func _process(dt: float) -> void:
 	animation_time+=maxf(dt,0.0)
-	if incremental!=null and update_phase in ["planning","download","assembling"]:
-		var data:Dictionary=incremental.snapshot()
-		received_bytes=data.received;total_bytes=data.total;progress=data.progress
-		if incremental.stage=="assembling":
-			update_phase="assembling";status="게임 데이터 정리 중…"
-		elif total_bytes>0:
-			update_phase="download";status="바뀐 데이터 받는 중…"
-
+	if fetching and update_phase=="download":
+		received_bytes=http.get_downloaded_bytes()
+		progress=clampf(float(received_bytes)/expected_size,0,1) if expected_size>0 else -1.0
+		if not started and Time.get_ticks_msec()>wait_deadline_msec:
+			_start()   # 시간 안에 못 끝나면 게임을 먼저 켜고, 받기는 뒤에서 계속한다(적용은 다음 실행)
 	if status != "":queue_redraw()
 
 func _pixel_panel(rect:Rect2) -> void:
@@ -251,8 +282,8 @@ func _start() -> void:
 	await get_tree().process_frame
 	await get_tree().process_frame
 	var mount_tick:=Time.get_ticks_msec()
-	if FileAccess.file_exists(PATCH) and _local_code() > BUILD_CODE:
-		if not ProjectSettings.load_resource_pack(PATCH, true):
+	if FileAccess.file_exists(CUR) and _local_code() > BUILD_CODE:
+		if not ProjectSettings.load_resource_pack(CUR, true):
 			get_tree().root.set_meta("ver", BUILD_NAME)
 		else:
 			get_tree().root.set_meta("ver", _local_name())

@@ -853,8 +853,8 @@ func _draw_font_license() -> void :
 
 func _ver_name() -> String:
 	if get_tree().root.has_meta("ver"): return str(get_tree().root.get_meta("ver"))
-	if FileAccess.file_exists("user://patch_ver.txt") and FileAccess.file_exists("user://patch.pck"):
-		var t: = FileAccess.open("user://patch_ver.txt", FileAccess.READ).get_as_text().strip_edges()
+	if FileAccess.file_exists("user://upd/current.ver") and FileAccess.file_exists("user://upd/current.pck"):
+		var t: = FileAccess.open("user://upd/current.ver", FileAccess.READ).get_as_text().strip_edges()
 		return t.get_slice("|", 1) if t.contains("|") else "0." + t
 	return "0.11"
 
