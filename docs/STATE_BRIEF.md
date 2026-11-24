@@ -13,7 +13,7 @@
 
 ## APK 만들기 (되묻지 않고 바로 한다)
 - 언제 필요한가: 업데이터·아이콘·앱 구조를 바꿀 때만. 게임 내용만 바꾸면 패치(버전 올림)로 충분하다
-- 재료(모두 여기서 구한다): 껍데기 APK = migration/shell/nakshiworld_v0.11.apk(키 없음, 저장소에 있음) / 서명키 = 이 프로젝트의 문서 keys/debug.keystore.b64(Projects 도구 project_read, base64, 별칭 androiddebugkey, 비밀번호 android) / 빌드 도구 = curl https://dl.google.com/android/repository/build-tools_r34-linux.zip 압축을 풀면 android-14 / 봉인 후보 patch.pck = 해당 검증 빌드 run의 release-candidate 아티팩트(gh api repos/znzkznzk96-rgb/nakshiworld-update/actions/artifacts/<id>/zip)
+- 재료(모두 여기서 구한다): 껍데기 APK = migration/shell/nakshiworld_v0.11.apk(키 없음, 저장소에 있음) / 서명키 = 사용자가 이 Claude 프로젝트(낚시게임)의 파일로 올린 debug.keystore 또는 nakshiworld_handoff.zip(Projects 도구 project_info로 목록 확인 → project_read original:true로 받기, 없으면 작업 첫머리에 사용자에게 요청. 별칭 androiddebugkey, 비밀번호 android) / 빌드 도구 = curl https://dl.google.com/android/repository/build-tools_r34-linux.zip 압축을 풀면 android-14 / 봉인 후보 patch.pck = 해당 검증 빌드 run의 release-candidate 아티팩트(gh api repos/znzkznzk96-rgb/nakshiworld-update/actions/artifacts/<id>/zip)
 - 실행: python3 migration/make_apk.py --pck patch.pck --code 144 --name 1.44 --shell migration/shell/nakshiworld_v0.11.apk --ks debug.keystore --out NAKSHIWORLD_1.44.apk --bt <android-14 경로>
 - 확인: 인증서 SHA-256이 5939b259…b763(기존 앱과 동일)이어야 한다. 아이콘은 스크립트가 승인 세트 24종을 적용한다. 새 키는 절대 만들지 않는다(세이브가 날아감)
 - 키 보관 규칙: 저장소는 공개라 키를 넣지 않는다. PixelLab 키는 클라우드 환경의 네트워크 시크릿(api.pixellab.ai)으로 자동 적용되며 어디에도 저장하지 않는다
