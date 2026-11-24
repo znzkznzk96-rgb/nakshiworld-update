@@ -8,6 +8,12 @@ extends Control
 signal spin_finished(result: Array)
 ## 릴 하나가 멈출 때마다 (연출용: 정지 소리 등)
 signal reel_stopped(col: int)
+## 마지막 릴이 목표 칸 앞에서 뜸을 들이는 순간(mode: tease/edge/over)
+signal tension(mode: String)
+## 마지막 릴이 가짜 결과로 멈춘 순간(그 뒤 잠깐 정적 → 진짜 결과로 넘어간다)
+signal fake_stopped
+## 마지막 릴이 가짜를 밀어내고 진짜 결과로 넘어가기 시작하는 순간
+signal fake_flip
 
 @export var symbols: Array[Texture2D] = []
 @export var reels := 3
@@ -23,6 +29,9 @@ signal reel_stopped(col: int)
 @export var reel_delay := 0.25
 ## 마지막 릴을 한 칸씩 기어가듯 멈추게 한다(니어미스 예고 연출)
 var crawl_last := false
+## 마지막 릴의 멈춤 방식: "" 기본 / slight 짧은 템포 차 / tease 직전 멈칫 / edge 직전 뜸 후 오버슈트 / over 급가속 후 멈칫·튕김 / fake 가짜로 멈춘 뒤 반전(결과는 그대로)
+var last_mode := ""
+var _final_y: Array[float] = []
 
 var spinning := false
 var _strips: Array[Node2D] = []
@@ -49,7 +58,7 @@ func _ready() -> void:
 		add_child(_glass)
 
 ## result[행][열] = symbols 인덱스. 결과는 호출하는 쪽(가챠 로직)이 먼저 정해서 넘긴다.
-func spin(result: Array) -> void:
+func spin(result: Array, fake_col: Array = []) -> void:
 	if spinning or symbols.is_empty():
 		return
 	assert(result.size() == rows and result[0].size() == reels, "result 크기가 rows x reels와 달라요")
@@ -61,6 +70,7 @@ func spin(result: Array) -> void:
 		s.queue_free()
 	_strips.clear()
 	_tweens.clear()
+	_final_y.clear()
 	# 처음에 아주 빠르게 돌다가 점점 느려지며 멈춘다
 	for c in reels:
 		var duration := runtime + c * reel_delay
@@ -71,16 +81,51 @@ func spin(result: Array) -> void:
 		# 결과는 strip 맨 위(0..rows-1), 채움 심볼은 그 아래. strip이 아래로 내려오면 결과가 창에 맞춰 멈춘다.
 		for r in rows:
 			_add_symbol(strip, result[r][c], r)
+		_add_symbol(strip, randi() % symbols.size(), -1)   # 오버슈트로 내려올 때 위가 비지 않게
+		var fake := last_mode == "fake" and c == reels - 1 and fake_col.size() == rows
+		if fake:
+			# 가짜 결과가 먼저 멈추고, 진짜 결과는 그 위에 대기(나중에 위에서 내려온다)
+			for r in rows:
+				strip.get_child(r).position.y = cell_size.y * (r - rows + 0.5)
+				_add_symbol(strip, fake_col[r], r)
 		for i in fillers:
 			_add_symbol(strip, randi() % symbols.size(), rows + i, true)
 		var travel := fillers * cell_size.y
 		strip.position = Vector2(c * cell_size.x, -travel)
 		var tw := create_tween()
-		if crawl_last and c == reels - 1:
-			tw.tween_property(strip, "position:y", -cell_size.y, duration * 0.8).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+		_final_y.append(0.0)
+		var last := c == reels - 1
+		var H := cell_size.y
+		if last and last_mode == "tease":
+			tw.tween_property(strip, "position:y", -H, duration * 0.85).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+			tw.tween_callback(tension.emit.bind("tease"))
+			tw.tween_interval(0.22)
+			tw.tween_property(strip, "position:y", 0.0, 0.25).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+		elif last and last_mode == "edge":
+			tw.tween_property(strip, "position:y", -H * 0.9, duration * 0.85).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+			tw.tween_callback(tension.emit.bind("edge"))
+			tw.tween_interval(0.33)
+			tw.tween_property(strip, "position:y", 8.0, 0.14).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+			tw.tween_property(strip, "position:y", 0.0, 0.14).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
+		elif last and last_mode == "over":
+			tw.tween_property(strip, "position:y", -H * 3.0, duration * 0.75).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+			tw.tween_property(strip, "position:y", -H, 0.16).set_trans(Tween.TRANS_LINEAR)
+			tw.tween_callback(tension.emit.bind("over"))
+			tw.tween_interval(0.3)
+			tw.tween_property(strip, "position:y", 11.0, 0.1).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+			tw.tween_property(strip, "position:y", 0.0, 0.14).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
+		elif fake:
+			_final_y[c] = rows * H
+			tw.tween_property(strip, "position:y", 0.0, duration).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+			tw.tween_callback(fake_stopped.emit)
+			tw.tween_interval(0.32)
+			tw.tween_callback(fake_flip.emit)
+			tw.tween_property(strip, "position:y", rows * H, 0.5).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+		elif crawl_last and last:
+			tw.tween_property(strip, "position:y", -H, duration * 0.8).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 			tw.tween_property(strip, "position:y", 0.0, 1.1).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 		else:
-			tw.tween_property(strip, "position:y", 0.0, duration).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+			tw.tween_property(strip, "position:y", 0.0, duration + (0.1 if last and last_mode == "slight" else 0.0)).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 		tw.finished.connect(_on_reel_done.bind(c))
 		_tweens.append(tw)
 
@@ -92,7 +137,7 @@ func skip() -> void:
 		var tw := _tweens[c]
 		if tw.is_running():
 			tw.kill()
-			_strips[c].position.y = 0.0
+			_strips[c].position.y = _final_y[c]
 			_on_reel_done(c)
 
 func _add_symbol(strip: Node2D, idx: int, row_index: int, blurred := false) -> void:

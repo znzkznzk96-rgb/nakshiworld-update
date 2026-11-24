@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_before_request": "bce6e6e6d2c7fbeb8a729f5c9db2cac99403e74e",
-  "reason": "v1.52: 업데이트 게이지(root.gd), 슬롯 바다 배경, 펫 연출 전체 검증",
-  "requested_at": "2026-11-24T13:34:06.338781+00:00"
+  "source_before_request": "769780b539c4cb6d615e982c59a2b0f2a6fc45cd",
+  "reason": "v1.53 재검증: 빠른 검증 재시도",
+  "requested_at": "2026-11-24T14:50:07.926079+00:00"
 }
