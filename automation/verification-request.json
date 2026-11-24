@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_before_request": "ceb871311e78ae4a9b4ee5bb71178135b7c00f56",
-  "reason": "v1.44 업데이터 구간 병합·진주 우편 전체 검사 (재요청)",
-  "requested_at": "2026-11-24T04:19:57.443120+00:00"
+  "source_before_request": "ffe0e576356e1b9f4967e5347129c0128f7aa547",
+  "reason": "v1.44 펫 오두막 UI 글꼴·배치 수정 전체 검사",
+  "requested_at": "2026-11-24T06:02:47.818594+00:00"
 }
