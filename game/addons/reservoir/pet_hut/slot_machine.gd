@@ -26,9 +26,10 @@ const LAMP_X := [82.0, 109.0, 135.75, 162.75, 189.75]
 const LAMP_Y := 262.25
 const LAMP_ART := 0.5
 const LEVER_ART := 0.75
-## 레버 당김 프레임(PixelLab 모션에서 고른 것): 내려갈 때 / 올라올 때
-const LEVER_DOWN := [0, 1, 2, 3, 5]
-const LEVER_UP := [8, 0]
+const LEVER_POS := Vector2(229.0, 170.0)   # 판 왼쪽 아래(그림 4,128)가 기계 오른쪽 옆면에 닿는 자리
+## 레버 당김 프레임(PixelLab 그림 + 레퍼런스 움짤의 움직임): 0=올림, 6~8=끝까지 내림, 12=반동으로 올라감
+const LEVER_DOWN := [1, 2, 3, 4, 5, 6]
+const LEVER_UP := [9, 10, 11, 12, 13, 14, 0]
 
 var reels: SlotReels
 var lever: Sprite2D
@@ -170,11 +171,11 @@ func _ready() -> void:
 	rv.size = Vector2(270, 420); rv.z_index = 40; rv.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	rv.draw.connect(_draw_reveal)
 	add_child(rv)
-	for i in [0,1,2,3,5,8]:
+	for i in 17:
 		_lever_tex[i] = _tex("lever_pull_%02d" % i)
 	lever = Sprite2D.new()
 	lever.texture = _lever_tex[0]; lever.centered = false; lever.scale = Vector2(LEVER_ART, LEVER_ART)
-	lever.position = Vector2(232.0, 266.0 - lever.texture.get_height() * LEVER_ART)
+	lever.position = LEVER_POS
 	add_child(lever)
 
 # ---------- 결과 만들기/판정 ----------
@@ -265,12 +266,12 @@ func _prime_lamps() -> void:
 func _pull_lever() -> void:
 	for f in LEVER_DOWN:
 		lever.texture = _lever_tex[f]
-		_press_lamps(f >= 2)   # 레버가 내려가면 버튼도 같이 눌린다
-		await get_tree().create_timer(0.07).timeout
+		_press_lamps(f >= 3)   # 레버가 내려가면 버튼도 같이 눌린다
+		await get_tree().create_timer(0.04).timeout
 
 func _release_lever() -> void:
 	for f in LEVER_UP:
-		lever.texture = _lever_tex[f]; await get_tree().create_timer(0.09).timeout
+		lever.texture = _lever_tex[f]; await get_tree().create_timer(0.06).timeout
 	_press_lamps(false)
 
 func _press_lamps(down: bool) -> void:
