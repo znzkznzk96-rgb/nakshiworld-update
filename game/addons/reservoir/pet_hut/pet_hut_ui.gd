@@ -436,7 +436,7 @@ func _slot_done(_info: Dictionary) -> void:
 func _sym(g: String) -> Texture2D:
 	var key := "sym_" + g
 	if not _tex.has(key):
-		_tex[key] = ImageTexture.create_from_image(Image.load_from_file(ProjectSettings.globalize_path(A + "slot/" + key + ".png")))
+		_tex[key] = ImageTexture.create_from_image((load(A + "slot/" + key + ".png") as Texture2D).get_image())   # 폰(APK)에는 원본 PNG가 없어 load()로 읽는다
 	return _tex[key]
 
 func _draw_gacha_tab(body: Rect2) -> void:

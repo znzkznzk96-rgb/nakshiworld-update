@@ -96,8 +96,16 @@ var _dim := false
 var _body: Sprite2D
 var busy := false
 
+# 글자를 화면 배율만큼 큰 크기로 그려 폰 해상도에서 또렷하게 한다(text_layer.gd와 같은 방식)
+func _put_text(ci: CanvasItem, font: Font, pos: Vector2, text: String, fs: int, col: Color, ol := 0, ol_col := Color.BLACK) -> void:
+	var raster := maxf(1.0, ci.get_viewport_transform().get_scale().x)
+	ci.draw_set_transform(pos, 0.0, Vector2.ONE / raster)
+	if ol > 0: ci.draw_string_outline(font, Vector2.ZERO, text, HORIZONTAL_ALIGNMENT_LEFT, -1, fs * raster, ol * raster, ol_col)
+	ci.draw_string(font, Vector2.ZERO, text, HORIZONTAL_ALIGNMENT_LEFT, -1, fs * raster, col)
+	ci.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+
 static func _tex(name: String) -> Texture2D:
-	return ImageTexture.create_from_image(Image.load_from_file(ProjectSettings.globalize_path(A + name + ".png")))
+	return ImageTexture.create_from_image((load(A + name + ".png") as Texture2D).get_image())   # 폰(APK)에는 원본 PNG가 없어 load()로 읽는다
 
 func _ready() -> void:
 	_font = load("res://font/neodgm.ttf").duplicate(true)
@@ -466,8 +474,7 @@ func _draw_top() -> void:
 		var lp := Vector2(135 - tw * 0.5, 190 + (40.0 - 37.0) * 1.4 + 2.0 + (font.get_ascent(fs) - font.get_descent(fs)) * 0.5)
 		var tc := Color(1, 1, 0.8) if int(_bn_t * 10.0) % 2 == 0 else Color(1, 0.85, 0.3)
 		if _bn_t >= 0.25:
-			top_fx.draw_string_outline(font, lp, label, HORIZONTAL_ALIGNMENT_LEFT, -1, fs, 4, Color(0.3, 0.05, 0.05))
-			top_fx.draw_string(font, lp, label, HORIZONTAL_ALIGNMENT_LEFT, -1, fs, tc)
+			_put_text(top_fx, font, lp, label, fs, tc, 4, Color(0.3, 0.05, 0.05))
 	if _spot > 0.0:
 		var w := Rect2(WINDOW_POS, Vector2(CELL.x * 3, CELL.y * 3))
 		var c := Color(0, 0, 0, 0.6)
@@ -581,8 +588,7 @@ func _draw_reveal() -> void:
 		var gtxt: String = "%s 등급" % GRADES[g]
 		var gw := font.get_string_size(gtxt, HORIZONTAL_ALIGNMENT_LEFT, -1, 16).x
 		var gp := Vector2(135 - gw * 0.5, 268)
-		rv.draw_string_outline(font, gp, gtxt, HORIZONTAL_ALIGNMENT_LEFT, -1, 16, 3, Color(0, 0, 0, la))
-		rv.draw_string(font, gp, gtxt, HORIZONTAL_ALIGNMENT_LEFT, -1, 16, Color(col.r, col.g, col.b, la))
+		_put_text(rv, font, gp, gtxt, 16, Color(col.r, col.g, col.b, la), 3, Color(0, 0, 0, la))
 		var nm: String = PET_NAME[_rv_pet]
 		var nfs := 32
 		var ny := 300.0
@@ -593,8 +599,7 @@ func _draw_reveal() -> void:
 			ny = 276.0 + 42.0 + (font.get_ascent(nfs) - font.get_descent(nfs)) * 0.5   # 붉은 띠(배너 y 28~51)의 세로 가운데
 		var nw := font.get_string_size(nm, HORIZONTAL_ALIGNMENT_LEFT, -1, nfs).x
 		var np := Vector2(135 - nw * 0.5, ny)
-		rv.draw_string_outline(font, np, nm, HORIZONTAL_ALIGNMENT_LEFT, -1, nfs, 2 if g >= 4 else 4, Color(0, 0, 0, la))
-		rv.draw_string(font, np, nm, HORIZONTAL_ALIGNMENT_LEFT, -1, nfs, Color(1, 1, 1, la))
+		_put_text(rv, font, np, nm, nfs, Color(1, 1, 1, la), 2 if g >= 4 else 4, Color(0, 0, 0, la))
 	# 번쩍: 등장 순간(SSS는 두 번), SSS는 충격파 고리도
 	var fl := clampf(1.0 - absf(t0) * (6.0 if t0 < 0.0 else 3.0), 0.0, 1.0) if absf(t0) < 0.4 else 0.0
 	if g == 6 and t0 > 0.5 and t0 < 0.8: fl = maxf(fl, (0.8 - t0) * 2.0)
