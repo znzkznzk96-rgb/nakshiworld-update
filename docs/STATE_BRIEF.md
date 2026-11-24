@@ -5,6 +5,9 @@
 ## 한눈에
 - 작업 브랜치: work/forge-138 (main에서 작업하지 않는다)
 - 마지막 공개본: v1.45(펫 오두막 전 탭 글자 또렷하게 + 뽑기 슬롯 그림 폰에서 빈 칸으로 나오던 문제 수정, 2026-11-24). 공개 완료, 휴대폰 실기 확인 미완료. 원인 두 가지를 기억할 것: (1) UI 글자는 text_layer.gd처럼 화면 배율(get_viewport_transform) 크기로 그린다. 작은 크기로 그려 늘리면 한글이 깨진다 (2) 폰(APK)에는 원본 PNG가 없다. Image.load_from_file 대신 load()로 읽는다. 컴퓨터 테스트는 통과해도 폰에서 비는 이유다. 확인은 godot --export-pack으로 포장한 뒤 --main-pack으로 돌려서 한다
+- 업데이트 방식(v1.50, 2026-11-24 개편): 켜기 화면(root.gd, APK 안)이 version.json을 한 번 읽고, 새 버전이면 patch.pck 하나를 받는다(5초 안에 끝나면 켜기 화면에서 바로 적용, 아니면 게임을 먼저 켜고 백그라운드로 받아 다음 실행 때 적용). sha256·크기·GDPC 머리가 맞을 때만 user://upd/ 에 저장. 예전 Range 조각 업데이터(incremental_update.gd)는 삭제됨.
+- patch.pck은 "APK와 달라진 파일만" 담는다(automation/delta_pack.py). 기준은 automation/apk_base.json(APK에 든 파일 md5). APK를 새로 만들 때만 그 APK의 full.pck(후보 artifact에 들어 있음)로 apk_base.json을 다시 만든다(delta_pack.save_base). apk_base.json이 없으면 후보는 delta=false라 공개가 막힌다. 새 이미지·소리가 늘면 patch.pck이 커지므로, 커지면 APK를 새로 만든다.
+- 서버(Cloudflare 문)는 건드리지 않았다: version.json(code,name,size,sha256)과 patch.pck?v=code 계약 유지. 구형 APK는 새 patch.pck을 받으면 안 되므로, 새 APK 설치 전에는 공개하지 않는다.
 - 공개 절차 메모: main에 work와 같은 game·automation·verify-work.yml 등 입력 트리로 커밋을 올리면 공개되고, 초안 조회 지연으로 실패하면 release-patch를 workflow_dispatch로 다시 실행한다(v1.45에서도 그랬음)
 - v1.44는 v1.45에 포함되어 공개됨. 같은 번호로 내용만 또 고치면 폰이 받지 못하니 다음 수정은 1.46으로 올린다
 - 새 배포·PixelLab 유료 호출은 사용자 승인 전까지 하지 않는다. 공개 배포는 사용자가 폰에서 확인하고 승인한 뒤에 한다
