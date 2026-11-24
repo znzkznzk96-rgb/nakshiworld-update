@@ -44,3 +44,9 @@
 - 11/23 최신(위 항목 대체): 펫 22종 최종 확정(숲 요정 교체), PixelLab 애니메이션·오라/발광/파티클 합성 완료, 성능 초안·장착 구조(대표 1+일꾼 2) 확정 방향. 상세는 GAME_BIBLE 최상단·docs/analysis/pet-balance-20261123. 게임 미적용, 키는 ~/.pixellab_key(저장소에 두지 말 것)
 - 11/23 펫 획득=진주 슬롯 가챠(SSS 0.2%)·분해·도면·제작 구조 확정(GAME_BIBLE 최상단), 슬롯 릴 모듈 docs/qa/slot-module-20261123 시험 통과, 게임 미적용.
 - 펫 작업 전 필독: HANDOFF 최상단 '펫 작업 실패 원인' 5개 규칙
+
+## 검증 두 단계 + 되돌리기 (1.51부터)
+- 빠른 검증(verify-work.yml, 매 수정): 가져오기·스크립트 오류·부팅·세이브/업데이터 시험·후보 봉인. 목표 5분 안팎. 도구(Godot, v1.45 소스)는 캐시.
+- 전체 검증(verify-full.yml): 옛 무거운 화면/회귀 단계 전부. 직전 공개본 대비 위험 파일(automation/risk_check.py 목록: root.gd, save_store, commerce, 업데이터/배포 스크립트, 워크플로, main/village의 저장·구매 줄)이 바뀌면 자동, 아니면 건너뜀. 수동 실행(workflow_dispatch) 가능.
+- 공개 관문: release_candidate.py full_gate — 위험 파일이 바뀌었으면 그 변경을 포함한 커밋의 전체 검증 통과 기록이 있어야 공개됨.
+- 되돌리기: Actions의 rollback.yml(target=예전 버전 이름) → 그 버전 patch.pck를 바이트 그대로 더 높은 번호로 다시 공개. 1.51 이후(delta) 버전만 가능.

@@ -1,0 +1,24 @@
+name: Roll back to an earlier version
+on:
+  workflow_dispatch:
+    inputs:
+      target:
+        description: 'Version name to return to, for example 1.51'
+        required: true
+permissions:
+  contents: write
+concurrency:
+  group: game-patch-release
+  cancel-in-progress: false
+jobs:
+  rollback:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - name: Republish the earlier patch bytes under a higher version number
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          TARGET: ${{ inputs.target }}
+        run: python3 automation/rollback.py "$TARGET"

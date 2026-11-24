@@ -16,6 +16,8 @@ jobs:
     timeout-minutes: 8
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Publish identical verified candidate without rebuilding
         env:
           GH_TOKEN: ${{ github.token }}

@@ -1,7 +1,7 @@
 """Build once after verification; publish exactly those bytes after approval."""
 import argparse, hashlib, json, os, pathlib, subprocess, sys, time, zipfile
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
-import delta_pack
+import delta_pack, risk_check
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 RIFT_SELECTION = 'docs/art/rift-fish/APPROVED_MOTION_20_20261111.json'
 INPUTS = ['game', 'automation', '.github/workflows/verify-work.yml', '.github/workflows/release-patch.yml', RIFT_SELECTION, 'docs/art/rift-background-20261111/approved-clean-data']
@@ -66,6 +66,17 @@ def validate(out, run=None):
     if (out/'full.pck').exists(): assert digest(out/'full.pck')==c['full_pck']['sha256']
     with zipfile.ZipFile(out/'game-source.zip') as z: assert z.testzip() is None
     return c
+def full_gate(repo, source_commit):
+    """직전 공개본 이후 위험 파일이 바뀌었으면, 그 변경을 포함한 커밋의 전체 검증 통과를 요구한다."""
+    prev=json.loads(subprocess.check_output(['gh','api',f'repos/{repo}/releases/latest']))['target_commitish']
+    if not risk_check.reasons(prev,source_commit): return 'not-needed'
+    rows=json.loads(subprocess.check_output(['gh','api',f'repos/{repo}/actions/workflows/verify-full.yml/runs?status=success&per_page=30']))['workflow_runs']
+    for run in rows:
+        if run['event'] not in ('push','workflow_dispatch') or not run['head_branch'].startswith('work/'): continue
+        sha=run['head_sha']
+        if subprocess.run(['git','merge-base','--is-ancestor',sha,source_commit],cwd=ROOT).returncode: continue
+        if not risk_check.reasons(sha,source_commit): return sha
+    raise AssertionError('저장/업데이터/결제 관련 파일이 바뀌었는데 전체 검증(verify-full) 통과 기록이 없다')
 def publish(out):
     start=time.monotonic();repo=os.environ['GITHUB_REPOSITORY']
     rows=json.loads(subprocess.check_output(['gh','api',f'repos/{repo}/actions/workflows/verify-work.yml/runs?status=success&per_page=20']))['workflow_runs']
@@ -82,6 +93,7 @@ def publish(out):
         found=(temp,c);break
     assert found,'No successful candidate with exact source/settings/tool fingerprint; verification/build must finish first'
     temp,c=found;tag='v'+c['version']['name']
+    full_gate(repo,c['source_commit'])
     assert c['delta'],'APK 기준 목록(automation/apk_base.json) 없이 만든 전체 pck는 공개할 수 없다'
     # Draft tag endpoints can return404. Resolve the existing release by ID.
     matches=[r for r in json.loads(subprocess.check_output(['gh','api',f'repos/{repo}/releases?per_page=100'])) if r['tag_name']==tag]

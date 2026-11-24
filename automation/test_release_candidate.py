@@ -54,7 +54,7 @@ class CandidateTests(unittest.TestCase):
      self.assertEqual(cmd[4],'repos/test/project/releases/765')
      self.assertFalse(json.loads(kwargs['input'])['draft']);release['draft']=False
     return subprocess.CompletedProcess(cmd,0)
-   with patch.object(m,'fingerprint',return_value='proof'),patch.object(m,'validate',return_value=c),patch.object(m.subprocess,'check_output',side_effect=output),patch.object(m.subprocess,'run',side_effect=execute):
+   with patch.object(m,'fingerprint',return_value='proof'),patch.object(m,'full_gate',return_value='not-needed'),patch.object(m,'validate',return_value=c),patch.object(m.subprocess,'check_output',side_effect=output),patch.object(m.subprocess,'run',side_effect=execute):
     m.publish(self.out)
    self.assertFalse(release['draft'])
    self.assertFalse(any('/releases/tags/' in str(cmd) for cmd in calls))
@@ -80,6 +80,37 @@ class CandidateTests(unittest.TestCase):
   def output(cmd,**kw):
    if '/actions/workflows/' in cmd[-1]:return json.dumps({'workflow_runs':[{'event':'push','head_branch':'work/test','id':42}]}).encode()
    return json.dumps({'artifacts':[{'name':'release-candidate-proof','expired':False}]}).encode()
-  with patch.object(m,'fingerprint',return_value='proof'),patch.object(m,'validate',return_value=dict(self.meta,delta=False)),patch.object(m.subprocess,'check_output',side_effect=output),patch.object(m.subprocess,'run',return_value=subprocess.CompletedProcess([],0)):
+  with patch.object(m,'fingerprint',return_value='proof'),patch.object(m,'full_gate',return_value='not-needed'),patch.object(m,'validate',return_value=dict(self.meta,delta=False)),patch.object(m.subprocess,'check_output',side_effect=output),patch.object(m.subprocess,'run',return_value=subprocess.CompletedProcess([],0)):
    with self.assertRaises(AssertionError):m.publish(self.out)
+ def test_full_gate_requires_full_pass_only_when_risky_files_changed(self):
+  m.risk_check.ROOT=self.root
+  base=self.git_out('rev-parse','HEAD')
+  (self.root/'game/art.txt').write_text('x');self.commit();safe=self.git_out('rev-parse','HEAD')
+  real=subprocess.check_output
+  def api(runs):
+   def output(cmd,**kw):
+    if cmd[0]=='git':return real(cmd,**kw)
+    if cmd[-1].endswith('/releases/latest'):return json.dumps({'target_commitish':base}).encode()
+    return json.dumps({'workflow_runs':runs}).encode()
+   return output
+  with patch.object(m.subprocess,'check_output',side_effect=api([])):self.assertEqual(m.full_gate('t/p',safe),'not-needed')
+  (self.root/'game/root.gd').write_text('risky');self.commit();risky=self.git_out('rev-parse','HEAD')
+  with patch.object(m.subprocess,'check_output',side_effect=api([])):
+   with self.assertRaises(AssertionError):m.full_gate('t/p',risky)
+  run=dict(event='push',head_branch='work/test',head_sha=risky)
+  (self.root/'game/art2.txt').write_text('y');self.commit();later=self.git_out('rev-parse','HEAD')
+  with patch.object(m.subprocess,'check_output',side_effect=api([run])):
+   self.assertEqual(m.full_gate('t/p',later),risky)
+  run['head_sha']=safe
+  with patch.object(m.subprocess,'check_output',side_effect=api([run])):
+   with self.assertRaises(AssertionError):m.full_gate('t/p',later)
+ def git_out(self,*a):return subprocess.check_output(['git',*a],cwd=self.root).decode().strip()
+ def test_rollback_keeps_old_bytes_and_raises_version(self):
+  import rollback as rb
+  old={'code':151,'name':'1.51','sha256':'a'*64,'size':10,'delta':True}
+  latest={'code':153,'name':'1.53','sha256':'b'*64,'size':12,'delta':True}
+  new=rb.plan(old,latest)
+  self.assertEqual((new['code'],new['name'],new['sha256'],new['size']),(154,'1.54','a'*64,10));self.assertEqual(new['rollback_of'],'1.51')
+  with self.assertRaises(AssertionError):rb.plan(dict(old,delta=False),latest)
+  with self.assertRaises(AssertionError):rb.plan(dict(old,sha256='b'*64),latest)
 if __name__=='__main__':unittest.main()
