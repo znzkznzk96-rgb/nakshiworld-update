@@ -24,6 +24,8 @@ const A := "res://art/pet_hut/"
 const FRAG := [1, 3, 8, 20, 60, 200, 600]          # 분해로 얻는 조각(등급별)
 const BP_COST := {3: [150, 50], 4: [450, 100], 5: [1200, 200], 6: [2100, 300]}   # 도면 제작: 조각, 진주
 const COST := 10                                   # 슬롯 1회 진주
+const COST10 := COST * 10                          # 10회 진주(할인 없음)
+const GRADE_COL := [Color("8a7a66"), Color("4f9a5b"), Color("3f78c4"), Color("8a54c4"), Color("e08a2a"), Color("d6453d"), Color("e0b020")]
 const GRADE_P := [71.3, 13.0, 8.0, 5.0, 2.0, 0.5, 0.2]   # 등급별 확률(%), 합 100
 var tab := "pets"
 var owned: Array = []          # 가진 펫(counts 1 이상), PETS 순서
@@ -207,6 +209,8 @@ func press(p: Vector2) -> void:
 	if _slot != null:                 # 슬롯 연출 중에는 오두막 창이 반응하지 않고, 누르면 연출을 건너뜀
 		if _machine != null and _machine.busy: _machine.skip()
 		return
+	if not _res.is_empty():           # 10회 결과표: 누르면 한꺼번에 나타나고, 한 번 더 누르면 닫힘
+		_res_press(); return
 	if rects.get("close", Rect2()).has_point(p) or not panel_rect().has_point(p):
 		state_changed.emit(); closed.emit(); return
 	if tab == "pets" and _pets_press(p): return
@@ -438,8 +442,8 @@ func roll_pet() -> String:
 	var list := pets_of(g)
 	return list[_grng.randi() % list.size()]
 
-func can_pull() -> bool:
-	return _slot == null and pearl_total >= COST
+func can_pull(n := 1) -> bool:
+	return _slot == null and pearl_total >= COST * n
 
 func pull() -> bool:
 	if not can_pull(): return false
@@ -453,6 +457,45 @@ func pull() -> bool:
 	_start_slot(k)
 	queue_redraw()
 	return true
+
+## 10회: 슬롯은 10마리 중 가장 높은 등급 기준으로 1번만 돌리고, 끝나면 같은 펫을 합친 결과표를 보여준다
+var _res: Array = []          # 결과표 칸: {k, n, new}, 높은 등급 순
+var _res_shown := 0
+
+func pull10() -> bool:
+	if not can_pull(10): return false
+	pearl_total -= COST10
+	var got: Dictionary = {}   # 펫 → {k, n, new}
+	var top := ""
+	for i in 10:
+		var k := roll_pet()
+		if not got.has(k): got[k] = {"k": k, "n": 0, "new": counts.get(k, 0) == 0}
+		got[k].n += 1
+		counts[k] = counts.get(k, 0) + 1
+		if top == "" or grade_of(k) > grade_of(top): top = k
+	_res = got.values()
+	_res.sort_custom(func(a, b): return grade_of(a.k) > grade_of(b.k) or (grade_of(a.k) == grade_of(b.k) and PETS.find(a.k) < PETS.find(b.k)))
+	last_pet = top
+	last_new = got[top].new
+	_sync_owned()
+	state_changed.emit()
+	_start_slot(top)
+	queue_redraw()
+	return true
+
+func _show_result() -> void:
+	_res_shown = 0
+	queue_redraw()
+	for i in _res.size():
+		await get_tree().create_timer(0.15).timeout
+		if _res.is_empty(): return
+		_res_shown = maxi(_res_shown, i + 1)
+		queue_redraw()
+
+func _res_press() -> void:
+	if _res_shown < _res.size(): _res_shown = _res.size()
+	else: _res.clear()
+	queue_redraw()
 
 func _start_slot(k: String) -> void:
 	_slot = Control.new()
@@ -482,6 +525,7 @@ func _start_slot(k: String) -> void:
 func _slot_done(_info: Dictionary) -> void:
 	_slot.queue_free()
 	_slot = null; _machine = null; _holder = null
+	if not _res.is_empty(): _show_result()
 	queue_redraw()
 
 # 슬롯 모듈과 같은 방식(원본 PNG를 그대로 읽음)
@@ -500,11 +544,17 @@ func _draw_gacha_tab(body: Rect2) -> void:
 		_art("card", sr)
 		draw_texture(_sym(GRADE_NAME[[3, 4, 6][i]]), sr.position + Vector2(2, 2))
 	_txt("보유 진주 %d개" % pearl_total, Vector2(cx, y + 104), 9, INK, true, 220)
-	var pb := Rect2(body.position.x + 12, y + 114, body.size.x - 24, 30)
+	var bw := (body.size.x - 30) / 2.0
+	var pb := Rect2(body.position.x + 12, y + 114, bw, 30)
 	var ok := pearl_total >= COST
 	_art("button" if ok else "card", pb)
-	_txt("뽑기 (진주 %d개)" % COST if ok else "진주가 부족해요 (%d개 필요)" % COST, pb.get_center() + Vector2(0, 4), 10, CREAM if ok else Color("6e5c49"), true, pb.size.x - 10)
+	_txt("1회 (진주 %d)" % COST if ok else "진주 부족", pb.get_center() + Vector2(0, 4), 10, CREAM if ok else Color("6e5c49"), true, pb.size.x - 6)
 	rects["pull"] = pb
+	var pb10 := Rect2(pb.end.x + 6, y + 114, bw, 30)
+	var ok10 := pearl_total >= COST10
+	_art("button" if ok10 else "card", pb10)
+	_txt("10회 (진주 %d)" % COST10 if ok10 else "진주 부족", pb10.get_center() + Vector2(0, 4), 10, CREAM if ok10 else Color("6e5c49"), true, pb10.size.x - 6)
+	rects["pull10"] = pb10
 	var ob := Rect2(body.position.x + 12, y + 152, body.size.x - 24, 24)
 	_art("card", ob)
 	_txt("확률 보기", ob.get_center() + Vector2(0, 4), 9, INK, true, ob.size.x - 10)
@@ -523,6 +573,40 @@ func _draw_gacha_tab(body: Rect2) -> void:
 	_txt("중복 펫은 도면 탭에서 분해해요", Vector2(cx, y + 270), 11, MUTED, true, 220)
 	_txt("진주는 낚시·탐험·펫이 캐서 얻어요", Vector2(cx, y + 288), 11, MUTED, true, 220)
 	if show_odds: _draw_odds(body)
+	if not _res.is_empty(): _draw_result(body)
+
+## 10회 결과표: 같은 펫은 하나로 합쳐 xN으로, 등급 높은 순
+func _draw_result(body: Rect2) -> void:
+	var pr := Rect2(body.position + Vector2(2, 2), body.size - Vector2(4, 4))
+	_art("panel", pr)
+	_cover(pr)
+	_txt("10회 결과", Vector2(pr.get_center().x, pr.position.y + 17), 11, INK, true, 120)
+	var cw := (pr.size.x - 20) / 2.0
+	var ch := 40.0
+	var grade_cnt := {}
+	var new_cnt := 0
+	for i in _res.size():
+		var e: Dictionary = _res[i]
+		var g := grade_of(e.k)
+		grade_cnt[g] = grade_cnt.get(g, 0) + e.n
+		if e.new: new_cnt += 1
+		if i >= _res_shown: continue
+		var cr := Rect2(pr.position + Vector2(7 + (i % 2) * (cw + 6), 26 + (i / 2) * (ch + 3)), Vector2(cw, ch))
+		_art("card", cr)
+		draw_rect(cr, GRADE_COL[g], false, 1.0)
+		var tex: Texture2D = _strip(e.k, "move")
+		var th := tex.get_height()
+		draw_texture_rect_region(tex, Rect2(cr.position + Vector2(3, floorf((ch - th) / 2.0)), Vector2(th, th)), Rect2(0, 0, th, th))
+		var tx := cr.position.x + th + 6
+		_txt(NAME[e.k], Vector2(tx, cr.position.y + 15), 8, INK, false, cw - th - 8)
+		_txt(GRADE_NAME[g] + ("  x%d" % e.n if e.n > 1 else ""), Vector2(tx, cr.position.y + 31), 9, GRADE_COL[g], false, 50)
+		if e.new: _txt("NEW", Vector2(cr.end.x - 24, cr.position.y + 31), 8, Color("2f8f84"), false, 26)
+	var parts: Array = []
+	for g in range(6, -1, -1):
+		if grade_cnt.has(g): parts.append("%s %d" % [GRADE_NAME[g], grade_cnt[g]])
+	_txt(" · ".join(parts), Vector2(pr.get_center().x, pr.end.y - 30), 9, INK, true, pr.size.x - 10)
+	_txt("새 펫 %d마리" % new_cnt if new_cnt > 0 else "새 펫 없음", Vector2(pr.get_center().x, pr.end.y - 18), 9, MUTED, true, 120)
+	_txt("누르면 닫혀요" if _res_shown >= _res.size() else "누르면 바로 보여요", Vector2(pr.get_center().x, pr.end.y - 6), 8, MUTED, true, 120)
 
 func _draw_odds(body: Rect2) -> void:
 	var pr := Rect2(body.position + Vector2(2, 2), body.size - Vector2(4, 4))
@@ -549,6 +633,7 @@ func _gacha_press(p: Vector2) -> bool:
 		if rects.get("odds_close", Rect2()).has_point(p): show_odds = false; queue_redraw()
 		return true
 	if rects.get("pull", Rect2()).has_point(p): pull(); return true
+	if rects.get("pull10", Rect2()).has_point(p): pull10(); return true
 	if rects.get("odds", Rect2()).has_point(p): show_odds = true; queue_redraw(); return true
 	return false
 
