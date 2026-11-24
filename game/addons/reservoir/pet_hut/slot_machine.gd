@@ -100,10 +100,12 @@ static func _tex(name: String) -> Texture2D:
 	return ImageTexture.create_from_image(Image.load_from_file(ProjectSettings.globalize_path(A + name + ".png")))
 
 func _ready() -> void:
-	_font = load("res://font/neodgm.ttf")
+	_font = load("res://font/neodgm.ttf").duplicate(true)
 	_font.antialiasing = TextServer.FONT_ANTIALIASING_NONE
 	_font.hinting = TextServer.HINTING_NONE
 	_font.subpixel_positioning = TextServer.SUBPIXEL_POSITIONING_DISABLED
+	_font.oversampling = 1.0
+	_font.fallbacks = [load("res://font/galmuri11.fnt")]
 	_body = Sprite2D.new()
 	_body.texture = _tex("body_empty"); _body.centered = false; _body.position = BODY_POS
 	add_child(_body)
