@@ -118,16 +118,28 @@ func _txt(s: String, pos: Vector2, size: int, col: Color, center := false, w := 
 	var x := roundf(pos.x - w / 2.0) if center else roundf(pos.x)
 	# main.gd _font_idx와 같은 글자 크기 단계(10/12/14/16)만 써야 네오둥근모가 깨지지 않는다
 	var px := 10 if size <= 10 else (12 if size <= 13 else (14 if size <= 15 else 16))
-	# text_layer.gd와 같은 방식: 화면 배율만큼 큰 글자로 그려서 폰 해상도에서 또렷하게 한다
-	var raster := maxf(1.0, get_viewport_transform().get_scale().x)
-	draw_set_transform(Vector2(x, roundf(pos.y)), 0.0, Vector2.ONE / raster)
-	draw_string(_font, Vector2.ZERO, s, HORIZONTAL_ALIGNMENT_CENTER if center else HORIZONTAL_ALIGNMENT_LEFT, w * raster, px * raster, col)
-	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+	# 게임 화면은 작은 해상도로 그려 확대하므로, 글자는 마을(main)의 글자 층(text_layer)으로 보내 폰 해상도로 그린다
+	_text_next.append([_font, Vector2(x, roundf(pos.y)), s, HORIZONTAL_ALIGNMENT_CENTER if center else HORIZONTAL_ALIGNMENT_LEFT, w, px, col, 1.0])
 
 func panel_rect() -> Rect2:
 	return Rect2(8, panel_y if panel_y >= 0.0 else roundf((size.y - 380.0) / 2.0), 254, 380)
 
+var text_out: Array = []          # 마을이 글자 층으로 가져가는 이번 프레임 글자 목록
+var _text_next: Array = []
+
+func texts() -> Array:
+	return [] if _slot != null else text_out    # 슬롯 연출 중에는 오두막 글자를 숨긴다
+
 func _draw() -> void:
+	_text_next = []
+	_paint()
+	text_out = _text_next
+
+# 위에 덮이는 창(펫 고르기·확률)이 가리는 자리의 아래쪽 글자는 뺀다
+func _cover(r: Rect2) -> void:
+	_text_next = _text_next.filter(func(it): return not r.has_point(it[1]))
+
+func _paint() -> void:
 	rects = {}
 	if dim: draw_rect(Rect2(-dim_margin, 0, size.x + 2.0 * dim_margin, size.y), Color(0.04, 0.06, 0.1, 0.84))
 	var r := panel_rect()
@@ -334,6 +346,7 @@ func _draw_pets_tab(body: Rect2) -> void:
 func _draw_picker(body: Rect2) -> void:
 	var pr := Rect2(body.position + Vector2(2, 2), body.size - Vector2(4, 4))
 	_art("panel", pr)
+	_cover(pr)
 	_txt("슬롯 %d에 일할 펫 고르기" % (picker + 1), Vector2(pr.get_center().x, pr.position.y + 17), 9, INK, true, pr.size.x - 10)
 	for n in owned.size():
 		var k: String = owned[n]
@@ -420,9 +433,13 @@ func _start_slot(k: String) -> void:
 	_slot.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_slot.draw.connect(func(): _slot.draw_rect(Rect2(Vector2.ZERO, _slot.size), Color.BLACK))
 	add_child(_slot)
+	var holder := Control.new()   # 위 상태창(HUD)에 겹치지 않게 오두막 창 윗변에 맞춰 내린다
+	holder.position = Vector2(0, maxf(panel_rect().position.y - SlotMachine.BODY_POS.y, 0.0))
+	holder.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_slot.add_child(holder)
 	_machine = SlotMachine.new()
 	_machine.reveal_pet = k
-	_slot.add_child(_machine)
+	holder.add_child(_machine)
 	_machine.finished.connect(_slot_done, CONNECT_ONE_SHOT)
 	var g := grade_of(k)
 	_machine.play(SlotMachine.make_grid(g, _grng, g == 6 and _grng.randf() < 0.25))
@@ -475,6 +492,7 @@ func _draw_gacha_tab(body: Rect2) -> void:
 func _draw_odds(body: Rect2) -> void:
 	var pr := Rect2(body.position + Vector2(2, 2), body.size - Vector2(4, 4))
 	_art("panel", pr)
+	_cover(pr)
 	_txt("등급별 확률", Vector2(pr.position.x + 50, pr.position.y + 17), 9, INK, true, 90)
 	for g in 7:
 		var n := pets_of(g).size()

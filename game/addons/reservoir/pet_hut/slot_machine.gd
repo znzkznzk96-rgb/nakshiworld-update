@@ -223,7 +223,8 @@ func play(grid: Array) -> void:
 	for r in 3:
 		for c in 3: _cell_sym[r * 3 + c] = grid[r][c]
 	# 예고: 높은 등급일수록 마지막 릴을 더 뜸 들인다(결과는 이미 정해져 있음)
-	reels.runtime = 1.0
+	reels.runtime = 1.5
+	reels.speed = 7.0   # 칸/초(기본 14는 폰에서 너무 빨라 절반으로)
 	reels.reel_delay = 0.25 + (0.3 if top >= 4 else 0.0) + (0.4 if top >= 6 else 0.0)
 	reels.crawl_last = top >= 4
 	sfx.emit("lever")
