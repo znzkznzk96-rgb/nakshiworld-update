@@ -510,8 +510,8 @@ func _start_slot(k: String) -> void:
 		_slot.position = global_position
 	else:
 		add_child(_slot)
-	var holder := Control.new()   # 위 상태창(HUD)에 겹치지 않게 오두막 창 윗변에 맞춰 내린다
-	holder.position = Vector2(0, maxf(panel_rect().position.y - SlotMachine.BODY_POS.y, 0.0))
+	var holder := Control.new()   # 오두막 창과 같은 세로 가운데에 기계 몸통 가운데를 맞춘다(위 상태창에 겹치지 않음)
+	holder.position = Vector2(0, maxf(panel_rect().get_center().y - SlotMachine.BODY_POS.y - SlotMachine.BODY_H * 0.5, 0.0))
 	holder.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_slot.add_child(holder)
 	_holder = holder

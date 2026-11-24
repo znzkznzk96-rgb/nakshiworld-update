@@ -437,7 +437,7 @@ func _draw_hut(m, h: float) -> void :
 	if hut == null or not is_instance_valid(hut): return
 	hut.dim_margin = m.ox
 	hut.size = Vector2(m.VW, h)
-	hut.panel_y = maxf(top + 6.0, roundf((h - hut.PH) / 2.0))
+	hut.panel_y = maxf(top + 6.0, top + roundf((h - top - hut.PH) / 2.0))   # 상단 상태창 아래 남은 공간의 세로 가운데
 	hut.queue_redraw()
 	m.text_items.append_array(hut.texts())
 

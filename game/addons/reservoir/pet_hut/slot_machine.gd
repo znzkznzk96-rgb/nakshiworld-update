@@ -20,6 +20,7 @@ const LINES := [
 ## 좌표 단위는 게임 화면 1칸(폰 화면 4픽셀). 본체·심볼은 그림 1픽셀이 폰 화면 3픽셀이 되도록 0.75배로 그린다.
 const ART := 0.75
 const BODY_POS := Vector2(31.5, 41.0)
+const BODY_H := 297.75   # 몸통 그림 높이(397픽셀 × 0.75)
 const WINDOW_POS := Vector2(66.75, 128.0)
 const CELL := Vector2(46, 40)
 const LAMP_X := [82.5, 108.75, 135.75, 162.75, 189.75]   # 본체에 그려진 버튼 자리 위에 빛 레이어를 겹친다
@@ -578,7 +579,7 @@ func _draw_reveal() -> void:
 	# 펫
 	var frames: Array = _fr["rv_" + _rv_pet]
 	var ft: Texture2D = frames[int(maxf(t0, 0.0) * 10.0) % 9]
-	var ps := maxi(2, int(130.0 / maxf(ft.get_width(), ft.get_height())))
+	var ps := ART * maxf(2.0, roundf(88.0 / (ART * maxf(ft.get_width(), ft.get_height()))))   # 그림 1픽셀이 폰 화면 3픽셀의 정수배가 되게, 너무 키우지 않는다
 	var sz := Vector2(ft.get_width(), ft.get_height()) * ps
 	var off := Vector2.ZERO if t0 < 0.0 else _entry(kind, t0)
 	var mod := Color(0, 0, 0, 1) if t0 < 0.0 else Color.WHITE
