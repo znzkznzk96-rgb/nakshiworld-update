@@ -22,9 +22,8 @@ const ART := 0.75
 const BODY_POS := Vector2(31.5, 41.0)
 const WINDOW_POS := Vector2(66.75, 128.0)
 const CELL := Vector2(46, 40)
-const LAMP_X := [82.0, 109.0, 135.75, 162.75, 189.75]
+const LAMP_X := [82.5, 108.75, 135.75, 162.75, 189.75]   # 본체에 그려진 버튼 자리 위에 빛 레이어를 겹친다
 const LAMP_Y := 262.25
-const LAMP_ART := 0.5
 const LEVER_ART := 0.75
 const LEVER_POS := Vector2(217.0, 158.0)   # 판 왼쪽 아래(그림 4,128)가 기계 오른쪽 옆면에 닿는 자리
 ## 레버 당김 프레임(PixelLab 그림 + 레퍼런스 움짤의 움직임): 0=올림, 6~8=끝까지 내림, 12=반동으로 올라감
@@ -146,7 +145,7 @@ func _ready() -> void:
 	for i in 5:
 		_lamp_off.append(_tex("btn_off%d" % i)); _lamp_on.append(_tex("btn_on%d" % i))
 		var l := Sprite2D.new()
-		l.texture = _lamp_off[i]; l.position = Vector2(LAMP_X[i], LAMP_Y); l.scale = Vector2(LAMP_ART, LAMP_ART)
+		l.texture = _lamp_off[i]; l.position = Vector2(LAMP_X[i], LAMP_Y); l.scale = Vector2(ART, ART)
 		add_child(l); lamps.append(l)
 	for n in ["burst", "rainbow", "coin", "gem", "shim_S", "shim_SS", "shim_SSS"]:
 		var arr: Array[Texture2D] = []
@@ -266,16 +265,21 @@ func _prime_lamps() -> void:
 func _pull_lever() -> void:
 	for f in LEVER_DOWN:
 		lever.texture = _lever_tex[f]
-		_press_lamps(f >= 3)   # 레버가 내려가면 버튼도 같이 눌린다
 		await get_tree().create_timer(0.04).timeout
 
 func _release_lever() -> void:
 	for f in LEVER_UP:
 		lever.texture = _lever_tex[f]; await get_tree().create_timer(0.06).timeout
-	_press_lamps(false)
 
-func _press_lamps(down: bool) -> void:
-	for i in 5: lamps[i].position.y = LAMP_Y + (0.5 if down else 0.0)
+## 대기 중 버튼 불빛이 제멋대로 반짝인다
+var _tw_t := [0.3, 0.9, 0.5, 1.2, 0.7]
+func _twinkle(delta: float) -> void:
+	for i in 5:
+		_tw_t[i] -= delta
+		if _tw_t[i] <= 0.0:
+			var on: bool = lamps[i].texture != _lamp_on[i]
+			lamps[i].texture = _lamp_on[i] if on else _lamp_off[i]
+			_tw_t[i] = randf_range(0.12, 0.5) if on else randf_range(0.4, 1.8)
 
 ## 릴이 멈출 때마다: 그 릴의 램프가 켜진 채 고정되고 기계가 살짝 쿵 한다
 const LAMP_GROUP := [[0, 1], [2], [3, 4]]
@@ -449,6 +453,7 @@ static func _entry(kind: String, t: float) -> Vector2:
 	return Vector2.ZERO
 
 func _process(delta: float) -> void:
+	if not busy: _twinkle(delta)
 	if not _win_cells.is_empty():
 		_fx_time += delta
 		fx.queue_redraw()
