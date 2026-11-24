@@ -20,6 +20,7 @@ const LINES := [
 ## 좌표 단위는 게임 화면 1칸(폰 화면 4픽셀). 본체·심볼은 그림 1픽셀이 폰 화면 3픽셀이 되도록 0.75배로 그린다.
 const ART := 0.75
 const BODY_POS := Vector2(31.5, 41.0)
+const BODY_H := 297.75   # 몸통 그림 높이(397픽셀 × 0.75)
 const WINDOW_POS := Vector2(66.75, 128.0)
 const CELL := Vector2(46, 40)
 const LAMP_X := [82.5, 108.75, 135.75, 162.75, 189.75]   # 본체에 그려진 버튼 자리 위에 빛 레이어를 겹친다
@@ -572,13 +573,14 @@ func _draw_reveal() -> void:
 	if g >= 5 and t0 > 0.0 and t0 < 0.5: amp = maxf(amp, (2.0 + g - 5.0) * (0.5 - t0) / 0.5)
 	rv.position = Vector2(randf_range(-amp, amp), randf_range(-amp, amp)) if amp > 0.0 else Vector2.ZERO
 	var a := clampf(_rv_t / 0.35, 0.0, 1.0)
-	rv.draw_rect(Rect2(-20, -20, 310, 460), Color(0, 0, 0, 0.85 * a))
+	rv.draw_rect(Rect2(-300, -400, 900, 1500), Color(0, 0, 0, 0.75 * a))
 	# 실루엣 동안 점점 밝아지는 정도(실루엣 떨림에만 쓴다)
 	var glow := clampf((_rv_t - 0.2) / maxf(0.2, T0 - 0.2), 0.0, 1.0) if t0 < 0.0 else 1.0
 	# 펫
 	var frames: Array = _fr["rv_" + _rv_pet]
 	var ft: Texture2D = frames[int(maxf(t0, 0.0) * 10.0) % 9]
-	var ps := maxi(2, int(130.0 / maxf(ft.get_width(), ft.get_height())))
+	var pop := 1.0 + 2.0 * pow(1.0 - clampf(t0 / 0.55, 0.0, 1.0), 2.0) if t0 >= 0.0 else 1.0   # 나올 때 크게 확대됐다가 원래 크기로 줄어든다
+	var ps := roundf(pop * 4.0) / 4.0
 	var sz := Vector2(ft.get_width(), ft.get_height()) * ps
 	var off := Vector2.ZERO if t0 < 0.0 else _entry(kind, t0)
 	var mod := Color(0, 0, 0, 1) if t0 < 0.0 else Color.WHITE
@@ -619,4 +621,4 @@ func _draw_reveal() -> void:
 	# 번쩍: 등장 순간(SSS는 두 번)
 	var fl := clampf(1.0 - absf(t0) * (6.0 if t0 < 0.0 else 3.0), 0.0, 1.0) if absf(t0) < 0.4 else 0.0
 	if g == 6 and t0 > 0.5 and t0 < 0.8: fl = maxf(fl, (0.8 - t0) * 2.0)
-	if fl > 0.0: rv.draw_rect(Rect2(-20, -20, 310, 460), Color(1, 1, 1, fl))
+	if fl > 0.0: rv.draw_rect(Rect2(-300, -400, 900, 1500), Color(1, 1, 1, fl))

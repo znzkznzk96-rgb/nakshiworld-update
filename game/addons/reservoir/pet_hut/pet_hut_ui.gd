@@ -288,6 +288,9 @@ func step(dt: float) -> void:
 
 func _process(delta: float) -> void:
 	if visible and tab == "pets": step(delta)
+	if _slot != null:
+		_sea_t += delta
+		_slot.queue_redraw()
 
 func _draw_pets_tab(body: Rect2) -> void:
 	var scene := Rect2(body.position + Vector2(0, 5), SCENE)
@@ -497,12 +500,30 @@ func _res_press() -> void:
 	else: _res.clear()
 	queue_redraw()
 
+var _sea_t := 0.0
+
+func _draw_sea() -> void:   # 슬롯 뒤 배경: 깊은 바다(위 청록 → 아래 남색) + 떠오르는 기포·진주
+	var sz := _slot.size
+	var n := 64
+	for i in n:
+		var f := float(i) / (n - 1)
+		_slot.draw_rect(Rect2(0, sz.y * i / n, sz.x, sz.y / n + 1.0), Color(0.02, 0.17, 0.2).lerp(Color(0.01, 0.03, 0.12), f))
+	for i in 18:
+		var x := fmod(float(i) * 37.0 + 11.0, sz.x) + sin(_sea_t * 0.8 + i) * 4.0
+		var sp := 14.0 + (i % 5) * 6.0
+		var y := sz.y - fmod(_sea_t * sp + i * 83.0, sz.y + 20.0) + 10.0
+		var pearl := i % 6 == 0
+		var r := 1.5 if pearl else 1.0 + (i % 3)
+		var c := Color(1, 0.95, 0.85, 0.7) if pearl else Color(0.6, 0.9, 1, 0.3)
+		_slot.draw_rect(Rect2(roundf(x), roundf(y), r * 2.0, r * 2.0), c)
+		if pearl: _slot.draw_rect(Rect2(roundf(x) + 1.0, roundf(y) + 1.0, 1.0, 1.0), Color(1, 1, 1, 0.9))
+
 func _start_slot(k: String) -> void:
 	_slot = Control.new()
 	_slot.size = size
 	_slot.z_index = 50
 	_slot.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	_slot.draw.connect(func(): _slot.draw_rect(Rect2(Vector2.ZERO, _slot.size), Color.BLACK))
+	_slot.draw.connect(_draw_sea)
 	# 슬롯은 게임 화면(작은 해상도를 4배 확대)이 아니라 폰 실제 해상도 층에 올려야 도트가 곱게 나온다. 층이 없으면(시험 등) 기존처럼 안에 얹는다.
 	var hires := get_tree().get_first_node_in_group("hires_layer") as Node2D
 	if hires != null:
@@ -510,8 +531,8 @@ func _start_slot(k: String) -> void:
 		_slot.position = global_position
 	else:
 		add_child(_slot)
-	var holder := Control.new()   # 위 상태창(HUD)에 겹치지 않게 오두막 창 윗변에 맞춰 내린다
-	holder.position = Vector2(0, maxf(panel_rect().position.y - SlotMachine.BODY_POS.y, 0.0))
+	var holder := Control.new()   # 오두막 창과 같은 세로 가운데에 기계 몸통 가운데를 맞춘다(위 상태창에 겹치지 않음)
+	holder.position = Vector2(0, maxf(panel_rect().get_center().y - SlotMachine.BODY_POS.y - SlotMachine.BODY_H * 0.5, 0.0))
 	holder.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_slot.add_child(holder)
 	_holder = holder

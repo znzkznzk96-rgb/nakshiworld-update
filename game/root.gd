@@ -27,6 +27,7 @@ var box: SubViewportContainer
 var http: HTTPRequest
 var status := ""
 var progress := -1.0
+var shown_bar := 0.0   # 화면에 보이는 게이지: 실제 받기가 순식간에 끝나도 부드럽게 끝까지 차오른다
 var font: Font
 var expected_hash := ""
 var expected_size := 0
@@ -179,8 +180,18 @@ func transfer_detail() -> String:
 	if total<=0:return "%.1f MB 받음 · 전체 크기 확인 중"%(received_bytes/1000000.0)
 	return "%d%%   %.1f / %.1f MB"%[int(clampf(progress,0,1)*100),received_bytes/1000000.0,total/1000000.0]
 
+## 단계별로 게이지가 가야 할 곳(받는 단계는 실제 받은 비율을 따른다)
+func _bar_target() -> float:
+	match update_phase:
+		"checking": return 0.15
+		"download": return 0.2 + 0.6 * maxf(progress, 0.0) if progress >= 0.0 else 0.3
+		"verifying": return 0.85
+		"applying": return 0.92
+	return 1.0
+
 func _process(dt: float) -> void:
 	animation_time+=maxf(dt,0.0)
+	shown_bar=move_toward(shown_bar,_bar_target(),maxf(dt,0.0)*0.8)
 	if fetching and update_phase=="download":
 		received_bytes=http.get_downloaded_bytes()
 		progress=clampf(float(received_bytes)/expected_size,0,1) if expected_size>0 else -1.0
@@ -263,11 +274,7 @@ func _draw() -> void:
 	_label(status,panel.position.y+23,11,Color("111c52"))
 	var bar:Rect2=Rect2(35,panel.position.y+37,200,10)
 	draw_rect(bar,Color("111c52"));draw_rect(bar.grow(-1),Color("15275b"))
-	if update_phase=="download" and progress>=0:draw_rect(Rect2(bar.position+Vector2.ONE,Vector2(198*clampf(progress,0,1),8)),Color("ffda24"))
-	else:
-		var x:float=fposmod(animation_time*36,222)-24
-		var begin:float=maxf(0,x);var finish:float=minf(198,x+24)
-		if finish>begin:draw_rect(Rect2(bar.position+Vector2(1+begin,1),Vector2(finish-begin,8)),Color("ffda24"))
+	if shown_bar>0.0:draw_rect(Rect2(bar.position+Vector2.ONE,Vector2(198*clampf(shown_bar,0,1),8)),Color("ffda24"))
 	_label(transfer_detail(),panel.position.y+66,9,Color("223b66"))
 	_label("잠시만 기다려 주세요",panel.position.y+85,8,Color("426581"))
 	draw_set_transform(Vector2.ZERO)
