@@ -65,27 +65,17 @@ const PET_ENTRY := {
 	"s_fairy": "float", "s_tome": "rise", "s_wisp": "rise", "ss_golem": "slam", "ss_knight": "slam",
 	"ss_storm": "roll", "sss_apostle": "rise", "sss_demon": "slam", "sss_lunar": "float", "sss_seraph": "float",
 }
-## 펫 속성별 연출 모티프와 색(밝은색, 포인트색). 한 점에서 퍼지는 빛줄기는 쓰지 않는다.
-const THEME_COL := {
-	"fire": [Color(1, 0.5, 0.15), Color(1, 0.85, 0.3)], "water": [Color(0.4, 0.8, 1.0), Color(0.8, 1, 1)],
-	"nature": [Color(0.5, 0.9, 0.4), Color(0.9, 1, 0.6)], "air": [Color(0.9, 0.95, 1.0), Color(1, 1, 0.8)],
-	"volt": [Color(0.6, 0.8, 1.0), Color(1, 1, 0.5)], "magic": [Color(0.8, 0.5, 1.0), Color(1, 0.9, 0.5)],
-	"earth": [Color(0.75, 0.65, 0.5), Color(0.5, 0.95, 0.9)],
-}
-const PET_THEME := {
-	"d_chick": "air", "d_frog": "water", "d_mouse": "earth", "c_mushroom": "nature", "c_puffbird": "air", "c_slime": "water",
-	"b_hamster": "nature", "b_hedgehog": "nature", "b_sparrow": "air", "a_fennec": "earth", "a_otter": "water", "a_owl": "air",
-	"s_fairy": "nature", "s_tome": "magic", "s_wisp": "fire", "ss_golem": "earth", "ss_knight": "magic",
-	"ss_storm": "volt", "sss_apostle": "magic", "sss_demon": "fire", "sss_lunar": "magic", "sss_seraph": "air",
-}
 ## 뽑기 결과로 보여줄 펫 키(비워 두면 해당 등급에서 무작위)
 var reveal_pet := ""
 var _rv_pet := ""
+## 펫마다 PixelLab으로 만든 오라 시트(가로 9칸). 등장 연출은 이 그림만 쓴다.
+var _aura := {}
 const REVEAL_COL := [Color(0.7, 0.7, 0.7), Color(0.4, 0.9, 0.4), Color(0.4, 0.7, 1.0), Color(0.8, 0.5, 1.0), Color(1.0, 0.85, 0.3), Color(1.0, 0.4, 0.6), Color(1, 1, 1)]
 var _flash := 0.0
 var _spot := 0.0
 var _ring := -1.0
 var _lever_tex := {}
+var _base_y := 0.0
 var _lamp_off: Array[Texture2D] = []
 var _lamp_on: Array[Texture2D] = []
 var _win_cells: Array = []
@@ -96,18 +86,31 @@ var _dim := false
 var _body: Sprite2D
 var busy := false
 
-# 글자를 화면 배율만큼 큰 크기로 그려 폰 해상도에서 또렷하게 한다(text_layer.gd와 같은 방식)
+# 글자는 호스트(게임)의 글자 층으로 보내 폰 해상도로 그린다. 이 모듈 안에서 그리면 작은 화면을 확대해 흐려진다.
+var _tx_top: Array = []
+var _tx_rv: Array = []
+var _holder_pos := Vector2.ZERO
 func _put_text(ci: CanvasItem, font: Font, pos: Vector2, text: String, fs: int, col: Color, ol := 0, ol_col := Color.BLACK) -> void:
-	var raster := maxf(1.0, ci.get_viewport_transform().get_scale().x)
-	ci.draw_set_transform(pos, 0.0, Vector2.ONE / raster)
-	if ol > 0: ci.draw_string_outline(font, Vector2.ZERO, text, HORIZONTAL_ALIGNMENT_LEFT, -1, fs * raster, ol * raster, ol_col)
-	ci.draw_string(font, Vector2.ZERO, text, HORIZONTAL_ALIGNMENT_LEFT, -1, fs * raster, col)
-	ci.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+	var list: Array = _tx_top if ci == top_fx else _tx_rv
+	var at: Vector2 = pos + ci.position
+	if ol > 0:
+		var d := maxf(1.0, ol * 0.5)
+		for o in [Vector2(-d, 0), Vector2(d, 0), Vector2(0, -d), Vector2(0, d), Vector2(-d, -d), Vector2(d, -d), Vector2(-d, d), Vector2(d, d)]:
+			list.append([font, at + o, text, HORIZONTAL_ALIGNMENT_LEFT, -1.0, fs, ol_col, 1.0])
+	list.append([font, at, text, HORIZONTAL_ALIGNMENT_LEFT, -1.0, fs, col, 1.0])
+
+## 호스트가 글자 층에 올릴 이번 화면 글자(기계 안쪽 좌표 → origin은 기계 위치)
+func texts() -> Array:
+	var out: Array = []
+	if _bn_t >= 0.25: out.append_array(_tx_top)
+	if _rv_t >= 0.0: out.append_array(_tx_rv)
+	return out
 
 static func _tex(name: String) -> Texture2D:
 	return ImageTexture.create_from_image((load(A + name + ".png") as Texture2D).get_image())   # 폰(APK)에는 원본 PNG가 없어 load()로 읽는다
 
 func _ready() -> void:
+	_base_y = position.y
 	_font = load("res://font/neodgm.ttf").duplicate(true)
 	_font.antialiasing = TextServer.FONT_ANTIALIASING_NONE
 	_font.hinting = TextServer.HINTING_NONE
@@ -148,6 +151,7 @@ func _ready() -> void:
 			var parr: Array[Texture2D] = []
 			for i in 9: parr.append(_tex("rv_%s_%02d" % [k, i]))
 			_fr["rv_" + k] = parr
+			_aura[k] = load("res://art/pet_hut/pets/%s_fx_idle.png" % k)
 	_fr["banner"] = [_tex("banner")]
 	var snames := ["lever", "spin", "reel_stop", "jackpot", "reveal"]
 	for i in 7: snames.append("win_%d" % i)
@@ -156,7 +160,7 @@ func _ready() -> void:
 	for i in 6:
 		var pl := AudioStreamPlayer.new(); add_child(pl); _players.append(pl)
 	sfx.connect(_on_sfx)
-	reels.reel_stopped.connect(func(c): sfx.emit("reel_stop"))
+	reels.reel_stopped.connect(_on_reel_stop)
 	rv = Control.new()
 	rv.size = Vector2(270, 420); rv.z_index = 40; rv.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	rv.draw.connect(_draw_reveal)
@@ -223,15 +227,18 @@ func play(grid: Array) -> void:
 	for r in 3:
 		for c in 3: _cell_sym[r * 3 + c] = grid[r][c]
 	# 예고: 높은 등급일수록 마지막 릴을 더 뜸 들인다(결과는 이미 정해져 있음)
-	reels.runtime = 1.5
-	reels.speed = 7.0   # 칸/초(기본 14는 폰에서 너무 빨라 절반으로)
+	reels.runtime = 1.7
+	reels.speed = 5.0   # 칸/초(일정 속도로 돌다 끝에서 감속)
 	reels.reel_delay = 0.25 + (0.3 if top >= 4 else 0.0) + (0.4 if top >= 6 else 0.0)
 	reels.crawl_last = top >= 4
+	_lamp_hold = [false, false, false, false, false]
+	await _prime_lamps()
 	sfx.emit("lever")
 	await _pull_lever()
 	sfx.emit("spin")
 	_start_lamp_chase()
 	reels.spin(grid)
+	_release_lever()
 	await reels.spin_finished
 	_stop_lamp_chase()
 	await _win_show(info)
@@ -242,11 +249,32 @@ func skip() -> void:
 	if reels.spinning: reels.skip()
 	if _rv_t >= 0.0: _rv_skip = true
 
+## 시작 전 예열: 버튼 램프가 왼쪽부터 차례로 켜졌다가 레버를 당긴다
+func _prime_lamps() -> void:
+	for i in 5:
+		lamps[i].texture = _lamp_on[i]; await get_tree().create_timer(0.07).timeout
+	await get_tree().create_timer(0.1).timeout
+	_lamps_all(false)
+
+## 레버를 끝까지 내린 순간 릴이 돌기 시작한다(올라오는 건 따로 진행)
 func _pull_lever() -> void:
 	for f in LEVER_DOWN:
-		lever.texture = _lever_tex[f]; await get_tree().create_timer(0.05).timeout
+		lever.texture = _lever_tex[f]; await get_tree().create_timer(0.07).timeout
+
+func _release_lever() -> void:
 	for f in LEVER_UP:
-		lever.texture = _lever_tex[f]; await get_tree().create_timer(0.06).timeout
+		lever.texture = _lever_tex[f]; await get_tree().create_timer(0.09).timeout
+
+## 릴이 멈출 때마다: 그 릴의 램프가 켜진 채 고정되고 기계가 살짝 쿵 한다
+const LAMP_GROUP := [[0, 1], [2], [3, 4]]
+var _lamp_hold := [false, false, false, false, false]
+func _on_reel_stop(c: int) -> void:
+	sfx.emit("reel_stop")
+	for i in LAMP_GROUP[c]:
+		_lamp_hold[i] = true; lamps[i].texture = _lamp_on[i]
+	var tw := create_tween()
+	tw.tween_property(self, "position:y", _base_y + 1.0, 0.04)
+	tw.tween_property(self, "position:y", _base_y, 0.08)
 
 var _chase := false
 func _start_lamp_chase() -> void:
@@ -258,7 +286,12 @@ func _stop_lamp_chase() -> void:
 func _chase_loop() -> void:
 	var k := 0
 	while _chase:
-		for i in 5: lamps[i].texture = _lamp_on[i] if i == k % 5 else _lamp_off[i]
+		var free: Array = []
+		for i in 5:
+			if not _lamp_hold[i]: free.append(i)
+		for i in 5:
+			var lit: bool = _lamp_hold[i] or (not free.is_empty() and i == free[k % free.size()])
+			lamps[i].texture = _lamp_on[i] if lit else _lamp_off[i]
 		k += 1
 		await get_tree().create_timer(0.09).timeout
 
@@ -461,6 +494,7 @@ func _draw_fx() -> void:
 
 ## 맨 위 층: 번쩍·스포트라이트·충격파·파티클
 func _draw_top() -> void:
+	_tx_top = []
 	if _bn_t >= 0.0:
 		var bt: Texture2D = _fr["banner"][0]
 		var k := maxf(0.05, minf(1.0, _bn_t / 0.25))
@@ -507,6 +541,7 @@ func _draw_top() -> void:
 		top_fx.draw_rect(Rect2(0, 0, 270, 420), Color(1, 1, 1, _flash))
 
 func _draw_reveal() -> void:
+	_tx_rv = []
 	if _rv_t < 0.0: return
 	var g := _rv_grade
 	var col: Color = REVEAL_COL[g]
@@ -521,47 +556,8 @@ func _draw_reveal() -> void:
 	rv.position = Vector2(randf_range(-amp, amp), randf_range(-amp, amp)) if amp > 0.0 else Vector2.ZERO
 	var a := clampf(_rv_t / 0.35, 0.0, 1.0)
 	rv.draw_rect(Rect2(-20, -20, 310, 460), Color(0, 0, 0, 0.85 * a))
-	var theme: String = PET_THEME[_rv_pet]
-	var tc: Array = THEME_COL[theme]
-	var base: Color = tc[0]
-	var feet := ctr + Vector2(0, 62)
-	# 바닥 빛 웅덩이: 실루엣 동안 점점 밝아진다
+	# 실루엣 동안 점점 밝아지는 정도(실루엣 떨림에만 쓴다)
 	var glow := clampf((_rv_t - 0.2) / maxf(0.2, T0 - 0.2), 0.0, 1.0) if t0 < 0.0 else 1.0
-	for i in 4:
-		rv.draw_circle(ctr + Vector2(0, 8), 40.0 + g * 6.0 + i * 16.0 * (0.5 + glow), Color(base.r, base.g, base.b, (0.10 - i * 0.02) * (0.4 + glow)))
-	# SSS: 오로라 커튼(세로 띠가 일렁임)
-	if g >= 6:
-		for i in 5:
-			var cx := 25.0 + i * 55.0 + sin(_rv_t * 1.5 + i) * 10.0
-			var hc := Color.from_hsv(fmod(0.45 + i * 0.12 + _rv_t * 0.1, 1.0), 0.55, 1.0)
-			var ca := 0.28 * (0.3 + 0.7 * glow)
-			rv.draw_polygon(PackedVector2Array([Vector2(cx - 18, 0), Vector2(cx + 18, 0), Vector2(cx + 24, 190), Vector2(cx + 30, 380), Vector2(cx - 30, 380), Vector2(cx - 24, 190)]), PackedColorArray([Color(hc.r, hc.g, hc.b, 0.0), Color(hc.r, hc.g, hc.b, 0.0), Color(hc.r, hc.g, hc.b, ca), Color(hc.r, hc.g, hc.b, 0.0), Color(hc.r, hc.g, hc.b, 0.0), Color(hc.r, hc.g, hc.b, ca)]))
-	# B 이상: 바닥에서 퍼지는 물결 고리
-	var vis := 0.3 + 0.7 * glow
-	rv.draw_set_transform(feet, 0.0, Vector2(1.0, 0.35))
-	if g >= 2:
-		for k in 2:
-			var ph := fmod(_rv_t * 0.9 + k * 0.5, 1.0)
-			rv.draw_arc(Vector2.ZERO, 20.0 + ph * 90.0, 0.0, TAU, 40, Color(base.r, base.g, base.b, (1.0 - ph) * 0.6 * vis), 2.0)
-	# A 이상: 발밑 마법진(고리+도는 점). 등급이 오를수록 고리와 점이 늘어난다
-	if g >= 3:
-		var rings := 1 + (1 if g >= 4 else 0) + (1 if g >= 5 else 0)
-		for k in rings:
-			var rad := 56.0 + k * 18.0
-			rv.draw_arc(Vector2.ZERO, rad, 0.0, TAU, 48, Color(base.r, base.g, base.b, 0.8 * vis), 2.0)
-			var dots := 8 + k * 4
-			for d in dots:
-				var an := TAU * d / dots + _rv_t * (1.0 if k % 2 == 0 else -1.0)
-				rv.draw_rect(Rect2((Vector2(cos(an), sin(an)) * rad).round() - Vector2(1, 1), Vector2(3, 3)), Color(tc[1].r, tc[1].g, tc[1].b, vis))
-		if g >= 4:
-			var pts := PackedVector2Array()
-			for d in 4: pts.append(Vector2(cos(TAU * d / 3.0 + _rv_t * 0.6), sin(TAU * d / 3.0 + _rv_t * 0.6)) * 56.0)
-			rv.draw_polyline(pts, Color(tc[1].r, tc[1].g, tc[1].b, 0.7 * vis), 2.0)
-	rv.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
-	# 위에서 내리꽂는 빛기둥: S부터
-	if g >= 4:
-		var pw := 10.0 + 26.0 * glow if t0 < 0.0 else maxf(0.0, 36.0 - t0 * 30.0)
-		rv.draw_rect(Rect2(ctr.x - pw * 0.5, 0, pw, ctr.y + 30), Color(1, 1, 0.9, 0.25 + 0.2 * glow))
 	# 펫
 	var frames: Array = _fr["rv_" + _rv_pet]
 	var ft: Texture2D = frames[int(maxf(t0, 0.0) * 10.0) % 9]
@@ -571,10 +567,12 @@ func _draw_reveal() -> void:
 	var mod := Color(0, 0, 0, 1) if t0 < 0.0 else Color.WHITE
 	if t0 < 0.0:
 		off = Vector2(randf_range(-1, 1), randf_range(-1, 1)) * (glow * (g - 1.0) * 0.8)   # 실루엣이 떨린다
-	rv.draw_texture_rect(ft, Rect2((ctr + off - sz * 0.5).round(), sz), false, mod)
-	# 속성별 입자: 불=솟는 불똥, 물=거품, 풀=낙엽, 바람=깃털, 번개=불꽃+번개줄, 마법=별빛, 바위=먼지. 등급이 높을수록 많다
 	if t0 >= 0.0:
-		_rv_particles(theme, tc, ctr, t0, g)
+		var at: Texture2D = _aura[_rv_pet]
+		var af := at.get_height()
+		var ai := int(t0 * 10.0) % 9
+		rv.draw_texture_rect_region(at, Rect2((ctr + off - Vector2(af, af) * ps * 0.5).round(), Vector2(af, af) * ps), Rect2(ai * af, 0, af, af))
+	rv.draw_texture_rect(ft, Rect2((ctr + off - sz * 0.5).round(), sz), false, mod)
 	# SS·SSS: 동전·보석 비
 	if t0 >= 0.0 and g >= 5:
 		for i in (5 if g == 5 else 12):
@@ -601,51 +599,7 @@ func _draw_reveal() -> void:
 		var nw := font.get_string_size(nm, HORIZONTAL_ALIGNMENT_LEFT, -1, nfs).x
 		var np := Vector2(135 - nw * 0.5, ny)
 		_put_text(rv, font, np, nm, nfs, Color(1, 1, 1, la), 2 if g >= 4 else 4, Color(0, 0, 0, la))
-	# 번쩍: 등장 순간(SSS는 두 번), SSS는 충격파 고리도
+	# 번쩍: 등장 순간(SSS는 두 번)
 	var fl := clampf(1.0 - absf(t0) * (6.0 if t0 < 0.0 else 3.0), 0.0, 1.0) if absf(t0) < 0.4 else 0.0
 	if g == 6 and t0 > 0.5 and t0 < 0.8: fl = maxf(fl, (0.8 - t0) * 2.0)
 	if fl > 0.0: rv.draw_rect(Rect2(-20, -20, 310, 460), Color(1, 1, 1, fl))
-	if g >= 5 and t0 > 0.0 and t0 < 1.0:
-		var r := t0 * 300.0
-		rv.draw_arc(ctr, r, 0.0, TAU, 48, Color(col.r, col.g, col.b, 1.0 - t0), 3.0)
-
-func _rv_particles(theme: String, tc: Array, ctr: Vector2, t: float, g: int) -> void:
-	var n := 6 + g * 5
-	var c0: Color = tc[0]
-	var c1: Color = tc[1]
-	for i in n:
-		var bx := fmod(float(i) * 61.3, 250.0) + 10.0
-		var sp := 1.0 + float(i % 5) * 0.25
-		match theme:
-			"fire":
-				var y := 340.0 - fmod(t * 70.0 * sp + i * 37.0, 300.0)
-				rv.draw_rect(Rect2(Vector2(bx + sin(t * 3.0 + i) * 6.0, y).round(), Vector2(2, 3)), c0 if i % 2 == 0 else c1)
-			"water":
-				var y := 340.0 - fmod(t * 35.0 * sp + i * 41.0, 320.0)
-				rv.draw_arc(Vector2(bx + sin(t * 2.0 + i) * 8.0, y).round(), 2.0 + float(i % 3), 0.0, TAU, 8, c0 if i % 2 == 0 else c1, 1.0)
-			"nature":
-				var y := fmod(t * 32.0 * sp + i * 43.0, 380.0) - 20.0
-				rv.draw_rect(Rect2(Vector2(bx + sin(t * 2.0 + i) * 14.0, y).round(), Vector2(3, 2)), c0 if i % 2 == 0 else c1)
-			"air":
-				var y := fmod(t * 22.0 * sp + i * 47.0, 380.0) - 20.0
-				rv.draw_rect(Rect2(Vector2(bx + sin(t * 1.6 + i) * 20.0, y).round(), Vector2(2, 5)), c0 if i % 2 == 0 else c1)
-			"volt":
-				var an := fmod(float(i) * 2.399 + floorf(t * 8.0) * 1.7, TAU)
-				var rr := 50.0 + fmod(float(i) * 23.0, 80.0)
-				rv.draw_rect(Rect2((ctr + Vector2(cos(an), sin(an)) * rr).round(), Vector2(2, 2)), c1)
-			"magic":
-				var y := 340.0 - fmod(t * 40.0 * sp + i * 39.0, 320.0)
-				var tw := 1 + int(t * 6.0 + i) % 2
-				var p := Vector2(bx, y).round()
-				rv.draw_rect(Rect2(p - Vector2(tw, 0), Vector2(tw * 2 + 1, 1)), c1)
-				rv.draw_rect(Rect2(p - Vector2(0, tw), Vector2(1, tw * 2 + 1)), c0)
-			"earth":
-				var y := 340.0 - fmod(t * 28.0 * sp + i * 37.0, 300.0)
-				rv.draw_rect(Rect2(Vector2(bx + sin(t + i) * 5.0, y).round(), Vector2(2, 2)), c0 if i % 3 != 0 else c1)
-	if theme == "volt" and g >= 2 and int(t * 5.0) % 2 == 0:
-		var seed := int(t * 5.0)
-		var pts := PackedVector2Array()
-		var x := 135.0 + float((seed * 37) % 80 - 40)
-		for k in 7:
-			pts.append(Vector2(x + float((seed * 13 + k * 29) % 31 - 15) * (1.0 if k < 6 else 0.0), k * (ctr.y + 50.0) / 6.0))
-		rv.draw_polyline(pts, c1, 2.0)
