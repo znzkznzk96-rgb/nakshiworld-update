@@ -59,9 +59,12 @@ func spin(result: Array) -> void:
 		s.queue_free()
 	_strips.clear()
 	_tweens.clear()
+	# 일정한 속도로 돌다가 마지막 2칸에서 부드럽게 감속해 멈춘다(처음부터 빠른 감속 곡선은 폰에서 너무 빨라 보였다)
+	var decel_cells := 2.0
+	var decel_time := 2.0 * decel_cells / speed   # 감속 시작 속도가 도는 속도와 같게 맞춘 시간
 	for c in reels:
 		var duration := runtime + c * reel_delay
-		var fillers := maxi(int(speed * duration), rows)
+		var fillers := maxi(int(speed * maxf(duration - decel_time, 0.2)) + int(decel_cells), rows)
 		var strip := Node2D.new()
 		add_child(strip)
 		_strips.append(strip)
@@ -73,11 +76,12 @@ func spin(result: Array) -> void:
 		var travel := fillers * cell_size.y
 		strip.position = Vector2(c * cell_size.x, -travel)
 		var tw := create_tween()
+		tw.tween_property(strip, "position:y", -decel_cells * cell_size.y, (fillers - decel_cells) / speed).set_trans(Tween.TRANS_LINEAR)
 		if crawl_last and c == reels - 1:
-			tw.tween_property(strip, "position:y", -cell_size.y, duration * 0.8).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+			tw.tween_property(strip, "position:y", -cell_size.y, 0.7).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 			tw.tween_property(strip, "position:y", 0.0, 1.1).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 		else:
-			tw.tween_property(strip, "position:y", 0.0, duration).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
+			tw.tween_property(strip, "position:y", 0.0, decel_time).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 		tw.finished.connect(_on_reel_done.bind(c))
 		_tweens.append(tw)
 

@@ -5,6 +5,6 @@ func run()->void:
  var ok:bool=await helper.download(root,args[0],59403488,"cf592988a1e8f372cc37d6ef3a4fe3041b6e92a07b40fce509baeb8a3dcfb2a3","user://reconstructed.pck",args[1])
  print("DOWNLOAD_RESULT",ok," bytes=",helper.received," planned=",helper.planned," error=",helper.error)
  var request:=HTTPRequest.new();root.add_child(request);request.request("http://127.0.0.1:18765/stats");var r:Array=await request.request_completed;var stats=JSON.parse_string(r[3].get_string_from_utf8()) if r[1]==200 else {"bytes":-1,"response":r[1],"result":r[0]}
- var correct:bool=ok and helper.received==helper.planned and int(stats.bytes)>=helper.received and int(stats.bytes)-helper.received<=4096*int(stats.get("requests",1)) and helper.received<59403488*.05 and helper.reused>2000
+ var correct:bool=ok and helper.received==helper.planned and int(stats.bytes)>=helper.received and int(stats.bytes)<59403488*.2 and helper.received<59403488*.05 and helper.reused>2000
  print("INCREMENTAL_NETWORK_VERIFY failures=",[] if correct else ["network reconstruction"]," received=",helper.received," planned=",helper.planned," server=",stats," reused=",helper.reused," error=",helper.error)
  quit(0 if correct else 1)

@@ -109,15 +109,16 @@ func fetch_retry(url:String,start:int,length:int,total:int)->PackedByteArray:
   if attempt<2:await owner_tree.create_timer(0.6*(attempt+1)).timeout
  return PackedByteArray()
 
-# Merge neighbouring missing entries (gap<=4096 B, run<=4 MB) into one Range request.
+# Merge missing entries into one Range request. Unchanged entries between them are downloaded too when the
+# byte gap is <=64 KiB (run<=4 MB), so small changes scattered over the pack cost few requests.
 func run_end(i:int,cache:Dictionary)->int:
  var first:Dictionary=entries[i];var end:int=int(first.start)+int(first.size)
  var j:=i+1
  while j<entries.size():
   var n:Dictionary=entries[j]
-  if cache.has(n.path):break
-  if int(n.start)-end>4096 or int(n.start)+int(n.size)-int(first.start)>4194304:break
-  end=int(n.start)+int(n.size);j+=1
+  if int(n.start)-end>65536 or int(n.start)+int(n.size)-int(first.start)>4194304:break
+  if not cache.has(n.path):end=int(n.start)+int(n.size)
+  j+=1
  return end
 
 func snapshot()->Dictionary:
@@ -162,7 +163,7 @@ func download(owner:Node,url:String,total:int,expected_sha:String,target:String,
     run_start=int(e.start);var len:int=run_end(i,cache)-run_start
     run=await fetch_retry(url,run_start,len,total)
     if run.is_empty():out=null;return finish(false)
-    var gap:int=len-_run_payload(i,run_start+len)
+    var gap:int=len-_run_payload(i,run_start+len,cache)
     received-=gap
    b=run.slice(int(e.start)-run_start,int(e.start)-run_start+int(e.size))
   if b.size()!=e.size or md5(b)!=e.md5:out=null;return finish(false)
@@ -174,9 +175,11 @@ func download(owner:Node,url:String,total:int,expected_sha:String,target:String,
  if not verify_at_end:return finish(true)
  return finish(await digest_file(owner,target)==expected_sha)
 
-func _run_payload(i:int,end:int)->int:
+func _run_payload(i:int,end:int,cache:Dictionary)->int:
  var sum:=0;var j:=i
- while j<entries.size() and int(entries[j].start)+int(entries[j].size)<=end:sum+=int(entries[j].size);j+=1
+ while j<entries.size() and int(entries[j].start)+int(entries[j].size)<=end:
+  if not cache.has(entries[j].path):sum+=int(entries[j].size)
+  j+=1
  return sum
 
 func zeros(count:int)->PackedByteArray:

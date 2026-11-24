@@ -14,9 +14,12 @@ const WALK_X0 := 44.0   # 모래바닥 좌우 끝 (양옆 바위 안쪽)
 const WALK_X1 := 188.0
 const FLYERS := ["a_owl", "s_fairy", "s_tome", "s_wisp", "ss_storm", "sss_lunar", "sss_seraph"]
 const SCENE := Vector2(230, 128)
+## 창 높이(예전 380에서 세로로 늘림)
+const PH := 440.0
 const TABS := [["pets", "내 펫"], ["box", "보관함"], ["gacha", "뽑기"], ["plans", "도면"]]
 const INK := Color("382619")
 const CREAM := Color("fff0d1")
+const MUTED := Color("5a4130")
 const A := "res://art/pet_hut/"
 const FRAG := [1, 3, 8, 20, 60, 200, 600]          # 분해로 얻는 조각(등급별)
 const BP_COST := {3: [150, 50], 4: [450, 100], 5: [1200, 200], 6: [2100, 300]}   # 도면 제작: 조각, 진주
@@ -54,6 +57,7 @@ var show_odds := false
 var _grng := RandomNumberGenerator.new()
 var _slot: Control = null
 var _machine: SlotMachine = null
+var _holder: Control = null
 
 func _ready() -> void:
 	# main.gd의 글꼴 설정과 같게: 공유 리소스를 건드리지 않고 복사, 확대 보정 끄기, 갈무리 보조 글꼴
@@ -114,20 +118,57 @@ func _art(name: String, r: Rect2) -> void:
 			if d.size.x <= 0 or d.size.y <= 0: continue
 			draw_texture_rect_region(tex, d, Rect2(xs[ix], ys[iy], xs[ix + 1] - xs[ix], ys[iy + 1] - ys[iy]))
 
+# 상점 X 버튼(close_control.gd)과 같은 모양: shop_repair/header.png 9분할 + 손으로 찍은 X
+func _close_btn(box: Rect2) -> void:
+	if not _tex.has("shop_close"): _tex["shop_close"] = load("res://art/shop_repair/header.png")
+	var art: Texture2D = _tex["shop_close"]
+	var r := Rect2(box.position.round(), Vector2(22, 23))
+	var src := art.get_size()
+	var xs := [0.0, 24.0, src.x - 24.0, src.x]
+	var ys := [0.0, 24.0, src.y - 24.0, src.y]
+	var dx := [r.position.x, r.position.x + 4.0, r.end.x - 4.0, r.end.x]
+	var dy := [r.position.y, r.position.y + 4.0, r.end.y - 4.0, r.end.y]
+	for iy in 3:
+		for ix in 3:
+			draw_texture_rect_region(art, Rect2(dx[ix], dy[iy], dx[ix + 1] - dx[ix], dy[iy + 1] - dy[iy]), Rect2(xs[ix], ys[iy], xs[ix + 1] - xs[ix], ys[iy + 1] - ys[iy]))
+	var o := (r.get_center() - Vector2(5, 5)).floor()
+	var pts := [Vector2i(0, 0), Vector2i(4, 0), Vector2i(1, 1), Vector2i(3, 1), Vector2i(2, 2), Vector2i(1, 3), Vector2i(3, 3), Vector2i(0, 4), Vector2i(4, 4)]
+	for q in pts: draw_rect(Rect2(o + Vector2(q) * 2.0 + Vector2.ONE, Vector2(2, 2)), Color("392316"))
+	for q in pts: draw_rect(Rect2(o + Vector2(q) * 2.0, Vector2(2, 2)), Color("fff0cc"))
+
 func _txt(s: String, pos: Vector2, size: int, col: Color, center := false, w := 232.0) -> void:
 	var x := roundf(pos.x - w / 2.0) if center else roundf(pos.x)
 	# main.gd _font_idx와 같은 글자 크기 단계(10/12/14/16)만 써야 네오둥근모가 깨지지 않는다
 	var px := 10 if size <= 10 else (12 if size <= 13 else (14 if size <= 15 else 16))
-	# text_layer.gd와 같은 방식: 화면 배율만큼 큰 글자로 그려서 폰 해상도에서 또렷하게 한다
-	var raster := maxf(1.0, get_viewport_transform().get_scale().x)
-	draw_set_transform(Vector2(x, roundf(pos.y)), 0.0, Vector2.ONE / raster)
-	draw_string(_font, Vector2.ZERO, s, HORIZONTAL_ALIGNMENT_CENTER if center else HORIZONTAL_ALIGNMENT_LEFT, w * raster, px * raster, col)
-	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+	# 게임 화면은 작은 해상도로 그려 확대하므로, 글자는 마을(main)의 글자 층(text_layer)으로 보내 폰 해상도로 그린다
+	_text_next.append([_font, Vector2(x, roundf(pos.y)), s, HORIZONTAL_ALIGNMENT_CENTER if center else HORIZONTAL_ALIGNMENT_LEFT, w, px, col, 1.0])
 
 func panel_rect() -> Rect2:
-	return Rect2(8, panel_y if panel_y >= 0.0 else roundf((size.y - 380.0) / 2.0), 254, 380)
+	return Rect2(8, panel_y if panel_y >= 0.0 else roundf((size.y - PH) / 2.0), 254, PH)
+
+var text_out: Array = []          # 마을이 글자 층으로 가져가는 이번 프레임 글자 목록
+var _text_next: Array = []
+
+func texts() -> Array:
+	if _slot == null: return text_out
+	if _machine == null or _holder == null: return []    # 슬롯 연출 중에는 오두막 글자를 숨기고 기계의 글자만 보낸다
+	var out: Array = []
+	for it in _machine.texts():
+		var q: Array = it.duplicate()
+		q[1] = it[1] + _holder.position + _machine.position
+		out.append(q)
+	return out
 
 func _draw() -> void:
+	_text_next = []
+	_paint()
+	text_out = _text_next
+
+# 위에 덮이는 창(펫 고르기·확률)이 가리는 자리의 아래쪽 글자는 뺀다
+func _cover(r: Rect2) -> void:
+	_text_next = _text_next.filter(func(it): return not r.has_point(it[1]))
+
+func _paint() -> void:
 	rects = {}
 	if dim: draw_rect(Rect2(-dim_margin, 0, size.x + 2.0 * dim_margin, size.y), Color(0.04, 0.06, 0.1, 0.84))
 	var r := panel_rect()
@@ -137,10 +178,9 @@ func _draw() -> void:
 	draw_texture(_t("badge"), (header.position + Vector2(5, 6)).round())
 	_txt("펫 오두막", Vector2(header.get_center().x, header.position.y + 23), 14, CREAM, true, header.size.x - 82)
 	var cr := Rect2(header.end.x - 28, header.position.y + 7, 22, 23)
-	_art("button", cr)
-	_txt("X", cr.get_center() + Vector2(0, 4), 10, CREAM, true, 20)
+	_close_btn(cr)
 	rects["close"] = cr.grow(3)
-	_txt("펫이 진주를 캐고 있어요!", Vector2(135, r.position.y + 59), 9, INK, true, 232)
+	_txt("펫이 진주를 캐고 있어요!", Vector2(135, r.position.y + 59), 11, INK, true, 232)
 	for i in TABS.size():
 		var key: String = TABS[i][0]
 		var tr := Rect2(r.position.x + 12 + i * 58, r.position.y + 69, 56, 24)
@@ -300,7 +340,7 @@ func _draw_pets_tab(body: Rect2) -> void:
 		draw_rect(Rect2(xx - 2, yy - 3, 4, 6), Color(0.2, 0.17, 0.25, a))
 		draw_rect(Rect2(xx - 2, yy - 2, 4, 4), Color(1, 1, 1, a))
 	# 상태 줄
-	var y0 := scene.end.y + 13.0
+	var y0 := scene.end.y + 15.0
 	_txt("일하는 펫 %d마리 · 시간당 진주 %.2f" % [equipped.size(), rate_per_hour()], Vector2(body.position.x + body.size.x / 2.0, y0), 9, INK, true, body.size.x - 8)
 	var cap := rate_per_hour() * CAP_HOURS
 	var bar := Rect2(body.position.x + 6, y0 + 7, body.size.x - 12, 6)
@@ -314,18 +354,18 @@ func _draw_pets_tab(body: Rect2) -> void:
 	rects["collect"] = cb
 	# 장착 슬롯 3칸
 	for i in 3:
-		var sr := Rect2(body.position.x + 6 + i * 74.0, cb.end.y + 6, 70, 52)
+		var sr := Rect2(body.position.x + 6 + i * 74.0, cb.end.y + 8, 70, 80)
 		_art("card", sr)
 		rects["slot:%d" % i] = sr
 		if i >= equipped.size():
-			_txt("+ 비어 있음", sr.get_center() + Vector2(0, 4), 10, Color("8f6951"), true, 64)
+			_txt("+ 비어 있음", sr.get_center() + Vector2(0, 4), 10, MUTED, true, 64)
 			continue
 		var k: String = equipped[i]
 		var tex: Texture2D = _strip(k, "move")
 		var th := tex.get_height()
-		draw_texture_rect_region(tex, Rect2(sr.position + Vector2(floorf((70 - th) / 2.0), 2), Vector2(th, th)), Rect2(0, 0, th, th))
-		_txt(GRADE_NAME[grade_of(k)], sr.position + Vector2(66 - GRADE_NAME[grade_of(k)].length() * 5, 14), 10, Color("8f6951"), false, 24)
-		_txt(NAME[k], sr.position + Vector2(35, 44), 10, INK, true, 66)
+		draw_texture_rect_region(tex, Rect2(sr.position + Vector2(floorf((70 - th) / 2.0), 8), Vector2(th, th)), Rect2(0, 0, th, th))
+		_txt(GRADE_NAME[grade_of(k)], sr.position + Vector2(66 - GRADE_NAME[grade_of(k)].length() * 5, 14), 10, MUTED, false, 24)
+		_txt(NAME[k], sr.position + Vector2(35, 72), 10, INK, true, 66)
 		if get_leader() == k:
 			draw_rect(Rect2(sr.position.x + 3, sr.position.y + 3, 22, 12), Color("c8962b"))
 			_txt("대표", Vector2(sr.position.x + 14, sr.position.y + 13), 10, CREAM, true, 22)
@@ -334,6 +374,7 @@ func _draw_pets_tab(body: Rect2) -> void:
 func _draw_picker(body: Rect2) -> void:
 	var pr := Rect2(body.position + Vector2(2, 2), body.size - Vector2(4, 4))
 	_art("panel", pr)
+	_cover(pr)
 	_txt("슬롯 %d에 일할 펫 고르기" % (picker + 1), Vector2(pr.get_center().x, pr.position.y + 17), 9, INK, true, pr.size.x - 10)
 	for n in owned.size():
 		var k: String = owned[n]
@@ -420,16 +461,21 @@ func _start_slot(k: String) -> void:
 	_slot.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_slot.draw.connect(func(): _slot.draw_rect(Rect2(Vector2.ZERO, _slot.size), Color.BLACK))
 	add_child(_slot)
+	var holder := Control.new()   # 위 상태창(HUD)에 겹치지 않게 오두막 창 윗변에 맞춰 내린다
+	holder.position = Vector2(0, maxf(panel_rect().position.y - SlotMachine.BODY_POS.y, 0.0))
+	holder.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_slot.add_child(holder)
+	_holder = holder
 	_machine = SlotMachine.new()
 	_machine.reveal_pet = k
-	_slot.add_child(_machine)
+	holder.add_child(_machine)
 	_machine.finished.connect(_slot_done, CONNECT_ONE_SHOT)
 	var g := grade_of(k)
 	_machine.play(SlotMachine.make_grid(g, _grng, g == 6 and _grng.randf() < 0.25))
 
 func _slot_done(_info: Dictionary) -> void:
 	_slot.queue_free()
-	_slot = null; _machine = null
+	_slot = null; _machine = null; _holder = null
 	queue_redraw()
 
 # 슬롯 모듈과 같은 방식(원본 PNG를 그대로 읽음)
@@ -444,48 +490,49 @@ func _draw_gacha_tab(body: Rect2) -> void:
 	var y := body.position.y
 	_txt("진주 슬롯", Vector2(cx, y + 17), 10, INK, true, 220)
 	for i in 3:
-		var sr := Rect2(cx - 82 + i * 56, y + 26, 52, 52)
+		var sr := Rect2(cx - 82 + i * 56, y + 30, 52, 52)
 		_art("card", sr)
 		draw_texture(_sym(GRADE_NAME[[3, 4, 6][i]]), sr.position + Vector2(2, 2))
-	_txt("보유 진주 %d개" % pearl_total, Vector2(cx, y + 96), 9, INK, true, 220)
-	var pb := Rect2(body.position.x + 12, y + 104, body.size.x - 24, 28)
+	_txt("보유 진주 %d개" % pearl_total, Vector2(cx, y + 104), 9, INK, true, 220)
+	var pb := Rect2(body.position.x + 12, y + 114, body.size.x - 24, 30)
 	var ok := pearl_total >= COST
 	_art("button" if ok else "card", pb)
 	_txt("뽑기 (진주 %d개)" % COST if ok else "진주가 부족해요 (%d개 필요)" % COST, pb.get_center() + Vector2(0, 4), 10, CREAM if ok else Color("6e5c49"), true, pb.size.x - 10)
 	rects["pull"] = pb
-	var ob := Rect2(body.position.x + 12, y + 138, body.size.x - 24, 22)
+	var ob := Rect2(body.position.x + 12, y + 152, body.size.x - 24, 24)
 	_art("card", ob)
 	_txt("확률 보기", ob.get_center() + Vector2(0, 4), 9, INK, true, ob.size.x - 10)
 	rects["odds"] = ob
-	var lr := Rect2(body.position.x + 6, y + 168, body.size.x - 12, 46)
+	var lr := Rect2(body.position.x + 6, y + 186, body.size.x - 12, 58)
 	_art("card", lr)
 	if last_pet == "":
-		_txt("아직 뽑은 펫이 없어요", lr.get_center() + Vector2(0, 4), 9, Color("8f6951"), true, lr.size.x - 10)
+		_txt("아직 뽑은 펫이 없어요", lr.get_center() + Vector2(0, 4), 11, MUTED, true, lr.size.x - 10)
 	else:
 		var tex: Texture2D = _strip(last_pet, "move")
 		var th := tex.get_height()
-		draw_texture_rect_region(tex, Rect2(lr.position + Vector2(8, floorf((46 - th) / 2.0)), Vector2(th, th)), Rect2(0, 0, th, th))
-		_txt("최근 뽑은 펫", lr.position + Vector2(52, 14), 8, Color("8f6951"), false, 100)
-		_txt("%s (%s)" % [NAME[last_pet], GRADE_NAME[grade_of(last_pet)]], lr.position + Vector2(52, 28), 9, INK, false, 100)
-		_txt("새 펫!" if last_new else "중복 · 분해 가능", lr.position + Vector2(52, 41), 8, Color("2f8f84") if last_new else Color("8f6951"), false, 100)
-	_txt("중복 펫은 도면 탭에서 분해해요", Vector2(cx, y + 232), 8, Color("8f6951"), true, 220)
-	_txt("진주는 낚시·탐험·펫이 캐서 얻어요", Vector2(cx, y + 246), 8, Color("8f6951"), true, 220)
+		draw_texture_rect_region(tex, Rect2(lr.position + Vector2(8, floorf((58 - th) / 2.0)), Vector2(th, th)), Rect2(0, 0, th, th))
+		_txt("최근 뽑은 펫", lr.position + Vector2(52, 18), 11, MUTED, false, 100)
+		_txt("%s (%s)" % [NAME[last_pet], GRADE_NAME[grade_of(last_pet)]], lr.position + Vector2(52, 34), 9, INK, false, 100)
+		_txt("새 펫!" if last_new else "중복 · 분해 가능", lr.position + Vector2(52, 50), 8, Color("2f8f84") if last_new else MUTED, false, 100)
+	_txt("중복 펫은 도면 탭에서 분해해요", Vector2(cx, y + 270), 11, MUTED, true, 220)
+	_txt("진주는 낚시·탐험·펫이 캐서 얻어요", Vector2(cx, y + 288), 11, MUTED, true, 220)
 	if show_odds: _draw_odds(body)
 
 func _draw_odds(body: Rect2) -> void:
 	var pr := Rect2(body.position + Vector2(2, 2), body.size - Vector2(4, 4))
 	_art("panel", pr)
+	_cover(pr)
 	_txt("등급별 확률", Vector2(pr.position.x + 50, pr.position.y + 17), 9, INK, true, 90)
 	for g in 7:
 		var n := pets_of(g).size()
 		var ry := pr.position.y + 28 + g * 25.0
 		var rr := Rect2(pr.position.x + 7, ry, pr.size.x - 14, 23)
 		_art("card", rr)
-		_txt(GRADE_NAME[g], rr.position + Vector2(8, 15), 10, Color("8f6951"), false, 30)
+		_txt(GRADE_NAME[g], rr.position + Vector2(8, 15), 10, MUTED, false, 30)
 		_txt("%s%%" % String.num(GRADE_P[g], 1), rr.position + Vector2(46, 15), 9, INK, false, 50)
 		_txt("펫 %d종 · 각 %s%%" % [n, String.num(GRADE_P[g] / n, 2)], rr.position + Vector2(100, 15), 8, INK, false, 120)
-	_txt("같은 등급 안에서는 모두 같은 확률", Vector2(pr.get_center().x, pr.end.y - 38), 8, Color("8f6951"), true, pr.size.x - 10)
-	_txt("결과를 먼저 정한 뒤 릴이 멈춰요", Vector2(pr.get_center().x, pr.end.y - 25), 8, Color("8f6951"), true, pr.size.x - 10)
+	_txt("같은 등급 안에서는 모두 같은 확률", Vector2(pr.get_center().x, pr.end.y - 38), 11, MUTED, true, pr.size.x - 10)
+	_txt("결과를 먼저 정한 뒤 릴이 멈춰요", Vector2(pr.get_center().x, pr.end.y - 25), 11, MUTED, true, pr.size.x - 10)
 	var xb := Rect2(pr.end.x - 38, pr.position.y + 5, 32, 16)
 	_art("button", xb)
 	_txt("닫기", xb.get_center() + Vector2(0, 4), 8, CREAM, true, 30)
@@ -545,17 +592,17 @@ func _draw_plans_tab(body: Rect2) -> void:
 		var th := tex.get_height()
 		draw_texture_rect_region(tex, Rect2(cr.position + Vector2(36 + floorf((36 - th) / 2.0), floorf((36 - th) / 2.0)), Vector2(th, th)), Rect2(0, 0, th, th), Color(1, 1, 1, 1.0 if aff else 0.55))
 		rects["bp:" + k] = cr
-	var dr := Rect2(b.x + 6, b.y + 218, body.size.x - 12, 42)
+	var dr := Rect2(b.x + 6, b.y + 228, body.size.x - 12, 64)
 	_art("card", dr)
 	if plan_sel == "":
-		_txt("살 도면을 골라요 (흐린 칸은 재료 부족)", dr.get_center() + Vector2(0, 4), 8, Color("8f6951"), true, dr.size.x - 10)
+		_txt("살 도면을 골라요 (흐린 칸은 재료 부족)", dr.get_center() + Vector2(0, 4), 8, MUTED, true, dr.size.x - 10)
 	else:
 		var c: Array = BP_COST[grade_of(plan_sel)]
-		_txt("%s 도면 (%s)" % [NAME[plan_sel], GRADE_NAME[grade_of(plan_sel)]], dr.position + Vector2(8, 15), 9, INK, false, 130)
-		draw_texture(_t("icon/frag16"), dr.position + Vector2(8, 22))
-		_txt("%d" % c[0], dr.position + Vector2(27, 31), 8, Color("2f8f84") if frags >= c[0] else Color("b04a3a"), false, 40)
-		_txt("진주 %d" % c[1], dr.position + Vector2(66, 31), 8, Color("2f8f84") if pearl_total >= c[1] else Color("b04a3a"), false, 50)
-		var bt := Rect2(dr.end.x - 54, dr.position.y + 9, 48, 24)
+		_txt("%s 도면 (%s)" % [NAME[plan_sel], GRADE_NAME[grade_of(plan_sel)]], dr.position + Vector2(8, 20), 9, INK, false, 130)
+		draw_texture(_t("icon/frag16"), dr.position + Vector2(8, 32))
+		_txt("%d" % c[0], dr.position + Vector2(27, 44), 8, Color("2f8f84") if frags >= c[0] else Color("b04a3a"), false, 40)
+		_txt("진주 %d" % c[1], dr.position + Vector2(66, 44), 8, Color("2f8f84") if pearl_total >= c[1] else Color("b04a3a"), false, 50)
+		var bt := Rect2(dr.end.x - 54, dr.position.y + 19, 48, 26)
 		var ok := can_craft(plan_sel)
 		_art("button" if ok else "card", bt)
 		_txt("구매", bt.get_center() + Vector2(0, 4), 9, CREAM if ok else Color("6e5c49"), true, 44)
@@ -623,31 +670,31 @@ func _draw_box_tab(body: Rect2) -> void:
 			draw_rect(Rect2(cr.end.x - 15, cr.position.y + 2, 13, 12), Color("c8962b"))
 			_txt("대", Vector2(cr.end.x - 8.5, cr.position.y + 12), 10, CREAM, true, 13)
 		rects["bx:" + k] = cr
-	var dr := Rect2(b.x + 4, b.y + 184, body.size.x - 8, 74)
+	var dr := Rect2(b.x + 4, b.y + 196, body.size.x - 8, 106)
 	_art("card", dr)
 	if box_sel == "":
-		_txt("펫을 골라 장착하거나 분해해요", dr.get_center() + Vector2(0, 4), 8, Color("8f6951"), true, dr.size.x - 10)
+		_txt("펫을 골라 장착하거나 분해해요", dr.get_center() + Vector2(0, 4), 11, MUTED, true, dr.size.x - 10)
 		return
 	var have2: int = counts.get(box_sel, 0)
 	var tex2: Texture2D = _strip(box_sel, "move")
 	var th2 := tex2.get_height()
 	var t2 := Color(1, 1, 1, 1) if have2 >= 1 else Color(0.1, 0.08, 0.07, 0.75)
-	draw_texture_rect_region(tex2, Rect2(dr.position + Vector2(6 + floorf((36 - th2) / 2.0), 4 + floorf((36 - th2) / 2.0)), Vector2(th2, th2)), Rect2(0, 0, th2, th2), t2)
-	_txt("%s (%s)" % [NAME[box_sel], GRADE_NAME[grade_of(box_sel)]], dr.position + Vector2(48, 16), 9, INK, false, 110)
-	_txt("보유 %d · 시간당 진주 %.2f" % [have2, RATE[grade_of(box_sel)]] if have2 >= 1 else "아직 없는 펫이에요", dr.position + Vector2(48, 31), 8, Color("8f6951"), false, 170)
+	draw_texture_rect_region(tex2, Rect2(dr.position + Vector2(6 + floorf((36 - th2) / 2.0), 8 + floorf((36 - th2) / 2.0)), Vector2(th2, th2)), Rect2(0, 0, th2, th2), t2)
+	_txt("%s (%s)" % [NAME[box_sel], GRADE_NAME[grade_of(box_sel)]], dr.position + Vector2(48, 20), 9, INK, false, 110)
+	_txt("보유 %d · 시간당 진주 %.2f" % [have2, RATE[grade_of(box_sel)]] if have2 >= 1 else "아직 없는 펫이에요", dr.position + Vector2(48, 38), 9, MUTED, false, 170)
 	var eq := equipped.has(box_sel)
 	var ok1 := have2 >= 1
-	var b1 := Rect2(dr.position.x + 6, dr.position.y + 44, 68, 24)
+	var b1 := Rect2(dr.position.x + 6, dr.position.y + 66, 68, 26)
 	_art("button" if ok1 else "card", b1)
 	_txt("빼기" if eq else "장착", b1.get_center() + Vector2(0, 4), 9, CREAM if ok1 else Color("6e5c49"), true, 62)
 	rects["bx_equip"] = b1
 	var is_l := get_leader() == box_sel
-	var b3 := Rect2(dr.position.x + 78, dr.position.y + 44, 68, 24)
+	var b3 := Rect2(dr.position.x + 78, dr.position.y + 66, 68, 26)
 	var ok3 := ok1 and not is_l
 	_art("button" if ok3 else "card", b3)
 	_txt("대표 중" if is_l else "대표 지정", b3.get_center() + Vector2(0, 4), 8, CREAM if ok3 else Color("6e5c49"), true, 62)
 	rects["bx_leader"] = b3
-	var b2 := Rect2(dr.position.x + 150, dr.position.y + 44, 68, 24)
+	var b2 := Rect2(dr.position.x + 150, dr.position.y + 66, 68, 26)
 	var ok2 := can_dismantle(box_sel)
 	_art("button" if ok2 else "card", b2)
 	if ok2:

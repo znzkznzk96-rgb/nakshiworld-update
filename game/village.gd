@@ -437,8 +437,9 @@ func _draw_hut(m, h: float) -> void :
 	if hut == null or not is_instance_valid(hut): return
 	hut.dim_margin = m.ox
 	hut.size = Vector2(m.VW, h)
-	hut.panel_y = maxf(top + 6.0, roundf((h - 380.0) / 2.0))
+	hut.panel_y = maxf(top + 6.0, roundf((h - hut.PH) / 2.0))
 	hut.queue_redraw()
+	m.text_items.append_array(hut.texts())
 
 
 func draw_shop(m, h: float) -> void :

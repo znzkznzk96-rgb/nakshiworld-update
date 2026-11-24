@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_before_request": "831d992c3b623712b10b0fdd9169a502b01b380f",
-  "reason": "v1.45 펫 오두막 글자·슬롯 그림 수정 전체 검사",
-  "requested_at": "2026-11-24T06:55:42.624627+00:00"
+  "source_before_request": "96337ba3156b96efaa3c7a9d48fa6474b3393ef3",
+  "reason": "v1.48 slot/hut UI",
+  "requested_at": "2026-11-24T09:38:10.804522+00:00"
 }
