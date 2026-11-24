@@ -17,14 +17,18 @@ const LINES := [
 	[[0,0],[1,0],[2,0]], [[0,1],[1,1],[2,1]], [[0,2],[1,2],[2,2]],
 	[[0,0],[1,1],[2,2]], [[0,2],[1,1],[2,0]],
 ]
-const BODY_POS := Vector2(2, 8)
-const WINDOW_POS := Vector2(36, 107)
-const CELL := Vector2(62, 48)
-const LAMP_X := [53.5, 91.5, 129.0, 166.5, 204.5]
-const LAMP_Y := 272.5
-## 레버 당김 프레임(PixelLab 모션에서 고른 것): 내려갈 때 / 올라올 때
-const LEVER_DOWN := [0, 1, 2, 3, 5]
-const LEVER_UP := [8, 0]
+## 좌표 단위는 게임 화면 1칸(폰 화면 4픽셀). 본체·심볼은 그림 1픽셀이 폰 화면 3픽셀이 되도록 0.75배로 그린다.
+const ART := 0.75
+const BODY_POS := Vector2(31.5, 41.0)
+const WINDOW_POS := Vector2(66.75, 128.0)
+const CELL := Vector2(46, 40)
+const LAMP_X := [82.5, 108.75, 135.75, 162.75, 189.75]   # 본체에 그려진 버튼 자리 위에 빛 레이어를 겹친다
+const LAMP_Y := 262.25
+const LEVER_ART := 0.75
+const LEVER_POS := Vector2(217.0, 158.0)   # 판 왼쪽 아래(그림 4,128)가 기계 오른쪽 옆면에 닿는 자리
+## 레버 당김 프레임(PixelLab 그림 + 레퍼런스 움짤의 움직임): 0=올림, 6~8=끝까지 내림, 12=반동으로 올라감
+const LEVER_DOWN := [1, 2, 3, 4, 5, 6]
+const LEVER_UP := [9, 10, 11, 12, 13, 14, 0]
 
 var reels: SlotReels
 var lever: Sprite2D
@@ -118,7 +122,7 @@ func _ready() -> void:
 	_font.oversampling = 1.0
 	_font.fallbacks = [load("res://font/galmuri11.fnt")]
 	_body = Sprite2D.new()
-	_body.texture = _tex("body_empty"); _body.centered = false; _body.position = BODY_POS
+	_body.texture = _tex("body_empty"); _body.centered = false; _body.position = BODY_POS; _body.scale = Vector2(ART, ART)
 	add_child(_body)
 	reels = SlotReels.new()
 	var syms: Array[Texture2D] = []
@@ -126,6 +130,7 @@ func _ready() -> void:
 		syms.append(_tex("sym_" + g))
 	reels.symbols = syms
 	reels.cell_size = CELL
+	reels.symbol_scale = ART
 	reels.position = WINDOW_POS
 	add_child(reels)
 	fx = Control.new()
@@ -140,7 +145,7 @@ func _ready() -> void:
 	for i in 5:
 		_lamp_off.append(_tex("btn_off%d" % i)); _lamp_on.append(_tex("btn_on%d" % i))
 		var l := Sprite2D.new()
-		l.texture = _lamp_off[i]; l.position = Vector2(LAMP_X[i], LAMP_Y)
+		l.texture = _lamp_off[i]; l.position = Vector2(LAMP_X[i], LAMP_Y); l.scale = Vector2(ART, ART)
 		add_child(l); lamps.append(l)
 	for n in ["burst", "rainbow", "coin", "gem", "shim_S", "shim_SS", "shim_SSS"]:
 		var arr: Array[Texture2D] = []
@@ -165,11 +170,11 @@ func _ready() -> void:
 	rv.size = Vector2(270, 420); rv.z_index = 40; rv.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	rv.draw.connect(_draw_reveal)
 	add_child(rv)
-	for i in [0,1,2,3,5,8]:
+	for i in 17:
 		_lever_tex[i] = _tex("lever_pull_%02d" % i)
 	lever = Sprite2D.new()
-	lever.texture = _lever_tex[0]; lever.centered = false
-	lever.position = Vector2(270 - lever.texture.get_width(), BODY_POS.y + 252 - lever.texture.get_height())
+	lever.texture = _lever_tex[0]; lever.centered = false; lever.scale = Vector2(LEVER_ART, LEVER_ART)
+	lever.position = LEVER_POS
 	add_child(lever)
 
 # ---------- 결과 만들기/판정 ----------
@@ -227,8 +232,8 @@ func play(grid: Array) -> void:
 	for r in 3:
 		for c in 3: _cell_sym[r * 3 + c] = grid[r][c]
 	# 예고: 높은 등급일수록 마지막 릴을 더 뜸 들인다(결과는 이미 정해져 있음)
-	reels.runtime = 1.7
-	reels.speed = 5.0   # 칸/초(일정 속도로 돌다 끝에서 감속)
+	reels.runtime = 2.2
+	reels.speed = 8.0   # 평균 칸/초. 시작은 약 3배로 아주 빠르고 끝으로 갈수록 느려진다
 	reels.reel_delay = 0.25 + (0.3 if top >= 4 else 0.0) + (0.4 if top >= 6 else 0.0)
 	reels.crawl_last = top >= 4
 	_lamp_hold = [false, false, false, false, false]
@@ -259,11 +264,22 @@ func _prime_lamps() -> void:
 ## 레버를 끝까지 내린 순간 릴이 돌기 시작한다(올라오는 건 따로 진행)
 func _pull_lever() -> void:
 	for f in LEVER_DOWN:
-		lever.texture = _lever_tex[f]; await get_tree().create_timer(0.07).timeout
+		lever.texture = _lever_tex[f]
+		await get_tree().create_timer(0.04).timeout
 
 func _release_lever() -> void:
 	for f in LEVER_UP:
-		lever.texture = _lever_tex[f]; await get_tree().create_timer(0.09).timeout
+		lever.texture = _lever_tex[f]; await get_tree().create_timer(0.06).timeout
+
+## 대기 중 버튼 불빛이 제멋대로 반짝인다
+var _tw_t := [0.3, 0.9, 0.5, 1.2, 0.7]
+func _twinkle(delta: float) -> void:
+	for i in 5:
+		_tw_t[i] -= delta
+		if _tw_t[i] <= 0.0:
+			var on: bool = lamps[i].texture != _lamp_on[i]
+			lamps[i].texture = _lamp_on[i] if on else _lamp_off[i]
+			_tw_t[i] = randf_range(0.12, 0.5) if on else randf_range(0.4, 1.8)
 
 ## 릴이 멈출 때마다: 그 릴의 램프가 켜진 채 고정되고 기계가 살짝 쿵 한다
 const LAMP_GROUP := [[0, 1], [2], [3, 4]]
@@ -437,6 +453,7 @@ static func _entry(kind: String, t: float) -> Vector2:
 	return Vector2.ZERO
 
 func _process(delta: float) -> void:
+	if not busy: _twinkle(delta)
 	if not _win_cells.is_empty():
 		_fx_time += delta
 		fx.queue_redraw()

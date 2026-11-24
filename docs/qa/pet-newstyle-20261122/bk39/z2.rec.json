@@ -1,0 +1,8 @@
+{
+ "desc": "Keep the same character, colors, eyes, outline and details. Redraw with a low, wide, compact right-facing side composition about 78 pixels wide and 68 pixels tall, like a small creature crouching or hovering low, facing right. Walking low with one foot forward, long cloak trailing far behind to the left, horns and hood point right. 1px outline, flat shades. Transparent background.",
+ "seed": 2026124002,
+ "input_sha256": "90c3d4c57be7bf86bf32e3f06f8ee6a2523a52c660998682064a472ee819aaeb",
+ "before": 4420.0,
+ "after": 4419.0,
+ "sha256": "2297705ec34eb588fd7bcc16f3150a6b045dd1b660dbe9d5b9d8128b4c2302ce"
+}

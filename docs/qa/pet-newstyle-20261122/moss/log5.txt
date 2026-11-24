@@ -1,0 +1,10 @@
+m3_lantern 7ffa4642-f7c9-4b01-8704-9bdd5d6c2f75
+m3_lantern 64 3766.0 -> 3756.0
+m4_statue 26931917-f04b-484a-9848-18cff7b34fb3
+m4_statue 64 3756.0 -> 3746.0
+m5_jar f5bc35c6-12d3-479b-8b05-8aadf1066ad6
+m5_jar 64 3746.0 -> 3736.0
+m6_anchor 57910fcf-eb55-4b55-8bb2-ea7fe76fe114
+m6_anchor 64 3736.0 -> 3726.0
+m7_fairy 573b6d5d-74b3-4c11-9947-fa2c9634da52
+m7_fairy 64 3726.0 -> 3716.0

@@ -1,0 +1,8 @@
+{
+ "desc": "Redraw this chestnut squirrel from scratch as a clean, sharp 16-bit pixel art sprite. Do not copy the source; keep only the species, pose and colors: red-brown fur with cream belly, bushy tail, holding an acorn. Eyes: small, a dark pupil with one clear white highlight pixel, crisp and sharp. Dark navy outline, 2 to 3 flat shade steps, clean readable shapes, no noise, no texture, no gradients, no blur, no ground shadow.",
+ "seed": 2026121107,
+ "input_sha256": "f4147d799b2516bc0c72197db7723d0450711aebd042dcfdb3b75878c36bc328",
+ "before": 4705.0,
+ "after": 4704.0,
+ "sha256": "718f06763f09dd0fb28a119fe3cc3995bcecea8491b5c58ef222e07bcf98501b"
+}

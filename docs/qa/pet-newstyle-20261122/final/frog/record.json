@@ -1,0 +1,13 @@
+{
+ "id": "frog",
+ "ref": "../pet-roster-20261118/frog-A.png",
+ "ref_sha256": "2146f55fbd2dc83f80fb48307d93a9fcbbb629dec9004438727888192e79bf7c",
+ "desc": "Edit this exact image. The outer silhouette, size, pose and every body part position must stay identical; do not lengthen or move anything. Change only internal details: skin texture and spots, throat sac shading, eye ridges, toe pads. Keep colors. Thin dark selective outline, many tonal steps, rim light, 1px pixels.",
+ "seed": 2026112607,
+ "before": 4782.0,
+ "after": 4781.0,
+ "sha256": "c87b40bd7a670e30feeeef860ab1ee621e08715cd09291c933e967b6e641d40b",
+ "iou": 1.0,
+ "changed": 0.41,
+ "gate_pass": false
+}

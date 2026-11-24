@@ -1,0 +1,8 @@
+{
+ "desc": "Redraw this puddle tadpole as a detailed 16-bit indie game sprite: realistic tadpole proportions, same face, gray spotted skin with pale belly, leaf on the tail, small plain eyes, same pose and silhouette. Muted natural palette, thin dark navy outline, 3-4 shade steps with pixel clusters, deeper shadows under head and belly, highlights on leaf and spots, subtle skin shading. No gradients, no ground shadow.",
+ "seed": 2026121011,
+ "input_sha256": "4b23729924d87de45f73f5622eb80e80e98fbc6bf1ba4b4cd5992bbbadf095b9",
+ "before": 4717.0,
+ "after": 4716.0,
+ "sha256": "fcdda3eefd7ed3e2971435164ca236190f681e7a77fe612ea7314bbc4be2390a"
+}

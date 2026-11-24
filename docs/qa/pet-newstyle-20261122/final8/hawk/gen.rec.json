@@ -1,0 +1,8 @@
+{
+ "desc": "Redraw this flame hawk from scratch as a clean, sharp 16-bit pixel art sprite. Do not copy the source; keep only the species, pose and colors: red and orange feathers with a flame crest. Eyes: small, a dark pupil with one clear white highlight pixel, crisp and sharp. Dark navy outline, 2 to 3 flat shade steps, clean readable shapes, no noise, no texture, no gradients, no blur, no ground shadow.",
+ "seed": 2026121101,
+ "input_sha256": "4973c6e8a3bf90078a9ee343f71e21ab61500dbb50a2ca2d3908a9c4bd320f8c",
+ "before": 4711.0,
+ "after": 4710.0,
+ "sha256": "29813faf6e8508ef7e15eedf68805be2c552a1a3d73520046884818a67005a22"
+}

@@ -1,0 +1,8 @@
+{
+ "desc": "Redraw this exact same creature as a clean 96x96 pixel art game sprite: same design, shape, pose, colors and proportions, crisp single 1px dark outline, clean flat 2-3 tone shading, sharp pixels, no blur, no halo rings, no sparkles, no floating squares, no ground shadow, transparent background.",
+ "seed": 2026113015,
+ "input_sha256": "0775030855be9f2fa9ca35ed4ec7f06221371185c9afb318d84e55356d45c001",
+ "before": 4634.0,
+ "after": 4633.0,
+ "sha256": "cd205a060ebb4ccf77e57bddcd8eb63d2b9f9cb8dbd5218c95bd03ae6f5b305b"
+}

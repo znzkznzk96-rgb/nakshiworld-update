@@ -1,0 +1,41 @@
+{
+  "date": "2026-11-18",
+  "status": "user_selected_static_art",
+  "selected": {
+    "낚시왕 수달": "otter-A",
+    "천둥 해룡": "dragon-A",
+    "황금 고래": "whale-A",
+    "균열 늑대": "wolf-B",
+    "별꼬리 여우": "fox-B",
+    "사냥 물총새": "kingfisher-A",
+    "불꽃 매": "hawk-A",
+    "꼬마 펭귄": "penguin-B",
+    "샘물 개구리": "frog-A",
+    "배낭 거북": "turtle-B",
+    "밤송이 고슴도치": "hedgehog-A",
+    "찌 참새": "sparrow-B",
+    "장사 너구리": "raccoon-A",
+    "보석 햄스터": "hamster7-B",
+    "불꽃 병아리": "chick7-B",
+    "꼬마 멧돼지": "boar-style"
+  },
+  "game_applied": false,
+  "sha256": {
+    "otter-A": "1b263d7f4dba17015499725dc99cb7b9f1db4820add580ca3b1afc3c28a79b71",
+    "dragon-A": "ca6f7769b47ffa49a4f5fde4c260b06063abde344d2e4473abb182dbca0d2a1a",
+    "whale-A": "e5b78945423c0b9aa9ed0677781e37b742a217ca349b7d6880cb0df6b1b67a59",
+    "wolf-B": "b69c5578c800af5cc339c8192d8ff008ef64d1abcfede34fab894b7ab975f69c",
+    "fox-B": "55ec115701ecbbb12892c2eff6cd37c4f539bf33f2f3393b320dfe8e3dba085a",
+    "kingfisher-A": "3eac29ffd1bd76986f3bb3574f2bdb044260f3609fe2df618eeec3a48af63134",
+    "hawk-A": "4973c6e8a3bf90078a9ee343f71e21ab61500dbb50a2ca2d3908a9c4bd320f8c",
+    "penguin-B": "afa68a9fbb09b151a74d02693b058cb20e087ff96e2771f9ab84af4ac586b147",
+    "frog-A": "2146f55fbd2dc83f80fb48307d93a9fcbbb629dec9004438727888192e79bf7c",
+    "turtle-B": "e3637c47f38f08ff14874c1d2f2e69f8b036f26cdc587f17b0cc6f6507861a79",
+    "hedgehog-A": "35c0f2757d423a1400d98bd015efea5d347cad3285a06266d10d0db9eec0514d",
+    "sparrow-B": "e16adc280e918a256fa0293aa6c63c54117786ec496553b043da47a261fd42b0",
+    "raccoon-A": "aa634fc566b15b86031b62d44cc91a7c97bec9a04a8956267e4555f7efa8e847",
+    "hamster7-B": "cb9a092b9d5f9c6de78ef82dd26a44ab3f6fb945f5bb9b26a0c8023fd78878ba",
+    "chick7-B": "9a196e7cd0eae21478ff642fc9edca5434ff7e68a76524947f3ab52fcef6afd7",
+    "boar-style": "b894e87c025980905f7704059dbc0e5f75262f449d141a6b6cd32e9c32f3929a"
+  }
+}

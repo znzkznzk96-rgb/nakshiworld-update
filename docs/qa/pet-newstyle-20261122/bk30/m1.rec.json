@@ -1,0 +1,8 @@
+{
+ "desc": "Keep the exact same body, pose, wings, armor and gold details. Change only the face to a solid black void face with two small white dot eyes, and make the head slightly bigger like a chibi. Remove any halo. Simplify to 2-3 flat shade colors, uniform 1px dark outline, no anti-aliasing, no noise. Transparent background.",
+ "seed": 2026123101,
+ "input_sha256": "c25a38138ed84a8a1f208a9e662249d409d870b2a0b309cef854498bc1661ac5",
+ "before": 4452.0,
+ "after": 4451.0,
+ "sha256": "02669f2b9daa6531d34c4090a82245ee98e312d7afc4727f80c8f1d963067379"
+}

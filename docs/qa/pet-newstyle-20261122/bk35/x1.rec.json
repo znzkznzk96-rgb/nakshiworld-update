@@ -1,0 +1,8 @@
+{
+ "desc": "Keep the exact same shape, pose, size, colors, eyes and props. Add more pixel detail and shading without noise: cloak folds with darker charcoal shadow shapes and a lighter highlight edge, tattered hem with red trim lines, wing bones and darker wing edges, silver highlight on the scythe blade. Keep 1px outline, 3-4 clear shade steps. Transparent background.",
+ "seed": 2026123801,
+ "input_sha256": "d694f5b9425cb3d8a99e2f2d54b84b51287e37bc07d55afc1dd6bfab49cfbb28",
+ "before": 4426.0,
+ "after": 4425.0,
+ "sha256": "f354c3c66736a49bf25805f28c8fc47c4aa65fa6b889b0f40e63fe268c4d7939"
+}

@@ -1,13 +1,13 @@
 {
   "work_branch": "work/forge-138",
-  "status": "v1.42_public_download_verified",
+  "status": "pet_balance_study_complete_no_game_changes",
   "release_baseline": "v1.42",
   "target_release": "v1.42",
-  "deployed": true,
+  "deployed": false,
   "phone_verified": false,
   "handoff": "docs/qa/record-photo/HANDOFF.md",
-  "current_task": "v1.42 길잡이·손질 버튼 공개 및 운영 다운로드 검증 완료",
-  "next_step": "Android 재실행 후 어시장 손질 보상과 낚시 길잡이 확인",
+  "current_task": "펫 22종 성능·장착 구조 초안 확정, 별의 사도 등급승급 40%+최면 반영(게임 미적용)",
+  "next_step": "일꾼 산출·컨셉 시너지 확정 → 낚시·파이팅 계열 시뮬 → 게임 적용 여부는 사용자 결정. PixelLab 추가 호출은 재승인 필요",
   "deferred_work_branch": "work/skills-105",
   "codex_entry": "docs/CODEX_HANDOFF.md",
   "tools_guide": "docs/TOOLS_AND_PLUGINS.md",
@@ -35,9 +35,10 @@
   "bundle_verification_run": 42319985467,
   "bundle_evidence_commit": "dd8297cc9de9a5423091b61e06f166ee22023de4",
   "headless_regression_coverage": {
-    "run": 44096222109,
+    "run": 44238400029,
     "status": "passed",
-    "scope": "전체 회귀 및 격리 저장 검사, 네이티브 렌더, PCK"
+    "source_commit": "99610b6191562ddaca00b5662d39945938fa5f17",
+    "scope": "전체 회귀·격리 저장 재실행·네이티브 렌더·PCK/소스 후보 빌드"
   },
   "standard_full_workflow_success": true,
   "remaining_global_render_checks": false,
@@ -59,7 +60,7 @@
     "sha256": "01bb5634b027a1d30c8ea7d297f346f89ec61f5e2b49995e35571e84a1d45b6b",
     "url": "https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.42/patch.pck"
   },
-  "standard_full_workflow_note": "v1.42 전체 검사, 동일 후보 공개, 운영 다운로드 검증 통과",
+  "standard_full_workflow_note": "UX/여객선 작업 전체 CI44238400029 통과; 운영은 v1.42 유지, 새 작업 미배포",
   "workflow_policy": "docs/PROJECT_INSTRUCTIONS.md#2026-11-07--소규모-작업-효율채팅-중단-대비",
   "approved_followup": "우편 단일원본·공통지급·검사통합 구현/검증 완료. 공개v1.08 유지, 새 배포 미승인.",
   "session_continuity": {
@@ -2317,5 +2318,149 @@
     "placement": "머리까지 위아래로 연결, 게이지와 겹치는 오라만 감쇠",
     "space_preview": "https://chatgpt.com/space/page_348c945c851c8191966ef0b8b3440b60",
     "deployed": true
+  },
+  "pond_empty": {
+    "source_commit": "d1d20aab5126bb66096076cbd82d6359822d0ba6",
+    "ci_run": 44226484028,
+    "ci_status": "failure",
+    "related_test": "pond_empty passed; guide_ac pending CI",
+    "deployed": false,
+    "failure": "assertions passed; 2 resources still in use at exit",
+    "followup": {
+      "ci_run": 44238400029,
+      "status": "passed",
+      "resolution": "검사 로컬 참조 해제 후 종료, 전체 회귀 통과"
+    }
+  },
+  "growth_simulation": {
+    "report": "analysis/route-growth-20261118/REPORT.md",
+    "trials": 4,
+    "production_balance_changed": false
+  },
+  "ux_ui_audit_20261118": {
+    "report": "analysis/ui-audit-20261118/REPORT.md",
+    "summary": "analysis/ui-audit-20261118/SUMMARY.json",
+    "source_head": "2821bd13207772778a34698f7d5514eb57730831",
+    "game_changed": false,
+    "phone_verified": false
+  },
+  "ux_boat_fix_20261118": {
+    "report": "analysis/ux-boat-fix-20261118/REPORT.md",
+    "verification": "analysis/ux-boat-fix-20261118/VERIFICATION.json",
+    "source": "99610b6191562ddaca00b5662d39945938fa5f17",
+    "full_ci_run": 44238400029,
+    "status": "verified_not_deployed"
+  },
+  "pet_balance": {
+    "status": "simulation_complete",
+    "report": "analysis/pet-balance-20261118/REPORT.md",
+    "verification": "analysis/pet-balance-20261118/VERIFICATION.json",
+    "game_changed": false,
+    "deployed": false
+  },
+  "pet_blueprint": {
+    "status": "direction_confirmed_details_pending",
+    "tiers": [
+      "SS",
+      "SSS"
+    ],
+    "gacha_reward": "blueprint_not_completed_pet",
+    "game_implemented": false,
+    "deployed": false
+  },
+  "pet_feasibility": {
+    "status": "code_review_and_existing_seam_probe_complete",
+    "report": "analysis/pet-feasibility-20261118/REPORT.md",
+    "pet_motion_rendered": false,
+    "pet_art_ready": false,
+    "production_changed": false
+  },
+  "pet_presentation": {
+    "status": "direction_confirmed",
+    "position": "existing_cat_anchor",
+    "equipped_replaces_cat": true,
+    "motion": "idle_only",
+    "bespoke_action_motion": false,
+    "effects": "logic_applied_when_equipped_with_feedback",
+    "implemented": false
+  },
+  "pet_art_direction": {
+    "status": "direction_confirmed_details_pending",
+    "priority": "maximum_cuteness",
+    "flashy_from_tier": "S",
+    "preserve_idle_only": true,
+    "generated": false,
+    "implemented": false
+  },
+  "pet_roster_replacement": {
+    "date": "2026-11-18",
+    "status": "replacement_roles_accepted_numbers_pending",
+    "removed": [
+      "달빛 해파리",
+      "진주 조개",
+      "약초 토끼",
+      "집게 가재"
+    ],
+    "decision_source": "docs/GAME_BIBLE.md",
+    "implemented": false
+  },
+  "pet_art_generation": {
+    "status": "native96_selection_complete",
+    "scope": 6,
+    "generated": 6,
+    "spent_generations": 6,
+    "review": "docs/qa/pet-roster-20261118/NATIVE96.md",
+    "game_applied": false
+  },
+  "pet_art_selection": {
+    "status": "user_selected_static_art",
+    "count": 16,
+    "manifest": "docs/qa/pet-roster-20261118/SELECTED.json",
+    "game_applied": false
+  },
+  "pet_style_trial": {
+    "count": 2,
+    "spent_generations": 2,
+    "review": "docs/qa/pet-roster-20261118/STYLE_TRIAL.md",
+    "status": "user_selection_complete"
+  },
+  "pet_motion_trial": {
+    "species": "otter-A",
+    "status": "awaiting_review",
+    "path": "docs/qa/pet-roster-20261118/OTTER_IDLE.md",
+    "game_applied": false
+  },
+  "pet_signature_trial": {
+    "status": "awaiting_review",
+    "path": "docs/qa/pet-roster-20261118/otter-head-pat-v3.gif",
+    "game_applied": false
+  },
+  "pet_signature_roster": {
+    "count": 16,
+    "new_count": 15,
+    "review": "docs/qa/pet-roster-20261118/PET_SIGNATURES.md",
+    "game_applied": false
+  },
+  "pet_pixellab_trial": {
+    "status": "awaiting_review",
+    "review": "docs/qa/pet-roster-20261118/OTTER_PIXELLAB.md",
+    "game_applied": false
+  },
+  "pet_pixellab_roster": {
+    "status": "user_approved",
+    "completed": 15,
+    "roster_size": 16,
+    "usage_generations": 30,
+    "otter_selected": "세수 모션",
+    "review": "docs/qa/pet-roster-20261118/PIXELLAB_MOTION_ROSTER.md",
+    "game_applied": false
+  },
+  "pet_pixellab_motion2": {
+    "status": "awaiting_review",
+    "completed": 16,
+    "frames": 144,
+    "usage_generations": 32,
+    "review": "docs/qa/pet-roster-20261118/PIXELLAB_MOTION2.md",
+    "game_applied": false
   }
 }

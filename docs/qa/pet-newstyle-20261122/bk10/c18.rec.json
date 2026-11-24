@@ -1,0 +1,8 @@
+{
+ "desc": "Clean up this pixel art creature: keep exactly the same design, shape, pose and colors. Make every pixel crisp and aligned to one uniform 2x2 pixel grid, smooth clean outlines without gaps or jagged stairs, one dark navy 1px outline, clean flat shading, no blur, no noise, transparent background.",
+ "seed": 2026113119,
+ "input_sha256": "d96875e30c697f17e72722d453bb091a3dfce84f19005df1395936edb80fda38",
+ "before": 4608.0,
+ "after": 4607.0,
+ "sha256": "875ed5354aecd6135405720ff6a47bb1eb10fd918e2b53908a206a090b4f02f2"
+}

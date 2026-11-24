@@ -1,0 +1,3 @@
+Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org
+
+PET_FEASIBILITY_PROBE passed anchor_cases=12 cat_frames={ "idle": 48, "look": 12, "hop": 12 }

@@ -1,0 +1,8 @@
+{
+ "desc": "Edit only the face of this wolf. Keep everything else exactly the same: pixel texture, dark outline, ears, tail, paws, body, colors and shading. 1) Replace the eyes with small calm 2x2 pixel dark eyes with a single 1px highlight, placed naturally. 2) Make the mouth and face plain and natural, no big smile, a calm heavy look like a small otter sprite. Do not simplify any details.",
+ "seed": 2026120129,
+ "input_sha256": "6bee16b8a1edbab570b352a6278529c3b3caf4f1db75d5f25dca9bff2c9634cc",
+ "before": 4751.0,
+ "after": 4750.0,
+ "sha256": "d32f09e0c84de9201b5f6bec9b54ee880d7abf5fbb27d2de550b7b22568577f9"
+}

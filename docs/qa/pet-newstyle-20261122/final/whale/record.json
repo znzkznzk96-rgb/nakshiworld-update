@@ -1,0 +1,13 @@
+{
+ "id": "whale",
+ "ref": "../pet-roster-20261118/whale-A.png",
+ "ref_sha256": "e5b78945423c0b9aa9ed0677781e37b742a217ca349b7d6880cb0df6b1b67a59",
+ "desc": "Edit this exact image. The outer silhouette, size, pose and every body part position must stay identical; do not lengthen or move anything. Change only internal details: gold plate texture, fin veins, small sharp eye, throat pleats, barnacle marks. Keep colors. Thin dark selective outline, many tonal steps, rim light, 1px pixels.",
+ "seed": 2026112601,
+ "before": 4788.0,
+ "after": 4787.0,
+ "sha256": "3516e38ab23ba3c120ce6c963cf91178f99e1329638a09aa43d5ecf8db016365",
+ "iou": 0.942,
+ "changed": 0.368,
+ "gate_pass": false
+}

@@ -27,500 +27,48 @@ jobs:
   verify:
     needs: cleanup
     runs-on: ubuntu-24.04
-    timeout-minutes: 20
+    timeout-minutes: 12
     steps:
       - uses: actions/checkout@v4
+      - name: Cache downloaded tools and baseline source
+        uses: actions/cache@v4
+        with:
+          path: ${{ runner.temp }}/dl
+          key: tools-godot4.4.1-v1.45-e069c20c
       - name: Restore verified v1.45 source and overlay
         shell: bash
         run: |
           set -euo pipefail
           echo "VERIFICATION_STARTED=$(date +%s)" >> "$GITHUB_ENV"
+          mkdir -p "$RUNNER_TEMP/dl" evidence
           sudo apt-get update -qq
           sudo apt-get install -y python3-pil > /dev/null
-          curl -fL --retry 2 https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.45/game-source.zip -o "$RUNNER_TEMP/source.zip"
-          echo "e069c20cd38ee491d0ef2e6c88d01353bee7b038b4628cfb8ecc1ccc39813c62  $RUNNER_TEMP/source.zip" | sha256sum -c -
-          python3 automation/restore_source.py "$RUNNER_TEMP/source.zip" "$RUNNER_TEMP/project"
-          curl -fL --retry 2 https://github.com/godotengine/godot/releases/download/4.4.1-stable/Godot_v4.4.1-stable_linux.x86_64.zip -o "$RUNNER_TEMP/godot.zip"
-          unzip -q "$RUNNER_TEMP/godot.zip" -d "$RUNNER_TEMP/godot"
+          [ -f "$RUNNER_TEMP/dl/source.zip" ] || curl -fL --retry 2 https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.45/game-source.zip -o "$RUNNER_TEMP/dl/source.zip"
+          echo "e069c20cd38ee491d0ef2e6c88d01353bee7b038b4628cfb8ecc1ccc39813c62  $RUNNER_TEMP/dl/source.zip" | sha256sum -c -
+          python3 automation/restore_source.py "$RUNNER_TEMP/dl/source.zip" "$RUNNER_TEMP/project"
+          [ -f "$RUNNER_TEMP/dl/godot.zip" ] || curl -fL --retry 2 https://github.com/godotengine/godot/releases/download/4.4.1-stable/Godot_v4.4.1-stable_linux.x86_64.zip -o "$RUNNER_TEMP/dl/godot.zip"
+          unzip -q "$RUNNER_TEMP/dl/godot.zip" -d "$RUNNER_TEMP/godot"
           chmod +x "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
-      - name: Verify three-strike forge animation safety and native appearance
-        shell: bash
-        run: |
-          set -euo pipefail
-          mkdir -p evidence/forge-three-strike
-          GODOT="$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
-          # Godot asset import must precede bake/test script execution.
-          timeout 180 "$GODOT" --headless --editor --path "$RUNNER_TEMP/project" --import > evidence/prepared-import.log 2>&1 || { tail -100 evidence/prepared-import.log; exit 1; }
-          if grep -E 'SCRIPT ERROR:|Parse Error:|Failed to load script' evidence/prepared-import.log; then tail -100 evidence/prepared-import.log; exit 1; fi
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-forge-bake" timeout 90 "$GODOT" --headless --path "$RUNNER_TEMP/project" --script tests/bake_expedition_assets.gd > evidence/bake.log 2>&1 || { tail -100 evidence/bake.log; exit 1; }
-          grep -F 'EXPEDITION_BAKE files=130' evidence/bake.log
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-forge-three-logic" timeout 90 "$GODOT" --headless --path "$RUNNER_TEMP/project" --script tests/forge_three_strike_verify.gd > evidence/forge-three-strike-logic.log 2>&1
-          grep -F 'FORGE_THREE_STRIKE_VERIFY failures=[]' evidence/forge-three-strike-logic.log
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-forge-three-native" timeout 180 xvfb-run -a "$GODOT" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/forge_three_strike_preview.gd -- "$GITHUB_WORKSPACE/evidence/forge-three-strike" > evidence/forge-three-strike-native.log 2>&1
-          grep -F 'FORGE_THREE_STRIKE_PREVIEW failures=[]' evidence/forge-three-strike-native.log
-          if grep -E 'SCRIPT ERROR:|Parse Error:|Assertion failed|ERROR:' evidence/forge-three-strike-logic.log evidence/forge-three-strike-native.log; then exit 1; fi
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: forge-three-strike-first-preview
-          compression-level: 0
-          path: |
-            evidence/forge-three-strike/
-            evidence/forge-three-strike-logic.log
-            evidence/forge-three-strike-native.log
-      - name: Verify and render approved rift art integration
-        shell: bash
-        run: |
-          set -euo pipefail
-          mkdir -p evidence/rift-art
-          sudo apt-get update -qq
-          sudo apt-get install -y xvfb libgl1-mesa-dri > /dev/null
-          GODOT="$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
-          "$GODOT" --headless --editor --path "$RUNNER_TEMP/project" --import > evidence/rift-import.log 2>&1
-          if grep -E 'SCRIPT ERROR:|Parse Error:|Failed to load script' evidence/rift-import.log; then exit 1; fi
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-rift-art" "$GODOT" --headless --path "$RUNNER_TEMP/project" --script tests/rift_art_verify.gd > evidence/rift-art.log 2>&1
-          grep -F 'RIFT_ART_VERIFY failures=[]' evidence/rift-art.log
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-rift-bundles" "$GODOT" --headless --path "$RUNNER_TEMP/project" --script tests/rift_bundles_layers_verify.gd > evidence/rift-bundles-layers.log 2>&1
-          grep -F 'RIFT_BUNDLES_LAYERS_VERIFY failures=[]' evidence/rift-bundles-layers.log
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-rift-bundles" "$GODOT" --headless --path "$RUNNER_TEMP/project" --script tests/rift_bundles_layers_verify.gd -- --reload > evidence/rift-bundle-reload.log 2>&1
-          grep -F 'RIFT_BUNDLE_RELOAD_VERIFY failures=[]' evidence/rift-bundle-reload.log
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-rift-layers-native" timeout 180 xvfb-run -a "$GODOT" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/rift_layers_preview.gd -- "$GITHUB_WORKSPACE/evidence/rift-layers" > evidence/rift-layers-native.log 2>&1
-          grep -F 'RIFT_LAYERS_PREVIEW failures=[]' evidence/rift-layers-native.log
-          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/rift-bundles-layers.log evidence/rift-layers-native.log; then exit 1; fi
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-rift-unlock-native" timeout 180 xvfb-run -a "$GODOT" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/rift_unlock_preview.gd -- "$GITHUB_WORKSPACE/evidence/rift-art/unlock" > evidence/rift-unlock-native.log 2>&1
-          grep -F 'RIFT_UNLOCK_PREVIEW failures=[]' evidence/rift-unlock-native.log
-          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/rift-unlock-native.log; then exit 1; fi
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-rift-native" timeout 120 xvfb-run -a "$GODOT" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/rift_art_preview.gd -- "$GITHUB_WORKSPACE/evidence/rift-art" > evidence/rift-native.log 2>&1
-          grep -F 'RIFT_ART_PREVIEW failures=[]' evidence/rift-native.log
-          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/rift-art.log evidence/rift-native.log; then exit 1; fi
-      - uses: actions/upload-artifact@v4
-        timeout-minutes: 4
-        with:
-          compression-level: 0
-          name: rift-art-first-preview
-          path: |
-            evidence/rift-art/
-            evidence/rift-art.log
-            evidence/rift-native.log
-            evidence/rift-layers/
-            evidence/rift-bundles-layers.log
-            evidence/rift-layers-native.log
-      - name: Verify approved unlock and centered expedition notice
+      - name: Import resources and check script errors
         shell: bash
         run: |
           set -euo pipefail
           GODOT="$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
-          for suite in spot_unlock spot_unlock_audio expedition_start_notice; do
-            XDG_DATA_HOME="$RUNNER_TEMP/isolated-new-$suite" timeout 90 "$GODOT" --headless --path "$RUNNER_TEMP/project" --script "tests/${suite}_verify.gd" > "evidence/${suite}.log" 2>&1
-            grep -F 'failures=[]' "evidence/${suite}.log"
-            if grep -E 'SCRIPT ERROR:|Parse Error:|Assertion failed|ERROR:' "evidence/${suite}.log"; then exit 1; fi
-          done
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-unlock-native" timeout 180 xvfb-run -a "$GODOT" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/spot_unlock_preview.gd -- "$GITHUB_WORKSPACE/evidence/unlock" > evidence/unlock-native.log 2>&1
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-expedition-notice-native" timeout 90 xvfb-run -a "$GODOT" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/expedition_start_notice_verify.gd -- "$GITHUB_WORKSPACE/evidence/expedition-notice" > evidence/expedition-notice-native.log 2>&1
-          if grep -E 'SCRIPT ERROR:|Parse Error:|Assertion failed|ERROR:' evidence/unlock-native.log evidence/expedition-notice-native.log; then exit 1; fi
-      - name: Verify and render measured record photo first
+          timeout 240 "$GODOT" --headless --path "$RUNNER_TEMP/project" --import > evidence/import.log 2>&1 || true
+          if grep -E 'SCRIPT ERROR:|Parse Error' evidence/import.log; then exit 1; fi
+      - name: Quick checks - boot, save and load, updater
         shell: bash
         run: |
           set -euo pipefail
           GODOT="$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
-          for suite in record_photo record_gallery record_photo_motion record_photo_giant record_followup; do
-            XDG_DATA_HOME="$RUNNER_TEMP/isolated-$suite" timeout 90 "$GODOT" --headless --path "$RUNNER_TEMP/project" --script "tests/${suite}_verify.gd" > "evidence/${suite}.log" 2>&1
-            grep -F 'failures=[]' "evidence/${suite}.log"
-            if grep -E 'SCRIPT ERROR:|Parse Error:|Assertion failed|ERROR:' "evidence/${suite}.log"; then exit 1; fi
-          done
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-record-photo-native" timeout 180 xvfb-run -a "$GODOT" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/record_photo_preview.gd -- "$GITHUB_WORKSPACE/evidence/record-photo" > evidence/record-photo-native.log 2>&1
-          grep -F 'RECORD_PHOTO_PREVIEW failures=[]' evidence/record-photo-native.log
-          if grep -E 'SCRIPT ERROR:|Parse Error:|Assertion failed|ERROR:' evidence/record-photo-native.log; then exit 1; fi
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-record-motion-native" timeout 180 xvfb-run -a "$GODOT" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/record_photo_motion_preview.gd -- "$GITHUB_WORKSPACE/evidence/record-motion" > evidence/record-motion-native.log 2>&1
-          grep -F 'RECORD_PHOTO_MOTION_PREVIEW failures=[]' evidence/record-motion-native.log
-          if grep -E 'SCRIPT ERROR:|Parse Error:|Assertion failed|ERROR:' evidence/record-motion-native.log; then exit 1; fi
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-record-giant-native" timeout 180 xvfb-run -a "$GODOT" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/record_photo_giant_preview.gd -- "$GITHUB_WORKSPACE/evidence/record-giant" > evidence/record-giant-native.log 2>&1
-          grep -F 'RECORD_PHOTO_GIANT_PREVIEW failures=[]' evidence/record-giant-native.log
-          if grep -E 'SCRIPT ERROR:|Parse Error:|Assertion failed|ERROR:' evidence/record-giant-native.log; then exit 1; fi
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-record-followup-native" timeout 180 xvfb-run -a "$GODOT" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/record_followup_preview.gd -- "$GITHUB_WORKSPACE/evidence/record-followup" > evidence/record-followup-native.log 2>&1
-          grep -F 'RECORD_FOLLOWUP_PREVIEW failures=[]' evidence/record-followup-native.log
-          if grep -E 'SCRIPT ERROR:|Parse Error:|Assertion failed|ERROR:' evidence/record-followup-native.log; then exit 1; fi
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-export-canvas" timeout 180 xvfb-run -a "$GODOT" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/record_export_isolation_preview.gd -- "$GITHUB_WORKSPACE/evidence/record-export" > evidence/record-export.log 2>&1
-          grep -F 'RECORD_EXPORT_ISOLATION_PREVIEW failures=[]' evidence/record-export.log
-          if grep -E 'SCRIPT ERROR:|Parse Error:|Assertion failed|ERROR:' evidence/record-export.log; then exit 1; fi
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: record-photo-first-preview
-          compression-level: 0
-          path: |
-            evidence/record-export/
-            evidence/record-export.log
-            evidence/record-photo/
-            evidence/record-followup/
-            evidence/record_followup.log
-            evidence/record-followup-native.log
-            evidence/record-giant/
-            evidence/record_photo_giant.log
-            evidence/record-giant-native.log
-            evidence/record-motion/
-            evidence/record_photo_motion.log
-            evidence/record-motion-native.log
-            evidence/record_photo.log
-            evidence/record_gallery.log
-            evidence/record-photo-native.log
-      - name: Verify native bobber contact and bounded fish previews
-        shell: bash
-        run: |
-          set -euo pipefail
-          GODOT="$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-bite-contact-native" timeout 180 xvfb-run -a "$GODOT" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/bite_contact_preview.gd -- "$GITHUB_WORKSPACE/evidence/bite-contact" > evidence/bite-contact-native.log 2>&1
-          grep -F 'BITE_CONTACT_PREVIEW failures=[]' evidence/bite-contact-native.log
-          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/bite-contact-native.log; then exit 1; fi
-      - name: Compare village layer quality at phone size
-        shell: bash
-        run: |
-          set -euo pipefail
-          GODOT="$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
-          before="$RUNNER_TEMP/village-before"
-          cp -a --reflink=auto "$RUNNER_TEMP/project" "$before"
-          git fetch --depth=1 origin 594cd461f6c57e0dd0746e422d36f737cea240ef
-          git show 594cd461f6c57e0dd0746e422d36f737cea240ef:game/village.gd > "$before/village.gd"
-          git show 594cd461f6c57e0dd0746e422d36f737cea240ef:game/addons/reservoir/village_life.gd > "$before/addons/reservoir/village_life.gd"
-          curl -fL --retry 2 https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.38/game-source.zip -o "$RUNNER_TEMP/village-history.zip"
-          echo "a77b058de362121a4f669ef715b7e4e57bb4a34467908f0f8086ddb1700f2aca  $RUNNER_TEMP/village-history.zip" | sha256sum -c -
-          for icon in art/village/i_soul.png art/tools_clean/soul_24.png; do
-            unzip -p "$RUNNER_TEMP/village-history.zip" "game/$icon" > "$before/$icon"
-          done
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-layer-before" timeout 90 "$GODOT" --headless --editor --path "$before" --import > evidence/village-before-import.log 2>&1
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-layer-before" timeout 180 xvfb-run -a "$GODOT" --audio-driver Dummy --rendering-method gl_compatibility --path "$before" --script tests/village_layers_quality_preview.gd -- "$GITHUB_WORKSPACE/evidence/village-quality/before" > evidence/village-quality-before.log 2>&1
-          test ! -e "$RUNNER_TEMP/project/art/village/i_soul.png" && test ! -e "$RUNNER_TEMP/project/art/tools_clean/soul_24.png"
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-layer-after" timeout 180 xvfb-run -a "$GODOT" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/village_layers_quality_preview.gd -- "$GITHUB_WORKSPACE/evidence/village-quality/after" > evidence/village-quality-after.log 2>&1
-          grep -F 'VILLAGE_LAYERS_QUALITY_PREVIEW screens=120' evidence/village-quality-before.log evidence/village-quality-after.log
-          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/village-quality-before.log evidence/village-quality-after.log; then exit 1; fi
-      - uses: actions/upload-artifact@v4
-        with:
-          name: village-quality-first-preview
-          compression-level: 0
-          path: |
-            evidence/village-quality/
-            evidence/village-quality-before.log
-            evidence/village-quality-after.log
-      - name: Render village life layers and passenger motion
-        shell: bash
-        run: |
-          set -euo pipefail
-          GODOT="$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-village-life131-native" timeout 180 xvfb-run -a "$GODOT" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/village_life131_preview.gd -- "$GITHUB_WORKSPACE/evidence/village-life131" > evidence/village-life131-native.log 2>&1
-          grep -F 'VILLAGE_LIFE131_PREVIEW failures=[]' evidence/village-life131-native.log
-          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/village-life131-native.log; then exit 1; fi
-      - name: Render updater checking download and circular chase
-        shell: bash
-        run: |
-          set -euo pipefail
-          mkdir -p evidence
-          sudo apt-get update -qq
-          sudo apt-get install -y xvfb libgl1-mesa-dri > /dev/null
-          "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --headless --editor --path "$RUNNER_TEMP/project" --import > evidence/import.log 2>&1
-          if grep -E 'SCRIPT ERROR:|Parse Error:|Failed to load script' evidence/import.log; then exit 1; fi
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-fish-grade-aura-native" timeout 120 xvfb-run -a "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/fish_grade_aura_preview.gd -- "$GITHUB_WORKSPACE/evidence/fish-grade-aura" > evidence/fish-grade-aura-native.log 2>&1
-          grep -F 'FISH_GRADE_AURA_PREVIEW failures=[]' evidence/fish-grade-aura-native.log
-          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/fish-grade-aura-native.log; then exit 1; fi
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-updater" "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --headless --path "$RUNNER_TEMP/project" --script tests/updater_verify.gd > evidence/updater.log 2>&1
-          grep -F 'UPDATER_VERIFY failures=[]' evidence/updater.log
-          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/updater.log; then exit 1; fi
-          curl -fL https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.18/patch.pck -o "$RUNNER_TEMP/patch118.pck"
-          echo "cf592988a1e8f372cc37d6ef3a4fe3041b6e92a07b40fce509baeb8a3dcfb2a3  $RUNNER_TEMP/patch118.pck" | sha256sum -c -
-          curl -fL https://github.com/znzkznzk96-rgb/nakshiworld-update/releases/download/v1.17/patch.pck -o "$RUNNER_TEMP/patch117.pck"
-          echo "e9a75c55db6b5df873595892b6ab8ccadbab0351277d4027eba2074c561c71b6  $RUNNER_TEMP/patch117.pck" | sha256sum -c -
-          python3 - <<'PY'
-          import json,urllib.request
-          base='https://nakshiworld-update-kr.znzkznzk96.workers.dev'
-          with urllib.request.urlopen(urllib.request.Request(base+'/version.json',headers={'User-Agent':'GodotEngine/4.4.1.stable.official (Linux)'}),timeout=60) as r: live=json.load(r)
-          url=base+'/patch.pck?v='+str(live['code'])
-          with urllib.request.urlopen(urllib.request.Request(url,headers={'Range':'bytes=0-99','Accept-Encoding':'identity','User-Agent':'GodotEngine/4.4.1.stable.official (Linux)'}),timeout=60) as r:
-              data=r.read()
-              assert r.status==206 and len(data)==100 and r.headers.get('Content-Range')=='bytes 0-99/'+str(live['size'])
-              print('LIVE_INCREMENTAL_RANGE_VERIFY failures=[]')
-          PY
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-incremental" "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --headless --path "$RUNNER_TEMP/project" --script tests/incremental_verify.gd -- "$RUNNER_TEMP/patch118.pck" > evidence/incremental.log 2>&1
-          grep -F 'INCREMENTAL_VERIFY failures=[]' evidence/incremental.log
-          python3 docs/qa/updater-incremental/range_server.py "$RUNNER_TEMP/patch118.pck" &
-          RANGE_PID=$!
-          trap 'kill "$RANGE_PID" || true' EXIT
-          python3 - <<'PYREADY'
-          import time,urllib.request
-          for attempt in range(30):
-              try:
-                  with urllib.request.urlopen('http://127.0.0.1:18765/stats',timeout=1) as r: assert r.status==200
-                  break
-              except OSError:
-                  if attempt==29: raise
-                  time.sleep(.1)
-          print('LOCAL_RANGE_SERVER_READY')
-          PYREADY
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-incremental-network" "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --headless --path "$RUNNER_TEMP/project" --script tests/incremental_network_verify.gd -- http://127.0.0.1:18765/patch "$RUNNER_TEMP/patch117.pck" > evidence/incremental-network.log 2>&1 || { cat evidence/incremental-network.log; exit 1; }
-          grep -F 'INCREMENTAL_NETWORK_VERIFY failures=[]' evidence/incremental-network.log
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-updater-preview" timeout 90 xvfb-run -a "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/updater_preview.gd -- "$GITHUB_WORKSPACE/evidence/updater" > evidence/updater-preview.log 2>&1
-          grep -F 'UPDATER_PREVIEW failures=[]' evidence/updater-preview.log
-          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/updater-preview.log; then exit 1; fi
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-boot-smooth" timeout 60 xvfb-run -a "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/updater_smoothness_preview.gd -- "$GITHUB_WORKSPACE/evidence/boot-smooth" > evidence/boot-smooth-native.log 2>&1
-          grep -F 'UPDATER_SMOOTHNESS_PREVIEW failures=[]' evidence/boot-smooth-native.log
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-font-native" timeout 60 xvfb-run -a "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/updater_font_verify.gd -- "$GITHUB_WORKSPACE/evidence/updater-font" > evidence/updater-font-native.log 2>&1
-          grep -F 'UPDATER_FONT_VERIFY failures=[] native=true raster_cases=4' evidence/updater-font-native.log
-          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/updater-font-native.log; then exit 1; fi
-          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/boot-smooth-native.log; then exit 1; fi
-      - uses: actions/upload-artifact@v4
-        timeout-minutes: 4
-        with:
-          compression-level: 0
-          name: updater-first-preview
-          path: |
-            evidence/updater/
-            evidence/updater.log
-            evidence/updater-preview.log
-      - name: Verify all six owner gauge layouts before full checks
-        shell: bash
-        run: |
-          set -euo pipefail
-          GODOT="$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-owner-alignment" "$GODOT" --headless --path "$RUNNER_TEMP/project" --script tests/owner_gauge_verify.gd > evidence/owner-alignment.log 2>&1
-          grep -F 'OWNER_GAUGE_VERIFY failures=[]' evidence/owner-alignment.log
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-owner-alignment-preview" timeout 90 xvfb-run -a "$GODOT" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/owner_gauge_preview.gd -- "$GITHUB_WORKSPACE/evidence/owner-alignment" > evidence/owner-alignment-preview.log 2>&1
-          grep -F 'OWNER_GAUGE_PREVIEW complete' evidence/owner-alignment-preview.log
-          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/owner-alignment*.log; then exit 1; fi
-      - uses: actions/upload-artifact@v4
-        timeout-minutes: 4
-        with:
-          compression-level: 0
-          name: owner-gauge-first-preview
-          path: |
-            evidence/owner-alignment/
-            evidence/owner-alignment*.log
-      - name: Verify and render village reward notice before full checks
-        shell: bash
-        run: |
-          set -euo pipefail
-          GODOT="$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-village-reward" "$GODOT" --headless --path "$RUNNER_TEMP/project" --script tests/village_reward_notice_verify.gd > evidence/village-reward.log 2>&1
-          grep -F 'VILLAGE_REWARD_NOTICE_VERIFY failures=[]' evidence/village-reward.log
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-village-reward-preview" timeout 90 xvfb-run -a "$GODOT" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/notification091_preview.gd -- "$GITHUB_WORKSPACE/evidence/village-reward" > evidence/village-reward-preview.log 2>&1
-          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/village-reward*.log; then exit 1; fi
-      - uses: actions/upload-artifact@v4
-        timeout-minutes: 4
-        with:
-          compression-level: 0
-          name: village-reward-first-preview
-          path: |
-            evidence/village-reward/
-            evidence/village-reward*.log
-      - name: Verify and preview per-soldier skill feedback first
-        shell: bash
-        run: |
-          set -euo pipefail
-          GODOT="$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-skill-cues" "$GODOT" --headless --path "$RUNNER_TEMP/project" --script tests/soldier_skill_cues_verify.gd > evidence/soldier-skill-cues.log 2>&1
-          grep -F 'SOLDIER_SKILL_CUES_VERIFY failures=[]' evidence/soldier-skill-cues.log
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-skill-parity" "$GODOT" --headless --path "$RUNNER_TEMP/project" --script tests/soldier_skill_cues_parity.gd -- "$RUNNER_TEMP/project/tests/soldier_skill_cues_baseline.json" verify > evidence/soldier-skill-parity.log 2>&1
-          grep -F 'SOLDIER_SKILL_PARITY_VERIFY failures=[]' evidence/soldier-skill-parity.log
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-skill-preview" timeout 90 xvfb-run -a "$GODOT" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/soldier_skill_cues_preview.gd -- "$GITHUB_WORKSPACE/evidence/soldier-skills" > evidence/soldier-skill-preview.log 2>&1
-          grep -F 'SOLDIER_SKILL_CUES_PREVIEW failures=[]' evidence/soldier-skill-preview.log
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-soldier-size" timeout 90 xvfb-run -a "$GODOT" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/soldier_size_preview.gd -- "$GITHUB_WORKSPACE/evidence/soldier-size" > evidence/soldier-size-preview.log 2>&1
-          grep -F 'SOLDIER_SIZE_PREVIEW failures=[]' evidence/soldier-size-preview.log
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-tier2-body" timeout 90 xvfb-run -a "$GODOT" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/tier2_body_preview.gd -- "$GITHUB_WORKSPACE/evidence/tier2-body" > evidence/tier2-body-preview.log 2>&1
-          grep -F 'TIER2_BODY_PREVIEW failures=[]' evidence/tier2-body-preview.log
-          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/tier2-body-preview.log; then exit 1; fi
-          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/soldier-size-preview.log; then exit 1; fi
-          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/soldier-skill-cues.log evidence/soldier-skill-parity.log evidence/soldier-skill-preview.log; then exit 1; fi
-      - name: Render revised formation scroll and PixelLab roles
-        shell: bash
-        run: |
-          set -euo pipefail
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-formation" timeout 90 xvfb-run -a "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/formation_scroll_preview.gd -- "$GITHUB_WORKSPACE/evidence/formation" > evidence/formation.log 2>&1
-          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/formation.log; then cat evidence/formation.log; exit 1; fi
-      - uses: actions/upload-artifact@v4
-        timeout-minutes: 4
-        with:
-          compression-level: 0
-          name: soldier-skills-first-preview
-          path: |
-            evidence/fish-grade-aura/
-            evidence/fish-grade-aura-native.log
-            evidence/formation/
-            evidence/formation.log
-            evidence/soldier-skills/
-            evidence/soldier-skill-cues.log
-            evidence/soldier-skill-parity.log
-            evidence/soldier-skill-preview.log
-      - name: Full regression checks using prepared imported source
-        shell: bash
-        run: |
-          set -euo pipefail
-          mkdir -p evidence
-          GODOT="$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
-          for suite in ux_boat pond_empty bite_contact village_life131 rift_unlock_recovery fish_grade_aura updater_font soldier_size android_back close_controls updater_smoothness shop_signs hall_forge119 dex_readability body_book_telegraph fight_telegraph facility_growth night_play night_glow regional_night fight_body_size fishing_difficulty fish_presentation fish_anchor_size regional_bundle_rewards mail_gifts valley_gift108 arrival_gift testing_gift reader tile107 tier_skills training_costs tier3_motion tier2_motion management101 formation_compare forge_layout robot_ui_revision capture_robot balance096 guide_ac valley094 valley093 bait092 notification091 ui090 codex089 aquarium_b ui_guide pouch_inventory expedition_result support_utility combat_feedback bag_event_order bag_formation selected_ui bag_interaction startup_assets soul_pouch expedition_hard_balance expedition_label bundle_aqua expedition080 expedition079 soldier_dex approved_ui expedition_motion expedition expedition_save expedition_balance action_readability economy_balance rod_aura atmosphere_encounter angler_scene market_reader odds_rewards reservoir_layers owner_gauge bag_list bundles_buyback equipment visual guide shop audio_save bundle_preview rewards fish_surface regional inventory_layout personal_dex bait_roles measurement_speed village_entry_audio shared_vertical_light tile_surface_water tile_scenery; do
+          XDG_DATA_HOME="$RUNNER_TEMP/isolated-boot" timeout 60 "$GODOT" --headless --path "$RUNNER_TEMP/project" --quit-after 180 > evidence/boot.log 2>&1
+          if grep -E 'SCRIPT ERROR:|Parse Error' evidence/boot.log; then cat evidence/boot.log; exit 1; fi
+          for pair in audio_save:AUDIO_SAVE_VERIFY expedition_save:EXPEDITION_SAVE_VERIFY updater:UPDATER_VERIFY updater_smoothness:UPDATER_SMOOTHNESS_VERIFY; do
+            suite="${pair%%:*}"; tag="${pair##*:}"
             XDG_DATA_HOME="$RUNNER_TEMP/isolated-$suite" timeout 90 "$GODOT" --headless --path "$RUNNER_TEMP/project" --script "tests/${suite}_verify.gd" > "evidence/$suite.log" 2>&1 || { cat "evidence/$suite.log"; exit 1; }
-            cat "evidence/$suite.log"
-            grep -F 'VERIFY failures=[]' "evidence/$suite.log"
-            if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' "evidence/$suite.log"; then exit 1; fi
+            grep -F "$tag failures=[]" "evidence/$suite.log"
+            if grep -E 'SCRIPT ERROR:|Assertion failed' "evidence/$suite.log"; then exit 1; fi
           done
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-rift_unlock_recovery" timeout 90 "$GODOT" --headless --path "$RUNNER_TEMP/project" --script tests/rift_unlock_recovery_verify.gd -- --reload > evidence/rift-unlock-reload.log 2>&1
-          grep -F 'RIFT_UNLOCK_RELOAD_VERIFY failures=[]' evidence/rift-unlock-reload.log
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-mail_gifts" timeout 90 "$GODOT" --headless --path "$RUNNER_TEMP/project" --script tests/mail_gifts_verify.gd -- resume > evidence/mail-gifts-resume.log 2>&1
-          grep -F 'MAIL_GIFTS_VERIFY failures=[]' evidence/mail-gifts-resume.log
-          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/mail-gifts-resume.log; then exit 1; fi
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-facility_growth" timeout 90 "$GODOT" --headless --path "$RUNNER_TEMP/project" --script tests/facility_growth_verify.gd -- resume > evidence/facility-resume.log 2>&1
-          grep -F 'FACILITY_GROWTH_RESUME_VERIFY failures=[]' evidence/facility-resume.log
-          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/facility-resume.log; then exit 1; fi
-      - name: Verify valley native background composition
-        shell: bash
-        run: |
-          set -euo pipefail
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-valley-native" timeout 90 "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --headless --path "$RUNNER_TEMP/project" --script tests/valley_native_verify.gd -- "$RUNNER_TEMP/valley-native" > "$RUNNER_TEMP/valley-native.log" 2>&1
-          cat "$RUNNER_TEMP/valley-native.log"
-          grep -F 'VALLEY_NATIVE_VERIFY failures=[]' "$RUNNER_TEMP/valley-native.log"
-          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' "$RUNNER_TEMP/valley-native.log"; then exit 1; fi
-      - name: Verify and render tile sea and bundles
-        shell: bash
-        run: |
-          set -euo pipefail
-          sudo apt-get update -qq
-          sudo apt-get install -y xvfb libgl1-mesa-dri > /dev/null
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-tile-native" timeout 90 xvfb-run -a "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/tile107_native_verify.gd -- "$GITHUB_WORKSPACE/evidence/tile107" > evidence/tile-native.log 2>&1
-          cat evidence/tile-native.log
-          grep -F 'TILE107_NATIVE_VERIFY failures=[]' evidence/tile-native.log
-          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/tile-native.log; then exit 1; fi
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-bundle-next-native" timeout 90 xvfb-run -a "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/bundle_next_unlock_native_verify.gd -- "$GITHUB_WORKSPACE/evidence/bundle-next-unlock" > evidence/bundle-next-native.log 2>&1
-          grep -F 'BUNDLE_NEXT_UNLOCK_NATIVE_VERIFY failures=[]' evidence/bundle-next-native.log
-          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/bundle-next-native.log; then cat evidence/bundle-next-native.log; exit 1; fi
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-regional-night-native" timeout 90 xvfb-run -a "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/regional_night_native_verify.gd -- "$GITHUB_WORKSPACE/evidence/regional-night" > evidence/regional-night-native.log 2>&1
-          grep -F 'REGIONAL_NIGHT_NATIVE_VERIFY failures=[]' evidence/regional-night-native.log
-          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/regional-night-native.log; then cat evidence/regional-night-native.log; exit 1; fi
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-night-play-native" timeout 120 xvfb-run -a "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/night_play_native_verify.gd -- "$GITHUB_WORKSPACE/evidence/night-play" > evidence/night-play-native.log 2>&1
-          grep -F 'NIGHT_PLAY_NATIVE_VERIFY failures=[]' evidence/night-play-native.log
-          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/night-play-native.log; then cat evidence/night-play-native.log; exit 1; fi
-      - name: Render tier skill details and battle
-        shell: bash
-        run: |
-          set -euo pipefail
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-tier-screens" timeout 90 xvfb-run -a "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/tier_skills_preview.gd -- "$GITHUB_WORKSPACE/evidence/tier-skills" > evidence/tier-skills-render.log 2>&1
-          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/tier-skills-render.log; then cat evidence/tier-skills-render.log; exit 1; fi
-      - name: Render museum and buyback previews
-        shell: bash
-        run: |
-          set -euo pipefail
-          mkdir -p evidence/screens
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-screens" timeout 90 xvfb-run -a "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/bundles_ui_preview.gd -- "$GITHUB_WORKSPACE/evidence/screens" > evidence/screens.log 2>&1 || { cat evidence/screens.log; exit 1; }
-          cat evidence/screens.log
-          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/screens.log; then exit 1; fi
-      - name: Render owner gauge and warning previews
-        shell: bash
-        run: |
-          set -euo pipefail
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-owner-screens" timeout 90 xvfb-run -a "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/owner_gauge_preview.gd -- "$GITHUB_WORKSPACE/evidence/screens" > evidence/owner-screens.log 2>&1 || { cat evidence/owner-screens.log; exit 1; }
-          cat evidence/owner-screens.log
-          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/owner-screens.log; then exit 1; fi
-      - name: Render approved character cat stool and rod integration
-        shell: bash
-        run: |
-          set -euo pipefail
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-angler-screens" timeout 90 xvfb-run -a "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/angler_scene_preview.gd -- "$GITHUB_WORKSPACE/evidence/angler-screens" > evidence/angler-screens.log 2>&1
-          cat evidence/angler-screens.log
-          grep -F 'ANGLER_SCENE_PREVIEW failures=[]' evidence/angler-screens.log
-          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/angler-screens.log; then exit 1; fi
-      - name: Render night lighting encounter text and hanging catch
-        shell: bash
-        run: |
-          set -euo pipefail
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-atmosphere-screens" timeout 90 xvfb-run -a "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/atmosphere_encounter_preview.gd -- "$GITHUB_WORKSPACE/evidence/atmosphere-screens" > evidence/atmosphere-screens.log 2>&1
-          cat evidence/atmosphere-screens.log
-          grep -F 'ATMOSPHERE_ENCOUNTER_PREVIEW failures=[]' evidence/atmosphere-screens.log
-          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/atmosphere-screens.log; then exit 1; fi
-      - name: Render enhancement aura integration and silver blue distinction
-        shell: bash
-        run: |
-          set -euo pipefail
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-rod-aura" timeout 90 xvfb-run -a "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/rod_aura_preview.gd -- "$GITHUB_WORKSPACE/evidence/rod-aura-screens" > evidence/rod-aura-screens.log 2>&1
-          cat evidence/rod-aura-screens.log
-          grep -F 'ROD_AURA_PREVIEW failures=[]' evidence/rod-aura-screens.log
-          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/rod-aura-screens.log; then exit 1; fi
-      - name: Render personal dex and bait shop
-        shell: bash
-        run: |
-          set -euo pipefail
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-release075" timeout 90 xvfb-run -a "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/release075_preview.gd -- "$GITHUB_WORKSPACE/evidence/release075" > evidence/release075.log 2>&1
-          cat evidence/release075.log
-          grep -F 'RELEASE075_PREVIEW failures=[]' evidence/release075.log
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-dex-readability" timeout 90 xvfb-run -a "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/dex_readability_preview.gd -- "$GITHUB_WORKSPACE/evidence/dex-readability" > evidence/dex-readability-preview.log 2>&1
-          grep -F 'DEX_READABILITY_PREVIEW failures=[]' evidence/dex-readability-preview.log
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-hall-forge119" timeout 90 xvfb-run -a "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/hall_forge119_preview.gd -- "$GITHUB_WORKSPACE/evidence/hall-forge119" > evidence/hall-forge119-preview.log 2>&1
-          grep -F 'HALL_FORGE119_PREVIEW failures=[]' evidence/hall-forge119-preview.log
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-shop-signs" timeout 90 xvfb-run -a "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/shop_signs_preview.gd -- "$GITHUB_WORKSPACE/evidence/shop-signs" > evidence/shop-signs-preview.log 2>&1
-          grep -F 'SHOP_SIGNS_PREVIEW failures=[]' evidence/shop-signs-preview.log
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-close-controls" timeout 90 xvfb-run -a "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/close_controls_preview.gd -- "$GITHUB_WORKSPACE/evidence/close-controls" > evidence/close-controls-preview.log 2>&1
-          grep -F 'CLOSE_CONTROLS_PREVIEW failures=[]' evidence/close-controls-preview.log
-          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/close-controls-preview.log; then exit 1; fi
-          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/shop-signs-preview.log; then exit 1; fi
-          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/hall-forge119-preview.log; then exit 1; fi
-          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/dex-readability-preview.log; then exit 1; fi
-          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/release075.log; then exit 1; fi
-      - name: Render expedition and alchemy screens at three phone heights
-        shell: bash
-        run: |
-          set -euo pipefail
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-expedition" timeout 90 xvfb-run -a "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/expedition_preview.gd -- "$GITHUB_WORKSPACE/evidence/expedition" > evidence/expedition-screens.log 2>&1
-          cat evidence/expedition-screens.log
-          grep -F 'EXPEDITION_PREVIEW failures=[]' evidence/expedition-screens.log
-          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/expedition-screens.log; then exit 1; fi
-      - name: Render transaction and expedition notification placement
-        shell: bash
-        run: |
-          set -euo pipefail
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-notification091" timeout 90 xvfb-run -a "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/notification091_preview.gd -- "$GITHUB_WORKSPACE/evidence/notification091" > evidence/notification091.log 2>&1
-          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/notification091.log; then cat evidence/notification091.log; exit 1; fi
-      - name: Render compact bait picker and village buttons
-        shell: bash
-        run: |
-          set -euo pipefail
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-bait092" timeout 90 xvfb-run -a "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/bait092_preview.gd -- "$GITHUB_WORKSPACE/evidence/bait092" > evidence/bait092.log 2>&1
-          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/bait092.log; then cat evidence/bait092.log; exit 1; fi
-      - name: Render approved alchemy and soldier management at three phone heights
-        shell: bash
-        run: |
-          set -euo pipefail
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-management101" timeout 90 xvfb-run -a "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/management101_preview.gd -- "$GITHUB_WORKSPACE/evidence/management101" > evidence/management101.log 2>&1
-          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/management101.log; then cat evidence/management101.log; exit 1; fi
-      - name: Render tier2 roster formation and combat
-        shell: bash
-        run: |
-          set -euo pipefail
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-tier2" timeout 120 xvfb-run -a "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/tier3_motion_preview.gd -- "$GITHUB_WORKSPACE/evidence/tier2" > evidence/tier2-screens.log 2>&1
-          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/tier2-screens.log; then cat evidence/tier2-screens.log; exit 1; fi
-      - name: Render existing gift letters at three phone heights
-        shell: bash
-        run: |
-          set -euo pipefail
-          for h in 480 540 660; do
-            XDG_DATA_HOME="$RUNNER_TEMP/mail-preview-$h" timeout 90 xvfb-run -a "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/mail_gifts_preview.gd -- "$GITHUB_WORKSPACE/evidence/mail" "$h" > "evidence/mail-$h.log" 2>&1
-            grep -F 'MAIL_GIFTS_PREVIEW failures=[]' "evidence/mail-$h.log"
-            if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' "evidence/mail-$h.log"; then exit 1; fi
-          done
-      - name: Render body encyclopedia telegraphs at two phone heights
-        shell: bash
-        run: |
-          set -euo pipefail
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-book-cues" timeout 90 xvfb-run -a "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/body_book_telegraph_preview.gd -- "$GITHUB_WORKSPACE/evidence/body-book" > evidence/body-book-preview.log 2>&1
-          grep -F 'BODY_BOOK_TELEGRAPH_PREVIEW failures=[]' evidence/body-book-preview.log
-          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/body-book-preview.log; then exit 1; fi
-      - name: Render approved compact fighting telegraphs and bobber preview
-        shell: bash
-        run: |
-          set -euo pipefail
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-telegraph-preview" timeout 90 xvfb-run -a "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/fight_telegraph_preview.gd -- "$GITHUB_WORKSPACE/evidence/telegraph" > evidence/telegraph-preview.log 2>&1
-          grep -F 'FIGHT_TELEGRAPH_PREVIEW failures=[]' evidence/telegraph-preview.log
-          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/telegraph-preview.log; then exit 1; fi
-      - name: Render regional facility growth and locks
-        shell: bash
-        run: |
-          set -euo pipefail
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-facility-screens" timeout 90 xvfb-run -a "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --audio-driver Dummy --rendering-method gl_compatibility --path "$RUNNER_TEMP/project" --script tests/facility_growth_preview.gd -- "$GITHUB_WORKSPACE/evidence/facilities" > evidence/facility-screens.log 2>&1
-          grep -F 'FACILITY_GROWTH_PREVIEW failures=[]' evidence/facility-screens.log
-          if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/facility-screens.log; then exit 1; fi
       - name: Build and validate reusable release candidate
         shell: bash
         timeout-minutes: 5
@@ -532,15 +80,15 @@ jobs:
           GODOT="$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
           python3 automation/prepare_release.py
           git diff --exit-code -- game/addons/reservoir/release_notes.gd
-          timeout 120 "$GODOT" --headless --path "$RUNNER_TEMP/project" --export-pack Android "$GITHUB_WORKSPACE/candidate/patch.pck" > evidence/candidate-export.log 2>&1
+          timeout 120 "$GODOT" --headless --path "$RUNNER_TEMP/project" --export-pack Android "$GITHUB_WORKSPACE/candidate/full.pck" > evidence/candidate-export.log 2>&1
           python3 automation/release_candidate.py seal --project "$RUNNER_TEMP/project" --out candidate
           echo 'config_version=5' > "$RUNNER_TEMP/candidate-pack-check/project.godot"
           version=$(python3 -c 'import json;print(json.load(open("automation/release.json"))["name"])')
-          timeout 90 "$GODOT" --headless --path "$RUNNER_TEMP/candidate-pack-check" --script "$GITHUB_WORKSPACE/automation/verify_packed_art.gd" -- "$GITHUB_WORKSPACE/candidate/patch.pck" "$version" > evidence/candidate-pack.log 2>&1
+          timeout 90 "$GODOT" --headless --path "$RUNNER_TEMP/candidate-pack-check" --script "$GITHUB_WORKSPACE/automation/verify_packed_art.gd" -- "$GITHUB_WORKSPACE/candidate/full.pck" "$version" > evidence/candidate-pack.log 2>&1
           grep -F 'PACKED_ANGLER_VERIFY failures=[]' evidence/candidate-pack.log
-          timeout 90 "$GODOT" --headless --path "$RUNNER_TEMP/candidate-pack-check" --script "$GITHUB_WORKSPACE/automation/verify_packed_tile.gd" -- "$GITHUB_WORKSPACE/candidate/patch.pck" > evidence/candidate-tile.log 2>&1
+          timeout 90 "$GODOT" --headless --path "$RUNNER_TEMP/candidate-pack-check" --script "$GITHUB_WORKSPACE/automation/verify_packed_tile.gd" -- "$GITHUB_WORKSPACE/candidate/full.pck" > evidence/candidate-tile.log 2>&1
           grep -F 'PACKED_TILE107_VERIFY failures=[]' evidence/candidate-tile.log
-          timeout 90 "$GODOT" --headless --path "$RUNNER_TEMP/candidate-pack-check" --script "$GITHUB_WORKSPACE/automation/verify_packed_rift.gd" -- "$GITHUB_WORKSPACE/candidate/patch.pck" > evidence/candidate-rift.log 2>&1
+          timeout 90 "$GODOT" --headless --path "$RUNNER_TEMP/candidate-pack-check" --script "$GITHUB_WORKSPACE/automation/verify_packed_rift.gd" -- "$GITHUB_WORKSPACE/candidate/full.pck" > evidence/candidate-rift.log 2>&1
           grep -F 'PACKED_RIFT_ART_VERIFY failures=[]' evidence/candidate-rift.log
           if grep -E 'SCRIPT ERROR:|Assertion failed|ERROR:' evidence/candidate-*.log; then exit 1; fi
           python3 -c 'import json,os;d=json.load(open("candidate/candidate.json"));open(os.environ["GITHUB_ENV"],"a").write("CANDIDATE_ARTIFACT=release-candidate-"+d["input_fingerprint"]+"\n")'

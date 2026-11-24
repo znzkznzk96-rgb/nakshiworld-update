@@ -1,0 +1,8 @@
+{
+ "desc": "Upgraded elite water spirit as a tiny humanoid: pale blue flowing robe with a long fishing-line tail ending in a big gold hook, two gold cardboard cubes, round white eyes in the black void face. Tiny chibi humanoid with big head, two arms and two legs, right-facing 3/4. Keep the exact same pixel style, size, 1px outline, palette and black void face as the input. Remove ground shadow, no glow, no ring, no halo. Transparent background.",
+ "seed": 2026122806,
+ "input_sha256": "96205d1cad3712d3ed6094d33f000720c1a6ed34107560837f35a540e159ca04",
+ "before": 4465.0,
+ "after": 4464.0,
+ "sha256": "c6f49c3961d3c4dc47e65510573ad8ba45bd74269d04c0db6ad3d6d8403d5e18"
+}

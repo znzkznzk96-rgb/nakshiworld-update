@@ -1,0 +1,8 @@
+{
+ "desc": "Clean up this 96x96 pixel art creature: keep exactly the same design, shape, pose and colors. Fine 1-pixel detail like a classic 16-bit game sprite. Remove noise and stray pixels, make outlines continuous 1px dark navy without gaps or jagged stairs, clean flat 2-3 tone shading, no blur, no ground shadow, transparent background.",
+ "seed": 2026113220,
+ "input_sha256": "aaafda63dc477f74f67b5070a00888f662b43ae28b4cb0bb708b0b4b696201ac",
+ "before": 4585.0,
+ "after": 4584.0,
+ "sha256": "b8f40a4d59501bb383222be43bb78c3214a9a4f5dc9029ea36b7bfa087ae112d"
+}

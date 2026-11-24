@@ -1,0 +1,9 @@
+HTTP/1.1 200 Connection Established
+
+HTTP/2 202 
+date: Sun, 22 Nov 2026 10:12:00 GMT
+content-type: application/json
+content-length: 95
+server: uvicorn
+vary: Accept-Encoding
+

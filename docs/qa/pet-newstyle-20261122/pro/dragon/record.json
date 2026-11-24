@@ -1,0 +1,10 @@
+{
+ "endpoint": "edit-images-v2",
+ "method": "edit_with_reference",
+ "ref_style": "final2/otter/otter-final.png",
+ "seed": 2026112901,
+ "before": 4767,
+ "after": 4757,
+ "generations_charged": 10,
+ "sha256": "fbfc9e9029871435b1ec5fc7b06613119f720c51342437da115607a39c22ae6c"
+}

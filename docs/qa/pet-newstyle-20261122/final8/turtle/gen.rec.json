@@ -1,0 +1,8 @@
+{
+ "desc": "Redraw this backpack turtle from scratch as a clean, sharp 16-bit pixel art sprite. Do not copy the source; keep only the species, pose and colors: teal shell, green bedroll backpack with straps, light blue skin. Eyes: small, a dark pupil with one clear white highlight pixel, crisp and sharp. Dark navy outline, 2 to 3 flat shade steps, clean readable shapes, no noise, no texture, no gradients, no blur, no ground shadow.",
+ "seed": 2026121102,
+ "input_sha256": "e3637c47f38f08ff14874c1d2f2e69f8b036f26cdc587f17b0cc6f6507861a79",
+ "before": 4710.0,
+ "after": 4709.0,
+ "sha256": "8ede67e859c4d1a69b83c2bfe0cd91c0eab636cce7e52c4c24cf44c3280b4b8d"
+}

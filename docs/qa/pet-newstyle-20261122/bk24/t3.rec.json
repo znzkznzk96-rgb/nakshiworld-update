@@ -1,0 +1,8 @@
+{
+ "desc": "Make an upgraded version of this dark creature: dark violet round body with a few red crystal shards on its back, narrow glowing red slit eyes in the black void face, a gold collar, one gold cardboard cube on its back. Keep the exact same pixel style, size, 1px outline, palette and black void face as the input. Remove ground shadow, no glow, no ring. Transparent background.",
+ "seed": 2026122603,
+ "input_sha256": "b061fa4c6c5e53d4b8d9403d1d303dd554493ad1d02b3d7b2fb25788a9b3cd26",
+ "before": 4478.0,
+ "after": 4477.0,
+ "sha256": "2e4d8941f50f198622e8405148363ba9135446a5c4f7337a505341b14d3e790c"
+}

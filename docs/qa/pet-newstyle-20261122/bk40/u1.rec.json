@@ -1,0 +1,8 @@
+{
+ "desc": "Keep the same character, colors, outline and details, about 78 pixels wide and 68 pixels tall. Make it match small pets that stand on four-ish low legs seen from the right side: a right-facing 3/4 view with the whole head and hood turned right so the face and eyes sit on the right half of the head, body low and horizontal, tail or cloak trailing to the left. Wings folded back and spread low behind the body, scythe lying along the back. 1px outline, flat shades. Transparent background.",
+ "seed": 2026124101,
+ "input_sha256": "902d5e14187755b6ad1c69d931e007e1fc0509112f556d9b58425601f8acd85c",
+ "before": 4419.0,
+ "after": 4418.0,
+ "sha256": "486c2b2e3132742593a9f861f27d8388c0fec7df0e209b37ec70aec626a45357"
+}

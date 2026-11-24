@@ -1,0 +1,182 @@
+[
+  {
+    "id": "hamster3-A",
+    "request": {
+      "description": "JEWEL HAMSTER: adorable golden baby hamster with huge round cheeks, cream belly, pink nose. A cluster of THREE LARGE FACETED TURQUOISE CRYSTALS grows from a small brown pouch on its upper BACK, clearly visible above shoulder on the left. Big angular gemstones with bright cyan highlights, unmistakably gemstone-themed. One small matching gem on forehead. Sitting upright, two small pink hands beside chest and two larger feet far below, all visible and separated. Gems must not hide hands or feet. Short ears, gentle smile. Full body AND crystal tips with wide margins, no crown. One extremely cute baby animal companion, big round head and bright eyes, natural clear anatomy. Facing RIGHT in near-side three-quarter view. All limbs visibly separated, clearly connected to body, no merged limbs, no extra limbs. Tail and accessories never hide feet. Bright crisp 16-bit pixel art, clean pixel clusters, 3-4 shades per color, low noise. Whole body centered with clear margin, no text, no scenery, no ground shadow, no loose floating particles.",
+      "image_size": {
+        "width": 96,
+        "height": 96
+      },
+      "outline": "selective outline",
+      "detail": "medium detail",
+      "view": "side",
+      "direction": "east",
+      "no_background": true,
+      "seed": 2026111920,
+      "enhance_prompt": false
+    },
+    "response_metadata": {
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "enhanced_prompt": null,
+      "enhance_usage": null
+    },
+    "submission": {
+      "endpoint": "create-image-pixen",
+      "at": 1795006720.018645,
+      "attempt": 1
+    }
+  },
+  {
+    "id": "hamster3-B",
+    "request": {
+      "description": "Magical jewel baby hamster, snow-white fluffy fur, tiny lilac ears, round plump cheeks, pink nose. TWO LARGE violet faceted amethyst crystals set like triangular shoulder pads above its arms, bright pink-white facet highlights. A broad low amethyst gem tiara snug between ears, not tall. Gemstones are a major visible part of the silhouette. Sitting upright, two tiny pink hands at chest height below shoulder crystals and two broad pink feet planted far below. All limbs unobstructed. Cute smiling face, no armor over belly. Entire body and jewels occupy middle 70 percent canvas, large margins. One extremely cute baby animal companion, big round head and bright eyes, natural clear anatomy. Facing RIGHT in near-side three-quarter view. All limbs visibly separated, clearly connected to body, no merged limbs, no extra limbs. Tail and accessories never hide feet. Bright crisp 16-bit pixel art, clean pixel clusters, 3-4 shades per color, low noise. Whole body centered with clear margin, no text, no scenery, no ground shadow, no loose floating particles.",
+      "image_size": {
+        "width": 96,
+        "height": 96
+      },
+      "outline": "selective outline",
+      "detail": "medium detail",
+      "view": "side",
+      "direction": "east",
+      "no_background": true,
+      "seed": 2026111921,
+      "enhance_prompt": false
+    },
+    "response_metadata": {
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "enhanced_prompt": null,
+      "enhance_usage": null
+    },
+    "submission": {
+      "endpoint": "create-image-pixen",
+      "at": 1795006758.9717782,
+      "attempt": 1
+    }
+  },
+  {
+    "id": "chick3-A",
+    "request": {
+      "description": "FIRE CHICK, tiny round baby phoenix chicken, not an adult hawk. Chubby golden-yellow chick with very short orange beak, big gentle glossy eyes and blush cheeks. A compact three-point orange-red FLAME-shaped feather tuft on head and short flame-shaped red-orange tail behind. Small rounded wings with orange flame tips, clearly ABOVE two separated orange feet. Cream belly, fluffy soft face, no sharp eyebrows, no jewelry, no scarf. Warm red-orange-yellow color blocks. Full body including flame tuft with wide transparent margin, no detached fire particles. One extremely cute baby animal companion, big round head and bright eyes, natural clear anatomy. Facing RIGHT in near-side three-quarter view. All limbs visibly separated, clearly connected to body, no merged limbs, no extra limbs. Tail and accessories never hide feet. Bright crisp 16-bit pixel art, clean pixel clusters, 3-4 shades per color, low noise. Whole body centered with clear margin, no text, no scenery, no ground shadow, no loose floating particles.",
+      "image_size": {
+        "width": 96,
+        "height": 96
+      },
+      "outline": "selective outline",
+      "detail": "medium detail",
+      "view": "side",
+      "direction": "east",
+      "no_background": true,
+      "seed": 2026111922,
+      "enhance_prompt": false
+    },
+    "response_metadata": {
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "enhanced_prompt": null,
+      "enhance_usage": null
+    },
+    "submission": {
+      "endpoint": "create-image-pixen",
+      "at": 1795006825.2331946,
+      "attempt": 1
+    }
+  },
+  {
+    "id": "chick3-B",
+    "request": {
+      "description": "EMBER CHICK, extremely cute chubby charcoal-grey baby chicken with pale cream face and round orange belly. Tiny yellow beak, big gentle black eyes with bright highlights, pink blush, no angry eyebrows. Compact bright orange FLAME-shaped feather tuft, orange-red flame tips on TWO short side wings, short flame-shaped tail. TWO little orange feet separated below belly, wings clearly above feet. Soft rounded baby proportions, not a hawk, no jewelry or clothes. Bold simple color clusters. Entire tuft, tail and toes inside wide margins, no floating particles. One extremely cute baby animal companion, big round head and bright eyes, natural clear anatomy. Facing RIGHT in near-side three-quarter view. All limbs visibly separated, clearly connected to body, no merged limbs, no extra limbs. Tail and accessories never hide feet. Bright crisp 16-bit pixel art, clean pixel clusters, 3-4 shades per color, low noise. Whole body centered with clear margin, no text, no scenery, no ground shadow, no loose floating particles.",
+      "image_size": {
+        "width": 96,
+        "height": 96
+      },
+      "outline": "selective outline",
+      "detail": "medium detail",
+      "view": "side",
+      "direction": "east",
+      "no_background": true,
+      "seed": 2026111923,
+      "enhance_prompt": false
+    },
+    "response_metadata": {
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "enhanced_prompt": null,
+      "enhance_usage": null
+    },
+    "submission": {
+      "endpoint": "create-image-pixen",
+      "at": 1795006874.8726234,
+      "attempt": 1
+    }
+  },
+  {
+    "id": "boar3-A",
+    "request": {
+      "description": "Extremely adorable BABY wild boar piglet, toy-like chibi proportions. Oversized ROUND head, tiny short flat oval pink button snout, small triangular ears, enormous gentle dark eyes with highlights, round pink blush cheeks. Smooth honey-caramel coat with THREE broad cream baby stripes along back. Short plump bean-shaped body on FOUR tiny stout legs with clearly spaced little dark hooves. Very short neck. NO tusks, NO bristly fur, NO mane, NO fangs, NO long snout, NO clothes. Sweet shy smile. Natural four-legged stance, tail at back. Clean simple pixel clusters, broad clear margins. One extremely cute baby animal companion, big round head and bright eyes, natural clear anatomy. Facing RIGHT in near-side three-quarter view. All limbs visibly separated, clearly connected to body, no merged limbs, no extra limbs. Tail and accessories never hide feet. Bright crisp 16-bit pixel art, clean pixel clusters, 3-4 shades per color, low noise. Whole body centered with clear margin, no text, no scenery, no ground shadow, no loose floating particles.",
+      "image_size": {
+        "width": 96,
+        "height": 96
+      },
+      "outline": "selective outline",
+      "detail": "medium detail",
+      "view": "side",
+      "direction": "east",
+      "no_background": true,
+      "seed": 2026111924,
+      "enhance_prompt": false
+    },
+    "response_metadata": {
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "enhanced_prompt": null,
+      "enhance_usage": null
+    },
+    "submission": {
+      "endpoint": "create-image-pixen",
+      "at": 1795006930.3011217,
+      "attempt": 1
+    }
+  },
+  {
+    "id": "boar3-B",
+    "request": {
+      "description": "Super cute baby striped wild-boar piglet, rounded plush toy look. Smooth soft milk-chocolate fur, cream cheeks and belly, THREE pale cream horizontal stripes clearly visible along back. Huge round head with tiny SHORT pink button snout, small rounded triangular ears, very large glossy kind eyes, pink blush. Compact chubby body, FOUR short distinct legs with tiny dark hooves separated by gaps, small curled tail. NO tusks, NO spiky hair, NO beard, NO long muzzle, NO angry face, NO clothes. Friendly baby pose facing right. Full body with wide margins. One extremely cute baby animal companion, big round head and bright eyes, natural clear anatomy. Facing RIGHT in near-side three-quarter view. All limbs visibly separated, clearly connected to body, no merged limbs, no extra limbs. Tail and accessories never hide feet. Bright crisp 16-bit pixel art, clean pixel clusters, 3-4 shades per color, low noise. Whole body centered with clear margin, no text, no scenery, no ground shadow, no loose floating particles.",
+      "image_size": {
+        "width": 96,
+        "height": 96
+      },
+      "outline": "selective outline",
+      "detail": "medium detail",
+      "view": "side",
+      "direction": "east",
+      "no_background": true,
+      "seed": 2026111925,
+      "enhance_prompt": false
+    },
+    "response_metadata": {
+      "usage": {
+        "type": "generations",
+        "generations": 1.0
+      },
+      "enhanced_prompt": null,
+      "enhance_usage": null
+    },
+    "submission": {
+      "endpoint": "create-image-pixen",
+      "at": 1795006969.5246544,
+      "attempt": 1
+    }
+  }
+]

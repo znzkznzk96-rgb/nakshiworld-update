@@ -1,0 +1,10 @@
+{
+ "id": "hedgehog",
+ "ref": "../pet-roster-20261118/hedgehog-A.png",
+ "ref_sha256": "35c0f2757d423a1400d98bd015efea5d347cad3285a06266d10d0db9eec0514d",
+ "desc": "Keep this cute chubby chestnut hedgehog character design, but repaint it with rich material rendering like detailed painterly pixel art: thin dark selective outline in a darker shade of each fill color instead of a thick navy outline, many subtle tonal steps, desaturated natural palette, visible fur, feather or scale texture, soft volumetric lighting with a rim light, subtle wear. Keep 1px pixels, no chunky blocks.",
+ "seed": 2026112409,
+ "before": 4804.0,
+ "after": 4803.0,
+ "sha256": "a88bb586d25956dd1bcf0e1ab18558a9230b230938f15534b5702ecbf3163eae"
+}

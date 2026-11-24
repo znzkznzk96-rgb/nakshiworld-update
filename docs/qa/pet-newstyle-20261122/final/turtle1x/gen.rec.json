@@ -1,0 +1,8 @@
+{
+ "desc": "Redraw this backpack turtle as a detailed 16-bit indie game sprite: realistic turtle proportions, same face, teal shell, green bedroll backpack with straps, light blue skin, small plain eyes, same pose and silhouette. Muted natural palette, thin dark navy outline, 3-4 shade steps with pixel clusters, deeper shadows under head and belly, highlights on shell and bedroll, subtle shell shading. No gradients, no ground shadow.",
+ "seed": 2026121002,
+ "input_sha256": "e3637c47f38f08ff14874c1d2f2e69f8b036f26cdc587f17b0cc6f6507861a79",
+ "before": 4726.0,
+ "after": 4725.0,
+ "sha256": "da6b731bf490e1fba539a2a6fc8aee07bb041490b3ff5ed16a75cc0aa590e43d"
+}

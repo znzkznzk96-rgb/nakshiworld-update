@@ -1,0 +1,48 @@
+{
+  "request": {
+    "endpoint": "animate-with-text-v3",
+    "reference_sha256": "f3142dfc83551bc468533bce2c27788376b500121511e9eab9665f669f90553b",
+    "apex_sha256": "518a92ebf4ec116a1ed16c7772808630f5fc9183d53f711dfe309baf0a7982ce",
+    "action": "Cinematic pixel art shot from water level. Hold on dark pond ripple briefly; then a single golden carp bursts from lower left toward upper right in strong foreshortened diagonal, bending its body and whipping its tail. Mint-white water crown and separated drops follow the curved jump. A gold firework opens BEHIND the fish near the apex as the camera rushes in. Reach the supplied dramatic final pose. Rich indigo and gold. No text, no other animals, no fading or dissolving.",
+    "frame_count": 16,
+    "seed": 2026112091,
+    "no_background": false,
+    "enhance_prompt": false
+  },
+  "job": {
+    "usage": null,
+    "background_job_id": "25e5caf2-4711-43b7-81d1-860bd0f61cb5",
+    "status": "processing",
+    "enhanced_prompt": null,
+    "enhance_usage": null
+  },
+  "result": {
+    "usage": {
+      "type": "generations",
+      "generations": 4.0
+    },
+    "billing_charged": true
+  },
+  "actual_subscription_delta": 4.0,
+  "sha256": {
+    "apex.png": "518a92ebf4ec116a1ed16c7772808630f5fc9183d53f711dfe309baf0a7982ce",
+    "first.png": "f3142dfc83551bc468533bce2c27788376b500121511e9eab9665f669f90553b",
+    "frame-00.png": "5058f4a8d624378848e0c76c74dba1763ba70ec1c6a5b67dd21b1dc96484c87a",
+    "frame-01.png": "a81bceab325d0d5fd779f3e320476a4e163f318a79fc806b6adfa444b34050ab",
+    "frame-02.png": "42a9e173878f29276d640e1e351a9dcb0e5f812c29c409e023763520f78b7431",
+    "frame-03.png": "777d1210b187f11cdd1bc5e1514994407198d9f6323315159c97360c81f62ba7",
+    "frame-04.png": "97ad0a9e2d26f91442e0c673365e5f695d2db123d33b9ecffa02e8700ae1cb9d",
+    "frame-05.png": "7f73e3af7757d385de6c423fd1d690fd32916817ae1236b9c10e30244a3f9c87",
+    "frame-06.png": "07e61077d98949498657529b87cc3ee6382d0488354493e511dc4638f0a37a93",
+    "frame-07.png": "cda356cca50584c48b0bf45e143cd3c23f0127f25c2ac29569607808061b0e07",
+    "frame-08.png": "37f81c6bcd84c05e164f73bd08cb0e82018dafd98b7ca6beab0590b9f8102092",
+    "frame-09.png": "6226fd7a49b890f22c388a316a4532926028ce1bec5f3b2d76ff829a29975b38",
+    "frame-10.png": "8020923e5c76adbadcbb1b2fd8e254e80dbe395abb48a9f3b549df9d1c619f53",
+    "frame-11.png": "331df67cd6333ba5b39c60a137986ca2b8eb52a51c02802f2c5ac06c15cab05c",
+    "frame-12.png": "4968c4920368a478e4ef13bb0034f258799bc34062324e0358e7645d22090a85",
+    "frame-13.png": "1ea4d7f95db82c5f0fbff19497e281f809817a8333f4c591f9e3c717a229e297",
+    "frame-14.png": "1df852fd010253be228cc46d29e14f697725849866a0fcf342af65a9e6cf7247",
+    "frame-15.png": "cdbf7807e0c4d7a4f5fa38faef2f11809f08a692081d6c859db51419607298fa",
+    "frame-16.png": "ec5e60071525490306ef4e7f1c17646bd0a7326f8700f45d4ae3b5bfb0183677"
+  }
+}

@@ -1,0 +1,8 @@
+{
+ "desc": "Make a taller upgraded version of this ghost: a lavender hooded sheet body whose hem trails into a long thin pale-blue fishing-line tail ending in a small gold hook, two small white eyes, one gold cardboard cube on its back plus a tiny gold bell charm. Keep the exact same pixel style, size, 1px outline, palette and black void face as the input. Remove ground shadow, no glow, no ring. Transparent background.",
+ "seed": 2026122601,
+ "input_sha256": "a9e787d97447b0a21125e51280b11760186926739e252ed23ae033492b1f0826",
+ "before": 4480.0,
+ "after": 4479.0,
+ "sha256": "0eee1ed937561786032783598e1054e56bcfbd8f75ca60359a55fd4887449b53"
+}

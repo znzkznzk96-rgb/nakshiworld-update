@@ -1,0 +1,8 @@
+{
+ "desc": "Keep this exact hamster: same silhouette, pose, face, eyes, mouth, colors, outline and accessories. Only enrich the rendering: add more shading steps and pixel clusters for volume, deeper shadows under the head, belly and legs, highlights on gem and ears, subtle fur shading. No ground shadow, no noisy random texture.",
+ "seed": 2026120902,
+ "input_sha256": "b90580fefa8e853dd36cde791cd1c87e24d4cca6c9fc88a178fcf656631f4304",
+ "before": 4729.0,
+ "after": 4728.0,
+ "sha256": "9e5c8bc1778f95eb203dc142a5758d401d94f8f2a9901ecc9275ef8a0f76f0fa"
+}

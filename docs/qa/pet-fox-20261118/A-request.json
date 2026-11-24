@@ -1,0 +1,17 @@
+{
+  "description": "One extremely cute baby star-tail fox companion pet, full body sitting calmly, three-quarter view facing right, oversized round head, big glossy dark eyes with white highlights, short muzzle, small triangular ears, tiny short legs, chubby cuddly body. warm ivory cream fur, fluffy white cheeks, tiny pink blush, huge curled sapphire blue tail with cyan highlights and a bright small star-shaped tail tip, small gold star pendant. Charming premium fantasy pet for a cozy 16-bit pixel fishing game. Compact readable silhouette, clean crisp pixel clusters, 3 to 4 deliberate shades per color, bright saturated accents, selective dark purple outlines. Entire ears and tail within canvas, centered with clear margin. Single character only, no scenery, no text, no floor, no surrounding particles.",
+  "negative_description": "realistic, adult fox, long thin body, aggressive, blurry, gradient, noise, dithering, text, multiple characters, cropped ears, cropped tail",
+  "image_size": {
+    "width": 64,
+    "height": 64
+  },
+  "outline": "selective outline",
+  "shading": "medium shading",
+  "detail": "medium detail",
+  "view": "side",
+  "direction": "south-east",
+  "no_background": true,
+  "coverage_percentage": 85,
+  "seed": 2026111801,
+  "text_guidance_scale": 8
+}

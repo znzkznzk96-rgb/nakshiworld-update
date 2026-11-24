@@ -1,0 +1,13 @@
+{
+ "id": "chick",
+ "ref": "../pet-roster-20261118/chick7-B.png",
+ "ref_sha256": "9a196e7cd0eae21478ff642fc9edca5434ff7e68a76524947f3ab52fcef6afd7",
+ "desc": "Edit this exact image. The outer silhouette, size, pose and every body part position must stay identical; do not lengthen or move anything. Change only internal details: downy feather tufts, flame tuft shading, beak line, toe details. Keep colors. Thin dark selective outline, many tonal steps, rim light, 1px pixels.",
+ "seed": 2026112613,
+ "before": 4776.0,
+ "after": 4775.0,
+ "sha256": "bfc848c3f31aa50388c57a68a294cbf77ae74d68215c690db61f558615bdae81",
+ "iou": 0.867,
+ "changed": 0.391,
+ "gate_pass": false
+}

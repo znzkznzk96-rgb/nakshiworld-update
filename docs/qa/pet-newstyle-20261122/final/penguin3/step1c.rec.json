@@ -1,0 +1,8 @@
+{
+ "desc": "Redraw this little penguin as a detailed game sprite: realistic penguin proportions, same face, black and white body, purple knit hat with star, purple scarf, small plain eyes, same pose and silhouette. Desaturated natural palette, thin dark selective outline, many subtle tonal steps, soft lighting with rim light, clear limbs, no anti-aliasing.",
+ "seed": 2026120649,
+ "input_sha256": "afa68a9fbb09b151a74d02693b058cb20e087ff96e2771f9ab84af4ac586b147",
+ "before": 4739.0,
+ "after": 4738.0,
+ "sha256": "4d96d07e14daf836b8bd70ffcb6c422b68d0d2b8c4009fd3563215cf51149f7b"
+}

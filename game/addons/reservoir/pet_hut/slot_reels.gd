@@ -13,6 +13,8 @@ signal reel_stopped(col: int)
 @export var reels := 3
 @export var rows := 3
 @export var cell_size := Vector2(62, 48)
+## 심볼 그림 배율(1이면 그림 1픽셀이 게임 화면 1칸)
+@export var symbol_scale := 1.0
 ## 첫 릴이 도는 시간(초)
 @export var runtime := 1.2
 ## 도는 속도(칸/초). 클수록 빨리 흐른다.
@@ -59,12 +61,10 @@ func spin(result: Array) -> void:
 		s.queue_free()
 	_strips.clear()
 	_tweens.clear()
-	# 일정한 속도로 돌다가 마지막 2칸에서 부드럽게 감속해 멈춘다(처음부터 빠른 감속 곡선은 폰에서 너무 빨라 보였다)
-	var decel_cells := 2.0
-	var decel_time := 2.0 * decel_cells / speed   # 감속 시작 속도가 도는 속도와 같게 맞춘 시간
+	# 처음에 아주 빠르게 돌다가 점점 느려지며 멈춘다
 	for c in reels:
 		var duration := runtime + c * reel_delay
-		var fillers := maxi(int(speed * maxf(duration - decel_time, 0.2)) + int(decel_cells), rows)
+		var fillers := maxi(int(speed * duration), rows)
 		var strip := Node2D.new()
 		add_child(strip)
 		_strips.append(strip)
@@ -76,12 +76,11 @@ func spin(result: Array) -> void:
 		var travel := fillers * cell_size.y
 		strip.position = Vector2(c * cell_size.x, -travel)
 		var tw := create_tween()
-		tw.tween_property(strip, "position:y", -decel_cells * cell_size.y, (fillers - decel_cells) / speed).set_trans(Tween.TRANS_LINEAR)
 		if crawl_last and c == reels - 1:
-			tw.tween_property(strip, "position:y", -cell_size.y, 0.7).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+			tw.tween_property(strip, "position:y", -cell_size.y, duration * 0.8).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 			tw.tween_property(strip, "position:y", 0.0, 1.1).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 		else:
-			tw.tween_property(strip, "position:y", 0.0, decel_time).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+			tw.tween_property(strip, "position:y", 0.0, duration).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 		tw.finished.connect(_on_reel_done.bind(c))
 		_tweens.append(tw)
 
@@ -100,6 +99,7 @@ func _add_symbol(strip: Node2D, idx: int, row_index: int, blurred := false) -> v
 	var sp := Sprite2D.new()
 	sp.texture = _blur[idx] if blurred and blur_radius > 0 else symbols[idx]
 	sp.centered = true
+	sp.scale = Vector2(symbol_scale, symbol_scale)
 	sp.position = Vector2(cell_size.x * 0.5, cell_size.y * (row_index + 0.5))
 	strip.add_child(sp)
 
@@ -133,17 +133,18 @@ func _make_blur() -> void:
 					dst.set_pixel(x, y, Color(r / a, g / a, b / a, a / n))
 		_blur.append(ImageTexture.create_from_image(dst))
 
-## 도트 느낌이 나게 정수 좌표 계단으로만 그린다(부드러운 그라데이션 없음).
+## 도트 느낌이 나게 그림 1픽셀(폰 화면 3픽셀) 계단으로만 그린다(부드러운 그라데이션 없음).
 func _draw_glass() -> void:
-	var w := int(size.x)
-	var h := int(size.y)
+	var u := symbol_scale if symbol_scale > 0.0 else 1.0
+	var w := int(size.x / u)
+	var h := int(size.y / u)
 	# 위·아래 어두운 띠 (릴이 둥글게 말린 느낌), 3단계
 	for i in 3:
 		var a := 0.34 - i * 0.11
-		_glass.draw_rect(Rect2(0, i * 3, w, 3), Color(0, 0, 0, a))
-		_glass.draw_rect(Rect2(0, h - (i + 1) * 3, w, 3), Color(0, 0, 0, a))
+		_glass.draw_rect(Rect2(0, i * 3 * u, w * u, 3 * u), Color(0, 0, 0, a))
+		_glass.draw_rect(Rect2(0, (h - (i + 1) * 3) * u, w * u, 3 * u), Color(0, 0, 0, a))
 	# 비스듬한 반사 줄무늬 두 줄
 	for y in h:
 		var x1 := int(w * 0.30 - y * 0.55)
-		_glass.draw_rect(Rect2(x1, y, 7, 1), Color(1, 1, 1, 0.13))
-		_glass.draw_rect(Rect2(x1 + 12, y, 3, 1), Color(1, 1, 1, 0.09))
+		_glass.draw_rect(Rect2(x1 * u, y * u, 7 * u, u), Color(1, 1, 1, 0.13))
+		_glass.draw_rect(Rect2((x1 + 12) * u, y * u, 3 * u, u), Color(1, 1, 1, 0.09))

@@ -1,0 +1,8 @@
+{
+ "desc": "Make an upgraded version of this winged creature: bigger pale-lavender star-patterned wings with gold star marks, a long soft tail with a gold star tip, sleepy half-closed white eyes in the black void face, one gold cardboard cube on its back. Keep the exact same pixel style, size, 1px outline, palette and black void face as the input. Remove ground shadow, no glow, no ring. Transparent background.",
+ "seed": 2026122602,
+ "input_sha256": "039936199a7326fac7b1c55aedeadb856899a7597d8aedb85f44fcf8d9123e91",
+ "before": 4479.0,
+ "after": 4478.0,
+ "sha256": "83f03f93ffd191538518f556571fd817969a343acc17480f6f2ca64c5af8af5b"
+}

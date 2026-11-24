@@ -1,0 +1,1 @@
+{"id": 9, "name": "triple", "req": {"description": "pixel art three small glowing cyan eyes arranged in a triangle, front view", "image_size": {"width": 32, "height": 32}, "detail": "highly detailed", "view": "side", "no_background": true, "seed": 2026112309}, "before": 4815.0, "after": 4814.0, "sha": "9d09e8b42057701b659748e0763ab7b09d670a17b30d66f9a530339bedcf2436"}

@@ -1,0 +1,10 @@
+{
+ "id": "squirrel",
+ "ref": "../pet-roster-20261118/cd-pixellab-right/chestnut-squirrel-A.png",
+ "ref_sha256": "f4147d799b2516bc0c72197db7723d0450711aebd042dcfdb3b75878c36bc328",
+ "desc": "Keep this cute chubby chestnut squirrel character design, but repaint it with rich material rendering like detailed painterly pixel art: thin dark selective outline in a darker shade of each fill color instead of a thick navy outline, many subtle tonal steps, desaturated natural palette, visible fur, feather or scale texture, soft volumetric lighting with a rim light, subtle wear. Keep 1px pixels, no chunky blocks.",
+ "seed": 2026112415,
+ "before": 4798.0,
+ "after": 4797.0,
+ "sha256": "98a2b7284519db5d083e46a402e60249a9e1a51dce4ba8a3ec1806f6b1cce969"
+}

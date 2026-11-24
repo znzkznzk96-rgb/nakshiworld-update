@@ -1,5 +1,7 @@
 """Build once after verification; publish exactly those bytes after approval."""
-import argparse, hashlib, json, os, pathlib, subprocess, time, zipfile
+import argparse, hashlib, json, os, pathlib, subprocess, sys, time, zipfile
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+import delta_pack, risk_check
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 RIFT_SELECTION = 'docs/art/rift-fish/APPROVED_MOTION_20_20261111.json'
 INPUTS = ['game', 'automation', '.github/workflows/verify-work.yml', '.github/workflows/release-patch.yml', RIFT_SELECTION, 'docs/art/rift-background-20261111/approved-clean-data']
@@ -17,11 +19,21 @@ def save(path, value): path.write_text(json.dumps(value,ensure_ascii=False,inden
 def metadata(out, source):
     names=['patch.pck','game-source.zip','version.json']
     return {'schema':1,'source_commit':source,'input_fingerprint':fingerprint(),'tools':TOOLS,'run_id':int(os.environ.get('GITHUB_RUN_ID','0')),'files':{n:{'size':(out/n).stat().st_size,'sha256':digest(out/n)} for n in names}}
+APK_BASE = 'automation/apk_base.json'
 def seal(project, out):
     start=time.monotonic();out.mkdir(parents=True,exist_ok=True)
     version=json.loads((ROOT/'automation/release.json').read_text());source=git('rev-parse','HEAD')
-    patch=out/'patch.pck';assert patch.read_bytes()[:4]==b'GDPC' and patch.stat().st_size>1000000
-    manifest=dict(version,source_commit=source,size=patch.stat().st_size,sha256=digest(patch));save(out/'version.json',manifest)
+    # export-pack이 만든 전체 pck(full.pck)는 APK를 만들 때만 쓴다. 폰이 받는 patch.pck은 APK와 달라진 파일만 담는다.
+    full=out/'full.pck';assert full.read_bytes()[:4]==b'GDPC' and full.stat().st_size>100
+    patch=out/'patch.pck';base_path=ROOT/APK_BASE;delta=base_path.exists()
+    if delta:
+        base=json.loads(base_path.read_text());raw=full.read_bytes();blob,changed=delta_pack.build_delta(raw,base);patch.write_bytes(blob)
+        merged={n:hashlib.md5(d).hexdigest() for n,d in delta_pack.read_pck(blob).items()}
+        for n,d in delta_pack.read_pck(raw).items():   # APK 기준 + 업데이트 = 전체와 같아야 한다
+            if n not in delta_pack.SKIP: assert merged.get(n,base['files'].get(n))==hashlib.md5(d).hexdigest(),n
+    else: patch.write_bytes(full.read_bytes())   # 기준 APK가 아직 없을 때(첫 APK 만들기)만: 공개 불가
+    assert patch.read_bytes()[:4]==b'GDPC'
+    manifest=dict(version,source_commit=source,size=patch.stat().st_size,sha256=digest(patch),delta=delta);save(out/'version.json',manifest)
     with zipfile.ZipFile(out/'game-source.zip','w',zipfile.ZIP_DEFLATED) as z:
         for p in sorted(project.rglob('*')):
             rel=p.relative_to(project)
@@ -31,7 +43,7 @@ def seal(project, out):
         assert z.testzip() is None
         for p in (ROOT/'game').rglob('*'):
             if p.is_file() and '.godot' not in p.parts and p.suffix!='.log': assert z.read(p.relative_to(ROOT).as_posix())==p.read_bytes(),str(p)
-    report=metadata(out,source);report['version']=version;report['seal_seconds']=round(time.monotonic()-start,3);report['verification_and_restore_seconds']=round(time.time()-float(os.environ.get('VERIFICATION_STARTED',time.time())),3);save(out/'candidate.json',report)
+    report=metadata(out,source);report['version']=version;report['delta']=delta;report['full_pck']={'size':full.stat().st_size,'sha256':digest(full)};report['seal_seconds']=round(time.monotonic()-start,3);report['verification_and_restore_seconds']=round(time.time()-float(os.environ.get('VERIFICATION_STARTED',time.time())),3);save(out/'candidate.json',report)
 def validate(out, run=None):
     c=json.loads((out/'candidate.json').read_text());assert c['schema']==1
     assert c['input_fingerprint']==fingerprint(),'Source/settings/tools changed: prepare a new verified candidate'
@@ -50,9 +62,21 @@ def validate(out, run=None):
     v=json.loads((out/'version.json').read_text());assert v['source_commit']==c['source_commit']
     assert v['code']==expected['code'] and v['name']==expected['name']
     assert v['sha256']==c['files']['patch.pck']['sha256'] and v['size']==c['files']['patch.pck']['size']
-    assert (out/'patch.pck').read_bytes()[:4]==b'GDPC'
+    assert (out/'patch.pck').read_bytes()[:4]==b'GDPC' and v['delta']==c['delta']
+    if (out/'full.pck').exists(): assert digest(out/'full.pck')==c['full_pck']['sha256']
     with zipfile.ZipFile(out/'game-source.zip') as z: assert z.testzip() is None
     return c
+def full_gate(repo, source_commit):
+    """직전 공개본 이후 위험 파일이 바뀌었으면, 그 변경을 포함한 커밋의 전체 검증 통과를 요구한다."""
+    prev=json.loads(subprocess.check_output(['gh','api',f'repos/{repo}/releases/latest']))['target_commitish']
+    if not risk_check.reasons(prev,source_commit): return 'not-needed'
+    rows=json.loads(subprocess.check_output(['gh','api',f'repos/{repo}/actions/workflows/verify-full.yml/runs?status=success&per_page=30']))['workflow_runs']
+    for run in rows:
+        if run['event'] not in ('push','workflow_dispatch') or not run['head_branch'].startswith('work/'): continue
+        sha=run['head_sha']
+        if subprocess.run(['git','merge-base','--is-ancestor',sha,source_commit],cwd=ROOT).returncode: continue
+        if not risk_check.reasons(sha,source_commit): return sha
+    raise AssertionError('저장/업데이터/결제 관련 파일이 바뀌었는데 전체 검증(verify-full) 통과 기록이 없다')
 def publish(out):
     start=time.monotonic();repo=os.environ['GITHUB_REPOSITORY']
     rows=json.loads(subprocess.check_output(['gh','api',f'repos/{repo}/actions/workflows/verify-work.yml/runs?status=success&per_page=20']))['workflow_runs']
@@ -69,6 +93,8 @@ def publish(out):
         found=(temp,c);break
     assert found,'No successful candidate with exact source/settings/tool fingerprint; verification/build must finish first'
     temp,c=found;tag='v'+c['version']['name']
+    full_gate(repo,c['source_commit'])
+    assert c['delta'],'APK 기준 목록(automation/apk_base.json) 없이 만든 전체 pck는 공개할 수 없다'
     # Draft tag endpoints can return404. Resolve the existing release by ID.
     matches=[r for r in json.loads(subprocess.check_output(['gh','api',f'repos/{repo}/releases?per_page=100'])) if r['tag_name']==tag]
     assert len(matches)<=1,'Ambiguous release tag'

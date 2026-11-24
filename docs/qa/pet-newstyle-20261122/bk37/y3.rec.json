@@ -1,0 +1,8 @@
+{
+ "desc": "Keep the same character, colors, outline, size and details. Only recolor the wings: make the bat wings a slightly reddish dark red with darker red bones and edges, keep the cloak charcoal. Same shape and shading. Transparent background.",
+ "seed": 2026123903,
+ "input_sha256": "fdc8c70461e0f9367e0446e8bad5def09887a54e79e5089e76ab019aed35f93f",
+ "before": 4422.0,
+ "after": 4421.0,
+ "sha256": "1e3bf9eb1257c5fd918a29c612761c1845f3af4a5543bddd5e329ef86f332a0a"
+}

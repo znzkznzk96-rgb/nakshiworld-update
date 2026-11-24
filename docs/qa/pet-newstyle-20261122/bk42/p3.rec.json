@@ -1,0 +1,8 @@
+{
+ "desc": "Keep the same character, colors, eyes, outline and details. Composition like a front-facing chibi mage: the whole hood, face and two eyes face the viewer symmetrically, body upright and front-facing, about 72 pixels wide and 72 tall, small feet at the bottom, centered. The prop is short and held low at its right hand beside the body, not taller than the head. No wings, wide cloak, horns on the hood, small red flame above the right hand. 1px outline, flat shades. Transparent background.",
+ "seed": 2026124303,
+ "input_sha256": "1bc354e29da5458286f2569b251b377c464f2077fc4dbdb62678e99e31c54647",
+ "before": 4412.0,
+ "after": 4411.0,
+ "sha256": "9d68031a9e675b3bf750ae7d87017f7c5edc3028b70827729eff709db35b9503"
+}

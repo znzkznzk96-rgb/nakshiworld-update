@@ -1,0 +1,305 @@
+{
+  "source_commit": "99610b6191562ddaca00b5662d39945938fa5f17",
+  "full_ci_run": 44238400029,
+  "status": "success",
+  "jobs": [
+    {
+      "id": 134580003905,
+      "name": "cleanup",
+      "conclusion": "success",
+      "started_at": "2026-11-18T04:35:40Z",
+      "completed_at": "2026-11-18T04:35:50Z",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Stop stale running verifications from this work branch only",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "id": 134580086058,
+      "name": "verify",
+      "conclusion": "success",
+      "started_at": "2026-11-18T04:35:52Z",
+      "completed_at": "2026-11-18T04:54:35Z",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Restore verified v1.41 source and overlay",
+          "conclusion": "success"
+        },
+        {
+          "name": "Verify three-strike forge animation safety and native appearance",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Verify and render approved rift art integration",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Verify approved unlock and centered expedition notice",
+          "conclusion": "success"
+        },
+        {
+          "name": "Verify and render measured record photo first",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Verify native bobber contact and bounded fish previews",
+          "conclusion": "success"
+        },
+        {
+          "name": "Compare village layer quality at phone size",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Render village life layers and passenger motion",
+          "conclusion": "success"
+        },
+        {
+          "name": "Render updater checking download and circular chase",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Verify all six owner gauge layouts before full checks",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Verify and render village reward notice before full checks",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Verify and preview per-soldier skill feedback first",
+          "conclusion": "success"
+        },
+        {
+          "name": "Render revised formation scroll and PixelLab roles",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Full regression checks using prepared imported source",
+          "conclusion": "success"
+        },
+        {
+          "name": "Verify valley native background composition",
+          "conclusion": "success"
+        },
+        {
+          "name": "Verify and render tile sea and bundles",
+          "conclusion": "success"
+        },
+        {
+          "name": "Render tier skill details and battle",
+          "conclusion": "success"
+        },
+        {
+          "name": "Render museum and buyback previews",
+          "conclusion": "success"
+        },
+        {
+          "name": "Render owner gauge and warning previews",
+          "conclusion": "success"
+        },
+        {
+          "name": "Render approved character cat stool and rod integration",
+          "conclusion": "success"
+        },
+        {
+          "name": "Render night lighting encounter text and hanging catch",
+          "conclusion": "success"
+        },
+        {
+          "name": "Render enhancement aura integration and silver blue distinction",
+          "conclusion": "success"
+        },
+        {
+          "name": "Render personal dex and bait shop",
+          "conclusion": "success"
+        },
+        {
+          "name": "Render expedition and alchemy screens at three phone heights",
+          "conclusion": "success"
+        },
+        {
+          "name": "Render transaction and expedition notification placement",
+          "conclusion": "success"
+        },
+        {
+          "name": "Render compact bait picker and village buttons",
+          "conclusion": "success"
+        },
+        {
+          "name": "Render approved alchemy and soldier management at three phone heights",
+          "conclusion": "success"
+        },
+        {
+          "name": "Render tier2 roster formation and combat",
+          "conclusion": "success"
+        },
+        {
+          "name": "Render existing gift letters at three phone heights",
+          "conclusion": "success"
+        },
+        {
+          "name": "Render body encyclopedia telegraphs at two phone heights",
+          "conclusion": "success"
+        },
+        {
+          "name": "Render approved compact fighting telegraphs and bobber preview",
+          "conclusion": "success"
+        },
+        {
+          "name": "Render regional facility growth and locks",
+          "conclusion": "success"
+        },
+        {
+          "name": "Build and validate reusable release candidate",
+          "conclusion": "success"
+        },
+        {
+          "name": "Preserve exact tested release candidate",
+          "conclusion": "success"
+        },
+        {
+          "name": "Record verification step timings",
+          "conclusion": "success"
+        },
+        {
+          "name": "Preserve verification logs",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "id": 14399330001,
+      "name": "village-reward-first-preview",
+      "size_in_bytes": 5580919,
+      "digest": "sha256:eaa860fab416219cad68db674fb76251042b6cdd0f0d44a4ad8430d6f8e00579"
+    },
+    {
+      "id": 14399146288,
+      "name": "soldier-skills-first-preview",
+      "size_in_bytes": 14164949,
+      "digest": "sha256:d237f0988688aa4cf0c4e7a9d5a41eddf9d09a9b210f20a91060c6fdca61bf88"
+    },
+    {
+      "id": 14399145047,
+      "name": "forge-three-strike-first-preview",
+      "size_in_bytes": 15384254,
+      "digest": "sha256:f425c8575d58c0b575e64d9fc11d3590e1955e5e309302c8590f97862f6f2619"
+    },
+    {
+      "id": 14398867522,
+      "name": "owner-gauge-first-preview",
+      "size_in_bytes": 15420488,
+      "digest": "sha256:f98d1c952e8518de30058872434405a86e930ba297a19119446f2194627a7484"
+    },
+    {
+      "id": 14398739346,
+      "name": "work-verification",
+      "size_in_bytes": 791641271,
+      "digest": "sha256:e5d9e6b9ee8ae4b5f6518b3dddff22aa83c4a8870577735f0d6670e33d73d3c8"
+    },
+    {
+      "id": 14398664625,
+      "name": "release-candidate-049c2a88ec36ec424c173ba8958d642ee83f75cafb56eeee455e1774beb36774",
+      "size_in_bytes": 138328572,
+      "digest": "sha256:4a68f20bf328ef736e7fe8fb36bb3937921502f8cae0ac29c7d17c25ba738976"
+    },
+    {
+      "id": 14398613418,
+      "name": "updater-first-preview",
+      "size_in_bytes": 1088265,
+      "digest": "sha256:7e829a2dc12136e72500b64178f973799dd35999efe9fda25d395c426e2feb05"
+    },
+    {
+      "id": 14398512322,
+      "name": "record-photo-first-preview",
+      "size_in_bytes": 303038246,
+      "digest": "sha256:0e3e98815632336ad51e5c17273be0e9f75aa44e2ab770c8814fc683cdaaff5c"
+    },
+    {
+      "id": 14398507392,
+      "name": "village-quality-first-preview",
+      "size_in_bytes": 79649862,
+      "digest": "sha256:d8188a2ab3a4e7e92f47e3976d8644b6e6c0682ec9636d9994b6344341176590"
+    },
+    {
+      "id": 14397733364,
+      "name": "rift-art-first-preview",
+      "size_in_bytes": 26684578,
+      "digest": "sha256:f7c1d6a6f428716ee1d439e4fc8f8025aafafb95d84b9c5dcc8e6e5e988fb46e"
+    }
+  ],
+  "related_passed": 10,
+  "facility_restart_passed": true,
+  "native_frames": 24,
+  "simulation_runs": 20,
+  "deployed": false,
+  "phone_verified": false
+}

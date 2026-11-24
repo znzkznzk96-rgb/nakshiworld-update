@@ -1,0 +1,164 @@
+{
+  "generated": 6,
+  "before": {
+    "credits": {
+      "type": "usd",
+      "usd": 0.0
+    },
+    "subscription": {
+      "type": "generations",
+      "status": "active",
+      "plan": "Tier 2: Pixel Artisan",
+      "generations": 4965.0,
+      "total": 5000.0
+    }
+  },
+  "after": {
+    "credits": {
+      "type": "usd",
+      "usd": 0.0
+    },
+    "subscription": {
+      "type": "generations",
+      "status": "active",
+      "plan": "Tier 2: Pixel Artisan",
+      "generations": 4959.0,
+      "total": 5000.0
+    }
+  },
+  "images": [
+    {
+      "id": "hamster3-A",
+      "sha256": "095803adb58f32627139be19e6db16c81b85f800d0b7768700400dbdf07f7dcf",
+      "bbox": [
+        12,
+        11,
+        83,
+        87
+      ],
+      "size": [
+        96,
+        96
+      ],
+      "status": "pending_user_choice",
+      "checks": {
+        "decode": "pass",
+        "inside_canvas": "pass",
+        "limb_separation": "visual_pass",
+        "theme_readability": "visual_pass"
+      },
+      "note": "사용자 선택 전. 세부 외형은 생성 후보."
+    },
+    {
+      "id": "hamster3-B",
+      "sha256": "e8278a41e0ac39fc2a131ebe8496d661b8cebc462682db49878fe2aa7a87522a",
+      "bbox": [
+        11,
+        5,
+        85,
+        90
+      ],
+      "size": [
+        96,
+        96
+      ],
+      "status": "pending_user_choice",
+      "checks": {
+        "decode": "pass",
+        "inside_canvas": "pass",
+        "limb_separation": "visual_pass",
+        "theme_readability": "visual_pass"
+      },
+      "note": "사용자 선택 전. 세부 외형은 생성 후보."
+    },
+    {
+      "id": "chick3-A",
+      "sha256": "0a6557bbee60f66a3895d3bcefb22ac80d2291f65df82547a5985f0149d7b1b5",
+      "bbox": [
+        7,
+        6,
+        80,
+        89
+      ],
+      "size": [
+        96,
+        96
+      ],
+      "status": "pending_user_choice",
+      "checks": {
+        "decode": "pass",
+        "inside_canvas": "pass",
+        "limb_separation": "visual_pass",
+        "theme_readability": "visual_pass"
+      },
+      "note": "사용자 선택 전. 세부 외형은 생성 후보."
+    },
+    {
+      "id": "chick3-B",
+      "sha256": "da4ee020fca763676fcabe29f316f2f6870ec34c48ef21be8c961f4edd2a9e65",
+      "bbox": [
+        4,
+        1,
+        93,
+        93
+      ],
+      "size": [
+        96,
+        96
+      ],
+      "status": "pending_user_choice",
+      "checks": {
+        "decode": "pass",
+        "inside_canvas": "pass",
+        "limb_separation": "visual_pass",
+        "theme_readability": "visual_pass"
+      },
+      "note": "좌향 원본. 게임 표시 시 수평반전 가능; 원본 무변경"
+    },
+    {
+      "id": "boar3-A",
+      "sha256": "de85e7c8d28e2300e695add84e8589b9fd58379d278f2b31295a185f06567cdc",
+      "bbox": [
+        10,
+        3,
+        88,
+        91
+      ],
+      "size": [
+        96,
+        96
+      ],
+      "status": "pending_user_choice",
+      "checks": {
+        "decode": "pass",
+        "inside_canvas": "pass",
+        "limb_separation": "visual_pass",
+        "theme_readability": "visual_pass"
+      },
+      "note": "사용자 선택 전. 세부 외형은 생성 후보."
+    },
+    {
+      "id": "boar3-B",
+      "sha256": "51067ece1c23a69257e68ec339700ed85f3c0d0f1557d0d4971c37c335db9143",
+      "bbox": [
+        4,
+        6,
+        91,
+        89
+      ],
+      "size": [
+        96,
+        96
+      ],
+      "status": "pending_user_choice",
+      "checks": {
+        "decode": "pass",
+        "inside_canvas": "pass",
+        "limb_separation": "visual_pass",
+        "theme_readability": "visual_pass"
+      },
+      "note": "사용자 선택 전. 세부 외형은 생성 후보."
+    }
+  ],
+  "game_applied": false
+}

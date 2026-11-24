@@ -1,0 +1,12 @@
+{
+ "id": "frog",
+ "ref": "../pet-roster-20261118/frog-A.png",
+ "ref_sha256": "2146f55fbd2dc83f80fb48307d93a9fcbbb629dec9004438727888192e79bf7c",
+ "description": "Redraw this spring frog as a detailed game sprite: realistic proportions, same face and expression, same colors and accessories, same pose and silhouette. Clean dark navy 1px outline, dithered two-tone shading, limited palette, small plain eyes, no extra tiny details, no gradients, no anti-aliasing.",
+ "seed": 2026112212,
+ "job": "2f51867c-543b-4f3f-b8ab-6dee8cd9e503",
+ "status": "completed",
+ "generations_before": 4828.0,
+ "generations_after": 4827.0,
+ "sha256": "754cbba3065bb4abefaf89f4404e65bab1a009bbb2ca8e256739a37eca6fb353"
+}

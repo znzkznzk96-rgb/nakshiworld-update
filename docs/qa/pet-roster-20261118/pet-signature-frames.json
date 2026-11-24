@@ -1,0 +1,130 @@
+{
+  "frame_px": 96,
+  "duration_ms": [
+    870,
+    120,
+    120,
+    150,
+    100,
+    110,
+    140,
+    1350
+  ],
+  "order": [
+    0,
+    1,
+    2,
+    3,
+    2,
+    3,
+    4,
+    5
+  ],
+  "pets": [
+    {
+      "name": "천둥 해룡",
+      "source": "dragon-A",
+      "source_sha256": "ca6f7769b47ffa49a4f5fde4c260b06063abde344d2e4473abb182dbca0d2a1a",
+      "motion": "번개 고개 들기",
+      "row": 0
+    },
+    {
+      "name": "황금 고래",
+      "source": "whale-A",
+      "source_sha256": "e5b78945423c0b9aa9ed0677781e37b742a217ca349b7d6880cb0df6b1b67a59",
+      "motion": "숨구멍 물 뿜기",
+      "row": 1
+    },
+    {
+      "name": "균열 늑대",
+      "source": "wolf-B",
+      "source_sha256": "b69c5578c800af5cc339c8192d8ff008ef64d1abcfede34fab894b7ab975f69c",
+      "motion": "귀 쫑긋 꼬리 흔들기",
+      "row": 2
+    },
+    {
+      "name": "별꼬리 여우",
+      "source": "fox-B",
+      "source_sha256": "55ec115701ecbbb12892c2eff6cd37c4f539bf33f2f3393b320dfe8e3dba085a",
+      "motion": "별꼬리 살랑",
+      "row": 3
+    },
+    {
+      "name": "사냥 물총새",
+      "source": "kingfisher-A",
+      "source_sha256": "3eac29ffd1bd76986f3bb3574f2bdb044260f3609fe2df618eeec3a48af63134",
+      "motion": "부리로 깃털 고르기",
+      "row": 4
+    },
+    {
+      "name": "불꽃 매",
+      "source": "hawk-A",
+      "source_sha256": "4973c6e8a3bf90078a9ee343f71e21ab61500dbb50a2ca2d3908a9c4bd320f8c",
+      "motion": "불꽃 깃털 털기",
+      "row": 5
+    },
+    {
+      "name": "꼬마 펭귄",
+      "source": "penguin-B",
+      "source_sha256": "afa68a9fbb09b151a74d02693b058cb20e087ff96e2771f9ab84af4ac586b147",
+      "motion": "좌우로 뒤뚱",
+      "row": 6
+    },
+    {
+      "name": "샘물 개구리",
+      "source": "frog-A",
+      "source_sha256": "2146f55fbd2dc83f80fb48307d93a9fcbbb629dec9004438727888192e79bf7c",
+      "motion": "볼 부풀리기",
+      "row": 7
+    },
+    {
+      "name": "배낭 거북",
+      "source": "turtle-B",
+      "source_sha256": "e3637c47f38f08ff14874c1d2f2e69f8b036f26cdc587f17b0cc6f6507861a79",
+      "motion": "목 빼고 둘러보기",
+      "row": 8
+    },
+    {
+      "name": "밤송이 고슴도치",
+      "source": "hedgehog-A",
+      "source_sha256": "35c0f2757d423a1400d98bd015efea5d347cad3285a06266d10d0db9eec0514d",
+      "motion": "가시 부르르",
+      "row": 9
+    },
+    {
+      "name": "찌 참새",
+      "source": "sparrow-B",
+      "source_sha256": "e16adc280e918a256fa0293aa6c63c54117786ec496553b043da47a261fd42b0",
+      "motion": "바닥 콕콕",
+      "row": 10
+    },
+    {
+      "name": "장사 너구리",
+      "source": "raccoon-A",
+      "source_sha256": "aa634fc566b15b86031b62d44cc91a7c97bec9a04a8956267e4555f7efa8e847",
+      "motion": "꾸벅 인사",
+      "row": 11
+    },
+    {
+      "name": "보석 햄스터",
+      "source": "hamster7-B",
+      "source_sha256": "cb9a092b9d5f9c6de78ef82dd26a44ab3f6fb945f5bb9b26a0c8023fd78878ba",
+      "motion": "보석 살펴보기",
+      "row": 12
+    },
+    {
+      "name": "불꽃 병아리",
+      "source": "chick7-B",
+      "source_sha256": "9a196e7cd0eae21478ff642fc9edca5434ff7e68a76524947f3ab52fcef6afd7",
+      "motion": "불꽃 꼬리 털기",
+      "row": 13
+    },
+    {
+      "name": "꼬마 멧돼지",
+      "source": "boar-style",
+      "source_sha256": "b894e87c025980905f7704059dbc0e5f75262f449d141a6b6cd32e9c32f3929a",
+      "motion": "코로 킁킁",
+      "row": 14
+    }
+  ]
+}

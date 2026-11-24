@@ -1,0 +1,13 @@
+{
+ "id": "rabbit",
+ "ref": "../pet-roster-20261118/cd-pixellab-right/dandelion-rabbit-A.png",
+ "ref_sha256": "11c7077063d9999e2fdace44e6c70f3a61a1b93304a5ad0c42c85c6ba8fea2ea",
+ "desc": "Edit this exact image. The outer silhouette, size, pose and every body part position must stay identical; do not lengthen or move anything. Change only internal details: inner ear shading, dandelion details, fur lines, paw details. Keep colors. Thin dark selective outline, many tonal steps, rim light, 1px pixels.",
+ "seed": 2026112616,
+ "before": 4773.0,
+ "after": 4772.0,
+ "sha256": "38690e1a6f52b3e7b7b2ab73238f5c4ee8f3d564c6cbd53143a3f6c436f23f15",
+ "iou": 0.887,
+ "changed": 0.345,
+ "gate_pass": false
+}

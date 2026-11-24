@@ -1,0 +1,8 @@
+{
+ "desc": "Keep the exact same shape, pose, size, wings and props. Only recolor with clearly distinct color groups. Cloak charcoal dark gray with red trim, wings and cloak lining bright red, scythe blade silver-gray with a red edge, handle dark brown, glowing red eyes. No purple. Keep 1px outline, 2-3 flat shades, no noise. Transparent background.",
+ "seed": 2026123701,
+ "input_sha256": "11dc39c75c024a11fb8162ad0e0432f7fd7469a6e4c5ff32d703ed0ea4681ac7",
+ "before": 4428.0,
+ "after": 4427.0,
+ "sha256": "f9a2f7ee7a02bf4a7948a54916faa8bd2960491913d781d58016dd0160692fce"
+}

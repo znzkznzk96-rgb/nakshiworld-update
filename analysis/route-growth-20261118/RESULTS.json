@@ -1,0 +1,2626 @@
+{
+  "17-cheap": [
+    {
+      "attempts": 487,
+      "caught": 480,
+      "cert_h": 3.4079402353982,
+      "day": 5,
+      "facilities": [
+        2,
+        1,
+        1,
+        2
+      ],
+      "from": 0,
+      "gold_after_unlock": 2139,
+      "robot": [
+        6,
+        1
+      ],
+      "robot_caught": 108,
+      "stage_h": 12.4457294615919,
+      "stage_idle_h": 7.38166564372386,
+      "target_first_capture_h": {
+        "1": 0.0484093309392755,
+        "14": 2.96470709225996,
+        "17": 3.40212550345068,
+        "3": 0.0412230704898647,
+        "8": 0.774232687044572,
+        "9": 1.7758790801863
+      },
+      "to": 1,
+      "total_h": 12.4457294615919
+    },
+    {
+      "attempts": 1431,
+      "caught": 1416,
+      "cert_h": 27.4100120478448,
+      "day": 10,
+      "facilities": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "from": 1,
+      "gold_after_unlock": 54490,
+      "robot": [
+        7,
+        2
+      ],
+      "robot_caught": 412,
+      "stage_h": 15.5697072492318,
+      "stage_idle_h": 5.75407073298619,
+      "target_first_capture_h": {
+        "21": 12.6835559456986,
+        "24": 12.5528880754474,
+        "28": 12.5179160945363,
+        "31": 12.6769113085433,
+        "34": 13.6924841313291,
+        "37": 27.4034396717534
+      },
+      "to": 2,
+      "total_h": 28.0154367108237
+    },
+    {
+      "attempts": 3366,
+      "caught": 3192,
+      "cert_h": 51.5028797222951,
+      "day": 18,
+      "facilities": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "from": 2,
+      "gold_after_unlock": 27168245,
+      "robot": [
+        8,
+        3
+      ],
+      "robot_caught": 1198,
+      "stage_h": 23.4874430114714,
+      "stage_idle_h": 3.49573474103044,
+      "target_first_capture_h": {
+        "40": 28.0322079323824,
+        "43": 28.0640717043892,
+        "48": 28.0788575308911,
+        "49": 28.4482341756617,
+        "54": 28.2020065909003,
+        "57": 51.4969132347074
+      },
+      "to": 3,
+      "total_h": 51.5028797222951
+    },
+    {
+      "idle_h": 16.6314711177403,
+      "purchases": [
+        {
+          "action": "bait:0:10",
+          "cost": 50,
+          "h": 0.10223139959037,
+          "left": 10,
+          "region": 0
+        },
+        {
+          "action": "bag",
+          "cost": 150,
+          "h": 0.149490763795736,
+          "left": 82,
+          "region": 0
+        },
+        {
+          "action": "bait:0:10",
+          "cost": 50,
+          "h": 0.155805876320963,
+          "left": 53,
+          "region": 0
+        },
+        {
+          "action": "bait:0:10",
+          "cost": 50,
+          "h": 0.248024980337526,
+          "left": 364,
+          "region": 0
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 0.291714279956546,
+          "left": 121,
+          "region": 0
+        },
+        {
+          "action": "rpart:0:0",
+          "cost": 660,
+          "h": 0.406193823035091,
+          "left": 54,
+          "region": 0
+        },
+        {
+          "action": "robot:buy",
+          "cost": 1000,
+          "h": 0.756999533576852,
+          "left": 99,
+          "region": 0
+        },
+        {
+          "action": "robot:speed",
+          "cost": 240,
+          "h": 0.854188808712735,
+          "left": 243,
+          "region": 0
+        },
+        {
+          "action": "robot:capacity",
+          "cost": 300,
+          "h": 0.894185002092746,
+          "left": 80,
+          "region": 0
+        },
+        {
+          "action": "robot:speed",
+          "cost": 360,
+          "h": 1.03910731124061,
+          "left": 55,
+          "region": 0
+        },
+        {
+          "action": "robot:speed",
+          "cost": 480,
+          "h": 1.22766081983674,
+          "left": 170,
+          "region": 0
+        },
+        {
+          "action": "robot:capacity",
+          "cost": 800,
+          "h": 1.55193383405147,
+          "left": 78,
+          "region": 0
+        },
+        {
+          "action": "rpart:0:1",
+          "cost": 1320,
+          "h": 2.01153734416463,
+          "left": 221,
+          "region": 0
+        },
+        {
+          "action": "rpart:0:2",
+          "cost": 2376,
+          "h": 2.46633446381728,
+          "left": 1364,
+          "region": 0
+        },
+        {
+          "action": "rpart:0:3",
+          "cost": 3960,
+          "h": 2.75776713845585,
+          "left": 52,
+          "region": 0
+        },
+        {
+          "action": "pondcap",
+          "cost": 4000,
+          "h": 3.13473279328117,
+          "left": 314,
+          "region": 0
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 3.28766634152572,
+          "left": 1372,
+          "region": 0
+        },
+        {
+          "action": "robot:speed",
+          "cost": 2000,
+          "h": 3.40212550345068,
+          "left": 1602,
+          "region": 0
+        },
+        {
+          "action": "robot:speed",
+          "cost": 3000,
+          "h": 3.5897328343364,
+          "left": 454,
+          "region": 0
+        },
+        {
+          "action": "robot:speed",
+          "cost": 4000,
+          "h": 4.58922654655798,
+          "left": 78,
+          "region": 0
+        },
+        {
+          "action": "boat",
+          "cost": 6000,
+          "h": 4.71038783014137,
+          "left": 126,
+          "region": 0
+        },
+        {
+          "action": "pondregen",
+          "cost": 7500,
+          "h": 6.0480364583309,
+          "left": 2440,
+          "region": 0
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 6.16745727199448,
+          "left": 3817,
+          "region": 0
+        },
+        {
+          "action": "aexpand",
+          "cost": 7500,
+          "h": 6.40913609894104,
+          "left": 386,
+          "region": 0
+        },
+        {
+          "action": "pondcap",
+          "cost": 12000,
+          "h": 8.174475289285,
+          "left": 574,
+          "region": 0
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 9.04010105578272,
+          "left": 7644,
+          "region": 0
+        },
+        {
+          "action": "robot:precision",
+          "cost": 12000,
+          "h": 9.29337935866962,
+          "left": 2628,
+          "region": 0
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 11.3391945463409,
+          "left": 16393,
+          "region": 0
+        },
+        {
+          "action": "boat",
+          "cost": 18000,
+          "h": 11.6236642940246,
+          "left": 302,
+          "region": 0
+        },
+        {
+          "action": "bag",
+          "cost": 800,
+          "h": 12.4457294615919,
+          "left": 1431,
+          "region": 1
+        },
+        {
+          "action": "rpart:1:0",
+          "cost": 1020,
+          "h": 12.4457294615919,
+          "left": 411,
+          "region": 1
+        },
+        {
+          "action": "rpart:1:1",
+          "cost": 1980,
+          "h": 12.5889580648096,
+          "left": 1312,
+          "region": 1
+        },
+        {
+          "action": "rpart:1:2",
+          "cost": 3540,
+          "h": 12.7124398421758,
+          "left": 1353,
+          "region": 1
+        },
+        {
+          "action": "rpart:1:3",
+          "cost": 5940,
+          "h": 13.2673660962019,
+          "left": 453,
+          "region": 1
+        },
+        {
+          "action": "rod:1",
+          "cost": 8000,
+          "h": 13.8219143483942,
+          "left": 30957,
+          "region": 1
+        },
+        {
+          "action": "pondcap",
+          "cost": 20000,
+          "h": 13.8219143483942,
+          "left": 10957,
+          "region": 1
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 13.8561389311172,
+          "left": 10912,
+          "region": 1
+        },
+        {
+          "action": "pondregen",
+          "cost": 22500,
+          "h": 14.4028034670693,
+          "left": 203,
+          "region": 1
+        },
+        {
+          "action": "aexpand",
+          "cost": 22500,
+          "h": 15.0559352445982,
+          "left": 94,
+          "region": 1
+        },
+        {
+          "action": "boat",
+          "cost": 30000,
+          "h": 15.4685688799915,
+          "left": 78649,
+          "region": 1
+        },
+        {
+          "action": "pondregen",
+          "cost": 40000,
+          "h": 15.4685688799915,
+          "left": 38649,
+          "region": 1
+        },
+        {
+          "action": "aexpand",
+          "cost": 40000,
+          "h": 15.4955261983828,
+          "left": 223,
+          "region": 1
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 15.6907827074778,
+          "left": 6688,
+          "region": 1
+        },
+        {
+          "action": "pondcap",
+          "cost": 60000,
+          "h": 17.1670205200496,
+          "left": 29262,
+          "region": 1
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 18.0447728994665,
+          "left": 51240,
+          "region": 1
+        },
+        {
+          "action": "boat",
+          "cost": 90000,
+          "h": 18.1556371698918,
+          "left": 1841,
+          "region": 1
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 19.1114890227187,
+          "left": 82499,
+          "region": 1
+        },
+        {
+          "action": "pondregen",
+          "cost": 110000,
+          "h": 19.9707177651168,
+          "left": 812,
+          "region": 1
+        },
+        {
+          "action": "aexpand",
+          "cost": 110000,
+          "h": 21.1516139379069,
+          "left": 1103,
+          "region": 1
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 21.1880191090934,
+          "left": 2716,
+          "region": 1
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 22.0956737449373,
+          "left": 110873,
+          "region": 1
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 24.1287409229244,
+          "left": 296287,
+          "region": 1
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 25.1286479970563,
+          "left": 384921,
+          "region": 1
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 27.0073733008194,
+          "left": 531785,
+          "region": 1
+        },
+        {
+          "action": "robot:precision",
+          "cost": 65000,
+          "h": 27.4034396717534,
+          "left": 632145,
+          "region": 1
+        },
+        {
+          "action": "robot:speed",
+          "cost": 390000,
+          "h": 27.4034396717534,
+          "left": 242145,
+          "region": 1
+        },
+        {
+          "action": "bag",
+          "cost": 4000,
+          "h": 28.0154367108237,
+          "left": 50773,
+          "region": 2
+        },
+        {
+          "action": "rpart:2:0",
+          "cost": 15600,
+          "h": 28.0154367108237,
+          "left": 35173,
+          "region": 2
+        },
+        {
+          "action": "rpart:2:1",
+          "cost": 31200,
+          "h": 28.0154367108237,
+          "left": 3973,
+          "region": 2
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 28.0322079323824,
+          "left": 4532,
+          "region": 2
+        },
+        {
+          "action": "rpart:2:2",
+          "cost": 56160,
+          "h": 28.5623773768818,
+          "left": 457755,
+          "region": 2
+        },
+        {
+          "action": "rpart:2:3",
+          "cost": 93600,
+          "h": 28.5623773768818,
+          "left": 364155,
+          "region": 2
+        },
+        {
+          "action": "rod:2",
+          "cost": 140000,
+          "h": 28.5623773768818,
+          "left": 224155,
+          "region": 2
+        },
+        {
+          "action": "pondcap",
+          "cost": 250000,
+          "h": 28.8586546992908,
+          "left": 3117,
+          "region": 2
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 30.1222156455127,
+          "left": 217048,
+          "region": 2
+        },
+        {
+          "action": "boat",
+          "cost": 300000,
+          "h": 30.387117838279,
+          "left": 1372826,
+          "region": 2
+        },
+        {
+          "action": "pondregen",
+          "cost": 400000,
+          "h": 30.387117838279,
+          "left": 972826,
+          "region": 2
+        },
+        {
+          "action": "aexpand",
+          "cost": 400000,
+          "h": 30.387117838279,
+          "left": 572826,
+          "region": 2
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 31.1388304213559,
+          "left": 735959,
+          "region": 2
+        },
+        {
+          "action": "pondcap",
+          "cost": 750000,
+          "h": 31.1961588361754,
+          "left": 3420,
+          "region": 2
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 32.512538600027,
+          "left": 605927,
+          "region": 2
+        },
+        {
+          "action": "boat",
+          "cost": 1000000,
+          "h": 33.1483348253915,
+          "left": 2124886,
+          "region": 2
+        },
+        {
+          "action": "pondregen",
+          "cost": 1200000,
+          "h": 33.1483348253915,
+          "left": 924886,
+          "region": 2
+        },
+        {
+          "action": "aexpand",
+          "cost": 1200000,
+          "h": 33.5178199782099,
+          "left": 940,
+          "region": 2
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 33.7956777266907,
+          "left": 183379,
+          "region": 2
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 34.8110503155395,
+          "left": 1429675,
+          "region": 2
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 36.1801999510928,
+          "left": 4499321,
+          "region": 2
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 37.2461872752712,
+          "left": 5835455,
+          "region": 2
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 38.274747578019,
+          "left": 6989997,
+          "region": 2
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 39.5913820687983,
+          "left": 9736432,
+          "region": 2
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 40.585166445754,
+          "left": 11134059,
+          "region": 2
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 41.8159416846076,
+          "left": 12413009,
+          "region": 2
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 43.004206929879,
+          "left": 15647484,
+          "region": 2
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 44.0419075406804,
+          "left": 17456825,
+          "region": 2
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 45.3693079076419,
+          "left": 20855319,
+          "region": 2
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 46.4424727966625,
+          "left": 22625907,
+          "region": 2
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 47.4671960176227,
+          "left": 23990126,
+          "region": 2
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 48.7739873317592,
+          "left": 27303982,
+          "region": 2
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 49.7667963401758,
+          "left": 28744667,
+          "region": 2
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 51.0971142609947,
+          "left": 30129544,
+          "region": 2
+        },
+        {
+          "action": "robot:precision",
+          "cost": 210000,
+          "h": 51.4969132347074,
+          "left": 32189444,
+          "region": 2
+        },
+        {
+          "action": "robot:speed",
+          "cost": 390000,
+          "h": 51.4969132347074,
+          "left": 31799444,
+          "region": 2
+        }
+      ],
+      "reached_rift": true,
+      "session_h": 3.0,
+      "smart": false
+    }
+  ],
+  "17-smart": [
+    {
+      "attempts": 224,
+      "caught": 222,
+      "cert_h": 3.61251992811046,
+      "day": 2,
+      "facilities": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "from": 0,
+      "gold_after_unlock": 99,
+      "robot": [
+        0,
+        0
+      ],
+      "robot_caught": 16,
+      "stage_h": 5.7330155835641,
+      "stage_idle_h": 3.48742988062893,
+      "target_first_capture_h": {
+        "1": 0.0484093309392755,
+        "14": 3.27842442892398,
+        "17": 3.58092658748351,
+        "3": 0.0412230704898647,
+        "8": 3.30198644304865,
+        "9": 3.15286579203943
+      },
+      "to": 1,
+      "total_h": 5.7330155835641
+    },
+    {
+      "attempts": 1125,
+      "caught": 1112,
+      "cert_h": 15.4669113633538,
+      "day": 7,
+      "facilities": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "from": 1,
+      "gold_after_unlock": 1149,
+      "robot": [
+        3,
+        2
+      ],
+      "robot_caught": 207,
+      "stage_h": 14.4294902371441,
+      "stage_idle_h": 4.40726521305428,
+      "target_first_capture_h": {
+        "21": 5.78398198198439,
+        "24": 6.62326283102574,
+        "28": 7.7699672167186,
+        "31": 7.02242603680251,
+        "34": 6.64002787517697,
+        "37": 15.4526163810523
+      },
+      "to": 2,
+      "total_h": 20.1625058207082
+    },
+    {
+      "attempts": 1959,
+      "caught": 1880,
+      "cert_h": 24.5566922032639,
+      "day": 10,
+      "facilities": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "from": 2,
+      "gold_after_unlock": 14008,
+      "robot": [
+        5,
+        3
+      ],
+      "robot_caught": 462,
+      "stage_h": 9.84248508909925,
+      "stage_idle_h": 0.990794498444974,
+      "target_first_capture_h": {
+        "40": 20.6665609136995,
+        "43": 20.2334286046905,
+        "48": 21.1690519383409,
+        "49": 21.549497944559,
+        "54": 21.5900927247511,
+        "57": 24.5480047425614
+      },
+      "to": 3,
+      "total_h": 30.0049909098075
+    },
+    {
+      "idle_h": 8.88548959212818,
+      "purchases": [
+        {
+          "action": "bait:0:10",
+          "cost": 50,
+          "h": 0.10223139959037,
+          "left": 10,
+          "region": 0
+        },
+        {
+          "action": "bag",
+          "cost": 150,
+          "h": 0.149490763795736,
+          "left": 82,
+          "region": 0
+        },
+        {
+          "action": "bait:0:10",
+          "cost": 50,
+          "h": 0.155805876320963,
+          "left": 53,
+          "region": 0
+        },
+        {
+          "action": "bait:0:10",
+          "cost": 50,
+          "h": 0.248024980337526,
+          "left": 364,
+          "region": 0
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 0.291714279956546,
+          "left": 121,
+          "region": 0
+        },
+        {
+          "action": "robot:buy",
+          "cost": 1000,
+          "h": 0.675453984297457,
+          "left": 66,
+          "region": 0
+        },
+        {
+          "action": "robot:capacity",
+          "cost": 300,
+          "h": 3.03993255236922,
+          "left": 2997,
+          "region": 0
+        },
+        {
+          "action": "rpart:0:0",
+          "cost": 660,
+          "h": 3.03993255236922,
+          "left": 2337,
+          "region": 0
+        },
+        {
+          "action": "robot:capacity",
+          "cost": 800,
+          "h": 3.03993255236922,
+          "left": 1537,
+          "region": 0
+        },
+        {
+          "action": "rpart:0:1",
+          "cost": 1320,
+          "h": 3.03993255236922,
+          "left": 217,
+          "region": 0
+        },
+        {
+          "action": "rpart:0:2",
+          "cost": 2376,
+          "h": 3.14682893192054,
+          "left": 282,
+          "region": 0
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 3.19577655009349,
+          "left": 2010,
+          "region": 0
+        },
+        {
+          "action": "pondregen",
+          "cost": 7500,
+          "h": 3.79992776009291,
+          "left": 732,
+          "region": 0
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 5.98357576687859,
+          "left": 1298,
+          "region": 1
+        },
+        {
+          "action": "bag",
+          "cost": 800,
+          "h": 6.05150857747568,
+          "left": 1967,
+          "region": 1
+        },
+        {
+          "action": "rpart:1:0",
+          "cost": 1020,
+          "h": 6.05150857747568,
+          "left": 947,
+          "region": 1
+        },
+        {
+          "action": "rpart:1:1",
+          "cost": 1980,
+          "h": 6.10658376021501,
+          "left": 158,
+          "region": 1
+        },
+        {
+          "action": "rpart:1:2",
+          "cost": 3540,
+          "h": 6.38735231622029,
+          "left": 64,
+          "region": 1
+        },
+        {
+          "action": "pondcap",
+          "cost": 4000,
+          "h": 6.54575120745154,
+          "left": 691,
+          "region": 1
+        },
+        {
+          "action": "pondregen",
+          "cost": 22500,
+          "h": 7.96047679508257,
+          "left": 90,
+          "region": 1
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 8.44812941833066,
+          "left": 36384,
+          "region": 1
+        },
+        {
+          "action": "pondregen",
+          "cost": 40000,
+          "h": 8.73708869861364,
+          "left": 1129,
+          "region": 1
+        },
+        {
+          "action": "robot:speed",
+          "cost": 240,
+          "h": 9.05377918070842,
+          "left": 8263,
+          "region": 1
+        },
+        {
+          "action": "robot:speed",
+          "cost": 360,
+          "h": 9.05377918070842,
+          "left": 7903,
+          "region": 1
+        },
+        {
+          "action": "rpart:1:3",
+          "cost": 5940,
+          "h": 9.05377918070842,
+          "left": 1963,
+          "region": 1
+        },
+        {
+          "action": "boat",
+          "cost": 6000,
+          "h": 9.17817013218763,
+          "left": 164,
+          "region": 1
+        },
+        {
+          "action": "aexpand",
+          "cost": 7500,
+          "h": 9.3926723638269,
+          "left": 245,
+          "region": 1
+        },
+        {
+          "action": "rod:1",
+          "cost": 8000,
+          "h": 9.74472787408325,
+          "left": 667,
+          "region": 1
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 10.1823397988979,
+          "left": 12331,
+          "region": 1
+        },
+        {
+          "action": "pondregen",
+          "cost": 110000,
+          "h": 10.5432759571676,
+          "left": 5825,
+          "region": 1
+        },
+        {
+          "action": "robot:speed",
+          "cost": 480,
+          "h": 10.5432759571676,
+          "left": 5345,
+          "region": 1
+        },
+        {
+          "action": "pondcap",
+          "cost": 12000,
+          "h": 10.8757530337054,
+          "left": 137,
+          "region": 1
+        },
+        {
+          "action": "robot:precision",
+          "cost": 12000,
+          "h": 11.3758400503487,
+          "left": 74,
+          "region": 1
+        },
+        {
+          "action": "boat",
+          "cost": 18000,
+          "h": 12.0569253389308,
+          "left": 5301,
+          "region": 1
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 12.1285910571522,
+          "left": 8752,
+          "region": 1
+        },
+        {
+          "action": "pondcap",
+          "cost": 20000,
+          "h": 12.2354983318767,
+          "left": 39238,
+          "region": 1
+        },
+        {
+          "action": "aexpand",
+          "cost": 22500,
+          "h": 12.2354983318767,
+          "left": 16738,
+          "region": 1
+        },
+        {
+          "action": "boat",
+          "cost": 30000,
+          "h": 12.5816601324339,
+          "left": 308,
+          "region": 1
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 13.1614127224857,
+          "left": 29736,
+          "region": 1
+        },
+        {
+          "action": "aexpand",
+          "cost": 40000,
+          "h": 13.3612892161601,
+          "left": 26660,
+          "region": 1
+        },
+        {
+          "action": "pondcap",
+          "cost": 60000,
+          "h": 14.6100154882803,
+          "left": 167,
+          "region": 1
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 15.1038727822468,
+          "left": 82715,
+          "region": 1
+        },
+        {
+          "action": "boat",
+          "cost": 90000,
+          "h": 15.1605943820793,
+          "left": 426,
+          "region": 1
+        },
+        {
+          "action": "robot:precision",
+          "cost": 65000,
+          "h": 15.9191377367049,
+          "left": 23124,
+          "region": 1
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 16.0045994720405,
+          "left": 29108,
+          "region": 1
+        },
+        {
+          "action": "aexpand",
+          "cost": 110000,
+          "h": 17.4525884117378,
+          "left": 56426,
+          "region": 1
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 17.7469841782542,
+          "left": 63363,
+          "region": 1
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 18.847124593208,
+          "left": 225776,
+          "region": 1
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 20.3212671063359,
+          "left": 8489,
+          "region": 2
+        },
+        {
+          "action": "bag",
+          "cost": 4000,
+          "h": 21.0933232987819,
+          "left": 115319,
+          "region": 2
+        },
+        {
+          "action": "rpart:2:0",
+          "cost": 15600,
+          "h": 21.0933232987819,
+          "left": 99719,
+          "region": 2
+        },
+        {
+          "action": "rpart:2:1",
+          "cost": 31200,
+          "h": 21.0933232987819,
+          "left": 68519,
+          "region": 2
+        },
+        {
+          "action": "rpart:2:2",
+          "cost": 56160,
+          "h": 21.0933232987819,
+          "left": 12359,
+          "region": 2
+        },
+        {
+          "action": "rpart:2:3",
+          "cost": 93600,
+          "h": 21.329818221424,
+          "left": 410305,
+          "region": 2
+        },
+        {
+          "action": "rod:2",
+          "cost": 140000,
+          "h": 21.329818221424,
+          "left": 270305,
+          "region": 2
+        },
+        {
+          "action": "pondcap",
+          "cost": 250000,
+          "h": 21.329818221424,
+          "left": 20305,
+          "region": 2
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 21.8233725565043,
+          "left": 115893,
+          "region": 2
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 22.8661854774585,
+          "left": 292680,
+          "region": 2
+        },
+        {
+          "action": "pondregen",
+          "cost": 400000,
+          "h": 22.9141938408068,
+          "left": 1288612,
+          "region": 2
+        },
+        {
+          "action": "pondregen",
+          "cost": 1200000,
+          "h": 22.9141938408068,
+          "left": 88612,
+          "region": 2
+        },
+        {
+          "action": "robot:speed",
+          "cost": 2000,
+          "h": 22.9141938408068,
+          "left": 86612,
+          "region": 2
+        },
+        {
+          "action": "robot:speed",
+          "cost": 3000,
+          "h": 22.9141938408068,
+          "left": 83612,
+          "region": 2
+        },
+        {
+          "action": "boat",
+          "cost": 300000,
+          "h": 24.0997574410991,
+          "left": 8344,
+          "region": 2
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 24.2728357800191,
+          "left": 54977,
+          "region": 2
+        },
+        {
+          "action": "robot:precision",
+          "cost": 210000,
+          "h": 24.6357631620407,
+          "left": 3289,
+          "region": 2
+        },
+        {
+          "action": "aexpand",
+          "cost": 400000,
+          "h": 25.2915362062008,
+          "left": 2401,
+          "region": 2
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 25.3497804137126,
+          "left": 723581,
+          "region": 2
+        },
+        {
+          "action": "pondcap",
+          "cost": 750000,
+          "h": 25.4092377523646,
+          "left": 4377,
+          "region": 2
+        },
+        {
+          "action": "boat",
+          "cost": 1000000,
+          "h": 26.3484513666747,
+          "left": 209746,
+          "region": 2
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 26.3572082413134,
+          "left": 215213,
+          "region": 2
+        },
+        {
+          "action": "aexpand",
+          "cost": 1200000,
+          "h": 27.1074504970385,
+          "left": 1057559,
+          "region": 2
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 27.5836897840576,
+          "left": 1410902,
+          "region": 2
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 28.6206984721466,
+          "left": 2884528,
+          "region": 2
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 29.6694970939919,
+          "left": 4419593,
+          "region": 2
+        }
+      ],
+      "reached_rift": true,
+      "session_h": 3.0,
+      "smart": true
+    }
+  ],
+  "31-smart": [
+    {
+      "attempts": 327,
+      "caught": 326,
+      "cert_h": 6.1774095364234,
+      "day": 3,
+      "facilities": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "from": 0,
+      "gold_after_unlock": 153,
+      "robot": [
+        0,
+        0
+      ],
+      "robot_caught": 28,
+      "stage_h": 7.919729205689,
+      "stage_idle_h": 4.49356272613134,
+      "target_first_capture_h": {
+        "1": 0.107636985071414,
+        "14": 3.36850301750718,
+        "17": 6.17155553672272,
+        "3": 0.0143415049143921,
+        "8": 3.1401597585873,
+        "9": 3.32800478399675
+      },
+      "to": 1,
+      "total_h": 7.919729205689
+    },
+    {
+      "attempts": 1152,
+      "caught": 1149,
+      "cert_h": 12.7583667493634,
+      "day": 8,
+      "facilities": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "from": 1,
+      "gold_after_unlock": 2230,
+      "robot": [
+        3,
+        2
+      ],
+      "robot_caught": 191,
+      "stage_h": 13.4583069758518,
+      "stage_idle_h": 4.47630501975518,
+      "target_first_capture_h": {
+        "21": 7.9757959974705,
+        "24": 7.95605251113587,
+        "28": 9.23174271628496,
+        "31": 9.07092993356977,
+        "34": 9.74348360482041,
+        "37": 12.7507241374317
+      },
+      "to": 2,
+      "total_h": 21.3780361815408
+    },
+    {
+      "attempts": 2007,
+      "caught": 1929,
+      "cert_h": 24.6133484419702,
+      "day": 11,
+      "facilities": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "from": 2,
+      "gold_after_unlock": 3949,
+      "robot": [
+        5,
+        3
+      ],
+      "robot_caught": 452,
+      "stage_h": 10.3080573237925,
+      "stage_idle_h": 0.766438904016025,
+      "target_first_capture_h": {
+        "40": 21.4241855673292,
+        "43": 21.435017933077,
+        "48": 21.9261115900117,
+        "49": 21.6998770893884,
+        "54": 21.9744264936894,
+        "57": 24.6035531852469
+      },
+      "to": 3,
+      "total_h": 31.6860935053333
+    },
+    {
+      "idle_h": 9.73630664990252,
+      "purchases": [
+        {
+          "action": "bait:0:10",
+          "cost": 50,
+          "h": 0.0960919153914597,
+          "left": 34,
+          "region": 0
+        },
+        {
+          "action": "bag",
+          "cost": 150,
+          "h": 0.1394828594944,
+          "left": 53,
+          "region": 0
+        },
+        {
+          "action": "bait:0:10",
+          "cost": 50,
+          "h": 0.147944825471066,
+          "left": 63,
+          "region": 0
+        },
+        {
+          "action": "bait:0:10",
+          "cost": 50,
+          "h": 0.257551440816584,
+          "left": 381,
+          "region": 0
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 0.293766864152177,
+          "left": 137,
+          "region": 0
+        },
+        {
+          "action": "robot:buy",
+          "cost": 1000,
+          "h": 0.747511433476198,
+          "left": 25,
+          "region": 0
+        },
+        {
+          "action": "robot:capacity",
+          "cost": 300,
+          "h": 3.01868387075478,
+          "left": 2976,
+          "region": 0
+        },
+        {
+          "action": "rpart:0:0",
+          "cost": 660,
+          "h": 3.01868387075478,
+          "left": 2316,
+          "region": 0
+        },
+        {
+          "action": "robot:capacity",
+          "cost": 800,
+          "h": 3.01868387075478,
+          "left": 1516,
+          "region": 0
+        },
+        {
+          "action": "rpart:0:1",
+          "cost": 1320,
+          "h": 3.01868387075478,
+          "left": 196,
+          "region": 0
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 3.13175306516709,
+          "left": 1206,
+          "region": 0
+        },
+        {
+          "action": "pondregen",
+          "cost": 7500,
+          "h": 4.07264817598512,
+          "left": 82,
+          "region": 0
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 5.97736107227568,
+          "left": 9483,
+          "region": 0
+        },
+        {
+          "action": "rpart:0:2",
+          "cost": 2376,
+          "h": 6.04851361245746,
+          "left": 8406,
+          "region": 0
+        },
+        {
+          "action": "rpart:0:3",
+          "cost": 3960,
+          "h": 6.04851361245746,
+          "left": 4446,
+          "region": 0
+        },
+        {
+          "action": "pondcap",
+          "cost": 4000,
+          "h": 6.04851361245746,
+          "left": 446,
+          "region": 0
+        },
+        {
+          "action": "boat",
+          "cost": 6000,
+          "h": 6.40420401129755,
+          "left": 50,
+          "region": 0
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 8.12507849263228,
+          "left": 103,
+          "region": 1
+        },
+        {
+          "action": "bag",
+          "cost": 800,
+          "h": 9.05781240514505,
+          "left": 7314,
+          "region": 1
+        },
+        {
+          "action": "rpart:1:0",
+          "cost": 1020,
+          "h": 9.05781240514505,
+          "left": 6294,
+          "region": 1
+        },
+        {
+          "action": "rpart:1:1",
+          "cost": 1980,
+          "h": 9.05781240514505,
+          "left": 4314,
+          "region": 1
+        },
+        {
+          "action": "rpart:1:2",
+          "cost": 3540,
+          "h": 9.05781240514505,
+          "left": 774,
+          "region": 1
+        },
+        {
+          "action": "rpart:1:3",
+          "cost": 5940,
+          "h": 9.41120310981034,
+          "left": 349,
+          "region": 1
+        },
+        {
+          "action": "pondregen",
+          "cost": 22500,
+          "h": 9.79932614823615,
+          "left": 15696,
+          "region": 1
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 10.1343578686227,
+          "left": 21850,
+          "region": 1
+        },
+        {
+          "action": "pondregen",
+          "cost": 40000,
+          "h": 11.7248147449893,
+          "left": 355,
+          "region": 1
+        },
+        {
+          "action": "robot:speed",
+          "cost": 240,
+          "h": 12.0725339462517,
+          "left": 100818,
+          "region": 1
+        },
+        {
+          "action": "robot:speed",
+          "cost": 360,
+          "h": 12.0725339462517,
+          "left": 100458,
+          "region": 1
+        },
+        {
+          "action": "aexpand",
+          "cost": 7500,
+          "h": 12.0725339462517,
+          "left": 92958,
+          "region": 1
+        },
+        {
+          "action": "rod:1",
+          "cost": 8000,
+          "h": 12.0725339462517,
+          "left": 84958,
+          "region": 1
+        },
+        {
+          "action": "pondcap",
+          "cost": 12000,
+          "h": 12.0725339462517,
+          "left": 72958,
+          "region": 1
+        },
+        {
+          "action": "robot:precision",
+          "cost": 12000,
+          "h": 12.0725339462517,
+          "left": 60958,
+          "region": 1
+        },
+        {
+          "action": "boat",
+          "cost": 18000,
+          "h": 12.0725339462517,
+          "left": 42958,
+          "region": 1
+        },
+        {
+          "action": "pondcap",
+          "cost": 20000,
+          "h": 12.0725339462517,
+          "left": 22958,
+          "region": 1
+        },
+        {
+          "action": "aexpand",
+          "cost": 22500,
+          "h": 12.0725339462517,
+          "left": 458,
+          "region": 1
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 12.4519046750488,
+          "left": 10118,
+          "region": 1
+        },
+        {
+          "action": "boat",
+          "cost": 30000,
+          "h": 12.8229927398387,
+          "left": 681,
+          "region": 1
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 13.7982341445669,
+          "left": 98364,
+          "region": 1
+        },
+        {
+          "action": "pondregen",
+          "cost": 110000,
+          "h": 14.4116583919225,
+          "left": 734,
+          "region": 1
+        },
+        {
+          "action": "robot:speed",
+          "cost": 480,
+          "h": 14.4116583919225,
+          "left": 254,
+          "region": 1
+        },
+        {
+          "action": "aexpand",
+          "cost": 40000,
+          "h": 14.4739488872049,
+          "left": 217,
+          "region": 1
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 15.4555100390415,
+          "left": 51418,
+          "region": 1
+        },
+        {
+          "action": "pondcap",
+          "cost": 60000,
+          "h": 15.6389945092254,
+          "left": 1058,
+          "region": 1
+        },
+        {
+          "action": "robot:precision",
+          "cost": 65000,
+          "h": 16.1373529589293,
+          "left": 157,
+          "region": 1
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 16.6357391333471,
+          "left": 18077,
+          "region": 1
+        },
+        {
+          "action": "boat",
+          "cost": 90000,
+          "h": 17.5982604634538,
+          "left": 639,
+          "region": 1
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 18.3453085241819,
+          "left": 90838,
+          "region": 1
+        },
+        {
+          "action": "aexpand",
+          "cost": 110000,
+          "h": 18.3679792837008,
+          "left": 27912,
+          "region": 1
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 19.2419990192532,
+          "left": 123652,
+          "region": 1
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 21.1588106917225,
+          "left": 296993,
+          "region": 1
+        },
+        {
+          "action": "bag",
+          "cost": 4000,
+          "h": 21.4127568771295,
+          "left": 1028,
+          "region": 2
+        },
+        {
+          "action": "rpart:2:0",
+          "cost": 15600,
+          "h": 21.6413839811109,
+          "left": 1339,
+          "region": 2
+        },
+        {
+          "action": "rpart:2:1",
+          "cost": 31200,
+          "h": 21.9015906125842,
+          "left": 5430,
+          "region": 2
+        },
+        {
+          "action": "rpart:2:2",
+          "cost": 56160,
+          "h": 22.3862896798663,
+          "left": 241,
+          "region": 2
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 22.5280695848015,
+          "left": 20400,
+          "region": 2
+        },
+        {
+          "action": "rpart:2:3",
+          "cost": 93600,
+          "h": 24.1298852371352,
+          "left": 197236,
+          "region": 2
+        },
+        {
+          "action": "rod:2",
+          "cost": 140000,
+          "h": 24.1298852371352,
+          "left": 57236,
+          "region": 2
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 24.1532405181018,
+          "left": 61981,
+          "region": 2
+        },
+        {
+          "action": "pondcap",
+          "cost": 250000,
+          "h": 24.2507992447148,
+          "left": 294772,
+          "region": 2
+        },
+        {
+          "action": "boat",
+          "cost": 300000,
+          "h": 24.2912110581032,
+          "left": 5525,
+          "region": 2
+        },
+        {
+          "action": "robot:precision",
+          "cost": 210000,
+          "h": 25.1479799417004,
+          "left": 1365368,
+          "region": 2
+        },
+        {
+          "action": "pondregen",
+          "cost": 400000,
+          "h": 25.1479799417004,
+          "left": 965368,
+          "region": 2
+        },
+        {
+          "action": "robot:speed",
+          "cost": 2000,
+          "h": 25.1479799417004,
+          "left": 963368,
+          "region": 2
+        },
+        {
+          "action": "aexpand",
+          "cost": 400000,
+          "h": 25.1479799417004,
+          "left": 563368,
+          "region": 2
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 25.1777299730428,
+          "left": 564236,
+          "region": 2
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 26.3574672631531,
+          "left": 824686,
+          "region": 2
+        },
+        {
+          "action": "pondcap",
+          "cost": 750000,
+          "h": 27.136888996261,
+          "left": 1472926,
+          "region": 2
+        },
+        {
+          "action": "boat",
+          "cost": 1000000,
+          "h": 27.136888996261,
+          "left": 472926,
+          "region": 2
+        },
+        {
+          "action": "pondregen",
+          "cost": 1200000,
+          "h": 27.6116735598015,
+          "left": 436705,
+          "region": 2
+        },
+        {
+          "action": "robot:speed",
+          "cost": 3000,
+          "h": 27.6116735598015,
+          "left": 433705,
+          "region": 2
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 27.7084215691837,
+          "left": 495232,
+          "region": 2
+        },
+        {
+          "action": "aexpand",
+          "cost": 1200000,
+          "h": 28.646154343908,
+          "left": 295688,
+          "region": 2
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 28.7808782895568,
+          "left": 370437,
+          "region": 2
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 29.804214022413,
+          "left": 1019903,
+          "region": 2
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 30.9135966001784,
+          "left": 3706187,
+          "region": 2
+        }
+      ],
+      "reached_rift": true,
+      "session_h": 3.0,
+      "smart": true
+    }
+  ],
+  "59-smart": [
+    {
+      "attempts": 569,
+      "caught": 563,
+      "cert_h": 9.27649304589135,
+      "day": 5,
+      "facilities": [
+        2,
+        2,
+        1,
+        2
+      ],
+      "from": 0,
+      "gold_after_unlock": 183,
+      "robot": [
+        1,
+        1
+      ],
+      "robot_caught": 66,
+      "stage_h": 12.6364418310136,
+      "stage_idle_h": 6.49277034046287,
+      "target_first_capture_h": {
+        "1": 0.134413842152883,
+        "14": 3.11757809328728,
+        "17": 9.27048142445911,
+        "3": 0.186981619301619,
+        "8": 3.21176344687867,
+        "9": 3.09017101174969
+      },
+      "to": 1,
+      "total_h": 12.6364418310136
+    },
+    {
+      "attempts": 1296,
+      "caught": 1282,
+      "cert_h": 18.470986164195,
+      "day": 9,
+      "facilities": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "from": 1,
+      "gold_after_unlock": 656,
+      "robot": [
+        3,
+        2
+      ],
+      "robot_caught": 214,
+      "stage_h": 11.7713692047717,
+      "stage_idle_h": 4.03662748140508,
+      "target_first_capture_h": {
+        "21": 12.6518275490717,
+        "24": 12.8411839970732,
+        "28": 15.0900203816899,
+        "31": 15.1486145258997,
+        "34": 15.496135141216,
+        "37": 18.4653950285999
+      },
+      "to": 2,
+      "total_h": 24.4078110357853
+    },
+    {
+      "attempts": 2005,
+      "caught": 1913,
+      "cert_h": 30.5873494858979,
+      "day": 12,
+      "facilities": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "from": 2,
+      "gold_after_unlock": 682595,
+      "robot": [
+        5,
+        3
+      ],
+      "robot_caught": 443,
+      "stage_h": 8.66003881676956,
+      "stage_idle_h": 0.411726645165336,
+      "target_first_capture_h": {
+        "40": 24.4945201403542,
+        "43": 24.4383948744798,
+        "48": 25.0379756757628,
+        "49": 24.5063294304741,
+        "54": 24.9576587852824,
+        "57": 30.5788641119065
+      },
+      "to": 3,
+      "total_h": 33.0678498525549
+    },
+    {
+      "idle_h": 10.9411244670332,
+      "purchases": [
+        {
+          "action": "bait:0:10",
+          "cost": 50,
+          "h": 0.0906110918272053,
+          "left": 15,
+          "region": 0
+        },
+        {
+          "action": "bait:0:10",
+          "cost": 50,
+          "h": 0.163914642432639,
+          "left": 57,
+          "region": 0
+        },
+        {
+          "action": "bag",
+          "cost": 150,
+          "h": 0.22367741454062,
+          "left": 103,
+          "region": 0
+        },
+        {
+          "action": "bait:0:10",
+          "cost": 50,
+          "h": 0.258990861028167,
+          "left": 284,
+          "region": 0
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 0.313185093254234,
+          "left": 8,
+          "region": 0
+        },
+        {
+          "action": "robot:buy",
+          "cost": 1000,
+          "h": 0.612597421018882,
+          "left": 0,
+          "region": 0
+        },
+        {
+          "action": "robot:capacity",
+          "cost": 300,
+          "h": 3.00781997953605,
+          "left": 3453,
+          "region": 0
+        },
+        {
+          "action": "rpart:0:0",
+          "cost": 660,
+          "h": 3.00781997953605,
+          "left": 2793,
+          "region": 0
+        },
+        {
+          "action": "robot:capacity",
+          "cost": 800,
+          "h": 3.00781997953605,
+          "left": 1993,
+          "region": 0
+        },
+        {
+          "action": "rpart:0:1",
+          "cost": 1320,
+          "h": 3.00781997953605,
+          "left": 673,
+          "region": 0
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 3.21931574354034,
+          "left": 1507,
+          "region": 0
+        },
+        {
+          "action": "rpart:0:2",
+          "cost": 2376,
+          "h": 3.27929331550822,
+          "left": 61,
+          "region": 0
+        },
+        {
+          "action": "pondregen",
+          "cost": 7500,
+          "h": 4.39908377684724,
+          "left": 174,
+          "region": 0
+        },
+        {
+          "action": "rpart:0:3",
+          "cost": 3960,
+          "h": 6.01338694233858,
+          "left": 8402,
+          "region": 0
+        },
+        {
+          "action": "pondcap",
+          "cost": 4000,
+          "h": 6.01338694233858,
+          "left": 4402,
+          "region": 0
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 6.0222180439226,
+          "left": 4433,
+          "region": 0
+        },
+        {
+          "action": "boat",
+          "cost": 6000,
+          "h": 6.0707882333695,
+          "left": 969,
+          "region": 0
+        },
+        {
+          "action": "pondregen",
+          "cost": 22500,
+          "h": 7.82858871496966,
+          "left": 861,
+          "region": 0
+        },
+        {
+          "action": "robot:speed",
+          "cost": 240,
+          "h": 7.82858871496966,
+          "left": 621,
+          "region": 0
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 8.05967591465797,
+          "left": 2923,
+          "region": 0
+        },
+        {
+          "action": "aexpand",
+          "cost": 7500,
+          "h": 9.01886732017523,
+          "left": 1221,
+          "region": 0
+        },
+        {
+          "action": "pondcap",
+          "cost": 12000,
+          "h": 9.33720002826606,
+          "left": 465,
+          "region": 0
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 9.84563839395024,
+          "left": 7837,
+          "region": 0
+        },
+        {
+          "action": "robot:precision",
+          "cost": 12000,
+          "h": 10.6304070388999,
+          "left": 476,
+          "region": 0
+        },
+        {
+          "action": "boat",
+          "cost": 18000,
+          "h": 12.0423689178691,
+          "left": 67,
+          "region": 0
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 12.2360151135755,
+          "left": 7878,
+          "region": 0
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 14.426873108721,
+          "left": 11838,
+          "region": 1
+        },
+        {
+          "action": "bag",
+          "cost": 800,
+          "h": 15.0294910520653,
+          "left": 17472,
+          "region": 1
+        },
+        {
+          "action": "rpart:1:0",
+          "cost": 1020,
+          "h": 15.0294910520653,
+          "left": 16452,
+          "region": 1
+        },
+        {
+          "action": "rpart:1:1",
+          "cost": 1980,
+          "h": 15.0294910520653,
+          "left": 14472,
+          "region": 1
+        },
+        {
+          "action": "rpart:1:2",
+          "cost": 3540,
+          "h": 15.0294910520653,
+          "left": 10932,
+          "region": 1
+        },
+        {
+          "action": "rpart:1:3",
+          "cost": 5940,
+          "h": 15.0294910520653,
+          "left": 4992,
+          "region": 1
+        },
+        {
+          "action": "rod:1",
+          "cost": 8000,
+          "h": 15.2824073013491,
+          "left": 1020,
+          "region": 1
+        },
+        {
+          "action": "pondcap",
+          "cost": 20000,
+          "h": 15.4523671519964,
+          "left": 21775,
+          "region": 1
+        },
+        {
+          "action": "aexpand",
+          "cost": 22500,
+          "h": 15.4612830021599,
+          "left": 75,
+          "region": 1
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 15.9538420217668,
+          "left": 32669,
+          "region": 1
+        },
+        {
+          "action": "pondregen",
+          "cost": 40000,
+          "h": 16.2122681278476,
+          "left": 93170,
+          "region": 1
+        },
+        {
+          "action": "pondregen",
+          "cost": 110000,
+          "h": 16.988134279744,
+          "left": 173,
+          "region": 1
+        },
+        {
+          "action": "robot:speed",
+          "cost": 360,
+          "h": 16.9997927216893,
+          "left": 1724,
+          "region": 1
+        },
+        {
+          "action": "robot:speed",
+          "cost": 480,
+          "h": 16.9997927216893,
+          "left": 1244,
+          "region": 1
+        },
+        {
+          "action": "boat",
+          "cost": 30000,
+          "h": 18.0352644115504,
+          "left": 12008,
+          "region": 1
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 18.0427618197133,
+          "left": 11873,
+          "region": 1
+        },
+        {
+          "action": "aexpand",
+          "cost": 40000,
+          "h": 18.082487857642,
+          "left": 5014,
+          "region": 1
+        },
+        {
+          "action": "pondcap",
+          "cost": 60000,
+          "h": 18.9386590858839,
+          "left": 22649,
+          "region": 1
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 18.966119471209,
+          "left": 26026,
+          "region": 1
+        },
+        {
+          "action": "robot:precision",
+          "cost": 65000,
+          "h": 19.905768272507,
+          "left": 625,
+          "region": 1
+        },
+        {
+          "action": "boat",
+          "cost": 90000,
+          "h": 20.6583672970111,
+          "left": 28568,
+          "region": 1
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 20.899497888057,
+          "left": 37296,
+          "region": 1
+        },
+        {
+          "action": "aexpand",
+          "cost": 110000,
+          "h": 21.3978896584307,
+          "left": 818,
+          "region": 1
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 21.956537914488,
+          "left": 79524,
+          "region": 1
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 23.4733599182281,
+          "left": 198243,
+          "region": 1
+        },
+        {
+          "action": "bag",
+          "cost": 4000,
+          "h": 24.4078110357853,
+          "left": 36121,
+          "region": 2
+        },
+        {
+          "action": "rpart:2:0",
+          "cost": 15600,
+          "h": 24.4078110357853,
+          "left": 20521,
+          "region": 2
+        },
+        {
+          "action": "rpart:2:1",
+          "cost": 31200,
+          "h": 24.540940098737,
+          "left": 1824,
+          "region": 2
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 24.9307920502898,
+          "left": 47997,
+          "region": 2
+        },
+        {
+          "action": "rpart:2:2",
+          "cost": 56160,
+          "h": 25.0058807255116,
+          "left": 359,
+          "region": 2
+        },
+        {
+          "action": "rpart:2:3",
+          "cost": 93600,
+          "h": 25.7205345642387,
+          "left": 899,
+          "region": 2
+        },
+        {
+          "action": "pondregen",
+          "cost": 400000,
+          "h": 26.1650451752204,
+          "left": 112121,
+          "region": 2
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 26.4619815036909,
+          "left": 149908,
+          "region": 2
+        },
+        {
+          "action": "robot:speed",
+          "cost": 2000,
+          "h": 27.055052891551,
+          "left": 296101,
+          "region": 2
+        },
+        {
+          "action": "rod:2",
+          "cost": 140000,
+          "h": 27.055052891551,
+          "left": 156101,
+          "region": 2
+        },
+        {
+          "action": "pondcap",
+          "cost": 250000,
+          "h": 27.2348483174372,
+          "left": 1336614,
+          "region": 2
+        },
+        {
+          "action": "boat",
+          "cost": 300000,
+          "h": 27.2348483174372,
+          "left": 1036614,
+          "region": 2
+        },
+        {
+          "action": "aexpand",
+          "cost": 400000,
+          "h": 27.2348483174372,
+          "left": 636614,
+          "region": 2
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 27.744387818041,
+          "left": 746962,
+          "region": 2
+        },
+        {
+          "action": "pondcap",
+          "cost": 750000,
+          "h": 27.7607802889703,
+          "left": 4500,
+          "region": 2
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 28.7718591534067,
+          "left": 441223,
+          "region": 2
+        },
+        {
+          "action": "pondregen",
+          "cost": 1200000,
+          "h": 29.4400935947228,
+          "left": 85053,
+          "region": 2
+        },
+        {
+          "action": "robot:speed",
+          "cost": 3000,
+          "h": 29.4400935947228,
+          "left": 82053,
+          "region": 2
+        },
+        {
+          "action": "boat",
+          "cost": 1000000,
+          "h": 30.0624664087095,
+          "left": 708489,
+          "region": 2
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 30.0897230136916,
+          "left": 726761,
+          "region": 2
+        },
+        {
+          "action": "robot:precision",
+          "cost": 210000,
+          "h": 30.5788641119065,
+          "left": 909691,
+          "region": 2
+        },
+        {
+          "action": "aexpand",
+          "cost": 1200000,
+          "h": 30.7458899546385,
+          "left": 722022,
+          "region": 2
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 31.0929172082409,
+          "left": 972842,
+          "region": 2
+        },
+        {
+          "action": "bait:0:100",
+          "cost": 500,
+          "h": 32.1381133124356,
+          "left": 2241170,
+          "region": 2
+        }
+      ],
+      "reached_rift": true,
+      "session_h": 3.0,
+      "smart": true
+    }
+  ]
+}

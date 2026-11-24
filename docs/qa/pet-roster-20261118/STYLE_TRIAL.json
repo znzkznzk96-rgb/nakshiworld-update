@@ -1,0 +1,38 @@
+[
+  {
+    "id": "hedgehog-style",
+    "before": 4940,
+    "after": 4939,
+    "request": {
+      "description": "Targeted pixel-art touch-up. Preserve the exact hedgehog pose, silhouette, face, expression, green leaf, feet and base colors. Edit only the spiny back: replace dense bright single pixel flecks with fewer grouped warm brown and tan 2 to 4 pixel quill clusters, broad warm midtone, restrained highlights, clean thin dark brown outline. Keep a clearly spiky hedgehog contour. Preserve 96px framing and transparency.",
+      "seed": 2026111880,
+      "width": 96,
+      "height": 96,
+      "no_background": true,
+      "image": {
+        "ref": "hedgehog-A",
+        "sha256": "35c0f2757d423a1400d98bd015efea5d347cad3285a06266d10d0db9eec0514d"
+      }
+    },
+    "job": "583b55c1-3cad-40cf-9aba-015839e17d75",
+    "sha256": "239b54f6f2072370a2a9c836882554033c44c88f679a24643de6995abc6aa051"
+  },
+  {
+    "id": "boar-style",
+    "before": 4939,
+    "after": 4938,
+    "request": {
+      "description": "Retouch this exact baby wild boar sprite. Keep its three-quarter pose, dusty-pink snout, tan back stripes, ears and clearly separated hooves. Lower the high shoulder and bulky back slightly. Make cheek and belly softly rounded like a small piglet. Add warm dark-brown midtone planes on body and forelegs, keeping the dark coat. Clean thin dark-brown outline, clustered shading, no tusks or accessories. Keep the same 96px transparent canvas.",
+      "seed": 2026111881,
+      "width": 96,
+      "height": 96,
+      "no_background": true,
+      "image": {
+        "ref": "boar7-B",
+        "sha256": "ce0f987d6cf54c9b0e78f7aa85359cd1ee12a175f67c73f44ebb1b96707fcdfb"
+      }
+    },
+    "job": "2df02f16-0956-42cc-ba10-d61c6cb0b3ce",
+    "sha256": "b894e87c025980905f7704059dbc0e5f75262f449d141a6b6cd32e9c32f3929a"
+  }
+]

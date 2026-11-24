@@ -1,0 +1,722 @@
+[
+  {
+    "mode": "auto_sss",
+    "seed": 17,
+    "code": 0,
+    "seconds": 14.3
+  },
+  {
+    "mode": "aqua50",
+    "seed": 17,
+    "code": 0,
+    "seconds": 15.31
+  },
+  {
+    "mode": "none",
+    "seed": 17,
+    "code": 0,
+    "seconds": 15.32
+  },
+  {
+    "mode": "aqua20",
+    "seed": 17,
+    "code": 0,
+    "seconds": 16.32
+  },
+  {
+    "mode": "auto_ss",
+    "seed": 17,
+    "code": 0,
+    "seconds": 16.33
+  },
+  {
+    "mode": "auto_s",
+    "seed": 17,
+    "code": 0,
+    "seconds": 16.38
+  },
+  {
+    "mode": "slots",
+    "seed": 17,
+    "code": 0,
+    "seconds": 13.18
+  },
+  {
+    "mode": "stack",
+    "seed": 17,
+    "code": 0,
+    "seconds": 11.16
+  },
+  {
+    "mode": "aqua50_slots",
+    "seed": 17,
+    "code": 0,
+    "seconds": 13.17
+  },
+  {
+    "mode": "aqua20_slots2",
+    "seed": 17,
+    "code": 0,
+    "seconds": 14.17
+  },
+  {
+    "mode": "manual",
+    "seed": 17,
+    "code": 0,
+    "seconds": 16.18
+  },
+  {
+    "mode": "auto_guard",
+    "seed": 17,
+    "code": 0,
+    "seconds": 16.14
+  },
+  {
+    "mode": "auto_ss",
+    "seed": 31,
+    "code": 0,
+    "seconds": 16.18
+  },
+  {
+    "mode": "auto_sss",
+    "seed": 31,
+    "code": 0,
+    "seconds": 14.17
+  },
+  {
+    "mode": "aqua50",
+    "seed": 31,
+    "code": 0,
+    "seconds": 14.22
+  },
+  {
+    "mode": "auto_s",
+    "seed": 31,
+    "code": 0,
+    "seconds": 19.22
+  },
+  {
+    "mode": "aqua20",
+    "seed": 31,
+    "code": 0,
+    "seconds": 17.24
+  },
+  {
+    "mode": "none",
+    "seed": 31,
+    "code": 0,
+    "seconds": 22.16
+  },
+  {
+    "mode": "stack",
+    "seed": 31,
+    "code": 0,
+    "seconds": 10.21
+  },
+  {
+    "mode": "slots",
+    "seed": 31,
+    "code": 0,
+    "seconds": 15.18
+  },
+  {
+    "mode": "aqua50_slots",
+    "seed": 31,
+    "code": 0,
+    "seconds": 15.16
+  },
+  {
+    "mode": "manual",
+    "seed": 31,
+    "code": 0,
+    "seconds": 15.17
+  },
+  {
+    "mode": "aqua20_slots2",
+    "seed": 31,
+    "code": 0,
+    "seconds": 14.21
+  },
+  {
+    "mode": "auto_guard",
+    "seed": 31,
+    "code": 0,
+    "seconds": 16.16
+  },
+  {
+    "mode": "none",
+    "seed": 59,
+    "code": 0,
+    "seconds": 12.16
+  },
+  {
+    "mode": "auto_ss",
+    "seed": 59,
+    "code": 0,
+    "seconds": 12.15
+  },
+  {
+    "mode": "auto_s",
+    "seed": 59,
+    "code": 0,
+    "seconds": 13.15
+  },
+  {
+    "mode": "auto_sss",
+    "seed": 59,
+    "code": 0,
+    "seconds": 12.15
+  },
+  {
+    "mode": "aqua20",
+    "seed": 59,
+    "code": 0,
+    "seconds": 12.15
+  },
+  {
+    "mode": "aqua50",
+    "seed": 59,
+    "code": 0,
+    "seconds": 11.2
+  },
+  {
+    "mode": "slots",
+    "seed": 59,
+    "code": 0,
+    "seconds": 13.18
+  },
+  {
+    "mode": "stack",
+    "seed": 59,
+    "code": 0,
+    "seconds": 10.15
+  },
+  {
+    "mode": "manual",
+    "seed": 59,
+    "code": 0,
+    "seconds": 12.16
+  },
+  {
+    "mode": "aqua50_slots",
+    "seed": 59,
+    "code": 0,
+    "seconds": 13.17
+  },
+  {
+    "mode": "aqua20_slots2",
+    "seed": 59,
+    "code": 0,
+    "seconds": 12.16
+  },
+  {
+    "mode": "auto_guard",
+    "seed": 59,
+    "code": 0,
+    "seconds": 13.21
+  },
+  {
+    "mode": "none",
+    "seed": 83,
+    "code": 0,
+    "seconds": 12.2
+  },
+  {
+    "mode": "auto_s",
+    "seed": 83,
+    "code": 0,
+    "seconds": 13.17
+  },
+  {
+    "mode": "auto_ss",
+    "seed": 83,
+    "code": 0,
+    "seconds": 14.16
+  },
+  {
+    "mode": "aqua20",
+    "seed": 83,
+    "code": 0,
+    "seconds": 12.15
+  },
+  {
+    "mode": "auto_sss",
+    "seed": 83,
+    "code": 0,
+    "seconds": 15.37
+  },
+  {
+    "mode": "aqua50",
+    "seed": 83,
+    "code": 0,
+    "seconds": 15.18
+  },
+  {
+    "mode": "slots",
+    "seed": 83,
+    "code": 0,
+    "seconds": 12.22
+  },
+  {
+    "mode": "manual",
+    "seed": 83,
+    "code": 0,
+    "seconds": 11.16
+  },
+  {
+    "mode": "aqua50_slots",
+    "seed": 83,
+    "code": 0,
+    "seconds": 13.2
+  },
+  {
+    "mode": "stack",
+    "seed": 83,
+    "code": 0,
+    "seconds": 11.21
+  },
+  {
+    "mode": "auto_guard",
+    "seed": 83,
+    "code": 0,
+    "seconds": 13.16
+  },
+  {
+    "mode": "aqua20_slots2",
+    "seed": 83,
+    "code": 0,
+    "seconds": 12.15
+  },
+  {
+    "mode": "none",
+    "seed": 107,
+    "code": 0,
+    "seconds": 13.22
+  },
+  {
+    "mode": "auto_s",
+    "seed": 107,
+    "code": 0,
+    "seconds": 12.15
+  },
+  {
+    "mode": "auto_ss",
+    "seed": 107,
+    "code": 0,
+    "seconds": 14.15
+  },
+  {
+    "mode": "auto_sss",
+    "seed": 107,
+    "code": 0,
+    "seconds": 13.15
+  },
+  {
+    "mode": "aqua20",
+    "seed": 107,
+    "code": 0,
+    "seconds": 13.14
+  },
+  {
+    "mode": "aqua50",
+    "seed": 107,
+    "code": 0,
+    "seconds": 12.15
+  },
+  {
+    "mode": "manual",
+    "seed": 107,
+    "code": 0,
+    "seconds": 11.14
+  },
+  {
+    "mode": "stack",
+    "seed": 107,
+    "code": 0,
+    "seconds": 11.14
+  },
+  {
+    "mode": "aqua50_slots",
+    "seed": 107,
+    "code": 0,
+    "seconds": 14.16
+  },
+  {
+    "mode": "slots",
+    "seed": 107,
+    "code": 0,
+    "seconds": 19.18
+  },
+  {
+    "mode": "auto_guard",
+    "seed": 107,
+    "code": 0,
+    "seconds": 13.15
+  },
+  {
+    "mode": "aqua20_slots2",
+    "seed": 107,
+    "code": 0,
+    "seconds": 14.16
+  },
+  {
+    "mode": "none",
+    "seed": 131,
+    "code": 0,
+    "seconds": 13.2
+  },
+  {
+    "mode": "auto_s",
+    "seed": 131,
+    "code": 0,
+    "seconds": 13.2
+  },
+  {
+    "mode": "auto_ss",
+    "seed": 131,
+    "code": 0,
+    "seconds": 13.21
+  },
+  {
+    "mode": "auto_sss",
+    "seed": 131,
+    "code": 0,
+    "seconds": 12.2
+  },
+  {
+    "mode": "aqua20",
+    "seed": 131,
+    "code": 0,
+    "seconds": 14.18
+  },
+  {
+    "mode": "aqua50",
+    "seed": 131,
+    "code": 0,
+    "seconds": 14.16
+  },
+  {
+    "mode": "aqua50_slots",
+    "seed": 131,
+    "code": 0,
+    "seconds": 12.15
+  },
+  {
+    "mode": "manual",
+    "seed": 131,
+    "code": 0,
+    "seconds": 12.14
+  },
+  {
+    "mode": "slots",
+    "seed": 131,
+    "code": 0,
+    "seconds": 13.31
+  },
+  {
+    "mode": "stack",
+    "seed": 131,
+    "code": 0,
+    "seconds": 11.15
+  },
+  {
+    "mode": "auto_guard",
+    "seed": 131,
+    "code": 0,
+    "seconds": 12.15
+  },
+  {
+    "mode": "aqua20_slots2",
+    "seed": 131,
+    "code": 0,
+    "seconds": 13.16
+  },
+  {
+    "mode": "auto_sss",
+    "seed": 151,
+    "code": 0,
+    "seconds": 11.14
+  },
+  {
+    "mode": "auto_s",
+    "seed": 151,
+    "code": 0,
+    "seconds": 12.25
+  },
+  {
+    "mode": "none",
+    "seed": 151,
+    "code": 0,
+    "seconds": 13.15
+  },
+  {
+    "mode": "auto_ss",
+    "seed": 151,
+    "code": 0,
+    "seconds": 12.15
+  },
+  {
+    "mode": "aqua20",
+    "seed": 151,
+    "code": 0,
+    "seconds": 12.15
+  },
+  {
+    "mode": "aqua50_slots",
+    "seed": 151,
+    "code": 0,
+    "seconds": 12.15
+  },
+  {
+    "mode": "manual",
+    "seed": 151,
+    "code": 0,
+    "seconds": 12.15
+  },
+  {
+    "mode": "stack",
+    "seed": 151,
+    "code": 0,
+    "seconds": 12.25
+  },
+  {
+    "mode": "slots",
+    "seed": 151,
+    "code": 0,
+    "seconds": 13.2
+  },
+  {
+    "mode": "aqua50",
+    "seed": 151,
+    "code": 0,
+    "seconds": 18.17
+  },
+  {
+    "mode": "auto_guard",
+    "seed": 151,
+    "code": 0,
+    "seconds": 13.15
+  },
+  {
+    "mode": "auto_ss",
+    "seed": 173,
+    "code": 0,
+    "seconds": 12.15
+  },
+  {
+    "mode": "aqua20_slots2",
+    "seed": 151,
+    "code": 0,
+    "seconds": 13.16
+  },
+  {
+    "mode": "none",
+    "seed": 173,
+    "code": 0,
+    "seconds": 13.15
+  },
+  {
+    "mode": "auto_s",
+    "seed": 173,
+    "code": 0,
+    "seconds": 13.15
+  },
+  {
+    "mode": "auto_sss",
+    "seed": 173,
+    "code": 0,
+    "seconds": 13.16
+  },
+  {
+    "mode": "aqua20",
+    "seed": 173,
+    "code": 0,
+    "seconds": 12.14
+  },
+  {
+    "mode": "manual",
+    "seed": 173,
+    "code": 0,
+    "seconds": 11.15
+  },
+  {
+    "mode": "aqua50",
+    "seed": 173,
+    "code": 0,
+    "seconds": 13.19
+  },
+  {
+    "mode": "stack",
+    "seed": 173,
+    "code": 0,
+    "seconds": 11.14
+  },
+  {
+    "mode": "slots",
+    "seed": 173,
+    "code": 0,
+    "seconds": 13.16
+  },
+  {
+    "mode": "aqua50_slots",
+    "seed": 173,
+    "code": 0,
+    "seconds": 13.16
+  },
+  {
+    "mode": "auto_guard",
+    "seed": 173,
+    "code": 0,
+    "seconds": 13.15
+  },
+  {
+    "mode": "aqua20_slots2",
+    "seed": 173,
+    "code": 0,
+    "seconds": 12.15
+  },
+  {
+    "mode": "auto_ss",
+    "seed": 197,
+    "code": 0,
+    "seconds": 12.17
+  },
+  {
+    "mode": "auto_s",
+    "seed": 197,
+    "code": 0,
+    "seconds": 13.14
+  },
+  {
+    "mode": "auto_sss",
+    "seed": 197,
+    "code": 0,
+    "seconds": 13.14
+  },
+  {
+    "mode": "none",
+    "seed": 197,
+    "code": 0,
+    "seconds": 19.17
+  },
+  {
+    "mode": "aqua50",
+    "seed": 197,
+    "code": 0,
+    "seconds": 12.15
+  },
+  {
+    "mode": "aqua20",
+    "seed": 197,
+    "code": 0,
+    "seconds": 19.17
+  },
+  {
+    "mode": "slots",
+    "seed": 197,
+    "code": 0,
+    "seconds": 13.16
+  },
+  {
+    "mode": "aqua50_slots",
+    "seed": 197,
+    "code": 0,
+    "seconds": 17.17
+  },
+  {
+    "mode": "manual",
+    "seed": 197,
+    "code": 0,
+    "seconds": 17.17
+  },
+  {
+    "mode": "stack",
+    "seed": 197,
+    "code": 0,
+    "seconds": 12.16
+  },
+  {
+    "mode": "aqua20_slots2",
+    "seed": 197,
+    "code": 0,
+    "seconds": 14.16
+  },
+  {
+    "mode": "auto_guard",
+    "seed": 197,
+    "code": 0,
+    "seconds": 15.16
+  },
+  {
+    "mode": "none",
+    "seed": 223,
+    "code": 0,
+    "seconds": 16.16
+  },
+  {
+    "mode": "auto_ss",
+    "seed": 223,
+    "code": 0,
+    "seconds": 14.16
+  },
+  {
+    "mode": "auto_sss",
+    "seed": 223,
+    "code": 0,
+    "seconds": 14.16
+  },
+  {
+    "mode": "auto_s",
+    "seed": 223,
+    "code": 0,
+    "seconds": 22.18
+  },
+  {
+    "mode": "aqua50",
+    "seed": 223,
+    "code": 0,
+    "seconds": 15.16
+  },
+  {
+    "mode": "slots",
+    "seed": 223,
+    "code": 0,
+    "seconds": 15.16
+  },
+  {
+    "mode": "aqua20",
+    "seed": 223,
+    "code": 0,
+    "seconds": 21.18
+  },
+  {
+    "mode": "manual",
+    "seed": 223,
+    "code": 0,
+    "seconds": 14.16
+  },
+  {
+    "mode": "stack",
+    "seed": 223,
+    "code": 0,
+    "seconds": 12.16
+  },
+  {
+    "mode": "auto_guard",
+    "seed": 223,
+    "code": 0,
+    "seconds": 14.21
+  },
+  {
+    "mode": "aqua50_slots",
+    "seed": 223,
+    "code": 0,
+    "seconds": 23.19
+  },
+  {
+    "mode": "aqua20_slots2",
+    "seed": 223,
+    "code": 0,
+    "seconds": 14.21
+  }
+]

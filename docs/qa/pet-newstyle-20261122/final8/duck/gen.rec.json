@@ -1,0 +1,8 @@
+{
+ "desc": "Redraw this reed duck from scratch as a clean, sharp 16-bit pixel art sprite. Do not copy the source; keep only the species, pose and colors: cream white feathers, orange bill and feet, reed grass behind. Eyes: small, a dark pupil with one clear white highlight pixel, crisp and sharp. Dark navy outline, 2 to 3 flat shade steps, clean readable shapes, no noise, no texture, no gradients, no blur, no ground shadow.",
+ "seed": 2026121102,
+ "input_sha256": "15944b4cbf61e0a067e9dd4f2915445771e8d72c6da0a8b2fb752efb22f03a93",
+ "before": 4713.0,
+ "after": 4712.0,
+ "sha256": "d79345e9300a2466991e885beb39f2edf46ec18fc4367a6c18dce27bde77c91e"
+}

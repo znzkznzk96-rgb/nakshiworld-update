@@ -1,0 +1,8 @@
+{
+ "desc": "Edit only the eyes and mouth of this hamster. Keep everything else the same: pixel texture, outline, ears, paws, gem, body, colors, and keep the purple gem in its paws. Eyes: small round dark eyes about 3 to 4 pixels wide with a single 1px white highlight, slightly glossy, calm and innocent, like a small otter sprite. No eyebrows, no narrowed or sly eyes, no smirk. Mouth: a natural short mouth line fitting a hamster, clearly visible, no big smile.",
+ "seed": 2026120901,
+ "input_sha256": "7cdaeba25c3462c56aa71b5713a3a75e63cef40e7303e08a9b9d81c68ed1cfe8",
+ "before": 4730.0,
+ "after": 4729.0,
+ "sha256": "b90580fefa8e853dd36cde791cd1c87e24d4cca6c9fc88a178fcf656631f4304"
+}

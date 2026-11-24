@@ -1,0 +1,84 @@
+{
+  "scope": 32,
+  "size": [
+    96,
+    96
+  ],
+  "model": "create-image-pixen",
+  "references": [],
+  "first": {
+    "id": "fox-A",
+    "name": "SS 별꼬리 여우 A",
+    "palette": "ivory, sapphire, cyan, small gold accent",
+    "pose": "natural four-legged right-facing stance, separate front and hind leg pairs",
+    "required": "clearly distinguish legs; short muzzle, triangular ears, large fluffy blue star-marked tail"
+  },
+  "roster": [
+    [
+      "SSS",
+      "낚시왕 수달"
+    ],
+    [
+      "SSS",
+      "천둥 해룡"
+    ],
+    [
+      "SSS",
+      "황금 고래"
+    ],
+    [
+      "SSS",
+      "균열 늑대"
+    ],
+    [
+      "SS",
+      "사냥 물총새"
+    ],
+    [
+      "SS",
+      "별꼬리 여우"
+    ],
+    [
+      "SS",
+      "불꽃 매"
+    ],
+    [
+      "S",
+      "꼬마 펭귄"
+    ],
+    [
+      "S",
+      "샘물 개구리"
+    ],
+    [
+      "S",
+      "보석 햄스터"
+    ],
+    [
+      "A",
+      "배낭 거북"
+    ],
+    [
+      "A",
+      "불꽃 병아리"
+    ],
+    [
+      "A",
+      "밤송이 고슴도치"
+    ],
+    [
+      "B",
+      "찌 참새"
+    ],
+    [
+      "B",
+      "장사 너구리"
+    ],
+    [
+      "B",
+      "꼬마 멧돼지"
+    ]
+  ],
+  "per_pet": 2,
+  "review_gate": "Each single paid call requires visual pass before next. Stop at failure."
+}

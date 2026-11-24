@@ -1,0 +1,8 @@
+{
+ "desc": "Keep the exact same character design and silhouette. Redraw as a true 16-bit game sprite on a uniform 1px pixel grid: uniform 1px dark outline, 2-3 flat clear shade colors, no anti-aliasing, no blur, no gradients, no in-between colors, no noise or stipple dots, small crisp eyes and face, dark areas stay solid dark. Remove the ground shadow and background. Transparent background.",
+ "seed": 2026115007,
+ "input_sha256": "af828c97cdf46252e4684a9c2c5c3ad283480dbb83b323cb0151cd9fb2d6fa25",
+ "before": 4553.0,
+ "after": 4552.0,
+ "sha256": "3cffcb2db025ffcd4bffe36d110a0fc117f73236d97ad1627405f6b89b37c105"
+}

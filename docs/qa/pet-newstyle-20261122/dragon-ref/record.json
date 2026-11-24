@@ -1,0 +1,20 @@
+{
+ "endpoint": "create-image-pixen",
+ "req": {
+  "description": "a sea dragon with realistic anatomy, long muscular serpentine body, blue-gray overlapping scales with wet sheen, glowing yellow lightning-like fins and crest, sharp eyes, menacing, muted natural colors, material texture, soft volumetric shading, full body",
+  "image_size": {
+   "width": 96,
+   "height": 96
+  },
+  "outline": "selective outline",
+  "detail": "highly detailed",
+  "view": "side",
+  "direction": "east",
+  "no_background": true,
+  "seed": 2026112230
+ },
+ "before": 4825.0,
+ "after": 4824.0,
+ "sha": "9d9eac3ec695f735b6cff9268c15cdd30b9d272bd8653c5d3863e0ebb7cdac0a",
+ "note": "직전 동일 요청은 응답 저장 실패로 유실(1회 차감 낭비)"
+}
