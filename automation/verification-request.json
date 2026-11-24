@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_before_request": "220bab4f541a8422f05bc87ce5233f8f88d602f0",
-  "reason": "v1.49 reel curve",
-  "requested_at": "2026-11-24T10:16:35.658534+00:00"
+  "source_before_request": "64a40e38c07660f7bf5491226ffce358eedd510f",
+  "reason": "v1.50 delta updater (bootstrap)",
+  "requested_at": "2026-11-24T10:45:39.524876+00:00"
 }
