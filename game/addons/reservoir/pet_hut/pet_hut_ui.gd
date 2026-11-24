@@ -118,7 +118,11 @@ func _txt(s: String, pos: Vector2, size: int, col: Color, center := false, w := 
 	var x := roundf(pos.x - w / 2.0) if center else roundf(pos.x)
 	# main.gd _font_idx와 같은 글자 크기 단계(10/12/14/16)만 써야 네오둥근모가 깨지지 않는다
 	var px := 10 if size <= 10 else (12 if size <= 13 else (14 if size <= 15 else 16))
-	draw_string(_font, Vector2(x, roundf(pos.y)), s, HORIZONTAL_ALIGNMENT_CENTER if center else HORIZONTAL_ALIGNMENT_LEFT, w, px, col)
+	# text_layer.gd와 같은 방식: 화면 배율만큼 큰 글자로 그려서 폰 해상도에서 또렷하게 한다
+	var raster := maxf(1.0, get_viewport_transform().get_scale().x)
+	draw_set_transform(Vector2(x, roundf(pos.y)), 0.0, Vector2.ONE / raster)
+	draw_string(_font, Vector2.ZERO, s, HORIZONTAL_ALIGNMENT_CENTER if center else HORIZONTAL_ALIGNMENT_LEFT, w * raster, px * raster, col)
+	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 
 func panel_rect() -> Rect2:
 	return Rect2(8, panel_y if panel_y >= 0.0 else roundf((size.y - 380.0) / 2.0), 254, 380)
