@@ -573,13 +573,14 @@ func _draw_reveal() -> void:
 	if g >= 5 and t0 > 0.0 and t0 < 0.5: amp = maxf(amp, (2.0 + g - 5.0) * (0.5 - t0) / 0.5)
 	rv.position = Vector2(randf_range(-amp, amp), randf_range(-amp, amp)) if amp > 0.0 else Vector2.ZERO
 	var a := clampf(_rv_t / 0.35, 0.0, 1.0)
-	rv.draw_rect(Rect2(-20, -20, 310, 460), Color(0, 0, 0, 0.85 * a))
+	rv.draw_rect(Rect2(-300, -400, 900, 1500), Color(0, 0, 0, 0.75 * a))
 	# 실루엣 동안 점점 밝아지는 정도(실루엣 떨림에만 쓴다)
 	var glow := clampf((_rv_t - 0.2) / maxf(0.2, T0 - 0.2), 0.0, 1.0) if t0 < 0.0 else 1.0
 	# 펫
 	var frames: Array = _fr["rv_" + _rv_pet]
 	var ft: Texture2D = frames[int(maxf(t0, 0.0) * 10.0) % 9]
-	var ps := ART * maxf(2.0, roundf(88.0 / (ART * maxf(ft.get_width(), ft.get_height()))))   # 그림 1픽셀이 폰 화면 3픽셀의 정수배가 되게, 너무 키우지 않는다
+	var pop := 1.0 + 2.0 * pow(1.0 - clampf(t0 / 0.55, 0.0, 1.0), 2.0) if t0 >= 0.0 else 1.0   # 나올 때 크게 확대됐다가 원래 크기로 줄어든다
+	var ps := roundf(pop * 4.0) / 4.0
 	var sz := Vector2(ft.get_width(), ft.get_height()) * ps
 	var off := Vector2.ZERO if t0 < 0.0 else _entry(kind, t0)
 	var mod := Color(0, 0, 0, 1) if t0 < 0.0 else Color.WHITE
@@ -620,4 +621,4 @@ func _draw_reveal() -> void:
 	# 번쩍: 등장 순간(SSS는 두 번)
 	var fl := clampf(1.0 - absf(t0) * (6.0 if t0 < 0.0 else 3.0), 0.0, 1.0) if absf(t0) < 0.4 else 0.0
 	if g == 6 and t0 > 0.5 and t0 < 0.8: fl = maxf(fl, (0.8 - t0) * 2.0)
-	if fl > 0.0: rv.draw_rect(Rect2(-20, -20, 310, 460), Color(1, 1, 1, fl))
+	if fl > 0.0: rv.draw_rect(Rect2(-300, -400, 900, 1500), Color(1, 1, 1, fl))
