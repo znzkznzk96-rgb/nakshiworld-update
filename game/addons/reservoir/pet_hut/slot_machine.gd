@@ -26,7 +26,7 @@ const LAMP_X := [82.0, 109.0, 135.75, 162.75, 189.75]
 const LAMP_Y := 262.25
 const LAMP_ART := 0.5
 const LEVER_ART := 0.75
-const LEVER_POS := Vector2(217.0, 164.0)   # 판 왼쪽 아래(그림 4,128)가 기계 오른쪽 옆면에 닿는 자리
+const LEVER_POS := Vector2(217.0, 158.0)   # 판 왼쪽 아래(그림 4,128)가 기계 오른쪽 옆면에 닿는 자리
 ## 레버 당김 프레임(PixelLab 그림 + 레퍼런스 움짤의 움직임): 0=올림, 6~8=끝까지 내림, 12=반동으로 올라감
 const LEVER_DOWN := [1, 2, 3, 4, 5, 6]
 const LEVER_UP := [9, 10, 11, 12, 13, 14, 0]
