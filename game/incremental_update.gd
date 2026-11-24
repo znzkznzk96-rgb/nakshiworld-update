@@ -4,6 +4,7 @@ var received:=0
 var planned:=-1
 var stage:="planning"
 var request:HTTPRequest
+var owner_tree:SceneTree
 var index_bytes:=PackedByteArray()
 var entries:Array=[]
 var reused:=0
@@ -101,6 +102,24 @@ func fetch_range(url:String,start:int,length:int,total:int)->PackedByteArray:
  received+=data.size()
  return data
 
+func fetch_retry(url:String,start:int,length:int,total:int)->PackedByteArray:
+ for attempt in 3:
+  var data:=await fetch_range(url,start,length,total)
+  if not data.is_empty():return data
+  if attempt<2:await owner_tree.create_timer(0.6*(attempt+1)).timeout
+ return PackedByteArray()
+
+# Merge neighbouring missing entries (gap<=4096 B, run<=4 MB) into one Range request.
+func run_end(i:int,cache:Dictionary)->int:
+ var first:Dictionary=entries[i];var end:int=int(first.start)+int(first.size)
+ var j:=i+1
+ while j<entries.size():
+  var n:Dictionary=entries[j]
+  if cache.has(n.path):break
+  if int(n.start)-end>4096 or int(n.start)+int(n.size)-int(first.start)>4194304:break
+  end=int(n.start)+int(n.size);j+=1
+ return end
+
 func snapshot()->Dictionary:
  var in_flight:int=maxi(0,request.get_downloaded_bytes()) if request and request.get_http_client_status()!=HTTPClient.STATUS_DISCONNECTED else 0
  # completed requests can retain the previous byte counter; only count while receiving.
@@ -109,12 +128,12 @@ func snapshot()->Dictionary:
  return {"received":count,"total":planned,"progress":clampf(float(count)/planned,0,1) if planned>0 else -1.0}
 
 func download(owner:Node,url:String,total:int,expected_sha:String,target:String,installed:String="",verify_at_end:bool=true)->bool:
- request=HTTPRequest.new();request.timeout=90;owner.add_child(request)
- var header:=await fetch_range(url,0,100,total)
+ request=HTTPRequest.new();request.timeout=40;owner.add_child(request);owner_tree=owner.get_tree()
+ var header:=await fetch_retry(url,0,100,total)
  if header.size()!=100 or header.slice(0,4)!=PackedByteArray([71,68,80,67]):return finish(false)
  var base:int=header.decode_u64(24)
  if base<100 or base>4194304 or base>total:return finish(false)
- var rest:=await fetch_range(url,100,base-100,total)
+ var rest:=await fetch_retry(url,100,base-100,total)
  if rest.size()!=base-100:return finish(false)
  index_bytes=header+rest;entries=parse_index(index_bytes,total)
  if entries.is_empty():return finish(false)
@@ -130,13 +149,22 @@ func download(owner:Node,url:String,total:int,expected_sha:String,target:String,
  var out:=FileAccess.open(target,FileAccess.WRITE)
  if out==null:return finish(false)
  out.store_buffer(index_bytes)
- for e in entries:
+ var run:=PackedByteArray();var run_start:=0
+ for i in entries.size():
+  var e:Dictionary=entries[i]
   await cooperate(owner)
   if out.get_position()>int(e.start):out=null;return finish(false)
   if out.get_position()<int(e.start):out.store_buffer(zeros(int(e.start)-out.get_position()))
   var b:PackedByteArray
   if cache.has(e.path):b=local_bytes(e,installed,old);cache.erase(e.path)
-  else:b=await fetch_range(url,int(e.start),int(e.size),total)
+  else:
+   if run.is_empty() or int(e.start)<run_start or int(e.start)+int(e.size)>run_start+run.size():
+    run_start=int(e.start);var len:int=run_end(i,cache)-run_start
+    run=await fetch_retry(url,run_start,len,total)
+    if run.is_empty():out=null;return finish(false)
+    var gap:int=len-_run_payload(i,run_start+len)
+    received-=gap
+   b=run.slice(int(e.start)-run_start,int(e.start)-run_start+int(e.size))
   if b.size()!=e.size or md5(b)!=e.md5:out=null;return finish(false)
   out.store_buffer(b)
   if out.get_error()!=OK:out=null;return finish(false)
@@ -145,6 +173,11 @@ func download(owner:Node,url:String,total:int,expected_sha:String,target:String,
  out.store_buffer(zeros(total-out.get_position()));out.flush();out=null
  if not verify_at_end:return finish(true)
  return finish(await digest_file(owner,target)==expected_sha)
+
+func _run_payload(i:int,end:int)->int:
+ var sum:=0;var j:=i
+ while j<entries.size() and int(entries[j].start)+int(entries[j].size)<=end:sum+=int(entries[j].size);j+=1
+ return sum
 
 func zeros(count:int)->PackedByteArray:
  var data:=PackedByteArray();data.resize(count);data.fill(0);return data

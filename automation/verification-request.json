@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_before_request": "cc30e3818f4334d6f5538ca350d2127df09077df",
-  "reason": "UX 공통 렌더 수정 및 여객선 지역 게이트·기존 저장 보호 전체 검사",
-  "requested_at": "2026-11-18T04:33:01.914348+00:00"
+  "source_before_request": "831d992c3b623712b10b0fdd9169a502b01b380f",
+  "reason": "v1.45 펫 오두막 글자·슬롯 그림 수정 전체 검사",
+  "requested_at": "2026-11-24T06:55:42.624627+00:00"
 }

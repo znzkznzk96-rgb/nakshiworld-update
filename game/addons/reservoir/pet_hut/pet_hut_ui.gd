@@ -6,6 +6,7 @@ signal pearls_collected(n: int)
 signal state_changed        # 펫·진주·조각이 바뀔 때마다(저장용)
 const PETS := ["d_chick", "d_frog", "d_mouse", "c_mushroom", "c_puffbird", "c_slime", "b_hamster", "b_hedgehog", "b_sparrow", "a_fennec", "a_otter", "a_owl", "s_fairy", "s_tome", "s_wisp", "ss_golem", "ss_knight", "ss_storm", "sss_apostle", "sss_demon", "sss_lunar", "sss_seraph"]
 const NAME := {"d_chick": "병아리", "d_frog": "개구리", "d_mouse": "생쥐", "c_mushroom": "버섯", "c_puffbird": "퍼프버드", "c_slime": "슬라임", "b_hamster": "햄스터", "b_hedgehog": "고슴도치", "b_sparrow": "참새", "a_fennec": "사막여우", "a_otter": "수달", "a_owl": "부엉이", "s_fairy": "요정", "s_tome": "마도서", "s_wisp": "촛불정령", "ss_golem": "골렘", "ss_knight": "기사", "ss_storm": "폭풍룡", "sss_apostle": "별의 사도", "sss_demon": "심연의 악마", "sss_lunar": "달의 여인", "sss_seraph": "세라핌"}
+const SHORT := {"sss_apostle": "사도", "sss_demon": "악마", "sss_lunar": "여인", "c_puffbird": "퍼프", "b_hedgehog": "고슴", "a_fennec": "여우", "s_wisp": "정령"}   # 선택 칸용 줄임 이름(3글자 이하)
 const GRADE_NAME := ["D", "C", "B", "A", "S", "SS", "SSS"]
 const RATE := [0.1, 0.2, 0.35, 0.6, 1.0, 1.6, 2.5]   # 시간당 진주
 const CAP_HOURS := 12.0
@@ -55,10 +56,13 @@ var _slot: Control = null
 var _machine: SlotMachine = null
 
 func _ready() -> void:
-	_font = load("res://font/neodgm.ttf")
+	# main.gd의 글꼴 설정과 같게: 공유 리소스를 건드리지 않고 복사, 확대 보정 끄기, 갈무리 보조 글꼴
+	_font = load("res://font/neodgm.ttf").duplicate(true)
 	_font.antialiasing = TextServer.FONT_ANTIALIASING_NONE
 	_font.hinting = TextServer.HINTING_NONE
 	_font.subpixel_positioning = TextServer.SUBPIXEL_POSITIONING_DISABLED
+	_font.oversampling = 1.0
+	_font.fallbacks = [load("res://font/galmuri11.fnt")]
 	_rng.seed = 7
 	_grng.randomize()
 	_sync_owned()
@@ -112,7 +116,13 @@ func _art(name: String, r: Rect2) -> void:
 
 func _txt(s: String, pos: Vector2, size: int, col: Color, center := false, w := 232.0) -> void:
 	var x := roundf(pos.x - w / 2.0) if center else roundf(pos.x)
-	draw_string(_font, Vector2(x, roundf(pos.y)), s, HORIZONTAL_ALIGNMENT_CENTER if center else HORIZONTAL_ALIGNMENT_LEFT, w, size, col)
+	# main.gd _font_idx와 같은 글자 크기 단계(10/12/14/16)만 써야 네오둥근모가 깨지지 않는다
+	var px := 10 if size <= 10 else (12 if size <= 13 else (14 if size <= 15 else 16))
+	# text_layer.gd와 같은 방식: 화면 배율만큼 큰 글자로 그려서 폰 해상도에서 또렷하게 한다
+	var raster := maxf(1.0, get_viewport_transform().get_scale().x)
+	draw_set_transform(Vector2(x, roundf(pos.y)), 0.0, Vector2.ONE / raster)
+	draw_string(_font, Vector2.ZERO, s, HORIZONTAL_ALIGNMENT_CENTER if center else HORIZONTAL_ALIGNMENT_LEFT, w * raster, px * raster, col)
+	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 
 func panel_rect() -> Rect2:
 	return Rect2(8, panel_y if panel_y >= 0.0 else roundf((size.y - 380.0) / 2.0), 254, 380)
@@ -260,11 +270,11 @@ func _draw_pets_tab(body: Rect2) -> void:
 		var sc := 1
 		var lift := 0.0
 		if p.k in FLYERS: lift = 6.0 + sin(_clock * 3.0 + i) * 2.0
-		var pos := scene.position + Vector2(p.x, p.y - lift)
-		var dest := Rect2(pos.x - h * sc / 2.0, pos.y - h * sc, h * sc, h * sc).abs()
+		var pos := (scene.position + Vector2(p.x, p.y - lift)).round()   # 정수 칸에만 그려야 픽셀이 깨지지 않는다
+		var dest := Rect2(pos.x - floorf(h * sc / 2.0), pos.y - h * sc, h * sc, h * sc).abs()
 		if p.face < 0:
 			draw_set_transform(Vector2(pos.x, 0), 0.0, Vector2(-1, 1))
-			draw_texture_rect_region(tex, Rect2(-h * sc / 2.0, dest.position.y, h * sc, h * sc), Rect2(fr * h, 0, h, h))
+			draw_texture_rect_region(tex, Rect2(-floorf(h * sc / 2.0), dest.position.y, h * sc, h * sc), Rect2(fr * h, 0, h, h))
 			draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 		else:
 			draw_texture_rect_region(tex, dest, Rect2(fr * h, 0, h, h))
@@ -275,13 +285,13 @@ func _draw_pets_tab(body: Rect2) -> void:
 		if fxt != null:
 			var fs := fxt.get_height()
 			var ff := fr if fxk != "idle" else int(_clock * 8.0) % 9
-			var pad := (fs - h) * 0.5
+			var pad := floorf((fs - h) * 0.5)
 			if p.face < 0:
 				draw_set_transform(Vector2(pos.x, 0), 0.0, Vector2(-1, 1))
-				draw_texture_rect_region(fxt, Rect2(-fs / 2.0, pos.y - h - pad, fs, fs), Rect2(ff * fs, 0, fs, fs))
+				draw_texture_rect_region(fxt, Rect2(-floorf(fs / 2.0), pos.y - h - pad, fs, fs), Rect2(ff * fs, 0, fs, fs))
 				draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 			else:
-				draw_texture_rect_region(fxt, Rect2(pos.x - fs / 2.0, pos.y - h - pad, fs, fs), Rect2(ff * fs, 0, fs, fs))
+				draw_texture_rect_region(fxt, Rect2(pos.x - floorf(fs / 2.0), pos.y - h - pad, fs, fs), Rect2(ff * fs, 0, fs, fs))
 	for f in _fx:
 		var yy: float = scene.position.y + f.y - 30.0 - f.t * 26.0
 		var xx: float = scene.position.x + f.x
@@ -304,21 +314,21 @@ func _draw_pets_tab(body: Rect2) -> void:
 	rects["collect"] = cb
 	# 장착 슬롯 3칸
 	for i in 3:
-		var sr := Rect2(body.position.x + 6 + i * 74.0, cb.end.y + 6, 70, 44)
+		var sr := Rect2(body.position.x + 6 + i * 74.0, cb.end.y + 6, 70, 52)
 		_art("card", sr)
 		rects["slot:%d" % i] = sr
 		if i >= equipped.size():
-			_txt("+ 비어 있음", sr.get_center() + Vector2(0, 4), 8, Color("8f6951"), true, 64)
+			_txt("+ 비어 있음", sr.get_center() + Vector2(0, 4), 10, Color("8f6951"), true, 64)
 			continue
 		var k: String = equipped[i]
 		var tex: Texture2D = _strip(k, "move")
 		var th := tex.get_height()
-		draw_texture_rect_region(tex, Rect2(sr.position + Vector2(3, 6), Vector2(th, th)), Rect2(0, 0, th, th))
-		_txt(NAME[k], sr.position + Vector2(40, 17), 8, INK, false, 30)
-		_txt(GRADE_NAME[grade_of(k)], sr.position + Vector2(40, 31), 9, Color("8f6951"), false, 28)
+		draw_texture_rect_region(tex, Rect2(sr.position + Vector2(floorf((70 - th) / 2.0), 2), Vector2(th, th)), Rect2(0, 0, th, th))
+		_txt(GRADE_NAME[grade_of(k)], sr.position + Vector2(66 - GRADE_NAME[grade_of(k)].length() * 5, 14), 10, Color("8f6951"), false, 24)
+		_txt(NAME[k], sr.position + Vector2(35, 44), 10, INK, true, 66)
 		if get_leader() == k:
-			draw_rect(Rect2(sr.position.x + 2, sr.position.y + 2, 16, 10), Color("c8962b"))
-			_txt("대표", Vector2(sr.position.x + 10, sr.position.y + 10), 7, CREAM, true, 16)
+			draw_rect(Rect2(sr.position.x + 3, sr.position.y + 3, 22, 12), Color("c8962b"))
+			_txt("대표", Vector2(sr.position.x + 14, sr.position.y + 13), 10, CREAM, true, 22)
 	if picker >= 0: _draw_picker(body)
 
 func _draw_picker(body: Rect2) -> void:
@@ -327,17 +337,19 @@ func _draw_picker(body: Rect2) -> void:
 	_txt("슬롯 %d에 일할 펫 고르기" % (picker + 1), Vector2(pr.get_center().x, pr.position.y + 17), 9, INK, true, pr.size.x - 10)
 	for n in owned.size():
 		var k: String = owned[n]
-		var cr := Rect2(pr.position.x + 7 + (n % 5) * 43.0, pr.position.y + 26 + (n / 5) * 42.0, 40, 39)
+		var cr := Rect2(pr.position.x + 4 + (n % 5) * 44.5, pr.position.y + 24 + (n / 5) * 45.0, 43, 43)
 		var here: int = equipped.find(k)
-		_art("teal" if here == picker else "card", cr)
+		draw_rect(cr, Color("8a5a2b"))
+		draw_rect(cr.grow(-1), Color("1f6f6a") if here == picker else Color("f3e2b8"))
 		var tex: Texture2D = _strip(k, "move")
 		var th := tex.get_height()
-		draw_texture_rect_region(tex, Rect2(cr.position + Vector2((40 - th) / 2.0, 2), Vector2(th, th)), Rect2(0, 0, th, th))
-		_txt(NAME[k], cr.position + Vector2(20, 34), 7, CREAM if here == picker else INK, true, 38)
+		draw_texture_rect_region(tex, Rect2(cr.position + Vector2(floorf((43 - th) / 2.0), 0), Vector2(th, th)), Rect2(0, 0, th, th))
+		draw_rect(Rect2(cr.position.x + 1, cr.position.y + 31, 41, 11), Color("1f6f6a") if here == picker else Color("f3e2b8"))
+		_txt(SHORT.get(k, NAME[k]), cr.position + Vector2(21.5, 40), 10, CREAM if here == picker else INK, true, 50)
 		rects["pick:" + k] = cr
 	var xb := Rect2(pr.end.x - 38, pr.position.y + 5, 32, 16)
 	_art("button", xb)
-	_txt("닫기", xb.get_center() + Vector2(0, 4), 8, CREAM, true, 30)
+	_txt("닫기", xb.get_center() + Vector2(0, 4), 10, CREAM, true, 30)
 	rects["picker_close"] = xb
 
 func _pets_press(p: Vector2) -> bool:
@@ -424,7 +436,7 @@ func _slot_done(_info: Dictionary) -> void:
 func _sym(g: String) -> Texture2D:
 	var key := "sym_" + g
 	if not _tex.has(key):
-		_tex[key] = ImageTexture.create_from_image(Image.load_from_file(ProjectSettings.globalize_path(A + "slot/" + key + ".png")))
+		_tex[key] = ImageTexture.create_from_image((load(A + "slot/" + key + ".png") as Texture2D).get_image())   # 폰(APK)에는 원본 PNG가 없어 load()로 읽는다
 	return _tex[key]
 
 func _draw_gacha_tab(body: Rect2) -> void:
@@ -452,7 +464,7 @@ func _draw_gacha_tab(body: Rect2) -> void:
 	else:
 		var tex: Texture2D = _strip(last_pet, "move")
 		var th := tex.get_height()
-		draw_texture_rect_region(tex, Rect2(lr.position + Vector2(8, (46 - th) / 2.0), Vector2(th, th)), Rect2(0, 0, th, th))
+		draw_texture_rect_region(tex, Rect2(lr.position + Vector2(8, floorf((46 - th) / 2.0)), Vector2(th, th)), Rect2(0, 0, th, th))
 		_txt("최근 뽑은 펫", lr.position + Vector2(52, 14), 8, Color("8f6951"), false, 100)
 		_txt("%s (%s)" % [NAME[last_pet], GRADE_NAME[grade_of(last_pet)]], lr.position + Vector2(52, 28), 9, INK, false, 100)
 		_txt("새 펫!" if last_new else "중복 · 분해 가능", lr.position + Vector2(52, 41), 8, Color("2f8f84") if last_new else Color("8f6951"), false, 100)
@@ -531,7 +543,7 @@ func _draw_plans_tab(body: Rect2) -> void:
 		draw_texture(_t("icon/bp_" + k), cr.position + Vector2(2, 2), Color(1, 1, 1, 1.0 if aff else 0.5))
 		var tex: Texture2D = _strip(k, "move")
 		var th := tex.get_height()
-		draw_texture_rect_region(tex, Rect2(cr.position + Vector2(36 + (36 - th) / 2.0, (36 - th) / 2.0), Vector2(th, th)), Rect2(0, 0, th, th), Color(1, 1, 1, 1.0 if aff else 0.55))
+		draw_texture_rect_region(tex, Rect2(cr.position + Vector2(36 + floorf((36 - th) / 2.0), floorf((36 - th) / 2.0)), Vector2(th, th)), Rect2(0, 0, th, th), Color(1, 1, 1, 1.0 if aff else 0.55))
 		rects["bp:" + k] = cr
 	var dr := Rect2(b.x + 6, b.y + 218, body.size.x - 12, 42)
 	_art("card", dr)
@@ -600,16 +612,16 @@ func _draw_box_tab(body: Rect2) -> void:
 		var tex: Texture2D = _strip(k, "move")
 		var th := tex.get_height()
 		var tint := Color(1, 1, 1, 1.0) if have >= 1 else Color(0.1, 0.08, 0.07, 0.75)
-		draw_texture_rect_region(tex, Rect2(cr.position + Vector2((36 - th) / 2.0, (36 - th) / 2.0 - 1), Vector2(th, th)), Rect2(0, 0, th, th), tint)
+		draw_texture_rect_region(tex, Rect2(cr.position + Vector2(floorf((36 - th) / 2.0), floorf((36 - th) / 2.0) - 1), Vector2(th, th)), Rect2(0, 0, th, th), tint)
 		if have >= 1:
-			draw_rect(Rect2(cr.end.x - 14, cr.end.y - 10, 12, 9), Color(0.22, 0.15, 0.1, 0.85))
-			_txt("%d" % have, Vector2(cr.end.x - 8, cr.end.y - 3), 7, CREAM, true, 12)
+			draw_rect(Rect2(cr.end.x - 15, cr.end.y - 14, 13, 12), Color(0.22, 0.15, 0.1, 0.85))
+			_txt("%d" % have, Vector2(cr.end.x - 8.5, cr.end.y - 4), 10, CREAM, true, 13)
 		if equipped.has(k):
-			draw_rect(Rect2(cr.position.x + 2, cr.position.y + 2, 11, 9), Color("2f8f84"))
-			_txt("장", Vector2(cr.position.x + 7.5, cr.position.y + 9), 7, CREAM, true, 11)
+			draw_rect(Rect2(cr.position.x + 2, cr.position.y + 2, 13, 12), Color("2f8f84"))
+			_txt("장", Vector2(cr.position.x + 8.5, cr.position.y + 12), 10, CREAM, true, 13)
 		if get_leader() == k:
-			draw_rect(Rect2(cr.end.x - 13, cr.position.y + 2, 11, 9), Color("c8962b"))
-			_txt("대", Vector2(cr.end.x - 7.5, cr.position.y + 9), 7, CREAM, true, 11)
+			draw_rect(Rect2(cr.end.x - 15, cr.position.y + 2, 13, 12), Color("c8962b"))
+			_txt("대", Vector2(cr.end.x - 8.5, cr.position.y + 12), 10, CREAM, true, 13)
 		rects["bx:" + k] = cr
 	var dr := Rect2(b.x + 4, b.y + 184, body.size.x - 8, 74)
 	_art("card", dr)
@@ -620,7 +632,7 @@ func _draw_box_tab(body: Rect2) -> void:
 	var tex2: Texture2D = _strip(box_sel, "move")
 	var th2 := tex2.get_height()
 	var t2 := Color(1, 1, 1, 1) if have2 >= 1 else Color(0.1, 0.08, 0.07, 0.75)
-	draw_texture_rect_region(tex2, Rect2(dr.position + Vector2(6 + (36 - th2) / 2.0, 4 + (36 - th2) / 2.0), Vector2(th2, th2)), Rect2(0, 0, th2, th2), t2)
+	draw_texture_rect_region(tex2, Rect2(dr.position + Vector2(6 + floorf((36 - th2) / 2.0), 4 + floorf((36 - th2) / 2.0)), Vector2(th2, th2)), Rect2(0, 0, th2, th2), t2)
 	_txt("%s (%s)" % [NAME[box_sel], GRADE_NAME[grade_of(box_sel)]], dr.position + Vector2(48, 16), 9, INK, false, 110)
 	_txt("보유 %d · 시간당 진주 %.2f" % [have2, RATE[grade_of(box_sel)]] if have2 >= 1 else "아직 없는 펫이에요", dr.position + Vector2(48, 31), 8, Color("8f6951"), false, 170)
 	var eq := equipped.has(box_sel)

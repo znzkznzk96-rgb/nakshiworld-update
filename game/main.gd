@@ -3190,8 +3190,11 @@ func _shot_mode() -> void :
 			market_open = true;market_sell = false;inventory.tab = "inventory" if state == "bag_inventory" else "equipment"
 	if state == "village_lockedshop": V.open_shop(self,"up");region_shop.region=1
 	if state == "village_museum": V.open_shop(self,"museum")
-	if state == "village_pet":
+	if state == "village_pet" or state == "village_pet_pick":
 		pet_hut = {"c": {"d_chick": 3, "b_hamster": 2, "ss_golem": 2, "sss_seraph": 1, "a_owl": 1}, "e": ["b_hamster", "ss_golem", "sss_seraph"], "l": "sss_seraph", "f": 60, "s": 3.5, "t": Time.get_unix_time_from_system()};pearl = 120;V.open_shop(self, "pet")
+	if state == "village_pet_pick": V.hut.picker = 1;V.hut.counts = {"d_chick":1,"d_frog":1,"d_mouse":1,"c_mushroom":1,"c_puffbird":1,"c_slime":1,"b_hamster":1,"b_hedgehog":1,"b_sparrow":1,"a_fennec":1,"a_otter":1,"a_owl":1,"s_fairy":1,"s_tome":1,"s_wisp":1,"ss_golem":1,"ss_knight":1,"ss_storm":1,"sss_apostle":1,"sss_demon":1,"sss_lunar":1,"sss_seraph":1};V.hut._sync_owned()
+	if state.begins_with("village_pet_tab_"):
+		pet_hut = {"c": {"d_chick": 3, "b_hamster": 2, "ss_golem": 2, "sss_seraph": 1, "a_owl": 1}, "e": ["b_hamster", "ss_golem", "sss_seraph"], "l": "sss_seraph", "f": 60, "s": 3.5, "t": Time.get_unix_time_from_system()};pearl = 120;V.open_shop(self, "pet");V.hut.tab = state.trim_prefix("village_pet_tab_")
 	if state == "settings_reset": reset_confirm=true
 	if state == "measure_crucian": S.sp=1;S.len=25.9;S.weight=0.088;S.newRec=false;S.grade=0;S.t=S.netEnd+2.3;tip_t=0.0
 	if state.begins_with("lesson_book_"):

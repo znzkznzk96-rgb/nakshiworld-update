@@ -9,11 +9,11 @@ func run():
 	var m=load("res://main.gd").new();m.SET.sfx=0;m.SET.music=0;root.add_child(m);await process_frame;m.set_process(false)
 	if "resume" in OS.get_cmdline_user_args():
 		check(m.gold==7735123 and m.souls==1007 and m.expedition.data.souls==[51,52,53,54,55],"independent restart currencies")
-		check(m.bag.size()==93 and m.testing_grants.size()==6,"independent restart contents and IDs")
+		check(m.bag.size()==93 and m.testing_grants.size()==7,"independent restart contents and IDs")
 		for version in Gifts.DATA: check(not Gifts.claim(m,version),"restart blocks "+version)
 	else:
 		for version in Gifts.DATA:
-			m.testing_grants=["unrelated-existing-id"];m.gold=123;m.souls=7;m.expedition.data.souls=[1,2,3,4,5]
+			m.testing_grants=["unrelated-existing-id"];m.pearl=0;m.gold=123;m.souls=7;m.expedition.data.souls=[1,2,3,4,5]
 			m.bag=[{"sp":0,"star":0,"grade":2,"len":12.0,"w":0.08,"price":99,"shoulder":false}]
 			var bag: Array=m.bag.duplicate(true)
 			m.development_preview=true;check(not Gifts.claim(m,version),"preview "+version);m.development_preview=false
@@ -36,7 +36,8 @@ func run():
 			check(Gifts.info(version).id in m.testing_grants,"mail dispatch "+version)
 			check(not Gifts.claim(m,version),"duplicate "+version)
 		check(m.gold==7735123 and m.souls==1007 and m.expedition.data.souls==[51,52,53,54,55],"combined exact currencies")
-		check(m.bag.size()==93 and m.testing_grants.size()==6,"combined contents and existing marker")
+		check(m.bag.size()==93 and m.testing_grants.size()==7,"combined contents and existing marker")
+		check(m.pearl==10000,"combined pearl")
 		for area in 2:
 			var targets: Array=m.progression.bundle_targets(area,0)
 			for slot in targets.size():
