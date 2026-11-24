@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_before_request": "0acc3dd46542eb4d9f1bd00961ed2b2265af50a2",
-  "reason": "v1.44 업데이터 구간 병합·진주 우편 전체 검사",
-  "requested_at": "2026-11-24T04:09:53.564120+00:00"
+  "source_before_request": "ceb871311e78ae4a9b4ee5bb71178135b7c00f56",
+  "reason": "v1.44 업데이터 구간 병합·진주 우편 전체 검사 (재요청)",
+  "requested_at": "2026-11-24T04:19:57.443120+00:00"
 }
