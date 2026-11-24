@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_before_request": "4680619711afd92f89210e27c4eace8165cf84a7",
-  "reason": "v1.53: 슬롯 등급별 연출 + PixelLab 이펙트 전체 검증",
-  "requested_at": "2026-11-24T14:29:06.387765+00:00"
+  "source_before_request": "769780b539c4cb6d615e982c59a2b0f2a6fc45cd",
+  "reason": "v1.53 재검증: 빠른 검증 재시도",
+  "requested_at": "2026-11-24T14:50:07.926079+00:00"
 }
