@@ -460,7 +460,13 @@ func _start_slot(k: String) -> void:
 	_slot.z_index = 50
 	_slot.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_slot.draw.connect(func(): _slot.draw_rect(Rect2(Vector2.ZERO, _slot.size), Color.BLACK))
-	add_child(_slot)
+	# 슬롯은 게임 화면(작은 해상도를 4배 확대)이 아니라 폰 실제 해상도 층에 올려야 도트가 곱게 나온다. 층이 없으면(시험 등) 기존처럼 안에 얹는다.
+	var hires := get_tree().get_first_node_in_group("hires_layer") as Node2D
+	if hires != null:
+		hires.add_child(_slot)
+		_slot.position = global_position
+	else:
+		add_child(_slot)
 	var holder := Control.new()   # 위 상태창(HUD)에 겹치지 않게 오두막 창 윗변에 맞춰 내린다
 	holder.position = Vector2(0, maxf(panel_rect().position.y - SlotMachine.BODY_POS.y, 0.0))
 	holder.mouse_filter = Control.MOUSE_FILTER_IGNORE

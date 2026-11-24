@@ -308,6 +308,10 @@ func _start() -> void:
 	sv.canvas_item_default_texture_filter = Viewport.DEFAULT_CANVAS_ITEM_TEXTURE_FILTER_NEAREST
 	box.add_child(sv)
 	add_child(box)
+	var hires := Node2D.new()   # 폰 실제 해상도로 그려야 하는 연출(슬롯 등)용 층: 게임 화면 위, 글자 층 아래
+	hires.add_to_group("hires_layer")
+	hires.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	add_child(hires)
 	var txt := Node2D.new()
 	txt.set_script(load("res://text_layer.gd"))
 	txt.modulate.a=0
