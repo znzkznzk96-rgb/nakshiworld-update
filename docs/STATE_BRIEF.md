@@ -5,9 +5,18 @@
 ## 한눈에
 - 작업 브랜치: work/forge-138 (main에서 작업하지 않는다)
 - 마지막 공개본: v1.43(펫 오두막·대표 펫 능력·낚시 화면 펫 표시, 2026-11-24). 공개·운영 다운로드 해시 검증 성공, 휴대폰 실기 확인 미완료. 절차 메모: main에 work와 같은 game·automation·verify-work.yml 트리로 커밋을 올리면 공개되고, 초안 조회 지연으로 실패하면 release-patch를 workflow_dispatch로 다시 실행한다
-- 그 이후 작업은 전부 시안·기획이고 본 게임 미적용. 공개본으로 되돌아가지 않는다
-- 새 배포·PixelLab 유료 호출은 사용자 승인 전까지 하지 않는다
-- 현재 작업: SSS 10초 입질·각성 컷신 시연. 다음: 시안 검토 후 본 게임 통합 여부 결정
+- v1.44(작업 브랜치에만 있음, 미공개): 펫 오두막 UI 글꼴·배치 수정, 업데이터 묶음 다운로드+재시도(요청 893→17), 진주 10,000개 테스트 우편(id pearl-test-144). 검증 빌드 통과(run 45337538444, 후보 cdddad9). 사용자 폰에는 1.44 APK 설치됨. 폰 확인은 사용자가 하고 결과 대기 중
+- 같은 1.44 번호로 내용만 또 고치면 설치된 폰이 받지 못한다. 패치로 줄 거면 1.45로 올린다(automation/release.json·release-history.json, prepare_release.py)
+- 새 배포·PixelLab 유료 호출은 사용자 승인 전까지 하지 않는다. 공개 배포는 사용자가 폰에서 확인하고 승인한 뒤에 한다
+- 이어서 할 일: (1) 사용자 폰 확인 피드백 반영 (2) 승인 시 1.44(또는 1.45) 공개 (3) 대표 외 장착 펫 2마리 일꾼·시너지(GAME_BIBLE 미결정)
+- 진행 규칙: AGENTS.md "시간·전달 방식은 시작 전에 말한다". 첫 답에 무엇을/기다릴 시간/필요한 것을 한 줄로 말한다
+
+## APK 만들기 (되묻지 않고 바로 한다)
+- 언제 필요한가: 업데이터·아이콘·앱 구조를 바꿀 때만. 게임 내용만 바꾸면 패치(버전 올림)로 충분하다
+- 재료(모두 여기서 구한다): 껍데기 APK = migration/shell/nakshiworld_v0.11.apk(키 없음, 저장소에 있음) / 서명키 = 이 프로젝트의 문서 keys/debug.keystore.b64(Projects 도구 project_read, base64, 별칭 androiddebugkey, 비밀번호 android) / 빌드 도구 = curl https://dl.google.com/android/repository/build-tools_r34-linux.zip 압축을 풀면 android-14 / 봉인 후보 patch.pck = 해당 검증 빌드 run의 release-candidate 아티팩트(gh api repos/znzkznzk96-rgb/nakshiworld-update/actions/artifacts/<id>/zip)
+- 실행: python3 migration/make_apk.py --pck patch.pck --code 144 --name 1.44 --shell migration/shell/nakshiworld_v0.11.apk --ks debug.keystore --out NAKSHIWORLD_1.44.apk --bt <android-14 경로>
+- 확인: 인증서 SHA-256이 5939b259…b763(기존 앱과 동일)이어야 한다. 아이콘은 스크립트가 승인 세트 24종을 적용한다. 새 키는 절대 만들지 않는다(세이브가 날아감)
+- 키 보관 규칙: 저장소는 공개라 키를 넣지 않는다. PixelLab 키는 클라우드 환경의 네트워크 시크릿(api.pixellab.ai)으로 자동 적용되며 어디에도 저장하지 않는다
 - 11/22 펫 외형 새 화풍 시험 승인(수달 A/B, PixelLab 2회). 개인 안내 문서(Drive) 접근 불가로 생성 대기. 상세는 GAME_BIBLE 최상단
 - 수달 시험 진행 절차(사용자 지시 11/22): (1) 인증은 클라우드 환경의 네트워크 시크릿(api.pixellab.ai, Bearer)로 등록, 키는 채팅·GitHub·로그에 출력 금지 (2) 새 세션에서 GET /balance 읽기 확인 후 결과 먼저 보고 (3) edit-image-pixen, 96x96, no_background, 확정 수달 otter-A.png(base64) 입력, 설명·seed는 전송 전 확인 (4) 수달 A 1회만 생성 후 원본·정수 확대·SHA-256·실제 차감량을 사용자에게 먼저 제시 (5) 사용자 확인 전 B 금지, 자동 재시도 금지, 부적합하면 중단 (6) 기존 otter-A.png 덮어쓰기 금지, 후보는 별도 폴더 (7) 게임 적용·모션·배포 금지
 
@@ -22,7 +31,7 @@
 - WORK_STATE.json: 전체를 읽지 않고 필요한 키만 찾는다(예: grep으로 해당 키)
 - 기획 결정: docs/GAME_BIBLE.md에서 날짜 제목으로 해당 항목만 찾는다
 - 규칙 원본: docs/PROJECT_INSTRUCTIONS.md. 물고기 제작 때만 docs/FISH_ART_RULES.md
-- 게임 수정이 필요할 때만 v1.42 전체 소스 ZIP을 복원한다. 문서·기획 작업은 복원하지 않는다
+- 게임 수정이 필요할 때만 최신 공개본(v1.43) 전체 소스 ZIP을 복원한다(릴리스 game-source.zip). 문서·기획 작업은 복원하지 않는다
 - docs/CODEX_HANDOFF.md는 2026-11-06 시점 내용이라 현재 기준이 아니다
 - 11/22 수달 A/B 시험 완료(PixelLab 2회 소진). 방향 확정: 백룸 컨셉, 22종 전부 교체, 등급 상승 시 그림자 침식(SSS=완전 그림자). 다음: 침식 단계 설계와 추가 생성 재승인. 키는 저장소 밖(~/.pixellab_key)
 - 11/22 침식 시안(수달, 프로그램 제작) 확인 요청 중. 모션은 침식부가 불꽃처럼 일렁이게(후속). 22종 전부 재개선 결정, 추가 PixelLab 호출은 재승인 필요
