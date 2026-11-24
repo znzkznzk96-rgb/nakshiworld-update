@@ -227,8 +227,8 @@ func play(grid: Array) -> void:
 	for r in 3:
 		for c in 3: _cell_sym[r * 3 + c] = grid[r][c]
 	# 예고: 높은 등급일수록 마지막 릴을 더 뜸 들인다(결과는 이미 정해져 있음)
-	reels.runtime = 1.7
-	reels.speed = 5.0   # 칸/초(일정 속도로 돌다 끝에서 감속)
+	reels.runtime = 2.2
+	reels.speed = 8.0   # 평균 칸/초. 시작은 약 3배로 아주 빠르고 끝으로 갈수록 느려진다
 	reels.reel_delay = 0.25 + (0.3 if top >= 4 else 0.0) + (0.4 if top >= 6 else 0.0)
 	reels.crawl_last = top >= 4
 	_lamp_hold = [false, false, false, false, false]
@@ -259,11 +259,17 @@ func _prime_lamps() -> void:
 ## 레버를 끝까지 내린 순간 릴이 돌기 시작한다(올라오는 건 따로 진행)
 func _pull_lever() -> void:
 	for f in LEVER_DOWN:
-		lever.texture = _lever_tex[f]; await get_tree().create_timer(0.07).timeout
+		lever.texture = _lever_tex[f]
+		_press_lamps(f >= 2)   # 레버가 내려가면 버튼도 같이 눌린다
+		await get_tree().create_timer(0.07).timeout
 
 func _release_lever() -> void:
 	for f in LEVER_UP:
 		lever.texture = _lever_tex[f]; await get_tree().create_timer(0.09).timeout
+	_press_lamps(false)
+
+func _press_lamps(down: bool) -> void:
+	for i in 5: lamps[i].position.y = LAMP_Y + (1.0 if down else 0.0)
 
 ## 릴이 멈출 때마다: 그 릴의 램프가 켜진 채 고정되고 기계가 살짝 쿵 한다
 const LAMP_GROUP := [[0, 1], [2], [3, 4]]
