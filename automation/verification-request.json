@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_before_request": "bce6e6e6d2c7fbeb8a729f5c9db2cac99403e74e",
-  "reason": "v1.52: 업데이트 게이지(root.gd), 슬롯 바다 배경, 펫 연출 전체 검증",
-  "requested_at": "2026-11-24T13:34:06.338781+00:00"
+  "source_before_request": "4680619711afd92f89210e27c4eace8165cf84a7",
+  "reason": "v1.53: 슬롯 등급별 연출 + PixelLab 이펙트 전체 검증",
+  "requested_at": "2026-11-24T14:29:06.387765+00:00"
 }
