@@ -167,6 +167,9 @@ func _ready() -> void:
 		var pl := AudioStreamPlayer.new(); add_child(pl); _players.append(pl)
 	sfx.connect(_on_sfx)
 	reels.reel_stopped.connect(_on_reel_stop)
+	reels.tension.connect(_on_tension)
+	reels.fake_stopped.connect(_on_fake_stopped)
+	reels.fake_flip.connect(_on_fake_flip)
 	rv = Control.new()
 	rv.size = Vector2(270, 420); rv.z_index = 40; rv.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	rv.draw.connect(_draw_reveal)
@@ -232,18 +235,28 @@ func play(grid: Array) -> void:
 	_cell_sym.clear()
 	for r in 3:
 		for c in 3: _cell_sym[r * 3 + c] = grid[r][c]
-	# 예고: 높은 등급일수록 마지막 릴을 더 뜸 들인다(결과는 이미 정해져 있음)
-	reels.runtime = 2.2
+	# 예고: 등급별로 멈추는 템포가 다르다(결과는 이미 정해져 있고, 아래는 보여주는 방식만 바꾼다)
+	_can_skip = top <= 2
+	reels.runtime = [1.5, 1.7, 2.0, 2.2, 2.2, 2.2, 2.2][maxi(top, 0)]
 	reels.speed = 8.0   # 평균 칸/초. 시작은 약 3배로 아주 빠르고 끝으로 갈수록 느려진다
-	reels.reel_delay = 0.25 + (0.3 if top >= 4 else 0.0) + (0.4 if top >= 6 else 0.0)
-	reels.crawl_last = top >= 4
+	reels.reel_delay = [0.18, 0.22, 0.25, 0.25, 0.55, 0.55, 0.95][maxi(top, 0)]
+	reels.crawl_last = false
+	reels.last_mode = _pick_mode(top)
+	_mode = reels.last_mode
+	# 불빛 예고: 고등급은 대체로, 낮은 등급도 가끔 섞어서 패턴이 읽히지 않게 한다
+	_tease_lamps = false
+	_tease_pending = (randf() < 0.75) if top >= 3 else (randf() < 0.1)
+	var fake_col: Array = []
+	if _mode == "fake":
+		for r in 3:
+			fake_col.append((grid[r][2] + 1 + randi() % (reels.symbols.size() - 1)) % reels.symbols.size())
 	_lamp_hold = [false, false, false, false, false]
 	await _prime_lamps()
 	sfx.emit("lever")
 	await _pull_lever()
 	sfx.emit("spin")
 	_start_lamp_chase()
-	reels.spin(grid)
+	reels.spin(grid, fake_col)
 	_release_lever()
 	await reels.spin_finished
 	_stop_lamp_chase()
@@ -252,8 +265,54 @@ func play(grid: Array) -> void:
 	finished.emit(info)
 
 func skip() -> void:
-	if reels.spinning: reels.skip()
-	if _rv_t >= 0.0: _rv_skip = true
+	if reels.spinning and _can_skip: reels.skip()
+	if _rv_t >= 0.0 and (_rv_grade <= 3 or _rv_t > _rv_start(_rv_grade) + 1.0): _rv_skip = true   # 자주 나오는 등급만 바로 넘긴다
+
+var _can_skip := true
+var _mode := ""
+var _tease_lamps := false
+var _tease_pending := false
+
+## 마지막 릴 멈춤 방식. 같은 등급이어도 가끔 다르게 섞어서 패턴을 읽을 수 없게 한다.
+func _pick_mode(top: int) -> String:
+	match top:
+		6: return "fake"
+		5: return "over"
+		4: return "tease" if randf() < 0.15 else "edge"
+		3: return "tease" if randf() < 0.6 else "slight"
+		2: return "slight"
+	return "tease" if randf() < 0.12 else ""
+
+func _play(n: String, pitch := 1.0) -> void:
+	if not _snd.has(n): return
+	for pl in _players:
+		if not pl.playing:
+			pl.pitch_scale = pitch; pl.stream = _snd[n]; pl.play(); return
+	_players[0].pitch_scale = pitch; _players[0].stream = _snd[n]; _players[0].play()
+
+## 마지막 릴 직전 뜸: 낮은 등급은 불빛만, 높은 등급은 어두워지고 번쩍하며 흔들린다
+func _on_tension(mode: String) -> void:
+	if _mode_top() >= 4:
+		_dim = true
+		_flash = 0.25
+		_shake(_mode_top())
+		_play("reel_stop", 0.7)
+	fx.queue_redraw()
+
+func _mode_top() -> int:
+	return {"over": 5, "edge": 4}.get(_mode, 3)
+
+## 가짜 멈춤: 평범하게 선 것처럼 낮은 소리 → 불빛이 꺼지고 정적 → 번쩍·흔들림과 함께 진짜 결과가 내려온다
+func _on_fake_stopped() -> void:
+	_play("reel_stop", 0.8)
+	_stop_lamp_chase(); _tease_lamps = false
+	_lamps_all(false)
+
+func _on_fake_flip() -> void:
+	_dim = true; _flash = 0.8
+	_shake(6)
+	_play("win_5", 1.2)
+	fx.queue_redraw()
 
 ## 시작 전 예열: 버튼 램프가 왼쪽부터 차례로 켜졌다가 레버를 당긴다
 func _prime_lamps() -> void:
@@ -286,7 +345,8 @@ func _twinkle(delta: float) -> void:
 const LAMP_GROUP := [[0, 1], [2], [3, 4]]
 var _lamp_hold := [false, false, false, false, false]
 func _on_reel_stop(c: int) -> void:
-	sfx.emit("reel_stop")
+	_play("reel_stop", 1.0 + 0.18 * c)   # 멈출 때마다 음이 올라간다
+	if c == 1 and _tease_pending: _tease_lamps = true
 	for i in LAMP_GROUP[c]:
 		_lamp_hold[i] = true; lamps[i].texture = _lamp_on[i]
 	var tw := create_tween()
@@ -303,6 +363,10 @@ func _stop_lamp_chase() -> void:
 func _chase_loop() -> void:
 	var k := 0
 	while _chase:
+		if _tease_lamps:
+			_lamps_all(k % 2 == 0); k += 1
+			await get_tree().create_timer(0.04).timeout
+			continue
 		var free: Array = []
 		for i in 5:
 			if not _lamp_hold[i]: free.append(i)
@@ -399,11 +463,7 @@ func _shake(top: int) -> void:
 	tw.tween_property(self, "position", Vector2.ZERO, 0.04)
 
 func _on_sfx(n: String) -> void:
-	if not _snd.has(n): return
-	for pl in _players:
-		if not pl.playing:
-			pl.stream = _snd[n]; pl.play(); return
-	_players[0].stream = _snd[n]; _players[0].play()
+	_play(n)
 
 ## 전체 칸 잭팟: 리본 배너가 튀어나온다.
 func _jackpot() -> void:
