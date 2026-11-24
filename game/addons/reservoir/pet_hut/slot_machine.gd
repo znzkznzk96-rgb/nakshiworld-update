@@ -40,6 +40,10 @@ var _parts: Array = []
 ## PixelLab 모션 프레임(이름 → 텍스처 9장)과 재생 중인 스프라이트 연출
 var _fr := {}
 var _sprs: Array = []
+## 한 장짜리 그림을 키우며 흐려지는 짧은 효과(충격 스파크·먼지·균열)
+var _pops: Array = []
+func _pop(n: String, pos: Vector2, s0: float, s1: float, dur: float, delay := 0.0, rot := 0.0) -> void:
+	_pops.append({"n": n, "p": pos, "s0": s0, "s1": s1, "d": dur, "t": -delay, "r": rot})
 var _snd := {}
 var _players: Array[AudioStreamPlayer] = []
 var _bn_t := -1.0
@@ -148,6 +152,8 @@ func _ready() -> void:
 		var l := Sprite2D.new()
 		l.texture = _lamp_off[i]; l.position = Vector2(LAMP_X[i], LAMP_Y); l.scale = Vector2(ART, ART)
 		add_child(l); lamps.append(l)
+	for n in ["spark", "dust", "crack"]:
+		_fr[n] = [_tex(n)]
 	for n in ["burst", "rainbow", "coin", "gem", "shim_S", "shim_SS", "shim_SSS"]:
 		var arr: Array[Texture2D] = []
 		for i in 9: arr.append(_tex("%s_%02d" % [n, i]))
@@ -237,6 +243,7 @@ func play(grid: Array) -> void:
 		for c in 3: _cell_sym[r * 3 + c] = grid[r][c]
 	# 예고: 등급별로 멈추는 템포가 다르다(결과는 이미 정해져 있고, 아래는 보여주는 방식만 바꾼다)
 	_can_skip = top <= 2
+	_pending_top = top
 	reels.runtime = [1.5, 1.7, 2.0, 2.2, 2.2, 2.2, 2.2][maxi(top, 0)]
 	reels.speed = 8.0   # 평균 칸/초. 시작은 약 3배로 아주 빠르고 끝으로 갈수록 느려진다
 	reels.reel_delay = [0.18, 0.22, 0.25, 0.25, 0.55, 0.55, 0.95][maxi(top, 0)]
@@ -269,6 +276,7 @@ func skip() -> void:
 	if _rv_t >= 0.0 and (_rv_grade <= 3 or _rv_t > _rv_start(_rv_grade) + 1.0): _rv_skip = true   # 자주 나오는 등급만 바로 넘긴다
 
 var _can_skip := true
+var _pending_top := -1
 var _mode := ""
 var _tease_lamps := false
 var _tease_pending := false
@@ -299,6 +307,14 @@ func _on_tension(mode: String) -> void:
 		_play("reel_stop", 0.7)
 	fx.queue_redraw()
 
+## 릴이 쿵 하고 멈추는 자리: 먼지, 마지막 릴이 고등급이면 충격 스파크도
+func _land_fx(c: int) -> void:
+	var base := WINDOW_POS + Vector2((c + 0.5) * CELL.x, CELL.y * 3.0 - 3.0)
+	_pop("dust", base + Vector2(-12, 0), 0.5, 1.0, 0.35)
+	_pop("dust", base + Vector2(12, 0), 0.5, 1.0, 0.35, 0.03)
+	if c == 2 and _pending_top >= 3:
+		_pop("spark", WINDOW_POS + Vector2(CELL.x * 2.5, CELL.y * 1.5), 0.6, 0.9 + 0.2 * (_pending_top - 3), 0.4)
+
 func _mode_top() -> int:
 	return {"over": 5, "edge": 4}.get(_mode, 3)
 
@@ -310,6 +326,7 @@ func _on_fake_stopped() -> void:
 
 func _on_fake_flip() -> void:
 	_dim = true; _flash = 0.8
+	_pop("crack", WINDOW_POS + Vector2(CELL.x * 1.5, CELL.y * 1.5), 1.0, 3.2, 0.7)
 	_shake(6)
 	_play("win_5", 1.2)
 	fx.queue_redraw()
@@ -347,6 +364,7 @@ var _lamp_hold := [false, false, false, false, false]
 func _on_reel_stop(c: int) -> void:
 	_play("reel_stop", 1.0 + 0.18 * c)   # 멈출 때마다 음이 올라간다
 	if c == 1 and _tease_pending: _tease_lamps = true
+	_land_fx(c)
 	for i in LAMP_GROUP[c]:
 		_lamp_hold[i] = true; lamps[i].texture = _lamp_on[i]
 	var tw := create_tween()
@@ -530,6 +548,9 @@ func _process(delta: float) -> void:
 	for sp in _sprs:
 		sp.t += delta; dirty = true
 	_sprs = _sprs.filter(func(q): return q.t * q.fps < 9.0)
+	for pp in _pops:
+		pp.t += delta; dirty = true
+	_pops = _pops.filter(func(q): return q.t < q.d)
 	for pt in _parts:
 		pt.life -= delta; pt.v.y += pt.g * delta; pt.p += pt.v * delta; dirty = true
 	_parts = _parts.filter(func(q): return q.life > 0.0)
@@ -607,6 +628,13 @@ func _draw_top() -> void:
 		var ft: Texture2D = _fr[sp.n][mini(int(sp.t * sp.fps), 8)]
 		var fs: Vector2 = Vector2(ft.get_width(), ft.get_height()) * float(sp.s)
 		top_fx.draw_texture_rect(ft, Rect2((sp.p - fs * 0.5).round(), fs), false)
+	for pp in _pops:
+		if pp.t < 0.0: continue
+		var k: float = pp.t / pp.d
+		var pt_tex: Texture2D = _fr[pp.n][0]
+		var sc: float = lerpf(pp.s0, pp.s1, 1.0 - pow(1.0 - k, 2.0))
+		var psz := Vector2(pt_tex.get_width(), pt_tex.get_height()) * sc
+		top_fx.draw_texture_rect(pt_tex, Rect2((pp.p - psz * 0.5).round(), psz), false, Color(1, 1, 1, clampf(2.0 * (1.0 - k), 0.0, 1.0)))
 	for pt in _parts:
 		if pt.has("spr"):
 			var st: Texture2D = _fr[pt.spr][(pt.ph + int(pt.life * 12.0)) % 9]
