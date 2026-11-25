@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_before_request": "769780b539c4cb6d615e982c59a2b0f2a6fc45cd",
-  "reason": "v1.53 재검증: 빠른 검증 재시도",
-  "requested_at": "2026-11-24T14:50:07.926079+00:00"
+  "source_before_request": "e12c42c61e90e2278a83359e7f11a7bc19e3ec7e",
+  "reason": "v1.54 SS 연출 보강",
+  "requested_at": "2026-11-25T02:58:22.940008+00:00"
 }
