@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_before_request": "f8102c24b8fd5cd472f4bcdf7aeae002bb6efb9f",
-  "reason": "v1.54 펫 등장 크기·후광 포함 재검증",
-  "requested_at": "2026-11-25T03:06:33.100284+00:00"
+  "source_before_request": "509801e6d6f27a5d44a31548f7ee553aa24e19f7",
+  "reason": "v1.54 검증 재시도(가져오기 2회)",
+  "requested_at": "2026-11-25T03:15:30.865640+00:00"
 }
