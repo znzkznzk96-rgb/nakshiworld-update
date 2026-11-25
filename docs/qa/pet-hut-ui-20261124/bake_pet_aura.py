@@ -24,9 +24,13 @@ def region(w, h, b):
 
 def bake(k, kind, mask_frames):
     au, R, steps, ops = D[k]
-    body = Image.open(PETS + f"{k}_{'move' if kind == 'idle' else kind}.png").convert("RGBA")
-    c = body.height
-    cells = [body.crop((i*c, 0, (i+1)*c, c)) for i in range(N)]
+    if kind == "rv":    # 슬롯 공개 연출용: 연출에서 쓰는 몸 프레임(rv_)과 같은 프레임으로 굽는다
+        cells = [Image.open(ROOT + f"game/art/pet_hut/slot/rv_{k}_{i:02d}.png").convert("RGBA") for i in range(N)]
+        c = cells[0].height
+    else:
+        body = Image.open(PETS + f"{k}_{'move' if kind == 'idle' else kind}.png").convert("RGBA")
+        c = body.height
+        cells = [body.crop((i*c, 0, (i+1)*c, c)) for i in range(N)]
     bb = None
     for f in cells:
         b = f.getbbox()
@@ -107,6 +111,6 @@ def bake(k, kind, mask_frames):
 if __name__ == "__main__":
     keys = sys.argv[1:] or [k for k in D if k != "s_rock"]
     for k in keys:
-        for kind in ("idle", "move", "work"):
+        for kind in ("idle", "move", "work", "rv"):
             bake(k, kind, None).save(PETS + f"{k}_fx_{kind}.png")
         print("ok", k)

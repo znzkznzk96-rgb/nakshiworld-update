@@ -165,7 +165,7 @@ func _ready() -> void:
 			var parr: Array[Texture2D] = []
 			for i in 9: parr.append(_tex("rv_%s_%02d" % [k, i]))
 			_fr["rv_" + k] = parr
-			_aura[k] = load("res://art/pet_hut/pets/%s_fx_idle.png" % k)
+			_aura[k] = load("res://art/pet_hut/pets/%s_fx_rv.png" % k)
 	_fr["banner"] = [_tex("banner")]
 	var snames := ["lever", "spin", "reel_stop", "jackpot", "reveal"]
 	for i in 7: snames.append("win_%d" % i)
