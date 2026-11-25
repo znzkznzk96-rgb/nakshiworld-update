@@ -47,6 +47,12 @@ var last_pet := ""
 var frags := 0
 var plan_sel := "a_fennec"     # 도면 상점에서 고른 펫
 var box_sel := ""
+## 일괄·자동 분해 범위(이 등급 이하만, S 이상은 항상 제외)와 자동 분해 켜짐 여부
+var bulk_grade := 1
+var auto_on := false
+var _bulk_arm := -100.0
+var _auto_frag := 0   # 방금 뽑기에서 자동 분해로 얻은 조각
+var _auto_n := 0
 var dim_margin := 0.0          # 어둡게 할 때 좌우로 더 덮을 폭(레터박스)
 var dim := true                # 뒤 화면을 어둡게
 var panel_y := -1.0            # 창 윗변 위치(-1이면 화면 가운데)
@@ -77,7 +83,7 @@ func _ready() -> void:
 
 # ── 저장/불러오기 ──
 func serialize() -> Dictionary:
-	return {"c": counts.duplicate(), "e": equipped.duplicate(), "l": leader, "f": frags, "s": stored, "t": Time.get_unix_time_from_system()}
+	return {"c": counts.duplicate(), "e": equipped.duplicate(), "l": leader, "f": frags, "bg": bulk_grade, "ao": auto_on, "s": stored, "t": Time.get_unix_time_from_system()}
 
 # now: 현재 시각. 저장 시각이 미래(시계를 돌림)면 그동안은 진주가 쌓이지 않는다.
 func restore(d: Dictionary, now: float) -> void:
@@ -93,6 +99,8 @@ func restore(d: Dictionary, now: float) -> void:
 			if PETS.has(str(k)) and counts.get(str(k), 0) >= 1 and not equipped.has(str(k)) and equipped.size() < 3: equipped.append(str(k))
 	leader = str(d.get("l", ""))
 	frags = maxi(0, int(d.get("f", 0)))
+	bulk_grade = clampi(int(d.get("bg", 1)), 0, 3)
+	auto_on = bool(d.get("ao", false))
 	stored = maxf(0.0, float(d.get("s", 0.0)))
 	var t := float(d.get("t", now))
 	var hours := clampf((now - t) / 3600.0, 0.0, CAP_HOURS)
@@ -448,12 +456,18 @@ func roll_pet() -> String:
 func can_pull(n := 1) -> bool:
 	return _slot == null and pearl_total >= COST * n
 
+## 자동 분해: 이미 가진 펫이고 범위 안의 등급이면 새로 쌓지 않고 바로 조각으로 바꾼다
+func _auto_dismantles(k: String) -> bool:
+	return auto_on and grade_of(k) <= bulk_grade and counts.get(k, 0) >= 1
+
 func pull() -> bool:
 	if not can_pull(): return false
 	pearl_total -= COST
 	var k := roll_pet()
 	last_new = counts.get(k, 0) == 0
-	counts[k] = counts.get(k, 0) + 1
+	_auto_frag = 0; _auto_n = 0
+	if _auto_dismantles(k): _auto_frag = frag_of(k); _auto_n = 1; frags += _auto_frag
+	else: counts[k] = counts.get(k, 0) + 1
 	last_pet = k
 	_sync_owned()
 	state_changed.emit()
@@ -469,12 +483,14 @@ func pull10() -> bool:
 	if not can_pull(10): return false
 	pearl_total -= COST10
 	var got: Dictionary = {}   # 펫 → {k, n, new}
+	_auto_frag = 0; _auto_n = 0
 	var top := ""
 	for i in 10:
 		var k := roll_pet()
 		if not got.has(k): got[k] = {"k": k, "n": 0, "new": counts.get(k, 0) == 0}
 		got[k].n += 1
-		counts[k] = counts.get(k, 0) + 1
+		if _auto_dismantles(k): _auto_frag += frag_of(k); _auto_n += 1; frags += frag_of(k)
+		else: counts[k] = counts.get(k, 0) + 1
 		if top == "" or grade_of(k) > grade_of(top): top = k
 	_res = got.values()
 	_res.sort_custom(func(a, b): return grade_of(a.k) > grade_of(b.k) or (grade_of(a.k) == grade_of(b.k) and PETS.find(a.k) < PETS.find(b.k)))
@@ -590,7 +606,7 @@ func _draw_gacha_tab(body: Rect2) -> void:
 		draw_texture_rect_region(tex, Rect2(lr.position + Vector2(8, floorf((58 - th) / 2.0)), Vector2(th, th)), Rect2(0, 0, th, th))
 		_txt("최근 뽑은 펫", lr.position + Vector2(52, 18), 11, MUTED, false, 100)
 		_txt("%s (%s)" % [NAME[last_pet], GRADE_NAME[grade_of(last_pet)]], lr.position + Vector2(52, 34), 9, INK, false, 100)
-		_txt("새 펫!" if last_new else "중복 · 분해 가능", lr.position + Vector2(52, 50), 8, Color("2f8f84") if last_new else MUTED, false, 100)
+		_txt("새 펫!" if last_new else ("중복 · 자동 분해 +%d" % _auto_frag if _auto_n > 0 else "중복 · 분해 가능"), lr.position + Vector2(52, 50), 8, Color("2f8f84") if last_new else MUTED, false, 100)
 	_txt("중복 펫은 도면 탭에서 분해해요", Vector2(cx, y + 270), 11, MUTED, true, 220)
 	_txt("진주는 낚시·탐험·펫이 캐서 얻어요", Vector2(cx, y + 288), 11, MUTED, true, 220)
 	if show_odds: _draw_odds(body)
@@ -626,7 +642,9 @@ func _draw_result(body: Rect2) -> void:
 	for g in range(6, -1, -1):
 		if grade_cnt.has(g): parts.append("%s %d" % [GRADE_NAME[g], grade_cnt[g]])
 	_txt(" · ".join(parts), Vector2(pr.get_center().x, pr.end.y - 30), 9, INK, true, pr.size.x - 10)
-	_txt("새 펫 %d마리" % new_cnt if new_cnt > 0 else "새 펫 없음", Vector2(pr.get_center().x, pr.end.y - 18), 9, MUTED, true, 120)
+	var nt := "새 펫 %d마리" % new_cnt if new_cnt > 0 else "새 펫 없음"
+	if _auto_n > 0: nt += " · 자동 분해 조각 +%d" % _auto_frag
+	_txt(nt, Vector2(pr.get_center().x, pr.end.y - 18), 9, MUTED, true, pr.size.x - 10)
 	_txt("누르면 닫혀요" if _res_shown >= _res.size() else "누르면 바로 보여요", Vector2(pr.get_center().x, pr.end.y - 6), 8, MUTED, true, 120)
 
 func _draw_odds(body: Rect2) -> void:
@@ -670,6 +688,26 @@ func dismantle(k: String) -> bool:
 	counts[k] -= 1
 	frags += frag_of(k)
 	plan_msg = "%s 분해! 조각 +%d" % [NAME[k], frag_of(k)]
+	state_changed.emit()
+	return true
+
+## 범위 안 등급의 중복(처음 1마리는 남김)을 한꺼번에 분해했을 때의 [마리 수, 조각]
+func bulk_preview() -> Vector2i:
+	var n := 0
+	var f := 0
+	for k in PETS:
+		var extra: int = counts.get(k, 0) - 1
+		if extra > 0 and grade_of(k) <= bulk_grade:
+			n += extra; f += extra * frag_of(k)
+	return Vector2i(n, f)
+
+func dismantle_bulk() -> bool:
+	var pv := bulk_preview()
+	if pv.x <= 0: return false
+	for k in PETS:
+		if counts.get(k, 0) > 1 and grade_of(k) <= bulk_grade: counts[k] = 1
+	frags += pv.y
+	box_msg = "일괄 분해! %d마리 · 조각 +%d" % [pv.x, pv.y]
 	state_changed.emit()
 	return true
 
@@ -782,6 +820,21 @@ func _draw_box_tab(body: Rect2) -> void:
 			draw_rect(Rect2(cr.end.x - 15, cr.position.y + 2, 13, 12), Color("c8962b"))
 			_txt("대", Vector2(cr.end.x - 8.5, cr.position.y + 12), 10, CREAM, true, 13)
 		rects["bx:" + k] = cr
+	var bw := (body.size.x - 8.0 - 6.0) / 3.0
+	var armed := Time.get_ticks_msec() / 1000.0 - _bulk_arm < 3.0
+	var pv := bulk_preview()
+	var rg := Rect2(b.x + 4, b.y + 179, bw, 16)
+	_art("button", rg)
+	_txt("범위 D~%s" % GRADE_NAME[bulk_grade] if bulk_grade > 0 else "범위 D", rg.get_center() + Vector2(0, 3), 8, CREAM, true, bw - 4)
+	rects["bx_range"] = rg
+	var rb := Rect2(rg.end.x + 3, rg.position.y, bw, 16)
+	_art("button" if pv.x > 0 else "card", rb)
+	_txt(("다시 눌러 +%d" % pv.y) if armed and pv.x > 0 else ("일괄 분해 +%d" % pv.y if pv.x > 0 else "일괄 분해"), rb.get_center() + Vector2(0, 3), 8, CREAM if pv.x > 0 else Color("6e5c49"), true, bw - 4)
+	rects["bx_bulk"] = rb
+	var ra := Rect2(rb.end.x + 3, rg.position.y, bw, 16)
+	_art("teal" if auto_on else "button", ra)
+	_txt("자동 분해 켬" if auto_on else "자동 분해 끔", ra.get_center() + Vector2(0, 3), 8, CREAM, true, bw - 4)
+	rects["bx_auto"] = ra
 	var dr := Rect2(b.x + 4, b.y + 196, body.size.x - 8, 106)
 	_art("card", dr)
 	if box_sel == "":
@@ -817,6 +870,15 @@ func _draw_box_tab(body: Rect2) -> void:
 	rects["bx_dis"] = b2
 
 func _box_press(p: Vector2) -> bool:
+	if rects.get("bx_range", Rect2()).has_point(p):
+		bulk_grade = (bulk_grade + 1) % 4; _bulk_arm = -100.0; box_msg = ""; state_changed.emit(); queue_redraw(); return true
+	if rects.get("bx_bulk", Rect2()).has_point(p):
+		if bulk_preview().x <= 0: box_msg = "분해할 중복 펫이 없어요"
+		elif Time.get_ticks_msec() / 1000.0 - _bulk_arm < 3.0: dismantle_bulk(); _bulk_arm = -100.0
+		else: _bulk_arm = Time.get_ticks_msec() / 1000.0
+		queue_redraw(); return true
+	if rects.get("bx_auto", Rect2()).has_point(p):
+		auto_on = not auto_on; box_msg = "자동 분해 %s (D~%s 중복)" % ["켬" if auto_on else "끔", GRADE_NAME[bulk_grade]]; state_changed.emit(); queue_redraw(); return true
 	for k in PETS:
 		if rects.get("bx:" + k, Rect2()).has_point(p): box_sel = k; box_msg = ""; queue_redraw(); return true
 	if box_sel != "" and rects.get("bx_equip", Rect2()).has_point(p):
