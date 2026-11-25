@@ -51,6 +51,7 @@ var _rv_t := -1.0
 var _rv_grade := 0
 var _rv_skip := false
 var _rv_burst := false
+var _rv_wait := false
 var rv: Control
 ## 픽셀 한글 폰트(Neo둥근모 v1.600, OFL). 16의 배수(16·32) 크기에서 또렷하다.
 var _font: FontFile
@@ -506,6 +507,11 @@ func _reveal(top: int) -> void:
 	var dur: float = _rv_start(top) + 1.0 + [1.0, 1.1, 1.2, 1.4, 1.7, 2.0, 2.4][top]
 	while _rv_t < dur and not _rv_skip:
 		await get_tree().process_frame
+	# 정해진 연출이 끝나면 "눌러서 계속"을 띄우고, 누를 때까지 펫을 계속 보여준다(스크린샷용)
+	_rv_wait = not _rv_skip
+	while not _rv_skip:
+		await get_tree().process_frame
+	_rv_wait = false
 	_rv_t = -1.0
 	rv.position = Vector2.ZERO
 	rv.queue_redraw()
@@ -760,6 +766,11 @@ func _draw_reveal() -> void:
 		var nw := font.get_string_size(nm, HORIZONTAL_ALIGNMENT_LEFT, -1, nfs).x
 		var np := Vector2(135 - nw * 0.5, ny)
 		_put_text(rv, font, np, nm, nfs, Color(1, 1, 1, la), 2 if g >= 4 else 4, Color(0, 0, 0, la))
+	if _rv_wait:
+		var ha := 0.45 + 0.4 * sin(_rv_t * 4.0)
+		var htxt := "화면을 눌러 계속"
+		var hw := _font.get_string_size(htxt, HORIZONTAL_ALIGNMENT_LEFT, -1, 12).x
+		_put_text(rv, _font, Vector2(135 - hw * 0.5, 392), htxt, 12, Color(1, 1, 1, ha), 2, Color(0, 0, 0, ha))
 	# 번쩍: 등장 순간(SSS는 두 번)
 	var fl := clampf(1.0 - absf(t0) * (6.0 if t0 < 0.0 else 3.0), 0.0, 1.0) if absf(t0) < 0.4 else 0.0
 	if g == 6 and t0 > 0.5 and t0 < 0.8: fl = maxf(fl, (0.8 - t0) * 2.0)
