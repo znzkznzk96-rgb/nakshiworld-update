@@ -820,25 +820,10 @@ func _draw_box_tab(body: Rect2) -> void:
 			draw_rect(Rect2(cr.end.x - 15, cr.position.y + 2, 13, 12), Color("c8962b"))
 			_txt("대", Vector2(cr.end.x - 8.5, cr.position.y + 12), 10, CREAM, true, 13)
 		rects["bx:" + k] = cr
-	var bw := (body.size.x - 8.0 - 6.0) / 3.0
-	var armed := Time.get_ticks_msec() / 1000.0 - _bulk_arm < 3.0
-	var pv := bulk_preview()
-	var rg := Rect2(b.x + 4, b.y + 179, bw, 16)
-	_art("button", rg)
-	_txt("범위 D~%s" % GRADE_NAME[bulk_grade] if bulk_grade > 0 else "범위 D", rg.get_center() + Vector2(0, 3), 8, CREAM, true, bw - 4)
-	rects["bx_range"] = rg
-	var rb := Rect2(rg.end.x + 3, rg.position.y, bw, 16)
-	_art("button" if pv.x > 0 else "card", rb)
-	_txt(("다시 눌러 +%d" % pv.y) if armed and pv.x > 0 else ("일괄 분해 +%d" % pv.y if pv.x > 0 else "일괄 분해"), rb.get_center() + Vector2(0, 3), 8, CREAM if pv.x > 0 else Color("6e5c49"), true, bw - 4)
-	rects["bx_bulk"] = rb
-	var ra := Rect2(rb.end.x + 3, rg.position.y, bw, 16)
-	_art("teal" if auto_on else "button", ra)
-	_txt("자동 분해 켬" if auto_on else "자동 분해 끔", ra.get_center() + Vector2(0, 3), 8, CREAM, true, bw - 4)
-	rects["bx_auto"] = ra
 	var dr := Rect2(b.x + 4, b.y + 196, body.size.x - 8, 106)
 	_art("card", dr)
 	if box_sel == "":
-		_txt("펫을 골라 장착하거나 분해해요", dr.get_center() + Vector2(0, 4), 11, MUTED, true, dr.size.x - 10)
+		_draw_bulk_panel(dr)
 		return
 	var have2: int = counts.get(box_sel, 0)
 	var tex2: Texture2D = _strip(box_sel, "move")
@@ -869,6 +854,26 @@ func _draw_box_tab(body: Rect2) -> void:
 		_txt("분해 불가", b2.get_center() + Vector2(0, 4), 8, Color("6e5c49"), true, 62)
 	rects["bx_dis"] = b2
 
+## 펫을 고르지 않았을 때 아래 카드에 보이는 분해 관리: 범위 / 일괄 분해 / 자동 분해(큰 버튼 3줄)
+func _draw_bulk_panel(dr: Rect2) -> void:
+	var pv := bulk_preview()
+	var armed := Time.get_ticks_msec() / 1000.0 - _bulk_arm < 3.0
+	var w := dr.size.x - 16.0
+	var rg := Rect2(dr.position.x + 8, dr.position.y + 8, w, 26)
+	_art("button", rg)
+	_txt("분해 범위  D~%s  (눌러서 바꾸기)" % GRADE_NAME[bulk_grade] if bulk_grade > 0 else "분해 범위  D만  (눌러서 바꾸기)", rg.get_center() + Vector2(0, 4), 9, CREAM, true, w - 10)
+	rects["bx_range"] = rg
+	var rb := Rect2(rg.position.x, rg.end.y + 5, w, 26)
+	_art("button" if pv.x > 0 else "card", rb)
+	var lb := "분해할 중복 펫이 없어요"
+	if pv.x > 0: lb = ("한 번 더 누르면 분해! 조각 +%d" % pv.y) if armed else ("일괄 분해  %d마리 → 조각 +%d" % [pv.x, pv.y])
+	_txt(lb, rb.get_center() + Vector2(0, 4), 9, CREAM if pv.x > 0 else Color("6e5c49"), true, w - 10)
+	rects["bx_bulk"] = rb
+	var ra := Rect2(rg.position.x, rb.end.y + 5, w, 26)
+	_art("button" if auto_on else "card", ra)
+	_txt("자동 분해  켬  (뽑을 때 D~%s 중복)" % GRADE_NAME[bulk_grade] if auto_on else "자동 분해  끔  (눌러서 켜기)", ra.get_center() + Vector2(0, 4), 9, CREAM if auto_on else INK, true, w - 10)
+	rects["bx_auto"] = ra
+
 func _box_press(p: Vector2) -> bool:
 	if rects.get("bx_range", Rect2()).has_point(p):
 		bulk_grade = (bulk_grade + 1) % 4; _bulk_arm = -100.0; box_msg = ""; state_changed.emit(); queue_redraw(); return true
@@ -880,7 +885,7 @@ func _box_press(p: Vector2) -> bool:
 	if rects.get("bx_auto", Rect2()).has_point(p):
 		auto_on = not auto_on; box_msg = "자동 분해 %s (D~%s 중복)" % ["켬" if auto_on else "끔", GRADE_NAME[bulk_grade]]; state_changed.emit(); queue_redraw(); return true
 	for k in PETS:
-		if rects.get("bx:" + k, Rect2()).has_point(p): box_sel = k; box_msg = ""; queue_redraw(); return true
+		if rects.get("bx:" + k, Rect2()).has_point(p): box_sel = "" if box_sel == k else k; box_msg = ""; queue_redraw(); return true
 	if box_sel != "" and rects.get("bx_equip", Rect2()).has_point(p):
 		if equipped.has(box_sel): unequip(box_sel)
 		else: equip(box_sel)
