@@ -78,6 +78,9 @@ const PET_ENTRY := {
 }
 ## 뽑기 결과로 보여줄 펫 키(비워 두면 해당 등급에서 무작위)
 var reveal_pet := ""
+## 등장 후 천천히 두 바퀴 돌고 정면에서 멈추는 시간(초). 옆모습에 두께를 줘서 만든 16방향 시트(pets/*_spin.png)를 쓴다.
+const SPIN_T := 4.0
+var _spin := {}
 var _rv_pet := ""
 ## 펫마다 PixelLab으로 만든 오라 시트(가로 9칸). 등장 연출은 이 그림만 쓴다.
 var _aura := {}
@@ -166,6 +169,7 @@ func _ready() -> void:
 			for i in 9: parr.append(_tex("rv_%s_%02d" % [k, i]))
 			_fr["rv_" + k] = parr
 			_aura[k] = load("res://art/pet_hut/pets/%s_fx_rv.png" % k)
+			_spin[k] = load("res://art/pet_hut/pets/%s_spin.png" % k)
 	_fr["banner"] = [_tex("banner")]
 	var snames := ["lever", "spin", "reel_stop", "jackpot", "reveal"]
 	for i in 7: snames.append("win_%d" % i)
@@ -504,7 +508,7 @@ func _reveal(top: int) -> void:
 	_rv_grade = top; _rv_skip = false; _rv_t = 0.0; _rv_burst = false
 	_rv_pet = reveal_pet if reveal_pet != "" else PETS[top][randi() % PETS[top].size()]
 	sfx.emit("reveal")
-	var dur: float = _rv_start(top) + 1.0 + [1.0, 1.1, 1.2, 1.4, 1.7, 2.0, 2.4][top]
+	var dur: float = _rv_start(top) + 1.0 + SPIN_T + [1.0, 1.1, 1.2, 1.4, 1.7, 2.0, 2.4][top]
 	while _rv_t < dur and not _rv_skip:
 		await get_tree().process_frame
 	# 정해진 연출이 끝나면 "눌러서 계속"을 띄우고, 누를 때까지 펫을 계속 보여준다(스크린샷용)
@@ -724,21 +728,28 @@ func _draw_reveal() -> void:
 	var pop := 1.0 + 2.0 * pow(1.0 - clampf(t0 / 0.55, 0.0, 1.0), 2.0) if t0 >= 0.0 else 1.0   # 나올 때 크게 확대됐다가 원래 크기로 줄어든다
 	var ps := maxf(2.0, roundf(2.0 * pop))   # 도트가 깨지지 않게 정수 배율만 쓴다(원래 2배 → 등장할 때 6배까지)
 	var sz := Vector2(ft.get_width(), ft.get_height()) * ps
-	var spin_w := absf(cos(t0 / 0.5 * TAU)) if g == 2 and t0 >= 0.0 and t0 < 0.5 else 1.0   # B: 한 바퀴 돌며 나온다
-	var dsz := Vector2(maxf(sz.x * spin_w, ps * 2.0), sz.y)
+	var spinning := t0 >= 0.0 and t0 < SPIN_T
 	var off := Vector2.ZERO if t0 < 0.0 else _entry(kind, t0)
 	var mod := Color(0, 0, 0, 1) if t0 < 0.0 else Color.WHITE
 	if t0 < 0.0:
 		off = Vector2(randf_range(-1, 1), randf_range(-1, 1)) * (glow * (g - 1.0) * 0.8)   # 실루엣이 떨린다
 	if t0 >= 0.0:
 		_draw_backdrop(ctr + off, sz, col, g, t0)
+	if t0 >= SPIN_T:
 		var at: Texture2D = _aura[_rv_pet]
 		var af := at.get_height()
 		var ai := int(t0 * 10.0) % 9
 		rv.draw_texture_rect_region(at, Rect2((ctr + off - Vector2(af, af) * ps * 0.5).round(), Vector2(af, af) * ps), Rect2(ai * af, 0, af, af))
 	if t0 >= 0.0 and not _rv_burst:
 		_rv_burst = true; _rv_burst_fx(g, ctr, col)
-	rv.draw_texture_rect(ft, Rect2((ctr + off - dsz * 0.5).round(), dsz), false, mod)
+	if spinning:
+		var sp: Texture2D = _spin[_rv_pet]
+		var sc := sp.get_height()
+		var u := t0 / SPIN_T
+		var si := int(fposmod(2.0 * (1.0 - (1.0 - u) * (1.0 - u)), 1.0) * 16.0) % 16   # 2바퀴, 갈수록 느려져 정면에서 멈춘다
+		rv.draw_texture_rect_region(sp, Rect2((ctr + off - Vector2(sc, sc) * ps * 0.5).round(), Vector2(sc, sc) * ps), Rect2(si * sc, 0, sc, sc), mod)
+	else:
+		rv.draw_texture_rect(ft, Rect2((ctr + off - sz * 0.5).round(), sz), false, mod)
 	_draw_pops(rv, true)
 	# SS·SSS: 동전·보석 비
 	if t0 >= 0.0 and g >= 1:
