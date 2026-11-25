@@ -8,6 +8,7 @@ const PETS := ["d_chick", "d_frog", "d_mouse", "c_mushroom", "c_puffbird", "c_sl
 const NAME := {"d_chick": "병아리", "d_frog": "개구리", "d_mouse": "생쥐", "c_mushroom": "버섯", "c_puffbird": "퍼프버드", "c_slime": "슬라임", "b_hamster": "햄스터", "b_hedgehog": "고슴도치", "b_sparrow": "참새", "a_fennec": "사막여우", "a_otter": "수달", "a_owl": "부엉이", "s_fairy": "요정", "s_tome": "마도서", "s_wisp": "촛불정령", "ss_golem": "골렘", "ss_knight": "기사", "ss_storm": "폭풍룡", "sss_apostle": "별의 사도", "sss_demon": "심연의 악마", "sss_lunar": "달의 여인", "sss_seraph": "세라핌"}
 const SHORT := {"sss_apostle": "사도", "sss_demon": "악마", "sss_lunar": "여인", "c_puffbird": "퍼프", "b_hedgehog": "고슴", "a_fennec": "여우", "s_wisp": "정령"}   # 선택 칸용 줄임 이름(3글자 이하)
 const GRADE_NAME := ["D", "C", "B", "A", "S", "SS", "SSS"]
+const GCOL := [Color("8a98ab"), Color("6fd08c"), Color("4aa3ff"), Color("b07cff"), Color("ff7a59"), Color("ffd24a"), Color("ff5fa8")]   # 등급별 테두리 색
 const RATE := [0.1, 0.2, 0.35, 0.6, 1.0, 1.6, 2.5]   # 시간당 진주
 const CAP_HOURS := 12.0
 const WALK_X0 := 44.0   # 모래바닥 좌우 끝 (양옆 바위 안쪽)
@@ -47,6 +48,15 @@ var last_pet := ""
 var frags := 0
 var plan_sel := "a_fennec"     # 도면 상점에서 고른 펫
 var box_sel := ""
+## 보관함·도면 목록 스크롤(위로 밀어 올려 보기)
+var box_scroll := 0.0
+var plan_scroll := 0.0
+var _box_max := 0.0
+var _plan_max := 0.0
+var _clip := Rect2()
+var _dn := Vector2.ZERO
+var _dragged := false
+var _drag_on := false
 ## 일괄·자동 분해 범위(이 등급 이하만, S 이상은 항상 제외)와 자동 분해 켜짐 여부
 var bulk_grade := 1
 var auto_on := false
@@ -210,8 +220,54 @@ func _paint() -> void:
 		_draw_plans_tab(body)
 
 func _gui_input(e: InputEvent) -> void:
-	if e is InputEventMouseButton and e.pressed and e.button_index == MOUSE_BUTTON_LEFT:
-		press(e.position)
+	if e is InputEventMouseButton and e.button_index == MOUSE_BUTTON_LEFT:
+		if e.pressed:
+			_dn = e.position; _dragged = false
+			_drag_on = _slot == null and _res.is_empty() and rects.get("list", Rect2()).has_point(e.position)
+			if not _drag_on: press(e.position)    # 목록 위에서는 놓을 때(끌지 않았으면) 누름으로 친다
+		elif _drag_on:
+			_drag_on = false
+			if not _dragged: press(e.position)
+	elif e is InputEventMouseButton and e.pressed and (e.button_index == MOUSE_BUTTON_WHEEL_UP or e.button_index == MOUSE_BUTTON_WHEEL_DOWN):
+		_scroll_by(-24.0 if e.button_index == MOUSE_BUTTON_WHEEL_UP else 24.0)
+	elif e is InputEventMouseMotion and _drag_on and (e.button_mask & MOUSE_BUTTON_MASK_LEFT) != 0:
+		if not _dragged and e.position.distance_to(_dn) > 6.0: _dragged = true
+		if _dragged: _scroll_by(-e.relative.y)
+
+func _scroll_by(d: float) -> void:
+	if tab == "box": box_scroll = clampf(box_scroll + d, 0.0, _box_max)
+	elif tab == "plans": plan_scroll = clampf(plan_scroll + d, 0.0, _plan_max)
+	else: return
+	queue_redraw()
+
+# 목록 영역(_clip) 밖으로 나가는 부분은 잘라서 그린다
+func _cr(tex: Texture2D, dst: Rect2, src: Rect2, mod := Color.WHITE) -> void:
+	var c := dst.intersection(_clip)
+	if c.size.x <= 0.0 or c.size.y <= 0.0: return
+	var k := Vector2(src.size.x / dst.size.x, src.size.y / dst.size.y)
+	draw_texture_rect_region(tex, c, Rect2(src.position + (c.position - dst.position) * k, c.size * k), mod)
+
+func _crect(r: Rect2, col: Color) -> void:
+	var c := r.intersection(_clip)
+	if c.size.x > 0.0 and c.size.y > 0.0: draw_rect(c, col)
+
+func _cart(name: String, r: Rect2) -> void:
+	var tex: Texture2D = _t(name)
+	var src := tex.get_size()
+	var edge := 24.0
+	var border := 8.0
+	var xs := [0.0, edge, src.x - edge, src.x]
+	var ys := [0.0, edge, src.y - edge, src.y]
+	var dx := [r.position.x, r.position.x + border, r.end.x - border, r.end.x]
+	var dy := [r.position.y, r.position.y + border, r.end.y - border, r.end.y]
+	for iy in 3:
+		for ix in 3:
+			var d := Rect2(dx[ix], dy[iy], dx[ix + 1] - dx[ix], dy[iy + 1] - dy[iy])
+			if d.size.x <= 0 or d.size.y <= 0: continue
+			_cr(tex, d, Rect2(xs[ix], ys[iy], xs[ix + 1] - xs[ix], ys[iy + 1] - ys[iy]))
+
+func _ctxt(s: String, pos: Vector2, size: int, col: Color, center := false, w := 232.0) -> void:
+	if pos.y - 11.0 >= _clip.position.y and pos.y + 3.0 <= _clip.end.y: _txt(s, pos, size, col, center, w)
 
 func press(p: Vector2) -> void:
 	if _slot != null:                 # 슬롯 연출 중에는 오두막 창이 반응하지 않고, 누르면 연출을 건너뜀
@@ -732,16 +788,35 @@ func _draw_plans_tab(body: Rect2) -> void:
 	var cx := b.x + body.size.x / 2.0
 	_txt(plan_msg if plan_msg != "" else "조각 %d개 · 진주 %d개" % [frags, pearl_total], Vector2(cx, b.y + 17), 9, Color("2f8f84") if plan_msg != "" else INK, true, 220)
 	var list := bp_pets()
+	var lv := Rect2(b.x + 4, b.y + 26, body.size.x - 8, 196)
+	rects["list"] = lv
+	_clip = lv
+	_plan_max = maxf(0.0, list.size() * 42.0 + 2.0 - lv.size.y)
+	plan_scroll = clampf(plan_scroll, 0.0, _plan_max)
 	for n in list.size():
 		var k: String = list[n]
-		var cr := Rect2(b.x + 4 + (n % 3) * 75.0, b.y + 26 + (n / 3) * 38.0, 73, 36)
-		_art("teal" if plan_sel == k else "card", cr)
+		var cr := Rect2(lv.position.x + 1, lv.position.y + 2 + n * 42.0 - plan_scroll, lv.size.x - 8, 40)
+		if cr.end.y < lv.position.y or cr.position.y > lv.end.y: continue
+		_cart("teal" if plan_sel == k else "card", cr)
 		var aff := can_craft(k)
-		draw_texture(_t("icon/bp_" + k), cr.position + Vector2(2, 2), Color(1, 1, 1, 1.0 if aff else 0.5))
+		var cc: Array = BP_COST[grade_of(k)]
+		var ic: Texture2D = _t("icon/bp_" + k)
+		_cr(ic, Rect2(cr.position + Vector2(4, 4), ic.get_size()), Rect2(Vector2.ZERO, ic.get_size()), Color(1, 1, 1, 1.0 if aff else 0.5))
 		var tex: Texture2D = _strip(k, "move")
 		var th := tex.get_height()
-		draw_texture_rect_region(tex, Rect2(cr.position + Vector2(36 + floorf((36 - th) / 2.0), floorf((36 - th) / 2.0)), Vector2(th, th)), Rect2(0, 0, th, th), Color(1, 1, 1, 1.0 if aff else 0.55))
-		rects["bp:" + k] = cr
+		_cr(tex, Rect2(cr.position + Vector2(40 + floorf((32 - th) / 2.0), 4 + floorf((32 - th) / 2.0)), Vector2(th, th)), Rect2(0, 0, th, th), Color(1, 1, 1, 1.0 if aff else 0.55))
+		var tx := cr.position.x + 76.0
+		var sel_c := CREAM if plan_sel == k else INK
+		_ctxt("%s (%s)" % [NAME[k], GRADE_NAME[grade_of(k)]], Vector2(tx, cr.position.y + 15), 9, sel_c, false, 130)
+		var bw := cr.size.x - 84.0
+		_crect(Rect2(tx, cr.position.y + 20, bw, 5), Color(0.1, 0.07, 0.05, 0.75))
+		_crect(Rect2(tx, cr.position.y + 20, bw * clampf(float(frags) / float(cc[0]), 0.0, 1.0), 5), Color("6fd08c") if aff else Color("4aa3ff"))
+		_ctxt("조각 %d/%d · 진주 %d" % [mini(frags, cc[0]), cc[0], cc[1]], Vector2(tx, cr.position.y + 36), 8, sel_c if aff else MUTED, false, bw + 4)
+		rects["bp:" + k] = cr.intersection(lv)
+	if _plan_max > 0.0:
+		var th2 := maxf(12.0, lv.size.y * lv.size.y / (lv.size.y + _plan_max))
+		_crect(Rect2(lv.end.x - 3, lv.position.y + (lv.size.y - th2) * plan_scroll / _plan_max, 2, th2), Color(0.22, 0.15, 0.1, 0.7))
+	_clip = Rect2()
 	var dr := Rect2(b.x + 6, b.y + 228, body.size.x - 12, 64)
 	_art("card", dr)
 	if plan_sel == "":
@@ -801,25 +876,23 @@ func _draw_box_tab(body: Rect2) -> void:
 	var b := body.position
 	var cx := b.x + body.size.x / 2.0
 	_txt(box_msg if box_msg != "" else "도감 %d/%d · 장착 %d/3 · 조각 %d" % [owned.size(), PETS.size(), equipped.size(), frags], Vector2(cx, b.y + 17), 9, Color("2f8f84") if box_msg != "" else INK, true, 224)
+	var lv := Rect2(b.x + 4, b.y + 26, body.size.x - 8, 166)
+	rects["list"] = lv
+	_clip = lv
+	draw_rect(lv, Color(0.17, 0.11, 0.07, 0.3))
+	var rows := (PETS.size() + 1) / 2
+	_box_max = maxf(0.0, rows * 98.0 + 4.0 - lv.size.y)
+	box_scroll = clampf(box_scroll, 0.0, _box_max)
 	for n in PETS.size():
-		var k: String = PETS[n]
-		var have: int = counts.get(k, 0)
-		var cr := Rect2(b.x + 4 + (n % 6) * 37.0, b.y + 26 + (n / 6) * 38.0, 36, 36)
-		_art("teal" if box_sel == k else "card", cr)
-		var tex: Texture2D = _strip(k, "move")
-		var th := tex.get_height()
-		var tint := Color(1, 1, 1, 1.0) if have >= 1 else Color(0.1, 0.08, 0.07, 0.75)
-		draw_texture_rect_region(tex, Rect2(cr.position + Vector2(floorf((36 - th) / 2.0), floorf((36 - th) / 2.0) - 1), Vector2(th, th)), Rect2(0, 0, th, th), tint)
-		if have >= 1:
-			draw_rect(Rect2(cr.end.x - 15, cr.end.y - 14, 13, 12), Color(0.22, 0.15, 0.1, 0.85))
-			_txt("%d" % have, Vector2(cr.end.x - 8.5, cr.end.y - 4), 10, CREAM, true, 13)
-		if equipped.has(k):
-			draw_rect(Rect2(cr.position.x + 2, cr.position.y + 2, 13, 12), Color("2f8f84"))
-			_txt("장", Vector2(cr.position.x + 8.5, cr.position.y + 12), 10, CREAM, true, 13)
-		if get_leader() == k:
-			draw_rect(Rect2(cr.end.x - 15, cr.position.y + 2, 13, 12), Color("c8962b"))
-			_txt("대", Vector2(cr.end.x - 8.5, cr.position.y + 12), 10, CREAM, true, 13)
-		rects["bx:" + k] = cr
+		var k: String = PETS[PETS.size() - 1 - n]    # 높은 등급이 위
+		var cr := Rect2(lv.position.x + 1 + (n % 2) * 112.0, lv.position.y + 3 + (n / 2) * 98.0 - box_scroll, 108, 94)
+		if cr.end.y < lv.position.y or cr.position.y > lv.end.y: continue
+		_draw_dex_card(k, cr)
+		rects["bx:" + k] = cr.intersection(lv)
+	if _box_max > 0.0:
+		var th3 := maxf(12.0, lv.size.y * lv.size.y / (lv.size.y + _box_max))
+		_crect(Rect2(lv.end.x - 3, lv.position.y + (lv.size.y - th3) * box_scroll / _box_max, 2, th3), Color(0.9, 0.8, 0.6, 0.8))
+	_clip = Rect2()
 	var dr := Rect2(b.x + 4, b.y + 196, body.size.x - 8, 106)
 	_art("card", dr)
 	if box_sel == "":
@@ -853,6 +926,37 @@ func _draw_box_tab(body: Rect2) -> void:
 	else:
 		_txt("분해 불가", b2.get_center() + Vector2(0, 4), 8, Color("6e5c49"), true, 62)
 	rects["bx_dis"] = b2
+
+## 도감 카드: 등급색 테두리 + 받침대 위에 2배로 크게 세운 펫(못 얻은 펫은 그림자 + ???)
+func _draw_dex_card(k: String, cr: Rect2) -> void:
+	var have: int = counts.get(k, 0)
+	var g := grade_of(k)
+	var gc: Color = GCOL[g]
+	if have < 1: gc = Color(0.35, 0.3, 0.27)
+	if box_sel == k: _crect(cr.grow(2), CREAM)
+	_crect(cr, gc)
+	var inn := cr.grow(-2)
+	_crect(inn, Color(0.1, 0.07, 0.06))
+	var tint := gc.darkened(0.7) if have >= 1 else Color(0.14, 0.11, 0.1)
+	_crect(Rect2(inn.position.x, inn.position.y, inn.size.x, 36), tint)
+	_crect(Rect2(inn.position.x, inn.position.y + 36, inn.size.x, 18), tint.darkened(0.2))
+	var tex: Texture2D = _strip(k, "move")
+	var th := tex.get_height()
+	var foot := cr.position.y + 74.0
+	var pw := th * 2.0
+	_crect(Rect2(cr.get_center().x - 26, foot - 1, 52, 4), gc.darkened(0.2))
+	_crect(Rect2(cr.get_center().x - 20, foot + 3, 40, 2), gc.darkened(0.5))
+	_cr(tex, Rect2(Vector2(roundf(cr.get_center().x - pw / 2.0), foot - pw), Vector2(pw, pw)), Rect2(0, 0, th, th), Color.WHITE if have >= 1 else Color(0.03, 0.02, 0.02, 0.85))
+	_crect(Rect2(cr.position.x + 3, cr.position.y + 3, 20, 12), gc)
+	_ctxt(GRADE_NAME[g], Vector2(cr.position.x + 13, cr.position.y + 13), 9, Color("1c120c"), true, 20)
+	if have >= 2: _ctxt("x%d" % have, Vector2(cr.end.x - 5, cr.position.y + 13), 9, CREAM, false, 30)
+	if equipped.has(k):
+		_crect(Rect2(cr.position.x + 3, cr.position.y + 18, 13, 12), Color("2f8f84"))
+		_ctxt("장", Vector2(cr.position.x + 9.5, cr.position.y + 28), 10, CREAM, true, 13)
+	if get_leader() == k:
+		_crect(Rect2(cr.position.x + 3, cr.position.y + 32, 13, 12), Color("c8962b"))
+		_ctxt("대", Vector2(cr.position.x + 9.5, cr.position.y + 42), 10, CREAM, true, 13)
+	_ctxt(NAME[k] if have >= 1 else "???", Vector2(cr.get_center().x, cr.position.y + 89), 9, CREAM if have >= 1 else Color(0.55, 0.48, 0.42), true, 100)
 
 ## 펫을 고르지 않았을 때 아래 카드에 보이는 분해 관리: 범위 / 일괄 분해 / 자동 분해(큰 버튼 3줄)
 func _draw_bulk_panel(dr: Rect2) -> void:
