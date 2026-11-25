@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_before_request": "e12c42c61e90e2278a83359e7f11a7bc19e3ec7e",
-  "reason": "v1.54 SS 연출 보강",
-  "requested_at": "2026-11-25T02:58:22.940008+00:00"
+  "source_before_request": "f8102c24b8fd5cd472f4bcdf7aeae002bb6efb9f",
+  "reason": "v1.54 펫 등장 크기·후광 포함 재검증",
+  "requested_at": "2026-11-25T03:06:33.100284+00:00"
 }
