@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_before_request": "5f8a3a5419d3d0815748e48f62a4f7ce324bb248",
-  "reason": "v1.55 일괄·자동 분해, 눌러서 계속",
-  "requested_at": "2026-11-25T04:26:35.449951+00:00"
+  "source_before_request": "7ffbf7a55771b43b433580eb0a426c1a284cecac",
+  "reason": "v1.55 검증 재시도(편집기 가져오기)",
+  "requested_at": "2026-11-25T04:33:04.199534+00:00"
 }
