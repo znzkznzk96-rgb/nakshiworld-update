@@ -650,6 +650,32 @@ func _draw_top() -> void:
 	if _flash > 0.0:
 		top_fx.draw_rect(Rect2(-300, -400, 900, 1500), Color(1, 1, 1, _flash))
 
+## 작은 펫이 주인공으로 보이도록 뒤에 까는 등급색 후광·빛줄기·받침대·파동
+func _draw_backdrop(c: Vector2, sz: Vector2, col: Color, g: int, t0: float) -> void:
+	var fade := clampf(t0 / 0.3, 0.0, 1.0)
+	var R := 54.0 + 9.0 * g
+	if g >= 2:
+		var n := 6 + 2 * g
+		for i in n:
+			var an := TAU * i / n + t0 * 0.4
+			var w := 0.025 + 0.004 * g
+			var p0 := c
+			rv.draw_colored_polygon(PackedVector2Array([p0, c + Vector2(cos(an - w), sin(an - w)) * R * 2.6, c + Vector2(cos(an + w), sin(an + w)) * R * 2.6]), Color(col.r, col.g, col.b, 0.2 * fade))
+	for k in 5:
+		var r := R * (1.0 - 0.17 * k) * (1.0 + 0.03 * sin(t0 * 5.0 + k))
+		rv.draw_circle(c, r, Color(col.r, col.g, col.b, 0.07 * fade))
+	var py := c.y + sz.y * 0.5 + 6.0
+	rv.draw_colored_polygon(_ellipse(Vector2(c.x, py), sz.x * 0.55 + 8.0, 6.0), Color(0, 0, 0, 0.55 * fade))
+	rv.draw_colored_polygon(_ellipse(Vector2(c.x, py), sz.x * 0.42 + 4.0, 4.0), Color(col.r, col.g, col.b, 0.5 * fade))
+	if t0 < 0.9:
+		var k := t0 / 0.9
+		rv.draw_arc(c, 20.0 + 150.0 * k, 0.0, TAU, 64, Color(col.r, col.g, col.b, 0.8 * (1.0 - k)), 3.0)
+
+func _ellipse(c: Vector2, rx: float, ry: float) -> PackedVector2Array:
+	var pts := PackedVector2Array()
+	for i in 24: pts.append(c + Vector2(cos(TAU * i / 24.0) * rx, sin(TAU * i / 24.0) * ry))
+	return pts
+
 func _draw_reveal() -> void:
 	_tx_rv = []
 	if _rv_t < 0.0: return
@@ -672,13 +698,14 @@ func _draw_reveal() -> void:
 	var frames: Array = _fr["rv_" + _rv_pet]
 	var ft: Texture2D = frames[int(maxf(t0, 0.0) * 10.0) % 9]
 	var pop := 1.0 + 2.0 * pow(1.0 - clampf(t0 / 0.55, 0.0, 1.0), 2.0) if t0 >= 0.0 else 1.0   # 나올 때 크게 확대됐다가 원래 크기로 줄어든다
-	var ps := roundf(pop * 4.0) / 4.0
+	var ps := maxf(2.0, roundf(2.0 * pop))   # 도트가 깨지지 않게 정수 배율만 쓴다(원래 2배 → 등장할 때 6배까지)
 	var sz := Vector2(ft.get_width(), ft.get_height()) * ps
 	var off := Vector2.ZERO if t0 < 0.0 else _entry(kind, t0)
 	var mod := Color(0, 0, 0, 1) if t0 < 0.0 else Color.WHITE
 	if t0 < 0.0:
 		off = Vector2(randf_range(-1, 1), randf_range(-1, 1)) * (glow * (g - 1.0) * 0.8)   # 실루엣이 떨린다
 	if t0 >= 0.0:
+		_draw_backdrop(ctr + off, sz, col, g, t0)
 		var at: Texture2D = _aura[_rv_pet]
 		var af := at.get_height()
 		var ai := int(t0 * 10.0) % 9
