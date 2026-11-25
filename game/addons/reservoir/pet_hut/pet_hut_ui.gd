@@ -876,16 +876,16 @@ func _draw_box_tab(body: Rect2) -> void:
 	var b := body.position
 	var cx := b.x + body.size.x / 2.0
 	_txt(box_msg if box_msg != "" else "도감 %d/%d · 장착 %d/3 · 조각 %d" % [owned.size(), PETS.size(), equipped.size(), frags], Vector2(cx, b.y + 17), 9, Color("2f8f84") if box_msg != "" else INK, true, 224)
-	var lv := Rect2(b.x + 4, b.y + 26, body.size.x - 8, 166)
+	var lv := Rect2(b.x + 4, b.y + 26, body.size.x - 8, 193)
 	rects["list"] = lv
 	_clip = lv
 	draw_rect(lv, Color(0.17, 0.11, 0.07, 0.3))
 	var rows := (PETS.size() + 1) / 2
-	_box_max = maxf(0.0, rows * 98.0 + 4.0 - lv.size.y)
+	_box_max = maxf(0.0, rows * 94.0 + 4.0 - lv.size.y)
 	box_scroll = clampf(box_scroll, 0.0, _box_max)
 	for n in PETS.size():
 		var k: String = PETS[PETS.size() - 1 - n]    # 높은 등급이 위
-		var cr := Rect2(lv.position.x + 1 + (n % 2) * 112.0, lv.position.y + 3 + (n / 2) * 98.0 - box_scroll, 108, 94)
+		var cr := Rect2(lv.position.x + 1 + (n % 2) * 112.0, lv.position.y + 3 + (n / 2) * 94.0 - box_scroll, 108, 90)
 		if cr.end.y < lv.position.y or cr.position.y > lv.end.y: continue
 		_draw_dex_card(k, cr)
 		rects["bx:" + k] = cr.intersection(lv)
@@ -893,7 +893,7 @@ func _draw_box_tab(body: Rect2) -> void:
 		var th3 := maxf(12.0, lv.size.y * lv.size.y / (lv.size.y + _box_max))
 		_crect(Rect2(lv.end.x - 3, lv.position.y + (lv.size.y - th3) * box_scroll / _box_max, 2, th3), Color(0.9, 0.8, 0.6, 0.8))
 	_clip = Rect2()
-	var dr := Rect2(b.x + 4, b.y + 196, body.size.x - 8, 106)
+	var dr := Rect2(b.x + 4, b.y + 223, body.size.x - 8, 96)
 	_art("card", dr)
 	if box_sel == "":
 		_draw_bulk_panel(dr)
@@ -907,17 +907,17 @@ func _draw_box_tab(body: Rect2) -> void:
 	_txt("보유 %d · 시간당 진주 %.2f" % [have2, RATE[grade_of(box_sel)]] if have2 >= 1 else "아직 없는 펫이에요", dr.position + Vector2(48, 38), 9, MUTED, false, 170)
 	var eq := equipped.has(box_sel)
 	var ok1 := have2 >= 1
-	var b1 := Rect2(dr.position.x + 6, dr.position.y + 66, 68, 26)
+	var b1 := Rect2(dr.position.x + 6, dr.position.y + 62, 68, 26)
 	_art("button" if ok1 else "card", b1)
 	_txt("빼기" if eq else "장착", b1.get_center() + Vector2(0, 4), 9, CREAM if ok1 else Color("6e5c49"), true, 62)
 	rects["bx_equip"] = b1
 	var is_l := get_leader() == box_sel
-	var b3 := Rect2(dr.position.x + 78, dr.position.y + 66, 68, 26)
+	var b3 := Rect2(dr.position.x + 78, dr.position.y + 62, 68, 26)
 	var ok3 := ok1 and not is_l
 	_art("button" if ok3 else "card", b3)
 	_txt("대표 중" if is_l else "대표 지정", b3.get_center() + Vector2(0, 4), 8, CREAM if ok3 else Color("6e5c49"), true, 62)
 	rects["bx_leader"] = b3
-	var b2 := Rect2(dr.position.x + 150, dr.position.y + 66, 68, 26)
+	var b2 := Rect2(dr.position.x + 150, dr.position.y + 62, 68, 26)
 	var ok2 := can_dismantle(box_sel)
 	_art("button" if ok2 else "card", b2)
 	if ok2:
@@ -942,38 +942,40 @@ func _draw_dex_card(k: String, cr: Rect2) -> void:
 	_crect(Rect2(inn.position.x, inn.position.y + 36, inn.size.x, 18), tint.darkened(0.2))
 	var tex: Texture2D = _strip(k, "move")
 	var th := tex.get_height()
-	var foot := cr.position.y + 74.0
+	var foot := cr.position.y + 72.0
 	var pw := th * 2.0
 	_crect(Rect2(cr.get_center().x - 26, foot - 1, 52, 4), gc.darkened(0.2))
 	_crect(Rect2(cr.get_center().x - 20, foot + 3, 40, 2), gc.darkened(0.5))
 	_cr(tex, Rect2(Vector2(roundf(cr.get_center().x - pw / 2.0), foot - pw), Vector2(pw, pw)), Rect2(0, 0, th, th), Color.WHITE if have >= 1 else Color(0.03, 0.02, 0.02, 0.85))
 	_crect(Rect2(cr.position.x + 3, cr.position.y + 3, 20, 12), gc)
 	_ctxt(GRADE_NAME[g], Vector2(cr.position.x + 13, cr.position.y + 13), 9, Color("1c120c"), true, 20)
-	if have >= 2: _ctxt("x%d" % have, Vector2(cr.end.x - 5, cr.position.y + 13), 9, CREAM, false, 30)
+	if have >= 2:    # 보유 수: 어두운 배지 위에 크게
+		_crect(Rect2(cr.end.x - 27, cr.position.y + 3, 24, 13), Color(0.08, 0.05, 0.04, 0.9))
+		_ctxt("x%d" % have, Vector2(cr.end.x - 15, cr.position.y + 14), 10, Color("ffe08a"), true, 24)
 	if equipped.has(k):
 		_crect(Rect2(cr.position.x + 3, cr.position.y + 18, 13, 12), Color("2f8f84"))
 		_ctxt("장", Vector2(cr.position.x + 9.5, cr.position.y + 28), 10, CREAM, true, 13)
 	if get_leader() == k:
 		_crect(Rect2(cr.position.x + 3, cr.position.y + 32, 13, 12), Color("c8962b"))
 		_ctxt("대", Vector2(cr.position.x + 9.5, cr.position.y + 42), 10, CREAM, true, 13)
-	_ctxt(NAME[k] if have >= 1 else "???", Vector2(cr.get_center().x, cr.position.y + 89), 9, CREAM if have >= 1 else Color(0.55, 0.48, 0.42), true, 100)
+	_ctxt(NAME[k] if have >= 1 else "???", Vector2(cr.get_center().x, cr.position.y + 87), 9, CREAM if have >= 1 else Color(0.55, 0.48, 0.42), true, 100)
 
 ## 펫을 고르지 않았을 때 아래 카드에 보이는 분해 관리: 범위 / 일괄 분해 / 자동 분해(큰 버튼 3줄)
 func _draw_bulk_panel(dr: Rect2) -> void:
 	var pv := bulk_preview()
 	var armed := Time.get_ticks_msec() / 1000.0 - _bulk_arm < 3.0
 	var w := dr.size.x - 16.0
-	var rg := Rect2(dr.position.x + 8, dr.position.y + 8, w, 26)
+	var rg := Rect2(dr.position.x + 8, dr.position.y + 6, w, 26)
 	_art("button", rg)
 	_txt("분해 범위  D~%s  (눌러서 바꾸기)" % GRADE_NAME[bulk_grade] if bulk_grade > 0 else "분해 범위  D만  (눌러서 바꾸기)", rg.get_center() + Vector2(0, 4), 9, CREAM, true, w - 10)
 	rects["bx_range"] = rg
-	var rb := Rect2(rg.position.x, rg.end.y + 5, w, 26)
+	var rb := Rect2(rg.position.x, rg.end.y + 3, w, 26)
 	_art("button" if pv.x > 0 else "card", rb)
 	var lb := "분해할 중복 펫이 없어요"
 	if pv.x > 0: lb = ("한 번 더 누르면 분해! 조각 +%d" % pv.y) if armed else ("일괄 분해  %d마리 → 조각 +%d" % [pv.x, pv.y])
 	_txt(lb, rb.get_center() + Vector2(0, 4), 9, CREAM if pv.x > 0 else Color("6e5c49"), true, w - 10)
 	rects["bx_bulk"] = rb
-	var ra := Rect2(rg.position.x, rb.end.y + 5, w, 26)
+	var ra := Rect2(rg.position.x, rb.end.y + 3, w, 26)
 	_art("button" if auto_on else "card", ra)
 	_txt("자동 분해  켬  (뽑을 때 D~%s 중복)" % GRADE_NAME[bulk_grade] if auto_on else "자동 분해  끔  (눌러서 켜기)", ra.get_center() + Vector2(0, 4), 9, CREAM if auto_on else INK, true, w - 10)
 	rects["bx_auto"] = ra

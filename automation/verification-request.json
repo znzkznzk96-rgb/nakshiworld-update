@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_before_request": "93e7579415af5fa3e07ad4c05be1793cb8843486",
-  "reason": "v1.57 보관함 도감·스크롤·모션 38종·오라",
-  "requested_at": "2026-11-25T07:31:49.903291+00:00"
+  "source_before_request": "86b81e8819d29cf045f1f3a198665281c12f62ea",
+  "reason": "v1.58 펫 등장 회전, 보관함 개선",
+  "requested_at": "2026-11-25T10:38:54.543290+00:00"
 }
