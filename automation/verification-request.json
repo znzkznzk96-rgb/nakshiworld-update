@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_before_request": "769780b539c4cb6d615e982c59a2b0f2a6fc45cd",
-  "reason": "v1.53 재검증: 빠른 검증 재시도",
-  "requested_at": "2026-11-24T14:50:07.926079+00:00"
+  "source_before_request": "814f5ffcc1cd8cc8271c4e7ac191323beb6f6074",
+  "reason": "v1.54 C·B·A 연출 포함 최종 검증",
+  "requested_at": "2026-11-25T03:27:14.528520+00:00"
 }

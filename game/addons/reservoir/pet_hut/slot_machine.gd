@@ -42,14 +42,15 @@ var _fr := {}
 var _sprs: Array = []
 ## 한 장짜리 그림을 키우며 흐려지는 짧은 효과(충격 스파크·먼지·균열)
 var _pops: Array = []
-func _pop(n: String, pos: Vector2, s0: float, s1: float, dur: float, delay := 0.0, rot := 0.0) -> void:
-	_pops.append({"n": n, "p": pos, "s0": s0, "s1": s1, "d": dur, "t": -delay, "r": rot})
+func _pop(n: String, pos: Vector2, s0: float, s1: float, dur: float, delay := 0.0, col := Color.WHITE, in_rv := false) -> void:
+	_pops.append({"n": n, "p": pos, "s0": s0, "s1": s1, "d": dur, "t": -delay, "c": col, "rv": in_rv})
 var _snd := {}
 var _players: Array[AudioStreamPlayer] = []
 var _bn_t := -1.0
 var _rv_t := -1.0
 var _rv_grade := 0
 var _rv_skip := false
+var _rv_burst := false
 var rv: Control
 ## 픽셀 한글 폰트(Neo둥근모 v1.600, OFL). 16의 배수(16·32) 크기에서 또렷하다.
 var _font: FontFile
@@ -244,7 +245,7 @@ func play(grid: Array) -> void:
 	# 예고: 등급별로 멈추는 템포가 다르다(결과는 이미 정해져 있고, 아래는 보여주는 방식만 바꾼다)
 	_can_skip = top <= 2
 	_pending_top = top
-	reels.runtime = [1.5, 1.7, 2.0, 2.2, 2.2, 2.2, 2.2][maxi(top, 0)]
+	reels.runtime = [1.5, 1.7, 2.0, 2.4, 3.0, 3.4, 3.4][maxi(top, 0)]
 	reels.speed = 8.0   # 평균 칸/초. 시작은 약 3배로 아주 빠르고 끝으로 갈수록 느려진다
 	reels.reel_delay = [0.18, 0.22, 0.25, 0.25, 0.55, 0.55, 0.95][maxi(top, 0)]
 	reels.crawl_last = false
@@ -313,7 +314,12 @@ func _land_fx(c: int) -> void:
 	_pop("dust", base + Vector2(-12, 0), 0.5, 1.0, 0.35)
 	_pop("dust", base + Vector2(12, 0), 0.5, 1.0, 0.35, 0.03)
 	if c == 2 and _pending_top >= 3:
-		_pop("spark", WINDOW_POS + Vector2(CELL.x * 2.5, CELL.y * 1.5), 0.6, 0.9 + 0.2 * (_pending_top - 3), 0.4)
+		var big := 1.6 + 0.5 * (_pending_top - 3)
+		var mid := WINDOW_POS + Vector2(CELL.x * 2.5, CELL.y * 1.5)
+		_pop("spark", mid, 0.8, big * 1.5, 0.5)
+		for k in 3:
+			var off := Vector2(randf_range(-1.0, 1.0) * CELL.x * 0.9, randf_range(-1.0, 1.0) * CELL.y * 1.3)
+			_pop("spark", mid + off, 0.5, big, 0.4, 0.06 * (k + 1))
 
 func _mode_top() -> int:
 	return {"over": 5, "edge": 4}.get(_mode, 3)
@@ -494,7 +500,7 @@ func _jackpot() -> void:
 
 ## 펫 등장 컷신: 어두워지고 → 실루엣(등급 높을수록 길게 뜸 들임) → 번쩍 → 펫마다 다른 방식으로 등장.
 func _reveal(top: int) -> void:
-	_rv_grade = top; _rv_skip = false; _rv_t = 0.0
+	_rv_grade = top; _rv_skip = false; _rv_t = 0.0; _rv_burst = false
 	_rv_pet = reveal_pet if reveal_pet != "" else PETS[top][randi() % PETS[top].size()]
 	sfx.emit("reveal")
 	var dur: float = _rv_start(top) + 1.0 + [1.0, 1.1, 1.2, 1.4, 1.7, 2.0, 2.4][top]
@@ -618,23 +624,16 @@ func _draw_top() -> void:
 		top_fx.draw_rect(Rect2(w.end.x, w.position.y, 270 - w.end.x, w.size.y), c)
 	if _ring >= 0.0:
 		var ctr := WINDOW_POS + Vector2(CELL.x * 1.5, CELL.y * 1.5)
-		var r := int(_ring)
-		top_fx.draw_rect(Rect2(ctr.x - r, ctr.y - r * 0.8, r * 2, 2), Color(1, 0.9, 0.4, 0.8))
-		top_fx.draw_rect(Rect2(ctr.x - r, ctr.y + r * 0.8, r * 2, 2), Color(1, 0.9, 0.4, 0.8))
-		top_fx.draw_rect(Rect2(ctr.x - r, ctr.y - r * 0.8, 2, r * 1.6), Color(1, 0.9, 0.4, 0.8))
-		top_fx.draw_rect(Rect2(ctr.x + r, ctr.y - r * 0.8, 2, r * 1.6), Color(1, 0.9, 0.4, 0.8))
+		var r := float(int(_ring))
+		var ra := clampf(1.0 - r / 200.0, 0.0, 1.0)
+		top_fx.draw_arc(ctr, r, 0.0, TAU, 64, Color(1, 0.9, 0.4, 0.85 * ra), 3.0)
+		top_fx.draw_arc(ctr, r * 0.8, 0.0, TAU, 64, Color(1, 1, 1, 0.6 * ra), 1.5)
 	for sp in _sprs:
 		if sp.t < 0.0: continue
 		var ft: Texture2D = _fr[sp.n][mini(int(sp.t * sp.fps), 8)]
 		var fs: Vector2 = Vector2(ft.get_width(), ft.get_height()) * float(sp.s)
 		top_fx.draw_texture_rect(ft, Rect2((sp.p - fs * 0.5).round(), fs), false)
-	for pp in _pops:
-		if pp.t < 0.0: continue
-		var k: float = pp.t / pp.d
-		var pt_tex: Texture2D = _fr[pp.n][0]
-		var sc: float = lerpf(pp.s0, pp.s1, 1.0 - pow(1.0 - k, 2.0))
-		var psz := Vector2(pt_tex.get_width(), pt_tex.get_height()) * sc
-		top_fx.draw_texture_rect(pt_tex, Rect2((pp.p - psz * 0.5).round(), psz), false, Color(1, 1, 1, clampf(2.0 * (1.0 - k), 0.0, 1.0)))
+	_draw_pops(top_fx, false)
 	for pt in _parts:
 		if pt.has("spr"):
 			var st: Texture2D = _fr[pt.spr][(pt.ph + int(pt.life * 12.0)) % 9]
@@ -644,7 +643,55 @@ func _draw_top() -> void:
 		var col: Color = pt.c
 		top_fx.draw_rect(Rect2(int(pt.p.x), int(pt.p.y), 2, 2), Color(col.r, col.g, col.b, a))
 	if _flash > 0.0:
-		top_fx.draw_rect(Rect2(0, 0, 270, 420), Color(1, 1, 1, _flash))
+		top_fx.draw_rect(Rect2(-300, -400, 900, 1500), Color(1, 1, 1, _flash))
+
+## 작은 펫이 주인공으로 보이도록 뒤에 까는 등급색 후광·빛줄기·받침대·파동
+func _draw_backdrop(c: Vector2, sz: Vector2, col: Color, g: int, t0: float) -> void:
+	var fade := clampf(t0 / 0.3, 0.0, 1.0)
+	var R := 42.0 + 9.0 * g
+	if g >= 3:
+		var n := 6 + 2 * g
+		for i in n:
+			var an := TAU * i / n + t0 * 0.4
+			var w := 0.025 + 0.004 * g
+			var p0 := c
+			rv.draw_colored_polygon(PackedVector2Array([p0, c + Vector2(cos(an - w), sin(an - w)) * R * 2.6, c + Vector2(cos(an + w), sin(an + w)) * R * 2.6]), Color(col.r, col.g, col.b, 0.2 * fade))
+	for k in 5:
+		var r := R * (1.0 - 0.17 * k) * (1.0 + 0.03 * sin(t0 * 5.0 + k))
+		rv.draw_circle(c, r, Color(col.r, col.g, col.b, 0.07 * fade))
+	var py := c.y + sz.y * 0.5 + 6.0
+	rv.draw_colored_polygon(_ellipse(Vector2(c.x, py), sz.x * 0.55 + 8.0, 6.0), Color(0, 0, 0, 0.55 * fade))
+	rv.draw_colored_polygon(_ellipse(Vector2(c.x, py), sz.x * 0.42 + 4.0, 4.0), Color(col.r, col.g, col.b, 0.5 * fade))
+	if t0 < 0.9:
+		var k := t0 / 0.9
+		rv.draw_arc(c, 20.0 + 150.0 * k, 0.0, TAU, 64, Color(col.r, col.g, col.b, 0.8 * (1.0 - k)), 3.0)
+
+func _draw_pops(layer: Control, in_rv: bool) -> void:
+	for pp in _pops:
+		if pp.t < 0.0 or pp.rv != in_rv: continue
+		var k: float = pp.t / pp.d
+		var pt_tex: Texture2D = _fr[pp.n][0]
+		var sc: float = lerpf(pp.s0, pp.s1, 1.0 - pow(1.0 - k, 2.0))
+		var psz := Vector2(pt_tex.get_width(), pt_tex.get_height()) * sc
+		var c: Color = pp.c
+		layer.draw_texture_rect(pt_tex, Rect2((pp.p - psz * 0.5).round(), psz), false, Color(c.r, c.g, c.b, clampf(2.0 * (1.0 - k), 0.0, 1.0)))
+
+## 등장 순간 한 번: 등급별 스파크. C 작게 → B 파란 별 → A 보라 별 여러 개(색은 등급색으로 물들인다)
+func _rv_burst_fx(g: int, c: Vector2, col: Color) -> void:
+	if g < 1 or g > 3: return
+	var n: int = [0, 2, 4, 7][g]
+	var big: float = [0.0, 0.7, 1.1, 1.5][g]
+	var tint := Color(lerpf(1.0, col.r, 0.55), lerpf(1.0, col.g, 0.55), lerpf(1.0, col.b, 0.55))
+	_pop("spark", c, big * 0.6, big * 1.6, 0.45, 0.0, tint, true)
+	for k in n:
+		var an := TAU * k / n + randf() * 0.5
+		var d := randf_range(26.0, 52.0)
+		_pop("spark", c + Vector2(cos(an), sin(an)) * d, big * 0.4, big, 0.4, 0.05 * k, tint, true)
+
+func _ellipse(c: Vector2, rx: float, ry: float) -> PackedVector2Array:
+	var pts := PackedVector2Array()
+	for i in 24: pts.append(c + Vector2(cos(TAU * i / 24.0) * rx, sin(TAU * i / 24.0) * ry))
+	return pts
 
 func _draw_reveal() -> void:
 	_tx_rv = []
@@ -659,6 +706,7 @@ func _draw_reveal() -> void:
 	var amp := 0.0
 	if kind == "slam" and t0 > 0.25 and t0 < 0.65: amp = 6.0 * (0.65 - t0) / 0.4
 	if g >= 5 and t0 > 0.0 and t0 < 0.5: amp = maxf(amp, (2.0 + g - 5.0) * (0.5 - t0) / 0.5)
+	if g in [2, 3] and t0 > 0.0 and t0 < 0.3: amp = maxf(amp, (g - 1.0) * (0.3 - t0) / 0.3)   # B·A는 가볍게 흔들린다
 	rv.position = Vector2(randf_range(-amp, amp), randf_range(-amp, amp)) if amp > 0.0 else Vector2.ZERO
 	var a := clampf(_rv_t / 0.35, 0.0, 1.0)
 	rv.draw_rect(Rect2(-300, -400, 900, 1500), Color(0, 0, 0, 0.75 * a))
@@ -668,21 +716,27 @@ func _draw_reveal() -> void:
 	var frames: Array = _fr["rv_" + _rv_pet]
 	var ft: Texture2D = frames[int(maxf(t0, 0.0) * 10.0) % 9]
 	var pop := 1.0 + 2.0 * pow(1.0 - clampf(t0 / 0.55, 0.0, 1.0), 2.0) if t0 >= 0.0 else 1.0   # 나올 때 크게 확대됐다가 원래 크기로 줄어든다
-	var ps := roundf(pop * 4.0) / 4.0
+	var ps := maxf(2.0, roundf(2.0 * pop))   # 도트가 깨지지 않게 정수 배율만 쓴다(원래 2배 → 등장할 때 6배까지)
 	var sz := Vector2(ft.get_width(), ft.get_height()) * ps
+	var spin_w := absf(cos(t0 / 0.5 * TAU)) if g == 2 and t0 >= 0.0 and t0 < 0.5 else 1.0   # B: 한 바퀴 돌며 나온다
+	var dsz := Vector2(maxf(sz.x * spin_w, ps * 2.0), sz.y)
 	var off := Vector2.ZERO if t0 < 0.0 else _entry(kind, t0)
 	var mod := Color(0, 0, 0, 1) if t0 < 0.0 else Color.WHITE
 	if t0 < 0.0:
 		off = Vector2(randf_range(-1, 1), randf_range(-1, 1)) * (glow * (g - 1.0) * 0.8)   # 실루엣이 떨린다
 	if t0 >= 0.0:
+		_draw_backdrop(ctr + off, sz, col, g, t0)
 		var at: Texture2D = _aura[_rv_pet]
 		var af := at.get_height()
 		var ai := int(t0 * 10.0) % 9
 		rv.draw_texture_rect_region(at, Rect2((ctr + off - Vector2(af, af) * ps * 0.5).round(), Vector2(af, af) * ps), Rect2(ai * af, 0, af, af))
-	rv.draw_texture_rect(ft, Rect2((ctr + off - sz * 0.5).round(), sz), false, mod)
+	if t0 >= 0.0 and not _rv_burst:
+		_rv_burst = true; _rv_burst_fx(g, ctr, col)
+	rv.draw_texture_rect(ft, Rect2((ctr + off - dsz * 0.5).round(), dsz), false, mod)
+	_draw_pops(rv, true)
 	# SS·SSS: 동전·보석 비
-	if t0 >= 0.0 and g >= 5:
-		for i in (5 if g == 5 else 12):
+	if t0 >= 0.0 and g >= 1:
+		for i in int([0, 3, 6, 9, 10, 14, 18][g]):
 			var x := fmod(float(i) * 53.0, 250.0) + 10.0
 			var y := fmod(t0 * (80.0 + (i % 4) * 20.0) + i * 47.0, 470.0) - 40.0
 			var st: Texture2D = _fr["coin" if i % 2 == 0 else "gem"][(i + int(_rv_t * 12.0)) % 9]
@@ -698,7 +752,7 @@ func _draw_reveal() -> void:
 		var nm: String = PET_NAME[_rv_pet]
 		var nfs := 32
 		var ny := 300.0
-		if g >= 4:
+		if g >= 3:
 			var bt: Texture2D = _fr["banner"][0]
 			rv.draw_texture_rect(bt, Rect2(Vector2(135 - 96, 276), Vector2(192, 74)), false, Color(1, 1, 1, la))
 			nfs = 16
