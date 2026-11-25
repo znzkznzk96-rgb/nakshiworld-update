@@ -244,7 +244,7 @@ func play(grid: Array) -> void:
 	# 예고: 등급별로 멈추는 템포가 다르다(결과는 이미 정해져 있고, 아래는 보여주는 방식만 바꾼다)
 	_can_skip = top <= 2
 	_pending_top = top
-	reels.runtime = [1.5, 1.7, 2.0, 2.2, 2.2, 2.2, 2.2][maxi(top, 0)]
+	reels.runtime = [1.5, 1.7, 2.0, 2.4, 3.0, 3.4, 3.4][maxi(top, 0)]
 	reels.speed = 8.0   # 평균 칸/초. 시작은 약 3배로 아주 빠르고 끝으로 갈수록 느려진다
 	reels.reel_delay = [0.18, 0.22, 0.25, 0.25, 0.55, 0.55, 0.95][maxi(top, 0)]
 	reels.crawl_last = false
@@ -313,7 +313,12 @@ func _land_fx(c: int) -> void:
 	_pop("dust", base + Vector2(-12, 0), 0.5, 1.0, 0.35)
 	_pop("dust", base + Vector2(12, 0), 0.5, 1.0, 0.35, 0.03)
 	if c == 2 and _pending_top >= 3:
-		_pop("spark", WINDOW_POS + Vector2(CELL.x * 2.5, CELL.y * 1.5), 0.6, 0.9 + 0.2 * (_pending_top - 3), 0.4)
+		var big := 1.6 + 0.5 * (_pending_top - 3)
+		var mid := WINDOW_POS + Vector2(CELL.x * 2.5, CELL.y * 1.5)
+		_pop("spark", mid, 0.8, big * 1.5, 0.5)
+		for k in 3:
+			var off := Vector2(randf_range(-1.0, 1.0) * CELL.x * 0.9, randf_range(-1.0, 1.0) * CELL.y * 1.3)
+			_pop("spark", mid + off, 0.5, big, 0.4, 0.06 * (k + 1))
 
 func _mode_top() -> int:
 	return {"over": 5, "edge": 4}.get(_mode, 3)
@@ -618,11 +623,10 @@ func _draw_top() -> void:
 		top_fx.draw_rect(Rect2(w.end.x, w.position.y, 270 - w.end.x, w.size.y), c)
 	if _ring >= 0.0:
 		var ctr := WINDOW_POS + Vector2(CELL.x * 1.5, CELL.y * 1.5)
-		var r := int(_ring)
-		top_fx.draw_rect(Rect2(ctr.x - r, ctr.y - r * 0.8, r * 2, 2), Color(1, 0.9, 0.4, 0.8))
-		top_fx.draw_rect(Rect2(ctr.x - r, ctr.y + r * 0.8, r * 2, 2), Color(1, 0.9, 0.4, 0.8))
-		top_fx.draw_rect(Rect2(ctr.x - r, ctr.y - r * 0.8, 2, r * 1.6), Color(1, 0.9, 0.4, 0.8))
-		top_fx.draw_rect(Rect2(ctr.x + r, ctr.y - r * 0.8, 2, r * 1.6), Color(1, 0.9, 0.4, 0.8))
+		var r := float(int(_ring))
+		var ra := clampf(1.0 - r / 200.0, 0.0, 1.0)
+		top_fx.draw_arc(ctr, r, 0.0, TAU, 64, Color(1, 0.9, 0.4, 0.85 * ra), 3.0)
+		top_fx.draw_arc(ctr, r * 0.8, 0.0, TAU, 64, Color(1, 1, 1, 0.6 * ra), 1.5)
 	for sp in _sprs:
 		if sp.t < 0.0: continue
 		var ft: Texture2D = _fr[sp.n][mini(int(sp.t * sp.fps), 8)]
@@ -644,7 +648,7 @@ func _draw_top() -> void:
 		var col: Color = pt.c
 		top_fx.draw_rect(Rect2(int(pt.p.x), int(pt.p.y), 2, 2), Color(col.r, col.g, col.b, a))
 	if _flash > 0.0:
-		top_fx.draw_rect(Rect2(0, 0, 270, 420), Color(1, 1, 1, _flash))
+		top_fx.draw_rect(Rect2(-300, -400, 900, 1500), Color(1, 1, 1, _flash))
 
 func _draw_reveal() -> void:
 	_tx_rv = []
