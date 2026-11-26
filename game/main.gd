@@ -3301,7 +3301,7 @@ func _draw_failure() -> void :
 # Static inspection/results use the historical right-facing presentation.
 # Only tile originals need a flip; preserve existing exceptions in other originals.
 func _ui_static_fish(sp: int, r: Rect2, source: Rect2) -> void:
-	if sp<40 or sp>=60:
+	if (sp<40 or sp>=60) and sp!=22:
 		_ui_texture_rect_region(fish_tex[sp],r,source);return
 	var ts: Vector2=fish_tex[sp].get_size()
 	var uv: PackedVector2Array=PackedVector2Array([Vector2(source.end.x,source.position.y)/ts,source.position/ts,Vector2(source.position.x,source.end.y)/ts,source.end/ts])

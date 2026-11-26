@@ -14,7 +14,7 @@ func run():
  var m=FishProbe.new();m.SET.music=0;m.SET.sfx=0;root.add_child(m);await process_frame;m.set_process(false)
  for sp in 60:
   m.ui_commands=[];var r:Rect2=m._ui_fish(sp,Rect2(10,10,100,50));var cmd:Array=m.ui_commands[-1]
-  if sp>=40:
+  if sp>=40 or sp==22:   # 조약돌고기(22)도 원본이 왼쪽을 봐서 도감에서 뒤집는다
    check(cmd[0]=="polygon" and cmd[3][0].x>cmd[3][1].x,"tile static faces right")
   else:check(cmd[0]=="region","preserve historical non-tile orientation")
   var base:float=clampf((6.0+3.0*sqrt(float(m.FISH_LEN[sp])))*2.2,18,120)

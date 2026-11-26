@@ -942,7 +942,7 @@ func _draw_dex_card(k: String, cr: Rect2) -> void:
 	_crect(Rect2(inn.position.x, inn.position.y + 36, inn.size.x, 18), tint.darkened(0.2))
 	var tex: Texture2D = _strip(k, "move")
 	var th := tex.get_height()
-	var foot := cr.position.y + 72.0
+	var foot := cr.position.y + 67.0
 	var pw := th * 2.0
 	_crect(Rect2(cr.get_center().x - 26, foot - 1, 52, 4), gc.darkened(0.2))
 	_crect(Rect2(cr.get_center().x - 20, foot + 3, 40, 2), gc.darkened(0.5))
@@ -958,7 +958,7 @@ func _draw_dex_card(k: String, cr: Rect2) -> void:
 	if get_leader() == k:
 		_crect(Rect2(cr.position.x + 3, cr.position.y + 32, 13, 12), Color("c8962b"))
 		_ctxt("대", Vector2(cr.position.x + 9.5, cr.position.y + 42), 10, CREAM, true, 13)
-	_ctxt(NAME[k] if have >= 1 else "???", Vector2(cr.get_center().x, cr.position.y + 87), 9, CREAM if have >= 1 else Color(0.55, 0.48, 0.42), true, 100)
+	_ctxt(NAME[k] if have >= 1 else "???", Vector2(cr.get_center().x, cr.position.y + 83), 9, CREAM if have >= 1 else Color(0.55, 0.48, 0.42), true, 100)
 
 ## 펫을 고르지 않았을 때 아래 카드에 보이는 분해 관리: 범위 / 일괄 분해 / 자동 분해(큰 버튼 3줄)
 func _draw_bulk_panel(dr: Rect2) -> void:
