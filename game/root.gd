@@ -16,6 +16,9 @@ var update_art: Texture2D
 var chase_frames:Array[Texture2D]=[]
 var chase_fish:Texture2D
 var updater_logo:Texture2D
+var title_plate:Texture2D   # 게임 타이틀과 같은 폭풍 배경·로고: 있으면 업데이트 화면도 타이틀처럼 보이게 한다
+var title_logo:Texture2D
+const TITLE_LOGO_REGION:=Rect2(62,68,1664,779)
 var animation_time:=0.0
 var update_phase:="checking"
 var received_bytes:=0
@@ -48,6 +51,8 @@ func _ready() -> void:
 	for i in 9:chase_frames.append(load("res://art/ui/updater/cat_run_%02d.png"%i))
 	chase_fish=load("res://art/ui/updater/fish.png")
 	updater_logo=load("res://art/ui/updater/logo.png")
+	if ResourceLoader.exists("res://art/title55/plate.png") and ResourceLoader.exists("res://art/title55/logo.png"):
+		title_plate=load("res://art/title55/plate.png");title_logo=load("res://art/title55/logo.png")
 	if preview_only:
 		status="업데이트 확인 중…"
 		return
@@ -235,6 +240,8 @@ func _draw() -> void:
 	var height:float=size.y/scale
 	var offset:Vector2=Vector2((size.x-270*scale)*.5,0)
 	loader_draw_scale=scale;loader_draw_offset=offset
+	if title_plate!=null and title_logo!=null:
+		_draw_title_like(size,scale,height,offset);return
 	draw_rect(Rect2(Vector2.ZERO,size),Color("078bfa"))
 	draw_set_transform(offset,0,Vector2.ONE*scale)
 	# Bright pixel sky, green islands and saturated turquoise water.
@@ -277,6 +284,28 @@ func _draw() -> void:
 	if shown_bar>0.0:draw_rect(Rect2(bar.position+Vector2.ONE,Vector2(198*clampf(shown_bar,0,1),8)),Color("ffda24"))
 	_label(transfer_detail(),panel.position.y+66,9,Color("223b66"))
 	_label("잠시만 기다려 주세요",panel.position.y+85,8,Color("426581"))
+	draw_set_transform(Vector2.ZERO)
+
+## 게임 타이틀(폭풍 속 배)과 같은 배경·로고 위에 업데이트 상태를 작은 띠로만 보여 준다
+func _draw_title_like(size:Vector2,scale:float,height:float,offset:Vector2) -> void:
+	draw_rect(Rect2(Vector2.ZERO,size),Color("020914"))
+	draw_set_transform(offset,0,Vector2.ONE*scale)
+	var water:float=height*.36
+	var tex_size:Vector2=title_plate.get_size();var split:float=roundf(tex_size.y*.275)
+	draw_texture_rect_region(title_plate,Rect2(0,0,270,water),Rect2(0,0,tex_size.x,split))
+	draw_texture_rect_region(title_plate,Rect2(0,water,270,height-water),Rect2(0,split,tex_size.x,tex_size.y-split))
+	var motion:Vector2=logo_motion(animation_time)
+	var logo_h:float=TITLE_LOGO_REGION.size.y*234.0/TITLE_LOGO_REGION.size.x
+	draw_set_transform(offset+Vector2(135,maxf(96.0,height*.155)+motion.y)*scale,motion.x,Vector2.ONE*scale)
+	draw_texture_rect_region(title_logo,Rect2(-117,-logo_h*.5,234,logo_h),TITLE_LOGO_REGION)
+	draw_set_transform(offset,0,Vector2.ONE*scale)
+	var panel:Rect2=Rect2(35,height-146,200,48)
+	draw_rect(panel,Color("06131f",.8));draw_rect(panel,Color("3b6b8a"),false,1.0)
+	_label(status,panel.position.y+16,10,Color("fff4d4"))
+	var bar:Rect2=Rect2(panel.position.x+10,panel.position.y+23,180,6)
+	draw_rect(bar,Color("0b2236"))
+	if shown_bar>0.0:draw_rect(Rect2(bar.position,Vector2(bar.size.x*clampf(shown_bar,0,1),bar.size.y)),Color("ffda24"))
+	_label(transfer_detail(),panel.position.y+41,8,Color("9fc3d6"))
 	draw_set_transform(Vector2.ZERO)
 
 func _start() -> void:
