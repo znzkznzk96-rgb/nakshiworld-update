@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_before_request": "e37a1960d910cc604988b0b3c818a5fb559431cb",
-  "reason": "v1.60 효과음·음악 교체 (검증 기준 수정)",
-  "requested_at": "2026-11-26T17:23:35.548058+00:00"
+  "source_before_request": "280e3afa634b4a3908d99d3f7b3accfddff7d569",
+  "reason": "v1.61 음악·물소리·업데이트 화면",
+  "requested_at": "2026-11-26T20:01:00.682803+00:00"
 }
