@@ -1,0 +1,6 @@
+효과음·음악 교체 (v1.60 후보)
+- Kenney Impact Sounds / Interface Sounds / UI Audio / Music Jingles: Kenney (kenney.nl), CC0
+- PulseLite UI SFX (free sample): CC-BY-4.0, 출처 표기 필요 (coin, level_up, reward, whoosh)
+- BigSoundBank (bigsoundbank.com), CC0: Heavy chain(0359), Barn lock unlocking(1539), Fishing reel fast(1435), Fishing reel slow(1437)
+- Music: Juhani Junkala, Retro Game Music Pack (5 Action Chiptunes), CC0: Level 1 -> 낚시, Level 2 -> 마을
+- 가공: 자르기, 크기 맞춤, 일부 겹치기·속도 조절. 파일 이름·위치는 기존과 동일
