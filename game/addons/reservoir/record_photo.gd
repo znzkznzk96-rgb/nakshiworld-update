@@ -269,7 +269,7 @@ func complete_image(m,image:Image,filename:String,started_generation:int)->void:
  # synchronous native boundary; no event can interleave while save() runs.
  busy=false
  if generation!=started_generation:return
- var prev:=gallery.last_stage()
+ var prev:String=gallery.last_stage() if gallery.has_method("last_stage") else ""
  status="저장 결과를 확인하지 못했어요. 다시 시도해 주세요"+(" (이전 중단 지점: %s)"%prev if prev!="" and prev!="done" else "")
  m.queue_redraw()
  var result=gallery.save(image,filename)
