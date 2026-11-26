@@ -1,0 +1,3 @@
+import sys;sys.path.insert(0,'/tmp/cut1');from gen import *
+run('corridor',{"description":"Backrooms liminal space, endless empty office corridor in one-point perspective, vanishing point far in the distance at center, mono-yellow wallpaper walls with faint vertical stripes, damp beige carpet floor, low drop ceiling tiles with rows of rectangular fluorescent light panels receding into the distance, all lights on, slightly greenish yellow light, eerie, quiet, no people, detailed pixel art, cinematic, vertical composition",
+ "image_size":{"width":384,"height":688},"no_background":False,"seed":1127})
