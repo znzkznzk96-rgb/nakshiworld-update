@@ -286,7 +286,7 @@ func _draw() -> void:
 	_label("잠시만 기다려 주세요",panel.position.y+85,8,Color("426581"))
 	draw_set_transform(Vector2.ZERO)
 
-## 게임 타이틀(폭풍 속 배)과 같은 배경·로고 위에 업데이트 상태를 작은 띠로만 보여 준다
+## 게임 타이틀 배경·로고를 어둡게 깔고, 가운데에 업데이트 상태 창을 띄운다
 func _draw_title_like(size:Vector2,scale:float,height:float,offset:Vector2) -> void:
 	draw_rect(Rect2(Vector2.ZERO,size),Color("020914"))
 	draw_set_transform(offset,0,Vector2.ONE*scale)
@@ -298,14 +298,16 @@ func _draw_title_like(size:Vector2,scale:float,height:float,offset:Vector2) -> v
 	var logo_h:float=TITLE_LOGO_REGION.size.y*234.0/TITLE_LOGO_REGION.size.x
 	draw_set_transform(offset+Vector2(135,maxf(96.0,height*.155)+motion.y)*scale,motion.x,Vector2.ONE*scale)
 	draw_texture_rect_region(title_logo,Rect2(-117,-logo_h*.5,234,logo_h),TITLE_LOGO_REGION)
+	draw_set_transform(Vector2.ZERO)
+	draw_rect(Rect2(Vector2.ZERO,size),Color(0.0,0.02,0.06,0.6))   # 타이틀은 어둡게 깔고 가운데 창만 밝게
 	draw_set_transform(offset,0,Vector2.ONE*scale)
-	var panel:Rect2=Rect2(35,height-146,200,48)
-	draw_rect(panel,Color("06131f",.8));draw_rect(panel,Color("3b6b8a"),false,1.0)
-	_label(status,panel.position.y+16,10,Color("fff4d4"))
-	var bar:Rect2=Rect2(panel.position.x+10,panel.position.y+23,180,6)
-	draw_rect(bar,Color("0b2236"))
-	if shown_bar>0.0:draw_rect(Rect2(bar.position,Vector2(bar.size.x*clampf(shown_bar,0,1),bar.size.y)),Color("ffda24"))
-	_label(transfer_detail(),panel.position.y+41,8,Color("9fc3d6"))
+	var panel:Rect2=Rect2(30,roundf(height*.5-38),210,76)
+	draw_rect(panel,Color("081a2c",.94));draw_rect(panel,Color("ffda24"),false,1.0);draw_rect(panel.grow(-3),Color("3b6b8a"),false,1.0)
+	_label(status,panel.position.y+24,12,Color("fff4d4"))
+	var bar:Rect2=Rect2(panel.position.x+15,panel.position.y+34,180,8)
+	draw_rect(bar,Color("0b2236"));draw_rect(bar,Color("3b6b8a"),false,1.0)
+	if shown_bar>0.0:draw_rect(Rect2(bar.position+Vector2.ONE,Vector2((bar.size.x-2)*clampf(shown_bar,0,1),bar.size.y-2)),Color("ffda24"))
+	_label(transfer_detail(),panel.position.y+60,10,Color("9fc3d6"))
 	draw_set_transform(Vector2.ZERO)
 
 func _start() -> void:

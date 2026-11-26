@@ -4,3 +4,5 @@
 - BigSoundBank (bigsoundbank.com), CC0: Heavy chain(0359), Barn lock unlocking(1539), Fishing reel fast(1435), Fishing reel slow(1437)
 - Music: Juhani Junkala, Retro Game Music Pack (5 Action Chiptunes), CC0: Level 1 -> 낚시, Level 2 -> 마을
 - 가공: 자르기, 크기 맞춤, 일부 겹치기·속도 조절. 파일 이름·위치는 기존과 동일
+
+v1.61: water/splash/bubbles/swim/rain (sfx/refresh65) — "40 CC0 water / splash / slime SFX", OpenGameArt.org (CC0)
