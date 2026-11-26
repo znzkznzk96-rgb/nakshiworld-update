@@ -36,5 +36,7 @@ func draw(m, sp: int, center: Vector2, length: float, seconds: float, face: floa
 func ui_draw(m,sp: int,box: Rect2) -> Rect2:
 	var src:=source_rect(sp,0);var size:=src.size*minf(box.size.x/src.size.x,box.size.y/src.size.y)
 	var r:=Rect2(box.get_center()-size/2,size)
-	m._ui_texture_rect_region(texture(sp),r,src)
+	var tex:=texture(sp);var ts:=tex.get_size()   # 원본은 왼쪽을 보므로 도감·결과 화면에서는 오른쪽을 보게 좌우를 뒤집는다
+	var uv:=PackedVector2Array([Vector2(src.end.x,src.position.y)/ts,src.position/ts,Vector2(src.position.x,src.end.y)/ts,src.end/ts])
+	m._ui_polygon(PackedVector2Array([r.position,Vector2(r.end.x,r.position.y),r.end,Vector2(r.position.x,r.end.y)]),PackedColorArray([Color.WHITE,Color.WHITE,Color.WHITE,Color.WHITE]),uv,tex)
 	return r
