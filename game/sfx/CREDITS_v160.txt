@@ -6,3 +6,5 @@
 - 가공: 자르기, 크기 맞춤, 일부 겹치기·속도 조절. 파일 이름·위치는 기존과 동일
 
 v1.61: water/splash/bubbles/swim/rain (sfx/refresh65) — "40 CC0 water / splash / slime SFX", OpenGameArt.org (CC0)
+v1.61: village.ogg — Juhani Junkala "Calm5 - Summer Memories" (JRPG Music Pack #4 Calm, OpenGameArt, CC0)
+v1.61: refresh65/music.ogg (title) — "Fields of Cabbage", OpenGameArt.org (CC0)

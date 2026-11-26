@@ -18,6 +18,8 @@ var chase_fish:Texture2D
 var updater_logo:Texture2D
 var title_plate:Texture2D   # 게임 타이틀과 같은 폭풍 배경·로고: 있으면 업데이트 화면도 타이틀처럼 보이게 한다
 var title_logo:Texture2D
+var title_host   # 게임의 실제 타이틀 화면(배·파도·비·번개)을 업데이트 화면 뒤에 그대로 깐다
+var title_scene
 const TITLE_LOGO_REGION:=Rect2(62,68,1664,779)
 var animation_time:=0.0
 var update_phase:="checking"
@@ -53,6 +55,7 @@ func _ready() -> void:
 	updater_logo=load("res://art/ui/updater/logo.png")
 	if ResourceLoader.exists("res://art/title55/plate.png") and ResourceLoader.exists("res://art/title55/logo.png"):
 		title_plate=load("res://art/title55/plate.png");title_logo=load("res://art/title55/logo.png")
+		if ResourceLoader.exists("res://addons/reservoir/title_screen.gd"):_make_title_host()
 	if preview_only:
 		status="업데이트 확인 중…"
 		return
@@ -71,6 +74,20 @@ func _ready() -> void:
 		_start()
 
 ## 예전 방식(전체 patch.pck)으로 받아 둔 파일은 새 APK에 이미 들어 있어 필요 없다
+func _make_title_host() -> void:
+	var stub:=GDScript.new()
+	stub.source_code="extends Node2D\nvar ox:=0.0\nvar top_y:=28.0\nvar title_open:=true\n"
+	if stub.reload()!=OK:return
+	title_host=Node2D.new();title_host.set_script(stub);title_host.z_index=-100
+	add_child(title_host)
+	var vs:Vector2=get_viewport_rect().size
+	title_host.ox=floorf(maxf(0.0,vs.x-270.0)/2.0);title_host.position.x=title_host.ox
+	if OS.has_feature("mobile"):
+		var k:float=float(get_window().size.x)/get_tree().root.get_visible_rect().size.x
+		title_host.top_y=maxf(DisplayServer.get_display_safe_area().position.y/k,26.0)+2
+	title_scene=load("res://addons/reservoir/title_screen.gd").new()
+	title_scene.setup(title_host)
+
 func _drop_legacy() -> void:
 	for f in ["user://patch.pck", "user://patch_ver.txt", "user://patch.pck.new", "user://patch.pck.bak", "user://patch_ver.txt.new"]:
 		if FileAccess.file_exists(f): DirAccess.remove_absolute(f)
@@ -196,6 +213,7 @@ func _bar_target() -> float:
 
 func _process(dt: float) -> void:
 	animation_time+=maxf(dt,0.0)
+	if title_scene!=null and is_instance_valid(title_host):title_scene.update(title_host,maxf(dt,0.0))
 	shown_bar=move_toward(shown_bar,_bar_target(),maxf(dt,0.0)*0.8)
 	if fetching and update_phase=="download":
 		received_bytes=http.get_downloaded_bytes()
@@ -241,7 +259,7 @@ func _draw() -> void:
 	var offset:Vector2=Vector2((size.x-270*scale)*.5,0)
 	loader_draw_scale=scale;loader_draw_offset=offset
 	if title_plate!=null and title_logo!=null:
-		_draw_title_like(size,scale,height,offset);return
+		_draw_title_like(size,scale,height,offset,is_instance_valid(title_host));return
 	draw_rect(Rect2(Vector2.ZERO,size),Color("078bfa"))
 	draw_set_transform(offset,0,Vector2.ONE*scale)
 	# Bright pixel sky, green islands and saturated turquoise water.
@@ -287,7 +305,22 @@ func _draw() -> void:
 	draw_set_transform(Vector2.ZERO)
 
 ## 게임 타이틀 배경·로고를 어둡게 깔고, 가운데에 업데이트 상태 창을 띄운다
-func _draw_title_like(size:Vector2,scale:float,height:float,offset:Vector2) -> void:
+func _draw_title_like(size:Vector2,scale:float,height:float,offset:Vector2,live_title:bool=false) -> void:
+	if not live_title:_draw_title_still(size,scale,height,offset)
+	draw_set_transform(Vector2.ZERO)
+	draw_rect(Rect2(Vector2.ZERO,size),Color(0.0,0.02,0.06,0.62))   # 타이틀 전체를 어둡게, 가운데 창만 밝게
+	draw_set_transform(offset,0,Vector2.ONE*scale)
+	var panel:Rect2=Rect2(30,roundf(height*.5-38),210,76)
+	draw_rect(panel,Color("081a2c"));draw_rect(panel,Color("ffda24"),false,1.0);draw_rect(panel.grow(-3),Color("3b6b8a"),false,1.0)
+	_label(status,panel.position.y+24,12,Color("fff4d4"))
+	var bar:Rect2=Rect2(panel.position.x+15,panel.position.y+34,180,8)
+	draw_rect(bar,Color("0b2236"));draw_rect(bar,Color("3b6b8a"),false,1.0)
+	if shown_bar>0.0:draw_rect(Rect2(bar.position+Vector2.ONE,Vector2((bar.size.x-2)*clampf(shown_bar,0,1),bar.size.y-2)),Color("ffda24"))
+	_label(transfer_detail(),panel.position.y+60,10,Color("9fc3d6"))
+	draw_set_transform(Vector2.ZERO)
+
+## 실제 타이틀을 못 띄울 때만: 배경·로고 정지 그림
+func _draw_title_still(size:Vector2,scale:float,height:float,offset:Vector2) -> void:
 	draw_rect(Rect2(Vector2.ZERO,size),Color("020914"))
 	draw_set_transform(offset,0,Vector2.ONE*scale)
 	var water:float=height*.36
@@ -298,17 +331,6 @@ func _draw_title_like(size:Vector2,scale:float,height:float,offset:Vector2) -> v
 	var logo_h:float=TITLE_LOGO_REGION.size.y*234.0/TITLE_LOGO_REGION.size.x
 	draw_set_transform(offset+Vector2(135,maxf(96.0,height*.155)+motion.y)*scale,motion.x,Vector2.ONE*scale)
 	draw_texture_rect_region(title_logo,Rect2(-117,-logo_h*.5,234,logo_h),TITLE_LOGO_REGION)
-	draw_set_transform(Vector2.ZERO)
-	draw_rect(Rect2(Vector2.ZERO,size),Color(0.0,0.02,0.06,0.6))   # 타이틀은 어둡게 깔고 가운데 창만 밝게
-	draw_set_transform(offset,0,Vector2.ONE*scale)
-	var panel:Rect2=Rect2(30,roundf(height*.5-38),210,76)
-	draw_rect(panel,Color("081a2c",.94));draw_rect(panel,Color("ffda24"),false,1.0);draw_rect(panel.grow(-3),Color("3b6b8a"),false,1.0)
-	_label(status,panel.position.y+24,12,Color("fff4d4"))
-	var bar:Rect2=Rect2(panel.position.x+15,panel.position.y+34,180,8)
-	draw_rect(bar,Color("0b2236"));draw_rect(bar,Color("3b6b8a"),false,1.0)
-	if shown_bar>0.0:draw_rect(Rect2(bar.position+Vector2.ONE,Vector2((bar.size.x-2)*clampf(shown_bar,0,1),bar.size.y-2)),Color("ffda24"))
-	_label(transfer_detail(),panel.position.y+60,10,Color("9fc3d6"))
-	draw_set_transform(Vector2.ZERO)
 
 func _start() -> void:
 	if started:
@@ -373,6 +395,8 @@ func _start() -> void:
 	reveal.tween_property(self,"self_modulate:a",0.0,.3)
 	await reveal.finished
 	status="";queue_redraw()
+	if is_instance_valid(title_host):title_host.queue_free()
+	title_scene=null
 
 func _fit() -> void:
 	box.size = get_viewport_rect().size
