@@ -20,6 +20,7 @@ var title_plate:Texture2D   # 게임 타이틀과 같은 폭풍 배경·로고: 
 var title_logo:Texture2D
 var title_host   # 게임의 실제 타이틀 화면(배·파도·비·번개)을 업데이트 화면 뒤에 그대로 깐다
 var title_scene
+var panel_fade:=1.0   # 업데이트 창이 사라질 때 1→0: 창이 살짝 떠오르며 흐려지고, 그 뒤 어두운 막이 걷힌다
 const TITLE_LOGO_REGION:=Rect2(62,68,1664,779)
 var animation_time:=0.0
 var update_phase:="checking"
@@ -309,14 +310,16 @@ func _draw_title_like(size:Vector2,scale:float,height:float,offset:Vector2,live_
 	if not live_title:_draw_title_still(size,scale,height,offset)
 	draw_set_transform(Vector2.ZERO)
 	draw_rect(Rect2(Vector2.ZERO,size),Color(0.0,0.02,0.06,0.62))   # 타이틀 전체를 어둡게, 가운데 창만 밝게
-	draw_set_transform(offset,0,Vector2.ONE*scale)
+	if panel_fade<=0.0:return
+	draw_set_transform(offset+Vector2(0,-roundf((1.0-panel_fade)*6.0))*scale,0,Vector2.ONE*scale)
+	var a:float=panel_fade
 	var panel:Rect2=Rect2(30,roundf(height*.5-38),210,76)
-	draw_rect(panel,Color("081a2c"));draw_rect(panel,Color("ffda24"),false,1.0);draw_rect(panel.grow(-3),Color("3b6b8a"),false,1.0)
-	_label(status,panel.position.y+24,12,Color("fff4d4"))
+	draw_rect(panel,Color("081a2c",a));draw_rect(panel,Color("ffda24",a),false,1.0);draw_rect(panel.grow(-3),Color("3b6b8a",a),false,1.0)
+	_label(status,panel.position.y+24,12,Color("fff4d4",a))
 	var bar:Rect2=Rect2(panel.position.x+15,panel.position.y+34,180,8)
-	draw_rect(bar,Color("0b2236"));draw_rect(bar,Color("3b6b8a"),false,1.0)
-	if shown_bar>0.0:draw_rect(Rect2(bar.position+Vector2.ONE,Vector2((bar.size.x-2)*clampf(shown_bar,0,1),bar.size.y-2)),Color("ffda24"))
-	_label(transfer_detail(),panel.position.y+60,10,Color("9fc3d6"))
+	draw_rect(bar,Color("0b2236",a));draw_rect(bar,Color("3b6b8a",a),false,1.0)
+	if shown_bar>0.0:draw_rect(Rect2(bar.position+Vector2.ONE,Vector2((bar.size.x-2)*clampf(shown_bar,0,1),bar.size.y-2)),Color("ffda24",a))
+	_label(transfer_detail(),panel.position.y+60,10,Color("9fc3d6",a))
 	draw_set_transform(Vector2.ZERO)
 
 ## 실제 타이틀을 못 띄울 때만: 배경·로고 정지 그림
@@ -389,10 +392,13 @@ func _start() -> void:
 	await get_tree().process_frame
 	var remaining:float=MINIMUM_SPLASH_SECONDS-float(Time.get_ticks_msec()-splash_started_msec)/1000.0
 	if remaining>0:await get_tree().create_timer(remaining).timeout
-	var reveal:=create_tween().set_parallel(true)
-	reveal.tween_property(box,"modulate:a",1.0,.3)
-	reveal.tween_property(txt,"modulate:a",1.0,.3)
-	reveal.tween_property(self,"self_modulate:a",0.0,.3)
+	var hide_panel:=create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	hide_panel.tween_property(self,"panel_fade",0.0,.45)
+	await hide_panel.finished
+	var reveal:=create_tween().set_parallel(true).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	reveal.tween_property(box,"modulate:a",1.0,.7)
+	reveal.tween_property(txt,"modulate:a",1.0,.7)
+	reveal.tween_property(self,"self_modulate:a",0.0,.7)
 	await reveal.finished
 	status="";queue_redraw()
 	if is_instance_valid(title_host):title_host.queue_free()
