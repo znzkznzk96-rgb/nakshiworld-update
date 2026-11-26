@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_before_request": "ae731166d56830a461fb48c2d842b86586d8773b",
-  "reason": "v1.59 업데이트 화면, 도감 방향, 갤러리 저장",
-  "requested_at": "2026-11-26T11:29:37.636477+00:00"
+  "source_before_request": "e84dfb0b16ec51789dd4256ee3b8aeabc3a562b4",
+  "reason": "v1.60 효과음·음악 교체",
+  "requested_at": "2026-11-26T16:49:32.853476+00:00"
 }
