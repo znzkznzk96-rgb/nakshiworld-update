@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_before_request": "86b81e8819d29cf045f1f3a198665281c12f62ea",
-  "reason": "v1.58 펫 등장 회전, 보관함 개선",
-  "requested_at": "2026-11-25T10:38:54.543290+00:00"
+  "source_before_request": "5c4d32c5a7fb1b3a8c96d0babb9ee5c18efe90da",
+  "reason": "v1.59 업데이트 화면, 도감 방향, 갤러리 저장",
+  "requested_at": "2026-11-26T10:53:47.893440+00:00"
 }
