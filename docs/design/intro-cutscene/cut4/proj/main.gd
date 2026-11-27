@@ -8,10 +8,11 @@ const T_ARM := 4.6
 const T_TXT := 5.3
 const T_FADE := 6.3
 const T3 := 6.7
-const CAT_IN := 7.3
-const CAT_STOP := 9.0
-const DROP := 9.1
-const END := 10.6
+const T4 := 8.2        # 3인칭 두 번째 배경(오솔길)으로
+const CAT_IN := 8.6
+const CAT_STOP := 10.3
+const DROP := 10.4
+const END := 11.9
 const DIAL := Vector2(191, 162)
 const ARM_POS := Vector2(0, 190)
 const BLINK := [[0.0, 0.0], [0.3, 0.0], [0.75, 0.5], [1.0, 0.5], [1.15, 0.0], [1.4, 0.0], [1.9, 0.9], [2.1, 0.9], [2.25, 0.15], [2.45, 0.15], [2.9, 2.4]]
@@ -28,6 +29,8 @@ var armg: Node2D
 var hands: Node2D
 var s3: Node2D
 var res: Sprite2D
+var bga: Sprite2D
+var bgb: Sprite2D
 var sit: Texture2D
 var sit2: Texture2D
 var cat: Sprite2D
@@ -57,13 +60,14 @@ func _ready() -> void:
 	stage = Node2D.new(); sv.add_child(stage)
 	var black := ColorRect.new(); black.color = Color.BLACK; black.size = Vector2(W, H); stage.add_child(black)
 	g1 = Node2D.new(); stage.add_child(g1)
-	vil = _spr(g1, "res://img/village.png", "res://mosaic.gdshader", Vector2.ZERO)
+	vil = _spr(g1, "res://img/eye.png", "res://mosaic.gdshader", Vector2.ZERO)
 	feet = _spr(g1, "res://img/feet.png", "res://wave.gdshader", Vector2(0, 640))
 	armg = Node2D.new(); armg.visible = false; stage.add_child(armg)
 	var arm := Sprite2D.new(); arm.texture = load("res://img/arm.png"); arm.centered = false; arm.position = ARM_POS; armg.add_child(arm)
 	hands = Node2D.new(); hands.position = ARM_POS; hands.draw.connect(_draw_dial); armg.add_child(hands)
 	s3 = Node2D.new(); s3.visible = false; stage.add_child(s3)
-	_spr(s3, "res://img/village.png", "", Vector2.ZERO)
+	bga = _spr(s3, "res://img/village.png", "", Vector2.ZERO)
+	bgb = _spr(s3, "res://img/path.png", "", Vector2.ZERO)
 	sit = load("res://img/sit.png"); sit2 = load("res://img/sit2.png")
 	res = Sprite2D.new(); res.texture = sit; res.centered = false; res.position = Vector2(92, 480); s3.add_child(res)
 	for i in 9: cat_tex.append(load("res://img/cat_%d.png" % i)); stick_tex.append(load("res://img/stick_%d.png" % i))
@@ -123,6 +127,7 @@ func _scene(delta: float) -> void:
 	var ka := clampf((t - T_ARM) / 0.5, 0, 1)
 	armg.position = Vector2(roundf(160.0 * pow(1.0 - ka, 3.0)), 0)
 	# 3샷: 연구원 숨쉬기, 고양이
+	bga.visible = t < T4; bgb.visible = t >= T4
 	if t >= T3:
 		res.texture = sit2 if t >= CAT_STOP - 0.4 else sit
 		res.position = Vector2(92, 480 + (1 if fmod(t, 1.8) < 0.9 else 0))
@@ -151,6 +156,7 @@ func _scene(delta: float) -> void:
 	if t < 0.2: fa = 1.0 - t / 0.2
 	if t >= T_FADE and t < T3: fa = clampf((t - T_FADE) / 0.35, 0, 1)
 	if t >= T3 and t < T3 + 0.4: fa = 1.0 - (t - T3) / 0.4
+	if t >= T4 - 0.15 and t < T4 + 0.15: fa = 1.0 - absf(t - T4) / 0.15
 	if t >= END - 0.5: fa = clampf((t - (END - 0.5)) / 0.5, 0, 1)
 	fade.color.a = fa
 
