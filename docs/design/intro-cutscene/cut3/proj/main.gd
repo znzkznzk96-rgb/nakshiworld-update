@@ -169,16 +169,19 @@ func _draw_fx() -> void:
 			fx.draw_rect(Rect2(floorf(p.x), floorf(p.y), rr, rr), Color(0.85, 1, 1, 1.0 - ph))
 	# 소용돌이: 중심에서 퍼지는 빛줄기
 	if t >= T_B and t < T_C:
-		for i in 44:
+		for i in 64:
 			r.seed = 900 + i
 			var ang := r.randf() * TAU + (t - T_B) * 0.3
 			var ph := fmod((t - T_B) * r.randf_range(0.35, 0.7) + r.randf(), 1.0)
 			var p := ph * ph   # 안쪽으로 점점 빨려듦
-			var d0 := 20.0 + (1.0 - p) * 360.0; var d1 := d0 + 14.0 + (1.0 - p) * 50.0
+			var d0 := 20.0 + (1.0 - p) * 360.0; var d1 := d0 + 40.0 + (1.0 - p) * 120.0
 			var dir := Vector2(cos(ang), sin(ang) * 1.5)
-			var col := Color(0.8, 0.95, 1.0, 0.3 + 0.6 * (1.0 - p))
+			var col := Color(0.9, 1.0, 1.0, 0.55 + 0.45 * (1.0 - p))
 			_line(CB + dir * d0, CB + dir * d1, col)
 			_line(CB + dir * d0 + Vector2(1, 0), CB + dir * d1 + Vector2(1, 0), col)
+			_line(CB + dir * d0 + Vector2(0, 1), CB + dir * d1 + Vector2(0, 1), Color(0.5, 0.9, 1.0, col.a * 0.7))
+			_line(CB + dir * d0 + Vector2(-1, 0), CB + dir * d1 + Vector2(-1, 0), Color(0.5, 0.9, 1.0, col.a * 0.7))
+			_line(CB + dir * d0 + Vector2(0, -1), CB + dir * d1 + Vector2(0, -1), Color(0.5, 0.9, 1.0, col.a * 0.5))
 		# 중심에서 맥박처럼 퍼지는 빛 고리
 		for j in 3:
 			var q := fmod((t - T_B) * 0.7 + j / 3.0, 1.0)
