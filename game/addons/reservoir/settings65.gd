@@ -26,7 +26,6 @@ static func draw(m) -> void:
 	var vib:=Rect2(100,y-12,125,27);button(m,vib,["꺼짐","약","중","강"][int(m.SET.vib_level)]);m.set_rects.vib=vib
 	var book:=Rect2(38,y+28,194,30);button(m,book,"몸짓 도감 · 소리와 진동 체험");m.set_rects.tut=book
 	var reset:=Rect2(38,y+68,194,30);button(m,reset,"게임 데이터 초기화");m.set_rects.reset=reset
-	var intro:=Rect2(38,y+103,194,24);button(m,intro,"첫 실행 영상 다시 보기");m.set_rects.intro=intro
 	var license:=Rect2(38,r.end.y-52,194,22);button(m,license,"글꼴 · 라이선스");m.set_rects.license=license
 	m._text("버전 v"+m._ver_name(),Vector2(135,r.end.y-15),9,Color("5a3e28"),true)
 static func press(m,pos: Vector2) -> void:
@@ -49,4 +48,3 @@ static func press(m,pos: Vector2) -> void:
 	if m.set_rects.tut.has_point(pos): m.set_view="book"
 	elif m.set_rects.reset.has_point(pos): m.reset_confirm=true
 	elif m.set_rects.license.has_point(pos): m.set_view="license";m.font_license_page=0
-	elif m.set_rects.intro.has_point(pos): m.settings_open=false;m._save_set();m.start_intro()
