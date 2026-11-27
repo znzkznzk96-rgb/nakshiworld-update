@@ -141,7 +141,7 @@ func _scene(delta: float) -> void:
 		cat.visible = bgb.visible or t >= CAT_IN
 		if bgb.visible:   # 오솔길을 가로질러 걸어옴
 			var fr2 := int((t - T4) * 9.0) % 9
-			cat.texture = cat_tex[fr2]; cat.position = Vector2(roundf(372.0 - 85.0 * (t - T4)), 521)
+			cat.texture = cat_tex[fr2]; cat.position = Vector2(roundf(238.0 - 85.0 * (t - T4)), 455)   # 울타리 위쪽 흙 마당을 지나감
 			stick.visible = true; stick.texture = stick_tex[fr2]; stick.position = cat.position
 		var ct := t - CAT_IN
 		if t >= CAT_IN:
