@@ -28,7 +28,7 @@ void fragment() {
 		float wave = floor(sin(px.x * 0.30 + tm * 4.0) * 2.0);
 		float line = wl + wave;
 		if (leg && px.y < line) {
-			col.rgb = mix(col.rgb, vec3(0.42, 0.78, 0.76), 0.5);
+			col.rgb = mix(col.rgb, vec3(0.16, 0.52, 0.62), 0.55);
 		}
 		if (leg && abs(px.y - line) < 1.5) {
 			col.rgb = vec3(0.80, 0.97, 0.95);
