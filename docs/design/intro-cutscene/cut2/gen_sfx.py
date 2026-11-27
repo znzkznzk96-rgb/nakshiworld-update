@@ -32,3 +32,15 @@ save('zap.wav',x)
 t=tt(0.22); f=np.where(t<0.1,520,430); x=np.sin(2*np.pi*f*t)*np.exp(-(t%0.11)*18)*0.3
 save('hmm.wav',x)
 print('ok')
+# 철썩(물이 찰랑이며 부딪히는 소리) 4종: 저역 통과 잡음이 쓸려 내려가는 모양 + 작은 거품음
+def slosh(name,dur,f0,f1,seed):
+    r=np.random.default_rng(seed); t=tt(dur); n=r.standard_normal(len(t))
+    cut=np.linspace(f0,f1,len(t)); y=np.zeros(len(t)); s=0.0
+    for i in range(len(t)):
+        a=1-np.exp(-2*np.pi*cut[i]/SR); s+=a*(n[i]-s); y[i]=s
+    env=np.minimum(1,t/0.03)*np.exp(-t*(5.0/dur)) ; y=y/np.max(np.abs(y))*env
+    for _ in range(3):
+        c=r.uniform(0.04,dur*0.7); m=(t>c)&(t<c+0.06); y[m]+=0.18*np.sin(2*np.pi*(500+3500*(t[m]-c))*(t[m]-c))*np.exp(-(t[m]-c)*40)
+    save(name,y*0.9)
+slosh('slosh1.wav',0.55,2600,300,11); slosh('slosh2.wav',0.7,1800,200,12); slosh('slosh3.wav',0.45,3200,400,13); slosh('slosh4.wav',0.8,1500,180,14)
+print('slosh ok')

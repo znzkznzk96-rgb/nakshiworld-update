@@ -40,8 +40,7 @@ var walk := []
 var s3: Node2D
 var pov: Sprite2D
 var armg: Node2D
-var arm_spr: Sprite2D
-var diss_k := 0.0
+
 var hands: Node2D
 var fx: Node2D
 var sec_ang := 0.0
@@ -106,8 +105,7 @@ func _build_shot3() -> void:
 	var m := ShaderMaterial.new(); m.shader = load("res://pov.gdshader")
 	m.set_shader_parameter("water_tex", load("res://img/plate_water.png")); pov.material = m; s3.add_child(pov)
 	armg = Node2D.new(); s3.add_child(armg)
-	arm_spr = Sprite2D.new(); arm_spr.texture = load("res://img/arm.png"); arm_spr.centered = false; arm_spr.position = ARM_POS
-	var dm := ShaderMaterial.new(); dm.shader = load("res://dissolve.gdshader"); arm_spr.material = dm; armg.add_child(arm_spr)
+	var arm := Sprite2D.new(); arm.texture = load("res://img/arm.png"); arm.centered = false; arm.position = ARM_POS; armg.add_child(arm)
 	hands = Node2D.new(); hands.position = ARM_POS; hands.draw.connect(_draw_hands); armg.add_child(hands)
 	fx = Node2D.new(); fx.draw.connect(_draw_fx); s3.add_child(fx)
 
@@ -147,6 +145,7 @@ func _process(delta: float) -> void:
 func _hum() -> void:
 	var v := -16.0
 	if t < 0.6: v = lerpf(-60.0, -16.0, t / 0.6)
+	if t >= SPIN_END: v = lerpf(-16.0, -24.0, clampf((t - SPIN_END) / 1.0, 0, 1))   # 웅웅을 줄여 철썩 소리가 들리게
 	if t >= 14.55: v = -80.0
 	hum.volume_db = v
 	var p := 1.0
@@ -279,7 +278,7 @@ func _draw_mark2() -> void:
 const ARM_IN := 7.05
 const TICK_END := 8.45
 const SPIN_END := 10.0
-const DISS_END := 10.9
+const ARM_OUT := 0.55
 const WATER_T := 11.0
 const LINE_T := 12.6
 const ZAP_T := 14.55
@@ -287,6 +286,7 @@ const ZAP_T := 14.55
 func _shot3() -> void:
 	var k := clampf((t - ARM_IN) / 0.5, 0, 1)
 	armg.position = Vector2(roundf(160.0 * pow(1.0 - k, 3.0)), 0)
+	if t >= SPIN_END: armg.position = Vector2(roundf(340.0 * pow(clampf((t - SPIN_END) / ARM_OUT, 0, 1), 3.0)), 0)   # 팔을 뒤로 쑥 뺌
 	# 시계 바늘: 처음엔 TIK TIK, 점점 빨라지다 미친 듯이 돈다
 	if t < 7.7: sec_ang = 0.0
 	elif t < TICK_END:
@@ -302,9 +302,7 @@ func _shot3() -> void:
 		hr_ang += v / 30.0 * 0.02
 		var tk := int(sec_ang / 25.0)
 		if tk != last_tick and t < 9.9: last_tick = tk; _play("res://snd/tik.wav", -10.0, rng.randf_range(0.9, 1.3))
-	diss_k = clampf((t - SPIN_END) / (DISS_END - SPIN_END), 0, 1)
 	hands.queue_redraw()
-	(arm_spr.material as ShaderMaterial).set_shader_parameter("k", diss_k)
 	# 형광등 깜빡임(박자 어긋남): 불이 점점 불안해진다
 	var br := 1.0
 	if t > 8.5:
@@ -320,8 +318,10 @@ func _shot3() -> void:
 	mat.set_shader_parameter("wl", wl)
 	# 물 스며드는 소리
 	if t >= WATER_T and t < ZAP_T and t >= next_water:
-		next_water = t + rng.randf_range(0.18, 0.38)
-		_play("res://snd/water.ogg", -9.0 + (t - WATER_T), rng.randf_range(0.8, 1.1))
+		var busy := clampf((t - WATER_T) / 3.4, 0.0, 1.0)
+		next_water = t + rng.randf_range(0.30, 0.55) * lerpf(1.3, 0.55, busy)
+		_play("res://snd/slosh%d.wav" % rng.randi_range(1, 4), lerpf(-11.0, -3.0, busy), rng.randf_range(0.85, 1.15))
+		if rng.randf() < 0.5: _play("res://snd/water.ogg", -12.0, rng.randf_range(0.8, 1.1))
 	# 화면 흔들림: 점점 커진다(정수 픽셀)
 	if t > 8.6 and t < ZAP_T:
 		var amp := 1 if t < 12.0 else 2
@@ -342,20 +342,12 @@ func _shot3() -> void:
 	if t >= ZAP_T + 0.18: a = 1.0
 	fade.color = Color(0, 0, 0, a)
 
-const BAYER := [0, 8, 2, 10, 12, 4, 14, 6, 3, 11, 1, 9, 15, 7, 13, 5]
-
-func _px(canvas: CanvasItem, x: int, y: int, th: int, col: Color) -> void:
-	if diss_k > 0.0:
-		var sx := int(x + ARM_POS.x + armg.position.x); var sy := int(y + ARM_POS.y)
-		if (BAYER[posmod(sy, 4) * 4 + posmod(sx, 4)] + 0.5) / 16.0 < diss_k: return
-	canvas.draw_rect(Rect2(x, y, th, th), col)
-
 func _line(canvas: CanvasItem, a: Vector2, b: Vector2, th: int, col: Color) -> void:
 	var x0 := int(roundf(a.x)); var y0 := int(roundf(a.y)); var x1 := int(roundf(b.x)); var y1 := int(roundf(b.y))
 	var dx := absi(x1 - x0); var dy := -absi(y1 - y0); var sx := 1 if x0 < x1 else -1; var sy := 1 if y0 < y1 else -1
 	var err := dx + dy
 	while true:
-		_px(canvas, x0, y0, th, col)
+		canvas.draw_rect(Rect2(x0, y0, th, th), col)
 		if x0 == x1 and y0 == y1: break
 		var e2 := 2 * err
 		if e2 >= dy: err += dy; x0 += sx
@@ -371,8 +363,7 @@ func _draw_hands() -> void:
 	_line(hands, c - Vector2(1, 1), p_hr - Vector2(1, 1), 2, dark)
 	_line(hands, c - Vector2(1, 1), p_mn - Vector2(1, 1), 2, dark)
 	_line(hands, c, p_sc, 1, Color(1.0, 0.8, 0.25))
-	for dy in 4:
-		for dx in 4: _px(hands, int(c.x) - 2 + dx, int(c.y) - 2 + dy, 1, dark)
+	hands.draw_rect(Rect2(c.x - 2, c.y - 2, 4, 4), dark)
 
 func _draw_fx() -> void:
 	var dt := 1.0 / 30.0
