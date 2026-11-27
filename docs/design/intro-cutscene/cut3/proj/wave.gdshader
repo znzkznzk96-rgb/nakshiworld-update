@@ -6,11 +6,13 @@ uniform float glitch = 0.0;
 uniform float seed = 0.0;
 uniform float hue = 0.0;
 uniform float white = 0.0;
+uniform vec3 area = vec3(0.0, 0.0, 0.0);
 uniform vec2 size = vec2(360.0, 640.0);
 float hash(vec2 p) { return fract(sin(dot(p, vec2(12.9898, 78.233))) * 43758.5453); }
 void fragment() {
 	vec2 px = floor(UV * size);
-	float off = floor(sin(px.y * 0.13 + tm * 5.0) * amp + 0.5);
+	float off = floor(sin(px.y * (area.z > 0.0 ? 0.45 : 0.13) + tm * (area.z > 0.0 ? 2.2 : 5.0)) * amp + 0.5);
+	if (area.z > 0.0 && distance(px, area.xy) > area.z) off = 0.0;
 	float band = floor(px.y / 10.0);
 	if (hash(vec2(band, seed)) < glitch) off += floor((hash(vec2(band, seed + 7.0)) - 0.5) * 30.0);
 	vec2 uv = vec2(clamp(px.x + off, 0.0, size.x - 1.0) + 0.5, px.y + 0.5) / size;

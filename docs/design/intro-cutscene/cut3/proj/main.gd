@@ -21,6 +21,8 @@ var sb: Sprite2D
 var sc: Sprite2D
 var fall: Sprite2D
 var falls := []
+var fall_tex := []
+const FALL_SZ := [112, 96, 82, 70, 58, 48, 40, 34]
 var fx: Node2D
 var flash: ColorRect
 var fade: ColorRect
@@ -38,8 +40,15 @@ func _ready() -> void:
 	add_child(view)
 	stage = Node2D.new(); sv.add_child(stage)
 	var black := ColorRect.new(); black.color = Color.BLACK; black.size = Vector2(W, H); stage.add_child(black)
-	a1 = _spr("res://img/a1.png", true); a2 = _spr("res://img/a2.png", true); sb = _spr("res://img/b.png", true); sc = _spr("res://img/c.png", false)
+	a1 = _spr("res://img/a1.png", true); a2 = _spr("res://img/a2.png", true); sb = _spr("res://img/b.png", true); sc = _spr("res://img/c.png", true)
+	(sc.material as ShaderMaterial).set_shader_parameter("area", Vector3(180, 322, 136))
 	for i in 4: falls.append(load("res://img/d%d.png" % i))
+	for p in 2:   # 멀어질수록 작아지도록 크기별 도트 그림을 미리 만든다(가장 가까운 점 방식, 보간 없음)
+		var row := []
+		for sz in FALL_SZ:
+			var im: Image = (falls[1 + p] as Texture2D).get_image(); im.resize(sz, sz, Image.INTERPOLATE_NEAREST)
+			row.append(ImageTexture.create_from_image(im))
+		fall_tex.append(row)
 	fall = Sprite2D.new(); fall.texture = falls[0]; fall.centered = false; fall.visible = false; stage.add_child(fall)
 	fx = Node2D.new(); fx.draw.connect(_draw_fx); stage.add_child(fx)
 	flash = ColorRect.new(); flash.size = Vector2(W, H); flash.color = Color(1, 1, 1, 0); stage.add_child(flash)
@@ -90,7 +99,8 @@ func _scene() -> void:
 		_mat(sb, 0.0, 0.0, 0.9 * sin((t - T_B) * 3.0), 0.0)
 		sh = 2
 	else:
-		sh = 1 if t < T_SPLASH else (3 if t < T_SPLASH + 0.25 else 0)
+		_mat(sc, 1.5, 0.0, 0.0, 0.0)
+		sh = 0 if t < T_SPLASH else (3 if t < T_SPLASH + 0.25 else 0)
 	var off := Vector2.ZERO
 	if sh > 0: off = Vector2(rng.randi_range(-sh, sh), rng.randi_range(-sh, sh))
 	for n in [a1, a2, sb, sc]: n.position = off
@@ -98,8 +108,10 @@ func _scene() -> void:
 	fall.visible = t >= T_C + 0.1 and t < T_SPLASH
 	if fall.visible:
 		var k := clampf((t - (T_C + 0.1)) / (T_SPLASH - T_C - 0.1), 0, 1)
-		fall.texture = falls[int(t * 10.0) % 4]
-		fall.position = Vector2(CM.x - 64 + rng.randi_range(-1, 1), roundf(-120.0 + (CM.y - 64 + 120.0) * pow(k, 1.4)))
+		var si := mini(int(pow(k, 0.8) * FALL_SZ.size()), FALL_SZ.size() - 1)
+		var sz: int = FALL_SZ[si]
+		fall.texture = fall_tex[int(t * 2.5) % 2][si]
+		fall.position = Vector2(CM.x - sz / 2, roundf(lerpf(-30.0, CM.y, pow(k, 1.2)) - sz / 2))
 	# 흰빛: 장면 전환 직전 번쩍 올라갔다 사라짐
 	var f := 0.0
 	for T in [T_A2, T_B, T_C]:
@@ -168,11 +180,11 @@ func _draw_fx() -> void:
 	# 저수지 낙하: 바람줄
 	if t >= T_C + 0.2 and t < T_SPLASH:
 		var k := (t - T_C) / (T_SPLASH - T_C)
-		for i in 16:
+		for i in 6:
 			r.seed = 1300 + i
 			var x := r.randf_range(0, W); var sp := r.randf_range(600, 1100) * (0.5 + k)
 			var y := fmod(r.randf() * 700.0 - t * sp + 1400.0, 700.0) - 30.0
-			_line(Vector2(x, y), Vector2(x, y + 10 + 36 * k), Color(0.85, 0.95, 1.0, 0.22 + 0.3 * k))
+			_line(Vector2(x, y), Vector2(x, y + 10 + 36 * k), Color(0.85, 0.95, 1.0, 0.15 + 0.2 * k))
 	# 첨벙: 번지는 물결 고리와 튀는 물방울
 	if t >= T_SPLASH:
 		var s := t - T_SPLASH
