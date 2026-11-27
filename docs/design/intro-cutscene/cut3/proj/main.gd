@@ -143,10 +143,13 @@ func _scene() -> void:
 		if t < T and t > T - pre: f = maxf(f, (t - (T - pre)) / pre)
 		elif t >= T and t < T + 0.35: f = maxf(f, 1.0 - (t - T) / 0.35)
 	if t >= T_SPLASH and t < T_SPLASH + 0.15: f = maxf(f, 0.6 * (1.0 - (t - T_SPLASH) / 0.15))
-	flash.color.a = f
+	var tint := Color(0.55, 0.9, 1.0)
+	if t >= T_A2 - 0.6 and t < T_B + 0.4: tint = Color(0.7, 0.6, 1.0)
+	if t >= T_C - 0.4: tint = Color(0.6, 0.8, 1.0)
+	flash.color = Color(tint.r, tint.g, tint.b, f * 0.5)   # 흰 번쩍 대신 장면 빛 색으로 반만
 	var fa := 1.0 - clampf(t / 0.4, 0, 1)
 	if t > T_SPLASH + 0.2: fa = clampf((t - T_SPLASH - 0.2) / 0.6, 0, 1)
-	fade.color.a = fa
+	fade.color = Color(0.02, 0.08, 0.18, fa) if t > 1.0 else Color(0, 0, 0, fa)   # 끝은 짙은 물빛 파랑으로
 
 func _audio() -> void:
 	if t >= 0.35: _once("crack", "res://snd/crack.wav", -6.0)

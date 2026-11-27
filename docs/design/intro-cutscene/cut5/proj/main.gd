@@ -89,7 +89,7 @@ func _process(delta: float) -> void:
 	if t >= LOGO_T: _once("chime", "res://snd/chime.wav", -6.0)
 	var fa := 1.0 - clampf(t / 0.6, 0, 1)
 	if t >= FADE_T: fa = clampf((t - FADE_T) / 0.6, 0, 1)
-	fade.color.a = fa
+	fade.color = Color(0.03, 0.05, 0.12, fa) if t < 1.0 else Color(0, 0, 0, fa)   # 4컷 끝 남색에서 이어 받음
 	cap.queue_redraw()
 	if t >= END + 0.2: get_tree().quit()
 

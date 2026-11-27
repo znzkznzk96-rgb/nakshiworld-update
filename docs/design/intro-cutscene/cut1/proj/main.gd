@@ -107,7 +107,7 @@ func _process(delta: float) -> void:
 	# 3.85초: 짧은 암전 컷 → 클로즈업
 	wide.visible = t < 3.85
 	close.visible = t >= 3.97
-	fade.color = Color(0, 0, 0, clampf((t - 6.8) / 0.5, 0, 1))   # 겹친 그림이 비치지 않게 검은 막으로 어둡게
+	fade.color = Color(0, 0, 0, 0)   # 2컷으로 검정 없이 바로 이어짐(문 끼익 소리로 전환)   # 겹친 그림이 비치지 않게 검은 막으로 어둡게
 	close.position = Vector2(0, roundf(lerpf(14.0, 0.0, clampf((t - 3.97) / 3.4, 0, 1))))
 	var head := _write_head()
 	hand.position = _hand_pos(head)
@@ -117,7 +117,7 @@ func _process(delta: float) -> void:
 	# 수첩에 비친 형광등 빛이 숨 쉬듯 아주 조금 출렁임
 	var br := 1.0 + floorf(sin(t * 2.2) * 3.0) / 100.0
 	close.modulate = Color(br, br, br)
-	if t > 7.5: get_tree().quit()
+	if t > 7.0: get_tree().quit()
 
 ## 발밑 그림자: 머리 위 형광등 빛이라 발 바로 아래 납작하게, 불이 켜진 만큼 진해진다
 func _draw_shadow() -> void:

@@ -42,6 +42,8 @@ var cat_tex := []
 var stick_tex := []
 var fx: Node2D
 var fade: ColorRect
+var snap: Sprite2D
+var snap_t := -1.0
 var next_slosh := 3.5
 var stick_y := 0.0
 var stick_vy := 0.0
@@ -82,6 +84,8 @@ func _ready() -> void:
 	stick = Sprite2D.new(); stick.texture = stick_tex[0]; stick.centered = false; stick.flip_h = true; stick.visible = false; s3.add_child(stick)
 	sky = Node2D.new(); sky.draw.connect(_draw_sky); stage.add_child(sky)
 	fx = Node2D.new(); fx.draw.connect(_draw_fx); stage.add_child(fx)
+	snap = Sprite2D.new(); snap.centered = false; snap.visible = false
+	var dm := ShaderMaterial.new(); dm.shader = load("res://dither.gdshader"); snap.material = dm; stage.add_child(snap)
 	fade = ColorRect.new(); fade.size = Vector2(W, H); fade.color = Color(0, 0, 0, 1); stage.add_child(fade)
 	var a := _play("res://snd/water.ogg", -17.0); a.stream.loop = true
 	var nt := _play("res://snd/night.ogg", -13.0); nt.stream.loop = true   # 귀뚜라미·개구리 밤 물가
@@ -121,7 +125,12 @@ func _openness() -> float:
 	return 2.4
 
 func _process(delta: float) -> void:
+	for T in [T4, T5]:   # 장면이 바뀌기 직전 화면을 찍어 두고 디더로 지움
+		if t < T and t + delta >= T:
+			snap.texture = ImageTexture.create_from_image(sv.get_texture().get_image()); snap_t = T
 	t += delta
+	snap.visible = snap_t > 0.0 and t - snap_t < 0.45
+	if snap.visible: (snap.material as ShaderMaterial).set_shader_parameter("k", (t - snap_t) / 0.4)
 	_scene(delta)
 	_audio()
 	fx.queue_redraw(); hands.queue_redraw(); sky.queue_redraw(); shadow.queue_redraw()
@@ -178,12 +187,11 @@ func _scene(delta: float) -> void:
 				stick.position = Vector2(cat.position.x, 520)
 	var fa := 0.0
 	if t < 0.2: fa = 1.0 - t / 0.2
-	if t >= T_FADE and t < T3: fa = clampf((t - T_FADE) / 0.35, 0, 1)
-	if t >= T3 and t < T3 + 0.4: fa = 1.0 - (t - T3) / 0.4
-	for T in [T4, T5]:
-		if t >= T - 0.15 and t < T + 0.15: fa = 1.0 - absf(t - T) / 0.15
+	if t >= T3 - 0.2 and t < T3: fa = clampf((t - (T3 - 0.2)) / 0.2, 0, 1) * 0.9
+	if t >= T3 and t < T3 + 0.2: fa = (1.0 - (t - T3) / 0.2) * 0.9
 	if t >= END - 0.5: fa = clampf((t - (END - 0.5)) / 0.5, 0, 1)
-	fade.color.a = fa
+	var navy := Color(0.03, 0.05, 0.12)
+	fade.color = Color(0.02, 0.08, 0.18, fa) if t < 0.3 else Color(navy.r, navy.g, navy.b, fa)   # 검정 대신 어두운 색조
 
 func _audio() -> void:
 	for tt in [0.55, 1.65, 2.5]: if t >= tt: _once("h%f" % tt, "res://snd/heart.wav", -8.0)

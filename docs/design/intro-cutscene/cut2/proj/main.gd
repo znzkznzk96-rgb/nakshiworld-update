@@ -140,6 +140,7 @@ func _process(delta: float) -> void:
 	s2.visible = t >= T1 and t < T2
 	s3.visible = t >= T2
 	stage.position = Vector2.ZERO
+	if t < 0.2: stage.position = Vector2(0, -1 if int(t * 30.0) % 2 == 0 else 1)   # 컷이 바뀌는 순간 1도트 흔들림
 	dust_a = 0.0
 	if t < T1: _shot1()
 	elif t < T2: _shot2()
@@ -182,7 +183,7 @@ func _shot1() -> void:
 	res1.position = Vector2(59, 339 + yoff)
 	shadow1.queue_redraw(); mark1.queue_redraw()
 	# 페이드: 시작은 검은 화면에서 천천히 밝아짐, 끝에서 어두워짐
-	var a := 1.0 - clampf(t / 0.35, 0, 1)
+	var a := 0.0   # 1컷에서 검정 없이 바로 이어짐
 	if t > T1 - 0.3: a = clampf((t - (T1 - 0.3)) / 0.3, 0, 1)
 	fade.color = Color(0, 0, 0, a)
 
