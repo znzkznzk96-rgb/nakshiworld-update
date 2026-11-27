@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_before_request": "bc7eb75078a312c89e823cc9da32516ce8da9f5b",
-  "reason": "v1.62 첫 실행 컷신(5컷)·컷별 건너뛰기·설정 다시 보기 + v1.61 음악·물소리",
-  "requested_at": "2026-11-27T19:43:38.649948+00:00"
+  "source_before_request": "e33f47d51101900c392f7be6262f7e22afb82246",
+  "reason": "v1.63 몸짓 도감 먼저(튜토리얼·실전 첫 만남), 슬로우 시범 제거, 카드 팡 연출",
+  "requested_at": "2026-11-27T20:16:18.274369+00:00"
 }
