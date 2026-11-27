@@ -45,8 +45,8 @@ func _ready() -> void:
 	bg = _spr("res://img/bg.png", "res://moon.gdshader")
 	for i in 8: res_tex.append(load("res://img/res_%d.png" % i)); cat_tex.append(load("res://img/cat_%d.png" % i))
 	fg = _spr("res://img/fg.png", "")
-	cat = _spr("res://img/cat_0.png", "res://sil.gdshader")
 	res = _spr("res://img/res_0.png", "res://sil.gdshader")
+	cat = _spr("res://img/cat_0.png", "res://sil.gdshader")
 	logo = _spr("res://img/logo.png", ""); logo.modulate.a = 0.0
 	fade = ColorRect.new(); fade.size = Vector2(W, H); fade.color = Color(0, 0, 0, 1); stage.add_child(fade)
 	var w := _play("res://snd/wind.wav", -10.0)
@@ -76,7 +76,7 @@ func _process(delta: float) -> void:
 	fg.position = Vector2(0, FG_Y + dy)
 	var fi := int(t * 6.0) % 8
 	res.texture = res_tex[fi]; res.position = Vector2(180, FG_Y + 92 - 118 + dy)
-	cat.texture = cat_tex[int(t * 5.0) % 8]; cat.position = Vector2(262, FG_Y + 80 - 61 + dy)   # 연구원 뒤쪽(부두 끝 방향)
+	cat.texture = cat_tex[int(t * 5.0) % 8]; cat.position = Vector2(152, FG_Y + 94 - 61 + dy)   # 연구원 등 뒤, 부두 중간보다 앞쪽
 	var bm := bg.material as ShaderMaterial
 	bm.set_shader_parameter("tm", t)
 	bm.set_shader_parameter("moon", Vector3(180, 180, 168))
