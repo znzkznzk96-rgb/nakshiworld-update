@@ -262,9 +262,30 @@ func _notification(what: int) -> void :
 		audio_feedback.suspended=true;audio_feedback.stop_all()
 		if is_instance_valid(drag_player): drag_player.stop()
 		vib_queue.clear();Input.vibrate_handheld(0)
-	if what == NOTIFICATION_APPLICATION_RESUMED: audio_feedback.suspended=false
+	if what == NOTIFICATION_APPLICATION_RESUMED: audio_feedback.suspended=is_instance_valid(intro)
 
 var cooperative_boot:=false
+# 첫 실행 컷신: 새 플레이어만 한 번 자동 재생(기존 플레이어는 본 것으로 처리), 설정에서 다시 보기
+var intro_new_player := false
+var intro: Node = null
+func _maybe_intro() -> void:
+	# 폰(모바일)에서만 자동 재생. PC 실행·검사 장면에는 끼어들지 않게 하고, PC에서 보려면 --intro 를 붙인다
+	if not (OS.has_feature("mobile") or "--intro" in OS.get_cmdline_user_args()): return
+	if DisplayServer.get_name() == "headless" or "--shot" in OS.get_cmdline_user_args(): return
+	if FileAccess.file_exists("user://intro_seen"): return
+	if not intro_new_player: _mark_intro_seen();return
+	start_intro()
+func start_intro() -> void:
+	if is_instance_valid(intro): return
+	audio_feedback.suspended=true;audio_feedback.stop_all()
+	intro = load("res://addons/reservoir/intro_cutscene.gd").new()   # preload 금지: 부팅 때 main.gd 스레드 로드 의존성을 늘리지 않는다
+	intro.finished.connect(_on_intro_done)
+	get_tree().root.add_child.call_deferred(intro)   # 글자·UI 층(루트)보다 위에 덮어야 하므로 루트에 붙인다
+func _on_intro_done() -> void:
+	intro = null;audio_feedback.suspended=false;_mark_intro_seen()
+func _mark_intro_seen() -> void:
+	var f := FileAccess.open("user://intro_seen", FileAccess.WRITE)
+	if f: f.store_string("1");f.close()
 var progress_loaded := false
 var boot_ready:=false
 
@@ -277,6 +298,7 @@ func _ready() -> void :
 	add_child(headlamp_light)
 	development_preview = "--valley-preview" in OS.get_cmdline_user_args()
 	_cleanup_reset()
+	intro_new_player = not FileAccess.file_exists("user://save.json") and not FileAccess.file_exists("user://save.json.bak")
 	randomize()
 	_fx_init()
 	var neo: FontFile = load("res://font/neodgm.ttf").duplicate(true)
@@ -386,6 +408,7 @@ func _ready() -> void :
 	boot_ready=true
 	if cooperative_boot:
 		set_process(true);set_process_input(true);set_process_unhandled_input(true)
+	_maybe_intro()
 	if "--shot" in OS.get_cmdline_user_args():
 		_shot_mode()
 

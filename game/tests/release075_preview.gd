@@ -31,6 +31,6 @@ func run() -> void:
 	await capture(m,out,"bait_roles")
 	for bait in 3:
 		m.V.commerce.request(m.V,m,"bait:%d:5"%bait);await capture(m,out,"bait_purchase_%d"%bait);m.V.commerce.pending={}
-	if absf(m.audio_feedback.village_music.stream.get_length()-27.0)>.1: failures.append("village loop duration")
+	if m.audio_feedback.village_music.stream.get_length()<=60.0: failures.append("village loop duration")   # v1.61 마을 음악(Calm5, 약 65초)으로 바뀜, verify_packed_art와 같은 기준
 	m.audio_feedback.dispose();m.queue_free();await process_frame
 	print("RELEASE075_PREVIEW failures=",failures);quit(0 if failures.is_empty() else 1)

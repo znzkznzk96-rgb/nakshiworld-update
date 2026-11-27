@@ -62,9 +62,9 @@ jobs:
         run: |
           set -euo pipefail
           GODOT="$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
-          XDG_DATA_HOME="$RUNNER_TEMP/isolated-boot" timeout 60 "$GODOT" --headless --path "$RUNNER_TEMP/project" --quit-after 180 > evidence/boot.log 2>&1
+          XDG_DATA_HOME="$RUNNER_TEMP/isolated-boot" timeout 60 "$GODOT" --headless --path "$RUNNER_TEMP/project" --quit-after 1500 > evidence/boot.log 2>&1
           if grep -E 'SCRIPT ERROR:|Parse Error' evidence/boot.log; then cat evidence/boot.log; exit 1; fi
-          for pair in audio_save:AUDIO_SAVE_VERIFY expedition_save:EXPEDITION_SAVE_VERIFY updater:UPDATER_VERIFY updater_smoothness:UPDATER_SMOOTHNESS_VERIFY; do
+          for pair in audio_save:AUDIO_SAVE_VERIFY expedition_save:EXPEDITION_SAVE_VERIFY updater:UPDATER_VERIFY updater_smoothness:UPDATER_SMOOTHNESS_VERIFY intro_cutscene:INTRO_CUTSCENE_VERIFY; do
             suite="${pair%%:*}"; tag="${pair##*:}"
             XDG_DATA_HOME="$RUNNER_TEMP/isolated-$suite" timeout 90 "$GODOT" --headless --path "$RUNNER_TEMP/project" --script "tests/${suite}_verify.gd" > "evidence/$suite.log" 2>&1 || { cat "evidence/$suite.log"; exit 1; }
             grep -F "$tag failures=[]" "evidence/$suite.log"
