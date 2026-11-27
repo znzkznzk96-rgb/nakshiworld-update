@@ -3,11 +3,11 @@ extends Node2D
 # 360x640 도트 화면을 3배(1080x1920)로 키워 그리고 위아래는 검은 영화 띠. 확대 없이 정수 픽셀 이동만 한다.
 const W := 360
 const H := 640
-const T_A2 := 2.4      # 부츠 가라앉는 수면
-const T_B := 4.4       # 소용돌이
-const T_C := 6.8       # 저수지 낙하
-const T_SPLASH := 9.1
-const END := 10.8
+const T_A2 := 1.9      # 부츠 가라앉는 수면
+const T_B := 3.5       # 소용돌이
+const T_C := 5.3       # 저수지 낙하
+const T_SPLASH := 7.4
+const END := 8.9
 const CB := Vector2(180, 308)    # 소용돌이 중심
 const CM := Vector2(180, 322)    # 저수지 달 반사 중심(첨벙 지점)
 var t := 0.0
@@ -87,14 +87,15 @@ func _scene() -> void:
 	a1.visible = t < T_A2; a2.visible = t >= T_A2 and t < T_B; sb.visible = t >= T_B and t < T_C; sc.visible = t >= T_C
 	var sh := 0
 	if t < T_A2:
-		_mat(a1, 1.0 + 1.0 * clampf((t - 1.0) / 1.4, 0, 1), clampf((t - 1.9) / 0.5, 0, 1) * 0.2, 0.0, 0.0)
-		if t > 1.4: sh = 1
+		_mat(a1, 1.0 + 1.0 * clampf((t - 0.8) / 1.1, 0, 1), clampf((t - 1.4) / 0.5, 0, 1) * 0.2, 0.0, 0.0)
+		if t > 0.35 and t < 0.65: sh = 3
+		elif t > 1.1: sh = 1
 	elif t < T_B:
 		var k := clampf((t - T_A2) / (T_B - T_A2), 0, 1)
 		_mat(a2, 2.0, clampf((t - (T_B - 0.7)) / 0.6, 0, 1) * 0.2, k * 0.3, 0.0)
 		sh = 1
 	elif t < T_C:
-		_mat(sb, 0.0, 0.0, 0.5 * sin((t - T_B) * 1.5), 0.0)
+		_mat(sb, 0.0, 0.0, 0.8 * sin((t - T_B) * 2.2), 0.0)
 		sh = 0
 	else:
 		_mat(sc, 1.5, 0.0, 0.0, 0.0)
@@ -168,13 +169,20 @@ func _draw_fx() -> void:
 			fx.draw_rect(Rect2(floorf(p.x), floorf(p.y), rr, rr), Color(0.85, 1, 1, 1.0 - ph))
 	# 소용돌이: 중심에서 퍼지는 빛줄기
 	if t >= T_B and t < T_C:
-		for i in 28:
+		for i in 44:
 			r.seed = 900 + i
 			var ang := r.randf() * TAU + (t - T_B) * 0.3
 			var ph := fmod((t - T_B) * r.randf_range(0.35, 0.7) + r.randf(), 1.0)
-			var d0 := 20.0 + ph * 360.0; var d1 := d0 + 14.0 + ph * 50.0
+			var p := ph * ph   # 안쪽으로 점점 빨려듦
+			var d0 := 20.0 + (1.0 - p) * 360.0; var d1 := d0 + 14.0 + (1.0 - p) * 50.0
 			var dir := Vector2(cos(ang), sin(ang) * 1.5)
-			_line(CB + dir * d0, CB + dir * d1, Color(0.8, 0.95, 1.0, 0.25 + 0.6 * ph))
+			var col := Color(0.8, 0.95, 1.0, 0.3 + 0.6 * (1.0 - p))
+			_line(CB + dir * d0, CB + dir * d1, col)
+			_line(CB + dir * d0 + Vector2(1, 0), CB + dir * d1 + Vector2(1, 0), col)
+		# 중심에서 맥박처럼 퍼지는 빛 고리
+		for j in 3:
+			var q := fmod((t - T_B) * 0.7 + j / 3.0, 1.0)
+			_circle(CB, int(8.0 + q * 70.0), Color(1, 0.95, 0.8, 0.8 * (1.0 - q)))
 	# 저수지 낙하: 바람줄
 	if t >= T_C + 0.2 and t < T_SPLASH:
 		var k := (t - T_C) / (T_SPLASH - T_C)
