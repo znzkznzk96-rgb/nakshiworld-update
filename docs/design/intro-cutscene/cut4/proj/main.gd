@@ -8,11 +8,12 @@ const T_ARM := 4.6
 const T_TXT := 5.3
 const T_FADE := 6.3
 const T3 := 6.7
-const T4 := 8.2        # 3인칭 두 번째 배경(오솔길)으로
-const CAT_IN := 8.6
-const CAT_STOP := 10.3
-const DROP := 10.4
-const END := 11.9
+const T4 := 8.2        # 오솔길: 고양이만 걸어옴(연구원 없음)
+const T5 := 9.9        # 다시 물가: 고양이가 들어와 낚싯대를 떨어뜨림
+const CAT_IN := 10.0
+const CAT_STOP := 11.2
+const DROP := 11.3
+const END := 12.8
 const DIAL := Vector2(191, 162)
 const ARM_POS := Vector2(0, 190)
 const BLINK := [[0.0, 0.0], [0.3, 0.0], [0.75, 0.5], [1.0, 0.5], [1.15, 0.0], [1.4, 0.0], [1.9, 0.9], [2.1, 0.9], [2.25, 0.15], [2.45, 0.15], [2.9, 2.4]]
@@ -127,13 +128,18 @@ func _scene(delta: float) -> void:
 	var ka := clampf((t - T_ARM) / 0.5, 0, 1)
 	armg.position = Vector2(roundf(160.0 * pow(1.0 - ka, 3.0)), 0)
 	# 3샷: 연구원 숨쉬기, 고양이
-	bga.visible = t < T4; bgb.visible = t >= T4
+	bga.visible = t < T4 or t >= T5; bgb.visible = t >= T4 and t < T5
+	res.visible = bga.visible
 	if t >= T3:
 		res.texture = sit2 if t >= CAT_STOP - 0.4 else sit
 		res.position = Vector2(92, 480 + (1 if fmod(t, 1.8) < 0.9 else 0))
+		cat.visible = bgb.visible or t >= CAT_IN
+		if bgb.visible:   # 오솔길을 가로질러 걸어옴
+			var fr2 := int((t - T4) * 9.0) % 9
+			cat.texture = cat_tex[fr2]; cat.position = Vector2(roundf(372.0 - 85.0 * (t - T4)), 521)
+			stick.visible = true; stick.texture = stick_tex[fr2]; stick.position = cat.position
 		var ct := t - CAT_IN
-		cat.visible = t >= CAT_IN
-		if cat.visible:
+		if t >= CAT_IN:
 			var walking := t < CAT_STOP
 			var x := 372.0 - 85.0 * ct
 			if not walking: x = 372.0 - 85.0 * (CAT_STOP - CAT_IN)
@@ -156,7 +162,8 @@ func _scene(delta: float) -> void:
 	if t < 0.2: fa = 1.0 - t / 0.2
 	if t >= T_FADE and t < T3: fa = clampf((t - T_FADE) / 0.35, 0, 1)
 	if t >= T3 and t < T3 + 0.4: fa = 1.0 - (t - T3) / 0.4
-	if t >= T4 - 0.15 and t < T4 + 0.15: fa = 1.0 - absf(t - T4) / 0.15
+	for T in [T4, T5]:
+		if t >= T - 0.15 and t < T + 0.15: fa = 1.0 - absf(t - T) / 0.15
 	if t >= END - 0.5: fa = clampf((t - (END - 0.5)) / 0.5, 0, 1)
 	fade.color.a = fa
 
@@ -182,7 +189,7 @@ func _draw_fx() -> void:
 			if yt > 0: fx.draw_rect(Rect2(x, 0, 1, yt), Color.BLACK)
 			if yb < H: fx.draw_rect(Rect2(x, yb, 1, H - yb), Color.BLACK)
 	# 젖은 연구원에서 떨어지는 물방울
-	if t >= T3 + 0.3 and t < END:
+	if t >= T3 + 0.3 and t < END and (t < T4 or t >= T5):
 		var r := RandomNumberGenerator.new()
 		for i in 5:
 			r.seed = 40 + i
