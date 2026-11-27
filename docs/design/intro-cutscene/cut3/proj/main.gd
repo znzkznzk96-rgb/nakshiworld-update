@@ -9,7 +9,7 @@ const T_C := 5.3       # 저수지 낙하
 const T_SPLASH := 7.4
 const END := 8.9
 const CB := Vector2(180, 308)    # 소용돌이 중심
-const CM := Vector2(180, 322)    # 저수지 달 반사 중심(첨벙 지점)
+const CM := Vector2(184, 322)    # 저수지 달 반사 중심(첨벙 지점)
 var t := 0.0
 var rng := RandomNumberGenerator.new()
 var sv: SubViewport
@@ -22,6 +22,11 @@ var sc: Sprite2D
 var fall: Sprite2D
 var falls := []
 var fall_tex := []
+var ghosts := []
+var wsh: Node2D
+var hist := []
+var splash: Sprite2D
+var splash_tex := []
 const FALL_SZ := [112, 96, 82, 70, 58, 48, 40, 34]
 var fx: Node2D
 var flash: ColorRect
@@ -41,15 +46,20 @@ func _ready() -> void:
 	stage = Node2D.new(); sv.add_child(stage)
 	var black := ColorRect.new(); black.color = Color.BLACK; black.size = Vector2(W, H); stage.add_child(black)
 	a1 = _spr("res://img/a1.png", true); a2 = _spr("res://img/a2.png", true); sb = _spr("res://img/b.png", true); sc = _spr("res://img/c.png", true)
-	(sc.material as ShaderMaterial).set_shader_parameter("area", Vector3(180, 322, 136))
-	for i in 4: falls.append(load("res://img/d%d.png" % i))
-	for p in 2:   # 멀어질수록 작아지도록 크기별 도트 그림을 미리 만든다(가장 가까운 점 방식, 보간 없음)
+	(sc.material as ShaderMaterial).set_shader_parameter("area", Vector3(184, 322, 150))
+	for i in 8: falls.append(load("res://img/fa%d.png" % i))
+	for p in 8:   # 멀어질수록 작아지도록 크기별 도트 그림을 미리 만든다(가장 가까운 점 방식, 보간 없음)
 		var row := []
 		for sz in FALL_SZ:
-			var im: Image = (falls[1 + p] as Texture2D).get_image(); im.resize(sz, sz, Image.INTERPOLATE_NEAREST)
+			var im: Image = (falls[p] as Texture2D).get_image(); im.resize(sz, sz, Image.INTERPOLATE_NEAREST)
 			row.append(ImageTexture.create_from_image(im))
 		fall_tex.append(row)
+	wsh = Node2D.new(); wsh.draw.connect(_draw_wsh); stage.add_child(wsh)
+	for g in 2:   # 잔상
+		var gs := Sprite2D.new(); gs.centered = false; gs.visible = false; gs.modulate = Color(0.7, 0.85, 1.0, 0.28 - g * 0.12); stage.add_child(gs); ghosts.append(gs)
 	fall = Sprite2D.new(); fall.texture = falls[0]; fall.centered = false; fall.visible = false; stage.add_child(fall)
+	for i in 3: splash_tex.append(load("res://img/sp%d.png" % i))
+	splash = Sprite2D.new(); splash.centered = false; splash.visible = false; stage.add_child(splash)
 	fx = Node2D.new(); fx.draw.connect(_draw_fx); stage.add_child(fx)
 	flash = ColorRect.new(); flash.size = Vector2(W, H); flash.color = Color(1, 1, 1, 0); stage.add_child(flash)
 	fade = ColorRect.new(); fade.size = Vector2(W, H); fade.color = Color(0, 0, 0, 1); stage.add_child(fade)
@@ -75,7 +85,7 @@ func _process(delta: float) -> void:
 	t += delta
 	_scene()
 	_audio()
-	fx.queue_redraw()
+	fx.queue_redraw(); wsh.queue_redraw()
 	if t >= END + 0.2: get_tree().quit()
 
 func _mat(s: Sprite2D, amp: float, glitch: float, hue: float, white: float) -> void:
@@ -109,8 +119,23 @@ func _scene() -> void:
 		var k := clampf((t - (T_C + 0.1)) / (T_SPLASH - T_C - 0.1), 0, 1)
 		var si := mini(int(pow(k, 0.8) * FALL_SZ.size()), FALL_SZ.size() - 1)
 		var sz: int = FALL_SZ[si]
-		fall.texture = fall_tex[int(t * 2.5) % 2][si]
-		fall.position = Vector2(CM.x - sz / 2, roundf(lerpf(-30.0, CM.y, pow(k, 1.2)) - sz / 2))
+		fall.texture = fall_tex[int(t * 10.0) % 8][si]
+		# 바로 위에서 내려다보는 시점: 거의 제자리에서 작아지며 반사된 달 쪽으로 빨려 듦
+		fall.position = Vector2(CM.x - sz / 2, roundf(lerpf(CM.y - 110.0, CM.y, pow(k, 0.9)) - sz / 2))
+		hist.push_front([fall.texture, fall.position])
+		if hist.size() > 7: hist.pop_back()
+	for g in 2:
+		var gs: Sprite2D = ghosts[g]
+		var idx := 3 + g * 3
+		gs.visible = fall.visible and hist.size() > idx
+		if gs.visible: gs.texture = hist[idx][0]; gs.position = hist[idx][1]
+	# 물보라(그림 3장 순서대로)
+	var st := t - T_SPLASH
+	splash.visible = st >= 0.0 and st < 0.75
+	if splash.visible:
+		splash.texture = splash_tex[0 if st < 0.12 else (1 if st < 0.32 else 2)]
+		splash.position = CM - Vector2(48, 48)
+		splash.modulate.a = 1.0 if st < 0.4 else 1.0 - (st - 0.4) / 0.35
 	# 흰빛: 장면 전환 직전 번쩍 올라갔다 사라짐
 	var f := 0.0
 	for T in [T_A2, T_B, T_C]:
@@ -205,3 +230,12 @@ func _draw_fx() -> void:
 			var ang := r.randf_range(-PI * 0.95, -PI * 0.05); var v := r.randf_range(70, 190)
 			var p := CM + Vector2(cos(ang) * v * s, sin(ang) * v * s + 260.0 * s * s)
 			if s < 0.9: fx.draw_rect(Rect2(floorf(p.x), floorf(p.y), 2, 2), Color(0.9, 1, 1, 1.0 - s))
+
+func _draw_wsh() -> void:
+	# 수면에 비친 그림자: 떨어질수록 진하고 커짐
+	if t >= T_C + 0.1 and t < T_SPLASH:
+		var kk := clampf((t - (T_C + 0.1)) / (T_SPLASH - T_C - 0.1), 0, 1)
+		var rx := int(4 + 12 * kk); var ry := int(2 + 6 * kk)
+		for yy in range(-ry, ry + 1):
+			var hw := int(rx * sqrt(1.0 - float(yy * yy) / float(ry * ry + 1)))
+			wsh.draw_rect(Rect2(CM.x - hw, CM.y + 6 + yy, hw * 2, 1), Color(0, 0.02, 0.08, 0.15 + 0.35 * kk))
