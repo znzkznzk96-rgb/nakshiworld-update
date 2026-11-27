@@ -23,6 +23,8 @@ var ink: Node2D
 var font: FontFile
 var hum: AudioStreamPlayer
 var played := {}
+var dust: Node2D
+var dust_a := 0.0
 
 func _ready() -> void:
 	ProjectSettings.load_resource_pack("/tmp/cand161/full.pck")
@@ -51,6 +53,7 @@ func _ready() -> void:
 	shadow = Node2D.new(); shadow.draw.connect(_draw_shadow); wide.add_child(shadow)
 	wide.add_child(researcher)
 	for i in 9: look.append(load("res://img/look_%d.png" % i))
+	dust = Node2D.new(); dust.draw.connect(_draw_dust); stage.add_child(dust)
 	# 클로즈업
 	close = Node2D.new(); close.visible = false; stage.add_child(close)
 	var nb := Sprite2D.new(); nb.texture = load("res://img/notebook_bg.png"); nb.centered = false; close.add_child(nb)
@@ -96,6 +99,8 @@ func _process(delta: float) -> void:
 	researcher.texture = look[lf] if lf >= 0 and lf < look.size() else look[0]
 	researcher.position = Vector2(59, 339 + (1 if fmod(t, 2.4) < 1.2 else 0))
 	shadow.queue_redraw()
+	dust_a = clampf((t - 1.6) / 1.0, 0, 1) if t < 3.85 else 0.0
+	dust.queue_redraw()
 	# 연구원: 첫 등이 켜질 때 어둠에서 드러나고, 불이 다 켜지면 앞쪽 빛을 받아 조금 더 밝아진다
 	var near: float = clampf(on[0], 0, 1)
 	researcher.modulate = Color(0.03, 0.03, 0.04).lerp(Color(0.62, 0.60, 0.56), near).lerp(Color(0.86, 0.84, 0.78), clampf((t - 2.3) / 0.6, 0, 1))
@@ -193,3 +198,14 @@ func _draw_ink() -> void:
 		var tex: Texture2D = ink_tex[li]
 		var w: float = minf(ceilf(reach[li]), tex.get_width())
 		ink.draw_texture_rect_region(tex, Rect2(INK_AT[li], Vector2(w, tex.get_height())), Rect2(0, 0, w, tex.get_height()))
+
+## 먼지 레이어: 형광등 빛 속을 천천히 떠도는 1도트 먼지(불이 다 켜지면 보임)
+func _draw_dust() -> void:
+	if dust_a <= 0.01: return
+	var r := RandomNumberGenerator.new()
+	for i in 34:
+		r.seed = 300 + i
+		var x := fposmod(r.randf() * W + t * r.randf_range(-3.0, 3.0) + sin(t * 0.7 + i) * 4.0, W)
+		var y := fposmod(r.randf() * H + t * r.randf_range(2.0, 6.0), H)
+		var a := (0.35 + 0.35 * sin(t * r.randf_range(1.0, 2.5) + i)) * dust_a
+		dust.draw_rect(Rect2(floorf(x), floorf(y), 1, 1), Color(1.0, 0.98, 0.85, a))

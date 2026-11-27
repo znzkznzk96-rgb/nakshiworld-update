@@ -50,6 +50,8 @@ var last_tick := -1
 var sparks := []
 var spark_made := false
 var next_water := 0.0
+var dust: Node2D
+var dust_a := 0.0
 
 const EXCL := ["11", "11", "11", "11", "11", "11", "00", "11", "11"]
 const QUES := ["01110", "10001", "00001", "00010", "00100", "00000", "00100"]
@@ -74,6 +76,7 @@ func _ready() -> void:
 	stage = Node2D.new(); sv.add_child(stage)
 	var black := ColorRect.new(); black.color = Color.BLACK; black.size = Vector2(W, H); stage.add_child(black)
 	_build_shot1(); _build_shot2(); _build_shot3()
+	dust = Node2D.new(); dust.draw.connect(_draw_dust); stage.add_child(dust)
 	flash = ColorRect.new(); flash.size = Vector2(W, H); flash.color = Color(1, 1, 1, 0); stage.add_child(flash)
 	fade = ColorRect.new(); fade.size = Vector2(W, H); fade.color = Color(0, 0, 0, 1); stage.add_child(fade)
 	hum = _player("res://snd/hum.ogg", -60.0); hum.stream.loop = true; hum.play()
@@ -135,11 +138,13 @@ func _process(delta: float) -> void:
 	s2.visible = t >= T1 and t < T2
 	s3.visible = t >= T2
 	stage.position = Vector2.ZERO
+	dust_a = 0.0
 	if t < T1: _shot1()
 	elif t < T2: _shot2()
 	else: _shot3()
 	_hum()
 	cap.queue_redraw()
+	dust.queue_redraw()
 	if t > END: get_tree().quit()
 
 func _hum() -> void:
@@ -157,6 +162,7 @@ const DOOR_OPEN := 1.1
 const ALERT := 1.15
 
 func _shot1() -> void:
+	dust_a = 1.0
 	if t >= 0.3: _once("creak", "res://snd/creak.wav", -3.0)
 	var open := t >= DOOR_OPEN
 	bg1.texture = tex_open if open else tex_closed
@@ -224,6 +230,7 @@ func _shot2() -> void:
 	if t >= SLAM_T + 0.08: glow = 0.0
 	var mat := bg2.material as ShaderMaterial
 	mat.set_shader_parameter("amb", amb); mat.set_shader_parameter("glow", glow)
+	dust_a = clampf(amb, 0, 1)
 	# 연구원
 	var feet_y := FEET_Y0
 	var tex: Texture2D = tilt[0]
@@ -309,6 +316,7 @@ func _shot3() -> void:
 		var h := fposmod(sin(floorf(t * 14.0) * 12.9898) * 43758.5453, 1.0)
 		var lim := 0.78 if t < 13.6 else 0.55
 		if h > lim: br = 0.42
+	dust_a = br * (1.0 if t < ZAP_T else 0.0)
 	var mat := pov.material as ShaderMaterial
 	mat.set_shader_parameter("bright", br)
 	mat.set_shader_parameter("tm", t)
@@ -385,3 +393,14 @@ func _draw_caption() -> void:
 	var s := CAP.substr(0, n)
 	var full := font.get_string_size(CAP, HORIZONTAL_ALIGNMENT_LEFT, -1, 48)
 	cap.draw_string(font, Vector2(roundf((1080.0 - full.x) / 2.0), 2290.0), s, HORIZONTAL_ALIGNMENT_LEFT, -1, 48, Color(1.0, 0.98, 0.88))
+
+## 먼지 레이어: 형광등 빛 속을 천천히 떠도는 1도트 먼지(불 밝기만큼 보임)
+func _draw_dust() -> void:
+	if dust_a <= 0.01: return
+	var r := RandomNumberGenerator.new()
+	for i in 34:
+		r.seed = 300 + i
+		var x := fposmod(r.randf() * W + t * r.randf_range(-3.0, 3.0) + sin(t * 0.7 + i) * 4.0, W)
+		var y := fposmod(r.randf() * H + t * r.randf_range(2.0, 6.0), H)
+		var a := (0.35 + 0.35 * sin(t * r.randf_range(1.0, 2.5) + i)) * dust_a
+		dust.draw_rect(Rect2(floorf(x), floorf(y), 1, 1), Color(1.0, 0.98, 0.85, a))
