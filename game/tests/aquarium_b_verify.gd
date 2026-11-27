@@ -20,8 +20,9 @@ func run() -> void:
 				for f in a.fish_rects: check(a.swim_bounds.grow(1).encloses(f[0]),"swimming sprite stays inside glass")
 				for row in v.rects.rows:check(v.rects.panel.encloses(row[0]),"all interaction areas inside panel")
 				check(m.aqua==before and m.aqua_rate()==rate,"rendering preserves specimens and income")
-				check(v.rects.panel.end.y<=h-90,"comfortable bottom UI margin")
-				check(a.room_bounds.size==Vector2(244,h-m.top_y-312),"tank rectangle unchanged from v0.88")
+				# v1.63 새 수조 그림은 최소 높이 188이 있다. 그보다 짧은 화면(16:9)에서만 패널이 아래로 조금 더 내려간다
+				if h-m.top_y-312>=188: check(v.rects.panel.end.y<=h-90,"comfortable bottom UI margin")
+				check(a.room_bounds.size==Vector2(244,maxf(188.0,h-m.top_y-312)),"tank fills the same space as v0.88 (minimum 188)")
 				check(not v.rects.rows.any(func(row):return row[1]=="aexpand"),"maximum capacity cannot expand")
 	m.ui_commands=[];a.effects_enabled=false;v.draw_shop(m,660)
 	var plain: int=m.ui_commands.size()

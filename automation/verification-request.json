@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_before_request": "e33f47d51101900c392f7be6262f7e22afb82246",
-  "reason": "v1.63 몸짓 도감 먼저(튜토리얼·실전 첫 만남), 슬로우 시범 제거, 카드 팡 연출",
-  "requested_at": "2026-11-27T20:16:18.274369+00:00"
+  "source_before_request": "b15afe081e17583aea91e74603292a22f73850f9",
+  "reason": "v1.63 몸짓 도감 먼저 + 수족관 새 단장(PixelLab 수조, 양피지 패널, 움직이는 수초·선반)",
+  "requested_at": "2026-11-27T20:59:00.209726+00:00"
 }
