@@ -106,7 +106,7 @@ func _build_shot3() -> void:
 	s3 = Node2D.new(); stage.add_child(s3)
 	pov = Sprite2D.new(); pov.texture = load("res://img/plate.png"); pov.centered = false
 	var m := ShaderMaterial.new(); m.shader = load("res://pov.gdshader")
-	m.set_shader_parameter("water_tex", load("res://img/plate_water.png")); pov.material = m; s3.add_child(pov)
+	m.set_shader_parameter("water_tex", load("res://img/plate_water.png")); m.set_shader_parameter("water_dist", load("res://img/water_dist.png")); pov.material = m; s3.add_child(pov)
 	armg = Node2D.new(); s3.add_child(armg)
 	var arm := Sprite2D.new(); arm.texture = load("res://img/arm.png"); arm.centered = false; arm.position = ARM_POS; armg.add_child(arm)
 	hands = Node2D.new(); hands.position = ARM_POS; hands.draw.connect(_draw_hands); armg.add_child(hands)
