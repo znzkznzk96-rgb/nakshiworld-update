@@ -20,14 +20,14 @@ static func icon(m,key: String,box: Rect2) -> void:
 		m._ui_texture_rect(texture,Rect2(box.get_center()-size/2,size))
 static func draw(mail,m,r: Rect2) -> void:
 	var letter: Dictionary={}
-	for item in mail.letters:
+	for item in mail.visible_letters():
 		if item.id==mail.detail: letter=item;break
 	if letter.is_empty(): return
 	m._ui_style_box(m.hud_reference_style,Rect2(18,r.position.y+5,234,31))
 	m._ui_texture_rect(preload("res://art/guide64/mail.png"),Rect2(27,r.position.y+10,22,22))
 	m._text("업데이트 우편",Vector2(56,r.position.y+27),12,Color("fff0d1"),false,159)
 	m._ui_texture(m.icons.close,Vector2(225,r.position.y+10));mail.rects.close=Rect2(222,r.position.y+7,28,29)
-	m._text("v"+letter.id,Vector2(27,r.position.y+56),11,Color("247e80"),false,130)
+	m._text(letter.get("label","v"+letter.id),Vector2(27,r.position.y+56),11,Color("247e80"),false,130)
 	m._text("읽음",Vector2(237,r.position.y+55),8,Color("847052"),true,29)
 	var title: Array=Layout.wrap(m,letter.title,11,216)
 	for i in mini(2,title.size()): m._text(title[i],Vector2(27,r.position.y+78+i*15),11,Color("382619"),false,216)

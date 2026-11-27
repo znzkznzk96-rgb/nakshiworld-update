@@ -110,6 +110,7 @@ var scene: = "fish"
 var V = preload("res://village.gd").new()
 var region_shop = preload("res://addons/reservoir/region_shop.gd").new()
 var guide = preload("res://addons/reservoir/guide.gd").new()
+var tour = preload("res://addons/reservoir/tutorial_tour.gd").new()
 var bait_picker = preload("res://addons/reservoir/bait_picker.gd").new()
 var mailbox = preload("res://addons/reservoir/mailbox.gd").new()
 var drag_player: AudioStreamPlayer
@@ -366,6 +367,7 @@ func _ready() -> void :
 	_load_tut()
 	_load_set()
 	_load_game()
+	tour.setup(self)
 	tex_sign = load("res://art/ui/title_sign.png")
 	V.setup()
 	if cooperative_boot:await get_tree().process_frame
@@ -1352,6 +1354,7 @@ func _unhandled_input(e: InputEvent) -> void :
 		_slider_set(e.position.x - ox)
 
 func press(pos: = Vector2.ZERO) -> void :
+	if tour.intercept(self, pos): return
 	if capture_robot.press(self,pos): return
 	if expedition.opened!="": expedition.press(self,pos);return
 	if scene=="village" and V.shop=="" and not menu_open and not market_open and not settings_open and expedition.rects.get("strip",Rect2()).has_point(pos): expedition.open(self,"explore");return
@@ -1419,6 +1422,7 @@ func _process(dt: float) -> void :
 	_vib_update(dt)
 	sfx_update(dt)
 	inventory.sync(self)
+	tour.update(self, dt)
 	if is_instance_valid(title_screen.root): title_screen.root.visible = title_open or title_screen.leaving
 	if title_open:
 		title_screen.update(self, dt);queue_redraw();return
@@ -1564,6 +1568,7 @@ func _draw_overlays(t: float, h: float) -> void :
 	expedition.draw_result_notice(self)
 	expedition.draw(self,h)
 	capture_robot.draw_panel(self,h)
+	tour.draw(self, h)
 	if text_layer:
 		text_layer.position.x = ox
 		text_layer.items = text_items
