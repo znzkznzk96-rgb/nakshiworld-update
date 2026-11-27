@@ -70,7 +70,7 @@ func _ready() -> void:
 	bga = _spr(s3, "res://img/village.png", "", Vector2.ZERO)
 	bgb = _spr(s3, "res://img/path.png", "", Vector2.ZERO)
 	sit = load("res://img/sit.png"); sit2 = load("res://img/sit2.png")
-	res = Sprite2D.new(); res.texture = sit; res.centered = false; res.position = Vector2(64, 431); s3.add_child(res)
+	res = Sprite2D.new(); res.texture = sit; res.centered = false; res.position = Vector2(92, 458); s3.add_child(res)
 	for i in 9: cat_tex.append(load("res://img/cat_%d.png" % i)); stick_tex.append(load("res://img/stick_%d.png" % i))
 	cat = Sprite2D.new(); cat.texture = cat_tex[0]; cat.centered = false; cat.flip_h = true; cat.visible = false; s3.add_child(cat)
 	stick = Sprite2D.new(); stick.texture = stick_tex[0]; stick.centered = false; stick.flip_h = true; stick.visible = false; s3.add_child(stick)
@@ -137,7 +137,7 @@ func _scene(delta: float) -> void:
 	res.visible = bga.visible
 	if t >= T3:
 		res.texture = sit2 if t >= CAT_STOP - 0.4 else sit
-		res.position = Vector2(64, 431 + (1 if fmod(t, 1.8) < 0.9 else 0))
+		res.position = Vector2(92, 458 + (1 if fmod(t, 1.8) < 0.9 else 0))
 		cat.visible = bgb.visible or t >= CAT_IN
 		if bgb.visible:   # 오솔길을 가로질러 걸어옴
 			var fr2 := int((t - T4) * 9.0) % 9
@@ -199,7 +199,7 @@ func _draw_fx() -> void:
 		for i in 5:
 			r.seed = 40 + i
 			var ph := fmod(t * 1.1 + r.randf(), 1.0)
-			var x := 96.0 + r.randf() * 80.0; var y0 := 470.0 + r.randf() * 40.0
+			var x := 118.0 + r.randf() * 70.0; var y0 := 498.0 + r.randf() * 30.0
 			fx.draw_rect(Rect2(floorf(x), floorf(y0 + ph * ph * 60.0), 1, 2), Color(0.7, 0.9, 1.0, 1.0 - ph))
 
 func _draw_dial() -> void:
