@@ -76,7 +76,7 @@ func _process(delta: float) -> void:
 	fg.position = Vector2(0, FG_Y + dy)
 	var fi := int(t * 6.0) % 8
 	res.texture = res_tex[fi]; res.position = Vector2(180, FG_Y + 92 - 118 + dy)
-	cat.texture = cat_tex[int(t * 5.0) % 8]; cat.position = Vector2(150, FG_Y + 92 - 61 + dy)
+	cat.texture = cat_tex[int(t * 5.0) % 8]; cat.position = Vector2(244, FG_Y + 90 - 61 + dy)   # 연구원 옆 부두 위
 	var bm := bg.material as ShaderMaterial
 	bm.set_shader_parameter("tm", t)
 	bm.set_shader_parameter("moon", Vector3(180, 180, 168))
