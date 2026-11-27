@@ -7,7 +7,7 @@ const T_A2 := 1.9      # 부츠 가라앉는 수면
 const T_B := 3.5       # 소용돌이
 const T_C := 5.3       # 저수지 낙하
 const T_SPLASH := 7.4
-const END := 8.9
+const END := 8.3
 const CB := Vector2(180, 308)    # 소용돌이 중심
 const CM := Vector2(184, 322)    # 저수지 달 반사 중심(첨벙 지점)
 var t := 0.0
@@ -145,7 +145,7 @@ func _scene() -> void:
 	if t >= T_SPLASH and t < T_SPLASH + 0.15: f = maxf(f, 0.6 * (1.0 - (t - T_SPLASH) / 0.15))
 	flash.color.a = f
 	var fa := 1.0 - clampf(t / 0.4, 0, 1)
-	if t > T_SPLASH + 0.2: fa = clampf((t - T_SPLASH - 0.2) / 1.0, 0, 1)
+	if t > T_SPLASH + 0.2: fa = clampf((t - T_SPLASH - 0.2) / 0.6, 0, 1)
 	fade.color.a = fa
 
 func _audio() -> void:

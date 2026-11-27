@@ -5,7 +5,7 @@ const W := 360
 const H := 640
 const T1 := 3.4        # 1샷(복도) 끝
 const T2 := 7.0        # 2샷(타일 방) 끝
-const END := 15.6
+const END := 15.0
 const CAP := "이상현상인가?"
 var t := 0.0
 var rng := RandomNumberGenerator.new()
@@ -211,6 +211,7 @@ func _glyph_pass(canvas: CanvasItem, rows: Array, at: Vector2, sc: int, col: Col
 func _draw_mark1() -> void:
 	if t < ALERT or t > 2.35: return
 	var hop := -2 if int((t - ALERT) * 10.0) % 2 == 0 and t < ALERT + 0.5 else 0
+	hop += _pop(t - ALERT)
 	_draw_glyph(mark1, EXCL, Vector2(178, 334 + hop), 2, Color(1.0, 0.85, 0.15))
 
 # ───────── 2샷: 타일 방 ─────────
@@ -278,9 +279,16 @@ func _draw_slab() -> void:
 		slab.draw_rect(Rect2(x0 + 8, y0 + 56, 48, 52), Color(0.15, 0.19, 0.18))
 		slab.draw_rect(Rect2(x0 + 52, y0 + 58, 5, 2), Color(0.55, 0.55, 0.45))
 
+## 팝인: 나타날 때 위로 톡 튀었다 내려앉음(정수 도트만, 크기 변화 없음)
+func _pop(dt: float) -> int:
+	if dt < 0.04: return -5
+	if dt < 0.08: return -3
+	if dt < 0.12: return 1
+	return 0
+
 func _draw_mark2() -> void:
 	if t < 4.0 or t > 4.9: return
-	var bob := -1 if int(t * 8.0) % 2 == 0 else 0
+	var bob := (-1 if int(t * 8.0) % 2 == 0 else 0) + _pop(t - 4.0)
 	_draw_glyph(mark2, QUES, Vector2(FEET_X + 8, 262 + bob), 2, Color(1.0, 0.85, 0.15))
 
 # ───────── 3샷: 시계 시점 ─────────

@@ -73,7 +73,7 @@ func _process(delta: float) -> void:
 	t += delta
 	# 카메라 틸트 업: 앞 부두와 인물이 아래로 빠지며 달이 화면을 채움(배경은 화면 크기 그대로)
 	var k := clampf((t - TILT_T) / 1.6, 0, 1); k = k * k * (3.0 - 2.0 * k)
-	var dy := roundf(380.0 * k)
+	var dy := roundf(140.0 * k)   # 로고 때도 부두 위 실루엣이 화면 아래에 남도록 덜 내림
 	fg.position = Vector2(0, FG_Y + dy)
 	var fi := int(t * 6.0) % 8
 	res.texture = res_tex[fi]; res.position = Vector2(180, FG_Y + 92 - 118 + dy)
