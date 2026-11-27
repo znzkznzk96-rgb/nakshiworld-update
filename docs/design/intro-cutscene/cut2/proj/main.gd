@@ -57,6 +57,8 @@ const EXCL := ["11", "11", "11", "11", "11", "11", "00", "11", "11"]
 const QUES := ["01110", "10001", "00001", "00010", "00100", "00000", "00100"]
 const DIAL := Vector2(191, 162)     # 팔 레이어 안에서의 시계판 중심
 const ARM_POS := Vector2(0, 190)
+# 물이 처음 스며 나오는 줄눈 위치(water_dist에서 뽑음): 기포가 먼저 뽀글 올라옴
+const SEEP := [Vector2(7, 1), Vector2(247, 45), Vector2(7, 93), Vector2(7, 101), Vector2(7, 112), Vector2(7, 128), Vector2(321, 159), Vector2(175, 159), Vector2(241, 159), Vector2(7, 171), Vector2(247, 196), Vector2(247, 293), Vector2(122, 333), Vector2(7, 342), Vector2(246, 345), Vector2(133, 347), Vector2(240, 348), Vector2(335, 398), Vector2(272, 398), Vector2(166, 398), Vector2(153, 399), Vector2(348, 399), Vector2(97, 417), Vector2(7, 428), Vector2(153, 452), Vector2(65, 457), Vector2(205, 478), Vector2(149, 479), Vector2(304, 486), Vector2(131, 492), Vector2(222, 492), Vector2(7, 493), Vector2(149, 497), Vector2(209, 524), Vector2(212, 543), Vector2(147, 544), Vector2(344, 545), Vector2(212, 568), Vector2(214, 606), Vector2(215, 611), Vector2(156, 628), Vector2(96, 628), Vector2(256, 628), Vector2(151, 628)]
 
 func _ready() -> void:
 	rng.seed = 138
@@ -374,6 +376,20 @@ func _draw_hands() -> void:
 	hands.draw_rect(Rect2(c.x - 2, c.y - 2, 4, 4), dark)
 
 func _draw_fx() -> void:
+	# 스며듦: 물이 번지기 직전부터 줄눈에서 작은 기포가 뽀글뽀글 올라왔다 터짐
+	if t >= WATER_T - 0.7 and t < WATER_T + 2.6:
+		var fade := 1.0 - clampf((t - (WATER_T + 1.6)) / 1.0, 0, 1)
+		for i in SEEP.size():
+			var ph := fposmod(t * (0.9 + 0.05 * (i % 7)) + i * 0.37, 1.0)
+			if t < WATER_T - 0.7 + (i % 5) * 0.12: continue
+			var p: Vector2 = SEEP[i]
+			var col := Color(0.85, 1.0, 1.0, (0.9 - ph * 0.6) * fade)
+			if ph < 0.75:
+				var r := 1 if ph < 0.4 else 2
+				fx.draw_rect(Rect2(p.x - r / 2, p.y - r / 2 - int(ph * 3.0), r, r), col)
+			else:   # 톡 터짐: 십자 4도트
+				for o in [Vector2(-2, 0), Vector2(2, 0), Vector2(0, -2), Vector2(0, 2)]:
+					fx.draw_rect(Rect2(p.x + o.x, p.y + o.y - 2, 1, 1), col)
 	var dt := 1.0 / 30.0
 	for s in sparks:
 		s[1].y += 300.0 * dt

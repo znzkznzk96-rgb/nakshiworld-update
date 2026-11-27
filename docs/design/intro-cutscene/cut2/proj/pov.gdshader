@@ -11,7 +11,11 @@ float hash(vec2 p) { return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);
 void fragment() {
 	vec2 px = floor(UV * vec2(360.0, 640.0));
 	vec4 dry = texture(TEXTURE, UV);
-	vec4 wet = texture(water_tex, UV);
+	// 수면 잔물결: 물 그림을 줄마다 1도트씩 좌우로 일렁이게(진폭 일정)
+	float wob = floor(sin(px.y * 0.11 + tm * 2.4) * 1.0 + 0.5);
+	vec4 wet = texture(water_tex, (vec2(clamp(px.x + wob, 0.0, 359.0), px.y) + 0.5) / vec2(360.0, 640.0));
+	// 반사광 반짝임: 밝은 빛 무늬 도트만 잠깐씩 하얗게
+	if (dot(wet.rgb, vec3(0.333)) > 0.62) wet.rgb = mix(wet.rgb, vec3(1.0), step(0.93, hash(px + floor(tm * 4.0) * 7.0)) * 0.45);
 	float d = texture(water_dist, UV).r;
 	// 물가 선이 살짝 일렁이게(2도트 단위로만 흔들림)
 	d += (hash(floor(px / 3.0)) - 0.5) * 0.04 + sin(px.x * 0.09 + px.y * 0.05 + tm * 2.0) * 0.02;
