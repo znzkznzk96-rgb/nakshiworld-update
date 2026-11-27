@@ -3,11 +3,11 @@ extends Node2D
 # 360x640 도트 화면을 3배(1080x1920)로 키워 그리고 위아래는 검은 영화 띠. 확대 없이 정수 픽셀 이동만 한다.
 const W := 360
 const H := 640
-const T_A2 := 1.7      # 부츠 가라앉는 수면
-const T_B := 3.2       # 소용돌이
-const T_C := 5.0       # 저수지 낙하
-const T_SPLASH := 7.3
-const END := 9.0
+const T_A2 := 2.4      # 부츠 가라앉는 수면
+const T_B := 4.4       # 소용돌이
+const T_C := 6.8       # 저수지 낙하
+const T_SPLASH := 9.1
+const END := 10.8
 const CB := Vector2(180, 308)    # 소용돌이 중심
 const CM := Vector2(180, 322)    # 저수지 달 반사 중심(첨벙 지점)
 var t := 0.0
@@ -87,17 +87,15 @@ func _scene() -> void:
 	a1.visible = t < T_A2; a2.visible = t >= T_A2 and t < T_B; sb.visible = t >= T_B and t < T_C; sc.visible = t >= T_C
 	var sh := 0
 	if t < T_A2:
-		_mat(a1, 1.0 + 1.5 * clampf((t - 0.8) / 0.9, 0, 1), clampf((t - 1.25) / 0.45, 0, 1) * 0.5, 0.0, 0.0)
-		if t > 0.9: sh = 1
+		_mat(a1, 1.0 + 1.0 * clampf((t - 1.0) / 1.4, 0, 1), clampf((t - 1.9) / 0.5, 0, 1) * 0.2, 0.0, 0.0)
+		if t > 1.4: sh = 1
 	elif t < T_B:
 		var k := clampf((t - T_A2) / (T_B - T_A2), 0, 1)
-		_mat(a2, 2.0, clampf((t - 2.6) / 0.6, 0, 1) * 0.5, k * 0.3, 0.0)
-		sh = 2 if t > 2.4 else 1
+		_mat(a2, 2.0, clampf((t - (T_B - 0.7)) / 0.6, 0, 1) * 0.2, k * 0.3, 0.0)
+		sh = 1
 	elif t < T_C:
-		var step := int((t - T_B) / 0.08)
-		sb.flip_h = step % 2 == 1; sb.flip_v = (step / 2) % 2 == 1
-		_mat(sb, 0.0, 0.0, 0.9 * sin((t - T_B) * 3.0), 0.0)
-		sh = 2
+		_mat(sb, 0.0, 0.0, 0.5 * sin((t - T_B) * 1.5), 0.0)
+		sh = 0
 	else:
 		_mat(sc, 1.5, 0.0, 0.0, 0.0)
 		sh = 0 if t < T_SPLASH else (3 if t < T_SPLASH + 0.25 else 0)
@@ -115,9 +113,9 @@ func _scene() -> void:
 	# 흰빛: 장면 전환 직전 번쩍 올라갔다 사라짐
 	var f := 0.0
 	for T in [T_A2, T_B, T_C]:
-		var pre := 0.35 if T == T_B else 0.12
+		var pre := 0.5 if T == T_B else 0.3
 		if t < T and t > T - pre: f = maxf(f, (t - (T - pre)) / pre)
-		elif t >= T and t < T + 0.2: f = maxf(f, 1.0 - (t - T) / 0.2)
+		elif t >= T and t < T + 0.35: f = maxf(f, 1.0 - (t - T) / 0.35)
 	if t >= T_SPLASH and t < T_SPLASH + 0.15: f = maxf(f, 0.6 * (1.0 - (t - T_SPLASH) / 0.15))
 	flash.color.a = f
 	var fa := 1.0 - clampf(t / 0.4, 0, 1)
@@ -126,7 +124,7 @@ func _scene() -> void:
 
 func _audio() -> void:
 	if t >= 0.35: _once("crack", "res://snd/crack.wav", -6.0)
-	if t >= 1.3: _once("sweep", "res://snd/sweep.wav", -4.0)
+	if t >= T_A2 - 0.8: _once("sweep", "res://snd/sweep.wav", -4.0)
 	if t >= T_B: _once("vortex", "res://snd/vortex.wav", -4.0)
 	if t >= T_C: _once("rush", "res://snd/rush.wav", -4.0)
 	if t >= T_SPLASH: _once("splash", "res://snd/splash.wav", 0.0)
@@ -172,8 +170,8 @@ func _draw_fx() -> void:
 	if t >= T_B and t < T_C:
 		for i in 28:
 			r.seed = 900 + i
-			var ang := r.randf() * TAU + (t - T_B) * 0.8
-			var ph := fmod((t - T_B) * r.randf_range(0.8, 1.6) + r.randf(), 1.0)
+			var ang := r.randf() * TAU + (t - T_B) * 0.3
+			var ph := fmod((t - T_B) * r.randf_range(0.35, 0.7) + r.randf(), 1.0)
 			var d0 := 20.0 + ph * 360.0; var d1 := d0 + 14.0 + ph * 50.0
 			var dir := Vector2(cos(ang), sin(ang) * 1.5)
 			_line(CB + dir * d0, CB + dir * d1, Color(0.8, 0.95, 1.0, 0.25 + 0.6 * ph))
