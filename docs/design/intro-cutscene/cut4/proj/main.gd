@@ -100,6 +100,12 @@ func _openness() -> float:
 		if t >= a[0] and t < b[0]:
 			var k: float = (t - a[0]) / (b[0] - a[0])
 			return lerpf(a[1], b[1], k * k * (3.0 - 2.0 * k))
+	var d := t - T_TILT   # 시선을 내릴 때 한 번 더 감았다 뜸
+	if d >= 0.0 and d < 0.75:
+		if d < 0.25: return lerpf(2.4, 0.0, d / 0.25)
+		if d < 0.35: return 0.0
+		var k2 := (d - 0.35) / 0.4
+		return lerpf(0.0, 2.4, k2 * k2)
 	return 2.4
 
 func _process(delta: float) -> void:
@@ -120,8 +126,7 @@ func _scene(delta: float) -> void:
 	(vil.material as ShaderMaterial).set_shader_parameter("block", blk)
 	(vil.material as ShaderMaterial).set_shader_parameter("dim", 0.25 * clampf(1.0 - t / 2.6, 0, 1))
 	# 시선을 아래로: 마을이 위로 밀려 나가고 물에 잠긴 발이 올라옴(정수 픽셀 이동)
-	var k := clampf((t - T_TILT) / 0.8, 0, 1)
-	g1.position = Vector2(0, -roundf(640.0 * k * k * (3.0 - 2.0 * k)))
+	g1.position = Vector2(0, -640 if t >= T_TILT + 0.3 else 0)   # 눈 감은 사이에 시선이 발로
 	var fm := feet.material as ShaderMaterial
 	fm.set_shader_parameter("amp", 1.0); fm.set_shader_parameter("tm", t); fm.set_shader_parameter("seed", 0.0)
 	# 팔이 쑥 들어옴
@@ -180,7 +185,7 @@ func _px(c: Vector2, col: Color) -> void:
 
 func _draw_fx() -> void:
 	# 눈꺼풀: 눈 모양으로 열렸다 닫힘
-	if t < 2.95:
+	if t < 2.95 or (t >= T_TILT and t < T_TILT + 0.75):
 		var o := _openness()
 		for x in W:
 			var dx := absf(x + 0.5 - 180.0)
