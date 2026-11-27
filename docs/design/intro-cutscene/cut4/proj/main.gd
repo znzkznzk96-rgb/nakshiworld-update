@@ -32,6 +32,8 @@ var s3: Node2D
 var res: Sprite2D
 var bga: Sprite2D
 var bgb: Sprite2D
+var shadow: Node2D
+var sky: Node2D
 var sit: Texture2D
 var sit2: Texture2D
 var cat: Sprite2D
@@ -61,22 +63,31 @@ func _ready() -> void:
 	stage = Node2D.new(); sv.add_child(stage)
 	var black := ColorRect.new(); black.color = Color.BLACK; black.size = Vector2(W, H); stage.add_child(black)
 	g1 = Node2D.new(); stage.add_child(g1)
-	vil = _spr(g1, "res://img/eye.png", "res://mosaic.gdshader", Vector2.ZERO)
+	vil = _spr(g1, "res://img/eye.png", "res://life.gdshader", Vector2.ZERO)
+	_life(vil, Vector3(195, 110, 40), Vector4(0, 300, 360, 640))
 	feet = _spr(g1, "res://img/feet.png", "res://wave.gdshader", Vector2(0, 640))
 	armg = Node2D.new(); armg.visible = false; stage.add_child(armg)
 	var arm := Sprite2D.new(); arm.texture = load("res://img/arm.png"); arm.centered = false; arm.position = ARM_POS; armg.add_child(arm)
 	hands = Node2D.new(); hands.position = ARM_POS; hands.draw.connect(_draw_dial); armg.add_child(hands)
 	s3 = Node2D.new(); s3.visible = false; stage.add_child(s3)
-	bga = _spr(s3, "res://img/village.png", "", Vector2.ZERO)
-	bgb = _spr(s3, "res://img/path.png", "", Vector2.ZERO)
+	bga = _spr(s3, "res://img/village.png", "res://life.gdshader", Vector2.ZERO)
+	_life(bga, Vector3(188, 110, 42), Vector4(0, 230, 360, 420))
+	bgb = _spr(s3, "res://img/path.png", "res://life.gdshader", Vector2.ZERO)
+	_life(bgb, Vector3(188, 112, 42), Vector4(200, 320, 360, 420))
+	shadow = Node2D.new(); shadow.draw.connect(_draw_shadow); s3.add_child(shadow)
 	sit = load("res://img/sit.png"); sit2 = load("res://img/sit2.png")
 	res = Sprite2D.new(); res.texture = sit; res.centered = false; res.position = Vector2(92, 458); s3.add_child(res)
 	for i in 9: cat_tex.append(load("res://img/cat_%d.png" % i)); stick_tex.append(load("res://img/stick_%d.png" % i))
 	cat = Sprite2D.new(); cat.texture = cat_tex[0]; cat.centered = false; cat.flip_h = true; cat.visible = false; s3.add_child(cat)
 	stick = Sprite2D.new(); stick.texture = stick_tex[0]; stick.centered = false; stick.flip_h = true; stick.visible = false; s3.add_child(stick)
+	sky = Node2D.new(); sky.draw.connect(_draw_sky); stage.add_child(sky)
 	fx = Node2D.new(); fx.draw.connect(_draw_fx); stage.add_child(fx)
 	fade = ColorRect.new(); fade.size = Vector2(W, H); fade.color = Color(0, 0, 0, 1); stage.add_child(fade)
 	var a := _play("res://snd/water.ogg", -17.0); a.stream.loop = true
+
+func _life(s: Sprite2D, moon: Vector3, water: Vector4) -> void:
+	var m := s.material as ShaderMaterial
+	m.set_shader_parameter("moon", moon); m.set_shader_parameter("water", water)
 
 func _spr(par: Node, path: String, shader: String, pos: Vector2) -> Sprite2D:
 	var s := Sprite2D.new(); s.texture = load(path); s.centered = false; s.position = pos
@@ -112,7 +123,8 @@ func _process(delta: float) -> void:
 	t += delta
 	_scene(delta)
 	_audio()
-	fx.queue_redraw(); hands.queue_redraw()
+	fx.queue_redraw(); hands.queue_redraw(); sky.queue_redraw(); shadow.queue_redraw()
+	for s in [vil, bga, bgb]: (s.material as ShaderMaterial).set_shader_parameter("tm", t)
 	if t >= END + 0.2: get_tree().quit()
 
 func _scene(delta: float) -> void:
@@ -150,19 +162,19 @@ func _scene(delta: float) -> void:
 			if not walking: x = 372.0 - 85.0 * (CAT_STOP - CAT_IN)
 			var fr := int(ct * 9.0) % 9 if walking else 0
 			var nod := 2 if (t >= DROP and t < DROP + 0.15) else 0
-			cat.texture = cat_tex[fr]; cat.position = Vector2(roundf(x), 521 + nod)
+			cat.texture = cat_tex[fr]; cat.position = Vector2(roundf(x), 499 + nod)
 			if stick_state == 0:
 				stick.visible = true; stick.texture = stick_tex[fr]; stick.position = cat.position
 				if t >= DROP: stick_state = 1; stick_y = cat.position.y; stick_vy = -60.0
 			elif stick_state == 1:
 				stick_vy += 900.0 * delta; stick_y += stick_vy * delta
-				if stick_y >= 542.0:
-					stick_y = 542.0
+				if stick_y >= 520.0:
+					stick_y = 520.0
 					if absf(stick_vy) > 80.0: stick_vy = -stick_vy * 0.3
 					else: stick_state = 2
 				stick.position = Vector2(cat.position.x, roundf(stick_y))
 			else:
-				stick.position = Vector2(cat.position.x, 542)
+				stick.position = Vector2(cat.position.x, 520)
 	var fa := 0.0
 	if t < 0.2: fa = 1.0 - t / 0.2
 	if t >= T_FADE and t < T3: fa = clampf((t - T_FADE) / 0.35, 0, 1)
@@ -214,3 +226,30 @@ func _draw_dial() -> void:
 		var col := Color(1.0, 0.55, 0.2)
 		hands.draw_string(font, Vector2(c.x - 16, c.y - 4), "위치", HORIZONTAL_ALIGNMENT_LEFT, -1, 16, col)
 		hands.draw_string(font, Vector2(c.x - 16, c.y + 13), "불명", HORIZONTAL_ALIGNMENT_LEFT, -1, 16, col)
+
+## 하늘 레이어: 달 앞을 천천히 흐르는 옅은 구름(도트 블록)
+func _draw_sky() -> void:
+	var y_off := g1.position.y if g1.visible else 0.0
+	if not (g1.visible or s3.visible): return
+	if g1.visible and t < 2.5: return   # 흐릿할 때는 생략
+	var r := RandomNumberGenerator.new()
+	for i in 5:
+		r.seed = 70 + i
+		var w := r.randi_range(50, 110); var y := r.randi_range(40, 170)
+		var x := fmod(r.randf() * 520.0 + t * r.randf_range(3.0, 6.0), 520.0) - 110.0
+		var col := Color(0.55, 0.62, 0.8, 0.16)
+		for k in 4:
+			var ww := w - k * 18
+			if ww <= 0: break
+			sky.draw_rect(Rect2(roundf(x + k * 9), y + y_off - k * 3, ww, 3 + (1 if k == 0 else 0)), col)
+
+## 발밑 그림자
+func _draw_shadow() -> void:
+	var dark := Color(0, 0.02, 0.06, 0.4)
+	if res.visible: _oval(Vector2(161, 572 + 0), 44, 5, dark)
+	if cat.visible: _oval(cat.position + Vector2(44, 76), 24, 3, dark)
+
+func _oval(c: Vector2, rx: int, ry: int, col: Color) -> void:
+	for y in range(-ry, ry + 1):
+		var hw := int(rx * sqrt(1.0 - float(y * y) / float(ry * ry + 1)))
+		shadow.draw_rect(Rect2(c.x - hw, c.y + y, hw * 2, 1), col)
