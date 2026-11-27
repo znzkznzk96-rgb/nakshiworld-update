@@ -1,17 +1,17 @@
 # 현재 상태 요약 (세션 시작 시 이것만 먼저 읽는다)
 
-갱신: 2026-11-24. WORK_STATE.json이 바뀌는 체크포인트마다 이 문서도 같이 고친다. 이 문서와 WORK_STATE가 다르면 WORK_STATE가 우선이다.
+갱신: 2026-11-27. WORK_STATE.json이 바뀌는 체크포인트마다 이 문서도 같이 고친다. 이 문서와 WORK_STATE가 다르면 WORK_STATE가 우선이다.
 
 ## 한눈에
 - 작업 브랜치: work/forge-138 (main에서 작업하지 않는다)
-- 마지막 공개본: v1.51(2026-11-24, 첫 delta 공개: patch.pck 약 492KB. 펫 뽑기 10회+합친 결과표, 슬롯 기계·레버·버튼을 폰 해상도 도트로 교체). 공개 완료, 휴대폰 실기 확인 미완료. 빠른 검증 약 1분 43초, 전체 검증 약 19분. 공개 절차: main에 work 트리로 커밋 올림(git commit-tree) → 초안 조회 지연으로 실패하면 release-patch를 workflow_dispatch로 재실행. 이전 메모: 아래 두 원인은 계속 유효 (1) UI 글자는 text_layer.gd처럼 화면 배율 크기로 그린다 (2) 폰(APK)에는 원본 PNG가 없어 Image.load_from_file 대신 load()로 읽는다
+- 마지막 공개본: v1.60(2026-11-27, 효과음·음악 교체). v1.61(잔잔한 음악 마을=Calm5·타이틀=Fields of Cabbage, 물소리 5종, 업데이트 화면을 어두운 실제 타이틀 위 가운데 창+부드러운 퇴장)은 work/forge-138에 커밋·빠른 검증 통과, 확인용 APK 1.61 전달, **공개는 사용자 "공개해" 대기**(퇴장 연출 커밋은 그 APK 이후라 다음 APK에 포함). APK는 반드시 후보 artifact의 full.pck로 만든다(patch.pck로 만들면 "Couldn't load project data" 오류, 11-27 실수). 이전 메모: (1) UI 글자는 text_layer.gd처럼 화면 배율 크기로 그린다 (2) 폰(APK)에는 원본 PNG가 없어 Image.load_from_file 대신 load()로 읽는다
 - 업데이트 방식(v1.50, 2026-11-24 개편): 켜기 화면(root.gd, APK 안)이 version.json을 한 번 읽고, 새 버전이면 patch.pck 하나를 받는다(5초 안에 끝나면 켜기 화면에서 바로 적용, 아니면 게임을 먼저 켜고 백그라운드로 받아 다음 실행 때 적용). sha256·크기·GDPC 머리가 맞을 때만 user://upd/ 에 저장. 예전 Range 조각 업데이터(incremental_update.gd)는 삭제됨.
 - patch.pck은 "APK와 달라진 파일만" 담는다(automation/delta_pack.py). 기준은 automation/apk_base.json(APK에 든 파일 md5). APK를 새로 만들 때만 그 APK의 full.pck(후보 artifact에 들어 있음)로 apk_base.json을 다시 만든다(delta_pack.save_base). apk_base.json이 없으면 후보는 delta=false라 공개가 막힌다. 새 이미지·소리가 늘면 patch.pck이 커지므로, 커지면 APK를 새로 만든다.
 - 서버(Cloudflare 문)는 건드리지 않았다: version.json(code,name,size,sha256)과 patch.pck?v=code 계약 유지. 구형 APK는 새 patch.pck을 받으면 안 되므로, 새 APK 설치 전에는 공개하지 않는다.
 - 공개 절차 메모: main에 work와 같은 game·automation·verify-work.yml 등 입력 트리로 커밋을 올리면 공개되고, 초안 조회 지연으로 실패하면 release-patch를 workflow_dispatch로 다시 실행한다(v1.45에서도 그랬음)
 - v1.44는 v1.45에 포함되어 공개됨. 같은 번호로 내용만 또 고치면 폰이 받지 못하니 다음 수정은 1.46으로 올린다
 - 새 배포·PixelLab 유료 호출은 사용자 승인 전까지 하지 않는다. 공개 배포는 사용자가 폰에서 확인하고 승인한 뒤에 한다
-- 이어서 할 일: (1) 사용자 폰 확인 피드백 반영 (2) 대표 외 장착 펫 2마리 일꾼·시너지(GAME_BIBLE 미결정)
+- 이어서 할 일: (1) 첫 실행 컷신 2컷 제작(기획·1컷 확정본: GAME_BIBLE 2026-11-27 항목, docs/design/intro-cutscene/cut1/README.md) (2) v1.61 공개 대기 (3) 컷신 6컷 확정 후 튜토리얼 구현 (4) PulseLite(CC-BY) 출처 표기 위치 미정
 - 진행 규칙: AGENTS.md "시간·전달 방식은 시작 전에 말한다". 첫 답에 무엇을/기다릴 시간/필요한 것을 한 줄로 말한다
 
 ## APK 만들기 (되묻지 않고 바로 한다)
