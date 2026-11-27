@@ -269,6 +269,8 @@ var cooperative_boot:=false
 var intro_new_player := false
 var intro: Node = null
 func _maybe_intro() -> void:
+	# 폰(모바일)에서만 자동 재생. PC 실행·검사 장면에는 끼어들지 않게 하고, PC에서 보려면 --intro 를 붙인다
+	if not (OS.has_feature("mobile") or "--intro" in OS.get_cmdline_user_args()): return
 	if DisplayServer.get_name() == "headless" or "--shot" in OS.get_cmdline_user_args(): return
 	if FileAccess.file_exists("user://intro_seen"): return
 	if not intro_new_player: _mark_intro_seen();return
@@ -276,7 +278,7 @@ func _maybe_intro() -> void:
 func start_intro() -> void:
 	if is_instance_valid(intro): return
 	audio_feedback.suspended=true;audio_feedback.stop_all()
-	intro = preload("res://addons/reservoir/intro_cutscene.gd").new()
+	intro = load("res://addons/reservoir/intro_cutscene.gd").new()   # preload 금지: 부팅 때 main.gd 스레드 로드 의존성을 늘리지 않는다
 	intro.finished.connect(_on_intro_done)
 	get_tree().root.add_child.call_deferred(intro)   # 글자·UI 층(루트)보다 위에 덮어야 하므로 루트에 붙인다
 func _on_intro_done() -> void:
