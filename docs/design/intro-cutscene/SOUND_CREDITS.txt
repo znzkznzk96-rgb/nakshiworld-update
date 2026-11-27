@@ -1,0 +1,16 @@
+컷신 효과음 출처 (2026-11-28, 모두 CC0, make_sounds.py로 잘라 씀. 각 컷의 gen_sfx.py를 다시 돌리면 아래 파일이 합성음으로 덮어써지니 주의)
+BigSoundBank (https://bigsoundbank.com, CC0):
+- 0306 Long creaking door → cut2 creak
+- 0377 Opening and Closing Light Door → cut2 slam
+- 0007 Clock → cut2·cut4 tik
+- 1252 Electrical fence → cut2 zap
+- 0690 Shoes in the Water → cut2·3·4 slosh1~4
+- 0387 A Mirror Explodes → cut3 crack
+- 0595 Wind (foley) → cut3 rush
+- 0218 Heart Beat → cut4 heart
+- 0516 Wooden chair falling on carpet → cut4 drop
+- 0908 Wind in Tall Grass → cut5 wind
+- 3360 1 pendulum chime → cut5 chime
+- 1020 Field cricket + 0819 One frog → cut4·5 night.ogg(새 배경음)
+게임 기존 소리: game/sfx/refresh65/splash.ogg → cut3 splash
+합성음 유지: 대사 타자음 blip, 놀람 alert, 물음 hmm, 차원 열림 sweep, 소용돌이 vortex

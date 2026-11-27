@@ -51,6 +51,7 @@ func _ready() -> void:
 	fade = ColorRect.new(); fade.size = Vector2(W, H); fade.color = Color(0, 0, 0, 1); stage.add_child(fade)
 	var w := _play("res://snd/wind.wav", -10.0)
 	var a := _play("res://snd/water.ogg", -24.0); a.stream.loop = true
+	var nt := _play("res://snd/night.ogg", -15.0); nt.stream.loop = true   # 귀뚜라미·개구리 밤 물가
 
 func _spr(path: String, shader: String) -> Sprite2D:
 	var s := Sprite2D.new(); s.texture = load(path); s.centered = false

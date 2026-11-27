@@ -84,6 +84,7 @@ func _ready() -> void:
 	fx = Node2D.new(); fx.draw.connect(_draw_fx); stage.add_child(fx)
 	fade = ColorRect.new(); fade.size = Vector2(W, H); fade.color = Color(0, 0, 0, 1); stage.add_child(fade)
 	var a := _play("res://snd/water.ogg", -17.0); a.stream.loop = true
+	var nt := _play("res://snd/night.ogg", -13.0); nt.stream.loop = true   # 귀뚜라미·개구리 밤 물가
 
 func _life(s: Sprite2D, moon: Vector3, water: Vector4) -> void:
 	var m := s.material as ShaderMaterial
