@@ -11,7 +11,7 @@
 - 공개 절차 메모: main에 work와 같은 game·automation·verify-work.yml 등 입력 트리로 커밋을 올리면 공개되고, 초안 조회 지연으로 실패하면 release-patch를 workflow_dispatch로 다시 실행한다(v1.45에서도 그랬음)
 - v1.44는 v1.45에 포함되어 공개됨. 같은 번호로 내용만 또 고치면 폰이 받지 못하니 다음 수정은 1.46으로 올린다
 - 새 배포·PixelLab 유료 호출은 사용자 승인 전까지 하지 않는다. 공개 배포는 사용자가 폰에서 확인하고 승인한 뒤에 한다
-- 이어서 할 일: (1) 첫 실행 컷신 2컷 제작(기획·1컷 확정본: GAME_BIBLE 2026-11-27 항목, docs/design/intro-cutscene/cut1/README.md) (2) v1.61 공개 대기 (3) 컷신 6컷 확정 후 튜토리얼 구현 (4) PulseLite(CC-BY) 출처 표기 위치 미정
+- 이어서 할 일: (1) 첫 실행 컷신 2컷은 제작·영상 전달 완료, 사용자 확인 대기(docs/design/intro-cutscene/cut2/README.md, 길이 15.6초라 6컷 합계 30초 조정 필요 가능), 이후 3~6컷(기획·1컷 확정본: GAME_BIBLE 2026-11-27 항목, cut1/README.md) (2) v1.61 공개 대기 (3) 컷신 6컷 확정 후 튜토리얼 구현 (4) PulseLite(CC-BY) 출처 표기 위치 미정
 - 진행 규칙: AGENTS.md "시간·전달 방식은 시작 전에 말한다". 첫 답에 무엇을/기다릴 시간/필요한 것을 한 줄로 말한다
 
 ## APK 만들기 (되묻지 않고 바로 한다)
