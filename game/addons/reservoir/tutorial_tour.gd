@@ -318,24 +318,26 @@ func _bubble(m, h: float) -> void:
 	var band := Rect2(x0, by, w, h - by + 2)
 	var cy: float = roundf(by + maxf((h - m.bot_pad - by - BAND_H) * 0.5, 0.0))   # 내용 윗선(아래 띠는 가운데)
 	var near := false
+	var bottom_edge: float = h - m.bot_pad   # 건너뛰기를 붙일 띠 아랫선
 	if top:
 		# 눌러야 할 곳이 아래쪽이면 맨 위로 보내지 않고 그 바로 위에 띄운 뒤 꼬리로 가리킨다
 		var ay: float = roundf(target.grow(4).position.y - PAW.get_height() - 10 - BAND_H)   # 띠와 칸 사이에 앞발
 		if target.size != Vector2.ZERO and ay > m.top_y + 70 and not (m.scene == "fish" and m.S.phase in ["wait", "pre", "hook"]):
-			band = Rect2(x0, ay, w, BAND_H);cy = ay;near = true   # 칸 바로 위에 띄운다
+			band = Rect2(x0, ay, w, BAND_H);cy = ay;near = true;bottom_edge = cy + BAND_H   # 칸 바로 위에 띄운다
 		else:
-			band = Rect2(x0, 0, w, m.top_y + BAND_H + 4);cy = m.top_y + 2
+			band = Rect2(x0, 0, w, m.top_y + BAND_H + 4);cy = m.top_y + 2;bottom_edge = cy + BAND_H
 	m._ui_style_box(m.sb_panel, band.grow_individual(4, 2 if not top else 4, 4, 4 if not top else 0) if not near else band.grow_individual(4, 0, 4, 0))
 	var tex: Texture2D = PORTRAITS.get(face, PORTRAITS.idle)
 	var hop: float = -2.0 if m.ui_clock - pop_t < 0.3 else 0.0
-	m._ui_texture_rect(tex, Rect2(6, cy + 8 + hop, 48, 48))
+	m._ui_texture_rect(tex, Rect2(6, cy + 5 + hop, 48, 48))   # 고양이 몸통이 띠 세로 가운데
 	if active(m):
 		var cur: int = step(m)
 		for i in STEPS:
 			m._ui_rect(Rect2(60 + i * 9, cy + 11, 5, 5), Color("e0a93a") if i < cur else (Color("7a5232") if i == cur else Color(0.48, 0.32, 0.2, 0.3)))
-		rects.skip = Rect2(196, cy + BAND_H - 28, 66, 20)   # 늘 띠 오른쪽 아래 같은 자리(누르는 칸은 넉넉히, 그림은 글자만)
-		m._text("건너뛰기 >", Vector2(rects.skip.get_center().x, cy + BAND_H - 13), 10, Color("8c6a48"), true, 66)
-	m._text(m._ui_wrap(line, 10, 200, 2), Vector2(160, cy + (28 if active(m) else 34)), 10, Color("382619"), true, 200)
+		rects.skip = Rect2(196, bottom_edge - 28, 66, 20)   # 늘 띠 오른쪽 아래 같은 자리(누르는 칸은 넉넉히, 그림은 글자만)
+		m._text("건너뛰기 >", Vector2(rects.skip.get_center().x, bottom_edge - 13), 10, Color("8c6a48"), true, 66)
+	var txt: String = m._ui_wrap(line, 10, 200, 2)
+	m._text(txt, Vector2(160, cy + (29 if "\n" in txt else 35)), 10, Color("382619"), true, 200)   # 글자도 세로 가운데
 
 func _confirm(m, h: float) -> void:
 	m._ui_rect(Rect2(-m.ox, 0, m.VW + 2 * m.ox, h), Color(0.02, 0.03, 0.06, 0.6))
