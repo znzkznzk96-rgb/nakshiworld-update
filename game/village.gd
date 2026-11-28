@@ -45,6 +45,7 @@ var sb_plaque: StyleBoxTexture
 var res: = []
 var locals: = []
 var foreground: Node2D
+var backdrop: Node2D
 var ground: = preload("res://addons/reservoir/town_ground.gd").new()
 var life := preload("res://addons/reservoir/village_life.gd").new()
 var visitors: = preload("res://addons/reservoir/visitors.gd").new()
@@ -247,28 +248,11 @@ func draw(m, h: float) -> void :
 	foreground.queue_redraw()
 
 
-	m.draw_rect(Rect2( - m.ox, 0, m.VW + 2 * m.ox, h), Color("7eb9cb"))
-	for band in 24:
-		m.draw_rect(Rect2( - m.ox, band * 18, m.VW + 2 * m.ox, 18), Color("59a5cf").lerp(Color("8bbec9"), band / 23.0))
-	var shore: float = o.y - 22
-	var ridge: Texture2D = art.mountains
-	m.draw_texture(ridge, Vector2(roundf( - camera_x * 0.18 - 100), roundf(shore - 80)), Color(0.87, 0.95, 0.98, 1))
-	var forest: Texture2D = art.forest
-	# Ridge already includes a tree silhouette; no duplicate forest overlay.
-	var water: Texture2D = art.water
-	m.draw_rect(Rect2( - m.ox, shore, m.VW + 2 * m.ox, h - shore), Color("228fac"))
-	var drift: float = sin(t * 0.36) * 1.7
-	life.water_texture(m, water, Vector2(roundf( - camera_x * 0.22 - 90 + drift), roundf(shore)), Color(0.85, 0.95, 0.98, 1), t, false)
-	for row in ceili((h - shore - 110) / 46.0) + 1:
-		var near_drift: float = sin(t * (0.42 + row * 0.02) + row) * 1.4
-		life.water_texture(m, art.water_near, Vector2(roundf( - camera_x * 0.22 - 90 + near_drift), roundf(shore) + 110 + row * 46), Color(0.7, 0.9, 0.96, 0.48), t, true, row * 0.6)
-
-	life.water_back(m, self, forest, shore, t)
-	life.water_front(m, self, o, h, t)
-	for i in 3:
-		var tx: Texture2D = art[["cloud_wisp", "cloud_cumulus", "cloud_far"][i]]
-		var xx: float = fposmod(i * 173 + t * (1.2 + i * 0.45) - camera_x * 0.07, 550) - 180
-		m.draw_texture(tx, Vector2(roundf(xx), roundf(70 + i * 49)), Color(0.95, 0.98, 0.96, 0.5 - i * 0.08))
+	if not is_instance_valid(backdrop):
+		backdrop = Node2D.new();backdrop.set_script(preload("res://addons/reservoir/village_backdrop.gd"));backdrop.v = self;m.add_child(backdrop)
+	backdrop.visible = m.scene == "village"
+	backdrop.s = {"ox": m.ox, "vw": m.VW, "h": h, "o": o, "t": t, "cam": camera_x}
+	backdrop.queue_redraw()
 	var world_text_start: int = m.text_items.size()
 	var zoom_anchor: = Vector2(135, o.y)
 	m.draw_set_transform(zoom_anchor * (1.0 - zoom), 0, Vector2(zoom, zoom))

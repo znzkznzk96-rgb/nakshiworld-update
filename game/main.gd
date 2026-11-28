@@ -1606,6 +1606,7 @@ func _switch_scene(to: String) -> void :
 	if is_instance_valid(title_screen.root): title_screen.root.hide()
 	V.visitors.hide_all(V.res + V.locals)
 	if is_instance_valid(V.foreground): V.foreground.hide()
+	if is_instance_valid(V.backdrop): V.backdrop.hide()
 	scene = to;V.shop = "";market_open = false
 	inventory.selected = -1;V.commerce.pending = {};parts.clear();aura = {};judge_t = 0;toast_t = 0;star_hist.clear()
 	bg_node.visible = to == "fish"
