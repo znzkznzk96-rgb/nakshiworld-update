@@ -13,6 +13,9 @@
 - **Kenney** (CC0): kenney.nl은 셸에서 403. 사용자가 zip을 올려 준다(이미 받은 것: impact-sounds, interface-sounds, ui-audio, music-jingles).
 - **PulseLite** (CC-BY-4.0): 출처 표기 의무. 게임 안 표기 위치는 아직 미정 → 쓰려면 먼저 사용자에게 확인.
 - 사용자가 올린 zip은 `/mnt/user-data/uploads`에 있다. 압축은 각각 새 빈 폴더에 푼다.
+- **Free-Game-Dev-Assets** (사용자가 준 무료 에셋 모음 사이트): https://tmhsdigital.github.io/Free-Game-Dev-Assets/
+  - 사용자가 지정한 항목: https://tmhsdigital.github.io/Free-Game-Dev-Assets/entry/tallbeard-abstraction-music-loop-bundle/ (tallbeard Abstraction Music Loop Bundle). 이 안의 배경음악 **마지막 곡**을 쓰라고 함. 아직 받지 않음(잔잔한 곡은 OpenGameArt로 대신했음). 받기 전 항목의 라이선스·다운로드 위치(itch.io 등)를 확인하고, 결제가 필요하면 멈추고 사용자에게 묻는다.
+  - 사용자가 처음 보여준 인스타그램 추천 목록(사이트 주소가 순서대로 적힌 캡처)은 이 문서에 옮겨 적지 못했다. 다시 받으면 여기에 추가한다.
 - itch.io 유료/후원 번들은 사용자 결정 전 받지 않는다.
 
 ## 2. 게임에서 어떤 파일이 어디서 울리나 (같은 이름·경로로 덮어쓰면 코드 수정 없이 교체됨)
