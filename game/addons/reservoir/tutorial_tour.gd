@@ -10,6 +10,11 @@ const POP_COLORS := [Color("ffd166"), Color("ff8fab"), Color("8be0c8"), Color("9
 const BUILD_UP := 2      # village.gd BUILD 낚시 상점
 const BUILD_WORK := 1    # village.gd BUILD 어시장
 const BAIT_GIFT := 3
+const TAB_LINES := {
+	"sell": "여긴 장비 탭! 돈을 벌어 파츠를 해금하면 나오는 물고기 종류가 달라져!",
+	"pouches": "어혼 탭에선 병사를 키울 어혼 주머니를 팔아. 다음 탭을 눌러 봐!",
+	"gear_sell": "팔기 탭에선 벗어 둔 장비를 팔아. 이제 미끼 탭을 눌러 봐!",
+}
 
 var target := Rect2()        # 지금 눌러야 할 곳(없으면 자유롭게 조작)
 var line := ""
@@ -120,10 +125,12 @@ func update(m, _dt: float) -> void:
 				if m.TUT.get("tour_bait", false): _go(m, 2);return
 				line = "낚시 상점에 가 보자. 미끼를 챙겨 줄게!";target = _building(m, BUILD_UP)
 			elif v.shop == "up":
-				if not m.TUT.get("tour_bait", false) and v.tab != "bait":
-					line = "미끼 탭을 눌러 봐!";target = _row(v, "tab:bait")   # 먼저 미끼 탭으로
+				var done: bool = m.TUT.get("tour_bait", false)
+				if not done and v.tab != "bait":   # 탭을 하나씩 짚어 주고 마지막에 미끼 탭으로
+					var nxt: String = {"pouches": "gear_sell", "gear_sell": "bait"}.get(v.tab, "pouches")
+					line = TAB_LINES.get(v.tab, TAB_LINES.sell);target = _row(v, "tab:" + nxt)
 				else:
-					if not m.TUT.get("tour_bait", false):
+					if not done:
 						m.bait += BAIT_GIFT;m.TUT.tour_bait = true;m._save_tut();m._save_game()
 						m.show_toast("고양이가 미끼 %d개를 줬어요!" % BAIT_GIFT, Color("ffd166"));face = "happy"
 					line = "미끼가 있으면 입질이 빨라져! %d개 선물이야." % BAIT_GIFT;target = v.rects.get("close", Rect2())
