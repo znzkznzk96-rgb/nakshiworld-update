@@ -5,8 +5,8 @@ render_mode blend_add;
 // 좌표는 물 시작선(shore)에서 아래로 잰 거리라 깊이에 따라 줄 간격이 달라지고, scroll은 물 그림과 같이 움직인다.
 uniform float pixel_size : hint_range(1.0, 8.0, 1.0) = 3.0;
 uniform float scroll = 0.0;
-uniform float strength : hint_range(0.0, 2.0) = 0.8;
-uniform float sparkle_threshold : hint_range(0.8, 0.999) = 0.972;
+uniform float strength : hint_range(0.0, 2.0) = 0.4;
+uniform float sparkle_threshold : hint_range(0.8, 0.999) = 0.993;
 uniform vec4 tint_color : source_color = vec4(0.72, 0.95, 1.0, 1.0);
 
 varying vec2 wp;
