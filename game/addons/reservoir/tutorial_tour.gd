@@ -57,11 +57,11 @@ const HINTS := {
 ## 순서대로 조건이 되면 하나씩. 아래 WALKS에 있는 것은 실제 화면을 따라가며 짚어 주는 안내(누르는 건 막지 않고 단계가 따라간다)
 const HINT_ORDER := ["mail", "moves", "aqua", "forge", "alch", "explore", "soldier_up", "merge", "pet", "guide"]
 const WALKS := ["aqua", "forge", "alch", "explore", "soldier_up", "merge", "pet"]
-## 건물 안내: [건물 번호, 가리킬 말, 들어간 뒤 설명 쪽들]
+## 건물 안내: [건물 번호, 건물 앞에서 가리킬 말]. 안에서의 단계는 _forge_steps/_aqua_steps/_pet_steps
 const BLD_WALKS := {
-	"aqua": [4, "수족관에 물고기를 넣어 볼까? 눌러 봐!", ["물고기를 수족관에 넣어 두면\n쉬는 동안에도 비늘을 벌어 줘!", "가방에 있는 물고기를 골라서\n수족관 칸에 넣어 봐."]],
-	"forge": [3, "비늘이 모였네! 대장간을 눌러 봐.", ["대장간에서 낚싯대를 강화해.\n비늘과 비늘조각이 들어가.", "높은 단계는 실패하면 단계가 내려가기도 해.\n보호권은 가이드 책에서 확인해!"]],
-	"pet": [7, "진주가 모였어! 펫 오두막을 눌러 봐.", ["진주 10개로 펫을 한 번 뽑을 수 있어!\n뽑기 버튼을 눌러 봐.", "펫은 키우면 도움이 되는 친구야."]],
+	"aqua": [4, "수족관에 물고기를 넣어 볼까? 눌러 봐!"],
+	"forge": [3, "비늘이 모였네! 대장간을 눌러 봐."],
+	"pet": [7, "진주가 모였어! 펫 오두막을 눌러 봐."],
 }
 
 func active(m) -> bool:
@@ -411,6 +411,46 @@ func _forge_steps(m, v) -> void:
 			else: _do("강화하기를 눌러 봐!", b, true)
 		_: soft = true   # 강화하는 동안은 막지 않는다. 상점을 닫으면 가이드 책 안내
 
+func _row_pre(v, prefix: String) -> Rect2:
+	for row in v.rects.get("rows", []):
+		if str(row[1]).begins_with(prefix): return row[0]
+	return Rect2()
+
+func _aqua_count(m) -> int:
+	var n := 0
+	for f in m.aqua: if f != null: n += 1
+	return n
+
+## 수족관: 설명 → 물고기 관리 → 보관통 탭 → 넣기(실제로 넣어 봄)
+func _aqua_steps(m, v) -> void:
+	var pn: Rect2 = v.rects.get("panel", Rect2())
+	if sub == 2:
+		if lv0 < 0: lv0 = _aqua_count(m)
+		_say("수족관에 물고기를 넣어 두면\n쉬는 동안에도 비늘을 벌어 줘!", pn);return
+	if sub >= 3 and _aqua_count(m) > lv0: sub = 9
+	if sub >= 9: soft = true;return
+	if not v.aqua_manage: _do("물고기 관리를 눌러 봐!", _row(v, "amanage"), false);return
+	if not v.aquarium.list_bag: _do("보관통 · 넣기 탭을 눌러 봐!", _row(v, "alist_bag"), false);return
+	var b: Rect2 = _row_pre(v, "put:")
+	if b.size == Vector2.ZERO: _say("보관통에 넣을 물고기가 없어.\n낚시로 물고기를 잡아 와서 넣어 보자!", pn);return
+	_do("넣고 싶은 물고기의 넣기를 눌러 봐!", b, false)
+
+## 펫 오두막: 뽑기 탭 → 설명 → 1회 뽑기(진주가 있으면 눌러 보기)
+func _pet_steps(m, v) -> void:
+	var h = v.hut
+	if h == null or not is_instance_valid(h): return
+	var R: Dictionary = h.rects
+	if sub == 2:
+		if h.tab != "gacha": _do("뽑기 탭을 눌러 봐!", R.get("tab:gacha", Rect2()), false);return
+		sub = 3
+	match sub:
+		3: _say("진주 10개로 펫을 한 번 뽑을 수 있어!\n뽑은 펫은 키우면 도움이 돼.", R.get("pull", Rect2()).merge(R.get("pull10", Rect2())))
+		4: _say("무엇이 나오는지 궁금하면\n확률 보기를 눌러 확인해 봐!", R.get("odds", Rect2()))
+		5:
+			if m.pearl >= 10: _do("1회 뽑기를 눌러 봐!", R.get("pull", Rect2()), true)
+			else: _say("진주가 모자라면 낚시와 펫으로 모아 와!", R.get("pull", Rect2()))
+		_: soft = true
+
 func _walk_building(m) -> void:
 	var v = m.V;var row: Array = BLD_WALKS.get(walk, [])
 	if row.is_empty(): _walk_end(m);return
@@ -423,10 +463,10 @@ func _walk_building(m) -> void:
 		line = row[1];target = _building(m, row[0]);return
 	if v.shop != code: return
 	if sub < 2: sub = 2
-	if walk == "forge": _forge_steps(m, v);return
-	var pages: Array = row[2];var i: int = sub - 2
-	if i >= pages.size(): sub = 100;return
-	_say(pages[i], v.rects.get("panel", Rect2()))
+	match walk:
+		"forge": _forge_steps(m, v)
+		"aqua": _aqua_steps(m, v)
+		_: _pet_steps(m, v)
 
 func _hint_ready(m, k: String) -> bool:
 	var ex = m.expedition.data
