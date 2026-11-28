@@ -36,7 +36,7 @@ PNG 등 파일 손상·디코드 실패·승인 해시 불일치를 발견하면
 - 수정은 "폰에서 바로 볼 수 있는 가장 짧은 길"을 먼저 준다. 게임 내용 수정은 패치(버전 올림), 업데이터·아이콘·앱 구조 수정은 APK가 필요하다. 어느 쪽인지 먼저 구분해서 말한다. 같은 버전 번호로 내용만 바꾸면 이미 깐 폰이 받지 않으니 버전을 올린다.
 - 폰 확인은 사용자가 한다. 에이전트는 고치고, 전달 전 점검만 한다. 공개 배포는 사용자가 확인하고 승인한 뒤 하고, 공개 없이 확인할 수 있는 것(APK에 든 우편·UI)은 공개 없이 확인하게 한다.
 - UI·화면을 새로 만들거나 고치면 전달 전에 아래를 직접 확인한다(2분 작업): 4배 크기(1080x2160)로 렌더링해 기존 상점과 나란히 비교 / 글꼴은 main.gd와 같은 설정(복사본, oversampling 1.0, 갈무리 보조)과 글자 크기 10·12·14·16만 사용 / 그림은 정수 좌표 / 가장 긴 이름·숫자를 넣어 잘림 확인.
-- APK 제작: 서명키는 ChatGPT 보관 ZIP(nakshiworld_handoff)의 keys/debug.keystore다. 새 키를 만들지 않는다. 키가 이 세션에 없으면 작업 첫머리에 파일을 요청한다. 제작은 migration/make_apk.py 한 줄이다.
+- APK 제작(사용자 지시 2026-11-29, 사용자에게 키를 묻지 않는다): 서명키는 Claude 프로젝트 "낚시게임"의 문서 claude/debug_keystore_b64.txt(debug.keystore를 base64로 저장)에 있다. Projects 도구 project_read(path="claude/debug_keystore_b64.txt")로 받아 비공개 경로(저장소 밖, 예: /home/claude/keys)에 base64 -d로 풀고 chmod 600, keytool -list -keystore ... -storepass android 로 SHA-256이 5939b259…b763인지 확인한 뒤 쓴다. 저장소·채팅·로그에는 키 내용을 쓰지 않는다. 새 키를 만들지 않는다. 문서를 못 읽을 때만 사용자에게 요청한다. 제작은 migration/make_apk.py 한 줄이다. APK는 검증 후보의 full.pck로 만든다(patch.pck로 만들면 32MB로 작아져 "Couldn't load project data"·유해 앱 경고가 난다). 만든 뒤 크기(약 93~96MB)와 assets/project.binary 유무를 확인한다.
 - 푸시 전에 기대값이 바뀌는 코드(다운로드 방식, 우편 개수 등)를 바꿨으면 verify-work.yml이 돌리는 관련 테스트를 grep으로 찾아 로컬에서 함께 돌린다. CI에서 하나씩 실패하며 20분씩 낭비하지 않는다.
 
 ## 검증은 최소 출력 (사용자 지시, 2026-11-22)
