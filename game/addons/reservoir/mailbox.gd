@@ -74,8 +74,10 @@ func sections(letter: Dictionary) -> Array:
 	return groups.filter(func(group): return not group.body.is_empty())
 var button: = Rect2()
 var rects: = {}
+var tour_mail := false   # 튜토리얼을 끝내거나 건너뛰면(기존 플레이어 포함) 완료 선물 우편이 보인다
+const TOUR_LETTER := {"id": "tour", "label": "선물", "title": "튜토리얼 완료 선물", "summary": "강화·연성·펫 뽑기를 한 번씩 해 볼 수 있는 선물", "body": ["낚시월드에 온 걸 환영해요!", "강화 1회분 비늘과 비늘조각, 첫 병사 연성용 어혼, 펫 뽑기 1회분 진주를 보내요."]}
 func visible_letters() -> Array:
-	return letters.filter( func(l): return l.id not in deleted_ids)
+	return ([TOUR_LETTER] if tour_mail and "tour" not in deleted_ids else []) + letters.filter( func(l): return l.id not in deleted_ids)
 func unread() -> int:
 	return visible_letters().filter( func(l): return l.id not in read_ids).size()
 func mark(m, id: String) -> void :
@@ -118,7 +120,7 @@ func draw(m, h: float) -> void :
 			if letter.id in checked: m._text("✓", check.get_center() + Vector2(0, 4), 10, Color("3c654a"), true, 13)
 		else: envelope(m, Rect2(row.position + Vector2(6, 9), Vector2(22, 16)), Color("e7d29c"))
 		var x: float = row.position.x + 35
-		m._text("v" + letter.id, Vector2(x, row.position.y + 15), 10, Color("513b29"), false, 60)
+		m._text(letter.get("label", "v" + letter.id), Vector2(x, row.position.y + 15), 10, Color("513b29"), false, 60)
 		if letter.id not in read_ids:
 			m._text("NEW", Vector2(row.end.x - 28, row.position.y + 15), 9, Color(0.85, 0.32, 0.12, 0.7 + 0.3 * sin(m.ui_clock * 5)), true, 46)
 		m._text(m._ui_wrap(letter.title,9,174,1),Vector2(x,row.position.y+35),9,Color("513b29"),false,174)

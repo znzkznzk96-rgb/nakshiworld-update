@@ -7,6 +7,7 @@ const DATA = {
 	"1.08": {"id":"valley-once-20261107-108","region":1,"grade":0,"gold":1000000,"souls":0,"elements":0,"button":"계곡 20종 + 100만 비늘 받기","claimed":"선물 수령 완료","toast":"계곡20종 · 1,000,000비늘 수령","save_error":true},
 	"1.26": {"id":"tile-once-20261112-126","region":2,"grade":0,"gold":4635000,"souls":0,"elements":0,"button":"타일20종 + 4,635,000비늘 받기","claimed":"선물 수령 완료","toast":"타일바다20종 · 4,635,000비늘 수령","save_error":true},
 	"1.29": {"id":"bundle-essentials-129","species":[1,3,8,9,14,17,21,24,28,31,34,37],"grade":0,"gold":1000000,"souls":0,"elements":0,"button":"필수 어종 12마리 + 100만 받기","claimed":"선물 수령 완료","toast":"필수 어종 12마리 · 100만 비늘 수령","save_error":true},
+	"tour": {"id":"tutorial-reward-163","species":[],"grade":0,"gold":100,"souls":3,"elements":1,"pearl":10,"button":"튜토리얼 완료 선물 받기","claimed":"선물 수령 완료","toast":"강화·연성·펫 뽑기를 한 번씩 해 볼 수 있어요!"},
 	"1.44": {"id":"pearl-test-144","species":[],"grade":0,"gold":0,"souls":0,"elements":0,"pearl":10000,"button":"진주 10,000개 받기","claimed":"선물 수령 완료","toast":"진주 10,000개 수령","save_error":true}
 }
 static func info(letter_id: String) -> Dictionary:

@@ -110,6 +110,7 @@ var scene: = "fish"
 var V = preload("res://village.gd").new()
 var region_shop = preload("res://addons/reservoir/region_shop.gd").new()
 var guide = preload("res://addons/reservoir/guide.gd").new()
+var tour = preload("res://addons/reservoir/tutorial_tour.gd").new()
 var bait_picker = preload("res://addons/reservoir/bait_picker.gd").new()
 var mailbox = preload("res://addons/reservoir/mailbox.gd").new()
 var drag_player: AudioStreamPlayer
@@ -366,6 +367,7 @@ func _ready() -> void :
 	_load_tut()
 	_load_set()
 	_load_game()
+	tour.setup(self)
 	tex_sign = load("res://art/ui/title_sign.png")
 	V.setup()
 	if cooperative_boot:await get_tree().process_frame
@@ -654,7 +656,7 @@ func start_fight() -> void :
 	S.pSpeed = 0.85 + 0.3 * u;S.pTurn = 1.15 - 0.3 * u;S.pRange = randf_range(0.85, 1.15)
 	msg = "누르면 감기, 떼면 풀기"
 	parts.clear();aura_hist.clear();reveal_c = Vector2.INF;water_spawn_acc = 0.0;spawn_acc = 0.0
-	S.lesson = "";S.tut = false
+	S.tut = false
 	if S.get("tutFish", false): S.tut = true;S.tutState = {"i": 0};tut_begin_step()
 	if S.grade > 0:
 		reveal_t = 1.0;reveal_pending = true
@@ -785,10 +787,12 @@ const LESSON: = {
 	"skim": {"t": "수면 질주", "hand": ["rel", "떼기 → 멈추면 감기"], "text": "수면으로 올라와 물보라를 끌며 달려요. 손을 떼고, 물보라가 멈추는 순간 감으면 보너스!", "anim": [["skim", 1.4], ["rest", 0.4]]}, 
 }
 const TUT_STEPS: = [
-	{"key": "swim", "ask": "헤엄칠 땐 꾹 눌러 감기", "demo": [["swim", 1.8]], "need": 1}, 
-	{"key": "tell", "ask": "웅크리면 바로 손 떼기", "demo": [["swim", 0.8], ["tell", 0.8], ["run", 1.0]], "practice": [["swim", [1.0, 2.0]], ["tell", 0.7], ["run", 1.0]], "need": 2}, 
-	{"key": "rest", "ask": "늘어지면 꾹 감기", "demo": [["swim", 0.8], ["rest", 1.6]], "practice": [["swim", [0.8, 1.6]], ["rest", 1.6]], "need": 2}, 
+	{"key": "swim", "ask": "헤엄칠 땐 꾹 눌러 감기", "need": 1}, 
+	{"key": "tell", "ask": "웅크리면 바로 손 떼기", "practice": [["swim", [1.0, 2.0]], ["tell", 0.7], ["run", 1.0]], "need": 2}, 
+	{"key": "rest", "ask": "늘어지면 꾹 감기", "practice": [["swim", [0.8, 1.6]], ["rest", 1.6]], "need": 2}, 
 ]
+const POP_IN: = 0.2
+const POP_COLORS: = [Color("ffd166"), Color("ff8fab"), Color("8be0c8"), Color("9fd3ff"), Color("ffffff")]
 const LESSON_OF: = {"rise": "jump", "nose": "dive", "turn": "charge", "clone": "clone", "sulk": "sulk", "circle": "circle", "thrash": "thrash", "skim": "skim"}
 
 
@@ -950,9 +954,8 @@ func tut_step() -> Dictionary: return TUT_STEPS[S.tutState.i]
 
 func tut_begin_step() -> void :
 	var T: Dictionary = S.tutState
-	T.mode = "demo";T.ok = 0
-	msg = "연습용 붕어가 「%s」 몸짓을 보여 줘요" % LESSON[tut_step().key].t
-	start_seq(tut_step().demo)
+	T.ok = 0
+	open_card(tut_step().key, "practice")   # 처음 보는 몸짓은 도감 카드를 먼저 보여 주고, 닫으면 정상 속도로 연습
 
 func start_seq(seq: Array) -> void :
 	var T: Dictionary = S.tutState
@@ -977,7 +980,6 @@ func next_seq() -> void :
 func seq_end() -> void :
 	var T: Dictionary = S.tutState
 	var st: = tut_step()
-	if T.mode == "demo": open_card(st.key, "practice");return
 	if st.key == "rest":
 		if T.holdAcc >= 1.0: T.ok += 1;show_toast("좋아요! 지쳤을 때 감기 (%d/%d)" % [T.ok, st.need])
 		else: show_toast("늘어지면 꾹 감아요!")
@@ -1030,6 +1032,7 @@ func skip_tut() -> void :
 
 func open_card(key: String, after: String) -> void :
 	lesson_open = true;lesson_key = key;lesson_after = after;holding = false;lesson_clock = ui_clock;lesson_telegraph.reset_demo()
+	if after != "book": audio_feedback.sound(self, "click", -6.0, 1.8)
 
 func close_card(skip_after: = false) -> void :
 	if not lesson_open: return
@@ -1038,21 +1041,12 @@ func close_card(skip_after: = false) -> void :
 	lesson_after = ""
 	if not skip_after and a == "practice": start_practice()
 
-func lesson_end() -> void :
-	var k: String = S.lesson
-	S.lesson = "";_seen(k);_save_tut();open_card(k, "")
+func first_lesson(k: String) -> void :
+	_seen(k);_save_tut();open_card(k, "")
 
 func time_scale() -> float:
 	if lesson_open: return 0.0
 	if S.phase != "fight": return 1.0
-	if S.get("tut", false) and S.tutState.mode == "demo" and S.beh != "swim": return 0.35
-	match S.get("lesson", ""):
-		"jump": return 0.35 if S.beh == "rise" else 0.55
-		"charge": return 0.35 if S.beh == "turn" else 0.6
-		"dive": return 0.35 if S.beh == "nose" else 0.6
-		"clone": return 0.5
-		"spike": return 0.3
-		"sulk", "circle", "thrash", "skim": return 0.5
 	return 1.0
 
 
@@ -1086,7 +1080,15 @@ func _draw_lesson_card(t: float) -> void :
 	var L: Dictionary = LESSON[lesson_key]
 	var h: = get_viewport_rect().size.y
 	_ui_rect(Rect2( - ox, 0, VW + 2 * ox, h), Color(0.04, 0.06, 0.1, 0.55))
-	_ui_style_box(sb_panel, Rect2(20, 150, 230, 330 if lesson_after == "practice" or S.get("tut", false) else 300))
+	var card: = Rect2(20, 150, 230, 330 if lesson_after == "practice" or S.get("tut", false) else 300)
+	var pop_t: = ui_clock - lesson_clock
+	if lesson_after != "book" and pop_t < POP_IN:   # 팡: 작게 시작해 살짝 커졌다가 제자리(정수 도트 크기)
+		var pk: = pop_t / POP_IN
+		var s: = lerpf(0.3, 1.12, pk / 0.75) if pk < 0.75 else lerpf(1.12, 1.0, (pk - 0.75) / 0.25)
+		var sz: = (card.size * s).round()
+		_ui_style_box(sb_panel, Rect2((card.get_center() - sz / 2.0).round(), sz))
+		ui_demo = false;fish_mouth = saved_mouth;return
+	_ui_style_box(sb_panel, card)
 
 	var bx: = 45.0
 	var by: = 166.0
@@ -1144,6 +1146,15 @@ func _draw_lesson_card(t: float) -> void :
 	if S.get("tut", false):
 		_ui_style_box(sb_btn, SKIP_RECT)
 		_text("튜토리얼 건너뛰기", Vector2(VW / 2.0, SKIP_RECT.position.y + 15), 9, Color("3a2414"), true)
+	if lesson_after != "book" and pop_t < POP_IN + 0.6:   # 카드 가장자리에서 도트 조각이 톡톡 터져 나감
+		var bt: = pop_t - POP_IN * 0.6
+		for i in 22:
+			var a: = TAU * i / 22.0 + 0.3 * sin(i * 7.0)
+			var sp: = 70.0 + 50.0 * fposmod(i * 0.618, 1.0)
+			var p: = card.get_center() + Vector2(cos(a) * card.size.x * 0.5, sin(a) * card.size.y * 0.5) + Vector2(cos(a), sin(a)) * sp * bt + Vector2(0, 90.0 * bt * bt)
+			var col: Color = POP_COLORS[i % POP_COLORS.size()]
+			col.a = clampf(1.0 - bt / 0.6, 0.0, 1.0)
+			if bt > 0.0: _ui_rect(Rect2(p.round(), Vector2(2, 2) if i % 3 else Vector2(3, 3)), col)
 	ui_demo = false
 
 func shock_amount(k: float) -> float:
@@ -1180,8 +1191,7 @@ func update_fight(dt: float) -> void :
 		else:
 			if S.beh == "skim": S.skimEnd = clock + 0.4;S.skimUsed = holding
 			next_behavior()
-		if S.lesson != "" and S.lesson == {"jump": "jump", "dive": "dive", "charge": "charge", "clone": "clone", "sulk": "sulk", "circle": "circle", "thrash": "thrash", "skim": "skim"}.get(ended, "?"): lesson_end()
-		elif S.lesson == "" and LESSON_OF.has(S.beh) and not (LESSON_OF[S.beh] in TUT.seen): S.lesson = LESSON_OF[S.beh]
+		if LESSON_OF.has(S.beh) and not (LESSON_OF[S.beh] in TUT.seen): first_lesson(LESSON_OF[S.beh])
 	fight_telegraph.note_behavior(self)
 	if S.beh == "clone":
 		S.cloneT += dt;S.cloneSw -= dt
@@ -1195,10 +1205,9 @@ func update_fight(dt: float) -> void :
 			S.spike=0.25;buzz([40 + int(60 * S.grade / 4.0)])
 	elif S.spike > 0:
 		S.spike -= dt
-		if S.spike <= 0 and S.lesson == "spike": lesson_end()
-	elif active_region > 1 and c > 0 and not S.tut and S.lesson == "" and not (S.beh in ["rest", "tell", "rise", "jump", "nose", "dive", "turn", "charge", "clone"]) and randf() < c * 0.35 * dt:
+	elif active_region > 1 and c > 0 and not S.tut and not (S.beh in ["rest", "tell", "rise", "jump", "nose", "dive", "turn", "charge", "clone"]) and randf() < c * 0.35 * dt:
 		S.spikeWarn=fight_telegraph.SPIKE_WARNING
-		if not ("spike" in TUT.seen): S.lesson = "spike"
+		if not ("spike" in TUT.seen): first_lesson("spike")
 	var bmt: = {"swim": 1.0, "tell": 1.0, "run": 2.2, "rest": 0.35, "rise": 1.0, "jump": 0.0, "nose": 1.0, "dive": 2.0, "turn": 1.0, "charge": 0.3, 
 		"sulk": 3.0, "circle": 1.0, "thrash": 1.0, "skim": 2.4}
 	var bm: float = bmt[S.cloneSub if S.beh == "clone" else S.beh]
@@ -1345,6 +1354,7 @@ func _unhandled_input(e: InputEvent) -> void :
 		_slider_set(e.position.x - ox)
 
 func press(pos: = Vector2.ZERO) -> void :
+	if tour.intercept(self, pos): return
 	if capture_robot.press(self,pos): return
 	if expedition.opened!="": expedition.press(self,pos);return
 	if scene=="village" and V.shop=="" and not menu_open and not market_open and not settings_open and expedition.rects.get("strip",Rect2()).has_point(pos): expedition.open(self,"explore");return
@@ -1412,6 +1422,7 @@ func _process(dt: float) -> void :
 	_vib_update(dt)
 	sfx_update(dt)
 	inventory.sync(self)
+	tour.update(self, dt)
 	if is_instance_valid(title_screen.root): title_screen.root.visible = title_open or title_screen.leaving
 	if title_open:
 		title_screen.update(self, dt);queue_redraw();return
@@ -1557,6 +1568,7 @@ func _draw_overlays(t: float, h: float) -> void :
 	expedition.draw_result_notice(self)
 	expedition.draw(self,h)
 	capture_robot.draw_panel(self,h)
+	tour.draw(self, h)
 	if text_layer:
 		text_layer.position.x = ox
 		text_layer.items = text_items

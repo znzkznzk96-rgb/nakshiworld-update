@@ -1,5 +1,13 @@
 extends RefCounted
-const ROOM = preload("res://art/aquarium/tank_clean.png")
+const TANK = preload("res://art/aquarium/tank_cozy.png")
+const PLANTS = preload("res://art/aquarium/tank_plants.png")
+const RS = preload("res://addons/reservoir/shop_restyle.gd")
+# 수조 그림(244x256)을 세 기둥(왼 선반·물·오른 선반)으로 나눠 화면 높이에 맞춘다. 늘리지 않고
+# 0=고정 구간, 1=민무늬 구간(줄을 복제·생략해 길이를 맞춤), 2=높이가 모자라면 빼는 장식 구간.
+const COLS = [[0, 36, [[0, 32, 0], [32, 98, 2], [98, 103, 1], [103, 166, 0], [166, 176, 1], [176, 256, 0]]],
+	[36, 204, [[0, 48, 0], [48, 128, 1], [128, 256, 0]]],
+	[204, 244, [[0, 54, 0], [54, 106, 2], [106, 160, 0], [160, 176, 1], [176, 256, 0]]]]
+var tank_layout := []
 var effects_enabled := true
 var icon_cache := {}
 var room_bounds := Rect2()
@@ -105,9 +113,6 @@ func _fish(m, f: Dictionary, box: Rect2, flip: bool = false) -> void :
 		var d = Rect2(dest.position + Vector2(dest.size.x * i / 6, 0), Vector2(dest.size.x / 6 + 0.12, dest.size.y))
 		d.position.y += sin(m.ui_clock * 5 + i * 0.55 + sp) * pow(float(i if flip else 5 - i) / 5, 2) * 0.8
 		m._ui_texture_rect_region(tx, d, Rect2(src.position + Vector2(src.size.x * i / 6, 0), Vector2(src.size.x / 6, src.size.y)))
-func _dark_panel(m, r: Rect2, fill: Color = Color("123b47")) -> void:
-	m._ui_style_box(m.hud_reference_style,r)
-	m._ui_rect(Rect2(r.position+Vector2(4,4),r.size-Vector2(8,8)),fill)
 
 func _icon(m, name: String, r: Rect2) -> void:
 	if not icon_cache.has(name):
@@ -118,10 +123,10 @@ func _icon(m, name: String, r: Rect2) -> void:
 func draw_room(v,m,h: float) -> void:
 	var top: float=m.top_y+76
 	# Preserve the displayed tank dimensions; compact only its surrounding UI.
-	var tank_height: float=h-m.top_y-312
+	var tank_height: float=maxf(188.0,h-m.top_y-312)   # 새 수조 그림의 최소 높이(장식을 빼도 남는 고정 구간)
 	var r:=Rect2(8,top,254,62+tank_height+80)
-	v.active_style={"panel":m.sb_btn,"header":m.hud_reference_style,"card":m.sb_btn,"ink":Color("fff0d1"),"icon":"soul"}
-	_dark_panel(m,r,Color("132c37"))
+	v.active_style={"panel":m.sb_btn,"header":m.hud_reference_style,"card":m.sb_btn,"ink":RS.INK,"icon":"soul"}
+	RS.panel(m,r)
 	var header:=Rect2(r.position+Vector2(4,4),Vector2(246,30))
 	preload("res://addons/reservoir/shop_restyle.gd").header(m,header)
 	m._ui_texture_rect(v.tool_icons.soul,Rect2(header.position+Vector2(8,4),Vector2(22,22)))
@@ -141,19 +146,6 @@ func _effects(m, r: Rect2, front: bool) -> void:
 			var pts:=PackedVector2Array([Vector2(x,r.position.y),Vector2(x+7,r.position.y),Vector2(x+21,r.end.y),Vector2(x-14,r.end.y)])
 			var col:=Color(.65,.94,.84,.055+.018*sin(t*.7+i))
 			m._ui_polygon(pts,PackedColorArray([col,col,Color(col,0),Color(col,0)]))
-		# Separate pixel stems and leaves gently sway; none are baked into the tank.
-		for i in 7:
-			var x: float=r.position.x+10+i*(r.size.x-20)/6
-			for stem in 3:
-				var height: int=12+(i%3)*7+stem*4
-				for j in int(height/3):
-					var sway: float=roundf(sin(t*1.1+i+stem*.6+j*.18)*j*.3)
-					var p:=Vector2(x+(stem-1)*j*.7+sway,r.end.y-j*3)
-					m._ui_rect(Rect2(p.round(),Vector2(2,4)),Color("4c8450"))
-					if j>0 and j%2==0:
-						var side: float=-1 if (j+stem)%4<2 else 1
-						m._ui_rect(Rect2((p+Vector2(-4 if side<0 else 1,-1)).round(),Vector2(5,3)),Color("719b4e"))
-						m._ui_rect(Rect2((p+Vector2(-3 if side<0 else 2,-2)).round(),Vector2(3,1)),Color("a3b65a"))
 
 	else:
 		# Bubble positions wrap inside the water and never touch the frame.
@@ -165,20 +157,21 @@ func _effects(m, r: Rect2, front: bool) -> void:
 			m._ui_rect(Rect2(p+Vector2(1,-1),Vector2(2,1)),Color(.7,.96,.96,.35))
 
 func draw(v, m, r: Rect2, y: float) -> void:
-	v.commerce.feedback_rect=Rect2(18,r.end.y-25,234,18);v.commerce.feedback_dark=true
+	v.commerce.feedback_rect=Rect2(18,r.end.y-25,234,18);v.commerce.feedback_dark=false
 	var chip:=Rect2(13,y-6,244,25)
-	_dark_panel(m,chip)
-	m._text("%d / %d마리 · 분당 %.1f 비늘"%[m.aqua_count(),m.aqua_capacity(),m.aqua_rate()],chip.get_center()+Vector2(0,4),10,Color("e8f1df"),true,232)
+	RS.frame(m,chip,Color("f3e5c5"))
+	m._text("%d / %d마리 · 분당 %.1f 비늘"%[m.aqua_count(),m.aqua_capacity(),m.aqua_rate()],chip.get_center()+Vector2(0,4),10,RS.INK,true,232)
 	if v.pick_slot>=0 or v.aqua_manage:
 		v.active_style.ink=Color("513b29")
 		fish_rects.clear();room_bounds=Rect2();swim_bounds=Rect2()
 		m._ui_rect(Rect2(14,y+21,242,r.end.y-y-27),Color("e6eee4"))
 		_manage(v,m,r,y+22)
 		return
-	room_bounds=Rect2(13,y+20,244,r.size.y-142)
-	m._ui_texture_rect(ROOM,room_bounds)
-	var water:=Rect2(room_bounds.position+Vector2(12,room_bounds.size.y*.14),Vector2(220,room_bounds.size.y*.69))
+	room_bounds=Rect2(13,y+20,244,floorf(r.size.y-142))
+	_tank(m,room_bounds)
+	var water:=Rect2(room_bounds.position+Vector2(44,_map(1,40)),Vector2(152,_map(1,214)-_map(1,40)))
 	_effects(m,water,false)
+	if effects_enabled: _plants(m,room_bounds);_gadgets(m,room_bounds)
 	swim_bounds=Rect2(water.position+Vector2(6,6),water.size-Vector2(12,32))
 	fish_rects.clear()
 	var visible_index: int=0
@@ -210,7 +203,7 @@ func draw(v, m, r: Rect2, y: float) -> void:
 	var buttons_y: float=room_bounds.end.y+20
 	var manage:=Rect2(15,buttons_y,116,36)
 	var expand:=Rect2(135,buttons_y,120,36)
-	_dark_panel(m,manage,Color("155363"));_dark_panel(m,expand)
+	RS.draw_art(m,"button",manage);RS.draw_art(m,"button",expand)
 	_icon(m,"manage",Rect2(manage.position+Vector2(6,7),Vector2(22,22)))
 	m._text("물고기 관리",manage.get_center()+Vector2(12,4),10,Color("fff0d1"),true,82)
 	v.rects.rows.append([manage,"amanage"])
@@ -219,8 +212,8 @@ func draw(v, m, r: Rect2, y: float) -> void:
 	if m.FACILITIES.unlocked(m,"aexpand"):
 		m._text("%d→%d · %d비늘"%[m.aqua_capacity(),m.AQUA_CAP[m.aqua_lv+1],m.AQUA_COST[m.aqua_lv]],Vector2(195,expand.position.y+29),7,Color("f0c46e") if m.gold>=m.AQUA_COST[m.aqua_lv] else Color("e89c85"),true,114)
 		v.rects.rows.append([expand,"aexpand"])
-	else: m._text(m.FACILITIES.lock_label(m,"aexpand"),Vector2(195,expand.position.y+29),7,Color("a4bdba"),true,110)
-	m._text(v.aqua_notice if v.aqua_notice!="" else "쉬는 동안에도 최대 %d시간 수입" % m.AQUARIUM_OFFLINE_HOURS,Vector2(135,r.end.y-13),9,Color("b3cccb"),true,232)
+	else: m._text(m.FACILITIES.lock_label(m,"aexpand"),Vector2(195,expand.position.y+29),7,Color("cfe6e0"),true,110)
+	m._text(v.aqua_notice if v.aqua_notice!="" else "쉬는 동안에도 최대 %d시간 수입" % m.AQUARIUM_OFFLINE_HOURS,Vector2(135,r.end.y-13),9,Color("6e5c49"),true,232)
 
 func _manage(v, m, r: Rect2, y: float) -> void:
 	_button(v,m,Rect2(24,y+3,107,26),"보관통 · 넣기","alist_bag")
@@ -284,3 +277,105 @@ func act(v, m, a: String) -> bool:
 			v.aqua_notice="보관통으로 돌아왔어요"
 		_: return false
 	return true
+
+## 높이 h에 맞춘 기둥별 구간 [원본 시작, 원본 끝, 화면 시작, 화면 끝, 종류]
+func _layout(h: float) -> void:
+	tank_layout = []
+	for col in COLS:
+		var fixed := 0;var opt := 0;var flex := 0
+		for s in col[2]:
+			var n: int = s[1] - s[0]
+			if s[2] == 0: fixed += n
+			elif s[2] == 1: flex += n
+			else: opt += n
+		var keep_opt: bool = h - fixed - opt >= 0
+		var room: int = maxi(0, int(h) - fixed - (opt if keep_opt else 0))
+		var segs := [];var y := 0;var given := 0
+		var flex_left := flex
+		for s in col[2]:
+			var n: int = s[1] - s[0]
+			if s[2] == 2 and not keep_opt: continue
+			if s[2] == 1:
+				var share: int = room - given if n == flex_left else int(round(float(room) * n / flex))
+				given += share;flex_left -= n;n = share
+			segs.append([s[0], s[1], y, y + n, s[2]]);y += n
+		tank_layout.append(segs)
+
+## 원본 y가 화면(수조 안)에서 어디에 오는지. 빠진 장식 구간이면 -1
+func _map(c: int, y: float) -> float:
+	for s in tank_layout[c]:
+		if y >= s[0] and y < s[1]:
+			if s[4] == 1: return s[2] + (y - s[0]) * (s[3] - s[2]) / maxf(1.0, s[1] - s[0])
+			return s[2] + y - s[0]
+	return -1.0
+
+func _tank(m, room: Rect2) -> void:
+	_layout(room.size.y)
+	for c in COLS.size():
+		var x0: int = COLS[c][0];var w: int = COLS[c][1] - x0
+		for s in tank_layout[c]:
+			var dst_h: int = s[3] - s[2]
+			if dst_h <= 0: continue
+			if s[4] != 1:
+				m._ui_texture_rect_region(TANK, Rect2(room.position + Vector2(x0, s[2]), Vector2(w, dst_h)), Rect2(x0, s[0], w, dst_h))
+				continue
+			var src_h: int = s[1] - s[0]
+			var i := 0
+			while i < dst_h:   # 민무늬 구간: 원본 줄을 정수 줄 단위로 복제하거나 건너뛴다
+				var sy: int = s[0] + int(i * src_h / dst_h)
+				var run := 1
+				while i + run < dst_h and s[0] + int((i + run) * src_h / dst_h) == sy: run += 1
+				m._ui_texture_rect_region(TANK, Rect2(room.position + Vector2(x0, s[2] + i), Vector2(w, run)), Rect2(x0, sy, w, 1))
+				i += run
+
+## 바닥 수초: 뿌리는 그대로, 위로 갈수록 좌우로 살랑(정수 도트)
+func _plants(m, room: Rect2) -> void:
+	var t: float = m.ui_clock
+	for y in range(135, 206):
+		var dy: float = _map(1, y)
+		if dy < 0: continue
+		var amp: float = 2.0 * (205.0 - y) / 70.0
+		for half in 2:
+			var x0: int = 36 if half == 0 else 120
+			var off: float = roundf(sin(t * 1.3 + y * 0.07 + half * 1.9) * amp)
+			m._ui_texture_rect_region(PLANTS, Rect2(room.position + Vector2(x0 + off, dy), Vector2(84, 1)), Rect2(x0, y, 84, 1))
+
+func _dot(m, room: Rect2, c: int, p: Vector2, s: Vector2, col: Color) -> void:
+	var dy: float = _map(c, p.y)
+	if dy >= 0: m._ui_rect(Rect2((room.position + Vector2(p.x, dy)).round(), s), col)
+
+## 선반 물건: 전구 반짝, 하트 두근, 구슬 빛, 온도계·게이지 오르내림, 버튼 깜빡, 병 속 기포
+func _gadgets(m, room: Rect2) -> void:
+	var t: float = m.ui_clock
+	var bulbs := [[0, Vector2(15, 18)], [0, Vector2(32, 20)], [1, Vector2(49, 18)], [1, Vector2(192, 18)], [2, Vector2(206, 20)], [2, Vector2(228, 18)]]
+	for i in bulbs.size():
+		var a: float = 0.15 + 0.35 * (0.5 + 0.5 * sin(t * 2.3 + i * 1.7))
+		_dot(m, room, bulbs[i][0], bulbs[i][1] - Vector2(2, 2), Vector2(5, 5), Color(1, 0.9, 0.5, a * 0.5))
+		_dot(m, room, bulbs[i][0], bulbs[i][1] - Vector2(1, 1), Vector2(3, 3), Color(1, 0.95, 0.7, a))
+	var beat: float = fposmod(t, 1.2)
+	var pulse: float = maxf(0.0, 1.0 - beat / 0.25) + maxf(0.0, 1.0 - absf(beat - 0.32) / 0.12) * 0.6
+	_dot(m, room, 0, Vector2(6, 109), Vector2(13, 12), Color(1, 0.6, 0.7, 0.35 * pulse))
+	var oa: float = t * 1.6
+	_dot(m, room, 0, Vector2(12 + roundf(cos(oa) * 3), 129 + roundf(sin(oa) * 3)), Vector2(1, 1), Color(1, 1, 1, 0.9))
+	var lv: int = 3 + int(round(5.0 * (0.5 + 0.5 * sin(t * 0.8))))
+	_dot(m, room, 0, Vector2(12, 145), Vector2(1, 10), Color("e9f3f4"))
+	_dot(m, room, 0, Vector2(12, 155 - lv), Vector2(1, lv), Color("d8434e"))
+	for k in 2:
+		var on: bool = int(t * 1.5) % 2 == k
+		_dot(m, room, 0, Vector2(14, 184 if k == 0 else 227), Vector2(7, 4), Color(1, 0.95, 0.6, 0.45 if on else 0.0))
+	var lit: int = int(t * 2.5) % 5
+	for k in 4:
+		_dot(m, room, 2, Vector2(219 + k * 4, 44), Vector2(3, 4), Color("7ff5ff") if k < lit else Color("1d4250"))
+	var fill: int = 6 + int(round(12.0 * (0.5 + 0.5 * sin(t * 0.7))))
+	_dot(m, room, 2, Vector2(214, 182), Vector2(20, 4), Color("26303a"))
+	_dot(m, room, 2, Vector2(214, 182), Vector2(fill, 4), Color("f2a33a"))
+	var nx: float = 220.0 + roundf(sin(t * 1.1) * 6.0)
+	_dot(m, room, 2, Vector2(nx, 193), Vector2(1, 5), Color("2b3640"))
+	var blink: bool = int(t * 2.0) % 2 == 0
+	_dot(m, room, 2, Vector2(212, 208), Vector2(9, 9), Color(1, 0.7, 0.7, 0.4 if blink else 0.0))
+	_dot(m, room, 2, Vector2(228, 208), Vector2(9, 9), Color(0.7, 1, 0.7, 0.0 if blink else 0.4))
+	for k in 3:
+		var jx: float = [214.0, 229.0, 230.0][k];var jy0: float = [72.0, 72.0, 150.0][k]
+		var ph: float = fposmod(t * 0.7 + k * 0.37, 1.0)
+		_dot(m, room, 2, Vector2(jx, jy0 - roundf(ph * 10.0)), Vector2(1, 1), Color(0.85, 1, 1, 0.8 * (1.0 - ph)))
+	m._text("수족관", room.position + Vector2(122, _map(1, 25)), 12, Color("f6d58f"), true, 70)
