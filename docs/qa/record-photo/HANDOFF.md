@@ -467,3 +467,4 @@ Run [43538268264](https://github.com/znzkznzk96-rgb/nakshiworld-update/actions/r
 - bitforge에 수달을 style_image(강도 60)로 넣으면 모든 펫이 수달 형태·갈색/초록으로 오염됨(bk6). 같은 방식 재시도 금지.
 
 - 2026-11-28 실패 기록(튜토리얼 앞발 포인터): create-image-bitforge 32px 1장 방식으로 2회(각 1회분) 뽑았으나 둘 다 형태가 뭉개짐(1차 발등 묘사 → 하얀 덩어리, 2차 기존 앞발 style_image 55 → 발바닥 덩어리). 원본은 docs/design/tutorial/paw_v2·v3_rejected.png. 작은 UI 아이콘은 bitforge 1장 방식 품질이 낮다. 같은 방식으로 다시 뽑지 않는다. generate-image-v2(48px, 25장 10회분)는 품질 양호(paw.png 채택본).
+- 2026-11-28 실패 기록(v1.63 전체 검증 46100445873): 우편 선물에 "tour"를 추가하면서 mail_gifts_verify.gd의 합계(골드·어혼·진주·지급 ID 수)와 편지 표시 조건(tour_mail)을 갱신하지 않아 실패. 우편 선물(DATA)을 늘리면 이 검사 기대값을 같이 고친다.
