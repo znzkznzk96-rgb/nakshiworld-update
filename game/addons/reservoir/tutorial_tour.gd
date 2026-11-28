@@ -17,6 +17,7 @@ const TAB_LINES := {
 }
 
 var target := Rect2()        # 지금 눌러야 할 곳(없으면 자유롭게 조작)
+var point := Rect2()         # 앞발이 가리킬 칸(없으면 target). 설명 중인 칸과 다음에 누를 칸을 같이 밝힐 때 쓴다
 var line := ""
 var face := "idle"
 var bounce_t := -9.0
@@ -104,7 +105,7 @@ func _menu_item(m, i: int) -> Rect2:
 	return items[i] if i < items.size() else Rect2()
 
 func update(m, _dt: float) -> void:
-	target = Rect2()
+	target = Rect2();point = Rect2()
 	if not active(m):
 		if finish_t > 0 and m.ui_clock - finish_t > 2.0: finish_t = -1.0
 		_update_hint(m)
@@ -128,7 +129,9 @@ func update(m, _dt: float) -> void:
 				var done: bool = m.TUT.get("tour_bait", false)
 				if not done and v.tab != "bait":   # 탭을 하나씩 짚어 주고 마지막에 미끼 탭으로
 					var nxt: String = {"pouches": "gear_sell", "gear_sell": "bait"}.get(v.tab, "pouches")
-					line = TAB_LINES.get(v.tab, TAB_LINES.sell);target = _row(v, "tab:" + nxt)
+					line = TAB_LINES.get(v.tab, TAB_LINES.sell);point = _row(v, "tab:" + nxt);target = point
+					var cur: Rect2 = _row(v, "tab:" + v.tab)   # 설명 중인 탭도 어둡게 가리지 않고 같이 밝힌다
+					if cur.size != Vector2.ZERO and point.size != Vector2.ZERO: target = cur.merge(point)
 				else:
 					if not done:
 						m.bait += BAIT_GIFT;m.TUT.tour_bait = true;m._save_tut();m._save_game()
@@ -287,9 +290,10 @@ func _paint(m, h: float) -> void:
 		m._ui_rect(Rect2(o.position, Vector2(o.size.x, 2)), c);m._ui_rect(Rect2(o.position.x, o.end.y - 2, o.size.x, 2), c)
 		m._ui_rect(Rect2(o.position, Vector2(2, o.size.y)), c);m._ui_rect(Rect2(o.end.x - 2, o.position.y, 2, o.size.y), c)
 		# 앞발은 칸의 오른쪽 위 모서리 바깥에서 비스듬히 찌른다(간판·글자를 가리지 않게). 화면 끝이면 뒤집는다
-		var fx: bool = r.end.x > 236.0            # 오른쪽에 자리가 없으면 왼쪽 위에서
-		var fy: bool = r.position.y < m.top_y + 34   # 위에 자리가 없으면 아래에서
-		var corner := Vector2(r.position.x + 3 if fx else r.end.x - 3, r.end.y - 3 if fy else r.position.y + 3)
+		var pr: Rect2 = point.grow(3) if point.size != Vector2.ZERO else r
+		var fx: bool = pr.end.x > 236.0            # 오른쪽에 자리가 없으면 왼쪽 위에서
+		var fy: bool = pr.position.y < m.top_y + 34   # 위에 자리가 없으면 아래에서
+		var corner := Vector2(pr.position.x + 3 if fx else pr.end.x - 3, pr.end.y - 3 if fy else pr.position.y + 3)
 		var dir := Vector2(-1.0 if fx else 1.0, 1.0 if fy else -1.0)   # 모서리에서 앞발 쪽으로
 		# 둥실 떠다니다가 1.4초마다 톡 찌르고, 찌른 모서리에 반짝 물결
 		var ph: float = fposmod(t, 1.4)
