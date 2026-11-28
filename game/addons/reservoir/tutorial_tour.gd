@@ -304,21 +304,23 @@ func _band_top(m, h: float) -> bool:
 	if m.scene == "fish" and m.S.phase in ["wait", "pre", "hook"]: return true
 	return target.size != Vector2.ZERO and target.grow(4).end.y > _band_y(m, h)
 
-## 아래 띠 윗선: 하단 메뉴 줄까지 통째로 덮는다(반쯤 걸치지 않게)
+## 아래 띠 윗선: 얇은 띠를 하단 메뉴 줄 바로 위에 얹는다(메뉴 줄은 어둡게만 가린다)
 func _band_y(m, h: float) -> float:
 	var menu: Rect2 = m.ui_rects.get("menu", Rect2())
 	var y: float = h - m.bot_pad - BAND_H
-	if menu.size != Vector2.ZERO and menu.position.y < y: y = menu.position.y - 6
-	return y
+	if menu.size != Vector2.ZERO and menu.position.y - 6 < y + BAND_H: y = menu.position.y - 6 - BAND_H
+	return roundf(y)
 
 func _bubble(m, h: float) -> void:
 	var x0: float = -m.ox;var w: float = m.VW + 2 * m.ox
 	var top: bool = _band_top(m, h)
 	var by: float = _band_y(m, h)
-	var band := Rect2(x0, by, w, h - by + 2)
-	var cy: float = roundf(by + maxf((h - m.bot_pad - by - BAND_H) * 0.5, 0.0))   # 내용 윗선(아래 띠는 가운데)
-	var near := false
-	var bottom_edge: float = h - m.bot_pad   # 건너뛰기를 붙일 띠 아랫선
+	var band := Rect2(x0, by, w, BAND_H)
+	var cy: float = by   # 내용 윗선
+	var near := not top
+	var bottom_edge: float = by + BAND_H   # 건너뛰기를 붙일 띠 아랫선
+	if not top and target.size == Vector2.ZERO:   # 강조 칸이 없을 때도 띠 아래 메뉴 줄은 어둡게
+		m._ui_rect(Rect2(x0, by + BAND_H, w, h - by - BAND_H), Color(0.02, 0.03, 0.06, 0.74))
 	if top:
 		# 눌러야 할 곳이 아래쪽이면 맨 위로 보내지 않고 그 바로 위에 띄운 뒤 꼬리로 가리킨다
 		var ay: float = roundf(target.grow(4).position.y - PAW.get_height() - 10 - BAND_H)   # 띠와 칸 사이에 앞발
@@ -337,7 +339,7 @@ func _bubble(m, h: float) -> void:
 		rects.skip = Rect2(196, bottom_edge - 28, 66, 20)   # 늘 띠 오른쪽 아래 같은 자리(누르는 칸은 넉넉히, 그림은 글자만)
 		m._text("건너뛰기 >", Vector2(rects.skip.get_center().x, bottom_edge - 13), 10, Color("8c6a48"), true, 66)
 	var txt: String = m._ui_wrap(line, 10, 200, 2)
-	m._text(txt, Vector2(160, cy + (29 if "\n" in txt else 35)), 10, Color("382619"), true, 200)   # 글자도 세로 가운데
+	m._text(txt, Vector2(160, cy + (26 if "\n" in txt else 35)), 10, Color("382619"), true, 200)   # 글자도 세로 가운데
 
 func _confirm(m, h: float) -> void:
 	m._ui_rect(Rect2(-m.ox, 0, m.VW + 2 * m.ox, h), Color(0.02, 0.03, 0.06, 0.6))
