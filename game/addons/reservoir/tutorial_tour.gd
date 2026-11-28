@@ -439,6 +439,7 @@ func _aqua_steps(m, v) -> void:
 func _pet_steps(m, v) -> void:
 	var h = v.hut
 	if h == null or not is_instance_valid(h): return
+	if h._slot != null or not h._res.is_empty(): return   # 뽑기 연출·결과표 중에는 안내를 잠깐 내린다
 	var R: Dictionary = h.rects
 	if sub == 2:
 		if h.tab != "gacha": _do("뽑기 탭을 눌러 봐!", R.get("tab:gacha", Rect2()), false);return
@@ -447,9 +448,13 @@ func _pet_steps(m, v) -> void:
 		3: _say("진주 10개로 펫을 한 번 뽑을 수 있어!\n뽑은 펫은 키우면 도움이 돼.", R.get("pull", Rect2()).merge(R.get("pull10", Rect2())))
 		4: _say("무엇이 나오는지 궁금하면\n확률 보기를 눌러 확인해 봐!", R.get("odds", Rect2()))
 		5:
-			if m.pearl >= 10: _do("1회 뽑기를 눌러 봐!", R.get("pull", Rect2()), true)
+			if m.pearl >= 10:
+				if lv0 < 0: lv0 = m.pearl
+				_do("1회 뽑기를 눌러 봐!", R.get("pull", Rect2()), true)
 			else: _say("진주가 모자라면 낚시와 펫으로 모아 와!", R.get("pull", Rect2()))
-		_: soft = true
+		_:
+			soft = true
+			if m.pearl < lv0: line = "펫을 뽑았어! 상점을 닫고 나가면\n가이드 책을 알려 줄게."
 
 func _walk_building(m) -> void:
 	var v = m.V;var row: Array = BLD_WALKS.get(walk, [])
@@ -605,6 +610,8 @@ func _paint(m, h: float) -> void:
 			for v in [Vector2(-q, 0), Vector2(q, 0), Vector2(0, -q), Vector2(0, q)]:
 				m._ui_rect(Rect2((corner + v).round() - Vector2(1, 1), Vector2(2, 2)), rc)
 		if not explain: _finger(m, corner + (dir * d).round(), fx, fy)
+	elif explain:
+		m._ui_rect(Rect2(x0, 0, w, h), dim)   # 짚을 칸이 따로 없는 설명 쪽도 화면을 어둡게(고양이 말풍선만 밝게)
 	elif step(m) == 0:
 		# 좌우로 밀기: 양쪽 도트 화살표가 바깥으로 들썩이고, 앞발이 그 사이를 오간다
 		var cyy: float = roundf(h * 0.5);var pu: float = roundf(absf(sin(t * 3.0)) * 3.0)
