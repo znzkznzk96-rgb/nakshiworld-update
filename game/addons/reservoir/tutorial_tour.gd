@@ -37,16 +37,19 @@ const END_LINE := "이제 혼자서도 괜찮겠다냥! 완료 선물은 우편�
 var force := false        # 검사용: PC에서도 시작
 var hint := ""             # 지금 보여 주는 중간 안내 키(강제 아님, 한 번만)
 var hint_t := 0.0
-## 중간 안내: [키, 문구, 대상]. 대상 = "mail"/"guide"/"menu" 또는 마을 건물 번호
+var hint_page := 0
+## 중간 안내: [키, 쪽들]. 쪽 = [문구, 대상]. 대상 = "mail"/"guide"/"menu" 또는 마을 건물 번호. 마지막 쪽은 가이드로 안내한다.
 const HINTS := [
-	["mail", "우편함에 완료 선물이 왔어! 눌러서 받아 봐.", "mail"],
-	["moves", "만난 몸짓은 메뉴 → 설정 → 몸짓 도감에서 다시 볼 수 있어.", "menu"],
-	["aqua", "물고기를 수족관에 넣으면 쉬는 동안에도 비늘을 벌어!", 4],
-	["forge", "비늘이 모였네! 대장간에서 낚싯대를 강화할 수 있어.", 3],
-	["alch", "어혼 2개면 병사 하나! 메뉴 → 연성에서 만들어 봐.", "menu"],
-	["explore", "병사 3마리가 모였어! 메뉴 → 탐험에서 1-1에 보내 봐.", "menu"],
-	["pet", "진주 10개면 펫 오두막에서 한 번 뽑을 수 있어!", 7],
-	["guide", "궁금한 건 가이드 책에 다 있어. 언제든 눌러 봐!", "guide"],
+	["mail", [["우편함에 완료 선물이 왔어! 눌러서 받아 봐.", "mail"]]],
+	["moves", [["만난 몸짓은 메뉴 → 설정 → 몸짓 도감에서 다시 볼 수 있어.", "menu"]]],
+	["aqua", [["물고기를 수족관에 넣으면 쉬는 동안에도 비늘을 벌어!", 4], ["수족관 칸을 눌러 가방의 물고기를 넣어 봐.\n더 궁금한 건 가이드 책!", "guide"]]],
+	["forge", [["비늘이 모였네! 대장간에서 낚싯대를 강화할 수 있어.", 3], ["강화는 비늘과 비늘조각이 들어.\n높은 단계는 실패하면 내려갈 수도 있어!", 3], ["보호권 같은 자세한 건 가이드 책에서 읽어 봐!", "guide"]]],
+	["alch", [["어혼 2개가 모였어! 합치면 병사가 한 마리 나와.", "menu"], ["메뉴 → 연성 → 어혼 연성을 눌러 봐.", "menu"], ["위쪽 칸을 고르고 아래 어혼을 눌러\n재료 2개를 정해! 같은 속성도 돼.", "menu"], ["두 어혼의 조합으로 병사 종류가 정해져.\n처음 보는 병사는 물음표로 나와!", "menu"], ["더 궁금한 건 가이드 책을 읽어 봐!", "guide"]]],
+	["explore", [["병사 3마리가 모였어! 탐험은\n3마리가 있어야 출발할 수 있어.", "menu"], ["탐험 → 병사 배치에서 3마리를 편성해.\n카드는 왼쪽부터 뒤·중간·앞이야.", "menu"], ["그다음 메뉴 → 탐험에서 노선을 골라\n보내면 돼. 탐험 중에도 낚시는 OK!", "menu"], ["더 궁금한 건 가이드 책을 읽어 봐!", "guide"]]],
+	["soldier_up", [["병사는 강화할 수 있어! 비늘과 같은 속성\n어혼이 들고 +3까지 올라가.", "menu"], ["연성 화면에서 병사를 골라 강화해.\n탐험 중에는 못 하니까 조심!", "menu"], ["더 궁금한 건 가이드 책을 읽어 봐!", "guide"]]],
+	["merge", [["같은 별 병사 둘이 +3이 됐네!\n연성 → 병사 합성으로 별을 올려.", "menu"], ["1성 둘은 2성, 2성 둘은 3성이 돼.\n재료 병사는 사라지니 확인창을 봐!", "menu"], ["아끼는 병사는 잠가 두면 안전해.\n더 궁금한 건 가이드 책!", "guide"]]],
+	["pet", [["진주 10개면 펫 오두막에서 한 번 뽑을 수 있어!", 7], ["오두막에서 뽑기를 누르면 돼.\n더 궁금한 건 가이드 책!", "guide"]]],
+	["guide", [["궁금한 건 가이드 책에 다 있어. 언제든 눌러 봐!", "guide"]]],
 ]
 
 func active(m) -> bool:
@@ -196,7 +199,18 @@ func _hint_ready(m, k: String) -> bool:
 		"alch": return int(ex.souls.reduce(func(a, b): return a + int(b), 0)) >= 2 and ex.soldiers.is_empty()   # 연성 1회 = 어혼 2개
 		"explore": return ex.soldiers.size() >= 3 and ex.completed.is_empty()   # 탐험은 병사 3마리가 있어야 출발
 		"pet": return m.pearl >= 10 and m.pet_hut.get("e", []).is_empty()
+		"soldier_up": return ex.soldiers.size() >= 3 and "explore" in m.TUT.get("hints", []) and ex.soldiers.any(func(u): return int(u.level) < 3)
+		"merge": return _can_merge(ex)
 		"guide": return m.TUT.get("hints", []).size() >= 3
+	return false
+
+func _can_merge(ex) -> bool:
+	for i in ex.soldiers.size():
+		var a = ex.soldiers[i]
+		if int(a.level) < 3 or int(a.star) >= 3: continue
+		for j in range(i + 1, ex.soldiers.size()):
+			var b = ex.soldiers[j]
+			if int(b.star) == int(a.star) and int(b.level) >= 3: return true
 	return false
 
 func _hint_target(m, what) -> Rect2:
@@ -213,34 +227,53 @@ func _update_hint(m) -> void:
 	var free_view: bool = m.scene == "village" and m.V.shop == "" and not m.menu_open and not m.market_open and not m.settings_open \
 		and not m.mailbox.opened and not m.guide.opened and not m.personal_dex.opened and m.expedition.opened == "" and not _blocked(m)
 	if hint != "":
-		if not free_view or m.ui_clock - hint_t > 6.0: hint = ""
+		if not free_view: hint = ""
+		elif m.ui_clock - hint_t > 8.0: _hint_next(m)
 		return
 	if not free_view or finish_t > 0 or (end_t > 0 and m.ui_clock - end_t < 3.5): return
 	var seen: Array = m.TUT.get("hints", [])
 	for h in HINTS:
 		if h[0] in seen or not _hint_ready(m, h[0]): continue
-		hint = h[0];hint_t = m.ui_clock;face = "happy" if h[0] == "mail" else "idle"
-		seen.append(h[0]);m.TUT.hints = seen;m._save_tut()
+		hint = h[0];hint_t = m.ui_clock;hint_page = 0;face = "happy" if h[0] == "mail" else "idle"
+		if h[1].size() == 1: _hint_seen(m)
 		m.audio_feedback.sound(m, "click", -10.0, 1.4)
 		return
 
+func _hint_seen(m) -> void:
+	var seen: Array = m.TUT.get("hints", [])
+	if not hint in seen: seen.append(hint);m.TUT.hints = seen;m._save_tut()
+
+## 다음 쪽으로. 마지막 쪽이면 닫고 본 것으로 기록한다.
+func _hint_next(m) -> void:
+	var pages: Array = []
+	for x in HINTS: if x[0] == hint: pages = x[1]
+	hint_page += 1;hint_t = m.ui_clock
+	if hint_page >= pages.size(): _hint_seen(m);hint = "";hint_page = 0
+	elif hint_page == pages.size() - 1: _hint_seen(m)
+	else: m.audio_feedback.sound(m, "click", -12.0, 1.2)
+
 func _paint_hint(m, h: float) -> void:
-	var row: Array = []
-	for x in HINTS: if x[0] == hint: row = x
-	if row.is_empty(): return
-	var r: Rect2 = _hint_target(m, row[2])
+	var pages: Array = []
+	for x in HINTS: if x[0] == hint: pages = x[1]
+	if pages.is_empty(): return
+	var row: Array = pages[mini(hint_page, pages.size() - 1)]
+	var r: Rect2 = _hint_target(m, row[1])
 	if r.size != Vector2.ZERO and Rect2(0, 0, 270, h).intersects(r):
 		var c := Color(1, 0.88, 0.45, 0.55 + 0.45 * sin(m.ui_clock * 6.0))
 		var o := r.grow(3)
 		m._ui_rect(Rect2(o.position, Vector2(o.size.x, 2)), c);m._ui_rect(Rect2(o.position.x, o.end.y - 2, o.size.x, 2), c)
 		m._ui_rect(Rect2(o.position, Vector2(2, o.size.y)), c);m._ui_rect(Rect2(o.end.x - 2, o.position.y, 2, o.size.y), c)
-	line = row[1];target = r
+	line = row[0];target = r
 	_bubble(m, h)
 	line = "";target = Rect2()
 
 ## 누른 곳이 지금 단계에서 허용되는지. true면 게임은 그 입력을 무시한다.
 func intercept(m, p: Vector2) -> bool:
-	if hint != "": hint = ""   # 안내는 아무 곳이나 누르면 닫히고, 누른 입력은 그대로 게임으로 간다
+	if hint != "":   # 여러 쪽 안내: 누르면 다음 쪽(그 입력은 막음), 마지막 쪽이나 한 쪽짜리는 닫히고 입력은 그대로 게임으로 간다
+		var n := 1
+		for x in HINTS: if x[0] == hint: n = x[1].size()
+		if hint_page < n - 1: _hint_next(m);return true
+		hint = "";hint_page = 0
 	if not active(m) or _blocked(m): return false
 	if confirm:
 		if rects.get("yes", Rect2()).has_point(p): _finish(m);m.lesson_open = false;m.audio_feedback.sound(m, "click", -8.0)

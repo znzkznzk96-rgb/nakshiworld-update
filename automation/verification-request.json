@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_before_request": "c0472d27cc06871ef27c98e79ed082d833745469",
-  "reason": "v1.66 튜토리얼 상점 탭 설명 때 설명 중인 탭도 같이 밝게(앞발은 다음 탭)",
-  "requested_at": "2026-11-28T15:56:39.362807+00:00"
+  "source_before_request": "d34de93f7e5ee94466643bc02200894a3b6dd613",
+  "reason": "v1.66 중간 안내 여러 쪽",
+  "requested_at": "2026-11-28T16:16:19Z"
 }

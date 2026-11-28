@@ -48,5 +48,13 @@ func run() -> void:
 	check(not m.tour.intercept(m, Vector2(135, 300)) and m.tour.hint == "", "hint closes without blocking")
 	for i in 3: await process_frame
 	check(m.tour.hint != "mail", "mail hint only once")
+	# 여러 쪽 안내: 누르면 다음 쪽(입력 막음), 마지막 쪽에서 닫히고 그때 본 것으로 기록
+	m.tour.hint = "explore";m.tour.hint_page = 0
+	check(m.tour.intercept(m, Vector2(135, 300)) and m.tour.hint == "explore" and m.tour.hint_page == 1, "multi-page hint advances and blocks tap")
+	while m.tour.hint_page < 3: m.tour.intercept(m, Vector2(135, 300))
+	check(not m.tour.intercept(m, Vector2(135, 300)) and m.tour.hint == "", "last page closes without blocking")
+	var last_pages: Array = []
+	for hh in m.tour.HINTS: if hh[1].size() > 1: last_pages.append(hh[1][hh[1].size() - 1][1])
+	check(last_pages.all(func(x): return x == "guide"), "every multi-page hint ends at the guide")
 	print("TUTORIAL_TOUR_VERIFY failures=", failures)
 	quit(1 if failures else 0)
