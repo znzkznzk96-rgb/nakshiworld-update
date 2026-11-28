@@ -955,7 +955,7 @@ func tut_step() -> Dictionary: return TUT_STEPS[S.tutState.i]
 func tut_begin_step() -> void :
 	var T: Dictionary = S.tutState
 	T.ok = 0
-	open_card(tut_step().key, "practice")   # 처음 보는 몸짓은 도감 카드를 먼저 보여 주고, 닫으면 정상 속도로 연습
+	start_practice()   # 몸짓 카드는 미리 띄우지 않고, 그 몸짓이 실제로 처음 나올 때 띄운다(_practice_card)
 
 func start_seq(seq: Array) -> void :
 	var T: Dictionary = S.tutState
@@ -970,6 +970,7 @@ func next_seq() -> void :
 	var b: String = T.seq[T.si][0]
 	var d = T.seq[T.si][1]
 	S.beh = b;T.sbt = randf_range(d[0], d[1]) if d is Array else float(d)
+	_practice_card(b)
 	if b == "tell": buzz([25, 45, 25])
 	if b == "run":
 		buzz(vib_run())
@@ -991,8 +992,17 @@ func start_practice() -> void :
 	var st: = tut_step()
 	T.mode = "practice"
 	msg = "직접 해 보세요 · " + st.ask
-	if st.key == "swim": S.beh = "swim";T.seq = [];T.holdAcc = 0.0
+	if st.key == "swim": S.beh = "swim";T.seq = [];T.holdAcc = 0.0;_practice_card("swim")
 	else: start_seq(st.practice)
+
+## 연습 중 이번 단계에서 배울 몸짓이 처음 나온 순간에만 그 카드 1장을 띄운다(닫으면 그 자리에서 이어짐)
+func _practice_card(b: String) -> void :
+	var T: Dictionary = S.tutState
+	if b != tut_step().key: return
+	var shown: Array = T.get("shown", [])
+	if b in shown: return
+	shown.append(b);T.shown = shown
+	open_card(b, "")
 
 func step_done() -> void :
 	var T: Dictionary = S.tutState
@@ -3308,6 +3318,7 @@ func _ui_arc(p: Vector2, r: float, a: float, b: float, n: int, c: Color, w: floa
 
 func _ui_wrap(value: String, size: int, width: float, max_lines: int = 2) -> String:
 	var lines: Array[String] = preload("res://addons/reservoir/text_layout.gd").wrap(self,value,size,width)
+	for li in lines.size(): lines[li] = lines[li].rstrip(" ")   # 줄 끝 띄어쓰기 때문에 가운데 정렬이 한쪽으로 쏠리지 않게
 	max_lines=maxi(1,max_lines)
 	if lines.size() > max_lines:
 		lines.resize(max_lines)

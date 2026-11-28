@@ -34,11 +34,11 @@ var hint_t := 0.0
 ## 중간 안내: [키, 문구, 대상]. 대상 = "mail"/"guide"/"menu" 또는 마을 건물 번호
 const HINTS := [
 	["mail", "우편함에 완료 선물이 왔어! 눌러서 받아 봐.", "mail"],
-	["moves", "만난 몸짓은 도감에서 언제든 다시 볼 수 있어.", "menu"],
-	["aqua", "물고기를 수족관에 넣으면 쉬는 동안 돈을 벌어!", 4],
-	["forge", "대장간에서 낚싯대를 강화하면 더 큰 고기를 낚아!", 3],
-	["alch", "어혼이 있네! 메뉴 → 연성에서 첫 병사를 만들어 봐.", "menu"],
-	["explore", "병사가 생겼어! 메뉴 → 탐험에서 1-1에 보내 봐.", "menu"],
+	["moves", "만난 몸짓은 메뉴 → 설정 → 몸짓 도감에서 다시 볼 수 있어.", "menu"],
+	["aqua", "물고기를 수족관에 넣으면 쉬는 동안에도 비늘을 벌어!", 4],
+	["forge", "비늘이 모였네! 대장간에서 낚싯대를 강화할 수 있어.", 3],
+	["alch", "어혼 2개면 병사 하나! 메뉴 → 연성에서 만들어 봐.", "menu"],
+	["explore", "병사 3마리가 모였어! 메뉴 → 탐험에서 1-1에 보내 봐.", "menu"],
 	["pet", "진주 10개면 펫 오두막에서 한 번 뽑을 수 있어!", 7],
 	["guide", "궁금한 건 가이드 책에 다 있어. 언제든 눌러 봐!", "guide"],
 ]
@@ -77,6 +77,11 @@ func _blocked(m) -> bool:
 	return m.title_open or m.title_screen.leaving or not m.trans.is_empty() or is_instance_valid(m.intro)
 
 ## 화면 좌표의 건물 칸(마을 지도 → 화면)
+func _row(v, key: String) -> Rect2:
+	for row in v.rects.get("rows", []):
+		if row[1] == key: return row[0]
+	return Rect2()
+
 func _building(m, i: int) -> Rect2:
 	var v = m.V;var b: Array = v.BUILD[i]
 	var h: float = m.get_viewport_rect().size.y
@@ -115,10 +120,13 @@ func update(m, _dt: float) -> void:
 				if m.TUT.get("tour_bait", false): _go(m, 2);return
 				line = "낚시 상점에 가 보자. 미끼를 챙겨 줄게!";target = _building(m, BUILD_UP)
 			elif v.shop == "up":
-				if not m.TUT.get("tour_bait", false):
-					m.bait += BAIT_GIFT;m.TUT.tour_bait = true;m._save_tut();m._save_game()
-					m.show_toast("고양이가 미끼 %d개를 줬어요!" % BAIT_GIFT, Color("ffd166"));face = "happy"
-				line = "미끼 %d개 선물이야! 이제 상점을 닫자." % BAIT_GIFT;target = v.rects.get("close", Rect2())
+				if not m.TUT.get("tour_bait", false) and v.tab != "bait":
+					line = "미끼 탭을 눌러 봐!";target = _row(v, "tab:bait")   # 먼저 미끼 탭으로
+				else:
+					if not m.TUT.get("tour_bait", false):
+						m.bait += BAIT_GIFT;m.TUT.tour_bait = true;m._save_tut();m._save_game()
+						m.show_toast("고양이가 미끼 %d개를 줬어요!" % BAIT_GIFT, Color("ffd166"));face = "happy"
+					line = "미끼가 있으면 입질이 빨라져! %d개 선물이야." % BAIT_GIFT;target = v.rects.get("close", Rect2())
 			else: target = v.rects.get("close", Rect2());line = "앗, 여긴 아니야. 닫고 낚시 상점으로 가자."
 		2:   # 메뉴 → 낚시터 → 첫 낚시터 들어가기
 			if m.scene == "fish": _go(m, 3);return
@@ -141,7 +149,7 @@ func update(m, _dt: float) -> void:
 					if m.S.get("ok", false):
 						if not m.TUT.get("tour_caught", false):
 							m.TUT.tour_caught = true;m._save_tut();_pop(m, "첫 낚시 성공!")
-						line = "잡았다! '보관'을 눌러 가방에 넣자.";target = m.ui_rects.get("keep", Rect2())
+						line = "잡았다! '보관통에 넣기'를 눌러 챙기자.";target = m.ui_rects.get("keep", Rect2())
 		4:   # 마을로 → 어시장에서 팔기 → 도감 열기
 			if m.personal_dex.opened:
 				if finish_t < 0.0: finish_t = m.ui_clock;_pop(m, "도감 등록!")
@@ -174,9 +182,9 @@ func _hint_ready(m, k: String) -> bool:
 		"mail": return m.mailbox.tour_mail and not ("tutorial-reward-163" in m.testing_grants)
 		"moves": return m.TUT.seen.size() >= 2
 		"aqua": return m.bag.size() >= 3
-		"forge": return m.gold >= 300
-		"alch": return ex.souls.max() >= 1 and ex.soldiers.is_empty()
-		"explore": return not ex.soldiers.is_empty() and ex.completed.is_empty()
+		"forge": return m.gold >= m.V.enhancement.cost(m.forge_lv, m.rod_lv) and m.souls >= m.V.enhancement.soul_cost(m.rod_lv, m.forge_lv)
+		"alch": return int(ex.souls.reduce(func(a, b): return a + int(b), 0)) >= 2 and ex.soldiers.is_empty()   # 연성 1회 = 어혼 2개
+		"explore": return ex.soldiers.size() >= 3 and ex.completed.is_empty()   # 탐험은 병사 3마리가 있어야 출발
 		"pet": return m.pearl >= 10 and m.pet_hut.get("e", []).is_empty()
 		"guide": return m.TUT.get("hints", []).size() >= 3
 	return false
