@@ -333,9 +333,9 @@ func _bubble(m, h: float) -> void:
 		var cur: int = step(m)
 		for i in STEPS:
 			m._ui_rect(Rect2(60 + i * 9, cy + 11, 5, 5), Color("e0a93a") if i < cur else (Color("7a5232") if i == cur else Color(0.48, 0.32, 0.2, 0.3)))
-		rects.skip = Rect2(196, cy + 4, 66, 20)   # 늘 띠 오른쪽 위 같은 자리(누르는 칸은 넉넉히, 그림은 글자만)
-		m._text("건너뛰기 >", Vector2(rects.skip.get_center().x, cy + 19), 10, Color("8c6a48"), true, 66)
-	m._text(m._ui_wrap(line, 10, 200, 2), Vector2(160, cy + 34), 10, Color("382619"), true, 200)
+		rects.skip = Rect2(196, cy + BAND_H - 28, 66, 20)   # 늘 띠 오른쪽 아래 같은 자리(누르는 칸은 넉넉히, 그림은 글자만)
+		m._text("건너뛰기 >", Vector2(rects.skip.get_center().x, cy + BAND_H - 13), 10, Color("8c6a48"), true, 66)
+	m._text(m._ui_wrap(line, 10, 200, 2), Vector2(160, cy + (28 if active(m) else 34)), 10, Color("382619"), true, 200)
 
 func _confirm(m, h: float) -> void:
 	m._ui_rect(Rect2(-m.ox, 0, m.VW + 2 * m.ox, h), Color(0.02, 0.03, 0.06, 0.6))
