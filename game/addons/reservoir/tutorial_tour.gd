@@ -5,6 +5,7 @@ extends RefCounted
 const DONE := 99
 const STEPS := 5
 const PORTRAITS := {"idle": preload("res://art/tutorial/cat_idle.png"), "happy": preload("res://art/tutorial/cat_happy.png"), "wow": preload("res://art/tutorial/cat_wow.png")}
+const PAW := preload("res://art/tutorial/paw.png")   # PixelLab 고양이 앞발(아래를 가리킴)
 const POP_COLORS := [Color("ffd166"), Color("ff8fab"), Color("8be0c8"), Color("9fd3ff"), Color("ffffff")]
 const BUILD_UP := 2      # village.gd BUILD 낚시 상점
 const BUILD_WORK := 1    # village.gd BUILD 어시장
@@ -270,23 +271,23 @@ func _paint(m, h: float) -> void:
 		m._ui_rect(Rect2(hl.position, Vector2(2, hl.size.y)), hc);m._ui_rect(Rect2(hl.end.x - 2, hl.position.y, 2, hl.size.y), hc)
 		m._ui_rect(Rect2(o.position, Vector2(o.size.x, 2)), c);m._ui_rect(Rect2(o.position.x, o.end.y - 2, o.size.x, 2), c)
 		m._ui_rect(Rect2(o.position, Vector2(2, o.size.y)), c);m._ui_rect(Rect2(o.end.x - 2, o.position.y, 2, o.size.y), c)
-		_finger(m, Vector2(r.get_center().x + 6, r.end.y + 2 + roundf(absf(sin(t * 4.0)) * -4.0)), t)
+		var bob: float = roundf(absf(sin(t * 4.0)) * 4.0)
+		if r.position.y > m.top_y + 40: _finger(m, Vector2(r.get_center().x, r.position.y - 1 - bob), false)
+		else: _finger(m, Vector2(r.get_center().x, r.end.y + 1 + bob), true)
 	elif step(m) == 0:
 		var sx: float = 135.0 + roundf(sin(t * 2.2) * 40.0)
-		_finger(m, Vector2(sx, h * 0.5), t)
+		_finger(m, Vector2(sx, h * 0.5), false)
 	if line != "": _bubble(m, h)
 	else: rects.skip = Rect2()
 	if confirm: _confirm(m, h)
 
-func _finger(m, tip: Vector2, t: float) -> void:
-	# 작은 도트 손가락: 끝이 tip을 가리키며 톡톡
-	var p := tip.round()
-	var skin := Color("ffe0bd");var ink := Color("4a2c1d")
-	m._ui_rect(Rect2(p + Vector2(-1, 0), Vector2(5, 9)), ink);m._ui_rect(Rect2(p + Vector2(0, 1), Vector2(3, 8)), skin)
-	m._ui_rect(Rect2(p + Vector2(-3, 8), Vector2(11, 9)), ink);m._ui_rect(Rect2(p + Vector2(-2, 9), Vector2(9, 7)), skin)
-	if fposmod(t * 2.0, 1.0) < 0.3: m._ui_rect(Rect2(p + Vector2(-4, -4), Vector2(11, 1)), Color(1, 1, 1, 0.7))
+func _finger(m, tip: Vector2, up: bool) -> void:
+	# 앞발 발바닥 끝이 tip에 닿는다. up이면 뒤집어 아래에서 위를 가리킨다
+	var sz := PAW.get_size()
+	var x: float = roundf(tip.x - sz.x * 0.5)
+	if up: m._ui_texture_rect(PAW, Rect2(x, roundf(tip.y) + sz.y, sz.x, -sz.y))
+	else: m._ui_texture_rect(PAW, Rect2(x, roundf(tip.y) - sz.y, sz.x, sz.y))
 
-## 안내 띠: 화면 아래를 끝까지 덮는다. 눌러야 할 곳과 겹치거나 찌를 볼 때는 위쪽(상단 정보 칸)을 덮는다
 func _band_top(m, h: float) -> bool:
 	if m.scene == "fish" and m.S.phase in ["wait", "pre", "hook"]: return true
 	return target.size != Vector2.ZERO and target.grow(4).end.y > _band_y(m, h)
@@ -302,9 +303,17 @@ func _bubble(m, h: float) -> void:
 	var x0: float = -m.ox;var w: float = m.VW + 2 * m.ox
 	var top: bool = _band_top(m, h)
 	var by: float = _band_y(m, h)
-	var band := Rect2(x0, 0, w, m.top_y + BAND_H + 4) if top else Rect2(x0, by, w, h - by + 2)
-	var cy: float = m.top_y + 2 if top else roundf(by + maxf((h - m.bot_pad - by - BAND_H) * 0.5, 0.0))   # 내용 윗선(아래 띠는 가운데)
-	m._ui_style_box(m.sb_panel, band.grow_individual(4, 2 if not top else 4, 4, 4 if not top else 0))
+	var band := Rect2(x0, by, w, h - by + 2)
+	var cy: float = roundf(by + maxf((h - m.bot_pad - by - BAND_H) * 0.5, 0.0))   # 내용 윗선(아래 띠는 가운데)
+	var near := false
+	if top:
+		# 눌러야 할 곳이 아래쪽이면 맨 위로 보내지 않고 그 바로 위에 띄운 뒤 꼬리로 가리킨다
+		var ay: float = roundf(target.grow(4).position.y - PAW.get_height() - 10 - BAND_H)   # 띠와 칸 사이에 앞발
+		if target.size != Vector2.ZERO and ay > m.top_y + 70 and not (m.scene == "fish" and m.S.phase in ["wait", "pre", "hook"]):
+			band = Rect2(x0, ay, w, BAND_H);cy = ay;near = true   # 칸 바로 위에 띄운다
+		else:
+			band = Rect2(x0, 0, w, m.top_y + BAND_H + 4);cy = m.top_y + 2
+	m._ui_style_box(m.sb_panel, band.grow_individual(4, 2 if not top else 4, 4, 4 if not top else 0) if not near else band.grow_individual(4, 0, 4, 0))
 	var tex: Texture2D = PORTRAITS.get(face, PORTRAITS.idle)
 	var hop: float = -2.0 if m.ui_clock - pop_t < 0.3 else 0.0
 	m._ui_texture_rect(tex, Rect2(6, cy + 8 + hop, 48, 48))
