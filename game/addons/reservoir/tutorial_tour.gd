@@ -11,7 +11,7 @@ const BUILD_UP := 2      # village.gd BUILD 낚시 상점
 const BUILD_WORK := 1    # village.gd BUILD 어시장
 const BAIT_GIFT := 3
 const TAB_LINES := {
-	"sell": "여긴 장비 탭! 돈을 벌어 파츠를 해금하면 나오는 물고기 종류가 달라져!",
+	"sell": "여긴 장비 탭! 돈을 벌어 찌→바늘→줄을 해금할수록 더 높은 별 물고기가 나와!",
 	"pouches": "어혼 탭에선 병사를 키울 어혼 주머니를 팔아. 다음 탭을 눌러 봐!",
 	"gear_sell": "팔기 탭에선 벗어 둔 장비를 팔아. 이제 미끼 탭을 눌러 봐!",
 }
