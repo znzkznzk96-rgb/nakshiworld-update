@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_before_request": "f6043646dc66d73a10685379126528c8ace77d38",
-  "reason": "v1.65 튜토리얼 중 상점 창 아래 여백 확대(고양이 띠가 보관통 줄을 덮는 문제)",
-  "requested_at": "2026-11-28T13:37:07.155388+00:00"
+  "source_before_request": "d34de93f7e5ee94466643bc02200894a3b6dd613",
+  "reason": "v1.66 중간 안내 여러 쪽",
+  "requested_at": "2026-11-28T16:16:19Z"
 }
