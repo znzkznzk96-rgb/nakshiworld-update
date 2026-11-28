@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_before_request": "ed40515563d48e8f2eed2dd9fafcfb2e1008ad00",
-  "reason": "v1.64 튜토리얼 상점 탭 설명 + 필요한 몸짓 카드만 + 안내 문구·줄바꿈 정리",
-  "requested_at": "2026-11-28T12:41:59.194273+00:00"
+  "source_before_request": "1026a83092d8b77b1d7633b61cde9bc3670945f5",
+  "reason": "v1.65 튜토리얼 중 상점 창 아래 여백 확대(고양이 띠가 보관통 줄을 덮는 문제)",
+  "requested_at": "2026-11-28T13:33:01.930504+00:00"
 }

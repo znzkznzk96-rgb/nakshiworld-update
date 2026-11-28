@@ -459,7 +459,7 @@ func draw_shop(m, h: float) -> void :
 	var robot_shop: bool=shop=="forge" and forge_tab=="robot"
 	var compact_forge: bool=shop=="forge" and h<560
 	var panel_y: = maxf(top + (6.0 if robot_shop or compact_forge else 32.0), roundf(h * 0.5) - (240 if robot_shop else 190))
-	var r = Rect2(8, panel_y, 254, minf(500.0 if robot_shop else (440.0 if shop=="museum" else 380.0), h - panel_y - (12 if robot_shop or compact_forge else 44)))
+	var r = Rect2(8, panel_y, 254, minf(500.0 if robot_shop else (440.0 if shop=="museum" else 380.0), h - panel_y - (12 if robot_shop or compact_forge else (70 if m.tour.active(m) else 44))))
 	if shop=="up" and h<560:r=Rect2(8,top+18,254,h-top-30)
 	if restyled:
 		var desired:float=430 if shop=="hall" else 460
