@@ -955,7 +955,7 @@ func tut_step() -> Dictionary: return TUT_STEPS[S.tutState.i]
 func tut_begin_step() -> void :
 	var T: Dictionary = S.tutState
 	T.ok = 0
-	open_card(tut_step().key, "practice")   # 처음 보는 몸짓은 도감 카드를 먼저 보여 주고, 닫으면 정상 속도로 연습
+	start_practice()   # 몸짓 카드는 미리 띄우지 않고, 그 몸짓이 실제로 처음 나올 때 띄운다(_practice_card)
 
 func start_seq(seq: Array) -> void :
 	var T: Dictionary = S.tutState
@@ -970,6 +970,7 @@ func next_seq() -> void :
 	var b: String = T.seq[T.si][0]
 	var d = T.seq[T.si][1]
 	S.beh = b;T.sbt = randf_range(d[0], d[1]) if d is Array else float(d)
+	_practice_card(b)
 	if b == "tell": buzz([25, 45, 25])
 	if b == "run":
 		buzz(vib_run())
@@ -991,8 +992,17 @@ func start_practice() -> void :
 	var st: = tut_step()
 	T.mode = "practice"
 	msg = "직접 해 보세요 · " + st.ask
-	if st.key == "swim": S.beh = "swim";T.seq = [];T.holdAcc = 0.0
+	if st.key == "swim": S.beh = "swim";T.seq = [];T.holdAcc = 0.0;_practice_card("swim")
 	else: start_seq(st.practice)
+
+## 연습 중 이번 단계에서 배울 몸짓이 처음 나온 순간에만 그 카드 1장을 띄운다(닫으면 그 자리에서 이어짐)
+func _practice_card(b: String) -> void :
+	var T: Dictionary = S.tutState
+	if b != tut_step().key: return
+	var shown: Array = T.get("shown", [])
+	if b in shown: return
+	shown.append(b);T.shown = shown
+	open_card(b, "")
 
 func step_done() -> void :
 	var T: Dictionary = S.tutState
@@ -1080,7 +1090,7 @@ func _draw_lesson_card(t: float) -> void :
 	var L: Dictionary = LESSON[lesson_key]
 	var h: = get_viewport_rect().size.y
 	_ui_rect(Rect2( - ox, 0, VW + 2 * ox, h), Color(0.04, 0.06, 0.1, 0.55))
-	var card: = Rect2(20, 150, 230, 330 if lesson_after == "practice" or S.get("tut", false) else 300)
+	var card: = Rect2(20, 150, 230, 330 if (lesson_after == "practice" or S.get("tut", false)) and not tour.active(self) else 300)   # 건너뛰기 버튼 자리는 옛 연습 튜토리얼에서만
 	var pop_t: = ui_clock - lesson_clock
 	if lesson_after != "book" and pop_t < POP_IN:   # 팡: 작게 시작해 살짝 커졌다가 제자리(정수 도트 크기)
 		var pk: = pop_t / POP_IN
@@ -1143,7 +1153,7 @@ func _draw_lesson_card(t: float) -> void :
 	_text(_ui_wrap(L.text, 11, 196, 3), Vector2(VW / 2.0, 330), 11, Color("382619"), true, 196)
 	_text(_ui_wrap(LESSON_EXTRA.get(lesson_key, "몸짓의 예고를 보고 손을 바꿔 보세요."), 10, 198, 3), Vector2(135, 389), 10, Color("68533d"), true, 198)
 	_text("아무 곳이나 탭하면 계속", Vector2(VW / 2.0, 432), 9, Color("5a3e28"), true)
-	if S.get("tut", false):
+	if S.get("tut", false) and not tour.active(self):   # 기본 튜토리얼 중에는 안내 띠의 건너뛰기 하나만 쓴다
 		_ui_style_box(sb_btn, SKIP_RECT)
 		_text("튜토리얼 건너뛰기", Vector2(VW / 2.0, SKIP_RECT.position.y + 15), 9, Color("3a2414"), true)
 	if lesson_after != "book" and pop_t < POP_IN + 0.6:   # 카드 가장자리에서 도트 조각이 톡톡 터져 나감
@@ -1382,7 +1392,7 @@ func press(pos: = Vector2.ZERO) -> void :
 	if market_open: _market_press(pos);return
 	if S.phase in ["idle", "result"] and _menu_press(pos): holding = false;return
 	if lesson_open:
-		if S.get("tut", false) and SKIP_RECT.has_point(pos): skip_tut()
+		if S.get("tut", false) and not tour.active(self) and SKIP_RECT.has_point(pos): skip_tut()
 		else: close_card()
 		return
 	var fresh_press:bool=not holding
@@ -2557,7 +2567,7 @@ func _draw_ui(t: float, h: float) -> void :
 	if S.phase in ["idle", "result"] and not title_open: _draw_menu(y0)
 	if S.phase == "fight":
 
-		if msg != "":
+		if msg != "" and not lesson_open:   # 몸짓 카드가 떠 있는 동안은 아래 안내 칩을 숨긴다(카드 밑으로 삐져나오지 않게)
 			_ui_style_box(sb_chip, Rect2(8, y0 - 31, 254, 25))
 			_text(msg, Vector2(VW / 2.0, y0 - 14), 9, Color("382619"), true, 238)
 	elif S.phase == "idle" and not menu_open:
@@ -3308,6 +3318,7 @@ func _ui_arc(p: Vector2, r: float, a: float, b: float, n: int, c: Color, w: floa
 
 func _ui_wrap(value: String, size: int, width: float, max_lines: int = 2) -> String:
 	var lines: Array[String] = preload("res://addons/reservoir/text_layout.gd").wrap(self,value,size,width)
+	for li in lines.size(): lines[li] = lines[li].rstrip(" ")   # 줄 끝 띄어쓰기 때문에 가운데 정렬이 한쪽으로 쏠리지 않게
 	max_lines=maxi(1,max_lines)
 	if lines.size() > max_lines:
 		lines.resize(max_lines)

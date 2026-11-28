@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_before_request": "cdc3c81278a7e281c01a04133067b63ea84e08fd",
-  "reason": "v1.63 고양이 튜토리얼 + 몸짓 도감 먼저 + 수족관 새 단장 (우편 선물 검사 합계 갱신 후 재검증)",
-  "requested_at": "2026-11-28T03:14:15.173884+00:00"
+  "source_before_request": "ed40515563d48e8f2eed2dd9fafcfb2e1008ad00",
+  "reason": "v1.64 튜토리얼 상점 탭 설명 + 필요한 몸짓 카드만 + 안내 문구·줄바꿈 정리",
+  "requested_at": "2026-11-28T12:41:59.194273+00:00"
 }
