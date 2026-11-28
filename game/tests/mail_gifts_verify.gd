@@ -8,8 +8,8 @@ func run():
 	check(Gifts.info("1.26").gold==preload("res://addons/reservoir/spot_selection.gd").PRICES[3],"tile gift equals approved rift entry fee")
 	var m=load("res://main.gd").new();m.SET.sfx=0;m.SET.music=0;root.add_child(m);await process_frame;m.set_process(false)
 	if "resume" in OS.get_cmdline_user_args():
-		check(m.gold==7735123 and m.souls==1007 and m.expedition.data.souls==[51,52,53,54,55],"independent restart currencies")
-		check(m.bag.size()==93 and m.testing_grants.size()==7,"independent restart contents and IDs")
+		check(m.gold==7735223 and m.souls==1010 and m.expedition.data.souls==[52,53,54,55,56],"independent restart currencies")
+		check(m.bag.size()==93 and m.testing_grants.size()==8,"independent restart contents and IDs")
 		for version in Gifts.DATA: check(not Gifts.claim(m,version),"restart blocks "+version)
 	else:
 		for version in Gifts.DATA:
@@ -27,6 +27,7 @@ func run():
 			check(DirAccess.remove_absolute("user://save.json.tmp")==OK,"unblock "+version)
 		# Claim all five in a single save to detect cross-gift marker/rollback interference.
 		check(not Gifts.claim(m,"unknown") and m.bag.size()==1,"unknown letter is inert")
+		m.mailbox.tour_mail=true   # 튜토리얼 완료 편지(1.63)도 목록에 보이게
 		for version in Gifts.DATA:
 			m.mailbox.detail=version;m.mailbox.draw(m,540)
 			check(m.mailbox.rects.has("gift"),"button "+version)
@@ -35,9 +36,9 @@ func run():
 			check(not m.mailbox.rects.has("gift"),"claimed button disabled "+version)
 			check(Gifts.info(version).id in m.testing_grants,"mail dispatch "+version)
 			check(not Gifts.claim(m,version),"duplicate "+version)
-		check(m.gold==7735123 and m.souls==1007 and m.expedition.data.souls==[51,52,53,54,55],"combined exact currencies")
-		check(m.bag.size()==93 and m.testing_grants.size()==7,"combined contents and existing marker")
-		check(m.pearl==10000,"combined pearl")
+		check(m.gold==7735223 and m.souls==1010 and m.expedition.data.souls==[52,53,54,55,56],"combined exact currencies")
+		check(m.bag.size()==93 and m.testing_grants.size()==8,"combined contents and existing marker")
+		check(m.pearl==10010,"combined pearl")
 		for area in 2:
 			var targets: Array=m.progression.bundle_targets(area,0)
 			for slot in targets.size():
