@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_before_request": "bfc1ab9ca2faa34ec3195707a18751ee66b01b43",
-  "reason": "v1.70 마을 물 반사 PNG 레이어",
-  "requested_at": "2026-11-28T18:10:46Z"
+  "source_before_request": "af3105d7d7bcdcca4c5f511655af9373b38e7f53",
+  "reason": "v1.72 마을 반사 물 셰이더",
+  "requested_at": "2026-11-28T18:33:51Z"
 }

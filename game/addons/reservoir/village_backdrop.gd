@@ -4,20 +4,16 @@ extends Node2D
 var v                      # village
 var s := {}                # 매 프레임 village.draw가 넘겨 주는 값: ox, vw, h, o, t, cam
 var shimmer: ColorRect
-var glint: ImageTexture    # PixelLab 물 반사 PNG(투명 배경). 가로로 이어 붙여 물 위에 얹는다.
 
 func _init() -> void:
 	show_behind_parent = true
 
 func _ready() -> void:
-	var img := Image.new()
-	if img.load_png_from_buffer(Marshalls.base64_to_raw(FileAccess.get_file_as_string("res://art/effects/water_glint.png.b64.txt"))) == OK:
-		glint = ImageTexture.create_from_image(img)
 	shimmer = ColorRect.new()
 	shimmer.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	shimmer.color = Color.WHITE
 	var mat := ShaderMaterial.new()
-	mat.shader = preload("res://addons/reservoir/water_shimmer.gdshader")
+	mat.shader = preload("res://addons/reservoir/water_reflect.gdshader")
 	shimmer.material = mat
 	add_child(shimmer)
 
@@ -35,25 +31,18 @@ func _draw() -> void:
 	v.life.water_texture(self, art.water, Vector2(roundf(-cam * 0.22 - 90 + drift), roundf(shore)), Color(0.85, 0.95, 0.98, 1), t, false)
 	for row in ceili((h - shore - 110) / 46.0) + 1:
 		var near_drift: float = sin(t * (0.42 + row * 0.02) + row) * 1.4
-		v.life.water_texture(self, art.water_near, Vector2(roundf(-cam * 0.22 - 90 + near_drift), roundf(shore) + 110 + row * 46), Color(0.7, 0.9, 0.96, 0.48), t, true, row * 0.6)
+		v.life.water_texture(self, art.water_near, Vector2(roundf(-cam * 0.22 - 90 + near_drift), roundf(shore) + 110 + row * 46), Color(0.7, 0.9, 0.96, 0.18), t, true, row * 0.6)
 	v.life.water_back(self, v, art.forest, shore, t)
 	v.life.water_front(self, v, o, h, t)
 	if shimmer != null:
 		shimmer.position = Vector2(-ox, roundf(shore))
 		shimmer.size = Vector2(vw + 2 * ox, maxf(0.0, h - roundf(shore)))
-		(shimmer.material as ShaderMaterial).set_shader_parameter("scroll", roundf(cam * 0.22))
-	if glint != null:
-		var gw: int = glint.get_width();var gh: int = glint.get_height()
-		for layer in 2:
-			var sx: float = roundf(-cam * (0.22 + layer * 0.05) + sin(t * (0.45 + layer * 0.2) + layer * 2.0) * 5.0) + layer * 97
-			var a: float = 0.30 + 0.16 * sin(t * (0.8 + layer * 0.35) + layer * 1.7)
-			var y0: float = roundf(shore) + 30 + layer * 53
-			while y0 < h:
-				var x0: float = fposmod(sx, gw) - gw
-				while x0 < vw + ox:
-					draw_texture(glint, Vector2(x0, y0), Color(1, 1, 1, a * clampf((h - y0) / 90.0 + 0.35, 0.0, 1.0)))
-					x0 += gw
-				y0 += gh * 1.15
+		var mat := shimmer.material as ShaderMaterial
+		var vp: Vector2 = get_viewport_rect().size
+		mat.set_shader_parameter("scroll", roundf(cam * 0.22))
+		mat.set_shader_parameter("shore_v", (get_global_transform_with_canvas() * Vector2(0, roundf(shore))).y / vp.y)
+		mat.set_shader_parameter("v_per_px", Vector2(1.0 / vp.x, 1.0 / vp.y))
+		mat.set_shader_parameter("depth_px", maxf(60.0, h - shore))
 	for i in 3:
 		var tx: Texture2D = art[["cloud_wisp", "cloud_cumulus", "cloud_far"][i]]
 		var xx: float = fposmod(i * 173 + t * (1.2 + i * 0.45) - cam * 0.07, 550) - 180
