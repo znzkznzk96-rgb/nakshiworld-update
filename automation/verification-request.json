@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_before_request": "ee96c9798153628653030c2bef7e1d8051d27674",
-  "reason": "v1.71 마을 물 점 노이즈 제거·깊이 색",
-  "requested_at": "2026-11-28T18:25:48Z"
+  "source_before_request": "af3105d7d7bcdcca4c5f511655af9373b38e7f53",
+  "reason": "v1.72 마을 반사 물 셰이더",
+  "requested_at": "2026-11-28T18:33:51Z"
 }
