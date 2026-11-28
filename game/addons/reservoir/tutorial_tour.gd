@@ -240,8 +240,7 @@ func _gate_press(m, pos: Vector2) -> bool:
 func _gate_calc(m, pos: Vector2) -> bool:
 	if rects.get("skip", Rect2()).grow(4).has_point(pos): _walk_end(m);m.audio_feedback.sound(m, "click", -8.0);return true
 	if explain:
-		if rects.get("next", Rect2()).grow(4).has_point(pos): sub += 1;face = "idle";m.audio_feedback.sound(m, "click", -8.0, 1.3)
-		else: bounce_t = m.ui_clock;m.audio_feedback.sound(m, "click", -12.0, 0.8)
+		sub += 1;face = "idle";m.audio_feedback.sound(m, "click", -8.0, 1.3)   # 설명 쪽은 어디를 눌러도 다음으로
 		return true
 	if soft or target.size == Vector2.ZERO: return false
 	if target.grow(4).has_point(pos):
@@ -397,6 +396,21 @@ func _merge_pair(d) -> Array:
 	return []
 
 ## 건물 안내(수족관·대장간·펫 오두막): 건물을 누르게 하고 → 안에서 설명 쪽 → 닫으면 가이드 책
+## 대장간: 강화 탭 → 단계·비용 → 실패 주의 → 강화하기(눌러 보기)
+func _forge_steps(m, v) -> void:
+	var pn: Rect2 = v.rects.get("panel", Rect2())
+	if sub == 2:
+		if v.forge_tab != "upgrade": _do("먼저 강화 탭을 눌러 봐!", _row(v, "forgetab:upgrade"), false);return
+		sub = 3
+	match sub:
+		3: _say("낚싯대 강화 화면이야. 지금 단계와\n성공률, 드는 비용을 볼 수 있어.", pn)
+		4: _say("비늘과 비늘조각이 들어가. 높은 단계는\n실패하면 내려갈 수 있어. 보호권도 있어!", pn)
+		5:
+			var b: Rect2 = _row(v, "forge")
+			if b.size == Vector2.ZERO: _say("비늘이 모자라면 낚시로 모아 와!\n모이면 여기서 강화하기를 눌러.", pn)
+			else: _do("강화하기를 눌러 봐!", b, true)
+		_: soft = true   # 강화하는 동안은 막지 않는다. 상점을 닫으면 가이드 책 안내
+
 func _walk_building(m) -> void:
 	var v = m.V;var row: Array = BLD_WALKS.get(walk, [])
 	if row.is_empty(): _walk_end(m);return
@@ -409,6 +423,7 @@ func _walk_building(m) -> void:
 		line = row[1];target = _building(m, row[0]);return
 	if v.shop != code: return
 	if sub < 2: sub = 2
+	if walk == "forge": _forge_steps(m, v);return
 	var pages: Array = row[2];var i: int = sub - 2
 	if i >= pages.size(): sub = 100;return
 	_say(pages[i], v.rects.get("panel", Rect2()))
@@ -613,15 +628,16 @@ func _bubble(m, h: float) -> void:
 			m._ui_rect(Rect2(60 + i * 9, cy + 11, 5, 5), Color("e0a93a") if i < cur else (Color("17525a") if i == cur else Color(0.09, 0.32, 0.35, 0.3)))
 		rects.skip = Rect2(196, bottom_edge - 28, 66, 20)   # 늘 띠 오른쪽 아래 같은 자리(누르는 칸은 넉넉히, 그림은 글자만)
 		if explain:
-			rects.next = rects.skip;rects.skip = Rect2(60, bottom_edge - 28, 66, 20)
+			rects.next = Rect2(196, bottom_edge - 25, 66, 18);rects.skip = Rect2(60, bottom_edge - 25, 66, 18)
 			var nb: Rect2 = rects.next.grow_individual(-2, -1, -2, -1)
 			m._ui_rect(Rect2(nb.position.x + 2, nb.position.y, nb.size.x - 4, nb.size.y), Color("17525a"));m._ui_rect(Rect2(nb.position.x, nb.position.y + 2, nb.size.x, nb.size.y - 4), Color("17525a"))
 			m._ui_rect(Rect2(nb.position.x + 2, nb.position.y + 2, nb.size.x - 4, nb.size.y - 4), Color("ffd166") if sin(m.ui_clock * 6.0) > -0.3 else Color("ffe9a0"))
-			m._text("다음 >", rects.next.get_center() + Vector2(0, 5), 10, Color("17323a"), true, 56)
-			m._text("건너뛰기", Vector2(rects.skip.get_center().x, bottom_edge - 13), 10, Color("3f7f86"), true, 66)
+			m._text("다음 >", rects.next.get_center() + Vector2(0, 4), 10, Color("17323a"), true, 56)
+			m._text("건너뛰기", Vector2(rects.skip.get_center().x, bottom_edge - 12), 10, Color("3f7f86"), true, 66)
 		else: m._text("건너뛰기 >", Vector2(rects.skip.get_center().x, bottom_edge - 13), 10, Color("3f7f86"), true, 66)
 	var txt: String = m._ui_wrap(line, 10, 200, 2)
-	m._text(txt, Vector2(160, cy + (26 if "\n" in txt else 35)), 10, Color("12373c"), true, 200)   # 글자도 세로 가운데
+	var up: float = 6.0 if explain else 0.0   # 아래 "다음"·"건너뛰기" 줄과 겹치지 않게 글자를 조금 올린다
+	m._text(txt, Vector2(160, cy + (26 if "\n" in txt else 35) - up), 10, Color("12373c"), true, 200)   # 글자도 세로 가운데
 
 ## 고양이 말풍선: 상점·메뉴의 갈색·크림색과 겹치지 않게 민트색 도트 틀(굵은 진청록 테두리 + 금색 윗줄)
 func _tip_box(m, r: Rect2) -> void:

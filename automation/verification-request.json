@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_before_request": "c317351f3414281c2e814602ff0863cd4374dbaa",
-  "reason": "apk_base.json을 APK 1.67 기준으로 재생성",
-  "requested_at": "2026-11-28T17:12:09Z"
+  "source_before_request": "cd9b0f86fbeb0fb622108311245b14cbba419126",
+  "reason": "v1.68 안내 글자 겹침·대장간 강화 안내",
+  "requested_at": "2026-11-28T17:17:12Z"
 }
