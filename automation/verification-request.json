@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_before_request": "bfc1ab9ca2faa34ec3195707a18751ee66b01b43",
-  "reason": "v1.70 마을 물 반사 PNG 레이어",
-  "requested_at": "2026-11-28T18:10:46Z"
+  "source_before_request": "ee96c9798153628653030c2bef7e1d8051d27674",
+  "reason": "v1.71 마을 물 점 노이즈 제거·깊이 색",
+  "requested_at": "2026-11-28T18:25:48Z"
 }

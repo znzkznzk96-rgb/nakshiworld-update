@@ -35,13 +35,17 @@ func _draw() -> void:
 	v.life.water_texture(self, art.water, Vector2(roundf(-cam * 0.22 - 90 + drift), roundf(shore)), Color(0.85, 0.95, 0.98, 1), t, false)
 	for row in ceili((h - shore - 110) / 46.0) + 1:
 		var near_drift: float = sin(t * (0.42 + row * 0.02) + row) * 1.4
-		v.life.water_texture(self, art.water_near, Vector2(roundf(-cam * 0.22 - 90 + near_drift), roundf(shore) + 110 + row * 46), Color(0.7, 0.9, 0.96, 0.48), t, true, row * 0.6)
+		v.life.water_texture(self, art.water_near, Vector2(roundf(-cam * 0.22 - 90 + near_drift), roundf(shore) + 110 + row * 46), Color(0.7, 0.9, 0.96, 0.18), t, true, row * 0.6)
 	v.life.water_back(self, v, art.forest, shore, t)
 	v.life.water_front(self, v, o, h, t)
 	if shimmer != null:
 		shimmer.position = Vector2(-ox, roundf(shore))
 		shimmer.size = Vector2(vw + 2 * ox, maxf(0.0, h - roundf(shore)))
 		(shimmer.material as ShaderMaterial).set_shader_parameter("scroll", roundf(cam * 0.22))
+	var wy: float = roundf(shore)
+	for gi in 8:
+		var gy: float = wy + (h - wy) * gi / 8.0
+		draw_rect(Rect2(-ox, gy, vw + 2 * ox, (h - wy) / 8.0 + 1), Color(0.05, 0.28, 0.42, 0.04 + 0.05 * gi))
 	if glint != null:
 		var gw: int = glint.get_width();var gh: int = glint.get_height()
 		for layer in 2:
@@ -51,7 +55,7 @@ func _draw() -> void:
 			while y0 < h:
 				var x0: float = fposmod(sx, gw) - gw
 				while x0 < vw + ox:
-					draw_texture(glint, Vector2(x0, y0), Color(1, 1, 1, a * clampf((h - y0) / 90.0 + 0.35, 0.0, 1.0)))
+					draw_texture(glint, Vector2(x0, y0), Color(1, 1, 1, a * 1.25 * clampf((h - y0) / 90.0 + 0.35, 0.0, 1.0)))
 					x0 += gw
 				y0 += gh * 1.15
 	for i in 3:

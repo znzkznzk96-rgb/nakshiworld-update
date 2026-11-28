@@ -40,6 +40,6 @@ void fragment() {
 	float tw = 0.5 + 0.5 * sin(t * 3.2 + r * 40.0);
 	float spark = step(sparkle_threshold, r) * tw;
 
-	float intensity = clamp(streak + spark * 0.9, 0.0, 1.0) * strength;
+	float intensity = clamp(streak, 0.0, 1.0) * strength;   // 점 반짝임은 노이즈처럼 보여 뺐다
 	COLOR = vec4(tint_color.rgb * intensity, 1.0);
 }
