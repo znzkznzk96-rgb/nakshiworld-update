@@ -120,6 +120,7 @@ func draw_parts(m,v,r: Rect2,y: float) -> float:
 		var cost:=price(m,region,slot)
 		var label: String="잠김" if not is_unlocked(region) else ("장착됨" if key in m.equipment.active_parts else "보유 중") if owned else "이전 파츠" if not previous else ""
 		v._row(m,r,y,icon(m,region,slot),TITLES[region]+" "+v.PARTS[slot][1],["★2 입질 해금","★3 입질 해금","★4 입질 해금","주인 낚시 준비"][slot],label, cost if available and not owned else 0,available and not owned and m.gold>=cost,"rpart:%d:%d" % [region,slot])
+		v.rects["part:%d"%slot]=Rect2(r.position.x+11,y,r.size.x-22,36)   # 튜토리얼이 칸을 짚을 때 쓴다
 		y+=38
 	return y
 func bait_icon(i: int) -> Texture2D:
@@ -130,6 +131,7 @@ func draw_bait(m,v,r: Rect2,y: float) -> void:
 	m._text("사용 미끼: "+(BAIT_NAMES[selected_bait] if selected_bait>=0 else "빈 바늘"),Vector2(135,y+3),9,Color("6a4a2a"),true,230);y+=12
 	for i in 6:
 		var cell:=Rect2(r.position.x+12,y+i*34,230,32)
+		v.rects["baitcell:%d"%i]=cell
 		m._ui_style_box(v.active_style.card,cell)
 		m._ui_texture_rect(bait_icon(i),Rect2(cell.position+Vector2(3,3),Vector2(26,26)),false)
 		m._text(BAIT_NAMES[i]+(" [사용]" if selected_bait==i else "")+" · %d개" % stock(m,i),cell.position+Vector2(33,12),9,v.active_style.ink,false,116)
