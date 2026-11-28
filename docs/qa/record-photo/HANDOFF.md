@@ -465,3 +465,5 @@ Run [43538268264](https://github.com/znzkznzk96-rgb/nakshiworld-update/actions/r
 - 참조 편집(edit-image-pixen)은 원본을 그대로 따라 그림: 컨셉·노이즈 안 바뀜(bk3, bk4).
 - 텍스트만 생성(create-image-pixen)은 깨끗하지만 펫마다 색감·비례·구도 제각각, S·SS가 크리처가 안 됨(bk5).
 - bitforge에 수달을 style_image(강도 60)로 넣으면 모든 펫이 수달 형태·갈색/초록으로 오염됨(bk6). 같은 방식 재시도 금지.
+
+- 2026-11-28 실패 기록(튜토리얼 앞발 포인터): create-image-bitforge 32px 1장 방식으로 2회(각 1회분) 뽑았으나 둘 다 형태가 뭉개짐(1차 발등 묘사 → 하얀 덩어리, 2차 기존 앞발 style_image 55 → 발바닥 덩어리). 원본은 docs/design/tutorial/paw_v2·v3_rejected.png. 작은 UI 아이콘은 bitforge 1장 방식 품질이 낮다. 같은 방식으로 다시 뽑지 않는다. generate-image-v2(48px, 25장 10회분)는 품질 양호(paw.png 채택본).
