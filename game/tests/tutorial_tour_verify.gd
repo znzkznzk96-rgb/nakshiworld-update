@@ -42,7 +42,7 @@ func run() -> void:
 	m.TUT.erase("tour");m.TUT.erase("tour_mail");m.intro_new_player = false;m.tour.force = true;m.tour.setup(m)
 	check(not m.tour.active(m) and m.mailbox.tour_mail, "existing player gets mail only")
 	# 중간 안내: 조건이 되면 한 번만, 누르면 닫히고 입력은 막지 않는다
-	m.TUT.hints = [];m.testing_grants.erase("tutorial-reward-163");m.tour.finish_t = -1.0;m.tour.hint = ""
+	m.TUT.hints = [];m.testing_grants.erase("tutorial-reward-163");m.tour.finish_t = -1.0;m.tour.end_t = -1.0;m.tour.hint = ""
 	for i in 3: await process_frame
 	check(m.tour.hint == "mail", "mail hint shows")
 	check(not m.tour.intercept(m, Vector2(135, 300)) and m.tour.hint == "", "hint closes without blocking")
