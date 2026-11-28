@@ -271,34 +271,44 @@ func _paint(m, h: float) -> void:
 		m._ui_rect(Rect2(hl.position, Vector2(2, hl.size.y)), hc);m._ui_rect(Rect2(hl.end.x - 2, hl.position.y, 2, hl.size.y), hc)
 		m._ui_rect(Rect2(o.position, Vector2(o.size.x, 2)), c);m._ui_rect(Rect2(o.position.x, o.end.y - 2, o.size.x, 2), c)
 		m._ui_rect(Rect2(o.position, Vector2(2, o.size.y)), c);m._ui_rect(Rect2(o.end.x - 2, o.position.y, 2, o.size.y), c)
-		# 둥실 떠다니다가 1.4초마다 톡 눌러 '여기!'를 알린다(누를 때 반짝 물결)
+		# 앞발은 칸의 오른쪽 위 모서리 바깥에서 비스듬히 찌른다(간판·글자를 가리지 않게). 화면 끝이면 뒤집는다
+		var fx: bool = r.end.x > 236.0            # 오른쪽에 자리가 없으면 왼쪽 위에서
+		var fy: bool = r.position.y < m.top_y + 34   # 위에 자리가 없으면 아래에서
+		var corner := Vector2(r.position.x + 3 if fx else r.end.x - 3, r.end.y - 3 if fy else r.position.y + 3)
+		var dir := Vector2(-1.0 if fx else 1.0, 1.0 if fy else -1.0)   # 모서리에서 앞발 쪽으로
+		# 둥실 떠다니다가 1.4초마다 톡 찌르고, 찌른 모서리에 반짝 물결
 		var ph: float = fposmod(t, 1.4)
-		var bob: float = 7.0 + 3.0 * sin(t * 3.0)
-		var sway: float = roundf(sin(t * 1.7) * 2.0)
-		if ph > 1.1: bob = lerpf(bob, 0.0, sin((ph - 1.1) / 0.3 * PI))
-		bob = roundf(bob)
-		var up: bool = r.position.y <= m.top_y + 40
-		var tip := Vector2(r.get_center().x + sway, r.end.y + 1 + bob) if up else Vector2(r.get_center().x + sway, r.position.y - 1 - bob)
+		var d: float = 5.0 + 2.5 * sin(t * 3.0)
+		if ph > 1.1: d = lerpf(d, -1.0, sin((ph - 1.1) / 0.3 * PI))
 		if ph > 1.2:
-			var k: float = (ph - 1.2) / 0.2
-			var rr := Rect2(Vector2(r.get_center().x, r.end.y if up else r.position.y) - Vector2(4 + 10 * k, 2 + 3 * k), Vector2(8 + 20 * k, 4 + 6 * k)).abs()
-			var rc := Color(1, 0.95, 0.7, 0.8 * (1.0 - k))
-			m._ui_rect(Rect2(rr.position.round(), Vector2(roundf(rr.size.x), 1)), rc);m._ui_rect(Rect2(Vector2(rr.position.x, rr.end.y - 1).round(), Vector2(roundf(rr.size.x), 1)), rc)
-			m._ui_rect(Rect2(rr.position.round(), Vector2(1, roundf(rr.size.y))), rc);m._ui_rect(Rect2(Vector2(rr.end.x - 1, rr.position.y).round(), Vector2(1, roundf(rr.size.y))), rc)
-		_finger(m, tip, up)
+			var k: float = (ph - 1.2) / 0.2;var rc := Color(1, 0.95, 0.7, 0.85 * (1.0 - k));var q: float = roundf(3 + 7 * k)
+			for v in [Vector2(-q, 0), Vector2(q, 0), Vector2(0, -q), Vector2(0, q)]:
+				m._ui_rect(Rect2((corner + v).round() - Vector2(1, 1), Vector2(2, 2)), rc)
+		_finger(m, corner + (dir * d).round(), fx, fy)
 	elif step(m) == 0:
-		var sx: float = 135.0 + roundf(sin(t * 2.2) * 40.0)
-		_finger(m, Vector2(sx, h * 0.5), false)
+		# 좌우로 밀기: 양쪽 도트 화살표가 바깥으로 들썩이고, 앞발이 그 사이를 오간다
+		var cyy: float = roundf(h * 0.5);var pu: float = roundf(absf(sin(t * 3.0)) * 3.0)
+		_arrow(m, Vector2(16 - pu, cyy), -1);_arrow(m, Vector2(254 + pu, cyy), 1)
+		var sx: float = 135.0 + roundf(sin(t * 2.2) * 50.0)
+		_finger(m, Vector2(sx, cyy + 6), sin(t * 2.2 + 1.57) < 0.0, false)
 	if line != "": _bubble(m, h)
 	else: rects.skip = Rect2()
 	if confirm: _confirm(m, h)
 
-func _finger(m, tip: Vector2, up: bool) -> void:
-	# 앞발 발바닥 끝이 tip에 닿는다. up이면 뒤집어 아래에서 위를 가리킨다
+## 앞발 그림(↙로 찌름)의 발끝이 tip에 닿게 그린다. fx/fy면 좌우/상하로 뒤집는다
+const PAW_TIP := Vector2(2, 23)
+func _finger(m, tip: Vector2, fx: bool, fy: bool) -> void:
 	var sz := PAW.get_size()
-	var x: float = roundf(tip.x - sz.x * 0.5)
-	if up: m._ui_texture_rect(PAW, Rect2(x, roundf(tip.y) + sz.y, sz.x, -sz.y))
-	else: m._ui_texture_rect(PAW, Rect2(x, roundf(tip.y) - sz.y, sz.x, sz.y))
+	var off := Vector2(sz.x - 1 - PAW_TIP.x if fx else PAW_TIP.x, sz.y - 1 - PAW_TIP.y if fy else PAW_TIP.y)
+	var p := (tip - off).round()
+	m._ui_texture_rect(PAW, Rect2(p.x + (sz.x if fx else 0.0), p.y + (sz.y if fy else 0.0), -sz.x if fx else sz.x, -sz.y if fy else sz.y))
+
+## 도트 화살표(◀/▶): 크림색 몸통에 진한 갈색 테두리. c는 뾰족한 끝
+func _arrow(m, c: Vector2, side: int) -> void:
+	for j in 11:   # 테두리 삼각형
+		m._ui_rect(Rect2(c.x - j * side, c.y - j, 1, j * 2 + 1), Color("2a1610"))
+	for j in 8:   # 안쪽
+		m._ui_rect(Rect2(c.x - (j + 2) * side, c.y - j, 1, j * 2 + 1), Color("fff4dc"))
 
 func _band_top(m, h: float) -> bool:
 	if m.scene == "fish" and m.S.phase in ["wait", "pre", "hook"]: return true
