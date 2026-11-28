@@ -1,0 +1,16 @@
+{
+ "description": "Exactly ONE pixel art fishing-game dialog panel frame, front view, filling the whole canvas edge to edge with no empty margin. Same hand-placed chunky pixel art style as the reference: crisp 1px dark outline, brown double wooden frame, small gold leaf corner ornaments, flat shading with only 3 tones per material, no wood grain noise, no dithering, no gradients. Inside: a teal blue header bar attached to the top inner edge with a thin gold trim, empty. Below it a cream parchment area, and at the bottom a dark navy inset strip. All areas empty. No text, no letters, no numbers, no icons, no characters, no fish, no progress bar.",
+ "image_size": {
+  "width": 256,
+  "height": 140
+ },
+ "seed": 202611282,
+ "no_background": true,
+ "concept_image": {
+  "note": "game/art/pet_hut/panel.png (256x117) on navy"
+ },
+ "color_palette": "wood brown, gold, teal blue, cream parchment, dark navy",
+ "target_palette": {
+  "max_colors": 20
+ }
+}

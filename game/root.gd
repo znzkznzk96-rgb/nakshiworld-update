@@ -16,12 +16,17 @@ var update_art: Texture2D
 var chase_frames:Array[Texture2D]=[]
 var chase_fish:Texture2D
 var updater_logo:Texture2D
+var panel_frame:Texture2D   # 업데이트 창 틀(PixelLab, 9분할로 늘려 그린다)
 var title_plate:Texture2D   # 게임 타이틀과 같은 폭풍 배경·로고: 있으면 업데이트 화면도 타이틀처럼 보이게 한다
 var title_logo:Texture2D
 var title_host   # 게임의 실제 타이틀 화면(배·파도·비·번개)을 업데이트 화면 뒤에 그대로 깐다
 var title_scene
 var panel_fade:=1.0   # 업데이트 창이 사라질 때 1→0: 창이 살짝 떠오르며 흐려지고, 그 뒤 어두운 막이 걷힌다
 const TITLE_LOGO_REGION:=Rect2(62,68,1664,779)
+const UPDATE_MESSAGES:=["어장에 물고기 푸는 중...","마을 사람들 오는 중...","백룸에서 출구 찾는 중... (없음)","백룸 형광등 켜는 중...","고양이가 낚싯대 챙기는 중...","떡밥 말리는 중...","부두 널빤지 박는 중...","달 닦는 중..."]
+const MESSAGE_REVEAL:=1.5   # 한 줄이 다 찍히는 시간(뒤로 갈수록 빨라진다)
+const MESSAGE_HOLD:=1.1
+const PANEL_SIZE:=Vector2(240,130)
 var animation_time:=0.0
 var update_phase:="checking"
 var received_bytes:=0
@@ -54,6 +59,7 @@ func _ready() -> void:
 	for i in 9:chase_frames.append(load("res://art/ui/updater/cat_run_%02d.png"%i))
 	chase_fish=load("res://art/ui/updater/fish.png")
 	updater_logo=load("res://art/ui/updater/logo.png")
+	panel_frame=load("res://art/ui/updater/panel_frame.png")
 	if ResourceLoader.exists("res://art/title55/plate.png") and ResourceLoader.exists("res://art/title55/logo.png"):
 		title_plate=load("res://art/title55/plate.png");title_logo=load("res://art/title55/logo.png")
 		if ResourceLoader.exists("res://addons/reservoir/title_screen.gd"):_make_title_host()
@@ -305,6 +311,50 @@ func _draw() -> void:
 	_label("잠시만 기다려 주세요",panel.position.y+85,8,Color("426581"))
 	draw_set_transform(Vector2.ZERO)
 
+## 멘트가 한 글자씩 찍히고, 뒤로 갈수록 글자 사이가 짧아져 빨라진다
+func typed_message(t:float) -> String:
+	var cycle:float=MESSAGE_REVEAL+MESSAGE_HOLD
+	var line:String=UPDATE_MESSAGES[int(t/cycle)%UPDATE_MESSAGES.size()]
+	var s:float=clampf(fmod(t,cycle)/MESSAGE_REVEAL,0.0,1.0)
+	return line.substr(0,ceili(line.length()*pow(s,1.8)))
+
+func _label_at(text:String,full:String,y:float,font_size:int,color:Color) -> void:
+	var width:float=font.get_string_size(full,HORIZONTAL_ALIGNMENT_LEFT,-1,font_size).x
+	draw_string(font,Vector2(roundf((270-width)*.5),roundf(y)),text,HORIZONTAL_ALIGNMENT_LEFT,-1,font_size,color)
+
+## 틀 그림: 모서리 12칸은 그대로, 직선 테두리는 1칸 줄을 이어 붙여 정수 픽셀로 늘린다
+func _nine_frame(r:Rect2,a:float) -> void:
+	var t:=panel_frame;var sw:=t.get_width();var sh:=t.get_height();var c:=12.0;var m:=Color(1,1,1,a)
+	var mx:=float(sw/2);var my:=float(sh/2)
+	draw_texture_rect_region(t,Rect2(r.position,Vector2(c,c)),Rect2(0,0,c,c),m)
+	draw_texture_rect_region(t,Rect2(r.end.x-c,r.position.y,c,c),Rect2(sw-c,0,c,c),m)
+	draw_texture_rect_region(t,Rect2(r.position.x,r.end.y-c,c,c),Rect2(0,sh-c,c,c),m)
+	draw_texture_rect_region(t,Rect2(r.end.x-c,r.end.y-c,c,c),Rect2(sw-c,sh-c,c,c),m)
+	draw_texture_rect_region(t,Rect2(r.position.x+c,r.position.y,r.size.x-2*c,c),Rect2(mx,0,1,c),m)
+	draw_texture_rect_region(t,Rect2(r.position.x+c,r.end.y-c,r.size.x-2*c,c),Rect2(mx,sh-c,1,c),m)
+	draw_texture_rect_region(t,Rect2(r.position.x,r.position.y+c,c,r.size.y-2*c),Rect2(0,my,c,1),m)
+	draw_texture_rect_region(t,Rect2(r.end.x-c,r.position.y+c,c,r.size.y-2*c),Rect2(sw-c,my,c,1),m)
+
+func _draw_update_panel(height:float,a:float) -> void:
+	var r:=Rect2(Vector2(15,roundf(height*.5-PANEL_SIZE.y*.5)),PANEL_SIZE)
+	_nine_frame(r,a)
+	var x0:=r.position.x+6;var w:=r.size.x-12;var head:=r.position.y+30;var navy_y:=r.end.y-44
+	draw_rect(Rect2(x0,r.position.y+6,w,23),Color("00889c",a));draw_rect(Rect2(x0,head-1,w,1),Color("fac72f",a))
+	draw_rect(Rect2(x0,head,w,navy_y-head),Color("fadcaa",a));draw_rect(Rect2(x0,head,w,1),Color("e1a05f",a));draw_rect(Rect2(x0,navy_y-1,w,1),Color("e1a05f",a))
+	draw_rect(Rect2(x0,navy_y,w,r.end.y-6-navy_y),Color("06073d",a))
+	var parts:PackedStringArray=status.split(" · ")
+	var title:String="게임 업데이트 중..." if update_phase in ["checking","download","verifying","applying"] else parts[0]
+	var title_size:int=14 if font.get_string_size(title,HORIZONTAL_ALIGNMENT_LEFT,-1,14).x<=210 else 12
+	_label(title,r.position.y+23,title_size,Color("fff8e1",a))
+	_label_at(typed_message(animation_time),UPDATE_MESSAGES[int(animation_time/(MESSAGE_REVEAL+MESSAGE_HOLD))%UPDATE_MESSAGES.size()],head+15,10,Color("462814",a))
+	var bar:=Rect2(r.position.x+22,head+24,r.size.x-44,12)
+	draw_rect(bar,Color("e17113",a));draw_rect(bar.grow(-1),Color("06073d",a))
+	if shown_bar>0.0:
+		var fill:=Rect2(bar.position+Vector2.ONE,Vector2(roundf((bar.size.x-2)*clampf(shown_bar,0,1)),bar.size.y-2))
+		draw_rect(fill,Color("28c8e6",a));draw_rect(Rect2(fill.position,Vector2(fill.size.x,2)),Color("96f0ff",a))
+	_label(transfer_detail(),navy_y+14,10,Color("ffe028",a))
+	_label(parts[1] if parts.size()>1 else "잠시만 기다려 주세요",navy_y+29,10,Color("aad7f0",a))
+
 ## 게임 타이틀 배경·로고를 어둡게 깔고, 가운데에 업데이트 상태 창을 띄운다
 func _draw_title_like(size:Vector2,scale:float,height:float,offset:Vector2,live_title:bool=false) -> void:
 	if not live_title:_draw_title_still(size,scale,height,offset)
@@ -312,14 +362,7 @@ func _draw_title_like(size:Vector2,scale:float,height:float,offset:Vector2,live_
 	draw_rect(Rect2(Vector2.ZERO,size),Color(0.0,0.02,0.06,0.62))   # 타이틀 전체를 어둡게, 가운데 창만 밝게
 	if panel_fade<=0.0:return
 	draw_set_transform(offset+Vector2(0,-roundf((1.0-panel_fade)*6.0))*scale,0,Vector2.ONE*scale)
-	var a:float=panel_fade
-	var panel:Rect2=Rect2(30,roundf(height*.5-38),210,76)
-	draw_rect(panel,Color("081a2c",a));draw_rect(panel,Color("ffda24",a),false,1.0);draw_rect(panel.grow(-3),Color("3b6b8a",a),false,1.0)
-	_label(status,panel.position.y+24,12,Color("fff4d4",a))
-	var bar:Rect2=Rect2(panel.position.x+15,panel.position.y+34,180,8)
-	draw_rect(bar,Color("0b2236",a));draw_rect(bar,Color("3b6b8a",a),false,1.0)
-	if shown_bar>0.0:draw_rect(Rect2(bar.position+Vector2.ONE,Vector2((bar.size.x-2)*clampf(shown_bar,0,1),bar.size.y-2)),Color("ffda24",a))
-	_label(transfer_detail(),panel.position.y+60,10,Color("9fc3d6",a))
+	_draw_update_panel(height,panel_fade)
 	draw_set_transform(Vector2.ZERO)
 
 ## 실제 타이틀을 못 띄울 때만: 배경·로고 정지 그림
