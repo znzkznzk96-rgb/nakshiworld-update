@@ -3419,7 +3419,7 @@ func _fade_ui(first_command: int, first_text: int, alpha: float) -> void:
 			"region": c[4].a *= alpha
 			"rect": c[2].a *= alpha
 
-const RESET_FILES = ["save.json","rec.json","tut.json"]
+const RESET_FILES = ["save.json","rec.json","tut.json","intro_seen"]
 func _cleanup_reset() -> void:
 	if not FileAccess.file_exists("user://reset.pending"): return
 	for name in RESET_FILES:

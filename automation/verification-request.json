@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_before_request": "63255b4a8903550eeb2b70c268cab41256d37712",
-  "reason": "업데이트 창 개편(root.gd, APK 필요): 도트 틀·한 글자씩 멘트·쨍한 색",
-  "requested_at": "2026-11-28T14:50:46.465047+00:00"
+  "source_before_request": "004c5d8fac92cef8a80c186c4e0d146ac9d1936a",
+  "reason": "v1.66 게임 초기화 때 첫 실행 컷신 표시 파일(intro_seen)도 삭제",
+  "requested_at": "2026-11-28T15:33:27.999097+00:00"
 }

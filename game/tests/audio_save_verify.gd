@@ -76,10 +76,11 @@ func run() -> void:
 		check(result.memory_unchanged and result.disk_unchanged,"real write failure rolls back "+result.case)
 		if result.reported_result is bool:check(not result.reported_result,"failed transaction reports failure "+result.case)
 	# Test deletion allowlist in isolated XDG_DATA_HOME, never user's files.
-	for name in ["settings.json","patch_ver.txt","reset.pending","rec.json","tut.json"]:
+	for name in ["settings.json","patch_ver.txt","reset.pending","rec.json","tut.json","intro_seen"]:
 		var f=FileAccess.open("user://"+name,FileAccess.WRITE);f.store_string("sentinel");f.close()
 	m._cleanup_reset()
 	check(not FileAccess.file_exists("user://save.json") and not FileAccess.file_exists("user://save.json.bak"),"reset removes progress and backups")
+	check(not FileAccess.file_exists("user://intro_seen"),"reset lets the intro cutscene play again")
 	check(FileAccess.file_exists("user://settings.json") and FileAccess.file_exists("user://patch_ver.txt"),"reset preserves settings and updater")
 	DirAccess.remove_absolute("user://settings.json")
 	m.audio_feedback.dispose();await create_timer(0.15).timeout;m.S={"phase":"idle"};m.scene="village";m.queue_free();await process_frame
