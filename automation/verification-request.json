@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_before_request": "71b7e072ce09e639ac47fd4aa6cedc8091d1d520",
-  "reason": "v1.67 화면 따라가는 안내·상점 순서·말풍선 색",
-  "requested_at": "2026-11-28T16:54:39Z"
+  "source_before_request": "c317351f3414281c2e814602ff0863cd4374dbaa",
+  "reason": "apk_base.json을 APK 1.67 기준으로 재생성",
+  "requested_at": "2026-11-28T17:12:09Z"
 }
