@@ -24,6 +24,9 @@ var centered_work := false
 var step_t := 0.0
 var rects := {}
 var overlay: Node2D
+const BAND_H := 62.0
+var end_t := -1.0         # 끝 인사 띠를 보여 주기 시작한 때
+const END_LINE := "이제 혼자서도 괜찮겠다냥! 완료 선물은 우편함에 넣어 뒀어."
 var force := false        # 검사용: PC에서도 시작
 var hint := ""             # 지금 보여 주는 중간 안내 키(강제 아님, 한 번만)
 var hint_t := 0.0
@@ -62,8 +65,7 @@ func _go(m, i: int) -> void:
 
 func _finish(m) -> void:
 	m.TUT.tour = DONE;m.TUT.tour_mail = true;m._save_tut()
-	m.mailbox.tour_mail = true;target = Rect2();line = "";confirm = false
-	m.show_toast("완료 선물이 우편함에 도착했어요", Color("91e8dc"))
+	m.mailbox.tour_mail = true;target = Rect2();line = "";confirm = false;end_t = m.ui_clock
 
 func _pop(m, text: String) -> void:
 	pop_t = m.ui_clock;pop_text = text;face = "happy"
@@ -194,7 +196,7 @@ func _update_hint(m) -> void:
 	if hint != "":
 		if not free_view or m.ui_clock - hint_t > 6.0: hint = ""
 		return
-	if not free_view or finish_t > 0: return
+	if not free_view or finish_t > 0 or (end_t > 0 and m.ui_clock - end_t < 3.5): return
 	var seen: Array = m.TUT.get("hints", [])
 	for h in HINTS:
 		if h[0] in seen or not _hint_ready(m, h[0]): continue
@@ -243,13 +245,15 @@ func draw(m, h: float) -> void:
 	rects.skip = Rect2()
 	if active(m) and not _blocked(m) and not m.lesson_open: _paint(m, h)
 	elif hint != "": _paint_hint(m, h)
+	elif end_t > 0 and m.ui_clock - end_t < 3.5 and not _blocked(m):
+		line = END_LINE;face = "happy";_bubble(m, h);line = ""
 	if m.ui_clock - pop_t < 1.4: _paint_pop(m, h)
 	overlay.commands = m.ui_commands;overlay.items = m.text_items;overlay.queue_redraw()
 	m.ui_commands = saved_cmd;m.text_items = saved_txt
 
 func _paint(m, h: float) -> void:
 	var t: float = m.ui_clock;var x0: float = -m.ox;var w: float = m.VW + 2 * m.ox
-	var dim := Color(0.02, 0.03, 0.06, 0.55)
+	var dim := Color(0.02, 0.03, 0.06, 0.74)
 	if target.size != Vector2.ZERO:
 		var r := target.grow(3)
 		m._ui_rect(Rect2(x0, 0, w, r.position.y), dim)
@@ -260,6 +264,10 @@ func _paint(m, h: float) -> void:
 		var a: float = 0.55 + 0.45 * sin(t * 6.0)
 		var o := r.grow(roundf(b))
 		var c := Color(1, 0.88, 0.45, a)
+		m._ui_rect(r, Color(1, 0.96, 0.78, 0.07 + 0.06 * a))   # 안쪽은 밝게
+		var hl := o.grow(2);var hc := Color(1, 0.85, 0.4, 0.3 * a)   # 바깥 은은한 빛
+		m._ui_rect(Rect2(hl.position, Vector2(hl.size.x, 2)), hc);m._ui_rect(Rect2(hl.position.x, hl.end.y - 2, hl.size.x, 2), hc)
+		m._ui_rect(Rect2(hl.position, Vector2(2, hl.size.y)), hc);m._ui_rect(Rect2(hl.end.x - 2, hl.position.y, 2, hl.size.y), hc)
 		m._ui_rect(Rect2(o.position, Vector2(o.size.x, 2)), c);m._ui_rect(Rect2(o.position.x, o.end.y - 2, o.size.x, 2), c)
 		m._ui_rect(Rect2(o.position, Vector2(2, o.size.y)), c);m._ui_rect(Rect2(o.end.x - 2, o.position.y, 2, o.size.y), c)
 		_finger(m, Vector2(r.get_center().x + 6, r.end.y + 2 + roundf(absf(sin(t * 4.0)) * -4.0)), t)
@@ -278,35 +286,36 @@ func _finger(m, tip: Vector2, t: float) -> void:
 	m._ui_rect(Rect2(p + Vector2(-3, 8), Vector2(11, 9)), ink);m._ui_rect(Rect2(p + Vector2(-2, 9), Vector2(9, 7)), skin)
 	if fposmod(t * 2.0, 1.0) < 0.3: m._ui_rect(Rect2(p + Vector2(-4, -4), Vector2(11, 1)), Color(1, 1, 1, 0.7))
 
-func _bubble_y(m, h: float) -> float:
-	if m.scene == "fish" and m.S.phase in ["wait", "pre", "hook"]: return m.top_y + 74
-	var y: float = h - m.bot_pad - 148
-	# 말풍선(진행 점·건너뛰기 포함)이 눌러야 할 곳을 가리면 위로 옮긴다
-	if target.size != Vector2.ZERO and Rect2(0, y - 18, 270, 60).intersects(target.grow(4)):
-		y = m.top_y + 74
-		if Rect2(0, y - 18, 270, 60).intersects(target.grow(4)): y = target.end.y + 26
+## 안내 띠: 화면 아래를 끝까지 덮는다. 눌러야 할 곳과 겹치거나 찌를 볼 때는 위쪽(상단 정보 칸)을 덮는다
+func _band_top(m, h: float) -> bool:
+	if m.scene == "fish" and m.S.phase in ["wait", "pre", "hook"]: return true
+	return target.size != Vector2.ZERO and target.grow(4).end.y > _band_y(m, h)
+
+## 아래 띠 윗선: 하단 메뉴 줄까지 통째로 덮는다(반쯤 걸치지 않게)
+func _band_y(m, h: float) -> float:
+	var menu: Rect2 = m.ui_rects.get("menu", Rect2())
+	var y: float = h - m.bot_pad - BAND_H
+	if menu.size != Vector2.ZERO and menu.position.y < y: y = menu.position.y - 6
 	return y
 
 func _bubble(m, h: float) -> void:
-	var y: float = _bubble_y(m, h)
-	# 진행 점(말풍선 위 왼쪽)과 건너뛰기(말풍선 위 오른쪽)
-	var cur: int = step(m)
-	if not active(m):
-		_cat_box(m, y);return
-	for i in STEPS:
-		m._ui_rect(Rect2(58 + i * 10, y - 9, 6, 6), Color("ffd166") if i < cur else (Color("fff0d1") if i == cur else Color(1, 1, 1, 0.35)))
-	rects.skip = Rect2(196, y - 17, 68, 16)
-	m._ui_rect(rects.skip, Color(0.05, 0.07, 0.12, 0.6))
-	m._text("건너뛰기 >>", Vector2(rects.skip.get_center().x, rects.skip.position.y + 12), 9, Color(1, 1, 1, 0.85), true, 68)
-	_cat_box(m, y)
-
-func _cat_box(m, y: float) -> void:
-	var box := Rect2(52, y, 212, 40)
-	m._ui_style_box(m.sb_panel, box)
-	m._text(m._ui_wrap(line, 10, 192, 2), Vector2(box.get_center().x, box.position.y + 17), 10, Color("382619"), true, 192)
+	var x0: float = -m.ox;var w: float = m.VW + 2 * m.ox
+	var top: bool = _band_top(m, h)
+	var by: float = _band_y(m, h)
+	var band := Rect2(x0, 0, w, m.top_y + BAND_H + 4) if top else Rect2(x0, by, w, h - by + 2)
+	var cy: float = m.top_y + 2 if top else roundf(by + maxf((h - m.bot_pad - by - BAND_H) * 0.5, 0.0))   # 내용 윗선(아래 띠는 가운데)
+	m._ui_style_box(m.sb_panel, band.grow_individual(4, 2 if not top else 4, 4, 4 if not top else 0))
 	var tex: Texture2D = PORTRAITS.get(face, PORTRAITS.idle)
 	var hop: float = -2.0 if m.ui_clock - pop_t < 0.3 else 0.0
-	m._ui_texture_rect(tex, Rect2(4, y - 6 + hop, 48, 48))
+	m._ui_texture_rect(tex, Rect2(6, cy + 8 + hop, 48, 48))
+	if active(m):
+		var cur: int = step(m)
+		for i in STEPS:
+			m._ui_rect(Rect2(60 + i * 9, cy + 7, 5, 5), Color("e0a93a") if i < cur else (Color("7a5232") if i == cur else Color(0.48, 0.32, 0.2, 0.3)))
+		rects.skip = Rect2(188, cy + 4, 76, 15)   # 늘 띠 오른쪽 위 같은 자리
+		m._ui_style_box(m.sb_btn, rects.skip)
+		m._text("건너뛰기 >>", Vector2(rects.skip.get_center().x, rects.skip.position.y + 11), 10, Color("513b29"), true, 76)
+	m._text(m._ui_wrap(line, 10, 200, 2), Vector2(160, cy + 34), 10, Color("382619"), true, 200)
 
 func _confirm(m, h: float) -> void:
 	m._ui_rect(Rect2(-m.ox, 0, m.VW + 2 * m.ox, h), Color(0.02, 0.03, 0.06, 0.6))
