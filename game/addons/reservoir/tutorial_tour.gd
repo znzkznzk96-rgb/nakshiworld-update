@@ -10,13 +10,17 @@ const POP_COLORS := [Color("ffd166"), Color("ff8fab"), Color("8be0c8"), Color("9
 const BUILD_UP := 2      # village.gd BUILD 낚시 상점
 const BUILD_WORK := 1    # village.gd BUILD 어시장
 const BAIT_GIFT := 3
-const TAB_LINES := {
-	"sell": "여긴 장비 탭! 돈을 벌어 찌→바늘→줄을 해금할수록 더 높은 별 물고기가 나와!",
-	"pouches": "어혼 탭에선 병사를 키울 어혼 주머니를 팔아. 다음 탭을 눌러 봐!",
-	"gear_sell": "팔기 탭에선 벗어 둔 장비를 팔아. 이제 미끼 탭을 눌러 봐!",
-}
+const PART_LINES := [   # 장비 탭 파츠 설명(찌·바늘·줄·릴·주인 물고기)
+	"찌는 ★2 물고기가 입질하게 해 줘!\n비늘로 살 수 있어.",
+	"바늘은 ★3 물고기! 찌를 먼저\n장착해야 살 수 있어.",
+	"줄은 ★4 물고기! 앞의 파츠도\n전부 장착해야 해.",
+	"릴은 마지막 파츠야! 다 갖추면\n주인 물고기에 도전할 수 있어.",
+	"주인은 낚시터마다 있는 대물이야.\n물고기를 잡아 게이지를 100% 채워!",
+]
 
 var target := Rect2()        # 지금 눌러야 할 곳(없으면 자유롭게 조작)
+var sub := -1                # 낚시 상점 설명 순서(-1이면 아직 정하지 않음)
+var explain := false         # 설명 쪽: 앞발 없이 밝게만 보여 주고, "다음"을 눌러야 넘어간다
 var point := Rect2()         # 앞발이 가리킬 칸(없으면 target). 설명 중인 칸과 다음에 누를 칸을 같이 밝힐 때 쓴다
 var line := ""
 var face := "idle"
@@ -37,20 +41,28 @@ const END_LINE := "이제 혼자서도 괜찮겠다냥! 완료 선물은 우편�
 var force := false        # 검사용: PC에서도 시작
 var hint := ""             # 지금 보여 주는 중간 안내 키(강제 아님, 한 번만)
 var hint_t := 0.0
-var hint_page := 0
-## 중간 안내: [키, 쪽들]. 쪽 = [문구, 대상]. 대상 = "mail"/"guide"/"menu" 또는 마을 건물 번호. 마지막 쪽은 가이드로 안내한다.
-const HINTS := [
-	["mail", [["우편함에 완료 선물이 왔어! 눌러서 받아 봐.", "mail"]]],
-	["moves", [["만난 몸짓은 메뉴 → 설정 → 몸짓 도감에서 다시 볼 수 있어.", "menu"]]],
-	["aqua", [["물고기를 수족관에 넣으면 쉬는 동안에도 비늘을 벌어!", 4], ["수족관 칸을 눌러 가방의 물고기를 넣어 봐.\n더 궁금한 건 가이드 책!", "guide"]]],
-	["forge", [["비늘이 모였네! 대장간에서 낚싯대를 강화할 수 있어.", 3], ["강화는 비늘과 비늘조각이 들어.\n높은 단계는 실패하면 내려갈 수도 있어!", 3], ["보호권 같은 자세한 건 가이드 책에서 읽어 봐!", "guide"]]],
-	["alch", [["어혼 2개가 모였어! 합치면 병사가 한 마리 나와.", "menu"], ["메뉴 → 연성 → 어혼 연성을 눌러 봐.", "menu"], ["위쪽 칸을 고르고 아래 어혼을 눌러\n재료 2개를 정해! 같은 속성도 돼.", "menu"], ["두 어혼의 조합으로 병사 종류가 정해져.\n처음 보는 병사는 물음표로 나와!", "menu"], ["더 궁금한 건 가이드 책을 읽어 봐!", "guide"]]],
-	["explore", [["병사 3마리가 모였어! 탐험은\n3마리가 있어야 출발할 수 있어.", "menu"], ["탐험 → 병사 배치에서 3마리를 편성해.\n카드는 왼쪽부터 뒤·중간·앞이야.", "menu"], ["그다음 메뉴 → 탐험에서 노선을 골라\n보내면 돼. 탐험 중에도 낚시는 OK!", "menu"], ["더 궁금한 건 가이드 책을 읽어 봐!", "guide"]]],
-	["soldier_up", [["병사는 강화할 수 있어! 비늘과 같은 속성\n어혼이 들고 +3까지 올라가.", "menu"], ["연성 화면에서 병사를 골라 강화해.\n탐험 중에는 못 하니까 조심!", "menu"], ["더 궁금한 건 가이드 책을 읽어 봐!", "guide"]]],
-	["merge", [["같은 별 병사 둘이 +3이 됐네!\n연성 → 병사 합성으로 별을 올려.", "menu"], ["1성 둘은 2성, 2성 둘은 3성이 돼.\n재료 병사는 사라지니 확인창을 봐!", "menu"], ["아끼는 병사는 잠가 두면 안전해.\n더 궁금한 건 가이드 책!", "guide"]]],
-	["pet", [["진주 10개면 펫 오두막에서 한 번 뽑을 수 있어!", 7], ["오두막에서 뽑기를 누르면 돼.\n더 궁금한 건 가이드 책!", "guide"]]],
-	["guide", [["궁금한 건 가이드 책에 다 있어. 언제든 눌러 봐!", "guide"]]],
-]
+var walk := ""              # 화면을 따라가며 짚어 주는 안내(WALKS)의 키
+var tap_adv := false        # 이번 칸을 누르면 다음 단계로
+var soft := false           # 강조만 하고 다른 곳 입력은 막지 않음
+var gate_frame := -1
+var gate_res := false
+var walk_t := -1.0
+var lv0 := -1
+## 중간 안내(말풍선 한 번): [키, 문구, 대상]. 대상 = "mail"/"guide"/"menu"
+const HINTS := {
+	"mail": ["우편함에 완료 선물이 왔어! 눌러서 받아 봐.", "mail"],
+	"moves": ["만난 몸짓은 메뉴 → 설정 → 몸짓 도감에서 다시 볼 수 있어.", "menu"],
+	"guide": ["궁금한 건 가이드 책에 다 있어. 언제든 눌러 봐!", "guide"],
+}
+## 순서대로 조건이 되면 하나씩. 아래 WALKS에 있는 것은 실제 화면을 따라가며 짚어 주는 안내(누르는 건 막지 않고 단계가 따라간다)
+const HINT_ORDER := ["mail", "moves", "aqua", "forge", "alch", "explore", "soldier_up", "merge", "pet", "guide"]
+const WALKS := ["aqua", "forge", "alch", "explore", "soldier_up", "merge", "pet"]
+## 건물 안내: [건물 번호, 가리킬 말, 들어간 뒤 설명 쪽들]
+const BLD_WALKS := {
+	"aqua": [4, "수족관에 물고기를 넣어 볼까? 눌러 봐!", ["물고기를 수족관에 넣어 두면\n쉬는 동안에도 비늘을 벌어 줘!", "가방에 있는 물고기를 골라서\n수족관 칸에 넣어 봐."]],
+	"forge": [3, "비늘이 모였네! 대장간을 눌러 봐.", ["대장간에서 낚싯대를 강화해.\n비늘과 비늘조각이 들어가.", "높은 단계는 실패하면 단계가 내려가기도 해.\n보호권은 가이드 책에서 확인해!"]],
+	"pet": [7, "진주가 모였어! 펫 오두막을 눌러 봐.", ["진주 10개로 펫을 한 번 뽑을 수 있어!\n뽑기 버튼을 눌러 봐.", "펫은 키우면 도움이 되는 친구야."]],
+}
 
 func active(m) -> bool:
 	return int(m.TUT.get("tour", DONE)) < DONE
@@ -69,7 +81,7 @@ func setup(m) -> void:
 	m.mailbox.tour_mail = bool(m.TUT.get("tour_mail", false))
 
 func _go(m, i: int) -> void:
-	m.TUT.tour = i;m._save_tut();step_t = m.ui_clock
+	m.TUT.tour = i;m._save_tut();step_t = m.ui_clock;sub = -1
 	if i == 0: cam0 = m.V.camera_x
 	if i == 4: gold0 = m.gold
 
@@ -108,10 +120,11 @@ func _menu_item(m, i: int) -> Rect2:
 	return items[i] if i < items.size() else Rect2()
 
 func update(m, _dt: float) -> void:
-	target = Rect2();point = Rect2()
+	target = Rect2();point = Rect2();explain = false;tap_adv = false;soft = false
 	if not active(m):
 		if finish_t > 0 and m.ui_clock - finish_t > 2.0: finish_t = -1.0
-		_update_hint(m)
+		if walk != "": _walk_update(m)
+		else: _update_hint(m)
 		return
 	if _blocked(m): line = "";return
 	if m.ui_clock - pop_t > 1.4: face = "idle"
@@ -126,20 +139,13 @@ func update(m, _dt: float) -> void:
 		1:   # 낚시 상점에서 미끼 선물 받기
 			if m.scene != "village": return
 			if v.shop == "":
-				if m.TUT.get("tour_bait", false): _go(m, 2);return
-				line = "낚시 상점에 가 보자. 미끼를 챙겨 줄게!";target = _building(m, BUILD_UP)
+				if sub < 0 and m.TUT.get("tour_bait", false): sub = 12
+				if sub >= 12: _go(m, 2);return
+				if sub < 7: sub = 0
+				line = "낚시 상점에 가 보자. 하나씩 알려 줄게!";target = _building(m, BUILD_UP)
 			elif v.shop == "up":
-				var done: bool = m.TUT.get("tour_bait", false)
-				if not done and v.tab != "bait":   # 탭을 하나씩 짚어 주고 마지막에 미끼 탭으로
-					var nxt: String = {"pouches": "gear_sell", "gear_sell": "bait"}.get(v.tab, "pouches")
-					line = TAB_LINES.get(v.tab, TAB_LINES.sell);point = _row(v, "tab:" + nxt);target = point
-					var cur: Rect2 = _row(v, "tab:" + v.tab)   # 설명 중인 탭도 어둡게 가리지 않고 같이 밝힌다
-					if cur.size != Vector2.ZERO and point.size != Vector2.ZERO: target = cur.merge(point)
-				else:
-					if not done:
-						m.bait += BAIT_GIFT;m.TUT.tour_bait = true;m._save_tut();m._save_game()
-						m.show_toast("고양이가 미끼 %d개를 줬어요!" % BAIT_GIFT, Color("ffd166"));face = "happy"
-					line = "미끼가 있으면 입질이 빨라져! %d개 선물이야." % BAIT_GIFT;target = v.rects.get("close", Rect2())
+				if sub < 0: sub = 12 if m.TUT.get("tour_bait", false) else 0
+				_shop_up(m, v)
 			else: target = v.rects.get("close", Rect2());line = "앗, 여긴 아니야. 닫고 낚시 상점으로 가자."
 		2:   # 메뉴 → 낚시터 → 첫 낚시터 들어가기
 			if m.scene == "fish": _go(m, 3);return
@@ -189,6 +195,224 @@ func update(m, _dt: float) -> void:
 			line = "마지막으로 도감을 열어 보자!" if not m.menu_open else "도감을 눌러!"
 			target = _menu_item(m, 2)
 
+## 낚시 상점: 장비 탭 → 파츠 하나씩 → 주인 물고기 → 미끼 탭(선물) → 어혼 탭 → 팔기 탭 → 닫기. 설명 쪽은 "다음"으로 넘긴다.
+func _part_rect(v, slot: int) -> Rect2:
+	return v.rects.get("part:%d" % slot, Rect2())
+
+func _need_tab(v, key: String, ask: String) -> bool:
+	if v.tab == key: return false
+	line = ask;target = _row(v, "tab:" + key)
+	return true
+
+func _shop_up(m, v) -> void:
+	if sub <= 5 and _need_tab(v, "sell", "먼저 장비 탭을 눌러 봐!"): return
+	if sub == 0:
+		line = "여긴 장비 탭이야! 파츠를 사서\n더 높은 별 물고기를 낚아 보자.";target = _row(v, "tab:sell");explain = true
+	elif sub <= 5:
+		line = PART_LINES[sub - 1];target = _part_rect(v, mini(sub - 1, 3));explain = true
+	elif sub <= 7:
+		if _need_tab(v, "bait", "이제 미끼 탭을 눌러 봐!"): return
+		if sub == 6 and not m.TUT.get("tour_bait", false):
+			m.bait += BAIT_GIFT;m.TUT.tour_bait = true;m._save_tut();m._save_game()
+			m.show_toast("고양이가 미끼 %d개를 줬어요!" % BAIT_GIFT, Color("ffd166"));face = "happy"
+		sub = 7
+		line = "미끼가 있으면 입질이 빨라져!\n%d개 선물이야." % BAIT_GIFT
+		target = v.rects.get("baitcell:0", Rect2());explain = true
+	elif sub <= 9:
+		if _need_tab(v, "pouches", "이번엔 어혼 탭을 눌러 봐!"): return
+		sub = 9
+		line = "어혼 주머니는 병사를 키우는 재료야.\n탐험에 보낼 병사가 나와!";target = _row(v, "tab:pouches");explain = true
+	elif sub <= 11:
+		if _need_tab(v, "gear_sell", "마지막으로 팔기 탭을 눌러 봐!"): return
+		sub = 11
+		line = "팔기 탭에선 안 쓰는 장비를 팔아.\n물고기는 어시장에서 팔아!";target = _row(v, "tab:gear_sell");explain = true
+	else:
+		line = "다 봤어! 상점을 닫고 낚시터로 가자.";target = v.rects.get("close", Rect2())
+
+## ───────── 화면을 따라가는 안내(walk) ─────────
+## 한 단계 = 지금 화면 상태를 보고 line/target을 정한다. 설명 쪽(explain)은 "다음"으로, 행동 쪽은 칸을 누르거나 상태가 바뀌면 넘어간다.
+func _gate_press(m, pos: Vector2) -> bool:
+	var f: int = Engine.get_process_frames()
+	if gate_frame == f: return gate_res   # 같은 누름이 gate와 press에서 두 번 오더라도 한 번만 처리
+	gate_frame = f;gate_res = _gate_calc(m, pos)
+	return gate_res
+
+func _gate_calc(m, pos: Vector2) -> bool:
+	if rects.get("skip", Rect2()).grow(4).has_point(pos): _walk_end(m);m.audio_feedback.sound(m, "click", -8.0);return true
+	if explain:
+		if rects.get("next", Rect2()).grow(4).has_point(pos): sub += 1;face = "idle";m.audio_feedback.sound(m, "click", -8.0, 1.3)
+		else: bounce_t = m.ui_clock;m.audio_feedback.sound(m, "click", -12.0, 0.8)
+		return true
+	if soft or target.size == Vector2.ZERO: return false
+	if target.grow(4).has_point(pos):
+		if tap_adv: sub += 1
+		return false
+	bounce_t = m.ui_clock;m.audio_feedback.sound(m, "click", -12.0, 0.8)
+	return true
+
+## 창이 먼저 입력을 가져가는 화면(병사 배치 등)에서도 막고 단계가 넘어가도록, main이 맨 앞에서 부른다.
+func gate(m, e: InputEvent) -> bool:
+	if walk == "" or _blocked(m) or not (e is InputEventMouseButton) or e.button_index != MOUSE_BUTTON_LEFT: return false
+	if e.pressed: return _gate_press(m, e.position - Vector2(m.ox, 0))
+	return gate_res
+
+func _walk_end(m) -> void:
+	_mark_seen(m, walk);walk = "";sub = 0;walk_t = -1.0;lv0 = -1
+
+func _say(txt: String, rect: Rect2) -> void:
+	line = txt;target = rect;explain = true
+
+func _do(txt: String, rect: Rect2, tap: bool = true) -> void:
+	line = txt;target = rect;tap_adv = tap
+
+## 메뉴에서 화면을 열도록 안내(메뉴 → 해당 항목)
+func _w_menu(m, key: String, label: String) -> void:
+	var idx := -1
+	for i in m.MENU.size():
+		if m.MENU[i][0] == key: idx = i
+	if not m.menu_open: line = "메뉴를 열어서 %s를 눌러 봐!" % label;target = m.ui_rects.get("menu", Rect2())
+	else: line = "%s를 눌러!" % label;target = _menu_item(m, idx)
+
+## 마무리: 화면을 닫고 마을로 돌아오면 가이드 책을 가리킨다(누름은 막지 않음).
+func _walk_outro(m, txt: String) -> void:
+	if m.scene != "village" or m.V.shop != "" or m.expedition.opened != "" or m.menu_open or m.guide.opened: return
+	if walk_t < 0.0: walk_t = m.ui_clock;face = "happy"
+	line = txt;target = m.guide.button;soft = true
+	if m.ui_clock - walk_t > 7.0: _walk_end(m)
+
+func _souls_pick(d, second: bool) -> int:
+	var first := -1
+	for i in d.souls.size():
+		if int(d.souls[i]) > 0: first = i;break
+	if not second or first < 0: return first
+	if int(d.souls[first]) >= 2: return first
+	for i in range(first + 1, d.souls.size()):
+		if int(d.souls[i]) > 0: return i
+	return first
+
+func _walk_update(m) -> void:
+	if _blocked(m): return
+	var ev = m.expedition
+	if m.scene != "village" and ev.opened == "": return   # 낚시터 등에 가 있으면 잠깐 멈춤
+	match walk:
+		"alch": _walk_alch(m, ev)
+		"explore": _walk_explore(m, ev)
+		"soldier_up": _walk_up(m, ev)
+		"merge": _walk_merge(m, ev)
+		_: _walk_building(m)
+
+func _walk_alch(m, ev) -> void:
+	var R: Dictionary = ev.rects;var d = ev.data
+	if sub >= 7: _walk_outro(m, "병사가 나왔어! 더 궁금한 건\n가이드 책을 읽어 봐.");return
+	if ev.opened != "alchemy": sub = 0;_w_menu(m, "alchemy", "연성");return
+	if sub == 0: sub = 1
+	if ev.tab != 0: _do("어혼 연성 탭을 눌러 봐!", R.get("tab:0", Rect2()), false);return
+	if not d.pending.is_empty() or ev.effect_kind != "": sub = 7;return
+	match sub:
+		1: _say("여긴 연성 화면이야!\n어혼 두 개를 합쳐서 병사를 만들어.", R.get("tab:0", Rect2()))
+		2: _say("위쪽 두 칸이 재료 칸이야.\n여기에 어혼 두 개가 들어가.", R.get("pair:0", Rect2()).merge(R.get("pair:1", Rect2())))
+		3: _do("아래 보유 어혼 중 하나를 눌러서\n첫 번째 재료로 골라 봐!", R.get("element:%d" % _souls_pick(d, false), Rect2()))
+		4: _do("한 번 더! 두 번째 재료를 골라.\n같은 속성을 또 골라도 돼.", R.get("element:%d" % _souls_pick(d, true), Rect2()))
+		5: _say("결과 미리보기야. 두 어혼의 조합으로\n병사가 정해져. ?는 처음 만드는 병사!", R.get("preview", Rect2()))
+		_: _do("이제 연성하기를 눌러서\n병사를 만들어 봐!", R.get("craft", Rect2()), false)
+
+func _walk_explore(m, ev) -> void:
+	var R: Dictionary = ev.rects;var d = ev.data
+	if sub >= 8: _walk_outro(m, "탐험을 보냈어! 더 궁금한 건\n가이드 책을 읽어 봐.");return
+	if d.active() and sub < 8: sub = 8;return
+	if ev.opened != "explore":
+		sub = 0;_w_menu(m, "explore", "탐험");return
+	if sub == 0: sub = 1
+	if sub == 1: _say("여긴 탐험 화면이야! 병사 3마리를\n보내서 보상을 받아 와.", R.get("explore_tab:0", Rect2()));return
+	if sub == 2:
+		if ev.explore_tab == 1: sub = 3;return
+		_do("먼저 병사 배치 탭을 눌러 봐!\n탐험은 병사 3마리가 있어야 가.", R.get("explore_tab:1", Rect2()), false);return
+	if sub == 3:
+		_say("위쪽 세 칸이 편성 자리야.\n왼쪽부터 뒤·중간·앞! 3칸을 모두 채워야 해.", R.get("slot:0", Rect2()).merge(R.get("slot:1", Rect2())).merge(R.get("slot:2", Rect2())));return
+	if sub == 4:
+		if d.team.size() >= 3 and ev.formation_uid < 0: sub = 5;return
+		if ev.explore_tab != 1: sub = 2;return
+		if ev.formation_uid >= 0:
+			_do("배치 버튼을 눌러서 이 병사를\n출전시켜!", ev.formation_ui.modal_rects.get("confirm", Rect2()), false);return
+		var pick := Rect2()
+		for k in R:
+			if str(k).begins_with("formation_unit:") and not (int(str(k).get_slice(":", 1)) in d.team): pick = R[k];break
+		_do("아래 보유 병사를 눌러서 배치해 봐!\n(출전 %d/3)" % d.team.size(), pick, false);return
+	if sub == 5:
+		if ev.explore_tab != 0: _do("이제 탐사 노선 탭을 눌러 봐!", R.get("explore_tab:0", Rect2()), false);return
+		sub = 6
+	if sub == 6: _say("갈 노선을 골라. 처음엔 1번만\n열려 있어. 이 방으로 가자!", R.get("round:1", Rect2()));return
+	_do("탐험 보내기를 눌러! 탐험 중에도\n낚시는 계속할 수 있어.", R.get("start", Rect2()), false)
+
+func _walk_up(m, ev) -> void:
+	var R: Dictionary = ev.rects;var d = ev.data
+	if sub >= 9: _walk_outro(m, "강화 끝! 더 궁금한 건\n가이드 책을 읽어 봐.");return
+	if ev.opened not in ["alchemy", "management", "training"]:
+		sub = 0;_w_menu(m, "alchemy", "연성");return
+	if sub == 0: sub = 1
+	if ev.opened == "alchemy":
+		if ev.tab != 2: _do("병사 탭을 눌러 봐!\n가진 병사를 볼 수 있어.", R.get("tab:2", Rect2()), false);return
+		var pick := Rect2()
+		for su in d.soldiers:
+			if int(su.get("level", 0)) < 3 and R.has("select:%d" % int(su.uid)): pick = R["select:%d" % int(su.uid)];break
+		_do("강화할 병사를 눌러 봐!", pick, false);return
+	if ev.opened == "management":
+		_do("강화 버튼을 눌러!\n비늘과 같은 속성 어혼이 들어가.", R.get("upgrade:%d" % int(ev.management.uid), Rect2()), false);return
+	var u: Dictionary = d.unit(ev.training_uid)
+	if lv0 < 0: lv0 = int(u.get("level", 0))
+	if int(u.get("level", 0)) > lv0: sub = 9;lv0 = -1;return
+	if sub == 1: _say("현재 능력치와 강화 뒤 능력치,\n드는 비용을 확인해!", R.get("train", Rect2()))
+	elif sub == 2: _say("강화는 +3까지 할 수 있어.\n+3이 되면 병사 합성도 할 수 있지!", R.get("train", Rect2()))
+	else: _do("강화하기를 눌러 봐!", R.get("train", Rect2()), false)
+
+func _walk_merge(m, ev) -> void:
+	var R: Dictionary = ev.rects;var d = ev.data
+	if sub >= 9: _walk_outro(m, "합성 안내는 여기까지!\n더 궁금한 건 가이드 책을 읽어 봐.");return
+	if ev.opened == "merge_confirm":
+		sub = 8;line = "재료 병사는 사라져. 소모되는 재료를 보고\n합성하거나 취소해!";soft = true;return
+	if sub == 8: sub = 9;return
+	if ev.opened != "alchemy":
+		sub = 0;_w_menu(m, "alchemy", "연성");return
+	if sub == 0: sub = 1
+	if ev.tab != 1: _do("병사 합성 탭을 눌러 봐!", R.get("tab:1", Rect2()), false);return
+	match sub:
+		1: _say("같은 별이고 둘 다 +3인 병사 둘을\n합치면 더 높은 별 병사가 돼!", R.get("tab:1", Rect2()))
+		2:
+			var picks: Array = _merge_pair(d)
+			var left: Array = ev.selected
+			var pick := Rect2()
+			for uid in picks:
+				if not (int(uid) in left) and R.has("select:%d" % int(uid)): pick = R["select:%d" % int(uid)];break
+			if left.size() >= 2: sub = 3;return
+			_do("합성할 병사를 눌러 골라 봐! (%d/2)" % left.size(), pick, false)
+		_: _do("합성 결과와 소모 재료를 확인해 봐.\n안 하고 싶으면 취소해도 돼!", R.get("merge_review", Rect2()), false)
+
+func _merge_pair(d) -> Array:
+	for i in d.soldiers.size():
+		var a = d.soldiers[i]
+		if int(a.level) < 3 or int(a.star) >= 3 or bool(a.locked): continue
+		for j in range(i + 1, d.soldiers.size()):
+			var b = d.soldiers[j]
+			if int(b.star) == int(a.star) and int(b.level) >= 3 and not bool(b.locked): return [int(a.uid), int(b.uid)]
+	return []
+
+## 건물 안내(수족관·대장간·펫 오두막): 건물을 누르게 하고 → 안에서 설명 쪽 → 닫으면 가이드 책
+func _walk_building(m) -> void:
+	var v = m.V;var row: Array = BLD_WALKS.get(walk, [])
+	if row.is_empty(): _walk_end(m);return
+	var code: String = v.BUILD[row[0]][1]
+	if sub >= 100: _walk_outro(m, "더 궁금한 건 가이드 책을 읽어 봐!");return
+	if v.shop == "":
+		if sub == 0: _center_on(m, row[0]);sub = 1
+		if sub >= 2: sub = 100;return   # 설명을 보고 닫았다
+		if m.menu_open or m.market_open or m.settings_open or m.mailbox.opened or m.guide.opened: return
+		line = row[1];target = _building(m, row[0]);return
+	if v.shop != code: return
+	if sub < 2: sub = 2
+	var pages: Array = row[2];var i: int = sub - 2
+	if i >= pages.size(): sub = 100;return
+	_say(pages[i], v.rects.get("panel", Rect2()))
+
 func _hint_ready(m, k: String) -> bool:
 	var ex = m.expedition.data
 	match k:
@@ -199,7 +423,7 @@ func _hint_ready(m, k: String) -> bool:
 		"alch": return int(ex.souls.reduce(func(a, b): return a + int(b), 0)) >= 2 and ex.soldiers.is_empty()   # 연성 1회 = 어혼 2개
 		"explore": return ex.soldiers.size() >= 3 and ex.completed.is_empty()   # 탐험은 병사 3마리가 있어야 출발
 		"pet": return m.pearl >= 10 and m.pet_hut.get("e", []).is_empty()
-		"soldier_up": return ex.soldiers.size() >= 3 and "explore" in m.TUT.get("hints", []) and ex.soldiers.any(func(u): return int(u.level) < 3)
+		"soldier_up": return ex.soldiers.size() >= 3 and "explore" in m.TUT.get("hints", []) and not ex.active() and ex.soldiers.any(func(u): return int(u.level) < 3)
 		"merge": return _can_merge(ex)
 		"guide": return m.TUT.get("hints", []).size() >= 3
 	return false
@@ -214,49 +438,37 @@ func _can_merge(ex) -> bool:
 	return false
 
 func _hint_target(m, what) -> Rect2:
-	if what is int: return _building(m, what)
 	match what:
 		"mail": return m.mailbox.button
 		"guide": return m.guide.button
 		"menu": return m.ui_rects.get("menu", Rect2())
 	return Rect2()
 
-## 마을에서 아무 창도 안 열렸을 때만, 조건이 된 안내를 하나씩 6초 보여 준다. 누르는 것은 막지 않는다.
+## 마을에서 아무 창도 안 열렸을 때만, 조건이 된 안내를 하나씩 시작한다.
 func _update_hint(m) -> void:
 	if not m.TUT.has("tour"): return   # 튜토리얼을 시작하지 않은 실행(PC·검사)에는 안내도 없다
 	var free_view: bool = m.scene == "village" and m.V.shop == "" and not m.menu_open and not m.market_open and not m.settings_open \
 		and not m.mailbox.opened and not m.guide.opened and not m.personal_dex.opened and m.expedition.opened == "" and not _blocked(m)
 	if hint != "":
-		if not free_view: hint = ""
-		elif m.ui_clock - hint_t > 8.0: _hint_next(m)
+		if not free_view or m.ui_clock - hint_t > 6.0: hint = ""
 		return
 	if not free_view or finish_t > 0 or (end_t > 0 and m.ui_clock - end_t < 3.5): return
 	var seen: Array = m.TUT.get("hints", [])
-	for h in HINTS:
-		if h[0] in seen or not _hint_ready(m, h[0]): continue
-		hint = h[0];hint_t = m.ui_clock;hint_page = 0;face = "happy" if h[0] == "mail" else "idle"
-		if h[1].size() == 1: _hint_seen(m)
+	for k in HINT_ORDER:
+		if k in seen or not _hint_ready(m, k): continue
+		if k in WALKS: walk = k;sub = 0;face = "idle";m.audio_feedback.sound(m, "click", -10.0, 1.4);return
+		hint = k;hint_t = m.ui_clock;face = "happy" if k == "mail" else "idle"
+		_mark_seen(m, k)
 		m.audio_feedback.sound(m, "click", -10.0, 1.4)
 		return
 
-func _hint_seen(m) -> void:
+func _mark_seen(m, k: String) -> void:
 	var seen: Array = m.TUT.get("hints", [])
-	if not hint in seen: seen.append(hint);m.TUT.hints = seen;m._save_tut()
-
-## 다음 쪽으로. 마지막 쪽이면 닫고 본 것으로 기록한다.
-func _hint_next(m) -> void:
-	var pages: Array = []
-	for x in HINTS: if x[0] == hint: pages = x[1]
-	hint_page += 1;hint_t = m.ui_clock
-	if hint_page >= pages.size(): _hint_seen(m);hint = "";hint_page = 0
-	elif hint_page == pages.size() - 1: _hint_seen(m)
-	else: m.audio_feedback.sound(m, "click", -12.0, 1.2)
+	if not k in seen: seen.append(k);m.TUT.hints = seen;m._save_tut()
 
 func _paint_hint(m, h: float) -> void:
-	var pages: Array = []
-	for x in HINTS: if x[0] == hint: pages = x[1]
-	if pages.is_empty(): return
-	var row: Array = pages[mini(hint_page, pages.size() - 1)]
+	var row: Array = HINTS.get(hint, [])
+	if row.is_empty(): return
 	var r: Rect2 = _hint_target(m, row[1])
 	if r.size != Vector2.ZERO and Rect2(0, 0, 270, h).intersects(r):
 		var c := Color(1, 0.88, 0.45, 0.55 + 0.45 * sin(m.ui_clock * 6.0))
@@ -269,17 +481,18 @@ func _paint_hint(m, h: float) -> void:
 
 ## 누른 곳이 지금 단계에서 허용되는지. true면 게임은 그 입력을 무시한다.
 func intercept(m, p: Vector2) -> bool:
-	if hint != "":   # 여러 쪽 안내: 누르면 다음 쪽(그 입력은 막음), 마지막 쪽이나 한 쪽짜리는 닫히고 입력은 그대로 게임으로 간다
-		var n := 1
-		for x in HINTS: if x[0] == hint: n = x[1].size()
-		if hint_page < n - 1: _hint_next(m);return true
-		hint = "";hint_page = 0
+	if hint != "": hint = ""   # 한 줄 안내는 아무 곳이나 누르면 닫히고, 누른 입력은 그대로 게임으로 간다
+	if walk != "": return false if _blocked(m) else _gate_press(m, p)
 	if not active(m) or _blocked(m): return false
 	if confirm:
 		if rects.get("yes", Rect2()).has_point(p): _finish(m);m.lesson_open = false;m.audio_feedback.sound(m, "click", -8.0)
 		elif rects.get("no", Rect2()).has_point(p): confirm = false
 		return true
 	if rects.get("skip", Rect2()).grow(4).has_point(p): confirm = true;m.audio_feedback.sound(m, "click", -8.0);return true
+	if explain:
+		if rects.get("next", Rect2()).grow(4).has_point(p): sub += 1;face = "idle";m.audio_feedback.sound(m, "click", -8.0, 1.3)
+		else: bounce_t = m.ui_clock;m.audio_feedback.sound(m, "click", -12.0, 0.8)
+		return true
 	if m.lesson_open or target.size == Vector2.ZERO: return false
 	if target.grow(4).has_point(p): return false
 	bounce_t = m.ui_clock;m.audio_feedback.sound(m, "click", -12.0, 0.8)
@@ -294,8 +507,8 @@ func draw(m, h: float) -> void:
 	overlay.position.x = m.ox
 	var saved_cmd: Array = m.ui_commands;var saved_txt: Array = m.text_items
 	m.ui_commands = [];m.text_items = []
-	rects.skip = Rect2()
-	if active(m) and not _blocked(m) and not m.lesson_open: _paint(m, h)
+	rects.skip = Rect2();rects.next = Rect2()
+	if (active(m) or walk != "") and not _blocked(m) and not m.lesson_open: _paint(m, h)
 	elif hint != "": _paint_hint(m, h)
 	elif end_t > 0 and m.ui_clock - end_t < 3.5 and not _blocked(m):
 		line = END_LINE;face = "happy";_bubble(m, h);line = ""
@@ -336,7 +549,7 @@ func _paint(m, h: float) -> void:
 			var k: float = (ph - 1.2) / 0.2;var rc := Color(1, 0.95, 0.7, 0.85 * (1.0 - k));var q: float = roundf(3 + 7 * k)
 			for v in [Vector2(-q, 0), Vector2(q, 0), Vector2(0, -q), Vector2(0, q)]:
 				m._ui_rect(Rect2((corner + v).round() - Vector2(1, 1), Vector2(2, 2)), rc)
-		_finger(m, corner + (dir * d).round(), fx, fy)
+		if not explain: _finger(m, corner + (dir * d).round(), fx, fy)
 	elif step(m) == 0:
 		# 좌우로 밀기: 양쪽 도트 화살표가 바깥으로 들썩이고, 앞발이 그 사이를 오간다
 		var cyy: float = roundf(h * 0.5);var pu: float = roundf(absf(sin(t * 3.0)) * 3.0)
@@ -390,18 +603,34 @@ func _bubble(m, h: float) -> void:
 			band = Rect2(x0, ay, w, BAND_H);cy = ay;near = true;bottom_edge = cy + BAND_H   # 칸 바로 위에 띄운다
 		else:
 			band = Rect2(x0, 0, w, m.top_y + BAND_H + 4);cy = m.top_y + 2;bottom_edge = cy + BAND_H
-	m._ui_style_box(m.sb_panel, band.grow_individual(4, 2 if not top else 4, 4, 4 if not top else 0) if not near else band.grow_individual(4, 0, 4, 0))
+	_tip_box(m, band.grow_individual(4, 2 if not top else 4, 4, 4 if not top else 0) if not near else band.grow_individual(4, 0, 4, 0))
 	var tex: Texture2D = PORTRAITS.get(face, PORTRAITS.idle)
 	var hop: float = -2.0 if m.ui_clock - pop_t < 0.3 else 0.0
 	m._ui_texture_rect(tex, Rect2(6, cy + 5 + hop, 48, 48))   # 고양이 몸통이 띠 세로 가운데
-	if active(m):
-		var cur: int = step(m)
-		for i in STEPS:
-			m._ui_rect(Rect2(60 + i * 9, cy + 11, 5, 5), Color("e0a93a") if i < cur else (Color("7a5232") if i == cur else Color(0.48, 0.32, 0.2, 0.3)))
+	if active(m) or walk != "":
+		var cur: int = step(m) if active(m) else -1
+		for i in (STEPS if active(m) else 0):
+			m._ui_rect(Rect2(60 + i * 9, cy + 11, 5, 5), Color("e0a93a") if i < cur else (Color("17525a") if i == cur else Color(0.09, 0.32, 0.35, 0.3)))
 		rects.skip = Rect2(196, bottom_edge - 28, 66, 20)   # 늘 띠 오른쪽 아래 같은 자리(누르는 칸은 넉넉히, 그림은 글자만)
-		m._text("건너뛰기 >", Vector2(rects.skip.get_center().x, bottom_edge - 13), 10, Color("8c6a48"), true, 66)
+		if explain:
+			rects.next = rects.skip;rects.skip = Rect2(60, bottom_edge - 28, 66, 20)
+			var nb: Rect2 = rects.next.grow_individual(-2, -1, -2, -1)
+			m._ui_rect(Rect2(nb.position.x + 2, nb.position.y, nb.size.x - 4, nb.size.y), Color("17525a"));m._ui_rect(Rect2(nb.position.x, nb.position.y + 2, nb.size.x, nb.size.y - 4), Color("17525a"))
+			m._ui_rect(Rect2(nb.position.x + 2, nb.position.y + 2, nb.size.x - 4, nb.size.y - 4), Color("ffd166") if sin(m.ui_clock * 6.0) > -0.3 else Color("ffe9a0"))
+			m._text("다음 >", rects.next.get_center() + Vector2(0, 5), 10, Color("17323a"), true, 56)
+			m._text("건너뛰기", Vector2(rects.skip.get_center().x, bottom_edge - 13), 10, Color("3f7f86"), true, 66)
+		else: m._text("건너뛰기 >", Vector2(rects.skip.get_center().x, bottom_edge - 13), 10, Color("3f7f86"), true, 66)
 	var txt: String = m._ui_wrap(line, 10, 200, 2)
-	m._text(txt, Vector2(160, cy + (26 if "\n" in txt else 35)), 10, Color("382619"), true, 200)   # 글자도 세로 가운데
+	m._text(txt, Vector2(160, cy + (26 if "\n" in txt else 35)), 10, Color("12373c"), true, 200)   # 글자도 세로 가운데
+
+## 고양이 말풍선: 상점·메뉴의 갈색·크림색과 겹치지 않게 민트색 도트 틀(굵은 진청록 테두리 + 금색 윗줄)
+func _tip_box(m, r: Rect2) -> void:
+	var bd := Color("17525a");var fill := Color("e3f6ee")
+	m._ui_rect(Rect2(r.position.x + 3, r.position.y, r.size.x - 6, r.size.y), bd);m._ui_rect(Rect2(r.position.x, r.position.y + 3, r.size.x, r.size.y - 6), bd)
+	m._ui_rect(Rect2(r.position.x + 1, r.position.y + 1, r.size.x - 2, r.size.y - 2), bd)
+	m._ui_rect(Rect2(r.position.x + 5, r.position.y + 3, r.size.x - 10, r.size.y - 6), fill);m._ui_rect(Rect2(r.position.x + 3, r.position.y + 5, r.size.x - 6, r.size.y - 10), fill)
+	m._ui_rect(Rect2(r.position.x + 6, r.position.y + 3, r.size.x - 12, 2), Color("ffd166"))
+	m._ui_rect(Rect2(r.position.x + 6, r.end.y - 5, r.size.x - 12, 2), Color("b5dccd"))
 
 func _confirm(m, h: float) -> void:
 	m._ui_rect(Rect2(-m.ox, 0, m.VW + 2 * m.ox, h), Color(0.02, 0.03, 0.06, 0.6))

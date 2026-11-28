@@ -48,13 +48,26 @@ func run() -> void:
 	check(not m.tour.intercept(m, Vector2(135, 300)) and m.tour.hint == "", "hint closes without blocking")
 	for i in 3: await process_frame
 	check(m.tour.hint != "mail", "mail hint only once")
-	# 여러 쪽 안내: 누르면 다음 쪽(입력 막음), 마지막 쪽에서 닫히고 그때 본 것으로 기록
-	m.tour.hint = "explore";m.tour.hint_page = 0
-	check(m.tour.intercept(m, Vector2(135, 300)) and m.tour.hint == "explore" and m.tour.hint_page == 1, "multi-page hint advances and blocks tap")
-	while m.tour.hint_page < 3: m.tour.intercept(m, Vector2(135, 300))
-	check(not m.tour.intercept(m, Vector2(135, 300)) and m.tour.hint == "", "last page closes without blocking")
-	var last_pages: Array = []
-	for hh in m.tour.HINTS: if hh[1].size() > 1: last_pages.append(hh[1][hh[1].size() - 1][1])
-	check(last_pages.all(func(x): return x == "guide"), "every multi-page hint ends at the guide")
+	# 화면 따라가는 안내(연성): 메뉴를 누르는 입력은 막지 않고, 연성 창이 열리면 다음 단계로 간다
+	m.tour.walk = "alch";m.tour.sub = 0;m.menu_open = false
+	for i in 2: await process_frame
+	check(m.tour.target.size != Vector2.ZERO and not m.tour.explain, "alch walk points at the menu")
+	check(not m.tour.intercept(m, m.tour.target.get_center()), "alch walk lets the menu tap through")
+	m.menu_open = true
+	m.expedition.open(m, "alchemy");m.expedition.tab = 0
+	for i in 3: await process_frame
+	check(m.tour.sub >= 1 and m.tour.explain, "alch walk follows into the alchemy screen")
+	m.tour.gate_frame = -1
+	var nx: Rect2 = m.tour.rects.get("next", Rect2())
+	m.tour.intercept(m, nx.get_center())
+	check(m.tour.sub >= 2, "next button advances an explain page")
+	m.expedition.opened = "";m.tour.walk = "";m.tour.sub = -1
+	# 상점 안내: 다음으로 넘기고, 미끼 선물은 한 번만
+	m.TUT.tour = 1;m.TUT.erase("tour_bait");m.tour.sub = 6;m.bait = 0
+	m.V.open_shop(m, "up");m.V.tab = "bait"
+	for i in 3: await process_frame
+	check(m.bait == 3 and m.tour.sub == 7, "shop bait gift given once")
+	for i in 3: await process_frame
+	check(m.bait == 3, "shop bait gift not repeated")
 	print("TUTORIAL_TOUR_VERIFY failures=", failures)
 	quit(1 if failures else 0)

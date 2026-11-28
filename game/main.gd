@@ -1335,6 +1335,7 @@ func _unhandled_input(e: InputEvent) -> void :
 	if e is InputEventKey and e.keycode==KEY_ESCAPE:
 		if e.pressed and not e.echo:_handle_back_request()
 		get_viewport().set_input_as_handled();return
+	if tour.gate(self,e): return   # 화면을 따라가는 안내 중에는 다른 창보다 먼저 막을 곳을 판단한다
 	if capture_robot.input_event(self,e): return
 	if bait_picker.input_event(self,e): return
 	if not title_open and expedition.input_event(self,e): return
