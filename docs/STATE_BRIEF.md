@@ -4,7 +4,7 @@
 
 ## 한눈에
 - 작업 브랜치: work/forge-138 (main에서 작업하지 않는다)
-- 마지막 공개본: v1.62(2026-11-28, 첫 실행 컷신 5컷 + v1.61 잔잔한 음악·물소리·업데이트 화면). main a5b9e2b4, 후보 verify-work 46058709964(source 8608bd74), 공개 release-patch 46061209763(첫 실행은 '초안 조회 지연'으로 실패해 workflow_dispatch로 재실행), 공개 검증 verify-deployment 46061271214 통과, 서버 version.json code 162 확인. 휴대폰 확인은 사용자 결정으로 생략하고 공개(개인 배포 단계). 업데이트 화면 퇴장 연출은 다음 APK부터 적용. APK는 반드시 후보 artifact의 full.pck로 만든다(patch.pck로 만들면 "Couldn't load project data" 오류, 11-27 실수). 이전 메모: (1) UI 글자는 text_layer.gd처럼 화면 배율 크기로 그린다 (2) 폰(APK)에는 원본 PNG가 없어 Image.load_from_file 대신 load()로 읽는다
+- 마지막 공개본: v1.63(2026-11-28, 고양이 튜토리얼 5단계·앞발 포인터·완료 우편 "tour"·중간 안내 8종 + 몸짓 도감 먼저 + 수족관 새 단장). main bb84b9fa9(work bfe28b5a3 입력 트리), 전체 검증 46101871357, 후보 46101871362, 공개 release-patch 46103350476(첫 실행은 초안 조회 지연으로 실패해 workflow_dispatch 재실행), 공개 검증 verify-deployment 46103403189 통과. 휴대폰 확인은 아직. 다음 수정은 1.64로 올린다. 이전: v1.62 컷신(main a5b9e2b4)
 - 업데이트 방식(v1.50, 2026-11-24 개편): 켜기 화면(root.gd, APK 안)이 version.json을 한 번 읽고, 새 버전이면 patch.pck 하나를 받는다(5초 안에 끝나면 켜기 화면에서 바로 적용, 아니면 게임을 먼저 켜고 백그라운드로 받아 다음 실행 때 적용). sha256·크기·GDPC 머리가 맞을 때만 user://upd/ 에 저장. 예전 Range 조각 업데이터(incremental_update.gd)는 삭제됨.
 - patch.pck은 "APK와 달라진 파일만" 담는다(automation/delta_pack.py). 기준은 automation/apk_base.json(APK에 든 파일 md5). APK를 새로 만들 때만 그 APK의 full.pck(후보 artifact에 들어 있음)로 apk_base.json을 다시 만든다(delta_pack.save_base). apk_base.json이 없으면 후보는 delta=false라 공개가 막힌다. 새 이미지·소리가 늘면 patch.pck이 커지므로, 커지면 APK를 새로 만든다.
 - 서버(Cloudflare 문)는 건드리지 않았다: version.json(code,name,size,sha256)과 patch.pck?v=code 계약 유지. 구형 APK는 새 patch.pck을 받으면 안 되므로, 새 APK 설치 전에는 공개하지 않는다.
@@ -12,7 +12,7 @@
 - v1.44는 v1.45에 포함되어 공개됨. 같은 번호로 내용만 또 고치면 폰이 받지 못하니 다음 수정은 1.46으로 올린다
 - 새 배포·PixelLab 유료 호출은 사용자 승인 전까지 하지 않는다. 공개 배포는 사용자가 폰에서 확인하고 승인한 뒤에 한다
 - 이어서 할 일: (1) v1.62 공개 완료 — 컷신: 폰에서 새 플레이어 첫 실행 때만 자동 재생(기존 플레이어는 본 것으로 처리, user://intro_seen), 컷별 '건너뛰기 >>', 설정 '첫 실행 영상 다시 보기'. 게임 사본은 docs/design/intro-cutscene/install_into_game.py로 만든다(game/art/intro 직접 수정 금지). 다음 수정은 1.63으로 올린다 (2) CI 고침: 부팅 검사 180→1500프레임, release075 마을 음악 길이 기준 60초 초과 (3) 컷신 이후 튜토리얼 구현 (4) PulseLite(CC-BY) 출처 표기 위치 미정
-- 미공개 작업(2026-11-28): v1.63 몸짓 카드·수족관(work 61c4c253 후보 통과) + 기본 튜토리얼(addons/reservoir/tutorial_tour.gd). 튜토리얼 5단계(마을 둘러보기→낚시 상점 미끼 3→낚시터 입장→첫 낚시→어시장 판매·도감), 흰 고양이 말풍선·스포트라이트·건너뛰기 확인창, 완료·건너뛰기·기존 플레이어는 우편 "tour"(골드 100, 비늘조각 3, 어혼 각 1, 진주 10). 폰에서만 시작(PC·검사는 --tour 또는 tour.force). 끝난 뒤 중간 안내 8종(우편·몸짓·수족관·대장간·연성·탐험·펫·가이드)은 마을에서 조건 되면 한 번씩 6초, 입력을 막지 않음. 검사 tests/tutorial_tour_verify.gd(verify-work 빠른 검사). 공개는 사용자가 "공개해"라고 할 때만, 버전 번호는 그때 정한다
+- 미공개 작업(2026-11-28): v1.63 몸짓 카드·수족관(work 61c4c253 후보 통과) + 기본 튜토리얼(addons/reservoir/tutorial_tour.gd). 튜토리얼 5단계(마을 둘러보기→낚시 상점 미끼 3→낚시터 입장→첫 낚시→어시장 판매·도감), 흰 고양이 말풍선·스포트라이트·건너뛰기 확인창, 완료·건너뛰기·기존 플레이어는 우편 "tour"(골드 100, 비늘조각 3, 어혼 각 1, 진주 10). 폰에서만 시작(PC·검사는 --tour 또는 tour.force). 끝난 뒤 중간 안내 8종(우편·몸짓·수족관·대장간·연성·탐험·펫·가이드)은 마을에서 조건 되면 한 번씩 6초, 입력을 막지 않음. 검사 tests/tutorial_tour_verify.gd(verify-work 빠른 검사). → v1.63으로 공개 완료
 - 진행 규칙: AGENTS.md "시간·전달 방식은 시작 전에 말한다". 첫 답에 무엇을/기다릴 시간/필요한 것을 한 줄로 말한다
 
 ## APK 만들기 (되묻지 않고 바로 한다)
